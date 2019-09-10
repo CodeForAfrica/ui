@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Helmet } from 'react-helmet';
 
-import Header from './Header';
+import Header from './Navigation';
 import Footer from './Footer';
 
 function Page({ children, title: propTitle }) {
