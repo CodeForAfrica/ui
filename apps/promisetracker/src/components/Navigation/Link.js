@@ -38,6 +38,7 @@ function Link({ href, title, children, ...props }) {
       className={classes.root}
       activeClassName={classes.active}
       component={RouterNavLink}
+      exact
       to={href}
     >
       {title || children}

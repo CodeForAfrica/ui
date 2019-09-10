@@ -9,7 +9,8 @@ const Theme = createMuiTheme({
       main: '#fff'
     },
     action: {
-      hover: '#659db9'
+      active: '#659db9',
+      hover: '#000'
     }
   },
   typography: {},
@@ -17,6 +18,15 @@ const Theme = createMuiTheme({
     MuiLink: {
       color: 'primary',
       underline: 'none'
+    },
+    MuiButtonBase: {
+      disableRipple: true,
+      disableTouchRipple: true
+    },
+    MuiIconButton: {
+      disableRipple: true,
+      disableTouchRipple: true,
+      disableFocusRipple: true
     }
   },
   overrides: {
