@@ -8,7 +8,7 @@ import {
   Toolbar,
   IconButton
 } from '@material-ui/core';
-import { isWidthUp } from '@material-ui/core/withWidth';
+import { isWidthUp, isWidthDown } from '@material-ui/core/withWidth';
 import CloseIcon from '@material-ui/icons/Close';
 import Link from './Link';
 
@@ -34,11 +34,8 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     height: navHeight
   },
-  menu: {
-    width: '28px',
-    [theme.breakpoints.up('md')]: {
-      display: 'none'
-    }
+  menuButton: {
+    width: '28px'
   },
   brand: {
     margin: '0 auto',
@@ -115,15 +112,20 @@ function Navigation({ width, ...props }) {
       <Layout
         classes={{ root: classes.layoutRoot, content: classes.layoutContent }}
       >
-        <ButtonBase
-          className={classes.menu}
-          onClick={() => setDrawerIsOpen(!drawerIsOpen)}
-        >
-          Menu
-        </ButtonBase>
+        {isWidthDown('sm', width) && (
+          <>
+            <ButtonBase
+              className={classes.menuButton}
+              onClick={() => setDrawerIsOpen(!drawerIsOpen)}
+            >
+              Menu
+            </ButtonBase>
+            {renderDrawer()}
+          </>
+        )}
+
         <Brand classes={{ root: classes.brand }} href="/" />
         {isWidthUp('md', width) && renderNavLinks()}
-        {renderDrawer()}
       </Layout>
     </div>
   );
