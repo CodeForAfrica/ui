@@ -7,7 +7,9 @@ import Header from './Navigation';
 import Footer from './Footer';
 
 function Page({ children, title: propTitle }) {
-  const title = propTitle ? `${propTitle} | Takwimu` : 'Takwimu';
+  const title = propTitle
+    ? `${propTitle} | Promise Tracker`
+    : 'Promise Tracker';
 
   return (
     <>
