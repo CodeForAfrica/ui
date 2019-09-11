@@ -52,8 +52,15 @@ function PercentageLabelFormatter(value) {
 }
 
 const useStyles = makeStyles({
-  root: { position: 'relative' },
-  centerText: { position: 'absolute', width: '100%', height: '100%', top: 0 }
+  root: {
+    position: 'relative'
+  },
+  centerText: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    top: 0
+  }
 });
 
 function StatusPieChart() {

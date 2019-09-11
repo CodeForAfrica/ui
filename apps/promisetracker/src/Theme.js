@@ -1,7 +1,11 @@
 import { createMuiTheme } from '@material-ui/core';
+import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 
 const Theme = createMuiTheme({
   palette: {
+    background: {
+      default: '#fff'
+    },
     primary: {
       main: '#000'
     },
@@ -27,9 +31,21 @@ const Theme = createMuiTheme({
       disableRipple: true,
       disableTouchRipple: true,
       disableFocusRipple: true
+    },
+    MuiSelect: {
+      disableUnderline: true,
+      IconComponent: KeyboardArrowDown
     }
   },
   overrides: {
+    MuiListItem: {
+      button: {
+        '&:hover': {
+          color: '#659db9',
+          backgroundColor: 'white'
+        }
+      }
+    },
     MuiLink: {
       root: {
         fontWeight: 'bold',
@@ -37,6 +53,39 @@ const Theme = createMuiTheme({
           color: '#659db9',
           fontWeight: 'bold'
         }
+      }
+    },
+    MuiInput: {
+      root: {
+        width: '100%'
+      }
+    },
+    MuiSelect: {
+      root: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'white',
+        padding: 0,
+        paddingRight: '0.625rem'
+      },
+      select: {
+        borderRadius: '1.25rem',
+        border: '0.0625rem solid #d1d1d1',
+        '&:focus': {
+          border: '0.0625rem solid #d1d1d1',
+          borderRadius: '1.25rem',
+          backgroundColor: 'white'
+        },
+        '&:hover': {
+          boxShadow: '0 0.125rem 0.25rem 0 rgba(0,0,0,.16)'
+        }
+      },
+      selectMenu: {
+        height: '2.5rem'
+      },
+      icon: {
+        marginRight: '0.625rem'
       }
     }
   }

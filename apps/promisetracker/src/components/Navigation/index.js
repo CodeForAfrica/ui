@@ -20,9 +20,11 @@ const navHeight = '5rem';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: navHeight
+    height: navHeight,
+    zIndex: 999
   },
   layoutRoot: {
+    zIndex: 999,
     position: 'fixed',
     height: navHeight,
     background: 'white',
