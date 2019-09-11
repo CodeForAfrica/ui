@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Chip, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
+import RouterLink from './RouterLink';
 import propTypes from './propTypes';
 
 const statusColors = {
@@ -31,7 +32,7 @@ const statusColors = {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '9.3125rem',
+    width: '100%',
     [theme.breakpoints.up('md')]: {
       height: '9.3125rem'
     }
@@ -45,29 +46,69 @@ const useStyles = makeStyles(theme => ({
       display: 'block'
     }
   },
+  indicatorLabel: {
+    width: '80%'
+  },
   indicatorChip: ({ status }) => ({
     overflow: 'hidden',
     background: statusColors[status].dark,
     justifyContent: 'flex-start',
-    color: 'white'
+    color: 'white',
+    cursor: 'pointer',
+    borderRadius: '18px',
+    height: '36px'
   }),
   indicatorNumber: ({ status }) => ({
     background: statusColors[status].light,
     width: '3rem',
-    color: 'white'
+    color: 'white',
+    textAlign: 'center',
+    lineHeight: '2rem'
   })
 }));
 
-function StatusIndicator({ status, label, value, ...props }) {
+function StatusIndicator({ status, href, img, label, value, ...props }) {
   const classes = useStyles({ status, ...props });
   return (
-    <Grid container className={classes.root} direction="column">
-      <img alt="" className={classes.indicatorImage} />
-      <Chip
-        label={label || status}
+    <Grid
+      container
+      to={href || `/promises?status=${status}`}
+      component={RouterLink}
+      className={classes.root}
+      direction="column"
+    >
+      <Grid item>
+        <img alt="" className={classes.indicatorImage} src={img} />
+      </Grid>
+      <Grid
+        container
+        item
+        component="span"
+        direction="row"
+        wrap="nowrap"
         className={classes.indicatorChip}
-        avatar={<span className={classes.indicatorNumber}>{value}</span>}
-      />
+      >
+        <Grid
+          container
+          item
+          component="span"
+          justify="center"
+          alignItems="center"
+          className={classes.indicatorNumber}
+        >
+          {value}
+        </Grid>
+        <Grid
+          container
+          item
+          component="span"
+          justify="center"
+          alignItems="center"
+          className={classes.indicatorLabel}
+        >
+          {label || status}
+        </Grid>
+      </Grid>
     </Grid>
   );
 }
@@ -75,16 +116,21 @@ function StatusIndicator({ status, label, value, ...props }) {
 StatusIndicator.propTypes = {
   status: propTypes.oneOf([
     'achieved',
+    'not-achieved',
     'compromised',
     'in-progress',
     'stalled',
     'inactive'
   ]).isRequired,
+  href: propTypes.string,
+  img: propTypes.string,
   label: propTypes.string,
   value: propTypes.number
 };
 
 StatusIndicator.defaultProps = {
+  href: undefined,
+  img: undefined,
   label: undefined,
   value: undefined
 };

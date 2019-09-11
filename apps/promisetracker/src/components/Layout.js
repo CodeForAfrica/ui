@@ -4,9 +4,7 @@ import { Grid, makeStyles } from '@material-ui/core';
 import propTypes from './propTypes';
 
 const useStyles = makeStyles({
-  root: {
-    width: '100%'
-  },
+  root: {},
   content: {
     width: '100%',
     maxWidth: '75rem' // 1200px

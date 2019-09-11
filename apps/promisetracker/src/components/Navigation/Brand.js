@@ -6,7 +6,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import propTypes from '../propTypes';
 
-import brandImg from '../assets/brand.svg';
+import brandImg from '../assets/images/brand.svg';
 
 const useStyles = makeStyles({
   root: {
