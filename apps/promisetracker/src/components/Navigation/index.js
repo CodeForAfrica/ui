@@ -24,7 +24,6 @@ const useStyles = makeStyles(theme => ({
   },
   layoutRoot: {
     position: 'fixed',
-    padding: '0 1rem',
     height: navHeight,
     background: 'white',
     boxShadow: '0 0.125rem 0.25rem 0 rgba(0,0,0,.21)'

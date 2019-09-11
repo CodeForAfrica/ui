@@ -4,18 +4,20 @@ import { Grid, makeStyles } from '@material-ui/core';
 import propTypes from './propTypes';
 
 const useStyles = makeStyles({
-  root: {},
+  root: {
+    padding: '0 1rem'
+  },
   content: {
     width: '100%',
     maxWidth: '75rem' // 1200px
   }
 });
 
-function Layout({ children, ...props }) {
+function Layout({ children, justify, ...props }) {
   const classes = useStyles(props);
   return (
     <Grid className={classes.root} container justify="center">
-      <Grid container className={classes.content}>
+      <Grid container className={classes.content} justify={justify}>
         {children}
       </Grid>
     </Grid>
@@ -23,7 +25,12 @@ function Layout({ children, ...props }) {
 }
 
 Layout.propTypes = {
-  children: propTypes.children.isRequired
+  children: propTypes.children.isRequired,
+  justify: propTypes.string
+};
+
+Layout.defaultProps = {
+  justify: undefined
 };
 
 export default Layout;
