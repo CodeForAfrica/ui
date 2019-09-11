@@ -1,10 +1,29 @@
 import React from 'react';
-import { Select as MuiSelect, MenuItem } from '@material-ui/core';
+import { Select as MuiSelect, MenuItem, makeStyles } from '@material-ui/core';
 import propTypes from './propTypes';
 
-function Select({ options, value, onChange }) {
+const useStyles = makeStyles({
+  select: props => ({
+    position: 'relative',
+    '&:after': {
+      display: props.showIndicator ? 'block' : 'none',
+      position: 'absolute',
+      content: "''",
+      left: '.75em',
+      top: '.875em',
+      width: '.75em',
+      height: '.75em',
+      backgroundColor: props.indicatorColor || '#659db9',
+      borderRadius: '.5em'
+    }
+  })
+});
+
+function Select({ options, value, onChange, ...props }) {
+  const classes = useStyles(props);
   return (
     <MuiSelect
+      classes={{ select: classes.select }}
       value={value}
       onChange={e => {
         onChange(e.target.value);

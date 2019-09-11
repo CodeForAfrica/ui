@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import NotFound from './pages/404';
 import Home from './pages/Home';
+import Promises from './pages/Promises';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <ScrollToTop>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/promises" component={Promises} />
           <Route component={NotFound} />
         </Switch>
       </ScrollToTop>
