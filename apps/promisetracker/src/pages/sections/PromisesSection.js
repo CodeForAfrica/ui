@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
 import Layout from '../../components/Layout';
 import Select from '../../components/Select';
+import propTypes from '../../components/propTypes';
 
 const statuses = [
   {
@@ -65,10 +66,13 @@ const useStyles = makeStyles({
   root: {
     background: 'rgb(246, 246, 246)',
     padding: '2rem 0rem 4.125rem'
+  },
+  cardsContainer: {
+    padding: '2rem 0rem'
   }
 });
 
-function PromisesSection() {
+function PromisesSection({ children }) {
   const classes = useStyles();
   const [filter, setFilter] = useState({
     status: 'all',
@@ -83,7 +87,7 @@ function PromisesSection() {
           container
           justify="flex-start"
           spacing={1}
-          style={{ maxWidth: '600px' }}
+          style={{ maxWidth: '37.5rem' }}
         >
           <Grid item xs={6} sm={4}>
             <Select
@@ -134,9 +138,16 @@ function PromisesSection() {
             />
           </Grid>
         </Grid>
+        <Grid container className={classes.cardsContainer} spacing={2}>
+          {children}
+        </Grid>
       </Layout>
     </div>
   );
 }
+
+PromisesSection.propTypes = {
+  children: propTypes.children.isRequired
+};
 
 export default PromisesSection;

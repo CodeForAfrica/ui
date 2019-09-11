@@ -17,7 +17,17 @@ const Theme = createMuiTheme({
       hover: '#000'
     }
   },
-  typography: {},
+  typography: {
+    h3: {
+      fontSize: '1.25rem',
+      fontWeight: 500,
+      lineHeight: 1.4
+    },
+    body2: {
+      fontSize: '0.75rem',
+      color: 'rgb(155, 155, 155)'
+    }
+  },
   props: {
     MuiLink: {
       color: 'primary',
