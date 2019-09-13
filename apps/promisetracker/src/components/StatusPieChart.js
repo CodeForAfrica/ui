@@ -16,32 +16,32 @@ const promises = [
   {
     status: 'achieved',
     name: 'Achieved',
-    value: 400
+    value: 14
   },
   {
     status: 'compromised',
     name: 'Compromised',
-    value: 300
+    value: 8
   },
   {
     status: 'in-progress',
     name: 'In Progress',
-    value: 300
+    value: 11
   },
   {
     status: 'not-achieved',
     name: 'Not Achieved',
-    value: 200
+    value: 45
   },
   {
     status: 'stalled',
     name: 'Stalled',
-    value: 278
+    value: 12
   },
   {
     status: 'inactive',
     name: 'Inactive',
-    value: 189
+    value: 10
   }
 ];
 
@@ -55,11 +55,26 @@ const useStyles = makeStyles({
   root: {
     position: 'relative'
   },
-  centerText: {
+  centerTextGrid: {
     position: 'absolute',
     width: '100%',
     height: '100%',
     top: 0
+  },
+  centerNumberTypography: {
+    fontSize: '65px',
+    color: 'black',
+    lineHeight: '65px'
+  },
+  centerTextTypography: {
+    fontSize: '25px',
+    color: 'black',
+    lineHeight: '25px'
+  },
+  centerStatusTextTypography: {
+    fontSize: '15px',
+    color: 'black',
+    lineHeight: '15px'
   }
 });
 
@@ -79,22 +94,31 @@ function StatusPieChart() {
         direction="column"
         justify="center"
         alignItems="center"
-        className={classes.centerText}
+        className={classes.centerTextGrid}
       >
-        <Typography>{activeData ? activeData.value : totalPromises}</Typography>
-        {activeData && <Typography>{activeData.name}</Typography>}
-        <Typography>Promises</Typography>
+        <Typography className={classes.centerNumberTypography}>
+          {activeData ? activeData.value : totalPromises}
+        </Typography>
+        <Typography className={classes.centerTextTypography}>
+          Promises
+        </Typography>
+        {activeData && (
+          <Typography className={classes.centerStatusTextTypography}>
+            {activeData.name}
+          </Typography>
+        )}
       </Grid>
       <PieChart width={255} height={255}>
         <Pie
+          blendStroke
           isAnimationActive={false}
           data={promises}
           dataKey="value"
           nameKey="name"
           cx="50%"
           cy="50%"
-          outerRadius={100}
-          innerRadius={60}
+          outerRadius={255 / 2}
+          innerRadius={75}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         >
