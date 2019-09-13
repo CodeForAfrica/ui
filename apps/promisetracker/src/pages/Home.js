@@ -9,7 +9,7 @@ function Home() {
   return (
     <Page>
       <PromiseStatusIndicatorsSection />
-      <PromisesSection>
+      <PromisesSection disableFilterHistory>
         <Grid item xs={12} sm={6} md={4}>
           <PromiseCard
             status="stalled"

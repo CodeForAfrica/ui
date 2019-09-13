@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/styles';
+import { withRouter } from 'react-router';
 import { Grid } from '@material-ui/core';
 import Layout from '../../components/Layout';
 import Select from '../../components/Select';
@@ -84,7 +85,8 @@ const useStyles = makeStyles({
 function PromisesSection({
   children,
   filter: propsFilter,
-  showIndicator,
+  history,
+  disableFilterHistory,
   ...props
 }) {
   const classes = useStyles(props);
@@ -116,9 +118,11 @@ function PromisesSection({
       } else {
         params.delete('topic');
       }
-      window.location.replace(`/promises?${params.toString()}`);
+      if (!disableFilterHistory) {
+        history.push(`?${params.toString()}`);
+      }
     }
-  }, [filter]);
+  }, [disableFilterHistory, filter, history]);
   return (
     <div className={classes.root}>
       <Layout>
@@ -131,7 +135,7 @@ function PromisesSection({
         >
           <Grid item xs={6} sm={4}>
             <Select
-              showIndicator={filter.status !== 'all' && showIndicator}
+              showIndicator={filter.status !== 'all'}
               indicatorColor={
                 filter.status !== 'all' && statusColors[filter.status]
               }
@@ -151,7 +155,7 @@ function PromisesSection({
           </Grid>
           <Grid item xs={6} sm={4}>
             <Select
-              showIndicator={filter.term !== 'all' && showIndicator}
+              showIndicator={filter.term !== 'all'}
               value={filter.term}
               onChange={value => setFilter({ ...filter, term: value })}
               options={[
@@ -168,7 +172,7 @@ function PromisesSection({
           </Grid>
           <Grid item xs={6} sm={4}>
             <Select
-              showIndicator={filter.topic !== 'all' && showIndicator}
+              showIndicator={filter.topic !== 'all'}
               value={filter.topic}
               onChange={value => setFilter({ ...filter, topic: value })}
               options={[
@@ -193,8 +197,9 @@ function PromisesSection({
 }
 
 PromisesSection.propTypes = {
+  disableFilterHistory: propTypes.bool,
+  history: propTypes.history.isRequired,
   children: propTypes.children.isRequired,
-  showIndicator: propTypes.bool,
   filter: propTypes.shape({
     status: propTypes.string,
     term: propTypes.string,
@@ -203,7 +208,7 @@ PromisesSection.propTypes = {
 };
 
 PromisesSection.defaultProps = {
-  showIndicator: false,
+  disableFilterHistory: false,
   filter: {
     status: undefined,
     term: undefined,
@@ -211,4 +216,4 @@ PromisesSection.defaultProps = {
   }
 };
 
-export default PromisesSection;
+export default withRouter(PromisesSection);

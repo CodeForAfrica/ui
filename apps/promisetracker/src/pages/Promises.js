@@ -10,7 +10,6 @@ function Promises({ location: { search } }) {
   return (
     <Page>
       <PromisesSection
-        showIndicator
         color="white"
         filter={{
           status: params.get('status'),
