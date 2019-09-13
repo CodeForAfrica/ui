@@ -75,6 +75,9 @@ const useStyles = makeStyles({
     fontSize: '15px',
     color: 'black',
     lineHeight: '15px'
+  },
+  percentageLabel: {
+    pointerEvents: 'none'
   }
 });
 
@@ -126,6 +129,7 @@ function StatusPieChart() {
             <Cell key={promise.status} fill={statusColors[promise.status]} />
           ))}
           <LabelList
+            className={classes.percentageLabel}
             dataKey="value"
             position="insideTop"
             formatter={PercentageLabelFormatter}
