@@ -2,7 +2,7 @@
   "name": "promise-tracker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://codeforafrica.github.io/PromiseTracker/",
+  "homepage": "https://promisetracker.codeforafrica.org",
   "dependencies": {
     "@material-ui/core": "^4.4.1",
     "@material-ui/icons": "^4.4.1",
