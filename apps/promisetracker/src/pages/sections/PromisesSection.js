@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { withRouter } from 'react-router';
 import { Grid } from '@material-ui/core';
@@ -85,6 +85,7 @@ const useStyles = makeStyles({
 function PromisesSection({
   children,
   filter: propsFilter,
+  location,
   history,
   disableFilterHistory,
   ...props
@@ -96,33 +97,45 @@ function PromisesSection({
     topic: propsFilter.topic || 'all'
   });
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (
-      (params.get('status') || 'all') !== filter.status ||
-      (params.get('term') || 'all') !== filter.term ||
-      (params.get('topic') || 'all') !== filter.topic
-    ) {
-      if (filter.status !== 'all') {
-        params.set('status', filter.status);
+  const updateFilter = useCallback(
+    (name, value) => {
+      setFilter({ ...filter, [name]: value });
+      const params = new URLSearchParams(location.search);
+      if (value !== 'all') {
+        params.set(name, value);
       } else {
-        params.delete('status');
-      }
-      if (filter.term !== 'all') {
-        params.set('term', filter.term);
-      } else {
-        params.delete('term');
-      }
-      if (filter.topic !== 'all') {
-        params.set('topic', filter.topic);
-      } else {
-        params.delete('topic');
+        params.delete(name);
       }
       if (!disableFilterHistory) {
-        history.push(`?${params.toString()}`);
+        history.push(`?${params.toString()}`, filter);
+      }
+    },
+    [disableFilterHistory, filter, history, location]
+  );
+
+  useEffect(() => {
+    function updateFilterWithQueryOnBack() {
+      // important: use window.location instead of router location
+      // window.location has the route we went back to
+      const params = new URLSearchParams(window.location.search);
+      if (
+        (params.get('status') || 'all') !== filter.status ||
+        (params.get('term') || 'all') !== filter.term ||
+        (params.get('topic') || 'all') !== filter.topic
+      ) {
+        setFilter({
+          status: params.get('status') || 'all',
+          term: params.get('term') || 'all',
+          topic: params.get('topic') || 'all'
+        });
       }
     }
-  }, [disableFilterHistory, filter, history]);
+    window.addEventListener('popstate', updateFilterWithQueryOnBack);
+    return () => {
+      window.removeEventListener('popstate', updateFilterWithQueryOnBack);
+    };
+  }, [filter]);
+
   return (
     <div className={classes.root}>
       <Layout>
@@ -140,7 +153,7 @@ function PromisesSection({
                 filter.status !== 'all' && statusColors[filter.status]
               }
               value={filter.status}
-              onChange={value => setFilter({ ...filter, status: value })}
+              onChange={value => updateFilter('status', value)}
               options={[
                 {
                   value: 'all',
@@ -157,7 +170,7 @@ function PromisesSection({
             <Select
               showIndicator={filter.term !== 'all'}
               value={filter.term}
-              onChange={value => setFilter({ ...filter, term: value })}
+              onChange={value => updateFilter('term', value)}
               options={[
                 {
                   value: 'all',
@@ -174,7 +187,7 @@ function PromisesSection({
             <Select
               showIndicator={filter.topic !== 'all'}
               value={filter.topic}
-              onChange={value => setFilter({ ...filter, topic: value })}
+              onChange={value => updateFilter('topic', value)}
               options={[
                 {
                   value: 'all',
@@ -198,6 +211,7 @@ function PromisesSection({
 
 PromisesSection.propTypes = {
   disableFilterHistory: propTypes.bool,
+  location: propTypes.location.isRequired,
   history: propTypes.history.isRequired,
   children: propTypes.children.isRequired,
   filter: propTypes.shape({
