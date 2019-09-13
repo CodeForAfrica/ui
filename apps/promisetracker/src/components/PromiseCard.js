@@ -9,6 +9,7 @@ import {
 // import RouterLink from './RouterLink';
 import propTypes from './propTypes';
 import RouterLink from './RouterLink';
+import StatusChip from './StatusChip';
 
 const statusColors = {
   achieved: {
@@ -36,33 +37,6 @@ const statusColors = {
     dark: 'rgb(141, 141, 141)'
   }
 };
-
-const statuses = [
-  {
-    slug: 'achieved',
-    name: 'Achieved'
-  },
-  {
-    slug: 'compromised',
-    name: 'Compromised'
-  },
-  {
-    slug: 'in-progress',
-    name: 'In Progress'
-  },
-  {
-    slug: 'not-achieved',
-    name: 'Not Achieved'
-  },
-  {
-    slug: 'stalled',
-    name: 'Stalled'
-  },
-  {
-    slug: 'inactive',
-    name: 'Inactive'
-  }
-];
 
 const useStyles = makeStyles({
   root: ({ status }) => ({
@@ -108,20 +82,7 @@ const useStyles = makeStyles({
   details: {
     margin: '.5rem 0',
     lineHeight: '2rem'
-  },
-  indicatorChip: ({ status }) => ({
-    overflow: 'hidden',
-    background: statusColors[status].dark,
-    color: 'white',
-    cursor: 'pointer',
-    borderRadius: '1.125rem',
-    height: '2rem',
-    width: 'fit-content',
-    padding: '0 1.25rem',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  })
+  }
 });
 
 function PromiseCard({
@@ -155,9 +116,7 @@ function PromiseCard({
             <Typography className={classes.details} variant="body2">
               {term} | {topic}
             </Typography>
-            <div className={classes.indicatorChip}>
-              {statuses.find(s => s.slug === status).name}
-            </div>
+            <StatusChip status={status} />
           </Grid>
         </CardContent>
       </RouterLink>
