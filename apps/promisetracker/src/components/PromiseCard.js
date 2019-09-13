@@ -66,16 +66,28 @@ const statuses = [
 
 const useStyles = makeStyles({
   root: ({ status }) => ({
+    position: 'relative',
     height: '10.625rem',
     width: '100%',
     border: '0.0625rem solid rgb(209, 209, 209)',
-    borderTop: `0.25rem solid ${statusColors[status].dark}`,
     '&:hover': {
       boxShadow: 'rgba(0, 0, 0, 0.1) 0rem 0.125rem 0.125rem 0.0625rem'
+    },
+    '&:before': {
+      position: 'absolute',
+      top: 0,
+      width: '100%',
+      height: '0.25rem',
+      content: '""',
+      borderTop: `0.25rem solid ${statusColors[status].dark}`
     }
   }),
   content: {
-    height: '100%'
+    height: '100%',
+    padding: '1rem',
+    '&:last-child': {
+      paddingBottom: '1rem'
+    }
   },
   title: {
     position: 'relative',
@@ -93,13 +105,17 @@ const useStyles = makeStyles({
       right: 0
     }
   },
+  details: {
+    margin: '.5rem 0',
+    lineHeight: '2rem'
+  },
   indicatorChip: ({ status }) => ({
     overflow: 'hidden',
     background: statusColors[status].dark,
     color: 'white',
     cursor: 'pointer',
     borderRadius: '1.125rem',
-    height: '2.25rem',
+    height: '2rem',
     width: 'fit-content',
     padding: '0 1.25rem',
     display: 'flex',
@@ -134,11 +150,11 @@ function PromiseCard({
             <Typography className={classes.title} variant="h3">
               {title}
             </Typography>
-            <Typography variant="body2">
-              {term} | {topic}
-            </Typography>
           </Grid>
           <Grid item>
+            <Typography className={classes.details} variant="body2">
+              {term} | {topic}
+            </Typography>
             <div className={classes.indicatorChip}>
               {statuses.find(s => s.slug === status).name}
             </div>
