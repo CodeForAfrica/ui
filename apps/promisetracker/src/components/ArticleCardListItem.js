@@ -1,14 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import propTypes from './propTypes';
+import ArticleCardList from './ArticleCardList';
 
 const useStyles = makeStyles({
-  root: ({ square, width, height }) => ({
+  root: ({ enableLastBorder, square, width, height }) => ({
     width,
     height,
     float: 'left',
     position: 'relative',
-    '&:not(:last-child):after': {
+    '&:after': {
       content: '""',
       position: 'absolute',
       width: !square ? 'calc(100% - 2rem)' : undefined,
@@ -20,26 +21,45 @@ const useStyles = makeStyles({
       margin: '0 auto',
       borderBottom: !square ? '0.0625rem solid rgb(209, 209, 209)' : undefined,
       borderRight: square ? '0.0625rem solid rgb(209, 209, 209)' : undefined
-    }
+    },
+    '&:last-child:after': {
+      border: !enableLastBorder ? 'unset' : undefined
+    },
+    row: {}
   })
 });
 
-function ArticleCardItem({ square, width, height, children }) {
-  const classes = useStyles({ square, width, height });
-  return <li className={classes.root}>{children}</li>;
+function ArticleCardListItem({
+  row,
+  enableLastBorder,
+  square,
+  width,
+  height,
+  children
+}) {
+  const classes = useStyles({ enableLastBorder, square, width, height });
+  return (
+    <li className={classes.root}>
+      {row ? <ArticleCardList>{children}</ArticleCardList> : children}
+    </li>
+  );
 }
 
-ArticleCardItem.propTypes = {
-  children: propTypes.children.isRequired,
+ArticleCardListItem.propTypes = {
+  enableLastBorder: propTypes.bool,
+  row: propTypes.bool,
   square: propTypes.bool,
+  children: propTypes.children.isRequired,
   width: propTypes.oneOfType([propTypes.number, propTypes.string]),
   height: propTypes.oneOfType([propTypes.number, propTypes.string])
 };
 
-ArticleCardItem.defaultProps = {
+ArticleCardListItem.defaultProps = {
+  enableLastBorder: false,
+  row: false,
   square: false,
   width: undefined,
   height: undefined
 };
 
-export default ArticleCardItem;
+export default ArticleCardListItem;

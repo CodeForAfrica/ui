@@ -3,7 +3,7 @@ import { makeStyles, Typography, Divider } from '@material-ui/core';
 import Layout from '../../components/Layout';
 import ArticleCard from '../../components/ArticleCard';
 import ArticleCardList from '../../components/ArticleCardList';
-import ArticleCardItem from '../../components/ArticleCardItem';
+import ArticleCardListItem from '../../components/ArticleCardListItem';
 
 const useStyles = makeStyles({
   root: {
@@ -25,21 +25,35 @@ function LatestArticlesSection() {
       <Divider />
 
       <ArticleCardList>
-        <ArticleCardItem square width="40%">
+        <ArticleCardListItem square width="40%">
           <ArticleCard
             square
+            imgSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
             title="Promise Tracker Annual Report (Executive Summary)"
+            date="2019-09-16T17:53:45.289Z"
           />
-        </ArticleCardItem>
-        <ArticleCardItem width="60%">
-          <ArticleCard title="Promise Tracker Annual Report (Executive Summary)" />
-        </ArticleCardItem>
-        <ArticleCardItem width="60%">
-          <ArticleCard title="Promise Tracker Annual Report (Executive Summary)" />
-        </ArticleCardItem>
-        <ArticleCardItem width="60%">
-          <ArticleCard title="Promise Tracker Annual Report (Executive Summary)" />
-        </ArticleCardItem>
+        </ArticleCardListItem>
+        <ArticleCardListItem width="60%">
+          <ArticleCard
+            imgSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
+            title="Promise Tracker Annual Report (Executive Summary)"
+            date="2019-09-16T17:53:45.289Z"
+          />
+        </ArticleCardListItem>
+        <ArticleCardListItem width="60%">
+          <ArticleCard
+            imgSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
+            title="Promise Tracker Annual Report (Executive Summary)"
+            date="2019-09-16T17:53:45.289Z"
+          />
+        </ArticleCardListItem>
+        <ArticleCardListItem width="60%">
+          <ArticleCard
+            imgSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
+            title="Promise Tracker Annual Report (Executive Summary)"
+            date="2019-09-16T17:53:45.289Z"
+          />
+        </ArticleCardListItem>
       </ArticleCardList>
     </Layout>
   );

@@ -4,7 +4,9 @@ import propTypes from './propTypes';
 
 const useStyles = makeStyles({
   root: {
-    listStyle: 'none'
+    listStyle: 'none',
+    margin: 0,
+    padding: 0
   }
 });
 
