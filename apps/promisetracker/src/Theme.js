@@ -18,14 +18,18 @@ const Theme = createMuiTheme({
     }
   },
   typography: {
-    h3: {
+    h2: {
       fontSize: '1.25rem',
+      fontWeight: 700,
+      lineHeight: 1
+    },
+    h3: {
+      fontSize: '1rem',
       fontWeight: 500,
       lineHeight: 1.4
     },
     body2: {
-      fontSize: '0.75rem',
-      color: 'rgb(155, 155, 155)'
+      fontSize: '0.75rem'
     }
   },
   props: {
@@ -45,9 +49,39 @@ const Theme = createMuiTheme({
     MuiSelect: {
       disableUnderline: true,
       IconComponent: KeyboardArrowDown
+    },
+    MuiInput: {
+      disableUnderline: true
     }
   },
   overrides: {
+    MuiButton: {
+      root: {
+        border: '1px solid #d1d1d1',
+        backgroundColor: '#fff',
+        borderRadius: '25px',
+        fontWeight: 600,
+        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'
+      },
+      text: {
+        padding: '.75rem 3.5625rem'
+      }
+    },
+    MuiFormLabel: {
+      root: {
+        color: 'black',
+        marginBottom: '.625rem'
+      }
+    },
+    MuiTextField: {
+      root: {
+        padding: '1rem',
+        overflow: 'hidden',
+        border: '1px solid #d1d1d1',
+        backgroundColor: 'white',
+        color: '#637381 !important'
+      }
+    },
     MuiListItem: {
       button: {
         '&:hover': {

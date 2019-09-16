@@ -5,19 +5,26 @@ import propTypes from './propTypes';
 
 const useStyles = makeStyles({
   root: {
-    padding: '0 1rem'
+    padding: '0 1rem',
+    height: '100%'
   },
   content: {
+    height: '100%',
     width: '100%',
     maxWidth: '75rem' // 1200px
   }
 });
 
-function Layout({ children, justify, ...props }) {
+function Layout({ children, justify, alignItems, ...props }) {
   const classes = useStyles(props);
   return (
     <Grid className={classes.root} container justify="center">
-      <Grid container className={classes.content} justify={justify}>
+      <Grid
+        container
+        className={classes.content}
+        justify={justify}
+        alignItems={alignItems}
+      >
         {children}
       </Grid>
     </Grid>
@@ -26,11 +33,13 @@ function Layout({ children, justify, ...props }) {
 
 Layout.propTypes = {
   children: propTypes.children.isRequired,
-  justify: propTypes.string
+  justify: propTypes.string,
+  alignItems: propTypes.string
 };
 
 Layout.defaultProps = {
-  justify: undefined
+  justify: undefined,
+  alignItems: undefined
 };
 
 export default Layout;
