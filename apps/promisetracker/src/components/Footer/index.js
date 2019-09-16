@@ -13,7 +13,7 @@ import Attribute from './Attribute';
 
 
 const styles = () => ({
-  mainGrid: {
+  footer: {
     backgroundColor: '#e6e6e6',
     paddingTop: '2rem',
     paddingBottom: '2rem'
@@ -22,22 +22,22 @@ const styles = () => ({
 
 function Footer({ classes }) {
   return (
-    <Grid >
+    <div>
       <Partners />
-      <div container className={classes.mainGrid}>
+      <div className={classes.footer}>
         <Grid
           container
           direction="row"
           justify="flex-start"
           alignItems="center"
-          style={{ margin: '2rem', }}>
+          style={{ margin: '2rem' }}>
           <SocialMedia />
           <ProjectBy />
           <OtherProjects />
           <Attribute />
         </Grid>
       </div>
-    </Grid>
+    </div>
   );
 }
 

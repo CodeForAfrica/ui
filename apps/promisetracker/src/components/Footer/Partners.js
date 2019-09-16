@@ -16,6 +16,10 @@ const styles = theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.secondary.light,
     margin: '2rem'
+  },
+  img: {
+    maxWidth: '100%',
+    height: 'auto'
   }
 });
 
@@ -24,14 +28,13 @@ function Partners({ classes }) {
     <Grid className={classes.root}>
       <Grid
         container
-
         direction="row"
-        justify="flex-start"
+        justify="space-between"
         alignItems="center"
       >
         <Grid item >
           <A href="https://www.foreignaffairs.com/articles/2014-01-06/just-facts">
-            <img src={foreignAffairs} alt="Foreign Affairs" />
+            <img src={foreignAffairs} alt="Foreign Affairs" className={classes.img} />
           </A>
         </Grid>
         <Grid item >
@@ -39,22 +42,23 @@ function Partners({ classes }) {
             <img
               src={bbc}
               alt="BBC"
+              className={classes.img}
             />
           </A>
         </Grid>
         <Grid item >
           <A href="https://www.poynter.org/reporting-editing/2015/how-the-rouhani-meter-fact-checks-irans-president-from-6000-miles-away/">
-            <img src={poyner} alt="Poyner" />
+            <img src={poyner} alt="Poyner" className={classes.img} />
           </A>
         </Grid>
         <Grid item >
           <A href="https://www.dw.com/fa-ir/کدام-وعدههای-روحانی-محقق-شدند/a-18652747">
-            <img src={dw} alt="DW" />
+            <img src={dw} alt="DW" className={classes.img} />
           </A>
         </Grid>
         <Grid item >
           <A href="https://www.politifact.com/truth-o-meter/article/2015/may/12/rouhani-meter-tracks-iran-presidents-campaign-prom/">
-            <img src={politifact} alt="Politifact" />
+            <img src={politifact} alt="Politifact" className={classes.img} />
           </A>
         </Grid>
       </Grid>
