@@ -15,7 +15,7 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.secondary.light,
-    margin: '2rem'
+    padding: '2rem'
   },
   img: {
     maxWidth: '100%',
