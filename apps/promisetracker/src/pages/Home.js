@@ -4,7 +4,7 @@ import Page from '../components/Page';
 import PromisesSection from './sections/PromisesSection';
 import PromiseStatusIndicatorsSection from './sections/PromiseStatusIndicatorsSection';
 import PromiseCard from '../components/PromiseCard';
-import ContributeSection from './sections/ContributeSection';
+import LatestArticlesSection from './sections/LatestArticlesSection';
 
 function Home() {
   return (
@@ -39,7 +39,7 @@ function Home() {
           />
         </Grid>
       </PromisesSection>
-      <ContributeSection />
+      <LatestArticlesSection />
     </Page>
   );
 }

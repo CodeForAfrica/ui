@@ -55,31 +55,14 @@ const Theme = createMuiTheme({
     }
   },
   overrides: {
-    MuiButton: {
+    MuiTypography: {
       root: {
-        border: '1px solid #d1d1d1',
-        backgroundColor: '#fff',
-        borderRadius: '25px',
-        fontWeight: 600,
-        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'
-      },
-      text: {
-        padding: '.75rem 3.5625rem'
+        height: 'fit-content'
       }
     },
-    MuiFormLabel: {
+    MuiDivider: {
       root: {
-        color: 'black',
-        marginBottom: '.625rem'
-      }
-    },
-    MuiTextField: {
-      root: {
-        padding: '1rem',
-        overflow: 'hidden',
-        border: '1px solid #d1d1d1',
-        backgroundColor: 'white',
-        color: '#637381 !important'
+        width: '100%'
       }
     },
     MuiListItem: {
