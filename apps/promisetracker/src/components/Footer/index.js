@@ -10,7 +10,6 @@ import OtherProjects from './OtherProjects';
 import Attribute from './Attribute';
 
 
-
 const useStyles = makeStyles({
   footer: {
     backgroundColor: '#e6e6e6',
@@ -23,6 +22,7 @@ const useStyles = makeStyles({
     color: 'black'
   }
 })
+
 function Footer() {
   const classes = useStyles();
   return (
