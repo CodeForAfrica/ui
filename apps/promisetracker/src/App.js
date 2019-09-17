@@ -5,7 +5,7 @@ import ScrollToTop from './components/ScrollToTop';
 import NotFound from './pages/404';
 import Home from './pages/Home';
 import Promises from './pages/Promises';
-import Reports from './pages/Reports';
+import Articles from './pages/Articles';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/promises" component={Promises} />
-          <Route exact path="/reports" component={Reports} />
+          <Route exact path="/articles" component={Articles} />
           <Route component={NotFound} />
         </Switch>
       </ScrollToTop>

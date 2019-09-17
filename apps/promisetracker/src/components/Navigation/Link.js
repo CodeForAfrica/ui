@@ -6,11 +6,13 @@ import { NavLink as RouterNavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import propTypes from '../propTypes';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     lineHeight: '100%',
     display: 'inline-flex',
     '&:hover': {
+      color: theme.palette.action.active,
+      fontWeight: 'bold',
       '&:before': {
         opacity: 1
       }
@@ -24,12 +26,12 @@ const useStyles = makeStyles({
     }
   },
   active: {
-    color: '#659db9',
+    color: theme.palette.action.active,
     '&:before': {
       opacity: 1
     }
   }
-});
+}));
 
 function Link({ href, title, children, ...props }) {
   const classes = useStyles(props);

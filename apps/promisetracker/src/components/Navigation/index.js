@@ -68,7 +68,7 @@ function Navigation({ width, ...props }) {
     return [
       { title: 'home', href: '/' },
       { title: 'promises', href: '/promises' },
-      { title: 'reports', href: '/reports' },
+      { title: 'reports', href: '/articles' },
       { title: 'about us', href: '/about' }
     ].map(nav => (
       <Link classes={{ root: classes.link }} key={nav.href} href={nav.href}>
@@ -93,7 +93,7 @@ function Navigation({ width, ...props }) {
           {[
             { title: 'home', href: '/' },
             { title: 'promises', href: '/promises' },
-            { title: 'reports', href: '/reports' },
+            { title: 'reports', href: '/articles' },
             { title: 'about us', href: '/about' }
           ].map(nav => (
             <Link

@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { withRouter } from 'react-router';
-import { Grid } from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
 import Layout from '../../components/Layout';
 import Select from '../../components/Select';
 import propTypes from '../../components/propTypes';
+import RouterLink from '../../components/RouterLink';
 
 const statusColors = {
   achieved: 'rgb(50, 112, 174)',
@@ -87,6 +88,7 @@ function PromisesSection({
   filter: propsFilter,
   location,
   history,
+  enableShowMore,
   disableFilterHistory,
   ...props
 }) {
@@ -136,80 +138,103 @@ function PromisesSection({
     };
   }, [filter]);
 
+  const filtersQueryString = useCallback(() => {
+    const params = new URLSearchParams();
+
+    if (filter.status !== 'all') {
+      params.set('status', filter.status);
+    }
+    if (filter.term !== 'all') {
+      params.set('term', filter.term);
+    }
+
+    if (filter.topic !== 'all') {
+      params.set('topic', filter.topic);
+    }
+    return params.toString();
+  }, [filter.status, filter.term, filter.topic]);
+
   return (
     <div className={classes.root}>
-      <Layout>
-        <Grid
-          item
-          container
-          justify="flex-start"
-          spacing={1}
-          style={{ maxWidth: '37.5rem' }}
-        >
-          <Grid item xs={6} sm={4}>
-            <Select
-              showIndicator={filter.status !== 'all'}
-              indicatorColor={
-                filter.status !== 'all' && statusColors[filter.status]
-              }
-              value={filter.status}
-              onChange={value => updateFilter('status', value)}
-              options={[
-                {
-                  value: 'all',
-                  name: 'All Statuses'
-                },
-                ...statuses.map(status => ({
-                  name: status.name,
-                  value: status.slug
-                }))
-              ]}
-            />
-          </Grid>
-          <Grid item xs={6} sm={4}>
-            <Select
-              showIndicator={filter.term !== 'all'}
-              value={filter.term}
-              onChange={value => updateFilter('term', value)}
-              options={[
-                {
-                  value: 'all',
-                  name: 'All Terms'
-                },
-                ...terms.map(term => ({
-                  name: term.name,
-                  value: term.slug
-                }))
-              ]}
-            />
-          </Grid>
-          <Grid item xs={6} sm={4}>
-            <Select
-              showIndicator={filter.topic !== 'all'}
-              value={filter.topic}
-              onChange={value => updateFilter('topic', value)}
-              options={[
-                {
-                  value: 'all',
-                  name: 'All Topics'
-                },
-                ...topics.map(topic => ({
-                  name: topic.name,
-                  value: topic.slug
-                }))
-              ]}
-            />
+      <Layout justify="center">
+        <Grid item xs={12}>
+          <Grid container spacing={1} style={{ maxWidth: '37.5rem' }}>
+            <Grid item xs={6} sm={4}>
+              <Select
+                showIndicator={filter.status !== 'all'}
+                indicatorColor={
+                  filter.status !== 'all' && statusColors[filter.status]
+                }
+                value={filter.status}
+                onChange={value => updateFilter('status', value)}
+                options={[
+                  {
+                    value: 'all',
+                    name: 'All Statuses'
+                  },
+                  ...statuses.map(status => ({
+                    name: status.name,
+                    value: status.slug
+                  }))
+                ]}
+              />
+            </Grid>
+            <Grid item xs={6} sm={4}>
+              <Select
+                showIndicator={filter.term !== 'all'}
+                value={filter.term}
+                onChange={value => updateFilter('term', value)}
+                options={[
+                  {
+                    value: 'all',
+                    name: 'All Terms'
+                  },
+                  ...terms.map(term => ({
+                    name: term.name,
+                    value: term.slug
+                  }))
+                ]}
+              />
+            </Grid>
+            <Grid item xs={6} sm={4}>
+              <Select
+                showIndicator={filter.topic !== 'all'}
+                value={filter.topic}
+                onChange={value => updateFilter('topic', value)}
+                options={[
+                  {
+                    value: 'all',
+                    name: 'All Topics'
+                  },
+                  ...topics.map(topic => ({
+                    name: topic.name,
+                    value: topic.slug
+                  }))
+                ]}
+              />
+            </Grid>
           </Grid>
         </Grid>
         <Grid container className={classes.cardsContainer} spacing={2}>
           {children}
         </Grid>
+
+        {enableShowMore && (
+          <Button
+            component={RouterLink}
+            to={`/promises?${filtersQueryString()}`}
+            color="primary"
+          >
+            SHOW MORE
+          </Button>
+        )}
       </Layout>
     </div>
   );
 }
 
 PromisesSection.propTypes = {
+  enableShowMore: propTypes.bool,
   disableFilterHistory: propTypes.bool,
   location: propTypes.location.isRequired,
   history: propTypes.history.isRequired,
@@ -222,6 +247,7 @@ PromisesSection.propTypes = {
 };
 
 PromisesSection.defaultProps = {
+  enableShowMore: false,
   disableFilterHistory: false,
   filter: {
     status: undefined,

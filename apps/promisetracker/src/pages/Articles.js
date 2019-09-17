@@ -1,15 +1,26 @@
 import React, { useMemo } from 'react';
+import { Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import Page from '../components/Page';
 import propTypes from '../components/propTypes';
 import ArticleCardList from '../components/ArticleCardList';
 import ArticleCardListItem from '../components/ArticleCardListItem';
 import ArticleCard from '../components/ArticleCard';
 import Layout from '../components/Layout';
+import RouterLink from '../components/RouterLink';
 
-function Reports({ location: { search } }) {
+const useStyles = makeStyles({
+  root: {},
+  readMore: {
+    margin: '3rem 0'
+  }
+});
+
+function Articles({ location: { search } }) {
+  const classes = useStyles();
   const params = new URLSearchParams(search);
   const offsetParam = params.get('offset');
-  const offset = useMemo(() => offsetParam || 0, [offsetParam]);
+  const offset = useMemo(() => Number(offsetParam) || 0, [offsetParam]);
   const articles = {
     offset,
     data: [{}, {}, {}, {}, {}, {}, {}, {}, {}]
@@ -49,7 +60,7 @@ function Reports({ location: { search } }) {
   };
   return (
     <Page>
-      <Layout>
+      <Layout justify="center">
         <ArticleCardList>
           {!articles.offset && (
             <ArticleCardListItem>
@@ -66,15 +77,24 @@ function Reports({ location: { search } }) {
 
           {renderRows()}
         </ArticleCardList>
+
+        <Button
+          classes={{ root: classes.readMore }}
+          component={RouterLink}
+          to={`/articles?offset=${offset + 1}`}
+          color="primary"
+        >
+          READ MORE
+        </Button>
       </Layout>
     </Page>
   );
 }
 
-Reports.propTypes = {
+Articles.propTypes = {
   location: propTypes.shape({
     search: propTypes.string
   }).isRequired
 };
 
-export default Reports;
+export default Articles;

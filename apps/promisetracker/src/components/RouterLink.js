@@ -3,12 +3,22 @@ import { Link as MuiLink } from '@material-ui/core';
 
 import { Link as ReactRouterLink } from 'react-router-dom';
 
+import { makeStyles } from '@material-ui/styles';
 import propTypes from './propTypes';
 
+const useStyles = makeStyles({
+  root: {}
+});
+
 function RouterLink({ children, ...props }) {
+  const classes = useStyles(props);
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <MuiLink component={ReactRouterLink} {...props}>
+    <MuiLink
+      classes={{ root: classes.root }}
+      component={ReactRouterLink}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
+    >
       {children}
     </MuiLink>
   );

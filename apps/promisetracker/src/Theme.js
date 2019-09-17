@@ -59,6 +59,32 @@ const Theme = createMuiTheme({
     }
   },
   overrides: {
+    MuiButton: {
+      root: {
+        border: '1px solid #d1d1d1',
+        backgroundColor: '#fff',
+        borderRadius: '25px',
+        fontWeight: 600,
+        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'
+      },
+      text: {
+        padding: '.75rem 3.5625rem'
+      },
+      textPrimary: {
+        '&:hover': {
+          border: '1px solid #659db9',
+          color: 'white',
+          backgroundColor: '#659db9',
+          fontWeight: 'bold'
+        }
+      },
+      textSecondary: {
+        '&:hover': {
+          color: 'yellow',
+          fontWeight: 'bold'
+        }
+      }
+    },
     MuiTypography: {
       root: {
         height: 'fit-content'
@@ -79,11 +105,7 @@ const Theme = createMuiTheme({
     },
     MuiLink: {
       root: {
-        fontWeight: 'bold',
-        '&:hover': {
-          color: '#659db9',
-          fontWeight: 'bold'
-        }
+        fontWeight: 'bold'
       }
     },
     MuiInput: {

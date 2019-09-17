@@ -1,9 +1,16 @@
 import React from 'react';
-import { makeStyles, Typography, Divider } from '@material-ui/core';
+import {
+  makeStyles,
+  Typography,
+  Divider,
+  Button,
+  Grid
+} from '@material-ui/core';
 import Layout from '../../components/Layout';
 import ArticleCard from '../../components/ArticleCard';
 import ArticleCardList from '../../components/ArticleCardList';
 import ArticleCardListItem from '../../components/ArticleCardListItem';
+import RouterLink from '../../components/RouterLink';
 
 const useStyles = makeStyles({
   root: {
@@ -12,17 +19,22 @@ const useStyles = makeStyles({
   },
   sectionTitle: {
     padding: '.5rem 0'
+  },
+  readMore: {
+    margin: '3rem 0'
   }
 });
 
 function LatestArticlesSection() {
   const classes = useStyles();
   return (
-    <Layout classes={{ root: classes.root }}>
-      <Typography className={classes.sectionTitle} variant="h2">
-        Latest Articles
-      </Typography>
-      <Divider />
+    <Layout classes={{ root: classes.root }} justify="center">
+      <Grid item xs={12}>
+        <Typography className={classes.sectionTitle} variant="h2">
+          Latest Articles
+        </Typography>
+        <Divider />
+      </Grid>
 
       <ArticleCardList>
         <ArticleCardListItem square width="40%">
@@ -55,6 +67,15 @@ function LatestArticlesSection() {
           />
         </ArticleCardListItem>
       </ArticleCardList>
+
+      <Button
+        classes={{ root: classes.readMore }}
+        component={RouterLink}
+        to="/articles"
+        color="primary"
+      >
+        READ MORE
+      </Button>
     </Layout>
   );
 }
