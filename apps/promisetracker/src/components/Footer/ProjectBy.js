@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Grid, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 import asl from '../assets/images/partners/asl.svg';
 
 import A from '../A';
 
-const styles = theme => ({
+const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     height: '100%'
@@ -23,9 +22,11 @@ const styles = theme => ({
   iconGrid: {
     padding: '1.5rem 0'
   },
-});
+})
 
-function ProjectBy({ classes }) {
+
+function ProjectBy() {
+  const classes = useStyles();
   return (
     <Grid item className={classes.root} xs={12} sm={6} md={4}>
       <Typography variant="h3" style={{ color: 'black' }}>A PROJECT BY</Typography>
@@ -41,4 +42,4 @@ ProjectBy.propTypes = {
   classes: PropTypes.shape().isRequired
 };
 
-export default withStyles(styles)(ProjectBy);
+export default ProjectBy;

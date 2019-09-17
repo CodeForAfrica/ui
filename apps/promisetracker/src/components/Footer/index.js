@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Grid, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 
 import Partners from './Partners';
 import SocialMedia from './SocialMedia';
@@ -10,18 +9,27 @@ import ProjectBy from './ProjectBy';
 import OtherProjects from './OtherProjects';
 import Attribute from './Attribute';
 
-const styles = () => ({
+
+
+const useStyles = makeStyles({
   footer: {
     backgroundColor: '#e6e6e6',
     padding: '1rem 0'
   },
-  grid: { padding: '2rem' }
-});
-
-function Footer({ classes }) {
+  grid: { padding: '2rem' },
+  typoGrid: {
+    textAlign: 'center',
+    margin: '2rem',
+    color: 'black'
+  }
+})
+function Footer() {
+  const classes = useStyles();
   return (
     <div>
-      <Typography variant="h3" style={{ textAlign: 'center', margin: '2rem', color: 'black' }}>ROUHANIMETER IN MEDIA</Typography>
+      <div className={classes.typoGrid}>
+        <Typography variant="h3">ROUHANIMETER IN MEDIA</Typography>
+      </div>
       <Partners />
       <Grid className={classes.footer}>
         <Grid
@@ -36,7 +44,7 @@ function Footer({ classes }) {
           <Attribute />
         </Grid>
       </Grid>
-    </div>
+    </div >
   );
 }
 
@@ -44,4 +52,4 @@ Footer.propTypes = {
   classes: PropTypes.shape().isRequired
 };
 
-export default withStyles(styles)(Footer);
+export default (Footer);

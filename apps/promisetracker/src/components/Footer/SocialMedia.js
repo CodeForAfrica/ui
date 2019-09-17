@@ -11,10 +11,11 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Grid, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 
-const styles = () => ({
+
+
+const useStyles = makeStyles({
   iconGrid: {
     padding: '2.5rem 0'
   },
@@ -26,11 +27,12 @@ const styles = () => ({
     }
   },
   links: { color: '#fff' }
-});
+})
 
 library.add(faFacebookF, faTwitter, faInstagram, faTelegram);
 
-function SocialMedia({ classes }) {
+function SocialMedia() {
+  const classes = useStyles();
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Typography variant="h3" style={{ color: 'black' }}>ON SOCIAL MEDIA</Typography>
@@ -101,4 +103,4 @@ function SocialMedia({ classes }) {
 SocialMedia.propTypes = {
   classes: PropTypes.shape().isRequired
 };
-export default withStyles(styles)(SocialMedia);
+export default SocialMedia;

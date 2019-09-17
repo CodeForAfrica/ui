@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { Grid, makeStyles } from '@material-ui/core';
+
 
 import A from '../A';
 
@@ -11,7 +11,9 @@ import foreignAffairs from '../assets/images/partners/foreignaffairs.png';
 import politifact from '../assets/images/partners/politifact.png';
 import poyner from '../assets/images/partners/poyner.png';
 
-const styles = theme => ({
+
+
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.secondary.light,
@@ -21,9 +23,11 @@ const styles = theme => ({
     maxWidth: '100%',
     height: 'auto'
   }
-});
+}));
 
-function Partners({ classes }) {
+
+function Partners() {
+  const classes = useStyles();
   return (
     <Grid className={classes.root}>
       <Grid
@@ -70,4 +74,4 @@ Partners.propTypes = {
   classes: PropTypes.shape().isRequired
 };
 
-export default withStyles(styles)(Partners);
+export default Partners;

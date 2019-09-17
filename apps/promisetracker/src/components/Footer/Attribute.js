@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Grid, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 import cc from '../assets/images/partners/cc.png';
 
 import A from '../A';
 
-const styles = theme => ({
+
+const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     height: '100%',
@@ -18,9 +18,10 @@ const styles = theme => ({
     width: '50%',
     height: 'auto'
   }
-});
+})
 
-function Attribute({ classes }) {
+function Attribute() {
+  const classes = useStyles();
   return (
     <Grid item className={classes.root} xs={12} sm={6} md={4}>
       <Grid item >
@@ -38,4 +39,4 @@ Attribute.propTypes = {
   classes: PropTypes.shape().isRequired
 };
 
-export default withStyles(styles)(Attribute);
+export default Attribute;
