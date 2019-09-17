@@ -62,19 +62,19 @@ const useStyles = makeStyles({
     top: 0
   },
   centerNumberTypography: {
-    fontSize: '65px',
+    fontSize: '4.0625rem',
     color: 'black',
-    lineHeight: '65px'
+    lineHeight: '4.0625rem'
   },
   centerTextTypography: {
-    fontSize: '25px',
+    fontSize: '1.5625rem',
     color: 'black',
-    lineHeight: '25px'
+    lineHeight: '1.5625rem'
   },
   centerStatusTextTypography: {
-    fontSize: '15px',
+    fontSize: '0.9375rem',
     color: 'black',
-    lineHeight: '15px'
+    lineHeight: '0.9375rem'
   },
   percentageLabel: {
     pointerEvents: 'none'

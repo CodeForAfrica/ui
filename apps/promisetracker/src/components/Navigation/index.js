@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     height: navHeight
   },
   menuButton: {
-    width: '28px'
+    width: '1.75rem'
   },
   brand: {
     margin: '0 auto',

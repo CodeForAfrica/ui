@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   indicatorImage: {
-    margin: '0 auto .5rem auto',
+    margin: '0 auto 0.5rem auto',
     width: '6.4375rem',
     height: '6.4375rem',
     display: 'none',
@@ -55,8 +55,8 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'flex-start',
     color: 'white',
     cursor: 'pointer',
-    borderRadius: '18px',
-    height: '36px'
+    borderRadius: '1.125rem',
+    height: '2.25rem'
   }),
   indicatorNumber: ({ status }) => ({
     background: statusColors[status].light,

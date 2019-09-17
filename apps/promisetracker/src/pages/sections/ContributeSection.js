@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   contributeForm: {
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: '499px'
+      width: '31.1875rem'
     },
     '& > div': {
       marginBottom: '1.3125rem'
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   contributeFormGrid: {
-    padding: '20px',
+    padding: '1.25rem',
     justifyContent: 'flex-start',
     backgroundColor: '#f6f6f6',
     [theme.breakpoints.up('md')]: {
@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     height: '8.375rem'
   },
   contributeCallToAction: {
-    padding: '20px',
+    padding: '1.25rem',
     justifyContent: 'center',
     backgroundColor: '#f7b801',
     '& h2:nth-child(1)': {
@@ -62,10 +62,10 @@ const useStyles = makeStyles(theme => ({
   submitButton: {
     '&:hover': {
       color: 'white',
-      border: '1px solid #f7b801',
+      border: '0.0625rem solid #f7b801',
       backgroundColor: '#f7b801',
       fontWeight: 'bold',
-      boxShadow: '0 2px 2px 1px rgba(0,0,0,.1)'
+      boxShadow: '0 0.125rem 0.125rem 0.0625rem rgba(0,0,0,.1)'
     }
   }
 }));
