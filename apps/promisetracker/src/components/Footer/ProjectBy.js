@@ -28,7 +28,7 @@ const styles = theme => ({
 function ProjectBy({ classes }) {
   return (
     <Grid item className={classes.root} xs={12} sm={6} md={4}>
-      <Typography variant="h3">A PROJECT BY</Typography>
+      <Typography variant="h3" style={{ color: 'black' }}>A PROJECT BY</Typography>
       <Grid item xs={4} className={classes.iconGrid}>
         <A href="https://www.politifact.com/truth-o-meter/article/2015/may/12/rouhani-meter-tracks-iran-presidents-campaign-prom/">
           <img src={asl} alt="asl" className={classes.img} />

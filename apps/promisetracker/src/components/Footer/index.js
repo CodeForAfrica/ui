@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 import Partners from './Partners';
@@ -21,6 +21,7 @@ const styles = () => ({
 function Footer({ classes }) {
   return (
     <div>
+      <Typography variant="h3" style={{ textAlign: 'center', margin: '2rem', color: 'black' }}>ROUHANIMETER IN MEDIA</Typography>
       <Partners />
       <Grid className={classes.footer}>
         <Grid

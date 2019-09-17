@@ -33,7 +33,7 @@ library.add(faFacebookF, faTwitter, faInstagram, faTelegram);
 function SocialMedia({ classes }) {
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <Typography variant="h3">ON SOCIAL MEDIA</Typography>
+      <Typography variant="h3" style={{ color: 'black' }}>ON SOCIAL MEDIA</Typography>
       <Grid
         spacing={3}
         container
