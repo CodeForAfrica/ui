@@ -10,14 +10,19 @@ import {
 } from '@material-ui/core';
 import Layout from '../../components/Layout';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     height: '28.375rem',
-    background:
-      'linear-gradient(to right, #f7b801, #f7b801 50%, #f6f6f6 50%, #f6f6f6)'
+    [theme.breakpoints.up('md')]: {
+      background:
+        'linear-gradient(to right, #f7b801, #f7b801 50%, #f6f6f6 50%, #f6f6f6)'
+    }
   },
   contributeForm: {
-    width: '499px',
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '499px'
+    },
     '& > div': {
       marginBottom: '1.3125rem'
     },
@@ -25,15 +30,33 @@ const useStyles = makeStyles({
       color: '#637381'
     }
   },
+  contributeFormGrid: {
+    padding: '20px',
+    justifyContent: 'flex-start',
+    backgroundColor: '#f6f6f6',
+    [theme.breakpoints.up('md')]: {
+      padding: 'unset',
+      backgroundColor: 'unset',
+      justifyContent: 'flex-end'
+    }
+  },
   descriptionTextField: {
     height: '8.375rem'
   },
   contributeCallToAction: {
+    padding: '20px',
+    justifyContent: 'center',
+    backgroundColor: '#f7b801',
     '& h2:nth-child(1)': {
       marginBottom: '.875rem'
     },
     '& h3:nth-child(2)': {
       marginBottom: '1.75rem'
+    },
+    [theme.breakpoints.up('md')]: {
+      padding: 'unset',
+      backgroundColor: 'unset',
+      justifyContent: 'flex-end'
     }
   },
   submitButton: {
@@ -45,7 +68,7 @@ const useStyles = makeStyles({
       boxShadow: '0 2px 2px 1px rgba(0,0,0,.1)'
     }
   }
-});
+}));
 
 function ContributeSection() {
   const classes = useStyles();
@@ -62,7 +85,7 @@ function ContributeSection() {
   return (
     <div className={classes.root}>
       <Layout justify="center" alignItems="center">
-        <Grid className={classes.contributeCallToAction} item xs={6}>
+        <Grid className={classes.contributeCallToAction} item xs={12} md={6}>
           <Typography variant="h2">Contibute</Typography>
           <Typography variant="h3">
             Have you spotted a promise in action?
@@ -71,7 +94,13 @@ function ContributeSection() {
             See something wrong? Share data to help assess a promise!
           </Typography>
         </Grid>
-        <Grid container item xs={6} justify="flex-end">
+        <Grid
+          className={classes.contributeFormGrid}
+          container
+          item
+          xs={12}
+          md={6}
+        >
           <form className={classes.contributeForm} onSubmit={handleSubmit}>
             <FormControl fullWidth>
               <FormLabel htmlFor="description">Description</FormLabel>
