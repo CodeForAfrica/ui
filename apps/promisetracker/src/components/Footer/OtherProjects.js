@@ -13,10 +13,16 @@ const styles = theme => ({
     flexGrow: 1,
     height: '100%'
   },
+  iconGrid: {
+    padding: '2rem 0'
+  },
   img: {
-    filter: 'grayscale(100 %)',
-    width: '50%',
-    height: 'auto'
+    maxWidth: '50%',
+    height: 'auto',
+    filter: 'grayscale(1)',
+    ' &:hover': {
+      filter: 'none'
+    }
   }
 });
 
@@ -24,7 +30,7 @@ function OtherProjects({ classes }) {
   return (
     <Grid item className={classes.root} xs={4}>
       <Typography variant="h3">OTHER PROJECTS BY</Typography>
-      <Grid item xs={6} style={{ marginTop: '2rem' }}>
+      <Grid item direction="row" justify="flex-start" className={classes.iconGrid}>
         <A href="https://www.politifact.com/truth-o-meter/article/2015/may/12/rouhani-meter-tracks-iran-presidents-campaign-prom/">
           <img src={ironBudjet} alt="asl" className={classes.img} />
         </A>
@@ -32,7 +38,7 @@ function OtherProjects({ classes }) {
           <img src={mn} alt="asl" className={classes.img} />
         </A>
       </Grid>
-    </Grid>
+    </Grid >
   );
 }
 OtherProjects.propTypes = {

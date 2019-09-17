@@ -10,33 +10,31 @@ import ProjectBy from './ProjectBy';
 import OtherProjects from './OtherProjects';
 import Attribute from './Attribute';
 
-
-
 const styles = () => ({
   footer: {
     backgroundColor: '#e6e6e6',
-    paddingTop: '2rem',
-    paddingBottom: '2rem'
-  }
+    padding: '1rem 0'
+  },
+  grid: { padding: '2rem' }
 });
 
 function Footer({ classes }) {
   return (
     <div>
       <Partners />
-      <div className={classes.footer}>
+      <Grid className={classes.footer}>
         <Grid
           container
           direction="row"
           justify="flex-start"
           alignItems="center"
-          style={{ margin: '2rem' }}>
+          className={classes.grid}>
           <SocialMedia />
           <ProjectBy />
           <OtherProjects />
           <Attribute />
         </Grid>
-      </div>
+      </Grid>
     </div>
   );
 }
