@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import {
   Grid,
@@ -35,11 +35,30 @@ const useStyles = makeStyles({
     '& h3:nth-child(2)': {
       marginBottom: '1.75rem'
     }
+  },
+  submitButton: {
+    '&:hover': {
+      color: 'white',
+      border: '1px solid #f7b801',
+      backgroundColor: '#f7b801',
+      fontWeight: 'bold',
+      boxShadow: '0 2px 2px 1px rgba(0,0,0,.1)'
+    }
   }
 });
 
 function ContributeSection() {
   const classes = useStyles();
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    setSubmitted(true);
+    setInterval(() => {
+      setSubmitted(false);
+    }, 4000);
+  };
   return (
     <div className={classes.root}>
       <Layout justify="center" alignItems="center">
@@ -53,7 +72,7 @@ function ContributeSection() {
           </Typography>
         </Grid>
         <Grid container item xs={6} justify="flex-end">
-          <form className={classes.contributeForm}>
+          <form className={classes.contributeForm} onSubmit={handleSubmit}>
             <FormControl fullWidth>
               <FormLabel htmlFor="description">Description</FormLabel>
               <TextField
@@ -66,7 +85,16 @@ function ContributeSection() {
               <FormLabel htmlFor="source">Source</FormLabel>
               <TextField id="source" />
             </FormControl>
-            <Button>Submit</Button>
+            <FormControl>
+              <Button className={classes.submitButton} type="submit">
+                Submit
+              </Button>
+            </FormControl>
+            {submitted && (
+              <FormControl fullWidth>
+                <Typography>Thank you for your submission!</Typography>
+              </FormControl>
+            )}
           </form>
         </Grid>
       </Layout>
