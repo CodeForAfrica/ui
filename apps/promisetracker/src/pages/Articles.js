@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
-import { Button } from '@material-ui/core';
+import { Button, withWidth } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
+import { isWidthUp } from '@material-ui/core/withWidth';
 import Page from '../components/Page';
 import propTypes from '../components/propTypes';
 import ArticleCardList from '../components/ArticleCardList';
@@ -16,7 +17,7 @@ const useStyles = makeStyles({
   }
 });
 
-function Articles({ location: { search } }) {
+function Articles({ width, location: { search } }) {
   const classes = useStyles();
   const params = new URLSearchParams(search);
   const offsetParam = params.get('offset');
@@ -30,29 +31,34 @@ function Articles({ location: { search } }) {
     const rows = [];
     for (let i = !articles.offset ? 1 : 0; i < articles.data.length; i += 3) {
       const rowArticles = articles.data.slice(i).slice(0, 3);
-      rows.push(
-        <ArticleCardListItem row enableLastBorder>
-          {rowArticles.map(() => (
-            <ArticleCardListItem
-              square
-              width="calc(100% / 3)"
-              /**
-               *  If there is 1 or 2 items in a row,
-               *  allow the last item to have a border
-               *  so it won't look awkward
-               */
-              enableLastBorder={rowArticles.length !== 3}
-            >
-              <ArticleCard
-                square
-                height={400}
-                imgSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
-                title="Promise Tracker Annual Report (Executive Summary)"
-                date="2019-09-16T17:53:45.289Z"
-              />
-            </ArticleCardListItem>
-          ))}
+      const components = rowArticles.map(() => (
+        <ArticleCardListItem
+          square
+          width="calc(100% / 3)"
+          /**
+           *  If there is 1 or 2 items in a row,
+           *  allow the last item to have a border
+           *  so it won't look awkward
+           */
+          enableLastBorder={isWidthUp('md', width) && rowArticles.length !== 3}
+        >
+          <ArticleCard
+            square
+            height={400}
+            imgSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
+            title="Promise Tracker Annual Report (Executive Summary)"
+            date="2019-09-16T17:53:45.289Z"
+          />
         </ArticleCardListItem>
+      ));
+      rows.push(
+        isWidthUp('md', width) ? (
+          <ArticleCardListItem row enableLastBorder>
+            {components}
+          </ArticleCardListItem>
+        ) : (
+          components
+        )
       );
     }
 
@@ -94,7 +100,8 @@ function Articles({ location: { search } }) {
 Articles.propTypes = {
   location: propTypes.shape({
     search: propTypes.string
-  }).isRequired
+  }).isRequired,
+  width: propTypes.string.isRequired
 };
 
-export default Articles;
+export default withWidth()(Articles);
