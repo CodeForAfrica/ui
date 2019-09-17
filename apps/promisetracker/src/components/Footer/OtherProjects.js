@@ -42,6 +42,7 @@ function OtherProjects() {
     </Grid >
   );
 }
+
 OtherProjects.propTypes = {
   classes: PropTypes.shape().isRequired
 };

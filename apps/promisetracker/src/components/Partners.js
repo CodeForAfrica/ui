@@ -1,27 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles, Typography } from '@material-ui/core';
 
 
-import A from '../A';
+import A from './A';
+import Layout from './Layout';
 
-import bbc from '../assets/images/partners/bbc.png';
-import dw from '../assets/images/partners/dw.png';
-import foreignAffairs from '../assets/images/partners/foreignaffairs.png';
-import politifact from '../assets/images/partners/politifact.png';
-import poyner from '../assets/images/partners/poyner.png';
+import bbc from './assets/images/partners/bbc.png';
+import dw from './assets/images/partners/dw.png';
+import foreignAffairs from './assets/images/partners/foreignaffairs.png';
+import politifact from './assets/images/partners/politifact.png';
+import poyner from './assets/images/partners/poyner.png';
 
 
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.secondary.light,
     padding: '2rem'
   },
   img: {
     maxWidth: '100%',
     height: 'auto'
+  },
+  typoGrid: {
+    textAlign: 'center',
+    margin: '2rem',
+    color: 'black'
   }
 }));
 
@@ -29,7 +34,10 @@ const useStyles = makeStyles(theme => ({
 function Partners() {
   const classes = useStyles();
   return (
-    <Grid className={classes.root}>
+    <Layout>
+      <Grid container direction="row" justify="center" alignItems="center" className={classes.typoGrid}>
+        <Typography variant="h3">ROUHANIMETER IN MEDIA</Typography>
+      </Grid>
       <Grid
         container
         direction="row"
@@ -66,7 +74,7 @@ function Partners() {
           </A>
         </Grid>
       </Grid>
-    </Grid>
+    </Layout>
   );
 }
 
