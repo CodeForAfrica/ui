@@ -39,6 +39,8 @@ function Home() {
           />
         </Grid>
       </PromisesSection>
+      <LatestArticlesSection />
+      <ContributeSection />
       <Partners />
     </Page>
   );

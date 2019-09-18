@@ -8,7 +8,7 @@ import mn from '../assets/images/partners/majlisnameh.svg';
 import A from '../A';
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     height: '100%'
@@ -17,21 +17,24 @@ const useStyles = makeStyles({
     padding: '2rem 0'
   },
   img: {
-    maxWidth: '50%',
+    maxWidth: '100%',
     height: 'auto',
     filter: 'grayscale(1)',
     ' &:hover': {
       filter: 'none'
-    }
+    },
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '50%',
+    },
   }
-})
+}));
 
 function OtherProjects() {
   const classes = useStyles();
   return (
     <Grid item className={classes.root} xs={12} md={4}>
       <Typography variant="h3" style={{ color: 'black' }}>OTHER PROJECTS BY</Typography>
-      <Grid item direction="row" justify="flex-start" className={classes.iconGrid}>
+      <Grid item direction="row" justify="flex-start" alignItems="center" className={classes.iconGrid}>
         <A href="https://www.politifact.com/truth-o-meter/article/2015/may/12/rouhani-meter-tracks-iran-presidents-campaign-prom/">
           <img src={ironBudjet} alt="asl" className={classes.img} />
         </A>
