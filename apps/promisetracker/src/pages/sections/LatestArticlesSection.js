@@ -14,14 +14,14 @@ import RouterLink from '../../components/RouterLink';
 
 const useStyles = makeStyles({
   root: {
-    height: '677px',
+    height: '42.3125rem',
     padding: '1rem'
   },
   sectionTitle: {
     padding: '.5rem 0'
   },
   readMore: {
-    margin: '3rem 0'
+    margin: '1rem 0'
   }
 });
 
