@@ -14,7 +14,6 @@ import RouterLink from '../../components/RouterLink';
 
 const useStyles = makeStyles({
   root: {
-    height: '42.3125rem',
     padding: '1rem'
   },
   sectionTitle: {
