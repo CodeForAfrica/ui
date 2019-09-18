@@ -14,7 +14,7 @@ function Attribute() {
           <img src={cc} alt="Creative Commons" />
         </A>
       </Grid>
-      <Grid item>
+      <Grid item md={9}>
         <Typography variant="body2">
           This work is licensed under a Creative Commons
           Attribution-NonCommercial-ShareAlike 4.0 International License.
