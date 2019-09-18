@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Grid, makeStyles } from '@material-ui/core';
 import SocialMedia from './SocialMedia';
@@ -40,8 +39,5 @@ function Footer() {
   );
 }
 
-Footer.propTypes = {
-  classes: PropTypes.shape().isRequired
-};
 
 export default (Footer);
