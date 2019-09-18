@@ -12,8 +12,8 @@ import Layout from '../../components/Layout';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '28.375rem',
     [theme.breakpoints.up('md')]: {
+      height: '28.375rem',
       background:
         'linear-gradient(to right, #f7b801, #f7b801 50%, #f6f6f6 50%, #f6f6f6)'
     }
