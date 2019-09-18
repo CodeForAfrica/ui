@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 function Attribute() {
   const classes = useStyles();
   return (
-    <Grid item className={classes.root} xs={12} sm={6} md={4}>
+    <Grid item className={classes.root} xs={12} md={4}>
       <Grid item >
         <A href="https://www.dw.com/fa-ir/کدام-وعدههای-روحانی-محقق-شدند/a-18652747">
           <img src={cc} alt="Creative Commons" />

@@ -34,7 +34,7 @@ library.add(faFacebookF, faTwitter, faInstagram, faTelegram);
 function SocialMedia() {
   const classes = useStyles();
   return (
-    <Grid item xs={12} sm={6} md={4}>
+    <Grid item xs={12} md={4}>
       <Typography variant="h3" style={{ color: 'black' }}>ON SOCIAL MEDIA</Typography>
       <Grid
         spacing={3}
@@ -103,4 +103,5 @@ function SocialMedia() {
 SocialMedia.propTypes = {
   classes: PropTypes.shape().isRequired
 };
+
 export default SocialMedia;

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Grid, makeStyles } from '@material-ui/core';
-
 import SocialMedia from './SocialMedia';
 import ProjectBy from './ProjectBy';
 import OtherProjects from './OtherProjects';
@@ -12,10 +11,8 @@ import Attribute from './Attribute';
 const useStyles = makeStyles({
   root: {
     backgroundColor: '#e6e6e6',
-    padding: '1rem 0'
+    padding: '2.5rem'
   },
-  grid: { padding: '2rem' },
-
 })
 
 function Footer() {
@@ -25,9 +22,8 @@ function Footer() {
       <Grid
         container
         direction="row"
-        justify="flex-start"
-        alignItems="center"
-        className={classes.root}>
+        justify="center"
+        alignItems="center">
         <SocialMedia />
         <ProjectBy />
         <OtherProjects />
