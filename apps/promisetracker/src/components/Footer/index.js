@@ -8,12 +8,18 @@ import OtherProjects from './OtherProjects';
 import Attribute from './Attribute';
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: '#e6e6e6',
     padding: '2.5rem'
   },
-})
+  grid: {
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'row',
+      justifyContent: 'flex-start'
+    }
+  }
+}));
 
 function Footer() {
   const classes = useStyles();
@@ -21,9 +27,10 @@ function Footer() {
     <Grid className={classes.root}>
       <Grid
         container
-        direction="row"
+        direction="column"
         justify="center"
-        alignItems="center">
+        alignItems="center"
+        className={classes.grid}>
         <SocialMedia />
         <ProjectBy />
         <OtherProjects />
