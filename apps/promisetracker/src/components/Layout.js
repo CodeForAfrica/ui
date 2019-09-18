@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   }
 });
 
-function Layout({ children, justify, alignItems, ...props }) {
+function Layout({ children, justify, alignItems, spacing, ...props }) {
   const classes = useStyles(props);
   return (
     <Grid className={classes.root} container justify="center">
@@ -24,6 +24,7 @@ function Layout({ children, justify, alignItems, ...props }) {
         className={classes.content}
         justify={justify}
         alignItems={alignItems}
+        spacing={spacing}
       >
         {children}
       </Grid>
@@ -34,12 +35,14 @@ function Layout({ children, justify, alignItems, ...props }) {
 Layout.propTypes = {
   children: propTypes.children.isRequired,
   justify: propTypes.string,
-  alignItems: propTypes.string
+  alignItems: propTypes.string,
+  spacing: propTypes.number
 };
 
 Layout.defaultProps = {
   justify: undefined,
-  alignItems: undefined
+  alignItems: undefined,
+  spacing: undefined
 };
 
 export default Layout;

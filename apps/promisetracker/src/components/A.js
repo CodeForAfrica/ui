@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Link } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-
-const styles = () => ({});
 
 function A({ children, className, href, variant, ...props }) {
   return (
@@ -15,6 +12,7 @@ function A({ children, className, href, variant, ...props }) {
       className={className}
       variant={variant}
       underline="always"
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
       {children}
@@ -36,4 +34,4 @@ A.defaultProps = {
   variant: 'inherit'
 };
 
-export default withStyles(styles)(A);
+export default A;

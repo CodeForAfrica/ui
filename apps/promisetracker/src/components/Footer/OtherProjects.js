@@ -1,53 +1,39 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import { Grid, Typography, makeStyles } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import ironBudjet from '../assets/images/partners/iranbudjet.svg';
 import mn from '../assets/images/partners/majlisnameh.svg';
 
 import A from '../A';
-
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    height: '100%'
-  },
-  iconGrid: {
-    padding: '2rem 0'
-  },
-  img: {
-    maxWidth: '100%',
-    height: 'auto',
-    filter: 'grayscale(1)',
-    ' &:hover': {
-      filter: 'none'
-    },
-    [theme.breakpoints.up('md')]: {
-      maxWidth: '50%',
-    },
-  }
-}));
+import Section from './Section';
 
 function OtherProjects() {
-  const classes = useStyles();
   return (
-    <Grid item className={classes.root} xs={12} md={4}>
-      <Typography variant="h3" style={{ color: 'black' }}>OTHER PROJECTS BY</Typography>
-      <Grid item direction="row" justify="flex-start" alignItems="center" className={classes.iconGrid}>
+    <Section title="OTHER PROJECTS BY" spacing={2}>
+      <Grid item>
         <A href="https://www.politifact.com/truth-o-meter/article/2015/may/12/rouhani-meter-tracks-iran-presidents-campaign-prom/">
-          <img src={ironBudjet} alt="asl" className={classes.img} />
-        </A>
-        <A href="https://www.politifact.com/truth-o-meter/article/2015/may/12/rouhani-meter-tracks-iran-presidents-campaign-prom/">
-          <img src={mn} alt="asl" className={classes.img} />
+          <img
+            className="Mui-desaturated"
+            src={ironBudjet}
+            alt="asl"
+            height={28}
+            width={120}
+          />
         </A>
       </Grid>
-    </Grid >
+      <Grid item>
+        <A href="https://www.politifact.com/truth-o-meter/article/2015/may/12/rouhani-meter-tracks-iran-presidents-campaign-prom/">
+          <img
+            className="Mui-desaturated"
+            src={mn}
+            alt="asl"
+            height={28}
+            width={120}
+          />
+        </A>
+      </Grid>
+    </Section>
   );
 }
-
-OtherProjects.propTypes = {
-  classes: PropTypes.shape().isRequired
-};
 
 export default OtherProjects;

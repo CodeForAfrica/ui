@@ -1,18 +1,16 @@
 import React from 'react';
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 
-import A from './A';
-import Layout from './Layout';
+import A from '../../components/A';
+import Layout from '../../components/Layout';
 
-import bbc from './assets/images/partners/bbc.png';
-import dw from './assets/images/partners/dw.png';
-import foreignAffairs from './assets/images/partners/foreignaffairs.png';
-import politifact from './assets/images/partners/politifact.png';
-import poyner from './assets/images/partners/poyner.png';
+import bbc from '../../components/assets/images/partners/bbc.png';
+import dw from '../../components/assets/images/partners/dw.png';
+import foreignAffairs from '../../components/assets/images/partners/foreignaffairs.png';
+import politifact from '../../components/assets/images/partners/politifact.png';
+import poyner from '../../components/assets/images/partners/poyner.png';
 
-
-
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     padding: '2rem'
@@ -29,14 +27,19 @@ const useStyles = makeStyles(theme => ({
   imgGrid: {
     padding: '2rem'
   }
-}));
+});
 
-
-function Partners() {
+function PartnersSection() {
   const classes = useStyles();
   return (
     <Layout>
-      <Grid container direction="row" justify="center" alignItems="center" className={classes.typoGrid}>
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        className={classes.typoGrid}
+      >
         <Typography variant="h3">ROUHANIMETER IN MEDIA</Typography>
       </Grid>
       <Grid
@@ -48,17 +51,20 @@ function Partners() {
         className={classes.imgGrid}
       >
         <Grid item xs={6} md={2}>
-          <A href="https://www.foreignaffairs.com/articles/2014-01-06/just-facts" style={{ textAlign: 'center' }}>
-            <img src={foreignAffairs} alt="Foreign Affairs" className={classes.img} />
+          <A
+            href="https://www.foreignaffairs.com/articles/2014-01-06/just-facts"
+            style={{ textAlign: 'center' }}
+          >
+            <img
+              src={foreignAffairs}
+              alt="Foreign Affairs"
+              className={classes.img}
+            />
           </A>
         </Grid>
         <Grid item xs={6} md={2}>
           <A href="https://www.bbc.com/persian/iran/2015/08/150803_l10_rouhani_2nd_anniv_promises_review">
-            <img
-              src={bbc}
-              alt="BBC"
-              className={classes.img}
-            />
+            <img src={bbc} alt="BBC" className={classes.img} />
           </A>
         </Grid>
         <Grid item xs={6} md={2}>
@@ -77,8 +83,8 @@ function Partners() {
           </A>
         </Grid>
       </Grid>
-    </Layout >
+    </Layout>
   );
 }
 
-export default Partners;
+export default PartnersSection;

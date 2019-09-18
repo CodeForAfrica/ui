@@ -109,7 +109,15 @@ const Theme = createMuiTheme({
     },
     MuiLink: {
       root: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        '& .Mui-desaturated': {
+          color: 'grey',
+          filter: 'grayscale(1)',
+          '&:hover': {
+            filter: 'none',
+            color: '#659db9'
+          }
+        }
       }
     },
     MuiInput: {
