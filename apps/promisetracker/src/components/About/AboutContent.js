@@ -16,6 +16,7 @@ function AboutContent() {
         ASL19, which initially benefited from the support of the University of
         Toronto.
       </Typography>
+
       <br />
 
       <Typography variant="body1">
@@ -27,6 +28,7 @@ function AboutContent() {
       </Typography>
 
       <br />
+
       <Typography variant="body1">
         We are eager to hear your comments and suggestions about how we can
         increase the quality and effectiveness of this project. If you have any
