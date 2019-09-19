@@ -4,23 +4,23 @@ import { Grid, makeStyles } from '@material-ui/core';
 import SideBar from './SideBar';
 import AboutContent from './AboutContent';
 
-
-
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: '3rem',
-    height: 'auto',
-    maxWidth: '100%'
+    paddingTop: '4rem',
+    paddingBottom: '4rem'
   }
 }));
+
 function About() {
   const classes = useStyles()
   return (
     <Grid
       container
+      spacing={10}
       direction="row"
       justify="center"
-      alignItems="flex-start" className={classes.root}>
+      alignItems="flex-start"
+      className={classes.root}>
       <AboutContent />
       <SideBar />
     </Grid>

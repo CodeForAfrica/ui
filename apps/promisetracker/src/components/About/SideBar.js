@@ -1,9 +1,17 @@
 import React from 'react'
-import { Grid, Typography, Button } from '@material-ui/core';
+import { Grid, Typography, Button, makeStyles } from '@material-ui/core';
+
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    borderLeft: '1px solid #e6e6e6',
+  }
+}));
 
 function SideBar() {
+  const classes = useStyles()
   return (
-    <Grid item xs={12} sm={4}>
+    <Grid item xs={12} sm={4} className={classes.root}>
       <Typography variant="h2" style={{ paddingBottom: '2rem' }}>OUR RATINGS</Typography>
       <Grid
         spacing={6}

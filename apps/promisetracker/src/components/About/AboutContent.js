@@ -1,10 +1,13 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 
-
 function AboutContent() {
   return (
-    <Grid item direction="column" justify="center" alignItems="flex-start" xs={12} sm={8} spacing={8}>
+    <Grid
+      item
+      xs={12}
+      sm={8}
+      spacing={8}>
       <Typography variant="h2" style={{ paddingBottom: '2rem' }}>ABOUT US</Typography>
       <Typography variant="body1" >
         Rouhani Meter is a project that aims to monitor the accomplishment of promises made by Iranian President Hassan Rouhani.
