@@ -1,10 +1,15 @@
 import React from 'react';
 
-import { Grid, makeStyles } from '@material-ui/core';
-import { Facebook, Instagram, Twitter, Send } from 'react-feather';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faFacebookF,
+  faInstagram,
+  faTwitter,
+  faTelegram
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import A from '../A';
-import Section from './Section';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
   iconGrid: {
@@ -20,18 +25,23 @@ const useStyles = makeStyles({
   links: { color: '#fff' }
 });
 
+library.add(faFacebookF, faTwitter, faInstagram, faTelegram);
+
 function SocialMedia() {
   const classes = useStyles();
   return (
     <Grid item xs={12} md={4}>
-      <Typography variant="h3" style={{ color: 'black' }}>ON SOCIAL MEDIA</Typography>
+      <Typography variant="h3" style={{ color: 'black' }}>
+        ON SOCIAL MEDIA
+      </Typography>
       <Grid
         spacing={3}
         container
         direction="row"
         justify="flex-start"
         alignItems="center"
-        className={classes.iconGrid}>
+        className={classes.iconGrid}
+      >
         <Grid item>
           <a
             href="https://www.facebook.com/AfricanCIR/"
