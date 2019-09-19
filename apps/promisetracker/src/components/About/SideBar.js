@@ -5,6 +5,9 @@ import StatusChip from '../StatusChip';
 const useStyles = makeStyles({
   root: {
     borderLeft: '1px solid #e6e6e6'
+  },
+  typo: {
+    padding: '1rem 0'
   }
 });
 
@@ -18,14 +21,14 @@ function SideBar() {
       <Grid spacing={6} container>
         <Grid item>
           <StatusChip status="achieved" />
-          <Typography>
+          <Typography className={classes.typo}>
             The promise is mostly or completely fulfilled.
           </Typography>
         </Grid>
 
         <Grid item>
           <StatusChip status="compromised" />
-          <Typography>
+          <Typography className={classes.typo}>
             When promises are accomplished less than the original promise but
             when there is still a significant accomplishment that is consistent
             with the goal of the original promise.
@@ -34,14 +37,14 @@ function SideBar() {
 
         <Grid item>
           <StatusChip status="in-progress" />
-          <Typography>
+          <Typography className={classes.typo}>
             The promise is in the works or is being considered.
           </Typography>
         </Grid>
 
         <Grid item>
           <StatusChip status="not-achieved" />
-          <Typography>
+          <Typography className={classes.typo}>
             This could occur because of inaction by the administration or lack
             of support from the legislative branch or other groups and factors
             that was critical for the promise to be fulfilled. This rating does
@@ -52,7 +55,7 @@ function SideBar() {
 
         <Grid item>
           <StatusChip status="stalled" />
-          <Typography>
+          <Typography className={classes.typo}>
             There is no movement on the promise, perhaps because of financial
             limitations,opposition from lawmakers or higher ranks or a change in
             priorities.
@@ -61,7 +64,7 @@ function SideBar() {
 
         <Grid item>
           <StatusChip status="inactive" />
-          <Typography>
+          <Typography className={classes.typo}>
             Every promise begins at this level and retains this rating until we
             see evidence of progress or evidence that the promise has been
             shelved.
