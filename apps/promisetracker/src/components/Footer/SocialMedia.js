@@ -1,13 +1,7 @@
 import React from 'react';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faFacebookF,
-  faInstagram,
-  faTwitter,
-  faTelegram
-} from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Grid, makeStyles } from '@material-ui/core';
+import { Facebook, Instagram, Twitter, Send } from 'react-feather';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 
