@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Grid, Typography, makeStyles } from '@material-ui/core';
+
+import { Grid, makeStyles } from '@material-ui/core';
 import { Facebook, Instagram, Twitter, Send } from 'react-feather';
 
-
+import A from '../A';
+import Section from './Section';
 
 const useStyles = makeStyles({
   iconGrid: {
@@ -17,9 +18,10 @@ const useStyles = makeStyles({
     }
   },
   links: { color: '#fff' }
-})
+});
 
 function SocialMedia() {
+  const classes = useStyles();
   return (
     <Grid item xs={12} md={4}>
       <Typography variant="h3" style={{ color: 'black' }}>ON SOCIAL MEDIA</Typography>
@@ -73,11 +75,7 @@ function SocialMedia() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FontAwesomeIcon
-            className="Mui-desaturated"
-            icon={['fab', 'instagram']}
-            size="2x"
-          />
+          <Instagram className={classes.fa} />
         </A>
       </Grid>
       <Grid item>
@@ -99,11 +97,7 @@ function SocialMedia() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FontAwesomeIcon
-            className="Mui-desaturated"
-            icon={['fab', 'telegram']}
-            size="2x"
-          />
+          <Send className={classes.fa} />
         </A>
       </Grid>
     </Section>
