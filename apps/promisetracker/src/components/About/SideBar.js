@@ -1,5 +1,6 @@
 import React from 'react'
-import { Grid, Typography, Button, makeStyles } from '@material-ui/core';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
+import StatusChip from '../StatusChip';
 
 
 const useStyles = makeStyles(theme => ({
@@ -17,12 +18,12 @@ function SideBar() {
         spacing={6}
         container>
         <Grid item>
-          <Button size="medium" color="primary" variant="contained">Achieved</Button>
+          <StatusChip status="achieved" />
           <Typography>The promise is mostly or completely fulfilled.</Typography>
         </Grid>
 
         <Grid item>
-          <Button size="medium" color="primary" variant="contained">Compromised</Button>
+          <StatusChip status="compromised" />
           <Typography>
             When promises are accomplished less than the original promise but when there is
             still a significant accomplishment that is consistent with the goal of the original
@@ -31,12 +32,12 @@ function SideBar() {
         </Grid>
 
         <Grid item>
-          <Button size="medium" color="primary" variant="contained">In Progress</Button>
+          <StatusChip status="in-progress" />
           <Typography>The promise is in the works or is being considered.</Typography>
         </Grid>
 
         <Grid item>
-          <Button size="medium" color="primary" variant="contained">Not Achieved</Button>
+          <StatusChip status="not-achieved" />
           <Typography>This could occur because of inaction by the administration or lack of
             support from the legislative branch or other groups and factors that was critical
             for the promise to be fulfilled. This rating does not necessarily mean that the
@@ -45,14 +46,14 @@ function SideBar() {
         </Grid>
 
         <Grid item>
-          <Button size="medium" color="primary" variant="contained">Stalled</Button>
+          <StatusChip status="stalled" />
           <Typography>There is no movement on the promise, perhaps because of financial
             limitations,opposition from lawmakers or higher ranks or a change in priorities.
           </Typography>
         </Grid>
 
         <Grid item>
-          <Button size="medium" color="primary" variant="contained">In Active</Button>
+          <StatusChip status="inactive" />
           <Typography>
             Every promise begins at this level and retains this rating until we see evidence of
             progress or evidence that the promise has been shelved.
