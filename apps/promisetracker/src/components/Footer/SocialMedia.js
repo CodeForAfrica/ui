@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Typography, makeStyles } from '@material-ui/core';
-import { Facebook, Instagram, Twitter } from 'react-feather';
+import { Facebook, Instagram, Twitter, Send } from 'react-feather';
 
 
 
@@ -55,6 +55,15 @@ function SocialMedia() {
             rel="noopener noreferrer"
           >
             <Twitter className={classes.fa} />
+          </a>
+        </Grid>
+        <Grid item>
+          <a
+            href="https://telegram.me/RouhaniMeter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Send className={classes.fa} />
           </a>
         </Grid>
       </Grid>
