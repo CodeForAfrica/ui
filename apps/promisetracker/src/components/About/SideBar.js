@@ -12,8 +12,8 @@ const useStyles = makeStyles({
   }
 });
 
-function SideBar() {
-  const classes = useStyles();
+function SideBar({ ...props }) {
+  const classes = useStyles(props);
   return (
     <Grid item xs={12} md={4} className={classes.root}>
       <Typography variant="h2" style={{ paddingBottom: '2rem' }}>
