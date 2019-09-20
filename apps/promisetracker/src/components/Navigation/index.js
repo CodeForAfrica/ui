@@ -11,10 +11,10 @@ import {
 import { isWidthUp, isWidthDown } from '@material-ui/core/withWidth';
 import CloseIcon from '@material-ui/icons/Close';
 import { Menu } from 'react-feather';
-import Link from './Link';
-
-import Layout from '../Layout';
 import propTypes from '../propTypes';
+
+import Link from './Link';
+import Layout from '../Layout';
 import Brand from './Brand';
 
 const navHeight = '5rem';
