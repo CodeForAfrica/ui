@@ -61,7 +61,6 @@ const useStyles = makeStyles(theme => ({
     marginLeft: '1rem'
   },
   fa: {
-    transition: 'all .5s ease-in-out',
     color: 'grey',
     ' &:hover': {
       color: '#257ca3'
