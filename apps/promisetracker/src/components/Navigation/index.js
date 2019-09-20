@@ -10,6 +10,7 @@ import {
 } from '@material-ui/core';
 import { isWidthUp, isWidthDown } from '@material-ui/core/withWidth';
 import CloseIcon from '@material-ui/icons/Close';
+import { Menu } from 'react-feather';
 import Link from './Link';
 
 import Layout from '../Layout';
@@ -58,6 +59,13 @@ const useStyles = makeStyles(theme => ({
     width: '11.4375rem',
     height: '3rem',
     marginLeft: '1rem'
+  },
+  fa: {
+    transition: 'all .5s ease-in-out',
+    color: 'grey',
+    ' &:hover': {
+      color: '#257ca3'
+    }
   }
 }));
 
@@ -119,7 +127,7 @@ function Navigation({ width, ...props }) {
               className={classes.menuButton}
               onClick={() => setDrawerIsOpen(!drawerIsOpen)}
             >
-              Menu
+              <Menu className={classes.fa} />
             </ButtonBase>
             {renderDrawer()}
           </>
