@@ -17,7 +17,7 @@ function TitledGrid({ variant, title, children, ...props }) {
 TitledGrid.propTypes = {
   children: propTypes.children.isRequired,
   title: propTypes.string.isRequired,
-  variant: Typography.propTypes.variant
+  variant: propTypes.string
 };
 
 TitledGrid.defaultProps = {

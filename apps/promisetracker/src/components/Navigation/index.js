@@ -24,13 +24,13 @@ const useStyles = makeStyles(theme => ({
     height: navHeight,
     zIndex: 999
   },
-  layoutRoot: {
+  layoutRoot: ({ fixed }) => ({
     zIndex: 999,
-    position: 'fixed',
+    position: fixed ? 'fixed' : 'relative',
     height: navHeight,
     background: 'white',
     boxShadow: '0 0.125rem 0.25rem 0 rgba(0,0,0,.21)'
-  },
+  }),
   layoutContent: {
     flexWrap: 'nowrap',
     alignItems: 'center',
@@ -140,7 +140,12 @@ function Navigation({ width, ...props }) {
 }
 
 Navigation.propTypes = {
+  fixed: propTypes.bool,
   width: propTypes.string.isRequired
+};
+
+Navigation.defaultProps = {
+  fixed: false
 };
 
 export default withWidth()(Navigation);

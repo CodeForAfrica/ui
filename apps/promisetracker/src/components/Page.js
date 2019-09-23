@@ -1,12 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Helmet } from 'react-helmet';
 
 import Header from './Navigation';
 import Footer from './Footer';
+import propTypes from './propTypes';
 
-function Page({ children, title: propTitle }) {
+function Page({ children, title: propTitle, fixNavigation }) {
   const title = propTitle
     ? `${propTitle} | Promise Tracker`
     : 'Promise Tracker';
@@ -16,7 +16,7 @@ function Page({ children, title: propTitle }) {
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      <Header />
+      <Header fixed={fixNavigation} />
       {children}
       <Footer />
     </>
@@ -24,14 +24,13 @@ function Page({ children, title: propTitle }) {
 }
 
 Page.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired,
-  title: PropTypes.string
+  fixNavigation: propTypes.bool,
+  children: propTypes.children.isRequired,
+  title: propTypes.string
 };
 
 Page.defaultProps = {
+  fixNavigation: true,
   title: undefined
 };
 

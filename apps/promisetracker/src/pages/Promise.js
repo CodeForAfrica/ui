@@ -38,7 +38,7 @@ function PromisePage({
    */
   console.log(slug);
   return (
-    <Page>
+    <Page fixNavigation={false}>
       <Layout classes={{ root: classes.root }}>
         <Grid item xs={12} md={8} className={classes.mainContent}>
           <PromiseHeader
