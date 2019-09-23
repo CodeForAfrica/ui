@@ -6,15 +6,18 @@ import ArticleHeaderSection from './ArticleSections/ArticleHeaderSection';
 import ArticleBodyCopy from './ArticleSections/ArticleBodyCopy';
 import ArticleSocialMedia from './ArticleSections/ArticleSocialMedia';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    borderRight: '1px solid #e6e6e6'
+    borderRight: 0,
+    [theme.breakpoints.up('md')]: {
+      borderRight: '1px solid #e6e6e6'
+    }
   },
   img: {
     maxWidth: '100%',
     height: 'auto'
   }
-});
+}));
 
 function Article() {
   const classes = useStyles();
