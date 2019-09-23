@@ -76,7 +76,18 @@ function PromisePage({
             </TitledGrid>
 
             <Grid item>
-              <PromiseNavigator />
+              <PromiseNavigator
+                previous={{
+                  href: '/promises/previous-promise-slug',
+                  label:
+                    'Civil Rights Charter will be submitted to the parliament as a bill.'
+                }}
+                next={{
+                  href: '/promises/next-promise-slug',
+                  label:
+                    'Reinstating university professors and administrators dismissed or forced into retirement for their political views.'
+                }}
+              />
             </Grid>
           </Grid>
         </Grid>

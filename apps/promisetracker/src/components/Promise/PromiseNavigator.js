@@ -3,6 +3,7 @@ import { Grid, Typography, makeStyles } from '@material-ui/core';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import RouterLink from '../RouterLink';
+import propTypes from '../propTypes';
 
 const useStyles = makeStyles({
   root: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles({
   }
 });
 
-function PromiseNavigator() {
+function PromiseNavigator({ next, previous }) {
   const classes = useStyles();
   return (
     <Grid
@@ -36,25 +37,40 @@ function PromiseNavigator() {
       justify="space-between"
       spacing={1}
     >
-      <Grid item xs={6} md={5}>
-        <RouterLink to="">
-          <KeyboardArrowLeft />
-          <Typography className={classes.label}>
-            Civil Rights Charter will be submitted to the parliament as a bill
-          </Typography>
-        </RouterLink>
-      </Grid>
-      <Grid container item xs={6} md={5} justify="flex-end">
-        <RouterLink to="">
-          <Typography className={classes.label}>
-            Reinstating university professors and administrators dismissed or
-            forced into retirement for their political views.
-          </Typography>
-          <KeyboardArrowRight />
-        </RouterLink>
-      </Grid>
+      {previous && (
+        <Grid item xs={6} md={5}>
+          <RouterLink to={previous.href}>
+            <KeyboardArrowLeft />
+            <Typography className={classes.label}>{previous.label}</Typography>
+          </RouterLink>
+        </Grid>
+      )}
+      {next && (
+        <Grid container item xs={6} md={5} justify="flex-end">
+          <RouterLink to={next.href}>
+            <Typography className={classes.label}>{next.label}</Typography>
+            <KeyboardArrowRight />
+          </RouterLink>
+        </Grid>
+      )}
     </Grid>
   );
 }
+
+PromiseNavigator.propTypes = {
+  next: propTypes.shape({
+    label: propTypes.string,
+    href: propTypes.string
+  }),
+  previous: propTypes.shape({
+    label: propTypes.string,
+    href: propTypes.string
+  })
+};
+
+PromiseNavigator.defaultProps = {
+  next: undefined,
+  previous: undefined
+};
 
 export default PromiseNavigator;
