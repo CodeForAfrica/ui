@@ -98,7 +98,7 @@ function ArticleCard({
     })
     .toString();
   return (
-    <RouterLink className={classes.actionArea} to="#">
+    <RouterLink className={classes.actionArea} to="/article-page">
       <div className={classes.root}>
         <div className={classes.inner}>
           <img alt="" className={classes.image} src={imgSrc} />
