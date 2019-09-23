@@ -80,54 +80,50 @@ function PromisePage({
             </Grid>
           </Grid>
         </Grid>
-        <Grid
-          item
-          container
-          spacing={4}
-          xs={12}
-          md={4}
-          className={classes.sideContent}
-        >
-          <TitledGrid
-            item
-            container
-            spacing={2}
-            variant="h1"
-            title="Related Promises"
-          >
-            <Grid item xs={12}>
-              <PromiseCard
-                status="achieved"
-                title="Provide commodity subsidies for basic goods to support households with low income"
-                term="Term 1"
-                topic="Domestic policy"
-                href="/promises/provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income"
-              />
+        <Grid item xs={12} md={4} className={classes.sideContent}>
+          <Grid container spacing={4}>
+            <TitledGrid
+              item
+              xs={12}
+              container
+              spacing={2}
+              variant="h1"
+              title="Related Promises"
+            >
+              <Grid item xs={12}>
+                <PromiseCard
+                  status="achieved"
+                  title="Provide commodity subsidies for basic goods to support households with low income"
+                  term="Term 1"
+                  topic="Domestic policy"
+                  href="/promises/provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <PromiseCard
+                  status="compromised"
+                  title="Provide commodity subsidies for basic goods to support households with low income"
+                  term="Term 1"
+                  topic="Domestic policy"
+                  href="/promises/provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <PromiseCard
+                  status="not-achieved"
+                  title="Provide commodity subsidies for basic goods to support households with low income"
+                  term="Term 1"
+                  topic="Domestic policy"
+                  href="/promises/provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income"
+                />
+              </Grid>
+            </TitledGrid>
+            <Grid container item>
+              <Divider />
             </Grid>
-            <Grid item xs={12}>
-              <PromiseCard
-                status="compromised"
-                title="Provide commodity subsidies for basic goods to support households with low income"
-                term="Term 1"
-                topic="Domestic policy"
-                href="/promises/provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income"
-              />
+            <Grid item>
+              <ContributeForm />
             </Grid>
-            <Grid item xs={12}>
-              <PromiseCard
-                status="not-achieved"
-                title="Provide commodity subsidies for basic goods to support households with low income"
-                term="Term 1"
-                topic="Domestic policy"
-                href="/promises/provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income"
-              />
-            </Grid>
-          </TitledGrid>
-          <Grid container item>
-            <Divider />
-          </Grid>
-          <Grid item>
-            <ContributeForm />
           </Grid>
         </Grid>
       </Layout>

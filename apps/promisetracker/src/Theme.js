@@ -19,26 +19,26 @@ const Theme = createMuiTheme({
   },
   typography: {
     h1: {
-      fontSize: '28px',
+      fontSize: '1.75rem',
       fontWeight: 700,
       lineHeight: 1.5
     },
     h2: {
-      fontSize: '20px',
+      fontSize: '1.25rem',
       fontWeight: 700,
       lineHeight: 1
     },
     h3: {
-      fontSize: '16px',
+      fontSize: '1rem',
       fontWeight: 500,
       lineHeight: 1.4
     },
     body1: {
-      fontSize: '16px',
+      fontSize: '1rem',
       lineHeight: 1.5
     },
     body2: {
-      fontSize: '12px'
+      fontSize: '0.75rem'
     }
   },
   props: {
@@ -133,14 +133,14 @@ const Theme = createMuiTheme({
     },
     MuiButton: {
       root: {
-        border: '1px solid #d1d1d1',
+        border: '0.0625rem solid #d1d1d1',
         backgroundColor: '#fff',
-        borderRadius: '25px',
+        borderRadius: '1.5625rem',
         fontWeight: 600,
         fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'
       },
       text: {
-        padding: '12px 57px'
+        padding: '0.75rem 3.5625rem'
       },
       textPrimary: {
         '&:hover': {
@@ -164,24 +164,20 @@ const Theme = createMuiTheme({
     },
     MuiDivider: {
       root: {
-<<<<<<< HEAD
-        padding: '1rem',
-=======
         width: '100%'
       }
     },
     MuiFormLabel: {
       root: {
         color: 'black',
-        marginBottom: '10px'
+        marginBottom: '0.625rem'
       }
     },
     MuiTextField: {
       root: {
-        padding: '16px',
->>>>>>> Promise page
+        padding: '1rem',
         overflow: 'hidden',
-        border: '1px solid #d1d1d1',
+        border: '0.0625rem solid #d1d1d1',
         backgroundColor: 'white',
         color: '#637381 !important'
       }
@@ -219,25 +215,25 @@ const Theme = createMuiTheme({
         justifyContent: 'center',
         background: 'white',
         padding: 0,
-        paddingRight: '10px'
+        paddingRight: '0.625rem'
       },
       select: {
-        borderRadius: '20px',
-        border: '1px solid #d1d1d1',
+        borderRadius: '1.25rem',
+        border: '0.0625rem solid #d1d1d1',
         '&:focus': {
-          border: '1px solid #d1d1d1',
-          borderRadius: '20px',
+          border: '0.0625rem solid #d1d1d1',
+          borderRadius: '1.25rem',
           backgroundColor: 'white'
         },
         '&:hover': {
-          boxShadow: '0 2px 4px 0 rgba(0,0,0,.16)'
+          boxShadow: '0 0.125rem 0.25rem 0 rgba(0,0,0,.16)'
         }
       },
       selectMenu: {
-        height: '40px'
+        height: '2.5rem'
       },
       icon: {
-        marginRight: '10px'
+        marginRight: '0.625rem'
       }
     }
   }
