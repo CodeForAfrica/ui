@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { Facebook, Instagram, Twitter, Send } from 'react-feather';
+import Divider from '@material-ui/core/Divider';
 
 import A from '../../A';
 
@@ -65,7 +66,7 @@ function ArticleSocialMedia() {
           </A>
         </Grid>
       </Grid>
-      <hr />
+      <Divider component="hr" />
     </div>
   );
 }
