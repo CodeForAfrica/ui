@@ -3,14 +3,7 @@ import { PieChart, Pie, Cell, LabelList } from 'recharts';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 
-const statusColors = {
-  achieved: 'rgb(50, 112, 174)',
-  compromised: 'rgb(112, 68, 135)',
-  'in-progress': 'rgb(38, 143, 130)',
-  'not-achieved': 'rgb(221, 87, 84)',
-  stalled: 'rgb(216, 159, 67)',
-  inactive: 'rgb(141, 141, 141)'
-};
+import config from '../config';
 
 const promises = [
   {
@@ -126,7 +119,10 @@ function StatusPieChart() {
           onMouseLeave={onMouseLeave}
         >
           {promises.map(promise => (
-            <Cell key={promise.status} fill={statusColors[promise.status]} />
+            <Cell
+              key={promise.status}
+              fill={config.colors[promise.status].dark}
+            />
           ))}
           <LabelList
             className={classes.percentageLabel}

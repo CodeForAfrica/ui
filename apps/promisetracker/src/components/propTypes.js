@@ -47,7 +47,7 @@ export default {
     replace: PropTypes.func.isRequired
   }),
   route: PropTypes.shape(routeShape),
-  mathch: PropTypes.shape({
+  match: PropTypes.shape({
     isExact: PropTypes.bool,
     params: PropTypes.object.isRequired,
     path: PropTypes.string.isRequired,

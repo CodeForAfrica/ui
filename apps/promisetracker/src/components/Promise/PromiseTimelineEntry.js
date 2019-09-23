@@ -1,0 +1,47 @@
+import React from 'react';
+import {
+  ExpansionPanel,
+  ExpansionPanelSummary,
+  Typography,
+  ExpansionPanelDetails
+} from '@material-ui/core';
+import ExpandIcon from '@material-ui/icons/Add';
+import MinimizeIcon from '@material-ui/icons/Minimize';
+import propTypes from '../propTypes';
+import StatusChip from '../StatusChip';
+
+function PromiseTimelineEntry({ defaultExpanded, updated, status }) {
+  return (
+    <ExpansionPanel defaultExpanded={defaultExpanded}>
+      <ExpansionPanelSummary>
+        <ExpandIcon className="Mui-icon-expand" />
+        <MinimizeIcon
+          className="Mui-icon-collapse"
+          transform="translate(0,-8)"
+        />
+        <Typography>Updated on {updated}</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <StatusChip status={status} />
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
+  );
+}
+PromiseTimelineEntry.propTypes = {
+  defaultExpanded: propTypes.bool,
+  updated: propTypes.string.isRequired,
+  status: propTypes.oneOf([
+    'achieved',
+    'not-achieved',
+    'compromised',
+    'in-progress',
+    'stalled',
+    'inactive'
+  ]).isRequired
+};
+
+PromiseTimelineEntry.defaultProps = {
+  defaultExpanded: false
+};
+
+export default PromiseTimelineEntry;

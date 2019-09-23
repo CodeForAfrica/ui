@@ -7,7 +7,9 @@ import { makeStyles } from '@material-ui/styles';
 import propTypes from './propTypes';
 
 const useStyles = makeStyles({
-  root: {}
+  root: {
+    display: 'inline-flex'
+  }
 });
 
 function RouterLink({ children, ...props }) {

@@ -7,41 +7,7 @@ import Select from '../../components/Select';
 import propTypes from '../../components/propTypes';
 import RouterLink from '../../components/RouterLink';
 
-const statusColors = {
-  achieved: 'rgb(50, 112, 174)',
-  compromised: 'rgb(112, 68, 135)',
-  'in-progress': 'rgb(38, 143, 130)',
-  'not-achieved': 'rgb(221, 87, 84)',
-  stalled: 'rgb(216, 159, 67)',
-  inactive: 'rgb(141, 141, 141)'
-};
-
-const statuses = [
-  {
-    slug: 'achieved',
-    name: 'Achieved'
-  },
-  {
-    slug: 'compromised',
-    name: 'Compromised'
-  },
-  {
-    slug: 'in-progress',
-    name: 'In Progress'
-  },
-  {
-    slug: 'not-achieved',
-    name: 'Not Achieved'
-  },
-  {
-    slug: 'stalled',
-    name: 'Stalled'
-  },
-  {
-    slug: 'inactive',
-    name: 'Inactive'
-  }
-];
+import config from '../../config';
 
 const terms = [
   {
@@ -163,7 +129,7 @@ function PromisesSection({
               <Select
                 showIndicator={filter.status !== 'all'}
                 indicatorColor={
-                  filter.status !== 'all' && statusColors[filter.status]
+                  filter.status !== 'all' && config.colors[filter.status].dark
                 }
                 value={filter.status}
                 onChange={value => updateFilter('status', value)}
@@ -172,7 +138,7 @@ function PromisesSection({
                     value: 'all',
                     name: 'All Statuses'
                   },
-                  ...statuses.map(status => ({
+                  ...config.statusTypes.map(status => ({
                     name: status.name,
                     value: status.slug
                   }))

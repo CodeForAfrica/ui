@@ -18,22 +18,27 @@ const Theme = createMuiTheme({
     }
   },
   typography: {
+    h1: {
+      fontSize: '28px',
+      fontWeight: 700,
+      lineHeight: 1.5
+    },
     h2: {
-      fontSize: '1.25rem',
+      fontSize: '20px',
       fontWeight: 700,
       lineHeight: 1
     },
     h3: {
-      fontSize: '1rem',
+      fontSize: '16px',
       fontWeight: 500,
       lineHeight: 1.4
     },
     body1: {
-      fontSize: '1rem',
+      fontSize: '16px',
       lineHeight: 1.5
     },
     body2: {
-      fontSize: '0.75rem'
+      fontSize: '12px'
     }
   },
   props: {
@@ -56,23 +61,90 @@ const Theme = createMuiTheme({
     },
     MuiInput: {
       disableUnderline: true
+    },
+    MuiExpansionPanel: {
+      elevation: 0,
+      TransitionProps: {
+        timeout: 0
+      }
     }
   },
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '.Mui-share': {
+          outline: 'none',
+          '& .Mui-desaturated': {
+            color: 'grey',
+            filter: 'grayscale(1)',
+            '&:hover': {
+              filter: 'none',
+              color: '#659db9'
+            }
+          }
+        }
+      }
+    },
+    MuiExpansionPanel: {
+      root: {
+        '&.Mui-expanded': {
+          margin: 0
+        },
+        '&:before': {
+          content: ''
+        }
+      }
+    },
+    MuiExpansionPanelSummary: {
+      root: {
+        '&.Mui-expanded': {
+          minHeight: '3rem',
+          '& > .Mui-icon-expanded': {
+            display: 'none'
+          },
+          '& > .Mui-icon-collapsed': {
+            display: 'none'
+          }
+        },
+        padding: 0
+      },
+      content: {
+        '& > .Mui-icon-expand': {
+          display: 'block'
+        },
+        '& > .Mui-icon-collapse': {
+          display: 'none'
+        },
+        '&.Mui-expanded': {
+          margin: 0,
+          '& > .Mui-icon-collapse': {
+            display: 'block'
+          },
+          '& > .Mui-icon-expand': {
+            display: 'none'
+          }
+        }
+      }
+    },
+    MuiExpansionPanelDetails: {
+      root: {
+        padding: 0
+      }
+    },
     MuiButton: {
       root: {
-        border: '0.0625rem solid #d1d1d1',
+        border: '1px solid #d1d1d1',
         backgroundColor: '#fff',
-        borderRadius: '1.5625rem',
+        borderRadius: '25px',
         fontWeight: 600,
         fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'
       },
       text: {
-        padding: '.75rem 3.5625rem'
+        padding: '12px 57px'
       },
       textPrimary: {
         '&:hover': {
-          border: '1px solid #659db9',
+          border: '0.0625rem solid #659db9',
           color: 'white',
           backgroundColor: '#659db9',
           fontWeight: 'bold'
@@ -92,9 +164,24 @@ const Theme = createMuiTheme({
     },
     MuiDivider: {
       root: {
+<<<<<<< HEAD
         padding: '1rem',
+=======
+        width: '100%'
+      }
+    },
+    MuiFormLabel: {
+      root: {
+        color: 'black',
+        marginBottom: '10px'
+      }
+    },
+    MuiTextField: {
+      root: {
+        padding: '16px',
+>>>>>>> Promise page
         overflow: 'hidden',
-        border: '0.0625rem solid #d1d1d1',
+        border: '1px solid #d1d1d1',
         backgroundColor: 'white',
         color: '#637381 !important'
       }
@@ -132,25 +219,25 @@ const Theme = createMuiTheme({
         justifyContent: 'center',
         background: 'white',
         padding: 0,
-        paddingRight: '0.625rem'
+        paddingRight: '10px'
       },
       select: {
-        borderRadius: '1.25rem',
-        border: '0.0625rem solid #d1d1d1',
+        borderRadius: '20px',
+        border: '1px solid #d1d1d1',
         '&:focus': {
-          border: '0.0625rem solid #d1d1d1',
-          borderRadius: '1.25rem',
+          border: '1px solid #d1d1d1',
+          borderRadius: '20px',
           backgroundColor: 'white'
         },
         '&:hover': {
-          boxShadow: '0 0.125rem 0.25rem 0 rgba(0,0,0,.16)'
+          boxShadow: '0 2px 4px 0 rgba(0,0,0,.16)'
         }
       },
       selectMenu: {
-        height: '2.5rem'
+        height: '40px'
       },
       icon: {
-        marginRight: '0.625rem'
+        marginRight: '10px'
       }
     }
   }

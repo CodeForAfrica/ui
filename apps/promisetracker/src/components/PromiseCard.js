@@ -11,32 +11,7 @@ import propTypes from './propTypes';
 import RouterLink from './RouterLink';
 import StatusChip from './StatusChip';
 
-const statusColors = {
-  achieved: {
-    light: '#377bbf',
-    dark: 'rgb(50, 112, 174)'
-  },
-  compromised: {
-    light: '#7b4b94',
-    dark: 'rgb(112, 68, 135)'
-  },
-  'in-progress': {
-    light: '#2a9d8f',
-    dark: 'rgb(38, 143, 130)'
-  },
-  'not-achieved': {
-    light: '#f25f5c',
-    dark: 'rgb(221, 87, 84)'
-  },
-  stalled: {
-    light: '#edae49',
-    dark: 'rgb(216, 159, 67)'
-  },
-  inactive: {
-    light: '#9b9b9b',
-    dark: 'rgb(141, 141, 141)'
-  }
-};
+import config from '../config';
 
 const useStyles = makeStyles({
   root: ({ status }) => ({
@@ -53,7 +28,7 @@ const useStyles = makeStyles({
       width: '100%',
       height: '0.25rem',
       content: '""',
-      borderTop: `0.25rem solid ${statusColors[status].dark}`
+      backgroundColor: config.colors[status].light
     }
   }),
   content: {
@@ -65,12 +40,12 @@ const useStyles = makeStyles({
   },
   title: {
     position: 'relative',
-    maxHeight: '3.5rem',
+    maxHeight: '2.8rem',
     overflow: 'hidden',
     '&:after': {
       content: '""',
       position: 'absolute',
-      top: '2rem',
+      top: '1.4rem',
       width: '4rem',
       height: '1.4rem',
       background:

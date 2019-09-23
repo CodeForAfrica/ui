@@ -3,32 +3,7 @@ import { Grid, makeStyles } from '@material-ui/core';
 import RouterLink from './RouterLink';
 import propTypes from './propTypes';
 
-const statusColors = {
-  achieved: {
-    light: '#377bbf',
-    dark: 'rgb(50, 112, 174)'
-  },
-  compromised: {
-    light: '#7b4b94',
-    dark: 'rgb(112, 68, 135)'
-  },
-  'in-progress': {
-    light: '#2a9d8f',
-    dark: 'rgb(38, 143, 130)'
-  },
-  'not-achieved': {
-    light: '#f25f5c',
-    dark: 'rgb(221, 87, 84)'
-  },
-  stalled: {
-    light: '#edae49',
-    dark: 'rgb(216, 159, 67)'
-  },
-  inactive: {
-    light: '#9b9b9b',
-    dark: 'rgb(141, 141, 141)'
-  }
-};
+import config from '../config';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -51,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
   indicatorChip: ({ status }) => ({
     overflow: 'hidden',
-    background: statusColors[status].dark,
+    background: config.colors[status].dark,
     justifyContent: 'flex-start',
     color: 'white',
     cursor: 'pointer',
@@ -59,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     height: '2.25rem'
   }),
   indicatorNumber: ({ status }) => ({
-    background: statusColors[status].light,
+    background: config.colors[status].light,
     width: '3rem',
     color: 'white',
     textAlign: 'center',

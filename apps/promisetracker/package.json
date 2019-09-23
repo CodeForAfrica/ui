@@ -17,6 +17,7 @@
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
+    "react-share": "^3.0.1",
     "recharts": "^1.7.1",
     "yarn": "^1.17.3"
   },
