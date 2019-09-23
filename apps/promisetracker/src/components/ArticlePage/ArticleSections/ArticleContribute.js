@@ -10,13 +10,31 @@ import {
 } from '@material-ui/core';
 import Layout from '../../Layout';
 
-const useStyles = makeStyles({
-  contributeFormGrid: {
-    backgroundColor: 'grey'
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: '2.5rem 0'
   },
-  descriptionTextField: {
-    height: '8.375rem'
+  contributeMainGrid: {
+    [theme.breakpoints.up('md')]: {
+      height: 'auto',
+      maxWidth: '100%'
+    }
   },
+  typoGrid: {
+    padding: '0.8rem',
+    background: '#f7b801'
+  },
+  formGrid: {
+    background: '#f6f6f6',
+    padding: '0.5rem'
+  },
+  contributeForm: {
+    margin: 0,
+    [theme.breakpoints.up('md')]: {
+      margin: '2rem'
+    }
+  },
+  textField: { height: '8.375rem' },
   submitButton: {
     '&:hover': {
       color: 'white',
@@ -26,8 +44,9 @@ const useStyles = makeStyles({
       boxShadow: '0 0.125rem 0.125rem 0.0625rem rgba(0,0,0,.1)'
     }
   }
-});
-function ArticleContribute() {
+}));
+
+function ContributeSection() {
   const classes = useStyles();
   const [submitted, setSubmitted] = useState(false);
 
@@ -40,42 +59,43 @@ function ArticleContribute() {
     }, 4000);
   };
   return (
-    <Grid className={classes.root}>
-      <Layout direction="column" justify="center" alignItems="center">
+    <div className={classes.root}>
+      <Layout justify="center" alignItems="center">
         <Grid
-          className={classes.contributeCallToAction}
           item
           xs={12}
-          md={6}
-          style={{ backgroundColor: '#f7b801' }}
+          spacing={3}
+          container
+          direction="column"
+          justify="flex-start"
+          alignItems="flex-start"
+          className={classes.typoGrid}
         >
-          <Typography variant="h2">Contibute</Typography>
-          <Typography variant="h3">
-            Have you spotted a promise in action?
-          </Typography>
+          <Grid item>
+            <Typography variant="h2">Contibute</Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h3">
+              Have you spotted a promise in action?
+            </Typography>
+          </Grid>
         </Grid>
 
-        <Grid
-          className={classes.contributeFormGrid}
-          container
-          item
-          xs={12}
-          md={6}
-        >
-          <form className={classes.contributeForm} onSubmit={handleSubmit}>
-            <FormControl fullWidth>
+        <Grid container item xs={12} className={classes.formGrid}>
+          <form onSubmit={handleSubmit} className={classes.contributeForm}>
+            <FormControl fullWidth margin="normal">
               <FormLabel htmlFor="description">Description</FormLabel>
               <TextField
                 multiline
                 id="description"
-                className={classes.descriptionTextField}
+                className={classes.textField}
               />
             </FormControl>
-            <FormControl fullWidth>
+            <FormControl fullWidth margin="normal">
               <FormLabel htmlFor="source">Source</FormLabel>
               <TextField id="source" />
             </FormControl>
-            <FormControl>
+            <FormControl margin="normal">
               <Button className={classes.submitButton} type="submit">
                 Submit
               </Button>
@@ -88,8 +108,8 @@ function ArticleContribute() {
           </form>
         </Grid>
       </Layout>
-    </Grid>
+    </div>
   );
 }
 
-export default ArticleContribute;
+export default ContributeSection;
