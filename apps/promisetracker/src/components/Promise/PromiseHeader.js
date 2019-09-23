@@ -12,7 +12,7 @@ import Layout from '../Layout';
 
 const fixedHeaderHeight = 60;
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   fixed: ({ status, showFixedHeader }) => ({
     position: 'fixed',
     transition: 'all .27s ease 0s',
@@ -56,8 +56,14 @@ const useStyles = makeStyles({
   details: {
     margin: '0.5rem 0',
     lineHeight: '2rem'
+  },
+  fixedHeaderTitle: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'block'
+    }
   }
-});
+}));
 
 function PromiseHeader({
   status,
@@ -84,7 +90,9 @@ function PromiseHeader({
               <StatusChip status={status} />
             </Grid>
             <Grid item>
-              <Typography>{title}</Typography>
+              <Typography className={classes.fixedHeaderTitle}>
+                {title}
+              </Typography>
             </Grid>
           </Grid>
           <Grid container item justify="flex-end" spacing={2}>
