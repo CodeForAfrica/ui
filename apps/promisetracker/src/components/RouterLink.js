@@ -7,9 +7,10 @@ import { makeStyles } from '@material-ui/styles';
 import propTypes from './propTypes';
 
 const useStyles = makeStyles({
-  root: {
-    display: 'inline-flex'
-  }
+  root: ({ color }) => ({
+    display: 'inline-flex',
+    color
+  })
 });
 
 function RouterLink({ children, ...props }) {
@@ -27,11 +28,13 @@ function RouterLink({ children, ...props }) {
 }
 
 RouterLink.propTypes = {
-  children: propTypes.children
+  children: propTypes.children,
+  color: propTypes.string
 };
 
 RouterLink.defaultProps = {
-  children: undefined
+  children: undefined,
+  color: undefined
 };
 
 export default RouterLink;

@@ -97,6 +97,7 @@ const Theme = createMuiTheme({
     },
     MuiExpansionPanelSummary: {
       root: {
+        color: '#659db9',
         '&.Mui-expanded': {
           minHeight: '3rem',
           '& > .Mui-icon-expanded': {

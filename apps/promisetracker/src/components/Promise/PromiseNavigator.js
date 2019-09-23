@@ -39,7 +39,7 @@ function PromiseNavigator({ next, previous }) {
     >
       {previous && (
         <Grid item xs={6} md={5}>
-          <RouterLink to={previous.href}>
+          <RouterLink to={previous.href} color="#659db9">
             <KeyboardArrowLeft />
             <Typography className={classes.label}>{previous.label}</Typography>
           </RouterLink>
@@ -47,7 +47,7 @@ function PromiseNavigator({ next, previous }) {
       )}
       {next && (
         <Grid container item xs={6} md={5} justify="flex-end">
-          <RouterLink to={next.href}>
+          <RouterLink to={next.href} color="#659db9">
             <Typography className={classes.label}>{next.label}</Typography>
             <KeyboardArrowRight />
           </RouterLink>

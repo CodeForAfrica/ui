@@ -14,8 +14,9 @@ function PromiseTimelineEntry({ defaultExpanded, updated, status }) {
   return (
     <ExpansionPanel defaultExpanded={defaultExpanded}>
       <ExpansionPanelSummary>
-        <ExpandIcon className="Mui-icon-expand" />
+        <ExpandIcon color="action" className="Mui-icon-expand" />
         <MinimizeIcon
+          color="action"
           className="Mui-icon-collapse"
           transform="translate(0,-8)"
         />
