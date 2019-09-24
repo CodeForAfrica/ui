@@ -7,7 +7,7 @@ import Divider from '@material-ui/core/Divider';
 import A from '../../A';
 
 const useStyles = makeStyles({
-  fa: {
+  icon: {
     transition: 'all .5s ease-in-out',
     color: 'grey',
     ' &:hover': {
@@ -35,7 +35,7 @@ function ArticleSocialMedia() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Facebook className={classes.fa} />
+            <Facebook className={classes.icon} />
           </A>
         </Grid>
         <Grid item>
@@ -44,7 +44,7 @@ function ArticleSocialMedia() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Instagram className={classes.fa} />
+            <Instagram className={classes.icon} />
           </A>
         </Grid>
         <Grid item>
@@ -53,7 +53,7 @@ function ArticleSocialMedia() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Twitter className={classes.fa} />
+            <Twitter className={classes.icon} />
           </A>
         </Grid>
         <Grid item>
@@ -62,7 +62,7 @@ function ArticleSocialMedia() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Send className={classes.fa} />
+            <Send className={classes.icon} />
           </A>
         </Grid>
       </Grid>
