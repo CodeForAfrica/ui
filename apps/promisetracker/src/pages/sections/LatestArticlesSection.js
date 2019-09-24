@@ -13,6 +13,7 @@ import ArticleCardList from '../../components/Articles/Cards/ArticleCardList';
 import ArticleCardListItem from '../../components/Articles/Cards/ArticleCardListItem';
 
 import RouterLink from '../../components/RouterLink';
+import config from '../../components/articles';
 
 const useStyles = makeStyles({
   root: {
@@ -26,6 +27,8 @@ const useStyles = makeStyles({
   }
 });
 
+const articleSize = 4;
+
 function LatestArticlesSection() {
   const classes = useStyles();
   return (
@@ -38,35 +41,17 @@ function LatestArticlesSection() {
       </Grid>
 
       <ArticleCardList>
-        <ArticleCardListItem square width="40%">
-          <ArticleCard
-            square
-            imgSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
-            title="Promise Tracker Annual Report (Executive Summary)"
-            date="2019-09-16T17:53:45.289Z"
-          />
-        </ArticleCardListItem>
-        <ArticleCardListItem width="60%">
-          <ArticleCard
-            imgSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
-            title="Promise Tracker Annual Report (Executive Summary)"
-            date="2019-09-16T17:53:45.289Z"
-          />
-        </ArticleCardListItem>
-        <ArticleCardListItem width="60%">
-          <ArticleCard
-            imgSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
-            title="Promise Tracker Annual Report (Executive Summary)"
-            date="2019-09-16T17:53:45.289Z"
-          />
-        </ArticleCardListItem>
-        <ArticleCardListItem width="60%">
-          <ArticleCard
-            imgSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
-            title="Promise Tracker Annual Report (Executive Summary)"
-            date="2019-09-16T17:53:45.289Z"
-          />
-        </ArticleCardListItem>
+        {config.articles.slice(0, articleSize).map(article => (
+          <ArticleCardListItem square width="40%" key={article.id}>
+            <ArticleCard
+              squares
+              subtitle={article.subtitle}
+              imgSrc={article.mediaSrc}
+              title={article.title}
+              date={article.date}
+            />
+          </ArticleCardListItem>
+        ))}
       </ArticleCardList>
 
       <Button

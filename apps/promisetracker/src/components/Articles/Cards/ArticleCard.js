@@ -5,6 +5,7 @@ import { Typography, Grid } from '@material-ui/core';
 import propTypes from '../../propTypes';
 
 import RouterLink from '../../RouterLink';
+import '../../articles';
 
 const useStyles = makeStyles(theme => ({
   root: ({ width, height, square }) => ({
@@ -88,7 +89,8 @@ function ArticleCard({
   title,
   description,
   imgSrc,
-  date
+  date,
+  subtitle
 }) {
   const classes = useStyles({ width, height, jumbo, square });
   const dateObj = typeof date === 'string' ? new Date(date) : date;
@@ -111,7 +113,7 @@ function ArticleCard({
             justify="space-between"
           >
             <Grid item>
-              <Typography className={classes.label}>Report</Typography>
+              <Typography className={classes.label}>{subtitle}</Typography>
               <Typography className={classes.title} variant="h2">
                 {title}
               </Typography>
@@ -138,6 +140,7 @@ ArticleCard.propTypes = {
   height: propTypes.oneOfType([propTypes.number, propTypes.string]),
   imgSrc: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
+  subtitle: propTypes.string.isRequired,
   description: propTypes.string,
   date: propTypes.oneOfType([propTypes.string, propTypes.instanceOf(Date)])
     .isRequired
