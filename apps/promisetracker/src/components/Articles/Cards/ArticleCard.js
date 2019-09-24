@@ -103,8 +103,7 @@ function ArticleCard({
     <RouterLink className={classes.actionArea} to={`articles/${title}`}>
       <div className={classes.root}>
         <div className={classes.inner}>
-          <img alt="" className={classes.image} src={imgSrc} />
-
+          <img alt="thumbnail" className={classes.image} src={imgSrc} />
           <Grid
             className={classes.content}
             container
