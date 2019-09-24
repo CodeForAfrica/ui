@@ -1,14 +1,15 @@
 import React from 'react';
-
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+
 import ScrollToTop from './components/ScrollToTop';
+import ArticlePage from './components/Articles/Page';
+
 import NotFound from './pages/404';
 import Home from './pages/Home';
 import PromisePage from './pages/Promise';
 import Promises from './pages/Promises';
 import Articles from './pages/Articles';
 import About from './pages/About';
-import ArticlePage from './components/ArticlePage';
 
 function App() {
   return (

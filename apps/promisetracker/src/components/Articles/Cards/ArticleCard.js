@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/styles';
 import { Typography, Grid } from '@material-ui/core';
-import propTypes from './propTypes';
-import RouterLink from './RouterLink';
+import propTypes from '../../propTypes';
+
+import RouterLink from '../../RouterLink';
 
 const useStyles = makeStyles(theme => ({
   root: ({ width, height, square }) => ({

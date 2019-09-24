@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
 
-import Layout from '../Layout';
-import Page from '../Page';
+import Layout from '../../Layout';
+import Page from '../../Page';
 import Article from './Article';
 import ArticleSideBar from './ArticleSideBar';
 

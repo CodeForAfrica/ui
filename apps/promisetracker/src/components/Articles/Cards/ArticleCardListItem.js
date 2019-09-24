@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import propTypes from './propTypes';
+import propTypes from '../../propTypes';
 import ArticleCardList from './ArticleCardList';
 
 const useStyles = makeStyles(theme => ({

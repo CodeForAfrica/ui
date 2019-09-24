@@ -8,7 +8,7 @@ import {
   TextField,
   Button
 } from '@material-ui/core';
-import Layout from '../../Layout';
+import Layout from '../../../Layout';
 
 const useStyles = makeStyles(theme => ({
   root: {

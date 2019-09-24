@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 
-import annual from '../../assets/images/articles/annual.png';
-import report from '../../assets/images/articles/report.png';
+import annual from '../../../assets/images/articles/annual.png';
+import report from '../../../assets/images/articles/report.png';
 
 const useStyles = makeStyles({
   img: {

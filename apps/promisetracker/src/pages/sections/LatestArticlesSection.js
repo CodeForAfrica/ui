@@ -7,9 +7,11 @@ import {
   Grid
 } from '@material-ui/core';
 import Layout from '../../components/Layout';
-import ArticleCard from '../../components/ArticleCard';
-import ArticleCardList from '../../components/ArticleCardList';
-import ArticleCardListItem from '../../components/ArticleCardListItem';
+
+import ArticleCard from '../../components/Articles/Cards/ArticleCard';
+import ArticleCardList from '../../components/Articles/Cards/ArticleCardList';
+import ArticleCardListItem from '../../components/Articles/Cards/ArticleCardListItem';
+
 import RouterLink from '../../components/RouterLink';
 
 const useStyles = makeStyles({

@@ -1,13 +1,17 @@
 import React, { useMemo } from 'react';
+
 import { Button, withWidth } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { isWidthUp } from '@material-ui/core/withWidth';
-import Page from '../components/Page';
 import propTypes from '../components/propTypes';
-import ArticleCardList from '../components/ArticleCardList';
-import ArticleCardListItem from '../components/ArticleCardListItem';
-import ArticleCard from '../components/ArticleCard';
+
+import Page from '../components/Page';
+
 import Layout from '../components/Layout';
+import ArticleCardList from '../components/Articles/Cards/ArticleCardList';
+import ArticleCardListItem from '../components/Articles/Cards/ArticleCardListItem';
+import ArticleCard from '../components/Articles/Cards/ArticleCard';
+
 import RouterLink from '../components/RouterLink';
 
 const useStyles = makeStyles({
