@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 
-import articleHeaderImage from '../../assets/images/Articles/article.png';
+import articleHeaderImage from '../../assets/images/articles/article.png';
 
 const useStyles = makeStyles({
   img: {
