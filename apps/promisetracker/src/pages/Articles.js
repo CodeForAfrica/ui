@@ -35,6 +35,7 @@ function Articles({ width, location: { search } }) {
         <ArticleCardListItem
           square
           width="calc(100% / 3)"
+          height={400}
           /**
            *  If there is 1 or 2 items in a row,
            *  allow the last item to have a border

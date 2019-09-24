@@ -6,7 +6,8 @@ const useStyles = makeStyles({
   root: {
     listStyle: 'none',
     margin: 0,
-    padding: 0
+    padding: 0,
+    width: '100%'
   }
 });
 

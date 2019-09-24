@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import Page from '../components/Page';
 import PromisesSection from './sections/PromisesSection';
-import PromiseCard from '../components/PromiseCard';
+import PromiseCard from '../components/Promise/Card';
 import propTypes from '../components/propTypes';
 
 function Promises({ location: { search } }) {

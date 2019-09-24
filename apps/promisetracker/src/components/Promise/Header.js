@@ -8,7 +8,8 @@ import StatusChip from '../StatusChip';
 import useScrollListener from '../../useScrollListener';
 
 import config from '../../config';
-import Layout from '../Layout';
+
+import FixedHeader from './FixedHeader';
 
 const fixedHeaderHeight = 60;
 
@@ -81,43 +82,9 @@ function PromiseHeader({
   const classes = useStyles({ status, showFixedHeader, ...props });
   const shareUrl = window.location.href;
 
-  const renderFixedHeader = () => {
-    return (
-      <Layout classes={{ root: classes.fixed }} alignItems="center">
-        <Grid item container direction="row" wrap="nowrap">
-          <Grid item container spacing={2} alignItems="center">
-            <Grid item>
-              <StatusChip status={status} />
-            </Grid>
-            <Grid item>
-              <Typography className={classes.fixedHeaderTitle}>
-                {title}
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid container item justify="flex-end" spacing={2}>
-            <Grid item>
-              <Typography>Share:</Typography>
-            </Grid>
-            <Grid item>
-              <FacebookShareButton className="Mui-share" url={shareUrl}>
-                <Facebook className="Mui-desaturated" />
-              </FacebookShareButton>
-            </Grid>
-            <Grid item>
-              <TwitterShareButton className="Mui-share" url={shareUrl}>
-                <Twitter className="Mui-desaturated" />
-              </TwitterShareButton>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Layout>
-    );
-  };
-
   return (
     <>
-      {renderFixedHeader()}
+      <FixedHeader show={showFixedHeader} title={title} status={status} />
       <Grid className={classes.root}>
         <Grid item>
           <Typography variant="h1">{title}</Typography>

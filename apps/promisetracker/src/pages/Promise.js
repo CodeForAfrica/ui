@@ -3,11 +3,13 @@ import { Grid, makeStyles, Divider, Typography } from '@material-ui/core';
 import Page from '../components/Page';
 import propTypes from '../components/propTypes';
 import Layout from '../components/Layout';
-import PromiseHeader from '../components/Promise/PromiseHeader';
 import ContributeForm from '../components/ContributeForm';
-import PromiseCard from '../components/PromiseCard';
-import PromiseNavigator from '../components/Promise/PromiseNavigator';
-import PromiseTimelineEntry from '../components/Promise/PromiseTimelineEntry';
+import {
+  Card as PromiseCard,
+  Header as PromiseHeader,
+  Navigator as PromiseNavigator,
+  TimelineEntry as PromiseTimelineEntry
+} from '../components/Promise';
 import TitledGrid from '../components/TitledGrid';
 
 const useStyles = makeStyles(theme => ({

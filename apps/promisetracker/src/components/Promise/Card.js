@@ -6,12 +6,11 @@ import {
   CardContent,
   Grid
 } from '@material-ui/core';
-// import RouterLink from './RouterLink';
-import propTypes from './propTypes';
-import RouterLink from './RouterLink';
-import StatusChip from './StatusChip';
+import propTypes from '../propTypes';
+import RouterLink from '../RouterLink';
+import StatusChip from '../StatusChip';
 
-import config from '../config';
+import config from '../../config';
 
 const useStyles = makeStyles({
   root: ({ status }) => ({

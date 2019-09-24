@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import Page from '../components/Page';
 import PromisesSection from './sections/PromisesSection';
 import PromiseStatusIndicatorsSection from './sections/PromiseStatusIndicatorsSection';
-import PromiseCard from '../components/PromiseCard';
+import PromiseCard from '../components/Promise/Card';
 import PartnersSection from './sections/PartnersSection';
 import LatestArticlesSection from './sections/LatestArticlesSection';
 import ContributeSection from './sections/ContributeSection';
