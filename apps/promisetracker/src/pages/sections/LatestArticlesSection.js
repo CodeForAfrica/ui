@@ -50,6 +50,7 @@ function LatestArticlesSection() {
           >
             <ArticleCard
               squares
+              slug={article.slug}
               subtitle={article.subtitle}
               mediaSrc={article.mediaSrc}
               title={article.title}

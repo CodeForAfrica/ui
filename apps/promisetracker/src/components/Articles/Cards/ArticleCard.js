@@ -90,7 +90,8 @@ function ArticleCard({
   description,
   mediaSrc,
   date,
-  subtitle
+  subtitle,
+  slug
 }) {
   const classes = useStyles({ width, height, jumbo, square });
   const dateObj = typeof date === 'string' ? new Date(date) : date;
@@ -102,7 +103,7 @@ function ArticleCard({
     })
     .toString();
   return (
-    <RouterLink className={classes.actionArea} to={`articles/${title}`}>
+    <RouterLink className={classes.actionArea} to={`articles/${slug}`}>
       <div className={classes.root}>
         <div className={classes.inner}>
           <img
@@ -146,6 +147,7 @@ ArticleCard.propTypes = {
   title: propTypes.string.isRequired,
   subtitle: propTypes.string.isRequired,
   description: propTypes.string,
+  slug: propTypes.string.isRequired,
   date: propTypes.oneOfType([propTypes.string, propTypes.instanceOf(Date)])
     .isRequired
 };
