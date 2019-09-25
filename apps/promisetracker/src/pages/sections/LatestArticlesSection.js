@@ -29,6 +29,7 @@ const useStyles = makeStyles({
 });
 
 const articleSize = 4;
+console.log(config.articles[0]);
 
 function LatestArticlesSection() {
   const classes = useStyles();
@@ -42,12 +43,22 @@ function LatestArticlesSection() {
       </Grid>
 
       <ArticleCardList>
-        {config.articles.slice(0, articleSize).map(article => (
-          <ArticleCardListItem
-            square
-            width={article[0] === 0 ? '40%' : '60%'}
-            key={article.id}
-          >
+        <ArticleCardListItem square width="40%">
+          {config.articles[0] ? (
+            <ArticleCard
+              squares
+              slug={config.articles[0].slug}
+              subtitle={config.articles[0].subtitle}
+              mediaSrc={config.articles[0].mediaSrc}
+              title={config.articles[0].title}
+              date={config.articles[0].date}
+            />
+          ) : (
+            <null />
+          )}
+        </ArticleCardListItem>
+        <ArticleCardListItem square width="60%">
+          {config.articles.slice(1, articleSize).map(article => (
             <ArticleCard
               squares
               slug={article.slug}
@@ -56,8 +67,8 @@ function LatestArticlesSection() {
               title={article.title}
               date={article.date}
             />
-          </ArticleCardListItem>
-        ))}
+          ))}
+        </ArticleCardListItem>
       </ArticleCardList>
 
       <Button
