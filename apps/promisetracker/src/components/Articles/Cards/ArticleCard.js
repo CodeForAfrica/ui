@@ -88,7 +88,7 @@ function ArticleCard({
   height,
   title,
   description,
-  imgSrc,
+  mediaSrc,
   date,
   subtitle
 }) {
@@ -105,7 +105,11 @@ function ArticleCard({
     <RouterLink className={classes.actionArea} to={`articles/${title}`}>
       <div className={classes.root}>
         <div className={classes.inner}>
-          <img alt="thumbnail" className={classes.image} src={imgSrc} />
+          <img
+            className={classes.image}
+            src={mediaSrc}
+            alt="Article Thumbnail"
+          />
           <Grid
             className={classes.content}
             container
@@ -138,7 +142,7 @@ ArticleCard.propTypes = {
   square: propTypes.bool,
   width: propTypes.oneOfType([propTypes.number, propTypes.string]),
   height: propTypes.oneOfType([propTypes.number, propTypes.string]),
-  imgSrc: propTypes.string.isRequired,
+  mediaSrc: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
   subtitle: propTypes.string.isRequired,
   description: propTypes.string,

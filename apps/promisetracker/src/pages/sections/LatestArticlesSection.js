@@ -13,6 +13,7 @@ import ArticleCardList from '../../components/Articles/Cards/ArticleCardList';
 import ArticleCardListItem from '../../components/Articles/Cards/ArticleCardListItem';
 
 import RouterLink from '../../components/RouterLink';
+
 import config from '../../components/articles';
 
 const useStyles = makeStyles({
@@ -42,11 +43,15 @@ function LatestArticlesSection() {
 
       <ArticleCardList>
         {config.articles.slice(0, articleSize).map(article => (
-          <ArticleCardListItem square width="40%" key={article.id}>
+          <ArticleCardListItem
+            square
+            width={article[0] === 0 ? '40%' : '60%'}
+            key={article.id}
+          >
             <ArticleCard
               squares
               subtitle={article.subtitle}
-              imgSrc={article.mediaSrc}
+              mediaSrc={article.mediaSrc}
               title={article.title}
               date={article.date}
             />
