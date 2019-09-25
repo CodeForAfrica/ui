@@ -21,10 +21,8 @@ const config = {
     {
       index: 2,
       subtitle: 'Report',
-      title:
-        'Was Tehran’s Deputy Governor Fired for Negligence in the Saudi Embassy Mob Incident?',
-      slug:
-        'was-tehran’s-deputy governor-fired-for-negligence-in-the-saudi-embassy-mob-incident',
+      title: 'Was Tehran’s Deputy Governor Fired for Negligence?',
+      slug: 'was-tehran’s-deputy governor-fired-for-negligence',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
       date: '10 Sep 2018'
@@ -41,10 +39,8 @@ const config = {
     {
       index: 4,
       subtitle: 'Fact Check',
-      title:
-        'Fact-Check:Did Rouhani do his part to ensure that Iran’s Majlis 2016 elections are free and fair?',
-      slug:
-        'fact-check-did-rouhani-do-his-part-to-ensure-that-irans-majlis-2016-elections-are-free-and-fair',
+      title: 'Fact-Check:Did Rouhani do his part?',
+      slug: 'fact-check-did-rouhani-do-his-part',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
       date: '17 Aug 2018'
@@ -61,10 +57,8 @@ const config = {
     {
       index: 6,
       subtitle: 'Report',
-      title:
-        'Amano’s Report and the Promise of Greater Transparency in the Nuclear Programme',
-      slug:
-        'amano-report-and-the-promise-of-greater-transparency-in-the-nuclear-programme',
+      title: 'Amano’s Report ',
+      slug: 'amano-report',
       date: 'Dec 10, 2015',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png'

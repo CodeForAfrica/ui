@@ -35,8 +35,8 @@ function Articles({ width, location: { search } }) {
   const renderRows = () => {
     const rows = [];
     for (let i = !articles.offset ? 1 : 0; i < articles.data.length; i += 3) {
-      const rowArticles = articles.data.slice(i).slice(0, 3);
-      const components = rowArticles.map(() => (
+      const rowArticles = articles.data.slice(i).slice(1);
+      const components = rowArticles.map(article => (
         <ArticleCardListItem
           square
           width="calc(100% / 3)"
@@ -48,16 +48,14 @@ function Articles({ width, location: { search } }) {
            */
           enableLastBorder={isWidthUp('md', width) && rowArticles.length !== 3}
         >
-          {articles.data.map(article => (
-            <ArticleCard
-              square
-              slug={article.slug}
-              subtitle={article.subtitle}
-              mediaSrc={article.mediaSrc}
-              title={article.title}
-              date={article.date}
-            />
-          ))}
+          <ArticleCard
+            square
+            height={400}
+            subtitle={article.subtitle}
+            mediaSrc={article.mediaSrc}
+            title={article.title}
+            date={article.date}
+          />
         </ArticleCardListItem>
       ));
       rows.push(
@@ -85,7 +83,7 @@ function Articles({ width, location: { search } }) {
                   height={400}
                   slug={articles.data[0].slug}
                   subtitle={articles.data[0].subtitle}
-                  mediaSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
+                  mediaSrc={articles.data[0].mediaSrc}
                   title={articles.data[0].title}
                   date={articles.data[0].date}
                   description="August 2019 marks the sixth anniversary of Hassan Rouhani’s presidency. His sixth year in office was a difficult one, both for him and for the people of Iran. The economic and political crises that began earlier seem to continue into his seventh year. "

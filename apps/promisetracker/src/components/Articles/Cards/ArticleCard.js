@@ -101,7 +101,7 @@ function ArticleCard({
           <img
             className={classes.image}
             src={mediaSrc}
-            alt="Article Thumbnail"
+            alt="Article Thumbnsail"
           />
           <Grid
             className={classes.content}
