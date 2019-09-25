@@ -29,7 +29,6 @@ const useStyles = makeStyles({
 });
 
 const articleSize = 4;
-console.log(config.articles[0]);
 
 function LatestArticlesSection() {
   const classes = useStyles();
@@ -46,7 +45,7 @@ function LatestArticlesSection() {
         <ArticleCardListItem square width="40%">
           {config.articles[0] ? (
             <ArticleCard
-              squares
+              square
               slug={config.articles[0].slug}
               subtitle={config.articles[0].subtitle}
               mediaSrc={config.articles[0].mediaSrc}

@@ -13,6 +13,7 @@ import ArticleCardListItem from '../components/Articles/Cards/ArticleCardListIte
 import ArticleCard from '../components/Articles/Cards/ArticleCard';
 
 import RouterLink from '../components/RouterLink';
+import config from '../components/articles';
 
 const useStyles = makeStyles({
   root: {},
@@ -28,7 +29,7 @@ function Articles({ width, location: { search } }) {
   const offset = useMemo(() => Number(offsetParam) || 0, [offsetParam]);
   const articles = {
     offset,
-    data: [{}, {}, {}, {}, {}, {}, {}, {}, {}]
+    data: config.articles
   };
 
   const renderRows = () => {
@@ -47,13 +48,16 @@ function Articles({ width, location: { search } }) {
            */
           enableLastBorder={isWidthUp('md', width) && rowArticles.length !== 3}
         >
-          <ArticleCard
-            square
-            height={400}
-            imgSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
-            title="Promise Tracker Annual Report (Executive Summary)"
-            date="2019-09-16T17:53:45.289Z"
-          />
+          {articles.data.map(article => (
+            <ArticleCard
+              square
+              slug={article.slug}
+              subtitle={article.subtitle}
+              mediaSrc={article.mediaSrc}
+              title={article.title}
+              date={article.date}
+            />
+          ))}
         </ArticleCardListItem>
       ));
       rows.push(
@@ -75,14 +79,20 @@ function Articles({ width, location: { search } }) {
         <ArticleCardList>
           {!articles.offset && (
             <ArticleCardListItem>
-              <ArticleCard
-                jumbo
-                height={400}
-                date="2019-09-16T17:53:45.289Z"
-                title="Promise Tracker Annual Report (Executive Summary)"
-                imgSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
-                description="August 2019 marks the sixth anniversary of Hassan Rouhani’s presidency. His sixth year in office was a difficult one, both for him and for the people of Iran. The economic and political crises that began earlier seem to continue into his seventh year. "
-              />
+              {articles.data[0] ? (
+                <ArticleCard
+                  jumbo
+                  height={400}
+                  slug={articles.data[0].slug}
+                  subtitle={articles.data[0].subtitle}
+                  mediaSrc="https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png"
+                  title={articles.data[0].title}
+                  date={articles.data[0].date}
+                  description="August 2019 marks the sixth anniversary of Hassan Rouhani’s presidency. His sixth year in office was a difficult one, both for him and for the people of Iran. The economic and political crises that began earlier seem to continue into his seventh year. "
+                />
+              ) : (
+                <null />
+              )}
             </ArticleCardListItem>
           )}
 
