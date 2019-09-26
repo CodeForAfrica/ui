@@ -22,7 +22,7 @@ const config = {
       index: 2,
       subtitle: 'Report',
       title: 'Was Tehran’s Deputy Governor Fired for Negligence?',
-      slug: 'was-tehran’s-deputy governor-fired-for-negligence',
+      slug: 'was-tehran-deputy-governor-fired-for-negligence',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
       date: '10 Sep 2018'

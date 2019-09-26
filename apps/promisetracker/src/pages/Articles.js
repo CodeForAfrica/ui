@@ -51,6 +51,7 @@ function Articles({ width, location: { search } }) {
           <ArticleCard
             square
             height={400}
+            slug={article.slug}
             subtitle={article.subtitle}
             mediaSrc={article.mediaSrc}
             title={article.title}

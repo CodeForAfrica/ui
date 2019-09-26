@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 
-import articleHeaderImage from '../../../assets/images/articles/article.png';
+import propTypes from '../../../propTypes';
 
 const useStyles = makeStyles({
   img: {
@@ -11,22 +11,30 @@ const useStyles = makeStyles({
   }
 });
 
-function Article() {
+function ArticleHeaderSection({ subtitle, date, title, mediaSrc }) {
   const classes = useStyles();
   return (
     <Grid item>
-      <img alt="headerImage" className={classes.img} src={articleHeaderImage} />
+      <img alt="Header Thumbnail" className={classes.img} src={mediaSrc} />
       <Typography variant="h5" paragraph="true">
-        Report
+        {subtitle}
       </Typography>
       <Typography variant="h4" paragraph="true">
-        Rouhani Meter Report(Executive Summary)
+        {title}
       </Typography>
       <Typography variant="caption" paragraph="true">
-        August 3rd 2019
+        {date}
       </Typography>
     </Grid>
   );
 }
 
-export default Article;
+ArticleHeaderSection.propTypes = {
+  mediaSrc: propTypes.string.isRequired,
+  title: propTypes.string.isRequired,
+  subtitle: propTypes.string.isRequired,
+  date: propTypes.oneOfType([propTypes.string, propTypes.instanceOf(Date)])
+    .isRequired
+};
+
+export default ArticleHeaderSection;

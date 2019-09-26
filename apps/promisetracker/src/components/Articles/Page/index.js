@@ -3,17 +3,34 @@ import { Grid, makeStyles } from '@material-ui/core';
 
 import Layout from '../../Layout';
 import Page from '../../Page';
-import Article from './Article';
-import ArticleSideBar from './ArticleSideBar';
 
-const useStyles = makeStyles({
+import ArticleHeaderSection from './ArticleSections/ArticleHeaderSection';
+import ArticleBodyCopy from './ArticleSections/ArticleBodyCopy';
+import ArticleSocialMedia from './ArticleSections/ArticleSocialMedia';
+import ArticleContribute from './ArticleSections/ArticleContribute';
+import config from '../../articles';
+
+const useStyles = makeStyles(theme => ({
   root: {
     padding: '4rem 0'
+  },
+  articleGrid: {
+    borderRight: 0,
+    [theme.breakpoints.up('md')]: {
+      borderRight: '1px solid #e6e6e6'
+    }
   }
-});
+}));
+
+const pageURL = window.location.href;
+const lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1);
+console.log(lastURLSegment);
 
 function ArticlePage() {
   const classes = useStyles();
+  const getItems = config.articles.find(
+    article => article.slug === lastURLSegment
+  );
   return (
     <Page>
       <Layout>
@@ -25,8 +42,18 @@ function ArticlePage() {
           alignItems="flex-start"
           className={classes.root}
         >
-          <Article />
-          <ArticleSideBar />
+          <Grid item xs={12} md={8} spacing={8} className={classes.articleGrid}>
+            <ArticleHeaderSection
+              title={getItems.title}
+              subtitle={getItems.subtitle}
+              mediaSrc={getItems.mediaSrc}
+            />
+            <ArticleSocialMedia />
+            <ArticleBodyCopy />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <ArticleContribute />
+          </Grid>
         </Grid>
       </Layout>
     </Page>

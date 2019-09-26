@@ -5,7 +5,6 @@ import { Typography, Grid } from '@material-ui/core';
 import propTypes from '../../propTypes';
 
 import RouterLink from '../../RouterLink';
-import '../../articles';
 
 const useStyles = makeStyles(theme => ({
   root: ({ width, height, square }) => ({
@@ -94,6 +93,7 @@ function ArticleCard({
   slug
 }) {
   const classes = useStyles({ width, height, jumbo, square });
+
   return (
     <RouterLink className={classes.actionArea} to={`articles/${slug}`}>
       <div className={classes.root}>
