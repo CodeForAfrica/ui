@@ -24,13 +24,13 @@ const useStyles = makeStyles(theme => ({
 
 const pageURL = window.location.href;
 const lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1);
-console.log(lastURLSegment);
 
 function ArticlePage() {
   const classes = useStyles();
   const getItems = config.articles.find(
     article => article.slug === lastURLSegment
   );
+  console.log(getItems);
   return (
     <Page>
       <Layout>
@@ -49,7 +49,7 @@ function ArticlePage() {
               mediaSrc={getItems.mediaSrc}
             />
             <ArticleSocialMedia />
-            <ArticleBodyCopy />
+            <ArticleBodyCopy content={getItems.content} />
           </Grid>
           <Grid item xs={12} md={4}>
             <ArticleContribute />

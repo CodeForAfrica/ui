@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/promises" component={Promises} />
           <Route exact path="/promises/:slug" component={PromisePage} />
           <Route exact path="/articles" component={Articles} />
-          <Route exact path="/articles/:title" component={ArticlePage} />
+          <Route exact path="/articles/:slug" component={ArticlePage} />
           <Route exact path="/about" component={About} />
           <Route component={NotFound} />
         </Switch>
