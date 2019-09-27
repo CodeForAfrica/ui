@@ -72,6 +72,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   actionArea: {
+    display: 'inline-block',
     '&:hover': {
       color: 'unset',
       '& h2': {
