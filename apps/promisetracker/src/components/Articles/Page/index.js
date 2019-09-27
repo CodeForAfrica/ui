@@ -31,7 +31,6 @@ function ArticlePage() {
   const getItems = config.articles.find(
     article => article.slug === lastURLSegment
   );
-  console.log(getItems);
   return (
     <Page>
       <Layout>
@@ -50,7 +49,11 @@ function ArticlePage() {
               mediaSrc={getItems.mediaSrc}
             />
             <ArticleSocialMedia />
-            <ArticleBodyCopy content={getItems.content} />
+            <ArticleBodyCopy
+              first={getItems.content.first}
+              middle={getItems.content.middle}
+              end={getItems.content.end}
+            />
             <Grid item>
               <ArticleNav
                 previous={{

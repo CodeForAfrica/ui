@@ -1,3 +1,4 @@
+/* eslint no-irregular-whitespace: "error" */
 const config = {
   articles: [
     {
@@ -5,29 +6,18 @@ const config = {
       subtitle: 'Report',
       title: 'Rouhani Meter Annual Report (Executive Summary)',
       slug: 'rouhani-meter-annual-report',
-      date: '05 Apr 2019',
+
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      content: `
-        < p> One of the biggest challenges that small businesses face is content creation.
-          Often, business owners don&#8217; t know what content they need on their site
-   or how to write it. </p>
-
-  <p>In the guide below, I break down content creation into manageable chunks including:</p>
-
-
-
-  <ul><li>Must-have pages</li><li>Optional pages</li><li>And what to include on each page</li></ul>
-
-
-
-  <p>This easy-to-use framework will remove the guesswork and uncertainty so that you can finally
-finish your content.</p>
-
-
-
-  <p><a class="elementor-button-link elementor-button elementor-size-md blog-post-button" rel="noopener noreferrer" href="https://docs.google.com/document/d/1gFoVAFofzvo5ioy9voBtARw98BjUFGPN0iLPeyDcL08/edit?usp=sharing" target="_blank">Get the content creation guide (one-click)</a></p>
-`
+      date: '05 August 2019',
+      content: {
+        first:
+          'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
+        middle:
+          'Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.17 promises are currently rated “In Progress”. However if the past year is of any indication, we should expect more promises to be colored red, indicating that they are “Not Achieved”',
+        end:
+          'Last year, among the economic promises listed on Rouhani Meter, there were no promises rated “Not Achieved”. However, within a year, a third of those promises have been coloured red (indicating their failure) on the website.Under Foreign Policy, two promises that were previously “Achieved” have seen their ratings lowered. Under the Socio-cultural category, three promises were added to the category’s “Not Achieved” promises.'
+      }
     },
     {
       index: 1,
@@ -36,27 +26,15 @@ finish your content.</p>
       slug: 'rouhani-Meter-3.0',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      date: '19 Sep 2018',
-      content: `
-        < p> One of the biggest challenges that small businesses face is content creation.
-          Often, business owners don&#8217; t know what content they need on their site
-   or how to write it. </p>
-
-  <p>In the guide below, I break down content creation into manageable chunks including:</p>
-
-
-
-  <ul><li>Must-have pages</li><li>Optional pages</li><li>And what to include on each page</li></ul>
-
-
-
-  <p>This easy-to-use framework will remove the guesswork and uncertainty so that you can finally
-finish your content.</p>
-
-
-
-  <p><a class="elementor-button-link elementor-button elementor-size-md blog-post-button" rel="noopener noreferrer" href="https://docs.google.com/document/d/1gFoVAFofzvo5ioy9voBtARw98BjUFGPN0iLPeyDcL08/edit?usp=sharing" target="_blank">Get the content creation guide (one-click)</a></p>
-`
+      date: '19 July 2018',
+      content: {
+        first:
+          'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
+        middle:
+          'Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.17 promises are currently rated “In Progress”. However if the past year is of any indication, we should expect more promises to be colored red, indicating that they are “Not Achieved”',
+        end:
+          'Last year, among the economic promises listed on Rouhani Meter, there were no promises rated “Not Achieved”. However, within a year, a third of those promises have been coloured red (indicating their failure) on the website.Under Foreign Policy, two promises that were previously “Achieved” have seen their ratings lowered. Under the Socio-cultural category, three promises were added to the category’s “Not Achieved” promises.'
+      }
     },
     {
       index: 2,
@@ -65,27 +43,15 @@ finish your content.</p>
       slug: 'was-tehran-deputy-governor-fired-for-negligence',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      date: '10 Sep 2018',
-      content: `
-        < p> One of the biggest challenges that small businesses face is content creation.
-          Often, business owners don&#8217; t know what content they need on their site
-   or how to write it. </p>
-
-  <p>In the guide below, I break down content creation into manageable chunks including:</p>
-
-
-
-  <ul><li>Must-have pages</li><li>Optional pages</li><li>And what to include on each page</li></ul>
-
-
-
-  <p>This easy-to-use framework will remove the guesswork and uncertainty so that you can finally
-finish your content.</p>
-
-
-
-  <p><a class="elementor-button-link elementor-button elementor-size-md blog-post-button" rel="noopener noreferrer" href="https://docs.google.com/document/d/1gFoVAFofzvo5ioy9voBtARw98BjUFGPN0iLPeyDcL08/edit?usp=sharing" target="_blank">Get the content creation guide (one-click)</a></p>
-`
+      date: '10 June 2018',
+      content: {
+        first:
+          'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
+        middle:
+          'Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.17 promises are currently rated “In Progress”. However if the past year is of any indication, we should expect more promises to be colored red, indicating that they are “Not Achieved”',
+        end:
+          'Last year, among the economic promises listed on Rouhani Meter, there were no promises rated “Not Achieved”. However, within a year, a third of those promises have been coloured red (indicating their failure) on the website.Under Foreign Policy, two promises that were previously “Achieved” have seen their ratings lowered. Under the Socio-cultural category, three promises were added to the category’s “Not Achieved” promises.'
+      }
     },
     {
       index: 3,
@@ -94,27 +60,15 @@ finish your content.</p>
       slug: 'rouhani-meter-visual-qualitative-analysis-report',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      date: '22 Aug 2018',
-      content: `
-        < p> One of the biggest challenges that small businesses face is content creation.
-          Often, business owners don&#8217; t know what content they need on their site
-   or how to write it. </p>
-
-  <p>In the guide below, I break down content creation into manageable chunks including:</p>
-
-
-
-  <ul><li>Must-have pages</li><li>Optional pages</li><li>And what to include on each page</li></ul>
-
-
-
-  <p>This easy-to-use framework will remove the guesswork and uncertainty so that you can finally
-finish your content.</p>
-
-
-
-  <p><a class="elementor-button-link elementor-button elementor-size-md blog-post-button" rel="noopener noreferrer" href="https://docs.google.com/document/d/1gFoVAFofzvo5ioy9voBtARw98BjUFGPN0iLPeyDcL08/edit?usp=sharing" target="_blank">Get the content creation guide (one-click)</a></p>
-`
+      date: '22 May 2019',
+      content: {
+        first:
+          'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
+        middle:
+          'Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.17 promises are currently rated “In Progress”. However if the past year is of any indication, we should expect more promises to be colored red, indicating that they are “Not Achieved”',
+        end:
+          'Last year, among the economic promises listed on Rouhani Meter, there were no promises rated “Not Achieved”. However, within a year, a third of those promises have been coloured red (indicating their failure) on the website.Under Foreign Policy, two promises that were previously “Achieved” have seen their ratings lowered. Under the Socio-cultural category, three promises were added to the category’s “Not Achieved” promises.'
+      }
     },
     {
       index: 4,
@@ -123,27 +77,15 @@ finish your content.</p>
       slug: 'fact-check-did-rouhani-do-his-part',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      date: '17 Aug 2018',
-      content: `
-        < p> One of the biggest challenges that small businesses face is content creation.
-          Often, business owners don&#8217; t know what content they need on their site
-   or how to write it. </p>
-
-  <p>In the guide below, I break down content creation into manageable chunks including:</p>
-
-
-
-  <ul><li>Must-have pages</li><li>Optional pages</li><li>And what to include on each page</li></ul>
-
-
-
-  <p>This easy-to-use framework will remove the guesswork and uncertainty so that you can finally
-finish your content.</p>
-
-
-
-  <p><a class="elementor-button-link elementor-button elementor-size-md blog-post-button" rel="noopener noreferrer" href="https://docs.google.com/document/d/1gFoVAFofzvo5ioy9voBtARw98BjUFGPN0iLPeyDcL08/edit?usp=sharing" target="_blank">Get the content creation guide (one-click)</a></p>
-`
+      date: '17 Sept 2019',
+      content: {
+        first:
+          'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
+        middle:
+          'Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.17 promises are currently rated “In Progress”. However if the past year is of any indication, we should expect more promises to be colored red, indicating that they are “Not Achieved”',
+        end:
+          'Last year, among the economic promises listed on Rouhani Meter, there were no promises rated “Not Achieved”. However, within a year, a third of those promises have been coloured red (indicating their failure) on the website.Under Foreign Policy, two promises that were previously “Achieved” have seen their ratings lowered. Under the Socio-cultural category, three promises were added to the category’s “Not Achieved” promises.'
+      }
     },
     {
       index: 5,
@@ -153,55 +95,32 @@ finish your content.</p>
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
       date: '06 Aug 2018',
-      content: `
-        < p> One of the biggest challenges that small businesses face is content creation.
-          Often, business owners don&#8217; t know what content they need on their site
-   or how to write it. </p>
-
-  <p>In the guide below, I break down content creation into manageable chunks including:</p>
-
-
-
-  <ul><li>Must-have pages</li><li>Optional pages</li><li>And what to include on each page</li></ul>
-
-
-
-  <p>This easy-to-use framework will remove the guesswork and uncertainty so that you can finally
-finish your content.</p>
-
-
-
-  <p><a class="elementor-button-link elementor-button elementor-size-md blog-post-button" rel="noopener noreferrer" href="https://docs.google.com/document/d/1gFoVAFofzvo5ioy9voBtARw98BjUFGPN0iLPeyDcL08/edit?usp=sharing" target="_blank">Get the content creation guide (one-click)</a></p>
-`
+      content: {
+        first:
+          'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
+        middle:
+          'Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.17 promises are currently rated “In Progress”. However if the past year is of any indication, we should expect more promises to be colored red, indicating that they are “Not Achieved”',
+        end:
+          'Last year, among the economic promises listed on Rouhani Meter, there were no promises rated “Not Achieved”. However, within a year, a third of those promises have been coloured red (indicating their failure) on the website.Under Foreign Policy, two promises that were previously “Achieved” have seen their ratings lowered. Under the Socio-cultural category, three promises were added to the category’s “Not Achieved” promises.'
+      }
     },
     {
       index: 6,
       subtitle: 'Report',
       title: 'Amano’s Report ',
       slug: 'amano-report',
-      date: 'Dec 10, 2015',
+
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      content: `
-        < p> One of the biggest challenges that small businesses face is content creation.
-          Often, business owners don&#8217; t know what content they need on their site
-   or how to write it. </p>
-
-  <p>In the guide below, I break down content creation into manageable chunks including:</p>
-
-
-
-  <ul><li>Must-have pages</li><li>Optional pages</li><li>And what to include on each page</li></ul>
-
-
-
-  <p>This easy-to-use framework will remove the guesswork and uncertainty so that you can finally
-finish your content.</p>
-
-
-
-  <p><a class="elementor-button-link elementor-button elementor-size-md blog-post-button" rel="noopener noreferrer" href="https://docs.google.com/document/d/1gFoVAFofzvo5ioy9voBtARw98BjUFGPN0iLPeyDcL08/edit?usp=sharing" target="_blank">Get the content creation guide (one-click)</a></p>
-`
+      date: 'Feb 4, 2018',
+      content: {
+        first:
+          'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
+        middle:
+          'Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.17 promises are currently rated “In Progress”. However if the past year is of any indication, we should expect more promises to be colored red, indicating that they are “Not Achieved”',
+        end:
+          'Last year, among the economic promises listed on Rouhani Meter, there were no promises rated “Not Achieved”. However, within a year, a third of those promises have been coloured red (indicating their failure) on the website.Under Foreign Policy, two promises that were previously “Achieved” have seen their ratings lowered. Under the Socio-cultural category, three promises were added to the category’s “Not Achieved” promises.'
+      }
     }
   ]
 };
