@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  makeStyles,
-  Typography,
-  Divider,
-  Button,
-  Grid
-} from '@material-ui/core';
+import { makeStyles, Typography, Button, Grid } from '@material-ui/core';
 import Layout from '../../components/Layout';
 
 import ArticleCard from '../../components/Articles/Cards/ArticleCard';
@@ -36,7 +30,6 @@ function LatestArticlesSection() {
           <Typography className={classes.sectionTitle} variant="h2">
             Latest Articles
           </Typography>
-          <Divider />
         </Grid>
 
         <Grid item>

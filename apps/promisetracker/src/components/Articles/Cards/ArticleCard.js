@@ -17,9 +17,11 @@ const useStyles = makeStyles(theme => ({
   }),
   inner: ({ width, height, square }) => ({
     display: 'flex',
-    width: '100%',
+    maxWidth: '100%',
     height: '11rem',
     flexDirection: 'row',
+    width: '30rem',
+    borderTop: '0.0625rem solid rgb(209, 209, 209)',
     [theme.breakpoints.up('md')]: {
       flexDirection: square ? 'column' : 'row',
       width: width || '100%',

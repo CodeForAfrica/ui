@@ -22,7 +22,6 @@ const useStyles = makeStyles(theme => ({
       left: !square ? 0 : undefined,
       margin: '0 auto',
       width: 'calc(100% - 2rem)',
-      borderBottom: '0.0625rem solid rgb(209, 209, 209)',
       [theme.breakpoints.up('md')]: {
         width: !square ? 'calc(100% - 2rem)' : 'unset',
         height: square ? 'calc(100% - 2rem)' : 'unset',
