@@ -6,7 +6,7 @@ import ArticleCardList from './ArticleCardList';
 const useStyles = makeStyles(theme => ({
   root: ({ enableLastBorder, square, width, height }) => ({
     width: '100%',
-    height: '11rem',
+    minHeight: '11rem',
     [theme.breakpoints.up('md')]: {
       width: width || 'unset',
       height: height || 'unset'

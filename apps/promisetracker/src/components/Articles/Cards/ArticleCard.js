@@ -34,7 +34,8 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
-      width: '8rem'
+      width: '10rem',
+      height: '11rem'
     },
     [theme.breakpoints.up('md')]: {
       height: square ? '75%' : '100%',
