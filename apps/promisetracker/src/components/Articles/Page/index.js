@@ -8,6 +8,7 @@ import ArticleHeaderSection from './ArticleSections/ArticleHeaderSection';
 import ArticleBodyCopy from './ArticleSections/ArticleBodyCopy';
 import ArticleSocialMedia from './ArticleSections/ArticleSocialMedia';
 import ArticleContribute from './ArticleSections/ArticleContribute';
+import ArticleNav from './ArticleSections/ArticleNav';
 import config from '../../articles';
 
 const useStyles = makeStyles(theme => ({
@@ -50,6 +51,20 @@ function ArticlePage() {
             />
             <ArticleSocialMedia />
             <ArticleBodyCopy content={getItems.content} />
+            <Grid item>
+              <ArticleNav
+                previous={{
+                  href:
+                    '/articles/rouhani-meter-visual-qualitative-analysis-report',
+                  label: 'Rouhani Meter Visual Qualitative Analysis Report.'
+                }}
+                next={{
+                  href:
+                    '/articles/was-tehran-deputy-governor-fired-for-negligence',
+                  label: 'Was Tehran’s Deputy Governor Fired for Negligence'
+                }}
+              />
+            </Grid>
           </Grid>
           <Grid item xs={12} md={4}>
             <ArticleContribute />
