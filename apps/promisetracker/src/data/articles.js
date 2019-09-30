@@ -1,5 +1,5 @@
 /* eslint no-irregular-whitespace: "error" */
-const config = {
+const data = {
   articles: [
     {
       index: 0,
@@ -125,4 +125,4 @@ const config = {
   ]
 };
 
-export default config;
+export default data;

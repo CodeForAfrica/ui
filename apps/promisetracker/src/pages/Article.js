@@ -1,15 +1,17 @@
 import React from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
 
-import Layout from '../../Layout';
-import Page from '../../Page';
+import propTypes from '../components/propTypes';
+import Layout from '../components/Layout';
+import Page from '../components/Page';
 
-import ArticleHeaderSection from './ArticleSections/ArticleHeaderSection';
-import ArticleBodyCopy from './ArticleSections/ArticleBodyCopy';
-import ArticleSocialMedia from './ArticleSections/ArticleSocialMedia';
-import ArticleContribute from './ArticleSections/ArticleContribute';
-import ArticleNav from './ArticleSections/ArticleNav';
-import config from '../../articles';
+import data from '../data/articles';
+
+import ArticleHeaderSection from '../components/Articles/Page/ArticleHeaderSection';
+import ArticleBodyCopy from '../components/Articles/Page/ArticleBodyCopy';
+import ArticleSocialMedia from '../components/Articles/Page/ArticleSocialMedia';
+import ArticleContribute from '../components/Articles/Page/ArticleContribute';
+import ArticleNav from '../components/Articles/Page/ArticleNav';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,14 +25,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const pageURL = window.location.href;
-const lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1);
-
-function ArticlePage() {
+function Article({
+  match: {
+    params: { slug }
+  }
+}) {
   const classes = useStyles();
-  const getItems = config.articles.find(
-    article => article.slug === lastURLSegment
-  );
+
+  const getItems = data.articles.find(article => article.slug === slug);
   return (
     <Page>
       <Layout>
@@ -78,4 +80,8 @@ function ArticlePage() {
   );
 }
 
-export default ArticlePage;
+Article.propTypes = {
+  match: propTypes.match.isRequired
+};
+
+export default Article;

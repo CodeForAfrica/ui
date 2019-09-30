@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 
-import propTypes from '../../../propTypes';
+import propTypes from '../../propTypes';
 
 const useStyles = makeStyles({
   img: {

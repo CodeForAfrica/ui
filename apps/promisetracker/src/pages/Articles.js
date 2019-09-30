@@ -13,7 +13,8 @@ import ArticleCardListItem from '../components/Articles/Cards/ArticleCardListIte
 import ArticleCard from '../components/Articles/Cards/ArticleCard';
 
 import RouterLink from '../components/RouterLink';
-import config from '../components/articles';
+
+import data from '../data/articles';
 
 const useStyles = makeStyles({
   root: {},
@@ -29,7 +30,7 @@ function Articles({ width, location: { search } }) {
   const offset = useMemo(() => Number(offsetParam) || 0, [offsetParam]);
   const articles = {
     offset,
-    data: config.articles
+    data: data.articles
   };
 
   const renderRows = () => {

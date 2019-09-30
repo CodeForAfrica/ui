@@ -4,8 +4,8 @@ import { Grid, Typography, makeStyles } from '@material-ui/core';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 
-import RouterLink from '../../../RouterLink';
-import propTypes from '../../../propTypes';
+import RouterLink from '../../RouterLink';
+import propTypes from '../../propTypes';
 
 const useStyles = makeStyles({
   root: {

@@ -8,7 +8,7 @@ import ArticleCardListItem from '../../components/Articles/Cards/ArticleCardList
 
 import RouterLink from '../../components/RouterLink';
 
-import config from '../../components/articles';
+import data from '../../data/articles';
 
 const useStyles = makeStyles({
   sectionTitle: {
@@ -35,21 +35,21 @@ function LatestArticlesSection() {
         <Grid item>
           <ArticleCardList>
             <ArticleCardListItem square width="40%">
-              {config.articles[0] ? (
+              {data.articles[0] ? (
                 <ArticleCard
                   square
-                  slug={config.articles[0].slug}
-                  subtitle={config.articles[0].subtitle}
-                  mediaSrc={config.articles[0].mediaSrc}
-                  title={config.articles[0].title}
-                  date={config.articles[0].date}
+                  slug={data.articles[0].slug}
+                  subtitle={data.articles[0].subtitle}
+                  mediaSrc={data.articles[0].mediaSrc}
+                  title={data.articles[0].title}
+                  date={data.articles[0].date}
                 />
               ) : (
                 <null />
               )}
             </ArticleCardListItem>
             <ArticleCardListItem square width="60%">
-              {config.articles.slice(1, articleSize).map(article => (
+              {data.articles.slice(1, articleSize).map(article => (
                 <ArticleCard
                   squares
                   slug={article.slug}

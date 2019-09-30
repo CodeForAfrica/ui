@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '100%',
     height: '11rem',
     flexDirection: 'row',
-    width: '30rem',
+    width: '100%',
     borderTop: '0.0625rem solid rgb(209, 209, 209)',
     [theme.breakpoints.up('md')]: {
       flexDirection: square ? 'column' : 'row',
