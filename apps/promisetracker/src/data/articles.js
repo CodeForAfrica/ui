@@ -6,10 +6,9 @@ const data = {
       subtitle: 'Report',
       title: 'Rouhani Meter Annual Report (Executive Summary)',
       slug: 'rouhani-meter-annual-report',
-
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      date: '05 August 2019',
+      date: '2019-09-16T17:53:45.289Z',
       content: {
         first:
           'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
@@ -26,7 +25,7 @@ const data = {
       slug: 'rouhani-Meter-3.0',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      date: '19 July 2018',
+      date: '2019-02-25T17:53:45.289Z',
       content: {
         first:
           'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
@@ -43,7 +42,7 @@ const data = {
       slug: 'was-tehran-deputy-governor-fired-for-negligence',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      date: '10 June 2018',
+      date: '2019-09-16T17:53:45.289Z',
       content: {
         first:
           'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
@@ -60,7 +59,7 @@ const data = {
       slug: 'rouhani-meter-visual-qualitative-analysis-report',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      date: '22 May 2019',
+      date: '2019-06-11T17:53:45.289Z',
       content: {
         first:
           'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
@@ -77,7 +76,7 @@ const data = {
       slug: 'fact-check-did-rouhani-do-his-part',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      date: '17 Sept 2019',
+      date: '2019-09-16T17:53:45.289Z',
       content: {
         first:
           'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
@@ -94,7 +93,7 @@ const data = {
       slug: 'rouhani-meter-second-year-report',
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      date: '06 Aug 2018',
+      date: '2019-04-23T17:53:45.289Z',
       content: {
         first:
           'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',
@@ -112,7 +111,7 @@ const data = {
 
       mediaSrc:
         'https://rouhanimeter.com/rm-media/uploads/RM-report-2019-header-800x546-1-600x410.png',
-      date: 'Feb 4, 2018',
+      date: '2019-07-10T17:53:45.289Z',
       content: {
         first:
           'Five years have passed since President Hassan Rouhani first took office. The status of his (and his cabinet’s) 100 promises on Rouhani Meter paints a clear picture of his performance up until now.Rouhani Meter’s most recent updates indicate that more than half of the promises have not been fulfilled. 10% have been rated “Inactive”, 10% are “Stalled” and 33% are rated “Not Achieved”.Approximately 30% are successful promises and those with partial achievements: 20 promises have been rated “Achieved” and 10 as “Compromised”.',

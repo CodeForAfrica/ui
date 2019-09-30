@@ -92,12 +92,19 @@ function ArticleCard({
   title,
   description,
   mediaSrc,
-  date,
   subtitle,
-  slug
+  slug,
+  date
 }) {
   const classes = useStyles({ width, height, jumbo, square });
-
+  const dateObj = typeof date === 'string' ? new Date(date) : date;
+  const formattedDate = dateObj
+    .toLocaleString('en-GB', {
+      month: 'short',
+      year: 'numeric',
+      day: '2-digit'
+    })
+    .toString();
   return (
     <RouterLink className={classes.actionArea} to={`articles/${slug}`}>
       <div className={classes.root}>
@@ -125,7 +132,7 @@ function ArticleCard({
               )}
             </Grid>
             <Grid item>
-              <Typography variant="body2">{date}</Typography>
+              <Typography variant="body2">{formattedDate}</Typography>
             </Grid>
           </Grid>
         </div>
