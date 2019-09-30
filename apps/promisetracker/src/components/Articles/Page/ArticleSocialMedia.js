@@ -30,38 +30,22 @@ function ArticleSocialMedia() {
           <Typography variant="body1">Share :</Typography>
         </Grid>
         <Grid item>
-          <A
-            href="https://www.facebook.com/AfricanCIR/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <A href="https://www.facebook.com/AfricanCIR/">
             <Facebook className={classes.icon} />
           </A>
         </Grid>
         <Grid item>
-          <A
-            href="https://www.instagram.com/explore/tags/onsgrond/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <A href="https://www.instagram.com/explore/tags/onsgrond/">
             <Instagram className={classes.icon} />
           </A>
         </Grid>
         <Grid item>
-          <A
-            href="https://twitter.com/africancir"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <A href="https://twitter.com/africancir">
             <Twitter className={classes.icon} />
           </A>
         </Grid>
         <Grid item>
-          <A
-            href="https://twitter.com/africancir"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <A href="https://twitter.com/africancir">
             <Send className={classes.icon} />
           </A>
         </Grid>
