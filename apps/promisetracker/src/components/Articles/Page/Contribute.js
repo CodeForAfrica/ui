@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function ContributeSection() {
+function Contribute() {
   const classes = useStyles();
   const [submitted, setSubmitted] = useState(false);
 
@@ -113,4 +113,4 @@ function ContributeSection() {
   );
 }
 
-export default ContributeSection;
+export default Contribute;

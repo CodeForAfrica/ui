@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   typo: { padding: '0.5rem 0' }
 });
 
-function ArticleBodyCopy({ first, middle, end }) {
+function Content({ first, middle, end }) {
   const classes = useStyles();
   return (
     <Grid item className={classes.root}>
@@ -30,10 +30,10 @@ function ArticleBodyCopy({ first, middle, end }) {
   );
 }
 
-ArticleBodyCopy.propTypes = {
+Content.propTypes = {
   first: propTypes.string.isRequired,
   middle: propTypes.string.isRequired,
   end: propTypes.string.isRequired
 };
 
-export default ArticleBodyCopy;
+export default Content;

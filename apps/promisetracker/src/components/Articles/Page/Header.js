@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   }
 });
 
-function ArticleHeaderSection({ subtitle, date, title, mediaSrc }) {
+function Header({ subtitle, date, title, mediaSrc }) {
   const classes = useStyles();
   return (
     <Grid item>
@@ -29,7 +29,7 @@ function ArticleHeaderSection({ subtitle, date, title, mediaSrc }) {
   );
 }
 
-ArticleHeaderSection.propTypes = {
+Header.propTypes = {
   mediaSrc: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
   subtitle: propTypes.string.isRequired,
@@ -37,4 +37,4 @@ ArticleHeaderSection.propTypes = {
     .isRequired
 };
 
-export default ArticleHeaderSection;
+export default Header;

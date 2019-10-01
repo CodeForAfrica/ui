@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   }
 });
 
-function ArticleSocialMedia() {
+function ContentSocialMedia() {
   const classes = useStyles();
   return (
     <div>
@@ -55,4 +55,4 @@ function ArticleSocialMedia() {
   );
 }
 
-export default ArticleSocialMedia;
+export default ContentSocialMedia;

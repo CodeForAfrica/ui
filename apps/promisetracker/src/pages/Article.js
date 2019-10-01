@@ -7,11 +7,11 @@ import Page from '../components/Page';
 
 import data from '../data/articles';
 
-import ArticleHeaderSection from '../components/Articles/Page/ArticleHeaderSection';
-import ArticleBodyCopy from '../components/Articles/Page/ArticleBodyCopy';
-import ArticleSocialMedia from '../components/Articles/Page/ArticleSocialMedia';
-import ArticleContribute from '../components/Articles/Page/ArticleContribute';
-import ArticleNav from '../components/Articles/Page/ArticleNav';
+import Header from '../components/Articles/Page/Header';
+import Content from '../components/Articles/Page/Content';
+import ContentSocialMedia from '../components/Articles/Page/ContentSocialMedia';
+import Contribute from '../components/Articles/Page/Contribute';
+import Nav from '../components/Articles/Page/Nav';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -45,19 +45,19 @@ function Article({
           className={classes.root}
         >
           <Grid item xs={12} md={8} spacing={8} className={classes.articleGrid}>
-            <ArticleHeaderSection
+            <Header
               title={getItems.title}
               subtitle={getItems.subtitle}
               mediaSrc={getItems.mediaSrc}
             />
-            <ArticleSocialMedia />
-            <ArticleBodyCopy
+            <ContentSocialMedia />
+            <Content
               first={getItems.content.first}
               middle={getItems.content.middle}
               end={getItems.content.end}
             />
             <Grid item>
-              <ArticleNav
+              <Nav
                 previous={{
                   href:
                     '/articles/rouhani-meter-visual-qualitative-analysis-report',
@@ -72,7 +72,7 @@ function Article({
             </Grid>
           </Grid>
           <Grid item xs={12} md={4}>
-            <ArticleContribute />
+            <Contribute />
           </Grid>
         </Grid>
       </Layout>
