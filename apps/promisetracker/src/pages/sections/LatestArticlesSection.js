@@ -24,55 +24,53 @@ const articleSize = 4;
 function LatestArticlesSection() {
   const classes = useStyles();
   return (
-    <Grid container>
-      <Layout justify="center">
-        <Grid item xs={12}>
-          <Typography className={classes.sectionTitle} variant="h2">
-            Latest Articles
-          </Typography>
-        </Grid>
+    <Layout justify="center">
+      <Grid item xs={12}>
+        <Typography className={classes.sectionTitle} variant="h2">
+          Latest Articles
+        </Typography>
+      </Grid>
 
-        <Grid item>
-          <ArticleCardList>
-            <ArticleCardListItem square width="40%">
-              {data.articles[0] ? (
-                <ArticleCard
-                  square
-                  slug={data.articles[0].slug}
-                  subtitle={data.articles[0].subtitle}
-                  mediaSrc={data.articles[0].mediaSrc}
-                  title={data.articles[0].title}
-                  date={data.articles[0].date}
-                />
-              ) : (
-                <null />
-              )}
-            </ArticleCardListItem>
-            <ArticleCardListItem square width="60%">
-              {data.articles.slice(1, articleSize).map(article => (
-                <ArticleCard
-                  squares
-                  slug={article.slug}
-                  subtitle={article.subtitle}
-                  mediaSrc={article.mediaSrc}
-                  title={article.title}
-                  date={article.date}
-                />
-              ))}
-            </ArticleCardListItem>
-          </ArticleCardList>
-        </Grid>
+      <Grid item>
+        <ArticleCardList>
+          <ArticleCardListItem square width="40%">
+            {data.articles[0] ? (
+              <ArticleCard
+                square
+                slug={data.articles[0].slug}
+                subtitle={data.articles[0].subtitle}
+                mediaSrc={data.articles[0].mediaSrc}
+                title={data.articles[0].title}
+                date={data.articles[0].date}
+              />
+            ) : (
+              <null />
+            )}
+          </ArticleCardListItem>
+          <ArticleCardListItem square width="60%">
+            {data.articles.slice(1, articleSize).map(article => (
+              <ArticleCard
+                squares
+                slug={article.slug}
+                subtitle={article.subtitle}
+                mediaSrc={article.mediaSrc}
+                title={article.title}
+                date={article.date}
+              />
+            ))}
+          </ArticleCardListItem>
+        </ArticleCardList>
+      </Grid>
 
-        <Button
-          classes={{ root: classes.readMore }}
-          component={RouterLink}
-          to="/articles"
-          color="primary"
-        >
-          READ MORE
-        </Button>
-      </Layout>
-    </Grid>
+      <Button
+        classes={{ root: classes.readMore }}
+        component={RouterLink}
+        to="/articles"
+        color="primary"
+      >
+        READ MORE
+      </Button>
+    </Layout>
   );
 }
 
