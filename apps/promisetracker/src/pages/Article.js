@@ -7,11 +7,11 @@ import Page from '../components/Page';
 
 import data from '../data/articles';
 
-import Header from '../components/Articles/Page/Header';
-import Content from '../components/Articles/Page/Content';
-import ContentSocialMedia from '../components/Articles/Page/ContentSocialMedia';
-import Contribute from '../components/Articles/Page/Contribute';
-import Nav from '../components/Articles/Page/Nav';
+import Header from '../components/Articles/Header';
+import Content from '../components/Articles/Content';
+import ContentSocialMedia from '../components/Articles/ContentSocialMedia';
+import Contribute from '../components/Articles/Contribute';
+import Nav from '../components/Articles/Nav';
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -4,7 +4,7 @@ import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { Facebook, Instagram, Twitter, Send } from 'react-feather';
 import Divider from '@material-ui/core/Divider';
 
-import A from '../../Layout';
+import A from '../A';
 
 const useStyles = makeStyles({
   icon: {

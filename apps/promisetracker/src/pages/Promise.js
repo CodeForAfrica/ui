@@ -3,7 +3,6 @@ import { Grid, makeStyles, Divider, Typography } from '@material-ui/core';
 import Page from '../components/Page';
 import propTypes from '../components/propTypes';
 import Layout from '../components/Layout';
-import ContributeForm from '../components/ContributeForm';
 import {
   Card as PromiseCard,
   Header as PromiseHeader,
@@ -133,9 +132,6 @@ function PromisePage({
             </TitledGrid>
             <Grid container item>
               <Divider />
-            </Grid>
-            <Grid item>
-              <ContributeForm />
             </Grid>
           </Grid>
         </Grid>
