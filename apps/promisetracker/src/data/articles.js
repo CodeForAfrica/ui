@@ -1,4 +1,3 @@
-/* eslint no-irregular-whitespace: "error" */
 const data = {
   articles: [
     {

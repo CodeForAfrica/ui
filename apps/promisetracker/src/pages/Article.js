@@ -33,6 +33,20 @@ function Article({
   const classes = useStyles();
 
   const getItems = data.articles.find(article => article.slug === slug);
+  const index = data.articles.findIndex(article => article.slug === slug);
+  if (index === -1) {
+    return null;
+  }
+  // const article = data.articles[index];
+  const prevArticle = index && data.articles[index - 1];
+  const nextArticle =
+    index < data.articles.length - 1 && data.articles[index + 1];
+
+  const prev = `articles/${prevArticle.slug}`;
+  const prevLabel = `${prevArticle.title}`;
+  const next = `articles/${nextArticle.slug}`;
+  const nextLabel = `${nextArticle.title}`;
+
   return (
     <Page>
       <Layout>
@@ -56,17 +70,16 @@ function Article({
               middle={getItems.content.middle}
               end={getItems.content.end}
             />
+
             <Grid item>
               <Nav
                 previous={{
-                  href:
-                    '/articles/rouhani-meter-visual-qualitative-analysis-report',
-                  label: 'Rouhani Meter Visual Qualitative Analysis Report.'
+                  href: { prev },
+                  label: prevLabel
                 }}
                 next={{
-                  href:
-                    '/articles/was-tehran-deputy-governor-fired-for-negligence',
-                  label: 'Was Tehran’s Deputy Governor Fired for Negligence'
+                  href: { next },
+                  label: nextLabel
                 }}
               />
             </Grid>
