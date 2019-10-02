@@ -32,20 +32,26 @@ function Article({
 }) {
   const classes = useStyles();
 
-  const getItems = data.articles.find(article => article.slug === slug);
   const index = data.articles.findIndex(article => article.slug === slug);
   if (index === -1) {
     return null;
   }
-  // const article = data.articles[index];
-  const prevArticle = index && data.articles[index - 1];
+
+  const article = data.articles[index];
+  // Lets use null to ensure the nothing is rendered: undefined seems to
+  // render `0`
+  const prevArticle = index ? data.articles[index - 1] : null;
   const nextArticle =
     index < data.articles.length - 1 && data.articles[index + 1];
 
-  const prev = `articles/${prevArticle.slug}`;
-  const prevLabel = `${prevArticle.title}`;
-  const next = `articles/${nextArticle.slug}`;
-  const nextLabel = `${nextArticle.title}`;
+  const previous = prevArticle && {
+    href: `/articles/${prevArticle.slug}`,
+    label: prevArticle.title
+  };
+  const next = nextArticle && {
+    href: `/articles/${nextArticle.slug}`,
+    label: nextArticle.title
+  };
 
   return (
     <Page>
@@ -60,28 +66,19 @@ function Article({
         >
           <Grid item xs={12} md={8} spacing={8} className={classes.articleGrid}>
             <Header
-              title={getItems.title}
-              subtitle={getItems.subtitle}
-              mediaSrc={getItems.mediaSrc}
+              title={article.title}
+              subtitle={article.subtitle}
+              mediaSrc={article.mediaSrc}
             />
             <ContentSocialMedia />
             <Content
-              first={getItems.content.first}
-              middle={getItems.content.middle}
-              end={getItems.content.end}
+              first={article.content.first}
+              middle={article.content.middle}
+              end={article.content.end}
             />
 
             <Grid item>
-              <Nav
-                previous={{
-                  href: { prev },
-                  label: prevLabel
-                }}
-                next={{
-                  href: { next },
-                  label: nextLabel
-                }}
-              />
+              <Nav previous={previous} next={next} />
             </Grid>
           </Grid>
           <Grid item xs={12} md={4}>

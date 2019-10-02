@@ -39,14 +39,17 @@ function ArticleNav({ next, previous }) {
       justify="space-between"
       spacing={1}
     >
-      {previous && (
-        <Grid item xs={6} md={5}>
+      {/* We need to keep the item component even when there is not previous
+          component to ensure proper positioning of next item
+       */}
+      <Grid item xs={6} md={5}>
+        {previous && (
           <RouterLink to={previous.href} color="#659db9">
             <KeyboardArrowLeft />
             <Typography className={classes.label}>{previous.label}</Typography>
           </RouterLink>
-        </Grid>
-      )}
+        )}
+      </Grid>
       {next && (
         <Grid container item xs={6} md={5} justify="flex-end">
           <RouterLink to={next.href} color="#659db9">
