@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { Redirect } from 'react-router-dom';
+
 import { Grid, makeStyles } from '@material-ui/core';
 
 import propTypes from '../components/propTypes';
@@ -34,7 +37,7 @@ function Article({
 
   const index = data.articles.findIndex(article => article.slug === slug);
   if (index === -1) {
-    return null;
+    return <Redirect to={`/404/?${window.location.pathname}`} />;
   }
 
   const article = data.articles[index];
