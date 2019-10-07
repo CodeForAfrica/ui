@@ -3,7 +3,8 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import { Facebook, Instagram, Twitter, Send } from 'react-feather';
 
-import { Grid, Typography, makeStyles } from '@material-ui/core';
+import A from './A';
+import Section from './Section';
 
 function SocialMedia() {
   return (

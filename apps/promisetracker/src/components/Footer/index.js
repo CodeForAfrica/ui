@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { Grid, makeStyles } from '@material-ui/core';
-import SocialMedia from './SocialMedia';
-import ProjectBy from './ProjectBy';
-import OtherProjects from './OtherProjects';
-import Attribute from './Attribute';
+
+import About from './About';
+import Community from './Community';
+import Partners from './Partners';
 import Layout from '../Layout';
 
 const useStyles = makeStyles(theme => ({
@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme => ({
       flexDirection: 'row',
       justifyContent: 'flex-start'
     }
+  },
+  partners: {
+    padding: '2rem 0'
   }
 }));
 
@@ -26,19 +29,18 @@ function Footer() {
     <Layout
       classes={{ root: classes.root, content: classes.content }}
       justify="center"
-      spacing={2}
+      spacing={10}
     >
-      <Grid item xs={12} md={4}>
-        <SocialMedia />
+      <Grid item xs={12} sm={7} className={classes.about}>
+        <About />
       </Grid>
-      <Grid item xs={12} md={4}>
-        <ProjectBy />
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <OtherProjects />
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Attribute />
+      <Grid item xs={12} sm={5} container>
+        <Grid item>
+          <Community />
+        </Grid>
+        <Grid item className={classes.partners}>
+          <Partners />
+        </Grid>
       </Grid>
     </Layout>
   );
