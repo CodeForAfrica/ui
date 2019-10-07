@@ -4,57 +4,34 @@ import { Grid, Typography, makeStyles } from '@material-ui/core';
 
 import propTypes from './propTypes';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
-    maxHeight: '130px',
-    justifyContent: 'center',
-    textAlign: 'center',
-    [theme.breakpoints.up('md')]: {
-      textAlign: 'unset',
-      justifyContent: 'flex-start',
-      maxHeight: 'unset'
-    }
+    padding: '1rem'
   },
-  content: {
-    justifyContent: 'center',
-    [theme.breakpoints.up('md')]: {
-      justifyContent: 'flex-start'
-    }
+  title: {
+    padding: '0.6rem 0'
   }
-}));
+});
 
-function Section({ title, children, spacing, direction }) {
+function Section({ title, children }) {
   const classes = useStyles();
   return (
-    <Grid className={classes.root} container direction="column" spacing={3}>
-      <Grid item>
-        <Typography variant="h3">{title}</Typography>
-      </Grid>
-      <Grid
-        className={classes.content}
-        container
-        item
-        xs={12}
-        spacing={spacing}
-        direction={direction}
-      >
-        {children}
-      </Grid>
+    <Grid container direction="row" spacing={3} className={classes.root}>
+      <Typography variant="h3" className={classes.title}>
+        {title}:
+      </Typography>
+      {children}
     </Grid>
   );
 }
 
 Section.propTypes = {
   title: propTypes.string,
-  children: propTypes.children.isRequired,
-  spacing: propTypes.number,
-  direction: propTypes.string
+  children: propTypes.children.isRequired
 };
 
 Section.defaultProps = {
-  title: undefined,
-  spacing: undefined,
-  direction: undefined
+  title: undefined
 };
 
 export default Section;

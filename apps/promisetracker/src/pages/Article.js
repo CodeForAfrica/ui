@@ -12,7 +12,7 @@ import data from '../data/articles';
 
 import Header from '../components/Articles/Header';
 import Content from '../components/Articles/Content';
-import ContentSocialMedia from '../components/Articles/ContentSocialMedia';
+import SocialMedia from '../components/Articles/SocialMedia';
 import Contribute from '../components/Articles/Contribute';
 import Nav from '../components/Articles/Nav';
 
@@ -73,7 +73,7 @@ function Article({
               subtitle={article.subtitle}
               mediaSrc={article.mediaSrc}
             />
-            <ContentSocialMedia />
+            <SocialMedia />
             <Content
               first={article.content.first}
               middle={article.content.middle}
