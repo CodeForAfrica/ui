@@ -13,14 +13,11 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     height: '100%',
     width: '100%', // 156px / 16
-    [theme.breakpoints.up('sm')]: {
-      width: '7rem'
-    },
     [theme.breakpoints.up('md')]: {
-      width: '7.5rem'
+      width: '15.5625rem'
     },
     [theme.breakpoints.up('lg')]: {
-      width: '12.5625rem' // 201px / 16
+      width: '12.5625rem'
     }
   },
   img: {

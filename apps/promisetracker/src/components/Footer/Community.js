@@ -9,9 +9,6 @@ import A from '../A';
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '7rem'
-    },
     [theme.breakpoints.up('md')]: {
       width: '11rem'
     },
@@ -22,9 +19,6 @@ const useStyles = makeStyles(theme => ({
   listText: {
     // match parent width
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '7rem'
-    },
     [theme.breakpoints.up('md')]: {
       width: '11rem'
     },
