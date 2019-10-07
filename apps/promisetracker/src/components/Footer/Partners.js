@@ -5,7 +5,7 @@ import { makeStyles, Grid } from '@material-ui/core';
 import A from '../A';
 
 import pesacheck from '../assets/images/logos/pesacheck.png';
-import hivos from '../assets/images/logos/hivos.jpeg';
+import hivos from '../assets/images/logos/hivos.png';
 import cfa from '../assets/images/logos/codeforafrica.png';
 
 const useStyles = makeStyles(theme => ({
