@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
         'linear-gradient(to right, #f7b801, #f7b801 50%, #f6f6f6 50%, #f6f6f6)'
     }
   },
-
   descriptionTextField: {
     height: '8.375rem'
   },
