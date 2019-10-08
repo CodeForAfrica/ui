@@ -18,12 +18,12 @@ const useStyles = makeStyles(theme => ({
     }
   },
   typoGrid: {
-    padding: '2.5rem',
+    padding: '2rem',
     background: '#f7b801'
   },
   formGrid: {
     background: '#f6f6f6',
-    padding: '2.5rem'
+    padding: '2rem'
   },
   contributeForm: {
     margin: 0,
