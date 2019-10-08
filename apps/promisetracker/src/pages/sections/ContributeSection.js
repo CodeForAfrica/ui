@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import {
-  Grid,
-  Typography,
-  FormControl,
-  FormLabel,
-  TextField,
-  Button
-} from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Layout from '../../components/Layout';
+import Content from '../../components/Contribute/Content';
+import Form from '../../components/Contribute/Form';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -72,27 +67,15 @@ const useStyles = makeStyles(theme => ({
 
 function ContributeSection() {
   const classes = useStyles();
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    setSubmitted(true);
-    setInterval(() => {
-      setSubmitted(false);
-    }, 4000);
-  };
   return (
     <div className={classes.root}>
       <Layout justify="center" alignItems="center">
         <Grid className={classes.contributeCallToAction} item xs={12} md={6}>
-          <Typography variant="h2">Contibute</Typography>
-          <Typography variant="h3">
-            Have you spotted a promise in action?
-          </Typography>
-          <Typography>
-            See something wrong? Share data to help assess a promise!
-          </Typography>
+          <Content
+            title="Contibute"
+            subtitle="Have you spotted a promise in action?"
+            description="See something wrong? Share data to help assess a promise!"
+          />
         </Grid>
         <Grid
           className={classes.contributeFormGrid}
@@ -101,30 +84,7 @@ function ContributeSection() {
           xs={12}
           md={6}
         >
-          <form className={classes.contributeForm} onSubmit={handleSubmit}>
-            <FormControl fullWidth>
-              <FormLabel htmlFor="description">Description</FormLabel>
-              <TextField
-                multiline
-                id="description"
-                className={classes.descriptionTextField}
-              />
-            </FormControl>
-            <FormControl fullWidth>
-              <FormLabel htmlFor="source">Source</FormLabel>
-              <TextField id="source" />
-            </FormControl>
-            <FormControl>
-              <Button className={classes.submitButton} type="submit">
-                Submit
-              </Button>
-            </FormControl>
-            {submitted && (
-              <FormControl fullWidth>
-                <Typography>Thank you for your submission!</Typography>
-              </FormControl>
-            )}
-          </form>
+          <Form />
         </Grid>
       </Layout>
     </div>

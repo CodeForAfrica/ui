@@ -13,8 +13,8 @@ import data from '../data/articles';
 import Header from '../components/Articles/Header';
 import Content from '../components/Articles/Content';
 import SocialMedia from '../components/Articles/SocialMedia';
-import Contribute from '../components/Articles/Contribute';
 import Nav from '../components/Articles/Nav';
+import Sidebar from '../components/Articles/Sidebar';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -85,7 +85,7 @@ function Article({
             </Grid>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Contribute />
+            <Sidebar />
           </Grid>
         </Grid>
       </Layout>
