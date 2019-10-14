@@ -17,8 +17,7 @@ const useStyles = makeStyles({
     background: '#f7b801'
   },
   formGrid: {
-    background: '#f6f6f6',
-    padding: '2rem'
+    background: '#f6f6f6'
   }
 });
 

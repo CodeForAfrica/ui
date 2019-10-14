@@ -18,7 +18,7 @@ import Sidebar from '../components/Articles/Sidebar';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: '4rem 0'
+    padding: '8rem 0'
   },
   articleGrid: {
     borderRight: 0,

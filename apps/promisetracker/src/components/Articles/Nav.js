@@ -11,22 +11,6 @@ const useStyles = makeStyles({
   root: {
     borderTop: '0.0625rem solid #9b9b9b',
     padding: '1.25rem 0'
-  },
-  label: {
-    position: 'relative',
-    maxHeight: '2.8rem',
-    overflow: 'hidden',
-    '&:after': {
-      content: '""',
-      position: 'absolute',
-      top: '1.4rem',
-      width: '4rem',
-      height: '1.4rem',
-      background:
-        'linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255) 50%)',
-      textAlign: 'right',
-      right: 0
-    }
   }
 });
 
@@ -46,14 +30,14 @@ function ArticleNav({ next, previous }) {
         {previous && (
           <RouterLink to={previous.href} color="#659db9">
             <KeyboardArrowLeft />
-            <Typography className={classes.label}>{previous.label}</Typography>
+            <Typography variant="body1">{previous.label}</Typography>
           </RouterLink>
         )}
       </Grid>
       {next && (
         <Grid container item xs={6} md={5} justify="flex-end">
           <RouterLink to={next.href} color="#659db9">
-            <Typography className={classes.label}>{next.label}</Typography>
+            <Typography variant="body1">{next.label}</Typography>
             <KeyboardArrowRight />
           </RouterLink>
         </Grid>
