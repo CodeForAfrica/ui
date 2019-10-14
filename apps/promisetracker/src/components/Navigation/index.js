@@ -83,7 +83,7 @@ function Navigation({ width, ...props }) {
   };
   return (
     <div className={classes.root}>
-      <AppBar color="secondary">
+      <AppBar color="primary">
         <Toolbar>
           {isWidthDown('sm', width) && (
             <Grid item className={classes.itemGrid}>

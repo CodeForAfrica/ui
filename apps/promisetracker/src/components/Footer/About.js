@@ -5,17 +5,8 @@ import { makeStyles, Typography } from '@material-ui/core';
 import A from '../A';
 
 const useStyles = makeStyles(theme => ({
-  title: {
-    color: theme.palette.primary.light,
-    opacity: '0.6'
-  },
   body: {
-    color: theme.palette.primary.light,
-    opacity: '0.6',
     paddingTop: theme.spacing(3)
-  },
-  links: {
-    color: theme.palette.primary.light
   }
 }));
 

@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       height: '28.375rem',
       background:
-        'linear-gradient(to right, #f7b801, #f7b801 50%, #f6f6f6 50%, #f6f6f6)'
+        'linear-gradient(to right, #3f51b5, #3f51b5 50%, #f6f6f6 50%, #f6f6f6)'
     }
   },
   descriptionTextField: {

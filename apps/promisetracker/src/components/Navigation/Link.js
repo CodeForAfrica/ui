@@ -6,34 +6,21 @@ import { NavLink as RouterNavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import propTypes from '../propTypes';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
     lineHeight: '100%',
     margin: '2rem',
+    color: 'white',
     '&:hover': {
-      color: theme.palette.action.active,
-      fontWeight: 'bold',
-      listStyleType: 'disc',
-      '&:before': {
-        opacity: 1
-      }
+      color: 'black'
     }
-  },
-  active: {
-    color: theme.palette.action.active
   }
-}));
+});
 
 function Link({ href, title, children, ...props }) {
   const classes = useStyles(props);
   return (
-    <MuiLink
-      className={classes.root}
-      activeClassName={classes.active}
-      component={RouterNavLink}
-      exact
-      to={href}
-    >
+    <MuiLink className={classes.root} component={RouterNavLink} exact to={href}>
       {title || children}
     </MuiLink>
   );

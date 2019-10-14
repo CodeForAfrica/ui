@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
   typoGrid: {
     padding: '2rem',
-    background: '#f7b801'
+    background: '#3f51b5'
   },
   formGrid: {
     background: '#f6f6f6'

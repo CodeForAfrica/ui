@@ -57,7 +57,7 @@ function PromiseCard({
           justify="space-between"
         >
           <Grid item>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h6" color="primary" className={classes.title}>
               {title}
             </Typography>
           </Grid>

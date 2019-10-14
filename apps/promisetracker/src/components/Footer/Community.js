@@ -6,18 +6,13 @@ import { makeStyles, Typography } from '@material-ui/core';
 
 import A from '../A';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
     width: '100%'
   },
   listText: {
     // match parent width
-    width: '100%',
-    color: theme.palette.primary.light,
-    opacity: '0.6'
-  },
-  links: {
-    color: theme.palette.primary.light
+    width: '100%'
   },
   list: {
     listStyleType: 'none',
@@ -27,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   joinText: {
     paddingTop: '1.5rem'
   }
-}));
+});
 
 function Community(props) {
   const classes = useStyles(props);
