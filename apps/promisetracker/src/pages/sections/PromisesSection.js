@@ -121,82 +121,80 @@ function PromisesSection({
   }, [filter.status, filter.term, filter.topic]);
 
   return (
-    <div className={classes.root}>
-      <Layout justify="center">
-        <Grid item xs={12}>
-          <Grid container spacing={1} style={{ maxWidth: '37.5rem' }}>
-            <Grid item xs={6} sm={4}>
-              <Select
-                showIndicator={filter.status !== 'all'}
-                indicatorColor={
-                  filter.status !== 'all' && config.colors[filter.status].dark
-                }
-                value={filter.status}
-                onChange={value => updateFilter('status', value)}
-                options={[
-                  {
-                    value: 'all',
-                    name: 'All Statuses'
-                  },
-                  ...config.statusTypes.map(status => ({
-                    name: status.name,
-                    value: status.slug
-                  }))
-                ]}
-              />
-            </Grid>
-            <Grid item xs={6} sm={4}>
-              <Select
-                showIndicator={filter.term !== 'all'}
-                value={filter.term}
-                onChange={value => updateFilter('term', value)}
-                options={[
-                  {
-                    value: 'all',
-                    name: 'All Terms'
-                  },
-                  ...terms.map(term => ({
-                    name: term.name,
-                    value: term.slug
-                  }))
-                ]}
-              />
-            </Grid>
-            <Grid item xs={6} sm={4}>
-              <Select
-                showIndicator={filter.topic !== 'all'}
-                value={filter.topic}
-                onChange={value => updateFilter('topic', value)}
-                options={[
-                  {
-                    value: 'all',
-                    name: 'All Topics'
-                  },
-                  ...topics.map(topic => ({
-                    name: topic.name,
-                    value: topic.slug
-                  }))
-                ]}
-              />
-            </Grid>
+    <Layout justify="center" classes={{ root: classes.root }}>
+      <Grid item xs={12}>
+        <Grid container spacing={1} style={{ maxWidth: '37.5rem' }}>
+          <Grid item xs={6} sm={4}>
+            <Select
+              showIndicator={filter.status !== 'all'}
+              indicatorColor={
+                filter.status !== 'all' && config.colors[filter.status].dark
+              }
+              value={filter.status}
+              onChange={value => updateFilter('status', value)}
+              options={[
+                {
+                  value: 'all',
+                  name: 'All Statuses'
+                },
+                ...config.statusTypes.map(status => ({
+                  name: status.name,
+                  value: status.slug
+                }))
+              ]}
+            />
+          </Grid>
+          <Grid item xs={6} sm={4}>
+            <Select
+              showIndicator={filter.term !== 'all'}
+              value={filter.term}
+              onChange={value => updateFilter('term', value)}
+              options={[
+                {
+                  value: 'all',
+                  name: 'All Terms'
+                },
+                ...terms.map(term => ({
+                  name: term.name,
+                  value: term.slug
+                }))
+              ]}
+            />
+          </Grid>
+          <Grid item xs={6} sm={4}>
+            <Select
+              showIndicator={filter.topic !== 'all'}
+              value={filter.topic}
+              onChange={value => updateFilter('topic', value)}
+              options={[
+                {
+                  value: 'all',
+                  name: 'All Topics'
+                },
+                ...topics.map(topic => ({
+                  name: topic.name,
+                  value: topic.slug
+                }))
+              ]}
+            />
           </Grid>
         </Grid>
-        <Grid container className={classes.cardsContainer} spacing={2}>
-          {children}
-        </Grid>
+      </Grid>
+      <Grid container className={classes.cardsContainer} spacing={2}>
+        {children}
+      </Grid>
 
-        {enableShowMore && (
-          <Button
-            variant="contained"
-            component={RouterLink}
-            to={`/promises?${filtersQueryString()}`}
-            color="primary"
-          >
-            SHOW MORE
-          </Button>
-        )}
-      </Layout>
-    </div>
+      {enableShowMore && (
+        <Button
+          variant="contained"
+          component={RouterLink}
+          to={`/promises?${filtersQueryString()}`}
+          color="primary"
+        >
+          SHOW MORE
+        </Button>
+      )}
+    </Layout>
   );
 }
 

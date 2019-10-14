@@ -11,6 +11,9 @@ import RouterLink from '../../components/RouterLink';
 import data from '../../data/articles';
 
 const useStyles = makeStyles({
+  root: {
+    padding: '4rem 0'
+  },
   sectionTitle: {
     padding: '2rem 0'
   },
@@ -24,7 +27,7 @@ const articleSize = 4;
 function LatestArticlesSection() {
   const classes = useStyles();
   return (
-    <Layout justify="center">
+    <Layout justify="center" classes={{ root: classes.root }}>
       <Grid item xs={12}>
         <Typography variant="h4">Latest Articles</Typography>
       </Grid>

@@ -17,7 +17,6 @@ const Theme = createMuiTheme({
       hover: '#000'
     }
   },
-  typography: {},
   props: {
     MuiLink: {
       color: 'primary',
