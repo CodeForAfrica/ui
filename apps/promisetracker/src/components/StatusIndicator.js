@@ -1,9 +1,9 @@
 import React from 'react';
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles, Button, ButtonGroup } from '@material-ui/core';
 import RouterLink from './RouterLink';
 import propTypes from './propTypes';
 
-import config from '../config';
+// import config from '../config';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,33 +13,9 @@ const useStyles = makeStyles(theme => ({
     }
   },
   indicatorImage: {
-    margin: '0 auto 0.5rem auto',
-    width: '6.4375rem',
-    height: '6.4375rem',
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'block'
-    }
-  },
-  indicatorLabel: {
-    width: '80%'
-  },
-  indicatorChip: ({ status }) => ({
-    overflow: 'hidden',
-    background: config.colors[status].dark,
-    justifyContent: 'flex-start',
-    color: 'white',
-    cursor: 'pointer',
-    borderRadius: '1.125rem',
-    height: '2.25rem'
-  }),
-  indicatorNumber: ({ status }) => ({
-    background: config.colors[status].light,
-    width: '3rem',
-    color: 'white',
-    textAlign: 'center',
-    lineHeight: '2rem'
-  })
+    height: 'auto',
+    maxWidth: '100%'
+  }
 }));
 
 function StatusIndicator({ status, href, img, label, value, ...props }) {
@@ -53,36 +29,25 @@ function StatusIndicator({ status, href, img, label, value, ...props }) {
       direction="column"
     >
       <Grid item>
-        <img alt="" className={classes.indicatorImage} src={img} />
-      </Grid>
-      <Grid
-        container
-        item
-        component="span"
-        direction="row"
-        wrap="nowrap"
-        className={classes.indicatorChip}
-      >
-        <Grid
-          container
-          item
-          component="span"
-          justify="center"
-          alignItems="center"
-          className={classes.indicatorNumber}
+        <img alt="Indicator" className={classes.indicatorImage} src={img} />
+        <ButtonGroup
+          variant="contained"
+          color="secondary"
+          aria-label="split button"
+          style={{ width: '100%' }}
         >
-          {value}
-        </Grid>
-        <Grid
-          container
-          item
-          component="span"
-          justify="center"
-          alignItems="center"
-          className={classes.indicatorLabel}
-        >
-          {label || status}
-        </Grid>
+          <Button size="small" style={{ width: '30%' }}>
+            {value}
+          </Button>
+          <Button
+            color="secondary"
+            size="small"
+            aria-haspopup="true"
+            style={{ width: '70%' }}
+          >
+            {label || status}
+          </Button>
+        </ButtonGroup>
       </Grid>
     </Grid>
   );

@@ -10,10 +10,10 @@ import propTypes from '../propTypes';
 import RouterLink from '../RouterLink';
 import StatusChip from '../StatusChip';
 
-import config from '../../config';
+// import config from '../../config';
 
 const useStyles = makeStyles({
-  root: ({ status }) => ({
+  root: {
     position: 'relative',
     height: '10.625rem',
     width: '100%',
@@ -26,10 +26,10 @@ const useStyles = makeStyles({
       top: 0,
       width: '100%',
       height: '0.25rem',
-      content: '""',
-      backgroundColor: config.colors[status].light
+      content: '""'
+      // backgroundColor: config.colors[status].light
     }
-  }),
+  },
   content: {
     height: '100%',
     padding: '1rem',

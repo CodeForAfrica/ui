@@ -9,7 +9,7 @@ function Brand({ href }) {
   return (
     <MuiLink component={RouterLink} to={href}>
       <Grid container direction="column" justify="center" alignItems="center">
-        <Typography variant="h2">PROMISE TRACKER</Typography>
+        <Typography variant="h6">PROMISE TRACKER</Typography>
       </Grid>
     </MuiLink>
   );
