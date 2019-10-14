@@ -187,6 +187,7 @@ function PromisesSection({
 
         {enableShowMore && (
           <Button
+            variant="contained"
             component={RouterLink}
             to={`/promises?${filtersQueryString()}`}
             color="primary"

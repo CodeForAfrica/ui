@@ -65,6 +65,7 @@ function LatestArticlesSection() {
         component={RouterLink}
         to="/articles"
         color="primary"
+        variant="contained"
       >
         READ MORE
       </Button>
