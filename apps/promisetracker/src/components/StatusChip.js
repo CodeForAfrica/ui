@@ -6,11 +6,9 @@ import config from '../config';
 
 const useStyles = makeStyles({
   root: {
-    background: 'grey',
-    color: 'white',
     cursor: 'pointer',
     height: '2rem',
-    width: 'fit-content',
+    width: '50%',
     padding: '0 1.25rem',
     display: 'flex',
     justifyContent: 'center',
@@ -21,7 +19,7 @@ const useStyles = makeStyles({
 function StatusChip({ status, ...props }) {
   const classes = useStyles({ status, ...props });
   return (
-    <Button className={classes.root}>
+    <Button variant="contained" color="primary" className={classes.root}>
       {config.statusTypes.find(s => s.slug === status).name}
     </Button>
   );

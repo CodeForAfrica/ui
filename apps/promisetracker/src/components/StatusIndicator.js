@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      height: '9.3125rem'
+      // height: '9.3125rem'
     }
   },
   indicatorImage: {
@@ -40,7 +40,7 @@ function StatusIndicator({ status, href, img, label, value, ...props }) {
             {value}
           </Button>
           <Button
-            color="secondary"
+            color="primary"
             size="small"
             aria-haspopup="true"
             style={{ width: '70%' }}
