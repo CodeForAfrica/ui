@@ -8,7 +8,7 @@ import SideBar from '../components/About/SideBar';
 
 const useStyles = makeStyles({
   root: {
-    padding: '4rem 0'
+    padding: '8rem 0'
   }
 });
 
