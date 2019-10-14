@@ -8,23 +8,11 @@ import A from '../A';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '11rem'
-    },
-    [theme.breakpoints.up('lg')]: {
-      width: '12.5625rem' // 201px
-    }
+    width: '100%'
   },
   listText: {
     // match parent width
     width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '11rem'
-    },
-    [theme.breakpoints.up('lg')]: {
-      width: '12.5625rem' // 201px
-    },
     color: theme.palette.primary.light,
     opacity: '0.6'
   },

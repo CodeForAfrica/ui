@@ -7,31 +7,21 @@ import Community from './Community';
 import Partners from './Partners';
 import Layout from '../Layout';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
     backgroundColor: '#e6e6e6',
     padding: '2.5rem'
   },
-  content: {
-    [theme.breakpoints.up('md')]: {
-      flexDirection: 'row',
-      justifyContent: 'flex-start'
-    }
-  },
   partners: {
     padding: '2rem 0'
   }
-}));
+});
 
 function Footer() {
   const classes = useStyles();
   return (
-    <Layout
-      classes={{ root: classes.root, content: classes.content }}
-      justify="center"
-      spacing={10}
-    >
-      <Grid item xs={12} sm={7} className={classes.about}>
+    <Layout classes={{ root: classes.root }} justify="center" spacing={10}>
+      <Grid item xs={12} sm={7}>
         <About />
       </Grid>
       <Grid item xs={12} sm={5} container>

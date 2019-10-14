@@ -5,15 +5,6 @@ import { makeStyles, Typography } from '@material-ui/core';
 import A from '../A';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '30.2625rem' // .75 of lg
-    },
-    [theme.breakpoints.up('lg')]: {
-      width: '40.35rem' // 644px / 16
-    }
-  },
   title: {
     color: theme.palette.primary.light,
     opacity: '0.6'
