@@ -9,27 +9,18 @@ import propTypes from '../propTypes';
 const useStyles = makeStyles(theme => ({
   root: {
     lineHeight: '100%',
-    display: 'inline-flex',
+    margin: '2rem',
     '&:hover': {
       color: theme.palette.action.active,
       fontWeight: 'bold',
+      listStyleType: 'disc',
       '&:before': {
         opacity: 1
       }
-    },
-    '&:before': {
-      fontSize: '2rem',
-      color: '#659db9',
-      marginRight: '0.5rem',
-      content: "'\\2022'",
-      opacity: 0
     }
   },
   active: {
-    color: theme.palette.action.active,
-    '&:before': {
-      opacity: 1
-    }
+    color: theme.palette.action.active
   }
 }));
 
@@ -38,7 +29,7 @@ function Link({ href, title, children, ...props }) {
   return (
     <MuiLink
       className={classes.root}
-      activeClassName={classes.active}
+      // activeClassName={classes.active}
       component={RouterNavLink}
       exact
       to={href}

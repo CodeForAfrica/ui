@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+import { Menu } from 'react-feather';
+
 import {
+  AppBar,
+  Grid,
   makeStyles,
   withWidth,
   ButtonBase,
@@ -10,63 +14,26 @@ import {
 } from '@material-ui/core';
 import { isWidthUp, isWidthDown } from '@material-ui/core/withWidth';
 import CloseIcon from '@material-ui/icons/Close';
-import { Menu } from 'react-feather';
 import propTypes from '../propTypes';
 
 import Link from './Link';
-import Layout from '../Layout';
 import Brand from './Brand';
 
-const navHeight = '5rem';
-
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
-    height: navHeight,
-    zIndex: 999
-  },
-  layoutRoot: ({ fixed }) => ({
-    zIndex: 999,
-    position: fixed ? 'fixed' : 'relative',
-    height: navHeight,
-    background: 'white',
-    boxShadow: '0 0.125rem 0.25rem 0 rgba(0,0,0,.21)'
-  }),
-  layoutContent: {
-    flexWrap: 'nowrap',
-    alignItems: 'center',
-    height: navHeight
-  },
-  menuButton: {
-    width: '1.75rem'
-  },
-  brand: {
-    margin: '0 auto',
-    [theme.breakpoints.up('md')]: {
-      margin: 0,
-      marginRight: '1rem'
-    }
-  },
-  link: {
-    marginLeft: '1rem'
+    flexGrow: 1
   },
   drawerPaper: {
-    width: '12.5rem'
+    width: '50vw'
   },
-  drawerToolbar: {
-    height: navHeight
+  itemGrid: {
+    margin: '0rem 2rem'
   },
-  drawerLink: {
-    width: '11.4375rem',
-    height: '3rem',
-    marginLeft: '1rem'
-  },
-  fa: {
-    color: 'grey',
-    ' &:hover': {
-      color: '#257ca3'
-    }
+  menuList: {
+    display: 'flex',
+    flexDirection: 'column'
   }
-}));
+});
 
 function Navigation({ width, ...props }) {
   const classes = useStyles(props);
@@ -78,7 +45,7 @@ function Navigation({ width, ...props }) {
       { title: 'reports', href: '/articles' },
       { title: 'about us', href: '/about' }
     ].map(nav => (
-      <Link classes={{ root: classes.link }} key={nav.href} href={nav.href}>
+      <Link key={nav.href} href={nav.href}>
         {nav.title}
       </Link>
     ));
@@ -88,26 +55,25 @@ function Navigation({ width, ...props }) {
       <Drawer
         anchor="left"
         open={drawerIsOpen}
-        classes={{ paper: classes.drawerPaper }}
         onBackdropClick={() => setDrawerIsOpen(!drawerIsOpen)}
+        classes={{
+          paper: classes.drawerPaper
+        }}
       >
-        <Toolbar className={classes.drawerToolbar}>
+        <Toolbar>
           <IconButton onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
             <CloseIcon color="action" />
           </IconButton>
         </Toolbar>
-        <MenuList>
+
+        <MenuList className={classes.menuList}>
           {[
             { title: 'home', href: '/' },
             { title: 'promises', href: '/promises' },
             { title: 'reports', href: '/articles' },
             { title: 'about us', href: '/about' }
           ].map(nav => (
-            <Link
-              key={nav.href}
-              href={nav.href}
-              classes={{ root: classes.drawerLink }}
-            >
+            <Link key={nav.href} href={nav.href} style={{ margin: `1rem 0` }}>
               {nav.title}
             </Link>
           ))}
@@ -117,24 +83,22 @@ function Navigation({ width, ...props }) {
   };
   return (
     <div className={classes.root}>
-      <Layout
-        classes={{ root: classes.layoutRoot, content: classes.layoutContent }}
-      >
-        {isWidthDown('sm', width) && (
-          <>
-            <ButtonBase
-              className={classes.menuButton}
-              onClick={() => setDrawerIsOpen(!drawerIsOpen)}
-            >
-              <Menu className={classes.fa} />
-            </ButtonBase>
-            {renderDrawer()}
-          </>
-        )}
-
-        <Brand classes={{ root: classes.brand }} href="/" />
-        {isWidthUp('md', width) && renderNavLinks()}
-      </Layout>
+      <AppBar color="secondary">
+        <Toolbar>
+          {isWidthDown('sm', width) && (
+            <Grid item className={classes.itemGrid}>
+              <ButtonBase onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
+                <Menu />
+              </ButtonBase>
+              {renderDrawer()}
+            </Grid>
+          )}
+          <Brand href="/" />
+          <Grid item className={classes.itemGrid}>
+            {isWidthUp('md', width) && renderNavLinks()}
+          </Grid>
+        </Toolbar>
+      </AppBar>
     </div>
   );
 }
