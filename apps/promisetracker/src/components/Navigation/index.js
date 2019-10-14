@@ -73,7 +73,7 @@ function Navigation({ width, ...props }) {
             { title: 'reports', href: '/articles' },
             { title: 'about us', href: '/about' }
           ].map(nav => (
-            <Link key={nav.href} href={nav.href} style={{ margin: `1rem 0` }}>
+            <Link key={nav.href} href={nav.href}>
               {nav.title}
             </Link>
           ))}

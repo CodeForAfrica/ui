@@ -29,7 +29,7 @@ function Link({ href, title, children, ...props }) {
   return (
     <MuiLink
       className={classes.root}
-      // activeClassName={classes.active}
+      activeClassName={classes.active}
       component={RouterNavLink}
       exact
       to={href}
