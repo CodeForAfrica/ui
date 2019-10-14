@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import { Button, withWidth } from '@material-ui/core';
+import { Button, withWidth, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { isWidthUp } from '@material-ui/core/withWidth';
 import propTypes from '../components/propTypes';
@@ -76,37 +76,39 @@ function Articles({ width, location: { search } }) {
   return (
     <Page>
       <Layout justify="center">
-        <ArticleCardList>
-          {!articles.offset && (
-            <ArticleCardListItem>
-              {articles.data[0] ? (
-                <ArticleCard
-                  jumbo
-                  height={400}
-                  slug={articles.data[0].slug}
-                  subtitle={articles.data[0].subtitle}
-                  mediaSrc={articles.data[0].mediaSrc}
-                  title={articles.data[0].title}
-                  date={articles.data[0].date}
-                  description="August 2019 marks the sixth anniversary of Hassan Rouhani’s presidency. His sixth year in office was a difficult one, both for him and for the people of Iran. The economic and political crises that began earlier seem to continue into his seventh year. "
-                />
-              ) : (
-                <null />
-              )}
-            </ArticleCardListItem>
-          )}
+        <Grid container style={{ padding: '5rem 0' }}>
+          <ArticleCardList>
+            {!articles.offset && (
+              <ArticleCardListItem>
+                {articles.data[0] ? (
+                  <ArticleCard
+                    jumbo
+                    height={400}
+                    slug={articles.data[0].slug}
+                    subtitle={articles.data[0].subtitle}
+                    mediaSrc={articles.data[0].mediaSrc}
+                    title={articles.data[0].title}
+                    date={articles.data[0].date}
+                    description="August 2019 marks the sixth anniversary of Hassan Rouhani’s presidency. His sixth year in office was a difficult one, both for him and for the people of Iran. The economic and political crises that began earlier seem to continue into his seventh year. "
+                  />
+                ) : (
+                  <null />
+                )}
+              </ArticleCardListItem>
+            )}
 
-          {renderRows()}
-        </ArticleCardList>
+            {renderRows()}
+          </ArticleCardList>
 
-        <Button
-          classes={{ root: classes.readMore }}
-          component={RouterLink}
-          to={`/articles?offset=${offset + 1}`}
-          color="primary"
-        >
-          READ MORE
-        </Button>
+          <Button
+            classes={{ root: classes.readMore }}
+            component={RouterLink}
+            to={`/articles?offset=${offset + 1}`}
+            color="primary"
+          >
+            READ MORE
+          </Button>
+        </Grid>
       </Layout>
     </Page>
   );

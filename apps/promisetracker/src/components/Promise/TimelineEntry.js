@@ -20,7 +20,7 @@ function PromiseTimelineEntry({ defaultExpanded, updated, status }) {
           className="Mui-icon-collapse"
           transform="translate(0,-8)"
         />
-        <Typography>Updated on {updated}</Typography>
+        <Typography variant="body2">Updated on {updated}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <StatusChip status={status} />

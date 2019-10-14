@@ -5,7 +5,7 @@ import { Grid, Typography } from '@material-ui/core';
 function AboutContent() {
   return (
     <Grid item xs={12} md={8} spacing={8}>
-      <Typography variant="h2" style={{ paddingBottom: '2rem' }}>
+      <Typography variant="h3" style={{ paddingBottom: '2rem' }}>
         ABOUT US
       </Typography>
       <Typography variant="body1">

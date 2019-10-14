@@ -16,7 +16,7 @@ function Header({ subtitle, date, title, mediaSrc }) {
   return (
     <Grid item>
       <img alt="Header Thumbnail" className={classes.img} src={mediaSrc} />
-      <Typography variant="h5" paragraph="true">
+      <Typography variant="h6" paragraph="true">
         {subtitle}
       </Typography>
       <Typography variant="h4" paragraph="true">

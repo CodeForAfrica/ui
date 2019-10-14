@@ -26,9 +26,7 @@ function LatestArticlesSection() {
   return (
     <Layout justify="center">
       <Grid item xs={12}>
-        <Typography className={classes.sectionTitle} variant="h2">
-          Latest Articles
-        </Typography>
+        <Typography variant="h4">Latest Articles</Typography>
       </Grid>
 
       <Grid item>

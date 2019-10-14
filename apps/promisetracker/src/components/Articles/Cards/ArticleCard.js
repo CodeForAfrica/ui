@@ -121,14 +121,10 @@ function ArticleCard({
             justify="space-between"
           >
             <Grid item>
-              <Typography className={classes.label}>{subtitle}</Typography>
-              <Typography className={classes.title} variant="h2">
-                {title}
-              </Typography>
+              <Typography variant="caption">{subtitle}</Typography>
+              <Typography variant="h5">{title}</Typography>
               {description && (
-                <Typography className={classes.description}>
-                  {description}
-                </Typography>
+                <Typography variant="body1">{description}</Typography>
               )}
             </Grid>
             <Grid item>

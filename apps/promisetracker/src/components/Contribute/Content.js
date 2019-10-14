@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { Typography } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 
 import propTypes from '../propTypes';
 
 function Content({ title, subtitle, description }) {
   return (
-    <div>
-      <Typography variant="h2">{title}</Typography>
-      <Typography variant="h3">{subtitle}</Typography>
-      <Typography>{description}</Typography>
-    </div>
+    <Grid container direction="column" justify="flex-start">
+      <Typography variant="h5">{title}</Typography>
+      <Typography variant="h6">{subtitle}</Typography>
+      <Typography variant="body1">{description}</Typography>
+    </Grid>
   );
 }
 

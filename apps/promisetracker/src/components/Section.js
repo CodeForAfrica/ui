@@ -17,7 +17,7 @@ function Section({ title, children }) {
   const classes = useStyles();
   return (
     <Grid container direction="row" spacing={3} className={classes.root}>
-      <Typography variant="h3" className={classes.title}>
+      <Typography variant="h6" className={classes.title}>
         {title}:
       </Typography>
       {children}

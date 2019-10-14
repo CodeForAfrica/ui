@@ -40,7 +40,7 @@ function PartnersSection() {
         alignItems="center"
         className={classes.typoGrid}
       >
-        <Typography variant="h3">ROUHANIMETER IN MEDIA</Typography>
+        <Typography variant="h5">ROUHANIMETER IN MEDIA</Typography>
       </Grid>
       <Grid
         container

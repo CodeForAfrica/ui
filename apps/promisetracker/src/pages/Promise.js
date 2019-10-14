@@ -13,7 +13,8 @@ import TitledGrid from '../components/TitledGrid';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: '32px 0'
+    margin: '32px 0',
+    padding: '5rem 0'
   },
   mainContent: {
     [theme.breakpoints.up('md')]: {
@@ -54,7 +55,7 @@ function PromisePage({
               item
               direction="column"
               spacing={1}
-              variant="h2"
+              variant="h5"
               title="Promise Timeline"
             >
               <Grid item>
@@ -72,7 +73,7 @@ function PromisePage({
               </Grid>
             </TitledGrid>
 
-            <TitledGrid item variant="h2" title="About the promise">
+            <TitledGrid item variant="h5" title="About the promise">
               <Typography />
             </TitledGrid>
 
@@ -99,7 +100,7 @@ function PromisePage({
               xs={12}
               container
               spacing={2}
-              variant="h1"
+              variant="h4"
               title="Related Promises"
             >
               <Grid item xs={12}>

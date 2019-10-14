@@ -16,7 +16,7 @@ function SideBar({ ...props }) {
   const classes = useStyles(props);
   return (
     <Grid item xs={12} md={4} className={classes.root}>
-      <Typography variant="h2" style={{ paddingBottom: '2rem' }}>
+      <Typography variant="h3" style={{ paddingBottom: '2rem' }}>
         OUR RATINGS
       </Typography>
       <Grid spacing={6} container>

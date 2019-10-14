@@ -169,18 +169,6 @@ const Theme = createMuiTheme({
         padding: 0,
         paddingRight: '0.625rem'
       },
-      select: {
-        borderRadius: '1.25rem',
-        border: '0.0625rem solid #d1d1d1',
-        '&:focus': {
-          border: '0.0625rem solid #d1d1d1',
-          borderRadius: '1.25rem',
-          backgroundColor: 'white'
-        },
-        '&:hover': {
-          boxShadow: '0 0.125rem 0.25rem 0 rgba(0,0,0,.16)'
-        }
-      },
       selectMenu: {
         height: '2.5rem'
       },

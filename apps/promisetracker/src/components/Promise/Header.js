@@ -87,7 +87,7 @@ function PromiseHeader({
       <FixedHeader show={showFixedHeader} title={title} status={status} />
       <Grid className={classes.root}>
         <Grid item>
-          <Typography variant="h1">{title}</Typography>
+          <Typography variant="h3">{title}</Typography>
         </Grid>
         <Grid item>
           <Typography className={classes.details} variant="body2">
@@ -105,7 +105,7 @@ function PromiseHeader({
             </Grid>
             <Grid container item justify="flex-end" spacing={2}>
               <Grid item>
-                <Typography>Share:</Typography>
+                <Typography variant="body1">Share:</Typography>
               </Grid>
               <Grid item>
                 <FacebookShareButton className="Mui-share" url={shareUrl}>
