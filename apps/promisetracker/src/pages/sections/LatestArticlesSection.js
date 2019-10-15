@@ -40,12 +40,7 @@ function LatestArticlesSection() {
         <Typography variant="h4">Latest Articles</Typography>
       </Grid>
 
-      <Grid
-        container
-        direction="row"
-        justify="flex-start"
-        className={classes.mainGrid}
-      >
+      <Grid container direction="row" className={classes.mainGrid}>
         <ArticleCardList>
           <Grid item xs={5}>
             <ArticleCardListItem>
