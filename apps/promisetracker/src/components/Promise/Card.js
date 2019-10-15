@@ -12,23 +12,9 @@ import StatusChip from '../StatusChip';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: '100%',
-    height: '15rem',
-    border: '0.0625rem solid rgb(209, 209, 209)',
-    '&:hover': {
-      boxShadow: 'rgba(0, 0, 0, 0.1) 0rem 0.125rem 0.125rem 0.0625rem'
-    }
-  },
-  content: {
-    height: '100%',
-    padding: '1rem'
-  },
-  title: {
-    overflow: 'hidden'
-  },
-  details: {
-    margin: '.5rem 0',
-    lineHeight: '2rem'
+    border: '1px solid grey',
+    height: '14rem',
+    width: '100%'
   }
 });
 
@@ -45,22 +31,16 @@ function PromiseCard({
 }) {
   const classes = useStyles({ status, ...props });
   return (
-    <Card className={classes.root} elevation={0}>
-      <RouterLink classes={classes.actionArea} to={href}>
-        <CardContent
-          className={classes.content}
-          component={Grid}
-          container
-          direction="column"
-          justify="space-between"
-        >
+    <Card elevation={0} className={classes.root}>
+      <RouterLink to={href}>
+        <CardContent component={Grid} container direction="column" spacing={3}>
           <Grid item>
-            <Typography variant="h6" color="primary" className={classes.title}>
+            <Typography variant="h6" color="primary">
               {title}
             </Typography>
           </Grid>
           <Grid item>
-            <Typography className={classes.details} variant="body2">
+            <Typography variant="body2">
               {term} | {topic}
             </Typography>
             <StatusChip status={status} />
