@@ -3,6 +3,8 @@ import { makeStyles, Typography, Button, Grid } from '@material-ui/core';
 import Layout from '../../components/Layout';
 
 import ArticleCard from '../../components/Articles/Cards/ArticleCard';
+import ColumnArticleCard from '../../components/Articles/Cards/ColumnArticleCard';
+
 import ArticleCardList from '../../components/Articles/Cards/ArticleCardList';
 import ArticleCardListItem from '../../components/Articles/Cards/ArticleCardListItem';
 
@@ -19,6 +21,9 @@ const useStyles = makeStyles({
   },
   readMore: {
     margin: '1rem 0'
+  },
+  mainGrid: {
+    border: '2px solid red'
   }
 });
 
@@ -32,7 +37,53 @@ function LatestArticlesSection() {
         <Typography variant="h4">Latest Articles</Typography>
       </Grid>
 
-      <Grid item>
+      <Grid
+        container
+        direction="row"
+        justify="flex-start"
+        style={{ borderTop: '1px solid grey' }}
+      >
+        <ArticleCardList>
+          <Grid item xs={5}>
+            <ArticleCardListItem>
+              {data.articles[0] ? (
+                <ArticleCard
+                  slug={data.articles[0].slug}
+                  subtitle={data.articles[0].subtitle}
+                  mediaSrc={data.articles[0].mediaSrc}
+                  title={data.articles[0].title}
+                  date={data.articles[0].date}
+                />
+              ) : (
+                <null />
+              )}
+            </ArticleCardListItem>
+          </Grid>
+
+          <Grid
+            container
+            direction="column"
+            xs={7}
+            style={{ borderLeft: '1px solid grey' }}
+          >
+            <Grid item>
+              <ArticleCardListItem>
+                {data.articles.slice(1, articleSize).map(article => (
+                  <ColumnArticleCard
+                    slug={article.slug}
+                    subtitle={article.subtitle}
+                    mediaSrc={article.mediaSrc}
+                    title={article.title}
+                    date={article.date}
+                  />
+                ))}
+              </ArticleCardListItem>
+            </Grid>
+          </Grid>
+        </ArticleCardList>
+      </Grid>
+
+      {/* <Grid item>
         <ArticleCardList>
           <ArticleCardListItem square width="40%">
             {data.articles[0] ? (
@@ -45,8 +96,8 @@ function LatestArticlesSection() {
                 date={data.articles[0].date}
               />
             ) : (
-              <null />
-            )}
+                <null />
+              )}
           </ArticleCardListItem>
           <ArticleCardListItem square width="60%">
             {data.articles.slice(1, articleSize).map(article => (
@@ -61,7 +112,7 @@ function LatestArticlesSection() {
             ))}
           </ArticleCardListItem>
         </ArticleCardList>
-      </Grid>
+      </Grid> */}
 
       <Button
         classes={{ root: classes.readMore }}

@@ -12,7 +12,14 @@ const useStyles = makeStyles({
   }
 });
 
-function ArticleCard({ title, description, mediaSrc, subtitle, slug, date }) {
+function ColumnArticleCard({
+  title,
+  description,
+  mediaSrc,
+  subtitle,
+  slug,
+  date
+}) {
   const classes = useStyles();
   const dateObj = typeof date === 'string' ? new Date(date) : date;
   const formattedDate = dateObj
@@ -24,24 +31,31 @@ function ArticleCard({ title, description, mediaSrc, subtitle, slug, date }) {
     .toString();
   return (
     <RouterLink to={`articles/${slug}`}>
-      <Grid container style={{ padding: '2rem 0' }}>
-        <img src={mediaSrc} alt="Article Thumbnsail" className={classes.img} />
-        <Grid container direction="column" justify="space-between">
-          <Grid item>
-            <Typography variant="caption">{subtitle}</Typography>
-            <Typography variant="h5">{title}</Typography>
-            <Typography variant="body1">{description}</Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="body2">{formattedDate}</Typography>
-          </Grid>
+      <Grid
+        container
+        direction="row"
+        style={{ padding: '2rem 0', borderBottom: '1px solid grey' }}
+      >
+        <Grid item xs={3}>
+          <img
+            src={mediaSrc}
+            alt="Article Thumbnsail"
+            className={classes.img}
+          />
+        </Grid>
+
+        <Grid container direction="column" justify="start" xs={9}>
+          <Typography variant="caption">{subtitle}</Typography>
+          <Typography variant="h5">{title}</Typography>
+          <Typography variant="body1">{description}</Typography>
+          <Typography variant="body2">{formattedDate}</Typography>
         </Grid>
       </Grid>
     </RouterLink>
   );
 }
 
-ArticleCard.propTypes = {
+ColumnArticleCard.propTypes = {
   mediaSrc: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
   subtitle: propTypes.string.isRequired,
@@ -51,8 +65,8 @@ ArticleCard.propTypes = {
     .isRequired
 };
 
-ArticleCard.defaultProps = {
+ColumnArticleCard.defaultProps = {
   description: undefined
 };
 
-export default ArticleCard;
+export default ColumnArticleCard;
