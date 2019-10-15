@@ -10,8 +10,6 @@ import propTypes from '../propTypes';
 import RouterLink from '../RouterLink';
 import StatusChip from '../StatusChip';
 
-// import config from '../../config';
-
 const useStyles = makeStyles({
   root: {
     maxWidth: '100%',

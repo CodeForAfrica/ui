@@ -10,24 +10,14 @@ import {
   TimelineEntry as PromiseTimelineEntry
 } from '../components/Promise';
 import TitledGrid from '../components/TitledGrid';
+import SideBar from '../components/Articles/Sidebar';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
-    margin: '32px 0',
+    margin: '4rem 0',
     padding: '5rem 0'
-  },
-  mainContent: {
-    [theme.breakpoints.up('md')]: {
-      paddingRight: '64px'
-    }
-  },
-  sideContent: {
-    [theme.breakpoints.up('md')]: {
-      paddingLeft: '64px',
-      borderLeft: '0.0625rem solid #e6e6e6'
-    }
   }
-}));
+});
 
 function PromisePage({
   match: {
@@ -35,27 +25,30 @@ function PromisePage({
   }
 }) {
   const classes = useStyles();
+  console.log(slug);
   /**
    * TODO: Pull data using slug
    */
-  console.log(slug);
   return (
     <Page fixNavigation={false}>
-      <Layout classes={{ root: classes.root }}>
-        <Grid item xs={12} md={8} className={classes.mainContent}>
+      <Layout classes={{ root: classes.root }} spacing={8}>
+        <Grid item xs={12} md={8}>
           <PromiseHeader
             status="stalled"
             term="Term 1"
             topic="Domestic policy"
             title="Assuring equal rights for all Iranian ethnicities"
           />
+          <Grid item xs={12} style={{ padding: '3rem 0' }}>
+            <Divider />
+          </Grid>
           <Grid container item direction="column" spacing={8}>
             <TitledGrid
               container
               item
               direction="column"
               spacing={1}
-              variant="h5"
+              variant="h4"
               title="Promise Timeline"
             >
               <Grid item>
@@ -93,7 +86,7 @@ function PromisePage({
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} md={4} className={classes.sideContent}>
+        <Grid item xs={12} md={4} style={{ borderLeft: '1px solid grey' }}>
           <Grid container spacing={4}>
             <TitledGrid
               item
@@ -131,6 +124,7 @@ function PromisePage({
                 />
               </Grid>
             </TitledGrid>
+            <SideBar />
             <Grid container item>
               <Divider />
             </Grid>
