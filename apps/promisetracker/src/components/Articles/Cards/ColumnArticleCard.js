@@ -9,6 +9,10 @@ const useStyles = makeStyles({
   img: {
     height: 'auto',
     maxWidth: '100%'
+  },
+  mainGrid: {
+    padding: '1.5rem 0',
+    borderBottom: '1px solid grey'
   }
 });
 
@@ -31,24 +35,23 @@ function ColumnArticleCard({
     .toString();
   return (
     <RouterLink to={`articles/${slug}`}>
-      <Grid
-        container
-        direction="row"
-        style={{ padding: '2rem 0', borderBottom: '1px solid grey' }}
-      >
-        <Grid item xs={3}>
+      <Grid container direction="row" className={classes.mainGrid}>
+        <Grid item xs={4}>
           <img
             src={mediaSrc}
             alt="Article Thumbnsail"
             className={classes.img}
           />
         </Grid>
-
-        <Grid container direction="column" justify="start" xs={9}>
-          <Typography variant="caption">{subtitle}</Typography>
-          <Typography variant="h5">{title}</Typography>
-          <Typography variant="body1">{description}</Typography>
-          <Typography variant="body2">{formattedDate}</Typography>
+        <Grid container direction="column" justify="space-between" xs={8}>
+          <Grid item>
+            <Typography variant="caption">{subtitle}</Typography>
+            <Typography variant="h5">{title}</Typography>
+            <Typography variant="body1">{description}</Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="body2">{formattedDate}</Typography>
+          </Grid>
         </Grid>
       </Grid>
     </RouterLink>

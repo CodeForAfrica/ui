@@ -14,16 +14,19 @@ import data from '../../data/articles';
 
 const useStyles = makeStyles({
   root: {
-    padding: '4rem 0'
+    padding: '4rem 0',
+    background: 'white'
   },
   sectionTitle: {
     padding: '2rem 0'
   },
-  readMore: {
-    margin: '1rem 0'
-  },
   mainGrid: {
-    border: '2px solid red'
+    borderTop: '1px solid grey',
+    padding: '2rem 0'
+  },
+  columnGrid: {
+    borderLeft: '1px solid grey',
+    padding: '0 1rem'
   }
 });
 
@@ -33,7 +36,7 @@ function LatestArticlesSection() {
   const classes = useStyles();
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
-      <Grid item xs={12}>
+      <Grid item xs={12} className={classes.sectionTitle}>
         <Typography variant="h4">Latest Articles</Typography>
       </Grid>
 
@@ -41,7 +44,7 @@ function LatestArticlesSection() {
         container
         direction="row"
         justify="flex-start"
-        style={{ borderTop: '1px solid grey' }}
+        className={classes.mainGrid}
       >
         <ArticleCardList>
           <Grid item xs={5}>
@@ -64,7 +67,7 @@ function LatestArticlesSection() {
             container
             direction="column"
             xs={7}
-            style={{ borderLeft: '1px solid grey' }}
+            className={classes.columnGrid}
           >
             <Grid item>
               <ArticleCardListItem>

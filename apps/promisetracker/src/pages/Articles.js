@@ -11,6 +11,7 @@ import Layout from '../components/Layout';
 import ArticleCardList from '../components/Articles/Cards/ArticleCardList';
 import ArticleCardListItem from '../components/Articles/Cards/ArticleCardListItem';
 import ArticleCard from '../components/Articles/Cards/ArticleCard';
+import ColumnArticleCard from '../components/Articles/Cards/ColumnArticleCard';
 
 import RouterLink from '../components/RouterLink';
 
@@ -81,9 +82,7 @@ function Articles({ width, location: { search } }) {
             {!articles.offset && (
               <ArticleCardListItem>
                 {articles.data[0] ? (
-                  <ArticleCard
-                    jumbo
-                    height={400}
+                  <ColumnArticleCard
                     slug={articles.data[0].slug}
                     subtitle={articles.data[0].subtitle}
                     mediaSrc={articles.data[0].mediaSrc}
