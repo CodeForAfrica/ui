@@ -7,9 +7,15 @@ import propTypes from '../propTypes';
 function Content({ title, subtitle, description }) {
   return (
     <Grid container direction="column" justify="flex-start">
-      <Typography variant="h5">{title}</Typography>
-      <Typography variant="h6">{subtitle}</Typography>
-      <Typography variant="body1">{description}</Typography>
+      <Typography variant="h5" style={{ color: 'white' }}>
+        {title}
+      </Typography>
+      <Typography variant="h6" style={{ color: 'white' }}>
+        {subtitle}
+      </Typography>
+      <Typography variant="body1" style={{ color: 'white' }}>
+        {description}
+      </Typography>
     </Grid>
   );
 }

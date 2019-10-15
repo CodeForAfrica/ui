@@ -28,7 +28,7 @@ function ArticleNav({ next, previous }) {
        */}
       <Grid item xs={6} md={5}>
         {previous && (
-          <RouterLink to={previous.href} color="#659db9">
+          <RouterLink to={previous.href}>
             <KeyboardArrowLeft />
             <Typography variant="body1">{previous.label}</Typography>
           </RouterLink>
@@ -36,7 +36,7 @@ function ArticleNav({ next, previous }) {
       </Grid>
       {next && (
         <Grid container item xs={6} md={5} justify="flex-end">
-          <RouterLink to={next.href} color="#659db9">
+          <RouterLink to={next.href}>
             <Typography variant="body1">{next.label}</Typography>
             <KeyboardArrowRight />
           </RouterLink>

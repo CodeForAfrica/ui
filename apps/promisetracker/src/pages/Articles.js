@@ -31,7 +31,7 @@ function Articles() {
   return (
     <Page>
       <Layout justify="center">
-        <Grid container style={{ padding: '5rem 0' }}>
+        <Grid container style={{ padding: '5rem 0' }} spacing={5}>
           <ArticleCardList>
             <ArticleCardListItem>
               {articles.data[0] ? (
@@ -53,7 +53,6 @@ function Articles() {
                   item
                   xs={4}
                   style={{
-                    borderLeft: '1px solid grey',
                     borderRight: '1px solid grey'
                   }}
                 >
