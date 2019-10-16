@@ -35,7 +35,7 @@ function ColumnArticleCard({
     .toString();
   return (
     <RouterLink to={`articles/${slug}`}>
-      <Grid container direction="row" className={classes.mainGrid}>
+      <Grid container direction="row" spacing={2} className={classes.mainGrid}>
         <Grid item xs={4}>
           <img
             src={mediaSrc}
@@ -43,7 +43,8 @@ function ColumnArticleCard({
             className={classes.img}
           />
         </Grid>
-        <Grid container direction="column" justify="space-between" xs={8}>
+
+        <Grid container item xs={8} direction="column" spacing={3}>
           <Grid item>
             <Typography variant="caption">{subtitle}</Typography>
             <Typography variant="h5">{title}</Typography>

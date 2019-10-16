@@ -27,10 +27,15 @@ const useStyles = makeStyles({
   columnGrid: {
     borderLeft: '1px solid grey',
     padding: '0 1rem'
+  },
+  middleColumn: {
+    borderTop: '2px solid grey',
+    borderBottom: '2px solid grey'
   }
 });
 
 const articleSize = 4;
+// data.articles.slice(1, articleSize).map(article => console.log(article.index === 2));
 
 function LatestArticlesSection() {
   const classes = useStyles();
@@ -39,10 +44,14 @@ function LatestArticlesSection() {
       <Grid item xs={12} className={classes.sectionTitle}>
         <Typography variant="h4">Latest Articles</Typography>
       </Grid>
-
-      <Grid container direction="row" className={classes.mainGrid}>
-        <ArticleCardList>
-          <Grid item xs={5}>
+      <Grid
+        container
+        direction="row"
+        spacing={5}
+        style={{ borderTop: '1px solid grey', paddingTop: '2rem' }}
+      >
+        <Grid item xs={5}>
+          <ArticleCardList>
             <ArticleCardListItem>
               {data.articles[0] ? (
                 <ArticleCard
@@ -56,71 +65,37 @@ function LatestArticlesSection() {
                 <null />
               )}
             </ArticleCardListItem>
-          </Grid>
+          </ArticleCardList>
+        </Grid>
 
-          <Grid
-            container
-            direction="column"
-            xs={7}
-            className={classes.columnGrid}
-          >
-            <Grid item>
-              <ArticleCardListItem>
-                {data.articles.slice(1, articleSize).map(article => (
-                  <ColumnArticleCard
-                    slug={article.slug}
-                    subtitle={article.subtitle}
-                    mediaSrc={article.mediaSrc}
-                    title={article.title}
-                    date={article.date}
-                  />
-                ))}
-              </ArticleCardListItem>
-            </Grid>
-          </Grid>
-        </ArticleCardList>
+        <Grid item xs={7} style={{ borderLeft: '1px solid grey' }}>
+          <ArticleCardList>
+            <ArticleCardListItem>
+              {data.articles.slice(1, articleSize).map(article => (
+                <ColumnArticleCard
+                  slug={article.slug}
+                  subtitle={article.subtitle}
+                  mediaSrc={article.mediaSrc}
+                  title={article.title}
+                  date={article.date}
+                />
+              ))}
+            </ArticleCardListItem>
+          </ArticleCardList>
+        </Grid>
       </Grid>
 
-      {/* <Grid item>
-        <ArticleCardList>
-          <ArticleCardListItem square width="40%">
-            {data.articles[0] ? (
-              <ArticleCard
-                square
-                slug={data.articles[0].slug}
-                subtitle={data.articles[0].subtitle}
-                mediaSrc={data.articles[0].mediaSrc}
-                title={data.articles[0].title}
-                date={data.articles[0].date}
-              />
-            ) : (
-                <null />
-              )}
-          </ArticleCardListItem>
-          <ArticleCardListItem square width="60%">
-            {data.articles.slice(1, articleSize).map(article => (
-              <ArticleCard
-                squares
-                slug={article.slug}
-                subtitle={article.subtitle}
-                mediaSrc={article.mediaSrc}
-                title={article.title}
-                date={article.date}
-              />
-            ))}
-          </ArticleCardListItem>
-        </ArticleCardList>
-      </Grid> */}
-
-      <Button
-        classes={{ root: classes.readMore }}
-        component={RouterLink}
-        to="/articles"
-        color="primary"
-        variant="contained"
-      >
-        READ MORE
-      </Button>
+      <Grid item style={{ paddingTop: '3rem' }}>
+        <Button
+          classes={{ root: classes.readMore }}
+          component={RouterLink}
+          to="/articles"
+          color="primary"
+          variant="contained"
+        >
+          READ MORE
+        </Button>
+      </Grid>
     </Layout>
   );
 }

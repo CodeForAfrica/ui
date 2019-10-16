@@ -24,18 +24,16 @@ function ArticleCard({ title, description, mediaSrc, subtitle, slug, date }) {
     .toString();
   return (
     <RouterLink to={`articles/${slug}`}>
-      <Grid container direction="column">
+      <Grid item>
+        <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
+      </Grid>
+      <Grid container direction="column" spacing={6}>
         <Grid item>
-          <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
+          <Typography variant="caption">{subtitle}</Typography>
+          <Typography variant="h5">{title}</Typography>
+          <Typography variant="body1">{description}</Typography>
         </Grid>
-
-        <Grid container direction="column" justify="center">
-          <Grid item>
-            <Typography variant="caption">{subtitle}</Typography>
-            <Typography variant="h5">{title}</Typography>
-            <Typography variant="body1">{description}</Typography>
-          </Grid>
-
+        <Grid item>
           <Typography variant="body2">{formattedDate}</Typography>
         </Grid>
       </Grid>

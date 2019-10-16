@@ -13,6 +13,7 @@ import StatusChip from '../StatusChip';
 const useStyles = makeStyles({
   root: {
     border: '1px solid grey',
+    borderTop: '2px solid blue',
     height: '14rem',
     width: '100%'
   }
