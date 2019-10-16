@@ -7,12 +7,12 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import RouterLink from '../RouterLink';
 import propTypes from '../propTypes';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    borderTop: '0.0625rem solid #9b9b9b',
+    borderTop: `1px solid ${theme.palette.divider}`,
     padding: '1.25rem 0'
   }
-});
+}));
 
 function ArticleNav({ next, previous }) {
   const classes = useStyles();

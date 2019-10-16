@@ -16,12 +16,14 @@ import RouterLink from '../components/RouterLink';
 
 import data from '../data/articles';
 
-const useStyles = makeStyles({
-  root: {},
+const useStyles = makeStyles(theme => ({
+  rowGrid: {
+    borderRight: `1px solid ${theme.palette.divider}`
+  },
   readMore: {
     margin: '3rem 0'
   }
-});
+}));
 
 function Articles() {
   const classes = useStyles();
@@ -49,13 +51,7 @@ function Articles() {
             </ArticleCardListItem>
             <Grid container direction="row" spacing={4}>
               {data.articles.slice(2).map(article => (
-                <Grid
-                  item
-                  xs={4}
-                  style={{
-                    borderRight: '1px solid grey'
-                  }}
-                >
+                <Grid item xs={4} className={classes.rowGrid}>
                   <ArticleCardListItem>
                     <ArticleCard
                       slug={article.slug}

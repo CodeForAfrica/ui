@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   articleGrid: {
     borderRight: 0,
     [theme.breakpoints.up('md')]: {
-      borderRight: '1px solid #e6e6e6'
+      borderRight: `1px solid ${theme.palette.divider}`
     }
   }
 }));

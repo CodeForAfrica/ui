@@ -5,16 +5,16 @@ import propTypes from '../../propTypes';
 
 import RouterLink from '../../RouterLink';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   img: {
     height: 'auto',
     maxWidth: '100%'
   },
   mainGrid: {
     padding: '1.5rem 0',
-    borderBottom: '1px solid grey'
+    borderBottom: `1px solid ${theme.palette.divider}`
   }
-});
+}));
 
 function ColumnArticleCard({
   title,

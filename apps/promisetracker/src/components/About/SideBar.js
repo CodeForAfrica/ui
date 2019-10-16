@@ -3,19 +3,19 @@ import React from 'react';
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 import StatusChip from '../StatusChip';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    borderLeft: '1px solid #e6e6e6'
+    borderLeft: `1px solid ${theme.palette.divider}`
   },
   typo: {
     padding: '1rem 0'
   }
-});
+}));
 
 function SideBar({ ...props }) {
   const classes = useStyles(props);
   return (
-    <Grid item xs={12} md={4} className={classes.root}>
+    <Grid item xs={12} md={4} borderBottom={1} className={classes.root}>
       <Typography variant="h3" style={{ paddingBottom: '2rem' }}>
         OUR RATINGS
       </Typography>

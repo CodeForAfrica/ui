@@ -12,7 +12,7 @@ import RouterLink from '../../components/RouterLink';
 
 import data from '../../data/articles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     padding: '4rem 0',
     background: 'white'
@@ -21,18 +21,13 @@ const useStyles = makeStyles({
     padding: '2rem 0'
   },
   mainGrid: {
-    borderTop: '1px solid grey',
+    borderTop: `1px solid ${theme.palette.divider}`,
     padding: '2rem 0'
   },
   columnGrid: {
-    borderLeft: '1px solid grey',
-    padding: '0 1rem'
-  },
-  middleColumn: {
-    borderTop: '2px solid grey',
-    borderBottom: '2px solid grey'
+    borderLeft: `1px solid ${theme.palette.divider}`
   }
-});
+}));
 
 const articleSize = 4;
 // data.articles.slice(1, articleSize).map(article => console.log(article.index === 2));
@@ -44,12 +39,7 @@ function LatestArticlesSection() {
       <Grid item xs={12} className={classes.sectionTitle}>
         <Typography variant="h4">Latest Articles</Typography>
       </Grid>
-      <Grid
-        container
-        direction="row"
-        spacing={5}
-        style={{ borderTop: '1px solid grey', paddingTop: '2rem' }}
-      >
+      <Grid container direction="row" spacing={5} className={classes.mainGrid}>
         <Grid item xs={5}>
           <ArticleCardList>
             <ArticleCardListItem>
@@ -68,7 +58,7 @@ function LatestArticlesSection() {
           </ArticleCardList>
         </Grid>
 
-        <Grid item xs={7} style={{ borderLeft: '1px solid grey' }}>
+        <Grid item xs={7} className={classes.columnGrid}>
           <ArticleCardList>
             <ArticleCardListItem>
               {data.articles.slice(1, articleSize).map(article => (
