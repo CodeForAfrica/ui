@@ -76,7 +76,7 @@ function Articles({ location: { search } }) {
             </Grid>
           </ArticleCardList>
 
-          <Grid item xs={12}>
+          <Grid item xs={12} style={{ textAlign: 'center' }}>
             <Button
               component={RouterLink}
               to={`/articles?offset=${offset + 1}`}
