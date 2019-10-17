@@ -8,18 +8,18 @@ import Layout from '../Layout';
 import Content from '../Contribute/Content';
 import Form from '../Contribute/Form';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     padding: '2.5rem 0'
   },
   typoGrid: {
     padding: '2rem',
-    background: '#3f51b5'
+    background: theme.palette.primary.main
   },
   formGrid: {
-    background: '#f6f6f6'
+    background: theme.palette.grey[200]
   }
-});
+}));
 
 function Sidebar() {
   const classes = useStyles();

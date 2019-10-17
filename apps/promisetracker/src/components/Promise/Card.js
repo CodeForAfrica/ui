@@ -10,14 +10,15 @@ import propTypes from '../propTypes';
 import RouterLink from '../RouterLink';
 import StatusChip from '../StatusChip';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    border: '1px solid grey',
-    borderTop: '2px solid blue',
+    border: `1px solid ${theme.palette.divider}`,
+    borderTop: `2px solid ${theme.palette.secondary}`,
     height: '14rem',
-    width: '100%'
+    width: '100%',
+    maxHeight: '100%'
   }
-});
+}));
 
 function PromiseCard({
   status,

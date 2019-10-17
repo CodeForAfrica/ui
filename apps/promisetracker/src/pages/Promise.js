@@ -12,12 +12,15 @@ import {
 import TitledGrid from '../components/TitledGrid';
 import SideBar from '../components/Articles/Sidebar';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     margin: '4rem 0',
     padding: '5rem 0'
+  },
+  sidebar: {
+    borderLeft: `1px solid ${theme.palette.divider}`
   }
-});
+}));
 
 function PromisePage({
   match: {
@@ -86,7 +89,7 @@ function PromisePage({
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} md={4} style={{ borderLeft: '1px solid grey' }}>
+        <Grid item xs={12} md={4} className={classes.sidebar} style={{}}>
           <Grid container spacing={4}>
             <TitledGrid
               item

@@ -15,7 +15,7 @@ import data from '../../data/articles';
 const useStyles = makeStyles(theme => ({
   root: {
     padding: '4rem 0',
-    background: 'white'
+    background: theme.palette.background.paper
   },
   sectionTitle: {
     padding: '2rem 0'

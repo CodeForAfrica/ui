@@ -3,8 +3,6 @@ import { PieChart, Pie, Cell, LabelList } from 'recharts';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 
-// import config from '../config';
-
 const promises = [
   {
     status: 'achieved',
@@ -44,7 +42,7 @@ function PercentageLabelFormatter(value) {
   return `${((Number(value) * 100) / totalPromises).toFixed(0)}%`;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     position: 'relative'
   },
@@ -55,12 +53,12 @@ const useStyles = makeStyles({
     top: 0
   },
   typo: {
-    color: 'black'
+    color: theme.palette.common.black
   },
   percentageLabel: {
     pointerEvents: 'none'
   }
-});
+}));
 
 function StatusPieChart() {
   const classes = useStyles();

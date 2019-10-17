@@ -10,7 +10,7 @@ import foreignAffairs from '../../components/assets/images/partners/foreignaffai
 import politifact from '../../components/assets/images/partners/politifact.png';
 import poyner from '../../components/assets/images/partners/poyner.png';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     padding: '2rem'
@@ -22,12 +22,12 @@ const useStyles = makeStyles({
   typoGrid: {
     textAlign: 'center',
     margin: '1.5rem',
-    color: 'black'
+    color: theme.palette.common.black
   },
   imgGrid: {
     padding: '2rem'
   }
-});
+}));
 
 function PartnersSection() {
   const classes = useStyles();

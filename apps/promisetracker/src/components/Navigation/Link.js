@@ -6,16 +6,16 @@ import { NavLink as RouterNavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import propTypes from '../propTypes';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     lineHeight: '100%',
     margin: '2rem',
-    color: 'white',
+    color: theme.palette.common.white,
     '&:hover': {
-      color: 'black'
+      color: theme.palette.common.black
     }
   }
-});
+}));
 
 function Link({ href, title, children, ...props }) {
   const classes = useStyles(props);

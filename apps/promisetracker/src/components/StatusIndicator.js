@@ -5,18 +5,15 @@ import propTypes from './propTypes';
 
 // import config from '../config';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      // height: '9.3125rem'
-    }
+    width: '100%'
   },
   indicatorImage: {
     height: 'auto',
     maxWidth: '100%'
   }
-}));
+});
 
 function StatusIndicator({ status, href, img, label, value, ...props }) {
   const classes = useStyles({ status, ...props });
@@ -34,7 +31,7 @@ function StatusIndicator({ status, href, img, label, value, ...props }) {
           variant="contained"
           color="secondary"
           aria-label="split button"
-          style={{ width: '100%' }}
+          fullWidth
         >
           <Button size="small" style={{ width: '30%' }}>
             {value}

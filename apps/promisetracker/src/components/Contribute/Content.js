@@ -1,19 +1,26 @@
 import React from 'react';
 
-import { Typography, Grid } from '@material-ui/core';
+import { Typography, Grid, makeStyles } from '@material-ui/core';
 
 import propTypes from '../propTypes';
 
+const useStyles = makeStyles(theme => ({
+  typo: {
+    color: theme.palette.common.white
+  }
+}));
+
 function Content({ title, subtitle, description }) {
+  const classes = useStyles();
   return (
     <Grid container direction="column" justify="flex-start">
-      <Typography variant="h5" style={{ color: 'white' }}>
+      <Typography variant="h5" className={classes.typo}>
         {title}
       </Typography>
-      <Typography variant="h6" style={{ color: 'white' }}>
+      <Typography variant="h6" className={classes.typo}>
         {subtitle}
       </Typography>
-      <Typography variant="body1" style={{ color: 'white' }}>
+      <Typography variant="body1" className={classes.typo}>
         {description}
       </Typography>
     </Grid>

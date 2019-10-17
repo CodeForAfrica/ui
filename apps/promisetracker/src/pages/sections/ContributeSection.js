@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
+
 import Layout from '../../components/Layout';
 import Content from '../../components/Contribute/Content';
 import Form from '../../components/Contribute/Form';
@@ -9,38 +10,17 @@ const useStyles = makeStyles(theme => ({
   root: {
     [theme.breakpoints.up('md')]: {
       height: '28.375rem',
-      background:
-        'linear-gradient(to right, #3f51b5, #3f51b5 50%, #f6f6f6 50%, #f6f6f6)'
+      background: `linear-gradient(to right, ${theme.palette.primary.main}, ${
+        theme.palette.primary.main
+      } 50%, ${theme.palette.grey[200]} 50%, ${theme.palette.grey[200]})`
     }
-  },
-  descriptionTextField: {
-    height: '8.375rem'
   },
   contributeCallToAction: {
-    padding: '1.25rem',
-    justifyContent: 'center',
-    backgroundColor: '#f7b801',
-    '& h2:nth-child(1)': {
-      marginBottom: '.875rem'
-    },
-    '& h3:nth-child(2)': {
-      marginBottom: '1.75rem'
-    },
-    [theme.breakpoints.up('md')]: {
-      padding: 'unset',
-      backgroundColor: 'unset',
-      justifyContent: 'flex-end'
-    }
+    background: theme.palette.primary.main,
+    padding: theme.spacing(4)
   },
   contributeFormGrid: {
-    padding: '1.25rem',
-    justifyContent: 'flex-start',
-    backgroundColor: '#f6f6f6',
-    [theme.breakpoints.up('md')]: {
-      padding: 'unset',
-      backgroundColor: 'unset',
-      justifyContent: 'flex-end'
-    }
+    backgroundColor: theme.palette.grey[200]
   }
 }));
 
