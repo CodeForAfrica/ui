@@ -23,26 +23,23 @@ function ArticleCard({ title, description, mediaSrc, subtitle, slug, date }) {
     })
     .toString();
   return (
-    <RouterLink to={`articles/${slug}`}>
-      <Grid item>
-        <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
-      </Grid>
-      <Grid
-        container
-        direction="column"
-        spacing={6}
-        style={{ padding: '0 1rem' }}
-      >
+    <div>
+      <RouterLink to={`articles/${slug}`}>
         <Grid item>
-          <Typography variant="caption">{subtitle}</Typography>
-          <Typography variant="h5">{title}</Typography>
-          <Typography variant="body1">{description}</Typography>
+          <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
         </Grid>
-        <Grid item>
-          <Typography variant="body2">{formattedDate}</Typography>
+        <Grid container spacing={6} style={{ padding: '0 1rem' }}>
+          <Grid item>
+            <Typography variant="caption">{subtitle}</Typography>
+            <Typography variant="h5">{title}</Typography>
+            <Typography variant="body1">{description}</Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="body2">{formattedDate}</Typography>
+          </Grid>
         </Grid>
-      </Grid>
-    </RouterLink>
+      </RouterLink>
+    </div>
   );
 }
 

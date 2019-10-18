@@ -44,7 +44,9 @@ function Articles({ location: { search } }) {
                   mediaSrc={articles.data[0].mediaSrc}
                   title={articles.data[0].title}
                   date={articles.data[0].date}
-                  description="August 2019 marks the sixth anniversary of Hassan Rouhani’s presidency. His sixth year in office was a difficult one, both for him and for the people of Iran. The economic and political crises that began earlier seem to continue into his seventh year. "
+                  description="August 2019 marks the sixth anniversary of Hassan Rouhani’s presidency. 
+                              His sixth year in office was a difficult one, both for him and for the people of Iran. 
+                              The economic and political crises that began earlier seem to continue into his seventh year. "
                 />
               ) : (
                 <null />

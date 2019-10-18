@@ -4,7 +4,7 @@ import propTypes from './propTypes';
 
 import config from '../config';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     cursor: 'pointer',
     height: '2rem',
@@ -13,14 +13,20 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  link: {
+    color: theme.palette.common.white,
+    textDecoration: 'none'
   }
-});
+}));
 
-function StatusChip({ status, ...props }) {
+function StatusChip({ status, href, ...props }) {
   const classes = useStyles({ status, ...props });
   return (
     <Button variant="contained" color="primary" className={classes.root}>
-      {config.statusTypes.find(s => s.slug === status).name}
+      <a href={`/promises?status=${status}`} className={classes.link}>
+        {config.statusTypes.find(s => s.slug === status).name}
+      </a>
     </Button>
   );
 }
@@ -33,7 +39,12 @@ StatusChip.propTypes = {
     'in-progress',
     'stalled',
     'inactive'
-  ]).isRequired
+  ]).isRequired,
+  href: propTypes.string
+};
+
+StatusChip.defaultProps = {
+  href: undefined
 };
 
 export default StatusChip;

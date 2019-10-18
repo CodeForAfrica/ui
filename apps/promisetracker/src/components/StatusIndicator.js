@@ -3,7 +3,7 @@ import { Grid, makeStyles, Button, ButtonGroup } from '@material-ui/core';
 import RouterLink from './RouterLink';
 import propTypes from './propTypes';
 
-// import config from '../config';
+// simport config from '../config';
 
 const useStyles = makeStyles({
   root: {
