@@ -22,6 +22,9 @@ const useStyles = makeStyles(theme => ({
   },
   divider: {
     padding: '3rem 0'
+  },
+  typo: {
+    padding: '2rem 0'
   }
 }));
 
@@ -48,48 +51,52 @@ function PromisePage({
           <Grid item xs={12} className={classes.divider}>
             <Divider />
           </Grid>
-          <Grid container item direction="column" spacing={8}>
-            <TitledGrid
-              container
-              item
-              direction="column"
-              spacing={1}
-              variant="h4"
-              title="Promise Timeline"
-            >
-              <Grid item>
-                <PromiseTimelineEntry
-                  defaultExpanded
-                  updated="Jul 26, 2019"
-                  status="compromised"
-                />
-              </Grid>
-              <Grid item>
-                <PromiseTimelineEntry
-                  updated="Jul 26, 2019"
-                  status="in-progress"
-                />
-              </Grid>
-            </TitledGrid>
 
-            <TitledGrid item variant="h5" title="About the promise">
-              <Typography />
-            </TitledGrid>
-
+          <TitledGrid
+            container
+            item
+            direction="column"
+            spacing={1}
+            variant="h4"
+            title="Promise Timeline"
+          >
             <Grid item>
-              <PromiseNavigator
-                previous={{
-                  href: '/promises/previous-promise-slug',
-                  label:
-                    'Civil Rights Charter will be submitted to the parliament as a bill.'
-                }}
-                next={{
-                  href: '/promises/next-promise-slug',
-                  label:
-                    'Reinstating university professors and administrators dismissed or forced into retirement for their political views.'
-                }}
+              <PromiseTimelineEntry
+                defaultExpanded
+                updated="Jul 26, 2019"
+                status="compromised"
               />
             </Grid>
+            <Grid item>
+              <PromiseTimelineEntry
+                updated="Jul 26, 2019"
+                status="in-progress"
+              />
+            </Grid>
+          </TitledGrid>
+
+          <TitledGrid
+            item
+            variant="h5"
+            title="About the promise"
+            className={classes.typo}
+          >
+            <Typography />
+          </TitledGrid>
+
+          <Grid item>
+            <PromiseNavigator
+              previous={{
+                href: '/promises/previous-promise-slug',
+                label:
+                  'Civil Rights Charter will be submitted to the parliament as a bill.'
+              }}
+              next={{
+                href: '/promises/next-promise-slug',
+                label:
+                  'Reinstating university professors and administrators dismissed or forced into retirement for their political views.'
+              }}
+            />
           </Grid>
         </Grid>
         <Grid item xs={12} md={4} className={classes.sidebar}>

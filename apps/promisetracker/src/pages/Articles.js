@@ -15,7 +15,10 @@ import RouterLink from '../components/RouterLink';
 
 import data from '../data/articles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
+  root: {
+    background: theme.palette.background.paper
+  },
   readMore: {
     margin: '3rem 0'
   },
@@ -26,7 +29,7 @@ const useStyles = makeStyles({
   button: {
     textAlign: 'center'
   }
-});
+}));
 
 function Articles({ location: { search } }) {
   const classes = useStyles();
@@ -40,10 +43,10 @@ function Articles({ location: { search } }) {
 
   return (
     <Page>
-      <Layout justify="center">
+      <Layout justify="center" classes={{ root: classes.root }}>
         <Grid container className={classes.mainGrid} spacing={5}>
           {!articles.offset && (
-            <li>
+            <div>
               {articles.data[0] ? (
                 <ColumnArticleCard
                   slug={articles.data[0].slug}
@@ -58,7 +61,7 @@ function Articles({ location: { search } }) {
               ) : (
                 <null />
               )}
-            </li>
+            </div>
           )}
           <Grid
             container

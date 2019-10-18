@@ -6,11 +6,12 @@ import PromiseCard from '../components/Promise/Card';
 import Layout from '../components/Layout';
 import propTypes from '../components/propTypes';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    padding: '5rem 0'
+    padding: '5rem 0',
+    background: theme.palette.background.paper
   }
-});
+}));
 
 function Promises({ location: { search } }) {
   const params = new URLSearchParams(search);
