@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
   },
   imgGrid: {
     padding: '2rem'
+  },
+  link: {
+    textAlign: 'center'
   }
 }));
 
@@ -53,7 +56,7 @@ function PartnersSection() {
         <Grid item xs={6} md={2}>
           <A
             href="https://www.foreignaffairs.com/articles/2014-01-06/just-facts"
-            style={{ textAlign: 'center' }}
+            className={classes.link}
           >
             <img
               src={foreignAffairs}

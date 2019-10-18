@@ -19,6 +19,9 @@ const useStyles = makeStyles(theme => ({
   },
   sidebar: {
     borderLeft: `1px solid ${theme.palette.divider}`
+  },
+  divider: {
+    padding: '3rem 0'
   }
 }));
 
@@ -42,7 +45,7 @@ function PromisePage({
             topic="Domestic policy"
             title="Assuring equal rights for all Iranian ethnicities"
           />
-          <Grid item xs={12} style={{ padding: '3rem 0' }}>
+          <Grid item xs={12} className={classes.divider}>
             <Divider />
           </Grid>
           <Grid container item direction="column" spacing={8}>
@@ -89,7 +92,7 @@ function PromisePage({
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} md={4} className={classes.sidebar} style={{}}>
+        <Grid item xs={12} md={4} className={classes.sidebar}>
           <Grid container spacing={4}>
             <TitledGrid
               item

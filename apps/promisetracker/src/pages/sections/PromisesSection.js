@@ -46,6 +46,9 @@ const useStyles = makeStyles({
   }),
   cardsContainer: {
     padding: '2rem 0rem'
+  },
+  mainGrid: {
+    maxWidth: '37.5rem'
   }
 });
 
@@ -123,7 +126,7 @@ function PromisesSection({
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
       <Grid item xs={12}>
-        <Grid container spacing={1} style={{ maxWidth: '37.5rem' }}>
+        <Grid container spacing={1} className={classes.mainGrid}>
           <Grid item xs={6} sm={4}>
             <Select
               showIndicator={filter.status !== 'all'}

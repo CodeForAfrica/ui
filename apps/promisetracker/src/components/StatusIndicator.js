@@ -12,6 +12,12 @@ const useStyles = makeStyles({
   indicatorImage: {
     height: 'auto',
     maxWidth: '100%'
+  },
+  smallButton: {
+    width: '30%'
+  },
+  largeButton: {
+    width: '70%'
   }
 });
 
@@ -33,14 +39,14 @@ function StatusIndicator({ status, href, img, label, value, ...props }) {
           aria-label="split button"
           fullWidth
         >
-          <Button size="small" style={{ width: '30%' }}>
+          <Button size="small" className={classes.smallButton}>
             {value}
           </Button>
           <Button
             color="primary"
             size="small"
             aria-haspopup="true"
-            style={{ width: '70%' }}
+            className={classes.largeButton}
           >
             {label || status}
           </Button>

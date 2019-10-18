@@ -23,7 +23,8 @@ const useStyles = makeStyles(theme => ({
   },
   columnGrid: {
     borderLeft: `1px solid ${theme.palette.divider}`
-  }
+  },
+  button: { paddingTop: '3rem' }
 }));
 
 const articleSize = 4;
@@ -63,7 +64,7 @@ function LatestArticlesSection() {
         </Grid>
       </Grid>
 
-      <Grid item style={{ paddingTop: '3rem' }}>
+      <Grid item className={classes.button}>
         <Button
           classes={{ root: classes.readMore }}
           component={RouterLink}

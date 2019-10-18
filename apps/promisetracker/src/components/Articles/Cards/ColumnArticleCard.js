@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
   mainGrid: {
     padding: '1.5rem 0',
     borderBottom: `1px solid ${theme.palette.divider}`
+  },
+  typoGrid: {
+    padding: '0 2rem'
   }
 }));
 
@@ -47,7 +50,7 @@ function ColumnArticleCard({
           md={8}
           direction="column"
           spacing={3}
-          style={{ padding: '0 2rem' }}
+          className={classes.typoGrid}
         >
           <Grid item>
             <Typography variant="caption">{subtitle}</Typography>

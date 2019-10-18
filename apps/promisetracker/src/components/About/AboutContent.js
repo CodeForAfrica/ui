@@ -1,11 +1,17 @@
 import React from 'react';
 
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 
+const useStyles = makeStyles({
+  title: {
+    paddingBottom: '2rem'
+  }
+});
 function AboutContent() {
+  const classes = useStyles();
   return (
     <Grid item xs={12} md={8} spacing={8}>
-      <Typography variant="h3" style={{ paddingBottom: '2rem' }}>
+      <Typography variant="h3" className={classes.title}>
         ABOUT US
       </Typography>
       <Typography variant="body1">

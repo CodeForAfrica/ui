@@ -18,6 +18,13 @@ import data from '../data/articles';
 const useStyles = makeStyles({
   readMore: {
     margin: '3rem 0'
+  },
+  mainGrid: { padding: '5rem 0' },
+  rowGrid: {
+    padding: '3rem 0'
+  },
+  button: {
+    textAlign: 'center'
   }
 });
 
@@ -34,7 +41,7 @@ function Articles({ location: { search } }) {
   return (
     <Page>
       <Layout justify="center">
-        <Grid container style={{ padding: '5rem 0' }} spacing={5}>
+        <Grid container className={classes.mainGrid} spacing={5}>
           {!articles.offset && (
             <li>
               {articles.data[0] ? (
@@ -57,7 +64,7 @@ function Articles({ location: { search } }) {
             container
             direction="row"
             spacing={4}
-            style={{ padding: '3rem 0' }}
+            className={classes.rowGrid}
           >
             {data.articles.slice(2).map(article => (
               <Grid item xs={12} sm={6} md={4} className={classes.rowGrid}>
@@ -72,7 +79,7 @@ function Articles({ location: { search } }) {
             ))}
           </Grid>
 
-          <Grid item xs={12} style={{ textAlign: 'center' }}>
+          <Grid item xs={12} className={classes.button}>
             <Button
               component={RouterLink}
               to={`/articles?offset=${offset + 1}`}
