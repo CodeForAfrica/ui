@@ -30,7 +30,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const articleSize = 4;
-// data.articles.slice(1, articleSize).map(article => console.log(article.index === 2));
 
 function LatestArticlesSection() {
   const classes = useStyles();
