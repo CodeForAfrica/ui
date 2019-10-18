@@ -5,9 +5,6 @@ import Layout from '../../components/Layout';
 import ArticleCard from '../../components/Articles/Cards/ArticleCard';
 import ColumnArticleCard from '../../components/Articles/Cards/ColumnArticleCard';
 
-import ArticleCardList from '../../components/Articles/Cards/ArticleCardList';
-import ArticleCardListItem from '../../components/Articles/Cards/ArticleCardListItem';
-
 import RouterLink from '../../components/RouterLink';
 
 import data from '../../data/articles';
@@ -40,37 +37,29 @@ function LatestArticlesSection() {
       </Grid>
       <Grid container direction="row" spacing={5} className={classes.mainGrid}>
         <Grid item xs={12} md={5}>
-          <ArticleCardList>
-            <ArticleCardListItem>
-              {data.articles[0] ? (
-                <ArticleCard
-                  slug={data.articles[0].slug}
-                  subtitle={data.articles[0].subtitle}
-                  mediaSrc={data.articles[0].mediaSrc}
-                  title={data.articles[0].title}
-                  date={data.articles[0].date}
-                />
-              ) : (
-                <null />
-              )}
-            </ArticleCardListItem>
-          </ArticleCardList>
+          {data.articles[0] ? (
+            <ArticleCard
+              slug={data.articles[0].slug}
+              subtitle={data.articles[0].subtitle}
+              mediaSrc={data.articles[0].mediaSrc}
+              title={data.articles[0].title}
+              date={data.articles[0].date}
+            />
+          ) : (
+            <null />
+          )}
         </Grid>
 
         <Grid item xs={12} md={7} className={classes.columnGrid}>
-          <ArticleCardList>
-            <ArticleCardListItem>
-              {data.articles.slice(1, articleSize).map(article => (
-                <ColumnArticleCard
-                  slug={article.slug}
-                  subtitle={article.subtitle}
-                  mediaSrc={article.mediaSrc}
-                  title={article.title}
-                  date={article.date}
-                />
-              ))}
-            </ArticleCardListItem>
-          </ArticleCardList>
+          {data.articles.slice(1, articleSize).map(article => (
+            <ColumnArticleCard
+              slug={article.slug}
+              subtitle={article.subtitle}
+              mediaSrc={article.mediaSrc}
+              title={article.title}
+              date={article.date}
+            />
+          ))}
         </Grid>
       </Grid>
 
