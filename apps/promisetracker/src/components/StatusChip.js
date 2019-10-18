@@ -6,13 +6,8 @@ import config from '../config';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    cursor: 'pointer',
-    height: '2rem',
     width: '50%',
-    padding: '0 1.25rem',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    padding: '0.2rem 1.25rem'
   },
   link: {
     color: theme.palette.common.white,

@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     border: `1px solid ${theme.palette.divider}`,
     borderTop: `2px solid ${theme.palette.secondary}`,
-    height: '14rem',
+    // height: '14rem',
     width: '100%',
     maxHeight: '100%'
   }
