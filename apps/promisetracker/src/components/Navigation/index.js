@@ -32,6 +32,7 @@ const useStyles = makeStyles({
   menuList: {
     display: 'flex',
     flexDirection: 'column'
+    // color: 'black'
   }
 });
 
@@ -83,7 +84,7 @@ function Navigation({ width, ...props }) {
   };
   return (
     <div className={classes.root}>
-      <AppBar color="primary">
+      <AppBar>
         <Toolbar>
           {isWidthDown('sm', width) && (
             <Grid item className={classes.itemGrid}>
