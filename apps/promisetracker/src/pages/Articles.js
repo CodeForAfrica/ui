@@ -61,7 +61,7 @@ function Articles({ location: { search } }) {
               style={{ padding: '3rem 0' }}
             >
               {data.articles.slice(2).map(article => (
-                <Grid item xs={4} className={classes.rowGrid}>
+                <Grid item xs={12} sm={6} md={4} className={classes.rowGrid}>
                   <ArticleCardListItem>
                     <ArticleCard
                       slug={article.slug}

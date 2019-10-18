@@ -27,7 +27,12 @@ function ArticleCard({ title, description, mediaSrc, subtitle, slug, date }) {
       <Grid item>
         <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
       </Grid>
-      <Grid container direction="column" spacing={6}>
+      <Grid
+        container
+        direction="column"
+        spacing={6}
+        style={{ padding: '0 1rem' }}
+      >
         <Grid item>
           <Typography variant="caption">{subtitle}</Typography>
           <Typography variant="h5">{title}</Typography>

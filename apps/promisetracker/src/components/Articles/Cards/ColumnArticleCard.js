@@ -36,7 +36,7 @@ function ColumnArticleCard({
   return (
     <RouterLink to={`articles/${slug}`}>
       <Grid container direction="row" spacing={2} className={classes.mainGrid}>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <img
             src={mediaSrc}
             alt="Article Thumbnsail"
@@ -44,7 +44,15 @@ function ColumnArticleCard({
           />
         </Grid>
 
-        <Grid container item xs={8} direction="column" spacing={3}>
+        <Grid
+          container
+          item
+          xs={12}
+          md={8}
+          direction="column"
+          spacing={3}
+          style={{ padding: '0 2rem' }}
+        >
           <Grid item>
             <Typography variant="caption">{subtitle}</Typography>
             <Typography variant="h5">{title}</Typography>

@@ -40,7 +40,7 @@ function LatestArticlesSection() {
         <Typography variant="h4">Latest Articles</Typography>
       </Grid>
       <Grid container direction="row" spacing={5} className={classes.mainGrid}>
-        <Grid item xs={5}>
+        <Grid item xs={12} md={5}>
           <ArticleCardList>
             <ArticleCardListItem>
               {data.articles[0] ? (
@@ -58,7 +58,7 @@ function LatestArticlesSection() {
           </ArticleCardList>
         </Grid>
 
-        <Grid item xs={7} className={classes.columnGrid}>
+        <Grid item xs={12} md={7} className={classes.columnGrid}>
           <ArticleCardList>
             <ArticleCardListItem>
               {data.articles.slice(1, articleSize).map(article => (
