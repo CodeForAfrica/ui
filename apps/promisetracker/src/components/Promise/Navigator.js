@@ -24,16 +24,20 @@ function PromiseNavigator({ next, previous }) {
       {previous && (
         <Grid item xs={6} md={5}>
           <RouterLink to={previous.href}>
-            <KeyboardArrowLeft />
-            <Typography variant="body2">{previous.label}</Typography>
+            <Typography variant="body2">
+              {' '}
+              <KeyboardArrowLeft fontSize="inherit" />
+              {previous.label}
+            </Typography>
           </RouterLink>
         </Grid>
       )}
       {next && (
         <Grid container item xs={6} md={5} justify="flex-end">
           <RouterLink to={next.href}>
-            <Typography variant="body1">{next.label}</Typography>
-            <KeyboardArrowRight />
+            <Typography variant="body1">
+              {next.label} <KeyboardArrowRight fontSize="inherit" />
+            </Typography>
           </RouterLink>
         </Grid>
       )}

@@ -29,16 +29,21 @@ function ArticleNav({ next, previous }) {
       <Grid item xs={6} md={5}>
         {previous && (
           <RouterLink to={previous.href}>
-            <KeyboardArrowLeft />
-            <Typography variant="body1">{previous.label}</Typography>
+            <Typography variant="body1">
+              {' '}
+              <KeyboardArrowLeft fontSize="inherit" />
+              {previous.label}
+            </Typography>
           </RouterLink>
         )}
       </Grid>
       {next && (
-        <Grid container item xs={6} md={5} justify="flex-end">
+        <Grid item xs={6} md={5} container justify="flex-end">
           <RouterLink to={next.href}>
-            <Typography variant="body1">{next.label}</Typography>
-            <KeyboardArrowRight />
+            <Typography variant="body1">
+              {next.label}
+              <KeyboardArrowRight fontSize="inherit" />
+            </Typography>
           </RouterLink>
         </Grid>
       )}
