@@ -3,15 +3,19 @@ import React from 'react';
 import { Typography, Grid, makeStyles } from '@material-ui/core';
 import propTypes from '../../propTypes';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   img: {
     height: 'auto',
     maxWidth: '100%'
   },
   typoGrid: {
     padding: '0 1rem'
+  },
+  a: {
+    color: theme.palette.primary.main,
+    textDecoration: 'none'
   }
-});
+}));
 
 function ArticleCard({
   title,
@@ -32,7 +36,7 @@ function ArticleCard({
     .toString();
   return (
     <div>
-      <a href={`https://pesacheck.org/${uniqueSlug}`}>
+      <a href={`https://pesacheck.org/${uniqueSlug}`} className={classes.a}>
         <Grid item>
           <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
         </Grid>

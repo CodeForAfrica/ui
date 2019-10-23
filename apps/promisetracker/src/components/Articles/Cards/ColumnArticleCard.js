@@ -14,6 +14,10 @@ const useStyles = makeStyles(theme => ({
   },
   typoGrid: {
     padding: '0 2rem'
+  },
+  a: {
+    color: theme.palette.primary.main,
+    textDecoration: 'none'
   }
 }));
 
@@ -35,7 +39,7 @@ function ColumnArticleCard({
     })
     .toString();
   return (
-    <a href={`https://pesacheck.org/${uniqueSlug}`}>
+    <a href={`https://pesacheck.org/${uniqueSlug}`} className={classes.a}>
       <Grid container direction="row" spacing={2} className={classes.mainGrid}>
         <Grid item xs={12} md={4}>
           <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
