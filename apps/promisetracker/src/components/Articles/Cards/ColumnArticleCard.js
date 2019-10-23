@@ -3,8 +3,6 @@ import React from 'react';
 import { Typography, Grid, makeStyles } from '@material-ui/core';
 import propTypes from '../../propTypes';
 
-import RouterLink from '../../RouterLink';
-
 const useStyles = makeStyles(theme => ({
   img: {
     height: 'auto',
@@ -24,7 +22,7 @@ function ColumnArticleCard({
   description,
   mediaSrc,
   subtitle,
-  slug,
+  uniqueSlug,
   date
 }) {
   const classes = useStyles();
@@ -37,7 +35,7 @@ function ColumnArticleCard({
     })
     .toString();
   return (
-    <RouterLink to={`articles/${slug}`}>
+    <a href={`https://pesacheck.org/${uniqueSlug}`}>
       <Grid container direction="row" spacing={2} className={classes.mainGrid}>
         <Grid item xs={12} md={4}>
           <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
@@ -62,7 +60,7 @@ function ColumnArticleCard({
           </Grid>
         </Grid>
       </Grid>
-    </RouterLink>
+    </a>
   );
 }
 
@@ -71,7 +69,7 @@ ColumnArticleCard.propTypes = {
   title: propTypes.string.isRequired,
   subtitle: propTypes.string.isRequired,
   description: propTypes.string,
-  slug: propTypes.string.isRequired,
+  uniqueSlug: propTypes.string.isRequired,
   date: propTypes.oneOfType([propTypes.string, propTypes.instanceOf(Date)])
     .isRequired
 };

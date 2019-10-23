@@ -7,7 +7,7 @@ import ColumnArticleCard from '../../components/Articles/Cards/ColumnArticleCard
 
 import RouterLink from '../../components/RouterLink';
 
-import data from '../../data/articles';
+import useFetchArticles from '../../components/Hook';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,6 +30,9 @@ const useStyles = makeStyles(theme => ({
 const articleSize = 4;
 
 function LatestArticlesSection() {
+  const [articles] = useFetchArticles(
+    'https://stories.hurumap.org/@PesaCheck/latest'
+  );
   const classes = useStyles();
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
@@ -38,13 +41,13 @@ function LatestArticlesSection() {
       </Grid>
       <Grid container direction="row" spacing={5} className={classes.mainGrid}>
         <Grid item xs={12} md={5}>
-          {data.articles[0] ? (
+          {articles[0] ? (
             <ArticleCard
-              slug={data.articles[0].slug}
-              subtitle={data.articles[0].subtitle}
-              mediaSrc={data.articles[0].mediaSrc}
-              title={data.articles[0].title}
-              date={data.articles[0].date}
+              uniqueSlug={articles[0].uniqueSlug}
+              subtitle={articles[0].content.subtitle}
+              mediaSrc={`https://cdn-images-1.medium.com/max/2600/${articles[0].virtuals.previewImage.imageId}`}
+              title={articles[0].title}
+              date={articles[0].createdAt}
             />
           ) : (
             <null />
@@ -52,13 +55,13 @@ function LatestArticlesSection() {
         </Grid>
 
         <Grid item xs={12} md={7} className={classes.columnGrid}>
-          {data.articles.slice(1, articleSize).map(article => (
+          {articles.slice(1, articleSize).map(article => (
             <ColumnArticleCard
-              slug={article.slug}
-              subtitle={article.subtitle}
-              mediaSrc={article.mediaSrc}
+              uniqueSlug={article.uniqueSlug}
+              subtitle={article.content.subtitle}
+              mediaSrc={`https://cdn-images-1.medium.com/max/2600/${article.virtuals.previewImage.imageId}`}
               title={article.title}
-              date={article.date}
+              date={article.createdAt}
             />
           ))}
         </Grid>

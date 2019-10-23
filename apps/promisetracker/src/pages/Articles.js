@@ -12,8 +12,7 @@ import ArticleCard from '../components/Articles/Cards/ArticleCard';
 import ColumnArticleCard from '../components/Articles/Cards/ColumnArticleCard';
 
 import RouterLink from '../components/RouterLink';
-
-import data from '../data/articles';
+import useFetchArticles from '../components/Hook';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,24 +35,23 @@ function Articles({ location: { search } }) {
   const params = new URLSearchParams(search);
   const offsetParam = params.get('offset');
   const offset = useMemo(() => Number(offsetParam) || 0, [offsetParam]);
-  const articles = {
-    offset,
-    data: data.articles
-  };
 
+  const [articles] = useFetchArticles(
+    'https://stories.hurumap.org/@PesaCheck/latest'
+  );
   return (
     <Page>
       <Layout justify="center" classes={{ root: classes.root }}>
         <Grid container className={classes.mainGrid} spacing={5}>
-          {!articles.offset && (
+          {!offset && (
             <div>
-              {articles.data[0] ? (
+              {articles[0] ? (
                 <ColumnArticleCard
-                  slug={articles.data[0].slug}
-                  subtitle={articles.data[0].subtitle}
-                  mediaSrc={articles.data[0].mediaSrc}
-                  title={articles.data[0].title}
-                  date={articles.data[0].date}
+                  uniqueSlug={articles[0].uniqueSlug}
+                  subtitle={articles[0].content.subtitle}
+                  mediaSrc={`https://cdn-images-1.medium.com/max/2600/${articles[0].virtuals.previewImage.imageId}`}
+                  title={articles[0].title}
+                  date={articles[0].createdAt}
                   description="August 2019 marks the sixth anniversary of Hassan Rouhani’s presidency. 
                               His sixth year in office was a difficult one, both for him and for the people of Iran. 
                               The economic and political crises that began earlier seem to continue into his seventh year. "
@@ -69,14 +67,14 @@ function Articles({ location: { search } }) {
             spacing={4}
             className={classes.rowGrid}
           >
-            {data.articles.slice(2).map(article => (
+            {articles.slice(2).map(article => (
               <Grid item xs={12} sm={6} md={4} className={classes.rowGrid}>
                 <ArticleCard
-                  slug={article.slug}
-                  subtitle={article.subtitle}
-                  mediaSrc={article.mediaSrc}
+                  uniqueSlug={article.uniqueSlug}
+                  subtitle={article.content.subtitle}
+                  mediaSrc={`https://cdn-images-1.medium.com/max/2600/${article.virtuals.previewImage.imageId}`}
                   title={article.title}
-                  date={article.date}
+                  date={article.createdAt}
                 />
               </Grid>
             ))}

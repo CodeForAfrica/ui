@@ -3,8 +3,6 @@ import React from 'react';
 import { Typography, Grid, makeStyles } from '@material-ui/core';
 import propTypes from '../../propTypes';
 
-import RouterLink from '../../RouterLink';
-
 const useStyles = makeStyles({
   img: {
     height: 'auto',
@@ -15,7 +13,14 @@ const useStyles = makeStyles({
   }
 });
 
-function ArticleCard({ title, description, mediaSrc, subtitle, slug, date }) {
+function ArticleCard({
+  title,
+  description,
+  mediaSrc,
+  subtitle,
+  uniqueSlug,
+  date
+}) {
   const classes = useStyles();
   const dateObj = typeof date === 'string' ? new Date(date) : date;
   const formattedDate = dateObj
@@ -27,7 +32,7 @@ function ArticleCard({ title, description, mediaSrc, subtitle, slug, date }) {
     .toString();
   return (
     <div>
-      <RouterLink to={`articles/${slug}`}>
+      <a href={`https://pesacheck.org/${uniqueSlug}`}>
         <Grid item>
           <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
         </Grid>
@@ -41,7 +46,7 @@ function ArticleCard({ title, description, mediaSrc, subtitle, slug, date }) {
             <Typography variant="body2">{formattedDate}</Typography>
           </Grid>
         </Grid>
-      </RouterLink>
+      </a>
     </div>
   );
 }
@@ -51,7 +56,7 @@ ArticleCard.propTypes = {
   title: propTypes.string.isRequired,
   subtitle: propTypes.string.isRequired,
   description: propTypes.string,
-  slug: propTypes.string.isRequired,
+  uniqueSlug: propTypes.string.isRequired,
   date: propTypes.oneOfType([propTypes.string, propTypes.instanceOf(Date)])
     .isRequired
 };
