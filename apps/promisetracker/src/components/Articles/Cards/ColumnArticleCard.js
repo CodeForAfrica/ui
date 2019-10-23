@@ -30,14 +30,15 @@ function ColumnArticleCard({
   date
 }) {
   const classes = useStyles();
-  const dateObj = typeof date === 'string' ? new Date(date) : date;
-  const formattedDate = dateObj
-    .toLocaleString('en-GB', {
+  const timestamp = new Date(date);
+  const formattedDate = timestamp
+    .toLocaleString('en-US', {
       month: 'short',
       year: 'numeric',
       day: '2-digit'
     })
     .toString();
+
   return (
     <a href={`https://pesacheck.org/${uniqueSlug}`} className={classes.a}>
       <Grid container direction="row" spacing={2} className={classes.mainGrid}>

@@ -26,14 +26,17 @@ function ArticleCard({
   date
 }) {
   const classes = useStyles();
-  const dateObj = typeof date === 'string' ? new Date(date) : date;
-  const formattedDate = dateObj
-    .toLocaleString('en-GB', {
+  const timestamp = new Date(date);
+  const formattedDate = timestamp
+    .toLocaleString('en-US', {
       month: 'short',
       year: 'numeric',
       day: '2-digit'
     })
     .toString();
+
+  // const timestamp = Date.now(); // This would be the timestamp you want to format
+  // console.log(new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(timestamp));
   return (
     <div>
       <a href={`https://pesacheck.org/${uniqueSlug}`} className={classes.a}>
