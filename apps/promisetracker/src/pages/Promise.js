@@ -30,11 +30,11 @@ const useStyles = makeStyles(theme => ({
 
 function PromisePage({
   match: {
+    // eslint-disable-next-line no-unused-vars
     params: { slug }
   }
 }) {
   const classes = useStyles();
-  console.log(slug);
   /**
    * TODO: Pull data using slug
    */
