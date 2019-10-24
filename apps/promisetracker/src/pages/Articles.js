@@ -11,8 +11,9 @@ import Layout from '../components/Layout';
 import ArticleCard from '../components/Articles/Cards/ArticleCard';
 import ColumnArticleCard from '../components/Articles/Cards/ColumnArticleCard';
 
-import RouterLink from '../components/RouterLink';
-import useFetchArticles from '../components/Hook';
+import useFetchArticles from '../components/UseFetchArticles';
+
+import config from '../config';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,9 +37,8 @@ function Articles({ location: { search } }) {
   const offsetParam = params.get('offset');
   const offset = useMemo(() => Number(offsetParam) || 0, [offsetParam]);
 
-  const [articles] = useFetchArticles(
-    'https://stories.hurumap.org/@PesaCheck/latest'
-  );
+  const [articles] = useFetchArticles(config.url.articles);
+
   return (
     <Page>
       <Layout justify="center" classes={{ root: classes.root }}>
@@ -81,14 +81,15 @@ function Articles({ location: { search } }) {
           </Grid>
 
           <Grid item xs={12} className={classes.button}>
-            <Button
-              component={RouterLink}
-              to={`/articles?offset=${offset + 1}`}
-              color="primary"
-              variant="contained"
+            <a
+              href="https://pesacheck.org"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              READ MORE
-            </Button>
+              <Button color="primary" variant="contained">
+                READ MORE
+              </Button>
+            </a>
           </Grid>
         </Grid>
       </Layout>

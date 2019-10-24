@@ -4,10 +4,9 @@ import Layout from '../../components/Layout';
 
 import ArticleCard from '../../components/Articles/Cards/ArticleCard';
 import ColumnArticleCard from '../../components/Articles/Cards/ColumnArticleCard';
+import useFetchArticles from '../../components/UseFetchArticles';
 
-import RouterLink from '../../components/RouterLink';
-
-import useFetchArticles from '../../components/Hook';
+import config from '../../config';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,9 +29,7 @@ const useStyles = makeStyles(theme => ({
 const articleSize = 4;
 
 function LatestArticlesSection() {
-  const [articles] = useFetchArticles(
-    'https://stories.hurumap.org/@PesaCheck/latest'
-  );
+  const [articles] = useFetchArticles(config.url.articles);
   const classes = useStyles();
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
@@ -68,15 +65,19 @@ function LatestArticlesSection() {
       </Grid>
 
       <Grid item className={classes.button}>
-        <Button
-          classes={{ root: classes.readMore }}
-          component={RouterLink}
-          to="/articles"
-          color="primary"
-          variant="contained"
+        <a
+          href="https://pesacheck.org"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          READ MORE
-        </Button>
+          <Button
+            classes={{ root: classes.readMore }}
+            color="primary"
+            variant="contained"
+          >
+            READ MORE
+          </Button>
+        </a>
       </Grid>
     </Layout>
   );

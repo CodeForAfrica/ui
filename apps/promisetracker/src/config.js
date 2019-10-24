@@ -1,4 +1,7 @@
 export default {
+  url: {
+    articles: 'https://stories.hurumap.org/@PesaCheck/latest'
+  },
   colors: {
     achieved: {
       light: '#377bbf',

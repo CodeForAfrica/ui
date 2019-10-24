@@ -40,7 +40,12 @@ function ColumnArticleCard({
     .toString();
 
   return (
-    <a href={`https://pesacheck.org/${uniqueSlug}`} className={classes.a}>
+    <a
+      href={`https://pesacheck.org/${uniqueSlug}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={classes.a}
+    >
       <Grid container direction="row" spacing={2} className={classes.mainGrid}>
         <Grid item xs={12} md={4}>
           <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
