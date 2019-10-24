@@ -9,11 +9,12 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '100%'
   },
   mainGrid: {
-    padding: '1.5rem 0',
+    padding: '0.8rem 0',
     borderBottom: `1px solid ${theme.palette.divider}`
   },
   typoGrid: {
-    padding: '0 2rem'
+    padding: '0.2rem',
+    paddingTop: '1rem'
   },
   a: {
     color: theme.palette.primary.main,

@@ -28,6 +28,9 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     textAlign: 'center'
+  },
+  articleGrid: {
+    // height:'40rem'
   }
 }));
 
@@ -68,7 +71,7 @@ function Articles({ location: { search } }) {
             className={classes.rowGrid}
           >
             {articles.slice(2).map(article => (
-              <Grid item xs={12} sm={6} md={4} className={classes.rowGrid}>
+              <Grid item xs={12} sm={6} md={4} className={classes.articleGrid}>
                 <ArticleCard
                   uniqueSlug={article.uniqueSlug}
                   subtitle={article.virtuals.tags[0].name}

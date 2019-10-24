@@ -9,11 +9,17 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '100%'
   },
   typoGrid: {
-    padding: '0 1rem'
+    // padding: '1rem 0rem',
+    height: '25rem',
+    maxHeight: '100%'
   },
   a: {
     color: theme.palette.primary.main,
     textDecoration: 'none'
+  },
+  titleGrid: {
+    height: '10rem',
+    maxHeight: '100%'
   }
 }));
 
@@ -35,7 +41,7 @@ function ArticleCard({
     })
     .toString();
   return (
-    <div>
+    <div className={classes.typoGrid}>
       <a
         href={`https://pesacheck.org/${uniqueSlug}`}
         target="_blank"
@@ -45,13 +51,15 @@ function ArticleCard({
         <Grid item>
           <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
         </Grid>
-        <Grid container spacing={6} className={classes.typoGrid}>
-          <Grid item>
-            <Typography variant="caption">{subtitle}</Typography>
+
+        <Grid container spacing={5}>
+          <Grid item className={classes.titleGrid}>
+            <Typography variant="caption"> {subtitle}</Typography>
             <Typography variant="h5">{title}</Typography>
             <Typography variant="body1">{description}</Typography>
           </Grid>
-          <Grid item>
+
+          <Grid item justify="flex-end">
             <Typography variant="body2">{formattedDate}</Typography>
           </Grid>
         </Grid>
