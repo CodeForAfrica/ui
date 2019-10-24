@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '100%'
   },
   mainGrid: {
-    padding: '0.8rem 0',
+    padding: '1rem 0',
     borderBottom: `1px solid ${theme.palette.divider}`
   },
   typoGrid: {

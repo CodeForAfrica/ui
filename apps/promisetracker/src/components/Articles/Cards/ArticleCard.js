@@ -9,9 +9,9 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '100%'
   },
   typoGrid: {
-    // padding: '1rem 0rem',
     height: '25rem',
-    maxHeight: '100%'
+    maxHeight: '100%',
+    padding: '1remgit '
   },
   a: {
     color: theme.palette.primary.main,

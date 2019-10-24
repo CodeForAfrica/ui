@@ -23,7 +23,8 @@ const useStyles = makeStyles(theme => ({
   columnGrid: {
     borderLeft: `1px solid ${theme.palette.divider}`
   },
-  button: { paddingTop: '3rem' }
+  button: { paddingTop: '3rem' },
+  item: { paddingTop: '2rem' }
 }));
 
 const articleSize = 4;
@@ -37,7 +38,7 @@ function LatestArticlesSection() {
         <Typography variant="h4">Latest Articles</Typography>
       </Grid>
       <Grid container direction="row" spacing={5} className={classes.mainGrid}>
-        <Grid item xs={12} md={5} style={{ paddingTop: '2rem' }}>
+        <Grid item xs={12} md={5} className={classes.item}>
           {articles[0] ? (
             <ArticleCard
               uniqueSlug={articles[0].uniqueSlug}

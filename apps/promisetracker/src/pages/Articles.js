@@ -5,12 +5,9 @@ import { makeStyles } from '@material-ui/styles';
 import propTypes from '../components/propTypes';
 
 import Page from '../components/Page';
-
 import Layout from '../components/Layout';
-
 import ArticleCard from '../components/Articles/Cards/ArticleCard';
 import ColumnArticleCard from '../components/Articles/Cards/ColumnArticleCard';
-
 import useFetchArticles from '../components/UseFetchArticles';
 
 import config from '../config';
@@ -28,9 +25,6 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     textAlign: 'center'
-  },
-  articleGrid: {
-    // height:'40rem'
   }
 }));
 
@@ -55,9 +49,7 @@ function Articles({ location: { search } }) {
                   mediaSrc={`https://cdn-images-1.medium.com/max/2600/${articles[0].virtuals.previewImage.imageId}`}
                   title={articles[0].title}
                   date={articles[0].createdAt}
-                  description="August 2019 marks the sixth anniversary of Hassan Rouhani’s presidency. 
-                              His sixth year in office was a difficult one, both for him and for the people of Iran. 
-                              The economic and political crises that began earlier seem to continue into his seventh year. "
+                  description={articles[0].content.subtitle}
                 />
               ) : (
                 <null />
