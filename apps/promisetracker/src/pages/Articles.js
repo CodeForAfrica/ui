@@ -35,6 +35,7 @@ function Articles({ location: { search } }) {
   const offset = useMemo(() => Number(offsetParam) || 0, [offsetParam]);
 
   const [articles] = useFetchArticles(config.url.articles);
+  console.log(articles);
 
   return (
     <Page>
@@ -62,7 +63,7 @@ function Articles({ location: { search } }) {
             spacing={4}
             className={classes.rowGrid}
           >
-            {articles.slice(2).map(article => (
+            {articles.slice(1).map(article => (
               <Grid item xs={12} sm={6} md={4} className={classes.articleGrid}>
                 <ArticleCard
                   uniqueSlug={article.uniqueSlug}
