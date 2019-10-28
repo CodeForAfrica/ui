@@ -33,6 +33,7 @@ const articleSize = 4;
 
 function LatestArticlesSection() {
   const [articles] = useFetchArticles(config.url.articles);
+
   const classes = useStyles();
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
@@ -44,7 +45,7 @@ function LatestArticlesSection() {
           {articles[0] ? (
             <ArticleCard
               uniqueSlug={articles[0].uniqueSlug}
-              subtitle="Promise Tracker"
+              subtitle={articles[0].virtuals.tags.map(tag => `${tag.name} , `)}
               mediaSrc={`https://cdn-images-1.medium.com/max/2600/${articles[0].virtuals.previewImage.imageId}`}
               title={articles[0].title}
               date={articles[0].createdAt}
@@ -58,7 +59,7 @@ function LatestArticlesSection() {
           {articles.slice(1, articleSize).map(article => (
             <ColumnArticleCard
               uniqueSlug={article.uniqueSlug}
-              subtitle="Promise Tracker"
+              subtitle={article.virtuals.tags.map(tag => `${tag.name} , `)}
               mediaSrc={`https://cdn-images-1.medium.com/max/2600/${article.virtuals.previewImage.imageId}`}
               title={article.title}
               date={article.createdAt}
