@@ -38,7 +38,7 @@ function LatestArticlesSection() {
         <Typography variant="h4">Latest Articles</Typography>
       </Grid>
       <Grid container direction="row" className={classes.mainGrid}>
-        <Grid item xs={12} md={5} className={classes.item}>
+        <Grid item xs={12} md={5}>
           {articles[0] ? (
             <ArticleCard
               uniqueSlug={articles[0].uniqueSlug}

@@ -5,7 +5,6 @@ import propTypes from '../../propTypes';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '25rem',
     maxHeight: '100%',
     margin: '1rem'
   },

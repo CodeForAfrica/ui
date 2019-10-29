@@ -52,7 +52,7 @@ function ColumnArticleCard({
           spacing={2}
           className={classes.mainGrid}
         >
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} sm={4}>
             <img
               src={mediaSrc}
               alt="Article Thumbnail"
@@ -64,7 +64,7 @@ function ColumnArticleCard({
             container
             item
             xs={12}
-            md={8}
+            sm={8}
             direction="column"
             spacing={3}
             className={classes.typoGrid}
