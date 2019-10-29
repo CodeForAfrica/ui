@@ -45,7 +45,7 @@ function Articles({ location: { search } }) {
                 <ColumnArticleCard
                   uniqueSlug={articles[0].uniqueSlug}
                   subtitle={articles[0].virtuals.tags.map(
-                    tag => `${tag.name} , `
+                    (tag, index) => (index ? ', ' : '') + tag.name
                   )}
                   mediaSrc={`https://cdn-images-1.medium.com/max/2600/${articles[0].virtuals.previewImage.imageId}`}
                   title={articles[0].title}
@@ -67,7 +67,9 @@ function Articles({ location: { search } }) {
               <Grid item xs={12} sm={6} md={4} className={classes.articleGrid}>
                 <ArticleCard
                   uniqueSlug={article.uniqueSlug}
-                  subtitle={article.virtuals.tags.map(tag => `${tag.name} , `)}
+                  subtitle={article.virtuals.tags.map(
+                    (tag, index) => (index ? ', ' : '') + tag.name
+                  )}
                   mediaSrc={`https://cdn-images-1.medium.com/max/2600/${article.virtuals.previewImage.imageId}`}
                   title={article.title}
                   date={article.createdAt}
