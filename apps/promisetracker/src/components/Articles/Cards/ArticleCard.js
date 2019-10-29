@@ -1,24 +1,27 @@
 import React from 'react';
 
-import { Typography, Grid, makeStyles } from '@material-ui/core';
+import {
+  Typography,
+  Grid,
+  makeStyles,
+  Card,
+  CardMedia,
+  CardContent
+} from '@material-ui/core';
 import propTypes from '../../propTypes';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    maxHeight: '100%',
     margin: '1rem'
   },
   img: {
-    height: 'auto',
-    maxWidth: '100%'
+    height: 0,
+    paddingTop: '56.25%', // 16:9,
+    marginTop: '30'
   },
   a: {
     color: theme.palette.primary.main,
     textDecoration: 'none'
-  },
-  titleGrid: {
-    height: '10rem',
-    maxHeight: '100%'
   }
 }));
 
@@ -40,30 +43,36 @@ function ArticleCard({
     })
     .toString();
   return (
-    <div className={classes.root}>
+    <Card component={Grid} item xs={12} sm={4} className={classes.root}>
       <a
         href={`https://pesacheck.org/${uniqueSlug}`}
         target="_blank"
         rel="noopener noreferrer"
         className={classes.a}
       >
-        <Grid item>
-          <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
-        </Grid>
-
-        <Grid item>
-          <Grid item className={classes.titleGrid}>
-            <Typography variant="caption"> {subtitle}</Typography>
-            <Typography variant="h5">{title}</Typography>
-            <Typography variant="body1">{description}</Typography>
+        <CardMedia
+          component="img"
+          alt="Article Thumbnail"
+          src={mediaSrc}
+          className={classes.img}
+        />
+        {/*
+        <Grid item xs={12} sm={4}>
+            <img
+              src={mediaSrc}
+              alt="Article Thumbnail"
+              className={classes.img}
+            />
           </Grid>
-
-          <Grid item justify="flex-end">
-            <Typography variant="body2">{formattedDate}</Typography>
-          </Grid>
-        </Grid>
+         */}
+        <CardContent>
+          <Typography variant="caption"> {subtitle}</Typography>
+          <Typography variant="h5">{title}</Typography>
+          <Typography variant="body1">{description}</Typography>
+          <Typography variant="body2">{formattedDate}</Typography>
+        </CardContent>
       </a>
-    </div>
+    </Card>
   );
 }
 
