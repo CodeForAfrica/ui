@@ -51,7 +51,7 @@ function Articles() {
                 subtitle={article.virtuals.tags.map(
                   (tag, index) => (index ? ', ' : '') + tag.name
                 )}
-                mediaSrc={`https://cdn-images-1.medium.com/max/2600/${article.virtuals.previewImage.imageId}`}
+                image={`https://cdn-images-1.medium.com/max/2600/${article.virtuals.previewImage.imageId}`}
                 title={article.title}
                 date={article.createdAt}
                 description={article.content.subtitle}

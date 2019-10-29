@@ -16,8 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   img: {
     height: 0,
-    paddingTop: '56.25%', // 16:9,
-    marginTop: '30'
+    paddingTop: '56%'
   },
   a: {
     color: theme.palette.primary.main,
@@ -28,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 function ArticleCard({
   title,
   description,
-  mediaSrc,
+  image,
   subtitle,
   uniqueSlug,
   date
@@ -51,20 +50,10 @@ function ArticleCard({
         className={classes.a}
       >
         <CardMedia
-          component="img"
           alt="Article Thumbnail"
-          src={mediaSrc}
+          image={image}
           className={classes.img}
         />
-        {/*
-        <Grid item xs={12} sm={4}>
-            <img
-              src={mediaSrc}
-              alt="Article Thumbnail"
-              className={classes.img}
-            />
-          </Grid>
-         */}
         <CardContent>
           <Typography variant="caption"> {subtitle}</Typography>
           <Typography variant="h5">{title}</Typography>
@@ -77,7 +66,7 @@ function ArticleCard({
 }
 
 ArticleCard.propTypes = {
-  mediaSrc: propTypes.string.isRequired,
+  image: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
   subtitle: propTypes.string.isRequired,
   description: propTypes.string,

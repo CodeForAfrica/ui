@@ -42,13 +42,12 @@ function LatestArticlesSection() {
             subtitle={article.virtuals.tags.map(
               (tag, index) => (index ? ', ' : '') + tag.name
             )}
-            src={`https://cdn-images-1.medium.com/max/2600/${article.virtuals.previewImage.imageId}`}
+            image={`https://cdn-images-1.medium.com/max/2600/${article.virtuals.previewImage.imageId}`}
             title={article.title}
             date={article.createdAt}
           />
         ))}
       </Grid>
-
       <Grid item className={classes.button}>
         <Button
           classes={{ root: classes.readMore }}
