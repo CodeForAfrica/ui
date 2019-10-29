@@ -73,19 +73,16 @@ function LatestArticlesSection() {
       </Grid>
 
       <Grid item className={classes.button}>
-        <a
+        <Button
+          classes={{ root: classes.readMore }}
+          color="primary"
+          variant="contained"
           href="https://pesacheck.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button
-            classes={{ root: classes.readMore }}
-            color="primary"
-            variant="contained"
-          >
-            READ MORE
-          </Button>
-        </a>
+          READ MORE
+        </Button>
       </Grid>
     </Layout>
   );

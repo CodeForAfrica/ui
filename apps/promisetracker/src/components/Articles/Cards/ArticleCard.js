@@ -10,8 +10,7 @@ const useStyles = makeStyles(theme => ({
   },
   typoGrid: {
     height: '25rem',
-    maxHeight: '100%',
-    padding: '1remgit '
+    maxHeight: '100%'
   },
   a: {
     color: theme.palette.primary.main,
@@ -52,7 +51,7 @@ function ArticleCard({
           <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
         </Grid>
 
-        <Grid container spacing={5}>
+        <Grid item spacing={5}>
           <Grid item className={classes.titleGrid}>
             <Typography variant="caption"> {subtitle}</Typography>
             <Typography variant="h5">{title}</Typography>

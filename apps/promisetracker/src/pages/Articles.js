@@ -79,15 +79,15 @@ function Articles({ location: { search } }) {
           </Grid>
 
           <Grid item xs={12} className={classes.button}>
-            <a
+            <Button
+              color="primary"
+              variant="contained"
               href="https://pesacheck.org"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button color="primary" variant="contained">
-                READ MORE
-              </Button>
-            </a>
+              READ MORE
+            </Button>
           </Grid>
         </Grid>
       </Layout>
