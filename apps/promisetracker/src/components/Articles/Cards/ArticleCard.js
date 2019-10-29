@@ -21,6 +21,9 @@ const useStyles = makeStyles(theme => ({
   a: {
     color: theme.palette.primary.main,
     textDecoration: 'none'
+  },
+  content: {
+    marginBottom: '1.5rem'
   }
 }));
 
@@ -55,9 +58,11 @@ function ArticleCard({
           className={classes.img}
         />
         <CardContent>
-          <Typography variant="caption"> {subtitle}</Typography>
-          <Typography variant="h5">{title}</Typography>
-          <Typography variant="body1">{description}</Typography>
+          <div className={classes.content}>
+            <Typography variant="caption"> {subtitle}</Typography>
+            <Typography variant="h5">{title}</Typography>
+            <Typography variant="body1">{description}</Typography>
+          </div>
           <Typography variant="body2">{formattedDate}</Typography>
         </CardContent>
       </a>
