@@ -4,17 +4,15 @@ import { Typography, Grid, makeStyles } from '@material-ui/core';
 import propTypes from '../../propTypes';
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    margin: '1rem'
+  },
   img: {
     height: 'auto',
     maxWidth: '100%'
   },
   mainGrid: {
-    padding: '1rem 0',
     borderBottom: `1px solid ${theme.palette.divider}`
-  },
-  typoGrid: {
-    padding: '0.2rem',
-    paddingTop: '1rem'
   },
   a: {
     color: theme.palette.primary.main,
@@ -41,37 +39,48 @@ function ColumnArticleCard({
     .toString();
 
   return (
-    <a
-      href={`https://pesacheck.org/${uniqueSlug}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={classes.a}
-    >
-      <Grid container direction="row" spacing={2} className={classes.mainGrid}>
-        <Grid item xs={12} md={4}>
-          <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
-        </Grid>
-
+    <div className={classes.root}>
+      <a
+        href={`https://pesacheck.org/${uniqueSlug}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes.a}
+      >
         <Grid
           container
-          item
-          xs={12}
-          md={8}
-          direction="column"
-          spacing={3}
-          className={classes.typoGrid}
+          direction="row"
+          spacing={2}
+          className={classes.mainGrid}
         >
-          <Grid item>
-            <Typography variant="caption">{subtitle}</Typography>
-            <Typography variant="h5">{title}</Typography>
-            <Typography variant="body1">{description}</Typography>
+          <Grid item xs={12} md={4}>
+            <img
+              src={mediaSrc}
+              alt="Article Thumbnail"
+              className={classes.img}
+            />
           </Grid>
-          <Grid item>
-            <Typography variant="body2">{formattedDate}</Typography>
+
+          <Grid
+            container
+            item
+            xs={12}
+            md={8}
+            direction="column"
+            spacing={3}
+            className={classes.typoGrid}
+          >
+            <Grid item>
+              <Typography variant="caption">{subtitle}</Typography>
+              <Typography variant="h5">{title}</Typography>
+              <Typography variant="body1">{description}</Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body2">{formattedDate}</Typography>
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </a>
+      </a>
+    </div>
   );
 }
 

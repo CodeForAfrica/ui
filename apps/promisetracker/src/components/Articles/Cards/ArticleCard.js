@@ -4,13 +4,14 @@ import { Typography, Grid, makeStyles } from '@material-ui/core';
 import propTypes from '../../propTypes';
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    height: '25rem',
+    maxHeight: '100%',
+    margin: '1rem'
+  },
   img: {
     height: 'auto',
     maxWidth: '100%'
-  },
-  typoGrid: {
-    height: '25rem',
-    maxHeight: '100%'
   },
   a: {
     color: theme.palette.primary.main,
@@ -40,7 +41,7 @@ function ArticleCard({
     })
     .toString();
   return (
-    <div className={classes.typoGrid}>
+    <div className={classes.root}>
       <a
         href={`https://pesacheck.org/${uniqueSlug}`}
         target="_blank"
@@ -51,7 +52,7 @@ function ArticleCard({
           <img src={mediaSrc} alt="Article Thumbnail" className={classes.img} />
         </Grid>
 
-        <Grid item spacing={5}>
+        <Grid item>
           <Grid item className={classes.titleGrid}>
             <Typography variant="caption"> {subtitle}</Typography>
             <Typography variant="h5">{title}</Typography>
