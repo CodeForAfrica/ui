@@ -6,7 +6,7 @@ import propTypes from '../components/propTypes';
 
 import Page from '../components/Page';
 import Layout from '../components/Layout';
-import ArticleCard from '../components/Articles/Cards/ArticleCard';
+import ArticleCard from '../components/Articles/Card/ArticleCard';
 import useFetchArticles from '../components/UseFetchArticles';
 
 import config from '../config';
@@ -67,7 +67,7 @@ function Articles() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              READ MORE
+              READ MORE ARTICLES
             </Button>
           </Grid>
         </Grid>

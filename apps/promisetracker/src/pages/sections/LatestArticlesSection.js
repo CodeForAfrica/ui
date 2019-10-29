@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles, Typography, Button, Grid } from '@material-ui/core';
 import Layout from '../../components/Layout';
 
-import ArticleCard from '../../components/Articles/Cards/ArticleCard';
+import ArticleCard from '../../components/Articles/Card/ArticleCard';
 import useFetchArticles from '../../components/UseFetchArticles';
 
 import config from '../../config';
@@ -57,7 +57,7 @@ function LatestArticlesSection() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          READ MORE
+          READ MORE ARTICLES
         </Button>
       </Grid>
     </Layout>
