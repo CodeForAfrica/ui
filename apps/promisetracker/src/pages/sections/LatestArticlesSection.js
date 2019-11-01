@@ -9,19 +9,18 @@ import config from '../../config';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: '4rem 0',
+    padding: '2rem 0',
     background: theme.palette.background.paper
   },
   sectionTitle: {
-    padding: '2rem 0'
+    margin: '0rem 0.5rem',
+    padding: '1rem 0.5rem',
+    borderBottom: `1px solid ${theme.palette.divider}`
   },
   mainGrid: {
-    borderTop: `1px solid ${theme.palette.divider}`,
-    padding: '1.5rem 0'
+    padding: '1rem 0'
   },
-  columnGrid: {
-    borderLeft: `1px solid ${theme.palette.divider}`
-  },
+
   button: { paddingTop: '3rem' }
 }));
 
