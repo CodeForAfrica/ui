@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   title: {
-    height: '8rem',
+    height: '10rem',
     maxHeight: '100%'
   }
 }));
