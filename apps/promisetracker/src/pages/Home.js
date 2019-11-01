@@ -5,7 +5,7 @@ import PromisesSection from './sections/PromisesSection';
 import PromiseStatusIndicatorsSection from './sections/PromiseStatusIndicatorsSection';
 import PromiseCard from '../components/Promise/Card';
 import PartnersSection from './sections/PartnersSection';
-import LatestArticlesSection from './sections/LatestArticlesSection';
+import LatestReportsSection from './sections/LatestReportsSection';
 import ContributeSection from './sections/ContributeSection';
 
 function Home() {
@@ -41,7 +41,7 @@ function Home() {
           />
         </Grid>
       </PromisesSection>
-      <LatestArticlesSection />
+      <LatestReportsSection />
       <ContributeSection />
       <PartnersSection />
     </Page>

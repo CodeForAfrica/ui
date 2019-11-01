@@ -24,14 +24,14 @@ const useStyles = makeStyles(theme => ({
   button: { paddingTop: '3rem' }
 }));
 
-function LatestArticlesSection() {
+function LatestReportsSection() {
   const [articles] = useFetchArticles(config.url.articles);
   const classes = useStyles();
 
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
       <Grid item xs={12} className={classes.sectionTitle}>
-        <Typography variant="h4">Latest Articles</Typography>
+        <Typography variant="h4">Latest Reports</Typography>
       </Grid>
 
       <Grid container direction="row" className={classes.mainGrid}>
@@ -52,15 +52,15 @@ function LatestArticlesSection() {
           classes={{ root: classes.readMore }}
           color="primary"
           variant="contained"
-          href="https://pesacheck.org"
+          href="https://pesacheck.org/tagged/promise-tracker"
           target="_blank"
           rel="noopener noreferrer"
         >
-          READ MORE ARTICLES
+          Read more Reports
         </Button>
       </Grid>
     </Layout>
   );
 }
 
-export default LatestArticlesSection;
+export default LatestReportsSection;

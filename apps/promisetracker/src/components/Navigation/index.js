@@ -43,6 +43,10 @@ function Navigation({ width, ...props }) {
     return [
       { title: 'home', href: '/' },
       { title: 'promises', href: '/promises' },
+      {
+        title: 'reports',
+        href: 'https://pesacheck.org/tagged/promise-tracker'
+      },
       { title: 'about us', href: '/about' }
     ].map(nav => (
       <Link key={nav.href} href={nav.href}>
@@ -70,6 +74,10 @@ function Navigation({ width, ...props }) {
           {[
             { title: 'home', href: '/' },
             { title: 'promises', href: '/promises' },
+            {
+              title: 'reports',
+              href: 'https://pesacheck.org/tagged/promise-tracker'
+            },
             { title: 'about us', href: '/about' }
           ].map(nav => (
             <Link key={nav.href} href={nav.href}>
