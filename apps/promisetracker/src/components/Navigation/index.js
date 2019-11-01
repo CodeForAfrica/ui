@@ -36,6 +36,12 @@ const useStyles = makeStyles(theme => ({
     margin: '2rem',
     color: theme.palette.common.white,
     textDecoration: 'none'
+  },
+  drawerA: {
+    lineHeight: '100%',
+    margin: '2rem',
+    color: theme.palette.primary,
+    textDecoration: 'none'
   }
 }));
 
@@ -92,7 +98,7 @@ function Navigation({ width, ...props }) {
             <a
               key={nav.href}
               href={nav.href}
-              className={classes.a}
+              className={classes.drawerA}
               target="_blank"
               rel="noopener noreferrer"
             >
