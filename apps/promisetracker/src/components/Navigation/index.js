@@ -30,7 +30,6 @@ const useStyles = makeStyles(theme => ({
   menuList: {
     display: 'flex',
     flexDirection: 'column'
-    // color: 'black'
   },
   a: {
     lineHeight: '100%',
@@ -53,7 +52,13 @@ function Navigation({ width, ...props }) {
       },
       { title: 'about us', href: '/about' }
     ].map(nav => (
-      <a key={nav.href} href={nav.href} className={classes.a}>
+      <a
+        key={nav.href}
+        href={nav.href}
+        className={classes.a}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {nav.title}
       </a>
     ));
@@ -84,7 +89,13 @@ function Navigation({ width, ...props }) {
             },
             { title: 'about us', href: '/about' }
           ].map(nav => (
-            <a key={nav.href} href={nav.href} className={classes.a}>
+            <a
+              key={nav.href}
+              href={nav.href}
+              className={classes.a}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {nav.title}
             </a>
           ))}
