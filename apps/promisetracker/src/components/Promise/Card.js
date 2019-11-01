@@ -16,6 +16,10 @@ const useStyles = makeStyles(theme => ({
     borderTop: `3px solid ${theme.palette.primary.main}`,
     height: 'auto',
     width: '100%'
+  },
+  title: {
+    height: '8rem',
+    maxHeight: '100%'
   }
 }));
 
@@ -35,7 +39,7 @@ function PromiseCard({
     <Card elevation={0} className={classes.root}>
       <RouterLink to={href}>
         <CardContent component={Grid} container direction="column" spacing={3}>
-          <Grid item>
+          <Grid item className={classes.title}>
             <Typography variant="h6" color="primary">
               {title}
             </Typography>
