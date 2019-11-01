@@ -10,7 +10,7 @@ import Layout from '../Layout';
 const useStyles = makeStyles({
   root: {
     backgroundColor: '#e6e6e6',
-    padding: '2.5rem'
+    padding: '2.5rem 0'
   },
   partners: {
     padding: '2rem 0'
