@@ -45,10 +45,12 @@ const useStyles = makeStyles({
     padding: '2rem 0rem 4.125rem'
   }),
   cardsContainer: {
-    padding: '2rem 0rem'
+    padding: '2rem 0rem',
+    margin: '0 0.5rem'
   },
   mainGrid: {
-    maxWidth: '37.5rem'
+    maxWidth: '37.5rem',
+    margin: '0 1rem'
   }
 });
 
