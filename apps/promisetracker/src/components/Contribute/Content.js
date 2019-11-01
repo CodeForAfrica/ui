@@ -14,7 +14,7 @@ function Content({ title, subtitle, description }) {
   const classes = useStyles();
   return (
     <Grid container direction="column" justify="flex-start">
-      <Typography variant="h5" className={classes.typo}>
+      <Typography variant="h4" className={classes.typo}>
         {title}
       </Typography>
       <Typography variant="h6" className={classes.typo}>
