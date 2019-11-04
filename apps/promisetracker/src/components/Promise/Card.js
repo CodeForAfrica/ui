@@ -37,7 +37,7 @@ function PromiseCard({
   const classes = useStyles({ status, ...props });
   return (
     <Card elevation={0} className={classes.root}>
-      <RouterLink to={`promises/${slug}`}>
+      <RouterLink to={`promise/${slug}`}>
         <CardContent component={Grid} container direction="column" spacing={3}>
           <Grid item className={classes.title}>
             <Typography variant="h6" color="primary">
@@ -68,14 +68,13 @@ PromiseCard.propTypes = {
   title: propTypes.string.isRequired,
   term: propTypes.string.isRequired,
   topic: propTypes.string.isRequired,
-  slug: propTypes.string,
+  slug: propTypes.string.isRequired,
   img: propTypes.string,
   label: propTypes.string,
   value: propTypes.number
 };
 
 PromiseCard.defaultProps = {
-  slug: undefined,
   img: undefined,
   label: undefined,
   value: undefined

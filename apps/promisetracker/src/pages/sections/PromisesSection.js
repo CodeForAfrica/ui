@@ -100,11 +100,11 @@ function PromisesSection({
         {promises.map(promise => (
           <Grid item xs={12} sm={6} md={4}>
             <PromiseCard
+              slug={promise.slug}
               status={promise.status}
               title={promise.title}
               term={promise.term}
               topic={promise.topic}
-              href={promise.slug}
             />
           </Grid>
         ))}

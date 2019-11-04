@@ -14,10 +14,7 @@ function App() {
       <ScrollToTop>
         <Switch>
           <Route exact path="/" component={Home} />
-          {/* <Route exact path="/promises" component={Promises} /> */}{' '}
-          {/** the actual route that should have been the page */}
-          <Route exact path="/promises/:slug" component={PromisePage} />{' '}
-          {/* //individual pages */}
+          <Route exact path="/promise/:slug" component={PromisePage} />
           <Route exact path="/about" component={About} />
           <Route component={NotFound} />
         </Switch>
