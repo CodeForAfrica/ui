@@ -54,5 +54,83 @@ export default {
       slug: 'inactive',
       name: 'Inactive'
     }
+  ],
+  topics: [
+    {
+      slug: 'economy',
+      name: 'Economy'
+    },
+    {
+      slug: 'foreign-policy',
+      name: 'Foreign Policy'
+    },
+    {
+      slug: 'domestic-policy',
+      name: 'Domestic Policy'
+    },
+    {
+      slug: 'socio-cultural',
+      name: 'Socio Cultural'
+    }
+  ],
+  terms: [
+    {
+      slug: 'term-1',
+      name: 'Term 1'
+    },
+    {
+      slug: 'term 2',
+      name: 'Term 2'
+    },
+    {
+      slug: 'term 3',
+      name: 'Term 3'
+    }
+  ],
+  promises: [
+    {
+      title: 'Assuring equal rights for all Iranian ethnicities',
+      term: 'Term 1',
+      topic: 'Domestic policy',
+      slug: 'assuring-equal-rights-for-all-Iranian-ethnicities',
+      status: 'achieved'
+    },
+    {
+      title: 'Providing affordable housing and controlling the housing prices',
+      term: 'Term 2',
+      topic: 'Economy',
+      slug: 'providing-affordable-housing-and-controlling-the-housing-prices',
+      status: 'not-achieved'
+    },
+    {
+      title:
+        'Provide commodity subsidies for basic goods to support households with low income',
+      term: 'Term 3',
+      topic: 'Social-cultural',
+      slug:
+        'provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income',
+      status: 'compromised'
+    },
+    {
+      title: 'Instructing literature of minority languages in schools',
+      term: 'Term 2',
+      topic: 'Domestic policy',
+      slug: 'instructing-literature-of-minority-languages-in-schools',
+      status: 'inactive'
+    },
+    {
+      title: 'An annual increase of one million foreign tourists',
+      term: 'Term 1',
+      topic: 'Economy',
+      slug: 'an-annual-increase-of-one-million-foreign-tourists',
+      status: 'in-progress'
+    },
+    {
+      title: 'Provide insurance for women who are primary caregivers',
+      term: 'Term 3',
+      topic: 'Social-cultural',
+      slug: 'provide-insurance-for-women-who-are-primary-caregivers',
+      status: 'stalled'
+    }
   ]
 };

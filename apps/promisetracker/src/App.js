@@ -6,7 +6,6 @@ import ScrollToTop from './components/ScrollToTop';
 import NotFound from './pages/404';
 import Home from './pages/Home';
 import PromisePage from './pages/Promise';
-import Promises from './pages/Promises';
 import About from './pages/About';
 
 function App() {
@@ -15,8 +14,10 @@ function App() {
       <ScrollToTop>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/promises" component={Promises} />
-          <Route exact path="/promises/:slug" component={PromisePage} />
+          {/* <Route exact path="/promises" component={Promises} /> */}{' '}
+          {/** the actual route that should have been the page */}
+          <Route exact path="/promises/:slug" component={PromisePage} />{' '}
+          {/* //individual pages */}
           <Route exact path="/about" component={About} />
           <Route component={NotFound} />
         </Switch>
