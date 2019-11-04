@@ -93,14 +93,30 @@ export default {
       term: 'Term 1',
       topic: 'Domestic policy',
       slug: 'assuring-equal-rights-for-all-Iranian-ethnicities',
-      status: 'achieved'
+      status: 'achieved',
+      timelines: [
+        {
+          updated: 'Jul 18, 2019',
+          status: 'compromised'
+        },
+        {
+          updated: 'Jul 10, 2017',
+          status: 'inactive'
+        }
+      ]
     },
     {
       title: 'Providing affordable housing and controlling the housing prices',
       term: 'Term 2',
       topic: 'Economy',
       slug: 'providing-affordable-housing-and-controlling-the-housing-prices',
-      status: 'not-achieved'
+      status: 'not-achieved',
+      timelines: [
+        {
+          updated: 'Jul 18, 2019',
+          status: 'compromised'
+        }
+      ]
     },
     {
       title:
@@ -109,28 +125,76 @@ export default {
       topic: 'Social-cultural',
       slug:
         'provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income',
-      status: 'compromised'
+      status: 'compromised',
+      timelines: [
+        {
+          updated: 'Jul 18, 2019',
+          status: 'compromised'
+        }
+      ]
     },
     {
       title: 'Instructing literature of minority languages in schools',
       term: 'Term 2',
       topic: 'Domestic policy',
       slug: 'instructing-literature-of-minority-languages-in-schools',
-      status: 'inactive'
+      status: 'inactive',
+      timelines: [
+        {
+          updated: 'Jul 26, 2019',
+          status: 'compromised'
+        },
+        {
+          updated: 'Jul 20, 2018',
+          status: 'achieved'
+        },
+        {
+          updated: 'Jul 20, 2018',
+          status: 'inactive'
+        }
+      ]
     },
     {
       title: 'An annual increase of one million foreign tourists',
       term: 'Term 1',
       topic: 'Economy',
       slug: 'an-annual-increase-of-one-million-foreign-tourists',
-      status: 'in-progress'
+      status: 'in-progress',
+      timelines: [
+        {
+          updated: 'Jul 18, 2019',
+          status: 'compromised'
+        },
+        {
+          updated: 'Jul 10, 2017',
+          status: 'stalled'
+        }
+      ]
     },
     {
       title: 'Provide insurance for women who are primary caregivers',
       term: 'Term 3',
       topic: 'Social-cultural',
       slug: 'provide-insurance-for-women-who-are-primary-caregivers',
-      status: 'stalled'
+      status: 'stalled',
+      timelines: [
+        {
+          updated: 'Dec 18, 2017',
+          status: 'in-progress'
+        },
+        {
+          updated: 'Nov 10, 2017',
+          status: 'compromised'
+        },
+        {
+          updated: 'Jan 10, 2018',
+          status: 'inactive'
+        },
+        {
+          updated: 'Jul 10, 2019',
+          status: 'stalled'
+        }
+      ]
     }
   ]
 };

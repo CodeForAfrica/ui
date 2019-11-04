@@ -6,7 +6,7 @@ import { Grid, Button } from '@material-ui/core';
 import propTypes from '../../components/propTypes';
 
 import Layout from '../../components/Layout';
-import Select from '../../components/Select';
+// import Select from '../../components/Select';
 import PromiseCard from '../../components/Promise/Card';
 
 import RouterLink from '../../components/RouterLink';
@@ -47,7 +47,7 @@ function PromisesSection({
         spacing={4}
         className={classes.mainGrid}
       >
-        <Grid item xs={6} sm={4} md={2}>
+        {/* <Grid item xs={6} sm={4} md={2}>
           <Select
             options={[
               {
@@ -88,7 +88,7 @@ function PromisesSection({
               }))
             ]}
           />
-        </Grid>
+        </Grid> */}
       </Grid>
 
       <Grid
