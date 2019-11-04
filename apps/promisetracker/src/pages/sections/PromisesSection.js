@@ -130,10 +130,10 @@ function PromisesSection({
         container
         justify="flex-start"
         direction="row"
-        spacing={5}
+        spacing={4}
         className={classes.mainGrid}
       >
-        <Grid item>
+        <Grid item xs={6} sm={4} md={2}>
           <Select
             showIndicator={filter.status !== 'all'}
             indicatorColor={
@@ -153,7 +153,7 @@ function PromisesSection({
             ]}
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={6} sm={4} md={2}>
           <Select
             showIndicator={filter.term !== 'all'}
             value={filter.term}
@@ -170,7 +170,7 @@ function PromisesSection({
             ]}
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={6} sm={4} md={2}>
           <Select
             showIndicator={filter.topic !== 'all'}
             value={filter.topic}
