@@ -45,6 +45,14 @@ function PromisePage({
   }
 
   const promise = config.promises[index];
+  const currentTopic = promise.topic;
+
+  const currentRelatedTopic = [];
+  const relatedTopic = config.promises.filter(function(promiseItem) {
+    return promiseItem.topic === currentTopic;
+  });
+  currentRelatedTopic.push(relatedTopic);
+
   const { timelines } = promise;
   // Lets use null to ensure the nothing is rendered: undefined seems to
   // render `0`
@@ -117,33 +125,17 @@ function PromisePage({
               variant="h4"
               title="Related Promises"
             >
-              <Grid item xs={12}>
-                <PromiseCard
-                  status="achieved"
-                  title="Provide commodity subsidies for basic goods to support households with low income"
-                  term="Term 1"
-                  topic="Domestic policy"
-                  href="/promises/provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <PromiseCard
-                  status="compromised"
-                  title="Provide commodity subsidies for basic goods to support households with low income"
-                  term="Term 1"
-                  topic="Domestic policy"
-                  href="/promises/provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <PromiseCard
-                  status="not-achieved"
-                  title="Provide commodity subsidies for basic goods to support households with low income"
-                  term="Term 1"
-                  topic="Domestic policy"
-                  href="/promises/provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income"
-                />
-              </Grid>
+              {currentRelatedTopic.map(current => (
+                <Grid item xs={12}>
+                  <PromiseCard
+                    status={current.status}
+                    title={current.title}
+                    term={current.term}
+                    topic={current.topic}
+                    slug={current.slug}
+                  />
+                </Grid>
+              ))}
             </TitledGrid>
             <SideBar />
             <Grid container item>
