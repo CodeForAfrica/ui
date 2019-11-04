@@ -125,17 +125,15 @@ function PromisePage({
               variant="h4"
               title="Related Promises"
             >
-              {currentRelatedTopic.map(current => (
-                <Grid item xs={12}>
-                  <PromiseCard
-                    status={current.status}
-                    title={current.title}
-                    term={current.term}
-                    topic={current.topic}
-                    slug={current.slug}
-                  />
-                </Grid>
-              ))}
+              <Grid item xs={12}>
+                <PromiseCard
+                  status={promise.status}
+                  title={promise.title}
+                  term={promise.term}
+                  topic={promise.topic}
+                  slug={promise.slug}
+                />
+              </Grid>
             </TitledGrid>
             <SideBar />
             <Grid container item>
