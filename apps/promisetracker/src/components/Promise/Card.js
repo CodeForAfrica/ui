@@ -37,7 +37,7 @@ function PromiseCard({
   const classes = useStyles({ status, ...props });
   return (
     <Card elevation={0} className={classes.root}>
-      <RouterLink to={`promise/${slug}`}>
+      <RouterLink to={`${slug}`}>
         <CardContent component={Grid} container direction="column" spacing={3}>
           <Grid item className={classes.title}>
             <Typography variant="h6" color="primary">

@@ -35,6 +35,7 @@ function PromisesSection({
   ...props
 }) {
   const classes = useStyles(props);
+
   const [filter, setFilter] = useState({
     status: propsFilter.status || 'all',
     term: propsFilter.term || 'all',
@@ -82,7 +83,6 @@ function PromisesSection({
 
   const filtersQueryString = useCallback(() => {
     const params = new URLSearchParams();
-
     if (filter.status !== 'all') {
       params.set('status', filter.status);
     }
@@ -168,7 +168,7 @@ function PromisesSection({
         {promises.map(promise => (
           <Grid item xs={12} sm={6} md={4}>
             <PromiseCard
-              slug={promise.slug}
+              slug={`promise/${promise.slug}`}
               status={promise.status}
               title={promise.title}
               term={promise.term}

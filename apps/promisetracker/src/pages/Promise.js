@@ -11,6 +11,7 @@ import {
   Navigator as PromiseNavigator,
   TimelineEntry as PromiseTimelineEntry
 } from '../components/Promise';
+
 import TitledGrid from '../components/TitledGrid';
 import SideBar from '../components/Articles/Sidebar';
 
