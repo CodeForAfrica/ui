@@ -1,10 +1,13 @@
 import React from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
+import propTypes from '../components/propTypes';
+
 import Page from '../components/Page';
 import PromisesSection from './sections/PromisesSection';
 import PromiseCard from '../components/Promise/Card';
 import Layout from '../components/Layout';
-import propTypes from '../components/propTypes';
+
+import config from '../config';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,33 +30,17 @@ function Promises({ location: { search } }) {
             topic: params.get('topic')
           }}
         >
-          <Grid item xs={12} sm={6} md={4}>
-            <PromiseCard
-              status="stalled"
-              title="Assuring equal rights for all Iranian ethnicities"
-              term="Term 1"
-              topic="Domestic policy"
-              href="/promises/assuring-equal-rights-for-all-iranian-ethnicities"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <PromiseCard
-              status="achieved"
-              title="Provide commodity subsidies for basic goods to support households with low income"
-              term="Term 1"
-              topic="Domestic policy"
-              href="/promises/provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <PromiseCard
-              status="inactive"
-              title="Assuring equal rights for all Iranian ethnicities"
-              term="Term 1"
-              topic="Domestic policy"
-              href="/promises/assuring-equal-rights-for-all-iranian-ethnicities"
-            />
-          </Grid>
+          {config.promises.map(promise => (
+            <Grid item xs={12} sm={6} md={4}>
+              <PromiseCard
+                status={promise.status}
+                title={promise.title}
+                term={promise.term}
+                topic={promise.topic}
+                slug={promise.slug}
+              />
+            </Grid>
+          ))}
         </PromisesSection>
       </Layout>
     </Page>

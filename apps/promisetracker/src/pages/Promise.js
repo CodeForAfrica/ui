@@ -43,14 +43,13 @@ function PromisePage({
   if (index === -1) {
     return <Redirect to={`/404/?${window.location.pathname}`} />;
   }
-
   const promise = config.promises[index];
   const currentTopic = promise.topic;
 
   const relatedTopic = config.promises.filter(function(promiseItem) {
     return promiseItem !== promise && promiseItem.topic === currentTopic;
   });
-  const { timelines } = promise;
+
   // Lets use null to ensure the nothing is rendered: undefined seems to
   // render `0`
   const prevPromise = index ? config.promises[index - 1] : null;
@@ -88,7 +87,7 @@ function PromisePage({
             variant="h4"
             title="Promise Timeline"
           >
-            {timelines.map(timeline => (
+            {promise.timelines.map(timeline => (
               <Grid item>
                 <PromiseTimelineEntry
                   defaultExpanded
