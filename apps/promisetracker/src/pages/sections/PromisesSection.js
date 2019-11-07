@@ -46,6 +46,7 @@ function PromisesSection({
     (name, value) => {
       setFilter({ ...filter, [name]: value });
       const params = new URLSearchParams(location.search);
+
       if (value !== 'all') {
         params.set(name, value);
       } else {
@@ -165,17 +166,24 @@ function PromisesSection({
         spacing={2}
         color="white"
       >
-        {promises.map(promise => (
-          <Grid item xs={12} sm={6} md={4}>
-            <PromiseCard
-              slug={`promise/${promise.slug}`}
-              status={promise.status}
-              title={promise.title}
-              term={promise.term}
-              topic={promise.topic}
-            />
-          </Grid>
-        ))}
+        {promises
+          .filter(
+            filteredItem =>
+              filteredItem.status === filter.status ||
+              filteredItem === filter.term ||
+              filteredItem === filter.topic
+          )
+          .map(promise => (
+            <Grid item xs={12} sm={6} md={4}>
+              <PromiseCard
+                slug={`promise/${promise.slug}`}
+                status={promise.status}
+                title={promise.title}
+                term={promise.term}
+                topic={promise.topic}
+              />
+            </Grid>
+          ))}
       </Grid>
       {enableShowMore && (
         <Button
