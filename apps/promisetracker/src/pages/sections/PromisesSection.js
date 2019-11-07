@@ -183,7 +183,7 @@ function PromisesSection({
           .map(promise => (
             <Grid item xs={12} sm={6} md={4}>
               <PromiseCard
-                slug={`promise/${promise.slug}`}
+                href={`promise/${promise.slug}`}
                 status={promise.status}
                 title={promise.title}
                 term={promise.term}

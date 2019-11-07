@@ -129,7 +129,7 @@ function PromisePage({
                     title={topic.title}
                     term={topic.term}
                     topic={topic.topic}
-                    slug={topic.slug}
+                    href={topic.slug}
                   />
                 </Grid>
               ))}
