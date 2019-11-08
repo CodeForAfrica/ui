@@ -70,7 +70,7 @@ export default {
     },
     {
       slug: 'social-cultural',
-      name: 'Socio Cultural'
+      name: 'Social Cultural'
     }
   ],
   terms: [
