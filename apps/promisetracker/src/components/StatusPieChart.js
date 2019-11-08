@@ -3,40 +3,9 @@ import { PieChart, Pie, Cell, LabelList } from 'recharts';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 
-const promises = [
-  {
-    status: 'achieved',
-    name: 'Achieved',
-    value: 14
-  },
-  {
-    status: 'compromised',
-    name: 'Compromised',
-    value: 8
-  },
-  {
-    status: 'in-progress',
-    name: 'In Progress',
-    value: 11
-  },
-  {
-    status: 'not-achieved',
-    name: 'Not Achieved',
-    value: 45
-  },
-  {
-    status: 'stalled',
-    name: 'Stalled',
-    value: 12
-  },
-  {
-    status: 'inactive',
-    name: 'Inactive',
-    value: 10
-  }
-];
+import config from '../config';
 
-const totalPromises = promises.reduce((a, b) => a + b.value, 0);
+const totalPromises = config.chartPromises.reduce((a, b) => a + b.value, 0);
 
 function PercentageLabelFormatter(value) {
   return `${((Number(value) * 100) / totalPromises).toFixed(0)}%`;
@@ -94,7 +63,7 @@ function StatusPieChart() {
         <Pie
           blendStroke
           isAnimationActive={false}
-          data={promises}
+          data={config.chartPromises}
           dataKey="value"
           nameKey="name"
           cx="50%"
@@ -105,11 +74,8 @@ function StatusPieChart() {
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         >
-          {promises.map(promise => (
-            <Cell
-              key={promise.status}
-              // fill={config.colors[promise.status].dark}
-            />
+          {config.chartPromises.map(promise => (
+            <Cell key={promise.status} />
           ))}
           <LabelList
             className={classes.percentageLabel}

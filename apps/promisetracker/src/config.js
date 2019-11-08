@@ -196,5 +196,37 @@ export default {
         }
       ]
     }
+  ],
+  chartPromises: [
+    {
+      status: 'achieved',
+      name: 'Achieved',
+      value: 14
+    },
+    {
+      status: 'compromised',
+      name: 'Compromised',
+      value: 8
+    },
+    {
+      status: 'in-progress',
+      name: 'In Progress',
+      value: 11
+    },
+    {
+      status: 'not-achieved',
+      name: 'Not Achieved',
+      value: 45
+    },
+    {
+      status: 'stalled',
+      name: 'Stalled',
+      value: 12
+    },
+    {
+      status: 'inactive',
+      name: 'Inactive',
+      value: 10
+    }
   ]
 };
