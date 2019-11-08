@@ -155,7 +155,7 @@ export default {
       ]
     },
     {
-      title: 'An annual isncrease of one million foreign tourists',
+      title: 'An annual increase of one million foreign tourists',
       term: 'Term 1',
       topic: 'Economy',
       slug: 'an-annual-increase-of-one-million-foreign-tourists',
