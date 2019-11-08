@@ -201,32 +201,38 @@ export default {
     {
       status: 'achieved',
       name: 'Achieved',
-      value: 14
+      value: 14,
+      img: './status-achieved.png'
     },
     {
       status: 'compromised',
       name: 'Compromised',
-      value: 8
+      value: 8,
+      img: './status-compromised.png'
     },
     {
       status: 'in-progress',
       name: 'In Progress',
-      value: 11
+      value: 11,
+      img: './status-in-progress.png'
     },
     {
       status: 'not-achieved',
       name: 'Not Achieved',
-      value: 45
+      value: 45,
+      img: './status-not-achieved.png'
     },
     {
       status: 'stalled',
       name: 'Stalled',
-      value: 12
+      value: 12,
+      img: './status-stalled.png'
     },
     {
       status: 'inactive',
       name: 'Inactive',
-      value: 10
+      value: 10,
+      img: './status-inactive.png'
     }
   ]
 };
