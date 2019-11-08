@@ -168,17 +168,15 @@ function PromisesSection({
       >
         {promises
           .filter(
-            filteredItem =>
-              (filter.status === 'all' &&
-              filter.term === 'all' &&
-              filter.topic === 'all'
-                ? filteredItem
-                : null) ||
-              filteredItem.status === filter.status ||
-              filteredItem.term.replace(/\s+/g, '-').toLowerCase() ===
-                filter.term ||
-              filteredItem.topic.replace(/\s+/g, '-').toLowerCase() ===
-                filter.topic
+            filterPromise =>
+              (filter.status === 'all' ||
+                filterPromise.status === filter.status) &&
+              (filter.term === 'all' ||
+                filterPromise.term.replace(/\s+/g, '-').toLowerCase() ===
+                  filter.term) &&
+              (filter.topic === 'all' ||
+                filterPromise.topic.replace(/\s+/g, '-').toLowerCase() ===
+                  filter.topic)
           )
           .map(promise => (
             <Grid item xs={12} sm={6} md={4}>
