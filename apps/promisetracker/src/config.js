@@ -70,7 +70,7 @@ export default {
     },
     {
       slug: 'socio-cultural',
-      name: 'Socio Cultural'
+      name: 'Socio-Cultural'
     }
   ],
   terms: [
@@ -122,7 +122,7 @@ export default {
       title:
         'Provide commodity subsidies for basic goods to support households with low income',
       term: 'Term 3',
-      topic: 'Social-cultural',
+      topic: 'Social-Cultural',
       slug:
         'provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income',
       status: 'compromised',
@@ -174,7 +174,7 @@ export default {
     {
       title: 'Provide insurance for women who are primary caregivers',
       term: 'Term 3',
-      topic: 'Social-cultural',
+      topic: 'Social-Cultural',
       slug: 'provide-insurance-for-women-who-are-primary-caregivers',
       status: 'stalled',
       timelines: [
