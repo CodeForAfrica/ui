@@ -83,7 +83,7 @@ export default {
       name: 'Term 2'
     },
     {
-      slug: 'term 3',
+      slug: 'term-3',
       name: 'Term 3'
     }
   ],
