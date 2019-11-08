@@ -69,8 +69,8 @@ export default {
       name: 'Domestic Policy'
     },
     {
-      slug: 'socio-cultural',
-      name: 'Socio-Cultural'
+      slug: 'social-cultural',
+      name: 'Socio Cultural'
     }
   ],
   terms: [
