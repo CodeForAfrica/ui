@@ -31,7 +31,7 @@ function ContributeSection() {
       <Layout justify="center" alignItems="center">
         <Grid className={classes.contributeCallToAction} item xs={12} md={6}>
           <Content
-            title="Contibute"
+            title="Contribute"
             subtitle="Have you spotted a promise in action?"
             description="See something wrong? Share data to help assess a promise!"
           />

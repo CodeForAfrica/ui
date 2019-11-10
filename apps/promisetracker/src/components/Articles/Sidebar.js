@@ -37,7 +37,7 @@ function Sidebar() {
           className={classes.typoGrid}
         >
           <Content
-            title="Contibute"
+            title="Contribute"
             subtitle="Have you spotted a promise in action?"
           />
         </Grid>
