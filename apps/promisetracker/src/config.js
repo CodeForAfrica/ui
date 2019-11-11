@@ -94,7 +94,7 @@ export default {
       topic: 'Domestic policy',
       slug: 'assuring-equal-rights-for-all-Iranian-ethnicities',
       status: 'achieved',
-      timelines: [
+      timeline: [
         {
           updated: 'Jul 18, 2019',
           status: 'compromised'
