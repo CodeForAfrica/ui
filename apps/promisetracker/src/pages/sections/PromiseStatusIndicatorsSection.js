@@ -5,7 +5,7 @@ import Layout from '../../components/Layout';
 import StatusPieChart from '../../components/StatusPieChart';
 import StatusIndicator from '../../components/StatusIndicator';
 
-import config from '../../config';
+import data from '../../data/data';
 
 const getIndicatorImage = require.context(
   '../../components/assets/images/indicators',
@@ -31,7 +31,7 @@ function PromiseStatusIndicatorsSection() {
           <StatusPieChart />
         </Grid>
         <Grid container spacing={2} justify="center">
-          {config.chartPromises.map(promise => (
+          {data.chartPromises.map(promise => (
             <Grid item xs={8} sm={4} md={2}>
               <StatusIndicator
                 img={getIndicatorImage(promise.img)}

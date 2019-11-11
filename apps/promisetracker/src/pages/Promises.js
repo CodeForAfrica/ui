@@ -7,7 +7,7 @@ import PromisesSection from './sections/PromisesSection';
 import PromiseCard from '../components/Promise/Card';
 import Layout from '../components/Layout';
 
-import config from '../config';
+import data from '../data/data';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,7 +30,7 @@ function Promises({ location: { search } }) {
             topic: params.get('topic')
           }}
         >
-          {config.promises.map(promise => (
+          {data.promises.map(promise => (
             <Grid item xs={12} sm={6} md={4}>
               <PromiseCard
                 status={promise.status}

@@ -10,7 +10,7 @@ import Select from '../../components/Select';
 import PromiseCard from '../../components/Promise/Card';
 import RouterLink from '../../components/RouterLink';
 
-import config from '../../config';
+import data from '../../data/data';
 
 const useStyles = makeStyles({
   root: props => ({
@@ -97,7 +97,7 @@ function PromisesSection({
     return params.toString();
   }, [filter.status, filter.term, filter.topic]);
 
-  const { promises } = config;
+  const { promises } = data;
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
       <Grid
@@ -117,7 +117,7 @@ function PromisesSection({
                 value: 'all',
                 name: 'All Statuses'
               },
-              ...config.statusTypes.map(status => ({
+              ...data.statusTypes.map(status => ({
                 name: status.name,
                 value: status.slug
               }))
@@ -134,7 +134,7 @@ function PromisesSection({
                 value: 'all',
                 name: 'All Terms'
               },
-              ...config.terms.map(term => ({
+              ...data.terms.map(term => ({
                 name: term.name,
                 value: term.slug
               }))
@@ -151,7 +151,7 @@ function PromisesSection({
                 value: 'all',
                 name: 'All Topics'
               },
-              ...config.topics.map(topic => ({
+              ...data.topics.map(topic => ({
                 name: topic.name,
                 value: topic.slug
               }))

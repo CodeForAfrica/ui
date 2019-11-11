@@ -15,7 +15,7 @@ import {
 import TitledGrid from '../components/TitledGrid';
 import SideBar from '../components/Articles/Sidebar';
 
-import config from '../config';
+import data from '../data/data';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,22 +40,21 @@ function PromisePage({
 }) {
   const classes = useStyles();
 
-  const index = config.promises.findIndex(promise => promise.slug === slug);
+  const index = data.promises.findIndex(promise => promise.slug === slug);
   if (index === -1) {
     return <Redirect to={`/404/?${window.location.pathname}`} />;
   }
-  const promise = config.promises[index];
+  const promise = data.promises[index];
   const currentTopic = promise.topic;
-
-  const relatedTopic = config.promises.filter(function(promiseItem) {
+  const relatedTopic = data.promises.filter(function(promiseItem) {
     return promiseItem !== promise && promiseItem.topic === currentTopic;
   });
 
   // Lets use null to ensure the nothing is rendered: undefined seems to
   // render `0`
-  const prevPromise = index ? config.promises[index - 1] : null;
+  const prevPromise = index ? data.promises[index - 1] : null;
   const nextPromise =
-    index < config.promises.length - 1 && config.promises[index + 1];
+    index < data.promises.length - 1 && data.promises[index + 1];
 
   const previous = prevPromise && {
     href: `/promise/${prevPromise.slug}`,

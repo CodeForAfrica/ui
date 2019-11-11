@@ -3,9 +3,9 @@ import { PieChart, Pie, Cell, LabelList } from 'recharts';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 
-import config from '../config';
+import chartData from '../data/data';
 
-const totalPromises = config.chartPromises.reduce((a, b) => a + b.value, 0);
+const totalPromises = chartData.chartPromises.reduce((a, b) => a + b.value, 0);
 
 function PercentageLabelFormatter(value) {
   return `${((Number(value) * 100) / totalPromises).toFixed(0)}%`;
@@ -63,7 +63,7 @@ function StatusPieChart() {
         <Pie
           blendStroke
           isAnimationActive={false}
-          data={config.chartPromises}
+          data={chartData.chartPromises}
           dataKey="value"
           nameKey="name"
           cx="50%"
@@ -74,7 +74,7 @@ function StatusPieChart() {
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         >
-          {config.chartPromises.map(promise => (
+          {chartData.chartPromises.map(promise => (
             <Cell key={promise.status} />
           ))}
           <LabelList
