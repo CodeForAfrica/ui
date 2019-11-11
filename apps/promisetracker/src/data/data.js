@@ -67,7 +67,7 @@ export default {
       timeline: [
         {
           updated: 'Jul 18, 2019',
-          status: 'compromised'
+          status: 'achieved'
         },
         {
           updated: 'Jul 10, 2017',
@@ -84,7 +84,7 @@ export default {
       timeline: [
         {
           updated: 'Jul 18, 2019',
-          status: 'compromised'
+          status: 'not-achieved'
         }
       ]
     },
@@ -112,11 +112,11 @@ export default {
       timeline: [
         {
           updated: 'Jul 26, 2019',
-          status: 'compromised'
+          status: 'in-active'
         },
         {
           updated: 'Jul 20, 2018',
-          status: 'achieved'
+          status: 'compromised'
         },
         {
           updated: 'Jul 20, 2018',
@@ -133,7 +133,7 @@ export default {
       timeline: [
         {
           updated: 'Jul 18, 2019',
-          status: 'compromised'
+          status: 'in-progress'
         },
         {
           updated: 'Jul 10, 2017',
