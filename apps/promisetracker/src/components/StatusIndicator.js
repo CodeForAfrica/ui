@@ -3,8 +3,6 @@ import { Grid, makeStyles, Button, ButtonGroup } from '@material-ui/core';
 import RouterLink from './RouterLink';
 import propTypes from './propTypes';
 
-// simport config from '../config';
-
 const useStyles = makeStyles({
   root: {
     width: '100%'

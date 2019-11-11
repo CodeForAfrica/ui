@@ -87,7 +87,7 @@ function PromisePage({
             variant="h4"
             title="Promise Timeline"
           >
-            {promise.timelines.map(timeline => (
+            {promise.timeline.map(timeline => (
               <Grid item>
                 <PromiseTimelineEntry
                   defaultExpanded
