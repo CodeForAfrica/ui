@@ -60,8 +60,8 @@ export default {
   promises: [
     {
       title: 'Assuring equal rights for all Iranian ethnicities',
-      term: 'Term 1',
-      topic: 'Domestic policy',
+      term: 'term-1',
+      topic: 'domestic-policy',
       slug: 'assuring-equal-rights-for-all-Iranian-ethnicities',
       status: 'achieved',
       timeline: [
@@ -77,8 +77,8 @@ export default {
     },
     {
       title: 'Providing affordable housing and controlling the housing prices',
-      term: 'Term 2',
-      topic: 'Economy',
+      term: 'term-2',
+      topic: 'economy',
       slug: 'providing-affordable-housing-and-controlling-the-housing-prices',
       status: 'not-achieved',
       timeline: [
@@ -91,8 +91,8 @@ export default {
     {
       title:
         'Provide commodity subsidies for basic goods to support households with low income',
-      term: 'Term 3',
-      topic: 'Social-Cultural',
+      term: 'term-3',
+      topic: 'social-cultural',
       slug:
         'provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income',
       status: 'compromised',
@@ -105,8 +105,8 @@ export default {
     },
     {
       title: 'Instructing literature of minority languages in schools',
-      term: 'Term 2',
-      topic: 'Domestic policy',
+      term: 'term-2',
+      topic: 'domestic-policy',
       slug: 'instructing-literature-of-minority-languages-in-schools',
       status: 'inactive',
       timeline: [
@@ -126,8 +126,8 @@ export default {
     },
     {
       title: 'An annual increase of one million foreign tourists',
-      term: 'Term 1',
-      topic: 'Economy',
+      term: 'term-1',
+      topic: 'economy',
       slug: 'an-annual-increase-of-one-million-foreign-tourists',
       status: 'in-progress',
       timeline: [
@@ -143,8 +143,8 @@ export default {
     },
     {
       title: 'Provide insurance for women who are primary caregivers',
-      term: 'Term 3',
-      topic: 'Social-Cultural',
+      term: 'term-3',
+      topic: 'social-cultural',
       slug: 'provide-insurance-for-women-who-are-primary-caregivers',
       status: 'stalled',
       timeline: [

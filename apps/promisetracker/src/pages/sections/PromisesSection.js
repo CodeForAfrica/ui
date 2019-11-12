@@ -172,11 +172,9 @@ function PromisesSection({
               (filter.status === 'all' ||
                 filterPromise.status === filter.status) &&
               (filter.term === 'all' ||
-                filterPromise.term.replace(/\s+/g, '-').toLowerCase() ===
-                  filter.term) &&
+                (filterPromise.term === data.terms.slug) === filter.term) &&
               (filter.topic === 'all' ||
-                filterPromise.topic.replace(/\s+/g, '-').toLowerCase() ===
-                  filter.topic)
+                (filterPromise.topic === data.topics.slug) === filter.topic)
           )
           .map(promise => (
             <Grid item xs={12} sm={6} md={4}>
@@ -184,8 +182,8 @@ function PromisesSection({
                 href={`promise/${promise.slug}`}
                 status={promise.status}
                 title={promise.title}
-                term={promise.term}
-                topic={promise.topic}
+                term={data.terms.find(s => s.slug === promise.term).name}
+                topic={data.topics.find(s => s.slug === promise.topic).name}
               />
             </Grid>
           ))}
