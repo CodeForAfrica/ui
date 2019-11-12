@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles, Button } from '@material-ui/core';
 import propTypes from './propTypes';
 
-import data from '../data/data';
+import data from '../data';
 
 const useStyles = makeStyles(theme => ({
   root: {

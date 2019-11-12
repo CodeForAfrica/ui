@@ -10,7 +10,7 @@ import Select from '../../components/Select';
 import PromiseCard from '../../components/Promise/Card';
 import RouterLink from '../../components/RouterLink';
 
-import data from '../../data/data';
+import data from '../../data';
 
 const useStyles = makeStyles({
   root: props => ({

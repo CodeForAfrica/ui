@@ -5,7 +5,7 @@ import Layout from '../../components/Layout';
 import StatusPieChart from '../../components/StatusPieChart';
 import StatusIndicator from '../../components/StatusIndicator';
 
-import data from '../../data/data';
+import data from '../../data';
 
 const getIndicatorImage = require.context(
   '../../components/assets/images/indicators',

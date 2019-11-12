@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell, LabelList } from 'recharts';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 
-import chartData from '../data/data';
+import chartData from '../data';
 
 const totalPromises = chartData.chartPromises.reduce((a, b) => a + b.value, 0);
 

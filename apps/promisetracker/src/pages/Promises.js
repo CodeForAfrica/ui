@@ -7,7 +7,7 @@ import PromisesSection from './sections/PromisesSection';
 import PromiseCard from '../components/Promise/Card';
 import Layout from '../components/Layout';
 
-import data from '../data/data';
+import data from '../data';
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -15,7 +15,7 @@ import {
 import TitledGrid from '../components/TitledGrid';
 import SideBar from '../components/Articles/Sidebar';
 
-import data from '../data/data';
+import data from '../data';
 
 const useStyles = makeStyles(theme => ({
   root: {
