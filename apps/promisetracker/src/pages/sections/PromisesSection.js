@@ -171,10 +171,8 @@ function PromisesSection({
             filterPromise =>
               (filter.status === 'all' ||
                 filterPromise.status === filter.status) &&
-              (filter.term === 'all' ||
-                (filterPromise.term === data.terms.slug) === filter.term) &&
-              (filter.topic === 'all' ||
-                (filterPromise.topic === data.topics.slug) === filter.topic)
+              (filter.term === 'all' || filterPromise.term === filter.term) &&
+              (filter.topic === 'all' || filterPromise.topic === filter.topic)
           )
           .map(promise => (
             <Grid item xs={12} sm={6} md={4}>
