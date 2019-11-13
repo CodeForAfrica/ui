@@ -52,8 +52,11 @@ function PromisesSection({
       } else {
         params.delete(name);
       }
+      if (!disableFilterHistory) {
+        router.push(`/?${params.toString()}`, filter);
+      }
     },
-    [filter, history, location]
+    [disableFilterHistory, filter, history, location]
   );
 
   useEffect(() => {
@@ -212,7 +215,6 @@ PromisesSection.propTypes = {
 };
 
 PromisesSection.defaultProps = {
-  enableShowMore: false,
   disableFilterHistory: false,
   filter: {
     status: undefined,
