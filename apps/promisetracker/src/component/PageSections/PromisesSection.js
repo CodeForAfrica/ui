@@ -1,9 +1,8 @@
 import React, { useCallback, useState, useEffect } from 'react';
 
 import { makeStyles } from '@material-ui/styles';
-import { useRouter } from 'next/router';
-import Router from 'next/router'
-import { Grid, Button, Link } from '@material-ui/core';
+import { useRouter, Router } from 'next/router';
+import { Grid, Button } from '@material-ui/core';
 import propTypes from '../propTypes';
 
 import Layout from '../Layout';
@@ -23,11 +22,11 @@ const useStyles = makeStyles({
   },
   mainGrid: {
     margin: '0 0.5rem'
-  }
+  },
+   button: { paddingTop: '3rem' }
 });
 
 function PromisesSection({
-  enableShowMore,
   filter: propsFilter,
   location,
   history,
@@ -187,25 +186,24 @@ function PromisesSection({
             </Grid>
           ))}
       </Grid>
-      {enableShowMore && (
+    
+      <Grid item className={classes.button}>
         <Button
           variant="contained"
-          component={Link}
-          to={`/promises?${filtersQueryString()}`}
+          href={`/promises?${filtersQueryString()}`}
           color="primary"
         >
           SHOW MORE
         </Button>
-      )}
+      </Grid>
+  
     </Layout>
   );
 }
 
 PromisesSection.propTypes = {
-  enableShowMore: propTypes.bool,
   disableFilterHistory: propTypes.bool,
   location: propTypes.location.isRequired,
-  history: propTypes.history.isRequired,
   filter: propTypes.shape({
     status: propTypes.string,
     term: propTypes.string,
