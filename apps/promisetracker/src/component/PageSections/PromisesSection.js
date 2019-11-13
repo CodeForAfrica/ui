@@ -1,7 +1,8 @@
 import React, { useCallback, useState, useEffect } from 'react';
 
 import { makeStyles } from '@material-ui/styles';
-import { withRouter } from 'react-router';
+import { useRouter } from 'next/router';
+import Router from 'next/router'
 import { Grid, Button, Link } from '@material-ui/core';
 import propTypes from '../propTypes';
 
@@ -34,6 +35,7 @@ function PromisesSection({
   ...props
 }) {
   const classes = useStyles(props);
+  const router = useRouter();
 
   const [filter, setFilter] = useState({
     status: propsFilter.status || 'all',
@@ -44,25 +46,25 @@ function PromisesSection({
   const updateFilter = useCallback(
     (name, value) => {
       setFilter({ ...filter, [name]: value });
-      const params = new URLSearchParams(location.search);
+      const params = new URLSearchParams(router.asPath.split(/\?/)[1]);
 
       if (value !== 'all') {
         params.set(name, value);
       } else {
         params.delete(name);
       }
-      if (!disableFilterHistory) {
-        history.push(`?${params.toString()}`, filter);
-      }
     },
-    [disableFilterHistory, filter, history, location]
+    [filter, history, location]
   );
 
   useEffect(() => {
     function updateFilterWithQueryOnBack() {
       // important: use window.location instead of router location
       // window.location has the route we went back to
-      const params = new URLSearchParams(window.location.search);
+
+      //Disclamer : Please disregard the above comment 😔😔🙅🏾‍♀️🙅🏾...
+      //We are using Router because we all know that next.js routing is SONIC 🦔 in real life
+      const params = new URLSearchParams(router.asPath);
       if (
         (params.get('status') || 'all') !== filter.status ||
         (params.get('term') || 'all') !== filter.term ||
@@ -221,4 +223,4 @@ PromisesSection.defaultProps = {
   }
 };
 
-export default withRouter(PromisesSection);
+export default PromisesSection;
