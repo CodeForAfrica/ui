@@ -1,9 +1,12 @@
 import React from 'react';
 
-import { Grid, Typography, makeStyles, Link } from '@material-ui/core';
+import Link from '../Link'
+
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import propTypes from '../propTypes';
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,6 +17,7 @@ const useStyles = makeStyles(theme => ({
 
 function PromiseNavigator({ next, previous }) {
   const classes = useStyles();
+  const {router} = useRouter()
   return (
     <Grid
       className={classes.root}
@@ -26,7 +30,7 @@ function PromiseNavigator({ next, previous }) {
        */}
       <Grid item xs={6} md={5}>
         {previous && (
-          <Link to={previous.href} color="#659db9">
+          <Link href={previous.href} as={previous.href} color="#659db9">
             <Typography className={classes.label}>
               {' '}
               <KeyboardArrowLeft fontSize="small" />
@@ -37,7 +41,7 @@ function PromiseNavigator({ next, previous }) {
       </Grid>
       {next && (
         <Grid container item xs={6} md={5} justify="flex-end">
-          <Link to={next.href} color="#659db9">
+          <Link href={next.href} as={next.href} color="#659db9">
             <Typography className={classes.label}>
               {next.label} <KeyboardArrowRight fontSize="smal" />
             </Typography>

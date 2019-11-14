@@ -32,7 +32,7 @@ function PromiseHeader({ status, title, term, topic }) {
         wrap="nowrap"
       >
         <Grid item xs={12}>
-          <StatusChip status={status} />
+          <StatusChip status={status} style={{color:'white'}}/>
         </Grid>
         <Grid container item justify="flex-end" spacing={2}>
           <Grid item>

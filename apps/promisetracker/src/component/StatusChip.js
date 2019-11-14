@@ -7,7 +7,7 @@ import data from '../data';
 const useStyles = makeStyles(theme => ({
   root: {
     width: '50%',
-    padding: '0.2rem 1.25rem'
+    padding: '0.2rem 1.25rem',
   },
   link: {
     color: theme.palette.common.white,

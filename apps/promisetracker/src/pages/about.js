@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
-
-import Layout from '../component/Layout';
 import Page from '../component/Page';
+import Head from 'next/head';
 
 import AboutContent from '../component/About/Content';
 import SideBar from '../component/About/SideBar';
@@ -16,19 +15,25 @@ const useStyles = makeStyles({
 function About() {
   const classes = useStyles();
   return (
-    <Page>
-        <Grid
-          container
-          spacing={10}
-          direction="row"
-          justify="center"
-          alignItems="flex-start"
-          className={classes.root}
-        >
-          <AboutContent />
-          <SideBar />
-        </Grid>
-    </Page>
+    <Fragment>
+      <Head>
+        <title>About - Promise Tracker</title>
+      </Head>
+  
+      <Page>
+          <Grid
+            container
+            spacing={10}
+            direction="row"
+            justify="center"
+            alignItems="flex-start"
+            className={classes.root}
+          >
+            <AboutContent />
+            <SideBar />
+          </Grid>
+      </Page>
+    </Fragment>
   );
 }
 

@@ -24,7 +24,7 @@ export default class PromiseTrackerApp extends App {
   renderHead() {
     return (
       <Head>
-      <title>Promise Tracker</title>
+      <title>Home - Promise Tracker</title>
       </Head>
     );
   }

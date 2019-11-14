@@ -1,7 +1,8 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 import { Grid, makeStyles, Divider, Typography } from '@material-ui/core';
 
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 import Page from '../../component/Page';
 import Layout from '../../component/Layout';
@@ -63,6 +64,10 @@ function PromisePage({}) {
   };
 
   return (
+    <Fragment>
+      <Head>
+        <title>{promise.title} - Promise Tracker</title>
+      </Head>
     <Page fixNavigation={false}>
       <Layout classes={{ root: classes.root }} spacing={8}>
         <Grid item xs={12} md={8}>
@@ -138,6 +143,7 @@ function PromisePage({}) {
         </Grid>
       </Layout>
     </Page>
+    </Fragment>
   );
 }
 
