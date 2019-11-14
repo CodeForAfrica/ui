@@ -28,8 +28,6 @@ const useStyles = makeStyles({
 
 function PromisesSection({
   filter: propsFilter,
-  location,
-  history,
   disableFilterHistory,
   ...props
 }) {
@@ -56,7 +54,7 @@ function PromisesSection({
         router.push(`/?${params.toString()}`, filter);
       }
     },
-    [disableFilterHistory, filter, history, location]
+    [disableFilterHistory, filter]
   );
 
   useEffect(() => {
@@ -64,8 +62,8 @@ function PromisesSection({
       // important: use window.location instead of router location
       // window.location has the route we went back to
 
-      //Disclamer : Please disregard the above comment 😔😔🙅🏾‍♀️🙅🏾...
-      //We are using Router because we all know that next.js routing is SONIC 🦔 in real life
+      //Disclamer: Please disregard the above comment 😔😔🙅🏾‍♀️🙅🏾...
+      //We are using Router because we all know that next.js routing is SONIC the 🦔 in real life
       const params = new URLSearchParams(router.asPath);
       if (
         (params.get('status') || 'all') !== filter.status ||
@@ -199,14 +197,12 @@ function PromisesSection({
           SHOW MORE
         </Button>
       </Grid>
-  
     </Layout>
   );
 }
 
 PromisesSection.propTypes = {
   disableFilterHistory: propTypes.bool,
-  location: propTypes.location.isRequired,
   filter: propTypes.shape({
     status: propTypes.string,
     term: propTypes.string,

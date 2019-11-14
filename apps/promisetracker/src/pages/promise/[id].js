@@ -1,4 +1,4 @@
-import React,{Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { Grid, makeStyles, Divider, Typography } from '@material-ui/core';
 
 import { useRouter } from 'next/router';
@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function PromisePage({}) {
+function PromisePage({ }) {
   const classes = useStyles();
   const router = useRouter();
 
@@ -44,7 +44,7 @@ function PromisePage({}) {
   }
   const promise = data.promises[index];
   const currentTopic = promise.topic;
-  const relatedTopic = data.promises.filter(function(promiseItem) {
+  const relatedTopic = data.promises.filter(function (promiseItem) {
     return promiseItem !== promise && promiseItem.topic === currentTopic;
   });
 
@@ -68,81 +68,81 @@ function PromisePage({}) {
       <Head>
         <title>{promise.title} - Promise Tracker</title>
       </Head>
-    <Page fixNavigation={false}>
-      <Layout classes={{ root: classes.root }} spacing={8}>
-        <Grid item xs={12} md={8}>
-          <PromiseHeader
-            status={promise.status}
-            term={promise.term}
-            topic={promise.topic}
-            title={promise.title}
-          />
-          <Grid item xs={12} className={classes.divider}>
-            <Divider />
-          </Grid>
+      <Page fixNavigation={false}>
+        <Layout classes={{ root: classes.root }} spacing={8}>
+          <Grid item xs={12} md={8}>
+            <PromiseHeader
+              status={promise.status}
+              term={data.terms.find(s => s.slug === promise.term).name}
+              topic={data.topics.find(s => s.slug === promise.topic).name}
+              title={promise.title}
+            />
+            <Grid item xs={12} className={classes.divider}>
+              <Divider />
+            </Grid>
 
-          <TitledGrid
-            container
-            item
-            direction="column"
-            spacing={1}
-            variant="h4"
-            title="Promise Timeline"
-          >
-            {promise.timeline.map(timeline => (
-              <Grid item>
-                <PromiseTimelineEntry
-                  defaultExpanded
-                  updated={timeline.updated}
-                  status={timeline.status}
-                />
-              </Grid>
-            ))}
-          </TitledGrid>
-
-          <TitledGrid
-            item
-            variant="h5"
-            title="About the promise"
-            className={classes.typo}
-          >
-            <Typography />
-          </TitledGrid>
-
-          <Grid item>
-            <PromiseNavigator previous={previous} next={next} />
-          </Grid>
-        </Grid>
-        <Grid item xs={12} md={4} className={classes.sidebar}>
-          <Grid container spacing={4}>
             <TitledGrid
-              item
-              xs={12}
               container
-              spacing={2}
+              item
+              direction="column"
+              spacing={1}
               variant="h4"
-              title="Related Promises"
+              title="Promise Timeline"
             >
-              {relatedTopic.map(topic => (
-                <Grid item xs={12}>
-                  <PromiseCard
-                    status={topic.status}
-                    title={topic.title}
-                    term={topic.term}
-                    topic={topic.topic}
-                    href={topic.slug}
+              {promise.timeline.map(timeline => (
+                <Grid item>
+                  <PromiseTimelineEntry
+                    defaultExpanded
+                    updated={timeline.updated}
+                    status={timeline.status}
                   />
                 </Grid>
               ))}
             </TitledGrid>
-            <SideBar />
-            <Grid container item>
-              <Divider />
+
+            <TitledGrid
+              item
+              variant="h5"
+              title="About the promise"
+              className={classes.typo}
+            >
+              <Typography />
+            </TitledGrid>
+
+            <Grid item>
+              <PromiseNavigator previous={previous} next={next} />
             </Grid>
           </Grid>
-        </Grid>
-      </Layout>
-    </Page>
+          <Grid item xs={12} md={4} className={classes.sidebar}>
+            <Grid container spacing={4}>
+              <TitledGrid
+                item
+                xs={12}
+                container
+                spacing={2}
+                variant="h4"
+                title="Related Promises"
+              >
+                {relatedTopic.map(topic => (
+                  <Grid item xs={12}>
+                    <PromiseCard
+                      status={topic.status}
+                      title={topic.title}
+                      term={data.terms.find(s => s.slug === topic.term).name}
+                      topic={data.topics.find(s => s.slug === topic.topic).name}
+                      href={topic.slug}
+                    />
+                  </Grid>
+                ))}
+              </TitledGrid>
+              <SideBar />
+              <Grid container item>
+                <Divider />
+              </Grid>
+            </Grid>
+          </Grid>
+        </Layout>
+      </Page>
     </Fragment>
   );
 }

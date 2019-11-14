@@ -29,7 +29,7 @@ function Promises() {
   return (
     <Fragment>
       <Head>
-         <title>Promises - Promise Tracker</title>
+        <title>Promises - Promise Tracker</title>
       </Head>
       <Page>
         <Layout classes={{ root: classes.root }}>
