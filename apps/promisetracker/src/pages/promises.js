@@ -18,9 +18,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Promises() {
-  const params = new URLSearchParams(Router.asPath);
+
   const classes = useStyles();
   const router = useRouter();
+
+  const params = new URLSearchParams(router.asPath.split(/\?/)[1]);
 
   return (
     <Page>

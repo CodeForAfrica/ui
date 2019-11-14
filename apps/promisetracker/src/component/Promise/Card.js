@@ -4,9 +4,10 @@ import {
   Card,
   Typography,
   CardContent,
-  Grid,
-  Link
+  Grid
 } from '@material-ui/core';
+
+import Link from '../Link';
 
 import propTypes from '../propTypes';
 import StatusChip from '../StatusChip';
@@ -38,7 +39,7 @@ function PromiseCard({
   const classes = useStyles({ status, ...props });
   return (
     <Card elevation={0} className={classes.root}>
-      <Link to={href}>
+      <Link href={href}>
         <CardContent component={Grid} container direction="column" spacing={3}>
           <Grid item className={classes.title}>
             <Typography variant="h6" color="primary">
