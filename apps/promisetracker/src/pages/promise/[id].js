@@ -4,7 +4,6 @@ import { Grid, makeStyles, Divider, Typography } from '@material-ui/core';
 import { useRouter } from 'next/router';
 
 import Page from '../../component/Page';
-import propTypes from '../../component/propTypes';
 import Layout from '../../component/Layout';
 import {
   Card as PromiseCard,
@@ -36,7 +35,7 @@ const useStyles = makeStyles(theme => ({
 
 function PromisePage({}) {
   const classes = useStyles();
-   const router = useRouter();
+  const router = useRouter();
 
   const index = data.promises.findIndex(promise => promise.slug === router.query.id);
   if (index === -1) {
@@ -141,10 +140,6 @@ function PromisePage({}) {
     </Page>
   );
 }
-
-PromisePage.propTypes = {
-  match: propTypes.match.isRequired
-};
 
 export default PromisePage;
 
