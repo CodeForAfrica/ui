@@ -4,7 +4,16 @@
 
 ## Installation
 
-PromiseTracker is a single page [React](https://reactjs.org/) web app deployable to GitHub pages with little help from [spa-github-pages](https://github.com/rafrex/spa-github-pages). See [package.json](./package.json) for the full list of dependencies and build & deploy scripts.
+PromiseTracker is a SSR rendered [Next](https://nextjs.org/) web app deployable to GitHub pages with little help from [spa-github-pages](https://github.com/rafrex/spa-github-pages). See [package.json](./package.json) for the full list of dependencies and build & deploy scripts.
+
+
+Run the following to get started :
+
+```
+  yarn 
+  yarn dev
+```
+
 
 ## Attribution
 
