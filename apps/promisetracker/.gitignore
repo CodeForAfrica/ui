@@ -156,5 +156,4 @@ typings/
 # ignore build folder
 build/
 
-
 .vscode/
