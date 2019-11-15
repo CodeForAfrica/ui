@@ -1,16 +1,17 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+
 import { Grid, makeStyles } from '@material-ui/core';
 
 import Head from 'next/head';
 
-import Page from '../component/Page';
-import PromisesSection from '../component/PageSections/PromisesSection';
-import PromiseCard from '../component/Promise/Card';
-import Layout from '../component/Layout';
+import Page from 'components/Page';
+import PromisesSection from 'components/PageSections/PromisesSection';
+import PromiseCard from 'components/Promise/Card';
+import Layout from 'components/Layout';
 
 import { useRouter } from 'next/router';
 
-import data from '../data';
+import data from 'data';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,14 +21,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Promises() {
-
   const classes = useStyles();
   const router = useRouter();
 
   const params = new URLSearchParams(router.asPath.split(/\?/)[1]);
 
   return (
-    <Fragment>
+    <>
       <Head>
         <title>Promises - Promise Tracker</title>
       </Head>
@@ -55,10 +55,8 @@ function Promises() {
           </PromisesSection>
         </Layout>
       </Page>
-    </Fragment>
+    </>
   );
 }
 
 export default Promises;
-
-

@@ -1,20 +1,21 @@
+import React from 'react';
 
-import Page from '../component/Page';
+import Page from 'components/Page';
 
-import PartnersSection from '../component/PageSections/PartnerSections';
-import ContributeSection from '../component/PageSections/ContributeSection';
-import LatestReportsSection from '../component/PageSections/LatestReportSection';
-import ChartSection from '../component/PageSections/ChartSection';
-import PromisesSection from '../component/PageSections/PromisesSection';
+import PartnersSection from 'components/PageSections/PartnerSections';
+import ContributeSection from 'components/PageSections/ContributeSection';
+import LatestReportsSection from 'components/PageSections/LatestReportSection';
+import ChartSection from 'components/PageSections/ChartSection';
+import PromisesSection from 'components/PageSections/PromisesSection';
 
 const Index = () => (
-    <Page>
-      <ChartSection />
-      <PromisesSection />
-      <LatestReportsSection />
-      <ContributeSection />
-      <PartnersSection />
-    </Page>
+  <Page>
+    <ChartSection />
+    <PromisesSection />
+    <LatestReportsSection />
+    <ContributeSection />
+    <PartnersSection />
+  </Page>
 );
 
 export default Index;

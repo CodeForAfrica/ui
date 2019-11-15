@@ -10,7 +10,6 @@
   "dependencies": {
     "@material-ui/core": "^4.6.0",
     "@material-ui/icons": "^4.5.1",
-    "@material-ui/styles": "^4.6.0",
     "@zeit/next-css": "^1.0.1",
     "classnames": "^2.2.6",
     "isomorphic-unfetch": "^3.0.0",
@@ -18,19 +17,42 @@
     "next-images": "^1.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
-    "react-dom": "^16.11.0",
+    "react-dom": "^16.12.0",
     "react-feather": "^2.0.3",
-    "react-helmet": "^5.2.1",
-    "react-router": "^5.1.2",
-    "react-router-dom": "^5.1.2",
     "react-share": "^3.0.1",
     "recharts": "^1.8.5",
     "webpack": "^4.41.2"
   },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-import-resolver-babel-module": "^5.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-json": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-markdown": "^1.0.1",
+    "eslint-plugin-module-resolver": "^0.15.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "husky": "^3.0.9",
+    "lint": "^0.7.0",
+    "lint-staged": "^9.4.3",
+    "now": "^16.4.4",
+    "prettier": "^1.19.1"
+  },
   "scripts": {
     "dev": "next",
     "start": "next start",
-    "build": "next build"
+    "build": "next build",
+    "deploy": "now --prod",
+    "lint": "yarn eslint --fix --ignore-path './.gitignore' --ext '.js,.json,.md' './'",
+    "lint-staged": "yarn eslint --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,22 +69,15 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^10.0.3",
-    "babel-plugin-module-resolver": "^3.2.0",
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-import-resolver-babel-module": "^5.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-json": "^2.0.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-module-resolver": "^0.15.0",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^2.2.0",
-    "now": "^16.4.4",
-    "prettier": "^1.19.1"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,scss,md}": [
+      "yarn lint-staged",
+      "git add"
+    ]
   }
 }

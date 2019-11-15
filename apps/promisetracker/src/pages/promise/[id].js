@@ -1,22 +1,22 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Grid, makeStyles, Divider, Typography } from '@material-ui/core';
 
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-import Page from '../../component/Page';
-import Layout from '../../component/Layout';
+import Page from 'components/Page';
+import Layout from 'components/Layout';
 import {
   Card as PromiseCard,
   Header as PromiseHeader,
   Navigator as PromiseNavigator,
   TimelineEntry as PromiseTimelineEntry
-} from '../../component/Promise';
+} from 'components/Promise';
 
-import TitledGrid from '../../component/TiltedGrid';
-import SideBar from '../../component/Article/Sidebar';
+import TitledGrid from 'components/TiltedGrid';
+import SideBar from 'components/Article/SideBar';
 
-import data from '../../data';
+import data from 'data';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,19 +34,25 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function PromisePage({ }) {
+function PromisePage() {
   const classes = useStyles();
   const router = useRouter();
 
-  const index = data.promises.findIndex(promise => promise.slug === router.query.id);
+  const index = data.promises.findIndex(
+    promise => promise.slug === router.query.id
+  );
   if (index === -1) {
-    return <div>redirecting to this page</div>;
+    return (
+      <div>
+        <h1>404 - {router.query.id} does not exist</h1>
+      </div>
+    );
   }
   const promise = data.promises[index];
   const currentTopic = promise.topic;
-  const relatedTopic = data.promises.filter(function (promiseItem) {
-    return promiseItem !== promise && promiseItem.topic === currentTopic;
-  });
+  const relatedTopic = data.promises.filter(
+    promiseItem => promiseItem !== promise && promiseItem.topic === currentTopic
+  );
 
   // Lets use null to ensure the nothing is rendered: undefined seems to
   // render `0`
@@ -64,7 +70,7 @@ function PromisePage({ }) {
   };
 
   return (
-    <Fragment>
+    <>
       <Head>
         <title>{promise.title} - Promise Tracker</title>
       </Head>
@@ -143,12 +149,8 @@ function PromisePage({ }) {
           </Grid>
         </Layout>
       </Page>
-    </Fragment>
+    </>
   );
 }
 
 export default PromisePage;
-
-
-
-

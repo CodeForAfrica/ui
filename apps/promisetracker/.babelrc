@@ -1,11 +1,17 @@
 {
-  "presets": ["next/babel"],
+  "presets": [
+    "next/babel"
+  ],
   "plugins": [
-    ["syntax-dynamic-import"],
+    [
+      "syntax-dynamic-import"
+    ],
     [
       "module-resolver",
       {
-        "root": ["./src"],
+        "root": [
+          "./src"
+        ],
         "alias": {
           "assets": "./src/assets",
           "components": "./src/components",
