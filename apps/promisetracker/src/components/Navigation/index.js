@@ -62,7 +62,7 @@ function Navigation({ width, ...props }) {
       },
       { title: 'about us', href: '/about' }
     ].map(nav => (
-      <Link key={nav.href} href={nav.href}>
+      <Link key={nav.href} href={nav.href} as={nav.href}>
         <a href={nav.href} className={classes.a}>
           {nav.title}
         </a>
@@ -95,7 +95,7 @@ function Navigation({ width, ...props }) {
             },
             { title: 'about us', href: '/about' }
           ].map(nav => (
-            <Link key={nav.href} href={nav.href}>
+            <Link key={nav.href} href={nav.href} as={nav.href}>
               <a href={nav.href} className={classes.drawerA}>
                 {nav.title}
               </a>
