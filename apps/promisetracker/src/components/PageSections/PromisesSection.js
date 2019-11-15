@@ -65,7 +65,7 @@ function PromisesSection({
 
       // Disclamer: Please disregard the above comment 😔😔🙅🏾‍♀️🙅🏾...
       // We are using Router because we all know that next.js routing is SONIC the 🦔 in real life
-      const params = new URLSearchParams(router.asPath);
+      const params = router.asPath;
       if (
         (params.get('status') || 'all') !== filter.status ||
         (params.get('term') || 'all') !== filter.term ||
