@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 function Brand({ href }) {
   const classes = useStyles();
   return (
-    <Link to={href}>
+    <Link to={href} as={href}>
       <Grid container direction="column" justify="center" alignItems="center">
         <Typography variant="h6" className={classes.typo}>
           PROMISE TRACKER

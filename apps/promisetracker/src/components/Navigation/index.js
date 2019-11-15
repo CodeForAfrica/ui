@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { Menu } from 'react-feather';
 
+import Link from 'next/link';
+
 import {
   AppBar,
   Grid,
@@ -60,15 +62,11 @@ function Navigation({ width, ...props }) {
       },
       { title: 'about us', href: '/about' }
     ].map(nav => (
-      <a
-        key={nav.href}
-        href={nav.href}
-        className={classes.a}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {nav.title}
-      </a>
+      <Link key={nav.href} href={nav.href}>
+        <a href={nav.href} className={classes.a}>
+          {nav.title}
+        </a>
+      </Link>
     ));
   };
   const renderDrawer = () => {
@@ -97,15 +95,11 @@ function Navigation({ width, ...props }) {
             },
             { title: 'about us', href: '/about' }
           ].map(nav => (
-            <a
-              key={nav.href}
-              href={nav.href}
-              className={classes.drawerA}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {nav.title}
-            </a>
+            <Link key={nav.href} href={nav.href}>
+              <a href={nav.href} className={classes.drawerA}>
+                {nav.title}
+              </a>
+            </Link>
           ))}
         </MenuList>
       </Drawer>
