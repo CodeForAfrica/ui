@@ -10,8 +10,16 @@ PromiseTracker is a SSR rendered [Next](https://nextjs.org/) web app deployable 
 Run the following to get started :
 
 ```
+ on dev
+
   yarn 
   yarn dev
+
+  or to  create static html
+  
+   yarn build
+   yarn start
+
 ```
 
 
