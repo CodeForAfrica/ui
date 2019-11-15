@@ -10,6 +10,8 @@ import Layout from 'components/Layout';
 import Select from 'components/Select';
 import PromiseCard from 'components/Promise/Card';
 
+import Link from 'components/Link';
+
 import data from 'data';
 
 const useStyles = makeStyles({
@@ -190,13 +192,14 @@ function PromisesSection({
       </Grid>
 
       <Grid item className={classes.button}>
-        <Button
-          variant="contained"
+        <Link
           href={`/promises?${filtersQueryString()}`}
-          color="primary"
+          as={`/promises?${filtersQueryString()}`}
         >
-          SHOW MORE
-        </Button>
+          <Button variant="contained" color="primary">
+            SHOW MORE
+          </Button>
+        </Link>
       </Grid>
     </Layout>
   );
