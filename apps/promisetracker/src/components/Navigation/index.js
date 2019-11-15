@@ -48,6 +48,7 @@ const useStyles = makeStyles(theme => ({
 
 function Navigation({ width, ...props }) {
   const classes = useStyles(props);
+
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   const renderNavLinks = () => {
     return [

@@ -42,11 +42,7 @@ function PromisePage() {
     promise => promise.slug === router.query.id
   );
   if (index === -1) {
-    return (
-      <div>
-        <h1>404 - {router.query.id} does not exist</h1>
-      </div>
-    );
+    return <div>{router.query.id}</div>;
   }
   const promise = data.promises[index];
   const currentTopic = promise.topic;

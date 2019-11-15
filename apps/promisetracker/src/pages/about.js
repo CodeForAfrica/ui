@@ -20,7 +20,6 @@ function About() {
       <Head>
         <title>About - Promise Tracker</title>
       </Head>
-
       <Page>
         <Grid
           container

@@ -112,7 +112,7 @@ export default {
       timeline: [
         {
           updated: 'Jul 26, 2019',
-          status: 'in-active'
+          status: 'inactive'
         },
         {
           updated: 'Jul 20, 2018',
