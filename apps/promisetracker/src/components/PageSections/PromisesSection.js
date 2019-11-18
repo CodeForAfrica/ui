@@ -30,6 +30,7 @@ const useStyles = makeStyles({
 });
 
 function PromisesSection({
+  enableShowMore,
   filter: propsFilter,
   disableFilterHistory,
   ...props
@@ -191,22 +192,24 @@ function PromisesSection({
             </Grid>
           ))}
       </Grid>
-
-      <Grid item className={classes.button}>
-        <Link
-          href={`/promises?${filtersQueryString()}`}
-          as={`/promises?${filtersQueryString()}`}
-        >
-          <Button variant="contained" color="primary">
-            SHOW MORE
-          </Button>
-        </Link>
-      </Grid>
+      {enableShowMore && (
+        <Grid item className={classes.button}>
+          <Link
+            href={`/promises?${filtersQueryString()}`}
+            as={`/promises?${filtersQueryString()}`}
+          >
+            <Button variant="contained" color="primary">
+              SHOW MORE
+            </Button>
+          </Link>
+        </Grid>
+      )}
     </Layout>
   );
 }
 
 PromisesSection.propTypes = {
+  enableShowMore: propTypes.bool,
   disableFilterHistory: propTypes.bool,
   filter: propTypes.shape({
     status: propTypes.string,
@@ -216,6 +219,7 @@ PromisesSection.propTypes = {
 };
 
 PromisesSection.defaultProps = {
+  enableShowMore: true,
   disableFilterHistory: false,
   filter: {
     status: undefined,

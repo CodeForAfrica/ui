@@ -40,6 +40,7 @@ function Promises() {
               term: params.get('term'),
               topic: params.get('topic')
             }}
+            enableShowMore={false}
           >
             {data.promises.map(promise => (
               <Grid item xs={12} sm={6} md={4}>
