@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Menu } from 'react-feather';
 
-import Link from 'next/link';
+import Link from 'components/Link';
 
 import {
   AppBar,
@@ -62,10 +62,14 @@ function Navigation({ width, ...props }) {
       },
       { title: 'about us', href: '/about' }
     ].map(nav => (
-      <Link key={nav.href} href={nav.href} as={nav.href}>
-        <a href={nav.href} className={classes.a}>
-          {nav.title}
-        </a>
+      <Link
+        key={nav.href}
+        href={nav.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes.a}
+      >
+        {nav.title}
       </Link>
     ));
   };
@@ -95,10 +99,14 @@ function Navigation({ width, ...props }) {
             },
             { title: 'about us', href: '/about' }
           ].map(nav => (
-            <Link key={nav.href} href={nav.href} as={nav.href}>
-              <a href={nav.href} className={classes.drawerA}>
-                {nav.title}
-              </a>
+            <Link
+              key={nav.href}
+              href={nav.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.drawerA}
+            >
+              {nav.title}
             </Link>
           ))}
         </MenuList>

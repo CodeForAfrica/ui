@@ -1,6 +1,6 @@
 {
   "name": "promise-tracker",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "private": true,
   "repository": "https://github.com/CodeForAfrica/PromiseTracker.git",
