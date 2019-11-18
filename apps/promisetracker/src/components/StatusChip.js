@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles, Button } from '@material-ui/core';
 import propTypes from 'components/propTypes';
 
+import Link from 'components/Link';
+
 import data from 'data';
 
 const useStyles = makeStyles({
@@ -15,14 +17,11 @@ const useStyles = makeStyles({
 function StatusChip({ status, href, ...props }) {
   const classes = useStyles({ status, ...props });
   return (
-    <Button
-      variant="contained"
-      color="primary"
-      href={`/promises?status=${status}`}
-      className={classes.root}
-    >
-      {data.statusTypes.find(s => s.slug === status).name}
-    </Button>
+    <Link href={`/promises?status=${status}`}>
+      <Button variant="contained" color="primary" className={classes.root}>
+        {data.statusTypes.find(s => s.slug === status).name}
+      </Button>
+    </Link>
   );
 }
 

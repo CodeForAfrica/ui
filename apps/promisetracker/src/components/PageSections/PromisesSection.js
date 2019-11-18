@@ -194,10 +194,7 @@ function PromisesSection({
       </Grid>
       {enableShowMore && (
         <Grid item className={classes.button}>
-          <Link
-            href={`/promises?${filtersQueryString()}`}
-            as={`/promises?${filtersQueryString()}`}
-          >
+          <Link href={`/promises?${filtersQueryString()}`}>
             <Button variant="contained" color="primary">
               SHOW MORE
             </Button>
