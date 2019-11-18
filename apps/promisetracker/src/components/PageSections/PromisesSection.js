@@ -67,16 +67,17 @@ function PromisesSection({
 
       // Disclamer: Please disregard the above comment 😔😔🙅🏾‍♀️🙅🏾...
       // We are using Router because we all know that next.js routing is SONIC the 🦔 in real life
-      const params = router.asPath;
+
+      const { status, term, topic } = router.query;
       if (
-        (params.get('status') || 'all') !== filter.status ||
-        (params.get('term') || 'all') !== filter.term ||
-        (params.get('topic') || 'all') !== filter.topic
+        (status || 'all') !== filter.status ||
+        (term || 'all') !== filter.term ||
+        (topic || 'all') !== filter.topic
       ) {
         setFilter({
-          status: params.get('status') || 'all',
-          term: params.get('term') || 'all',
-          topic: params.get('topic') || 'all'
+          status: status || 'all',
+          term: term || 'all',
+          topic: topic || 'all'
         });
       }
     }
