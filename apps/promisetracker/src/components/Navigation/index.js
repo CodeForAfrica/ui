@@ -61,17 +61,23 @@ function Navigation({ width, ...props }) {
         href: 'https://pesacheck.org/tagged/promise-tracker'
       },
       { title: 'about us', href: '/about' }
-    ].map(nav => (
-      <Link
-        key={nav.href}
-        href={nav.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={classes.a}
-      >
-        {nav.title}
-      </Link>
-    ));
+    ].map(nav =>
+      nav.title === 'reports' ? (
+        <Link
+          key={nav.href}
+          href={nav.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={classes.a}
+        >
+          {nav.title}
+        </Link>
+      ) : (
+        <Link key={nav.href} href={nav.href} className={classes.a}>
+          {nav.title}
+        </Link>
+      )
+    );
   };
   const renderDrawer = () => {
     return (
@@ -98,17 +104,23 @@ function Navigation({ width, ...props }) {
               href: 'https://pesacheck.org/tagged/promise-tracker'
             },
             { title: 'about us', href: '/about' }
-          ].map(nav => (
-            <Link
-              key={nav.href}
-              href={nav.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={classes.drawerA}
-            >
-              {nav.title}
-            </Link>
-          ))}
+          ].map(nav =>
+            nav.title === 'reports' ? (
+              <Link
+                key={nav.href}
+                href={nav.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes.a}
+              >
+                {nav.title}
+              </Link>
+            ) : (
+              <Link key={nav.href} href={nav.href} className={classes.a}>
+                {nav.title}
+              </Link>
+            )
+          )}
         </MenuList>
       </Drawer>
     );
