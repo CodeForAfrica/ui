@@ -47,18 +47,8 @@ function PromisesSection({
   const updateFilter = useCallback(
     (name, value) => {
       setFilter({ ...filter, [name]: value });
-      const params = new URLSearchParams(router.asPath.split(/\?/)[1]);
-
-      if (value !== 'all') {
-        params.set(name, value);
-      } else {
-        params.delete(name);
-      }
-      if (!disableFilterHistory) {
-        router.push(`/?${params.toString()}`, filter);
-      }
     },
-    [disableFilterHistory, filter]
+    [filter]
   );
 
   useEffect(() => {
@@ -87,21 +77,6 @@ function PromisesSection({
       window.removeEventListener('popstate', updateFilterWithQueryOnBack);
     };
   }, [filter]);
-
-  const filtersQueryString = useCallback(() => {
-    const params = new URLSearchParams();
-    if (filter.status !== 'all') {
-      params.set('status', filter.status);
-    }
-    if (filter.term !== 'all') {
-      params.set('term', filter.term);
-    }
-
-    if (filter.topic !== 'all') {
-      params.set('topic', filter.topic);
-    }
-    return params.toString();
-  }, [filter.status, filter.term, filter.topic]);
 
   const { promises } = data;
   return (
@@ -194,7 +169,7 @@ function PromisesSection({
       </Grid>
       {enableShowMore && (
         <Grid item className={classes.button}>
-          <Link href={`/promises?${filtersQueryString()}`}>
+          <Link href="/promises">
             <Button variant="contained" color="primary">
               SHOW MORE
             </Button>

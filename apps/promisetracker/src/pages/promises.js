@@ -1,17 +1,12 @@
 import React from 'react';
 
-import { Grid, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 
 import Head from 'next/head';
 
 import Page from 'components/Page';
 import PromisesSection from 'components/PageSections/PromisesSection';
-import PromiseCard from 'components/Promise/Card';
 import Layout from 'components/Layout';
-
-import { useRouter } from 'next/router';
-
-import data from 'data';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,9 +17,6 @@ const useStyles = makeStyles(theme => ({
 
 function Promises() {
   const classes = useStyles();
-  const router = useRouter();
-
-  const params = new URLSearchParams(router.asPath.split(/\?/)[1]);
 
   return (
     <>
@@ -33,27 +25,7 @@ function Promises() {
       </Head>
       <Page>
         <Layout classes={{ root: classes.root }}>
-          <PromisesSection
-            color="white"
-            filter={{
-              status: params.get('status'),
-              term: params.get('term'),
-              topic: params.get('topic')
-            }}
-            enableShowMore={false}
-          >
-            {data.promises.map(promise => (
-              <Grid item xs={12} sm={6} md={4}>
-                <PromiseCard
-                  status={promise.status}
-                  title={promise.title}
-                  term={promise.term}
-                  topic={promise.topic}
-                  slug={promise.slug}
-                />
-              </Grid>
-            ))}
-          </PromisesSection>
+          <PromisesSection color="white" enableShowMore={false} />
         </Layout>
       </Page>
     </>
