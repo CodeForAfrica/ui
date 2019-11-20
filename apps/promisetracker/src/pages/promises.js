@@ -25,7 +25,11 @@ function Promises() {
       </Head>
       <Page>
         <Layout classes={{ root: classes.root }}>
-          <PromisesSection color="white" enableShowMore={false} />
+          <PromisesSection
+            disableFilterHistory
+            enableShowMore={false}
+            color="white"
+          />
         </Layout>
       </Page>
     </>

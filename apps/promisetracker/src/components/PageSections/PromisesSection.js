@@ -78,6 +78,21 @@ function PromisesSection({
     };
   }, [filter]);
 
+  const filtersQueryString = useCallback(() => {
+    const params = new URLSearchParams();
+    if (filter.status !== 'all') {
+      params.set('status', filter.status);
+    }
+    if (filter.term !== 'all') {
+      params.set('term', filter.term);
+    }
+
+    if (filter.topic !== 'all') {
+      params.set('topic', filter.topic);
+    }
+    return params.toString();
+  }, [filter.status, filter.term, filter.topic]);
+
   const { promises } = data;
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
@@ -169,7 +184,7 @@ function PromisesSection({
       </Grid>
       {enableShowMore && (
         <Grid item className={classes.button}>
-          <Link href="/promises">
+          <Link href={`/promises?${filtersQueryString()}`}>
             <Button variant="contained" color="primary">
               SHOW MORE
             </Button>
