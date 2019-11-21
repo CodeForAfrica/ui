@@ -8,7 +8,6 @@ import data from 'data';
 
 const useStyles = makeStyles({
   root: {
-    width: '50%',
     padding: '0.2rem 1.25rem',
     textDecoration: 'none'
   }
