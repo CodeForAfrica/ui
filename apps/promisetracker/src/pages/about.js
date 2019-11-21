@@ -6,6 +6,7 @@ import Head from 'next/head';
 import Page from 'components/Page';
 import AboutContent from 'components/About/Content';
 import SideBar from 'components/About/SideBar';
+import Layout from 'components/Layout';
 
 const useStyles = makeStyles({
   root: {
@@ -21,17 +22,18 @@ function About() {
         <title>About - Promise Tracker</title>
       </Head>
       <Page>
-        <Grid
-          container
-          spacing={10}
-          direction="row"
-          justify="center"
-          alignItems="flex-start"
-          className={classes.root}
-        >
-          <AboutContent />
-          <SideBar />
-        </Grid>
+        <Layout classes={{ root: classes.root }}>
+          <Grid
+            container
+            spacing={10}
+            direction="row"
+            justify="center"
+            alignItems="flex-start"
+          >
+            <AboutContent />
+            <SideBar />
+          </Grid>
+        </Layout>
       </Page>
     </>
   );
