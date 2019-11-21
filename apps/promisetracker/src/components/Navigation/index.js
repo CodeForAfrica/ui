@@ -111,12 +111,12 @@ function Navigation({ width, ...props }) {
                 href={nav.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={classes.a}
+                className={classes.drawerA}
               >
                 {nav.title}
               </Link>
             ) : (
-              <Link key={nav.href} href={nav.href} className={classes.a}>
+              <Link key={nav.href} href={nav.href} className={classes.drawerA}>
                 {nav.title}
               </Link>
             )
