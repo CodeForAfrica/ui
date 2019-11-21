@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
 
 function Promises() {
   const classes = useStyles();
+  const params = new URL(document.location).searchParams;
 
   return (
     <>
@@ -26,9 +27,13 @@ function Promises() {
       <Page>
         <Layout classes={{ root: classes.root }}>
           <PromisesSection
-            disableFilterHistory
             enableShowMore={false}
             color="white"
+            filter={{
+              status: params.get('status'),
+              term: params.get('term'),
+              topic: params.get('topic')
+            }}
           />
         </Layout>
       </Page>

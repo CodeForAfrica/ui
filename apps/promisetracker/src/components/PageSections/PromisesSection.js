@@ -79,7 +79,7 @@ function PromisesSection({
   }, [filter]);
 
   const filtersQueryString = useCallback(() => {
-    const params = new URLSearchParams();
+    const params = new URL(document.location).searchParams;
     if (filter.status !== 'all') {
       params.set('status', filter.status);
     }
