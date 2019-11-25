@@ -80,18 +80,18 @@ function PromisesSection({
 
       const { status, term, topic } = router.query;
       if (
-        (status || 'all') !== filter.status ||
-        (term || 'all') !== filter.term ||
-        (topic || 'all') !== filter.topic
+        (status === 'status' || 'all') !== filter.status ||
+        (term === 'term' || 'all') !== filter.term ||
+        (topic === 'topic' || 'all') !== filter.topic
       ) {
         setFilter({
-          status: status || 'all',
-          term: term || 'all',
-          topic: topic || 'all'
+          status: status === 'status' || 'all',
+          term: term === 'term' || 'all',
+          topic: topic === 'topic' || 'all'
         });
       }
-      console.log(`Example setfilter: ${setFilter()}`);
     }
+
     window.addEventListener('popstate', updateFilterWithQueryOnBack);
     return () => {
       window.removeEventListener('popstate', updateFilterWithQueryOnBack);
