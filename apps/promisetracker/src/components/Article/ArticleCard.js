@@ -45,6 +45,7 @@ function ArticleCard({
       day: '2-digit'
     })
     .toString();
+  console.log('BOOM', { date, formattedDate });
   return (
     <Card component={Grid} item xs={12} sm={4} className={classes.root}>
       <a
@@ -77,8 +78,11 @@ ArticleCard.propTypes = {
   subtitle: propTypes.string.isRequired,
   description: propTypes.string,
   uniqueSlug: propTypes.string.isRequired,
-  date: propTypes.oneOfType([propTypes.string, propTypes.instanceOf(Date)])
-    .isRequired
+  date: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.instanceOf(Date),
+    propTypes.number // nanoseconds
+  ]).isRequired
 };
 
 ArticleCard.defaultProps = {
