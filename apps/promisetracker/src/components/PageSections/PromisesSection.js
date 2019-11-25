@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 
 import { Grid, Button, makeStyles } from '@material-ui/core';
 
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 
 import propTypes from 'components/propTypes';
 
@@ -47,6 +47,16 @@ function PromisesSection({
   const updateFilter = useCallback(
     (name, value) => {
       setFilter({ ...filter, [name]: value });
+      if (value !== 'all') {
+        Router.push({
+          pathname: `/`,
+          query: {
+            status: filter.status,
+            term: filter.term,
+            topic: filter.topic
+          }
+        });
+      }
     },
     [filter]
   );
@@ -79,7 +89,7 @@ function PromisesSection({
   }, [filter]);
 
   const filtersQueryString = useCallback(() => {
-    const params = new URL(document.location).searchParams;
+    const params = new URLSearchParams();
     if (filter.status !== 'all') {
       params.set('status', filter.status);
     }
