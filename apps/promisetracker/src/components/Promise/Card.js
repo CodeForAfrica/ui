@@ -3,6 +3,7 @@ import {
   makeStyles,
   Card,
   Typography,
+  CardActions,
   CardContent,
   Grid
 } from '@material-ui/core';
@@ -31,6 +32,7 @@ function PromiseCard({
   term,
   topic,
   href,
+  as,
   img,
   label,
   value,
@@ -39,8 +41,8 @@ function PromiseCard({
   const classes = useStyles({ status, ...props });
   return (
     <Card elevation={0} className={classes.root}>
-      <Link href={href} as={href}>
-        <CardContent component={Grid} container direction="column" spacing={3}>
+      <CardContent component={Grid} container direction="column" spacing={3}>
+        <Link href={href} as={as}>
           <Grid item className={classes.title}>
             <Typography variant="h6" color="primary">
               {title}
@@ -50,10 +52,12 @@ function PromiseCard({
             <Typography variant="body2">
               {term} | {topic}
             </Typography>
-            <StatusChip status={status} />
           </Grid>
-        </CardContent>
-      </Link>
+        </Link>
+      </CardContent>
+      <CardActions>
+        <StatusChip status={status} />
+      </CardActions>
     </Card>
   );
 }
@@ -71,6 +75,7 @@ PromiseCard.propTypes = {
   term: propTypes.string.isRequired,
   topic: propTypes.string.isRequired,
   href: propTypes.string.isRequired,
+  as: propTypes.string.isRequired,
   img: propTypes.string,
   label: propTypes.string,
   value: propTypes.number

@@ -1,8 +1,8 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback } from 'react';
 
 import { Grid, Button, makeStyles } from '@material-ui/core';
 
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 import propTypes from 'components/propTypes';
 
@@ -29,78 +29,44 @@ const useStyles = makeStyles({
   button: { paddingTop: '3rem' }
 });
 
-function PromisesSection({
-  enableShowMore,
-  filter: propsFilter,
-  disableFilterHistory,
-  ...props
-}) {
+function PromisesSection({ enableShowMore, filter, ...props }) {
   const classes = useStyles(props);
   const router = useRouter();
 
-  const [filter, setFilter] = useState({
-    status: propsFilter.status || 'all',
-    term: propsFilter.term || 'all',
-    topic: propsFilter.topic || 'all'
-  });
-
   const updateFilter = useCallback(
     (name, value) => {
-      setFilter({ ...filter, [name]: value });
-      if (value !== 'all' && router.pathname === '/') {
-        Router.push({
-          pathname: `/`,
-          query: {
-            status: filter.status,
-            term: filter.term,
-            topic: filter.topic
-          }
-        });
-      } else if (value !== 'all' && router.pathname === '/promises') {
-        Router.push({
-          pathname: `/promises`,
-          query: {
-            status: filter.status,
-            term: filter.term,
-            topic: filter.topic
-          }
-        });
-      }
+      const { pathname } = router;
+      const query = Object.entries({ ...filter, [name]: value })
+        .filter(([, v]) => v)
+        .reduce((acc, [k, v]) => ({ ...acc, [k]: v }), {});
+      router.push({ pathname, query });
     },
     [filter]
   );
 
-  useEffect(() => {
-    function updateFilterWithQueryOnBack() {
-      // important: use window.location instead of router location
-      // window.location has the route we went back to
-
-      // Disclamer: Please disregard the above comment 😔😔🙅🏾‍♀️🙅🏾...
-      // We are using Router because we all know that next.js routing is SONIC the 🦔 in real life
-      const { status, term, topic } = router.query;
-      if (
-        (status === 'status' || 'all') !== filter.status ||
-        (term === 'term' || 'all') !== filter.term ||
-        (topic === 'topic' || 'all') !== filter.topic
-      ) {
-        setFilter({
-          status: status === 'status',
-          term: term === 'term',
-          topic: topic === 'topic'
-        });
-      }
+  const filtersQueryString = useCallback(() => {
+    const params = new URLSearchParams();
+    const { status, term, topic } = filter;
+    if (status) {
+      params.set('status', status);
     }
-    window.addEventListener('popstate', updateFilterWithQueryOnBack);
-    console.log(router.query);
-    return () => {
-      window.removeEventListener('popstate', updateFilterWithQueryOnBack);
-    };
+    if (term) {
+      params.set('term', term);
+    }
+    if (topic) {
+      params.set('topic', topic);
+    }
+    const search = params.toString();
+    return search ? `?${search}` : '';
   }, [filter]);
 
   const { promises } = data;
+
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
       <Grid
+        item
+        xs={12}
         container
         justify="flex-start"
         direction="row"
@@ -109,12 +75,12 @@ function PromisesSection({
       >
         <Grid item xs={6} sm={4} md={2}>
           <Select
-            showIndicator={filter.status !== 'all'}
+            showIndicator={filter.status}
             value={filter.status}
             onChange={value => updateFilter('status', value)}
             options={[
               {
-                value: 'all',
+                value: '',
                 name: 'All Statuses'
               },
               ...data.statusTypes.map(status => ({
@@ -126,12 +92,12 @@ function PromisesSection({
         </Grid>
         <Grid item xs={6} sm={4} md={2}>
           <Select
-            showIndicator={filter.term !== 'all'}
+            showIndicator={filter.term}
             value={filter.term}
             onChange={value => updateFilter('term', value)}
             options={[
               {
-                value: 'all',
+                value: '',
                 name: 'All Terms'
               },
               ...data.terms.map(term => ({
@@ -143,12 +109,12 @@ function PromisesSection({
         </Grid>
         <Grid item xs={6} sm={4} md={2}>
           <Select
-            showIndicator={filter.topic !== 'all'}
+            showIndicator={filter.topic}
             value={filter.topic}
             onChange={value => updateFilter('topic', value)}
             options={[
               {
-                value: 'all',
+                value: '',
                 name: 'All Topics'
               },
               ...data.topics.map(topic => ({
@@ -161,6 +127,8 @@ function PromisesSection({
       </Grid>
 
       <Grid
+        item
+        xs={12}
         container
         className={classes.cardsContainer}
         spacing={2}
@@ -168,16 +136,16 @@ function PromisesSection({
       >
         {promises
           .filter(
-            filterPromise =>
-              (filter.status === 'all' ||
-                filterPromise.status === filter.status) &&
-              (filter.term === 'all' || filterPromise.term === filter.term) &&
-              (filter.topic === 'all' || filterPromise.topic === filter.topic)
+            promise =>
+              (!filter.status || promise.status === filter.status) &&
+              (!filter.term || promise.term === filter.term) &&
+              (!filter.topic || promise.topic === filter.topic)
           )
           .map(promise => (
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid key={promise.slug} item xs={12} sm={6} md={4}>
               <PromiseCard
-                href={`promise/${promise.slug}`}
+                href="promise/[id]"
+                as={`promise/${promise.slug}`}
                 status={promise.status}
                 title={promise.title}
                 term={data.terms.find(s => s.slug === promise.term).name}
@@ -188,7 +156,7 @@ function PromisesSection({
       </Grid>
       {enableShowMore && (
         <Grid item className={classes.button}>
-          <Link href="/promises">
+          <Link href={`/promises${filtersQueryString()}`}>
             <Button variant="contained" color="primary">
               SHOW MORE
             </Button>
@@ -201,7 +169,6 @@ function PromisesSection({
 
 PromisesSection.propTypes = {
   enableShowMore: propTypes.bool,
-  disableFilterHistory: propTypes.bool,
   filter: propTypes.shape({
     status: propTypes.string,
     term: propTypes.string,
@@ -211,7 +178,6 @@ PromisesSection.propTypes = {
 
 PromisesSection.defaultProps = {
   enableShowMore: true,
-  disableFilterHistory: false,
   filter: {
     status: undefined,
     term: undefined,

@@ -6,6 +6,7 @@ import propTypes from './propTypes';
 function Select({ options, value, onChange }) {
   return (
     <MuiSelect
+      displayEmpty
       value={value}
       onChange={e => {
         onChange(e.target.value);

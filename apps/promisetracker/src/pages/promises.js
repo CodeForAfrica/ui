@@ -5,9 +5,9 @@ import { makeStyles } from '@material-ui/core';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import Layout from 'components/Layout';
 import Page from 'components/Page';
 import PromisesSection from 'components/PageSections/PromisesSection';
-import Layout from 'components/Layout';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,8 +19,8 @@ const useStyles = makeStyles(theme => ({
 function Promises() {
   const classes = useStyles();
   const router = useRouter();
-  // console.log({ router });
-  const params = new URLSearchParams(router.asPath);
+  const { status = '', term = '', topic = '' } = router.query;
+  const filter = { status, term, topic };
 
   return (
     <>
@@ -31,13 +31,8 @@ function Promises() {
         <Layout classes={{ root: classes.root }}>
           <PromisesSection
             enableShowMore={false}
-            disableFilterHistory
             color="white"
-            filter={{
-              status: params.get('status'),
-              term: params.get('term'),
-              topic: params.get('topic')
-            }}
+            filter={filter}
           />
         </Layout>
       </Page>

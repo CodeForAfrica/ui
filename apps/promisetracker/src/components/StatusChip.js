@@ -1,8 +1,8 @@
 import React from 'react';
-import { makeStyles, Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import propTypes from 'components/propTypes';
 
-import Link from 'components/Link';
+import ButtonLink from 'components/Link/Button';
 
 import data from 'data';
 
@@ -13,14 +13,17 @@ const useStyles = makeStyles({
   }
 });
 
-function StatusChip({ status, href, ...props }) {
+function StatusChip({ status, ...props }) {
   const classes = useStyles({ status, ...props });
   return (
-    <Link href={`/promises?status=${status}`}>
-      <Button variant="contained" color="primary" className={classes.root}>
-        {data.statusTypes.find(s => s.slug === status).name}
-      </Button>
-    </Link>
+    <ButtonLink
+      href={`/promises?status=${status}`}
+      variant="contained"
+      color="primary"
+      className={classes.root}
+    >
+      {data.statusTypes.find(s => s.slug === status).name}
+    </ButtonLink>
   );
 }
 
@@ -32,12 +35,7 @@ StatusChip.propTypes = {
     'in-progress',
     'stalled',
     'inactive'
-  ]).isRequired,
-  href: propTypes.string
-};
-
-StatusChip.defaultProps = {
-  href: undefined
+  ]).isRequired
 };
 
 export default StatusChip;
