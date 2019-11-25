@@ -45,7 +45,7 @@ function ArticleCard({
       day: '2-digit'
     })
     .toString();
-  console.log('BOOM', { date, formattedDate });
+
   return (
     <Card component={Grid} item xs={12} sm={4} className={classes.root}>
       <a
