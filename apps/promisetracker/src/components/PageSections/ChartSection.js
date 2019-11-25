@@ -32,7 +32,7 @@ function ChartSection() {
         </Grid>
         <Grid container spacing={2} justify="center">
           {data.chartPromises.map(promise => (
-            <Grid item xs={8} sm={4} md={2}>
+            <Grid key={promise.status} item xs={8} sm={4} md={2}>
               <StatusIndicator
                 img={getIndicatorImage(promise.img)}
                 label={promise.label}

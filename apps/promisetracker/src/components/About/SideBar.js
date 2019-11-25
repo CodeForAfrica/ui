@@ -18,11 +18,11 @@ const useStyles = makeStyles(theme => ({
 function SideBar({ ...props }) {
   const classes = useStyles(props);
   return (
-    <Grid item xs={12} md={4} borderBottom={1} className={classes.root}>
+    <Grid item xs={12} md={4} className={classes.root}>
       <Typography variant="h3" className={classes.title}>
         OUR RATINGS
       </Typography>
-      <Grid spacing={6} container>
+      <Grid container spacing={6}>
         <Grid item>
           <StatusChip status="achieved" />
           <Typography className={classes.typo}>

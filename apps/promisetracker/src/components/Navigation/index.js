@@ -11,6 +11,7 @@ import {
   withWidth,
   ButtonBase,
   Drawer,
+  Link as MuiLink,
   MenuList,
   Toolbar,
   IconButton
@@ -52,7 +53,7 @@ function Navigation({ width, ...props }) {
   const classes = useStyles(props);
 
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
-  const renderNavLinks = () => {
+  const renderNavLinks = linkClassName => {
     return [
       { title: 'home', href: '/' },
       { title: 'promises', href: '/promises' },
@@ -62,20 +63,20 @@ function Navigation({ width, ...props }) {
       },
       { title: 'about us', href: '/about' }
     ].map(nav =>
-      nav.title === 'reports' ? (
-        <Link
+      nav.href.startsWith('/') ? (
+        <Link key={nav.href} href={nav.href} className={linkClassName}>
+          {nav.title}
+        </Link>
+      ) : (
+        <MuiLink
           key={nav.href}
           href={nav.href}
           target="_blank"
           rel="noopener noreferrer"
-          className={classes.a}
+          className={linkClassName}
         >
           {nav.title}
-        </Link>
-      ) : (
-        <Link key={nav.href} href={nav.href} className={classes.a}>
-          {nav.title}
-        </Link>
+        </MuiLink>
       )
     );
   };
@@ -96,31 +97,7 @@ function Navigation({ width, ...props }) {
         </Toolbar>
 
         <MenuList className={classes.menuList}>
-          {[
-            { title: 'home', href: '/' },
-            { title: 'promises', href: '/promises' },
-            {
-              title: 'reports',
-              href: 'https://pesacheck.org/tagged/promise-tracker'
-            },
-            { title: 'about us', href: '/about' }
-          ].map(nav =>
-            nav.title === 'reports' ? (
-              <Link
-                key={nav.href}
-                href={nav.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={classes.drawerA}
-              >
-                {nav.title}
-              </Link>
-            ) : (
-              <Link key={nav.href} href={nav.href} className={classes.drawerA}>
-                {nav.title}
-              </Link>
-            )
-          )}
+          {renderNavLinks(classes.drawerA)}
         </MenuList>
       </Drawer>
     );
@@ -139,7 +116,7 @@ function Navigation({ width, ...props }) {
           )}
           <Brand href="/" />
           <Grid item className={classes.itemGrid}>
-            {isWidthUp('md', width) && renderNavLinks()}
+            {isWidthUp('md', width) && renderNavLinks(classes.a)}
           </Grid>
         </Toolbar>
       </AppBar>

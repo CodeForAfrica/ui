@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Grid, Typography, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 
 import Link from 'components/Link';
 import propTypes from 'components/propTypes';
@@ -13,12 +13,8 @@ const useStyles = makeStyles(theme => ({
 function Brand({ href }) {
   const classes = useStyles();
   return (
-    <Link to={href}>
-      <Grid container direction="column" justify="center" alignItems="center">
-        <Typography variant="h6" className={classes.typo}>
-          PROMISE TRACKER
-        </Typography>
-      </Grid>
+    <Link href={href} variant="h6" className={classes.typo}>
+      PROMISE TRACKER
     </Link>
   );
 }
