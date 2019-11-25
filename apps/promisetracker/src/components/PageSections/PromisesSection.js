@@ -91,26 +91,11 @@ function PromisesSection({
       }
     }
     window.addEventListener('popstate', updateFilterWithQueryOnBack);
-
+    console.log(router.query);
     return () => {
       window.removeEventListener('popstate', updateFilterWithQueryOnBack);
     };
   }, [filter]);
-
-  const filtersQueryString = useCallback(() => {
-    const params = new URLSearchParams();
-    if (filter.status !== 'all') {
-      params.set('status', filter.status);
-    }
-    if (filter.term !== 'all') {
-      params.set('term', filter.term);
-    }
-
-    if (filter.topic !== 'all') {
-      params.set('topic', filter.topic);
-    }
-    return params.toString();
-  }, [filter.status, filter.term, filter.topic]);
 
   const { promises } = data;
   return (
@@ -203,7 +188,7 @@ function PromisesSection({
       </Grid>
       {enableShowMore && (
         <Grid item className={classes.button}>
-          <Link href={`/promises?${filtersQueryString()}`}>
+          <Link href="/promises">
             <Button variant="contained" color="primary">
               SHOW MORE
             </Button>
