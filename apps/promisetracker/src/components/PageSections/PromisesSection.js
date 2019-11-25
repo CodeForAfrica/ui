@@ -47,9 +47,18 @@ function PromisesSection({
   const updateFilter = useCallback(
     (name, value) => {
       setFilter({ ...filter, [name]: value });
-      if (value !== 'all') {
+      if (value !== 'all' && router.pathname === '/') {
         Router.push({
           pathname: `/`,
+          query: {
+            status: filter.status,
+            term: filter.term,
+            topic: filter.topic
+          }
+        });
+      } else if (value !== 'all' && router.pathname === '/promises') {
+        Router.push({
+          pathname: `/promises`,
           query: {
             status: filter.status,
             term: filter.term,
@@ -81,6 +90,7 @@ function PromisesSection({
           topic: topic || 'all'
         });
       }
+      console.log(`Example setfilter: ${setFilter()}`);
     }
     window.addEventListener('popstate', updateFilterWithQueryOnBack);
     return () => {
