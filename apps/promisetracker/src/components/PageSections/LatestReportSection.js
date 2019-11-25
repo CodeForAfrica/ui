@@ -6,7 +6,7 @@ import Layout from 'components/Layout';
 import ArticleCard from 'components/Article/ArticleCard';
 import useFetchArticles from 'components/UseFetchArticles';
 
-import config from '../../config';
+import config from 'config';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,13 +35,12 @@ function LatestReportsSection() {
         <Typography variant="h4">Latest Reports</Typography>
       </Grid>
 
-      <Grid container direction="row" className={classes.mainGrid}>
+      <Grid item xs={12} container direction="row" className={classes.mainGrid}>
         {articles.map(article => (
           <ArticleCard
+            key={article.uniqueSlug}
             uniqueSlug={article.uniqueSlug}
-            subtitle={article.virtuals.tags.map(
-              (tag, index) => (index ? ', ' : '') + tag.name
-            )}
+            subtitle={article.virtuals.tags.map(tag => tag.name).join(', ')}
             image={`https://cdn-images-1.medium.com/max/2600/${article.virtuals.previewImage.imageId}`}
             title={article.title}
             date={article.createdAt}

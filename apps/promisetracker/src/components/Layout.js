@@ -20,6 +20,8 @@ function Layout({ children, justify, alignItems, spacing, ...props }) {
   return (
     <Grid className={classes.root} container justify="center">
       <Grid
+        item
+        xs={12}
         container
         className={classes.content}
         justify={justify}
