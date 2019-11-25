@@ -3,6 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core';
 
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import Page from 'components/Page';
 import PromisesSection from 'components/PageSections/PromisesSection';
@@ -17,8 +18,9 @@ const useStyles = makeStyles(theme => ({
 
 function Promises() {
   const classes = useStyles();
-  const params = new URL(document.location).searchParams;
-  // const params = new URLSearchParams();
+  const router = useRouter();
+  // console.log({ router });
+  const params = new URLSearchParams(router.asPath);
 
   return (
     <>

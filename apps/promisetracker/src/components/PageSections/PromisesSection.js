@@ -77,7 +77,6 @@ function PromisesSection({
 
       // Disclamer: Please disregard the above comment 😔😔🙅🏾‍♀️🙅🏾...
       // We are using Router because we all know that next.js routing is SONIC the 🦔 in real life
-
       const { status, term, topic } = router.query;
       if (
         (status === 'status' || 'all') !== filter.status ||
@@ -85,14 +84,14 @@ function PromisesSection({
         (topic === 'topic' || 'all') !== filter.topic
       ) {
         setFilter({
-          status: status === 'status' || 'all',
-          term: term === 'term' || 'all',
-          topic: topic === 'topic' || 'all'
+          status: status === 'status',
+          term: term === 'term',
+          topic: topic === 'topic'
         });
       }
     }
-
     window.addEventListener('popstate', updateFilterWithQueryOnBack);
+
     return () => {
       window.removeEventListener('popstate', updateFilterWithQueryOnBack);
     };
