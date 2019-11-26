@@ -9,7 +9,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import theme from 'theme';
 
-export default class PromiseTrackerApp extends App {
+class PromiseTrackerApp extends App {
   componentDidMount() {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
@@ -38,3 +38,5 @@ export default class PromiseTrackerApp extends App {
     );
   }
 }
+
+export default PromiseTrackerApp;

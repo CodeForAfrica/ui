@@ -15,7 +15,8 @@
         "alias": {
           "assets": "./src/assets",
           "components": "./src/components",
-          "data": "./src/data"
+          "data": "./src/data",
+          "lib": "./src/lib"
         }
       }
     ]
