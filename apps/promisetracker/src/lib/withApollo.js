@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
 import React from 'react';
 import Head from 'next/head';
-import initApolloClient from 'lib/initApolloClient';
-
-import { getDataFromTree } from '@apollo/react-ssr';
 import App from 'next/app';
+import initApolloClient from 'lib/initApolloClient';
+import { getDataFromTree } from '@apollo/react-ssr';
 
 function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName || WrappedComponent.name || 'Component';

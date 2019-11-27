@@ -2,11 +2,10 @@ import React from 'react';
 import App from 'next/app';
 
 import 'assets/css/App.css';
+import theme from 'theme';
 
 import { MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
-import theme from 'theme';
 
 import withApollo from 'lib/withApollo';
 import { ApolloProvider } from 'react-apollo';
