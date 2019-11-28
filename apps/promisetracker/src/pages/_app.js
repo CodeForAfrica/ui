@@ -8,7 +8,6 @@ import { MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import withApollo from 'lib/withApollo';
-import { ApolloProvider } from 'react-apollo';
 
 class PromiseTrackerApp extends App {
   componentDidMount() {
@@ -20,14 +19,12 @@ class PromiseTrackerApp extends App {
   }
 
   render() {
-    const { PageComponent, pageProps, apolloClient } = this.props;
+    const { Component, pageProps } = this.props;
     return (
       <>
         <MuiThemeProvider theme={theme}>
-          <ApolloProvider client={apolloClient}>
-            <CssBaseline />
-            <PageComponent {...pageProps} />
-          </ApolloProvider>
+          <CssBaseline />
+          <Component {...pageProps} />
         </MuiThemeProvider>
       </>
     );

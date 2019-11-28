@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 import React from 'react';
 import Head from 'next/head';
-import App from 'next/app';
+
 import initApolloClient from 'lib/initApolloClient';
+import { ApolloProvider } from 'react-apollo';
 import { getDataFromTree } from '@apollo/react-ssr';
 
 function getDisplayName(WrappedComponent) {
@@ -65,7 +66,12 @@ const withApollo = PageComponent => {
     }
 
     render() {
-      return <App {...this.props} apolloClient={this.apolloClient} />;
+      const { apolloClient, apolloState, ...pageProps } = this.props;
+      return (
+        <ApolloProvider client={this.apolloClient}>
+          <PageComponent {...pageProps} />
+        </ApolloProvider>
+      );
     }
   };
 };
