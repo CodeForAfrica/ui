@@ -3,6 +3,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 
 import fetch from 'isomorphic-unfetch';
+import config from 'config';
 
 let apolloClient = null;
 
@@ -15,7 +16,7 @@ function createApolloClient(initialState = {}) {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined', // Disables forceFetch on the server (so queries are only run once)
     link: new HttpLink({
-      uri: 'https://check-api.checkmedia.org/graphiql', // Server URL (must be absolute)
+      uri: config.GRAPHQL_URI, // Server URL (must be absolute)
       credentials: 'include', // Additional fetch() options like `credentials` or `headers`
       fetch
     }),
