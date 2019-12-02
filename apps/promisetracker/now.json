@@ -4,7 +4,7 @@
   },
   "build": {
     "env": {
-      "CHECK_TOKEN": "@check-access-token"
+      "CHECK_ACCESS_TOKEN": "@check-access-token"
     }
   }
 }
