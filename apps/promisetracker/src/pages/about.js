@@ -30,8 +30,8 @@ function About() {
   const { loading, error, data } = useQuery(GET_TEAMS);
   console.log('BOOM', { loading, error, data });
 
-  if (loading) return <div>Check for loading here.....</div>;
-  if (loading) return <div>Check for Errors here.....</div>;
+  if (loading) return 'Loading...';
+  if (error) return `Error! Data is undefined`;
 
   return (
     <>
