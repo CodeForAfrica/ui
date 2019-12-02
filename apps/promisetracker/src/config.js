@@ -1,5 +1,5 @@
 export default {
-  GRAPHQL_URI: 'https://check-api.checkmedia.org/graphiql',
+  GRAPHQL_URI: 'https://check-api.checkmedia.org/api/graphql',
   url: {
     articles:
       'https://stories.hurumap.org/https%3A%2F%2Fpesacheck.org%2Ftagged%2Fpromise-tracker%3Fformat%3Djson'
