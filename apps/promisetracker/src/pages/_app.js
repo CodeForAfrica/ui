@@ -7,8 +7,6 @@ import theme from 'theme';
 import { MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import withApollo from 'lib/withApollo';
-
 class PromiseTrackerApp extends App {
   componentDidMount() {
     // Remove the server-side injected CSS.
@@ -31,4 +29,4 @@ class PromiseTrackerApp extends App {
   }
 }
 
-export default withApollo(PromiseTrackerApp);
+export default PromiseTrackerApp;

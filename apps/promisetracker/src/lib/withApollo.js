@@ -1,10 +1,50 @@
 /* eslint-disable no-console */
 import React from 'react';
+
+import fetch from 'isomorphic-unfetch';
+
 import Head from 'next/head';
 
-import initApolloClient from 'lib/initApolloClient';
-import { ApolloProvider } from 'react-apollo';
 import { getDataFromTree } from '@apollo/react-ssr';
+import { ApolloClient, InMemoryCache, HttpLink } from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+
+import config from '../config';
+
+let reusableApolloClient = null;
+
+function create(initialState) {
+  // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
+  const isBrowser = typeof window !== 'undefined';
+  return new ApolloClient({
+    connectToDevTools: isBrowser,
+    ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
+    link: new HttpLink({
+      uri: config.GRAPHQL_URI, // Server URL (must be absolute)
+      headers: {
+        'X-Check-Token': process.env.CHECK_ACCESS_TOKEN
+      },
+      // Use fetch() polyfill on the server
+      fetch: !isBrowser && fetch
+    }),
+    cache: new InMemoryCache().restore(initialState || {})
+  });
+}
+
+export function initApollo(initialState) {
+  // Make sure to create a new client for every server-side request so that data
+  // isn't shared between connections (which would be bad)
+  if (typeof window === 'undefined') {
+    return create(initialState);
+  }
+
+  // Reuse client on the client-side
+  if (!reusableApolloClient) {
+    reusableApolloClient = create(initialState);
+  }
+
+  return reusableApolloClient;
+}
 
 function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -26,7 +66,7 @@ const withApollo = PageComponent => {
 
       // Run all GraphQL queries in the component tree
       // and extract the resulting data
-      const apolloClient = initApolloClient();
+      const apolloClient = initApollo();
       if (typeof window === 'undefined') {
         try {
           // Run all GraphQL queries
@@ -61,8 +101,7 @@ const withApollo = PageComponent => {
 
     constructor(props) {
       super(props);
-      this.apolloClient =
-        props.apolloClient || initApolloClient(props.apolloState);
+      this.apolloClient = props.apolloClient || initApollo(props.apolloState);
     }
 
     render() {
