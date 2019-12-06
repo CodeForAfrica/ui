@@ -64,12 +64,12 @@ function PromiseCard({
 
 PromiseCard.propTypes = {
   status: propTypes.oneOf([
-    'achieved',
-    'not-achieved',
-    'compromised',
+    'complete',
+    'behind-schedule',
+    'unstarted',
     'in-progress',
     'stalled',
-    'inactive'
+    'inconclusive'
   ]).isRequired,
   title: propTypes.string.isRequired,
   term: propTypes.string.isRequired,

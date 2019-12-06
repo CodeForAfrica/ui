@@ -29,12 +29,12 @@ function StatusChip({ status, ...props }) {
 
 StatusChip.propTypes = {
   status: propTypes.oneOf([
-    'achieved',
-    'not-achieved',
-    'compromised',
+    'complete',
+    'behind-schedule',
+    'unstarted',
     'in-progress',
     'stalled',
-    'inactive'
+    'inconclusive'
   ]).isRequired
 };
 

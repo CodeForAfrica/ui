@@ -56,12 +56,12 @@ function StatusIndicator({ status, href, img, label, value, ...props }) {
 
 StatusIndicator.propTypes = {
   status: propTypes.oneOf([
-    'achieved',
-    'not-achieved',
-    'compromised',
+    'complete',
+    'behind-schedule',
+    'unstarted',
     'in-progress',
     'stalled',
-    'inactive'
+    'inconclusive'
   ]).isRequired,
   href: propTypes.string,
   img: propTypes.string,

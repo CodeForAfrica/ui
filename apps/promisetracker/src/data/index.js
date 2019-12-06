@@ -1,28 +1,28 @@
 export default {
   statusTypes: [
     {
-      slug: 'achieved',
-      name: 'Achieved'
+      slug: 'complete',
+      name: 'Complete'
     },
     {
-      slug: 'compromised',
-      name: 'Compromised'
+      slug: 'unstarted',
+      name: 'Unstarted'
     },
     {
       slug: 'in-progress',
       name: 'In Progress'
     },
     {
-      slug: 'not-achieved',
-      name: 'Not Achieved'
+      slug: 'behind-schedule',
+      name: 'Behind Schedule'
     },
     {
       slug: 'stalled',
       name: 'Stalled'
     },
     {
-      slug: 'inactive',
-      name: 'Inactive'
+      slug: 'inconclusive',
+      name: 'Inconclusive'
     }
   ],
   topics: [
@@ -63,15 +63,15 @@ export default {
       term: 'term-1',
       topic: 'domestic-policy',
       slug: 'assuring-equal-rights-for-all-Iranian-ethnicities',
-      status: 'achieved',
+      status: 'complete',
       timeline: [
         {
           updated: 'Jul 18, 2019',
-          status: 'achieved'
+          status: 'complete'
         },
         {
           updated: 'Jul 10, 2017',
-          status: 'inactive'
+          status: 'inconclusive'
         }
       ]
     },
@@ -80,11 +80,11 @@ export default {
       term: 'term-2',
       topic: 'economy',
       slug: 'providing-affordable-housing-and-controlling-the-housing-prices',
-      status: 'not-achieved',
+      status: 'behind-schedule',
       timeline: [
         {
           updated: 'Jul 18, 2019',
-          status: 'not-achieved'
+          status: 'behind-schedule'
         }
       ]
     },
@@ -95,11 +95,11 @@ export default {
       topic: 'social-cultural',
       slug:
         'provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income',
-      status: 'compromised',
+      status: 'unstarted',
       timeline: [
         {
           updated: 'Jul 18, 2019',
-          status: 'compromised'
+          status: 'unstarted'
         }
       ]
     },
@@ -108,19 +108,19 @@ export default {
       term: 'term-2',
       topic: 'domestic-policy',
       slug: 'instructing-literature-of-minority-languages-in-schools',
-      status: 'inactive',
+      status: 'inconclusive',
       timeline: [
         {
           updated: 'Jul 26, 2019',
-          status: 'inactive'
+          status: 'inconclusive'
         },
         {
           updated: 'Jul 20, 2018',
-          status: 'compromised'
+          status: 'behind-schedule'
         },
         {
           updated: 'Jul 20, 2018',
-          status: 'inactive'
+          status: 'inconclusive'
         }
       ]
     },
@@ -154,11 +154,11 @@ export default {
         },
         {
           updated: 'Nov 10, 2017',
-          status: 'compromised'
+          status: 'unstarted'
         },
         {
           updated: 'Jan 10, 2018',
-          status: 'inactive'
+          status: 'inconclusive'
         },
         {
           updated: 'Jul 10, 2019',
@@ -169,14 +169,14 @@ export default {
   ],
   chartPromises: [
     {
-      status: 'achieved',
-      name: 'Achieved',
+      status: 'complete',
+      name: 'Complete',
       value: 14,
       img: './status-achieved.png'
     },
     {
-      status: 'compromised',
-      name: 'Compromised',
+      status: 'unstarted',
+      name: 'unStarted',
       value: 8,
       img: './status-compromised.png'
     },
@@ -187,8 +187,8 @@ export default {
       img: './status-in-progress.png'
     },
     {
-      status: 'not-achieved',
-      name: 'Not Achieved',
+      status: 'behind-schedule',
+      name: 'Behind Schedulte',
       value: 45,
       img: './status-not-achieved.png'
     },
@@ -199,8 +199,8 @@ export default {
       img: './status-stalled.png'
     },
     {
-      status: 'inactive',
-      name: 'Inactive',
+      status: 'inconclusive',
+      name: 'In',
       value: 10,
       img: './status-inactive.png'
     }
