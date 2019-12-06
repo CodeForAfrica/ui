@@ -176,7 +176,7 @@ export default {
     },
     {
       status: 'unstarted',
-      name: 'unStarted',
+      name: 'Unstarted',
       value: 8,
       img: './status-compromised.png'
     },
