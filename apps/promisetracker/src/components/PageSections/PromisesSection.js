@@ -113,10 +113,17 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
     return search ? `?${search}` : '';
   }, [filter]);
 
-  // /Define promises + media/Extract data
   // const promises = data.team.projects.edges.map(({ node }) => node.project_medias.edges.map(({ node }) => node));
   // const medias = promises[0].map(promise => promise)
+  // const tasks = medias[5].tasks.edges.find(({ node: status }) => status.label === "What is the status of the promise?" ? status.node.first_response_value : "Null").node.first_response_value.replace(/\s+/g, '-').toLowerCase();
+  // const tags = medias[2].tags.edges.map(({ node: tags }) => tags.tag_text);
+  // const tags = medias[2].tasks.edges.filter(({ node: task }) => task.label);
+  // const tasks = medias[3].tasks.edges.map(({ node: tasks }) => tasks).filter(task => task.label === "what is the status of promise?");
+  // const tasks = medias[2].tasks.edges.find(({ node: status }) => status.label === const tasks = medias[1].tasks.edges.find(({ node: status }) => status.label === "What is the status of the promise?" ? status.node.first_response_value : "Null").node.first_response_value.replace(/\s+/g, '-').toLowerCase();" ? status.node.first_response_value : "Null").node.first_response_value.replace(/\s+/g, '-').toLowerCase();
   // console.log('Medias', medias)
+  // console.log('Tags', tags)
+  // console.log('Tasks', tasks)
+  // console.log('Medias', medias[1].tasks.edges.find(({ node: status }) => status.label === "What is the status of the promise" ? status.node.first_reponse_value : "no response"))
 
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
@@ -182,17 +189,17 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
         </Grid>
       </Grid>
 
-      <Grid
-        item
-        xs={12}
-        container
-        className={classes.cardsContainer}
-        spacing={2}
-        color="white"
-      >
-        {data.team.projects.edges.map(({ node }) => (
-          <Grid>
-            {node.project_medias.edges.map(({ node: media }) => (
+      {data.team.projects.edges.map(({ node }) => (
+        <Grid
+          item
+          xs={12}
+          container
+          className={classes.cardsContainer}
+          spacing={2}
+          color="white"
+        >
+          {node.project_medias.edges.map(({ node: media }) => (
+            <Grid key={media.id} item xs={12} sm={6} md={4}>
               <PromiseCard
                 href="promise/[id]"
                 as={`promise/${media.title}`}
@@ -203,10 +210,11 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                 )}
                 status="stalled"
               />
-            ))}
-          </Grid>
-        ))}
-      </Grid>
+            </Grid>
+          ))}
+        </Grid>
+      ))}
+
       {enableShowMore && (
         <Grid item className={classes.button}>
           <Link href={`/promises${filtersQueryString()}`}>

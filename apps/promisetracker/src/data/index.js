@@ -9,8 +9,8 @@ export default {
       name: 'Unstarted'
     },
     {
-      slug: 'in_progress',
-      name: 'In Progress'
+      slug: 'in-progress',
+      name: 'In-progress'
     },
     {
       slug: 'behind-schedule',
