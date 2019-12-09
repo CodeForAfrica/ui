@@ -9,7 +9,7 @@ export default {
       name: 'Unstarted'
     },
     {
-      slug: 'in-progress',
+      slug: 'in_progress',
       name: 'In Progress'
     },
     {
@@ -27,16 +27,16 @@ export default {
   ],
   topics: [
     {
-      slug: 'economy',
-      name: 'Economy'
+      slug: 'nairobi',
+      name: 'Nairobi'
     },
     {
-      slug: 'foreign-policy',
-      name: 'Foreign Policy'
+      slug: 'traffic-management',
+      name: 'Traffic Management'
     },
     {
-      slug: 'domestic-policy',
-      name: 'Domestic Policy'
+      slug: 'governance',
+      name: 'Governance'
     },
     {
       slug: 'social-cultural',
@@ -61,7 +61,7 @@ export default {
     {
       title: 'Assuring equal rights for all Iranian ethnicities',
       term: 'term-1',
-      topic: 'domestic-policy',
+      topic: 'governance',
       slug: 'assuring-equal-rights-for-all-Iranian-ethnicities',
       status: 'complete',
       timeline: [
@@ -78,7 +78,7 @@ export default {
     {
       title: 'Providing affordable housing and controlling the housing prices',
       term: 'term-2',
-      topic: 'economy',
+      topic: 'nairobi',
       slug: 'providing-affordable-housing-and-controlling-the-housing-prices',
       status: 'behind-schedule',
       timeline: [
@@ -106,7 +106,7 @@ export default {
     {
       title: 'Instructing literature of minority languages in schools',
       term: 'term-2',
-      topic: 'domestic-policy',
+      topic: 'traffic-management',
       slug: 'instructing-literature-of-minority-languages-in-schools',
       status: 'inconclusive',
       timeline: [
@@ -127,7 +127,7 @@ export default {
     {
       title: 'An annual increase of one million foreign tourists',
       term: 'term-1',
-      topic: 'economy',
+      topic: 'traffic-management',
       slug: 'an-annual-increase-of-one-million-foreign-tourists',
       status: 'in-progress',
       timeline: [

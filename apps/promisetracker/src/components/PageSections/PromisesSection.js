@@ -12,7 +12,10 @@ import PromiseCard from 'components/Promise/Card';
 
 import Link from 'components/Link';
 
-import data from 'data';
+import filterData from 'data';
+
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
 
 const useStyles = makeStyles({
   root: props => ({
@@ -29,9 +32,59 @@ const useStyles = makeStyles({
   button: { paddingTop: '3rem' }
 });
 
+const GET_PROMISES = gql`
+  query {
+    team {
+      id
+      name
+      projects {
+        edges {
+          node {
+            id
+            title
+            project_medias(first: 6) {
+              edges {
+                node {
+                  id
+                  title
+                  tasks {
+                    edges {
+                      node {
+                        id
+                        label
+                        first_response_value
+                      }
+                    }
+                  }
+                  tags {
+                    edges {
+                      node {
+                        id
+                        tag_text
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 function PromisesSection({ enableShowMore, filter, ...props }) {
   const classes = useStyles(props);
   const router = useRouter();
+
+  const { loading, error, data } = useQuery(GET_PROMISES);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return null;
+  }
 
   const updateFilter = useCallback(
     (name, value) => {
@@ -60,7 +113,10 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
     return search ? `?${search}` : '';
   }, [filter]);
 
-  const { promises } = data;
+  // /Define promises + media/Extract data
+  // const promises = data.team.projects.edges.map(({ node }) => node.project_medias.edges.map(({ node }) => node));
+  // const medias = promises[0].map(promise => promise)
+  // console.log('Medias', medias)
 
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
@@ -83,7 +139,7 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                 value: '',
                 name: 'All Statuses'
               },
-              ...data.statusTypes.map(status => ({
+              ...filterData.statusTypes.map(status => ({
                 name: status.name,
                 value: status.slug
               }))
@@ -100,7 +156,7 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                 value: '',
                 name: 'All Terms'
               },
-              ...data.terms.map(term => ({
+              ...filterData.terms.map(term => ({
                 name: term.name,
                 value: term.slug
               }))
@@ -117,7 +173,7 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                 value: '',
                 name: 'All Topics'
               },
-              ...data.topics.map(topic => ({
+              ...filterData.topics.map(topic => ({
                 name: topic.name,
                 value: topic.slug
               }))
@@ -134,25 +190,22 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
         spacing={2}
         color="white"
       >
-        {promises
-          .filter(
-            promise =>
-              (!filter.status || promise.status === filter.status) &&
-              (!filter.term || promise.term === filter.term) &&
-              (!filter.topic || promise.topic === filter.topic)
-          )
-          .map(promise => (
-            <Grid key={promise.slug} item xs={12} sm={6} md={4}>
+        {data.team.projects.edges.map(({ node }) => (
+          <Grid>
+            {node.project_medias.edges.map(({ node: media }) => (
               <PromiseCard
                 href="promise/[id]"
-                as={`promise/${promise.slug}`}
-                status={promise.status}
-                title={promise.title}
-                term={data.terms.find(s => s.slug === promise.term).name}
-                topic={data.topics.find(s => s.slug === promise.topic).name}
+                as={`promise/${media.title}`}
+                term="Term 1"
+                title={media.title}
+                topic={media.tags.edges.map(
+                  ({ node: topic }) => topic.tag_text
+                )}
+                status="stalled"
               />
-            </Grid>
-          ))}
+            ))}
+          </Grid>
+        ))}
       </Grid>
       {enableShowMore && (
         <Grid item className={classes.button}>
