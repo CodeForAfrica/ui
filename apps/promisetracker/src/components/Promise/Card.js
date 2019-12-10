@@ -69,7 +69,8 @@ PromiseCard.propTypes = {
     'unstarted',
     'in-progress',
     'stalled',
-    'inconclusive'
+    'inconclusive',
+    ''
   ]).isRequired,
   title: propTypes.string.isRequired,
   term: propTypes.string.isRequired,

@@ -9,7 +9,7 @@ export default {
       name: 'Unstarted'
     },
     {
-      slug: 'in-progress',
+      slug: 'In-progress',
       name: 'In-progress'
     },
     {
@@ -23,6 +23,10 @@ export default {
     {
       slug: 'inconclusive',
       name: 'Inconclusive'
+    },
+    {
+      slug: '',
+      name: 'Unresolved'
     }
   ],
   topics: [
@@ -175,7 +179,7 @@ export default {
       img: './status-achieved.png'
     },
     {
-      status: 'unstarted',
+      status: ' unstarted',
       name: 'Unstarted',
       value: 8,
       img: './status-compromised.png'

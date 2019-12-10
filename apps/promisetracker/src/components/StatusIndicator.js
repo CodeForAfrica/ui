@@ -61,7 +61,8 @@ StatusIndicator.propTypes = {
     'unstarted',
     'in-progress',
     'stalled',
-    'inconclusive'
+    'inconclusive',
+    ''
   ]).isRequired,
   href: propTypes.string,
   img: propTypes.string,

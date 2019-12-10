@@ -3,6 +3,7 @@ import { Grid, makeStyles, Divider, Typography } from '@material-ui/core';
 
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+
 import withApollo from 'lib/withApollo';
 
 import Page from 'components/Page';

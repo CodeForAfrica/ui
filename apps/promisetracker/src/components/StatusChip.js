@@ -22,7 +22,10 @@ function StatusChip({ status, ...props }) {
       color="primary"
       className={classes.root}
     >
-      {data.statusTypes.find(s => s.slug === status).name}
+      {
+        data.statusTypes.find(s => s.slug === status && s.slug !== undefined)
+          .name
+      }
     </ButtonLink>
   );
 }
@@ -34,7 +37,8 @@ StatusChip.propTypes = {
     'unstarted',
     'in-progress',
     'stalled',
-    'inconclusive'
+    'inconclusive',
+    ''
   ]).isRequired
 };
 

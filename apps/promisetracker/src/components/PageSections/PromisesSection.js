@@ -113,18 +113,6 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
     return search ? `?${search}` : '';
   }, [filter]);
 
-  // const promises = data.team.projects.edges.map(({ node }) => node.project_medias.edges.map(({ node }) => node));
-  // const medias = promises[0].map(promise => promise)
-  // const tasks = medias[5].tasks.edges.find(({ node: status }) => status.label === "What is the status of the promise?" ? status.node.first_response_value : "Null").node.first_response_value.replace(/\s+/g, '-').toLowerCase();
-  // const tags = medias[2].tags.edges.map(({ node: tags }) => tags.tag_text);
-  // const tags = medias[2].tasks.edges.filter(({ node: task }) => task.label);
-  // const tasks = medias[3].tasks.edges.map(({ node: tasks }) => tasks).filter(task => task.label === "what is the status of promise?");
-  // const tasks = medias[2].tasks.edges.find(({ node: status }) => status.label === const tasks = medias[1].tasks.edges.find(({ node: status }) => status.label === "What is the status of the promise?" ? status.node.first_response_value : "Null").node.first_response_value.replace(/\s+/g, '-').toLowerCase();" ? status.node.first_response_value : "Null").node.first_response_value.replace(/\s+/g, '-').toLowerCase();
-  // console.log('Medias', medias)
-  // console.log('Tags', tags)
-  // console.log('Tasks', tasks)
-  // console.log('Medias', medias[1].tasks.edges.find(({ node: status }) => status.label === "What is the status of the promise" ? status.node.first_reponse_value : "no response"))
-
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
       <Grid
@@ -208,8 +196,15 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                 topic={media.tags.edges.map(
                   ({ node: topic }) => topic.tag_text
                 )}
-                status="stalled"
+                status={media.tasks.edges.map(({ node: task }) =>
+                  task.label === 'What is the status of the promise?'
+                    ? task.first_response_value
+                        .replace(/\s+/g, '-')
+                        .toLowerCase()
+                    : null
+                )}
               />
+              {/* <h1 style={{ color: 'red' }}>{media.tasks.edges.filter(({ node: task }) => task.label !== undefined).map(({ node: task }) => task.label === 'What is the status of the promise?' ? task.first_response_value.replace(/\s+/g, '-').toLowerCase() : null)}</h1> */}
             </Grid>
           ))}
         </Grid>
