@@ -42,7 +42,7 @@ const GET_PROMISES = gql`
           node {
             id
             title
-            project_medias(last: 9) {
+            project_medias(last: 6) {
               edges {
                 node {
                   id
@@ -197,25 +197,14 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                 topic={media.tags.edges.map(
                   ({ node: topic }) => topic.tag_text
                 )}
-                status=""
-              />
-
-              <h1 style={{ color: 'red' }}>
-                {console.log(
-                  'Medias',
-                  media.tasks.edges
-                    .map(({ node: task }) =>
-                      task.first_response_value !== null &&
+                status={media.tasks.edges
+                  .find(
+                    ({ node: task }) =>
                       task.label === 'What is the status of the promise?'
-                        ? task.first_response_value
-                            .replace(/\s+/g, '-')
-                            .toLowerCase()
-                        : null
-                    )
-                    .filter(task => task && task.length)
-                )}
-              </h1>
-              {/* <h1 style={{ color: 'red' }}>{media.tasks.edges.filter(({ node: task }) => task.label !== undefined).map(({ node: task }) => task.label === 'What is the status of the promise?' ? task.first_response_value.replace(/\s+/g, '-').toLowerCase() : null)}</h1> */}
+                  )
+                  .node.first_response_value.replace(/\s+/g, '-')
+                  .toLowerCase()}
+              />
             </Grid>
           ))}
         </Grid>

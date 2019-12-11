@@ -48,7 +48,7 @@ const GET_PROMISES = gql`
           node {
             id
             title
-            project_medias(last: 9) {
+            project_medias(last: 6) {
               edges {
                 node {
                   id
@@ -110,8 +110,8 @@ function PromisePage() {
 
   const promise = medias[index];
 
-  const currentTopic = promise.tags.edges.map(({ node: topic }) =>
-    topic.tag_text.replace(/\s+/g, '-').toLowerCase()
+  const currentTopic = promise.tags.edges.map(
+    ({ node: topic }) => topic.tag_text
   );
 
   const relatedTopic = medias.filter(
@@ -146,7 +146,7 @@ function PromisePage() {
           <Grid item xs={12} md={8}>
             <PromiseHeader
               status="stalled"
-              term="term-1"
+              term="Term 1"
               topic={currentTopic}
               // topic={filterData.topics.find(s => s.slug === currentTopic).name}
               title={promise.title}
