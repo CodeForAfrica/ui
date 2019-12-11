@@ -9,7 +9,7 @@ export default {
       name: 'Unstarted'
     },
     {
-      slug: 'In-progress',
+      slug: 'in-progress',
       name: 'In-progress'
     },
     {
@@ -61,116 +61,7 @@ export default {
       name: 'Term 3'
     }
   ],
-  promises: [
-    {
-      title: 'Assuring equal rights for all Iranian ethnicities',
-      term: 'term-1',
-      topic: 'governance',
-      slug: 'assuring-equal-rights-for-all-Iranian-ethnicities',
-      status: 'complete',
-      timeline: [
-        {
-          updated: 'Jul 18, 2019',
-          status: 'complete'
-        },
-        {
-          updated: 'Jul 10, 2017',
-          status: 'inconclusive'
-        }
-      ]
-    },
-    {
-      title: 'Providing affordable housing and controlling the housing prices',
-      term: 'term-2',
-      topic: 'nairobi',
-      slug: 'providing-affordable-housing-and-controlling-the-housing-prices',
-      status: 'behind-schedule',
-      timeline: [
-        {
-          updated: 'Jul 18, 2019',
-          status: 'behind-schedule'
-        }
-      ]
-    },
-    {
-      title:
-        'Provide commodity subsidies for basic goods to support households with low income',
-      term: 'term-3',
-      topic: 'social-cultural',
-      slug:
-        'provide-commodity-subsidies-for-basic-goods-to-support-households-with-low-income',
-      status: 'unstarted',
-      timeline: [
-        {
-          updated: 'Jul 18, 2019',
-          status: 'unstarted'
-        }
-      ]
-    },
-    {
-      title: 'Instructing literature of minority languages in schools',
-      term: 'term-2',
-      topic: 'traffic-management',
-      slug: 'instructing-literature-of-minority-languages-in-schools',
-      status: 'inconclusive',
-      timeline: [
-        {
-          updated: 'Jul 26, 2019',
-          status: 'inconclusive'
-        },
-        {
-          updated: 'Jul 20, 2018',
-          status: 'behind-schedule'
-        },
-        {
-          updated: 'Jul 20, 2018',
-          status: 'inconclusive'
-        }
-      ]
-    },
-    {
-      title: 'An annual increase of one million foreign tourists',
-      term: 'term-1',
-      topic: 'traffic-management',
-      slug: 'an-annual-increase-of-one-million-foreign-tourists',
-      status: 'in-progress',
-      timeline: [
-        {
-          updated: 'Jul 18, 2019',
-          status: 'in-progress'
-        },
-        {
-          updated: 'Jul 10, 2017',
-          status: 'stalled'
-        }
-      ]
-    },
-    {
-      title: 'Provide insurance for women who are primary caregivers',
-      term: 'term-3',
-      topic: 'social-cultural',
-      slug: 'provide-insurance-for-women-who-are-primary-caregivers',
-      status: 'stalled',
-      timeline: [
-        {
-          updated: 'Dec 18, 2017',
-          status: 'in-progress'
-        },
-        {
-          updated: 'Nov 10, 2017',
-          status: 'unstarted'
-        },
-        {
-          updated: 'Jan 10, 2018',
-          status: 'inconclusive'
-        },
-        {
-          updated: 'Jul 10, 2019',
-          status: 'stalled'
-        }
-      ]
-    }
-  ],
+
   chartPromises: [
     {
       status: 'complete',
@@ -179,7 +70,7 @@ export default {
       img: './status-achieved.png'
     },
     {
-      status: ' unstarted',
+      status: 'unstarted',
       name: 'Unstarted',
       value: 8,
       img: './status-compromised.png'

@@ -42,10 +42,11 @@ const GET_PROMISES = gql`
           node {
             id
             title
-            project_medias(first: 9) {
+            project_medias(last: 9) {
               edges {
                 node {
                   id
+                  dbid
                   title
                   tasks {
                     edges {
@@ -190,7 +191,7 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
             <Grid key={media.id} item xs={12} sm={6} md={4}>
               <PromiseCard
                 href="promise/[id]"
-                as={`promise/${media.title}`}
+                as={`promise/${media.title.replace(/\s+/g, '-').toLowerCase()}`}
                 term="Term 1"
                 title={media.title}
                 topic={media.tags.edges.map(
@@ -198,13 +199,22 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                 )}
                 status=""
               />
-              {/* status={media.tasks.edges.map(({ node: task }) =>
-                    task.label === 'What is the status of the promise?' && task.first_response_value !== undefined
-                      ? task.first_response_value
-                        .replace(/\s+/g, '-')
-                        .toLowerCase()
-                      : null
-                  )} */}
+
+              <h1 style={{ color: 'red' }}>
+                {console.log(
+                  'Medias',
+                  media.tasks.edges
+                    .map(({ node: task }) =>
+                      task.first_response_value !== null &&
+                      task.label === 'What is the status of the promise?'
+                        ? task.first_response_value
+                            .replace(/\s+/g, '-')
+                            .toLowerCase()
+                        : null
+                    )
+                    .filter(task => task && task.length)
+                )}
+              </h1>
               {/* <h1 style={{ color: 'red' }}>{media.tasks.edges.filter(({ node: task }) => task.label !== undefined).map(({ node: task }) => task.label === 'What is the status of the promise?' ? task.first_response_value.replace(/\s+/g, '-').toLowerCase() : null)}</h1> */}
             </Grid>
           ))}
