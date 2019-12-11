@@ -15,7 +15,7 @@ function PromiseHeader({ status, title, term, topic }) {
   const statusAndShareSectionId = 'statusAndShareSection';
   const shareUrl = router.query;
   return (
-    <Grid container justify="column" spacing={4}>
+    <Grid container direction="column" justify="space-between" spacing={4}>
       <Grid item>
         <Typography variant="h4">{title}</Typography>
       </Grid>
