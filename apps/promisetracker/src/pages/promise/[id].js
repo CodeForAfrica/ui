@@ -122,6 +122,8 @@ function PromisePage() {
       ) === currentTopic
   );
 
+  console.log(relatedTopic);
+
   // Lets use null to ensure the nothing is rendered: undefined seems to
   // render `0`
   const prevPromise = index ? medias[index - 1] : null;
