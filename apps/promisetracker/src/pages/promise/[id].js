@@ -145,10 +145,15 @@ function PromisePage() {
         <Layout classes={{ root: classes.root }} spacing={8}>
           <Grid item xs={12} md={8}>
             <PromiseHeader
-              status="stalled"
+              status={promise.tasks.edges
+                .find(
+                  ({ node: task }) =>
+                    task.label === 'What is the status of the promise?'
+                )
+                .node.first_response_value.replace(/\s+/g, '-')
+                .toLowerCase()}
               term="Term 1"
               topic={currentTopic}
-              // topic={filterData.topics.find(s => s.slug === currentTopic).name}
               title={promise.title}
             />
             <Grid item xs={12} className={classes.divider}>
