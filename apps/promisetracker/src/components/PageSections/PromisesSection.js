@@ -187,26 +187,45 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
           spacing={2}
           color="white"
         >
-          {node.project_medias.edges.map(({ node: media }) => (
-            <Grid key={media.id} item xs={12} sm={6} md={4}>
-              <PromiseCard
-                href="promise/[id]"
-                as={`promise/${media.title.replace(/\s+/g, '-').toLowerCase()}`}
-                term="Term 1"
-                title={media.title}
-                topic={media.tags.edges.map(
-                  ({ node: topic }) => topic.tag_text
-                )}
-                status={media.tasks.edges
-                  .find(
-                    ({ node: task }) =>
-                      task.label === 'What is the status of the promise?'
-                  )
-                  .node.first_response_value.replace(/\s+/g, '-')
-                  .toLowerCase()}
-              />
-            </Grid>
-          ))}
+          {node.project_medias.edges
+            .filter(
+              ({ node: filterMedia }) =>
+                (!filter.status ||
+                  filterMedia.tasks.edges
+                    .find(
+                      ({ node: task }) =>
+                        task.label === 'What is the status of the promise?'
+                    )
+                    .node.first_response_value.replace(/\s+/g, '-')
+                    .toLowerCase() === filter.status) &&
+                (!filter.term || filter.term === 'term-1') &&
+                (!filter.topic ||
+                  filterMedia.tags.edges.map(
+                    ({ node: topic }) => topic.tag_text
+                  ) === filter.topic)
+            )
+            .map(({ node: media }) => (
+              <Grid key={media.id} item xs={12} sm={6} md={4}>
+                <PromiseCard
+                  href="promise/[id]"
+                  as={`promise/${media.title
+                    .replace(/\s+/g, '-')
+                    .toLowerCase()}`}
+                  term="Term 1"
+                  title={media.title}
+                  topic={media.tags.edges.map(
+                    ({ node: topic }) => topic.tag_text
+                  )}
+                  status={media.tasks.edges
+                    .find(
+                      ({ node: task }) =>
+                        task.label === 'What is the status of the promise?'
+                    )
+                    .node.first_response_value.replace(/\s+/g, '-')
+                    .toLowerCase()}
+                />
+              </Grid>
+            ))}
         </Grid>
       ))}
 
