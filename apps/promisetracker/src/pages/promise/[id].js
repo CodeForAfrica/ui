@@ -117,12 +117,10 @@ function PromisePage() {
   const relatedTopic = medias.filter(
     promiseItem =>
       promiseItem !== promise &&
-      promiseItem.tags.edges.map(({ node }) =>
-        node.tag_text.replace(/\s+/g, '-').toLowerCase()
-      ) === currentTopic
+      promiseItem.tags.edges.map(
+        ({ node: relatedTopicTag }) => relatedTopicTag.tag_text
+      )
   );
-
-  console.log(relatedTopic);
 
   // Lets use null to ensure the nothing is rendered: undefined seems to
   // render `0`
@@ -210,9 +208,12 @@ function PromisePage() {
                     <PromiseCard
                       status="stalled"
                       title={topic.title}
-                      // term={filterData.terms.find(s => s.slug === topic.term).name}
-                      // topic={filterData.topics.find(s => s.slug === topic.topic).name}
-                      href={topic.slug}
+                      term="Term 1"
+                      topic={topic.tags.edges.map(
+                        ({ node: relatedTopicItem }) =>
+                          relatedTopicItem.tag_text
+                      )}
+                      href={topic.title}
                     />
                   </Grid>
                 ))}
