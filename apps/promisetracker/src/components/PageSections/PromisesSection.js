@@ -200,8 +200,8 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                     .toLowerCase() === filter.status) &&
                 (!filter.term || filter.term === 'term-1') &&
                 (!filter.topic ||
-                  filterMedia.tags.edges.map(
-                    ({ node: topic }) => topic.tag_text
+                  filterMedia.tags.edges.map(({ node: topic }) =>
+                    topic.tag_text.replace(/\s+/g, '-').toLowerCase()
                   ) === filter.topic)
             )
             .map(({ node: media }) => (
@@ -211,7 +211,7 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                   as={`promise/${media.title
                     .replace(/\s+/g, '-')
                     .toLowerCase()}`}
-                  term="Term 1"
+                  term={filterData.terms.find(s => s.slug === 'term-1').name}
                   title={media.title}
                   topic={media.tags.edges.map(
                     ({ node: topic }) => topic.tag_text

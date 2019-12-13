@@ -23,10 +23,6 @@ export default {
     {
       slug: 'inconclusive',
       name: 'Inconclusive'
-    },
-    {
-      slug: '',
-      name: 'Unresolved'
     }
   ],
   topics: [
@@ -43,8 +39,12 @@ export default {
       name: 'Governance'
     },
     {
-      slug: 'social-cultural',
-      name: 'Social Cultural'
+      slug: 'environment-and-sanitation',
+      name: 'Environment and Sanitation'
+    },
+    {
+      slug: 'health',
+      name: 'Health'
     }
   ],
   terms: [
