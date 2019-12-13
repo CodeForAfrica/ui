@@ -15,6 +15,9 @@ const useStyles = makeStyles({
 
 function StatusChip({ status, ...props }) {
   const classes = useStyles({ status, ...props });
+  const statusType = data.statusTypes.find(s => s.slug === status);
+  const name = (statusType && statusType.name) || '';
+
   return (
     <ButtonLink
       href={`/promises?status=${status}`}
@@ -22,7 +25,7 @@ function StatusChip({ status, ...props }) {
       color="primary"
       className={classes.root}
     >
-      {data.statusTypes.find(s => s.slug === status).name}
+      {name}
     </ButtonLink>
   );
 }
