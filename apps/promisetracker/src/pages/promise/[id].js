@@ -147,6 +147,7 @@ function PromisePage() {
         <Layout classes={{ root: classes.root }} spacing={8}>
           <Grid item xs={12} md={8}>
             <PromiseHeader
+              key={promise.id}
               status={promise.tasks.edges
                 .find(
                   ({ node: task }) =>
@@ -208,17 +209,27 @@ function PromisePage() {
                 {relatedTopic.map(topic => (
                   <Grid item xs={12}>
                     <PromiseCard
+                      key={topic.id}
                       status="stalled"
                       title={topic.title}
-                      href={topic.title.replace(/\s+/g, '-').toLowerCase()}
+                      href={`promise/${topic.title}`}
                       as={`promise/${topic.title
                         .replace(/\s+/g, '-')
                         .toLowerCase()}`}
                       term="Term 1"
-                      topic={topic.tags.edges.map(
-                        ({ node: relatedTopicItem }) =>
-                          relatedTopicItem.tag_text
-                      )}
+                      topic={
+                        filterData.topics.find(
+                          s =>
+                            s.slug ===
+                            topic.tags.edges
+                              .map(({ node: relatedTopicTag }) =>
+                                relatedTopicTag.tag_text
+                                  .replace(/\s+/g, '-')
+                                  .toLowerCase()
+                              )
+                              .toString()
+                        ).name
+                      }
                     />
                   </Grid>
                 ))}
