@@ -18,7 +18,7 @@ import {
 import TitledGrid from 'components/TiltedGrid';
 import SideBar from 'components/Article/SideBar';
 
-// import filterData from 'data';
+import filterData from 'data';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 
@@ -110,16 +110,18 @@ function PromisePage() {
 
   const promise = medias[index];
 
-  const currentTopic = promise.tags.edges.map(
-    ({ node: topic }) => topic.tag_text
-  );
+  const currentTopic = promise.tags.edges
+    .map(({ node: topic }) => topic.tag_text.replace(/\s+/g, '-').toLowerCase())
+    .toString();
 
   const relatedTopic = medias.filter(
     promiseItem =>
       promiseItem !== promise &&
-      promiseItem.tags.edges.map(
-        ({ node: relatedTopicTag }) => relatedTopicTag.tag_text
-      )
+      promiseItem.tags.edges
+        .map(({ node: relatedTopicTag }) =>
+          relatedTopicTag.tag_text.replace(/\s+/g, '-').toLowerCase()
+        )
+        .toString() === currentTopic
   );
 
   // Lets use null to ensure the nothing is rendered: undefined seems to
@@ -153,7 +155,7 @@ function PromisePage() {
                 .node.first_response_value.replace(/\s+/g, '-')
                 .toLowerCase()}
               term="Term 1"
-              topic={currentTopic}
+              topic={filterData.topics.find(s => s.slug === currentTopic).name}
               title={promise.title}
             />
             <Grid item xs={12} className={classes.divider}>
@@ -208,12 +210,15 @@ function PromisePage() {
                     <PromiseCard
                       status="stalled"
                       title={topic.title}
+                      href={topic.title.replace(/\s+/g, '-').toLowerCase()}
+                      as={`promise/${topic.title
+                        .replace(/\s+/g, '-')
+                        .toLowerCase()}`}
                       term="Term 1"
                       topic={topic.tags.edges.map(
                         ({ node: relatedTopicItem }) =>
                           relatedTopicItem.tag_text
                       )}
-                      href={topic.title}
                     />
                   </Grid>
                 ))}
