@@ -200,9 +200,11 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                     .toLowerCase() === filter.status) &&
                 (!filter.term || filter.term === 'term-1') &&
                 (!filter.topic ||
-                  filterMedia.tags.edges.map(({ node: topic }) =>
-                    topic.tag_text.replace(/\s+/g, '-').toLowerCase()
-                  ) === filter.topic)
+                  filterMedia.tags.edges
+                    .map(({ node: topic }) =>
+                      topic.tag_text.replace(/\s+/g, '-').toLowerCase()
+                    )
+                    .toString() === filter.topic)
             )
             .map(({ node: media }) => (
               <Grid key={media.id} item xs={12} sm={6} md={4}>
@@ -213,9 +215,17 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                     .toLowerCase()}`}
                   term={filterData.terms.find(s => s.slug === 'term-1').name}
                   title={media.title}
-                  topic={media.tags.edges.map(
-                    ({ node: topic }) => topic.tag_text
-                  )}
+                  topic={
+                    filterData.topics.find(
+                      s =>
+                        s.slug ===
+                        media.tags.edges
+                          .map(({ node: topic }) =>
+                            topic.tag_text.replace(/\s+/g, '-').toLowerCase()
+                          )
+                          .toString()
+                    ).name
+                  }
                   status={media.tasks.edges
                     .find(
                       ({ node: task }) =>
