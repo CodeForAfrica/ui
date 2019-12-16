@@ -95,7 +95,7 @@ export default {
     },
     {
       status: 'inconclusive',
-      name: 'In',
+      name: 'Inconclusive',
       value: 10,
       img: './status-inactive.png'
     }
