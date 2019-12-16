@@ -112,6 +112,9 @@ function PromisePage() {
 
   const promise = medias[index];
 
+  const findStatus = promise.tasks.edges.find(
+    ({ node: task }) => task.label === 'What is the status of the promise?'
+  ).node.first_response_value;
   const currentTopic = promise.tags.edges
     .map(({ node: topic }) => slugify(topic.tag_text))
     .toString();
@@ -148,12 +151,7 @@ function PromisePage() {
           <Grid item xs={12} md={8}>
             <PromiseHeader
               key={promise.id}
-              status={slugify(
-                promise.tasks.edges.find(
-                  ({ node: task }) =>
-                    task.label === 'What is the status of the promise?'
-                ).node.first_response_value
-              )}
+              status={slugify(findStatus)}
               term="Term 1"
               topic={filterData.topics.find(s => s.slug === currentTopic).name}
               title={promise.title}
