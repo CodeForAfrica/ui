@@ -1,36 +1,52 @@
 # [Promise Tracker](https://promisetracker.codeforafrica.org)
 
-**Promise Tracker**, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges, using official evidence / data, as well as crowdsourced information, with a transparent and defensible methodology, to help inject accountability and honesty into the often cavalier way that promises are made to citizens to win their support for elections, policies, contracts … but are then seldom honoured.
+**Promise Tracker**, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges, using official evidence / data, as well as crowdsourced information, with a transparent and defensible methodology, to help inject accountability and honesty into the often cavalier way that promises are made to citizens to win their support for elections, policies, contracts ... but are then seldom honoured.
 
 ## Installation
 
-PromiseTracker is a SSR rendered [Next](https://nextjs.org/) web app deployable to GitHub pages with little help from [spa-github-pages](https://github.com/rafrex/spa-github-pages). See [package.json](./package.json) for the full list of dependencies and build & deploy scripts.
+PromiseTracker is a SSR rendered [Next](https://nextjs.org/) web app deployable to [Zeit](https://zeit.co). See [package.json](./package.json) for the full list of dependencies and build & deploy scripts.
 
 Run the following to get started :
  On dev
 
 ```sh
-
+  cp .env.tmpl .env
+  # Edit .env with you Check Access Token
   yarn
-  now dev
-
-
+  yarn now-dev
 ```
 
-To generate static html
+To deploy:
 
 ```sh
-   yarn build
-   yarn start
-
+  yarn run now login
+  yarn run now secrets add check-access-token <CHECK_ACCESS_TOKEN>
+  yarn deploy
 ```
 
 ## Attribution
 
-**Promise Tracker**, modelled on <https://rouhanimeter.com>, to help newsroom verification desks track & fact-check performance promises.
+**Promise Tracker** is modelled on [Rouhani Meter](https://rouhanimeter.com).
 
 ## Contributing
 
+TODO
+
+
 ### License
 
-Takwimu.AFRICA is [GNU GPLv3 licensed](./LICENSE).
+PromiseTracker is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges.
+Copyright (C) 2019  Code for Africa
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
