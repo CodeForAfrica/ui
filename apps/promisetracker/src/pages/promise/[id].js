@@ -212,8 +212,10 @@ function PromisePage() {
                       key={topic.id}
                       status="stalled"
                       title={topic.title}
-                      href={`promise/${topic.title}`}
-                      as={`promise/${topic.title
+                      href={`/promise/${topic.title
+                        .replace(/\s+/g, '-')
+                        .toLowerCase()}`}
+                      as={`/promise/${topic.title
                         .replace(/\s+/g, '-')
                         .toLowerCase()}`}
                       term="Term 1"
