@@ -98,29 +98,29 @@ function PromisePage() {
     ({ node: media }) => media
   );
 
+  const slugify = param => {
+    return param.replace(/\s+/g, '-').toLowerCase();
+  };
+
   const index = medias.findIndex(
-    media =>
-      media.title.replace(/\s+/g, '-').toLowerCase() ===
-      router.query.id.replace(/\s+/g, '-').toLowerCase()
+    media => slugify(media.title) === slugify(router.query.id)
   );
 
   if (index === -1) {
-    return <div>{router.query.id.replace(/\s+/g, '-').toLowerCase()}</div>;
+    return <div>{slugify(router.query.id)}</div>;
   }
 
   const promise = medias[index];
 
   const currentTopic = promise.tags.edges
-    .map(({ node: topic }) => topic.tag_text.replace(/\s+/g, '-').toLowerCase())
+    .map(({ node: topic }) => slugify(topic.tag_text))
     .toString();
 
   const relatedTopic = medias.filter(
     promiseItem =>
       promiseItem !== promise &&
       promiseItem.tags.edges
-        .map(({ node: relatedTopicTag }) =>
-          relatedTopicTag.tag_text.replace(/\s+/g, '-').toLowerCase()
-        )
+        .map(({ node: relatedTopicTag }) => slugify(relatedTopicTag.tag_text))
         .toString() === currentTopic
   );
 
@@ -130,11 +130,11 @@ function PromisePage() {
   const nextPromise = index < medias.length - 1 && medias[index + 1];
 
   const previous = prevPromise && {
-    href: `/promise/${prevPromise.title.replace(/\s+/g, '-').toLowerCase()}`,
+    href: `/promise/${slugify(prevPromise.title)}`,
     label: prevPromise.title
   };
   const next = nextPromise && {
-    href: `/promise/${nextPromise.title.replace(/\s+/g, '-').toLowerCase()}`,
+    href: `/promise/${slugify(nextPromise.title)}`,
     label: nextPromise.title
   };
 
@@ -148,13 +148,12 @@ function PromisePage() {
           <Grid item xs={12} md={8}>
             <PromiseHeader
               key={promise.id}
-              status={promise.tasks.edges
-                .find(
+              status={slugify(
+                promise.tasks.edges.find(
                   ({ node: task }) =>
                     task.label === 'What is the status of the promise?'
-                )
-                .node.first_response_value.replace(/\s+/g, '-')
-                .toLowerCase()}
+                ).node.first_response_value
+              )}
               term="Term 1"
               topic={filterData.topics.find(s => s.slug === currentTopic).name}
               title={promise.title}
@@ -213,9 +212,7 @@ function PromisePage() {
                       status="stalled"
                       title={topic.title}
                       href="/promise/[id]"
-                      as={`/promise/${topic.title
-                        .replace(/\s+/g, '-')
-                        .toLowerCase()}`}
+                      as={`/promise/${slugify(topic.title)}`}
                       term="Term 1"
                       topic={
                         filterData.topics.find(
@@ -223,9 +220,7 @@ function PromisePage() {
                             s.slug ===
                             topic.tags.edges
                               .map(({ node: relatedTopicTag }) =>
-                                relatedTopicTag.tag_text
-                                  .replace(/\s+/g, '-')
-                                  .toLowerCase()
+                                slugify(relatedTopicTag.tag_text)
                               )
                               .toString()
                         ).name
