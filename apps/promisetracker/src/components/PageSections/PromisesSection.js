@@ -114,6 +114,10 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
     return search ? `?${search}` : '';
   }, [filter]);
 
+  const slugify = param => {
+    return param.replace(/\s+/g, '-').toLowerCase();
+  };
+
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
       <Grid
@@ -191,28 +195,23 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
             .filter(
               ({ node: filterMedia }) =>
                 (!filter.status ||
-                  filterMedia.tasks.edges
-                    .find(
+                  slugify(
+                    filterMedia.tasks.edges.find(
                       ({ node: task }) =>
                         task.label === 'What is the status of the promise?'
-                    )
-                    .node.first_response_value.replace(/\s+/g, '-')
-                    .toLowerCase() === filter.status) &&
+                    ).node.first_response_value
+                  ) === filter.status) &&
                 (!filter.term || filter.term === 'term-1') &&
                 (!filter.topic ||
                   filterMedia.tags.edges
-                    .map(({ node: topic }) =>
-                      topic.tag_text.replace(/\s+/g, '-').toLowerCase()
-                    )
+                    .map(({ node: topic }) => slugify(topic.tag_text))
                     .toString() === filter.topic)
             )
             .map(({ node: media }) => (
               <Grid key={media.id} item xs={12} sm={6} md={4}>
                 <PromiseCard
                   href="promise/[id]"
-                  as={`promise/${media.title
-                    .replace(/\s+/g, '-')
-                    .toLowerCase()}`}
+                  as={`promise/${slugify(media.title)}`}
                   term={filterData.terms.find(s => s.slug === 'term-1').name}
                   title={media.title}
                   topic={
@@ -220,19 +219,16 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                       s =>
                         s.slug ===
                         media.tags.edges
-                          .map(({ node: topic }) =>
-                            topic.tag_text.replace(/\s+/g, '-').toLowerCase()
-                          )
+                          .map(({ node: topic }) => slugify(topic.tag_text))
                           .toString()
                     ).name
                   }
-                  status={media.tasks.edges
-                    .find(
+                  status={slugify(
+                    media.tasks.edges.find(
                       ({ node: task }) =>
                         task.label === 'What is the status of the promise?'
-                    )
-                    .node.first_response_value.replace(/\s+/g, '-')
-                    .toLowerCase()}
+                    ).node.first_response_value
+                  )}
                 />
               </Grid>
             ))}
