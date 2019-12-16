@@ -12,7 +12,7 @@ Run the following to get started :
 ```sh
 
   yarn
-  yarn dev
+  now dev
 
 
 ```
