@@ -1,17 +1,19 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Box } from '@material-ui/core';
 import propTypes from 'components/propTypes';
-
-import ButtonLink from 'components/Link/Button';
-
 import data from 'data';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    padding: '0.2rem 1.25rem',
-    textDecoration: 'none'
+    padding: '0.5rem 1.25rem',
+    textDecoration: 'none',
+    border: '1px solid theme.palette.primary.main',
+    borderRadius: `0.5rem`,
+    backgroundColor: theme.palette.primary.main,
+    color: 'white',
+    textTransform: 'uppercase'
   }
-});
+}));
 
 function StatusChip({ status, ...props }) {
   const classes = useStyles({ status, ...props });
@@ -19,14 +21,9 @@ function StatusChip({ status, ...props }) {
   const name = (statusType && statusType.name) || '';
 
   return (
-    <ButtonLink
-      href={`/promises?status=${status}`}
-      variant="contained"
-      color="primary"
-      className={classes.root}
-    >
+    <Box variant="contained" color="primary" className={classes.root}>
       {name}
-    </ButtonLink>
+    </Box>
   );
 }
 

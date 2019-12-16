@@ -24,14 +24,14 @@ function SideBar({ ...props }) {
       </Typography>
       <Grid container spacing={6}>
         <Grid item>
-          <StatusChip status="achieved" />
+          <StatusChip status="complete" />
           <Typography className={classes.typo}>
             The promise is mostly or completely fulfilled.
           </Typography>
         </Grid>
 
         <Grid item>
-          <StatusChip status="compromised" />
+          <StatusChip status="unstarted" />
           <Typography className={classes.typo}>
             When promises are accomplished less than the original promise but
             when there is still a significant accomplishment that is consistent
@@ -47,7 +47,7 @@ function SideBar({ ...props }) {
         </Grid>
 
         <Grid item>
-          <StatusChip status="not-achieved" />
+          <StatusChip status="behind-schedule" />
           <Typography className={classes.typo}>
             This could occur because of inaction by the administration or lack
             of support from the legislative branch or other groups and factors
@@ -67,7 +67,7 @@ function SideBar({ ...props }) {
         </Grid>
 
         <Grid item>
-          <StatusChip status="inactive" />
+          <StatusChip status="inconclusive" />
           <Typography className={classes.typo}>
             Every promise begins at this level and retains this rating until we
             see evidence of progress or evidence that the promise has been
