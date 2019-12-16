@@ -10,7 +10,7 @@ export default {
     },
     {
       slug: 'in-progress',
-      name: 'In-progress'
+      name: 'In Progress'
     },
     {
       slug: 'behind-schedule',
@@ -83,7 +83,7 @@ export default {
     },
     {
       status: 'behind-schedule',
-      name: 'Behind Schedulte',
+      name: 'Behind Schedule',
       value: 45,
       img: './status-not-achieved.png'
     },
