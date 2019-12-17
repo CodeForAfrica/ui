@@ -13,6 +13,7 @@ import PromiseCard from 'components/Promise/Card';
 import Link from 'components/Link';
 
 import filterData from 'data';
+import slugify from 'lib/slugify';
 
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
@@ -113,10 +114,6 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
     const search = params.toString();
     return search ? `?${search}` : '';
   }, [filter]);
-
-  const slugify = param => {
-    return param.replace(/\s+/g, '-').toLowerCase();
-  };
 
   return (
     <Layout justify="center" classes={{ root: classes.root }}>

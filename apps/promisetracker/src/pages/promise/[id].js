@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 import withApollo from 'lib/withApollo';
+import slugify from 'lib/slugify';
 
 import Page from 'components/Page';
 import Layout from 'components/Layout';
@@ -97,11 +98,6 @@ function PromisePage() {
   const medias = promises[0].project_medias.edges.map(
     ({ node: media }) => media
   );
-
-  const slugify = param => {
-    return param.replace(/\s+/g, '-').toLowerCase();
-  };
-
   const index = medias.findIndex(
     media => slugify(media.title) === slugify(router.query.id)
   );
@@ -115,6 +111,7 @@ function PromisePage() {
   const findStatus = promise.tasks.edges.find(
     ({ node: task }) => task.label === 'What is the status of the promise?'
   ).node.first_response_value;
+
   const currentTopic = promise.tags.edges
     .map(({ node: topic }) => slugify(topic.tag_text))
     .toString();
