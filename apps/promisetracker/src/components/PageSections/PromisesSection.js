@@ -115,6 +115,14 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
     return search ? `?${search}` : '';
   }, [filter]);
 
+  const findStatus = statusParam => {
+    return slugify(
+      statusParam.tasks.edges.find(
+        ({ node: task }) => task.label === 'What is the status of the promise?'
+      ).node.first_response_value
+    );
+  };
+
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
       <Grid
@@ -191,13 +199,7 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
           {node.project_medias.edges
             .filter(
               ({ node: filterMedia }) =>
-                (!filter.status ||
-                  slugify(
-                    filterMedia.tasks.edges.find(
-                      ({ node: task }) =>
-                        task.label === 'What is the status of the promise?'
-                    ).node.first_response_value
-                  ) === filter.status) &&
+                (!filter.status || findStatus(filterMedia) === filter.status) &&
                 (!filter.term || filter.term === 'term-1') &&
                 (!filter.topic ||
                   filterMedia.tags.edges
@@ -220,12 +222,7 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                           .toString()
                     ).name
                   }
-                  status={slugify(
-                    media.tasks.edges.find(
-                      ({ node: task }) =>
-                        task.label === 'What is the status of the promise?'
-                    ).node.first_response_value
-                  )}
+                  status={findStatus(media)}
                 />
               </Grid>
             ))}
