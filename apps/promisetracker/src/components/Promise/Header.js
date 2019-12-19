@@ -13,7 +13,7 @@ import StatusChip from 'components/StatusChip';
 function PromiseHeader({ status, title, term, topic }) {
   const router = useRouter();
   const statusAndShareSectionId = 'statusAndShareSection';
-  const shareUrl = router.query;
+  const shareUrl = router.query.id;
   return (
     <Grid container direction="column" justify="space-between" spacing={4}>
       <Grid item>

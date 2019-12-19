@@ -12,6 +12,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     borderTop: `1px solid ${theme.palette.divider}`,
     padding: '1.25rem 0'
+  },
+  link: {
+    color: theme.palette.primary.main
   }
 }));
 
@@ -29,7 +32,7 @@ function PromiseNavigator({ next, previous }) {
        */}
       <Grid item xs={6} md={5}>
         {previous && (
-          <Link href={previous.href} as={previous.href} color="#659db9">
+          <Link href={previous.href} as={previous.href}>
             <Typography className={classes.label}>
               {' '}
               <KeyboardArrowLeft fontSize="small" />
@@ -40,9 +43,9 @@ function PromiseNavigator({ next, previous }) {
       </Grid>
       {next && (
         <Grid container item xs={6} md={5} justify="flex-end">
-          <Link href={next.href} as={next.href} color="#659db9">
+          <Link href={next.href} as={next.href} className={classes.link}>
             <Typography className={classes.label}>
-              {next.label} <KeyboardArrowRight fontSize="smal" />
+              {next.label} <KeyboardArrowRight fontSize="small" />
             </Typography>
           </Link>
         </Grid>
