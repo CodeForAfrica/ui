@@ -195,6 +195,7 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
           className={classes.cardsContainer}
           spacing={2}
           color="white"
+          key={node.id}
         >
           {node.project_medias.edges
             .filter(
