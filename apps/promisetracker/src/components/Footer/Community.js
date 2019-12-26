@@ -8,7 +8,7 @@ import config from 'config';
 
 const useStyles = makeStyles({
   list: {
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(1)
   }
 });
 
@@ -29,11 +29,6 @@ function Community(props) {
 
       <Typography variant="subtitle1">Join Our Community:</Typography>
       <List className={classes.list}>
-        <ListItem dense>
-          <A href="https://www.facebook.com/HacksHackersAfrica">
-            Hacks/Hackers Africa
-          </A>
-        </ListItem>
         <ListItem dense>
           <A href={config.facebook.url}>{config.facebook.title}</A>
         </ListItem>
