@@ -3,8 +3,8 @@ import React from 'react';
 import { makeStyles, Typography, Button, Grid } from '@material-ui/core';
 
 import Layout from 'components/Layout';
-import ArticleCard from 'components/Article/ArticleCard';
-import useFetchArticles from 'components/UseFetchArticles';
+import ReportCard from 'components/ReportCard';
+import fetchReports from 'lib/fetchReports';
 
 import config from 'config';
 
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function LatestReportsSection() {
-  const [articles] = useFetchArticles(config.url.articles);
+  const [reports] = fetchReports(config.reports.url);
   const classes = useStyles();
 
   return (
@@ -36,14 +36,14 @@ function LatestReportsSection() {
       </Grid>
 
       <Grid item xs={12} container direction="row" className={classes.mainGrid}>
-        {articles.map(article => (
-          <ArticleCard
-            key={article.uniqueSlug}
-            uniqueSlug={article.uniqueSlug}
-            subtitle={article.virtuals.tags.map(tag => tag.name).join(', ')}
-            image={`https://cdn-images-1.medium.com/max/2600/${article.virtuals.previewImage.imageId}`}
-            title={article.title}
-            date={article.createdAt}
+        {reports.map(report => (
+          <ReportCard
+            key={report.uniqueSlug}
+            uniqueSlug={report.uniqueSlug}
+            subtitle={report.virtuals.tags.map(tag => tag.name).join(', ')}
+            image={`https://cdn-images-1.medium.com/max/2600/${report.virtuals.previewImage.imageId}`}
+            title={report.title}
+            date={report.createdAt}
           />
         ))}
       </Grid>
@@ -52,7 +52,7 @@ function LatestReportsSection() {
           classes={{ root: classes.readMore }}
           color="primary"
           variant="contained"
-          href="https://pesacheck.org/tagged/promise-tracker"
+          href={config.reports.url}
           target="_blank"
           rel="noopener noreferrer"
         >

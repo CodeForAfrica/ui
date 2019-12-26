@@ -28,14 +28,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function ArticleCard({
-  title,
-  description,
-  image,
-  subtitle,
-  uniqueSlug,
-  date
-}) {
+function ReportCard({ title, description, image, subtitle, uniqueSlug, date }) {
   const classes = useStyles();
   const timestamp = new Date(date);
   const formattedDate = timestamp
@@ -72,7 +65,7 @@ function ArticleCard({
   );
 }
 
-ArticleCard.propTypes = {
+ReportCard.propTypes = {
   image: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
   subtitle: propTypes.string.isRequired,
@@ -85,8 +78,8 @@ ArticleCard.propTypes = {
   ]).isRequired
 };
 
-ArticleCard.defaultProps = {
+ReportCard.defaultProps = {
   description: undefined
 };
 
-export default ArticleCard;
+export default ReportCard;
