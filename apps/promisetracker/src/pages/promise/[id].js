@@ -12,12 +12,12 @@ import Layout from 'components/Layout';
 import {
   Card as PromiseCard,
   Header as PromiseHeader,
+  SideBar,
   Navigator as PromiseNavigator
   // TimelineEntry as PromiseTimelineEntry
 } from 'components/Promise';
 
 import TitledGrid from 'components/TiltedGrid';
-import SideBar from 'components/Article/SideBar';
 
 import filterData from 'data';
 import gql from 'graphql-tag';
