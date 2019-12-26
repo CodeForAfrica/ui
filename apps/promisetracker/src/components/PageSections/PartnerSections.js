@@ -1,23 +1,16 @@
 import React from 'react';
-import { Grid, makeStyles, Typography } from '@material-ui/core';
+import { Grid, makeStyles, Typography, Container } from '@material-ui/core';
 
 import A from 'components/A';
-import Layout from 'components/Layout';
-
-import bbc from 'assets/images/partners/bbc.png';
-import dw from 'assets/images/partners/dw.png';
-import foreignAffairs from 'assets/images/partners/foreignaffairs.png';
-import politifact from 'assets/images/partners/politifact.png';
-import poyner from 'assets/images/partners/poyner.png';
+import SectionBox from './SectionBox';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    padding: '2rem'
+  img_box: {
+    marginTop: '30px'
   },
   img: {
-    maxWidth: '100%',
-    height: 'auto'
+    maxWidth: '170px',
+    maxHeight: '70px'
   },
   typoGrid: {
     textAlign: 'center',
@@ -34,59 +27,54 @@ const useStyles = makeStyles(theme => ({
 
 function PartnersSection() {
   const classes = useStyles();
+  const partners = [
+    {
+      name: 'ANCIR',
+      image_filename: 'ancir-gray.png',
+      url: 'https://investigate.africa/'
+    },
+    {
+      name: 'DWA',
+      image_filename: 'dwa-gray.png',
+      url: 'https://www.dw.com/en/dw-akademie/about-us/s-9519'
+    },
+    {
+      name: 'Meedan',
+      image_filename: 'meedan-gray.png',
+      url: 'https://meedan.com/en/'
+    },
+    {
+      name: 'Meedan Check',
+      image_filename: 'check-gray.png',
+      url: 'https://meedan.com/en/check/'
+    },
+    {
+      name: 'Code for Africa',
+      image_filename: 'cfafrica-gray.png',
+      url: 'https://codeforafrica.org/'
+    }
+  ];
+  const images = require.context('../../assets/images/logos', true);
   return (
-    <Layout>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        className={classes.typoGrid}
-      >
-        <Typography variant="h5">Made Possible With Support From:</Typography>
-      </Grid>
-      <Grid
-        container
-        spacing={6}
-        direction="row"
-        justify="space-between"
-        alignItems="center"
-        className={classes.imgGrid}
-      >
-        <Grid item xs={6} md={2}>
-          <A
-            href="https://www.foreignaffairs.com/articles/2014-01-06/just-facts"
-            className={classes.link}
-          >
-            <img
-              src={foreignAffairs}
-              alt="Foreign Affairs"
-              className={classes.img}
-            />
-          </A>
+    <SectionBox bgcolor="#fff" textAlign="center">
+      <Container>
+        <Typography variant="h5" paragraph>
+          Made Possible With Support From:
+        </Typography>
+        <Grid container spacing={2} className={classes.img_box}>
+          {partners.map(partner => {
+            const img = images(`./${partner.image_filename}`);
+            return (
+              <Grid item xs>
+                <A href={partner.url} className={classes.link}>
+                  <img src={img} alt={partner.name} className={classes.img} />
+                </A>
+              </Grid>
+            );
+          })}
         </Grid>
-        <Grid item xs={6} md={2}>
-          <A href="https://www.bbc.com/persian/iran/2015/08/150803_l10_rouhani_2nd_anniv_promises_review">
-            <img src={bbc} alt="BBC" className={classes.img} />
-          </A>
-        </Grid>
-        <Grid item xs={6} md={2}>
-          <A href="https://www.poynter.org/reporting-editing/2015/how-the-rouhani-meter-fact-checks-irans-president-from-6000-miles-away/">
-            <img src={poyner} alt="Poyner" className={classes.img} />
-          </A>
-        </Grid>
-        <Grid item xs={6} md={2}>
-          <A href="https://www.dw.com/fa-ir/کدام-وعدههای-روحانی-محقق-شدند/a-18652747">
-            <img src={dw} alt="DW" className={classes.img} />
-          </A>
-        </Grid>
-        <Grid item xs={6} md={2}>
-          <A href="https://www.politifact.com/truth-o-meter/article/2015/may/12/rouhani-meter-tracks-iran-presidents-campaign-prom/">
-            <img src={politifact} alt="Politifact" className={classes.img} />
-          </A>
-        </Grid>
-      </Grid>
-    </Layout>
+      </Container>
+    </SectionBox>
   );
 }
 

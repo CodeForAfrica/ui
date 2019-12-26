@@ -4,7 +4,7 @@ import { makeStyles, Grid, Typography } from '@material-ui/core';
 
 import A from 'components/A';
 
-import pesacheck from 'assets/images/logos/pesacheck.png';
+import pesacheck from 'assets/images/logos/pesacheck-short-small.png';
 import cfa from 'assets/images/logos/cfafrica.png';
 
 const useStyles = makeStyles(theme => ({
@@ -17,8 +17,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   img: {
-    height: 'auto',
-    maxWidth: '100%'
+    maxWidth: '150px'
   }
 }));
 
