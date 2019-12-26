@@ -1,8 +1,9 @@
 export default {
+  title: 'PromiseTracker',
+  url: 'https://promisetracker.pesacheck.org/',
   GRAPHQL_URI: 'https://check-api.checkmedia.org/api/graphql',
-  url: {
-    articles:
-      'https://stories.hurumap.org/https%3A%2F%2Fpesacheck.org%2Ftagged%2Fpromise-tracker%3Fformat%3Djson'
+  reports: {
+    url: 'https://pesacheck.org/tagged/promise-tracker'
   },
   colors: {
     achieved: {
@@ -29,5 +30,21 @@ export default {
       light: '#9b9b9b',
       dark: 'rgb(141, 141, 141)'
     }
+  },
+
+  // Social
+  twitter: {
+    title: 'PesaCheck Twitter',
+    url: 'https://twitter.com/PesaCheck'
+  },
+  facebook: {
+    title: 'PesaCheck Facebook',
+    url: 'https://facebook.com/PesaCheck'
+  },
+  github: {
+    url: 'https://github.com/CodeForAfrica/PromiseTracker'
+  },
+  openafrica: {
+    url: 'https://openafrica.net/organization/pesacheck'
   }
 };

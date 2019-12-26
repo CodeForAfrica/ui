@@ -1,70 +1,46 @@
 import React from 'react';
 
-import classNames from 'classnames';
-
-import { makeStyles, Typography } from '@material-ui/core';
+import { makeStyles, Typography, List, ListItem } from '@material-ui/core';
 
 import A from 'components/A';
+import theme from 'theme';
+import config from 'config';
 
 const useStyles = makeStyles({
-  root: {
-    width: '100%'
-  },
-  listText: {
-    // match parent width
-    width: '100%'
-  },
   list: {
-    listStyleType: 'none',
-    padding: 0,
-    marginTop: '0'
-  },
-  joinText: {
-    paddingTop: '1.5rem'
+    marginBottom: theme.spacing(2)
   }
 });
 
 function Community(props) {
   const classes = useStyles(props);
-  const joinClassName = classNames(classes.listText, classes.joinText);
 
   return (
-    <div classes={classes.root}>
-      <Typography
-        variant="subtitle1"
-        className={classes.listText}
-        component="div"
-      >
-        Other openAFRICA Projects
-        <ul className={classes.list}>
-          <li>
-            <A
-              href="https://taxclock.codeforkenya.org/"
-              className={classes.links}
-            >
-              Tax Clock
-            </A>
-          </li>
-          <li>
-            <A href="https://hurumap.org/" className={classes.links}>
-              HURUmap
-            </A>
-          </li>
-        </ul>
-      </Typography>
-      <Typography variant="subtitle1" className={joinClassName} component="div">
-        Join Our Community
-        <ul className={classes.list}>
-          <li>
-            <A
-              href="https://www.facebook.com/HacksHackersAfrica"
-              className={classes.links}
-            >
-              Hacks/Hackers Africa
-            </A>
-          </li>
-        </ul>
-      </Typography>
+    <div>
+      <Typography variant="subtitle1">Other PesaCheck Projects:</Typography>
+      <List className={classes.list}>
+        <ListItem dense>
+          <A href="https://taxclock.pesacheck.org/">Tax Clock</A>
+        </ListItem>
+        <ListItem dense>
+          <A href="https://pesayetu.pesacheck.org/">PesaYetu</A>
+        </ListItem>
+      </List>
+
+      <Typography variant="subtitle1">Join Our Community:</Typography>
+      <List className={classes.list}>
+        <ListItem dense>
+          <A href="https://www.facebook.com/HacksHackersAfrica">
+            Hacks/Hackers Africa
+          </A>
+        </ListItem>
+        <ListItem dense>
+          <A href={config.facebook.url}>{config.facebook.title}</A>
+        </ListItem>
+        <ListItem dense>
+          <A href={config.twitter.url}>{config.twitter.title}</A>
+        </ListItem>
+      </List>
     </div>
   );
 }

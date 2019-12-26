@@ -1,18 +1,14 @@
 import React from 'react';
 
-import { makeStyles, Grid } from '@material-ui/core';
+import { makeStyles, Grid, Typography } from '@material-ui/core';
 
 import A from 'components/A';
 
 import pesacheck from 'assets/images/logos/pesacheck.png';
-import hivos from 'assets/images/logos/hivos.png';
-import cfa from 'assets/images/logos/codeforafrica.png';
+import cfa from 'assets/images/logos/cfafrica.png';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-    height: '100%',
-    width: '100%', // 156px / 16
     [theme.breakpoints.up('md')]: {
       width: '15.5625rem'
     },
@@ -35,23 +31,25 @@ function Partners(props) {
       className={classes.root}
       direction="row"
       justify="flex-start"
+      spacing={2}
     >
       <Grid item xs={12}>
+        <Typography variant="subtitle1">A Project By:</Typography>
+      </Grid>
+      <Grid item xs={12}>
         <A href="https://pesacheck.org/">
-          <img src={pesacheck} alt="Pesa check" className={classes.img} />
+          <img src={pesacheck} alt="PesaCheck" className={classes.img} />
         </A>
       </Grid>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <A href="https://codeforkenya.org">
-            <img src={cfa} alt="Code for Africa" className={classes.img} />
-          </A>
-        </Grid>
-        <Grid item xs={6}>
-          <A href="https://www.hivos.org">
-            <img src={hivos} alt="Hivos" className={classes.img} />
-          </A>
-        </Grid>
+      <Grid item xs={12}>
+        <A href="https://codeforafrica.org">
+          <img
+            src={cfa}
+            alt="Code for Africa"
+            width="120px"
+            className={classes.img}
+          />
+        </A>
       </Grid>
     </Grid>
   );

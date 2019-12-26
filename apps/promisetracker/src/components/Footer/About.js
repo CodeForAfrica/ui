@@ -1,22 +1,15 @@
 import React from 'react';
 
-import { makeStyles, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 import A from 'components/A';
+import config from 'config';
 
-const useStyles = makeStyles(theme => ({
-  body: {
-    paddingTop: theme.spacing(3)
-  }
-}));
-
-function About(props) {
-  const classes = useStyles(props);
-
+function About() {
   return (
     <div>
-      <Typography variant="body1" className={classes.title}>
-        Promise Tracker, is a tool to help journalists and civil society
+      <Typography variant="body1" paragraph>
+        <b>{config.title}</b>, is a tool to help journalists and civil society
         watchdogs more easily track campaign promises and other political /
         government pledges, using official evidence / data, as well as
         crowdsourced information, with a transparent and defensible methodology,
@@ -24,29 +17,26 @@ function About(props) {
         that
       </Typography>
 
-      <Typography variant="subtitle1" className={classes.body}>
+      <Typography variant="body1" paragraph>
         This site is an{' '}
-        <A href="https://openafrica.net/" className={classes.links}>
-          openAFRICA
+        <A href="https://openafrica.net/">
+          <b>openAFRICA</b>
         </A>{' '}
         project of{' '}
-        <A href="https://codeforafrica.org/" className={classes.links}>
-          Code for Africa
+        <A href="https://codeforafrica.org/">
+          <b>Code for Africa</b>
         </A>
         . All content is released under a{' '}
-        <A
-          href="https://creativecommons.org/licenses/by/4.0/"
-          className={classes.links}
-        >
-          Creative Commons 4 Attribution Licence
+        <A href="https://creativecommons.org/licenses/by/4.0/">
+          <b>Creative Commons 4 Attribution Licence</b>
         </A>
         . Reuse it to help empower your own community. The code is available on{' '}
-        <A href="https://github.com/CodeForAfrica" className={classes.links}>
-          Github
+        <A href={config.github.url}>
+          <b>GitHub</b>
         </A>{' '}
         and data is available on{' '}
-        <A href="https://openafrica.net/" className={classes.links}>
-          openAFRICA
+        <A href={config.openafrica.url}>
+          <b>openAFRICA</b>
         </A>
         .
       </Typography>
