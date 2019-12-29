@@ -21,6 +21,7 @@ To deploy:
 ```sh
   yarn run now login
   yarn run now secrets add check-access-token <CHECK_ACCESS_TOKEN>
+  yarn run switch  # Select Team to deploy to
   yarn deploy
 ```
 
