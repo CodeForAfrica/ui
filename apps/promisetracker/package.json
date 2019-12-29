@@ -69,7 +69,7 @@
     "now-dev": "now dev",
     "start": "next start",
     "build": "next build",
-    "deploy": "now --prod",
+    "deploy": "now --prod --name codeforafrica/PromiseTracker",
     "lint": "yarn eslint --fix --ignore-path './.gitignore' --ext '.js,.json,.md' './'",
     "lint-staged": "yarn eslint --fix"
   },
