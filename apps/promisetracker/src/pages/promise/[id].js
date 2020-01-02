@@ -201,9 +201,8 @@ function PromisePage() {
                 title="Related Promises"
               >
                 {relatedTopic.map(topic => (
-                  <Grid item xs={12}>
+                  <Grid item xs={12} key={topic.id}>
                     <PromiseCard
-                      key={topic.id}
                       status="stalled"
                       title={topic.title}
                       href="/promise/[id]"

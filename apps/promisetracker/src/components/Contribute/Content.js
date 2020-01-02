@@ -27,10 +27,14 @@ function Content({ title, subtitle, description }) {
   );
 }
 
+Content.defaultProps = {
+  description: ''
+};
+
 Content.propTypes = {
   title: propTypes.string.isRequired,
   subtitle: propTypes.string.isRequired,
-  description: propTypes.string.isRequired
+  description: propTypes.string
 };
 
 export default Content;

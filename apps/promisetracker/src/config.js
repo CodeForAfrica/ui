@@ -2,6 +2,7 @@ export default {
   title: 'PromiseTracker',
   url: 'https://promisetracker.pesacheck.org/',
   GRAPHQL_URI: 'https://check-api.checkmedia.org/api/graphql',
+  PROXY_URL: 'https://corsanywhere.devops.codeforafrica.org/',
   reports: {
     url: 'https://pesacheck.org/tagged/promise-tracker'
   },

@@ -65,7 +65,7 @@ function PartnersSection() {
           {partners.map(partner => {
             const img = images(`./${partner.image_filename}`);
             return (
-              <Grid item xs>
+              <Grid item xs key={partner.url}>
                 <A href={partner.url} className={classes.link}>
                   <img src={img} alt={partner.name} className={classes.img} />
                 </A>
