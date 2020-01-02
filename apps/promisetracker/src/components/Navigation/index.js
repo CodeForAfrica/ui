@@ -55,13 +55,13 @@ function Navigation({ width, ...props }) {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   const renderNavLinks = linkClassName => {
     return [
-      { title: 'home', href: '/' },
-      { title: 'promises', href: '/promises' },
+      { title: 'Home', href: '/' },
+      { title: 'Promises', href: '/promises' },
       {
-        title: 'reports',
+        title: 'Reports',
         href: 'https://pesacheck.org/tagged/promise-tracker'
       },
-      { title: 'about us', href: '/about' }
+      { title: 'About', href: '/about' }
     ].map(nav =>
       nav.href.startsWith('/') ? (
         <Link key={nav.href} href={nav.href} className={linkClassName}>

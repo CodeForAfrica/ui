@@ -14,7 +14,7 @@ function Brand({ href }) {
   const classes = useStyles();
   return (
     <Link href={href} variant="h6" className={classes.typo}>
-      PROMISE TRACKER
+      PromiseTracker
     </Link>
   );
 }

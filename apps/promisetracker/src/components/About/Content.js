@@ -12,36 +12,47 @@ function AboutContent() {
   return (
     <Grid item xs={12} md={8}>
       <Typography variant="h3" className={classes.title}>
-        ABOUT US
+        About PromiseTracker
       </Typography>
       <Typography variant="body1">
-        Rouhani Meter is a project that aims to monitor the accomplishment of
-        promises made by Iranian President Hassan Rouhani. It is inspired by
-        Morsi Meter,which was created by a group of young Egyptians to observe
-        the actions taken by then Egyptian president, Mohamed Morsi,towards the
-        promises that he had made. Rouhani Meter is an independent project by
-        ASL19, which initially benefited from the support of the University of
-        Toronto.
-      </Typography>
-
-      <br />
-
-      <Typography variant="body1">
-        Rouhani Meter uses accessible and reliable information to report on the
-        accomplishment of promises with accuracy and impartiality. We have
-        listed clear and achievable promises made by President Rouhani and have
-        organized them in four categories: Foreign Policy, Economy, Domestic
-        Policy, and Socio-cultural Matters.
+        Wajibisha (Swahili for ‘hold accountable’) is a platform-based promise
+        tracker where Kenyan citizens can track various promises made by
+        governors in their manifestos and during the campaigns leading up to the
+        2017 general election. While the promises made by the national
+        government have been covered extensively, promises made by the governors
+        have received less coverage, resulting in limited analysis around
+        whether they are actually viable.
       </Typography>
 
       <br />
 
       <Typography variant="body1">
-        We are eager to hear your comments and suggestions about how we can
-        increase the quality and effectiveness of this project. If you have any
-        suggestions or concerns please message us through the Community Watch
-        section, at the bottom of the main page, or through Rouhani Meter’s
-        Facebook, Twitter, Instagram and Telegram accounts.
+        Engaging with governments needs data, to this end, this project not only
+        develops a promise tracker. It showcases this information on an
+        easy-to-understand platform, making Wajibisha a contributor to public
+        discourse around devolution and service delivery by elected officials.
+        This leads to a more robust dialogue and positive engagement with the
+        county governments around this subject.
+      </Typography>
+
+      <br />
+
+      <Typography variant="body1">
+        Wajibisha’s initial focus will be on Nairobi tracking progress on
+        Governor Mike Sonko’s seven-point plan to improve the city in the first
+        100 days of his term. The tracker will also focus on other county
+        governors whose plans are elaborated in their manifestos, such as
+        Makueni, Nakuru, Kitui and Nandi.
+      </Typography>
+
+      <br />
+
+      <Typography variant="body1">
+        Promises are logged on Meedan&aposs Check platform covering the
+        following thematic areas - Health, Housing, Jobs, Governance,
+        Environment, Traffic Management and Social Inclusion (Youth, Women and
+        Persons with Disabilities). Updates on the progress of delivery on these
+        promises will then reflect on the main promise tracker website.
       </Typography>
     </Grid>
   );
