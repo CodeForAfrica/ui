@@ -35,7 +35,7 @@ function ChartSection() {
             <Grid key={promise.status} item xs={8} sm={4} md={2}>
               <StatusIndicator
                 img={getIndicatorImage(promise.img)}
-                label={promise.label}
+                label={promise.name}
                 status={promise.status}
                 value={promise.value}
               />
