@@ -32,7 +32,6 @@ function About() {
             alignItems="flex-start"
           >
             <AboutContent />
-
             <SideBar />
           </Grid>
         </Layout>

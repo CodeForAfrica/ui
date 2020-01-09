@@ -7,6 +7,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     borderLeft: `1px solid ${theme.palette.divider}`
   },
+  statusGrid: {
+    width: '100%'
+  },
   title: {
     paddingBottom: '2rem'
   },
@@ -23,14 +26,14 @@ function SideBar({ ...props }) {
         Our Ratings
       </Typography>
       <Grid container spacing={6}>
-        <Grid item>
+        <Grid item className={classes.statusGrid}>
           <StatusChip status="complete" />
           <Typography className={classes.typo}>
             The promise is mostly or completely fulfilled.
           </Typography>
         </Grid>
 
-        <Grid item>
+        <Grid item className={classes.statusGrid}>
           <StatusChip status="unstarted" />
           <Typography className={classes.typo}>
             When promises are accomplished less than the original promise but
@@ -39,14 +42,14 @@ function SideBar({ ...props }) {
           </Typography>
         </Grid>
 
-        <Grid item>
+        <Grid item className={classes.statusGrid}>
           <StatusChip status="in-progress" />
           <Typography className={classes.typo}>
             The promise is in the works or is being considered.
           </Typography>
         </Grid>
 
-        <Grid item>
+        <Grid item className={classes.statusGrid}>
           <StatusChip status="behind-schedule" />
           <Typography className={classes.typo}>
             This could occur because of inaction by the administration or lack
@@ -57,7 +60,7 @@ function SideBar({ ...props }) {
           </Typography>
         </Grid>
 
-        <Grid item>
+        <Grid item className={classes.statusGrid}>
           <StatusChip status="stalled" />
           <Typography className={classes.typo}>
             There is no movement on the promise, perhaps because of financial
@@ -66,7 +69,7 @@ function SideBar({ ...props }) {
           </Typography>
         </Grid>
 
-        <Grid item>
+        <Grid item className={classes.statusGrid}>
           <StatusChip status="inconclusive" />
           <Typography className={classes.typo}>
             Every promise begins at this level and retains this rating until we
