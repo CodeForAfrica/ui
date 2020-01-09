@@ -32,7 +32,7 @@ function PromiseNavigator({ next, previous }) {
        */}
       <Grid item xs={6} md={5}>
         {previous && (
-          <Link href={previous.href} as={previous.href}>
+          <Link href="/promise/[id]" as={previous.href}>
             <Typography className={classes.label}>
               {' '}
               <KeyboardArrowLeft fontSize="small" />
