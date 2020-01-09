@@ -12,13 +12,13 @@ function Footer() {
     <SectionBox bgcolor="#e6e6e6">
       <Container>
         <Grid container justify="center" spacing={3}>
-          <Grid item xs={12} sm={7}>
+          <Grid item xs={12} sm={6} md={7}>
             <About />
           </Grid>
-          <Grid item xs={6} sm={3}>
+          <Grid item xs={6} sm={3} md={3}>
             <Community />
           </Grid>
-          <Grid item xs={6} sm={2}>
+          <Grid item xs={6} sm={3} md={2}>
             <Partners />
           </Grid>
         </Grid>
