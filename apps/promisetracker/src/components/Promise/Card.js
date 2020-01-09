@@ -11,7 +11,7 @@ import {
 import Link from 'components/Link';
 
 import propTypes from 'components/propTypes';
-import StatusChip from 'components/StatusChip';
+import StatusChip from 'components/Promise/StatusChip';
 
 const useStyles = makeStyles(theme => ({
   root: {

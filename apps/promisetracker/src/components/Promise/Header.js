@@ -8,7 +8,7 @@ import { Facebook, Twitter } from 'react-feather';
 import { FacebookShareButton, TwitterShareButton } from 'react-share';
 
 import propTypes from 'components/propTypes';
-import StatusChip from 'components/StatusChip';
+import StatusChip from 'components/Promise/StatusChip';
 
 function PromiseHeader({ status, title, term, topic }) {
   const router = useRouter();

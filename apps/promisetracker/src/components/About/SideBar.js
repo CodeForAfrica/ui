@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
-import StatusChip from 'components/StatusChip';
+import StatusChip from 'components/Promise/StatusChip';
 
 const useStyles = makeStyles(theme => ({
   root: {

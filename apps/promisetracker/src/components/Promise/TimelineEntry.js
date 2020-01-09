@@ -10,7 +10,7 @@ import ExpandIcon from '@material-ui/icons/Add';
 import MinimizeIcon from '@material-ui/icons/Minimize';
 
 import propTypes from 'components/propTypes';
-import StatusChip from 'components/StatusChip';
+import StatusChip from 'components/Promise/StatusChip';
 
 function PromiseTimelineEntry({ defaultExpanded, updated, status }) {
   return (
