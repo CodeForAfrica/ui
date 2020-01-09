@@ -5,11 +5,12 @@ import data from 'data';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: '0.5rem 1.25rem',
-    textDecoration: 'none',
-    border: '1px solid theme.palette.primary.main',
-    borderRadius: `0.5rem`,
+    padding: '0.2rem 1.25rem',
+    ...theme.typography.button,
     backgroundColor: theme.palette.primary.main,
+    textDecoration: 'none',
+    textAlign: 'center',
+    borderRadius: `0.2rem`,
     color: 'white',
     textTransform: 'uppercase'
   }
