@@ -124,6 +124,8 @@ function PromisePage() {
         .toString() === currentTopic
   );
 
+  console.log(relatedTopic);
+
   // Lets use null to ensure the nothing is rendered: undefined seems to
   // render `0`
   const prevPromise = index ? medias[index - 1] : null;
@@ -198,7 +200,7 @@ function PromisePage() {
                 container
                 spacing={2}
                 variant="h4"
-                title="Related Promises"
+                title={relatedTopic.length === 0 ? '' : 'Related Promises'}
               >
                 {relatedTopic.map(topic => (
                   <Grid item xs={12} key={topic.id}>
