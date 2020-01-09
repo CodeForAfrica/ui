@@ -31,12 +31,13 @@ function PromiseHeader({ status, title, term, topic }) {
         item
         container
         direction="row"
+        justify="space-between"
         wrap="nowrap"
       >
-        <Grid item xs={4}>
+        <Grid item>
           <StatusChip status={status} style={{ color: 'white' }} />
         </Grid>
-        <Grid container item justify="flex-end" spacing={2}>
+        <Grid container item justify="flex-end" spacing={2} xs={6} sm={4}>
           <Grid item>
             <Typography variant="body1">Share:</Typography>
           </Grid>
