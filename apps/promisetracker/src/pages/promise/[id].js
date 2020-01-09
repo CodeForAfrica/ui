@@ -203,7 +203,6 @@ function PromisePage() {
                 {relatedTopic.map(topic => (
                   <Grid item xs={12} key={topic.id}>
                     <PromiseCard
-                      status="stalled"
                       title={topic.title}
                       href="/promise/[id]"
                       as={`/promise/${slugify(topic.title)}`}
@@ -219,6 +218,12 @@ function PromisePage() {
                               .toString()
                         ).name
                       }
+                      status={slugify(
+                        topic.tasks.edges.find(
+                          ({ node: task }) =>
+                            task.label === 'What is the status of the promise?'
+                        ).node.first_response_value
+                      )}
                     />
                   </Grid>
                 ))}
