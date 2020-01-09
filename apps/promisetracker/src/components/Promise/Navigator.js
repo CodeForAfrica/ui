@@ -43,7 +43,7 @@ function PromiseNavigator({ next, previous }) {
       </Grid>
       {next && (
         <Grid container item xs={6} md={5} justify="flex-end">
-          <Link href={next.href} as={next.href} className={classes.link}>
+          <Link href="/promise/[id]" as={next.href} className={classes.link}>
             <Typography className={classes.label}>
               {next.label} <KeyboardArrowRight fontSize="small" />
             </Typography>
