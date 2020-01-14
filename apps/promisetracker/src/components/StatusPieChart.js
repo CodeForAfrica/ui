@@ -166,7 +166,7 @@ function StatusPieChart() {
           </Typography>
         )}
       </Grid>
-      <PieChart width={255} height={255}>
+      <PieChart width={300} height={300}>
         <Pie
           blendStroke
           isAnimationActive={false}
@@ -175,9 +175,9 @@ function StatusPieChart() {
           nameKey="status"
           cx="50%"
           cy="50%"
-          paddingAngle={1}
-          outerRadius={255 / 2}
-          innerRadius={75}
+          paddingAngle={2}
+          outerRadius={300 / 2}
+          innerRadius={90}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         >
