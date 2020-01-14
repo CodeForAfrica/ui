@@ -81,13 +81,13 @@ function StatusPieChart() {
     return null;
   }
 
-  // Get total media list
+  // Get total promises
   const promises = data.team.projects.edges.map(({ node: project }) => project);
   const medias = promises[0].project_medias.edges.map(
     ({ node: media }) => media
   );
 
-  const mediaArray = medias.map(media => ({
+  const currentPromiseArray = medias.map(media => ({
     title: media.title,
     status: slugify(
       media.tasks.edges.find(
@@ -96,38 +96,42 @@ function StatusPieChart() {
     )
   }));
 
-  const totalPromises = mediaArray.length;
+  const totalPromises = currentPromiseArray.length;
 
-  // Get response value not in graphqlMediaArray
-  const graphqlMediaArray = mediaArray.map(status => status.status); // Get all values in graphql chart
-  const chartDataArray = chartData.chartPromises.map(s => s.status); // Get all values logged in chartData
-  const chartDataSetDiff = chartDataArray.filter(
-    item => !graphqlMediaArray.includes(item)
+  // Get status for promise not in currentPromiseArray
+  const graphqlPromiseArray = currentPromiseArray.map(status => status.status); // Get all values in graphql chart
+  const chartDataPromiseArray = chartData.chartPromises.map(s => s.status); // Get all values logged in chartData
+  const chartDataSetDiff = chartDataPromiseArray.filter(
+    item => !graphqlPromiseArray.includes(item)
   );
 
-  // Create object
-  const objChartDataSetDiff = chartDataSetDiff.map(item => {
-    const o = {};
-    o.status = item;
-    o.count = 0;
-    return o;
+  // Obj containing status of promise not in currentPromiseArray
+  const currentChartDataSetDiff = chartDataSetDiff.map(item => {
+    const obj = {};
+    obj.status = item;
+    obj.count = 0;
+    return obj;
   });
 
-  // Get count of current values in mediaArray
+  // Get count of current values in currentPromiseArray
   /* eslint-disable no-param-reassign */
-  const newCount = mediaArray.reduce((c, { status: key }) => {
+  const setPromiseCount = currentPromiseArray.reduce((c, { status: key }) => {
     c[key] = (c[key] || 0) + 1;
     return c;
   }, {});
 
-  // create object for the above
-  const newCountResultArray = Object.keys(newCount).map(e => ({
+  // Set object array for setPromiseCount
+  const currentSetPromiseCount = Object.keys(setPromiseCount).map(e => ({
     status: e,
-    count: Number(((newCount[e] * 100) / totalPromises).toFixed(0))
+    count: Number(((setPromiseCount[e] * 100) / totalPromises).toFixed(0))
   }));
 
-  // Generate current values of all status and push it in one array
-  const pieData = [...objChartDataSetDiff, ...newCountResultArray];
+  // Push into one array
+  const pieData = [...currentChartDataSetDiff, ...currentSetPromiseCount];
+
+  function PercentageLabelFormatter(count) {
+    return `${count}%`;
+  }
 
   const [activeData, setActiveData] = useState(null);
   const onMouseEnter = pieChartData => {
@@ -179,7 +183,7 @@ function StatusPieChart() {
             className={classes.percentageLabel}
             dataKey="count"
             position="insideTop"
-            // formatter={PercentageLabelFormatter}
+            formatter={PercentageLabelFormatter}
           />
         </Pie>
       </PieChart>
