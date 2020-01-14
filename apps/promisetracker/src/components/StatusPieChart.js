@@ -81,13 +81,13 @@ function StatusPieChart() {
 
   const { loading, error, data } = useQuery(GET_CHART_DATA);
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading pie chart...</div>;
   }
   if (error) {
     return null;
   }
 
-  // Get  total medias
+  // Get total media list
   const promises = data.team.projects.edges.map(({ node: project }) => project);
   const medias = promises[0].project_medias.edges.map(
     ({ node: media }) => media
@@ -102,18 +102,38 @@ function StatusPieChart() {
     )
   }));
 
-  // const newCount = mediaArray.reduce(
-  // (c, { status: key }) => ((c[key] = (c[key] || 0) + 1), c),
-  // {}
-  // );
+  // Get response value not in graphqlMediaArray
+  const graphqlMediaArray = mediaArray.map(status => status.status); // Get all values in graphql chart
+  const chartDataArray = chartData.chartPromises.map(s => s.status); // Get all values logged in chartData
 
+  // Compare both arrays
+  const chartDataSetDiff = chartDataArray.filter(
+    item => !graphqlMediaArray.includes(item)
+  );
+
+  // create object for the above
+  const objChartDataSetDiff = chartDataSetDiff.map(item => {
+    const o = {};
+    o.status = item;
+    o.count = 0;
+    return o;
+  });
+
+  // Get count for mediaArray
   /* eslint-disable no-param-reassign */
   const newCount = mediaArray.reduce((c, { status: key }) => {
     c[key] = (c[key] || 0) + 1;
     return c;
   }, {});
 
-  console.log(newCount);
+  // create object for the above
+  const newCountResultArray = Object.keys(newCount).map(e => ({
+    status: e,
+    count: newCount[e]
+  }));
+
+  const newArrayOfObjects = [...objChartDataSetDiff, ...newCountResultArray];
+  console.log(newArrayOfObjects);
 
   const [activeData, setActiveData] = useState(null);
   const onMouseEnter = newData => {
