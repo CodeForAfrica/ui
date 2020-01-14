@@ -226,7 +226,11 @@ function StatusPieChart() {
                 img={getIndicatorImage(promise.img)}
                 label={promise.name}
                 status={promise.status}
-                // value={pieData.map(s =>  s.status === promise.status ? PercentageLabelFormatter(s.count) : 0)}
+                value={pieData.map(item =>
+                  item.status === promise.status
+                    ? PercentageLabelFormatter(item.count)
+                    : null
+                )}
               />
             </Grid>
           ))}
