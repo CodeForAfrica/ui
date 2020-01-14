@@ -52,12 +52,6 @@ const GET_CHART_DATA = gql`
   }
 `;
 
-const totalPromises = chartData.chartPromises.reduce((a, b) => a + b.value, 0);
-
-function PercentageLabelFormatter(value) {
-  return `${((Number(value) * 100) / totalPromises).toFixed(0)}%`;
-}
-
 const useStyles = makeStyles(theme => ({
   root: {
     position: 'relative'
@@ -102,16 +96,16 @@ function StatusPieChart() {
     )
   }));
 
+  const totalPromises = mediaArray.length;
+
   // Get response value not in graphqlMediaArray
   const graphqlMediaArray = mediaArray.map(status => status.status); // Get all values in graphql chart
   const chartDataArray = chartData.chartPromises.map(s => s.status); // Get all values logged in chartData
-
-  // Compare both arrays
   const chartDataSetDiff = chartDataArray.filter(
     item => !graphqlMediaArray.includes(item)
   );
 
-  // create object for the above
+  // Create object
   const objChartDataSetDiff = chartDataSetDiff.map(item => {
     const o = {};
     o.status = item;
@@ -119,7 +113,7 @@ function StatusPieChart() {
     return o;
   });
 
-  // Get count for mediaArray
+  // Get count of current values in mediaArray
   /* eslint-disable no-param-reassign */
   const newCount = mediaArray.reduce((c, { status: key }) => {
     c[key] = (c[key] || 0) + 1;
@@ -129,20 +123,19 @@ function StatusPieChart() {
   // create object for the above
   const newCountResultArray = Object.keys(newCount).map(e => ({
     status: e,
-    count: newCount[e]
+    count: Number(((newCount[e] * 100) / totalPromises).toFixed(0))
   }));
 
-  const newArrayOfObjects = [...objChartDataSetDiff, ...newCountResultArray];
-  console.log(newArrayOfObjects);
+  // Generate current values of all status and push it in one array
+  const pieData = [...objChartDataSetDiff, ...newCountResultArray];
 
   const [activeData, setActiveData] = useState(null);
-  const onMouseEnter = newData => {
-    setActiveData(newData);
+  const onMouseEnter = pieChartData => {
+    setActiveData(pieChartData);
   };
   const onMouseLeave = () => {
     setActiveData(null);
   };
-
   return (
     <div className={classes.root}>
       <Grid
@@ -160,7 +153,7 @@ function StatusPieChart() {
         </Typography>
         {activeData && (
           <Typography variant="h6" className={classes.typo}>
-            {activeData.name}
+            {activeData.status}
           </Typography>
         )}
       </Grid>
@@ -168,9 +161,9 @@ function StatusPieChart() {
         <Pie
           blendStroke
           isAnimationActive={false}
-          data={chartData.chartPromises}
-          dataKey="value"
-          nameKey="name"
+          data={pieData}
+          dataKey="count"
+          nameKey="status"
           cx="50%"
           cy="50%"
           paddingAngle={1}
@@ -179,14 +172,14 @@ function StatusPieChart() {
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         >
-          {chartData.chartPromises.map(promise => (
+          {pieData.map(promise => (
             <Cell key={promise.status} />
           ))}
           <LabelList
             className={classes.percentageLabel}
-            dataKey="value"
+            dataKey="count"
             position="insideTop"
-            formatter={PercentageLabelFormatter}
+            // formatter={PercentageLabelFormatter}
           />
         </Pie>
       </PieChart>
