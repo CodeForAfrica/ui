@@ -30,6 +30,7 @@ function ChartSection() {
         <Grid item className={classes.statusGrid}>
           <StatusPieChart />
         </Grid>
+
         <Grid container spacing={2} justify="center">
           {data.chartPromises.map(promise => (
             <Grid key={promise.status} item xs={8} sm={4} md={2}>

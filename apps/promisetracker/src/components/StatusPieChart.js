@@ -9,6 +9,18 @@ import slugify from 'lib/slugify';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 
+import Layout from 'components/Layout';
+// import StatusPieChart from 'components/StatusPieChart';
+import StatusIndicator from 'components/StatusIndicator';
+
+// import data from 'data';
+
+const getIndicatorImage = require.context(
+  '../assets/images/indicators',
+  false,
+  /\.png$/
+);
+
 const GET_CHART_DATA = gql`
   query {
     team {
@@ -54,7 +66,13 @@ const GET_CHART_DATA = gql`
 
 const useStyles = makeStyles(theme => ({
   root: {
+    padding: '3rem 0'
+  },
+  statusGridRoot: {
     position: 'relative'
+  },
+  statusGrid: {
+    padding: '5rem 0'
   },
   centerTextGrid: {
     position: 'absolute',
@@ -142,56 +160,78 @@ function StatusPieChart() {
   };
   return (
     <div className={classes.root}>
-      <Grid
-        container
-        direction="column"
-        justify="center"
-        alignItems="center"
-        className={classes.centerTextGrid}
-      >
-        <Typography variant="h6" className={classes.typo}>
-          {activeData
-            ? PercentageLabelFormatter(activeData.count)
-            : totalPromises}
-        </Typography>
-        <Typography variant="h6" className={classes.typo}>
-          Promises
-        </Typography>
-        {activeData && (
-          <Typography variant="h6" className={classes.typo}>
-            {(chartData.statusTypes.find(s => s.slug === activeData.status) &&
-              chartData.statusTypes.find(s => s.slug === activeData.status)
-                .name) ||
-              ''}
-          </Typography>
-        )}
-      </Grid>
-      <PieChart width={300} height={300}>
-        <Pie
-          blendStroke
-          isAnimationActive={false}
-          data={pieData}
-          dataKey="count"
-          nameKey="status"
-          cx="50%"
-          cy="50%"
-          paddingAngle={2}
-          outerRadius={300 / 2}
-          innerRadius={90}
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-        >
-          {pieData.map(promise => (
-            <Cell key={promise.status} />
+      <Layout justify="center">
+        <Grid item className={classes.statusGrid}>
+          <div className={classes.statusGridRoot}>
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              className={classes.centerTextGrid}
+            >
+              <Typography variant="h6" className={classes.typo}>
+                {activeData
+                  ? PercentageLabelFormatter(activeData.count)
+                  : totalPromises}
+              </Typography>
+              <Typography variant="h6" className={classes.typo}>
+                Promises
+              </Typography>
+              {activeData && (
+                <Typography variant="h6" className={classes.typo}>
+                  {(chartData.statusTypes.find(
+                    s => s.slug === activeData.status
+                  ) &&
+                    chartData.statusTypes.find(
+                      s => s.slug === activeData.status
+                    ).name) ||
+                    ''}
+                </Typography>
+              )}
+            </Grid>
+            <PieChart width={300} height={300}>
+              <Pie
+                blendStroke
+                isAnimationActive={false}
+                data={pieData}
+                dataKey="count"
+                nameKey="status"
+                cx="50%"
+                cy="50%"
+                paddingAngle={2}
+                outerRadius={300 / 2}
+                innerRadius={90}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+              >
+                {pieData.map(promise => (
+                  <Cell key={promise.status} />
+                ))}
+                <LabelList
+                  className={classes.percentageLabel}
+                  dataKey="count"
+                  position="insideTop"
+                  formatter={PercentageLabelFormatter}
+                />
+              </Pie>
+            </PieChart>
+          </div>
+        </Grid>
+
+        <Grid container spacing={2} justify="center">
+          {chartData.chartPromises.map(promise => (
+            <Grid key={promise.status} item xs={8} sm={4} md={2}>
+              <StatusIndicator
+                img={getIndicatorImage(promise.img)}
+                label={promise.name}
+                status={promise.status}
+                // value={pieData.map(s =>  s.status === promise.status ? PercentageLabelFormatter(s.count) : 0)}
+              />
+            </Grid>
           ))}
-          <LabelList
-            className={classes.percentageLabel}
-            dataKey="count"
-            position="insideTop"
-            formatter={PercentageLabelFormatter}
-          />
-        </Pie>
-      </PieChart>
+        </Grid>
+      </Layout>
     </div>
   );
 }

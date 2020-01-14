@@ -66,19 +66,16 @@ export default {
     {
       status: 'complete',
       name: 'Complete',
-      value: 14,
       img: './status-achieved.png'
     },
     {
       status: 'unstarted',
       name: 'Unstarted',
-      value: 8,
       img: './status-compromised.png'
     },
     {
       status: 'in-progress',
       name: 'In Progress',
-      value: 11,
       img: './status-in-progress.png'
     },
     {
@@ -90,13 +87,11 @@ export default {
     {
       status: 'stalled',
       name: 'Stalled',
-      value: 12,
       img: './status-stalled.png'
     },
     {
       status: 'inconclusive',
       name: 'Inconclusive',
-      value: 10,
       img: './status-inactive.png'
     }
   ]
