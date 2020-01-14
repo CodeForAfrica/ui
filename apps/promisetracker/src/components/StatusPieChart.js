@@ -150,14 +150,19 @@ function StatusPieChart() {
         className={classes.centerTextGrid}
       >
         <Typography variant="h6" className={classes.typo}>
-          {activeData ? activeData.value : totalPromises}
+          {activeData
+            ? PercentageLabelFormatter(activeData.count)
+            : totalPromises}
         </Typography>
         <Typography variant="h6" className={classes.typo}>
           Promises
         </Typography>
         {activeData && (
           <Typography variant="h6" className={classes.typo}>
-            {activeData.status}
+            {(chartData.statusTypes.find(s => s.slug === activeData.status) &&
+              chartData.statusTypes.find(s => s.slug === activeData.status)
+                .name) ||
+              ''}
           </Typography>
         )}
       </Grid>
