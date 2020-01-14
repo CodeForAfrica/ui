@@ -10,10 +10,7 @@ import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 
 import Layout from 'components/Layout';
-// import StatusPieChart from 'components/StatusPieChart';
 import StatusIndicator from 'components/StatusIndicator';
-
-// import data from 'data';
 
 const getIndicatorImage = require.context(
   '../assets/images/indicators',

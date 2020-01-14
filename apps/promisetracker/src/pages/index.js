@@ -3,7 +3,6 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import withApollo from 'lib/withApollo';
-// import StatusPieChart from 'components/StatusPieChart';
 import ContributeSection from 'components/PageSections/ContributeSection';
 import LatestReportsSection from 'components/PageSections/LatestReportSection';
 import Page from 'components/Page';
