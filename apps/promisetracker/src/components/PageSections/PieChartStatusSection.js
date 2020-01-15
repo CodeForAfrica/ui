@@ -13,7 +13,7 @@ import Layout from 'components/Layout';
 import StatusIndicator from 'components/StatusIndicator';
 
 const getIndicatorImage = require.context(
-  '../assets/images/indicators',
+  '../../assets/images/indicators',
   false,
   /\.png$/
 );
@@ -113,21 +113,6 @@ function PieChartStatusSection() {
 
   const totalPromises = currentPromiseArray.length;
 
-  // Get status for promise not in currentPromiseArray
-  const graphqlPromiseArray = currentPromiseArray.map(status => status.status); // Get all values in graphql chart
-  const chartDataPromiseArray = chartData.statusTypes.map(s => s.status); // Get all values logged in chartData
-  const chartDataSetDiff = chartDataPromiseArray.filter(
-    item => !graphqlPromiseArray.includes(item)
-  );
-
-  // Obj containing status of promise not in currentPromiseArray
-  const currentChartDataSetDiff = chartDataSetDiff.map(item => {
-    const obj = {};
-    obj.status = item;
-    obj.count = 0;
-    return obj;
-  });
-
   // Get count of current values in currentPromiseArray
   /* eslint-disable no-param-reassign */
   const setPromiseCount = currentPromiseArray.reduce((c, { status: key }) => {
@@ -142,7 +127,7 @@ function PieChartStatusSection() {
   }));
 
   // Push into one array
-  const pieData = [...currentChartDataSetDiff, ...currentSetPromiseCount];
+  const pieData = [...currentSetPromiseCount];
 
   function PercentageLabelFormatter(count) {
     return `${count}%`;
@@ -224,7 +209,7 @@ function PieChartStatusSection() {
                 label={promise.name}
                 status={promise.status}
                 value={pieData.map(item =>
-                  item.status === promise.status ? item.count : null
+                  item.status === promise.slug ? item.count : null
                 )}
               />
             </Grid>
