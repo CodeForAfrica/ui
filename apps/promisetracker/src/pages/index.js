@@ -2,13 +2,15 @@ import React from 'react';
 
 import { useRouter } from 'next/router';
 
-import withApollo from 'lib/withApollo';
+import Page from 'components/Page';
+
+import PieChartStatusSection from 'components/PageSections/PieChartStatusSection';
 import ContributeSection from 'components/PageSections/ContributeSection';
 import LatestReportsSection from 'components/PageSections/LatestReportSection';
-import Page from 'components/Page';
 import PartnersSection from 'components/PageSections/PartnerSections';
 import PromisesSection from 'components/PageSections/PromisesSection';
-import StatusPieChart from 'components/StatusPieChart';
+
+import withApollo from 'lib/withApollo';
 
 function Index() {
   const router = useRouter();
@@ -17,7 +19,7 @@ function Index() {
 
   return (
     <Page>
-      <StatusPieChart />
+      <PieChartStatusSection />
       <PromisesSection filter={filter} />
       <LatestReportsSection />
       <ContributeSection />

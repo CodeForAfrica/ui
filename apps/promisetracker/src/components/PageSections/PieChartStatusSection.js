@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function StatusPieChart() {
+function PieChartStatusSection() {
   const classes = useStyles();
 
   const { loading, error, data } = useQuery(GET_CHART_DATA);
@@ -115,7 +115,7 @@ function StatusPieChart() {
 
   // Get status for promise not in currentPromiseArray
   const graphqlPromiseArray = currentPromiseArray.map(status => status.status); // Get all values in graphql chart
-  const chartDataPromiseArray = chartData.chartPromises.map(s => s.status); // Get all values logged in chartData
+  const chartDataPromiseArray = chartData.statusTypes.map(s => s.status); // Get all values logged in chartData
   const chartDataSetDiff = chartDataPromiseArray.filter(
     item => !graphqlPromiseArray.includes(item)
   );
@@ -217,16 +217,14 @@ function StatusPieChart() {
         </Grid>
 
         <Grid container spacing={2} justify="center">
-          {chartData.chartPromises.map(promise => (
+          {chartData.statusTypes.map(promise => (
             <Grid key={promise.status} item xs={8} sm={4} md={2}>
               <StatusIndicator
                 img={getIndicatorImage(promise.img)}
                 label={promise.name}
                 status={promise.status}
                 value={pieData.map(item =>
-                  item.status === promise.status
-                    ? PercentageLabelFormatter(item.count)
-                    : null
+                  item.status === promise.status ? item.count : null
                 )}
               />
             </Grid>
@@ -237,4 +235,4 @@ function StatusPieChart() {
   );
 }
 
-export default StatusPieChart;
+export default PieChartStatusSection;
