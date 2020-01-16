@@ -102,40 +102,27 @@ function PieChartStatusSection() {
     ({ node: media }) => media
   );
 
-  const currentPromiseArray = medias.map(media => ({
-    title: media.title,
-    status: slugify(
+  const promiseStatuses = chartData.statusTypes.map(promise => ({
+    ...promise,
+    count: 0
+  })); // Initialize
+  const statusFor = media =>
+    slugify(
       media.tasks.edges.find(
         ({ node: task }) => task.label === 'What is the status of the promise?'
       ).node.first_response_value
-    )
-  }));
+    );
+  medias.forEach(media => {
+    const status = statusFor(media);
+    const promiseStatus = promiseStatuses.find(s => s.slug === status);
+    promiseStatus.count += 1;
+  });
 
-  const totalPromises = currentPromiseArray.length;
-
-  // Get count of current values in currentPromiseArray
-  /* eslint-disable no-param-reassign */
-  const setPromiseCount = currentPromiseArray.reduce((c, { status: key }) => {
-    c[key] = (c[key] || 0) + 1;
-    return c;
-  }, {});
-
-  // Set object array for setPromiseCount
-  const currentSetPromiseCount = Object.keys(setPromiseCount).map(e => ({
-    status: e,
-    count: Number(((setPromiseCount[e] * 100) / totalPromises).toFixed(0))
-  }));
-
-  // Push into one array
-  const pieData = [...currentSetPromiseCount];
-
-  function PercentageLabelFormatter(count) {
-    return `${count}%`;
-  }
+  const totalPromises = promiseStatuses.reduce((a, b) => a + b.count, 0);
 
   const [activeData, setActiveData] = useState(null);
-  const onMouseEnter = pieChartData => {
-    setActiveData(pieChartData);
+  const onMouseEnter = pieData => {
+    setActiveData(pieData);
   };
   const onMouseLeave = () => {
     setActiveData(null);
@@ -153,9 +140,7 @@ function PieChartStatusSection() {
               className={classes.centerTextGrid}
             >
               <Typography variant="h6" className={classes.typo}>
-                {activeData
-                  ? PercentageLabelFormatter(activeData.count)
-                  : totalPromises}
+                {activeData ? activeData.count : totalPromises}
               </Typography>
               <Typography variant="h6" className={classes.typo}>
                 Promises
@@ -176,9 +161,9 @@ function PieChartStatusSection() {
               <Pie
                 blendStroke
                 isAnimationActive={false}
-                data={pieData}
+                data={promiseStatuses}
                 dataKey="count"
-                nameKey="status"
+                nameKey="slug"
                 cx="50%"
                 cy="50%"
                 paddingAngle={2}
@@ -187,14 +172,14 @@ function PieChartStatusSection() {
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
               >
-                {pieData.map(promise => (
-                  <Cell key={promise.status} />
+                {promiseStatuses.map(promise => (
+                  <Cell key={promise.slug} />
                 ))}
                 <LabelList
                   className={classes.percentageLabel}
                   dataKey="count"
                   position="insideTop"
-                  formatter={PercentageLabelFormatter}
+                  // formatter={PercentageLabelFormatter}
                 />
               </Pie>
             </PieChart>
@@ -202,15 +187,13 @@ function PieChartStatusSection() {
         </Grid>
 
         <Grid container spacing={2} justify="center">
-          {chartData.statusTypes.map(promise => (
+          {promiseStatuses.map(promise => (
             <Grid key={promise.status} item xs={8} sm={4} md={2}>
               <StatusIndicator
                 img={getIndicatorImage(promise.img)}
                 label={promise.name}
-                status={promise.status}
-                value={pieData.map(item =>
-                  item.status === promise.slug ? item.count : null
-                )}
+                status={promise.slug}
+                value={promise.count}
               />
             </Grid>
           ))}
