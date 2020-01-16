@@ -120,6 +120,10 @@ function PieChartStatusSection() {
 
   const totalPromises = promiseStatuses.reduce((a, b) => a + b.count, 0);
 
+  function PercentageLabelFormatter(value) {
+    return `${((Number(value) * 100) / totalPromises).toFixed(0)}%`;
+  }
+
   const [activeData, setActiveData] = useState(null);
   const onMouseEnter = pieData => {
     setActiveData(pieData);
@@ -179,7 +183,7 @@ function PieChartStatusSection() {
                   className={classes.percentageLabel}
                   dataKey="count"
                   position="insideTop"
-                  // formatter={PercentageLabelFormatter}
+                  formatter={PercentageLabelFormatter}
                 />
               </Pie>
             </PieChart>
