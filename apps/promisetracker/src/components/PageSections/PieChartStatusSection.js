@@ -20,7 +20,7 @@ const getIndicatorImage = require.context(
 
 const GET_CHART_DATA = gql`
   query {
-    team {
+    team(slug: "pesacheck-promise-tracker") {
       id
       name
       projects {
