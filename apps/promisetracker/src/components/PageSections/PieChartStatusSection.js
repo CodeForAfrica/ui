@@ -152,11 +152,10 @@ function PieChartStatusSection() {
               {activeData && (
                 <Typography variant="h6" className={classes.typo}>
                   {(chartData.statusTypes.find(
-                    s => s.slug === activeData.status
+                    s => s.slug === activeData.slug
                   ) &&
-                    chartData.statusTypes.find(
-                      s => s.slug === activeData.status
-                    ).name) ||
+                    chartData.statusTypes.find(s => s.slug === activeData.slug)
+                      .name) ||
                     ''}
                 </Typography>
               )}
