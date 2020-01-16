@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 
 const GET_PROMISES = gql`
   query {
-    team {
+    team(slug: "pesacheck-promise-tracker") {
       id
       name
       projects {
