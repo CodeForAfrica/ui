@@ -58,7 +58,11 @@ function Form() {
           Submit
         </Button>
       </FormControl>
-      <FormControl fullWidth>{handleSubmit && submit()}</FormControl>
+      <FormControl fullWidth>
+        {!errors.description && !errors.description
+          ? handleSubmit && submit()
+          : null}
+      </FormControl>
     </form>
   );
 }

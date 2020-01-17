@@ -6,5 +6,8 @@ export default function ValidateErrors(values) {
   if (!values.source) {
     errors.source = 'Please fill in a source link';
   }
+  if (values.source && !values.description) {
+    errors.submit = 'Thanks';
+  }
   return errors;
 }
