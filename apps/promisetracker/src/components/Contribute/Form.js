@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
   Typography,
@@ -8,6 +8,9 @@ import {
   Button,
   makeStyles
 } from '@material-ui/core';
+import useForm from './useForm';
+
+import ValidateErrors from './ValidateErrors';
 
 const useStyles = makeStyles({
   contributeForm: {
@@ -18,18 +21,15 @@ const useStyles = makeStyles({
 
 function Form() {
   const classes = useStyles();
-  const [submitted, setSubmitted] = useState(false);
-  const [description, setDescription] = useState('');
-  const [source, setSource] = useState('');
+  // const { values, handleChange, handleSubmit } = useForm(submit);
+  function submit() {
+    return <Typography> Thank you for your submission!</Typography>;
+  }
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    submit,
+    ValidateErrors
+  );
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    // console.log('set description and source', { source }, { description });
-    setSubmitted(true);
-    setInterval(() => {
-      setSubmitted(false);
-    }, 4000);
-  };
   return (
     <form className={classes.contributeForm} onSubmit={handleSubmit}>
       <FormControl fullWidth margin="normal">
@@ -37,28 +37,28 @@ function Form() {
         <TextField
           multiline
           id="description"
-          value={description}
-          onChange={e => setDescription(e.target.value)}
+          name="description"
+          value={values.description}
+          onChange={handleChange}
         />
+        {errors.description && <p>{errors.description}</p>}
       </FormControl>
       <FormControl fullWidth margin="normal">
         <FormLabel htmlFor="source">Source</FormLabel>
         <TextField
           id="source"
-          value={source}
-          onChange={e => setSource(e.target.value)}
+          name="source"
+          value={values.source}
+          onChange={handleChange}
         />
+        {errors.source && <p>{errors.source}</p>}
       </FormControl>
       <FormControl margin="normal">
         <Button variant="contained" color="primary" type="submit">
           Submit
         </Button>
       </FormControl>
-      {submitted && (
-        <FormControl fullWidth>
-          <Typography> Thank you for your submission!</Typography>
-        </FormControl>
-      )}
+      <FormControl fullWidth>{handleSubmit && submit()}</FormControl>
     </form>
   );
 }
