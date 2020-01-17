@@ -36,7 +36,7 @@ TODO
 
 ### License
 
-PromiseTracker is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges.
+PromiseTracker is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges.  
 Copyright (C) 2019  Code for Africa
 
 This program is free software: you can redistribute it and/or modify
