@@ -27,7 +27,7 @@ To deploy:
 
 ## Attribution
 
-**Promise Tracker** is modelled on [Rouhani Meter](https://rouhanimeter.com).
+Promise Tracker is modelled on [Rouhani Meter](https://rouhanimeter.com) and made possible thank you to the generous support of DW Akademie and Meedan. Built by the Code for Africa Tech team and content courtesy of PesaCheck and ANCIR's iLab teams.
 
 ## Contributing
 
