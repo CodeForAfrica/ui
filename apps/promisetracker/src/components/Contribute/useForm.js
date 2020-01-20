@@ -15,6 +15,10 @@ const useForm = (callback, validate) => {
     if (event) event.preventDefault();
     setResponse(validate(values));
     setSubmitted(true);
+
+    setInterval(() => {
+      setSubmitted(false);
+    }, 4000);
   };
 
   const handleChange = event => {

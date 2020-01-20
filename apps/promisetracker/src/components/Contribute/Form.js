@@ -23,7 +23,7 @@ function Form() {
   const classes = useStyles();
 
   function submit() {
-    return <Typography> Thank you for your submission!</Typography>;
+    return <Typography>Thank you for your submission!</Typography>;
   }
   const { values, response, handleChange, handleSubmit } = useForm(
     submit,
