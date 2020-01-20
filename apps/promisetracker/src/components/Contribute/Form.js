@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import useForm from './useForm';
 
-import ValidateErrors from './ValidateErrors';
+import Validate from './Validate';
 
 const useStyles = makeStyles({
   contributeForm: {
@@ -21,13 +21,13 @@ const useStyles = makeStyles({
 
 function Form() {
   const classes = useStyles();
-  // const { values, handleChange, handleSubmit } = useForm(submit);
+
   function submit() {
     return <Typography> Thank you for your submission!</Typography>;
   }
-  const { values, errors, handleChange, handleSubmit } = useForm(
+  const { values, response, handleChange, handleSubmit } = useForm(
     submit,
-    ValidateErrors
+    Validate
   );
 
   return (
@@ -41,7 +41,7 @@ function Form() {
           value={values.description}
           onChange={handleChange}
         />
-        {errors.description && <p>{errors.description}</p>}
+        {response.description && <p>{response.description}</p>}
       </FormControl>
       <FormControl fullWidth margin="normal">
         <FormLabel htmlFor="source">Source</FormLabel>
@@ -51,17 +51,21 @@ function Form() {
           value={values.source}
           onChange={handleChange}
         />
-        {errors.source && <p>{errors.source}</p>}
+        {response.source && <p>{response.source}</p>}
       </FormControl>
       <FormControl margin="normal">
-        <Button variant="contained" color="primary" type="submit">
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          value="submit"
+          name="submit"
+        >
           Submit
         </Button>
       </FormControl>
       <FormControl fullWidth>
-        {!errors.description && !errors.description
-          ? handleSubmit && submit()
-          : null}
+        {response.submit && <Typography>{submit()}</Typography>}
       </FormControl>
     </form>
   );
