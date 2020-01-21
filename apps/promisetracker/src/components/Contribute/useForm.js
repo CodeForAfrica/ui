@@ -27,6 +27,7 @@ const useForm = (callback, validate) => {
   const [response, setResponse] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
+  // const [createProjectMedia] = useMutation(ADD_PROMISE_MEDIA);
   const [createProjectMedia] = useMutation(ADD_PROMISE_MEDIA);
 
   useEffect(() => {
@@ -40,14 +41,8 @@ const useForm = (callback, validate) => {
 
     setResponse(validate(values));
     createProjectMedia({
-      variables: {
-        clientMutationId: '1',
-        project_id: 817,
-        quote: values.quote,
-        quote_atribution: values.source
-      }
+      variables: { project_id: 817, clientMutationId: '1', values }
     });
-
     setSubmitted(true);
     console.log(values);
 
