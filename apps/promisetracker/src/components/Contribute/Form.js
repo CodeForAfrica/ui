@@ -23,7 +23,7 @@ function Form() {
   const classes = useStyles();
 
   function submit() {
-    return <Typography>Thank you for your submission!</Typography>;
+    return 'Thank you for your submission!';
   }
   const { values, response, handleChange, handleSubmit } = useForm(
     submit,
@@ -33,22 +33,24 @@ function Form() {
   return (
     <form className={classes.contributeForm} onSubmit={handleSubmit}>
       <FormControl fullWidth margin="normal">
-        <FormLabel htmlFor="description">Description</FormLabel>
+        <FormLabel htmlFor="quote">Description</FormLabel>
         <TextField
           multiline
-          id="description"
-          name="description"
-          value={values.description}
+          id="quote"
+          name="quote"
+          type="text"
+          value={values.quote || ''}
           onChange={handleChange}
         />
-        {response.description && <p>{response.description}</p>}
+        {response.quote && <p>{response.quote}</p>}
       </FormControl>
       <FormControl fullWidth margin="normal">
         <FormLabel htmlFor="source">Source</FormLabel>
         <TextField
           id="source"
           name="source"
-          value={values.source}
+          type="text"
+          value={values.source || ''}
           onChange={handleChange}
         />
         {response.source && <p>{response.source}</p>}
