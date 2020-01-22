@@ -50,18 +50,14 @@ const useForm = (callback, validate) => {
     if (event) event.preventDefault();
 
     setResponse(validate(values));
-
     createProjectMedia({
       variables: {
         clientMutationId: '1',
         project_id: 817,
         quote: `Promise Tracker Review: ${values.quote}`
-        // quote_attributions:
       }
     });
     setSubmitted(true);
-
-    console.log(values);
 
     setInterval(() => {
       setSubmitted(false);
