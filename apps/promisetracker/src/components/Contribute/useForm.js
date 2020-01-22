@@ -21,6 +21,7 @@ const ADD_PROMISE_MEDIA = gql`
       project_media {
         id
         title
+        project_id
         project_source {
           id
           source {
@@ -32,7 +33,6 @@ const ADD_PROMISE_MEDIA = gql`
     }
   }
 `;
-
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({});
   const [response, setResponse] = useState({});
@@ -50,10 +50,17 @@ const useForm = (callback, validate) => {
     if (event) event.preventDefault();
 
     setResponse(validate(values));
+
     createProjectMedia({
-      variables: values
+      variables: {
+        clientMutationId: '1',
+        project_id: 817,
+        quote: `Promise Tracker Review: ${values.quote}`
+        // quote_attributions:
+      }
     });
     setSubmitted(true);
+
     console.log(values);
 
     setInterval(() => {
