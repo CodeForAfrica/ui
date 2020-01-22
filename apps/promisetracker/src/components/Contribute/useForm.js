@@ -4,12 +4,23 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 
 const ADD_PROMISE_MEDIA = gql`
-  mutation createProjectMedia($input: CreateProjectMediaInput!) {
-    createProjectMedia(input: $input) {
+  mutation createProjectMedia(
+    $clientMutationId: String
+    $project_id: Int
+    $quote: String
+    $quote_attributions: String
+  ) {
+    createProjectMedia(
+      input: {
+        clientMutationId: $clientMutationId
+        project_id: $project_id
+        quote: $quote
+        quote_attributions: $quote_attributions
+      }
+    ) {
       project_media {
         id
         title
-        project_id
         project_source {
           id
           source {
@@ -27,7 +38,6 @@ const useForm = (callback, validate) => {
   const [response, setResponse] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
-  // const [createProjectMedia] = useMutation(ADD_PROMISE_MEDIA);
   const [createProjectMedia] = useMutation(ADD_PROMISE_MEDIA);
 
   useEffect(() => {
@@ -41,7 +51,7 @@ const useForm = (callback, validate) => {
 
     setResponse(validate(values));
     createProjectMedia({
-      variables: { project_id: 817, clientMutationId: '1', values }
+      variables: values
     });
     setSubmitted(true);
     console.log(values);
