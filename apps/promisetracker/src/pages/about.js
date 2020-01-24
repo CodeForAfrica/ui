@@ -8,6 +8,8 @@ import AboutContent from 'components/About/Content';
 import SideBar from 'components/About/SideBar';
 import Layout from 'components/Layout';
 
+import withApollo from 'lib/withApollo';
+
 const useStyles = makeStyles({
   root: {
     padding: '8rem 0'
@@ -40,4 +42,4 @@ function About() {
   );
 }
 
-export default About;
+export default withApollo(About);

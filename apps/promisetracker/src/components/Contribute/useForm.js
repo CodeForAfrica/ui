@@ -22,6 +22,7 @@ const ADD_PROMISE_MEDIA = gql`
         id
         title
         project_id
+        media_id
         project_source {
           id
           source {
@@ -55,11 +56,12 @@ const useForm = (callback, validate) => {
       variables: {
         clientMutationId: '1',
         project_id: 817,
-        quote: `Promise Tracker Review: ${values.quote}`,
-        quote_attributions: `{"name":"${values.source}"}`
+        quote: `Promise Tracker Submission (Ready for Review) Title: ${values.quote} \n Sources:${values.source}`,
+        quote_attributions: `{"name": "Source:${values.source}"}`
       }
     });
     setSubmitted(true);
+    console.log(values);
 
     setInterval(() => {
       setSubmitted(false);

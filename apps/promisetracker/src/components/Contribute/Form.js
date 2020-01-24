@@ -33,7 +33,7 @@ function Form() {
   return (
     <form className={classes.contributeForm} onSubmit={handleSubmit}>
       <FormControl fullWidth margin="normal">
-        <FormLabel htmlFor="quote">Description</FormLabel>
+        <FormLabel htmlFor="quote">What is the promise?</FormLabel>
         <TextField
           multiline
           id="quote"
@@ -45,13 +45,14 @@ function Form() {
         {response.quote && <p>{response.quote}</p>}
       </FormControl>
       <FormControl fullWidth margin="normal">
-        <FormLabel htmlFor="source">Source</FormLabel>
+        <FormLabel htmlFor="source">Sources</FormLabel>
         <TextField
           id="source"
           name="source"
           type="text"
           value={values.source || ''}
           onChange={handleChange}
+          helperText="Please state who made the promise,when and where. Include any supporting link if possible"
         />
         {response.source && <p>{response.source}</p>}
       </FormControl>
