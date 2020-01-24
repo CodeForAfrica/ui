@@ -51,7 +51,6 @@ const useForm = (callback, validate) => {
     if (event) event.preventDefault();
 
     setResponse(validate(values));
-    // Check if promises have been submitted here: https://checkmedia.org/code-for-africa-demo/project/817
     createProjectMedia({
       variables: {
         clientMutationId: '1',
@@ -61,7 +60,6 @@ const useForm = (callback, validate) => {
       }
     });
     setSubmitted(true);
-    console.log(values);
 
     setInterval(() => {
       setSubmitted(false);
