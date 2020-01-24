@@ -56,7 +56,7 @@ const useForm = (callback, validate) => {
       variables: {
         clientMutationId: '1',
         project_id: 817,
-        quote: `Promise Tracker Submission (Ready for Review) Title: ${values.quote} \n Sources:${values.source}`,
+        quote: `Promise Tracker Submission (Ready for Review) \n Title: ${values.quote} \n Sources: ${values.source}`,
         quote_attributions: `{"name": "Source:${values.source}"}`
       }
     });
