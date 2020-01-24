@@ -1,13 +1,13 @@
 import React from 'react';
 
 import {
-  Typography,
   FormControl,
   FormLabel,
   TextField,
   Button,
   makeStyles
 } from '@material-ui/core';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import useForm from './useForm';
 
 import Validate from './Validate';
@@ -41,8 +41,8 @@ function Form() {
           type="text"
           value={values.quote || ''}
           onChange={handleChange}
+          helperText={response.quote && response.quote}
         />
-        {response.quote && <p>{response.quote}</p>}
       </FormControl>
       <FormControl fullWidth margin="normal">
         <FormLabel htmlFor="source">Sources</FormLabel>
@@ -52,9 +52,13 @@ function Form() {
           type="text"
           value={values.source || ''}
           onChange={handleChange}
-          helperText="Please state who made the promise,when and where. Include any supporting link if possible"
+          helperText={response.source && response.source}
         />
-        {response.source && <p>{response.source}</p>}
+        <br />
+        <FormHelperText id="component-helper-text">
+          Please state who made the promise,when and where. Include any
+          supporting link if possible
+        </FormHelperText>
       </FormControl>
       <FormControl margin="normal">
         <Button
@@ -68,7 +72,9 @@ function Form() {
         </Button>
       </FormControl>
       <FormControl fullWidth>
-        {response.submit && <Typography>{submit()}</Typography>}
+        {response.submit && (
+          <FormHelperText id="component-helper-text">{submit()}</FormHelperText>
+        )}
       </FormControl>
     </form>
   );
