@@ -21,14 +21,7 @@ const useStyles = makeStyles({
 
 function Form() {
   const classes = useStyles();
-
-  function submit() {
-    return 'Thank you for your submission!';
-  }
-  const { values, response, handleChange, handleSubmit } = useForm(
-    submit,
-    Validate
-  );
+  const { values, response, handleChange, handleSubmit } = useForm(Validate);
 
   return (
     <form className={classes.contributeForm} onSubmit={handleSubmit}>
@@ -39,7 +32,7 @@ function Form() {
           id="quote"
           name="quote"
           type="text"
-          value={values.quote || ''}
+          value={values.quote}
           onChange={handleChange}
           helperText={response.quote && response.quote}
         />
@@ -50,7 +43,7 @@ function Form() {
           id="source"
           name="source"
           type="text"
-          value={values.source || ''}
+          value={values.source}
           onChange={handleChange}
           helperText={response.source && response.source}
         />
@@ -73,7 +66,9 @@ function Form() {
       </FormControl>
       <FormControl fullWidth>
         {response.submit && (
-          <FormHelperText id="component-helper-text">{submit()}</FormHelperText>
+          <FormHelperText id="component-helper-text">
+            {response.submit}
+          </FormHelperText>
         )}
       </FormControl>
     </form>

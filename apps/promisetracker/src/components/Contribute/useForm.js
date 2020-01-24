@@ -34,7 +34,7 @@ const ADD_PROMISE_MEDIA = gql`
     }
   }
 `;
-const useForm = (callback, validate) => {
+const useForm = validate => {
   const [values, setValues] = useState({});
   const [response, setResponse] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -43,7 +43,7 @@ const useForm = (callback, validate) => {
 
   useEffect(() => {
     if (Object.keys(response).length === 0 && submitted) {
-      callback();
+      setValues(true);
     }
   }, [response]);
 
@@ -60,6 +60,7 @@ const useForm = (callback, validate) => {
       }
     });
     setSubmitted(true);
+    console.log(values);
 
     setInterval(() => {
       setSubmitted(false);
