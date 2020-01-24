@@ -60,11 +60,6 @@ const useForm = validate => {
       }
     });
     setSubmitted(true);
-    console.log(values);
-
-    setInterval(() => {
-      setSubmitted(false);
-    }, 4000);
   };
 
   const handleChange = event => {
