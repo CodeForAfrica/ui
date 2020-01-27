@@ -1,9 +1,9 @@
 export default function Validate(values) {
   const response = {};
-  if (!values.quote) {
+  if (!values.quote || values.quote === '') {
     response.quote = 'Please fill in a description';
   }
-  if (!values.source) {
+  if (!values.source || values.quote === '') {
     response.source = 'Please fill in a source link';
   }
   if (values.source && values.quote) {

@@ -32,7 +32,7 @@ function Form() {
           id="quote"
           name="quote"
           type="text"
-          value={values.quote}
+          value={values.quote || ''}
           onChange={handleChange}
           helperText={response.quote && response.quote}
         />
@@ -43,7 +43,7 @@ function Form() {
           id="source"
           name="source"
           type="text"
-          value={values.source}
+          value={values.source || ''}
           onChange={handleChange}
           helperText={response.source && response.source}
         />

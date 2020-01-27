@@ -39,27 +39,34 @@ const useForm = validate => {
   const [response, setResponse] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
-  const [createProjectMedia] = useMutation(ADD_PROMISE_MEDIA);
+  const [createProjectMedia] = useMutation(ADD_PROMISE_MEDIA, {
+    variables: {
+      clientMutationId: '1',
+      project_id: 817,
+      quote: `Promise Tracker Submission (Ready for Review) \n Title: ${values.quote} \n Sources: ${values.source}`,
+      quote_attributions: `{"name": "Source:${values.source}"}`
+    }
+  });
 
   useEffect(() => {
     if (Object.keys(response).length === 0 && submitted) {
-      setValues(true);
+      setValues(false);
     }
   }, [response]);
 
   const handleSubmit = event => {
     if (event) event.preventDefault();
-
-    setResponse(validate(values));
-    createProjectMedia({
-      variables: {
-        clientMutationId: '1',
-        project_id: 817,
-        quote: `Promise Tracker Submission (Ready for Review) \n Title: ${values.quote} \n Sources: ${values.source}`,
-        quote_attributions: `{"name": "Source:${values.source}"}`
-      }
-    });
+    if (
+      Object.keys(response).length <= 1 ||
+      values.quote === '' ||
+      values.source === ''
+    ) {
+      setResponse(validate(values));
+      return false;
+    }
+    createProjectMedia();
     setSubmitted(true);
+    return true;
   };
 
   const handleChange = event => {
