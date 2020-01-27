@@ -120,7 +120,7 @@ function PieChartStatusSection() {
 
   const totalPromises = promiseStatuses.reduce((a, b) => a + b.count, 0);
 
-  const filteredPromises = promiseStatuses.filter(f => f.count !== 0);
+  const filteredPromises = promiseStatuses.filter(f => f.count > 0);
 
   function PercentageLabelFormatter(value) {
     return `${((Number(value) * 100) / totalPromises).toFixed(0)}%`;
