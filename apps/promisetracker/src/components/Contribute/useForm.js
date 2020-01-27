@@ -56,14 +56,16 @@ const useForm = validate => {
 
   const handleSubmit = event => {
     if (event) event.preventDefault();
+
     if (
-      Object.keys(response).length <= 1 ||
+      Object.keys(values).length <= 1 ||
       values.quote === '' ||
       values.source === ''
     ) {
       setResponse(validate(values));
       return false;
     }
+
     createProjectMedia();
     setSubmitted(true);
     return true;
