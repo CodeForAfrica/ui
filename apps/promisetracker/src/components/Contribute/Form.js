@@ -2,6 +2,7 @@ import React from 'react';
 
 import { FormControl, TextField, Button, makeStyles } from '@material-ui/core';
 import FormHelperText from '@material-ui/core/FormHelperText';
+
 import useForm from './useForm';
 
 import validateForm from './validateForm';
@@ -15,7 +16,9 @@ const useStyles = makeStyles({
 
 function Form() {
   const classes = useStyles();
-  const { values, response, handleChange, handleSubmit } = useForm(validateForm);
+  const { values, response, handleChange, handleSubmit } = useForm(
+    validateForm
+  );
 
   return (
     <form className={classes.contributeForm} onSubmit={handleSubmit}>
