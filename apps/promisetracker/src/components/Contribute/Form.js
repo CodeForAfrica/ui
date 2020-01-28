@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 
 function Form() {
   const classes = useStyles();
-  const { values, response, handleChange, handleSubmit } = useForm(Validate);
+  const { values, response, handleChange, handleSubmit } = useForm(validateForm);
 
   return (
     <form className={classes.contributeForm} onSubmit={handleSubmit}>
