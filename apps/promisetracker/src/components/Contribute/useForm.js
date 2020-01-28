@@ -57,12 +57,13 @@ const useForm = validate => {
   const handleSubmit = event => {
     if (event) event.preventDefault();
 
+    setResponse(validate(values));
     if (
       Object.keys(values).length <= 1 ||
       values.quote === '' ||
       values.source === ''
     ) {
-      setResponse(validate(values));
+      setSubmitted(false);
       return false;
     }
 
