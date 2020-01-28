@@ -32,6 +32,7 @@ function Form() {
         margin="normal"
         value={values.quote || ''}
         onChange={handleChange}
+        error={response.quote}
         helperText={response.quote && response.quote}
       />
       <TextField
@@ -43,6 +44,7 @@ function Form() {
         label="Sources"
         value={values.source || ''}
         onChange={handleChange}
+        error={response.source}
         helperText={response.source && response.source}
       />
       <br />
