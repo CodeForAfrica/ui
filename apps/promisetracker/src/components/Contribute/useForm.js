@@ -69,6 +69,7 @@ const useForm = validate => {
 
     createProjectMedia();
     setSubmitted(true);
+    setValues({});
     return true;
   };
 
