@@ -1,4 +1,4 @@
-export default function Validate(values) {
+export default function validateForm(values) {
   const response = {};
   if (!values.quote) {
     response.quote = 'Please fill in a description';
