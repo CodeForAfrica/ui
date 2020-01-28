@@ -1,12 +1,6 @@
 import React from 'react';
 
-import {
-  FormControl,
-  FormLabel,
-  TextField,
-  Button,
-  makeStyles
-} from '@material-ui/core';
+import { FormControl, TextField, Button, makeStyles } from '@material-ui/core';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import useForm from './useForm';
 
@@ -25,34 +19,34 @@ function Form() {
 
   return (
     <form className={classes.contributeForm} onSubmit={handleSubmit}>
-      <FormControl fullWidth margin="normal">
-        <FormLabel htmlFor="quote">What is the promise?</FormLabel>
-        <TextField
-          multiline
-          id="quote"
-          name="quote"
-          type="text"
-          value={values.quote || ''}
-          onChange={handleChange}
-          helperText={response.quote && response.quote}
-        />
-      </FormControl>
-      <FormControl fullWidth margin="normal">
-        <FormLabel htmlFor="source">Sources</FormLabel>
-        <TextField
-          id="source"
-          name="source"
-          type="text"
-          value={values.source || ''}
-          onChange={handleChange}
-          helperText={response.source && response.source}
-        />
-        <br />
-        <FormHelperText id="component-helper-text">
-          Please state who made the promise,when and where. Include any
-          supporting link if possible
-        </FormHelperText>
-      </FormControl>
+      <TextField
+        multiline
+        id="quote"
+        name="quote"
+        type="text"
+        label="What is the promise?"
+        fullWidth
+        margin="normal"
+        value={values.quote || ''}
+        onChange={handleChange}
+        helperText={response.quote && response.quote}
+      />
+      <TextField
+        id="source"
+        name="source"
+        type="text"
+        fullWidth
+        margin="normal"
+        label="Sources"
+        value={values.source || ''}
+        onChange={handleChange}
+        helperText={response.source && response.source}
+      />
+      <br />
+      <FormHelperText id="component-helper-text">
+        Please state who made the promise,when and where. Include any supporting
+        link if possible
+      </FormHelperText>
       <FormControl margin="normal">
         <Button
           variant="contained"
