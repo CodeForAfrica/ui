@@ -68,6 +68,11 @@ function Form() {
           </FormHelperText>
         )}
       </FormControl>
+      <ReCAPTCHA
+         ref={recaptchaRef}
+         size="invisible"
+         sitekey="Your client site key"
+    />
     </form>
   );
 }
