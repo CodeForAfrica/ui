@@ -4,7 +4,7 @@ import { FormControl, TextField, Button, makeStyles } from '@material-ui/core';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import useForm from './useForm';
 
-import Validate from './Validate';
+import validateForm from './validateForm';
 
 const useStyles = makeStyles({
   contributeForm: {
