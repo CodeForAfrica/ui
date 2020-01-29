@@ -7,7 +7,7 @@ export default function validateForm(values) {
     response.source = 'Please fill in a source link';
   }
   if (values.source && values.quote) {
-    response.submit = 'Thanks for the submission!';
+    response.submit = 'Thank you for your submission!';
   }
   return response;
 }
