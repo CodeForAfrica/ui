@@ -240,4 +240,6 @@ function PromisePage() {
   );
 }
 
+PromisePage.getInitialProps = async () => {};
+
 export default withApollo(PromisePage);

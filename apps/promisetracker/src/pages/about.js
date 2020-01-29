@@ -9,6 +9,8 @@ import SideBar from 'components/About/SideBar';
 import Layout from 'components/Layout';
 
 import withApollo from 'lib/withApollo';
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
 
 const useStyles = makeStyles({
   root: {
@@ -16,8 +18,60 @@ const useStyles = makeStyles({
   }
 });
 
+const GET_PROMISES = gql`
+  query {
+    team(slug: "pesacheck-promise-tracker") {
+      id
+      name
+      projects {
+        edges {
+          node {
+            id
+            title
+            project_medias(last: 6) {
+              edges {
+                node {
+                  id
+                  dbid
+                  title
+                  tasks {
+                    edges {
+                      node {
+                        id
+                        label
+                        first_response_value
+                      }
+                    }
+                  }
+                  tags {
+                    edges {
+                      node {
+                        id
+                        tag_text
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 function About() {
   const classes = useStyles();
+
+  const { loading, error, data } = useQuery(GET_PROMISES);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return null;
+  }
+  console.log(data);
 
   return (
     <>
