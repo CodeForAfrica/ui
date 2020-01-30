@@ -27,5 +27,4 @@ function Index() {
     </Page>
   );
 }
-
 export default withApollo(Index);

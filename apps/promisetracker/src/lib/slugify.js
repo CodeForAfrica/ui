@@ -1,3 +1,3 @@
 export default function slugify(param) {
-  return param.replace(/\s+/g, '-').toLowerCase();
+  return param.replace(/[,\s]/g, '-').toLowerCase();
 }
