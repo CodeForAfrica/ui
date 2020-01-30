@@ -107,7 +107,6 @@ function PromisePage() {
   }
 
   const promise = medias[index];
-
   const findStatus = promise.tasks.edges.find(
     ({ node: task }) => task.label === 'What is the status of the promise?'
   ).node.first_response_value;
@@ -130,11 +129,11 @@ function PromisePage() {
   const nextPromise = index < medias.length - 1 && medias[index + 1];
 
   const previous = prevPromise && {
-    href: `/promise/${slugify(prevPromise.title)}`,
+    href: `/promise/${prevPromise.dbid}/${slugify(prevPromise.title)}`,
     label: prevPromise.title
   };
   const next = nextPromise && {
-    href: `/promise/${slugify(nextPromise.title)}`,
+    href: `/promise/${nextPromise.dbid}/${slugify(nextPromise.title)}`,
     label: nextPromise.title
   };
 
@@ -204,8 +203,8 @@ function PromisePage() {
                   <Grid item xs={12} key={topic.id}>
                     <PromiseCard
                       title={topic.title}
-                      href="/promise/[id]"
-                      as={`/promise/${slugify(topic.title)}`}
+                      href="/promise/[dbid]/[id]"
+                      as={`/promise/${topic.dbid}/${slugify(topic.title)}`}
                       term="Term 1"
                       topic={
                         filterData.topics.find(

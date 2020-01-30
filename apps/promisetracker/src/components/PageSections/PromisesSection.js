@@ -210,8 +210,8 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
             .map(({ node: media }) => (
               <Grid key={media.id} item xs={12} sm={6} md={4}>
                 <PromiseCard
-                  href="promise/[id]"
-                  as={`promise/${slugify(media.title)}`}
+                  href="promise/[dbid]/[id]"
+                  as={`promise/${media.dbid}/${slugify(media.title)}`}
                   term={filterData.terms.find(s => s.slug === 'term-1').name}
                   title={media.title}
                   topic={

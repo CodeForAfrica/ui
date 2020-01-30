@@ -32,7 +32,7 @@ function PromiseNavigator({ next, previous }) {
        */}
       <Grid item xs={6} md={5}>
         {previous && (
-          <Link href="/promise/[id]" as={previous.href}>
+          <Link href="/promise/[dbid]/[id]" as={previous.href}>
             <Typography className={classes.label}>
               {' '}
               <KeyboardArrowLeft fontSize="small" />
@@ -43,7 +43,11 @@ function PromiseNavigator({ next, previous }) {
       </Grid>
       {next && (
         <Grid container item xs={6} md={5} justify="flex-end">
-          <Link href="/promise/[id]" as={next.href} className={classes.link}>
+          <Link
+            href="/promise/[dbid]/[id]"
+            as={next.href}
+            className={classes.link}
+          >
             <Typography className={classes.label}>
               {next.label} <KeyboardArrowRight fontSize="small" />
             </Typography>
