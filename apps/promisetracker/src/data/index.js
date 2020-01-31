@@ -11,7 +11,7 @@ export default {
       name: 'Unstarted',
       img: './status-unstarted.png',
       description:
-        'When promises are accomplished less than the original promise butwhen there is still a significant accomplishment that is consistent with the goal of the original promise.'
+        'When promises are accomplished less than the original promise but when there is still a significant accomplishment that is consistent with the goal of the original promise.'
     },
     {
       slug: 'in-progress',
