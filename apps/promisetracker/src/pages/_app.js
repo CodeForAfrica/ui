@@ -8,17 +8,20 @@ import { MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import NextSeo from 'next-seo';
+import openGraph from 'assets/images/openGraph.png';
 
 const SEO_METATAGS = {
   title: 'Promise Tracker App',
-  description: '',
+  description:
+    'PromiseTracker is a platform-based promise tracker where Kenyan citizens can track various promises made by governors in their manifestos and during the campaigns leading up to the 2017 general election',
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    url: '',
+    url: 'https://promisetracker.codeforafrica.org/',
     title: 'Promise tracker',
-    description: '',
-    image: '',
+    description:
+      'PromiseTracker, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges',
+    image: { openGraph },
     site_name: 'promise-tracker',
     imageWidth: 1200,
     imageHeight: 1200
