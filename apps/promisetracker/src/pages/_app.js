@@ -16,7 +16,7 @@ const SEO_METATAGS = {
     type: 'website',
     locale: 'en_IE',
     url: '',
-    title: 'Next.js Seo',
+    title: 'Promise tracker',
     description: '',
     image: '',
     site_name: 'promise-tracker',
