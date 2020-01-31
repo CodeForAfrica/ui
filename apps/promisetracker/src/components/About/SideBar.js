@@ -3,6 +3,8 @@ import React from 'react';
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 import StatusChip from 'components/Promise/StatusChip';
 
+import data from 'data';
+
 const useStyles = makeStyles(theme => ({
   root: {
     borderLeft: `1px solid ${theme.palette.divider}`
@@ -26,57 +28,14 @@ function SideBar({ ...props }) {
         Our Ratings
       </Typography>
       <Grid container spacing={6}>
-        <Grid item className={classes.statusGrid}>
-          <StatusChip status="complete" />
-          <Typography className={classes.typo}>
-            The promise is mostly or completely fulfilled.
-          </Typography>
-        </Grid>
-
-        <Grid item className={classes.statusGrid}>
-          <StatusChip status="unstarted" />
-          <Typography className={classes.typo}>
-            When promises are accomplished less than the original promise but
-            when there is still a significant accomplishment that is consistent
-            with the goal of the original promise.
-          </Typography>
-        </Grid>
-
-        <Grid item className={classes.statusGrid}>
-          <StatusChip status="in-progress" />
-          <Typography className={classes.typo}>
-            The promise is in the works or is being considered.
-          </Typography>
-        </Grid>
-
-        <Grid item className={classes.statusGrid}>
-          <StatusChip status="behind-schedule" />
-          <Typography className={classes.typo}>
-            This could occur because of inaction by the administration or lack
-            of support from the legislative branch or other groups and factors
-            that was critical for the promise to be fulfilled. This rating does
-            not necessarily mean that the administration failed to push for its
-            fulfilment
-          </Typography>
-        </Grid>
-
-        <Grid item className={classes.statusGrid}>
-          <StatusChip status="stalled" />
-          <Typography className={classes.typo}>
-            There is no movement on the promise, perhaps because of financial
-            limitations,opposition from lawmakers or higher ranks or a change in
-            priorities.
-          </Typography>
-        </Grid>
-
-        <Grid item className={classes.statusGrid}>
-          <StatusChip status="inconclusive" />
-          <Typography className={classes.typo}>
-            Every promise begins at this level and retains this rating until we
-            see evidence of progress or evidence that the promise has been
-            shelved.
-          </Typography>
-        </Grid>
+        {data.statusTypes.map(status => (
+          <Grid item className={classes.statusGrid}>
+            <StatusChip status={status.slug} />
+            <Typography className={classes.typo}>
+              {status.description}
+            </Typography>
+          </Grid>
+        ))}
       </Grid>
     </Grid>
   );
