@@ -27,12 +27,7 @@ const SEO_METATAGS = {
     imageHeight: 1200
   },
   twitter: {
-    handle: '',
-    cardType: ''
-  },
-  facebook: {
-    handle: '',
-    cardType: ''
+    handle: '@Code4Africa'
   }
 };
 
