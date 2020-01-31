@@ -7,11 +7,11 @@ export default {
     url: 'https://pesacheck.org/tagged/promise-tracker'
   },
   colors: {
-    achieved: {
+    complete: {
       light: '#377bbf',
       dark: 'rgb(50, 112, 174)'
     },
-    compromised: {
+    unstarted: {
       light: '#7b4b94',
       dark: 'rgb(112, 68, 135)'
     },
@@ -19,7 +19,7 @@ export default {
       light: '#2a9d8f',
       dark: 'rgb(38, 143, 130)'
     },
-    'not-achieved': {
+    'behind-schedule': {
       light: '#f25f5c',
       dark: 'rgb(221, 87, 84)'
     },
@@ -27,7 +27,7 @@ export default {
       light: '#edae49',
       dark: 'rgb(216, 159, 67)'
     },
-    inactive: {
+    inconclusive: {
       light: '#9b9b9b',
       dark: 'rgb(141, 141, 141)'
     }
