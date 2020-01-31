@@ -31,7 +31,7 @@ export default {
       name: 'Stalled',
       img: './status-stalled.png',
       description:
-        'here is no movement on the promise, perhaps because of financial limitations, opposition from lawmakers or higher ranks or a change in priorities'
+        'There is no movement on the promise, perhaps because of financial limitations, opposition from lawmakers or higher ranks or a change in priorities'
     },
     {
       slug: 'inconclusive',
