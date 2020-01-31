@@ -3,6 +3,8 @@ import { Grid, makeStyles, Button, ButtonGroup, Link } from '@material-ui/core';
 
 import propTypes from './propTypes';
 
+import config from '../config';
+
 const useStyles = makeStyles({
   root: {
     width: '100%'
@@ -11,12 +13,14 @@ const useStyles = makeStyles({
     height: 'auto',
     maxWidth: '100%'
   },
-  smallButton: {
-    width: '30%'
-  },
-  largeButton: {
-    width: '70%'
-  }
+  smallButton: ({ status }) => ({
+    width: '30%',
+    background: config.colors[status].light
+  }),
+  largeButton: ({ status }) => ({
+    width: '70%',
+    background: config.colors[status].dark
+  })
 });
 
 function StatusIndicator({ status, href, img, label, value, ...props }) {
@@ -31,21 +35,11 @@ function StatusIndicator({ status, href, img, label, value, ...props }) {
     >
       <Grid item>
         <img alt="Indicator" className={classes.indicatorImage} src={img} />
-        <ButtonGroup
-          variant="contained"
-          color="secondary"
-          aria-label="split button"
-          fullWidth
-        >
+        <ButtonGroup variant="contained" aria-label="split button" fullWidth>
           <Button size="small" className={classes.smallButton}>
             {value}
           </Button>
-          <Button
-            color="primary"
-            size="small"
-            aria-haspopup="true"
-            className={classes.largeButton}
-          >
+          <Button size="small" className={classes.largeButton}>
             {label || status}
           </Button>
         </ButtonGroup>
