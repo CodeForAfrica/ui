@@ -22,12 +22,14 @@ const SEO_METATAGS = {
     description:
       'PromiseTracker, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges',
     image: { openGraph },
-    site_name: 'promise-tracker',
+    site_name: 'Promise Tracker',
     imageWidth: 1200,
     imageHeight: 1200
   },
   twitter: {
-    handle: '@Code4Africa'
+    handle: '@Code4Africa',
+    site: '@Code4Africa',
+    cardType: 'summary_large_image'
   }
 };
 
