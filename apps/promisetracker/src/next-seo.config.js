@@ -1,4 +1,4 @@
-// import openGraph from 'assets/images/openGraph.png';
+import config from 'config';
 
 export default {
   title: 'Promise Tracker',
@@ -11,7 +11,7 @@ export default {
     title: 'Promise tracker',
     description:
       'PromiseTracker, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges',
-    // image: `${config.url}${openGraph}`,
+    image: `${config.url}/public/image/openGraph.png`,
     site_name: 'Promise Tracker',
     imageWidth: 1200,
     imageHeight: 1200
