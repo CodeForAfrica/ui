@@ -7,7 +7,7 @@ import theme from 'theme';
 import { MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import NextSeo from 'next-seo';
+import { DefaultSeo } from 'next-seo';
 import SEO from '../next-seo.config';
 
 class PromiseTrackerApp extends App {
@@ -25,7 +25,7 @@ class PromiseTrackerApp extends App {
       <>
         <MuiThemeProvider theme={theme}>
           <CssBaseline />
-          <NextSeo config={SEO} />
+          <DefaultSeo {...SEO} />
           <Component {...pageProps} />
         </MuiThemeProvider>
       </>
