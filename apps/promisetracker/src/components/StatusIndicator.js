@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, makeStyles, Box, Link } from '@material-ui/core';
+import { Grid, makeStyles, Box, Link, ButtonBase } from '@material-ui/core';
 import propTypes from './propTypes';
 
 import config from '../config';
@@ -34,29 +34,31 @@ function StatusIndicator({ status, href, img, label, value, ...props }) {
       className={classes.root}
       direction="column"
     >
-      <Grid item>
-        <img alt="Indicator" className={classes.indicatorImage} src={img} />
-        <Box display="flex" flexDirection="row" fullWidth>
-          <Box
-            color="black"
-            pl={2}
-            py={1}
-            fontWeight={500}
-            className={classes.smallButton}
-          >
-            {value}
+      <ButtonBase focusRipple>
+        <Grid item>
+          <img alt="Indicator" className={classes.indicatorImage} src={img} />
+          <Box display="flex" flexDirection="row" fullWidth>
+            <Box
+              color="black"
+              pl={2}
+              py={1}
+              fontWeight={500}
+              className={classes.smallButton}
+            >
+              {value}
+            </Box>
+            <Box
+              color="black"
+              pl={2}
+              py={1}
+              fontWeight={500}
+              className={classes.largeButton}
+            >
+              {label || status}
+            </Box>
           </Box>
-          <Box
-            color="black"
-            pl={2}
-            py={1}
-            fontWeight={500}
-            className={classes.largeButton}
-          >
-            {label || status}
-          </Box>
-        </Box>
-      </Grid>
+        </Grid>
+      </ButtonBase>
     </Grid>
   );
 }
