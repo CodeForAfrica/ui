@@ -27,33 +27,31 @@ const useStyles = makeStyles({
 function StatusIndicator({ status, href, img, label, value, ...props }) {
   const classes = useStyles({ status, ...props });
   return (
-    <Grid container className={classes.root} direction="column">
-      <ButtonBase focusRipple>
-        <Grid item>
-          <img alt="Indicator" className={classes.indicatorImage} src={img} />
-          <Box display="flex" flexDirection="row" fullWidth>
-            <Box
-              color="black"
-              pl={2}
-              py={1}
-              fontWeight={500}
-              className={classes.smallButton}
-            >
-              {value}
-            </Box>
-            <Box
-              color="black"
-              pl={2}
-              py={1}
-              fontWeight={500}
-              className={classes.largeButton}
-            >
-              {label || status}
-            </Box>
+    <ButtonBase>
+      <Grid item>
+        <img alt="Indicator" className={classes.indicatorImage} src={img} />
+        <Box display="flex" flexDirection="row">
+          <Box
+            color="black"
+            pl={2}
+            py={1}
+            fontWeight={500}
+            className={classes.smallButton}
+          >
+            {value}
           </Box>
-        </Grid>
-      </ButtonBase>
-    </Grid>
+          <Box
+            color="black"
+            pl={2}
+            py={1}
+            fontWeight={500}
+            className={classes.largeButton}
+          >
+            {label || status}
+          </Box>
+        </Box>
+      </Grid>
+    </ButtonBase>
   );
 }
 
