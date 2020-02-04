@@ -18,7 +18,7 @@ export default {
         url: `${config.url}public/image/openGraph.png`,
         width: 800,
         height: 600,
-        alt: 'Site Image alt'
+        alt: 'Promise tracker'
       }
     ]
   },
