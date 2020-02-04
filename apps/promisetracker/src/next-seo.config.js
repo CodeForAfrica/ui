@@ -13,8 +13,14 @@ export default {
       'PromiseTracker, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges',
     image: `${config.url}/public/image/openGraph.png`,
     site_name: 'Promise Tracker',
-    imageWidth: 1200,
-    imageHeight: 1200
+    images: [
+      {
+        url: `${config.url}public/image/openGraph.png`,
+        width: 800,
+        height: 600,
+        alt: 'Site Image alt'
+      }
+    ]
   },
   twitter: {
     handle: '@PesaCheck',

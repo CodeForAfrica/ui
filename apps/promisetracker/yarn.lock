@@ -5690,10 +5690,10 @@ next-images@^1.2.0:
     file-loader "^5.0.2"
     url-loader "^3.0.0"
 
-next-seo@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.0.0.tgz#c95a1394084009a35a4a90bf9f47c0633119277a"
-  integrity sha512-0ApTcGAh2y5SeqngMQAgK7VIxUowTJqtns7vL1CZye+poiDjr2IUyxOR9uIIb7Wkyn5aq583+Nf1cWNbjo0zeQ==
+next-seo@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.1.0.tgz#1f87a5184a81af7aab07409f40eab99ee638da8a"
+  integrity sha512-wHFrn20xc1jPaCaAviD11F1lNdmbp07kysFiLXZTArIqk8YSWOXCEkmh3kgVuXBkHeZOhIUdbuEc9xtf0LgCLg==
 
 next-tick@~1.0.0:
   version "1.0.0"
