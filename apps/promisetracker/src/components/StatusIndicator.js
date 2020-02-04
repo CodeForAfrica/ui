@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, makeStyles, Box, Link, ButtonBase } from '@material-ui/core';
+import { Grid, makeStyles, Box, ButtonBase } from '@material-ui/core';
 import propTypes from './propTypes';
 
 import config from '../config';
@@ -27,13 +27,7 @@ const useStyles = makeStyles({
 function StatusIndicator({ status, href, img, label, value, ...props }) {
   const classes = useStyles({ status, ...props });
   return (
-    <Grid
-      container
-      to={href || `/promises?status=${status}`}
-      component={Link}
-      className={classes.root}
-      direction="column"
-    >
+    <Grid container className={classes.root} direction="column">
       <ButtonBase focusRipple>
         <Grid item>
           <img alt="Indicator" className={classes.indicatorImage} src={img} />
