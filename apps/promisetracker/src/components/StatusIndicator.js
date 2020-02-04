@@ -1,6 +1,5 @@
 import React from 'react';
-import { Grid, makeStyles, Button, ButtonGroup, Link } from '@material-ui/core';
-
+import { Grid, makeStyles, Box, Link } from '@material-ui/core';
 import propTypes from './propTypes';
 
 import config from '../config';
@@ -35,14 +34,14 @@ function StatusIndicator({ status, href, img, label, value, ...props }) {
     >
       <Grid item>
         <img alt="Indicator" className={classes.indicatorImage} src={img} />
-        <ButtonGroup variant="contained" aria-label="split button" fullWidth>
-          <Button size="small" className={classes.smallButton}>
+        <Box display="flex" flexDirection="row" fullWidth>
+          <Box color="black" pl={2} py={1} className={classes.smallButton}>
             {value}
-          </Button>
-          <Button size="small" className={classes.largeButton}>
+          </Box>
+          <Box color="black" pl={2} py={1} className={classes.largeButton}>
             {label || status}
-          </Button>
-        </ButtonGroup>
+          </Box>
+        </Box>
       </Grid>
     </Grid>
   );
