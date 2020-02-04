@@ -14,11 +14,13 @@ const useStyles = makeStyles({
   },
   smallButton: ({ status }) => ({
     width: '30%',
-    background: config.colors[status].light
+    background: config.colors[status].light,
+    textTransform: 'uppercase'
   }),
   largeButton: ({ status }) => ({
     width: '70%',
-    background: config.colors[status].dark
+    background: config.colors[status].dark,
+    textTransform: 'uppercase'
   })
 });
 
@@ -35,10 +37,22 @@ function StatusIndicator({ status, href, img, label, value, ...props }) {
       <Grid item>
         <img alt="Indicator" className={classes.indicatorImage} src={img} />
         <Box display="flex" flexDirection="row" fullWidth>
-          <Box color="black" pl={2} py={1} className={classes.smallButton}>
+          <Box
+            color="black"
+            pl={2}
+            py={1}
+            fontWeight={500}
+            className={classes.smallButton}
+          >
             {value}
           </Box>
-          <Box color="black" pl={2} py={1} className={classes.largeButton}>
+          <Box
+            color="black"
+            pl={2}
+            py={1}
+            fontWeight={500}
+            className={classes.largeButton}
+          >
             {label || status}
           </Box>
         </Box>
