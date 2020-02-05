@@ -49,6 +49,7 @@ const GET_PROMISES = gql`
           node {
             id
             title
+            description
             project_medias(last: 6) {
               edges {
                 node {

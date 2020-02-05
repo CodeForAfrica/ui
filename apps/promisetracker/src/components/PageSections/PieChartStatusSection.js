@@ -29,6 +29,7 @@ const GET_CHART_DATA = gql`
           node {
             id
             title
+            description
             project_medias(last: 6) {
               edges {
                 node {
