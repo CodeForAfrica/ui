@@ -20,15 +20,19 @@ const useStyles = makeStyles(theme => ({
     height: 'auto',
     width: '100%'
   },
-  title: {
+  contentGrid: {
     height: '10rem',
     maxHeight: '100%'
+  },
+  content: {
+    marginTop: '1rem'
   }
 }));
 
 function PromiseCard({
   status,
   title,
+  description,
   term,
   topic,
   href,
@@ -41,15 +45,18 @@ function PromiseCard({
   const classes = useStyles({ status, ...props });
   return (
     <Card elevation={0} className={classes.root}>
-      <CardContent component={Grid} container direction="column" spacing={3}>
+      <CardContent component={Grid} container direction="column">
         <Link href={href} as={as}>
-          <Grid item className={classes.title}>
+          <Grid item className={classes.contentGrid}>
             <Typography variant="h6" color="primary">
               {title}
             </Typography>
+            <Typography variant="body2" className={classes.content}>
+              {description}
+            </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body2">
+            <Typography variant="body2" className={classes.content}>
               {term} | {topic}
             </Typography>
           </Grid>
@@ -73,6 +80,7 @@ PromiseCard.propTypes = {
     ''
   ]).isRequired,
   title: propTypes.string.isRequired,
+  description: propTypes.string,
   term: propTypes.string.isRequired,
   topic: propTypes.string.isRequired,
   href: propTypes.string.isRequired,
@@ -84,6 +92,7 @@ PromiseCard.propTypes = {
 
 PromiseCard.defaultProps = {
   img: undefined,
+  description: '',
   label: undefined,
   value: undefined
 };

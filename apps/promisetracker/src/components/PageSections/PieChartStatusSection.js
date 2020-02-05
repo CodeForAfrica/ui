@@ -200,12 +200,12 @@ function PieChartStatusSection() {
           {promiseStatuses.map(promise => (
             <Grid key={promise.status} item xs={8} sm={4} md={2}>
               <StatusIndicator
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
                 img={getIndicatorImage(promise.img)}
                 label={promise.name}
                 status={promise.slug}
                 value={promise.count}
+                // onMouseEnter={activeData.count}
+                // onMouseLeave={activeData.count}
               />
             </Grid>
           ))}

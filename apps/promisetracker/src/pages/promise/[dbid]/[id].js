@@ -182,7 +182,7 @@ function PromisePage() {
               title="About the promise"
               className={classes.typo}
             >
-              <Typography />
+              <Typography>{promise.description}</Typography>
             </TitledGrid>
 
             <Grid item>
@@ -204,6 +204,7 @@ function PromisePage() {
                   <Grid item xs={12} key={topic.id}>
                     <PromiseCard
                       title={topic.title}
+                      description={topic.description}
                       href="/promise/[dbid]/[id]"
                       as={`/promise/${topic.dbid}/${slugify(topic.title)}`}
                       term="Term 1"

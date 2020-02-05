@@ -214,6 +214,7 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
                   as={`promise/${media.dbid}/${slugify(media.title)}`}
                   term={filterData.terms.find(s => s.slug === 'term-1').name}
                   title={media.title}
+                  description={media.description}
                   topic={
                     filterData.topics.find(
                       s =>
