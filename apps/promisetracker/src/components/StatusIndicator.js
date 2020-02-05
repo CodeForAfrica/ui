@@ -24,10 +24,20 @@ const useStyles = makeStyles({
   })
 });
 
-function StatusIndicator({ status, href, img, label, value, ...props }) {
+function StatusIndicator({
+  status,
+  href,
+  img,
+  label,
+  value,
+  onMouseEnter,
+  onMouseLeave,
+  ...props
+}) {
   const classes = useStyles({ status, ...props });
+
   return (
-    <ButtonBase>
+    <ButtonBase onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <Grid item>
         <img alt="Indicator" className={classes.indicatorImage} src={img} />
         <Box display="flex" flexDirection="row">
