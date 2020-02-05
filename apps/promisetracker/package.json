@@ -68,7 +68,7 @@
   },
   "scripts": {
     "dev": "next",
-    "now-dev": "now dev",
+    "dev:now": "now dev",
     "start": "next start",
     "build": "next build",
     "deploy": "now --prod",
