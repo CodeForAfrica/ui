@@ -101,16 +101,17 @@ function PieChartStatusSection({ promises }) {
               <Typography variant="h6" className={classes.typo}>
                 Promises
               </Typography>
+
               {activeData && (
                 <Typography variant="h6" className={classes.typo}>
-                  {(chartData.statusTypes.find(
-                    s => s.slug === activeData.slug
-                  ) &&
-                    chartData.statusTypes.find(s => s.slug === activeData.slug)
-                      .name) ||
-                    '' ||
-                    promiseStatuses.find(p => p.slug === activeData.status)
-                      .name}
+                  {
+                    (
+                      promiseStatuses.find(
+                        ({ slug }) =>
+                          slug === (activeData.slug || activeData.status)
+                      ) || { name: '' }
+                    ).name
+                  }
                 </Typography>
               )}
             </Grid>
