@@ -153,9 +153,8 @@ function PieChartStatusSection() {
               <Typography variant="h6" className={classes.typo}>
                 {activeData
                   ? activeData.count ||
-                    (activeData &&
-                      promiseStatuses.find(p => p.count === activeData.count)
-                        .count)
+                    promiseStatuses.find(p => p.slug === activeData.status)
+                      .count
                   : totalPromises}
                 {/* {console.log(
                   activeData &&

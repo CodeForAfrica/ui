@@ -37,7 +37,10 @@ function StatusIndicator({
   const classes = useStyles({ status, ...props });
 
   return (
-    <ButtonBase onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <ButtonBase
+      onMouseEnter={() => onMouseEnter({ status })}
+      onMouseLeave={() => onMouseLeave({ status })}
+    >
       <Grid item>
         <img alt="Indicator" className={classes.indicatorImage} src={img} />
         <Box display="flex" flexDirection="row">
