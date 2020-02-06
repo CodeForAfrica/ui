@@ -131,6 +131,9 @@ function PieChartStatusSection() {
   const [activeData, setActiveData] = useState(null);
   const onMouseEnter = pieData => {
     setActiveData(pieData);
+    if (promiseStatuses) {
+      setActiveData(pieData);
+    }
   };
   const onMouseLeave = () => {
     setActiveData(null);
@@ -148,7 +151,17 @@ function PieChartStatusSection() {
               className={classes.centerTextGrid}
             >
               <Typography variant="h6" className={classes.typo}>
-                {activeData ? activeData.count : totalPromises}
+                {activeData
+                  ? activeData.count ||
+                    (activeData &&
+                      promiseStatuses.find(p => p.count === activeData.count)
+                        .count)
+                  : totalPromises}
+                {/* {console.log(
+                  activeData &&
+                  promiseStatuses.find(p => p.count === activeData.count)
+                    .count
+                )} */}
               </Typography>
               <Typography variant="h6" className={classes.typo}>
                 Promises
@@ -204,8 +217,8 @@ function PieChartStatusSection() {
                 label={promise.name}
                 status={promise.slug}
                 value={promise.count}
-                // onMouseEnter={activeData.count}
-                // onMouseLeave={activeData.count}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
               />
             </Grid>
           ))}
