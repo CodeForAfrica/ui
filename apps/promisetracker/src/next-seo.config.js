@@ -11,10 +11,11 @@ export default {
     title: 'Promise tracker',
     description:
       'PromiseTracker, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges',
+    image: `${config.url}/public/image/openGraph.png`,
     site_name: 'Promise Tracker',
     images: [
       {
-        url: `${config.url}images/openGraph.png`,
+        url: `${config.url}public/image/openGraph.png`,
         width: 800,
         height: 600,
         alt: 'Promise tracker'

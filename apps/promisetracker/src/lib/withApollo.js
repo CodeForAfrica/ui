@@ -22,8 +22,7 @@ function create(initialState) {
     link: new HttpLink({
       uri: config.PROXY_URL + config.GRAPHQL_URI, // Server URL (must be absolute)
       headers: {
-        'X-Check-Token':
-          'eyJwcm92aWRlciI6InNsYWNrIiwiaWQiOiJVNjcxRUY0SjMiLCJ0b2tlbiI6++nInhveHAtMjMzNjkzNzY1NS0yMTEwNDg1MTQ2MTUtMjIwODg1NjY3MDI3LWVj++nOWY3OGMzMjZjNWIzNDE2YWM3MzAyMGQxNDZiMzIxIiwic2VjcmV0IjoiIn0=++n',
+        'X-Check-Token': process.env.CHECK_ACCESS_TOKEN,
         Origin: config.url,
         'X-Requested-With': 'XMLHttpRequest'
       },

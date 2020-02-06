@@ -14,13 +14,11 @@ const useStyles = makeStyles({
   },
   smallButton: ({ status }) => ({
     width: '30%',
-    background: config.colors[status].light,
-    textTransform: 'uppercase'
+    background: config.colors[status].light
   }),
   largeButton: ({ status }) => ({
     width: '70%',
-    background: config.colors[status].dark,
-    textTransform: 'uppercase'
+    background: config.colors[status].dark
   })
 });
 
@@ -43,23 +41,11 @@ function StatusIndicator({
     >
       <Grid item>
         <img alt="Indicator" className={classes.indicatorImage} src={img} />
-        <Box display="flex" flexDirection="row">
-          <Box
-            color="black"
-            pl={2}
-            py={1}
-            fontWeight={500}
-            className={classes.smallButton}
-          >
+        <ButtonGroup variant="contained" aria-label="split button" fullWidth>
+          <Button size="small" className={classes.smallButton}>
             {value}
-          </Box>
-          <Box
-            color="black"
-            pl={2}
-            py={1}
-            fontWeight={500}
-            className={classes.largeButton}
-          >
+          </Button>
+          <Button size="small" className={classes.largeButton}>
             {label || status}
           </Box>
         </Box>
