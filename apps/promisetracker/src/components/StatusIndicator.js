@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, makeStyles, Box, ButtonBase } from '@material-ui/core';
+import { Grid, makeStyles, Box } from '@material-ui/core';
 import propTypes from './propTypes';
 
 import config from '../config';
@@ -37,7 +37,7 @@ function StatusIndicator({
   const classes = useStyles({ status, ...props });
 
   return (
-    <ButtonBase
+    <div
       onMouseEnter={() => onMouseEnter({ status })}
       onMouseLeave={() => onMouseLeave({ status })}
     >
@@ -64,7 +64,7 @@ function StatusIndicator({
           </Box>
         </Box>
       </Grid>
-    </ButtonBase>
+    </div>
   );
 }
 
