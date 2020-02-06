@@ -156,11 +156,6 @@ function PieChartStatusSection() {
                     promiseStatuses.find(p => p.slug === activeData.status)
                       .count
                   : totalPromises}
-                {/* {console.log(
-                  activeData &&
-                  promiseStatuses.find(p => p.count === activeData.count)
-                    .count
-                )} */}
               </Typography>
               <Typography variant="h6" className={classes.typo}>
                 Promises
@@ -172,7 +167,9 @@ function PieChartStatusSection() {
                   ) &&
                     chartData.statusTypes.find(s => s.slug === activeData.slug)
                       .name) ||
-                    ''}
+                    '' ||
+                    promiseStatuses.find(p => p.slug === activeData.status)
+                      .name}
                 </Typography>
               )}
             </Grid>
