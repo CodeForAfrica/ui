@@ -15,9 +15,6 @@ import Link from 'components/Link';
 import filterData from 'data';
 import slugify from 'lib/slugify';
 
-import gql from 'graphql-tag';
-import { useQuery } from '@apollo/react-hooks';
-
 const useStyles = makeStyles({
   root: props => ({
     background: props.color || 'rgb(246, 246, 246)',
@@ -33,60 +30,9 @@ const useStyles = makeStyles({
   button: { paddingTop: '3rem' }
 });
 
-const GET_PROMISES = gql`
-  query {
-    team(slug: "pesacheck-promise-tracker") {
-      id
-      name
-      projects {
-        edges {
-          node {
-            id
-            title
-            project_medias(last: 6) {
-              edges {
-                node {
-                  id
-                  dbid
-                  title
-                  tasks {
-                    edges {
-                      node {
-                        id
-                        label
-                        first_response_value
-                      }
-                    }
-                  }
-                  tags {
-                    edges {
-                      node {
-                        id
-                        tag_text
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
-function PromisesSection({ enableShowMore, filter, ...props }) {
+function PromisesSection({ promises, enableShowMore, filter, ...props }) {
   const classes = useStyles(props);
   const router = useRouter();
-
-  const { loading, error, data } = useQuery(GET_PROMISES);
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-  if (error) {
-    return null;
-  }
 
   const updateFilter = useCallback(
     (name, value) => {
@@ -187,7 +133,7 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
         </Grid>
       </Grid>
 
-      {data.team.projects.edges.map(({ node }) => (
+      {promises.map(({ id, project_medias: projectMedias }) => (
         <Grid
           item
           xs={12}
@@ -195,9 +141,9 @@ function PromisesSection({ enableShowMore, filter, ...props }) {
           className={classes.cardsContainer}
           spacing={2}
           color="white"
-          key={node.id}
+          key={id}
         >
-          {node.project_medias.edges
+          {projectMedias.edges
             .filter(
               ({ node: filterMedia }) =>
                 (!filter.status || findStatus(filterMedia) === filter.status) &&

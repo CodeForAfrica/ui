@@ -11,20 +11,24 @@ import PartnersSection from 'components/PageSections/PartnerSections';
 import PromisesSection from 'components/PageSections/PromisesSection';
 
 import withApollo from 'lib/withApollo';
+import fetchPromises from 'lib/fetchPromises';
 
-function Index() {
+function Index({ promises }) {
   const router = useRouter();
   const { status = '', term = '', topic = '' } = router.query;
   const filter = { status, term, topic };
 
   return (
     <Page>
-      <PieChartStatusSection />
-      <PromisesSection filter={filter} />
+      <PieChartStatusSection promises={promises} />
+      <PromisesSection promises={promises} filter={filter} />
       <LatestReportsSection />
       <ContributeSection />
       <PartnersSection />
     </Page>
   );
 }
+
+Index.getInitialProps = fetchPromises;
+
 export default withApollo(Index);
