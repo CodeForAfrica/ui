@@ -75,9 +75,6 @@ function PieChartStatusSection({ promises }) {
   const [activeData, setActiveData] = useState(null);
   const onMouseEnter = pieData => {
     setActiveData(pieData);
-    if (promiseStatuses) {
-      setActiveData(pieData);
-    }
   };
   const onMouseLeave = () => {
     setActiveData(null);
