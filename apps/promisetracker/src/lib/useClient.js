@@ -1,5 +1,6 @@
 import config from 'config';
 import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost';
+import fetch from 'isomorphic-unfetch';
 
 export default initialState => {
   // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
