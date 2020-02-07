@@ -1,6 +1,14 @@
 import gql from 'graphql-tag';
 
 export default async ({ apolloClient }) => {
+  const isBrowser = typeof window !== 'undefined';
+
+  if (isBrowser) {
+    return {
+      promises: await fetch('/api/promises').then(res => res.json())
+    };
+  }
+
   const { data } = await apolloClient.query({
     query: gql`
       query {

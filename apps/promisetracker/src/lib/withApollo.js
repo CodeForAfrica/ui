@@ -1,49 +1,25 @@
 /* eslint-disable no-console */
 import React from 'react';
 
-import fetch from 'isomorphic-unfetch';
-
 import Head from 'next/head';
 
 import { getDataFromTree } from '@apollo/react-ssr';
-import { ApolloClient, InMemoryCache, HttpLink } from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 
-import config from '../config';
+import useClient from './useClient';
 
 let reusableApolloClient = null;
-
-function create(initialState) {
-  // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
-  const isBrowser = typeof window !== 'undefined';
-  const headers = !isBrowser && {
-    'X-Check-Token': process.env.CHECK_ACCESS_TOKEN,
-    Origin: config.url,
-    'X-Requested-With': 'XMLHttpRequest'
-  };
-  return new ApolloClient({
-    connectToDevTools: isBrowser,
-    ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
-    link: new HttpLink({
-      headers,
-      uri: config.PROXY_URL + config.GRAPHQL_URI, // Server URL (must be absolute)
-      // Use fetch() polyfill on the server
-      fetch: !isBrowser && fetch
-    }),
-    cache: new InMemoryCache().restore(initialState || {})
-  });
-}
 
 export function initApollo(initialState) {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
   if (typeof window === 'undefined') {
-    return create(initialState);
+    return useClient(initialState);
   }
 
   // Reuse client on the client-side
   if (!reusableApolloClient) {
-    reusableApolloClient = create(initialState);
+    reusableApolloClient = useClient(initialState);
   }
 
   return reusableApolloClient;
