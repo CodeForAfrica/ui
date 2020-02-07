@@ -3,12 +3,16 @@ import { PieChart, Pie, Cell, LabelList } from 'recharts';
 
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
+
 import chartData from 'data';
+import config from 'config';
+import findStatus from 'lib/findStatus';
 import slugify from 'lib/slugify';
 
 import Layout from 'components/Layout';
 import StatusIndicator from 'components/StatusIndicator';
-import config from '../../config';
 
 const getIndicatorImage = require.context(
   '../../assets/images/indicators',
@@ -52,12 +56,7 @@ function PieChartStatusSection({ promises }) {
     ...promise,
     count: 0
   })); // Initialize
-  const statusFor = media =>
-    slugify(
-      media.tasks.edges.find(
-        ({ node: task }) => task.label === 'What is the status of the promise?'
-      ).node.first_response_value
-    );
+  const statusFor = media => slugify(findStatus(media));
   medias.forEach(media => {
     const status = statusFor(media);
     const promiseStatus = promiseStatuses.find(s => s.slug === status);
