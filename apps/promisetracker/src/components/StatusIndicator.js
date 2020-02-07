@@ -6,7 +6,11 @@ import config from '../config';
 
 const useStyles = makeStyles({
   root: {
-    width: '100%'
+    width: '100%',
+    '&:hover': {
+      outline: 'none',
+      boxShadow: '0 0px 6px rgba(0,0,0,0.16), 0 0px 6px rgba(0,0,0,0.23)'
+    }
   },
   indicatorImage: {
     height: 'auto',
@@ -39,32 +43,31 @@ function StatusIndicator({
       item
       onMouseEnter={() => onMouseEnter({ status })}
       onMouseLeave={() => onMouseLeave({ status })}
+      className={classes.root}
     >
-      <Grid item>
-        <img alt="Indicator" className={classes.indicatorImage} src={img} />
-        <Box display="flex" flexDirection="row">
-          <Box
-            color="black"
-            pl={2}
-            py={1}
-            fontSize={12}
-            fontWeight={500}
-            className={classes.smallButton}
-          >
-            {value}
-          </Box>
-          <Box
-            color="black"
-            pl={2}
-            py={1}
-            fontSize={12}
-            fontWeight={500}
-            className={classes.largeButton}
-          >
-            {label || status}
-          </Box>
+      <img alt="Indicator" className={classes.indicatorImage} src={img} />
+      <Box display="flex" flexDirection="row">
+        <Box
+          color="black"
+          pl={2}
+          py={1}
+          fontSize={12}
+          fontWeight={500}
+          className={classes.smallButton}
+        >
+          {value}
         </Box>
-      </Grid>
+        <Box
+          color="black"
+          pl={2}
+          py={1}
+          fontSize={12}
+          fontWeight={500}
+          className={classes.largeButton}
+        >
+          {label || status}
+        </Box>
+      </Box>
     </Grid>
   );
 }
