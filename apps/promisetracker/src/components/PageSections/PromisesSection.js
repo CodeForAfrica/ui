@@ -63,12 +63,14 @@ function PromisesSection({ promises, enableShowMore, filter, ...props }) {
 
   const findStatus = statusParam => {
     return slugify(
-      statusParam.tasks.edges.find(
-        ({ node: task }) => task.label === 'What is the status of the promise?'
+      (
+        statusParam.tasks.edges.find(
+          ({ node: task }) =>
+            task.label === 'What is the status of the promise?'
+        ) || { node: { first_response_value: '' } }
       ).node.first_response_value
     );
   };
-
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
       <Grid
@@ -162,12 +164,14 @@ function PromisesSection({ promises, enableShowMore, filter, ...props }) {
                   title={media.title}
                   description={media.description}
                   topic={
-                    filterData.topics.find(
-                      s =>
-                        s.slug ===
-                        media.tags.edges
-                          .map(({ node: topic }) => slugify(topic.tag_text))
-                          .toString()
+                    (
+                      filterData.topics.find(
+                        s =>
+                          s.slug ===
+                          media.tags.edges
+                            .map(({ node: topic }) => slugify(topic.tag_text))
+                            .toString()
+                      ) || {}
                     ).name
                   }
                   status={findStatus(media)}

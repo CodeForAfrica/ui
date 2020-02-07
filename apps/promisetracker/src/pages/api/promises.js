@@ -1,8 +1,21 @@
 import useClient from 'lib/useClient';
 import fetchPromises from 'lib/fetchPromises';
+import putPromise from 'lib/putPromise';
 
-export default async (_req, res) => {
+export default async (req, res) => {
   const apolloClient = useClient();
-  const { promises } = await fetchPromises({ apolloClient });
-  res.json(promises);
+  switch (req.method) {
+    case 'GET': {
+      const { promises } = await fetchPromises({ apolloClient });
+      res.json(promises);
+      break;
+    }
+    case 'POST':
+      await putPromise({ apolloClient, data: req.body });
+      res.sedStatus(200);
+      break;
+    default:
+      res.status(405).end();
+      break;
+  }
 };

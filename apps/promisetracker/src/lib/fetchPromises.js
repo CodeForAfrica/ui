@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import useClient from './useClient';
 
 export default async ({ apolloClient }) => {
   const isBrowser = typeof window !== 'undefined';
@@ -9,7 +10,7 @@ export default async ({ apolloClient }) => {
     };
   }
 
-  const { data } = await apolloClient.query({
+  const { data } = await (apolloClient || useClient()).query({
     query: gql`
       query {
         team(slug: "pesacheck-promise-tracker") {

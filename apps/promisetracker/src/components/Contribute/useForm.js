@@ -1,53 +1,10 @@
 import { useState, useEffect } from 'react';
+import putPromise from 'lib/putPromise';
 
-import gql from 'graphql-tag';
-import { useMutation } from '@apollo/react-hooks';
-
-const ADD_PROMISE_MEDIA = gql`
-  mutation createProjectMedia(
-    $clientMutationId: String
-    $project_id: Int
-    $quote: String
-    $quote_attributions: String
-  ) {
-    createProjectMedia(
-      input: {
-        clientMutationId: $clientMutationId
-        project_id: $project_id
-        quote: $quote
-        quote_attributions: $quote_attributions
-      }
-    ) {
-      project_media {
-        id
-        title
-        description
-        project_id
-        media_id
-        project_source {
-          id
-          source {
-            id
-            name
-          }
-        }
-      }
-    }
-  }
-`;
 const useForm = validate => {
   const [values, setValues] = useState({});
   const [response, setResponse] = useState({});
   const [submitted, setSubmitted] = useState(false);
-
-  const [createProjectMedia] = useMutation(ADD_PROMISE_MEDIA, {
-    variables: {
-      clientMutationId: '1',
-      project_id: 817,
-      quote: `Promise Tracker Submission (Ready for Review) \n Title: ${values.quote} \n Sources: ${values.source}`,
-      quote_attributions: `{"name": "Source:${values.source}"}`
-    }
-  });
 
   useEffect(() => {
     if (Object.keys(response).length === 0 && submitted) {
@@ -68,7 +25,7 @@ const useForm = validate => {
       return false;
     }
 
-    createProjectMedia();
+    putPromise({ data: values });
     setSubmitted(true);
     setValues({});
     return true;

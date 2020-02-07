@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core';
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import withApollo from 'lib/withApollo';
 
 import Layout from 'components/Layout';
 import Page from 'components/Page';
@@ -45,4 +44,4 @@ function Promises({ promises }) {
 
 Promises.getInitialProps = fetchPromises;
 
-export default withApollo(Promises);
+export default Promises;
