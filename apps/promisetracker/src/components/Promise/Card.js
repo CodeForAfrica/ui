@@ -52,7 +52,7 @@ function PromiseCard({
               {title}
             </Typography>
             <Typography variant="body2" className={classes.content}>
-              {description}
+              {description || ''}
             </Typography>
           </Grid>
           <Grid item>

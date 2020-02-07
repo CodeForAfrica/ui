@@ -27,6 +27,7 @@ export default async ({ apolloClient }) => {
                       id
                       dbid
                       title
+                      description
                       tasks {
                         edges {
                           node {

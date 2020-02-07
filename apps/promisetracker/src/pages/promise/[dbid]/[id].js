@@ -127,7 +127,7 @@ function PromisePage({ promises }) {
               title="About the promise"
               className={classes.typo}
             >
-              <Typography>{promise.description}</Typography>
+              <Typography>{promise.description || ''}</Typography>
             </TitledGrid>
 
             <Grid item>
@@ -149,10 +149,7 @@ function PromisePage({ promises }) {
                   <Grid item xs={12} key={topic.id}>
                     <PromiseCard
                       title={topic.title}
-<<<<<<< HEAD:apps/promisetracker/src/pages/promise/[dbid]/[id].js
-                      description={topic.description}
-=======
->>>>>>> Convert gql to fetchPromises using getInitialProps:apps/promisetracker/src/pages/promise/[id].js
+                      description={topic.description || ''}
                       href="/promise/[dbid]/[id]"
                       as={`/promise/${topic.dbid}/${slugify(topic.title)}`}
                       term="Term 1"

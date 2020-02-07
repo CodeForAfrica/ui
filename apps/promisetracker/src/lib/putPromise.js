@@ -31,6 +31,7 @@ export default async ({ apolloClient, data }) => {
           project_media {
             id
             title
+            description
             project_id
             media_id
             project_source {
