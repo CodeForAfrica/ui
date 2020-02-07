@@ -46,7 +46,7 @@ export default async ({ apolloClient, data }) => {
     `,
     variables: {
       clientMutationId: '1',
-      project_id: 817,
+      project_id: 2799,
       quote: `Promise Tracker Submission (Ready for Review) \n Title: ${quote} \n Sources: ${source}`,
       quote_attributions: `{"name": "Source:${source}"}`
     }
