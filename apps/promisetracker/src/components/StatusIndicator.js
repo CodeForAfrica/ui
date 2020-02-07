@@ -5,13 +5,6 @@ import propTypes from './propTypes';
 import config from '../config';
 
 const useStyles = makeStyles({
-  root: {
-    width: '100%',
-    '&:hover': {
-      outline: 'none',
-      boxShadow: '0 0px 6px rgba(0,0,0,0.16), 0 0px 6px rgba(0,0,0,0.23)'
-    }
-  },
   indicatorImage: {
     height: 'auto',
     maxWidth: '100%'
@@ -43,7 +36,6 @@ function StatusIndicator({
       item
       onMouseEnter={() => onMouseEnter({ status })}
       onMouseLeave={() => onMouseLeave({ status })}
-      className={classes.root}
     >
       <img alt="Indicator" className={classes.indicatorImage} src={img} />
       <Box display="flex" flexDirection="row">
