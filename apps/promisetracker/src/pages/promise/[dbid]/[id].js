@@ -4,10 +4,14 @@ import { Grid, makeStyles, Divider, Typography } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-import slugify from 'lib/slugify';
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
 
-import Page from 'components/Page';
-import Layout from 'components/Layout';
+import filterData from 'data';
+import findStatus from 'lib/findStatus';
+import slugify from 'lib/slugify';
+import withApollo from 'lib/withApollo';
+
 import {
   Card as PromiseCard,
   Header as PromiseHeader,
@@ -15,11 +19,9 @@ import {
   Navigator as PromiseNavigator
   // TimelineEntry as PromiseTimelineEntry
 } from 'components/Promise';
-
+import Layout from 'components/Layout';
+import Page from 'components/Page';
 import TitledGrid from 'components/TiltedGrid';
-
-import filterData from 'data';
-import fetchPromises from 'lib/fetchPromises';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -53,9 +55,6 @@ function PromisePage({ promises }) {
   }
 
   const promise = medias[index];
-  const findStatus = promise.tasks.edges.find(
-    ({ node: task }) => task.label === 'What is the status of the promise?'
-  ).node.first_response_value;
 
   const currentTopic = promise.tags.edges
     .map(({ node: topic }) => slugify(topic.tag_text))
@@ -93,9 +92,15 @@ function PromisePage({ promises }) {
           <Grid item xs={12} md={8}>
             <PromiseHeader
               key={promise.id}
-              status={slugify(findStatus)}
+              status={slugify(findStatus(promise))}
               term="Term 1"
-              topic={filterData.topics.find(s => s.slug === currentTopic).name}
+              topic={
+                (
+                  filterData.topics.find(s => s.slug === currentTopic) || {
+                    name: ''
+                  }
+                ).name
+              }
               title={promise.title}
             />
             <Grid item xs={12} className={classes.divider}>
@@ -164,12 +169,7 @@ function PromisePage({ promises }) {
                               .toString()
                         ).name
                       }
-                      status={slugify(
-                        topic.tasks.edges.find(
-                          ({ node: task }) =>
-                            task.label === 'What is the status of the promise?'
-                        ).node.first_response_value
-                      )}
+                      status={slugify(findStatus(topic))}
                     />
                   </Grid>
                 ))}
