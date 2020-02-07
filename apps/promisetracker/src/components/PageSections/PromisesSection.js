@@ -13,6 +13,7 @@ import PromiseCard from 'components/Promise/Card';
 import Link from 'components/Link';
 
 import filterData from 'data';
+import findStatus from 'lib/findStatus';
 import slugify from 'lib/slugify';
 
 const useStyles = makeStyles({
@@ -61,16 +62,6 @@ function PromisesSection({ promises, enableShowMore, filter, ...props }) {
     return search ? `?${search}` : '';
   }, [filter]);
 
-  const findStatus = statusParam => {
-    return slugify(
-      (
-        statusParam.tasks.edges.find(
-          ({ node: task }) =>
-            task.label === 'What is the status of the promise?'
-        ) || { node: { first_response_value: '' } }
-      ).node.first_response_value
-    );
-  };
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
       <Grid
@@ -160,7 +151,13 @@ function PromisesSection({ promises, enableShowMore, filter, ...props }) {
                 <PromiseCard
                   href="promise/[dbid]/[id]"
                   as={`promise/${media.dbid}/${slugify(media.title)}`}
-                  term={filterData.terms.find(s => s.slug === 'term-1').name}
+                  term={
+                    (
+                      filterData.terms.find(s => s.slug === 'term-1') || {
+                        name: ''
+                      }
+                    ).name
+                  }
                   title={media.title}
                   description={media.description || ''}
                   topic={
@@ -171,7 +168,7 @@ function PromisesSection({ promises, enableShowMore, filter, ...props }) {
                           media.tags.edges
                             .map(({ node: topic }) => slugify(topic.tag_text))
                             .toString()
-                      ) || {}
+                      ) || { name: '' }
                     ).name
                   }
                   status={findStatus(media)}
