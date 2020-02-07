@@ -16,7 +16,7 @@ let reusableApolloClient = null;
 function create(initialState) {
   // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
   const isBrowser = typeof window !== 'undefined';
-  const headers = isBrowser && {
+  const headers = !isBrowser && {
     'X-Check-Token': process.env.CHECK_ACCESS_TOKEN,
     Origin: config.url,
     'X-Requested-With': 'XMLHttpRequest'
