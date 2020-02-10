@@ -63,6 +63,10 @@ export default {
       name: 'Housing'
     },
     {
+      slug: 'health',
+      name: 'Health'
+    },
+    {
       slug: 'transport',
       name: 'Transport'
     },
