@@ -14,6 +14,9 @@ import slugify from 'lib/slugify';
 import Layout from 'components/Layout';
 import StatusIndicator from 'components/StatusIndicator';
 
+import config from 'config';
+import findStatus from 'lib/findStatus';
+
 const getIndicatorImage = require.context(
   '../../assets/images/indicators',
   false,
@@ -51,14 +54,8 @@ function PieChartStatusSection({ promises }) {
     ...promise,
     count: 0
   })); // Initialize
-  const statusFor = media =>
-    slugify(
-      media.tasks.edges.find(
-        ({ node: task }) => task.label === 'What is the status of the promise?'
-      ).node.first_response_value
-    );
   promises.forEach(media => {
-    const status = statusFor(media);
+    const status = slugify(findStatus(media));
     const promiseStatus = promiseStatuses.find(s => s.slug === status);
     promiseStatus.count += 1;
   });

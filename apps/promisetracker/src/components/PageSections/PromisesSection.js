@@ -163,7 +163,7 @@ function PromisesSection({ promises, enableShowMore, filter, ...props }) {
                     ) || {}
                   ).name
                 }
-                status={findStatus(media)}
+                status={slugify(findStatus(media))}
               />
             </Grid>
           ))}
