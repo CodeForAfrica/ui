@@ -126,57 +126,48 @@ function PromisesSection({ promises, enableShowMore, filter, ...props }) {
         </Grid>
       </Grid>
 
-      {promises.map(({ id, project_medias: projectMedias }) => (
-        <Grid
-          item
-          xs={12}
-          container
-          className={classes.cardsContainer}
-          spacing={2}
-          color="white"
-          key={id}
-        >
-          {projectMedias.edges
-            .filter(
-              ({ node: filterMedia }) =>
-                (!filter.status || findStatus(filterMedia) === filter.status) &&
-                (!filter.term || filter.term === 'term-1') &&
-                (!filter.topic ||
-                  filterMedia.tags.edges
-                    .map(({ node: topic }) => slugify(topic.tag_text))
-                    .toString() === filter.topic)
-            )
-            .map(({ node: media }) => (
-              <Grid key={media.id} item xs={12} sm={6} md={4}>
-                <PromiseCard
-                  href="promise/[dbid]/[id]"
-                  as={`promise/${media.dbid}/${slugify(media.title)}`}
-                  term={
-                    (
-                      filterData.terms.find(s => s.slug === 'term-1') || {
-                        name: ''
-                      }
-                    ).name
-                  }
-                  title={media.title}
-                  description={media.description || ''}
-                  topic={
-                    (
-                      filterData.topics.find(
-                        s =>
-                          s.slug ===
-                          media.tags.edges
-                            .map(({ node: topic }) => slugify(topic.tag_text))
-                            .toString()
-                      ) || { name: '' }
-                    ).name
-                  }
-                  status={findStatus(media)}
-                />
-              </Grid>
-            ))}
-        </Grid>
-      ))}
+      <Grid
+        item
+        xs={12}
+        container
+        spacing={2}
+        color="white"
+        className={classes.cardsContainer}
+      >
+        {promises
+          .filter(
+            filterMedia =>
+              (!filter.status || findStatus(filterMedia) === filter.status) &&
+              (!filter.term || filter.term === 'term-1') &&
+              (!filter.topic ||
+                filterMedia.tags.edges
+                  .map(({ node: topic }) => slugify(topic.tag_text))
+                  .toString() === filter.topic)
+          )
+          .map(media => (
+            <Grid key={media.id} item xs={12} sm={6} md={4}>
+              <PromiseCard
+                href="promise/[dbid]/[id]"
+                as={`promise/${media.dbid}/${slugify(media.title)}`}
+                term={filterData.terms.find(s => s.slug === 'term-1').name}
+                title={media.title}
+                description={media.description || ''}
+                topic={
+                  (
+                    filterData.topics.find(
+                      s =>
+                        s.slug ===
+                        media.tags.edges
+                          .map(({ node: topic }) => slugify(topic.tag_text))
+                          .toString()
+                    ) || {}
+                  ).name
+                }
+                status={findStatus(media)}
+              />
+            </Grid>
+          ))}
+      </Grid>
 
       {enableShowMore && (
         <Grid item className={classes.button}>

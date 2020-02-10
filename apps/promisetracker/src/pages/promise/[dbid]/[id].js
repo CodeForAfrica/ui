@@ -43,10 +43,7 @@ function PromisePage({ promises }) {
   const classes = useStyles();
   const router = useRouter();
 
-  const medias = promises[0].project_medias.edges.map(
-    ({ node: media }) => media
-  );
-  const index = medias.findIndex(
+  const index = promises.findIndex(
     media => slugify(media.title) === slugify(router.query.id)
   );
 
@@ -54,13 +51,16 @@ function PromisePage({ promises }) {
     return <div>{slugify(router.query.id)}</div>;
   }
 
-  const promise = medias[index];
+  const promise = promises[index];
+  const findStatus = promise.tasks.edges.find(
+    ({ node: task }) => task.label === 'What is the status of the promise?'
+  ).node.first_response_value;
 
   const currentTopic = promise.tags.edges
     .map(({ node: topic }) => slugify(topic.tag_text))
     .toString();
 
-  const relatedTopic = medias.filter(
+  const relatedTopic = promises.filter(
     promiseItem =>
       promiseItem !== promise &&
       promiseItem.tags.edges
@@ -70,8 +70,8 @@ function PromisePage({ promises }) {
 
   // Lets use null to ensure the nothing is rendered: undefined seems to
   // render `0`
-  const prevPromise = index ? medias[index - 1] : null;
-  const nextPromise = index < medias.length - 1 && medias[index + 1];
+  const prevPromise = index ? promises[index - 1] : null;
+  const nextPromise = index < promises.length - 1 && promises[index + 1];
 
   const previous = prevPromise && {
     href: `/promise/${prevPromise.dbid}/${slugify(prevPromise.title)}`,

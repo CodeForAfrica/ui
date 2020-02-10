@@ -6,7 +6,10 @@ export default async (req, res) => {
   const apolloClient = useClient();
   switch (req.method) {
     case 'GET': {
-      const { promises } = await fetchPromises({ apolloClient });
+      const { promises } = await fetchPromises({
+        apolloClient,
+        limit: req.query.limit
+      });
       res.json(promises);
       break;
     }

@@ -27,6 +27,6 @@ function Index({ promises }) {
   );
 }
 
-Index.getInitialProps = fetchPromises;
+Index.getInitialProps = fetchPromises.bind(null, { limit: 6 });
 
 export default Index;

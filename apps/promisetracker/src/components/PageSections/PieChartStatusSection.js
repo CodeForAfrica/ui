@@ -47,17 +47,17 @@ const useStyles = makeStyles(theme => ({
 function PieChartStatusSection({ promises }) {
   const classes = useStyles();
 
-  // Get total promises
-  const medias = promises[0].project_medias.edges.map(
-    ({ node: media }) => media
-  );
-
   const promiseStatuses = chartData.statusTypes.map(promise => ({
     ...promise,
     count: 0
   })); // Initialize
-  const statusFor = media => slugify(findStatus(media));
-  medias.forEach(media => {
+  const statusFor = media =>
+    slugify(
+      media.tasks.edges.find(
+        ({ node: task }) => task.label === 'What is the status of the promise?'
+      ).node.first_response_value
+    );
+  promises.forEach(media => {
     const status = statusFor(media);
     const promiseStatus = promiseStatuses.find(s => s.slug === status);
     promiseStatus.count += 1;
