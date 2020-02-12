@@ -63,7 +63,6 @@ function PromisesSection({ promises, enableShowMore, filter, ...props }) {
     return search ? `?${search}` : '';
   }, [filter]);
 
-  // console.log(promises[0].tasks.edges.find(({node: terms}) => terms.label === "What term was the elected official serving when making the promise?").node.first_response_value)
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
       <Grid
