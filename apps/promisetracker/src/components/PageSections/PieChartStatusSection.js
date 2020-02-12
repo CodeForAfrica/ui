@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
-import { PieChart, Pie, Cell, LabelList } from 'recharts';
 
-import { Grid, Typography, makeStyles } from '@material-ui/core';
+import dynamic from 'next/dynamic';
+
+import { makeStyles, Grid } from '@material-ui/core';
 
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 
 import chartData from 'data';
-import config from 'config';
 import findStatus from 'lib/findStatus';
 import slugify from 'lib/slugify';
 
 import Layout from 'components/Layout';
 import StatusIndicator from 'components/StatusIndicator';
 
-import config from 'config';
-import findStatus from 'lib/findStatus';
-
-const getIndicatorImage = require.context(
-  '../../assets/images/indicators',
-  false,
-  /\.png$/
+const PieChart = dynamic(
+  () => import('@codeforafrica/hurumap-ui/core/PieChart'),
+  {
+    ssr: false
+  }
 );
 
 const useStyles = makeStyles(theme => ({
@@ -59,98 +57,42 @@ function PieChartStatusSection({ promises }) {
     const promiseStatus = promiseStatuses.find(s => s.slug === status);
     promiseStatus.count += 1;
   });
-
-  const totalPromises = promiseStatuses.reduce((a, b) => a + b.count, 0);
-
-  const filteredPromises = promiseStatuses.filter(f => f.count > 0);
-
-  function PercentageLabelFormatter(value) {
-    return `${((Number(value) * 100) / totalPromises).toFixed(0)}%`;
-  }
-
-  const [activeData, setActiveData] = useState(null);
-  const onMouseEnter = pieData => {
-    setActiveData(pieData);
+  const filteredPromisesStatuses = promiseStatuses.filter(pS => pS.count > 0);
+  const totalPromises = filteredPromisesStatuses.reduce(
+    (a, b) => a + b.count,
+    0
+  );
+  const data = filteredPromisesStatuses.map(pS => {
+    const x = pS.name;
+    const y = ((pS.count * 100) / totalPromises).toFixed(0);
+    const label = `${y}%\n${x}`;
+    return { donutLabel: label, label, x, y };
+  });
+  const [dataIndex, setDataIndex] = useState(0);
+  const onMouseEnter = ({ status }) => {
+    const foundIndex = filteredPromisesStatuses.findIndex(
+      s => s.slug === status
+    );
+    setDataIndex(foundIndex !== -1 ? foundIndex : 0);
   };
   const onMouseLeave = () => {
-    setActiveData(null);
+    setDataIndex(0);
   };
+
   return (
     <div className={classes.root}>
       <Layout justify="center">
         <Grid item className={classes.statusGrid}>
           <div className={classes.statusGridRoot}>
-            <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              className={classes.centerTextGrid}
-            >
-              <Typography variant="h6" className={classes.typo}>
-                {activeData
-                  ? activeData.count ||
-                    promiseStatuses.find(p => p.slug === activeData.status)
-                      .count
-                  : totalPromises}
-              </Typography>
-              <Typography variant="h6" className={classes.typo}>
-                Promises
-              </Typography>
-
-              {activeData && (
-                <Typography variant="h6" className={classes.typo}>
-                  {
-                    (
-                      promiseStatuses.find(
-                        ({ slug }) =>
-                          slug === (activeData.slug || activeData.status)
-                      ) || { name: '' }
-                    ).name
-                  }
-                </Typography>
-              )}
-            </Grid>
-            <PieChart width={300} height={300}>
-              <Pie
-                blendStroke
-                isAnimationActive={false}
-                data={filteredPromises}
-                dataKey="count"
-                nameKey="slug"
-                cx="50%"
-                cy="50%"
-                paddingAngle={2}
-                outerRadius={300 / 2}
-                innerRadius={90}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-              >
-                {promiseStatuses.map(promise => (
-                  <Cell
-                    key={promise.slug}
-                    fill={config.colors[promise.slug].dark}
-                  />
-                ))}
-                <LabelList
-                  className={classes.percentageLabel}
-                  dataKey="count"
-                  position="insideTop"
-                  formatter={PercentageLabelFormatter}
-                />
-              </Pie>
-            </PieChart>
+            <PieChart data={data} donutLabelKey={{ dataIndex }} />
           </div>
         </Grid>
 
-        <Grid container spacing={2} justify="center">
+        <Grid container justifyContent="center">
           {promiseStatuses.map(promise => (
-            <Grid key={promise.status} item xs={8} sm={4} md={2}>
+            <Grid key={promise.status} item xs={12} sm={4} md={2}>
               <StatusIndicator
-                img={getIndicatorImage(promise.img)}
-                label={promise.name}
-                status={promise.slug}
-                value={promise.count}
+                promise={promise}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
               />
