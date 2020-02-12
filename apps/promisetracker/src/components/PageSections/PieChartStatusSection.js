@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import dynamic from 'next/dynamic';
-
 import { makeStyles, Grid } from '@material-ui/core';
 
 import gql from 'graphql-tag';
@@ -12,21 +10,12 @@ import findStatus from 'lib/findStatus';
 import slugify from 'lib/slugify';
 
 import Layout from 'components/Layout';
+import StatusChart from 'components/StatusChart';
 import StatusIndicator from 'components/StatusIndicator';
 
-const PieChart = dynamic(
-  () => import('@codeforafrica/hurumap-ui/core/PieChart'),
-  {
-    ssr: false
-  }
-);
-
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
     padding: '3rem 0'
-  },
-  statusGridRoot: {
-    position: 'relative'
   },
   statusGrid: {
     padding: '5rem 0'
@@ -36,14 +25,8 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     height: '100%',
     top: 0
-  },
-  typo: {
-    color: theme.palette.common.black
-  },
-  percentageLabel: {
-    pointerEvents: 'none'
   }
-}));
+});
 
 function PieChartStatusSection({ promises }) {
   const classes = useStyles();
@@ -58,35 +41,25 @@ function PieChartStatusSection({ promises }) {
     promiseStatus.count += 1;
   });
   const filteredPromisesStatuses = promiseStatuses.filter(pS => pS.count > 0);
-  const totalPromises = filteredPromisesStatuses.reduce(
-    (a, b) => a + b.count,
-    0
-  );
-  const data = filteredPromisesStatuses.map(pS => {
-    const x = pS.name;
-    const y = ((pS.count * 100) / totalPromises).toFixed(0);
-    const label = `${pS.count} Promise(s) ${x}`;
-    const donutLabel = `${x}\n${y}%`;
-    return { donutLabel, label, x, y };
-  });
-  const [dataIndex, setDataIndex] = useState(0);
+  const [columnIndex, setColumnIndex] = useState(0);
   const onMouseEnter = ({ status }) => {
     const foundIndex = filteredPromisesStatuses.findIndex(
       s => s.slug === status
     );
-    setDataIndex(foundIndex !== -1 ? foundIndex : 0);
+    setColumnIndex(foundIndex !== -1 ? foundIndex : 0);
   };
   const onMouseLeave = () => {
-    setDataIndex(0);
+    setColumnIndex(0);
   };
 
   return (
     <div className={classes.root}>
       <Layout justify="center">
         <Grid item className={classes.statusGrid}>
-          <div className={classes.statusGridRoot}>
-            <PieChart data={data} donutLabelKey={{ dataIndex }} />
-          </div>
+          <StatusChart
+            promiseStatuses={filteredPromisesStatuses}
+            donutLabelKey={{ columnIndex }}
+          />
         </Grid>
 
         <Grid container justifyContent="center">
