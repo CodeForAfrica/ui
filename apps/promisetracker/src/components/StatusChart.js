@@ -25,10 +25,13 @@ function StatusChart({ promiseStatuses, ...props }) {
   const classes = useStyles();
   const { chart: originalTheme } = useTheme();
 
-  const totalPromises = promiseStatuses.length;
+  const totalPromises = promiseStatuses.reduce(
+    (acc, cur) => acc + cur.count,
+    0
+  );
   const data = promiseStatuses.map(pS => {
     const x = pS.name;
-    const y = ((pS.count * 100) / totalPromises).toFixed(0);
+    const y = Math.ceil((pS.count * 100) / totalPromises);
     const label = `${pS.count} Promise(s) ${x}`;
     const donutLabel = `${x}\n${y}%`;
     return { donutLabel, label, x, y };
