@@ -16,6 +16,7 @@ const PieChart = dynamic(
 
 const useStyles = makeStyles({
   root: {
+    marginTop: '2rem',
     position: 'relative'
   }
 });
@@ -36,27 +37,32 @@ function StatusChart({ promiseStatuses, ...props }) {
   const theme = { ...originalTheme };
   theme.pie.colorScale = colorScale;
 
+  if (!data.length) {
+    return null;
+  }
   return (
-    <div className={classes.statusGridRoot}>
+    <div className={classes.root}>
       <PieChart {...props} data={data} theme={theme} />
     </div>
   );
 }
 
 StatusChart.propTypes = {
-  promiseStatuses: propTypes.shape({
-    name: propTypes.string,
-    slug: propTypes.oneOf([
-      'complete',
-      'behind-schedule',
-      'unstarted',
-      'in-progress',
-      'stalled',
-      'inconclusive',
-      ''
-    ]),
-    count: propTypes.number
-  }).isRequired
+  promiseStatuses: propTypes.arrayOf(
+    propTypes.shape({
+      name: propTypes.string,
+      slug: propTypes.oneOf([
+        'complete',
+        'behind-schedule',
+        'unstarted',
+        'in-progress',
+        'stalled',
+        'inconclusive',
+        ''
+      ]),
+      count: propTypes.number
+    })
+  ).isRequired
 };
 
 export default StatusChart;
