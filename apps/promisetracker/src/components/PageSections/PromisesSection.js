@@ -14,6 +14,7 @@ import Link from 'components/Link';
 
 import filterData from 'data';
 import findStatus from 'lib/findStatus';
+import findTerm from 'lib/findTerm';
 import slugify from 'lib/slugify';
 
 const useStyles = makeStyles({
@@ -62,9 +63,7 @@ function PromisesSection({ promises, enableShowMore, filter, ...props }) {
     return search ? `?${search}` : '';
   }, [filter]);
 
-  if (!promises.length) {
-    return null;
-  }
+  // console.log(promises[0].tasks.edges.find(({node: terms}) => terms.label === "What term was the elected official serving when making the promise?").node.first_response_value)
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
       <Grid
@@ -141,7 +140,8 @@ function PromisesSection({ promises, enableShowMore, filter, ...props }) {
           .filter(
             filterMedia =>
               (!filter.status || findStatus(filterMedia) === filter.status) &&
-              (!filter.term || filter.term === 'term-1') &&
+              (!filter.term ||
+                slugify(findTerm(filterMedia)) === filter.term) &&
               (!filter.topic ||
                 filterMedia.tags.edges
                   .map(({ node: topic }) => slugify(topic.tag_text))
@@ -152,7 +152,11 @@ function PromisesSection({ promises, enableShowMore, filter, ...props }) {
               <PromiseCard
                 href="promise/[dbid]/[id]"
                 as={`promise/${media.dbid}/${slugify(media.title)}`}
-                term={filterData.terms.find(s => s.slug === 'term-1').name}
+                term={
+                  filterData.terms.find(
+                    s => s.slug === slugify(findTerm(media))
+                  ).name
+                }
                 title={media.title}
                 description={media.description || ''}
                 topic={

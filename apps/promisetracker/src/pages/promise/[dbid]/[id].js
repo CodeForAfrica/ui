@@ -23,6 +23,10 @@ import Layout from 'components/Layout';
 import Page from 'components/Page';
 import TitledGrid from 'components/TiltedGrid';
 
+import filterData from 'data';
+import fetchPromises from 'lib/fetchPromises';
+import findTerm from 'lib/findTerm';
+
 const useStyles = makeStyles(theme => ({
   root: {
     margin: '4rem 0',
@@ -93,7 +97,7 @@ function PromisePage({ promises }) {
             <PromiseHeader
               key={promise.id}
               status={slugify(findStatus(promise))}
-              term="Term 1"
+              term={findTerm(promise)}
               topic={
                 (
                   filterData.topics.find(s => s.slug === currentTopic) || {
@@ -157,7 +161,11 @@ function PromisePage({ promises }) {
                       description={topic.description || ''}
                       href="/promise/[dbid]/[id]"
                       as={`/promise/${topic.dbid}/${slugify(topic.title)}`}
-                      term="Term 1"
+                      term={
+                        filterData.terms.find(
+                          s => s.slug === slugify(findTerm(topic))
+                        ).name
+                      }
                       topic={
                         filterData.topics.find(
                           s =>
