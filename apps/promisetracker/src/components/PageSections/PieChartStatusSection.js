@@ -65,8 +65,9 @@ function PieChartStatusSection({ promises }) {
   const data = filteredPromisesStatuses.map(pS => {
     const x = pS.name;
     const y = ((pS.count * 100) / totalPromises).toFixed(0);
-    const label = `${y}%\n${x}`;
-    return { donutLabel: label, label, x, y };
+    const label = `${pS.count} Promise(s) ${x}`;
+    const donutLabel = `${x}\n${y}%`;
+    return { donutLabel, label, x, y };
   });
   const [dataIndex, setDataIndex] = useState(0);
   const onMouseEnter = ({ status }) => {
