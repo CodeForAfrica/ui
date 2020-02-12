@@ -9,6 +9,9 @@ export default {
   reports: {
     url: 'https://pesacheck.org/tagged/promise-tracker'
   },
+  statusLabel: 'What is the status of the promise?',
+  termLabel:
+    'What term was the elected official serving when making the promise?',
   colors: {
     complete: {
       light: '#377bbf',
