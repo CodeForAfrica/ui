@@ -62,6 +62,9 @@ function PromisesSection({ promises, enableShowMore, filter, ...props }) {
     return search ? `?${search}` : '';
   }, [filter]);
 
+  if (!promises.length) {
+    return null;
+  }
   return (
     <Layout justify="center" classes={{ root: classes.root }}>
       <Grid
