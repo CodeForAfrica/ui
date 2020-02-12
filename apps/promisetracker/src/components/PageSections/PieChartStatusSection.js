@@ -17,14 +17,8 @@ const useStyles = makeStyles({
   root: {
     padding: '3rem 0'
   },
-  statusGrid: {
-    padding: '5rem 0'
-  },
-  centerTextGrid: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    top: 0
+  statusIndicator: {
+    marginTop: '2rem'
   }
 });
 
@@ -62,7 +56,7 @@ function PieChartStatusSection({ promises }) {
           />
         </Grid>
 
-        <Grid container justifyContent="center">
+        <Grid container justify="center" className={classes.statusIndicator}>
           {promiseStatuses.map(promise => (
             <Grid key={promise.status} item xs={12} sm={4} md={2}>
               <StatusIndicator
