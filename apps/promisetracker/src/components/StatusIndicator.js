@@ -17,17 +17,18 @@ const useStyles = makeStyles(({ breakpoints }) => ({
   },
   smallButton: ({ status }) => ({
     background: config.colors[status].light,
+    paddingLeft: '0.5rem',
     paddingRight: '0.5rem',
     textAlign: 'right',
     textTransform: 'uppercase',
-    width: '25%'
+    width: '21%'
   }),
   largeButton: ({ status }) => ({
     background: config.colors[status].dark,
     paddingLeft: '0.5rem',
     textAlign: 'left',
     textTransform: 'uppercase',
-    width: '75%'
+    width: '79%'
   })
 }));
 
@@ -40,6 +41,7 @@ const getIndicatorImage = require.context(
 function StatusIndicator({ onMouseEnter, onMouseLeave, promise, ...props }) {
   const status = promise.slug;
   const classes = useStyles({ status, ...props });
+  const label = promise.name || status;
 
   return (
     <div
@@ -71,7 +73,7 @@ function StatusIndicator({ onMouseEnter, onMouseLeave, promise, ...props }) {
           fontWeight={500}
           className={classes.largeButton}
         >
-          {promise.name || status}
+          {label}
         </Box>
       </Box>
     </div>
