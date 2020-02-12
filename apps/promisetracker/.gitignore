@@ -158,3 +158,6 @@ typings/
 build/
 
 .vscode/
+
+### Zeit Now ###
+.now
