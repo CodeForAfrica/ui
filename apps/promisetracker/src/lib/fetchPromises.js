@@ -26,6 +26,7 @@ export default async ({ apolloClient, limit: maxCount }) => {
                 title
                 description
                 status
+                archived
                 tasks {
                   edges {
                     node {
@@ -40,6 +41,19 @@ export default async ({ apolloClient, limit: maxCount }) => {
                     node {
                       id
                       tag_text
+                    }
+                  }
+                }
+                log {
+                  edges {
+                    node {
+                      event_type
+                      object_changes_json
+                      task {
+                        label
+                        updated_at
+                      }
+                      created_at
                     }
                   }
                 }
