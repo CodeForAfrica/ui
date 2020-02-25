@@ -86,6 +86,17 @@ function PromisePage({ promises }) {
     label: nextPromise.title
   };
 
+  const activityLog = promise.log.edges.filter(
+    ({ node: log }) =>
+      log.task !== null &&
+      log.event_type === 'update_dynamicannotationfield' &&
+      log.task.label === 'What is the status of the promise?'
+  );
+  // console.log(activityLog);
+  const getActivity = activityLog.map(({ node: n }) => n.object_changes_json);
+  const getArray = JSON.parse(getActivity).value;
+  console.log(getArray.map(n => n.replace(/[---.../:\s]/g, '').toLowerCase()));
+
   return (
     <>
       <Head>
