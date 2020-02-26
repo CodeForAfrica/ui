@@ -91,7 +91,7 @@ function PromisePage({ promises }) {
     ({ node: n }) => n.task.updated_at
   );
 
-  const date = new Date(Number(getUpdateDate));
+  const date = new Date(Number.parseInt(updatedData, 10) * 1000);
 
   const logStatus = findActivityLog(promise).map(
     ({ node: n }) => JSON.parse(n.object_changes_json).value
