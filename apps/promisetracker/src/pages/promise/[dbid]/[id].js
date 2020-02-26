@@ -87,9 +87,27 @@ function PromisePage({ promises }) {
     label: nextPromise.title
   };
 
+  const getUpdateDate = findActivityLog(promise).map(
+    ({ node: n }) => n.task.updated_at
+  );
+
+  console.log(getUpdateDate);
+  const date = new Date(getUpdateDate);
+
   const logStatus = findActivityLog(promise).map(
     ({ node: n }) => JSON.parse(n.object_changes_json).value
   );
+
+  const trimmed = logStatus[0].map(n =>
+    n
+      .replace(/[-]+/g, '')
+      .replace(/[...]/g, '')
+      .replace(/^\s+/g, '')
+      .replace(/\s*$/, '')
+      .replace(/\s+/g, '-')
+      .toLowerCase()
+  );
+  console.log(trimmed);
 
   return (
     <>
@@ -124,15 +142,15 @@ function PromisePage({ promises }) {
               variant="h4"
               title="Promise Timeline"
             >
-              {logStatus[0].map(n => (
-                <Grid item>
+              <Grid item>
+                {trimmed.map(values => (
                   <PromiseTimelineEntry
                     defaultExpanded
-                    // updated={}
-                    status={n.replace(/[---/...\s]/g, '').toLowerCase()}
+                    updated={date.toLocaleDateString()}
+                    status={values}
                   />
-                </Grid>
-              ))}
+                ))}
+              </Grid>
             </TitledGrid>
 
             <TitledGrid
