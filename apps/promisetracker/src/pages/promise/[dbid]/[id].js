@@ -27,6 +27,7 @@ import filterData from 'data';
 import fetchPromises from 'lib/fetchPromises';
 import findTerm from 'lib/findTerm';
 import findActivityLog from 'lib/findActivityLog';
+import convertDateObj from 'lib/convertDateObj';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -87,24 +88,50 @@ function PromisePage({ promises }) {
     label: nextPromise.title
   };
 
-  const getUpdateDate = findActivityLog(promise).map(
-    ({ node: n }) => n.task.updated_at
-  );
-
-  const date = new Date(Number.parseInt(updatedData, 10) * 1000);
-
-  const logStatus = findActivityLog(promise).map(
-    ({ node: n }) => JSON.parse(n.object_changes_json).value
-  );
-
-  const trimmed = logStatus[0].map(status =>
-    status
+  function trimData(value) {
+    return value
       .replace(/[-]+/g, '')
       .replace(/[...]/g, '')
       .replace(/^\s+/g, '')
       .replace(/\s*$/, '')
       .replace(/\s+/g, '-')
-      .toLowerCase()
+      .toLowerCase();
+  }
+
+  // Get initial Value
+  const activityLog = findActivityLog(promise);
+
+  const getInitalStatus = activityLog.find(
+    ({ node }) => node.event_type === 'create_dynamicannotationfield'
+  );
+  const initialTime = JSON.parse(getInitalStatus.node.created_at);
+  const getInitialStatusValue = trimData(
+    JSON.parse(getInitalStatus.node.object_changes_json).value.find(
+      n => n !== null
+    )
+  );
+
+  const updateStatus = activityLog.find(
+    ({ node }) => node.event_type === 'update_dynamicannotationfield'
+  );
+  const getUpdatedValue = trimData(
+    JSON.parse(updateStatus.node.object_changes_json).value[1]
+  );
+  const getUpdatedStatusValueTime = JSON.parse(
+    getInitalStatus.node.task.updated_at
+  );
+
+  // Step 3: Generate an array with the values above
+  const timeline = [];
+  timeline.push(
+    {
+      status: getInitialStatusValue,
+      date: convertDateObj(initialTime)
+    },
+    {
+      status: getUpdatedValue,
+      date: convertDateObj(getUpdatedStatusValueTime)
+    }
   );
 
   return (
@@ -141,11 +168,11 @@ function PromisePage({ promises }) {
               title="Promise Timeline"
             >
               <Grid item>
-                {trimmed.map(values => (
+                {timeline.map(value => (
                   <PromiseTimelineEntry
                     defaultExpanded
-                    updated={date.toLocaleDateString()}
-                    status={values}
+                    updated={value.date.toLocaleDateString()}
+                    status={value.status}
                   />
                 ))}
               </Grid>
