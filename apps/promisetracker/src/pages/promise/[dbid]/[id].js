@@ -98,40 +98,17 @@ function PromisePage({ promises }) {
       .toLowerCase();
   }
 
-  // Get initial Value
   const activityLog = findActivityLog(promise);
-
-  const getInitalStatus = activityLog.find(
-    ({ node }) => node.event_type === 'create_dynamicannotationfield'
-  );
-  const initialTime = JSON.parse(getInitalStatus.node.created_at);
-  const getInitialStatusValue = trimData(
-    JSON.parse(getInitalStatus.node.object_changes_json).value.find(
-      n => n !== null
-    )
-  );
-
-  const updateStatus = activityLog.find(
-    ({ node }) => node.event_type === 'update_dynamicannotationfield'
-  );
-  const getUpdatedValue = trimData(
-    JSON.parse(updateStatus.node.object_changes_json).value[1]
-  );
-  const getUpdatedStatusValueTime = JSON.parse(
-    getInitalStatus.node.task.updated_at
-  );
-
-  // Step 3: Generate an array with the values above
-  const timeline = [];
-  timeline.push(
-    {
-      status: getInitialStatusValue,
-      date: convertDateObj(initialTime)
-    },
-    {
-      status: getUpdatedValue,
-      date: convertDateObj(getUpdatedStatusValueTime)
-    }
+  const getTimeline = activityLog.map(({ node }) =>
+    node.event_type === 'create_dynamicannotationfield'
+      ? {
+          status: trimData(JSON.parse(node.object_changes_json).value[1]),
+          time: convertDateObj(node.created_at)
+        }
+      : {
+          status: trimData(JSON.parse(node.object_changes_json).value[1]),
+          time: convertDateObj(node.task.updated_at)
+        }
   );
 
   return (
@@ -168,10 +145,11 @@ function PromisePage({ promises }) {
               title="Promise Timeline"
             >
               <Grid item>
-                {timeline.map(value => (
+                {getTimeline.map(value => (
                   <PromiseTimelineEntry
+                    key={value.status}
                     defaultExpanded
-                    updated={value.date.toLocaleDateString()}
+                    updated={value.time.toLocaleDateString()}
                     status={value.status}
                   />
                 ))}
