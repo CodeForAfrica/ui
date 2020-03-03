@@ -34,12 +34,13 @@ PromiseTimelineEntry.propTypes = {
   defaultExpanded: propTypes.bool,
   updated: propTypes.string.isRequired,
   status: propTypes.oneOf([
-    'achieved',
-    'not-achieved',
-    'compromised',
+    'complete',
+    'behind-schedule',
+    'unstarted',
     'in-progress',
     'stalled',
-    'inactive'
+    'inconclusive',
+    ''
   ]).isRequired
 };
 
