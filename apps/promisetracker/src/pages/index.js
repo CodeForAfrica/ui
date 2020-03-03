@@ -6,7 +6,7 @@ import Page from 'components/Page';
 
 import PieChartStatusSection from 'components/PageSections/PieChartStatusSection';
 import ContributeSection from 'components/PageSections/ContributeSection';
-import LatestReportsSection from 'components/PageSections/LatestReportSection';
+import LatestArticlesSection from 'components/PageSections/LatestArticlesSection';
 import PartnersSection from 'components/PageSections/PartnerSections';
 import PromisesSection from 'components/PageSections/PromisesSection';
 
@@ -20,7 +20,7 @@ function Index({ promises }) {
     <Page>
       <PieChartStatusSection promises={promises} />
       <PromisesSection promises={promises} filter={{ status, term, topic }} />
-      <LatestReportsSection />
+      <LatestArticlesSection />
       <ContributeSection />
       <PartnersSection />
     </Page>
