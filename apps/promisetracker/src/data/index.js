@@ -24,7 +24,7 @@ export default {
       name: 'Behind Schedule',
       img: './status-behind-schedule.png',
       description:
-        'This could occur because of inaction by the administration or lack of support from the legislative branch or other groups and factors that was critical for the promise to be fulfilled.This rating doesnot necessarily mean that the administration failed to push for its fulfilment'
+        'This could occur because of inaction by the administration or lack of support from the legislative branch or other groups and factors that was critical for the promise to be fulfilled.This rating does not necessarily mean that the administration failed to push for its fulfilment'
     },
     {
       slug: 'stalled',
