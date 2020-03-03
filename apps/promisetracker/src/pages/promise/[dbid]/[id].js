@@ -145,14 +145,17 @@ function PromisePage({ promises }) {
               title="Promise Timeline"
             >
               <Grid item>
-                {getTimeline.map(value => (
-                  <PromiseTimelineEntry
-                    key={value.status}
-                    defaultExpanded
-                    updated={value.time.toLocaleDateString()}
-                    status={value.status}
-                  />
-                ))}
+                {getTimeline
+                  .sort()
+                  .reverse()
+                  .map(value => (
+                    <PromiseTimelineEntry
+                      key={value.status}
+                      defaultExpanded
+                      updated={value.time.toLocaleDateString()}
+                      status={value.status}
+                    />
+                  ))}
               </Grid>
             </TitledGrid>
 
