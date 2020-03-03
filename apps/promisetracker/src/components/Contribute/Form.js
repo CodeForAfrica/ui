@@ -50,7 +50,7 @@ function Form() {
       <br />
       <FormHelperText id="component-helper-text">
         Please state who made the promise,when and where. Include any supporting
-        link if possible
+        link if possible.
       </FormHelperText>
       <FormControl margin="normal">
         <Button

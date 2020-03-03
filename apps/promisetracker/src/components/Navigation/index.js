@@ -58,7 +58,7 @@ function Navigation({ width, ...props }) {
       { title: 'Home', href: '/' },
       { title: 'Promises', href: '/promises' },
       {
-        title: 'Reports',
+        title: 'Articles',
         href: 'https://pesacheck.org/tagged/promise-tracker'
       },
       { title: 'About', href: '/about' }

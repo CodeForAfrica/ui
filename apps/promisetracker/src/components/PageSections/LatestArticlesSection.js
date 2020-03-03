@@ -56,7 +56,7 @@ function LatestReportsSection() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Read more Reports
+          Read more Articles
         </Button>
       </Grid>
     </Layout>
