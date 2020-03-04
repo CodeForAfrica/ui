@@ -13,15 +13,23 @@ import propTypes from 'components/propTypes';
 import StatusChip from 'components/Promise/StatusChip';
 
 function PromiseTimelineEntry({ defaultExpanded, updated, status }) {
+  const [expanded, setExpanded] = React.useState(false);
+
   return (
-    <ExpansionPanel defaultExpanded={defaultExpanded}>
+    <ExpansionPanel
+      defaultExpanded={defaultExpanded}
+      onClick={() => setExpanded({ expanded: !expanded })}
+    >
       <ExpansionPanelSummary>
-        <ExpandIcon color="action" className="Mui-icon-expand" />
-        <MinimizeIcon
-          color="action"
-          className="Mui-icon-collapse"
-          transform="translate(0,-8)"
-        />
+        {expanded ? (
+          <ExpandIcon color="action" className="Mui-icon-expand" />
+        ) : (
+          <MinimizeIcon
+            color="action"
+            className="Mui-icon-collapse"
+            transform="translate(0,-8)"
+          />
+        )}
         <Typography variant="body2">Updated on {updated}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
