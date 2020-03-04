@@ -14,7 +14,8 @@ function About() {
         government pledges, using official evidence / data, as well as
         crowdsourced information, with a transparent and defensible methodology,
         to help inject accountability and honesty into the often cavalier way
-        that
+        that promises are made to citizens to win their support for elections,
+        policies and contracts but are seldom honoured.
       </Typography>
 
       <Typography variant="body1" paragraph>
