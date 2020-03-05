@@ -147,10 +147,10 @@ function PromisePage({ promises }) {
                 {getTimeline
                   .sort()
                   .reverse()
-                  .map(value => (
+                  .map((value, i) => (
                     <PromiseTimelineEntry
                       key={value.status}
-                      defaultExpanded={getTimeline[0].status === value.status}
+                      defaultExpanded={i === 0}
                       updated={value.time.toLocaleDateString()}
                       status={value.status}
                     />

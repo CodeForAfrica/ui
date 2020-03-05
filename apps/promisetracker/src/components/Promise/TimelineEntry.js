@@ -21,14 +21,14 @@ function PromiseTimelineEntry({ defaultExpanded, updated, status }) {
       onClick={() => setExpanded(!expanded)}
     >
       <ExpansionPanelSummary>
-        {expanded ? (
-          <ExpandIcon color="action" className="Mui-icon-expand" />
-        ) : (
+        {defaultExpanded || expanded ? (
           <MinimizeIcon
             color="action"
             className="Mui-icon-collapse"
             transform="translate(0,-8)"
           />
+        ) : (
+          <ExpandIcon color="action" className="Mui-icon-expand" />
         )}
         <Typography variant="body2">Updated on {updated}</Typography>
       </ExpansionPanelSummary>
