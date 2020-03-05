@@ -110,7 +110,6 @@ function PromisePage({ promises }) {
           time: convertDateObj(node.task.updated_at)
         }
   );
-
   return (
     <>
       <Head>
@@ -151,7 +150,7 @@ function PromisePage({ promises }) {
                   .map(value => (
                     <PromiseTimelineEntry
                       key={value.status}
-                      defaultExpanded
+                      defaultExpanded={getTimeline[0].status === value.status}
                       updated={value.time.toLocaleDateString()}
                       status={value.status}
                     />
