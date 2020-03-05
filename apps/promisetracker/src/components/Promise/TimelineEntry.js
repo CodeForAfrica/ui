@@ -16,11 +16,8 @@ function PromiseTimelineEntry({ defaultExpanded, updated, status }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <ExpansionPanel
-      defaultExpanded={defaultExpanded}
-      onClick={() => setExpanded(!expanded)}
-    >
-      <ExpansionPanelSummary>
+    <ExpansionPanel defaultExpanded={defaultExpanded}>
+      <ExpansionPanelSummary onClick={() => setExpanded(!expanded)}>
         {(defaultExpanded && expanded) || (!defaultExpanded && !expanded) ? (
           <MinimizeIcon
             color="action"
@@ -32,7 +29,7 @@ function PromiseTimelineEntry({ defaultExpanded, updated, status }) {
         )}
         <Typography variant="body2">Updated on {updated}</Typography>
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
+      <ExpansionPanelDetails disabled>
         <StatusChip status={status} />
       </ExpansionPanelDetails>
     </ExpansionPanel>
