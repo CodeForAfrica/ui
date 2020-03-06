@@ -45,7 +45,7 @@ const theme = createTheme({
     },
     h6: {
       fontFamily: FONT_FAMILY_HEADING,
-      fontSize: '20px',
+      fontSize: '25px',
       fontWeight: 'normal',
       fontStyle: 'normal',
       lineHeight: 'normal',
@@ -55,6 +55,7 @@ const theme = createTheme({
     body2: {
       color: 'rgb(0, 0, 0, 0.5)',
       fontFamily: FONT_FAMILY_TEXT
+      // fontSize:'1rem'
     }
   }
 });

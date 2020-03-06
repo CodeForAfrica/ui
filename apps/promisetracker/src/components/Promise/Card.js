@@ -25,10 +25,12 @@ const useStyles = makeStyles(theme => ({
   },
   contentGrid: {
     height: '10rem',
-    maxHeight: '100%'
+    maxHeight: '100%',
+    '&:hover': {
+      textDecoration: 'none'
+    }
   },
-  title: {
-    textDecoration: 'none',
+  link: {
     '&:hover': {
       textDecoration: 'none'
     }
@@ -59,7 +61,7 @@ function PromiseCard({
   return (
     <Card elevation={0} className={classes.root}>
       <CardContent component={Grid} container direction="column">
-        <Link href={href} as={as}>
+        <Link href={href} as={as} className={classes.link}>
           <Grid item className={classes.contentGrid}>
             <Typography variant="h6" className={classes.title}>
               {title}
