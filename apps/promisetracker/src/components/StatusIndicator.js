@@ -56,7 +56,7 @@ function StatusIndicator({ onMouseEnter, onMouseLeave, promise, ...props }) {
       />
       <Box display="flex" flexDirection="row">
         <Box
-          color="black"
+          color="#e2e2e2"
           pl={2}
           py={1}
           fontSize={12}
@@ -66,7 +66,7 @@ function StatusIndicator({ onMouseEnter, onMouseLeave, promise, ...props }) {
           {promise.count}
         </Box>
         <Box
-          color="black"
+          color="#e2e2e2"
           pl={2}
           py={1}
           fontSize={12}
