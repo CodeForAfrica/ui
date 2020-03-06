@@ -17,7 +17,7 @@ function Content({ title, subtitle, description }) {
       <Typography variant="h4" className={classes.typo}>
         {title}
       </Typography>
-      <Typography variant="h6" className={classes.typo}>
+      <Typography variant="h5" className={classes.typo}>
         {subtitle}
       </Typography>
       <Typography variant="body1" className={classes.typo}>

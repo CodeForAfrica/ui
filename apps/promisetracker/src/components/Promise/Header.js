@@ -17,7 +17,9 @@ function PromiseHeader({ status, title, term, topic }) {
   return (
     <Grid container direction="column" justify="space-between" spacing={4}>
       <Grid item>
-        <Typography variant="h4">{title}</Typography>
+        <Typography variant="h4" style={{ color: 'black' }}>
+          {title}
+        </Typography>
       </Grid>
 
       <Grid item>

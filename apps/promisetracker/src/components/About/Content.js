@@ -11,7 +11,7 @@ function AboutContent() {
   const classes = useStyles();
   return (
     <Grid item xs={12} md={8}>
-      <Typography variant="h3" className={classes.title}>
+      <Typography variant="h4" className={classes.title}>
         About PromiseTracker
       </Typography>
       <Typography variant="body1">

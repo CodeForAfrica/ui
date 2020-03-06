@@ -37,6 +37,10 @@ const theme = createTheme({
   typography: {
     fontFamily: FONT_FAMILY_TEXT,
     fontHeading: FONT_FAMILY_HEADING,
+    h4: {
+      fontFamily: FONT_FAMILY_HEADING,
+      color: '#000'
+    },
     h6: {
       fontFamily: FONT_FAMILY_HEADING,
       fontSize: '1.5rem',
