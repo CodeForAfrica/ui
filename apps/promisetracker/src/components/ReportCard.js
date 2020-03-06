@@ -6,7 +6,8 @@ import {
   makeStyles,
   Card,
   CardMedia,
-  CardContent
+  CardContent,
+  Box
 } from '@material-ui/core';
 
 import propTypes from 'components/propTypes';
@@ -54,7 +55,7 @@ function ReportCard({ title, description, image, subtitle, uniqueSlug, date }) {
         />
         <CardContent>
           <div className={classes.content}>
-            <Typography variant="caption"> {subtitle}</Typography>
+            <Box variant="caption"> {subtitle}</Box>
             <Typography variant="h6">{title}</Typography>
             <Typography variant="body1">{description}</Typography>
           </div>

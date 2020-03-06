@@ -37,15 +37,9 @@ const theme = createTheme({
   typography: {
     fontFamily: FONT_FAMILY_TEXT,
     fontHeading: FONT_FAMILY_HEADING,
-    h1: {
-      color: '#fff',
-      fontFamily: FONT_FAMILY_HEADING,
-      fontSize: '5rem',
-      fontWeight: 400
-    },
     h6: {
       fontFamily: FONT_FAMILY_HEADING,
-      fontSize: '25px',
+      fontSize: '1.5rem',
       fontWeight: 'normal',
       fontStyle: 'normal',
       lineHeight: 'normal',
@@ -53,9 +47,12 @@ const theme = createTheme({
       color: '#2c2c2a'
     },
     body2: {
-      color: 'rgb(0, 0, 0, 0.5)',
-      fontFamily: FONT_FAMILY_TEXT
-      // fontSize:'1rem'
+      fontFamily: FONT_FAMILY_TEXT,
+      fontSize: '13px',
+      color: 'rgb(69, 90, 100)'
+    },
+    subtitle2: {
+      color: 'rgb(69, 90, 100)'
     }
   }
 });

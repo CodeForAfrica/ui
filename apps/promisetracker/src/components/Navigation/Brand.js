@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 function Brand({ href }) {
   const classes = useStyles();
   return (
-    <Link href={href} variant="h6" className={classes.typo}>
+    <Link href={href} variant="h5" className={classes.typo}>
       <span style={{ color: 'red' }}>PROMISE</span>TRACKER
     </Link>
   );
