@@ -14,7 +14,12 @@ const useStyles = makeStyles(theme => ({
     padding: '1.25rem 0'
   },
   link: {
-    color: theme.palette.primary.main
+    color: theme.typography.body2.color,
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'none',
+      color: theme.palette.primary.main
+    }
   }
 }));
 
@@ -32,7 +37,11 @@ function PromiseNavigator({ next, previous }) {
        */}
       <Grid item xs={6} md={5}>
         {previous && (
-          <Link href="/promise/[dbid]/[id]" as={previous.href}>
+          <Link
+            href="/promise/[dbid]/[id]"
+            as={previous.href}
+            className={classes.link}
+          >
             <Typography className={classes.label}>
               {' '}
               <KeyboardArrowLeft fontSize="small" />

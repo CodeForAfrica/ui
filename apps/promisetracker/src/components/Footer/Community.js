@@ -14,7 +14,10 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     color: theme.palette.highlight.main,
-    textDecoration: 'none'
+    textDecoration: 'none',
+    '&:hover': {
+      color: theme.palette.common.white
+    }
   }
 }));
 

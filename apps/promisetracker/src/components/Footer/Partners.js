@@ -7,20 +7,25 @@ import A from 'components/A';
 import pesacheck from 'assets/images/logos/pesacheck-short-small.png';
 import cfa from 'assets/images/logos/cfafrica.png';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   img: {
     maxWidth: '120px',
     maxHeight: '100px',
     margin: '5px'
+  },
+  body1: {
+    color: theme.palette.secondary.grey
   }
-});
+}));
 
 function Partners(props) {
   const classes = useStyles(props);
 
   return (
     <Box textAlign="center">
-      <Typography variant="subtitle1">A Project By:</Typography>
+      <Typography variant="body1" className={classes.body1}>
+        A Project By:
+      </Typography>
       <A href="https://pesacheck.org/">
         <img src={pesacheck} alt="PesaCheck" className={classes.img} />
       </A>
