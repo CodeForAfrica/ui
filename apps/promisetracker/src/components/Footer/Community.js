@@ -3,37 +3,54 @@ import React from 'react';
 import { makeStyles, Typography, List, ListItem } from '@material-ui/core';
 
 import A from 'components/A';
-import theme from 'theme';
 import config from 'config';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   list: {
     marginBottom: theme.spacing(1)
+  },
+  body1: {
+    color: theme.palette.secondary.grey
+  },
+  link: {
+    color: theme.palette.highlight.main,
+    textDecoration: 'none'
   }
-});
+}));
 
 function Community(props) {
   const classes = useStyles(props);
-
   return (
     <div>
-      <Typography variant="subtitle1">Other PesaCheck Projects:</Typography>
+      <Typography variant="body1" className={classes.body1}>
+        Other PesaCheck Projects:
+      </Typography>
       <List className={classes.list}>
         <ListItem dense>
-          <A href="https://taxclock.pesacheck.org/">Tax Clock</A>
+          <A href="https://taxclock.pesacheck.org/" className={classes.link}>
+            <b>Tax Clock</b>
+          </A>
         </ListItem>
         <ListItem dense>
-          <A href="https://pesayetu.pesacheck.org/">PesaYetu</A>
+          <A href="https://pesayetu.pesacheck.org/" className={classes.link}>
+            <b>PesaYet</b>u
+          </A>
         </ListItem>
       </List>
 
-      <Typography variant="subtitle1">Join Our Community:</Typography>
+      <Typography variant="body1" className={classes.body1}>
+        Join Our Community:
+      </Typography>
       <List className={classes.list}>
         <ListItem dense>
-          <A href={config.facebook.url}>{config.facebook.title}</A>
+          <A href={config.facebook.url} className={classes.link}>
+            <b>{config.facebook.title}</b>
+          </A>
         </ListItem>
         <ListItem dense>
-          <A href={config.twitter.url}>{config.twitter.title}</A>
+          <A href={config.twitter.url} className={classes.link}>
+            <b>{config.twitter.title}</b>
+          </A>
         </ListItem>
       </List>
     </div>

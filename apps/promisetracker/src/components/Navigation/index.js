@@ -38,6 +38,7 @@ const useStyles = makeStyles(theme => ({
   a: {
     lineHeight: '100%',
     margin: '2rem',
+    fontSize: '1rem',
     color: theme.palette.primary.light,
     textDecoration: 'none',
     '&:hover': {

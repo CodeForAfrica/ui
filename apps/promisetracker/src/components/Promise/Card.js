@@ -12,17 +12,18 @@ import Link from 'components/Link';
 
 import propTypes from 'components/propTypes';
 import StatusChip from 'components/Promise/StatusChip';
+import config from '../../config';
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  root: ({ status }) => ({
     border: `1px solid ${theme.palette.divider}`,
-    borderTop: `3px solid ${theme.palette.primary.main}`,
+    borderTop: `3px solid ${config.colors[status].light}`,
     height: 'auto',
     width: '100%',
     '&:hover': {
       textDecoration: 'none'
     }
-  },
+  }),
   contentGrid: {
     height: '10rem',
     maxHeight: '100%',

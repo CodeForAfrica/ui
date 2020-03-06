@@ -3,17 +3,19 @@ import { makeStyles, Box } from '@material-ui/core';
 import propTypes from 'components/propTypes';
 import data from 'data';
 
+import config from '../../config';
+
 const useStyles = makeStyles(theme => ({
-  root: {
+  root: ({ status }) => ({
     padding: '0.2rem 1.25rem',
     ...theme.typography.button,
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: config.colors[status].light,
     textDecoration: 'none',
     textAlign: 'center',
     borderRadius: `0.2rem`,
     color: 'white',
     textTransform: 'uppercase'
-  }
+  })
 }));
 
 function StatusChip({ status, ...props }) {

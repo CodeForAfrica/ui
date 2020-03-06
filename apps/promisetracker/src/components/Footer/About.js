@@ -1,14 +1,25 @@
 import React from 'react';
 
-import { Typography } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 
 import A from 'components/A';
 import config from 'config';
 
+const useStyles = makeStyles(theme => ({
+  body1: {
+    color: theme.palette.secondary.grey
+  },
+  link: {
+    color: theme.palette.highlight.main,
+    textDecoration: 'none'
+  }
+}));
+
 function About() {
+  const classes = useStyles();
   return (
     <div>
-      <Typography variant="body1" paragraph>
+      <Typography variant="body1" paragraph className={classes.body1}>
         <b>{config.title}</b>, is a tool to help journalists and civil society
         watchdogs more easily track campaign promises and other political /
         government pledges, using official evidence / data, as well as
@@ -18,25 +29,28 @@ function About() {
         policies and contracts but are seldom honoured.
       </Typography>
 
-      <Typography variant="body1" paragraph>
+      <Typography variant="body1" paragraph className={classes.body1}>
         This site is an{' '}
-        <A href="https://openafrica.net/">
+        <A href="https://openafrica.net/" className={classes.link}>
           <b>openAFRICA</b>
         </A>{' '}
         project of{' '}
-        <A href="https://codeforafrica.org/">
+        <A href="https://codeforafrica.org/" className={classes.link}>
           <b>Code for Africa</b>
         </A>
         . All content is released under a{' '}
-        <A href="https://creativecommons.org/licenses/by/4.0/">
+        <A
+          href="https://creativecommons.org/licenses/by/4.0/"
+          className={classes.link}
+        >
           <b>Creative Commons 4 Attribution Licence</b>
         </A>
         . Reuse it to help empower your own community. The code is available on{' '}
-        <A href={config.github.url}>
+        <A href={config.github.url} className={classes.link}>
           <b>GitHub</b>
         </A>{' '}
         and data is available on{' '}
-        <A href={config.openafrica.url}>
+        <A href={config.openafrica.url} className={classes.link}>
           <b>openAFRICA</b>
         </A>
         .
