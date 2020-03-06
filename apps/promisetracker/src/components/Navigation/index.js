@@ -38,8 +38,12 @@ const useStyles = makeStyles(theme => ({
   a: {
     lineHeight: '100%',
     margin: '2rem',
-    color: theme.palette.common.white,
-    textDecoration: 'none'
+    color: theme.palette.primary.light,
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'none',
+      color: theme.palette.common.white
+    }
   },
   drawerA: {
     lineHeight: '100%',

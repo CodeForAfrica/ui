@@ -7,14 +7,18 @@ import propTypes from 'components/propTypes';
 
 const useStyles = makeStyles(theme => ({
   typo: {
-    color: theme.palette.common.white
+    color: theme.palette.common.white,
+    '&:hover': {
+      textDecoration: 'none',
+      color: theme.palette.common.white
+    }
   }
 }));
 function Brand({ href }) {
   const classes = useStyles();
   return (
     <Link href={href} variant="h6" className={classes.typo}>
-      PromiseTracker
+      <span style={{ color: 'red' }}>PROMISE</span>TRACKER
     </Link>
   );
 }
