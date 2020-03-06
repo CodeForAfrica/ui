@@ -44,13 +44,21 @@ function PromiseHeader({ status, title, term, topic }) {
             <Typography variant="body1">Share:</Typography>
           </Grid>
           <Grid item>
-            <FacebookShareButton className="Mui-share" url={shareUrl}>
-              <Facebook className="Mui-desaturated" />
+            <FacebookShareButton
+              className="Mui-share"
+              url={shareUrl}
+              style={{ color: 'red' }}
+            >
+              <Facebook className="Mui-desaturated" style={{ fill: 'red' }} />
             </FacebookShareButton>
           </Grid>
           <Grid item>
-            <TwitterShareButton className="Mui-share" url={shareUrl}>
-              <Twitter className="Mui-desaturated" />
+            <TwitterShareButton
+              className="Mui-share"
+              url={shareUrl}
+              style={{ color: 'red' }}
+            >
+              <Twitter className="Mui-desaturated" style={{ fill: 'red' }} />
             </TwitterShareButton>
           </Grid>
         </Grid>

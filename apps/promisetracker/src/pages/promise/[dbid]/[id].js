@@ -160,11 +160,13 @@ function PromisePage({ promises }) {
 
             <TitledGrid
               item
-              variant="h5"
+              variant="h6"
               title="Description of the promise"
               className={classes.typo}
             >
-              <Typography>{promise.description || ''}</Typography>
+              <Typography variant="body2">
+                {promise.description || ''}
+              </Typography>
             </TitledGrid>
 
             <Grid item>
