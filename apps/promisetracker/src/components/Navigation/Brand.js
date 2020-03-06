@@ -12,13 +12,24 @@ const useStyles = makeStyles(theme => ({
       textDecoration: 'none',
       color: theme.palette.common.white
     }
+  },
+  span: {
+    color: theme.palette.highlight.main
+  },
+  greySpan: {
+    color: theme.palette.secondary.grey,
+    '&:hover': {
+      textDecoration: 'none',
+      color: theme.palette.common.white
+    }
   }
 }));
 function Brand({ href }) {
   const classes = useStyles();
   return (
     <Link href={href} variant="h5" className={classes.typo}>
-      <span style={{ color: 'red' }}>PROMISE</span>TRACKER
+      <span className={classes.span}>PROMISE</span>
+      <span className={classes.greySpan}>TRACKER</span>
     </Link>
   );
 }

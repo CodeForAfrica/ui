@@ -42,6 +42,9 @@ const useStyles = makeStyles(theme => ({
   },
   typo: {
     padding: '2rem 0'
+  },
+  description: {
+    marginTop: '1rem'
   }
 }));
 
@@ -164,7 +167,7 @@ function PromisePage({ promises }) {
               title="Description of the promise"
               className={classes.typo}
             >
-              <Typography variant="body2">
+              <Typography variant="body2" className={classes.description}>
                 {promise.description || ''}
               </Typography>
             </TitledGrid>
