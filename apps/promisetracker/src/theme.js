@@ -42,6 +42,19 @@ const theme = createTheme({
       fontFamily: FONT_FAMILY_HEADING,
       fontSize: '5rem',
       fontWeight: 400
+    },
+    h6: {
+      fontFamily: FONT_FAMILY_HEADING,
+      fontSize: '20px',
+      fontWeight: 'normal',
+      fontStyle: 'normal',
+      lineHeight: 'normal',
+      textTransform: 'capitalize',
+      color: '#2c2c2a'
+    },
+    body2: {
+      color: 'rgb(0, 0, 0, 0.5)',
+      fontFamily: FONT_FAMILY_TEXT
     }
   }
 });

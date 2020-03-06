@@ -18,14 +18,27 @@ const useStyles = makeStyles(theme => ({
     border: `1px solid ${theme.palette.divider}`,
     borderTop: `3px solid ${theme.palette.primary.main}`,
     height: 'auto',
-    width: '100%'
+    width: '100%',
+    '&:hover': {
+      textDecoration: 'none'
+    }
   },
   contentGrid: {
     height: '10rem',
     maxHeight: '100%'
   },
+  title: {
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'none'
+    }
+  },
   content: {
-    marginTop: '1rem'
+    marginTop: '1rem',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'none'
+    }
   }
 }));
 
@@ -48,7 +61,7 @@ function PromiseCard({
       <CardContent component={Grid} container direction="column">
         <Link href={href} as={as}>
           <Grid item className={classes.contentGrid}>
-            <Typography variant="h6" color="primary">
+            <Typography variant="h6" className={classes.title}>
               {title}
             </Typography>
             <Typography variant="body2" className={classes.content}>
