@@ -4,8 +4,8 @@ import { makeStyles, Typography, Box } from '@material-ui/core';
 
 import A from 'components/A';
 
-import pesacheck from 'assets/images/logos/pesacheck-short-small.png';
-import cfa from 'assets/images/logos/cfafrica.png';
+import pesacheck from 'assets/images/logos/pesacheck-white.png';
+import cfa from 'assets/images/logos/cfawhite.png';
 
 const useStyles = makeStyles(theme => ({
   img: {
