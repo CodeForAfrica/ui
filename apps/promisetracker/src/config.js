@@ -17,28 +17,28 @@ export default {
   },
   colors: {
     complete: {
-      light: '#377bbf',
-      dark: 'rgb(50, 112, 174)'
+      light: '#1f72a3',
+      dark: '#0067a3'
     },
     unstarted: {
-      light: '#7b4b94',
-      dark: 'rgb(112, 68, 135)'
+      light: '#f7a02e',
+      dark: '#f7971d'
     },
     'in-progress': {
-      light: '#2a9d8f',
-      dark: 'rgb(38, 143, 130)'
+      light: '#4cae4e',
+      dark: '#1bad1e'
     },
     'behind-schedule': {
-      light: '#f25f5c',
-      dark: 'rgb(221, 87, 84)'
+      light: '#ed756d',
+      dark: '#ee4538'
     },
     stalled: {
-      light: '#edae49',
-      dark: 'rgb(216, 159, 67)'
+      light: '#f7dc71',
+      dark: '#f8ca0f'
     },
     inconclusive: {
       light: '#9b9b9b',
-      dark: 'rgb(141, 141, 141)'
+      dark: '#8d8d8d'
     }
   },
 
