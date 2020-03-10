@@ -8,7 +8,8 @@ import Form from 'components/Contribute/Form';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: '2.5rem 0'
+    padding: '2.5rem 0',
+    marginRight: '1rem'
   },
   typoGrid: {
     padding: '2rem',
