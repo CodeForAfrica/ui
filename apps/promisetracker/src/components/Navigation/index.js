@@ -7,7 +7,6 @@ import Link from 'components/Link';
 import {
   AppBar,
   Grid,
-  makeStyles,
   withWidth,
   ButtonBase,
   Drawer,
@@ -20,6 +19,8 @@ import { isWidthUp, isWidthDown } from '@material-ui/core/withWidth';
 import CloseIcon from '@material-ui/icons/Close';
 import propTypes from 'components/propTypes';
 import Brand from 'components/Navigation/Brand';
+
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   root: {

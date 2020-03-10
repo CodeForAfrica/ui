@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Grid, Typography, makeStyles } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';

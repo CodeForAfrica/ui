@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Typography, Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { useRouter } from 'next/router';
 
@@ -10,14 +11,24 @@ import { FacebookShareButton, TwitterShareButton } from 'react-share';
 import propTypes from 'components/propTypes';
 import StatusChip from 'components/Promise/StatusChip';
 
+const useStyles = makeStyles(theme => ({
+  title: {
+    color: 'black'
+  },
+  statusText: {
+    color: theme.palette.common.white
+  }
+}));
+
 function PromiseHeader({ status, title, term, topic }) {
+  const classes = useStyles();
   const router = useRouter();
   const statusAndShareSectionId = 'statusAndShareSection';
   const shareUrl = router.query.id;
   return (
     <Grid container direction="column" justify="space-between" spacing={4}>
       <Grid item>
-        <Typography variant="h4" style={{ color: 'black' }}>
+        <Typography variant="h4" className={classes.title}>
           {title}
         </Typography>
       </Grid>
@@ -37,7 +48,7 @@ function PromiseHeader({ status, title, term, topic }) {
         wrap="nowrap"
       >
         <Grid item>
-          <StatusChip status={status} style={{ color: 'white' }} />
+          <StatusChip status={status} className={classes.statusText} />
         </Grid>
         <Grid container item justify="flex-end" spacing={2} xs={6} sm={4}>
           <Grid item>

@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  makeStyles,
   Card,
   Typography,
   CardActions,
   CardContent,
   Grid
 } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import Link from 'components/Link';
 
@@ -20,6 +20,7 @@ const useStyles = makeStyles(theme => ({
     borderTop: `3px solid ${config.colors[status].light}`,
     height: 'auto',
     width: '100%',
+    padding: ' 0.4rem',
     '&:hover': {
       textDecoration: 'none'
     }
@@ -60,7 +61,7 @@ function PromiseCard({
 }) {
   const classes = useStyles({ status, ...props });
   return (
-    <Card elevation={0} className={classes.root}>
+    <Card elevation={1} className={classes.root}>
       <CardContent component={Grid} container direction="column">
         <Link href={href} as={as} className={classes.link}>
           <Grid item className={classes.contentGrid}>

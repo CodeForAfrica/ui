@@ -3,11 +3,11 @@ import React from 'react';
 import {
   Typography,
   Grid,
-  makeStyles,
   Card,
   CardMedia,
   CardContent
 } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import propTypes from 'components/propTypes';
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Typography, Grid, makeStyles } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import propTypes from 'components/propTypes';
 

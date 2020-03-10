@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
 import Divider from '@material-ui/core/Divider';
 
 import { Facebook, Instagram, Twitter, Send } from 'react-feather';

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, makeStyles, Typography, Container } from '@material-ui/core';
+import { Grid, Typography, Container } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import A from 'components/A';
 import SectionBox from './SectionBox';

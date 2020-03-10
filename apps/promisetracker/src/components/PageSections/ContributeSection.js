@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from 'components/Layout';
 import Content from 'components/Contribute/Content';

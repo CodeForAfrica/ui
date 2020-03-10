@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, makeStyles, Divider, Typography } from '@material-ui/core';
+import { Grid, Divider, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { useRouter } from 'next/router';
 import Head from 'next/head';

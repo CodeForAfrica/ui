@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { makeStyles, Typography, List, ListItem } from '@material-ui/core';
+import { Typography, List, ListItem } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import A from 'components/A';
 import config from 'config';

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { makeStyles, Typography, Box } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import A from 'components/A';
 
