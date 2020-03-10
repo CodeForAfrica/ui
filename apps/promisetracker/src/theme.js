@@ -30,9 +30,9 @@ const theme = createTheme({
   },
   palette: {
     background: { default: '#fff' },
-    primary: { main: '#237bb0', light: '#99c3db', dark: '#5c9dc5' },
+    primary: { main: '#0067a3', light: '#99c3db', dark: '#5c9dc5' },
     secondary: { main: '#fff', dark: '#2c2c2a', grey: '#e2e2e2' },
-    highlight: { main: '#ff2127' }
+    highlight: { main: '#ee4538' }
   },
   typography: {
     fontFamily: FONT_FAMILY_TEXT,

@@ -10,10 +10,11 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.secondary.grey
   },
   link: {
-    color: theme.palette.highlight.main,
+    color: theme.palette.common.white,
     textDecoration: 'none',
     '&:hover': {
-      color: theme.palette.common.white
+      color: theme.palette.common.white,
+      textDecoration: 'underline'
     }
   }
 }));
@@ -23,13 +24,14 @@ function About() {
   return (
     <div>
       <Typography variant="body1" paragraph className={classes.body1}>
-        <b>{config.title}</b>, is a tool to help journalists and civil society
-        watchdogs more easily track campaign promises and other political /
-        government pledges, using official evidence / data, as well as
-        crowdsourced information, with a transparent and defensible methodology,
-        to help inject accountability and honesty into the often cavalier way
-        that promises are made to citizens to win their support for elections,
-        policies and contracts but are seldom honoured.
+        <b className={classes.link}>{config.title}</b>, is a tool to help
+        journalists and civil society watchdogs more easily track campaign
+        promises and other political / government pledges, using official
+        evidence / data, as well as crowdsourced information, with a transparent
+        and defensible methodology, to help inject accountability and honesty
+        into the often cavalier way that promises are made to citizens to win
+        their support for elections, policies and contracts but are seldom
+        honoured.
       </Typography>
 
       <Typography variant="body1" paragraph className={classes.body1}>

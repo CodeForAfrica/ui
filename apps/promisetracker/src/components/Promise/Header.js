@@ -47,18 +47,24 @@ function PromiseHeader({ status, title, term, topic }) {
             <FacebookShareButton
               className="Mui-share"
               url={shareUrl}
-              style={{ color: 'red' }}
+              style={{ color: '#0067a3' }}
             >
-              <Facebook className="Mui-desaturated" style={{ fill: 'red' }} />
+              <Facebook
+                className="Mui-desaturated"
+                style={{ fill: '#0067a3' }}
+              />
             </FacebookShareButton>
           </Grid>
           <Grid item>
             <TwitterShareButton
               className="Mui-share"
               url={shareUrl}
-              style={{ color: 'red' }}
+              style={{ color: '#0067a3' }}
             >
-              <Twitter className="Mui-desaturated" style={{ fill: 'red' }} />
+              <Twitter
+                className="Mui-desaturated"
+                style={{ fill: '#0067a3' }}
+              />
             </TwitterShareButton>
           </Grid>
         </Grid>

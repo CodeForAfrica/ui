@@ -49,6 +49,7 @@ const useStyles = makeStyles(theme => ({
   drawerA: {
     lineHeight: '100%',
     margin: '2rem',
+    fontSize: '1rem',
     color: theme.palette.primary,
     textDecoration: 'none'
   }

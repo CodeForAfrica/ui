@@ -13,10 +13,11 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.secondary.grey
   },
   link: {
-    color: theme.palette.highlight.main,
+    color: theme.palette.common.white,
     textDecoration: 'none',
     '&:hover': {
-      color: theme.palette.common.white
+      color: theme.palette.common.white,
+      textDecoration: 'underline'
     }
   }
 }));

@@ -9,7 +9,7 @@ import SectionBox from 'components/PageSections/SectionBox';
 
 function Footer() {
   return (
-    <SectionBox bgcolor="#237bb0">
+    <SectionBox bgcolor="#0067a3">
       <Container>
         <Grid container justify="center" spacing={3}>
           <Grid item xs={12} sm={6} md={7}>
