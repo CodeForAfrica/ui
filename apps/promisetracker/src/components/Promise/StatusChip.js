@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   root: ({ status }) => ({
     padding: '0.2rem 1.25rem',
     ...theme.typography.button,
-    backgroundColor: config.colors[status].light,
+    backgroundColor: config.colors[status].dark,
     textDecoration: 'none',
     textAlign: 'center',
     borderRadius: `0.2rem`,

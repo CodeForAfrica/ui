@@ -19,6 +19,7 @@ const useStyles = makeStyles(({ breakpoints }) => ({
   },
   smallButton: ({ status }) => ({
     background: config.colors[status].light,
+    color: 'white',
     paddingLeft: '0.5rem',
     paddingRight: '0.5rem',
     textAlign: 'right',
@@ -27,6 +28,7 @@ const useStyles = makeStyles(({ breakpoints }) => ({
   }),
   largeButton: ({ status }) => ({
     background: config.colors[status].dark,
+    color: 'white',
     paddingLeft: '0.5rem',
     textAlign: 'left',
     textTransform: 'uppercase',
@@ -58,7 +60,6 @@ function StatusIndicator({ onMouseEnter, onMouseLeave, promise, ...props }) {
       />
       <Box display="flex" flexDirection="row">
         <Box
-          color="#e2e2e2"
           pl={2}
           py={1}
           fontSize={12}
@@ -68,7 +69,6 @@ function StatusIndicator({ onMouseEnter, onMouseLeave, promise, ...props }) {
           {promise.count}
         </Box>
         <Box
-          color="#e2e2e2"
           pl={2}
           py={1}
           fontSize={12}
