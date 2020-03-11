@@ -14,11 +14,6 @@ const useStyles = makeStyles(theme => ({
     maxHeight: '100px',
     margin: '5px'
   },
-  pesacheckImage: {
-    maxWidth: '150px',
-    maxHeight: '140px',
-    margin: '5px'
-  },
   body1: {
     color: theme.palette.secondary.grey
   }
@@ -33,11 +28,7 @@ function Partners(props) {
         A Project By:
       </Typography>
       <A href="https://pesacheck.org/">
-        <img
-          src={pesacheck}
-          alt="PesaCheck"
-          className={classes.pesacheckImage}
-        />
+        <img src={pesacheck} alt="PesaCheck" className={classes.img} />
       </A>
       <A href="https://codeforafrica.org/">
         <img src={cfa} alt="Code for Africa" className={classes.img} />
