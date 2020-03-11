@@ -5,13 +5,18 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import A from 'components/A';
 
-import pesacheck from 'assets/images/logos/pesacheck-white.png';
+import pesacheck from 'assets/images/logos/pesacheck-social-white.png';
 import cfa from 'assets/images/logos/cfawhite.png';
 
 const useStyles = makeStyles(theme => ({
   img: {
     maxWidth: '120px',
     maxHeight: '100px',
+    margin: '5px'
+  },
+  pesacheckImage: {
+    maxWidth: '150px',
+    maxHeight: '140px',
     margin: '5px'
   },
   body1: {
@@ -28,7 +33,11 @@ function Partners(props) {
         A Project By:
       </Typography>
       <A href="https://pesacheck.org/">
-        <img src={pesacheck} alt="PesaCheck" className={classes.img} />
+        <img
+          src={pesacheck}
+          alt="PesaCheck"
+          className={classes.pesacheckImage}
+        />
       </A>
       <A href="https://codeforafrica.org/">
         <img src={cfa} alt="Code for Africa" className={classes.img} />
