@@ -17,24 +17,24 @@ export default {
   },
   colors: {
     complete: {
-      light: '#1f72a3',
-      dark: '#0067a3'
-    },
-    unstarted: {
-      light: '#f7a02e',
-      dark: '#f7971d'
-    },
-    'in-progress': {
       light: '#4cae4e',
       dark: '#1bad1e'
     },
-    'behind-schedule': {
-      light: '#ed756d',
-      dark: '#ee4538'
+    unstarted: {
+      light: '#1f72a3',
+      dark: '#0067a3'
     },
-    stalled: {
+    'in-progress': {
       light: '#f7dc71',
       dark: '#f8ca0f'
+    },
+    'behind-schedule': {
+      light: '#f7a02e',
+      dark: '#f7971d'
+    },
+    stalled: {
+      light: '#ed756d',
+      dark: '#ee4538'
     },
     inconclusive: {
       light: '#9b9b9b',
