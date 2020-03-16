@@ -20,7 +20,6 @@ function PromiseHeader({ status, title, term, topic }) {
   const classes = useStyles();
   const theme = useTheme();
   const router = useRouter();
-  const theme = useTheme();
   const statusAndShareSectionId = 'statusAndShareSection';
   const shareUrl = router.query.id;
   return (
@@ -68,7 +67,7 @@ function PromiseHeader({ status, title, term, topic }) {
             <TwitterShareButton
               className="Mui-share"
               url={shareUrl}
-              style={{ color: '#0067a3' }}
+              style={{ color: theme.palette.primary.main }}
             >
               <Twitter
                 className="Mui-desaturated"
