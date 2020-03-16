@@ -18,6 +18,7 @@ const useStyles = makeStyles({
 });
 function PromiseHeader({ status, title, term, topic }) {
   const classes = useStyles();
+  const theme = useTheme();
   const router = useRouter();
   const theme = useTheme();
   const statusAndShareSectionId = 'statusAndShareSection';
