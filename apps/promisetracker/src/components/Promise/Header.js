@@ -16,10 +16,10 @@ const useStyles = makeStyles({
     color: 'black'
   }
 });
-
 function PromiseHeader({ status, title, term, topic }) {
   const classes = useStyles();
   const router = useRouter();
+  const theme = useTheme();
   const statusAndShareSectionId = 'statusAndShareSection';
   const shareUrl = router.query.id;
   return (
@@ -55,11 +55,11 @@ function PromiseHeader({ status, title, term, topic }) {
             <FacebookShareButton
               className="Mui-share"
               url={shareUrl}
-              style={{ color: '#0067a3' }}
+              style={{ color: theme.palette.primary.main }}
             >
               <Facebook
                 className="Mui-desaturated"
-                style={{ fill: '#0067a3' }}
+                style={{ fill: theme.palette.primary.main }}
               />
             </FacebookShareButton>
           </Grid>
