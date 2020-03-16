@@ -72,7 +72,7 @@ function PromiseHeader({ status, title, term, topic }) {
             >
               <Twitter
                 className="Mui-desaturated"
-                style={{ fill: '#0067a3' }}
+                style={{ color: theme.palette.primary.main }}
               />
             </TwitterShareButton>
           </Grid>
