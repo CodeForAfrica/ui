@@ -27,7 +27,7 @@ function StatusChip({ status, ...props }) {
   const name = (statusType && statusType.name) || '';
 
   return (
-    <Box variant="contained" color="primary" className={classes.root}>
+    <Box variant="contained" className={classes.root}>
       {name}
     </Box>
   );

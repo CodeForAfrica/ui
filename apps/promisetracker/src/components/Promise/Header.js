@@ -11,14 +11,11 @@ import { FacebookShareButton, TwitterShareButton } from 'react-share';
 import propTypes from 'components/propTypes';
 import StatusChip from 'components/Promise/StatusChip';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   title: {
     color: 'black'
-  },
-  statusText: {
-    color: theme.palette.common.white
   }
-}));
+});
 
 function PromiseHeader({ status, title, term, topic }) {
   const classes = useStyles();
@@ -48,7 +45,7 @@ function PromiseHeader({ status, title, term, topic }) {
         wrap="nowrap"
       >
         <Grid item>
-          <StatusChip status={status} className={classes.statusText} />
+          <StatusChip status={status} />
         </Grid>
         <Grid container item justify="flex-end" spacing={2} xs={6} sm={4}>
           <Grid item>
