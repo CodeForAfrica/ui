@@ -4,7 +4,6 @@ export default {
   GRAPHQL_URI: 'https://check-api.checkmedia.org/api/graphql',
   PROXY_URL: 'https://corsanywhere.devops.codeforafrica.org/',
   CHECK_PROJECT_DB_ID: 2831,
-  CHECK_PROMISE_VERIFICATION_STATUS: 'verified',
   CHECK_PROMISE_MAX_COUNT: 150,
   reports: {
     url: 'https://pesacheck.org/tagged/promise-tracker'

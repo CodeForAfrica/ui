@@ -65,7 +65,7 @@ export default async ({ apolloClient, limit: maxCount }) => {
     `,
     variables: {
       limit,
-      query: `{ "verification_status":["${config.CHECK_PROMISE_VERIFICATION_STATUS}"], "projects":["${config.CHECK_PROJECT_DB_ID}"] }`
+      query: `{ "projects":["${config.CHECK_PROJECT_DB_ID}"] }`
     }
   });
 
