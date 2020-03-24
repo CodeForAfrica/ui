@@ -43,6 +43,9 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       textDecoration: 'none'
     }
+  },
+  topicTerm: {
+    marginTop: '3rem'
   }
 }));
 
@@ -72,7 +75,7 @@ function PromiseCard({
               {description || ''}
             </Typography>
           </Grid>
-          <Grid item>
+          <Grid item className={classes.topicTerm}>
             <Typography variant="body2" className={classes.content}>
               {term} | {topic}
             </Typography>
