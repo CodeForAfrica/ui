@@ -10,6 +10,7 @@
 	},
 	"plugins": [
 		"module-resolver",
+		"react-hooks",
 		"json",
 		"markdown"
 	],
