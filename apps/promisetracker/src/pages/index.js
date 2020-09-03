@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Copyright from '@/promiseTracker/Copyright';
+import Copyright from '@/promiseTracker/components/Copyright';
 
 export default function Index() {
   return (

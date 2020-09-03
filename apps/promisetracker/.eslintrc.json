@@ -1,13 +1,13 @@
 {
   "root": true,
   "parser": "babel-eslint",
-  "extends": [
-    "plugin:prettier/recommended",
-    "prettier/react"
-  ],
+  "extends": [],
   "env": {
     "browser": true
   },
+  "plugins": [
+    "module-resolver"
+  ],
   "settings": {
     "import/resolver": {
       "babel-module": {}
