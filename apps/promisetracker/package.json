@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "yarn prettier --write --ignore-path './.gitignore' \"**/*.+(js|json|md|yml)\" './'",
+    "lint": "yarn eslint --fix --ignore-path './.gitignore' './'",
+    "format-staged": "prettier --write",
+    "lint-staged": "yarn eslint --fix --ext '.js,.json,.md,.yml'"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -19,7 +23,14 @@
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-transform-imports": "^2.0.0",
     "eslint": "^7.8.1",
+    "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-markdown": "^1.0.2",
+    "eslint-plugin-module-resolver": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "husky": "^4.2.5",
     "lint-staged": "^10.3.0",
@@ -31,8 +42,11 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,json,scss,md}": [
+    "*.{js,json,md}": [
       "yarn lint-staged"
+    ],
+    "*.{json,md,yml}": [
+      "yarn format-staged"
     ]
   }
 }

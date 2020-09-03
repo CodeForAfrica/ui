@@ -3,14 +3,14 @@
   "parser": "babel-eslint",
   "extends": [
     "plugin:prettier/recommended",
-    "prettier/react"
+    "prettier/react",
+    "airbnb",
+    "plugin:json/recommended"
   ],
   "env": {
     "browser": true
   },
-  "plugins": [
-    "module-resolver"
-  ],
+  "plugins": ["module-resolver", "json", "markdown"],
   "settings": {
     "import/resolver": {
       "babel-module": {}
@@ -21,9 +21,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "react/jsx-props-no-spreading": 0
