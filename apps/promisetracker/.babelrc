@@ -19,7 +19,7 @@
           "./src"
         ],
         "alias": {
-          "@/promiseTracker": "./src"
+          "@/promisetracker": "./src"
         }
       }
     ]

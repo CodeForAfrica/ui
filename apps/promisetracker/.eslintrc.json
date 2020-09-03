@@ -1,29 +1,34 @@
 {
-  "root": true,
-  "parser": "babel-eslint",
-  "extends": [
-    "plugin:prettier/recommended",
-    "prettier/react",
-    "airbnb",
-    "plugin:json/recommended"
-  ],
-  "env": {
-    "browser": true
-  },
-  "plugins": ["module-resolver", "json", "markdown"],
-  "settings": {
-    "import/resolver": {
-      "babel-module": {}
-    }
-  },
-  "rules": {
-    "module-resolver/use-alias": 2,
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [".js", ".jsx"]
-      }
-    ],
-    "react/jsx-props-no-spreading": 0
-  }
+	"root": true,
+	"parser": "babel-eslint",
+	"extends": [
+		"airbnb",
+		"plugin:json/recommended"
+	],
+	"env": {
+		"browser": true
+	},
+	"plugins": [
+		"module-resolver",
+		"json",
+		"markdown"
+	],
+	"settings": {
+		"import/resolver": {
+			"babel-module": {}
+		}
+	},
+	"rules": {
+		"module-resolver/use-alias": 2,
+		"react/jsx-filename-extension": [
+			1,
+			{
+				"extensions": [
+					".js",
+					".jsx"
+				]
+			}
+		],
+		"react/jsx-props-no-spreading": 0
+	}
 }

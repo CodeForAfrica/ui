@@ -8,8 +8,10 @@ export default function Copyright() {
       {'Copyright © '}
       <MuiLink color="inherit" href="https://material-ui.com/">
         Your Website
-      </MuiLink>{' '}
-      {new Date().getFullYear()}.
+      </MuiLink>
+      {' '}
+      {new Date().getFullYear()}
+      .
     </Typography>
   );
 }
