@@ -2,9 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/promiseTracker/*": [
-        "src/*"
-      ]
+      "@/promiseTracker/*": ["src/*"]
     }
   }
 }

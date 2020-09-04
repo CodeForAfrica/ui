@@ -1,6 +1,6 @@
-import React from 'react';
-import { Container, Typography, Box } from '@material-ui/core';
-import Copyright from '@/promisetracker/components/Copyright';
+import React from "react";
+import { Container, Typography, Box } from "@material-ui/core";
+import Copyright from "@/promisetracker/components/Copyright";
 
 export default function Index() {
   return (

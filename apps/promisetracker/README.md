@@ -7,7 +7,7 @@
 PromiseTracker is a SSR rendered [Next](https://nextjs.org/) web app deployable to [Zeit](https://zeit.co). See [package.json](./package.json) for the full list of dependencies and build & deploy scripts.
 
 Run the following to get started :
- On dev
+On dev
 
 ```sh
   cp .env.tmpl .env
@@ -33,11 +33,10 @@ Promise Tracker is modelled on [Rouhani Meter](https://rouhanimeter.com) and mad
 
 TODO
 
-
 ### License
 
 PromiseTracker is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges.  
-Copyright (C) 2019  Code for Africa
+Copyright (C) 2019 Code for Africa
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -46,8 +45,8 @@ the Free Software Foundation, either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+along with this program. If not, see <https://www.gnu.org/licenses/>.
