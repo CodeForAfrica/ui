@@ -241,20 +241,26 @@ deepmerge(
     MuiButton: {
       // Name of the rule
       contained: {
-        backgroundColor: palette.primary.main,
-        border: 'none',
-        boxShadow: 'none',
-        color: palette.text.secondary,
-        '&:hover': {
-          border: 'none',
-          boxShadow: 'none',
+        backgroundColor: palette.primary.dark,
+        border: "none",
+        boxShadow: "none",
+        color: palette.background.main,
+        "&:hover": {
+          border: "none",
+          boxShadow: "none", // black button
         },
       },
       containedPrimary: {
-        backgroundColor: palette.primary.main,
-        border: 'none',
-        boxShadow: 'none',
-        color: palette.text.secondary,
+        backgroundColor: palette.hightlight.main,
+        color: palette.background.main,
+        border: "none",
+        boxShadow: "none", // blue button
+      },
+      containedSecondary: {
+        backgroundColor: palette.secondary.light,
+        color: palette.hightlight.main,
+        border: "none",
+        boxShadow: "none", // grey button
       },
       containedSizeSmall: {
         fontSize: typography.pxToRem(14),
