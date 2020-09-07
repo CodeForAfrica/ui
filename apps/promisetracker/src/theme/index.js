@@ -138,81 +138,81 @@ deepmerge(
     h1: {
       color: palette.primary.dark,
       fontSize: pxToRem(32),
-      lineHeight: 32 / 40,
+      lineHeight: 40 / 32,
       fontWeight: 700,
       [breakpoints.up('md')]: {
         fontSize: pxToRem(38),
-        lineHeight: 38 / 56,
+        lineHeight: 56 / 38,
       },
     },
     h2: {
       color: palette.primary.main,
       fontSize: pxToRem(32),
-      lineHeight: 32 / 48,
-      [breakpoints.up('md')]: {
+      lineHeight: 48 / 32,
+      [breakpoints.up("md")]: {
         fontSize: pxToRem(36),
-        lineHeight: 36 / 56,
+        lineHeight: 56 / 36,
       },
     },
     h3: {
       color: palette.primary.dark,
       fontSize: pxToRem(16),
-      lineHeight: 16 / 35,
-      [breakpoints.up('md')]: {
+      lineHeight: 35 / 16,
+      [breakpoints.up("md")]: {
         fontSize: pxToRem(24),
-        lineHeight: 24 / 28.8,
+        lineHeight: 28.8 / 24,
       },
     },
     h4: {
       color: palette.primary.main,
       fontSize: pxToRem(16),
-      lineHeight: 16 / 24,
-      [breakpoints.up('md')]: {
+      lineHeight: 24 / 16,
+      [breakpoints.up("md")]: {
         fontSize: pxToRem(16),
-        lineHeight: 16 / 24,
+        lineHeight: 24 / 16,
       },
     },
     h5: {
       color: palette.background.main,
       fontSize: pxToRem(14),
-      lineHeight: 14 / 16,
-      [breakpoints.up('md')]: {
+      lineHeight: 16 / 14,
+      [breakpoints.up("md")]: {
         color: palette.primary.main,
         fontSize: pxToRem(14),
-        lineHeight: 14 / 24,
+        lineHeight: 16 / 14,
       },
     },
     h6: {
       fontSize: pxToRem(10),
-      lineHeight: 10 / 16,
-      [breakpoints.up('md')]: {
+      lineHeight: 16 / 10,
+      [breakpoints.up("md")]: {
         fontSize: pxToRem(10),
-        lineHeight: 10 / 24, // card caption
+        lineHeight: 24 / 10, // card caption
       },
     },
     body1: {
       color: palette.primary.main,
       fontSize: pxToRem(14),
-      lineHeight: 14 / 24,
-      [breakpoints.up('md')]: {
+      lineHeight: 24 / 14,
+      [breakpoints.up("md")]: {
         fontSize: pxToRem(20),
-        lineHeight: 20 / 40, // 20px
+        lineHeight: 40 / 20, // 20px
       },
     },
     body2: {
       fontSize: pxToRem(14),
-      lineHeight: 14 / 24,
-      [breakpoints.up('md')]: {
+      lineHeight: 24 / 14,
+      [breakpoints.up("md")]: {
         fontSize: pxToRem(14),
-        lineHeight: 14 / 24, // 14px
+        lineHeight: 24 / 14, // 14px
       },
     },
     subtitle1: {
       fontSize: pxToRem(14),
-      lineHeight: 14 / 24,
-      [breakpoints.up('md')]: {
+      lineHeight: 24 / 14,
+      [breakpoints.up("md")]: {
         fontSize: pxToRem(12),
-        lineHeight: 12 / 14.4,
+        lineHeight: 14.4 / 12,
       },
     },
     caption: {
@@ -223,10 +223,10 @@ deepmerge(
     },
     button: {
       fontSize: pxToRem(14),
-      lineHeight: 14 / 18,
-      [breakpoints.up('md')]: {
+      lineHeight: 18 / 14,
+      [breakpoints.up("md")]: {
         fontSize: pxToRem(14),
-        lineHeight: 14 / 18, // button
+        lineHeight: 18 / 14, // button
       },
     },
   },
