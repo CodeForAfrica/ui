@@ -33,6 +33,12 @@ const theme = createTheme({
       fontWeight: 'normal',
       letterSpacing: '0.86px',
     },
+    h3: {
+      fontFamily: FONT_FAMILY_HEADING,
+      fontStretch: 'normal',
+      fontStyle: 'normal',
+      fontWeight: 'bold',
+    },
     h4: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
@@ -60,23 +66,22 @@ const theme = createTheme({
     subtitle1: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
-      fontStyle: 'normal',
-      fontWeight: 400,
+      fontStyle: 'regular',
       letterSpacing: 0,
     },
     subtitle2: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
-      fontStyle: 'normal',
-      fontWeight: 700,
+      fontStyle: 'italic',
+      fontWeight: 'normal',
       letterSpacing: 0,
     },
     body1: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
-      fontStyle: 'normal',
+      fontStyle: 'italic',
+      fontWeight: 500,
       letterSpacing: 0,
-      fontWeight: 400,
     },
     body2: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
