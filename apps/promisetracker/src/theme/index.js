@@ -125,11 +125,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiBackdrop: {
-      root: {
-        backgroundColor: 'transparent',
-      },
-    },
   },
   widths: {
     values: {
@@ -153,7 +148,7 @@ deepmerge(
       lineHeight: 44 / 32,
       textShadow: '0 3px 6px #8134042F',
       [breakpoints.up('md')]: {
-        fontSize: pxToRem(55),
+        fontSize: pxToRem(56),
         lineHeight: 75 / 55,
       },
       [breakpoints.up('xl')]: {
