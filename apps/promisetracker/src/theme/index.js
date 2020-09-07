@@ -142,58 +142,40 @@ deepmerge(
   typography,
   {
     h1: {
-      color: palette.text.heading,
+      color: palette.primary.dark,
       fontSize: pxToRem(32),
-      fontStretch: 'semi-condensed',
-      lineHeight: 44 / 32,
-      textShadow: '0 3px 6px #8134042F',
+      lineHeight: 32 / 40,
+      fontWeight: 700,
       [breakpoints.up('md')]: {
-        fontSize: pxToRem(56),
-        lineHeight: 75 / 55,
-      },
-      [breakpoints.up('xl')]: {
-        fontSize: pxToRem(80),
-        lineHeight: 110 / 80,
+        fontSize: pxToRem(38),
+        lineHeight: 38 / 56,
       },
     },
     h2: {
-      color: palette.text.heading,
-      fontSize: pxToRem(28),
-      fontStretch: 'semi-condensed',
-      lineHeight: 38 / 28,
+      color: palette.primary.main,
+      fontSize: pxToRem(32),
+      lineHeight: 32 / 48,
       [breakpoints.up('md')]: {
-        fontSize: pxToRem(45),
-        lineHeight: 62 / 45,
-      },
-      [breakpoints.up('xl')]: {
-        fontSize: pxToRem(60),
-        lineHeight: 82 / 60,
+        fontSize: pxToRem(36),
+        lineHeight: 36 / 56,
       },
     },
     h3: {
-      color: palette.text.heading,
-      fontSize: pxToRem(20),
-      lineHeight: 25 / 20,
+      color: palette.primary.dark,
+      fontSize: pxToRem(16),
+      lineHeight: 16 / 35,
       [breakpoints.up('md')]: {
-        fontSize: pxToRem(30),
-        lineHeight: 38 / 30,
-      },
-      [breakpoints.up('xl')]: {
-        fontSize: pxToRem(45),
-        lineHeight: 56 / 45,
+        fontSize: pxToRem(24),
+        lineHeight: 24 / 28,
       },
     },
     h4: {
-      color: palette.text.heading,
-      fontSize: pxToRem(18),
-      lineHeight: 23 / 18,
+      color: palette.primary.main,
+      fontSize: pxToRem(16),
+      lineHeight: 16 / 24,
       [breakpoints.up('md')]: {
-        fontSize: pxToRem(24),
-        lineHeight: 31 / 24,
-      },
-      [breakpoints.up('xl')]: {
-        fontSize: pxToRem(36),
-        lineHeight: 45 / 36,
+        fontSize: pxToRem(16),
+        lineHeight: 16 / 24,
       },
     },
     h5: {
