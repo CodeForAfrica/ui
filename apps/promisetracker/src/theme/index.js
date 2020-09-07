@@ -2,89 +2,96 @@ import { deepmerge } from '@material-ui/utils';
 
 import createTheme from '@hurumap-ui/charts/styles/createTheme';
 
-const FONT_FAMILY_HEADING = '"Source Serif Pro", serif';
-const FONT_FAMILY_TEXT = '"Source Sans Pro", "sans-serif"';
+const FONT_FAMILY_HEADING = '"Amiri", "serif"';
+const FONT_FAMILY_TEXT_SECONDARY = '"Open Sans", "sans-serif"';
 
 // ## DEFAULT
 const theme = createTheme({
   palette: {
     background: { default: '#fff' },
-    primary: { main: '#E04F00', light: '#FFF4F0', dark: '#E04E12' },
+    primary: { main: '#202020', dark: '#000000' },
     secondary: {
-      main: '#2B0F03',
-      light: '#EFEFEF',
-      dark: '#2C2C2C',
-      faded: '#818080',
+      main: '#EBEBEB',
+      light: '#F7F7F7',
     },
-    highlight: { main: '#2D0183', light: '#E4DAF5', dark: '#31018F' },
-    text: { primary: '#000', secondary: '#fff', heading: '#21201A' },
+    highlight: { main: '#005DFD', light: '#FFB322', faded: '#90DAFF' },
   },
   typography: {
-    fontFamily: FONT_FAMILY_TEXT,
+    fontFamily: FONT_FAMILY_TEXT_SECONDARY,
     h1: {
       fontFamily: FONT_FAMILY_HEADING,
       fontStretch: 'normal',
       fontStyle: 'normal',
-      fontWeight: 600,
-      letterSpacing: 0,
+      fontWeight: 'bold',
+      letterSpacing: '0.76px',
     },
     h2: {
       fontFamily: FONT_FAMILY_HEADING,
       fontStretch: 'normal',
       fontStyle: 'normal',
-      fontWeight: 600,
-      letterSpacing: 0,
-    },
-    h3: {
-      fontFamily: FONT_FAMILY_HEADING,
-      fontStretch: 'normal',
-      fontStyle: 'normal',
-      fontWeight: 400,
-      letterSpacing: 0,
+      fontWeight: 'normal',
+      letterSpacing: '0.86px',
     },
     h4: {
-      fontFamily: FONT_FAMILY_TEXT,
+      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
-      fontWeight: 400,
+      fontWeight: 600,
       letterSpacing: 0,
+      textTransform: 'uppercase',
+    },
+    h5: {
+      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
+      fontStretch: 'normal',
+      fontStyle: 'normal',
+      fontWeight: 600,
+      letterSpacing: 0,
+      textTransform: 'uppercase',
+    },
+    h6: {
+      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
+      fontStretch: 'normal',
+      fontStyle: 'normal',
+      fontWeight: 700,
+      letterSpacing: 0,
+      textTransform: 'uppercase',
     },
     subtitle1: {
-      fontFamily: FONT_FAMILY_TEXT,
+      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
       fontWeight: 400,
       letterSpacing: 0,
     },
     subtitle2: {
-      fontFamily: FONT_FAMILY_TEXT,
+      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
       fontWeight: 700,
       letterSpacing: 0,
     },
     body1: {
-      fontFamily: FONT_FAMILY_TEXT,
+      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
       letterSpacing: 0,
       fontWeight: 400,
     },
     body2: {
-      fontFamily: FONT_FAMILY_TEXT,
+      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
       fontWeight: 400,
       letterSpacing: 0,
     },
     caption: {
-      fontFamily: FONT_FAMILY_TEXT,
+      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
       letterSpacing: 0,
     },
     button: {
-      fontFamily: FONT_FAMILY_TEXT,
+      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
       fontWeight: 700,
