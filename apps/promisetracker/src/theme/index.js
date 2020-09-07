@@ -44,7 +44,7 @@ const theme = createTheme({
       fontStretch: 'normal',
       fontStyle: 'normal',
       fontWeight: 600,
-      letterSpacing: 0,
+      letterSpacing: '0.64px',
       textTransform: 'uppercase',
     },
     h5: {
@@ -166,7 +166,7 @@ deepmerge(
       lineHeight: 16 / 35,
       [breakpoints.up('md')]: {
         fontSize: pxToRem(24),
-        lineHeight: 24 / 28,
+        lineHeight: 24 / 28.8,
       },
     },
     h4: {
@@ -179,16 +179,13 @@ deepmerge(
       },
     },
     h5: {
-      color: palette.text.heading,
-      fontSize: pxToRem(16),
-      lineHeight: 20 / 16,
+      color: palette.background.main,
+      fontSize: pxToRem(18),
+      lineHeight: 18 / 21,
       [breakpoints.up('md')]: {
-        fontSize: pxToRem(20),
-        lineHeight: 31 / 20,
-      },
-      [breakpoints.up('xl')]: {
-        fontSize: pxToRem(28),
-        lineHeight: 36 / 28,
+        color: palette.primary.main,
+        fontSize: pxToRem(14),
+        lineHeight: 14 / 24,
       },
     },
     subtitle1: {
