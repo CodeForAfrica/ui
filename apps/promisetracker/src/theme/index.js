@@ -4,6 +4,7 @@ import createTheme from '@hurumap-ui/charts/styles/createTheme';
 
 const FONT_FAMILY_HEADING = '"Amiri", "serif"';
 const FONT_FAMILY_TEXT_SECONDARY = '"Open Sans", "sans-serif"';
+const FONT_FAMILY_TEXT_HIGHTLIGHT = '"Source Sans Pro", "sans-serif"';
 
 // ## DEFAULT
 const theme = createTheme({
@@ -91,10 +92,11 @@ const theme = createTheme({
       letterSpacing: 0,
     },
     button: {
-      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
+      fontFamily: FONT_FAMILY_TEXT_HIGHTLIGHT,
       fontStretch: 'normal',
       fontStyle: 'normal',
-      fontWeight: 700,
+      color: 'white',
+      fontWeight: 600,
       letterSpacing: 0,
       textTransform: 'none',
     },
