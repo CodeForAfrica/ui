@@ -122,9 +122,9 @@ const theme = createTheme({
   },
   widths: {
     values: {
-      md: 912, // 0, 24, 0, 24 margins
-      lg: 1200, // 0, 40, 0, 40 margins
-      xl: 1640, // 0, 140, 0, 140 margins DESIGNS
+      md: 960, // 0, 24, 0, 24 margins
+      lg: 1366, // 0, 40, 0, 40 margins
+      xl: 1920, // 0, 140, 0, 140 margins DESIGNS
     },
   },
 });
