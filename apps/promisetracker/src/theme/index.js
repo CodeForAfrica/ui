@@ -52,8 +52,8 @@ const theme = createTheme({
       fontStretch: 'normal',
       fontStyle: 'normal',
       fontWeight: 600,
-      letterSpacing: 0,
-      textTransform: 'uppercase',
+      letterSpacing: '0.56px',
+      textTransform: 'Uppercase',
     },
     h6: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
@@ -61,19 +61,13 @@ const theme = createTheme({
       fontStyle: 'normal',
       fontWeight: 700,
       letterSpacing: 0,
-      textTransform: 'uppercase',
+      textTransform: 'Uppercase',
     },
     subtitle1: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'regular',
-      letterSpacing: 0,
-    },
-    subtitle2: {
-      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
-      fontStretch: 'normal',
-      fontStyle: 'italic',
-      fontWeight: 'normal',
+      fontWeight: 600,
       letterSpacing: 0,
     },
     body1: {
@@ -81,20 +75,20 @@ const theme = createTheme({
       fontStretch: 'normal',
       fontStyle: 'italic',
       fontWeight: 500,
-      letterSpacing: 0,
+      letterSpacing: 0, // 20px
     },
     body2: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
       fontWeight: 400,
-      letterSpacing: 0,
+      letterSpacing: 0, // 14px
     },
     caption: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
-      letterSpacing: 0,
+      letterSpacing: 0, // 12px/10px
     },
     button: {
       fontFamily: FONT_FAMILY_TEXT_HIGHTLIGHT,
@@ -103,7 +97,7 @@ const theme = createTheme({
       color: 'white',
       fontWeight: 600,
       letterSpacing: 0,
-      textTransform: 'none',
+      textTransform: 'none', // button ex
     },
   },
   overrides: {
@@ -180,65 +174,59 @@ deepmerge(
     },
     h5: {
       color: palette.background.main,
-      fontSize: pxToRem(18),
-      lineHeight: 18 / 21,
+      fontSize: pxToRem(14),
+      lineHeight: 14 / 16,
       [breakpoints.up('md')]: {
         color: palette.primary.main,
         fontSize: pxToRem(14),
         lineHeight: 14 / 24,
       },
     },
-    subtitle1: {
-      fontSize: pxToRem(16),
-      lineHeight: 24 / 16,
-      [breakpoints.up('xl')]: {
-        fontSize: pxToRem(28),
-        lineHeight: 45 / 28,
-      },
-    },
-    subtitle2: {
-      fontSize: pxToRem(16),
-      lineHeight: 23 / 16,
-      [breakpoints.up('xl')]: {
-        fontSize: pxToRem(24),
-        lineHeight: 30 / 24,
+    h6: {
+      fontSize: pxToRem(10),
+      lineHeight: 10 / 16,
+      [breakpoints.up('md')]: {
+        fontSize: pxToRem(10),
+        lineHeight: 10 / 24, // card caption
       },
     },
     body1: {
+      color: palette.primary.main,
       fontSize: pxToRem(14),
-      lineHeight: 18 / 14,
+      lineHeight: 14 / 24,
       [breakpoints.up('md')]: {
-        fontSize: pxToRem(18),
-        lineHeight: 23 / 18,
-      },
-      [breakpoints.up('xl')]: {
-        fontSize: pxToRem(24),
-        lineHeight: 31 / 24,
+        fontSize: pxToRem(20),
+        lineHeight: 20 / 40, // 20px
       },
     },
     body2: {
-      fontSize: pxToRem(12),
-      lineHeight: 15 / 12,
+      fontSize: pxToRem(14),
+      lineHeight: 14 / 24,
       [breakpoints.up('md')]: {
-        fontSize: pxToRem(16),
-        lineHeight: 20 / 16,
+        fontSize: pxToRem(14),
+        lineHeight: 14 / 24, // 14px
+      },
+    },
+    subtitle1: {
+      fontSize: pxToRem(14),
+      lineHeight: 14 / 24,
+      [breakpoints.up('md')]: {
+        fontSize: pxToRem(12),
+        lineHeight: 12 / 14.4,
       },
     },
     caption: {
-      fontSize: pxToRem(16),
-      lineHeight: 24 / 16,
-      [breakpoints.up('xl')]: {
-        fontSize: pxToRem(20),
-        lineHeight: 30 / 20,
+      [breakpoints.up('md')]: {
+        fontSize: pxToRem(12),
+        lineHeight: 12 / 10,
       },
     },
     button: {
-      fontSize: pxToRem(12),
-      lineHeight: 15 / 12,
-      letterSpacing: pxToRem(1.6),
-      [breakpoints.up('xl')]: {
-        fontSize: pxToRem(20),
-        lineHeight: 24 / 20,
+      fontSize: pxToRem(14),
+      lineHeight: 14 / 18,
+      [breakpoints.up('md')]: {
+        fontSize: pxToRem(14),
+        lineHeight: 14 / 18, // button
       },
     },
   },
