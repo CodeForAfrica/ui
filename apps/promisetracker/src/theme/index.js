@@ -3,6 +3,8 @@ import { deepmerge } from '@material-ui/utils';
 import createTheme from '@hurumap-ui/charts/styles/createTheme';
 
 const FONT_FAMILY_HEADING = '"Amiri", "serif"';
+// const FONT_FAMILY_TEXT_PRIMARY = '"Georgia, Times, Times New Roman, serif"'
+const FONT_FAMILY_TEXT_PRIMARY = '"Georgia", "serif"';
 const FONT_FAMILY_TEXT_SECONDARY = '"Open Sans", "sans-serif"';
 const FONT_FAMILY_TEXT_HIGHTLIGHT = '"Source Sans Pro", "sans-serif"';
 
@@ -71,16 +73,15 @@ const theme = createTheme({
       letterSpacing: 0,
     },
     body1: {
-      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
-      fontStretch: 'normal',
-      fontStyle: 'italic',
+      fontFamily: FONT_FAMILY_TEXT_PRIMARY,
+      fontStretch: "normal",
       fontWeight: 500,
       letterSpacing: 0, // 20px
     },
     body2: {
-      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
-      fontStretch: 'normal',
-      fontStyle: 'normal',
+      fontFamily: FONT_FAMILY_TEXT_PRIMARY,
+      fontStretch: "normal",
+      fontStyle: "normal",
       fontWeight: 400,
       letterSpacing: 0, // 14px
     },
@@ -256,6 +257,7 @@ deepmerge(
         boxShadow: "none", // blue button
       },
       containedSecondary: {
+        color: palette.primary.light,
         border: "none",
         boxShadow: "none", // grey button
       },
