@@ -251,14 +251,11 @@ deepmerge(
         },
       },
       containedPrimary: {
-        backgroundColor: palette.hightlight.main,
         color: palette.background.default,
         border: "none",
         boxShadow: "none", // blue button
       },
       containedSecondary: {
-        backgroundColor: palette.secondary.main,
-        color: palette.hightlight.main,
         border: "none",
         boxShadow: "none", // grey button
       },
