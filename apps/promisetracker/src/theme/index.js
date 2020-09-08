@@ -173,7 +173,7 @@ deepmerge(
       },
     },
     h5: {
-      color: palette.background.main,
+      color: palette.background.default,
       fontSize: pxToRem(14),
       lineHeight: 16 / 14,
       [breakpoints.up("md")]: {
@@ -244,7 +244,7 @@ deepmerge(
         backgroundColor: palette.primary.dark,
         border: "none",
         boxShadow: "none",
-        color: palette.background.main,
+        color: palette.background.default,
         "&:hover": {
           border: "none",
           boxShadow: "none", // black button
@@ -252,7 +252,7 @@ deepmerge(
       },
       containedPrimary: {
         backgroundColor: palette.hightlight.main,
-        color: palette.background.main,
+        color: palette.background.default,
         border: "none",
         boxShadow: "none", // blue button
       },
