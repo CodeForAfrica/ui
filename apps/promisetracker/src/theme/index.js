@@ -267,7 +267,7 @@ deepmerge(
         boxShadow: "none", // blue button
       },
       containedSecondary: {
-        color: palette.primary.light,
+        color: "#005DFD",
         backgroundColor: palette.secondary.main,
         border: "none",
         boxShadow: "none", // grey button
