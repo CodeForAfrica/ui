@@ -14,9 +14,23 @@ export default class MyDocument extends Document {
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+            />
+          <link
             rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;700&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap"
             as="style"
+            href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;700&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap"
+            />
+            {/* Not all browsers support "preload" so we use media="print" as backup since it has low priority */}
+            {/* see: https://csswizardry.com/2020/05/the-fastest-google-fonts/ *}
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;700&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap"
+            media="print"
+            onload="this.media='all'"
+            />
           />
         </Head>
         <body>
