@@ -11,47 +11,47 @@ const FONT_FAMILY_TEXT_HIGHTLIGHT = '"Source Sans Pro", "sans-serif"';
 const theme = createTheme({
   palette: {
     background: { default: "#fff" },
-    primary: { main: "#202020", dark: "#000000" },
-    secondary: { main: "#EBEBEB", light: "#F7F7F7" },
-    highlight: { main: "#005DFD", light: "#FFB322", faded: "#90DAFF" },
+    primary: { main: "#202020", dark: "#000000" }, // black
+    secondary: { main: "#EBEBEB", light: "#F7F7F7" }, // grey
+    highlight: { main: "#005DFD", light: "#FFB322", faded: "#90DAFF" }, // blue. yellow, light blue
   },
   typography: {
     fontFamily: FONT_FAMILY_TEXT_SECONDARY,
     h1: {
       fontFamily: FONT_FAMILY_HEADING,
-      fontStretch: 'normal',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      letterSpacing: '0.76px',
+      fontStretch: "normal",
+      fontStyle: "normal",
+      fontWeight: "bold",
+      letterSpacing: "0.76px", // Amri  bold title
     },
     h2: {
       fontFamily: FONT_FAMILY_HEADING,
-      fontStretch: 'normal',
-      fontStyle: 'normal',
-      fontWeight: 'normal',
-      letterSpacing: '0.86px',
+      fontStretch: "normal",
+      fontStyle: "normal",
+      fontWeight: "normal",
+      letterSpacing: "0.86px", /// Amri Regular title/Section Titles
     },
     h3: {
       fontFamily: FONT_FAMILY_HEADING,
-      fontStretch: 'normal',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
+      fontStretch: "normal",
+      fontStyle: "normal",
+      fontWeight: "bold", // Amri Bold Footer title text/ Chart status text
     },
     h4: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
       fontWeight: 600,
-      letterSpacing: '0.64px',
-      textTransform: 'uppercase',
+      letterSpacing: "0.64px",
+      textTransform: "uppercase", // Open sans Card titles
     },
     h5: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
       fontWeight: 600,
-      letterSpacing: '0.56px',
-      textTransform: 'Uppercase',
+      letterSpacing: "0.56px",
+      textTransform: "Uppercase", // Open sans Navigation Menu titles
     },
     h6: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
@@ -59,40 +59,40 @@ const theme = createTheme({
       fontStyle: 'normal',
       fontWeight: 700,
       letterSpacing: 0,
-      textTransform: 'Uppercase',
+      textTransform: "Uppercase", // Open sans Card dates Typography//Last update dates
     },
     subtitle1: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
-      fontStretch: 'normal',
-      fontStyle: 'regular',
+      fontStretch: "normal",
+      fontStyle: "normal",
       fontWeight: 600,
-      letterSpacing: 0,
+      letterSpacing: 0, // Open sans status in chart section/component
     },
     subtitle2: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: "normal",
       fontStyle: "regular",
       fontWeight: "bold",
-      letterSpacing: 0,
+      letterSpacing: 0, // Open sans Status text
     },
     body1: {
       fontFamily: FONT_FAMILY_TEXT_PRIMARY,
       fontStretch: "normal",
-      fontWeight: 500,
-      letterSpacing: 0, // 20px
+      fontWeight: "normal",
+      letterSpacing: 0, // Georgia title text 20px// Call to action sections
     },
     body2: {
       fontFamily: FONT_FAMILY_TEXT_PRIMARY,
       fontStretch: "normal",
       fontStyle: "normal",
       fontWeight: 400,
-      letterSpacing: 0, // 14px
+      letterSpacing: 0, // Georgia regular body text 14px
     },
     caption: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
-      fontStretch: 'normal',
-      fontStyle: 'normal',
-      letterSpacing: 0, // 12px/10px
+      fontStretch: "normal",
+      fontStyle: "normal",
+      letterSpacing: 0, // Chart percentage text
     },
     button: {
       fontFamily: FONT_FAMILY_TEXT_HIGHTLIGHT,
@@ -101,7 +101,7 @@ const theme = createTheme({
       color: 'white',
       fontWeight: 600,
       letterSpacing: 0,
-      textTransform: 'none', // button ex
+      textTransform: "upppercase", // Source sans pro Button text
     },
   },
   overrides: {
@@ -126,7 +126,7 @@ const theme = createTheme({
   },
   widths: {
     values: {
-      lg: 1080, // 0, 40, 0, 40 margin
+      lg: 1080, // 0, 141, 0, 141 margin
     },
   },
 });
@@ -144,7 +144,7 @@ deepmerge(
       fontWeight: 700,
       [breakpoints.up('md')]: {
         fontSize: pxToRem(38),
-        lineHeight: 56 / 38,
+        lineHeight: 56 / 38, /// Amiri  bold title
       },
     },
     h2: {
@@ -153,7 +153,7 @@ deepmerge(
       lineHeight: 48 / 32,
       [breakpoints.up("md")]: {
         fontSize: pxToRem(36),
-        lineHeight: 56 / 36,
+        lineHeight: 56 / 36, // Amri Regular title/Section Titles
       },
     },
     h3: {
@@ -162,7 +162,7 @@ deepmerge(
       lineHeight: 35 / 16,
       [breakpoints.up("md")]: {
         fontSize: pxToRem(24),
-        lineHeight: 28.8 / 24,
+        lineHeight: 28.8 / 24, // Amri Bold Footer title text/Chart status text
       },
     },
     h4: {
@@ -171,7 +171,7 @@ deepmerge(
       lineHeight: 24 / 16,
       [breakpoints.up("md")]: {
         fontSize: pxToRem(16),
-        lineHeight: 24 / 16,
+        lineHeight: 24 / 16, // Open sans Card titles
       },
     },
     h5: {
@@ -181,7 +181,7 @@ deepmerge(
       [breakpoints.up("md")]: {
         color: palette.primary.main,
         fontSize: pxToRem(14),
-        lineHeight: 16 / 14,
+        lineHeight: 16 / 14, // Open sans Navigation Menu titles
       },
     },
     h6: {
@@ -189,7 +189,7 @@ deepmerge(
       lineHeight: 16 / 10,
       [breakpoints.up("md")]: {
         fontSize: pxToRem(10),
-        lineHeight: 24 / 10, // card caption
+        lineHeight: 24 / 10, // Card dates Typography
       },
     },
     body1: {
@@ -198,7 +198,7 @@ deepmerge(
       lineHeight: 24 / 14,
       [breakpoints.up("md")]: {
         fontSize: pxToRem(20),
-        lineHeight: 40 / 20, // 20px
+        lineHeight: 40 / 20, // Georgia title text 20px// Call to action sections
       },
     },
     body2: {
@@ -206,7 +206,7 @@ deepmerge(
       lineHeight: 24 / 14,
       [breakpoints.up("md")]: {
         fontSize: pxToRem(14),
-        lineHeight: 24 / 14, // 14px
+        lineHeight: 24 / 14, // Georgia regular body text 14px
       },
     },
     subtitle1: {
@@ -214,7 +214,7 @@ deepmerge(
       lineHeight: 24 / 14,
       [breakpoints.up("md")]: {
         fontSize: pxToRem(12),
-        lineHeight: 14.4 / 12,
+        lineHeight: 14.4 / 12, // Open sans status in chart section/component
       },
     },
     subtitle2: {
@@ -222,13 +222,13 @@ deepmerge(
       lineHeight: 19 / 7,
       [breakpoints.up("md")]: {
         fontSize: pxToRem(10),
-        lineHeight: 24 / 10,
+        lineHeight: 24 / 10, // Open sans Status text=> Handles H7/H8 text for status button content
       },
     },
     caption: {
       [breakpoints.up('md')]: {
         fontSize: pxToRem(12),
-        lineHeight: 12 / 10,
+        lineHeight: 12 / 10, /// Chart percentage text
       },
     },
     button: {
@@ -236,7 +236,7 @@ deepmerge(
       lineHeight: 18 / 14,
       [breakpoints.up("md")]: {
         fontSize: pxToRem(14),
-        lineHeight: 18 / 14, // button
+        lineHeight: 18 / 14, // Source sans pro Button text
       },
     },
   },
