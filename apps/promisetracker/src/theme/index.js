@@ -275,17 +275,10 @@ deepmerge(
       containedSizeSmall: {
         fontSize: typography.pxToRem(14),
         lineHeight: 18 / 14,
-        [breakpoints.up('xl')]: {
-          fontSize: typography.pxToRem(16),
-        },
       },
       containedSizeLarge: {
         fontSize: typography.pxToRem(16),
         lineHeight: 24 / 16,
-        [breakpoints.up('xl')]: {
-          fontSize: typography.pxToRem(24),
-          lineHeight: 24 / 24,
-        },
       },
     },
   },
