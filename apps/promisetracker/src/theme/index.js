@@ -68,6 +68,13 @@ const theme = createTheme({
       fontWeight: 600,
       letterSpacing: 0,
     },
+    subtitle2: {
+      fontFamily: FONT_FAMILY_TEXT_SECONDARY,
+      fontStretch: "normal",
+      fontStyle: "regular",
+      fontWeight: "bold",
+      letterSpacing: 0,
+    },
     body1: {
       fontFamily: FONT_FAMILY_TEXT_PRIMARY,
       fontStretch: "normal",
@@ -208,6 +215,14 @@ deepmerge(
       [breakpoints.up("md")]: {
         fontSize: pxToRem(12),
         lineHeight: 14.4 / 12,
+      },
+    },
+    subtitle2: {
+      fontSize: pxToRem(7),
+      lineHeight: 19 / 7,
+      [breakpoints.up("md")]: {
+        fontSize: pxToRem(10),
+        lineHeight: 24 / 10,
       },
     },
     caption: {
