@@ -13,7 +13,7 @@ const theme = createTheme({
     background: { default: "#fff" },
     primary: { main: "#202020", dark: "#000000" }, // black
     secondary: { main: "#EBEBEB", light: "#F7F7F7" }, // grey
-    highlight: { main: "#005DFD", light: "#FFB322", faded: "#90DAFF" }, // blue. yellow, light blue
+    hightlight: { main: "#005DFD", light: "#FFB322", faded: "#90DAFF" }, // blue. yellow, light blue
   },
   typography: {
     fontFamily: FONT_FAMILY_TEXT_SECONDARY,
@@ -262,11 +262,13 @@ deepmerge(
       },
       containedPrimary: {
         color: palette.background.default,
+        backgroundColor: "#005DFD",
         border: "none",
         boxShadow: "none", // blue button
       },
       containedSecondary: {
         color: palette.primary.light,
+        backgroundColor: palette.secondary.main,
         border: "none",
         boxShadow: "none", // grey button
       },

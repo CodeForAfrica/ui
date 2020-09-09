@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, Button } from "@material-ui/core";
 
 export default function TypographySetup() {
   return (
@@ -106,6 +106,18 @@ export default function TypographySetup() {
         Etiam venenatis, nulla a hendrerit ullamcorper,massa libero lobortis
         nibh, onsequat augue velit ac lectus.
       </Typography>
+
+      <Grid container direction="row" justify="space-between" align="center">
+        <Button variant="contained" size="large">
+          Example
+        </Button>
+        <Button variant="contained" color="primary" size="large">
+          Example
+        </Button>
+        <Button variant="contained" color="secondary" size="large">
+          Example
+        </Button>
+      </Grid>
     </Grid>
   );
 }
