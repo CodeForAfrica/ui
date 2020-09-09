@@ -24,7 +24,12 @@ export default function TypographySetup() {
         consectetur
       </Typography>
 
-      <Typography variant="h5" align="center" style={{ padding: "1rem 0rem" }}>
+      <Typography
+        variant="h5"
+        align="center"
+        color="textSecondary"
+        style={{ padding: "1rem 0rem" }}
+      >
         <em style={{ color: "#005DFD" }}>H5: </em> Lorem ipsum dolor sit amet,
         consectetur
       </Typography>
