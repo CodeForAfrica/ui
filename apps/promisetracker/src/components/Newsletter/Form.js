@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { FormControl, Grid, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import sendIcon from "assets/subscribe-email.svg";
+import sendIcon from "@/promisetracker/assets/subscribe-email.svg";
 
 const useStyles = makeStyles(({ typography }) => ({
   root: {

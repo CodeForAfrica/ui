@@ -4,7 +4,7 @@ import { Grid, Typography } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import subscribeImg from "assets/subscribe-img.png";
+import subscribeImg from "@/promisetracker/assets/subscribe-img.png";
 
 import Form from "./Form";
 
