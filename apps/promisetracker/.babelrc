@@ -19,7 +19,6 @@
           "./src"
         ],
         "alias": {
-          "assets": "./src/assets",
           "@/promisetracker": "./src"
         }
       }
