@@ -10,13 +10,16 @@ import partner4 from "assets/partner-04.png";
 import partner5 from "assets/partner-05.png";
 import partner6 from "assets/partner-06.svg";
 
-const useStyles = makeStyles(({ palette }) => ({
+const useStyles = makeStyles(({ palette, breakpoints }) => ({
   root: {
     backgroundColor: palette.secondary.light,
     padding: "2rem 0rem",
   },
   partner: {
-    height: "8rem",
+    maxWidth: "100%",
+    [breakpoints.up("md")]: {
+      height: "8rem",
+    },
   },
   title: {
     marginLeft: "2rem",
