@@ -1,7 +1,4 @@
 const withImages = require("next-images");
 
-module.exports = withImages({
-  cssLoaderOptions: {
-    url: false,
-  },
-});
+// Allow importing images as import img from './my-image.jpg'
+module.exports = withImages();
