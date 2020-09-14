@@ -11,6 +11,9 @@ import Form from "./Form";
 const useStyles = makeStyles(({ breakpoints }) => ({
   root: {
     backgroundColor: "#90d9fc",
+    [breakpoints.up("md")]: {
+      height: "25rem",
+    },
   },
   title: {
     padding: 0,
@@ -30,9 +33,6 @@ const useStyles = makeStyles(({ breakpoints }) => ({
   description: {
     padding: "1rem 0rem 1.5rem 0rem",
     textAlign: "left",
-    [breakpoints.up("md")]: {
-      lineHeight: "1.875rem",
-    },
   },
 }));
 
