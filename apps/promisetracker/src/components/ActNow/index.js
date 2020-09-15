@@ -6,14 +6,21 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import actNowImg from "assets/actnow-img.png";
 
-const useStyles = makeStyles(({ breakpoints }) => ({
+const useStyles = makeStyles(({ breakpoints, widths }) => ({
   root: {
     backgroundColor: "#ebebeb",
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     padding: 0,
     textAlign: "left",
     textTransform: "capitalize",
+  },
+  content: {
+    maxWidth: widths.values.lg,
   },
   textContainer: {
     width: "100%",
@@ -45,24 +52,26 @@ function ActNow({ description: descriptionProp, title, ...props }) {
     undefined;
 
   return (
-    <Grid container className={classes.root}>
-      <Grid className={classes.grid} item xs={12} md={6}>
-        <div className={classes.textContainer}>
-          <Typography variant="h1" className={classes.title}>
-            {title}
-          </Typography>
-          <Typography variant="body1" className={classes.description}>
-            {description}
-          </Typography>
-          <Button variant="contained" size="large">
-            Act Now
-          </Button>
-        </div>
+    <div className={classes.root}>
+      <Grid container className={classes.content}>
+        <Grid className={classes.grid} item xs={12} md={6}>
+          <div className={classes.textContainer}>
+            <Typography variant="h1" className={classes.title}>
+              {title}
+            </Typography>
+            <Typography variant="body1" className={classes.description}>
+              {description}
+            </Typography>
+            <Button variant="contained" size="large">
+              Act Now
+            </Button>
+          </div>
+        </Grid>
+        <Grid className={classes.grid} item xs={12} md={6}>
+          <img src={actNowImg} alt="Act Now" className={classes.image} />
+        </Grid>
       </Grid>
-      <Grid className={classes.grid} item xs={12} md={6}>
-        <img src={actNowImg} alt="Act Now" className={classes.image} />
-      </Grid>
-    </Grid>
+    </div>
   );
 }
 ActNow.propTypes = {
