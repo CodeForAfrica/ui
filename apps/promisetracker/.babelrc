@@ -1,7 +1,5 @@
 {
-  "presets": [
-    "next/babel"
-  ],
+  "presets": ["next/babel"],
   "plugins": [
     [
       "transform-imports",
@@ -15,9 +13,7 @@
     [
       "module-resolver",
       {
-        "root": [
-          "./src"
-        ],
+        "root": ["./"],
         "alias": {
           "@/promisetracker": "./src"
         }
