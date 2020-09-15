@@ -25,7 +25,7 @@ const useStyles = makeStyles(({ breakpoints, widths }) => ({
     alignItems: "center",
     justifyContent: "center",
     [breakpoints.up("md")]: {
-      flexDirection: "column",
+      flexDirection: "row",
     },
   },
   textContainer: {
