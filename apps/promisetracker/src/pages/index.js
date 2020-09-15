@@ -3,6 +3,7 @@ import { Container, Typography, Box } from "@material-ui/core";
 import Copyright from "@/promisetracker/components/Copyright";
 import TypographySetup from "@/promisetracker/components/TypographySetup";
 import Newsletter from "@/promisetracker/components/Newsletter";
+import ActNow from "@/promisetracker/components/ActNow";
 
 export default function Index() {
   return (
@@ -17,6 +18,7 @@ export default function Index() {
         </Box>
       </Container>
       <Newsletter />
+      <ActNow />
     </>
   );
 }
