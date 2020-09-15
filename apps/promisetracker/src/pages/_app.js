@@ -1,10 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Head from "next/head";
+import { DefaultSeo } from "next-seo";
+
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
+
 import theme from "@/promisetracker/theme/index";
+import SEO from "next-seo.config";
+
+import "simplebar/dist/simplebar.css";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -19,13 +24,7 @@ export default function MyApp(props) {
 
   return (
     <>
-      <Head>
-        <title>Promise Tracker Initial Setup</title>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
-      </Head>
+      <DefaultSeo {...SEO} />
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
@@ -37,5 +36,5 @@ export default function MyApp(props) {
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+  pageProps: PropTypes.shape({}).isRequired,
 };
