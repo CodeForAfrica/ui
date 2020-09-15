@@ -21,6 +21,12 @@ const useStyles = makeStyles(({ breakpoints, widths }) => ({
   },
   content: {
     maxWidth: widths.values.lg,
+    flexDirection: "column-reverse",
+    alignItems: "center",
+    justifyContent: "center",
+    [breakpoints.up("md")]: {
+      flexDirection: "column",
+    },
   },
   textContainer: {
     width: "100%",
