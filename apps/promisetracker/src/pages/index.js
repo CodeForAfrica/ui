@@ -35,6 +35,11 @@ function Index(props) {
               euismod odio non leo pretium pellentesque.
             `,
           image: promiseImage,
+          status: {
+            color: "#FFB322",
+            textColor: "#202020",
+            title: "delayed",
+          },
           title: "Codification of national sports and athletics law",
         })}
         title="Latest Promises"
