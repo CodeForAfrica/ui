@@ -8,11 +8,12 @@ import { useTheme } from "@material-ui/core/styles";
 
 import { Section } from "@commons-ui/core";
 
+import CtAButton from "@/promisetracker/components/CtAButton";
 import PromiseCard from "@/promisetracker/components/PromiseCard";
 
 import useStyles from "./useStyles";
 
-function LatestPromises({ items, title, ...props }) {
+function LatestPromises({ actionLabel, items, title, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
@@ -38,11 +39,17 @@ function LatestPromises({ items, title, ...props }) {
           </Grid>
         ))}
       </Grid>
+      {actionLabel && (
+        <CtAButton classes={{ root: classes.cta, button: classes.ctaButton }}>
+          {actionLabel}
+        </CtAButton>
+      )}
     </Section>
   );
 }
 
 LatestPromises.propTypes = {
+  actionLabel: PropTypes.string,
   classes: PropTypes.shape({
     card: PropTypes.string,
     scrollBar: PropTypes.string,
@@ -55,6 +62,7 @@ LatestPromises.propTypes = {
 };
 
 LatestPromises.defaultProps = {
+  actionLabel: undefined,
   classes: undefined,
   items: undefined,
   title: undefined,

@@ -10,6 +10,8 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       marginTop: typography.pxToRem(96),
     },
   },
+  cta: {},
+  ctaButton: {},
   row: {
     paddingTop: typography.pxToRem(30),
     [breakpoints.up("lg")]: {
