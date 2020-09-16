@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import PostCard from "@/promisetracker/components/PostCard";
 
+import Status from "./Status";
 import useStyles from "./useStyles";
 
 function PromiseCard({ classes: classesProp, status, ...props }) {
@@ -23,7 +24,9 @@ function PromiseCard({ classes: classesProp, status, ...props }) {
         title: classes.title,
         titleContainer: classes.titleContainer,
       }}
-    />
+    >
+      <Status {...status} />
+    </PostCard>
   );
 }
 
