@@ -42,16 +42,16 @@ function PostCard({
             </RichTypography>
           </Box>
           <Grid container justify="space-between">
-            <RichTypography variant="h6" className={classes.date}>
-              {date}
-            </RichTypography>
-            <IconButton
-              aria-label="share"
-              size="small"
-              className={classes.share}
-            >
-              <ShareIcon fontSize="inherit" />
-            </IconButton>
+            <Grid item>
+              <RichTypography variant="h6" className={classes.date}>
+                {date}
+              </RichTypography>
+            </Grid>
+            <Grid item>
+              <IconButton aria-label="share" className={classes.share}>
+                <ShareIcon fontSize="inherit" />
+              </IconButton>
+            </Grid>
           </Grid>
         </CardContent>
         <CardMedia
@@ -85,8 +85,8 @@ PostCard.propTypes = {
     description: PropTypes.string,
     descriptionContainer: PropTypes.string,
     media: PropTypes.string,
-    share: PropTypes.string,
     root: PropTypes.string,
+    share: PropTypes.string,
     title: PropTypes.string,
     titleContainer: PropTypes.string,
   }),
