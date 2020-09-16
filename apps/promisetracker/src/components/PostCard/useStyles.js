@@ -4,10 +4,10 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   root: {
     border: "1px solid #EBEBEB",
     minWidth: typography.pxToRem(314),
-    maxHeight: 460,
+    maxHeight: typography.pxToRem(460),
     [breakpoints.up("lg")]: {
       marginRight: typography.pxToRem(21.5),
-      maxHeight: 462,
+      maxHeight: typography.pxToRem(462),
       minWidth: "auto",
       overflow: "visible",
       width: typography.pxToRem(347),
@@ -30,12 +30,12 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   },
   description: {},
   descriptionContainer: {
-    height: 24 * 3, // Max 3 lines defined by body2.lineHeight
+    height: typography.pxToRem(24 * 3), // Max 3 lines defined by body2.lineHeight
     marginTop: typography.pxToRem(21 - 9),
-    maxHeight: 24 * 3,
+    maxHeight: typography.pxToRem(24 * 3),
     overflow: "hidden",
     [breakpoints.up("lg")]: {
-      marginTop: typography.pxToRem(32 - 7),
+      marginTop: typography.pxToRem(30 - 7),
     },
   },
   media: {
@@ -66,8 +66,8 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   },
   title: {},
   titleContainer: {
-    height: 24 * 2, // Max 2 lines defined by h4.lineHeight
-    maxHeight: 24 * 2,
+    height: typography.pxToRem(24 * 2), // Max 2 lines defined by h4.lineHeight
+    maxHeight: typography.pxToRem(24 * 2),
     overflow: "hidden",
   },
 }));
