@@ -4,10 +4,9 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   root: {
     border: "1px solid #EBEBEB",
     minWidth: typography.pxToRem(314),
-    marginRight: typography.pxToRem(23),
     maxHeight: 460,
     [breakpoints.up("lg")]: {
-      marginRight: typography.pxToRem(21),
+      marginRight: typography.pxToRem(21.5),
       maxHeight: 462,
       minWidth: "auto",
       overflow: "visible",
