@@ -110,7 +110,6 @@ const theme = createTheme({
       color: 'white',
       fontWeight: 600,
       letterSpacing: 0,
-      textTransform: "upppercase", // Source sans pro Button text
     },
   },
   overrides: {
@@ -264,6 +263,7 @@ deepmerge(
         border: "none",
         boxShadow: "none",
         color: palette.background.default,
+        borderRadius: 0,
         "&:hover": {
           border: "none",
           boxShadow: "none", // black button
