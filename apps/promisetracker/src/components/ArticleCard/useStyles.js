@@ -1,7 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
-  root: {},
+  root: {
+    marginRight: typography.pxToRem(23),
+    [breakpoints.up("lg")]: {
+      marginRight: typography.pxToRem(21),
+    },
+  },
   content: {},
   contentRoot: {},
   date: {},
