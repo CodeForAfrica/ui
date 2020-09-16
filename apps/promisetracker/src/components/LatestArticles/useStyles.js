@@ -18,7 +18,12 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
     height: typography.pxToRem(500),
     overflow: "initial",
     marginRight: typography.pxToRem(23),
+    [breakpoints.up("lg")]: {
+      height: typography.pxToRem(462),
+    },
   },
+  cta: {},
+  ctaButton: {},
   scrollBar: {
     // Reinstate scrolling for non-JS clients
     "& .simplebar-content-wrapper": {
