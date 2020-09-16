@@ -5,8 +5,12 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
     border: "1px solid #EBEBEB",
     minWidth: typography.pxToRem(314),
     marginRight: typography.pxToRem(23),
+    maxHeight: 460,
     [breakpoints.up("lg")]: {
       marginRight: typography.pxToRem(21),
+      maxHeight: 462,
+      minWidth: "auto",
+      overflow: "visible",
       width: typography.pxToRem(347),
       "&:last-of-type": {
         marginRight: 0,
