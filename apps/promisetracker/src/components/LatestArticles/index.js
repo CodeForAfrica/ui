@@ -7,7 +7,7 @@ import ArticleCard from "@/promisetracker/components/ArticleCard";
 
 import useStyles from "./useStyles";
 
-function LatestArticles({ children, items, title, ...props }) {
+function LatestArticles({ items, title, ...props }) {
   const classes = useStyles(props);
 
   if (!items?.length) {
@@ -32,7 +32,6 @@ function LatestArticles({ children, items, title, ...props }) {
 }
 
 LatestArticles.propTypes = {
-  children: PropTypes.node,
   classes: PropTypes.shape({
     card: PropTypes.string,
     scrollBar: PropTypes.string,
@@ -45,7 +44,6 @@ LatestArticles.propTypes = {
 };
 
 LatestArticles.defaultProps = {
-  children: undefined,
   classes: undefined,
   items: undefined,
   title: undefined,
