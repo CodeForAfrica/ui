@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { ScrollBar, Section } from "@commons-ui/core";
 
-import PostCard from "@/promisetracker/components/PostCard";
+import ArticleCard from "@/promisetracker/components/ArticleCard";
 
 import useStyles from "./useStyles";
 
@@ -21,16 +21,8 @@ function LatestArticles({ children, items, title, ...props }) {
       <div className={classes.root}>
         <ScrollBar autoHide classes={{ root: classes.scrollBar }} height={500}>
           <div className={classes.cardContainer}>
-            {items.map((promise) => (
-              <PostCard
-                key={promise.name}
-                {...promise}
-                component="div"
-                classes={{
-                  root: classes.card,
-                  descriptionContainer: classes.cardDescriptionContainer,
-                }}
-              />
+            {items.map((article) => (
+              <ArticleCard key={article.name} {...article} component="div" />
             ))}
           </div>
         </ScrollBar>

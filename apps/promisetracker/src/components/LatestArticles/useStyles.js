@@ -13,25 +13,11 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {
     width: "calc(((100vw - 100%) / 2) + 100%)",
   },
-  card: {
-    maxHeight: 460,
-    [breakpoints.up("lg")]: {
-      maxHeight: 462,
-      minWidth: "auto",
-      overflow: "visible",
-    },
-  },
   cardContainer: {
     display: "flex",
     height: typography.pxToRem(500),
     overflow: "initial",
     marginRight: typography.pxToRem(23),
-  },
-  cardDescriptionContainer: {
-    marginTop: typography.pxToRem(58.49 - 7),
-    [breakpoints.up("lg")]: {
-      marginTop: typography.pxToRem(32 - 7),
-    },
   },
   scrollBar: {
     // Reinstate scrolling for non-JS clients
