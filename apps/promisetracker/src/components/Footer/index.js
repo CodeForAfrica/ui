@@ -74,7 +74,7 @@ function MainFooter({
                 <FooterQuickLinks
                   options={{
                     link: {
-                      variant: "body1",
+                      variant: "h6",
                     },
                     title: {
                       color: "black",
@@ -92,7 +92,7 @@ function MainFooter({
                 <FooterQuickLinks
                   options={{
                     link: {
-                      variant: "body1",
+                      variant: "h6",
                     },
                     title: {
                       color: "black",
