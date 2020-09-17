@@ -17,17 +17,14 @@ const useStyles = makeStyles(
       display: "none",
     },
     copyright: {
+      color: palette.secondary.dark,
+      fontWeight: 400,
       "& img": {
         height: typography.caption.fontSize,
         width: typography.caption.fontSize,
       },
     },
-    legalLinks: {
-      marginTop: "3.09375",
-      [breakpoints.up("md")]: {
-        marginTop: 0,
-      },
-    },
+
     legalLinksLink: {},
 
     primary: {
@@ -47,7 +44,7 @@ const useStyles = makeStyles(
     },
     secondary: {
       backgroundColor: palette.primary.dark,
-      color: "white",
+      color: palette.secondary.dark,
       [breakpoints.up("md")]: {
         paddingBottom: "1rem",
         paddingTop: "2rem",
@@ -61,6 +58,7 @@ const useStyles = makeStyles(
     },
     stayInTouchLinks: {
       marginTop: "2.215rem",
+
       "& a": {
         height: "2rem",
         width: "2rem",
@@ -82,11 +80,27 @@ const useStyles = makeStyles(
     stayInTouch: {
       justifyContent: "flex-end",
     },
+    stayInTouchText: {
+      color: palette.secondary.dark,
+      fontWeight: 400,
+    },
     legalContainer: {
       display: "flex",
       alignItems: "start",
       flexDirection: "row-reverse",
       justifyContent: "flex-end",
+    },
+    legalLinks: {
+      [breakpoints.up("md")]: {
+        "& li": {
+          padding: "0",
+          paddingLeft: ".5rem",
+        },
+      },
+    },
+    legalLink: {
+      color: palette.secondary.dark,
+      fontWeight: 400,
     },
     ptLogo: {
       maxWidth: "14.75rem",

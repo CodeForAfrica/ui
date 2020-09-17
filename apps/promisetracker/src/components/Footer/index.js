@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import { Grid, Hidden, Typography } from "@material-ui/core";
-
 import {
   Section,
   FooterLogo,
@@ -21,15 +19,15 @@ import useStyles from "@/promisetracker/components/Footer/useStyles";
 function MainFooter({
   page: {
     about,
+    contacts,
     legal_links: legalLinksLinks,
     organization_logo: organizationLogoProp,
     quick_links: quickLinksLinks,
-    social_media: socialMedia,
+    copyright,
   },
   ...props
 }) {
   const classes = useStyles({ props });
-
   const organizationLogo = {
     image: { url: organizationLogoProp.image, alt: organizationLogoProp.alt },
     url: organizationLogoProp.link,
@@ -120,20 +118,23 @@ function MainFooter({
               />
               <div className={classes.legalContainer}>
                 <FooterCopyright
-                  variant="body2"
-                  color="white"
-                  classes={{ section: classes.section }}
+                  {...copyright}
+                  variant="h5"
+                  classes={{ text: classes.copyright }}
                 />
                 <FooterLegalLinks
-                  variant="body2"
+                  variant="h5"
                   {...legalLinks}
-                  classes={{ section: classes.section }}
+                  classes={{
+                    list: classes.legalLinks,
+                    link: classes.legalLink,
+                  }}
                 />
               </div>
             </Grid>
             <Grid item xs={12} md={6} className={classes.secondaryGridItem}>
               <FooterStayInTouch
-                socialMedia={socialMedia}
+                {...contacts}
                 options={{
                   socialMedia: {
                     color: "white",
@@ -148,6 +149,7 @@ function MainFooter({
                 classes={{
                   root: classes.stayInTouch,
                   links: classes.stayInTouchLinks,
+                  text: classes.stayInTouchText,
                 }}
               />
             </Grid>
@@ -164,7 +166,8 @@ MainFooter.propTypes = {
       initiative: PropTypes.string,
       about: PropTypes.string,
     }),
-    social_media: PropTypes.arrayOf(PropTypes.shape({})),
+    contacts: PropTypes.shape({}),
+    copyright: PropTypes.shape({}),
     legal_links: PropTypes.arrayOf(PropTypes.shape({})),
     quick_links: PropTypes.arrayOf(PropTypes.shape({})),
     organization_logo: PropTypes.shape({}),
