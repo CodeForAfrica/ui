@@ -3,6 +3,7 @@ import facebook from "@/promisetracker/assets/footer-social-fb.svg";
 import twitter from "@/promisetracker/assets/footer-social-tw.svg";
 import linkedIn from "@/promisetracker/assets/footer-social-ln.svg";
 import github from "@/promisetracker/assets/footer-social-gh.svg";
+import cc from "@/promisetracker/assets/cc.svg";
 
 import logo from "@/promisetracker/assets/logo-C4A.svg";
 
@@ -19,11 +20,15 @@ const config = {
       link: "//codeforafrica.org",
       alt: "CodeforAfrica",
     },
-    copyright_logo: {
-      image: false,
-      link: "#",
-      alt: "Creative Commons",
+    copyright: {
+      copyright: "PROMISE TRACKER",
+      copyright_logo: {
+        image: cc,
+        link: "#",
+        alt: "PROMISE TRACKER",
+      },
     },
+
     initiative_logo: {
       image:
         "https://dashboard.hurumap.org/wp-content/uploads/2020/05/pulitzer.png",
@@ -84,44 +89,46 @@ const config = {
         href: "/legal/terms",
       },
     ],
-    social_media: [
-      {
-        url: "https://github.com/codeforafrica",
-        image: {
-          url: instagram,
-          alt: "",
+    contacts: {
+      socialMedia: [
+        {
+          url: "https://github.com/codeforafrica",
+          image: {
+            url: instagram,
+            alt: "",
+          },
         },
-      },
-      {
-        url: "https://www.linkedin.com/company/code-for-africa/",
-        image: {
-          url: linkedIn,
-          alt: "",
+        {
+          url: "https://www.linkedin.com/company/code-for-africa/",
+          image: {
+            url: linkedIn,
+            alt: "",
+          },
         },
-      },
-      {
-        url:
-          "https://twitter.com/Code4Africa?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
-        image: {
-          url: twitter,
-          alt: "",
+        {
+          url:
+            "https://twitter.com/Code4Africa?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+          image: {
+            url: twitter,
+            alt: "",
+          },
         },
-      },
-      {
-        url: "https://www.facebook.com/CodeForAfrica/",
-        image: {
-          url: facebook,
-          alt: "",
+        {
+          url: "https://www.facebook.com/CodeForAfrica/",
+          image: {
+            url: facebook,
+            alt: "",
+          },
         },
-      },
-      {
-        url: "https://github.com/codeforafrica",
-        image: {
-          url: github,
-          alt: "",
+        {
+          url: "https://github.com/codeforafrica",
+          image: {
+            url: github,
+            alt: "",
+          },
         },
-      },
-    ],
+      ],
+    },
   },
 };
 
