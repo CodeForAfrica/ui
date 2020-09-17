@@ -4,7 +4,14 @@ const useStyles = makeStyles(
   ({ breakpoints, typography, widths, palette }) => ({
     root: {},
     section: {
-      maxWidth: widths.values.lg,
+      padding: `0 ${typography.pxToRem(23)}`,
+      margin: 0,
+      width: "100%",
+      [breakpoints.up("lg")]: {
+        padding: 0,
+        margin: "0 auto",
+        width: typography.pxToRem(widths.values.lg),
+      },
     },
     initiative: {
       display: "none",
