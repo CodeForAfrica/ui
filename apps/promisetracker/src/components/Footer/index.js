@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Hidden, Typography } from "@material-ui/core";
+import { Grid, Hidden, Typography, useMediaQuery } from "@material-ui/core";
 import {
   Section,
   FooterLogo,
@@ -15,6 +15,7 @@ import Link from "@/promisetracker/components/Link";
 import ptLogo from "@/promisetracker/assets/footer-pt-logo.png";
 
 import useStyles from "@/promisetracker/components/Footer/useStyles";
+import { useTheme } from "@material-ui/core/styles";
 
 function MainFooter({
   page: {
@@ -28,6 +29,9 @@ function MainFooter({
   ...props
 }) {
   const classes = useStyles({ props });
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+
   const organizationLogo = {
     image: { url: organizationLogoProp.image, alt: organizationLogoProp.alt },
     url: organizationLogoProp.link,
@@ -117,42 +121,71 @@ function MainFooter({
                 alt="promise Tracker"
               />
               <div className={classes.legalContainer}>
+                {!isDesktop && (
+                  <FooterStayInTouch
+                    {...contacts}
+                    options={{
+                      socialMedia: {
+                        color: "white",
+                      },
+                      support: {
+                        color: "white",
+                      },
+                      title: {
+                        variant: "h5",
+                      },
+                    }}
+                    classes={{
+                      root: classes.stayInTouch,
+                      links: classes.stayInTouchLinks,
+                      text: classes.stayInTouchText,
+                    }}
+                  />
+                )}
+
                 <FooterCopyright
                   {...copyright}
                   variant="h5"
-                  classes={{ text: classes.copyright }}
+                  classes={{
+                    copyright: classes.copyright,
+                    text: classes.copyrightText,
+                  }}
                 />
+
                 <FooterLegalLinks
                   variant="h5"
                   {...legalLinks}
                   classes={{
+                    root: classes.legalLinksRoot,
                     list: classes.legalLinks,
                     link: classes.legalLink,
                   }}
                 />
               </div>
             </Grid>
-            <Grid item xs={12} md={6} className={classes.secondaryGridItem}>
-              <FooterStayInTouch
-                {...contacts}
-                options={{
-                  socialMedia: {
-                    color: "white",
-                  },
-                  support: {
-                    color: "white",
-                  },
-                  title: {
-                    variant: "h5",
-                  },
-                }}
-                classes={{
-                  root: classes.stayInTouch,
-                  links: classes.stayInTouchLinks,
-                  text: classes.stayInTouchText,
-                }}
-              />
-            </Grid>
+            {isDesktop && (
+              <Grid item xs={12} md={6} className={classes.secondaryGridItem}>
+                <FooterStayInTouch
+                  {...contacts}
+                  options={{
+                    socialMedia: {
+                      color: "white",
+                    },
+                    support: {
+                      color: "white",
+                    },
+                    title: {
+                      variant: "h5",
+                    },
+                  }}
+                  classes={{
+                    root: classes.stayInTouch,
+                    links: classes.stayInTouchLinks,
+                    text: classes.stayInTouchText,
+                  }}
+                />
+              </Grid>
+            )}
           </Grid>
         </Section>
       </div>
