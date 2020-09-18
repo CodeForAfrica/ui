@@ -41,7 +41,7 @@ const useStyles = makeStyles(({ typography, palette }) => ({
     color: palette.secondary.main,
     fontSize: typography.pxToRem(13),
     textTransform: "uppercase",
-    fontWeight: 600,
+    fontWeight: 700,
     letterSpacing: "0.52px",
   },
   title: {
