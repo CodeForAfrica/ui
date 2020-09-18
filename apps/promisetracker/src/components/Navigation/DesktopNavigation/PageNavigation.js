@@ -1,8 +1,6 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
 
-import { useRouter } from "next/router";
-
 import clsx from "clsx";
 
 import { Grid } from "@material-ui/core";
@@ -35,13 +33,34 @@ const useStyles = makeStyles(({ palette, typography }) => ({
   navigation: {
     padding: "0rem 10rem",
   },
+  buttonCurrent: {
+    borderRadius: 0,
+    border: 0,
+    color: palette.primary.dark,
+    backgroundColor: "unset",
+    borderBottom: `3px solid ${palette.primary.main}`,
+  },
 }));
 
-function PageNavigation({ navigation, ...props }) {
+function PageNavigation({
+  navigation,
+  pathname,
+  asPath: asPathProp,
+  ...props
+}) {
   const classes = useStyles(props);
-  const router = useRouter();
   const buttonRef = useRef();
-  const className = clsx(classes.button);
+
+  // Remove query from asPath (if any)
+  const asPath = asPathProp && asPathProp.split("?")[0];
+  const asPathParts = asPath && asPath.split("/");
+  // Limit navigationUrl to subnav level only i.e. ignore article slug
+  const navigationUrl =
+    asPathParts && asPathParts.length > 2 && asPathParts.slice(0, 3).join("/");
+
+  if (!navigation || navigation.length < 1) {
+    return null;
+  }
 
   return (
     <div className={classes.root}>
@@ -56,11 +75,13 @@ function PageNavigation({ navigation, ...props }) {
             <LinkButton
               disableFocusRipple
               disableRipple
-              href={router.pathname || menu.href}
-              as={router.pathname ? menu.href : undefined}
+              href={pathname || menu.href}
+              as={pathname ? menu.href : undefined}
               size="large"
               ref={buttonRef}
-              className={className}
+              className={clsx(classes.button, {
+                [classes.buttonCurrent]: menu.href.startsWith(navigationUrl),
+              })}
             >
               {menu.name}
             </LinkButton>
@@ -78,6 +99,13 @@ PageNavigation.propTypes = {
       href: PropTypes.string.isRequired,
     })
   ).isRequired,
+  asPath: PropTypes.string,
+  pathname: PropTypes.string,
+};
+
+PageNavigation.defaultProps = {
+  pathname: undefined,
+  asPath: undefined,
 };
 
 export default PageNavigation;

@@ -105,9 +105,9 @@ function NavigationButton({
   useEffect(() => {
     setOpen(openProp);
     analysisMenu.forEach((item) => {
-      if (router.asPath === `/analysis/${item.href}`) {
+      if (router.asPath === `${item.href}`) {
         setOpen((prevOpen) => !prevOpen);
-        return router.push(`/analysis/${item.href}`, undefined, {
+        return router.push(`/${item.href}`, undefined, {
           shallow: true,
         });
       }
