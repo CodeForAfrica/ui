@@ -52,12 +52,12 @@ function UncertainChart() {
               strokeWidth="1"
             />
           </svg>
-          <div style={{ textAlign: "center", paddingTop: "0.5rem" }}>
+          <div style={{ textAlign: "center", paddingTop: "0.3rem" }}>
             <Typography variant="h6" className={classes.h6}>
               35
             </Typography>
             <Typography variant="h6" className={classes.h4}>
-              inconclusive
+              Inconclusive
             </Typography>
             <Typography variant="caption" className={classes.percentage}>
               60%
