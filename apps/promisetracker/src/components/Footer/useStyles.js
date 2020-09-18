@@ -33,6 +33,7 @@ const useStyles = makeStyles(
         marginRight: ".6rem",
       },
       "& img": {
+        marginLeft: "0rem",
         height: typography.h5.fontSize,
         width: typography.h5.fontSize,
       },
