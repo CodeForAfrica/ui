@@ -27,9 +27,7 @@ import NavigationList from "@/promisetracker/components/Navigation/MobileNavigat
 import config from "@/promisetracker/config";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
-  root: {
-    padding: "0rem 2rem ",
-  },
+  root: {},
   dialog: {},
   dialogActions: {
     padding: "8px 24px",
