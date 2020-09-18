@@ -27,27 +27,40 @@ function UncertainChart() {
         </Typography>
       </div>
       <div className={classes.circleContainer}>
-        <svg width={100} height={100}>
-          <circle
-            cx={45}
-            cy={45}
-            r={30}
-            fill="#909090"
-            stroke="#1D1D1B"
-            strokeWidth="1"
-          />
-        </svg>
-
-        <svg width={100} height={100}>
-          <circle
-            cx={45}
-            cy={45}
-            r={20}
-            fill="#EBEBEB"
-            stroke="#1D1D1B"
-            strokeWidth="1"
-          />
-        </svg>
+        <div>
+          <svg width={100} height={100}>
+            <circle
+              cx={45}
+              cy={45}
+              r={30}
+              fill="#909090"
+              stroke="#1D1D1B"
+              strokeWidth="1"
+            />
+          </svg>
+          <div style={{ textAlign: "center" }}>
+            <Typography variant="h6">35</Typography>
+            <Typography variant="h6">inconclusive</Typography>
+            <Typography variant="h6">60%</Typography>
+          </div>
+        </div>
+        <div>
+          <svg width={100} height={100}>
+            <circle
+              cx={45}
+              cy={45}
+              r={20}
+              fill="#EBEBEB"
+              stroke="#1D1D1B"
+              strokeWidth="1"
+            />
+          </svg>
+          <div style={{ textAlign: "center" }}>
+            <Typography variant="h6">50</Typography>
+            <Typography variant="h6">unstarted</Typography>
+            <Typography variant="h6">25%</Typography>
+          </div>
+        </div>
       </div>
     </Grid>
   );

@@ -9,11 +9,10 @@ function ProfileChart() {
   return (
     <Grid
       container
-      direction="row"
-      justify="center"
-      alignItems="center"
       item
-      spacing={5}
+      direction="row"
+      spacing={2}
+      style={{ padding: "2rem 0rem" }}
     >
       <PromiseKeptChart />
       <UncertainChart />

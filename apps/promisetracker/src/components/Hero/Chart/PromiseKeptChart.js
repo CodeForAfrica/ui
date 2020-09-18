@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -27,27 +28,40 @@ function CircleChart() {
         </Typography>
       </div>
       <div className={classes.circleContainer}>
-        <svg width={100} height={100}>
-          <circle
-            cx={50}
-            cy={50}
-            r={50}
-            fill="#145BD5"
-            stroke="#1D1D1B"
-            strokeWidth="1"
-          />
-        </svg>
-
-        <svg width={100} height={100}>
-          <circle
-            cx={50}
-            cy={50}
-            r={25}
-            fill="#84C6E7"
-            stroke="#1D1D1B"
-            strokeWidth="1"
-          />
-        </svg>
+        <div>
+          <svg width={100} height={100}>
+            <circle
+              cx={50}
+              cy={50}
+              r={50}
+              fill="#145BD5"
+              stroke="#1D1D1B"
+              strokeWidth="1"
+            />
+          </svg>
+          <div style={{ textAlign: "center" }}>
+            <Typography variant="h6">130</Typography>
+            <Typography variant="h6">completed</Typography>
+            <Typography variant="h6">25%</Typography>
+          </div>
+        </div>
+        <div>
+          <svg width={100} height={100}>
+            <circle
+              cx={50}
+              cy={50}
+              r={25}
+              fill="#84C6E7"
+              stroke="#1D1D1B"
+              strokeWidth="1"
+            />
+          </svg>
+          <div style={{ textAlign: "center" }}>
+            <Typography variant="h6">70</Typography>
+            <Typography variant="h6">In progress</Typography>
+            <Typography variant="h6">30%</Typography>
+          </div>
+        </div>
       </div>
     </Grid>
   );

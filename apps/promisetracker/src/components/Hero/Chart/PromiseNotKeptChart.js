@@ -27,27 +27,41 @@ function PromiseNotKeptChart() {
         </Typography>
       </div>
       <div className={classes.circleContainer}>
-        <svg width={100} height={100}>
-          <circle
-            cx={50}
-            cy={50}
-            r={25}
-            fill="#FFB322"
-            stroke="#1D1D1B"
-            strokeWidth="1"
-          />
-        </svg>
+        <div>
+          <svg width={100} height={100}>
+            <circle
+              cx={50}
+              cy={50}
+              r={25}
+              fill="#FFB322"
+              stroke="#1D1D1B"
+              strokeWidth="1"
+            />
+          </svg>
+          <div style={{ textAlign: "center" }}>
+            <Typography variant="h6">30</Typography>
+            <Typography variant="h6">delayed</Typography>
+            <Typography variant="h6">10%</Typography>
+          </div>
+        </div>
 
-        <svg width={100} height={100}>
-          <circle
-            cx={50}
-            cy={50}
-            r={50}
-            fill="#FF5154"
-            stroke="#1D1D1B"
-            strokeWidth="1"
-          />
-        </svg>
+        <div>
+          <svg width={100} height={100}>
+            <circle
+              cx={50}
+              cy={50}
+              r={50}
+              fill="#FF5154"
+              stroke="#1D1D1B"
+              strokeWidth="1"
+            />
+          </svg>
+          <div style={{ textAlign: "center" }}>
+            <Typography variant="h6">40</Typography>
+            <Typography variant="h6">stalled</Typography>
+            <Typography variant="h6">40%</Typography>
+          </div>
+        </div>
       </div>
     </Grid>
   );
