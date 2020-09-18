@@ -1,10 +1,21 @@
 import React from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
+import ProfileDetails from "@/promisetracker/components/Hero/Chart/ProfileDetails";
+import ProfileChart from "@/promisetracker/components/Hero/Chart/ProfileChart";
 
 function Chart() {
   return (
-    <Grid item xs={12} md={8}>
-      <Typography variant="h5">This is the chart section</Typography>
+    <Grid
+      container
+      direction="column"
+      jusify="flex-start"
+      alignItems="flex-start"
+      item
+      xs={12}
+      md={8}
+    >
+      <ProfileDetails />
+      <ProfileChart />
     </Grid>
   );
 }

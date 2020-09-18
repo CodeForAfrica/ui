@@ -10,13 +10,14 @@ import Chart from "@/promisetracker/components/Hero/Chart";
 const useStyles = makeStyles(({ widths }) => ({
   root: {
     width: widths.values.lg,
+    padding: "2rem 0rem",
   },
 }));
 function Hero(props) {
   const classes = useStyles(props);
   return (
     <Section className={classes.root}>
-      <Grid container justify="center" alignItems="center" spacing={5}>
+      <Grid container justify="center" alignItems="flex-start" spacing={5}>
         <Profile />
         <Chart />
       </Grid>
