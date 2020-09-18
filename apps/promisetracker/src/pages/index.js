@@ -8,6 +8,8 @@ import config from "@/promisetracker/config";
 
 import { makeStyles } from "@material-ui/core/styles";
 
+import Hero from "@/promisetracker/components/Hero";
+import ActNow from "@/promisetracker/components/ActNow";
 import LatestArticles from "@/promisetracker/components/LatestArticles";
 import LatestPromises from "@/promisetracker/components/LatestPromises";
 import Page from "@/promisetracker/components/Page";
@@ -32,19 +34,53 @@ function Index(props) {
   const classes = useStyles(props);
 
   return (
-    <>
-      <Container maxWidth="sm">
-        <Box my={4}>
-          <Typography variant="h4" gutterBottom>
-            Next.js theme setup
-          </Typography>
-          <TypographySetup />
-          <Copyright />
-        </Box>
-      </Container>
-      <Newsletter />
-      <Footer page={config.page} />
-    </>
+    <Page>
+      <Hero
+        classes={{
+          section: classes.section,
+        }}
+      />
+      <LatestPromises
+        actionLabel="See All"
+        items={Array(6).fill({
+          date: "2019-08-10",
+          description: `
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              euismod odio non leo pretium pellentesque.
+            `,
+          image: promiseImage,
+          status: {
+            color: "#FFB322",
+            textColor: "#202020",
+            title: "delayed",
+          },
+          title: "Codification of national sports and athletics law",
+        })}
+        title="Latest Promises"
+        classes={{
+          section: classes.section,
+        }}
+      />
+      <ActNow />
+      <LatestArticles
+        actionLabel="See All"
+        items={Array(6).fill({
+          date: "2019-08-10",
+          description: `
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              euismod odio non leo pretium pellentesque.
+            `,
+          image: articleImage,
+          title: "Codification of national sports and athletics law",
+        })}
+        title="Latest Articles"
+        classes={{
+          section: classes.section,
+        }}
+      />
+      <Partners />
+      <Subscribe />
+    </Page>
   );
 }
 
