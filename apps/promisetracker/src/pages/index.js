@@ -35,11 +35,7 @@ function Index(props) {
 
   return (
     <Page>
-      <Hero
-        classes={{
-          section: classes.section,
-        }}
-      />
+      <Hero />
       <LatestPromises
         actionLabel="See All"
         items={Array(6).fill({

@@ -1,25 +1,26 @@
 import React from "react";
 
-import { Grid, Typography } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Profile from "@/promisetracker/components/Hero/Profile";
 
-const useStyles = makeStyles(() => ({
-  root: {},
+import { Section } from "@commons-ui/core";
+import Profile from "@/promisetracker/components/Hero/Profile";
+import Chart from "@/promisetracker/components/Hero/Chart";
+
+const useStyles = makeStyles(({ widths }) => ({
+  root: {
+    width: widths.values.lg,
+  },
 }));
-function Hero() {
-  const classes = useStyles();
+function Hero(props) {
+  const classes = useStyles(props);
   return (
-    <div className={classes.root}>
-      <Grid container justify="center" alignItems="center">
-        <Grid item xs={12} md={4}>
-          <Profile />
-        </Grid>
-        <Grid item xs={12} md={8}>
-          <Typography variant="h4">Example 2</Typography>
-        </Grid>
+    <Section className={classes.root}>
+      <Grid container justify="center" alignItems="center" spacing={5}>
+        <Profile />
+        <Chart />
       </Grid>
-    </div>
+    </Section>
   );
 }
 
