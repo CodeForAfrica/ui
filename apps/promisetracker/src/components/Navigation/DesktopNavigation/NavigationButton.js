@@ -4,9 +4,14 @@ import { useRouter } from "next/router";
 
 import PropTypes from "prop-types";
 
-import { Box, ClickAwayListener, Collapse, Popper } from "@material-ui/core";
+import {
+  Box,
+  ClickAwayListener,
+  Collapse,
+  Popper,
+  Button,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import LinkButton from "@/promisetracker/components/Link/Button";
 import config from "@/promisetracker/config";
 
 const useStyles = makeStyles(({ spacing, palette, typography }) => ({
@@ -58,7 +63,6 @@ const useStyles = makeStyles(({ spacing, palette, typography }) => ({
 
 function NavigationButton({
   active,
-  href,
   anchorEl,
   button: buttonProp,
   children,
@@ -85,11 +89,10 @@ function NavigationButton({
     setOpen(false);
   };
   const button = buttonProp || (
-    <LinkButton
+    <Button
       onClick={handleToggleOpen}
       disableFocusRipple
       disableRipple
-      href={href}
       size={size}
       {...props}
       variant={active || open ? "outlined" : null}
@@ -97,7 +100,7 @@ function NavigationButton({
       className={open || active ? classes.currentButton : classes.button}
     >
       {title}
-    </LinkButton>
+    </Button>
   );
   useEffect(() => {
     setOpen(openProp);
@@ -149,7 +152,6 @@ NavigationButton.propTypes = {
   children: PropTypes.shape({}),
   title: PropTypes.string,
   size: PropTypes.string,
-  href: PropTypes.string,
 };
 
 NavigationButton.defaultProps = {
@@ -162,6 +164,5 @@ NavigationButton.defaultProps = {
   title: undefined,
   size: undefined,
   children: undefined,
-  href: undefined,
 };
 export default NavigationButton;

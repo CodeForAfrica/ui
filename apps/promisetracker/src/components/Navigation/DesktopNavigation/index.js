@@ -71,7 +71,6 @@ function DesktopNavigation(props) {
 
               <Grid item>
                 <NavigationButton
-                  href="/analysis/articles"
                   color="secondary"
                   title="Analysis"
                   size="large"
