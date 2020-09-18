@@ -66,7 +66,7 @@ function MainFooter({
                     variant: "body2",
                   },
                 }}
-                classes={{ initiative: classes.initiative }}
+                classes={{ aboutInitiative: classes.initiative }}
                 initiative={about.initiative}
               >
                 {about.about}
