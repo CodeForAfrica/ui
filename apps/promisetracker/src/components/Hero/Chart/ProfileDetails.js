@@ -3,14 +3,19 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, IconButton, Typography } from "@material-ui/core";
 
-import info from "@/promisetracker/assets/hero-icon-info.png";
-import viz2 from "@/promisetracker/assets/hero-icon-viz2.png";
-import share from "@/promisetracker/assets/hero-icon-share.png";
+import info from "@/promisetracker/assets/hero-icon-info.svg";
+import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
+import share from "@/promisetracker/assets/hero-icon-share.svg";
 
 const useStyles = makeStyles(() => ({
   iconGrid: {
     display: "flex",
     flexDirection: "row",
+  },
+  iconButton: {
+    background: "#F7F7F7",
+    padding: "1.5rem",
+    margin: "0.5rem",
   },
 }));
 
@@ -25,13 +30,31 @@ function ProfileDetails() {
         </Typography>
       </Grid>
       <Grid item xs={4} className={classes.iconGrid}>
-        <IconButton aria-label="Viz2">
+        <IconButton
+          disableRipple
+          disableFocusRipple
+          aria-label="Viz2"
+          size="small"
+          className={classes.iconButton}
+        >
           <img src={viz2} alt="Viz2" />
         </IconButton>
-        <IconButton aria-label="Info">
+        <IconButton
+          disableRipple
+          disableFocusRipple
+          aria-label="Info"
+          size="small"
+          className={classes.iconButton}
+        >
           <img src={info} alt="Info" />
         </IconButton>
-        <IconButton ria-label="Share">
+        <IconButton
+          disableRipple
+          disableFocusRipple
+          aria-label="Share"
+          size="small"
+          className={classes.iconButton}
+        >
           <img src={share} alt="Share" />
         </IconButton>
       </Grid>
