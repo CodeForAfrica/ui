@@ -3,7 +3,7 @@ import { deepmerge } from '@material-ui/utils';
 import createTheme from '@hurumap-ui/charts/styles/createTheme';
 
 const FONT_FAMILY_HEADING = '"Amiri", "serif"';
-const FONT_FAMILY_TEXT_PRIMARY = '"Georgia", "serif"';
+const FONT_FAMILY_TEXT_PRIMARY = '"Merriweather", "serif"';
 const FONT_FAMILY_TEXT_SECONDARY = '"Open Sans", "sans-serif"';
 const FONT_FAMILY_TEXT_HIGHTLIGHT = '"Source Sans Pro", "sans-serif"';
 
@@ -22,7 +22,8 @@ const theme = createTheme({
     background: { default: "#fff" },
     primary: { main: "#202020", dark: "#000000" }, // black
     secondary: { main: "#EBEBEB", light: "#F7F7F7" }, // grey
-    hightlight: { main: "#005DFD", light: "#FFB322", faded: "#90DAFF" }, // blue. yellow, light blue
+    highlight: { main: "#005DFD", light: "#FFB322", faded: "#90DAFF" }, // blue. yellow, light blue
+    text: { primary: "#202020", secondary: "#ffffff" },
   },
   typography: {
     fontFamily: FONT_FAMILY_TEXT_SECONDARY,
@@ -88,14 +89,14 @@ const theme = createTheme({
       fontFamily: FONT_FAMILY_TEXT_PRIMARY,
       fontStretch: "normal",
       fontWeight: "normal",
-      letterSpacing: 0, // Georgia title text 20px// Call to action sections
+      letterSpacing: 0, // Merriweather title text 20px// Call to action sections
     },
     body2: {
       fontFamily: FONT_FAMILY_TEXT_PRIMARY,
       fontStretch: "normal",
       fontStyle: "normal",
       fontWeight: 400,
-      letterSpacing: 0, // Georgia regular body text 14px
+      letterSpacing: 0, // Merriweather regular body text 14px
     },
     caption: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
@@ -156,7 +157,6 @@ deepmerge(
       },
     },
     h2: {
-      color: palette.primary.main,
       fontSize: pxToRem(32),
       lineHeight: 48 / 32,
       [breakpoints.up("md")]: {
@@ -166,15 +166,14 @@ deepmerge(
     },
     h3: {
       color: palette.primary.dark,
-      fontSize: pxToRem(16),
-      lineHeight: 35 / 16,
+      fontSize: pxToRem(24),
+      lineHeight: 32 / 24,
       [breakpoints.up("md")]: {
         fontSize: pxToRem(24),
-        lineHeight: 28.8 / 24, // Amri Bold Footer title text/Chart status text
+        lineHeight: 32 / 24, // Amri Bold Footer title text/Chart status text
       },
     },
     h4: {
-      color: palette.primary.main,
       fontSize: pxToRem(16),
       lineHeight: 24 / 16,
       [breakpoints.up("md")]: {
@@ -183,7 +182,6 @@ deepmerge(
       },
     },
     h5: {
-      color: palette.background.default,
       fontSize: pxToRem(14),
       lineHeight: 16 / 14,
       [breakpoints.up("md")]: {
@@ -201,17 +199,20 @@ deepmerge(
       },
     },
     body1: {
-      color: palette.primary.main,
-      fontSize: pxToRem(13),
-      lineHeight: 24 / 13,
+      fontSize: pxToRem(14),
+      lineHeight: 24 / 14,
       [breakpoints.up("md")]: {
-        fontSize: pxToRem(18),
-        lineHeight: 40 / 18, // MerryWeather title text 18px// Call to action sections
+        fontSize: pxToRem(20),
+        lineHeight: 40 / 20, // Merriweather title text 20px// Call to action sections
       },
     },
     body2: {
-      fontSize: pxToRem(13),
-      lineHeight: 24 / 13, // Merryweather regular body text 13px
+      fontSize: pxToRem(14),
+      lineHeight: 24 / 14,
+      [breakpoints.up("md")]: {
+        fontSize: pxToRem(14),
+        lineHeight: 24 / 14, // Merriweather regular body text 14px
+      },
     },
     subtitle1: {
       fontSize: pxToRem(14),
