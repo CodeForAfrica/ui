@@ -27,7 +27,7 @@ function Navigation() {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <>
-      <AppBar color="primary" position="sticky" className={classes.root}>
+      <AppBar color="primary" position="fixed" className={classes.root}>
         <Toolbar disableGutters className={classes.toolbar}>
           {isDesktop ? <DesktopNavigation /> : <MobileNavigation />}
         </Toolbar>
