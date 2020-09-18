@@ -10,11 +10,13 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Hero from "@/promisetracker/components/Hero";
 import ActNow from "@/promisetracker/components/ActNow";
+import KeyPromises from "@/promisetracker/components/KeyPromises";
 import LatestArticles from "@/promisetracker/components/LatestArticles";
 import LatestPromises from "@/promisetracker/components/LatestPromises";
 import Page from "@/promisetracker/components/Page";
 
 import articleImage from "@/promisetracker/assets/article-thumb-01.png";
+import promiseCarouselImage from "@/promisetracker/assets/promise-carusel-01.png";
 import promiseImage from "@/promisetracker/assets/promise-thumb-01.png";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
@@ -35,7 +37,21 @@ function Index(props) {
 
   return (
     <Page>
-      <Hero />
+      <KeyPromises
+        actionLabel="Learn More"
+        items={Array(6).fill({
+          date: "2019-08-10",
+          description: `
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio.
+            `,
+          image: promiseCarouselImage,
+          title: "Codification of national sports and athletics law",
+        })}
+        title="Key Promises"
+        classes={{
+          section: classes.section,
+        }}
+      />
       <LatestPromises
         actionLabel="See All"
         items={Array(6).fill({
