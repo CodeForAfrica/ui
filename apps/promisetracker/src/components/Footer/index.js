@@ -54,9 +54,9 @@ function MainFooter({
     <>
       <div className={classes.primary}>
         <Section classes={{ root: classes.section }}>
-          <FooterLogo hasdivider={false} {...organizationLogo} />
+          <FooterLogo hasDivider={false} {...organizationLogo} />
           <Grid container>
-            <Grid item xs={12} md={7}>
+            <Grid item xs={12} md={8}>
               <FooterAbout
                 options={{
                   about: {
@@ -66,13 +66,13 @@ function MainFooter({
                     variant: "body2",
                   },
                 }}
-                classes={classes.aboutAbout}
+                classes={{ initiative: classes.initiative }}
                 initiative={about.initiative}
               >
                 {about.about}
               </FooterAbout>
             </Grid>
-            <Grid item md={2} implementation="css" smDown component={Hidden} />
+            <Grid item md={1} implementation="css" smDown component={Hidden} />
             <Grid item xs={6} md={2} className={classes.quickLinksMore}>
               <div className={classes.links}>
                 <FooterQuickLinks

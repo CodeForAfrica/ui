@@ -14,18 +14,27 @@ const useStyles = makeStyles(
       },
     },
     initiative: {
-      display: "none",
+      display: "block",
+      marginTop: "1.5rem",
     },
     copyright: {
       marginTop: "2rem",
       order: "inherit",
       textAlign: "center",
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "row-reverse",
       [breakpoints.up("md")]: {
         marginTop: 0,
       },
+      "& a": {
+        display: "flex",
+        alignItems: "center",
+        marginRight: ".6rem",
+      },
       "& img": {
-        height: typography.caption.fontSize,
-        width: typography.caption.fontSize,
+        height: typography.h5.fontSize,
+        width: typography.h5.fontSize,
       },
     },
     copyrightText: {
@@ -81,7 +90,7 @@ const useStyles = makeStyles(
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: palette.secondary.dark,
+        background: palette.secondary.main,
         borderRight: "none",
         marginRight: " .2rem",
       },
