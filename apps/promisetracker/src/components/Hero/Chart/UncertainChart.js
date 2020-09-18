@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ typography }) => ({
   typo: {
     textAlign: "center",
     borderBottom: "2px solid #909090",
@@ -14,6 +14,20 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "row",
     padding: "2rem 0rem",
+  },
+  h6: {
+    fontFamily: typography.h1.fontFamily,
+    fontSize: typography.pxToRem(24),
+  },
+  h4: {
+    fontSize: typography.pxToRem(12),
+    textTransform: "Capitalize",
+    fontWeight: "normal",
+  },
+  percentage: {
+    fontSize: typography.pxToRem(12),
+    fontWeight: "normal",
+    color: "#909090",
   },
 }));
 
@@ -38,10 +52,16 @@ function UncertainChart() {
               strokeWidth="1"
             />
           </svg>
-          <div style={{ textAlign: "center" }}>
-            <Typography variant="h6">35</Typography>
-            <Typography variant="h6">inconclusive</Typography>
-            <Typography variant="h6">60%</Typography>
+          <div style={{ textAlign: "center", paddingTop: "0.5rem" }}>
+            <Typography variant="h6" className={classes.h6}>
+              35
+            </Typography>
+            <Typography variant="h6" className={classes.h4}>
+              inconclusive
+            </Typography>
+            <Typography variant="caption" className={classes.percentage}>
+              60%
+            </Typography>
           </div>
         </div>
         <div>
@@ -55,10 +75,16 @@ function UncertainChart() {
               strokeWidth="1"
             />
           </svg>
-          <div style={{ textAlign: "center" }}>
-            <Typography variant="h6">50</Typography>
-            <Typography variant="h6">unstarted</Typography>
-            <Typography variant="h6">25%</Typography>
+          <div style={{ textAlign: "center", paddingTop: "0.5rem" }}>
+            <Typography variant="h6" className={classes.h6}>
+              50
+            </Typography>
+            <Typography variant="h4" className={classes.h4}>
+              unstarted
+            </Typography>
+            <Typography variant="caption" className={classes.percentage}>
+              25%
+            </Typography>
           </div>
         </div>
       </div>
