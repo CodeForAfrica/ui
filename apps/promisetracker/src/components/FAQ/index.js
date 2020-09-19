@@ -1,30 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Typography,
-} from "@material-ui/core";
 import { Section } from "@commons-ui/core";
 
+import Accordion from "@/promisetracker/components/FAQ/Accordion";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(({ typography, breakpoints }) => ({
+const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
   section: {},
   sectionTitle: {
-    marginBottom: typography.pxToRem(24),
+    fontWeight: 600,
+    marginBottom: typography.pxToRem(32),
+    borderBottom: `.4rem solid ${palette.primary.dark}`,
+    width: "min-content",
+    paddingRight: "1.5rem",
     marginTop: typography.pxToRem(64),
     [breakpoints.up("lg")]: {
       marginBottom: 0,
       marginTop: typography.pxToRem(35),
     },
   },
+  faqContainer: {
+    marginBottom: "2.5rem",
+    width: "100%",
+    MaxWidth: "43rem",
+  },
 }));
 
 function FAQ({ faqs, title, ...props }) {
-  const [expanded] = useState(false);
   const classes = useStyles(props);
 
   return (
@@ -32,20 +35,11 @@ function FAQ({ faqs, title, ...props }) {
       title={title}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
-      {faqs.map((faq) => (
-        <Accordion>
-          <AccordionSummary
-            expandIcon={expanded ? <span>plus</span> : <span>minus</span>}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography variant="h4">{faq.title}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography variant="body2">{faq.summary}</Typography>
-          </AccordionDetails>
-        </Accordion>
-      ))}
+      <div className={classes.faqContainer}>
+        {faqs.map((faq) => (
+          <Accordion key={faq} faq={faq} />
+        ))}
+      </div>
     </Section>
   );
 }
