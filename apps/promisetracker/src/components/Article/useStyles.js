@@ -29,8 +29,10 @@ const useStyles = makeStyles(
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       width: "100%",
-      height: typography.pxToRem(573),
-      [breakpoints.up("lg")]: {},
+      height: typography.pxToRem(210),
+      [breakpoints.up("lg")]: {
+        height: typography.pxToRem(573),
+      },
     },
     socialMedia: {
       height: "3rem",
@@ -46,11 +48,15 @@ const useStyles = makeStyles(
       },
     },
     socialMediaContainer: {
-      display: "flex",
-      alignItems: "center",
+      display: "none",
+      [breakpoints.up("md")]: {
+        display: "flex",
+        alignItems: "center",
+      },
     },
     label: {
       margin: "2rem 0rem",
+      color: palette.primary.main,
     },
     title: {
       marginBottom: "2rem",
