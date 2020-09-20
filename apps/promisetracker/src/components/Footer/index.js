@@ -132,7 +132,7 @@ function MainFooter({
                         color: "white",
                       },
                       title: {
-                        variant: "h5",
+                        variant: "button",
                       },
                     }}
                     classes={{
@@ -145,7 +145,7 @@ function MainFooter({
 
                 <FooterCopyright
                   {...copyright}
-                  variant="h5"
+                  variant="button"
                   classes={{
                     copyright: classes.copyright,
                     text: classes.copyrightText,
@@ -153,7 +153,7 @@ function MainFooter({
                 />
 
                 <FooterLegalLinks
-                  variant="h5"
+                  variant="button"
                   {...legalLinks}
                   classes={{
                     root: classes.legalLinksRoot,
@@ -175,7 +175,7 @@ function MainFooter({
                       color: "white",
                     },
                     title: {
-                      variant: "h5",
+                      variant: "button",
                     },
                   }}
                   classes={{
