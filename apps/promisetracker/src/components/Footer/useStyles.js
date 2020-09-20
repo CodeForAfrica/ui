@@ -46,6 +46,7 @@ const useStyles = makeStyles(
     legalLinksLink: {},
 
     primary: {
+      background: palette.secondary.light,
       paddingTop: typography.pxToRem(50),
       paddingBottom: typography.pxToRem(50),
       [breakpoints.up("md")]: {
@@ -67,11 +68,7 @@ const useStyles = makeStyles(
     secondary: {
       backgroundColor: palette.primary.dark,
       color: palette.secondary.dark,
-      padding: "2.5rem 0rem",
-      [breakpoints.up("md")]: {
-        paddingBottom: "1rem",
-        paddingTop: "2rem",
-      },
+      padding: "3rem 0rem",
     },
 
     secondaryGridItem: {
@@ -96,8 +93,8 @@ const useStyles = makeStyles(
         marginRight: " .2rem",
       },
       "& img": {
-        height: typography.caption.fontSize,
-        width: typography.caption.fontSize,
+        height: "1.25rem",
+        width: "1.25rem",
       },
       [breakpoints.up("md")]: {
         marginTop: 0,
