@@ -8,26 +8,34 @@ import {
   Typography,
 } from "@material-ui/core";
 
-import iconPlus from "@/promisetracker/assets/plus.svg";
-import iconMinus from "@/promisetracker/assets/minus.svg";
+import MinusIcon from "@/promisetracker/icons/Minus";
+import PlusIcon from "@/promisetracker/icons/Plus";
 
-function AccordionPanel({ faq }) {
+import useStyles from "./useStyles";
+
+function AccordionPanel({ faq, ...props }) {
+  const classes = useStyles(props);
   const [expanded, setExpanded] = useState(false);
+  const handleChange = () => {
+    setExpanded((prev) => !prev);
+  };
 
   return (
     <Accordion
-      onChange={() => {
-        setExpanded(!expanded);
-      }}
+      onChange={handleChange}
+      elevation={0}
+      classes={{ root: classes.accordion, expanded: classes.accordionExpanded }}
     >
       <AccordionSummary
-        expandIcon={
-          <img src={expanded ? iconMinus : iconPlus} alt="Panel Button" />
-        }
+        expandIcon={expanded ? <MinusIcon /> : <PlusIcon />}
+        classes={{
+          root: classes.accordionSummary,
+          content: classes.accordionSummaryContent,
+        }}
       >
         <Typography variant="h4">{faq.title}</Typography>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails classes={{ root: classes.accordionDetails }}>
         <Typography variant="body2">{faq.summary}</Typography>
       </AccordionDetails>
     </Accordion>
