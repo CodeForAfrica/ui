@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Grid } from "@material-ui/core";
+
 import ProfileDetails from "@/promisetracker/components/Hero/Chart/ProfileDetails";
 import ProfileChart from "@/promisetracker/components/Hero/Chart/ProfileChart";
 

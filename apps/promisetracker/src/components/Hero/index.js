@@ -17,7 +17,14 @@ function Hero(props) {
   const classes = useStyles(props);
   return (
     <Section className={classes.root}>
-      <Grid container justify="center" alignItems="flex-start" spacing={5}>
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="flex-start"
+        spacing={5}
+        style={{ padding: "2rem" }}
+      >
         <Profile />
         <Chart />
       </Grid>

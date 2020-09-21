@@ -1,9 +1,9 @@
 import React from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
-import { Grid, IconButton, Typography } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Grid, IconButton, Typography, useMediaQuery } from "@material-ui/core";
+import StatusPopperButton from "@/promisetracker/components/Hero/Chart/DesktopChart/StatusPopperButton";
 
-import info from "@/promisetracker/assets/hero-icon-info.svg";
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
 import share from "@/promisetracker/assets/hero-icon-share.svg";
 
@@ -19,45 +19,69 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function ProfileDetails() {
-  const classes = useStyles();
+function ProfileDetails(props) {
+  const classes = useStyles(props);
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <Grid container direction="row" item spacing={3}>
-      <Grid item xs={8}>
-        <Typography variant="h1">Mike “Sonko” Mbuvi</Typography>
-        <Typography variant="body2">
-          Nairobi Governor Mike “Sonko” Mbuvi <b>510 promises </b>at a glance
-        </Typography>
-      </Grid>
-      <Grid item xs={4} className={classes.iconGrid}>
-        <IconButton
-          disableRipple
-          disableFocusRipple
-          aria-label="Viz2"
-          size="small"
-          className={classes.iconButton}
-        >
-          <img src={viz2} alt="Viz2" />
-        </IconButton>
-        <IconButton
-          disableRipple
-          disableFocusRipple
-          aria-label="Info"
-          size="small"
-          className={classes.iconButton}
-        >
-          <img src={info} alt="Info" />
-        </IconButton>
-        <IconButton
-          disableRipple
-          disableFocusRipple
-          aria-label="Share"
-          size="small"
-          className={classes.iconButton}
-        >
-          <img src={share} alt="Share" />
-        </IconButton>
-      </Grid>
+      {isDesktop ? (
+        <>
+          <Grid item xs={8}>
+            {isDesktop ? (
+              <Typography variant="h1">Mike “Sonko” Mbuvi</Typography>
+            ) : null}
+            <Typography variant="body2">
+              Nairobi Governor Mike “Sonko” Mbuvi <b>510 promises </b>at a
+              glance
+            </Typography>
+          </Grid>
+          <Grid item xs={4} className={classes.iconGrid}>
+            <IconButton
+              disableRipple
+              disableFocusRipple
+              aria-label="Info"
+              size="small"
+              className={classes.iconButton}
+            >
+              <img src={viz2} alt="Info" />
+            </IconButton>
+
+            <StatusPopperButton />
+
+            <IconButton
+              disableRipple
+              disableFocusRipple
+              aria-label="Share"
+              size="small"
+              className={classes.iconButton}
+            >
+              <img src={share} alt="Share" />
+            </IconButton>
+          </Grid>
+        </>
+      ) : (
+        <>
+          <Grid item xs={2}>
+            <Typography variant="body2">
+              Nairobi Governor Mike “Sonko” Mbuvi <b>510 promises </b>at a
+              glance
+            </Typography>
+          </Grid>
+          <Grid item xs={10} className={classes.iconGrid}>
+            <StatusPopperButton />
+            <IconButton
+              disableRipple
+              disableFocusRipple
+              aria-label="Share"
+              size="small"
+              className={classes.iconButton}
+            >
+              <img src={share} alt="Share" />
+            </IconButton>
+          </Grid>
+        </>
+      )}
     </Grid>
   );
 }
