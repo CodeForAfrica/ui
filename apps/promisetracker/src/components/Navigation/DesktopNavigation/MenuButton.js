@@ -18,6 +18,11 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     "&:hover": {
       border: 0,
     },
+    "&.active": {
+      backgroundColor: palette.primary.dark,
+      color: "white",
+      borderRadius: 0,
+    },
   },
 }));
 

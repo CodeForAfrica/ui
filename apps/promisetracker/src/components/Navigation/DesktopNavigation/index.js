@@ -75,7 +75,6 @@ function DesktopNavigation(props) {
                 <MenuButton
                   active={currentPageUrl === "/promises"}
                   href="/promises"
-                  color="secondary"
                   size="large"
                   title="Promises"
                   variant="outlined"
@@ -85,7 +84,6 @@ function DesktopNavigation(props) {
 
               <Grid item>
                 <NavigationButton
-                  color="secondary"
                   title={analysisMenu.title}
                   size="large"
                   active={analysisMenu.url === currentPageUrl}
@@ -103,7 +101,6 @@ function DesktopNavigation(props) {
                 <MenuButton
                   active={currentPageUrl === "/act-now"}
                   href="/act-now"
-                  color="secondary"
                   size="large"
                   title="Act Now"
                   variant="outlined"

@@ -35,11 +35,6 @@ const useStyles = makeStyles(({ spacing, palette, typography }) => ({
       border: 0,
       backgroundColor: "unset",
     },
-    "&.active": {
-      backgroundColor: palette.primary.dark,
-      color: "white",
-      borderRadius: 0,
-    },
   },
   currentButton: {
     background: palette.primary.dark,
@@ -51,8 +46,9 @@ const useStyles = makeStyles(({ spacing, palette, typography }) => ({
     fontWeight: 600,
     fontSize: typography.pxToRem(14),
     "&:hover": {
+      border: 0,
       background: palette.primary.dark,
-      borderRadius: 0,
+      color: palette.background.default,
     },
   },
 }));
@@ -88,7 +84,7 @@ function NavigationButton({
       disableRipple
       size={size}
       {...props}
-      variant={active || open ? "outlined" : null}
+      variant={active || open ? "contained" : null}
       ref={buttonRef}
       className={open || active ? classes.currentButton : classes.button}
     >
