@@ -23,11 +23,10 @@ const useStyles = makeStyles(({ typography }) => ({
   },
   section: {},
   button: {
-    paddingLeft: 0,
-    paddingRight: 0,
-    marginRight: "0.5rem",
+    border: "none",
+    height: 48,
     "&:hover": {
-      backgroundColor: "white",
+      border: "none",
     },
     width: "auto",
   },
@@ -68,7 +67,7 @@ function DesktopNavigation(props) {
               <Logo />
             </Grid>
 
-            <Grid item lg={5} container justify="flex-end">
+            <Grid item lg={5} container justify="flex-end" alignItems="center">
               <Grid item>
                 <MenuButton
                   href="/promises"
@@ -76,7 +75,7 @@ function DesktopNavigation(props) {
                   size="large"
                   title="Promises"
                   variant="outlined"
-                  className={classes.button}
+                  classes={{ root: classes.button }}
                 />
               </Grid>
 
@@ -86,7 +85,7 @@ function DesktopNavigation(props) {
                   title={analysisMenu.title}
                   size="large"
                   active={analysisMenu.url === currentPageUrl}
-                  className={classes.button}
+                  classes={{ root: classes.button }}
                 >
                   <PageNavigation
                     asPath={analysisMenu.url}
@@ -103,7 +102,7 @@ function DesktopNavigation(props) {
                   size="large"
                   title="Act Now"
                   variant="outlined"
-                  className={classes.button}
+                  classes={{ root: classes.button }}
                 />
               </Grid>
             </Grid>
