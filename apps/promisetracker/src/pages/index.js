@@ -36,22 +36,7 @@ function Index(props) {
   const classes = useStyles(props);
 
   return (
-    <Page>
-      <KeyPromises
-        actionLabel="Learn More"
-        items={Array(6).fill({
-          date: "2019-08-10",
-          description: `
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio.
-            `,
-          image: promiseCarouselImage,
-          title: "Codification of national sports and athletics law",
-        })}
-        title="Key Promises"
-        classes={{
-          section: classes.section,
-        }}
-      />
+    <Page classes={{ section: classes.section }}>
       <LatestPromises
         actionLabel="See All"
         items={Array(6).fill({
