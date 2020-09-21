@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
+
 import LinkButton from "@/promisetracker/components/Link/Button";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,26 +18,28 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     "&:hover": {
       border: 0,
     },
-    "&.active": {
-      backgroundColor: palette.primary.dark,
-      color: "white",
-      borderRadius: 0,
-    },
   },
 }));
 
-function MenuButton({ size, href, title, ...props }) {
+function MenuButton({ size, href, title, active: activeProp, ...props }) {
   const classes = useStyles(props);
   const buttonRef = useRef();
 
+  const [active, setActive] = useState(activeProp);
+  const handleActiveLink = () => {
+    setActive((prevOpen) => !prevOpen);
+  };
+
   return (
     <LinkButton
+      active
+      onClick={handleActiveLink}
       disableFocusRipple
       disableRipple
       size={size}
       href={href}
       {...props}
-      variant="outlined"
+      variant={active ? "contained" : null}
       ref={buttonRef}
       className={classes.button}
     >
@@ -49,12 +52,14 @@ MenuButton.propTypes = {
   size: PropTypes.string,
   title: PropTypes.string,
   href: PropTypes.string,
+  active: PropTypes.bool,
 };
 
 MenuButton.defaultProps = {
   size: undefined,
   title: undefined,
   href: undefined,
+  active: undefined,
 };
 
 export default MenuButton;
