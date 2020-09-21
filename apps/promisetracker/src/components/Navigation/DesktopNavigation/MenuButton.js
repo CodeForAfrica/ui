@@ -32,7 +32,6 @@ function MenuButton({ size, href, title, active: activeProp, ...props }) {
 
   return (
     <LinkButton
-      active
       onClick={handleActiveLink}
       disableFocusRipple
       disableRipple
