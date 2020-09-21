@@ -32,9 +32,17 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
       height: 2,
       top: -2,
     },
+    "&.Mui-expanded": {
+      margin: 0,
+    },
+    "& .MuiCollapse-container": {
+      borderBottom: `2px solid ${palette.secondary.main}`,
+    },
   },
   accordionDetails: {
-    padding: `0 ${typography.pxToRem(14)}`,
+    padding: `${typography.pxToRem(8)} ${typography.pxToRem(
+      14
+    )} ${typography.pxToRem(22)} ${typography.pxToRem(14)}`,
   },
   accordionExpanded: {},
   accordionSummary: {
