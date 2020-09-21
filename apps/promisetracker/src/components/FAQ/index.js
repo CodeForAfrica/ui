@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
 import { Section } from "@commons-ui/core";
 
 import Accordion from "@/promisetracker/components/FAQ/Accordion";
-import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
   section: {},
@@ -27,9 +29,11 @@ const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
     },
   },
   faqContainer: {
-    marginBottom: "2.5rem",
+    marginTop: typography.pxToRem(38),
     width: "100%",
-    MaxWidth: "43rem",
+    [breakpoints.up("lg")]: {
+      marginTop: typography.pxToRem(42),
+    },
   },
 }));
 
@@ -42,11 +46,15 @@ function FAQ({ faqs, title, ...props }) {
       titleProps={{ variant: "h1" }}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
-      <div className={classes.faqContainer}>
-        {faqs.map((faq) => (
-          <Accordion key={faq} faq={faq} />
-        ))}
-      </div>
+      <Grid container>
+        <Grid item xs={12} lg={8}>
+          <div className={classes.faqContainer}>
+            {faqs.map((faq) => (
+              <Accordion key={faq} faq={faq} />
+            ))}
+          </div>
+        </Grid>
+      </Grid>
     </Section>
   );
 }
