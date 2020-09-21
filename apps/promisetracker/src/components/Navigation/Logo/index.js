@@ -8,22 +8,20 @@ import { useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import IconButton from "@/promisetracker/components/Link/IconButton";
 
-const useStyles = makeStyles(({ breakpoints }) => ({
+const useStyles = makeStyles(({ breakpoints, typography }) => ({
   logo: {
-    padding: "1rem",
-    [breakpoints.up("md")]: {
-      padding: 0,
-    },
+    padding: 0,
     "&:hover": {
-      backgroundColor: "unset",
+      backgroundColor: "inherit",
     },
   },
   img: {
     height: "auto",
-    maxWidth: "8.5rem",
-    [breakpoints.up("md")]: {
-      maxWidth: "14.75rem",
-      height: "auto",
+    maxWidth: typography.pxToRem(135),
+    minWidth: typography.pxToRem(135),
+    [breakpoints.up("lg")]: {
+      maxWidth: typography.pxToRem(236),
+      minWidth: typography.pxToRem(236),
     },
   },
 }));
@@ -41,7 +39,7 @@ function Logo(props) {
       href="/"
       className={classes.logo}
     >
-      <img src={src} alt="Promise Tracker Logo" className={classes.img} />
+      <img src={src} alt="Promise Tracker" className={classes.img} />
     </IconButton>
   );
 }
