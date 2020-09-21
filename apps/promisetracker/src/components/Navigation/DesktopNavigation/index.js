@@ -48,6 +48,9 @@ const useStyles = makeStyles(({ typography }) => ({
   buttonLanguageLast: {
     marginRight: "-5.5rem",
   },
+  pageNavigation: {
+    marginTop: `-${typography.pxToRem(20)}`,
+  },
 }));
 
 function DesktopNavigation(props) {
@@ -148,7 +151,7 @@ function DesktopNavigation(props) {
           <PageNavigation
             asPath={asPath}
             navigation={pageNavigation.subnav}
-            classes={{ section: classes.section }}
+            classes={{ root: classes.pageNavigation, section: classes.section }}
           />
         </Grid>
       )}
