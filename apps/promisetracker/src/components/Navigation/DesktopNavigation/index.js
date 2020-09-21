@@ -73,6 +73,7 @@ function DesktopNavigation(props) {
             <Grid item lg={5} container justify="flex-end" alignItems="center">
               <Grid item>
                 <MenuButton
+                  active={currentPageUrl === "/promises"}
                   href="/promises"
                   color="secondary"
                   size="large"
@@ -100,6 +101,7 @@ function DesktopNavigation(props) {
 
               <Grid item>
                 <MenuButton
+                  active={currentPageUrl === "/act-now"}
                   href="/act-now"
                   color="secondary"
                   size="large"
