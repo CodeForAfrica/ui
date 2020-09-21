@@ -1,18 +1,22 @@
 const config = {
-  analysisMenu: [
-    {
-      name: "Articles",
-      href: "articles",
-    },
-    {
-      name: "Resources",
-      href: "resources",
-    },
-    {
-      name: "Fact-checks",
-      href: "fact-checks",
-    },
-  ],
+  analysisMenu: {
+    subnav: [
+      {
+        name: "Articles",
+        href: "/analysis/articles",
+      },
+      {
+        name: "Resources",
+        href: "/analysis/resources",
+      },
+      {
+        name: "Fact-checks",
+        href: "/analysis/fact-checks",
+      },
+    ],
+    title: "Analysis",
+    url: "/analysis",
+  },
 };
 
 export default config;
