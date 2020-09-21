@@ -1,29 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Typography } from "@material-ui/core";
-import { RichTypography } from "@commons-ui/core";
 
+import { Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import subscribeImg from "@/promisetracker/assets/subscribe-img.png";
-import email from "@/promisetracker/assets/subscribe-email.svg";
-import config from "config";
+import { RichTypography, Section } from "@commons-ui/core";
 
-const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
+import email from "@/promisetracker/assets/subscribe-email.svg";
+import config from "@/promisetracker/config";
+import subscribeImg from "@/promisetracker/assets/subscribe-img.png";
+
+const useStyles = makeStyles(({ breakpoints, typography }) => ({
+  section: {},
   root: {
-    backgroundColor: "#90d9fc",
+    backgroundColor: "#90DAFF",
     width: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    [breakpoints.up("md")]: {
-      height: "25rem",
+    [breakpoints.up("lg")]: {
+      padding: `${typography.pxToRem(25)} 0`,
     },
-  },
-  content: {
-    maxWidth: widths.values.lg,
-    alignItems: "center",
-    justifyContent: "center",
   },
   title: {
     padding: 0,
@@ -31,9 +28,14 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
     textTransform: "capitalize",
   },
   textContainer: {
+    marginTop: typography.pxToRem(16),
     width: "100%",
+    [breakpoints.up("lg")]: {
+      marginTop: 0,
+    },
   },
   form: {
+    marginTop: typography.pxToRem(65),
     "& #mc_embed_signup": {
       background: "inherit",
       color: "inherit",
@@ -48,20 +50,12 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       background: "none",
       border: "none",
       borderBottom: "1px solid currentColor",
+      borderRadius: 0,
       color: "currentColor",
       margin: "1rem 0",
       width: "100%",
       "&:focus": {
         outline: "none",
-      },
-      [breakpoints.up("md")]: {
-        width: typography.pxToRem((395 * widths.values.md) / widths.values.xl),
-      },
-      [breakpoints.up("lg")]: {
-        width: typography.pxToRem((395 * widths.values.lg) / widths.values.xl),
-      },
-      [breakpoints.up("xl")]: {
-        width: typography.pxToRem(395),
       },
     },
     "& #mc_embed_signup .button": {
@@ -92,15 +86,23 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
     },
   },
   grid: {
-    display: "flex",
-    padding: "1rem",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    // display: "flex",
+    // padding: "1rem",
+    // flexDirection: "column",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
   description: {
-    padding: "1rem 0rem 1.5rem 0rem",
-    textAlign: "left",
+    fontSize: typography.pxToRem(18),
+  },
+  image: {
+    marginTop: typography.pxToRem(42),
+    minWidth: typography.pxToRem(317),
+    width: typography.pxToRem(317),
+    [breakpoints.up("lg")]: {
+      marginTop: 0,
+      width: typography.pxToRem(458),
+    },
   },
 }));
 
@@ -117,29 +119,35 @@ function Newsletter({
 
   return (
     <div className={classes.root}>
-      <Grid container className={classes.content}>
-        <Grid className={classes.grid} item xs={12} md={6}>
-          <img src={subscribeImg} alt="Subscribe" className={classes.image} />
-        </Grid>
-        <Grid className={classes.grid} item xs={12} md={6}>
-          <div className={classes.textContainer}>
-            <Typography variant="h1" className={classes.title}>
-              {title}
-            </Typography>
-            {description && (
-              <Typography variant="body1" className={classes.description}>
-                {description}
+      <Section classes={{ root: classes.section }}>
+        <Grid container alignItems="stretch">
+          <Grid item xs={12} lg={8} className={classes.grid}>
+            <img src={subscribeImg} alt="Subscribe" className={classes.image} />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            lg={4}
+            container
+            alignItems="center"
+            className={classes.grid}
+          >
+            <div className={classes.textContainer}>
+              <Typography variant="h1" className={classes.title}>
+                {title}
               </Typography>
-            )}
-            <RichTypography
-              selector="#mc_embed_signup"
-              classes={{ root: classes.form }}
-            >
-              {config.settings.subscribe.embedCode}
-            </RichTypography>
-          </div>
+              {description && (
+                <Typography variant="body1" className={classes.description}>
+                  {description}
+                </Typography>
+              )}
+              <RichTypography classes={{ root: classes.form }}>
+                {config.settings.subscribe.embedCode}
+              </RichTypography>
+            </div>
+          </Grid>
         </Grid>
-      </Grid>
+      </Section>
     </div>
   );
 }
