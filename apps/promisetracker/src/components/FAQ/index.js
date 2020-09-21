@@ -9,15 +9,21 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
   section: {},
   sectionTitle: {
-    fontWeight: 600,
-    marginBottom: typography.pxToRem(32),
     borderBottom: `.4rem solid ${palette.primary.dark}`,
+    fontWeight: 600,
+    marginBottom: typography.pxToRem(0),
+    marginTop: typography.pxToRem(38),
     width: "min-content",
-    paddingRight: "1.5rem",
-    marginTop: typography.pxToRem(64),
+    "&:after": {
+      content: '""',
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      width: typography.pxToRem(80),
+      borderBottom: `5px solid ${palette.primary.dark}`,
+    },
     [breakpoints.up("lg")]: {
-      marginBottom: 0,
-      marginTop: typography.pxToRem(35),
+      marginTop: typography.pxToRem(60),
     },
   },
   faqContainer: {
@@ -33,6 +39,7 @@ function FAQ({ faqs, title, ...props }) {
   return (
     <Section
       title={title}
+      titleProps={{ variant: "h1" }}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
       <div className={classes.faqContainer}>
