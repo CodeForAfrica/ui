@@ -6,19 +6,20 @@ import clsx from "clsx";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
+import { Section } from "@commons-ui/core";
+
 import LinkButton from "@/promisetracker/components/Link/Button";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   root: {
-    width: "100%",
     backgroundColor: palette.background.paper,
     boxShadow: "0px 8px 30px #0000001A",
+    width: "100%",
   },
   button: {
     width: "auto",
     fontWeight: "normal",
     color: "#909090",
-    textTransform: "uppercase",
     fontFamily: typography.fontFamily,
     padding: "1rem",
     borderBottom: "3px solid transparent",
@@ -58,36 +59,37 @@ function PageNavigation({
   const navigationUrl =
     asPathParts && asPathParts.length > 2 && asPathParts.slice(0, 3).join("/");
 
-  if (!navigation || navigation.length < 1) {
+  if (!navigation?.length) {
     return null;
   }
-
   return (
     <div className={classes.root}>
-      <Grid
-        container
-        direction="row"
-        justify="space-between"
-        className={classes.navigation}
-      >
-        {navigation.map((menu) => (
-          <Grid item key={menu.href}>
-            <LinkButton
-              disableFocusRipple
-              disableRipple
-              href={pathname || menu.href}
-              as={pathname ? menu.href : undefined}
-              size="large"
-              ref={buttonRef}
-              className={clsx(classes.button, {
-                [classes.buttonCurrent]: menu.href.startsWith(navigationUrl),
-              })}
-            >
-              {menu.name}
-            </LinkButton>
-          </Grid>
-        ))}
-      </Grid>
+      <Section classes={{ root: classes.section }}>
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          className={classes.navigation}
+        >
+          {navigation.map((menu) => (
+            <Grid item key={menu.href}>
+              <LinkButton
+                disableFocusRipple
+                disableRipple
+                href={pathname || menu.href}
+                as={pathname ? menu.href : undefined}
+                size="large"
+                ref={buttonRef}
+                className={clsx(classes.button, {
+                  [classes.buttonCurrent]: menu.href.startsWith(navigationUrl),
+                })}
+              >
+                {menu.name}
+              </LinkButton>
+            </Grid>
+          ))}
+        </Grid>
+      </Section>
     </div>
   );
 }
