@@ -1,7 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-
-import { useRouter } from "next/router";
-
+import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 
 import {
@@ -12,7 +9,6 @@ import {
   Button,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import config from "@/promisetracker/config";
 
 const useStyles = makeStyles(({ spacing, palette, typography }) => ({
   root: {
@@ -74,9 +70,6 @@ function NavigationButton({
   ...props
 }) {
   const classes = useStyles(props);
-  const router = useRouter();
-  const { analysisMenu } = config;
-
   const buttonRef = useRef();
   const [open, setOpen] = useState();
   const handleToggleOpen = () => {
@@ -102,20 +95,6 @@ function NavigationButton({
       {title}
     </Button>
   );
-  useEffect(() => {
-    setOpen(openProp);
-    analysisMenu.forEach((item) => {
-      if (router.asPath === `${item.href}`) {
-        setOpen((prevOpen) => !prevOpen);
-        return router.push(`/${item.href}`, undefined, {
-          shallow: true,
-        });
-      }
-      return null;
-    });
-  }, [openProp]);
-
-  useEffect(() => {}, [router.query]);
 
   return (
     <>

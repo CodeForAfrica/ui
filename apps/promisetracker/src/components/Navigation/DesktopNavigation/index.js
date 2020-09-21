@@ -1,24 +1,27 @@
 import React from "react";
 
-import { Grid, Link } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-
 import clsx from "clsx";
 
+import { useRouter } from "next/router";
+
+import { Button, Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
 import { Section } from "@commons-ui/core";
+
 import Logo from "@/promisetracker/components/Navigation/Logo";
 import Search from "@/promisetracker/components/Search";
-import MenuButton from "@/promisetracker/components/Navigation/DesktopNavigation/MenuButton";
-import PageNavigation from "@/promisetracker/components/Navigation/DesktopNavigation/PageNavigation";
-import NavigationButton from "@/promisetracker/components/Navigation/DesktopNavigation/NavigationButton";
-
 import config from "@/promisetracker/config";
 
-const useStyles = makeStyles(({ widths }) => ({
+import MenuButton from "./MenuButton";
+import NavigationButton from "./NavigationButton";
+import PageNavigation from "./PageNavigation";
+
+const useStyles = makeStyles(({ typography }) => ({
   root: {
-    width: widths.values.lg,
-    padding: "1.5rem 0rem",
+    padding: `${typography.pxToRem(54)} 0`,
   },
+  section: {},
   button: {
     paddingLeft: 0,
     paddingRight: 0,
@@ -29,11 +32,18 @@ const useStyles = makeStyles(({ widths }) => ({
     width: "auto",
   },
   buttonLanguage: {
-    color: "#9D9C9C",
+    color: "#909090",
+    fontFamily: typography.fontFamily,
+    fontWeight: 400,
     "&.active": {
-      color: "#D6D6D6",
+      color: "#EBEBEB",
     },
+    "&:hover": {
+      background: "inherit",
+    },
+    padding: 0,
     marginLeft: "0.75rem",
+    minWidth: 0,
     width: "auto",
   },
   buttonLanguageLast: {
@@ -44,20 +54,21 @@ const useStyles = makeStyles(({ widths }) => ({
 function DesktopNavigation(props) {
   const classes = useStyles(props);
   const { analysisMenu } = config;
-
-  const activeClassName = clsx(classes.buttonLanguage, "active");
-  const className = clsx(classes.buttonLanguage, classes.buttonLanguageLast);
+  const router = useRouter();
+  const { asPath } = router;
+  const currentPageUrl = asPath.split("/").slice(0, 2).join("/");
+  const pageNavigation = analysisMenu.url === currentPageUrl && analysisMenu;
 
   return (
     <Grid container>
-      <Grid container item xs={12} justify="center">
-        <Section classes={{ root: classes.root }}>
+      <Grid item xs={12} className={classes.root}>
+        <Section classes={{ root: classes.section }}>
           <Grid container justify="flex-start" alignItems="center">
-            <Grid item md={3}>
+            <Grid item lg={3}>
               <Logo />
             </Grid>
 
-            <Grid item md={5} container direction="row" justify="center">
+            <Grid item lg={5} container justify="flex-end">
               <Grid item>
                 <MenuButton
                   href="/promises"
@@ -72,11 +83,16 @@ function DesktopNavigation(props) {
               <Grid item>
                 <NavigationButton
                   color="secondary"
-                  title="Analysis"
+                  title={analysisMenu.title}
                   size="large"
+                  active={analysisMenu.url === currentPageUrl}
                   className={classes.button}
                 >
-                  <PageNavigation navigation={analysisMenu} />
+                  <PageNavigation
+                    asPath={analysisMenu.url}
+                    navigation={analysisMenu.subnav}
+                    classes={{ section: classes.section }}
+                  />
                 </NavigationButton>
               </Grid>
 
@@ -92,57 +108,51 @@ function DesktopNavigation(props) {
               </Grid>
             </Grid>
 
-            <Grid item md={3}>
+            <Grid item lg={3}>
               <Search />
             </Grid>
 
-            <Grid item md={1} direction="column" container justify="flex-start">
+            <Grid item lg={1} direction="column" container justify="flex-start">
               <Grid item>
-                <Link
-                  href="/#"
-                  underline="none"
+                <Button
                   variant="overline"
-                  className={activeClassName}
+                  className={clsx(classes.buttonLanguage, "active")}
                 >
                   En
-                </Link>
-                {/* TODO(kilemens): Hide other languages for MVP */}
-
-                <Link
-                  href="/#"
-                  underline="none"
-                  variant="overline"
-                  className={classes.buttonLanguage}
-                >
+                </Button>
+                <Button variant="overline" className={classes.buttonLanguage}>
                   Am
-                </Link>
+                </Button>
               </Grid>
 
               <Grid item>
-                <Link
-                  href="/#"
-                  underline="none"
-                  variant="overline"
-                  className={activeClassName}
-                >
+                <Button variant="overline" className={classes.buttonLanguage}>
                   Fr
-                </Link>
-                {/* TODO(kilemens): Hide other languages for MVP */}
-
-                <Link
-                  href="/#"
-                  underline="none"
+                </Button>
+                <Button
                   variant="overline"
-                  className={className}
+                  className={clsx(
+                    classes.buttonLanguage,
+                    classes.buttonLanguageLast
+                  )}
                 >
                   عربى
-                </Link>
+                </Button>
               </Grid>
             </Grid>
             <Grid />
           </Grid>
         </Section>
       </Grid>
+      {pageNavigation && pageNavigation.subnav && (
+        <Grid item xs={12}>
+          <PageNavigation
+            asPath={asPath}
+            navigation={pageNavigation.subnav}
+            classes={{ section: classes.section }}
+          />
+        </Grid>
+      )}
     </Grid>
   );
 }
