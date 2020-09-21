@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 
 import LinkButton from "@/promisetracker/components/Link/Button";
@@ -21,18 +21,12 @@ const useStyles = makeStyles(({ palette, typography }) => ({
   },
 }));
 
-function MenuButton({ size, href, title, active: activeProp, ...props }) {
+function MenuButton({ active, size, href, title, ...props }) {
   const classes = useStyles(props);
   const buttonRef = useRef();
 
-  const [active, setActive] = useState(activeProp);
-  const handleActiveLink = () => {
-    setActive((prevOpen) => !prevOpen);
-  };
-
   return (
     <LinkButton
-      onClick={handleActiveLink}
       disableFocusRipple
       disableRipple
       size={size}
