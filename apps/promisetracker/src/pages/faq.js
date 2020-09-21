@@ -23,7 +23,7 @@ function Index(props) {
   const classes = useStyles(props);
 
   return (
-    <Page>
+    <Page title="FAQs" classes={{ section: classes.section }}>
       <FAQ classes={{ section: classes.section }} />
       <ActNow />
     </Page>
