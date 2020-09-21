@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { IconButton, InputBase, Paper } from "@material-ui/core";
 
-import searchicon from "@/promisetracker/assets/Page-1.svg";
+import SearchIcon from "@/promisetracker/icons/Search";
 
-const useStyles = makeStyles(({ palette, typography }) => ({
+const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {
     alignItems: "center",
     backgroundColor: "#EEEEEE",
@@ -26,9 +26,12 @@ const useStyles = makeStyles(({ palette, typography }) => ({
   inputInput: {
     flex: 1,
   },
-  iconButton: {
+  searchButton: {
     "&:hover": {
       backgroundColor: "unset",
+    },
+    [breakpoints.up("lg")]: {
+      padding: typography.pxToRem(10),
     },
   },
 }));
@@ -74,10 +77,10 @@ function Search({ ariaLabel, onClick, onChange, placeholder, ...props }) {
       />
       <IconButton
         onClick={handleClick}
-        className={classes.iconButton}
+        className={classes.searchButton}
         aria-label="search"
       >
-        <img src={searchicon} alt="Search Icon" />
+        <SearchIcon fontSize="inherit" />
       </IconButton>
     </Paper>
   );
