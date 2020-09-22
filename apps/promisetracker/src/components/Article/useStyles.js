@@ -16,6 +16,12 @@ const useStyles = makeStyles(
       margin: "2rem 0",
       paddingBottom: "4rem",
       borderBottom: `.1rem solid ${palette.secondary.main}`,
+      fontSize: typography.pxToRem(13),
+      lineHeight: 24 / 13,
+      [breakpoints.up("md")]: {
+        fontSize: typography.pxToRem(18),
+        lineHeight: 40 / 18,
+      },
     },
     articleFooter: {
       display: "flex",
