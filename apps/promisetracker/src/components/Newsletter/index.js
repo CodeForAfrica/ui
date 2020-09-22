@@ -85,13 +85,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       },
     },
   },
-  grid: {
-    // display: "flex",
-    // padding: "1rem",
-    // flexDirection: "column",
-    // alignItems: "center",
-    // justifyContent: "center",
-  },
+  grid: {},
   description: {
     fontSize: typography.pxToRem(18),
   },
@@ -101,6 +95,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
     width: typography.pxToRem(317),
     [breakpoints.up("lg")]: {
       marginTop: 0,
+      marginLeft: typography.pxToRem(54),
       width: typography.pxToRem(458),
     },
   },
