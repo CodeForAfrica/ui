@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, Hidden } from "@material-ui/core";
 
-import { A, Hidden, RichTypography } from "@commons-ui/core";
+import { A, RichTypography } from "@commons-ui/core";
 
 import Section from "@commons-ui/core/Section";
 
@@ -11,13 +11,19 @@ import facebook from "@/promisetracker/assets/share-facebook.svg";
 import instagram from "@/promisetracker/assets/share-instagram.svg";
 import twitter from "@/promisetracker/assets/share-twitter.svg";
 import Share from "./Share";
-import Author from "./Author";
+import PublicationInfo from "./PublicationInfo";
 import useStyles from "./useStyles";
 
 function Article({ socialMedia, article, classes: classesProp }) {
   const classes = useStyles({ image: article.image, classes: classesProp });
   return (
     <Section classes={{ root: classes.section }}>
+      <Hidden lgUp>
+        <Typography className={classes.label} variant="h4">
+          Promises
+        </Typography>
+      </Hidden>
+
       <div className={classes.featuredImageContainer} />
       <Grid container>
         <Grid item md={7}>
@@ -32,12 +38,12 @@ function Article({ socialMedia, article, classes: classesProp }) {
             {article.description}
           </RichTypography>
 
-          <Author />
+          <PublicationInfo />
           <RichTypography className={classes.articleBody} variant="body1">
             {article.body}
           </RichTypography>
           <div className={classes.articleFooter}>
-            <Author />
+            <PublicationInfo />
             <div className={classes.socialMediaContainer}>
               {socialMedia.map((platform) => (
                 <A

@@ -22,7 +22,7 @@ const useStyles = makeStyles(({ typography, palette }) => ({
   },
   name: {},
 }));
-function Author({ author, date, readTime, classes: classesProp }) {
+function PublicationInfo({ author, date, readTime, classes: classesProp }) {
   const classes = useStyles({ image: author.image, classes: classesProp });
   return (
     <div className={classes.root}>
@@ -39,7 +39,7 @@ function Author({ author, date, readTime, classes: classesProp }) {
   );
 }
 
-Author.propTypes = {
+PublicationInfo.propTypes = {
   classes: PropTypes.shape({
     dateReadTime: PropTypes.string,
     dateReadTimeContainer: PropTypes.string,
@@ -55,7 +55,7 @@ Author.propTypes = {
   readTime: PropTypes.string,
 };
 
-Author.defaultProps = {
+PublicationInfo.defaultProps = {
   classes: undefined,
   author: {
     name: "Pesa Check",
@@ -65,4 +65,4 @@ Author.defaultProps = {
   readTime: "5 min read",
 };
 
-export default Author;
+export default PublicationInfo;
