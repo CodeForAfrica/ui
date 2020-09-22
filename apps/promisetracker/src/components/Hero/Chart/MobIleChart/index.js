@@ -5,10 +5,10 @@ function MobileChart() {
   return (
     <>
       <Grid container item xs={12} direction="row">
-        <Grid item xs={3}>
+        <Grid item>
           <Typography variant="caption">Promise Kept</Typography>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item>
           <svg width={50} height={50}>
             <circle
               cx={25}

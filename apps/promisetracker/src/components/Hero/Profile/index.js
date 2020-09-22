@@ -30,10 +30,10 @@ function Profile(props) {
   const classes = useStyles(props);
   return (
     <Grid container direction="row" alignItems="center" item xs={12} md={4}>
-      <Grid item xs={2} md={12}>
+      <Grid item xs={6} md={12}>
         <img src={profilePic} alt="Profile" className={classes.img} />
       </Grid>
-      <Grid item xs={2} md={12}>
+      <Grid item xs={6} md={12}>
         <Typography variant="h5" className={classes.subtitle}>
           Campaign promises made by Mike Mbuvi
         </Typography>

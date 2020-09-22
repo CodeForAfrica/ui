@@ -7,23 +7,23 @@ import { Section } from "@commons-ui/core";
 import Profile from "@/promisetracker/components/Hero/Profile";
 import Chart from "@/promisetracker/components/Hero/Chart";
 
-const useStyles = makeStyles(({ widths }) => ({
-  root: {
-    width: widths.values.lg,
-    padding: "2rem 0rem",
+const useStyles = makeStyles(({ typography }) => ({
+  root: {},
+  hero: {
+    paddingTop: typography.pxToRem(24),
   },
 }));
 function Hero(props) {
   const classes = useStyles(props);
   return (
-    <Section className={classes.root}>
+    <Section classes={{ root: classes.section }}>
       <Grid
         container
         direction="row"
         justify="center"
         alignItems="flex-start"
         spacing={5}
-        style={{ padding: "2rem" }}
+        className={classes.hero}
       >
         <Profile />
         <Chart />

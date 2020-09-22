@@ -46,9 +46,7 @@ function ProfileDetails(props) {
             >
               <img src={viz2} alt="Info" />
             </IconButton>
-
             <StatusPopperButton />
-
             <IconButton
               disableRipple
               disableFocusRipple
@@ -62,13 +60,13 @@ function ProfileDetails(props) {
         </>
       ) : (
         <>
-          <Grid item xs={2}>
+          <Grid item xs={6}>
             <Typography variant="body2">
               Nairobi Governor Mike “Sonko” Mbuvi <b>510 promises </b>at a
               glance
             </Typography>
           </Grid>
-          <Grid item xs={10} className={classes.iconGrid}>
+          <Grid item xs={6} className={classes.iconGrid}>
             <StatusPopperButton />
             <IconButton
               disableRipple
