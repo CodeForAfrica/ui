@@ -16,7 +16,7 @@ function Chart() {
       xs={12}
       md={8}
     >
-      <ProfileDetails />
+      <ProfileDetails name="Mike “Sonko” Mbuvi" />
       <ProfileChart />
     </Grid>
   );

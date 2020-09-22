@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Grid, IconButton, Typography, useMediaQuery } from "@material-ui/core";
 import StatusPopperButton from "@/promisetracker/components/Hero/Chart/DesktopChart/StatusPopperButton";
@@ -19,7 +21,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function ProfileDetails(props) {
+function ProfileDetails({ name, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -28,9 +30,7 @@ function ProfileDetails(props) {
       {isDesktop ? (
         <>
           <Grid item xs={8}>
-            {isDesktop ? (
-              <Typography variant="h1">Mike “Sonko” Mbuvi</Typography>
-            ) : null}
+            {isDesktop ? <Typography variant="h1">{name}</Typography> : null}
             <Typography variant="body2">
               Nairobi Governor Mike “Sonko” Mbuvi <b>510 promises </b>at a
               glance
@@ -83,5 +83,9 @@ function ProfileDetails(props) {
     </Grid>
   );
 }
+
+ProfileDetails.propTypes = {
+  name: PropTypes.string.isRequired,
+};
 
 export default ProfileDetails;

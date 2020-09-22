@@ -25,7 +25,10 @@ function Hero(props) {
         spacing={5}
         className={classes.hero}
       >
-        <Profile />
+        <Profile
+          subtitle="Campaign promises made by Mike Mbuvi"
+          date="Updated June 16, 2020"
+        />
         <Chart />
       </Grid>
     </Section>

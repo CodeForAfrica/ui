@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography } from "@material-ui/core";
 
@@ -26,7 +28,7 @@ const useStyles = makeStyles(({ breakpoints, palette, widths }) => ({
   },
 }));
 
-function Profile(props) {
+function Profile({ subtitle, date, ...props }) {
   const classes = useStyles(props);
   return (
     <Grid container direction="row" alignItems="center" item xs={12} md={4}>
@@ -35,14 +37,18 @@ function Profile(props) {
       </Grid>
       <Grid item xs={6} md={12}>
         <Typography variant="h5" className={classes.subtitle}>
-          Campaign promises made by Mike Mbuvi
+          {subtitle}
         </Typography>
         <Typography variant="h6" className={classes.caption}>
-          Updated June 16, 2020
+          {date}
         </Typography>
       </Grid>
     </Grid>
   );
 }
 
+Profile.propTypes = {
+  subtitle: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+};
 export default Profile;
