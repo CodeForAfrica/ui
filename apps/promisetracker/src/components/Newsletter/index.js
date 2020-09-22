@@ -22,6 +22,9 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       padding: `${typography.pxToRem(25)} 0`,
     },
   },
+  contents: {
+    minWidth: typography.pxToRem(314),
+  },
   title: {
     padding: 0,
     textAlign: "left",
@@ -85,7 +88,6 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       },
     },
   },
-  grid: {},
   description: {
     fontSize: typography.pxToRem(18),
   },
@@ -115,18 +117,11 @@ function Newsletter({
   return (
     <div className={classes.root}>
       <Section classes={{ root: classes.section }}>
-        <Grid container alignItems="stretch">
-          <Grid item xs={12} lg={8} className={classes.grid}>
+        <Grid container alignItems="stretch" className={classes.contents}>
+          <Grid item xs={12} lg={8}>
             <img src={subscribeImg} alt="Subscribe" className={classes.image} />
           </Grid>
-          <Grid
-            item
-            xs={12}
-            lg={4}
-            container
-            alignItems="center"
-            className={classes.grid}
-          >
+          <Grid item xs={12} lg={4} container alignItems="center">
             <div className={classes.textContainer}>
               <Typography variant="h1" className={classes.title}>
                 {title}
