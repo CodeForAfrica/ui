@@ -6,7 +6,7 @@ import { useTheme } from "@material-ui/core/styles";
 import PromiseKeptChart from "@/promisetracker/components/Hero/Chart/DesktopChart/PromiseKeptChart";
 import UncertainChart from "@/promisetracker/components/Hero/Chart/DesktopChart/UncertainChart";
 import PromiseNotKeptChart from "@/promisetracker/components/Hero/Chart/DesktopChart/PromiseNotKeptChart";
-import MobileChart from "@/promisetracker/components/Hero/Chart/MobIleChart";
+import MobileChart from "@/promisetracker/components/Hero/Chart/MobileChart";
 
 function ProfileChart(props) {
   const theme = useTheme(props);
