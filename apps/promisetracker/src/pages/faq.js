@@ -25,7 +25,7 @@ function Index(props) {
   return (
     <Page title="FAQs" classes={{ section: classes.section }}>
       <FAQ classes={{ section: classes.section }} />
-      <ActNow />
+      <ActNow classes={{ section: classes.section }} />
     </Page>
   );
 }
