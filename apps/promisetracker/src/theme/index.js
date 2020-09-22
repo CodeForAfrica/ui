@@ -167,11 +167,7 @@ deepmerge(
     h3: {
       color: palette.primary.dark,
       fontSize: pxToRem(24),
-      lineHeight: 32 / 24,
-      [breakpoints.up("md")]: {
-        fontSize: pxToRem(24),
-        lineHeight: 32 / 24, // Amri Bold Footer title text/Chart status text
-      },
+      lineHeight: 32 / 24, // Amri Bold Footer title text/Chart status text
     },
     h4: {
       fontSize: pxToRem(16),
