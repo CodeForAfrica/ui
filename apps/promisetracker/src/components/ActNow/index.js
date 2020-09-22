@@ -1,18 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Typography, Button } from "@material-ui/core";
 
+import { Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import actNowImg from "assets/actnow-img.png";
+import { Section } from "@commons-ui/core";
 
-const useStyles = makeStyles(({ breakpoints, widths }) => ({
+import CtAButton from "@/promisetracker/components/CtAButton";
+import actNowImg from "@/promisetracker/assets/actnow-img.png";
+
+const useStyles = makeStyles(({ breakpoints, typography }) => ({
+  section: {},
   root: {
     backgroundColor: "#ebebeb",
     width: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    paddingBottom: typography.pxToRem(53),
+    paddingTop: typography.pxToRem(45),
   },
   title: {
     padding: 0,
@@ -20,33 +26,48 @@ const useStyles = makeStyles(({ breakpoints, widths }) => ({
     textTransform: "capitalize",
   },
   content: {
-    maxWidth: widths.values.lg,
+    alignItems: "center",
     flexDirection: "column-reverse",
-    alignItems: "center",
     justifyContent: "center",
     [breakpoints.up("lg")]: {
+      alignItems: "stretch",
       flexDirection: "row",
+      justifyContent: "space-between",
     },
   },
-  textContainer: {
-    width: "100%",
-    padding: "0rem 2rem",
+  cta: {
+    marginBottom: 0,
     [breakpoints.up("lg")]: {
-      width: "80%",
+      justifyContent: "left",
+      padding: 0,
     },
   },
-  grid: {
-    display: "flex",
-    padding: "1rem",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+  ctaButton: {
+    minWidth: typography.pxToRem(138),
+    [breakpoints.up("lg")]: {
+      minWidth: typography.pxToRem(158),
+    },
   },
   description: {
     padding: "1rem 0rem 1.5rem 0rem",
     textAlign: "left",
     [breakpoints.up("lg")]: {
       lineHeight: "1.875rem",
+    },
+  },
+  image: {
+    maxWidth: typography.pxToRem(314),
+    minWidth: typography.pxToRem(314),
+    objectFit: "cover",
+    [breakpoints.up("lg")]: {
+      maxWidth: typography.pxToRem(484),
+      minWidth: typography.pxToRem(484),
+    },
+  },
+  textContainer: {
+    marginTop: typography.pxToRem(19),
+    [breakpoints.up("lg")]: {
+      marginTop: 0,
     },
   },
 }));
@@ -59,24 +80,31 @@ function ActNow({ description: descriptionProp, title, ...props }) {
 
   return (
     <div className={classes.root}>
-      <Grid container className={classes.content}>
-        <Grid className={classes.grid} item xs={12} md={6}>
-          <div className={classes.textContainer}>
-            <Typography variant="h1" className={classes.title}>
-              {title}
-            </Typography>
-            <Typography variant="body1" className={classes.description}>
-              {description}
-            </Typography>
-            <Button variant="contained" size="large">
-              Act Now
-            </Button>
-          </div>
+      <Section classes={{ root: classes.section }}>
+        <Grid container className={classes.content}>
+          <Grid item xs={12} lg={6} container alignItems="center">
+            <div className={classes.textContainer}>
+              <Typography variant="h1" className={classes.title}>
+                {title}
+              </Typography>
+              <Typography variant="body1" className={classes.description}>
+                {description}
+              </Typography>
+              <CtAButton
+                classes={{
+                  root: classes.cta,
+                  button: classes.ctaButton,
+                }}
+              >
+                See How
+              </CtAButton>
+            </div>
+          </Grid>
+          <Grid item xs={12} lg={5}>
+            <img src={actNowImg} alt="Act Now" className={classes.image} />
+          </Grid>
         </Grid>
-        <Grid className={classes.grid} item xs={12} md={6}>
-          <img src={actNowImg} alt="Act Now" className={classes.image} />
-        </Grid>
-      </Grid>
+      </Section>
     </div>
   );
 }
