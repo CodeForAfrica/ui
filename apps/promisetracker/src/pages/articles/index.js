@@ -9,18 +9,33 @@ import Subscribe from "@/promisetracker/components/Newsletter";
 
 import articleImage from "@/promisetracker/assets/article-thumb-01.png";
 
-const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
-  section: {
-    padding: `0 ${typography.pxToRem(23)}`,
-    margin: 0,
-    width: "100%",
-    [breakpoints.up("lg")]: {
-      padding: 0,
-      margin: "0 auto",
-      width: typography.pxToRem(widths.values.lg),
+const useStyles = makeStyles(
+  ({ breakpoints, typography, widths, palette }) => ({
+    section: {
+      padding: `0 ${typography.pxToRem(23)}`,
+      margin: 0,
+      width: "100%",
+      [breakpoints.up("lg")]: {
+        padding: 0,
+        margin: "0 auto",
+        width: typography.pxToRem(widths.values.lg),
+      },
     },
-  },
-}));
+    sectionTitle: {
+      width: "4.5rem",
+      fontWeight: 600,
+      marginBottom: 0,
+      borderBottom: `.4rem solid ${palette.primary.dark}`,
+      paddingRight: "1.5rem",
+      marginTop: typography.pxToRem(64),
+      [breakpoints.up("lg")]: {
+        width: "5rem",
+        marginBottom: typography.pxToRem(32),
+        marginTop: typography.pxToRem(35),
+      },
+    },
+  })
+);
 
 function Index(props) {
   const classes = useStyles(props);
@@ -40,6 +55,7 @@ function Index(props) {
         title="Articles"
         classes={{
           section: classes.section,
+          sectionTitle: classes.sectionTitle,
         }}
       />
 
