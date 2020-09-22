@@ -14,6 +14,7 @@ const useStyles = makeStyles(({ palette }) => ({
   root: {
     alignItems: "center",
     display: "flex",
+    maxWidth: "14rem",
   },
   platform: {
     height: "3.75rem",
