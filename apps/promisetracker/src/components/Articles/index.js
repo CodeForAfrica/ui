@@ -21,7 +21,7 @@ function Articles({ items, title, ...props }) {
     >
       <Grid container>
         {items.map((article) => (
-          <Grid key={article.name} item md={4}>
+          <Grid key={article.name} className={classes.grid} item md={4}>
             <ArticleCard {...article} component="div" />
           </Grid>
         ))}
@@ -32,6 +32,7 @@ function Articles({ items, title, ...props }) {
 
 Articles.propTypes = {
   classes: PropTypes.shape({
+    grid: PropTypes.string,
     section: PropTypes.string,
     sectionTitle: PropTypes.string,
     root: PropTypes.string,
