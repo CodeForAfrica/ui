@@ -4,6 +4,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(({ palette }) => ({
+  label: {
+    color: palette.secondary.dark,
+  },
   root: {
     alignItems: "center",
     display: "flex",
