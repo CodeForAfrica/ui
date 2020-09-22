@@ -13,6 +13,8 @@ import {
 
 import { RichTypography } from "@commons-ui/core";
 
+import Link from "@/promisetracker/components/Link";
+
 import ShareIcon from "@/promisetracker/icons/Share";
 
 import useStyles from "./useStyles";
@@ -29,50 +31,52 @@ function PostCard({
   const classes = useStyles({ classes: classesProp });
 
   return (
-    <Card square variant="outlined" className={classes.root}>
-      <CardActionArea className={classes.contentRoot} {...props}>
-        <CardContent classes={{ root: classes.content }}>
-          <Box
-            display="flex"
-            alignItems="flex-end"
-            className={classes.titleContainer}
-          >
-            <RichTypography variant="h4" className={classes.title}>
-              {title}
-            </RichTypography>
-          </Box>
-          <Grid container justify="space-between">
-            <Grid item>
-              <RichTypography variant="h6" className={classes.date}>
-                {date}
-              </RichTypography>
-            </Grid>
-            <Grid item>
-              <IconButton aria-label="share" className={classes.share}>
-                <ShareIcon fontSize="inherit" />
-              </IconButton>
-            </Grid>
-          </Grid>
-        </CardContent>
-        <CardMedia
-          alt="Codification of national sports and athletics law"
-          component="img"
-          image={image}
-          title="Codification of national sports and athletics law"
-          className={classes.media}
-        />
-        {description && (
+    <Link href="/articles/slug" as="articles/slug" className={classes.link}>
+      <Card square variant="outlined" className={classes.root}>
+        <CardActionArea className={classes.contentRoot} {...props}>
           <CardContent classes={{ root: classes.content }}>
-            <Box display="flex" className={classes.descriptionContainer}>
-              <RichTypography variant="body2" className={classes.description}>
-                {description}
+            <Box
+              display="flex"
+              alignItems="flex-end"
+              className={classes.titleContainer}
+            >
+              <RichTypography variant="h4" className={classes.title}>
+                {title}
               </RichTypography>
             </Box>
+            <Grid container justify="space-between">
+              <Grid item>
+                <RichTypography variant="h6" className={classes.date}>
+                  {date}
+                </RichTypography>
+              </Grid>
+              <Grid item>
+                <IconButton aria-label="share" className={classes.share}>
+                  <ShareIcon fontSize="inherit" />
+                </IconButton>
+              </Grid>
+            </Grid>
           </CardContent>
-        )}
-        {children}
-      </CardActionArea>
-    </Card>
+          <CardMedia
+            alt="Codification of national sports and athletics law"
+            component="img"
+            image={image}
+            title="Codification of national sports and athletics law"
+            className={classes.media}
+          />
+          {description && (
+            <CardContent classes={{ root: classes.content }}>
+              <Box display="flex" className={classes.descriptionContainer}>
+                <RichTypography variant="body2" className={classes.description}>
+                  {description}
+                </RichTypography>
+              </Box>
+            </CardContent>
+          )}
+          {children}
+        </CardActionArea>
+      </Card>
+    </Link>
   );
 }
 
@@ -84,6 +88,7 @@ PostCard.propTypes = {
     date: PropTypes.string,
     description: PropTypes.string,
     descriptionContainer: PropTypes.string,
+    link: PropTypes.string,
     media: PropTypes.string,
     root: PropTypes.string,
     share: PropTypes.string,
