@@ -84,7 +84,11 @@ function Index(props) {
           section: classes.section,
         }}
       />
-      <Partners />
+      <Partners
+        classes={{
+          section: classes.section,
+        }}
+      />
       <Subscribe
         classes={{
           section: classes.section,
