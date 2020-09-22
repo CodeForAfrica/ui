@@ -202,16 +202,16 @@ deepmerge(
       fontSize: pxToRem(14),
       lineHeight: 24 / 14,
       [breakpoints.up("lg")]: {
-        fontSize: pxToRem(20),
-        lineHeight: 40 / 20, // Merriweather title text 20px// Call to action sections
+        fontSize: pxToRem(18),
+        lineHeight: 40 / 18, // Merriweather title text 20px// Call to action sections
       },
     },
     body2: {
-      fontSize: pxToRem(14),
-      lineHeight: 24 / 14,
+      fontSize: pxToRem(13),
+      lineHeight: 24 / 13,
       [breakpoints.up("lg")]: {
-        fontSize: pxToRem(14),
-        lineHeight: 24 / 14, // Merriweather regular body text 14px
+        fontSize: pxToRem(13),
+        lineHeight: 24 / 13, // Merriweather regular body text 14px
       },
     },
     subtitle1: {
