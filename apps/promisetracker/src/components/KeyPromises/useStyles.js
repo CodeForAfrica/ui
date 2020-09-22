@@ -83,6 +83,7 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   },
   media: {
     display: "block",
+    objectFit: "cover",
     marginTop: typography.pxToRem(25),
     maxHeight: typography.pxToRem(155),
     maxWidth: typography.pxToRem(314),
