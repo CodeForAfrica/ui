@@ -1,79 +1,123 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography } from "@material-ui/core";
-import partner1 from "assets/partner-01.png";
-import partner2 from "assets/partner-02.svg";
-import partner3 from "assets/partner-03.svg";
-import partner4 from "assets/partner-04.png";
-import partner5 from "assets/partner-05.png";
-import partner6 from "assets/partner-06.svg";
+import clsx from "clsx";
 
-const useStyles = makeStyles(({ palette, breakpoints, widths }) => ({
+import { Grid, useMediaQuery } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+
+import { Section } from "@commons-ui/core";
+
+import partner1 from "@/promisetracker/assets/partner-01.png";
+import partner2 from "@/promisetracker/assets/partner-02.svg";
+import partner3 from "@/promisetracker/assets/partner-03.svg";
+import partner4 from "@/promisetracker/assets/partner-04.png";
+import partner5 from "@/promisetracker/assets/partner-05.png";
+import partner6 from "@/promisetracker/assets/partner-06.svg";
+
+const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {
-    backgroundColor: palette.secondary.light,
-    padding: "2rem 0rem",
-    display: "flex",
     alignItems: "center",
+    backgroundColor: palette.secondary.light,
+    display: "flex",
     justifyContent: "center",
-  },
-  partner: {
-    maxWidth: "100%",
-    height: "4.375rem",
+    padding: `${typography.pxToRem(43)} 0 ${typography.pxToRem(38)}`,
     [breakpoints.up("lg")]: {
-      height: "7.5rem",
+      padding: `${typography.pxToRem(55)} 0 ${typography.pxToRem(66)}`,
     },
   },
-  content: {
-    maxWidth: widths.values.lg,
+  section: {},
+  sectionTitle: {
+    margin: 0,
   },
-  title: {
-    marginLeft: "2rem",
-  },
-  partnerContainer: {
+  partner: {
     display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    height: typography.pxToRem(70),
+    maxWidth: typography.pxToRem(153),
+    minWidth: typography.pxToRem(153),
+    [breakpoints.up("lg")]: {
+      height: typography.pxToRem(119),
+      maxWidth: typography.pxToRem(256),
+      minWidth: typography.pxToRem(256),
+    },
   },
+  partnerFirst: {
+    marginLeft: 0,
+    marginRight: "auto",
+    [breakpoints.up("lg")]: {
+      marginLeft: "auto",
+      marginRight: 0,
+    },
+  },
+  partnerLast: {
+    marginLeft: "auto",
+    marginRight: 0,
+    [breakpoints.up("lg")]: {
+      marginLeft: 0,
+      marginRight: "auto",
+    },
+  },
+  partnerMiddle: {
+    margin: "0 auto",
+  },
+  partnerRow: {
+    marginTop: typography.pxToRem(20),
+    [breakpoints.up("lg")]: {
+      marginTop: typography.pxToRem(41),
+    },
+  },
+  partners: {
+    minWidth: typography.pxToRem(314),
+    paddingTop: typography.pxToRem(47),
+    [breakpoints.up("lg")]: {
+      paddingTop: typography.pxToRem(41),
+    },
+  },
+  title: {},
 }));
 
-function Partners({ partners, ...props }) {
+function Partners({ items, title, ...props }) {
   const classes = useStyles(props);
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const columnsCount = isDesktop ? 3 : 2;
 
   return (
     <div className={classes.root}>
-      <Grid container className={classes.content}>
-        <Grid item xs={12}>
-          <Typography className={classes.title} variant="h4">
-            Partners
-          </Typography>
+      <Section
+        title="Partners"
+        titleProps={{ variant: "h4" }}
+        classes={{ root: classes.section, title: classes.sectionTitle }}
+      >
+        <Grid container className={classes.partners}>
+          {items.slice(0, 6).map((partner, i) => (
+            <Grid key={partner.name} item xs={6} lg={4}>
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className={clsx(classes.partner, {
+                  [classes.partnerFirst]: (i + 1) % columnsCount === 1,
+                  [classes.partnerLast]: (i + 1) % columnsCount === 0,
+                  // center would never happen in mobile i.e any number % 2 is
+                  // either 0 or 1
+                  [classes.partnerMiddle]: (i + 1) % columnsCount === 2,
+                  [classes.partnerRow]: i > columnsCount - 1,
+                })}
+              />
+            </Grid>
+          ))}
         </Grid>
-        {partners.slice(0, 6).map((partner) => (
-          <Grid
-            key={partner.name}
-            className={classes.partnerContainer}
-            item
-            xs={6}
-            md={4}
-          >
-            <img
-              src={partner.logo}
-              alt={partner.name}
-              className={classes.partner}
-            />
-          </Grid>
-        ))}
-      </Grid>
+      </Section>
     </div>
   );
 }
 Partners.propTypes = {
-  partners: PropTypes.arrayOf(PropTypes.shape({})),
+  items: PropTypes.arrayOf(PropTypes.shape({})),
+  title: PropTypes.string,
 };
 
 Partners.defaultProps = {
-  partners: [
+  items: [
     { logo: partner1, name: "PessaCheck" },
     { logo: partner2, name: "Star" },
     { logo: partner3, name: "Piga" },
@@ -81,6 +125,7 @@ Partners.defaultProps = {
     { logo: partner5, name: "Meedan" },
     { logo: partner6, name: "AWS" },
   ],
+  title: undefined,
 };
 
 export default Partners;
