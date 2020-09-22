@@ -63,7 +63,11 @@ function Index(props) {
           section: classes.section,
         }}
       />
-      <ActNow />
+      <ActNow
+        classes={{
+          section: classes.section,
+        }}
+      />
       <LatestArticles
         actionLabel="See All"
         items={Array(6).fill({
