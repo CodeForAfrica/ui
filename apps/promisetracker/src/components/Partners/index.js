@@ -21,7 +21,7 @@ const useStyles = makeStyles(({ palette, breakpoints, widths }) => ({
   partner: {
     maxWidth: "100%",
     height: "4.375rem",
-    [breakpoints.up("md")]: {
+    [breakpoints.up("lg")]: {
       height: "7.5rem",
     },
   },

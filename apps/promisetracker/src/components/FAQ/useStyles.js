@@ -22,7 +22,7 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   },
   root: {
     marginBottom: typography.pxToRem(52),
-    [breakpoints.up("md")]: {
+    [breakpoints.up("lg")]: {
       marginBottom: typography.pxToRem(59),
     },
   },

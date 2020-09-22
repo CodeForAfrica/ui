@@ -151,7 +151,7 @@ deepmerge(
       fontSize: pxToRem(32),
       lineHeight: 40 / 32,
       fontWeight: 700,
-      [breakpoints.up('md')]: {
+      [breakpoints.up("lg")]: {
         fontSize: pxToRem(38),
         lineHeight: 56 / 38, /// Amiri  bold title
       },
@@ -159,7 +159,7 @@ deepmerge(
     h2: {
       fontSize: pxToRem(32),
       lineHeight: 48 / 32,
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         fontSize: pxToRem(36),
         lineHeight: 56 / 36, // Amri Regular title/Section Titles
       },
@@ -167,12 +167,16 @@ deepmerge(
     h3: {
       color: palette.primary.dark,
       fontSize: pxToRem(24),
-      lineHeight: 32 / 24, // Amri Bold Footer title text/Chart status text
+      lineHeight: 32 / 24,
+      [breakpoints.up("lg")]: {
+        fontSize: pxToRem(24),
+        lineHeight: 32 / 24, // Amri Bold Footer title text/Chart status text
+      },
     },
     h4: {
       fontSize: pxToRem(16),
       lineHeight: 24 / 16,
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         fontSize: pxToRem(16),
         lineHeight: 24 / 16, // Open sans Card titles
       },
@@ -180,7 +184,7 @@ deepmerge(
     h5: {
       fontSize: pxToRem(14),
       lineHeight: 16 / 14,
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         color: palette.primary.main,
         fontSize: pxToRem(14),
         lineHeight: 16 / 14, // Open sans Navigation Menu titles
@@ -189,7 +193,7 @@ deepmerge(
     h6: {
       fontSize: pxToRem(10),
       lineHeight: 16 / 10,
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         fontSize: pxToRem(10),
         lineHeight: 24 / 10, // Card dates Typography
       },
@@ -197,7 +201,7 @@ deepmerge(
     body1: {
       fontSize: pxToRem(14),
       lineHeight: 24 / 14,
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         fontSize: pxToRem(20),
         lineHeight: 40 / 20, // Merriweather title text 20px// Call to action sections
       },
@@ -205,7 +209,7 @@ deepmerge(
     body2: {
       fontSize: pxToRem(14),
       lineHeight: 24 / 14,
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         fontSize: pxToRem(14),
         lineHeight: 24 / 14, // Merriweather regular body text 14px
       },
@@ -213,7 +217,7 @@ deepmerge(
     subtitle1: {
       fontSize: pxToRem(14),
       lineHeight: 24 / 14,
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         fontSize: pxToRem(12),
         lineHeight: 14.4 / 12, // Open sans status in chart section/component
       },
@@ -221,13 +225,13 @@ deepmerge(
     subtitle2: {
       fontSize: pxToRem(7),
       lineHeight: 19 / 7,
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         fontSize: pxToRem(10),
         lineHeight: 24 / 10, // Open sans Status text=> Handles H7/H8 text for status button content
       },
     },
     caption: {
-      [breakpoints.up('md')]: {
+      [breakpoints.up("lg")]: {
         fontSize: pxToRem(12),
         lineHeight: 12 / 10, /// Chart percentage text
       },
@@ -235,7 +239,7 @@ deepmerge(
     button: {
       fontSize: pxToRem(14),
       lineHeight: 18 / 14,
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         fontSize: pxToRem(14),
         lineHeight: 18 / 14, // Source sans pro Button text
       },

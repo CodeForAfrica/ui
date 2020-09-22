@@ -10,13 +10,13 @@ const useStyles = makeStyles(({ breakpoints, palette }) => ({
   root: {
     backgroundColor: palette.background.default,
     boxShadow: "0px 10px 40px #0000002E;",
-    [breakpoints.up("md")]: {
+    [breakpoints.up("lg")]: {
       boxShadow: "0px 8px 30px #0000001A;",
     },
   },
   section: {},
   toolbar: {
-    [breakpoints.up("md")]: {
+    [breakpoints.up("lg")]: {
       height: "auto",
     },
   },
@@ -25,7 +25,7 @@ const useStyles = makeStyles(({ breakpoints, palette }) => ({
 function Navigation(props) {
   const classes = useStyles(props);
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <>

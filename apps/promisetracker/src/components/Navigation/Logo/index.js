@@ -29,7 +29,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
 function Logo(props) {
   const classes = useStyles(props);
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const src = isDesktop ? desktoplogo : logo;
 
   return (

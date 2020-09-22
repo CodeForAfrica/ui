@@ -24,7 +24,7 @@ const useStyles = makeStyles(
       display: "flex",
       alignItems: "center",
       flexDirection: "row-reverse",
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         marginTop: 0,
       },
       "& a": {
@@ -49,13 +49,13 @@ const useStyles = makeStyles(
       background: palette.secondary.light,
       paddingTop: typography.pxToRem(50),
       paddingBottom: typography.pxToRem(50),
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         paddingBottom: typography.pxToRem(50),
       },
     },
     quickLinks: {
       marginTop: "4rem",
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         marginTop: "0rem",
       },
       "& ul": {
@@ -76,7 +76,7 @@ const useStyles = makeStyles(
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         alignItems: "start",
       },
     },
@@ -96,7 +96,7 @@ const useStyles = makeStyles(
         height: "1.25rem",
         width: "1.25rem",
       },
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         marginTop: 0,
       },
     },
@@ -112,7 +112,7 @@ const useStyles = makeStyles(
       alignItems: "center",
       flexDirection: "column",
       justifyContent: "center",
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         flexDirection: "row",
         alignItems: "start",
         justifyContent: "flex-start",
@@ -122,7 +122,7 @@ const useStyles = makeStyles(
       marginTop: "2rem",
       textAlign: "center",
       width: "100%",
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         marginTop: "0rem",
         width: "auto",
         textAlign: "right",
@@ -132,7 +132,7 @@ const useStyles = makeStyles(
       "& li": {
         paddingBottom: "1rem",
       },
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         "& li": {
           padding: "0",
           paddingLeft: ".5rem",
@@ -146,7 +146,7 @@ const useStyles = makeStyles(
     ptLogo: {
       maxWidth: "14.75rem",
       marginBottom: "1rem",
-      [breakpoints.up("md")]: {
+      [breakpoints.up("lg")]: {
         marginBottom: "0rem",
       },
     },

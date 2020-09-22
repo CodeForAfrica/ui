@@ -30,7 +30,7 @@ function MainFooter({
 }) {
   const classes = useStyles({ props });
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
   const organizationLogo = {
     image: { url: organizationLogoProp.image, alt: organizationLogoProp.alt },
