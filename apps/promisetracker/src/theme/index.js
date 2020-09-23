@@ -20,83 +20,91 @@ const theme = createTheme({
   },
   palette: {
     background: { default: "#fff" },
-    primary: { main: "#202020", dark: "#000000" }, // black
+    primary: { main: "#202020", dark: "#000000" },
     secondary: { main: "#EBEBEB", light: "#F7F7F7" }, // grey
-    highlight: { main: "#005DFD", light: "#FFB322", faded: "#90DAFF" }, // blue. yellow, light blue
+    highlight: { main: "#005DFD", light: "#FFB322", faded: "#90DAFF" }, // blue, yellow, light blue
     text: { primary: "#202020", secondary: "#ffffff" },
   },
   typography: {
     fontFamily: FONT_FAMILY_TEXT_SECONDARY,
+    // PT H1
     h1: {
       fontFamily: FONT_FAMILY_HEADING,
       fontStretch: "normal",
       fontStyle: "normal",
       fontWeight: "bold",
-      letterSpacing: "0.76px", // Amri  bold title
+      letterSpacing: "0.76px",
     },
+    // PT H2
     h2: {
       fontFamily: FONT_FAMILY_HEADING,
       fontStretch: "normal",
       fontStyle: "normal",
       fontWeight: "normal",
-      letterSpacing: "0.86px", /// Amri Regular title/Section Titles
+      letterSpacing: "0.86px",
     },
+    // PT H3
     h3: {
       fontFamily: FONT_FAMILY_HEADING,
       fontStretch: "normal",
       fontStyle: "normal",
-      fontWeight: "bold", // Amri Bold Footer title text/ Chart status text
+      fontWeight: "bold",
     },
+    // PT H4
     h4: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
       fontWeight: 600,
       letterSpacing: "0.64px",
-      textTransform: "uppercase", // Open sans Card titles
+      textTransform: "uppercase",
     },
+    // PT H5
     h5: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
       fontWeight: 600,
       letterSpacing: "0.56px",
-      textTransform: "Uppercase", // Open sans Navigation Menu titles
+      textTransform: "Uppercase",
     },
+    // PT H6
     h6: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: 'normal',
       fontStyle: 'normal',
       fontWeight: 700,
       letterSpacing: 0,
-      textTransform: "Uppercase", // Open sans Card dates Typography//Last update dates
+      textTransform: "Uppercase",
     },
     subtitle1: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: "normal",
       fontStyle: "normal",
       fontWeight: 600,
-      letterSpacing: 0, // Open sans status in chart section/component
+      letterSpacing: 0, // Status in chart section/component
     },
     subtitle2: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
       fontStretch: "normal",
       fontStyle: "regular",
       fontWeight: "bold",
-      letterSpacing: 0, // Open sans Status text
+      letterSpacing: 0, // Status text=> Handles H7/H8 text for status button content
     },
+    // PT Body Normal
     body1: {
       fontFamily: FONT_FAMILY_TEXT_PRIMARY,
       fontStretch: "normal",
       fontWeight: "normal",
-      letterSpacing: 0, // Merriweather title text 20px// Call to action sections
+      letterSpacing: 0,
     },
+    // PT Body Small
     body2: {
       fontFamily: FONT_FAMILY_TEXT_PRIMARY,
       fontStretch: "normal",
       fontStyle: "normal",
       fontWeight: 400,
-      letterSpacing: 0, // Merriweather regular body text 14px
+      letterSpacing: 0,
     },
     caption: {
       fontFamily: FONT_FAMILY_TEXT_SECONDARY,
@@ -153,7 +161,7 @@ deepmerge(
       fontWeight: 700,
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(38),
-        lineHeight: 56 / 38, /// Amiri  bold title
+        lineHeight: 56 / 38,
       },
     },
     h2: {
@@ -161,7 +169,7 @@ deepmerge(
       lineHeight: 48 / 32,
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(36),
-        lineHeight: 56 / 36, // Amri Regular title/Section Titles
+        lineHeight: 56 / 36,
       },
     },
     h3: {
@@ -170,7 +178,7 @@ deepmerge(
       lineHeight: 32 / 24,
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(24),
-        lineHeight: 32 / 24, // Amri Bold Footer title text/Chart status text
+        lineHeight: 32 / 24,
       },
     },
     h4: {
@@ -178,7 +186,7 @@ deepmerge(
       lineHeight: 24 / 16,
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(16),
-        lineHeight: 24 / 16, // Open sans Card titles
+        lineHeight: 24 / 16,
       },
     },
     h5: {
@@ -187,7 +195,7 @@ deepmerge(
       [breakpoints.up("lg")]: {
         color: palette.primary.main,
         fontSize: pxToRem(14),
-        lineHeight: 16 / 14, // Open sans Navigation Menu titles
+        lineHeight: 16 / 14,
       },
     },
     h6: {
@@ -195,7 +203,7 @@ deepmerge(
       lineHeight: 16 / 10,
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(10),
-        lineHeight: 24 / 10, // Card dates Typography
+        lineHeight: 24 / 10,
       },
     },
     body1: {
@@ -203,7 +211,7 @@ deepmerge(
       lineHeight: 24 / 14,
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(18),
-        lineHeight: 40 / 18, // Merriweather title text 20px// Call to action sections
+        lineHeight: 40 / 18,
       },
     },
     body2: {
@@ -211,7 +219,7 @@ deepmerge(
       lineHeight: 24 / 13,
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(13),
-        lineHeight: 24 / 13, // Merriweather regular body text 14px
+        lineHeight: 24 / 13,
       },
     },
     subtitle1: {
@@ -219,7 +227,7 @@ deepmerge(
       lineHeight: 24 / 14,
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(12),
-        lineHeight: 14.4 / 12, // Open sans status in chart section/component
+        lineHeight: 14.4 / 12,
       },
     },
     subtitle2: {
@@ -227,13 +235,13 @@ deepmerge(
       lineHeight: 19 / 7,
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(10),
-        lineHeight: 24 / 10, // Open sans Status text=> Handles H7/H8 text for status button content
+        lineHeight: 24 / 10,
       },
     },
     caption: {
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(12),
-        lineHeight: 12 / 10, /// Chart percentage text
+        lineHeight: 12 / 10,
       },
     },
     button: {
@@ -241,7 +249,7 @@ deepmerge(
       lineHeight: 18 / 14,
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(14),
-        lineHeight: 18 / 14, // Source sans pro Button text
+        lineHeight: 18 / 14,
       },
     },
   },
@@ -259,24 +267,24 @@ deepmerge(
         backgroundColor: palette.primary.dark,
         border: "none",
         boxShadow: "none",
-        color: palette.background.default,
+        color: palette.text.secondary,
         borderRadius: 0,
         "&:hover": {
           border: "none",
-          boxShadow: "none", // black button
+          boxShadow: "none",
         },
       },
       containedPrimary: {
-        color: palette.background.default,
-        backgroundColor: "#005DFD",
+        color: palette.text.secondary,
+        backgroundColor: palette.highlight.main,
         border: "none",
-        boxShadow: "none", // blue button
+        boxShadow: "none",
       },
       containedSecondary: {
         color: "#005DFD",
         backgroundColor: palette.secondary.main,
         border: "none",
-        boxShadow: "none", // grey button
+        boxShadow: "none",
       },
       containedSizeSmall: {
         fontSize: typography.pxToRem(14),
