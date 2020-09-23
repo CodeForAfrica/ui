@@ -48,8 +48,16 @@ function Index(props) {
         }}
       />
 
-      <ActNow />
-      <Subscribe />
+      <ActNow
+        classes={{
+          section: classes.section,
+        }}
+      />
+      <Subscribe
+        classes={{
+          section: classes.section,
+        }}
+      />
     </Page>
   );
 }
