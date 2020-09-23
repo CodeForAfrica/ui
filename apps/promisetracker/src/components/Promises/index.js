@@ -9,9 +9,8 @@ import { useTheme } from "@material-ui/core/styles";
 import { Section } from "@commons-ui/core";
 
 import PromiseCard from "@/promisetracker/components/PromiseCard";
-import Category from "@/promisetracker/components/Promises/Category";
+import Filter from "@/promisetracker/components/Promises/Filter";
 import Sort from "@/promisetracker/components/Promises/Sort";
-import Status from "@/promisetracker/components/Promises/Status";
 import useStyles from "./useStyles";
 
 function Promises({ items, title, ...props }) {
@@ -25,14 +24,59 @@ function Promises({ items, title, ...props }) {
   return (
     <Section
       title={title}
+      titleProps={{ variant: "h1" }}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
       <Grid container justify="space-between">
         <Grid item xs={12} lg={4}>
-          <Status />
+          <Filter
+            filterItems={[
+              {
+                name: "Completed",
+              },
+
+              {
+                name: "In Progress",
+              },
+              {
+                name: "Stalled",
+              },
+              {
+                name: "Behind",
+              },
+              {
+                name: "Unrated",
+              },
+              {
+                name: "Unstarted",
+              },
+            ]}
+          />
         </Grid>
         <Grid item xs={12} lg={4}>
-          <Category />
+          <Filter
+            filterItems={[
+              {
+                name: "Immigration",
+              },
+
+              {
+                name: "Trade",
+              },
+              {
+                name: "Economy",
+              },
+              {
+                name: "Government",
+              },
+              {
+                name: "Environment",
+              },
+              {
+                name: "Energy",
+              },
+            ]}
+          />
         </Grid>
         <Grid item xs={12} lg={4}>
           <Sort />
