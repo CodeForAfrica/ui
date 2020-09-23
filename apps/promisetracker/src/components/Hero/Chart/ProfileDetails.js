@@ -8,6 +8,7 @@ import { Grid, IconButton, Typography, useMediaQuery } from "@material-ui/core";
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
 import info from "@/promisetracker/assets/hero-icon-info.svg";
 import share from "@/promisetracker/assets/hero-icon-share.svg";
+import StatusListPopover from "@/promisetracker/components/Hero/Chart/StatusListPopover";
 
 const useStyles = makeStyles(() => ({
   iconGrid: {
@@ -75,6 +76,7 @@ function ProfileDetails({ name, ...props }) {
             </Typography>
           </Grid>
           <Grid item xs={6} className={classes.iconGrid}>
+            <StatusListPopover />
             <IconButton
               disableRipple
               disableFocusRipple

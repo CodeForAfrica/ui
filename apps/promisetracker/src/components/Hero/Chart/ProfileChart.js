@@ -14,7 +14,7 @@ function ProfileChart(props) {
   return (
     <>
       {isDesktop ? (
-        <Grid container item direction="row" spacing={2}>
+        <Grid container item direction="row" spacing={4}>
           <PromiseKeptChart name="Promises Kept" />
           <UncertainChart name="Uncertain" />
           <PromiseNotKeptChart name="Promises Not Kept" />

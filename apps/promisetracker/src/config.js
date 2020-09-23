@@ -139,6 +139,62 @@ const config = {
     title: "Analysis",
     url: "/analysis",
   },
+  colors: {
+    completed: {
+      main: "#005DFD",
+      font: "#FFFFFF",
+    },
+    "in-progress": {
+      main: "#90DAFF",
+      font: "#202020",
+    },
+    stalled: {
+      main: "#FF5255",
+      font: "#FFFFFF",
+    },
+    delayed: {
+      main: "#FFB322",
+      font: "#202020",
+    },
+    unrated: {
+      main: "#EBEBEB",
+      font: "#202020",
+    },
+    unstarted: {
+      main: "#909090",
+      font: "#FFFFFF",
+    },
+  },
+  statuses: [
+    {
+      name: "completed",
+      description: "The promise is mostly or completely fulfilled.",
+    },
+    {
+      name: "in-progress",
+      description: "The promise is in the works or being considered.",
+    },
+    {
+      name: "stalled",
+      description:
+        "Could occur due to inaction by administration or lack of support from legislative branch.",
+    },
+    {
+      name: "delayed",
+      description:
+        "No progress, perhaps due to financial limitations, opposition from lawmakers or a change in priorities.",
+    },
+    {
+      name: "unrated",
+      description:
+        "Every promise begins at this level and retains this rating until evidence of progress or proof that it has been shelved.",
+    },
+    {
+      name: "unstarted",
+      description:
+        "The promise is accomplished only in part, but has succeeded at least in part consistently with the goal of the promise.",
+    },
+  ],
 };
 
 export default config;

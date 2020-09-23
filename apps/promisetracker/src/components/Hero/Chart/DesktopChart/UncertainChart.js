@@ -10,7 +10,7 @@ import SvgChart from "@/promisetracker/components/Hero/Chart/DesktopChart/SvgCha
 const useStyles = makeStyles(() => ({
   typo: {
     textAlign: "center",
-    borderBottom: "2px solid #909090",
+    borderBottom: "1px solid #909090",
   },
   caption: {
     color: "#909090",
