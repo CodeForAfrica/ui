@@ -16,6 +16,7 @@ import { RichTypography } from "@commons-ui/core";
 import Link from "@/promisetracker/components/Link";
 
 import ShareIcon from "@/promisetracker/icons/Share";
+import slugify from "@/promisetracker/utils";
 
 import useStyles from "./useStyles";
 
@@ -31,7 +32,11 @@ function PostCard({
   const classes = useStyles({ classes: classesProp });
 
   return (
-    <Link href="/articles/slug" as="articles/slug" className={classes.link}>
+    <Link
+      href={`/articles/${slugify(title)}`}
+      as={`articles/${slugify(title)}`}
+      className={classes.link}
+    >
       <Card square variant="outlined" className={classes.root}>
         <CardActionArea className={classes.contentRoot} {...props}>
           <CardContent classes={{ root: classes.content }}>
