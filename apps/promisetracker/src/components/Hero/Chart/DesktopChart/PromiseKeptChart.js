@@ -1,9 +1,13 @@
 import React from "react";
 
-import { Grid, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 
-const useStyles = makeStyles(({ typography }) => ({
+import { Grid, Typography } from "@material-ui/core";
+
+import { makeStyles } from "@material-ui/core/styles";
+import SvgChart from "@/promisetracker/components/Hero/Chart/DesktopChart/SvgChart";
+
+const useStyles = makeStyles(() => ({
   typo: {
     textAlign: "center",
     borderBottom: "2px solid #145BD5",
@@ -16,81 +20,55 @@ const useStyles = makeStyles(({ typography }) => ({
     flexDirection: "row",
     padding: "2rem 0rem",
   },
-  h6: {
-    fontFamily: typography.h1.fontFamily,
-    fontSize: typography.pxToRem(24),
-  },
-  h4: {
-    fontSize: typography.pxToRem(12),
-    textTransform: "Capitalize",
-    fontWeight: "normal",
-  },
-  percentage: {
-    fontSize: typography.pxToRem(12),
-    fontWeight: "normal",
-    color: "#909090",
-  },
 }));
 
-function CircleChart() {
-  const classes = useStyles();
+function PromiseKeptChart({ name, ...props }) {
+  const classes = useStyles(props);
   return (
     <Grid item xs={4}>
       <div className={classes.typo}>
         <Typography variant="caption" className={classes.caption}>
-          Promises kept
+          {name}
         </Typography>
       </div>
       <div className={classes.circleContainer}>
-        <div>
-          <svg width={100} height={100}>
-            <circle
-              cx={50}
-              cy={50}
-              r={50}
-              fill="#145BD5"
-              stroke="#1D1D1B"
-              strokeWidth="1"
-            />
-          </svg>
-          <div style={{ textAlign: "center", paddingTop: "0.5rem" }}>
-            <Typography variant="h6" className={classes.h6}>
-              130
-            </Typography>
-            <Typography variant="h4" className={classes.h4}>
-              Completed
-            </Typography>
-            <Typography variant="h6" className={classes.percentage}>
-              25%
-            </Typography>
-          </div>
-        </div>
-        <div>
-          <svg width={100} height={100}>
-            <circle
-              cx={50}
-              cy={50}
-              r={25}
-              fill="#84C6E7"
-              stroke="#1D1D1B"
-              strokeWidth="1"
-            />
-          </svg>
-          <div style={{ textAlign: "center", paddingTop: "0.5rem" }}>
-            <Typography variant="h6" className={classes.h6}>
-              70
-            </Typography>
-            <Typography variant="h4" className={classes.h4}>
-              In progress
-            </Typography>
-            <Typography variant="h6" className={classes.percentage}>
-              30%
-            </Typography>
-          </div>
-        </div>
+        <SvgChart
+          width="100"
+          height="100"
+          cx="50"
+          cy="50"
+          radius="50"
+          fill="#145BD5"
+          stroke="#1D1D1B"
+          strokeWidth="1"
+          statusNumber="130"
+          status="Completed"
+          statusPercentage="25%"
+        />
+        <SvgChart
+          width="100"
+          height="100"
+          cx="50"
+          cy="50"
+          radius="25"
+          fill="#84C6E7"
+          stroke="#1D1D1B"
+          strokeWidth="1"
+          statusNumber="70"
+          status="In Progress"
+          statusPercentage="15%"
+        />
       </div>
     </Grid>
   );
 }
 
-export default CircleChart;
+PromiseKeptChart.propTypes = {
+  name: PropTypes.number,
+};
+
+PromiseKeptChart.defaultProps = {
+  name: undefined,
+};
+
+export default PromiseKeptChart;

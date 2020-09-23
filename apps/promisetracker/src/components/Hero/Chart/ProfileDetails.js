@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Grid, IconButton, Typography, useMediaQuery } from "@material-ui/core";
-import StatusPopperButton from "@/promisetracker/components/Hero/Chart/DesktopChart/StatusPopperButton";
 
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
 import share from "@/promisetracker/assets/hero-icon-share.svg";
@@ -46,7 +45,6 @@ function ProfileDetails({ name, ...props }) {
             >
               <img src={viz2} alt="Info" />
             </IconButton>
-            <StatusPopperButton />
             <IconButton
               disableRipple
               disableFocusRipple
@@ -67,7 +65,6 @@ function ProfileDetails({ name, ...props }) {
             </Typography>
           </Grid>
           <Grid item xs={6} className={classes.iconGrid}>
-            <StatusPopperButton />
             <IconButton
               disableRipple
               disableFocusRipple

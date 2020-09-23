@@ -1,8 +1,13 @@
 import React from "react";
+
+import PropTypes from "prop-types";
+
 import { Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(({ typography }) => ({
+import SvgChart from "@/promisetracker/components/Hero/Chart/DesktopChart/SvgChart";
+
+const useStyles = makeStyles(() => ({
   typo: {
     textAlign: "center",
     borderBottom: "2px solid #909090",
@@ -15,81 +20,55 @@ const useStyles = makeStyles(({ typography }) => ({
     flexDirection: "row",
     padding: "2rem 0rem",
   },
-  h6: {
-    fontFamily: typography.h1.fontFamily,
-    fontSize: typography.pxToRem(24),
-  },
-  h4: {
-    fontSize: typography.pxToRem(12),
-    textTransform: "Capitalize",
-    fontWeight: "normal",
-  },
-  percentage: {
-    fontSize: typography.pxToRem(12),
-    fontWeight: "normal",
-    color: "#909090",
-  },
 }));
 
-function UncertainChart() {
-  const classes = useStyles();
+function UncertainChart({ name, ...props }) {
+  const classes = useStyles(props);
   return (
     <Grid item xs={4}>
       <div className={classes.typo}>
         <Typography variant="caption" className={classes.caption}>
-          Uncertain
+          {name}
         </Typography>
       </div>
       <div className={classes.circleContainer}>
-        <div>
-          <svg width={100} height={100}>
-            <circle
-              cx={45}
-              cy={45}
-              r={30}
-              fill="#909090"
-              stroke="#1D1D1B"
-              strokeWidth="1"
-            />
-          </svg>
-          <div style={{ textAlign: "center", paddingTop: "0.3rem" }}>
-            <Typography variant="h6" className={classes.h6}>
-              35
-            </Typography>
-            <Typography variant="h6" className={classes.h4}>
-              Inconclusive
-            </Typography>
-            <Typography variant="caption" className={classes.percentage}>
-              60%
-            </Typography>
-          </div>
-        </div>
-        <div>
-          <svg width={100} height={100}>
-            <circle
-              cx={45}
-              cy={45}
-              r={20}
-              fill="#EBEBEB"
-              stroke="#1D1D1B"
-              strokeWidth="1"
-            />
-          </svg>
-          <div style={{ textAlign: "center", paddingTop: "0.5rem" }}>
-            <Typography variant="h6" className={classes.h6}>
-              50
-            </Typography>
-            <Typography variant="h4" className={classes.h4}>
-              unstarted
-            </Typography>
-            <Typography variant="caption" className={classes.percentage}>
-              25%
-            </Typography>
-          </div>
-        </div>
+        <SvgChart
+          width="100"
+          height="100"
+          cx="45"
+          cy="45"
+          radius="30"
+          fill="#909090"
+          stroke="#1D1D1B"
+          strokeWidth="1"
+          statusNumber="35"
+          status="Inconclusive"
+          statusPercentage="60%"
+        />
+        <SvgChart
+          width="100"
+          height="100"
+          cx="45"
+          cy="45"
+          radius="20"
+          fill="#EBEBEB"
+          stroke="#1D1D1B"
+          strokeWidth="1"
+          statusNumber="50"
+          status="Unstarted"
+          statusPercentage="25%"
+        />
       </div>
     </Grid>
   );
 }
+
+UncertainChart.propTypes = {
+  name: PropTypes.number,
+};
+
+UncertainChart.defaultProps = {
+  name: undefined,
+};
 
 export default UncertainChart;

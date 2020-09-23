@@ -14,16 +14,10 @@ function ProfileChart(props) {
   return (
     <>
       {isDesktop ? (
-        <Grid
-          container
-          item
-          direction="row"
-          spacing={2}
-          style={{ padding: "2rem 0rem", position: "relative" }}
-        >
-          <PromiseKeptChart />
-          <UncertainChart />
-          <PromiseNotKeptChart />
+        <Grid container item direction="row" spacing={2}>
+          <PromiseKeptChart name="Promises Kept" />
+          <UncertainChart name="Uncertain" />
+          <PromiseNotKeptChart name="Promises Not Kept" />
         </Grid>
       ) : (
         <MobileChart />
