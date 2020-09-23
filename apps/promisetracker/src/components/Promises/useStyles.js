@@ -1,6 +1,14 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
+  filterGridContainer: {
+    marginTop: "1.5rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "90%",
+    marginBottom: "1rem",
+  },
   section: {},
   sectionTitle: {
     marginBottom: typography.pxToRem(32),

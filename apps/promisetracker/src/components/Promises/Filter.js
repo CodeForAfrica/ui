@@ -3,15 +3,15 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Button } from "@material-ui/core";
 
-const useStyles = makeStyles(({ palette }) => ({
+const useStyles = makeStyles(({ typography, palette }) => ({
   label: {
     color: palette.secondary.dark,
   },
   button: {
     border: `.122rem solid ${palette.primary.dark}`,
     marginRight: ".5rem",
-    marginBottom: ".4rem",
-    padding: ".5rem",
+    marginBottom: ".5rem",
+    padding: ".5rem .4rem",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -21,12 +21,13 @@ const useStyles = makeStyles(({ palette }) => ({
     display: "flex",
     flexWrap: "wrap",
     marginTop: "1rem",
+    maxWidth: typography.pxToRem(273),
   },
 }));
 function Filter({ label, filterItems, ...props }) {
   const classes = useStyles(props);
   return (
-    <>
+    <div>
       <Typography className={classes.label} variant="h6">
         {label}
       </Typography>
@@ -37,11 +38,11 @@ function Filter({ label, filterItems, ...props }) {
             variant={idx === 0 ? "contained" : "outlined"}
             className={classes.button}
           >
-            {filterItem.name}
+            <Typography variant="h6">{filterItem.name}</Typography>
           </Button>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

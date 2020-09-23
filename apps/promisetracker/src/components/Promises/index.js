@@ -27,61 +27,57 @@ function Promises({ items, title, ...props }) {
       titleProps={{ variant: "h1" }}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
-      <Grid container justify="space-between">
-        <Grid item xs={12} lg={4}>
-          <Filter
-            filterItems={[
-              {
-                name: "Completed",
-              },
+      <div className={classes.filterGridContainer}>
+        <Filter
+          label="Promises by status"
+          filterItems={[
+            {
+              name: "Completed",
+            },
 
-              {
-                name: "In Progress",
-              },
-              {
-                name: "Stalled",
-              },
-              {
-                name: "Behind",
-              },
-              {
-                name: "Unrated",
-              },
-              {
-                name: "Unstarted",
-              },
-            ]}
-          />
-        </Grid>
-        <Grid item xs={12} lg={4}>
-          <Filter
-            filterItems={[
-              {
-                name: "Immigration",
-              },
+            {
+              name: "In Progress",
+            },
+            {
+              name: "Stalled",
+            },
+            {
+              name: "Behind",
+            },
+            {
+              name: "Unrated",
+            },
+            {
+              name: "Unstarted",
+            },
+          ]}
+        />
+        <Filter
+          label="Promises by category"
+          filterItems={[
+            {
+              name: "Immigration",
+            },
 
-              {
-                name: "Trade",
-              },
-              {
-                name: "Economy",
-              },
-              {
-                name: "Government",
-              },
-              {
-                name: "Environment",
-              },
-              {
-                name: "Energy",
-              },
-            ]}
-          />
-        </Grid>
-        <Grid item xs={12} lg={4}>
-          <Sort />
-        </Grid>
-      </Grid>
+            {
+              name: "Trade",
+            },
+            {
+              name: "Economy",
+            },
+            {
+              name: "Government",
+            },
+            {
+              name: "Environment",
+            },
+            {
+              name: "Energy",
+            },
+          ]}
+        />
+        <Sort />
+      </div>
       <Grid container justify="space-between">
         {items.map((promise, i) => (
           <Grid
