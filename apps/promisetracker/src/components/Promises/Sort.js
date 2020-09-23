@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
+import { Typography, Button } from "@material-ui/core";
 
 const useStyles = makeStyles(({ palette }) => ({
   label: {
@@ -16,6 +16,8 @@ const useStyles = makeStyles(({ palette }) => ({
   sort: {
     marginRight: ".5rem",
     marginBottom: ".4rem",
+    paddingLeft: "0rem",
+    paddingRight: "0rem",
     borderBottom: `.12rem solid ${palette.primary.dark}`,
     display: "flex",
     alignItems: "start",
@@ -31,9 +33,9 @@ function Sort({ categories, ...props }) {
       </Typography>
       <div className={classes.root}>
         {categories.map((sort) => (
-          <Typography key={sort.name} variant="h6" className={classes.sort}>
+          <Button key={sort.name} variant="text" className={classes.sort}>
             {sort.name}
-          </Typography>
+          </Button>
         ))}
       </div>
     </>
