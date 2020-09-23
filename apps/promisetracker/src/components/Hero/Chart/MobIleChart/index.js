@@ -31,7 +31,7 @@ function MobileChart(props) {
         <Grid
           container
           item
-          xs={9}
+          xs={8}
           direction="column"
           justify="flex-start"
           alignItems="flex-start"
