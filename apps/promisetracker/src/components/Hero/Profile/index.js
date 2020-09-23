@@ -2,8 +2,8 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Grid, Typography, useMediaQuery } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Typography } from "@material-ui/core";
 
 import profilePic from "@/promisetracker/assets/hero-sonko.png";
 
@@ -33,29 +33,20 @@ const useStyles = makeStyles(({ breakpoints, palette, widths }) => ({
 
 function Profile({ subtitle, name, date, ...props }) {
   const classes = useStyles(props);
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   return (
-    <div>
-      {!isDesktop ? (
-        <Typography variant="h1" className={classes.typography}>
-          {name}
-        </Typography>
-      ) : null}
-      <Grid container direction="row" alignItems="center" item xs={12} md={4}>
-        <Grid item xs={6} md={12}>
-          <img src={profilePic} alt="Profile" className={classes.img} />
-        </Grid>
-        <Grid item xs={6} md={12}>
-          <Typography variant="h5" className={classes.subtitle}>
-            {subtitle}
-          </Typography>
-          <Typography variant="h6" className={classes.caption}>
-            {date}
-          </Typography>
-        </Grid>
+    <Grid container direction="row" alignItems="center" item xs={12} md={4}>
+      <Grid item xs={6} md={12}>
+        <img src={profilePic} alt="Profile" className={classes.img} />
       </Grid>
-    </div>
+      <Grid item xs={6} md={12}>
+        <Typography variant="h5" className={classes.subtitle}>
+          {subtitle}
+        </Typography>
+        <Typography variant="h6" className={classes.caption}>
+          {date}
+        </Typography>
+      </Grid>
+    </Grid>
   );
 }
 
