@@ -41,9 +41,9 @@ function PromiseNotKeptChart({ name, ...props }) {
           fill="#FFB322"
           stroke="#1D1D1B"
           strokeWidth="1"
-          statusNumber="30"
+          statusNumber="60"
           status="Delayed"
-          statusPercentage="15%"
+          statusPercentage="12%"
         />
         <SvgChart
           width="100"
@@ -54,9 +54,9 @@ function PromiseNotKeptChart({ name, ...props }) {
           fill="#FF5154"
           stroke="#1D1D1B"
           strokeWidth="1"
-          statusNumber="40"
+          statusNumber="110"
           status="Stalled"
-          statusPercentage="40%"
+          statusPercentage="22%"
         />
       </div>
     </Grid>

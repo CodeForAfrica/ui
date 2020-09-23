@@ -35,15 +35,15 @@ function UncertainChart({ name, ...props }) {
         <SvgChart
           width="100"
           height="100"
-          cx="45"
-          cy="45"
-          radius="25"
+          cx="50"
+          cy="50"
+          radius="30"
           fill="#909090"
           stroke="#1D1D1B"
           strokeWidth="1"
-          statusNumber="35"
+          statusNumber="70"
           status="Inconclusive"
-          statusPercentage="60%"
+          statusPercentage="14%"
         />
         <SvgChart
           width="100"
@@ -56,7 +56,7 @@ function UncertainChart({ name, ...props }) {
           strokeWidth="1"
           statusNumber="50"
           status="Unstarted"
-          statusPercentage="25%"
+          statusPercentage="10%"
         />
       </div>
     </Grid>

@@ -50,13 +50,13 @@ function PromiseKeptChart({ name, ...props }) {
           height="100"
           cx="50"
           cy="50"
-          radius="20"
+          radius="30"
           fill="#84C6E7"
           stroke="#1D1D1B"
           strokeWidth="1"
-          statusNumber="70"
+          statusNumber="90"
           status="In Progress"
-          statusPercentage="15%"
+          statusPercentage="18%"
         />
       </div>
     </Grid>
