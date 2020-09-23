@@ -26,6 +26,7 @@ function Hero(props) {
         className={classes.hero}
       >
         <Profile
+          name="Mike “Sonko” Mbuvi"
           subtitle="Campaign promises made by Mike Mbuvi"
           date="Updated June 16, 2020"
         />
