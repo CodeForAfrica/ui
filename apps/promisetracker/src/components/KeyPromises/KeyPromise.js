@@ -58,6 +58,7 @@ function KeyPromise({ actionLabel, description, image, title, ...props }) {
         </Grid>
         {actionLabel && (
           <CtAButton
+            color="primary"
             classes={{
               root: classes.keyPromiseCta,
               button: classes.keyPromiseCtaButton,
