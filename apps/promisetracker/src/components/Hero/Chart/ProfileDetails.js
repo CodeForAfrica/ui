@@ -6,6 +6,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Grid, IconButton, Typography, useMediaQuery } from "@material-ui/core";
 
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
+import info from "@/promisetracker/assets/hero-icon-info.svg";
 import share from "@/promisetracker/assets/hero-icon-share.svg";
 
 const useStyles = makeStyles(() => ({
@@ -43,7 +44,16 @@ function ProfileDetails({ name, ...props }) {
               size="small"
               className={classes.iconButton}
             >
-              <img src={viz2} alt="Info" />
+              <img src={viz2} alt="Viz2" />
+            </IconButton>
+            <IconButton
+              disableRipple
+              disableFocusRipple
+              aria-label="Info"
+              size="small"
+              className={classes.iconButton}
+            >
+              <img src={info} alt="Info" />
             </IconButton>
             <IconButton
               disableRipple
