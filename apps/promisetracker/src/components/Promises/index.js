@@ -29,10 +29,10 @@ function Promises({ items, title, ...props }) {
     >
       <Grid container justify="space-between">
         <Grid item xs={12} lg={4}>
-          <Category />
+          <Status />
         </Grid>
         <Grid item xs={12} lg={4}>
-          <Status />
+          <Category />
         </Grid>
         <Grid item xs={12} lg={4}>
           <Sort />
