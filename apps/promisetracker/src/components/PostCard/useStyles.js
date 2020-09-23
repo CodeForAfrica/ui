@@ -38,13 +38,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       marginTop: typography.pxToRem(30 - 7),
     },
   },
-  link: {
-    color: "unset",
-    "&:hover": {
-      textDecoration: "none",
-      color: "unset",
-    },
-  },
+
   media: {
     display: "block",
     marginTop: typography.pxToRem(19 - 16),

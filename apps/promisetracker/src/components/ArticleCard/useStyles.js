@@ -17,6 +17,13 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       marginTop: typography.pxToRem(32 - 7),
     },
   },
+  link: {
+    color: "unset",
+    "&:hover": {
+      textDecoration: "none",
+      color: "unset",
+    },
+  },
   media: {},
   share: {},
   title: {},
