@@ -1,15 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(({ breakpoints, typography }) => ({
+const useStyles = makeStyles(({ typography }) => ({
   section: {
     marginBottom: "4rem",
   },
-
   grid: {
-    marginBottom: typography.pxToRem(64),
-    [breakpoints.up("lg")]: {
-      marginBottom: typography.pxToRem(32),
-    },
+    marginBottom: typography.pxToRem(20),
   },
   root: {
     width: "calc(((100vw - 100%) / 2) + 100%)",
