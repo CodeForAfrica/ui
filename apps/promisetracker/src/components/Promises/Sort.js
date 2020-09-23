@@ -7,7 +7,8 @@ const useStyles = makeStyles(({ palette }) => ({
   label: {
     color: palette.secondary.dark,
   },
-  root: {
+  root: {},
+  sortItems: {
     alignItems: "start",
     display: "flex",
     flexDirection: "column",
@@ -27,18 +28,18 @@ const useStyles = makeStyles(({ palette }) => ({
 function Sort({ categories, ...props }) {
   const classes = useStyles(props);
   return (
-    <>
+    <div className={classes.root}>
       <Typography className={classes.label} variant="h6">
         Sort By
       </Typography>
-      <div className={classes.root}>
+      <div className={classes.sortItems}>
         {categories.map((sort) => (
           <Button key={sort.name} variant="text" className={classes.sort}>
             {sort.name}
           </Button>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
