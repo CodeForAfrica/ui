@@ -3,6 +3,8 @@
   "parser": "babel-eslint",
   "extends": [
     "plugin:json/recommended",
+    "plugin:import/warnings",
+    "plugin:import/errors",
     "airbnb",
     "plugin:prettier/recommended",
     "prettier/react"
