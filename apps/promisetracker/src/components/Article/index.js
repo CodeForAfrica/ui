@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Grid, Typography, Hidden } from "@material-ui/core";
-
 import { A, RichTypography } from "@commons-ui/core";
 
+import Link from "@/promisetracker/components/Link";
 import Section from "@commons-ui/core/Section";
 
 import facebook from "@/promisetracker/assets/share-facebook.svg";
@@ -12,23 +12,37 @@ import instagram from "@/promisetracker/assets/share-instagram.svg";
 import twitter from "@/promisetracker/assets/share-twitter.svg";
 import Share from "./Share";
 import PublicationInfo from "./PublicationInfo";
+
 import useStyles from "./useStyles";
 
-function Article({ socialMedia, article, classes: classesProp }) {
+function Article({
+  article,
+  articleLabel,
+  breadcrumb,
+  socialMedia,
+  classes: classesProp,
+  shareLabel,
+}) {
   const classes = useStyles({ image: article.image, classes: classesProp });
   return (
     <Section classes={{ root: classes.section }}>
       <Hidden lgUp>
-        <Typography className={classes.label} variant="h4">
-          Promises
-        </Typography>
+        <Link
+          href="/analysis/articles"
+          as="/analysis/articles"
+          className={classes.link}
+        >
+          <Typography className={classes.label} variant="h4">
+            {breadcrumb}
+          </Typography>
+        </Link>
       </Hidden>
 
       <div className={classes.featuredImageContainer} />
       <Grid container>
         <Grid item md={7}>
           <Typography className={classes.label} variant="h4">
-            Article
+            {articleLabel}
           </Typography>
 
           <RichTypography className={classes.title} variant="h1">
@@ -61,7 +75,7 @@ function Article({ socialMedia, article, classes: classesProp }) {
 
         <Grid item md={3}>
           <Typography className={classes.label} variant="h5">
-            Share:
+            {shareLabel}
           </Typography>
           <Share />
         </Grid>
@@ -71,6 +85,14 @@ function Article({ socialMedia, article, classes: classesProp }) {
 }
 
 Article.propTypes = {
+  article: PropTypes.shape({
+    body: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
+  articleLabel: PropTypes.string,
+  breadcrumb: PropTypes.string,
   classes: PropTypes.shape({
     articleBody: PropTypes.string,
     articleFooter: PropTypes.string,
@@ -78,6 +100,7 @@ Article.propTypes = {
     description: PropTypes.string,
     descriptionContainer: PropTypes.string,
     featuredImageContainer: PropTypes.string,
+    link: PropTypes.string,
     root: PropTypes.string,
     socialMedia: PropTypes.string,
     socialMediaContainer: PropTypes.string,
@@ -85,17 +108,15 @@ Article.propTypes = {
     label: PropTypes.string,
     title: PropTypes.string,
   }),
-  article: PropTypes.shape({
-    body: PropTypes.string,
-    description: PropTypes.string,
-    image: PropTypes.string,
-    title: PropTypes.string,
-  }).isRequired,
+  shareLabel: PropTypes.string,
   socialMedia: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 Article.defaultProps = {
+  articleLabel: "Article",
+  breadcrumb: "Articles",
   classes: undefined,
+  shareLabel: "Share:",
   socialMedia: [
     {
       url: "https://github.com/codeforafrica",
