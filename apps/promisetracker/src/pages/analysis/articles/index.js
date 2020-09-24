@@ -41,7 +41,7 @@ function Index(props) {
   const classes = useStyles(props);
 
   return (
-    <Page>
+    <Page title="Articles" classes={{ section: classes.section }}>
       <Articles
         items={Array(20).fill({
           date: "2019-08-10",
@@ -59,8 +59,16 @@ function Index(props) {
         }}
       />
 
-      <ActNow />
-      <Subscribe />
+      <ActNow
+        classes={{
+          section: classes.section,
+        }}
+      />
+      <Subscribe
+        classes={{
+          section: classes.section,
+        }}
+      />
     </Page>
   );
 }
