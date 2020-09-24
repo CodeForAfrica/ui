@@ -12,8 +12,8 @@ function ArticleCard({ classes: classesProp, title, ...props }) {
 
   return (
     <Link
-      href={`/analysis/articles/${slugify(title)}`}
       as={`/analysis/articles/${slugify(title)}`}
+      href="/analysis/articles/[slug]"
       className={classes.link}
     >
       <PostCard
