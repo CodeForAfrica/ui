@@ -3,11 +3,16 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Button } from "@material-ui/core";
 
-const useStyles = makeStyles(({ palette }) => ({
+const useStyles = makeStyles(({ breakpoints, palette }) => ({
   label: {
     color: palette.secondary.dark,
   },
-  root: {},
+  root: {
+    marginTop: "1rem",
+    [breakpoints.up("lg")]: {
+      marginTop: 0,
+    },
+  },
   sortItems: {
     alignItems: "start",
     display: "flex",

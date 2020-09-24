@@ -11,7 +11,7 @@ const useStyles = makeStyles(({ typography, palette }) => ({
     border: `.122rem solid ${palette.primary.dark}`,
     marginRight: ".5rem",
     marginBottom: ".5rem",
-    padding: ".5rem .4rem",
+    padding: ".3rem .5rem",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -21,7 +21,7 @@ const useStyles = makeStyles(({ typography, palette }) => ({
     display: "flex",
     flexWrap: "wrap",
     marginTop: "1rem",
-    maxWidth: typography.pxToRem(273),
+    maxWidth: typography.pxToRem(300),
   },
 }));
 function Filter({ label, filterItems, ...props }) {
