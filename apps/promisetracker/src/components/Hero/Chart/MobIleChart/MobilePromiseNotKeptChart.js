@@ -67,11 +67,6 @@ function MobilePromiseNotKeptChart({ name, ...props }) {
 }
 
 MobilePromiseNotKeptChart.propTypes = {
-  name: PropTypes.number,
+  name: PropTypes.number.isRequired,
 };
-
-MobilePromiseNotKeptChart.defaultProps = {
-  name: undefined,
-};
-
 export default MobilePromiseNotKeptChart;

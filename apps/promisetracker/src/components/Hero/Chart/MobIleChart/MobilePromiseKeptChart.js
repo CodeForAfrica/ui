@@ -67,11 +67,7 @@ function MobilePromiseKeptChart({ name, ...props }) {
 }
 
 MobilePromiseKeptChart.propTypes = {
-  name: PropTypes.number,
-};
-
-MobilePromiseKeptChart.defaultProps = {
-  name: undefined,
+  name: PropTypes.number.isRequired,
 };
 
 export default MobilePromiseKeptChart;

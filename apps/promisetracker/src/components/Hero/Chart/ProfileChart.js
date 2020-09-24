@@ -8,6 +8,10 @@ import UncertainChart from "@/promisetracker/components/Hero/Chart/DesktopChart/
 import PromiseNotKeptChart from "@/promisetracker/components/Hero/Chart/DesktopChart/PromiseNotKeptChart";
 import MobileChart from "@/promisetracker/components/Hero/Chart/MobileChart";
 
+import MobilePromiseKeptChart from "@/promisetracker/components/Hero/Chart/MobileChart/MobilePromiseKeptChart";
+import MobilePromiseNotKeptChart from "@/promisetracker/components/Hero/Chart/MobileChart/MobilePromiseNotKeptChart";
+import MobileUncertainChart from "@/promisetracker/components/Hero/Chart/MobileChart/MobileUncertainChart";
+
 function ProfileChart(props) {
   const theme = useTheme(props);
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -20,7 +24,11 @@ function ProfileChart(props) {
           <PromiseNotKeptChart name="Promises Not Kept" />
         </Grid>
       ) : (
-        <MobileChart />
+        <MobileChart>
+          <MobilePromiseKeptChart name="Promise Kept" />
+          <MobileUncertainChart name="Uncertain" />
+          <MobilePromiseNotKeptChart name="Promise Not Kept" />
+        </MobileChart>
       )}
     </>
   );

@@ -67,11 +67,7 @@ function MobileUncertainChart({ name, ...props }) {
 }
 
 MobileUncertainChart.propTypes = {
-  name: PropTypes.number,
-};
-
-MobileUncertainChart.defaultProps = {
-  name: undefined,
+  name: PropTypes.number.isRequired,
 };
 
 export default MobileUncertainChart;

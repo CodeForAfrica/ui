@@ -11,6 +11,7 @@ import Chart from "@/promisetracker/components/Hero/Chart";
 
 const useStyles = makeStyles(({ typography }) => ({
   root: {},
+  section: {},
   hero: {
     paddingTop: typography.pxToRem(24),
   },
