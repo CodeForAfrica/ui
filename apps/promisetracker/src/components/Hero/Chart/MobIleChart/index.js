@@ -37,36 +37,52 @@ function MobileChart(props) {
           alignItems="flex-start"
           style={{ borderLeft: "1px solid red" }}
         >
-          <Grid item>
-            <svg width={25} height={25}>
-              <circle
-                cx={12.5}
-                cy={12.5}
-                r={10}
-                fill="blue"
-                stroke="black"
-                strokeWidth="1"
-              />
-            </svg>
-            <Typography variant="caption">130</Typography>
-            <Typography variant="caption">25%</Typography>
-            <Typography variant="caption">completed</Typography>
+          <Grid container direction="row" item style={{ paddingLeft: "1rem" }}>
+            <Grid item xs={3}>
+              <svg width={25} height={25}>
+                <circle
+                  cx={12.5}
+                  cy={12.5}
+                  r={10}
+                  fill="blue"
+                  stroke="black"
+                  strokeWidth="1"
+                />
+              </svg>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography variant="caption">130</Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography variant="caption">25%</Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography variant="caption">completed</Typography>
+            </Grid>
           </Grid>
 
-          <Grid item>
-            <svg width={25} height={25}>
-              <circle
-                cx={12.5}
-                cy={12.5}
-                r={10}
-                fill="blue"
-                stroke="black"
-                strokeWidth="1"
-              />
-            </svg>
-            <Typography variant="caption">130</Typography>
-            <Typography variant="caption">25%</Typography>
-            <Typography variant="caption">completed</Typography>
+          <Grid container direction="row" item style={{ paddingLeft: "1rem" }}>
+            <Grid item xs={3}>
+              <svg width={25} height={25}>
+                <circle
+                  cx={12.5}
+                  cy={12.5}
+                  r={10}
+                  fill="blue"
+                  stroke="black"
+                  strokeWidth="1"
+                />
+              </svg>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography variant="caption">130</Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography variant="caption">25%</Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography variant="caption">completed</Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
