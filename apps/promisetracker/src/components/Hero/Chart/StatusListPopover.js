@@ -24,7 +24,10 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     borderBottom: `1px solid ${palette.secondary.main}`,
     padding: "0.5rem 0rem",
   },
-  button: {},
+  button: {
+    borderRadius: typography.pxToRem(10),
+    fontSize: typography.pxToRem(7),
+  },
   iconButton: {
     background: palette.secondary.light,
     padding: "1.5rem",
@@ -93,6 +96,12 @@ function StatusListPopover(props) {
       </IconButton>
 
       <Dialog
+        PaperProps={{
+          style: {
+            borderRadius: 0,
+            boxShadow: "0px 3px 6px #00000029",
+          },
+        }}
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
