@@ -12,6 +12,7 @@ const useStyles = makeStyles(() => ({
   status: {
     fontWeight: "normal",
     textTransform: "capitalize",
+    paddingTop: "0.2rem",
   },
 }));
 
@@ -26,7 +27,14 @@ function MobileSvgChart({
 }) {
   const classes = useStyles(props);
   return (
-    <Grid container direction="row" item className={classes.root}>
+    <Grid
+      container
+      direction="row"
+      item
+      jusify="space-between"
+      alignItems="flex-start"
+      className={classes.root}
+    >
       <Grid item xs={3}>
         <svg width={25} height={25}>
           <circle

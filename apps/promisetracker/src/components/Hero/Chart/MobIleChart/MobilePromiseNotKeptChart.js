@@ -16,7 +16,8 @@ const useStyles = makeStyles(() => ({
     paddingLeft: "1rem",
   },
   border: {
-    borderLeft: "1px solid #FF5255",
+    borderRight: "1px solid #FF5255",
+    height: "57px",
   },
 }));
 
@@ -26,11 +27,12 @@ function MobilePromiseNotKeptChart({ name, ...props }) {
     <Grid
       container
       item
+      xs={12}
       direction="row"
       justify="flex-start"
       alignItems="flex-start"
     >
-      <Grid item xs={4}>
+      <Grid item xs={3} className={classes.border}>
         <Typography variant="body2" className={classes.typo}>
           {name}
         </Typography>
@@ -38,11 +40,10 @@ function MobilePromiseNotKeptChart({ name, ...props }) {
       <Grid
         container
         item
-        xs={8}
+        xs={9}
         direction="column"
         justify="flex-start"
         alignItems="flex-start"
-        className={classes.border}
       >
         <MobileSvgChart
           fill="#FFB322"
