@@ -40,8 +40,8 @@ function UncertainChart({ name, ...props }) {
           radius="30"
           fill="#909090"
           stroke="#1D1D1B"
-          strokeWidth="1"
-          statusNumber="70"
+          strokeWidth={1}
+          statusNumber={70}
           status="Inconclusive"
           statusPercentage="14%"
         />
@@ -53,8 +53,8 @@ function UncertainChart({ name, ...props }) {
           radius="15"
           fill="#EBEBEB"
           stroke="#1D1D1B"
-          strokeWidth="1"
-          statusNumber="50"
+          strokeWidth={1}
+          statusNumber={50}
           status="Unstarted"
           statusPercentage="10%"
         />

@@ -77,7 +77,7 @@ SvgChart.propTypes = {
   height: PropTypes.number,
   fill: PropTypes.string,
   stroke: PropTypes.string,
-  strokeWidth: PropTypes.string,
+  strokeWidth: PropTypes.number,
   statusNumber: PropTypes.number,
   status: PropTypes.string,
   statusPercentage: PropTypes.string,

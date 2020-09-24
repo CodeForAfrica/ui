@@ -40,8 +40,8 @@ function PromiseKeptChart({ name, ...props }) {
           radius="45"
           fill="#145BD5"
           stroke="#1D1D1B"
-          strokeWidth="1"
-          statusNumber="130"
+          strokeWidth={1}
+          statusNumber={130}
           status="Completed"
           statusPercentage="25%"
         />
@@ -53,8 +53,8 @@ function PromiseKeptChart({ name, ...props }) {
           radius="30"
           fill="#84C6E7"
           stroke="#1D1D1B"
-          strokeWidth="1"
-          statusNumber="90"
+          strokeWidth={1}
+          statusNumber={90}
           status="In Progress"
           statusPercentage="18%"
         />

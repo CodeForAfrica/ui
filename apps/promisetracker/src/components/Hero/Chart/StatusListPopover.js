@@ -112,6 +112,7 @@ function StatusListPopover(props) {
         <DialogContent>
           {statuses.map((status) => (
             <Grid
+              key={status.name}
               container
               direction="row"
               justify="space-bewtween"

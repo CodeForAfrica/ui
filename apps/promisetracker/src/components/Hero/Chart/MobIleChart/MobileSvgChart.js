@@ -68,7 +68,7 @@ function MobileSvgChart({
 MobileSvgChart.propTypes = {
   fill: PropTypes.string,
   stroke: PropTypes.string,
-  strokeWidth: PropTypes.string,
+  strokeWidth: PropTypes.number,
   statusNumber: PropTypes.number,
   status: PropTypes.string,
   statusPercentage: PropTypes.string,

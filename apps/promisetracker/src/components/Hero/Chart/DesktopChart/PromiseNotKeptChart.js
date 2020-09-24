@@ -40,8 +40,8 @@ function PromiseNotKeptChart({ name, ...props }) {
           radius="20"
           fill="#FFB322"
           stroke="#1D1D1B"
-          strokeWidth="1"
-          statusNumber="60"
+          strokeWidth={1}
+          statusNumber={60}
           status="Delayed"
           statusPercentage="12%"
         />
@@ -53,8 +53,8 @@ function PromiseNotKeptChart({ name, ...props }) {
           radius="45"
           fill="#FF5154"
           stroke="#1D1D1B"
-          strokeWidth="1"
-          statusNumber="110"
+          strokeWidth={1}
+          statusNumber={110}
           status="Stalled"
           statusPercentage="22%"
         />

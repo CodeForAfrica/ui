@@ -48,16 +48,16 @@ function MobileUncertainChart({ name, ...props }) {
         <MobileSvgChart
           fill="#909090"
           stroke="1D1D1B"
-          strokeWidth="1"
-          statusNumber="130"
+          strokeWidth={1}
+          statusNumber={70}
           statusPercentage="(25%)"
           status="Inconclusive"
         />
         <MobileSvgChart
           fill="#EBEBEB"
           stroke="1D1D1B"
-          strokeWidth="1"
-          statusNumber="90"
+          strokeWidth={1}
+          statusNumber={50}
           statusPercentage="(18%)"
           status="Unstarted"
         />
@@ -67,7 +67,7 @@ function MobileUncertainChart({ name, ...props }) {
 }
 
 MobileUncertainChart.propTypes = {
-  name: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default MobileUncertainChart;

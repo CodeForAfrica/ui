@@ -48,16 +48,16 @@ function MobilePromiseKeptChart({ name, ...props }) {
         <MobileSvgChart
           fill="#005DFD"
           stroke="1D1D1B"
-          strokeWidth="1"
-          statusNumber="130"
+          strokeWidth={1}
+          statusNumber={130}
           statusPercentage="(25%)"
           status="Completed"
         />
         <MobileSvgChart
           fill="#90DAFF"
           stroke="1D1D1B"
-          strokeWidth="1"
-          statusNumber="90"
+          strokeWidth={1}
+          statusNumber={90}
           statusPercentage="(18%)"
           status="In progress"
         />
@@ -67,7 +67,7 @@ function MobilePromiseKeptChart({ name, ...props }) {
 }
 
 MobilePromiseKeptChart.propTypes = {
-  name: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default MobilePromiseKeptChart;
