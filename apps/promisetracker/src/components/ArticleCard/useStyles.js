@@ -10,7 +10,9 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   content: {},
   contentRoot: {},
   date: {},
-  description: {},
+  description: {
+    textTransform: "none",
+  },
   descriptionContainer: {
     marginTop: typography.pxToRem(58.49 - 7),
     [breakpoints.up("lg")]: {

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import PostCard from "@/promisetracker/components/PostCard";
-import Link from "@/promisetracker/components/Link";
+import Link from "@/promisetracker/components/Link/Button";
 import slugify from "@/promisetracker/utils";
 
 import useStyles from "./useStyles";
@@ -11,28 +11,29 @@ function ArticleCard({ classes: classesProp, title, ...props }) {
   const classes = useStyles({ classes: classesProp });
 
   return (
-    <Link
+    // <Link
+    //   className={classes.link}
+    // >
+    <PostCard
+      {...props}
       as={`/analysis/articles/${slugify(title)}`}
+      component={Link}
       href="/analysis/articles/[slug]"
-      className={classes.link}
-    >
-      <PostCard
-        {...props}
-        title={title}
-        classes={{
-          root: classes.root,
-          content: classes.content,
-          contentRoot: classes.contentRoot,
-          date: classes.date,
-          description: classes.description,
-          descriptionContainer: classes.descriptionContainer,
-          media: classes.media,
-          share: classes.share,
-          title: classes.title,
-          titleContainer: classes.titleContainer,
-        }}
-      />
-    </Link>
+      title={title}
+      classes={{
+        root: classes.root,
+        content: classes.content,
+        contentRoot: classes.contentRoot,
+        date: classes.date,
+        description: classes.description,
+        descriptionContainer: classes.descriptionContainer,
+        media: classes.media,
+        share: classes.share,
+        title: classes.title,
+        titleContainer: classes.titleContainer,
+      }}
+    />
+    // </Link>
   );
 }
 
