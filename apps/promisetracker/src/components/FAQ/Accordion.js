@@ -7,6 +7,7 @@ import {
   AccordionSummary,
   Typography,
 } from "@material-ui/core";
+import { RichTypography } from "@commons-ui/core";
 
 import MinusIcon from "@/promisetracker/icons/Minus";
 import PlusIcon from "@/promisetracker/icons/Plus";
@@ -33,18 +34,18 @@ function AccordionPanel({ faq, ...props }) {
           content: classes.accordionSummaryContent,
         }}
       >
-        <Typography variant="h4">{faq.title}</Typography>
+        <Typography variant="h4">{faq.question}</Typography>
       </AccordionSummary>
       <AccordionDetails classes={{ root: classes.accordionDetails }}>
-        <Typography variant="body2">{faq.summary}</Typography>
+        <RichTypography variant="body2">{faq.answer}</RichTypography>
       </AccordionDetails>
     </Accordion>
   );
 }
 AccordionPanel.propTypes = {
   faq: PropTypes.shape({
-    title: PropTypes.string,
-    summary: PropTypes.string,
+    question: PropTypes.string,
+    answer: PropTypes.string,
   }).isRequired,
 };
 
