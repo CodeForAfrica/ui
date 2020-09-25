@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Grid, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Typography, useMediaQuery } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import { Section } from "@commons-ui/core";
 
@@ -72,11 +72,12 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   },
 }));
 
-function ActNow({ description: descriptionProp, title, ...props }) {
+function ActNow({ description, title, ...props }) {
   const classes = useStyles(props);
-  const description =
-    (descriptionProp && descriptionProp.length > 0 && descriptionProp) ||
-    undefined;
+  const theme = useTheme();
+  const descriptionVariant = useMediaQuery(theme.breakpoints.up("lg"))
+    ? "body1"
+    : "body2";
 
   return (
     <div className={classes.root}>
@@ -87,7 +88,10 @@ function ActNow({ description: descriptionProp, title, ...props }) {
               <Typography variant="h1" className={classes.title}>
                 {title}
               </Typography>
-              <Typography variant="body1" className={classes.description}>
+              <Typography
+                variant={descriptionVariant}
+                className={classes.description}
+              >
                 {description}
               </Typography>
               <CtAButton
