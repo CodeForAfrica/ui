@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import PropTypes from "prop-types";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Grid, IconButton, Typography, useMediaQuery } from "@material-ui/core";
 
+import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg";
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
 import info from "@/promisetracker/assets/hero-icon-info.svg";
 import share from "@/promisetracker/assets/hero-icon-share.svg";
@@ -24,8 +25,14 @@ const useStyles = makeStyles(() => ({
 
 function ProfileDetails({ name, ...props }) {
   const classes = useStyles(props);
+  const [clicked, setClicked] = useState();
+
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+
+  const handleOnClick = () => {
+    setClicked(!clicked);
+  };
   return (
     <Grid container direction="row" item spacing={3}>
       {isDesktop ? (
@@ -43,9 +50,14 @@ function ProfileDetails({ name, ...props }) {
               disableFocusRipple
               aria-label="Info"
               size="small"
+              onClick={handleOnClick}
               className={classes.iconButton}
             >
-              <img src={viz2} alt="Viz2" />
+              {clicked ? (
+                <img src={viz1} alt="Viz1" />
+              ) : (
+                <img src={viz2} alt="Viz2" />
+              )}
             </IconButton>
             <IconButton
               disableRipple
