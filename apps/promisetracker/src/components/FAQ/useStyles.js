@@ -2,24 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   section: {},
-  sectionTitle: {
-    borderBottom: `.4rem solid ${palette.primary.dark}`,
-    fontWeight: 600,
-    marginBottom: typography.pxToRem(0),
-    marginTop: typography.pxToRem(38),
-    width: "min-content",
-    "&:after": {
-      content: '""',
-      position: "absolute",
-      bottom: 0,
-      left: 0,
-      width: typography.pxToRem(80),
-      borderBottom: `5px solid ${palette.primary.dark}`,
-    },
-    [breakpoints.up("lg")]: {
-      marginTop: typography.pxToRem(60),
-    },
-  },
+  sectionTitle: {},
   root: {
     marginBottom: typography.pxToRem(52),
     [breakpoints.up("lg")]: {

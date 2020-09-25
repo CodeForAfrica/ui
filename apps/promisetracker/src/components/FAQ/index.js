@@ -6,59 +6,41 @@ import { Grid } from "@material-ui/core";
 import { Section } from "@commons-ui/core";
 
 import Accordion from "@/promisetracker/components/FAQ/Accordion";
+import H1 from "@/promisetracker/components/H1";
 
 import useStyles from "./useStyles";
 
-function FAQ({ faqs, title, ...props }) {
+function FAQ({ items, title, ...props }) {
   const classes = useStyles(props);
 
   return (
     <Section
       title={title}
-      titleProps={{ variant: "h1" }}
+      titleProps={{ component: H1 }}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
-      <Grid container className={classes.root}>
-        <Grid item xs={12} lg={8}>
-          <div className={classes.faqContainer}>
-            {faqs.map((faq) => (
-              <Accordion key={faq.question} faq={faq} />
-            ))}
-          </div>
+      {items?.length > 0 && (
+        <Grid container className={classes.root}>
+          <Grid item xs={12} lg={8}>
+            <div className={classes.faqContainer}>
+              {items.map((faq) => (
+                <Accordion key={faq.title} faq={faq} />
+              ))}
+            </div>
+          </Grid>
         </Grid>
-      </Grid>
+      )}
     </Section>
   );
 }
 FAQ.propTypes = {
   title: PropTypes.string,
-  faqs: PropTypes.arrayOf(PropTypes.shape({})),
+  items: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 FAQ.defaultProps = {
-  title: "FAQ",
-  faqs: [
-    {
-      question: "Lorem ipsum dolor",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Quisque suscipit, urna ac vulputate sollicitudin, mi urna elementum augue, id tristique arcu erat non enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Quisque suscipit, urna ac vulputate sollicitudin, mi urna elementum augue, id tristique arcu erat non enim.",
-    },
-    {
-      question: "Lorem ipsum dolor",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Quisque suscipit, urna ac vulputate sollicitudin, mi urna elementum augue, id tristique arcu erat non enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Quisque suscipit, urna ac vulputate sollicitudin, mi urna elementum augue, id tristique arcu erat non enim.",
-    },
-    {
-      question: "Lorem ipsum dolor",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Quisque suscipit, urna ac vulputate sollicitudin, mi urna elementum augue, id tristique arcu erat non enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Quisque suscipit, urna ac vulputate sollicitudin, mi urna elementum augue, id tristique arcu erat non enim.",
-    },
-    {
-      question: "Lorem ipsum dolor",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Quisque suscipit, urna ac vulputate sollicitudin, mi urna elementum augue, id tristique arcu erat non enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Quisque suscipit, urna ac vulputate sollicitudin, mi urna elementum augue, id tristique arcu erat non enim.",
-    },
-  ],
+  title: null,
+  items: null,
 };
 
 export default FAQ;
