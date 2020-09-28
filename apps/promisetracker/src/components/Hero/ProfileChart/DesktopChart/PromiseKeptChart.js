@@ -8,6 +8,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import SvgChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart/SvgChart";
 
 const useStyles = makeStyles(() => ({
+  root: {
+    margin: "1rem",
+  },
   typo: {
     textAlign: "center",
     borderBottom: "1px solid #145BD5",
@@ -25,7 +28,7 @@ const useStyles = makeStyles(() => ({
 function PromiseKeptChart({ name, ...props }) {
   const classes = useStyles(props);
   return (
-    <Grid item xs={4}>
+    <Grid item xs={3} className={classes.root}>
       <div className={classes.typo}>
         <Typography variant="caption" className={classes.caption}>
           {name}

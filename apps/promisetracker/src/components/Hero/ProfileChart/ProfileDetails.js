@@ -9,6 +9,7 @@ import {
   Typography,
   useMediaQuery,
   Fade,
+  Divider,
 } from "@material-ui/core";
 
 import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg";
@@ -30,7 +31,7 @@ import MobileUncertainChart from "@/promisetracker/components/Hero/ProfileChart/
 
 import RectChart from "@/promisetracker/components/Hero/ProfileChart/RectChart";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ typography }) => ({
   iconGrid: {
     display: "flex",
     flexDirection: "row",
@@ -48,6 +49,10 @@ const useStyles = makeStyles(() => ({
   },
   rect: {
     padding: "2rem 0rem",
+  },
+  divider: {
+    margin: "2.5rem 1rem 1rem 1rem",
+    height: typography.pxToRem(220),
   },
 }));
 
@@ -167,7 +172,9 @@ function ProfileDetails({ name, ...props }) {
             ) : (
               <>
                 <PromiseKeptChart name="Promises Kept" />
+                <Divider orientation="vertical" className={classes.divider} />
                 <UncertainChart name="Uncertain" />
+                <Divider orientation="vertical" className={classes.divider} />
                 <PromiseNotKeptChart name="Promises Not Kept" />
               </>
             )}
