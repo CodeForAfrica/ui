@@ -5,7 +5,13 @@ import { Grid } from "@material-ui/core";
 
 function DesktopChart({ children }) {
   return (
-    <Grid container item direction="row" spacing={4}>
+    <Grid
+      container
+      item
+      direction="row"
+      spacing={4}
+      style={{ padding: "2rem 0rem" }}
+    >
       {children}
     </Grid>
   );

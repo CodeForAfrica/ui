@@ -22,6 +22,8 @@ import MobilePromiseKeptChart from "@/promisetracker/components/Hero/ProfileChar
 import MobilePromiseNotKeptChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart/MobilePromiseNotKeptChart";
 import MobileUncertainChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart/MobileUncertainChart";
 
+import RectChart from "@/promisetracker/components/Hero/ProfileChart/RectChart";
+
 const useStyles = makeStyles(() => ({
   iconGrid: {
     display: "flex",
@@ -33,7 +35,11 @@ const useStyles = makeStyles(() => ({
     background: "#F7F7F7",
     padding: "1rem",
   },
-  img: {},
+  viz1: {
+    width: "1.2rem",
+    height: "auto",
+    maxWidth: "100%",
+  },
 }));
 
 function ProfileDetails({ name, ...props }) {
@@ -77,9 +83,9 @@ function ProfileDetails({ name, ...props }) {
                   className={classes.iconButton}
                 >
                   {clicked ? (
-                    <img src={viz1} alt="Viz1" className={classes.img} />
+                    <img src={viz1} alt="Viz1" className={classes.viz1} />
                   ) : (
-                    <img src={viz2} alt="Viz2" className={classes.img} />
+                    <img src={viz2} alt="Viz2" />
                   )}
                 </IconButton>
               </Grid>
@@ -91,7 +97,7 @@ function ProfileDetails({ name, ...props }) {
                   size="small"
                   className={classes.iconButton}
                 >
-                  <img src={info} alt="Info" className={classes.img} />
+                  <img src={info} alt="Info" />
                 </IconButton>
               </Grid>
               <Grid item>
@@ -102,7 +108,7 @@ function ProfileDetails({ name, ...props }) {
                   size="small"
                   className={classes.iconButton}
                 >
-                  <img src={share} alt="Share" className={classes.img} />
+                  <img src={share} alt="Share" />
                 </IconButton>
               </Grid>
             </Grid>
@@ -132,7 +138,7 @@ function ProfileDetails({ name, ...props }) {
                   size="small"
                   className={classes.iconButton}
                 >
-                  <img src={share} alt="Share" className={classes.img} />
+                  <img src={share} alt="Share" />
                 </IconButton>
               </Grid>
             </Grid>
@@ -142,9 +148,15 @@ function ProfileDetails({ name, ...props }) {
       <>
         {isDesktop ? (
           <DesktopChart>
-            <PromiseKeptChart name="Promises Kept" />
-            <UncertainChart name="Uncertain" />
-            <PromiseNotKeptChart name="Promises Not Kept" />
+            {clicked ? (
+              <RectChart />
+            ) : (
+              <>
+                <PromiseKeptChart name="Promises Kept" />
+                <UncertainChart name="Uncertain" />
+                <PromiseNotKeptChart name="Promises Not Kept" />
+              </>
+            )}
           </DesktopChart>
         ) : (
           <MobileChart>
