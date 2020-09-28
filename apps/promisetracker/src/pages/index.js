@@ -37,7 +37,20 @@ function Index(props) {
 
   return (
     <Page classes={{ section: classes.section }}>
-      <Hero
+      <Hero />
+      <KeyPromises
+        actionLabel="Learn More"
+        items={Array(6)
+          .fill(null)
+          .map((_, i) => ({
+            date: "2019-08-10",
+            description: `
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio.
+            `,
+            image: promiseCarouselImage,
+            title: `Codification of national sports and athletics law ${i + 1}`,
+          }))}
+        title="Key Promises"
         classes={{
           section: classes.section,
         }}
