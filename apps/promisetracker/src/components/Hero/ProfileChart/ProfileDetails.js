@@ -141,7 +141,7 @@ function ProfileDetails({ name, ...props }) {
               item
               xs={6}
               direction="row"
-              justify="space-between"
+              justify="space-evenly"
               alignItems="center"
             >
               <StatusListPopover />
