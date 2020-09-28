@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Hidden, Typography, useMediaQuery } from "@material-ui/core";
+
+import { Grid, Hidden, useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
+
 import {
   Section,
   FooterLogo,
@@ -48,17 +51,15 @@ function MainFooter({
     const path = href.split("/").slice(0, 2).join("/");
     switch (path) {
       case "/about":
-        return "/about/[...slug]";
-      case "/analysis":
-        return "/analysis/[...slug]";
+        return "/about/[slug]";
       default:
         return path;
     }
   };
   const quickLinks = quickLinksProp.map((q) => ({
     ...q,
-    links: q.links.map((l) => ({ ...l, as: l.href, href: getPath(l.href) })),
     linkComponent: Link,
+    links: q.links.map((l) => ({ ...l, as: l.href, href: getPath(l.href) })),
   }));
 
   return (
@@ -97,7 +98,6 @@ function MainFooter({
                     },
                   }}
                   classes={{ root: classes.quickLinks, link: classes.link }}
-                  linkComponent={Typography}
                   {...quickLinks[0]}
                 />
               </div>
@@ -137,10 +137,10 @@ function MainFooter({
                     {...contacts}
                     options={{
                       socialMedia: {
-                        color: "white",
+                        color: "textSecondary",
                       },
                       support: {
-                        color: "white",
+                        color: "textSecondary",
                       },
                       title: {
                         variant: "button",
@@ -180,10 +180,10 @@ function MainFooter({
                   {...contacts}
                   options={{
                     socialMedia: {
-                      color: "white",
+                      color: "textSecondary",
                     },
                     support: {
-                      color: "white",
+                      color: "textSecondary",
                     },
                     title: {
                       variant: "button",

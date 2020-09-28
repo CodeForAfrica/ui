@@ -67,7 +67,7 @@ function NavigationButton({
 }) {
   const classes = useStyles(props);
   const buttonRef = useRef();
-  const [open, setOpen] = useState();
+  const [open, setOpen] = useState(openProp);
   const handleToggleOpen = () => {
     setOpen((prevOpen) => !prevOpen);
   };
@@ -131,7 +131,7 @@ NavigationButton.propTypes = {
 
 NavigationButton.defaultProps = {
   active: false,
-  anchorEl: false,
+  anchorEl: undefined,
   onClose: undefined,
   open: false,
   popperProps: undefined,

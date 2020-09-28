@@ -11,6 +11,7 @@ import { Section } from "@commons-ui/core";
 import LinkButton from "@/promisetracker/components/Link/Button";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
+  section: {},
   root: {
     backgroundColor: palette.background.paper,
     boxShadow: "0px 8px 30px #0000001A",

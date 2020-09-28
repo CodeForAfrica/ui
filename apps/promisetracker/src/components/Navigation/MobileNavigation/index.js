@@ -166,7 +166,7 @@ function MobileNavigation(props) {
                 <Grid item>
                   <Button
                     href="/#"
-                    variant="overline"
+                    variant="text"
                     underline="none"
                     className={clsx(
                       activeLanguageButton,
@@ -178,7 +178,7 @@ function MobileNavigation(props) {
                 </Grid>
                 <Grid item>
                   <Button
-                    variant="overline"
+                    variant="text"
                     underline="none"
                     className={languageButton}
                   >
@@ -187,7 +187,7 @@ function MobileNavigation(props) {
                 </Grid>
                 <Grid item>
                   <Button
-                    variant="overline"
+                    variant="text"
                     underline="none"
                     className={languageButton}
                   >
@@ -196,7 +196,7 @@ function MobileNavigation(props) {
                 </Grid>
                 <Grid item>
                   <Button
-                    variant="overline"
+                    variant="text"
                     underline="none"
                     className={languageButton}
                   >

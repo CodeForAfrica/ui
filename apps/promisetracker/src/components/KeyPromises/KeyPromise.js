@@ -84,7 +84,6 @@ KeyPromise.propTypes = {
   date: PropTypes.string.isRequired,
   description: PropTypes.string,
   image: PropTypes.string.isRequired,
-  status: PropTypes.shape({}).isRequired,
   title: PropTypes.string.isRequired,
 };
 

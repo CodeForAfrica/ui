@@ -116,22 +116,22 @@ function DesktopNavigation(props) {
             <Grid item lg={1} direction="column" container justify="flex-start">
               <Grid item>
                 <Button
-                  variant="overline"
+                  variant="text"
                   className={clsx(classes.buttonLanguage, "active")}
                 >
                   En
                 </Button>
-                <Button variant="overline" className={classes.buttonLanguage}>
+                <Button variant="text" className={classes.buttonLanguage}>
                   Am
                 </Button>
               </Grid>
 
               <Grid item>
-                <Button variant="overline" className={classes.buttonLanguage}>
+                <Button variant="text" className={classes.buttonLanguage}>
                   Fr
                 </Button>
                 <Button
-                  variant="overline"
+                  variant="text"
                   className={clsx(
                     classes.buttonLanguage,
                     classes.buttonLanguageLast

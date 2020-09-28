@@ -6,7 +6,7 @@ import LinkButton from "@/promisetracker/components/Link/Button";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
-  button: {
+  root: {
     border: 0,
     color: palette.primary.main,
     padding: "0.8rem ",
@@ -39,7 +39,7 @@ function MenuButton({ active, size, href, title, ...props }) {
       {...props}
       variant={active ? "contained" : null}
       ref={buttonRef}
-      className={classes.button}
+      className={classes.root}
     >
       {title}
     </LinkButton>

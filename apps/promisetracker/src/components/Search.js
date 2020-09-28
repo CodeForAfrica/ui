@@ -89,12 +89,14 @@ function Search({ ariaLabel, onClick, onChange, placeholder, ...props }) {
 Search.propTypes = {
   ariaLabel: PropTypes.string,
   placeholder: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 Search.defaultProps = {
   ariaLabel: "",
+  onChange: undefined,
+  onClick: undefined,
   placeholder: "SEARCH",
 };
 export default Search;
