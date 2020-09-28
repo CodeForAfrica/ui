@@ -3,7 +3,13 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Grid, IconButton, Typography, useMediaQuery } from "@material-ui/core";
+import {
+  Grid,
+  IconButton,
+  Typography,
+  useMediaQuery,
+  Fade,
+} from "@material-ui/core";
 
 import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg";
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
@@ -40,6 +46,9 @@ const useStyles = makeStyles(() => ({
     height: "auto",
     maxWidth: "100%",
   },
+  rect: {
+    padding: "2rem 0rem",
+  },
 }));
 
 function ProfileDetails({ name, ...props }) {
@@ -47,10 +56,10 @@ function ProfileDetails({ name, ...props }) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
-  const [clicked, setClicked] = useState();
+  const [clicked, setClicked] = useState(false);
 
   const handleOnClick = () => {
-    setClicked(!clicked);
+    setClicked((prev) => !prev);
   };
 
   return (
@@ -80,6 +89,7 @@ function ProfileDetails({ name, ...props }) {
                   aria-label="Info"
                   size="small"
                   onClick={handleOnClick}
+                  clicked={clicked}
                   className={classes.iconButton}
                 >
                   {clicked ? (
@@ -149,9 +159,11 @@ function ProfileDetails({ name, ...props }) {
         {isDesktop ? (
           <DesktopChart>
             {clicked ? (
-              <div style={{ padding: "2rem 0rem" }}>
-                <RectChart />
-              </div>
+              <Fade in={clicked}>
+                <div className={classes.rect}>
+                  <RectChart />
+                </div>
+              </Fade>
             ) : (
               <>
                 <PromiseKeptChart name="Promises Kept" />
