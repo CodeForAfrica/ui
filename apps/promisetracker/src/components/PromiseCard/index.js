@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import PostCard from "@/promisetracker/components/PostCard";
 
-import Status from "./Status";
+import Status from "@/promisetracker/components/PromiseStatus";
 import useStyles from "./useStyles";
 
 function PromiseCard({ classes: classesProp, status, ...props }) {
@@ -25,7 +25,7 @@ function PromiseCard({ classes: classesProp, status, ...props }) {
         titleContainer: classes.titleContainer,
       }}
     >
-      <Status {...status} />
+      <Status {...status} classes={{ root: classes.status }} />
     </PostCard>
   );
 }
@@ -40,6 +40,7 @@ PromiseCard.propTypes = {
     descriptionContainer: PropTypes.string,
     media: PropTypes.string,
     root: PropTypes.string,
+    status: PropTypes.string,
     share: PropTypes.string,
     title: PropTypes.string,
     titleContainer: PropTypes.string,
