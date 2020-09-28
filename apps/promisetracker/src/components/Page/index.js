@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import NotFoundError from "@/promisetracker/pages/404";
 import Error from "@/promisetracker/pages/_error";
 
 import Base from "./Base";
@@ -10,7 +11,12 @@ import Base from "./Base";
  */
 function Page({ errorCode, ...props }) {
   if (errorCode) {
-    return <Error statusCode={errorCode} />;
+    switch (errorCode) {
+      case 404:
+        return <NotFoundError />;
+      default:
+        return <Error statusCode={errorCode} />;
+    }
   }
   return <Base {...props} />;
 }
