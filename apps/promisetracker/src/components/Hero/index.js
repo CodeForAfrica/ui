@@ -11,7 +11,9 @@ import ProfileChart from "@/promisetracker/components/Hero/ProfileChart";
 
 const useStyles = makeStyles(({ typography }) => ({
   root: {},
-  section: {},
+  section: {
+    padding: "2rem 0rem",
+  },
   hero: {
     paddingTop: typography.pxToRem(24),
   },
