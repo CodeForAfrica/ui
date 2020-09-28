@@ -5,9 +5,11 @@ import PropTypes from "prop-types";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ typography }) => ({
   root: {
     padding: "1.5rem 0rem",
+    height: typography.pxToRem(284),
+    maxHeight: "100%",
   },
 }));
 
