@@ -51,7 +51,7 @@ const useStyles = makeStyles(({ typography }) => ({
     padding: "2rem 0rem",
   },
   divider: {
-    margin: "2.5rem 1rem 1rem 1rem",
+    margin: "2rem 1rem 1rem 1rem",
     height: typography.pxToRem(220),
   },
 }));

@@ -9,7 +9,7 @@ import SvgChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart
 
 const useStyles = makeStyles(() => ({
   root: {
-    margin: "1rem",
+    margin: "0.5rem",
   },
   typo: {
     textAlign: "center",
