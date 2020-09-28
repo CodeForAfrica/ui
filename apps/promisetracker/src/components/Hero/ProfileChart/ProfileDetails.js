@@ -9,14 +9,14 @@ import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg";
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
 import info from "@/promisetracker/assets/hero-icon-info.svg";
 import share from "@/promisetracker/assets/hero-icon-share.svg";
-
 import StatusListPopover from "@/promisetracker/components/Hero/ProfileChart/StatusListPopover";
+
+import MobileChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart";
+import DesktopChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart";
 
 import PromiseKeptChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart/PromiseKeptChart";
 import UncertainChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart/UncertainChart";
 import PromiseNotKeptChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart/PromiseNotKeptChart";
-import MobileChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart";
-import DesktopChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart";
 
 import MobilePromiseKeptChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart/MobilePromiseKeptChart";
 import MobilePromiseNotKeptChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart/MobilePromiseNotKeptChart";
@@ -26,16 +26,14 @@ const useStyles = makeStyles(() => ({
   iconGrid: {
     display: "flex",
     flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
   },
   iconButton: {
     background: "#F7F7F7",
-    padding: "1.5rem",
-    margin: "0.5rem",
+    padding: "1rem",
   },
-  img: {
-    width: "100%",
-    height: "auto",
-  },
+  img: {},
 }));
 
 function ProfileDetails({ name, ...props }) {
@@ -61,39 +59,52 @@ function ProfileDetails({ name, ...props }) {
                 glance
               </Typography>
             </Grid>
-            <Grid item xs={4} className={classes.iconGrid}>
-              <IconButton
-                disableRipple
-                disableFocusRipple
-                aria-label="Info"
-                size="small"
-                onClick={handleOnClick}
-                className={classes.iconButton}
-              >
-                {clicked ? (
-                  <img src={viz1} alt="Viz1" />
-                ) : (
-                  <img src={viz2} alt="Viz2" />
-                )}
-              </IconButton>
-              <IconButton
-                disableRipple
-                disableFocusRipple
-                aria-label="Info"
-                size="small"
-                className={classes.iconButton}
-              >
-                <img src={info} alt="Info" />
-              </IconButton>
-              <IconButton
-                disableRipple
-                disableFocusRipple
-                aria-label="Share"
-                size="small"
-                className={classes.iconButton}
-              >
-                <img src={share} alt="Share" />
-              </IconButton>
+            <Grid
+              container
+              direction="row"
+              item
+              xs={4}
+              justify="space-between"
+              alignItems="center"
+            >
+              <Grid item>
+                <IconButton
+                  disableRipple
+                  disableFocusRipple
+                  aria-label="Info"
+                  size="small"
+                  onClick={handleOnClick}
+                  className={classes.iconButton}
+                >
+                  {clicked ? (
+                    <img src={viz1} alt="Viz1" className={classes.img} />
+                  ) : (
+                    <img src={viz2} alt="Viz2" className={classes.img} />
+                  )}
+                </IconButton>
+              </Grid>
+              <Grid item>
+                <IconButton
+                  disableRipple
+                  disableFocusRipple
+                  aria-label="Info"
+                  size="small"
+                  className={classes.iconButton}
+                >
+                  <img src={info} alt="Info" className={classes.img} />
+                </IconButton>
+              </Grid>
+              <Grid item>
+                <IconButton
+                  disableRipple
+                  disableFocusRipple
+                  aria-label="Share"
+                  size="small"
+                  className={classes.iconButton}
+                >
+                  <img src={share} alt="Share" className={classes.img} />
+                </IconButton>
+              </Grid>
             </Grid>
           </>
         ) : (
@@ -104,24 +115,33 @@ function ProfileDetails({ name, ...props }) {
                 glance
               </Typography>
             </Grid>
-            <Grid item xs={6} className={classes.iconGrid}>
+            <Grid
+              container
+              item
+              xs={6}
+              direction="row"
+              justify="space-between"
+              alignItems="center"
+            >
               <StatusListPopover />
-              <IconButton
-                disableRipple
-                disableFocusRipple
-                aria-label="Share"
-                size="small"
-                className={classes.iconButton}
-              >
-                <img src={share} alt="Share" />
-              </IconButton>
+              <Grid item xs={3}>
+                <IconButton
+                  disableRipple
+                  disableFocusRipple
+                  aria-label="Share"
+                  size="small"
+                  className={classes.iconButton}
+                >
+                  <img src={share} alt="Share" className={classes.img} />
+                </IconButton>
+              </Grid>
             </Grid>
           </>
         )}
       </Grid>
       <>
         {isDesktop ? (
-          <DesktopChart style={{ position: "relative" }}>
+          <DesktopChart>
             <PromiseKeptChart name="Promises Kept" />
             <UncertainChart name="Uncertain" />
             <PromiseNotKeptChart name="Promises Not Kept" />

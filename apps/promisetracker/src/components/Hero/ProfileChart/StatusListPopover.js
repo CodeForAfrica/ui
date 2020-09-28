@@ -34,8 +34,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
   }),
   iconButton: {
     background: palette.secondary.light,
-    padding: "1.5rem",
-    margin: "0.5rem",
+    padding: "1rem",
   },
   closeButton: {
     position: "absolute",
@@ -87,7 +86,7 @@ function StatusListPopover(props) {
   };
 
   return (
-    <>
+    <Grid item xs={3}>
       <IconButton
         disableRipple
         disableFocusRipple
@@ -141,7 +140,7 @@ function StatusListPopover(props) {
           ))}
         </DialogContent>
       </Dialog>
-    </>
+    </Grid>
   );
 }
 
