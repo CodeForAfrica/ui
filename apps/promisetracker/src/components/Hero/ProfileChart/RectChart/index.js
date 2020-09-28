@@ -15,9 +15,9 @@ function ReactChart(...props) {
   return (
     <Grid container item xs={12} direction="row" classes={classes.root}>
       <SvgRectChart
-        rectWidth="150"
+        rectWidth="200"
         rectHeight="150"
-        width="150"
+        width="200"
         height="150"
         fill="#145BD5"
         stroke="#1D1D1B"

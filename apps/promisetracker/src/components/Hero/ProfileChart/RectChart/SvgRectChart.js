@@ -45,6 +45,8 @@ function SvgReactChart({
     <div>
       <svg width={width} height={height}>
         <rect
+          rx="5"
+          ry="5"
           width={rectWidth}
           height={rectHeight}
           fill={fill}
