@@ -7,7 +7,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import { Section } from "@commons-ui/core";
 import Profile from "@/promisetracker/components/Hero/Profile";
-import Chart from "@/promisetracker/components/Hero/Chart";
+import ProfileChart from "@/promisetracker/components/Hero/ProfileChart";
 
 const useStyles = makeStyles(({ typography }) => ({
   root: {},
@@ -45,7 +45,7 @@ function Hero(props) {
           subtitle="Campaign promises made by Mike Mbuvi"
           date="Updated June 16, 2020"
         />
-        <Chart />
+        <ProfileChart />
       </Grid>
     </Section>
   );

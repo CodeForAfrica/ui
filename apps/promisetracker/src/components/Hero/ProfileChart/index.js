@@ -2,10 +2,9 @@ import React from "react";
 
 import { Grid } from "@material-ui/core";
 
-import ProfileDetails from "@/promisetracker/components/Hero/Chart/ProfileDetails";
-import ProfileChart from "@/promisetracker/components/Hero/Chart/ProfileChart";
+import ProfileDetails from "@/promisetracker/components/Hero/ProfileChart/ProfileDetails";
 
-function Chart() {
+function ProfileChart() {
   return (
     <Grid
       container
@@ -17,9 +16,8 @@ function Chart() {
       md={8}
     >
       <ProfileDetails name="Mike “Sonko” Mbuvi" />
-      <ProfileChart />
     </Grid>
   );
 }
 
-export default Chart;
+export default ProfileChart;

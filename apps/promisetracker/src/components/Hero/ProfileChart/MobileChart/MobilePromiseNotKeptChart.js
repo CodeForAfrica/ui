@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import MobileSvgChart from "@/promisetracker/components/Hero/Chart/MobileChart/MobileSvgChart";
+import MobileSvgChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart/MobileSvgChart";
 
 const useStyles = makeStyles(() => ({
   typo: {
