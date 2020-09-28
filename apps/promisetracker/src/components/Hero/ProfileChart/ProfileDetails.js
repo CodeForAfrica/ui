@@ -149,7 +149,9 @@ function ProfileDetails({ name, ...props }) {
         {isDesktop ? (
           <DesktopChart>
             {clicked ? (
-              <RectChart />
+              <div style={{ padding: "2rem 0rem" }}>
+                <RectChart />
+              </div>
             ) : (
               <>
                 <PromiseKeptChart name="Promises Kept" />
