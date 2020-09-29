@@ -13,7 +13,7 @@ const useStyles = makeStyles(({ typography }) => ({
   root: {},
   section: {},
   hero: {
-    paddingTop: typography.pxToRem(24),
+    padding: `${typography.pxToRem(32)} 0`,
   },
 }));
 
