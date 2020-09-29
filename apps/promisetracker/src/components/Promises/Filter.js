@@ -9,9 +9,9 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
   },
   button: {
     border: `.122rem solid ${palette.primary.dark}`,
-    marginRight: ".5rem",
-    marginBottom: ".5rem",
-    padding: ".3rem .5rem",
+    marginRight: ".6rem",
+    marginBottom: ".6rem",
+    padding: ".5rem .5rem",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
