@@ -30,27 +30,25 @@ const useStyles = makeStyles(({ typography, palette }) => ({
   },
 }));
 
-function SvgChart({
-  cx,
-  cy,
-  radius,
-  width,
-  height,
+function CircleSvgChart({
   fill,
   stroke,
   strokeWidth,
-  statusNumber,
+  currentStatusNumber,
   status,
-  statusPercentage,
   ...props
 }) {
   const classes = useStyles(props);
+  const totalStatus = 150;
+  const currentStatusPercentage = (currentStatusNumber / totalStatus) * 100;
+  const radius = currentStatusNumber / 2 - 20;
+
   return (
     <div>
-      <svg width={width} height={height}>
+      <svg width={100} height={100}>
         <circle
-          cx={cx}
-          cy={cy}
+          cx={50}
+          cy={50}
           r={radius}
           fill={fill}
           stroke={stroke}
@@ -59,45 +57,33 @@ function SvgChart({
       </svg>
       <div className={classes.typography}>
         <Typography variant="h6" className={classes.h6}>
-          {statusNumber}
+          {currentStatusNumber}
         </Typography>
         <Typography variant="h4" className={classes.h4}>
           {status}
         </Typography>
         <Typography variant="h6" className={classes.percentage}>
-          {statusPercentage}
+          {Math.trunc(currentStatusPercentage)}%
         </Typography>
       </div>
     </div>
   );
 }
 
-SvgChart.propTypes = {
-  cx: PropTypes.number,
-  cy: PropTypes.number,
-  radius: PropTypes.number,
-  width: PropTypes.number,
-  height: PropTypes.number,
+CircleSvgChart.propTypes = {
   fill: PropTypes.string,
   stroke: PropTypes.string,
   strokeWidth: PropTypes.number,
-  statusNumber: PropTypes.number,
+  currentStatusNumber: PropTypes.number,
   status: PropTypes.string,
-  statusPercentage: PropTypes.string,
 };
 
-SvgChart.defaultProps = {
-  cx: undefined,
-  cy: undefined,
-  radius: undefined,
-  width: undefined,
-  height: undefined,
+CircleSvgChart.defaultProps = {
   fill: undefined,
   stroke: undefined,
   strokeWidth: undefined,
-  statusNumber: undefined,
+  currentStatusNumber: undefined,
   status: undefined,
-  statusPercentage: undefined,
 };
 
-export default SvgChart;
+export default CircleSvgChart;
