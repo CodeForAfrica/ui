@@ -1,6 +1,7 @@
 import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
+import { Hidden } from "@material-ui/core";
 
 import ActNow from "@/promisetracker/components/ActNow";
 import Promises from "@/promisetracker/components/Promises";
@@ -47,12 +48,14 @@ function Index(props) {
           section: classes.section,
         }}
       />
+      <Hidden mdDown>
+        <ActNow
+          classes={{
+            section: classes.section,
+          }}
+        />
+      </Hidden>
 
-      <ActNow
-        classes={{
-          section: classes.section,
-        }}
-      />
       <Subscribe
         classes={{
           section: classes.section,
