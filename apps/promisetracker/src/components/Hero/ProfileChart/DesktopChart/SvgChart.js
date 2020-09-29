@@ -6,15 +6,18 @@ import { Typography } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(({ typography }) => ({
+const useStyles = makeStyles(({ typography, palette }) => ({
   h6: {
     fontFamily: typography.h1.fontFamily,
     fontSize: typography.pxToRem(24),
+    lineHeight: 1,
+    color: palette.primary.dark,
   },
   h4: {
     fontSize: typography.pxToRem(12),
     textTransform: "Capitalize",
     fontWeight: "normal",
+    color: palette.primary.main,
   },
   percentage: {
     fontSize: typography.pxToRem(12),

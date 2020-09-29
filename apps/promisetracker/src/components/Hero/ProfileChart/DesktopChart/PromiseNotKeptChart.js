@@ -17,6 +17,7 @@ const useStyles = makeStyles(() => ({
   },
   caption: {
     color: "#FF5154",
+    fontStyle: "italic",
   },
   circleContainer: {
     display: "flex",

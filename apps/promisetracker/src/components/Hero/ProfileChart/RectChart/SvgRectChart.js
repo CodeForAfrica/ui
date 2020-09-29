@@ -10,6 +10,7 @@ const useStyles = makeStyles(({ typography }) => ({
   h6: {
     fontFamily: typography.h1.fontFamily,
     fontSize: typography.pxToRem(24),
+    lineHeight: 1,
   },
   h4: {
     fontSize: typography.pxToRem(12),
