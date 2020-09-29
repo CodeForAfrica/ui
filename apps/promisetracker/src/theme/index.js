@@ -301,13 +301,23 @@ deepmerge(
       },
       outlined: {
         backgroundColor: "none",
-        border: `.122rem solid ${palette.primary.dark}`,
+        border: `.122rem solid ${palette.primary.main}`,
         boxShadow: "none",
         boxSizing: "border-box",
-        color: palette.primary.dark,
+        color: palette.primary.main,
         borderRadius: 0,
         "&:hover": {
-          border: `.122rem solid ${palette.primary.dark}`,
+          border: `.122rem solid ${palette.primary.main}`,
+          boxShadow: "none",
+        },
+      },
+      text: {
+        backgroundColor: "none",
+        boxShadow: "none",
+        boxSizing: "border-box",
+        color: palette.primary.main,
+        borderRadius: 0,
+        "&:hover": {
           boxShadow: "none",
         },
       },
