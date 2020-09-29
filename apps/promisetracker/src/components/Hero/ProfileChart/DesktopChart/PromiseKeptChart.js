@@ -56,7 +56,7 @@ function PromiseKeptChart({ name, ...props }) {
 }
 
 PromiseKeptChart.propTypes = {
-  name: PropTypes.number,
+  name: PropTypes.string,
 };
 
 PromiseKeptChart.defaultProps = {

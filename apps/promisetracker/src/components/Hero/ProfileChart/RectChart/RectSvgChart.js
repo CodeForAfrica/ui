@@ -7,6 +7,7 @@ import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ typography }) => ({
+  root: {},
   h6: {
     fontFamily: typography.h1.fontFamily,
     fontSize: typography.pxToRem(24),
@@ -30,6 +31,7 @@ const useStyles = makeStyles(({ typography }) => ({
 
 function RectSvgChart({
   fill,
+  height,
   stroke,
   strokeWidth,
   currentStatusNumber,
@@ -42,9 +44,11 @@ function RectSvgChart({
   const width = currentStatusNumber;
 
   return (
-    <div>
+    <div className={classes.root}>
       <svg width={width} height={150}>
         <rect
+          x="0"
+          y="0"
           rx="5"
           ry="5"
           width={width}
@@ -72,6 +76,7 @@ function RectSvgChart({
 RectSvgChart.propTypes = {
   fill: PropTypes.string,
   stroke: PropTypes.string,
+  height: PropTypes.number,
   strokeWidth: PropTypes.number,
   currentStatusNumber: PropTypes.number,
   status: PropTypes.string,
@@ -80,6 +85,7 @@ RectSvgChart.propTypes = {
 RectSvgChart.defaultProps = {
   fill: undefined,
   stroke: undefined,
+  height: undefined,
   strokeWidth: undefined,
   currentStatusNumber: undefined,
   status: undefined,

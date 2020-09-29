@@ -56,7 +56,7 @@ function UncertainChart({ name, ...props }) {
 }
 
 UncertainChart.propTypes = {
-  name: PropTypes.number,
+  name: PropTypes.string,
 };
 
 UncertainChart.defaultProps = {

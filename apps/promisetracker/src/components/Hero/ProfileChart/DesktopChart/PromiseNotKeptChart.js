@@ -56,7 +56,7 @@ function PromiseNotKeptChart({ name, ...props }) {
 }
 
 PromiseNotKeptChart.propTypes = {
-  name: PropTypes.number,
+  name: PropTypes.string,
 };
 
 PromiseNotKeptChart.defaultProps = {
