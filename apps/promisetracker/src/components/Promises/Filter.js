@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Button } from "@material-ui/core";
 
-const useStyles = makeStyles(({ typography, palette }) => ({
+const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
   label: {
     color: palette.secondary.dark,
   },
@@ -16,22 +16,28 @@ const useStyles = makeStyles(({ typography, palette }) => ({
     alignItems: "center",
     justifyContent: "center",
   },
-  root: {
+  filterContainer: {
     alignItems: "center",
     display: "flex",
     flexWrap: "wrap",
     marginTop: "1rem",
     maxWidth: typography.pxToRem(300),
   },
+  root: {
+    marginBottom: "1.5rem",
+    [breakpoints.up("lg")]: {
+      marginBottom: 0,
+    },
+  },
 }));
 function Filter({ label, filterItems, ...props }) {
   const classes = useStyles(props);
   return (
-    <div>
+    <div className={classes.root}>
       <Typography className={classes.label} variant="h6">
         {label}
       </Typography>
-      <div className={classes.root}>
+      <div className={classes.filterContainer}>
         {filterItems.map((filterItem, idx) => (
           <Button
             key={filterItem.name}
@@ -48,7 +54,7 @@ function Filter({ label, filterItems, ...props }) {
 
 Filter.propTypes = {
   classes: PropTypes.shape({
-    root: PropTypes.string,
+    filterContainer: PropTypes.string,
   }),
   filterItems: PropTypes.arrayOf(PropTypes.shape({})),
   label: PropTypes.string,
