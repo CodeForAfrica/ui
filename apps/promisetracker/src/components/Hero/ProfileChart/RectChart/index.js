@@ -36,7 +36,7 @@ function ReactChart(...props) {
         stroke="#1D1D1B"
         strokeWidth={2}
         currentStatusNumber={70}
-        status="In Progress"
+        status="Inconclusive"
       />
       <RectSvgChart
         width={50}
@@ -60,7 +60,7 @@ function ReactChart(...props) {
         stroke="#1D1D1B"
         strokeWidth={2}
         currentStatusNumber={110}
-        status="Unstarted"
+        status="Stalled"
       />
     </Grid>
   );

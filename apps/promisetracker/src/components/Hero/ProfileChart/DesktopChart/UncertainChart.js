@@ -41,14 +41,14 @@ function UncertainChart({ name, ...props }) {
           stroke="#1D1D1B"
           strokeWidth={1}
           currentStatusNumber={70}
-          status="Delayed"
+          status="Inconclusive"
         />
         <CircleSvgChart
           fill="#EBEBEB"
           stroke="#1D1D1B"
           strokeWidth={1}
           currentStatusNumber={50}
-          status="Stalled"
+          status="Unstarted"
         />
       </div>
     </Grid>

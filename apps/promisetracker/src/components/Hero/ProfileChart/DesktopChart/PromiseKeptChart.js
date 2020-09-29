@@ -48,7 +48,7 @@ function PromiseKeptChart({ name, ...props }) {
           stroke="#1D1D1B"
           strokeWidth={1}
           currentStatusNumber={90}
-          status="Completed"
+          status="In Progress"
         />
       </div>
     </Grid>
