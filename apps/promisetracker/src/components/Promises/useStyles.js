@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   filterGrid: {
     marginBottom: typography.pxToRem(32),
+    marginTop: typography.pxToRem(16),
   },
   section: {},
   sectionTitle: {
