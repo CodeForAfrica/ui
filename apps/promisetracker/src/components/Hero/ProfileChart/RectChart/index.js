@@ -2,7 +2,7 @@ import React from "react";
 
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import SvgRectChart from "@/promisetracker/components/Hero/ProfileChart/RectChart/SvgRectChart";
+import RectSvgChart from "@/promisetracker/components/Hero/ProfileChart/RectChart/RectSvgChart";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -14,77 +14,53 @@ function ReactChart(...props) {
   const classes = useStyles(props);
   return (
     <Grid container item xs={12} direction="row" classes={classes.root}>
-      <SvgRectChart
-        rectWidth="200"
-        rectHeight="150"
-        width="200"
-        height="150"
+      <RectSvgChart
+        width={130}
         fill="#145BD5"
         stroke="#1D1D1B"
         strokeWidth={2}
-        statusNumber={130}
+        currentStatusNumber={130}
         status="Completed"
-        statusPercentage="25%"
       />
-      <SvgRectChart
-        rectWidth="150"
-        rectHeight="150"
-        width="100"
-        height="150"
+      <RectSvgChart
+        width={90}
         fill="#84C6E7"
         stroke="#1D1D1B"
         strokeWidth={2}
-        statusNumber={90}
+        currentStatusNumber={90}
         status="In Progress"
-        statusPercentage="18%"
       />
-      <SvgRectChart
-        rectWidth="150"
-        rectHeight="150"
-        width="100"
-        height="150"
+      <RectSvgChart
+        width={70}
         fill="#909090"
         stroke="#1D1D1B"
         strokeWidth={2}
-        statusNumber={70}
-        status="Inconclusive"
-        statusPercentage="14%"
+        currentStatusNumber={70}
+        status="In Progress"
       />
-      <SvgRectChart
-        rectWidth="150"
-        rectHeight="150"
-        width="100"
-        height="150"
+      <RectSvgChart
+        width={50}
         fill="#EBEBEB"
         stroke="#1D1D1B"
         strokeWidth={2}
-        statusNumber={50}
+        currentStatusNumber={50}
         status="Unstarted"
-        statusPercentage="10%"
       />
-      <SvgRectChart
-        rectWidth="150"
-        rectHeight="150"
-        width="100"
-        height="150"
+      <RectSvgChart
+        width={60}
         fill="#FFB322"
         stroke="#1D1D1B"
         strokeWidth={2}
-        statusNumber={60}
+        currentStatusNumber={60}
         status="Delayed"
-        statusPercentage="12%"
       />
-      <SvgRectChart
-        rectWidth="150"
-        rectHeight="150"
-        width="100"
-        height="150"
+      <RectSvgChart
+        width={110}
         fill="#FF5154"
         stroke="#1D1D1B"
         strokeWidth={2}
-        statusNumber={110}
-        status="Stalled"
-        statusPercentage="22%"
+        currentStatusNumber={110}
+        status="Unstarted"
       />
     </Grid>
   );

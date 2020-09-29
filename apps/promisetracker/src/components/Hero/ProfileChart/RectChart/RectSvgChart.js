@@ -24,32 +24,31 @@ const useStyles = makeStyles(({ typography }) => ({
   },
   typography: {
     textAlign: "center",
-    paddingTop: "0.5rem",
+    padding: "1rem",
   },
 }));
 
-function SvgReactChart({
-  rectWidth,
-  rectHeight,
-  width,
-  height,
+function RectSvgChart({
   fill,
   stroke,
   strokeWidth,
-  statusNumber,
+  currentStatusNumber,
   status,
-  statusPercentage,
   ...props
 }) {
   const classes = useStyles(props);
+  const totalStatus = 150;
+  const currentStatusPercentage = (currentStatusNumber / totalStatus) * 100;
+  const width = currentStatusNumber;
+
   return (
     <div>
-      <svg width={width} height={height}>
+      <svg width={width} height={150}>
         <rect
           rx="5"
           ry="5"
-          width={rectWidth}
-          height={rectHeight}
+          width={width}
+          height={150}
           fill={fill}
           stroke={stroke}
           strokeWidth={strokeWidth}
@@ -57,43 +56,33 @@ function SvgReactChart({
       </svg>
       <div className={classes.typography}>
         <Typography variant="h6" className={classes.h6}>
-          {statusPercentage}
+          {Math.trunc(currentStatusPercentage)}%
         </Typography>
         <Typography variant="h4" className={classes.h4}>
           {status}
         </Typography>
         <Typography variant="h6" className={classes.percentage}>
-          {statusNumber}
+          {currentStatusNumber}
         </Typography>
       </div>
     </div>
   );
 }
 
-SvgReactChart.propTypes = {
-  width: PropTypes.number,
-  height: PropTypes.number,
-  rectWidth: PropTypes.number,
-  rectHeight: PropTypes.number,
+RectSvgChart.propTypes = {
   fill: PropTypes.string,
   stroke: PropTypes.string,
   strokeWidth: PropTypes.number,
-  statusNumber: PropTypes.number,
+  currentStatusNumber: PropTypes.number,
   status: PropTypes.string,
-  statusPercentage: PropTypes.string,
 };
 
-SvgReactChart.defaultProps = {
-  width: undefined,
-  height: undefined,
-  rectWidth: undefined,
-  rectHeight: undefined,
+RectSvgChart.defaultProps = {
   fill: undefined,
   stroke: undefined,
   strokeWidth: undefined,
-  statusNumber: undefined,
+  currentStatusNumber: undefined,
   status: undefined,
-  statusPercentage: undefined,
 };
 
-export default SvgReactChart;
+export default RectSvgChart;
