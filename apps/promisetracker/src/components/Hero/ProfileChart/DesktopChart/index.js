@@ -16,7 +16,13 @@ const useStyles = makeStyles(({ typography }) => ({
 function DesktopChart({ children, ...props }) {
   const classes = useStyles(props);
   return (
-    <Grid container item direction="row" className={classes.root}>
+    <Grid
+      container
+      item
+      direction="row"
+      justify="center"
+      className={classes.root}
+    >
       {children}
     </Grid>
   );

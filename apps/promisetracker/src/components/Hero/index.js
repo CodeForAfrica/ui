@@ -11,9 +11,7 @@ import ProfileChart from "@/promisetracker/components/Hero/ProfileChart";
 
 const useStyles = makeStyles(({ typography }) => ({
   root: {},
-  section: {
-    padding: "3rem 0rem",
-  },
+  section: {},
   hero: {
     paddingTop: typography.pxToRem(24),
   },
@@ -38,7 +36,7 @@ function Hero(props) {
         direction="row"
         justify="center"
         alignItems="flex-start"
-        spacing={5}
+        spacing={6}
         className={classes.hero}
       >
         {!isDesktop ? <TitleTypography name="Mike “Sonko” Mbuvi" /> : null}

@@ -69,7 +69,7 @@ function ProfileDetails({ name, ...props }) {
 
   return (
     <>
-      <Grid container direction="row" item spacing={3}>
+      <Grid container direction="row" item xs={12} spacing={3}>
         {isDesktop ? (
           <>
             <Grid item xs={8}>
