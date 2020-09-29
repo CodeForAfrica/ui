@@ -5,14 +5,18 @@ import PropTypes from "prop-types";
 import { Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ typography }) => ({
   root: {
     paddingLeft: "1rem",
   },
   status: {
     fontWeight: "normal",
     textTransform: "capitalize",
-    paddingTop: "0.2rem",
+    padding: "0rem 0.5rem",
+    fontSize: typography.pxToRem(13),
+  },
+  h3: {
+    fontSize: typography.pxToRem(16),
   },
 }));
 
@@ -49,11 +53,15 @@ function MobileSvgChart({
       </Grid>
 
       <Grid item xs={3}>
-        <Typography variant="h3">{statusNumber}</Typography>
+        <Typography variant="h3" className={classes.h3}>
+          {statusNumber}
+        </Typography>
       </Grid>
 
       <Grid item xs={3}>
-        <Typography variant="h3">{statusPercentage}</Typography>
+        <Typography variant="h3" className={classes.h3}>
+          {statusPercentage}
+        </Typography>
       </Grid>
 
       <Grid item xs={3}>
