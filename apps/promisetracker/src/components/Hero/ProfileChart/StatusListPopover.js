@@ -103,6 +103,8 @@ function StatusListPopover(props) {
           style: {
             borderRadius: 0,
             boxShadow: "0px 3px 6px #00000029",
+            position: "absolute",
+            top: "0",
           },
         }}
         onClose={handleClose}
