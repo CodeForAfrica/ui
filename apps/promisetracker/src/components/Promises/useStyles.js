@@ -21,7 +21,6 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
       borderBottom: `5px solid ${palette.primary.dark}`,
     },
     [breakpoints.up("lg")]: {
-      width: "5rem",
       marginBottom: 0,
       marginTop: typography.pxToRem(35),
     },
