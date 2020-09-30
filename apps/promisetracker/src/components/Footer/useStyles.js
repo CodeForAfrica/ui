@@ -101,11 +101,22 @@ const useStyles = makeStyles(
       },
     },
     stayInTouch: {
-      justifyContent: "flex-end",
+      justifyContent: "center",
+      [breakpoints.up("lg")]: {
+        justifyContent: "flex-end",
+      },
     },
     stayInTouchText: {
       color: palette.secondary.dark,
       fontWeight: 400,
+    },
+    stayInTouchTitle: {
+      flexBasis: "100%",
+      textAlign: "center",
+      [breakpoints.up("lg")]: {
+        flexBasis: "auto",
+        textAlign: "left",
+      },
     },
     legalContainer: {
       display: "flex",

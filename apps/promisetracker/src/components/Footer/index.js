@@ -68,7 +68,7 @@ function MainFooter({
         <Section classes={{ root: classes.section }}>
           <FooterLogo hasDivider={false} {...organizationLogo} />
           <Grid container>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} lg={8}>
               <FooterAbout
                 options={{
                   about: {
@@ -84,8 +84,8 @@ function MainFooter({
                 {about.about}
               </FooterAbout>
             </Grid>
-            <Grid item md={1} implementation="css" smDown component={Hidden} />
-            <Grid item xs={6} md={2} className={classes.quickLinksMore}>
+            <Grid item lg={1} implementation="css" smDown component={Hidden} />
+            <Grid item xs={6} lg={2} className={classes.quickLinksMore}>
               <div className={classes.links}>
                 <FooterQuickLinks
                   options={{
@@ -102,7 +102,7 @@ function MainFooter({
                 />
               </div>
             </Grid>
-            <Grid item xs={6} md={1} className={classes.quickLinksContact}>
+            <Grid item xs={6} lg={1} className={classes.quickLinksContact}>
               <div className={classes.links}>
                 <FooterQuickLinks
                   options={{
@@ -125,7 +125,7 @@ function MainFooter({
       <div className={classes.secondary}>
         <Section classes={{ root: classes.section }}>
           <Grid container>
-            <Grid item xs={12} md={6} className={classes.secondaryGridItem}>
+            <Grid item xs={12} lg={6} className={classes.secondaryGridItem}>
               <img
                 className={classes.ptLogo}
                 src={ptLogo}
@@ -150,6 +150,7 @@ function MainFooter({
                       root: classes.stayInTouch,
                       links: classes.stayInTouchLinks,
                       text: classes.stayInTouchText,
+                      title: classes.stayInTouchTitle,
                     }}
                   />
                 )}
@@ -175,7 +176,7 @@ function MainFooter({
               </div>
             </Grid>
             {isDesktop && (
-              <Grid item xs={12} md={6} className={classes.secondaryGridItem}>
+              <Grid item xs={12} lg={6} className={classes.secondaryGridItem}>
                 <FooterStayInTouch
                   {...contacts}
                   options={{
