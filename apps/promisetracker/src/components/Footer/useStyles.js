@@ -145,9 +145,19 @@ const useStyles = makeStyles(
         border: "none",
         paddingBottom: "1rem",
       },
+      // TODO(kilemenis): Override md styles until we have table designs
+      [breakpoints.up("md")]: {
+        "& > li": {
+          display: "list-item",
+        },
+        "& > li:last-of-type": {
+          padding: "2rem",
+        },
+      },
       [breakpoints.up("lg")]: {
         "& > li": {
-          padding: "0",
+          display: "inline",
+          padding: 0,
           paddingLeft: typography.pxToRem(24),
         },
       },
