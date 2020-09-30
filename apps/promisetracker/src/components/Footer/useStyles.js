@@ -39,7 +39,6 @@ const useStyles = makeStyles(
       },
     },
     copyrightText: {
-      fontWeight: 400,
       color: palette.secondary.dark,
     },
 
@@ -108,7 +107,9 @@ const useStyles = makeStyles(
     },
     stayInTouchText: {
       color: palette.secondary.dark,
-      fontWeight: 400,
+      [breakpoints.up("lg")]: {
+        marginRight: typography.pxToRem(17),
+      },
     },
     stayInTouchTitle: {
       flexBasis: "100%",
@@ -141,21 +142,18 @@ const useStyles = makeStyles(
     },
     legalLinks: {
       "& li": {
+        border: "none",
         paddingBottom: "1rem",
       },
       [breakpoints.up("lg")]: {
-        "& li": {
+        "& > li": {
           padding: "0",
-          paddingLeft: ".5rem",
-        },
-        "& > li:first-of-type": {
-          paddingRight: ".5rem",
+          paddingLeft: typography.pxToRem(24),
         },
       },
     },
     legalLink: {
       color: palette.secondary.dark,
-      fontWeight: 400,
     },
     ptLogo: {
       maxWidth: "14.75rem",

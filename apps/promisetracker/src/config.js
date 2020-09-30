@@ -61,7 +61,6 @@ const config = {
         alt: "Promise Tracker",
       },
     },
-
     initiative_logo: {
       image:
         "https://dashboard.hurumap.org/wp-content/uploads/2020/05/pulitzer.png",
@@ -161,6 +160,7 @@ const config = {
           },
         },
       ],
+      title: "Stay in touch with us @",
     },
   },
   analysisMenu: {

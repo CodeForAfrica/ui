@@ -61,6 +61,7 @@ function MainFooter({
     linkComponent: Link,
     links: q.links.map((l) => ({ ...l, as: l.href, href: getPath(l.href) })),
   }));
+  console.log("BOOM", contacts);
 
   return (
     <div className={classes.root}>
