@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 
 import {
   Grid,
-  Button,
   Dialog,
   Typography,
   IconButton,
@@ -15,8 +14,9 @@ import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/core/styles";
 import info from "@/promisetracker/assets/hero-icon-info.svg";
 
+import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
+
 import config from "@/promisetracker/config";
-import data from "@/promisetracker/data";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   typo: {
@@ -26,12 +26,9 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     borderBottom: `1px solid ${palette.secondary.main}`,
     padding: "0.5rem 0rem",
   },
-  button: () => ({
-    background: config.colors.completed.main,
-    color: config.colors.completed.font,
-    borderRadius: typography.pxToRem(10),
-    fontSize: typography.pxToRem(7),
-  }),
+  criteriaItems: {
+    marginTop: typography.pxToRem(25),
+  },
   iconButton: {
     background: palette.secondary.light,
     padding: "1rem",
@@ -74,9 +71,9 @@ DialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-function StatusListPopover(props) {
+function PromiseStatusPopover(props) {
   const classes = useStyles(props);
-  const { statusTypes } = data;
+  const { promiseStatuses } = config;
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -115,35 +112,13 @@ function StatusListPopover(props) {
           What do the ratings mean?
         </DialogTitle>
         <DialogContent>
-          {statusTypes.map((status) => (
-            <Grid
-              key={status.slug}
-              container
-              direction="row"
-              justify="space-bewtween"
-              alignItems="center"
-              className={classes.status}
-            >
-              <Grid item xs={6}>
-                <Button
-                  variant="contained"
-                  aria-label={status.name}
-                  className={classes.button}
-                >
-                  {status.name}
-                </Button>
-              </Grid>
-              <Grid item xs={6}>
-                <Typography variant="body2" className={classes.description}>
-                  {status.description}
-                </Typography>
-              </Grid>
-            </Grid>
-          ))}
+          <PromiseStatusList
+            items={promiseStatuses}
+            classes={{ root: classes.criteriaItems }}
+          />
         </DialogContent>
       </Dialog>
     </Grid>
   );
 }
-
-export default StatusListPopover;
+export default PromiseStatusPopover;

@@ -16,7 +16,7 @@ import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg";
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
 import info from "@/promisetracker/assets/hero-icon-info.svg";
 import share from "@/promisetracker/assets/hero-icon-share.svg";
-import StatusListPopover from "@/promisetracker/components/Hero/ProfileChart/StatusListPopover";
+import PromiseStatusPopover from "@/promisetracker/components/Hero/ProfileChart/PromiseStatusPopover";
 
 import MobileChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart";
 import DesktopChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart";
@@ -144,7 +144,7 @@ function ProfileDetails({ name, ...props }) {
               justify="space-evenly"
               alignItems="center"
             >
-              <StatusListPopover />
+              <PromiseStatusPopover />
               <Grid item xs={3}>
                 <IconButton
                   disableRipple
