@@ -13,7 +13,7 @@ import Filter from "@/promisetracker/components/Promises/Filter";
 import Sort from "@/promisetracker/components/Promises/Sort";
 import useStyles from "./useStyles";
 
-function Promises({ items, title, ...props }) {
+function Promises({ items, title, withFilter, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
@@ -27,63 +27,65 @@ function Promises({ items, title, ...props }) {
       titleProps={{ variant: "h1" }}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
-      <Grid className={classes.filterGrid} container justify="space-between">
-        <Grid item xs={12} lg={5}>
-          <Filter
-            label="Promises by status"
-            filterItems={[
-              {
-                name: "Completed",
-              },
+      {withFilter && (
+        <Grid className={classes.filterGrid} container justify="space-between">
+          <Grid item xs={12} lg={5}>
+            <Filter
+              label="Promises by status"
+              filterItems={[
+                {
+                  name: "Completed",
+                },
 
-              {
-                name: "In Progress",
-              },
-              {
-                name: "Stalled",
-              },
-              {
-                name: "Behind",
-              },
-              {
-                name: "Unrated",
-              },
-              {
-                name: "Unstarted",
-              },
-            ]}
-          />
-        </Grid>
-        <Grid item xs={12} lg={5}>
-          <Filter
-            label="Promises by category"
-            filterItems={[
-              {
-                name: "Immigration",
-              },
+                {
+                  name: "In Progress",
+                },
+                {
+                  name: "Stalled",
+                },
+                {
+                  name: "Behind",
+                },
+                {
+                  name: "Unrated",
+                },
+                {
+                  name: "Unstarted",
+                },
+              ]}
+            />
+          </Grid>
+          <Grid item xs={12} lg={5}>
+            <Filter
+              label="Promises by category"
+              filterItems={[
+                {
+                  name: "Immigration",
+                },
 
-              {
-                name: "Trade",
-              },
-              {
-                name: "Economy",
-              },
-              {
-                name: "Government",
-              },
-              {
-                name: "Environment",
-              },
-              {
-                name: "Energy",
-              },
-            ]}
-          />
+                {
+                  name: "Trade",
+                },
+                {
+                  name: "Economy",
+                },
+                {
+                  name: "Government",
+                },
+                {
+                  name: "Environment",
+                },
+                {
+                  name: "Energy",
+                },
+              ]}
+            />
+          </Grid>
+          <Grid item xs={12} lg={2}>
+            <Sort />
+          </Grid>
         </Grid>
-        <Grid item xs={12} lg={2}>
-          <Sort />
-        </Grid>
-      </Grid>
+      )}
       <Grid container justify="space-between">
         {items.map((promise, i) => (
           <Grid
@@ -110,12 +112,14 @@ Promises.propTypes = {
   }),
   items: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,
+  withFilter: PropTypes.bool,
 };
 
 Promises.defaultProps = {
   classes: undefined,
   items: undefined,
   title: undefined,
+  withFilter: true,
 };
 
 export default Promises;
