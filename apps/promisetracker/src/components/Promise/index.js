@@ -6,7 +6,6 @@ import { RichTypography } from "@commons-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 
 import Link from "@/promisetracker/components/Link";
-import CTA from "@/promisetracker/components/Promise/CTA";
 import RelatedFactChecks from "@/promisetracker/components/Promise/RelatedFactChecks";
 import Status from "@/promisetracker/components/PromiseStatus";
 import Section from "@commons-ui/core/Section";
@@ -50,7 +49,6 @@ function Promise({
           >
             {promise.title}
           </RichTypography>
-          <CTA />
 
           <RichTypography className={classes.promiseBody} variant="body1">
             {promise.body}
