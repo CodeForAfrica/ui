@@ -2,16 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import PostCard from "@/promisetracker/components/PostCard";
-
+import Link from "@/promisetracker/components/Link/Button";
 import Status from "@/promisetracker/components/PromiseStatus";
+
+import slugify from "@/promisetracker/utils";
+
 import useStyles from "./useStyles";
 
-function PromiseCard({ classes: classesProp, status, ...props }) {
+function PromiseCard({ classes: classesProp, status, title, ...props }) {
   const classes = useStyles({ classes: classesProp, status });
 
   return (
     <PostCard
       {...props}
+      as={`/promises/${slugify(title)}`}
+      component={Link}
+      href="/promises/[slug]"
       classes={{
         root: classes.root,
         content: classes.content,
@@ -46,6 +52,7 @@ PromiseCard.propTypes = {
     titleContainer: PropTypes.string,
   }),
   status: PropTypes.shape({}).isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 PromiseCard.defaultProps = {
