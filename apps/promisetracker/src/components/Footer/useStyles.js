@@ -137,6 +137,9 @@ const useStyles = makeStyles(
           padding: "0",
           paddingLeft: ".5rem",
         },
+        "& > li:first-of-type": {
+          paddingRight: ".5rem",
+        },
       },
     },
     legalLink: {
