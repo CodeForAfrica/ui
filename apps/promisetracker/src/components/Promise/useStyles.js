@@ -12,18 +12,23 @@ const useStyles = makeStyles(
         width: typography.pxToRem(widths.values.lg),
       },
     },
+    mobileStatus: {
+      marginTop: 0,
+    },
+    mobileStatusContainer: {
+      display: "flex",
+      alignItems: "center",
+    },
+    mobileStatusLabel: {
+      marginRight: "1rem",
+    },
     promiseBody: {
       margin: "2rem 0",
-      paddingBottom: "4rem",
-      borderBottom: `.1rem solid ${palette.secondary.main}`,
-    },
-
-    description: {
-      marginBottom: "2rem",
     },
     promiseTitle: {
       fontWeight: 600,
       marginTop: typography.pxToRem(11),
+      marginBottom: typography.pxToRem(11),
       maxHeight: typography.pxToRem(32 * 2),
       [breakpoints.up("lg")]: {
         marginTop: typography.pxToRem(27),
@@ -46,7 +51,7 @@ const useStyles = makeStyles(
       width: "100%",
       height: typography.pxToRem(210),
       [breakpoints.up("lg")]: {
-        height: typography.pxToRem(573),
+        height: typography.pxToRem(477),
       },
     },
     link: {
@@ -58,8 +63,12 @@ const useStyles = makeStyles(
     },
 
     label: {
-      margin: "2rem 0rem",
+      marginTop: "2rem",
       color: palette.primary.main,
+    },
+    status: {
+      fontSize: "1rem",
+      padding: "1.5rem 1rem",
     },
     title: {
       marginBottom: "2rem",

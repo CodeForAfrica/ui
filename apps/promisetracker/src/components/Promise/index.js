@@ -36,37 +36,48 @@ function Promise({
       </Hidden>
 
       <Grid container>
-        <Grid item md={8}>
+        <Grid item xs={12} lg={8}>
           <div className={classes.featuredImageContainer} />
-
-          <Typography className={classes.label} variant="h4">
-            {promiseLabel}
-          </Typography>
-
+          <Hidden mdDown>
+            <Typography className={classes.label} variant="h4">
+              {promiseLabel}
+            </Typography>
+          </Hidden>
           <RichTypography
             variant={titleVariant}
             className={classes.promiseTitle}
           >
             {promise.title}
           </RichTypography>
+          <Hidden lgUp>
+            <div className={classes.mobileStatusContainer}>
+              <Typography className={classes.mobileStatusLabel} variant="h5">
+                {promiseStatusLabel}
+              </Typography>
+              <Status
+                {...promise.status}
+                classes={{ root: classes.mobileStatus }}
+              />
+            </div>
+          </Hidden>
 
           <RichTypography className={classes.promiseBody} variant="body1">
             {promise.body}
           </RichTypography>
         </Grid>
         <Grid item md={1} implementation="css" smDown component={Hidden} />
-
-        <Grid item md={3}>
-          <Typography className={classes.label} variant="h5">
-            {promiseStatusLabel}
-          </Typography>
-          <Status {...promise.status} />
-
-          <Typography className={classes.label} variant="h5">
-            {relatedFactChecksLabel}
-          </Typography>
-          <RelatedFactChecks />
-        </Grid>
+        <Hidden mdDown>
+          <Grid item xs={12} lg={3}>
+            <Typography className={classes.label} variant="h5">
+              {promiseStatusLabel}
+            </Typography>
+            <Status {...promise.status} classes={{ root: classes.status }} />
+            <Typography className={classes.label} variant="h5">
+              {relatedFactChecksLabel}
+            </Typography>
+            <RelatedFactChecks />
+          </Grid>
+        </Hidden>
       </Grid>
     </Section>
   );
@@ -90,8 +101,12 @@ Promise.propTypes = {
     descriptionContainer: PropTypes.string,
     featuredImageContainer: PropTypes.string,
     link: PropTypes.string,
+    mobileStatus: PropTypes.string,
+    mobileStatusContainer: PropTypes.string,
+    mobileStatusLabel: PropTypes.string,
     root: PropTypes.string,
     section: PropTypes.string,
+    status: PropTypes.string,
     label: PropTypes.string,
     promiseTitle: PropTypes.string,
   }),
@@ -100,11 +115,11 @@ Promise.propTypes = {
 };
 
 Promise.defaultProps = {
-  promiseLabel: "Promise",
+  promiseLabel: "Promises",
   breadcrumb: "Promises",
   classes: undefined,
   promiseStatusLabel: "Promise rating status:",
-  relatedFactChecksLabel: "Related Fact-Checks",
+  relatedFactChecksLabel: "Related Fact-Checks:",
 };
 
 export default Promise;
