@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
 function ReactChart(...props) {
   const classes = useStyles(props);
   return (
-    <Grid container item xs={12} direction="row" classes={classes.root}>
+    <Grid container item xs={12} direction="row" className={classes.root}>
       <RectSvgChart
         width={130}
         fill="#145BD5"

@@ -25,7 +25,6 @@ const useStyles = makeStyles(({ typography }) => ({
   },
   typography: {
     textAlign: "center",
-    padding: "1rem",
   },
 }));
 
@@ -41,7 +40,7 @@ function RectSvgChart({
   const classes = useStyles(props);
   const totalStatus = 150;
   const currentStatusPercentage = (currentStatusNumber / totalStatus) * 100;
-  const width = currentStatusNumber;
+  const width = currentStatusNumber + 15;
 
   return (
     <div className={classes.root}>
