@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Promise from "@/promisetracker/components/Promise";
+import RelatedPromises from "@/promisetracker/components/Promises";
 import Page from "@/promisetracker/components/Page";
 import Subscribe from "@/promisetracker/components/Newsletter";
 
-import promiseImage from "@/promisetracker/assets/articlepage-img.png";
-import promiseThumbnail from "@/promisetracker/assets/promise-thumb-01.png";
+import promiseImage from "@/promisetracker/assets/promise-thumb-01@2x.png";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -28,6 +28,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       marginBottom: 0,
       marginTop: typography.pxToRem(96),
     },
+    fontWeight: 400,
   },
 }));
 
@@ -37,14 +38,15 @@ function Index({ promise, relatedPromises, ...props }) {
   return (
     <Page title={promise.title} classes={{ section: classes.section }}>
       <Promise promise={promise} />
-      {/* <RelatedPromises
+      <RelatedPromises
         items={relatedPromises}
         title="Related Promises"
+        withFilter={false}
         classes={{
           section: classes.section,
           sectionTitle: classes.sectionTitle,
         }}
-      /> */}
+      />
       <Subscribe
         classes={{
           section: classes.section,
@@ -92,7 +94,12 @@ Index.defaultProps = {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
               euismod odio non leo pretium pellentesque.
             `,
-    image: promiseThumbnail,
+    image: promiseImage,
+    status: {
+      color: "#FFB322",
+      textColor: "#202020",
+      title: "delayed",
+    },
     title: "Codification of national sports and athletics law",
   }),
 };
