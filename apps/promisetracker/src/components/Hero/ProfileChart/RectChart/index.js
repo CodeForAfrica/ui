@@ -18,7 +18,7 @@ function ReactChart(...props) {
         width={130}
         fill="#145BD5"
         stroke="#1D1D1B"
-        strokeWidth={2}
+        strokeWidth={1}
         currentStatusNumber={130}
         status="Completed"
       />
@@ -26,7 +26,7 @@ function ReactChart(...props) {
         width={90}
         fill="#84C6E7"
         stroke="#1D1D1B"
-        strokeWidth={2}
+        strokeWidth={1}
         currentStatusNumber={90}
         status="In Progress"
       />
@@ -34,7 +34,7 @@ function ReactChart(...props) {
         width={70}
         fill="#909090"
         stroke="#1D1D1B"
-        strokeWidth={2}
+        strokeWidth={1}
         currentStatusNumber={70}
         status="Inconclusive"
       />
@@ -42,7 +42,7 @@ function ReactChart(...props) {
         width={50}
         fill="#EBEBEB"
         stroke="#1D1D1B"
-        strokeWidth={2}
+        strokeWidth={1}
         currentStatusNumber={50}
         status="Unstarted"
       />
@@ -50,7 +50,7 @@ function ReactChart(...props) {
         width={60}
         fill="#FFB322"
         stroke="#1D1D1B"
-        strokeWidth={2}
+        strokeWidth={1}
         currentStatusNumber={60}
         status="Delayed"
       />
@@ -58,7 +58,7 @@ function ReactChart(...props) {
         width={110}
         fill="#FF5154"
         stroke="#1D1D1B"
-        strokeWidth={2}
+        strokeWidth={1}
         currentStatusNumber={110}
         status="Stalled"
       />
