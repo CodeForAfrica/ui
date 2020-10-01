@@ -7,7 +7,9 @@ import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ typography }) => ({
-  root: {},
+  root: {
+    maxWidth: "100%",
+  },
   h6: {
     fontFamily: typography.h1.fontFamily,
     fontSize: typography.pxToRem(24),
@@ -25,7 +27,7 @@ const useStyles = makeStyles(({ typography }) => ({
   },
   typography: {
     textAlign: "center",
-    paddingTop: "1rem",
+    paddingTop: "1rem ",
   },
 }));
 
@@ -41,8 +43,7 @@ function RectSvgChart({
   const classes = useStyles(props);
   const totalStatus = 510;
   const currentStatusPercentage = (currentStatusNumber / totalStatus) * 100;
-  // const width = currentStatusNumber + 15;
-  const width = (currentStatusNumber * height) / 130;
+  const width = (currentStatusNumber * height) / 130 + 8; // add 8px as an offset value
 
   return (
     <div className={classes.root}>
