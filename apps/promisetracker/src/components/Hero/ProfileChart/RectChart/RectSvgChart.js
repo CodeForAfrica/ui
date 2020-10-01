@@ -40,18 +40,19 @@ function RectSvgChart({
   const classes = useStyles(props);
   const totalStatus = 510;
   const currentStatusPercentage = (currentStatusNumber / totalStatus) * 100;
-  const width = currentStatusNumber + 15;
+  // const width = currentStatusNumber + 15;
+  const width = (currentStatusNumber * height) / 130;
 
   return (
     <div className={classes.root}>
-      <svg width={width} height={150}>
+      <svg width={width} height={height}>
         <rect
           x="0"
           y="0"
           rx="5"
           ry="5"
           width={width}
-          height={150}
+          height={height}
           fill={fill}
           stroke={stroke}
           strokeWidth={strokeWidth}

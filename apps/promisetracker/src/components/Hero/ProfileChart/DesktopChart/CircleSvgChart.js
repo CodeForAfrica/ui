@@ -44,7 +44,7 @@ function CircleSvgChart({
   const classes = useStyles(props);
   const totalStatus = 510;
   const currentStatusPercentage = (currentStatusNumber / totalStatus) * 100;
-  const radius = currentStatusNumber / 2;
+  const radius = (currentStatusNumber * size) / 130 / 2;
 
   return (
     <div>

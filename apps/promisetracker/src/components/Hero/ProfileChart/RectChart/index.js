@@ -16,6 +16,7 @@ function ReactChart(...props) {
     <Grid container item xs={12} direction="row" className={classes.root}>
       <RectSvgChart
         width={130}
+        height={160}
         fill="#145BD5"
         stroke="#1D1D1B"
         strokeWidth={1}
@@ -24,6 +25,7 @@ function ReactChart(...props) {
       />
       <RectSvgChart
         width={90}
+        height={160}
         fill="#84C6E7"
         stroke="#1D1D1B"
         strokeWidth={1}
@@ -32,6 +34,7 @@ function ReactChart(...props) {
       />
       <RectSvgChart
         width={70}
+        height={160}
         fill="#909090"
         stroke="#1D1D1B"
         strokeWidth={1}
@@ -40,6 +43,7 @@ function ReactChart(...props) {
       />
       <RectSvgChart
         width={50}
+        height={160}
         fill="#EBEBEB"
         stroke="#1D1D1B"
         strokeWidth={1}
@@ -48,6 +52,7 @@ function ReactChart(...props) {
       />
       <RectSvgChart
         width={60}
+        height={160}
         fill="#FFB322"
         stroke="#1D1D1B"
         strokeWidth={1}
@@ -56,6 +61,7 @@ function ReactChart(...props) {
       />
       <RectSvgChart
         width={110}
+        height={160}
         fill="#FF5154"
         stroke="#1D1D1B"
         strokeWidth={1}
