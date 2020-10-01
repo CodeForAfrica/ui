@@ -7,6 +7,9 @@ import { useTheme } from "@material-ui/core/styles";
 
 import Link from "@/promisetracker/components/Link";
 import RelatedFactChecks from "@/promisetracker/components/Promise/RelatedFactChecks";
+import NarativeUpdates from "@/promisetracker/components/Promise/Narative";
+import AuthorAtribution from "@/promisetracker/components/Promise/AuthorAtribution";
+import Radar from "@/promisetracker/components/Promise/Radar";
 import Status from "@/promisetracker/components/PromiseStatus";
 import Section from "@commons-ui/core/Section";
 
@@ -18,6 +21,7 @@ function Promise({
   breadcrumb,
   classes: classesProp,
   promiseStatusLabel,
+  promiseRadarLabel,
   relatedFactChecksLabel,
 }) {
   const classes = useStyles({ image: promise.image, classes: classesProp });
@@ -64,6 +68,17 @@ function Promise({
           <RichTypography className={classes.promiseBody} variant="body1">
             {promise.body}
           </RichTypography>
+          <Hidden lgUp>
+            <Typography className={classes.label} variant="h5">
+              {promiseRadarLabel}
+            </Typography>
+            <Radar />
+          </Hidden>
+          <NarativeUpdates />
+          <RichTypography className={classes.promiseBody} variant="body1">
+            {promise.body}
+          </RichTypography>
+          <AuthorAtribution />
         </Grid>
         <Grid item md={1} implementation="css" smDown component={Hidden} />
         <Hidden mdDown>
@@ -72,6 +87,10 @@ function Promise({
               {promiseStatusLabel}
             </Typography>
             <Status {...promise.status} classes={{ root: classes.status }} />
+            <Typography className={classes.label} variant="h5">
+              {promiseRadarLabel}
+            </Typography>
+            <Radar />
             <Typography className={classes.label} variant="h5">
               {relatedFactChecksLabel}
             </Typography>
@@ -111,6 +130,7 @@ Promise.propTypes = {
     promiseTitle: PropTypes.string,
   }),
   promiseStatusLabel: PropTypes.string,
+  promiseRadarLabel: PropTypes.string,
   relatedFactChecksLabel: PropTypes.string,
 };
 
@@ -119,6 +139,7 @@ Promise.defaultProps = {
   breadcrumb: "Promises",
   classes: undefined,
   promiseStatusLabel: "Promise rating status:",
+  promiseRadarLabel: "Promise radar:",
   relatedFactChecksLabel: "Related Fact-Checks:",
 };
 
