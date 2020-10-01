@@ -20,7 +20,7 @@ function DesktopChart({ children, ...props }) {
       container
       item
       direction="row"
-      justify="center"
+      justify="flex-start"
       className={classes.root}
     >
       {children}

@@ -11,7 +11,7 @@ import ProfileChart from "@/promisetracker/components/Hero/ProfileChart";
 
 const useStyles = makeStyles(({ typography }) => ({
   root: {},
-  section: {},
+  heroSection: {},
   hero: {
     padding: `${typography.pxToRem(40)} 0`,
   },
@@ -30,7 +30,7 @@ function Hero(props) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   return (
-    <Section classes={{ root: classes.section }}>
+    <Section classes={{ root: classes.heroSection }}>
       <Grid
         container
         direction="row"

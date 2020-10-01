@@ -27,7 +27,7 @@ const useStyles = makeStyles(({ typography }) => ({
   },
   typography: {
     textAlign: "center",
-    paddingTop: "1rem ",
+    paddingTop: "0.8rem ",
   },
 }));
 

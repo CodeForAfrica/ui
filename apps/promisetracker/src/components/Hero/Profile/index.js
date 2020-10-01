@@ -7,9 +7,11 @@ import { Grid, Typography } from "@material-ui/core";
 
 import profilePic from "@/promisetracker/assets/hero-sonko.png";
 
-const useStyles = makeStyles(({ breakpoints, palette, widths }) => ({
+const useStyles = makeStyles(({ breakpoints, palette }) => ({
   root: {
-    width: widths.values.lg,
+    [breakpoints.up("md")]: {
+      marginLeft: "-5rem",
+    },
   },
   caption: {
     color: "#20202059",
@@ -34,7 +36,15 @@ const useStyles = makeStyles(({ breakpoints, palette, widths }) => ({
 function Profile({ subtitle, name, date, ...props }) {
   const classes = useStyles(props);
   return (
-    <Grid container direction="row" alignItems="center" item xs={12} md={4}>
+    <Grid
+      container
+      direction="row"
+      alignItems="center"
+      item
+      xs={12}
+      md={4}
+      className={classes.root}
+    >
       <Grid item xs={6} md={12}>
         <img src={profilePic} alt="Profile" className={classes.img} />
       </Grid>
