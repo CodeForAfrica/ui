@@ -37,6 +37,9 @@ function UncertainChart({ name, ...props }) {
       </div>
       <div className={classes.circleContainer}>
         <CircleSvgChart
+          cx="50"
+          cy="50"
+          size="100"
           fill="#909090"
           stroke="#1D1D1B"
           strokeWidth={1}
@@ -44,6 +47,9 @@ function UncertainChart({ name, ...props }) {
           status="Inconclusive"
         />
         <CircleSvgChart
+          cx="50"
+          cy="50"
+          size="100"
           fill="#EBEBEB"
           stroke="#1D1D1B"
           strokeWidth={1}

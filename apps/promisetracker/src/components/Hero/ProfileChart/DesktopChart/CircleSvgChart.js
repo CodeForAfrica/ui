@@ -31,6 +31,9 @@ const useStyles = makeStyles(({ typography, palette }) => ({
 }));
 
 function CircleSvgChart({
+  size,
+  cx,
+  cy,
   fill,
   stroke,
   strokeWidth,
@@ -39,16 +42,16 @@ function CircleSvgChart({
   ...props
 }) {
   const classes = useStyles(props);
-  const totalStatus = 150;
+  const totalStatus = 510;
   const currentStatusPercentage = (currentStatusNumber / totalStatus) * 100;
-  const radius = currentStatusNumber / 2 - 20;
+  const radius = currentStatusNumber / 2;
 
   return (
     <div>
-      <svg width={100} height={100}>
+      <svg width={size} height={size}>
         <circle
-          cx={50}
-          cy={50}
+          cx={cx}
+          cy={cy}
           r={radius}
           fill={fill}
           stroke={stroke}
@@ -63,7 +66,7 @@ function CircleSvgChart({
           {status}
         </Typography>
         <Typography variant="h6" className={classes.percentage}>
-          {Math.trunc(currentStatusPercentage)}%
+          {Math.round(currentStatusPercentage)}%
         </Typography>
       </div>
     </div>
@@ -71,6 +74,9 @@ function CircleSvgChart({
 }
 
 CircleSvgChart.propTypes = {
+  cx: PropTypes.number,
+  cy: PropTypes.number,
+  size: PropTypes.number,
   fill: PropTypes.string,
   stroke: PropTypes.string,
   strokeWidth: PropTypes.number,
@@ -79,6 +85,9 @@ CircleSvgChart.propTypes = {
 };
 
 CircleSvgChart.defaultProps = {
+  cx: undefined,
+  cy: undefined,
+  size: undefined,
   fill: undefined,
   stroke: undefined,
   strokeWidth: undefined,

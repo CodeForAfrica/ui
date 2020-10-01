@@ -38,7 +38,7 @@ function RectSvgChart({
   ...props
 }) {
   const classes = useStyles(props);
-  const totalStatus = 150;
+  const totalStatus = 510;
   const currentStatusPercentage = (currentStatusNumber / totalStatus) * 100;
   const width = currentStatusNumber + 15;
 
@@ -59,7 +59,7 @@ function RectSvgChart({
       </svg>
       <div className={classes.typography}>
         <Typography variant="h6" className={classes.h6}>
-          {Math.trunc(currentStatusPercentage)}%
+          {Math.round(currentStatusPercentage)}%
         </Typography>
         <Typography variant="h4" className={classes.h4}>
           {status}

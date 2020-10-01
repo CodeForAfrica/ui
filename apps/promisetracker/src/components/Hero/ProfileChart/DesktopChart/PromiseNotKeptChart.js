@@ -37,6 +37,9 @@ function PromiseNotKeptChart({ name, ...props }) {
       </div>
       <div className={classes.circleContainer}>
         <CircleSvgChart
+          cx="50"
+          cy="50"
+          size="100"
           fill="#FFB322"
           stroke="#1D1D1B"
           strokeWidth={1}
@@ -44,6 +47,9 @@ function PromiseNotKeptChart({ name, ...props }) {
           status="Delayed"
         />
         <CircleSvgChart
+          cx="50"
+          cy="50"
+          size="100"
           fill="#FF5154"
           stroke="#1D1D1B"
           strokeWidth={1}

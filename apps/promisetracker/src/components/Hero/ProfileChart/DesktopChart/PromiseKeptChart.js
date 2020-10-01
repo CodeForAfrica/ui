@@ -37,6 +37,9 @@ function PromiseKeptChart({ name, ...props }) {
       </div>
       <div className={classes.circleContainer}>
         <CircleSvgChart
+          cx="50"
+          cy="50"
+          size="100"
           fill="#145BD5"
           stroke="#1D1D1B"
           strokeWidth={1}
@@ -44,6 +47,9 @@ function PromiseKeptChart({ name, ...props }) {
           status="Completed"
         />
         <CircleSvgChart
+          cx="50"
+          cy="50"
+          size="100"
           fill="#84C6E7"
           stroke="#1D1D1B"
           strokeWidth={1}
