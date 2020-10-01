@@ -25,7 +25,6 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
     marginBottom: typography.pxToRem(21),
     marginTop: typography.pxToRem(46),
     [breakpoints.up("lg")]: {
-      marginBottom: 0,
       marginTop: typography.pxToRem(96),
     },
     fontWeight: 400,
