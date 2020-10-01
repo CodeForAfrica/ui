@@ -86,7 +86,11 @@ function Promises({ items, title, withFilter, ...props }) {
           </Grid>
         </Grid>
       )}
-      <Grid container justify="space-between">
+      <Grid
+        container
+        className={classes.promisesContainer}
+        justify="space-between"
+      >
         {items.map((promise, i) => (
           <Grid
             key={promise.name}

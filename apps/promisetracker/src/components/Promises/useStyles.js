@@ -5,6 +5,9 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
     marginBottom: typography.pxToRem(32),
     marginTop: typography.pxToRem(16),
   },
+  promisesContainer: {
+    marginBottom: typography.pxToRem(32),
+  },
   section: {
     marginBottom: "2rem",
   },
