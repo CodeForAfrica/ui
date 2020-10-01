@@ -15,6 +15,7 @@ function PromiseCard({ classes: classesProp, status, title, ...props }) {
   return (
     <PostCard
       {...props}
+      title={title}
       as={`/promises/${slugify(title)}`}
       component={Link}
       href="/promises/[slug]"

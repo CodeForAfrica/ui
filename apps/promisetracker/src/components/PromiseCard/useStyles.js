@@ -31,11 +31,20 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
     };
   },
   date: {},
-  description: {},
+  description: {
+    textTransform: "none",
+  },
   descriptionContainer: {
     height: "auto",
-    [breakpoints.up("ld")]: {
+    [breakpoints.up("lg")]: {
       height: 24 * 3, // Max 3 lines defined by body2.lineHeight
+    },
+  },
+  link: {
+    color: "unset",
+    "&:hover": {
+      textDecoration: "none",
+      color: "unset",
     },
   },
   media: {},
