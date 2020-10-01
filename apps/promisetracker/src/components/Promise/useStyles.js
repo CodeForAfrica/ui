@@ -18,6 +18,10 @@ const useStyles = makeStyles(
     mobileStatusContainer: {
       display: "flex",
       alignItems: "center",
+      borderTop: `.1rem solid ${palette.secondary.light}`,
+      borderBottom: `.1rem solid ${palette.secondary.light}`,
+      padding: ".5rem 0",
+      width: "max-content",
     },
     mobileStatusLabel: {
       marginRight: "1rem",
