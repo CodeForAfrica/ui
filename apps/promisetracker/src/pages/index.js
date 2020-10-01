@@ -16,6 +16,7 @@ import LatestPromises from "@/promisetracker/components/LatestPromises";
 import Page from "@/promisetracker/components/Page";
 
 import articleImage from "@/promisetracker/assets/article-thumb-01.png";
+import config from "@/promisetracker/config";
 import promiseCarouselImage from "@/promisetracker/assets/promise-carusel-01.png";
 import promiseImage from "@/promisetracker/assets/promise-thumb-01.png";
 
@@ -57,20 +58,18 @@ function Index(props) {
       />
       <LatestPromises
         actionLabel="See All"
-        items={Array(6).fill({
-          date: "2019-08-10",
-          description: `
+        items={Array(6)
+          .fill(null)
+          .map((_, i) => ({
+            date: "2019-08-10",
+            description: `
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
               euismod odio non leo pretium pellentesque.
             `,
-          image: promiseImage,
-          status: {
-            color: "#FFB322",
-            textColor: "#202020",
-            title: "delayed",
-          },
-          title: "Codification of national sports and athletics law",
-        })}
+            image: promiseImage,
+            status: config.promiseStatuses[i % config.promiseStatuses.length],
+            title: "Codification of national sports and athletics law",
+          }))}
         title="Latest Promises"
         classes={{
           section: classes.section,
