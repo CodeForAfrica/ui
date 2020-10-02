@@ -10,7 +10,7 @@ const useStyles = makeStyles(({ typography }) => ({
     padding: "1.5rem 0rem",
     height: typography.pxToRem(284),
     maxHeight: "100%",
-    // width: "54.1875rem",
+    width: "54.1875rem",
   },
 }));
 
