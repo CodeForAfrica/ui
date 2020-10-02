@@ -28,6 +28,9 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       marginTop: typography.pxToRem(96),
     },
     fontWeight: 400,
+    "&:after": {
+      borderBottom: "none",
+    },
   },
 }));
 
