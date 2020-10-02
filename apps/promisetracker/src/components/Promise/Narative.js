@@ -15,7 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import ShareIcon from "@/promisetracker/icons/Share";
 
-const useStyles = makeStyles(({ palette }) => ({
+const useStyles = makeStyles(({ palette, typography }) => ({
   root: {
     padding: "3rem 1rem 3rem 1rem",
     background: "#F7F7F7 0% 0% no-repeat padding-box",
@@ -23,6 +23,7 @@ const useStyles = makeStyles(({ palette }) => ({
 
   content: {},
   share: {
+    paddingTop: ".1rem",
     "&:hover": {
       backgroundColor: "inherit",
     },
@@ -30,27 +31,32 @@ const useStyles = makeStyles(({ palette }) => ({
   timelineConnector: {
     backgroundColor: palette.primary.main,
   },
-  timelineList: {},
+  timelineList: {
+    paddingLeft: "0",
+  },
   timelineItem: {
     "&:before": {
       display: "none",
     },
   },
   titleShareContainer: {
+    fontSize: typography.h4.fontSize,
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
   },
   timelineDot: {
     margin: 0,
-    width: "2rem",
-    height: "2rem",
+    width: "2.2rem",
+    height: "2.2rem",
     display: "flex",
+    fontWeight: 600,
     justifyContent: "center",
     alignItems: "center",
   },
   timelineDate: {
-    padding: ".5rem 0",
+    paddingBottom: ".5rem",
+    paddingTop: ".25rem",
   },
   timelineDescription: {
     paddingBottom: "2rem",
@@ -63,7 +69,7 @@ function NarativeUpdates({ description, title, timelines, ...props }) {
     <>
       <div className={classes.root}>
         <div className={classes.titleShareContainer}>
-          <Typography className={classes.title} variant="h5">
+          <Typography className={classes.title} variant="h4">
             {title}
           </Typography>
           <IconButton aria-label="share" className={classes.share}>
@@ -94,7 +100,7 @@ function NarativeUpdates({ description, title, timelines, ...props }) {
                     }}
                     variant="outlined"
                   >
-                    {index + 1}
+                    <Typography variant="h4">{index + 1}</Typography>
                   </TimelineDot>
                   {index + 1 !== timelines.length && (
                     <TimelineConnector className={classes.timelineConnector} />

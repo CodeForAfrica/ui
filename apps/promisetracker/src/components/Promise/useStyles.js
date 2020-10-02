@@ -16,12 +16,12 @@ const useStyles = makeStyles(
       marginTop: 0,
     },
     mobileStatusContainer: {
+      marginTop: "2rem",
       display: "flex",
       alignItems: "center",
       borderTop: `.1rem solid ${palette.secondary.light}`,
       borderBottom: `.1rem solid ${palette.secondary.light}`,
       padding: ".5rem 0",
-      width: "max-content",
     },
     mobileStatusLabel: {
       marginRight: "1rem",
@@ -31,9 +31,9 @@ const useStyles = makeStyles(
     },
     promiseTitle: {
       fontWeight: 600,
-      marginTop: typography.pxToRem(11),
-      marginBottom: typography.pxToRem(11),
-      maxHeight: typography.pxToRem(32 * 2),
+      marginTop: "1rem",
+      marginBottom: "2rem",
+      maxHeight: typography.pxToRem(40 * 3),
       [breakpoints.up("lg")]: {
         marginTop: typography.pxToRem(27),
         maxHeight: typography.pxToRem(56 * 2),
@@ -69,6 +69,10 @@ const useStyles = makeStyles(
     label: {
       marginTop: "2rem",
       color: palette.primary.main,
+    },
+    promisesLabel: {
+      marginBottom: "1rem",
+      marginTop: "2rem",
     },
     status: {
       fontSize: "1rem",

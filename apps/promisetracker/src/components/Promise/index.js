@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Grid, Typography, Hidden, useMediaQuery } from "@material-ui/core";
+import { Grid, Typography, Hidden } from "@material-ui/core";
 import { RichTypography } from "@commons-ui/core";
-import { useTheme } from "@material-ui/core/styles";
 
 import Link from "@/promisetracker/components/Link";
 import RelatedFactChecks from "@/promisetracker/components/Promise/RelatedFactChecks";
@@ -25,15 +24,12 @@ function Promise({
   relatedFactChecksLabel,
 }) {
   const classes = useStyles({ image: promise.image, classes: classesProp });
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-  const titleVariant = isDesktop ? "h2" : "h3";
 
   return (
     <Section classes={{ root: classes.section }}>
       <Hidden lgUp>
         <Link href="/promises" as="/promises" className={classes.link}>
-          <Typography className={classes.label} variant="h4">
+          <Typography className={classes.promisesLabel} variant="h4">
             {breadcrumb}
           </Typography>
         </Link>
@@ -47,10 +43,7 @@ function Promise({
               {promiseLabel}
             </Typography>
           </Hidden>
-          <RichTypography
-            variant={titleVariant}
-            className={classes.promiseTitle}
-          >
+          <RichTypography variant="h1" className={classes.promiseTitle}>
             {promise.title}
           </RichTypography>
           <Hidden lgUp>
@@ -127,6 +120,7 @@ Promise.propTypes = {
     section: PropTypes.string,
     status: PropTypes.string,
     label: PropTypes.string,
+    promisesLabel: PropTypes.string,
     promiseTitle: PropTypes.string,
   }),
   promiseStatusLabel: PropTypes.string,
