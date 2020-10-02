@@ -42,8 +42,12 @@ const useStyles = makeStyles(({ typography }) => ({
     background: "#F7F7F7",
     padding: "1rem",
   },
+  img: {
+    height: "auto",
+    maxWidth: "100%",
+  },
   viz1: {
-    width: "1.2rem",
+    width: "1.5rem",
     height: "auto",
     maxWidth: "100%",
   },
@@ -100,7 +104,7 @@ function ProfileDetails({ name, ...props }) {
                   {clicked ? (
                     <img src={viz1} alt="Viz1" className={classes.viz1} />
                   ) : (
-                    <img src={viz2} alt="Viz2" />
+                    <img src={viz2} alt="Viz2" className={classes.img} />
                   )}
                 </IconButton>
               </Grid>
@@ -112,7 +116,7 @@ function ProfileDetails({ name, ...props }) {
                   size="small"
                   className={classes.iconButton}
                 >
-                  <img src={info} alt="Info" />
+                  <img src={info} alt="Info" className={classes.img} />
                 </IconButton>
               </Grid>
               <Grid item>
@@ -123,7 +127,7 @@ function ProfileDetails({ name, ...props }) {
                   size="small"
                   className={classes.iconButton}
                 >
-                  <img src={share} alt="Share" />
+                  <img src={share} alt="Share" className={classes.img} />
                 </IconButton>
               </Grid>
             </Grid>
@@ -150,7 +154,7 @@ function ProfileDetails({ name, ...props }) {
                   disableRipple
                   disableFocusRipple
                   aria-label="Share"
-                  size="small"
+                  size="medium"
                   className={classes.iconButton}
                 >
                   <img src={share} alt="Share" />
