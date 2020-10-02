@@ -36,6 +36,7 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
   },
   image: {
     borderRadius: "50%",
+    alignSelf: "center",
     width: typography.pxToRem(184),
     height: typography.pxToRem(184),
     background: (props) => (props.image ? `url(${props.image})` : "#fff"),
