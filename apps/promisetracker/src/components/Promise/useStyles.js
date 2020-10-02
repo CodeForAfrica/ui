@@ -68,6 +68,8 @@ const useStyles = makeStyles(
 
     label: {
       marginTop: "2rem",
+      marginBottom: "1rem",
+
       color: palette.primary.main,
     },
     promisesLabel: {
@@ -76,6 +78,7 @@ const useStyles = makeStyles(
     },
     status: {
       fontSize: "1rem",
+      marginTop: "0",
       padding: "1.5rem 1rem",
     },
     title: {
