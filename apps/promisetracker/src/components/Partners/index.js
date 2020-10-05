@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { Grid, useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
-import { Section } from "@commons-ui/core";
+import { A, Section } from "@commons-ui/core";
 
 import partner1 from "@/promisetracker/assets/partner-01.png";
 import partner2 from "@/promisetracker/assets/partner-02.svg";
@@ -92,18 +92,20 @@ function Partners({ items, title, ...props }) {
         <Grid container className={classes.partners}>
           {items.slice(0, 6).map((partner, i) => (
             <Grid key={partner.name} item xs={6} lg={4}>
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className={clsx(classes.partner, {
-                  [classes.partnerFirst]: (i + 1) % columnsCount === 1,
-                  [classes.partnerLast]: (i + 1) % columnsCount === 0,
-                  // center would never happen in mobile i.e any number % 2 is
-                  // either 0 or 1
-                  [classes.partnerMiddle]: (i + 1) % columnsCount === 2,
-                  [classes.partnerRow]: i > columnsCount - 1,
-                })}
-              />
+              <A href={partner.href}>
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className={clsx(classes.partner, {
+                    [classes.partnerFirst]: (i + 1) % columnsCount === 1,
+                    [classes.partnerLast]: (i + 1) % columnsCount === 0,
+                    // center would never happen in mobile i.e any number % 2 is
+                    // either 0 or 1
+                    [classes.partnerMiddle]: (i + 1) % columnsCount === 2,
+                    [classes.partnerRow]: i > columnsCount - 1,
+                  })}
+                />
+              </A>
             </Grid>
           ))}
         </Grid>
@@ -118,12 +120,20 @@ Partners.propTypes = {
 
 Partners.defaultProps = {
   items: [
-    { logo: partner1, name: "PessaCheck" },
-    { logo: partner2, name: "Star" },
-    { logo: partner3, name: "Piga" },
-    { logo: partner4, name: "DW" },
-    { logo: partner5, name: "Meedan" },
-    { logo: partner6, name: "AWS" },
+    { logo: partner1, name: "PesaCheck", href: "//pesacheck.org" },
+    { logo: partner2, name: "The Star", href: "//the-star.co.ke" },
+    {
+      logo: partner3,
+      name: "Piga Firimbi",
+      href: "//pigafirimbi.africauncensored.online",
+    },
+    {
+      logo: partner4,
+      name: "DW Akademie",
+      href: "//www.dw.com/en/dw-akademie/about-us/s-9519",
+    },
+    { logo: partner5, name: "Meedan", href: "//meedan.com" },
+    { logo: partner6, name: "AWS", href: "//aws.amazon.com" },
   ],
   title: undefined,
 };
