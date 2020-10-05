@@ -31,15 +31,8 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       width: typography.pxToRem(widths.values.lg),
     },
   },
-  heroSection: {
-    padding: `0 ${typography.pxToRem(23)}`,
-    margin: 0,
-    width: "100%",
-    [breakpoints.up("lg")]: {
-      padding: 0,
-      margin: "0 auto",
-      width: typography.pxToRem(widths.values.lg + 100),
-    },
+  footer: {
+    marginTop: 0,
   },
 }));
 
@@ -47,8 +40,7 @@ function Index(props) {
   const classes = useStyles(props);
 
   return (
-    <Page classes={{ section: classes.section }}>
-      <Hero classes={{ heroSection: classes.heroSection }} />
+    <Page classes={{ section: classes.section, footer: classes.footer }}>
       <KeyPromises
         actionLabel="Learn More"
         items={Array(6)
