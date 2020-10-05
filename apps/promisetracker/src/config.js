@@ -94,7 +94,8 @@ const config = {
         links: [
           {
             label: "Subscribe",
-            href: "/subscribe",
+            href:
+              "https://codeforafrica.us6.list-manage.com/subscribe/post?u=65e5825507b3cec760f272e79&amp;id=286e6e3985",
           },
           {
             label: "Join Us",
