@@ -63,7 +63,7 @@ const useStyles = makeStyles(({ typography }) => ({
 function ProfileDetails({ name, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
   const [clicked, setClicked] = useState(false);
 

@@ -9,7 +9,7 @@ import profilePic from "@/promisetracker/assets/hero-sonko.png";
 
 const useStyles = makeStyles(({ breakpoints, palette }) => ({
   root: {
-    [breakpoints.up("md")]: {
+    [breakpoints.up("lg")]: {
       marginLeft: "-5rem",
     },
   },
@@ -19,7 +19,7 @@ const useStyles = makeStyles(({ breakpoints, palette }) => ({
   img: {
     width: "149px",
     height: "149px",
-    [breakpoints.up("md")]: {
+    [breakpoints.up("lg")]: {
       width: "100%",
       height: "auto",
     },
@@ -42,13 +42,14 @@ function Profile({ subtitle, name, date, ...props }) {
       alignItems="center"
       item
       xs={12}
-      md={4}
+      md={10}
+      lg={4}
       className={classes.root}
     >
-      <Grid item xs={6} md={12}>
+      <Grid item xs={6} md={6} lg={12}>
         <img src={profilePic} alt="Profile" className={classes.img} />
       </Grid>
-      <Grid item xs={6} md={12}>
+      <Grid item xs={6} md={6} lg={12}>
         <Typography variant="h5" className={classes.subtitle}>
           {subtitle}
         </Typography>

@@ -28,7 +28,7 @@ TitleTypography.propTypes = {
 function Hero(props) {
   const classes = useStyles(props);
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   return (
     <Section classes={{ root: classes.heroSection }}>
       <Grid
