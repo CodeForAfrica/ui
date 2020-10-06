@@ -9,6 +9,7 @@ import { useTheme } from "@material-ui/core/styles";
 import { RichTypography } from "@commons-ui/core";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
+import PromiseTimeline from "@/promisetracker/components/PromiseTimeline";
 
 import useStyles from "./useStyles";
 
@@ -67,6 +68,9 @@ function KeyPromise({ actionLabel, description, image, title, ...props }) {
             {actionLabel}
           </CtAButton>
         )}
+      </Grid>
+      <Grid className={classes.timelineGrid} item xs={12}>
+        <PromiseTimeline />
       </Grid>
     </Grid>
   );
