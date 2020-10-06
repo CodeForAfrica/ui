@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
 
-function Event({ event, xposition, isCurrent }) {
+function Event({ duration, event, isCurrent }) {
   const theme = useTheme();
+  const xposition = `${
+    ((event.year - duration[0]) * 100) / (duration[1] - duration[0])
+  }%`;
   const yposition = "20";
-  const textRef = React.createRef();
-  const [textPosition, setTextPosition] = React.useState({
+  const textRef = useRef();
+  const [textPosition, setTextPosition] = useState({
     x: 0,
     y: 0,
     width: 0,
@@ -54,13 +57,12 @@ function Event({ event, xposition, isCurrent }) {
 }
 
 Event.propTypes = {
+  duration: PropTypes.arrayOf(PropTypes.number).isRequired,
   event: PropTypes.shape().isRequired,
-  xposition: PropTypes.string,
   isCurrent: PropTypes.bool,
 };
 
 Event.defaultProps = {
   isCurrent: false,
-  xposition: undefined,
 };
 export default Event;
