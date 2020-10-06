@@ -5,7 +5,10 @@ import { Grid, Hidden, useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 
 import {
-  Section,
+  A,
+  FooterAbout,
+  FooterCopyright,
+  FooterLegalLinks,
   FooterLogo,
   FooterAbout,
   FooterQuickLinks,
@@ -24,7 +27,7 @@ function MainFooter({
   page: {
     about,
     contacts,
-    legal_links: legalLinksLinks,
+    legal_links: legalLinksProp,
     organization_logo: organizationLogoProp,
     quick_links: quickLinksProp,
     copyright,
@@ -41,26 +44,41 @@ function MainFooter({
   };
   const legalLinks = {
     linkComponent: Link,
-    links: legalLinksLinks.map((l) => ({
+    links: legalLinksProp.map((l) => ({
       ...l,
       as: l.href,
       href: "/legal/[...slug]",
     })),
   };
-  const getPath = (href) => {
-    const path = href.split("/").slice(0, 2).join("/");
-    switch (path) {
-      case "/about":
-        return "/about/[slug]";
-      default:
-        return path;
-    }
-  };
-  const quickLinks = quickLinksProp.map((q) => ({
-    ...q,
-    linkComponent: Link,
-    links: q.links.map((l) => ({ ...l, as: l.href, href: getPath(l.href) })),
-  }));
+  const quickLinks = quickLinksProp.map((q) => {
+    const hrefify = (href) => {
+      const path = href.split("/").slice(0, 2).join("/");
+      switch (path) {
+        case "/about":
+          return "/about/[slug]";
+        default:
+          return href;
+      }
+    };
+    const linkify = ({ href: hrefProp = "", ...others }) => {
+      const isRelativeHref =
+        hrefProp.startsWith("/") && !hrefProp.startsWith("//");
+      const component = isRelativeHref ? Link : A;
+      const as = isRelativeHref ? hrefProp : undefined;
+      const href = isRelativeHref ? hrefify(hrefProp) : hrefProp;
+
+      return {
+        ...others,
+        component,
+        as,
+        href,
+      };
+    };
+    return {
+      ...q,
+      links: q.links.map(linkify),
+    };
+  });
 
   return (
     <div className={classes.root}>
