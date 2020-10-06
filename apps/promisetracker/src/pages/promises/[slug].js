@@ -32,13 +32,19 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       borderBottom: "none",
     },
   },
+  footer: {
+    marginTop: 0,
+  },
 }));
 
 function Index({ promise, relatedPromises, ...props }) {
   const classes = useStyles(props);
 
   return (
-    <Page title={promise.title} classes={{ section: classes.section }}>
+    <Page
+      title={promise.title}
+      classes={{ section: classes.section, footer: classes.footer }}
+    >
       <Promise promise={promise} />
       <RelatedPromises
         items={relatedPromises}
