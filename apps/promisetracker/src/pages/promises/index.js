@@ -1,7 +1,6 @@
 import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Hidden } from "@material-ui/core";
 
 import ActNow from "@/promisetracker/components/ActNow";
 import Promises from "@/promisetracker/components/Promises";
@@ -20,6 +19,12 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       padding: 0,
       margin: "0 auto",
       width: typography.pxToRem(widths.values.lg),
+    },
+  },
+  actNow: {
+    display: "none",
+    [breakpoints.up("lg")]: {
+      display: "flex",
     },
   },
   footer: {
@@ -53,13 +58,12 @@ function Index(props) {
           section: classes.section,
         }}
       />
-      <Hidden mdDown>
-        <ActNow
-          classes={{
-            section: classes.section,
-          }}
-        />
-      </Hidden>
+      <ActNow
+        classes={{
+          section: classes.section,
+          root: classes.actNow,
+        }}
+      />
 
       <Subscribe
         classes={{
