@@ -17,7 +17,6 @@ import useStyles from "./useStyles";
 
 function Article({
   article,
-  articleLabel,
   breadcrumb,
   socialMedia,
   classes: classesProp,
@@ -27,23 +26,23 @@ function Article({
   return (
     <Section classes={{ root: classes.section }}>
       <Hidden lgUp>
-        <Link
-          href="/analysis/articles"
-          as="/analysis/articles"
-          className={classes.link}
-        >
-          <Typography className={classes.label} variant="h4">
+        <Typography className={classes.label} variant="h4">
+          <Link href="/analysis/articles" className={classes.link}>
             {breadcrumb}
-          </Typography>
-        </Link>
+          </Link>
+        </Typography>
       </Hidden>
 
       <div className={classes.featuredImageContainer} />
       <Grid container>
-        <Grid item md={7}>
-          <Typography className={classes.label} variant="h4">
-            {articleLabel}
-          </Typography>
+        <Grid item lg={7}>
+          <Hidden mdDown>
+            <Typography className={classes.label} variant="h4">
+              <Link href="/analysis/articles" className={classes.link}>
+                {breadcrumb}
+              </Link>
+            </Typography>
+          </Hidden>
 
           <RichTypography className={classes.title} variant="h1">
             {article.title}
@@ -71,9 +70,9 @@ function Article({
             </div>
           </div>
         </Grid>
-        <Grid item md={2} implementation="css" smDown component={Hidden} />
+        <Grid item lg={2} implementation="css" smDown component={Hidden} />
 
-        <Grid item md={3}>
+        <Grid item lg={3}>
           <Typography className={classes.label} variant="h5">
             {shareLabel}
           </Typography>
@@ -91,7 +90,6 @@ Article.propTypes = {
     image: PropTypes.string,
     title: PropTypes.string,
   }).isRequired,
-  articleLabel: PropTypes.string,
   breadcrumb: PropTypes.string,
   classes: PropTypes.shape({
     articleBody: PropTypes.string,
@@ -113,7 +111,6 @@ Article.propTypes = {
 };
 
 Article.defaultProps = {
-  articleLabel: "Article",
   breadcrumb: "Articles",
   classes: undefined,
   shareLabel: "Share:",

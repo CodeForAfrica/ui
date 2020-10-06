@@ -34,6 +34,15 @@ const useStyles = makeStyles(
         marginTop: typography.pxToRem(35),
       },
     },
+    actNow: {
+      display: "none",
+      [breakpoints.up("lg")]: {
+        display: "flex",
+      },
+    },
+    footer: {
+      marginTop: 0,
+    },
   })
 );
 
@@ -41,7 +50,10 @@ function Index(props) {
   const classes = useStyles(props);
 
   return (
-    <Page title="Articles" classes={{ section: classes.section }}>
+    <Page
+      title="Articles"
+      classes={{ section: classes.section, footer: classes.footer }}
+    >
       <Articles
         items={Array(20).fill({
           date: "2019-08-10",
@@ -58,10 +70,10 @@ function Index(props) {
           sectionTitle: classes.sectionTitle,
         }}
       />
-
       <ActNow
         classes={{
           section: classes.section,
+          root: classes.actNow,
         }}
       />
       <Subscribe
