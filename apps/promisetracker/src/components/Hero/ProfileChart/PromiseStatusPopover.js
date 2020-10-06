@@ -12,9 +12,10 @@ import {
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/core/styles";
+
 import info from "@/promisetracker/assets/hero-icon-info.svg";
 
-import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
+import DialogPromiseStatusList from "@/promisetracker/components/Hero/ProfileChart/DialogPromiseStatusList";
 
 import config from "@/promisetracker/config";
 
@@ -112,7 +113,7 @@ function PromiseStatusPopover(props) {
           What do the ratings mean?
         </DialogTitle>
         <DialogContent>
-          <PromiseStatusList
+          <DialogPromiseStatusList
             items={promiseStatuses}
             classes={{ root: classes.criteriaItems }}
           />
