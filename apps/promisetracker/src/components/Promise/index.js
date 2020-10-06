@@ -1,22 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Grid, Typography, Hidden } from "@material-ui/core";
-import { RichTypography } from "@commons-ui/core";
+import { Grid, Hidden, Typography } from "@material-ui/core";
 
-import Link from "@/promisetracker/components/Link";
-import RelatedFactChecks from "@/promisetracker/components/Promise/RelatedFactChecks";
-import NarativeUpdates from "@/promisetracker/components/Promise/Narative";
+import { RichTypography, Section } from "@commons-ui/core";
+
 import AuthorAtribution from "@/promisetracker/components/Promise/AuthorAtribution";
+import Link from "@/promisetracker/components/Link";
+import NarativeUpdates from "@/promisetracker/components/Promise/Narative";
 import Radar from "@/promisetracker/components/Promise/Radar";
+import RelatedFactChecks from "@/promisetracker/components/Promise/RelatedFactChecks";
 import Status from "@/promisetracker/components/PromiseStatus";
-import Section from "@commons-ui/core/Section";
 
 import useStyles from "./useStyles";
 
 function Promise({
   promise,
-  promiseLabel,
   breadcrumb,
   classes: classesProp,
   promiseStatusLabel,
@@ -28,19 +27,21 @@ function Promise({
   return (
     <Section classes={{ root: classes.section }}>
       <Hidden lgUp>
-        <Link href="/promises" as="/promises" className={classes.link}>
-          <Typography className={classes.promisesLabel} variant="h4">
+        <Typography className={classes.promisesLabel} variant="h4">
+          <Link href="/promises" as="/promises" className={classes.link}>
             {breadcrumb}
-          </Typography>
-        </Link>
+          </Link>
+        </Typography>
       </Hidden>
 
       <Grid container>
         <Grid item xs={12} lg={8}>
           <div className={classes.featuredImageContainer} />
           <Hidden mdDown>
-            <Typography className={classes.label} variant="h4">
-              {promiseLabel}
+            <Typography className={classes.promisesLabel} variant="h4">
+              <Link href="/promises" as="/promises" className={classes.link}>
+                {breadcrumb}
+              </Link>
             </Typography>
           </Hidden>
           <RichTypography variant="h1" className={classes.promiseTitle}>
@@ -103,7 +104,6 @@ Promise.propTypes = {
     title: PropTypes.string,
     status: PropTypes.shape({}),
   }).isRequired,
-  promiseLabel: PropTypes.string,
   breadcrumb: PropTypes.string,
   classes: PropTypes.shape({
     promiseBody: PropTypes.string,
@@ -129,7 +129,6 @@ Promise.propTypes = {
 };
 
 Promise.defaultProps = {
-  promiseLabel: "Promises",
   breadcrumb: "Promises",
   classes: undefined,
   promiseStatusLabel: "Promise rating status:",
