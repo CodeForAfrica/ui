@@ -182,6 +182,32 @@ const config = {
     title: "Analysis",
     url: "/analysis",
   },
+  colors: {
+    completed: {
+      main: "#005DFD",
+      font: "#FFFFFF",
+    },
+    "in-progress": {
+      main: "#90DAFF",
+      font: "#202020",
+    },
+    stalled: {
+      main: "#FF5255",
+      font: "#FFFFFF",
+    },
+    delayed: {
+      main: "#FFB322",
+      font: "#202020",
+    },
+    unrated: {
+      main: "#EBEBEB",
+      font: "#202020",
+    },
+    unstarted: {
+      main: "#909090",
+      font: "#FFFFFF",
+    },
+  },
   promiseStatuses: [
     {
       color: "#005DFD",
