@@ -49,7 +49,7 @@ function Profile({ subtitle, name, date, ...props }) {
       <Grid item xs={6} md={6} lg={12}>
         <img src={profilePic} alt="Profile" className={classes.img} />
       </Grid>
-      <Grid item xs={6} md={6} lg={12}>
+      <Grid item xs={6} lg={12}>
         <Typography variant="h5" className={classes.subtitle}>
           {subtitle}
         </Typography>
