@@ -46,7 +46,7 @@ const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
     position: "absolute",
     top: "1",
     maxWidth: "100%",
-    [breakpoints.up("md")]: {
+    [breakpoints.up("lg")]: {
       top: 0,
     },
   },
