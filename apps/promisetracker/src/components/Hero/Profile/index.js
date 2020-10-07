@@ -42,7 +42,7 @@ function Profile({ subtitle, name, date, ...props }) {
       alignItems="center"
       item
       xs={12}
-      md={10}
+``
       lg={4}
       className={classes.root}
     >
