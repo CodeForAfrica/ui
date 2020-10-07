@@ -19,7 +19,7 @@ import DialogPromiseStatusList from "@/promisetracker/components/Hero/ProfileCha
 
 import config from "@/promisetracker/config";
 
-const useStyles = makeStyles(({ palette, typography }) => ({
+const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
   typo: {
     color: palette.primary.main,
   },
@@ -46,6 +46,9 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     position: "absolute",
     top: "1",
     maxWidth: "100%",
+    [breakpoints.up("md")]: {
+      top: 0,
+    },
   },
 }));
 

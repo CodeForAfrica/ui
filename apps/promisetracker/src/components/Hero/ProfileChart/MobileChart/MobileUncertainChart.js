@@ -33,7 +33,7 @@ function MobileUncertainChart({ name, ...props }) {
       justify="flex-start"
       alignItems="flex-start"
     >
-      <Grid item xs={3} className={classes.border}>
+      <Grid item xs={4} className={classes.border}>
         <Typography variant="body2" className={classes.typo}>
           {name}
         </Typography>
@@ -41,7 +41,7 @@ function MobileUncertainChart({ name, ...props }) {
       <Grid
         container
         item
-        xs={9}
+        xs={8}
         direction="column"
         justify="flex-start"
         alignItems="flex-start"
