@@ -13,7 +13,14 @@ import PromiseTimeline from "@/promisetracker/components/PromiseTimeline";
 
 import useStyles from "./useStyles";
 
-function KeyPromise({ actionLabel, description, image, title, ...props }) {
+function KeyPromise({
+  actionLabel,
+  description,
+  image,
+  status,
+  title,
+  ...props
+}) {
   const classes = useStyles(props);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
@@ -70,7 +77,18 @@ function KeyPromise({ actionLabel, description, image, title, ...props }) {
         )}
       </Grid>
       <Grid className={classes.timelineGrid} item xs={12}>
-        <PromiseTimeline />
+        <PromiseTimeline
+          events={[
+            { year: 2017, label: "Event A", color: "white" },
+            { year: 2015, label: "Event B", color: "white" },
+            {
+              year: 2013,
+              label: status.title,
+              color: status.color,
+              isCurrent: true,
+            },
+          ]}
+        />
       </Grid>
     </Grid>
   );
@@ -89,12 +107,17 @@ KeyPromise.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  status: PropTypes.shape({
+    title: PropTypes.string,
+    color: PropTypes.string,
+  }),
 };
 
 KeyPromise.defaultProps = {
   actionLabel: undefined,
   classes: undefined,
   description: undefined,
+  status: undefined,
 };
 
 export default KeyPromise;

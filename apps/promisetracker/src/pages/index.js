@@ -52,6 +52,7 @@ function Index(props) {
             `,
             image: promiseCarouselImage,
             title: `Codification of national sports and athletics law ${i + 1}`,
+            status: config.promiseStatuses[i % config.promiseStatuses.length],
           }))}
         title="Key Promises"
         classes={{
