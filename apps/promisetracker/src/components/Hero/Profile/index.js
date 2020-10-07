@@ -46,7 +46,7 @@ function Profile({ subtitle, name, date, ...props }) {
       lg={4}
       className={classes.root}
     >
-      <Grid item xs={6} md={6} lg={12}>
+      <Grid item xs={6} lg={12}>
         <img src={profilePic} alt="Profile" className={classes.img} />
       </Grid>
       <Grid item xs={6} lg={12}>
