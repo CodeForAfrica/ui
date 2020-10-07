@@ -8,7 +8,6 @@ import Event from "./Event";
 function Index({ duration, events }) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-
   return (
     <>
       <svg width="100%" height="140">
@@ -29,7 +28,7 @@ function Index({ duration, events }) {
           width="15%"
           height="10"
           style={{
-            fill: "#FFB322",
+            fill: events.find((event) => event.isCurrent).color,
           }}
         />
         {isDesktop && (
