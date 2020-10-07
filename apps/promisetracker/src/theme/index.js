@@ -210,10 +210,6 @@ deepmerge(
       color: palette.primary.main,
       fontSize: pxToRem(13),
       lineHeight: 24 / 13,
-      [breakpoints.up("md")]: {
-        fontSize: pxToRem(18),
-        lineHeight: 40 / 18,
-      },
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(18),
         lineHeight: 40 / 18,
