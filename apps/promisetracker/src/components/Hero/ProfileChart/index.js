@@ -13,7 +13,7 @@ function ProfileChart() {
       alignItems="flex-start"
       item
       xs={12}
-      md={8}
+      lg={8}
     >
       <ProfileDetails name="Mike “Sonko” Mbuvi" />
     </Grid>
