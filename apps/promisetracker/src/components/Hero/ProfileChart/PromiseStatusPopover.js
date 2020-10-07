@@ -27,9 +27,6 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     borderBottom: `1px solid ${palette.secondary.main}`,
     padding: "0.5rem 0rem",
   },
-  criteriaItems: {
-    marginTop: typography.pxToRem(25),
-  },
   iconButton: {
     background: palette.secondary.light,
     padding: "1rem",
@@ -42,6 +39,13 @@ const useStyles = makeStyles(({ palette, typography }) => ({
   },
   description: {
     fontSize: typography.pxToRem(10),
+  },
+  paper: {
+    borderRadius: 0,
+    boxShadow: "0px 3px 6px #00000029",
+    position: "absolute",
+    top: "1",
+    maxWidth: "100%",
   },
 }));
 
@@ -97,14 +101,7 @@ function PromiseStatusPopover(props) {
       </IconButton>
 
       <Dialog
-        PaperProps={{
-          style: {
-            borderRadius: 0,
-            boxShadow: "0px 3px 6px #00000029",
-            position: "absolute",
-            top: "0",
-          },
-        }}
+        classes={{ paper: classes.paper }}
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}

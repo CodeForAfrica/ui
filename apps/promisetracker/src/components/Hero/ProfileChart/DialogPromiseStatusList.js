@@ -19,6 +19,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   status: {
     margin: 0,
     marginRight: typography.pxToRem(10),
+    fontSize: typography.pxToRem(7),
   },
   statusContainer: {
     minWidth: typography.pxToRem(80),
@@ -26,7 +27,9 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       minWidth: typography.pxToRem(170),
     },
   },
-  description: {},
+  description: {
+    fontSize: typography.pxToRem(10),
+  },
 }));
 
 function DialogPromiseStatusList({ items, ...props }) {
