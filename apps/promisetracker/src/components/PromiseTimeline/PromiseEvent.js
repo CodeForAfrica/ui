@@ -1,18 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import TimelineEvent from "./TimelineEvent";
 
-function PromiseEvent({ duration, event }) {
+function PromiseEvent(props) {
   return (
     <>
-      <TimelineEvent duration={duration} event={event} />
+      <TimelineEvent {...props} />
     </>
   );
 }
-
-PromiseEvent.propTypes = {
-  duration: PropTypes.arrayOf(PropTypes.number).isRequired,
-  event: PropTypes.shape({}).isRequired,
-};
 
 export default PromiseEvent;
