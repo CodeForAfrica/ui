@@ -38,6 +38,14 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
 
 function Index(props) {
   const classes = useStyles(props);
+  const randomYear = () => {
+    // https://www.jacklmoore.com/notes/rounding-in-javascript/
+    const round = (number, decimalPlaces) =>
+      Number(`${Math.round(`${number}e${decimalPlaces}`)}e-${decimalPlaces}`);
+    const month = Math.floor(Math.random() * 10) / 10; // 0 ~ 0.9
+    const year = 2012 + Math.floor(Math.random() * 6); // 2012 ~ 2017
+    return round(year + month, 1);
+  };
 
   return (
     <Page classes={{ section: classes.section, footer: classes.footer }}>
@@ -50,9 +58,18 @@ function Index(props) {
             description: `
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio.
             `,
+            events: [
+              { year: randomYear(), title: "Event A", color: "white" },
+              { year: randomYear(), title: "Event B", color: "white" },
+            ],
             image: promiseCarouselImage,
             title: `Codification of national sports and athletics law ${i + 1}`,
-            status: config.promiseStatuses[i % config.promiseStatuses.length],
+            statuses: [
+              {
+                ...config.promiseStatuses[i % config.promiseStatuses.length],
+                year: randomYear(),
+              },
+            ],
           }))}
         title="Key Promises"
         classes={{
