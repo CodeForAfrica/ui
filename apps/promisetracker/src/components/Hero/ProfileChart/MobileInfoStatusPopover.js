@@ -79,7 +79,7 @@ DialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-function PromiseStatusPopover(props) {
+function MobileInfoStatusPopover(props) {
   const classes = useStyles(props);
   const { promiseStatuses } = config;
   const [open, setOpen] = useState(false);
@@ -122,4 +122,4 @@ function PromiseStatusPopover(props) {
     </Grid>
   );
 }
-export default PromiseStatusPopover;
+export default MobileInfoStatusPopover;

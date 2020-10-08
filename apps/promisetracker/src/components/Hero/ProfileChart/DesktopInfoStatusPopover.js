@@ -108,7 +108,7 @@ PaperContent.propTypes = {
   ]).isRequired,
 };
 
-function DesktopInfoButtonPopover({ ...props }) {
+function DesktopInfoStatusPopover({ ...props }) {
   const classes = useStyles(props);
   const { promiseStatuses } = config;
   const [open, setOpen] = React.useState(false);
@@ -154,4 +154,4 @@ function DesktopInfoButtonPopover({ ...props }) {
   );
 }
 
-export default DesktopInfoButtonPopover;
+export default DesktopInfoStatusPopover;
