@@ -188,11 +188,13 @@ const config = {
       description: "The promise is mostly or completely fulfilled.",
       textColor: "#FFFFFF",
       title: "Completed",
+      year: 2014.4,
     },
     {
       color: "#90DAFF",
       description: "The promise is in the works or being considered.",
       title: "In Progress",
+      year: 2013.4,
     },
     {
       color: "#FF5255",
@@ -200,18 +202,21 @@ const config = {
         "Could occur due to inaction by administration or lack of support from legislative branch.",
       textColor: "#FFFFFF",
       title: "Stalled",
+      year: 2015.4,
     },
     {
       color: "#FFB322",
       description:
         "No progress, perhaps due to financial limitations, opposition from lawmakers or a change in priorities.",
       title: "Delayed",
+      year: 2016.4,
     },
     {
       color: "#EBEBEB",
       description:
         "Every promise begins at this level and retains this rating until evidence of progress or proof that it has been shelved.",
       title: "Unrated",
+      year: 2016.4,
     },
     {
       color: "#909090",
@@ -219,6 +224,7 @@ const config = {
         "The promise is accomplished only in part, but has succeeded at least in part consistently with the goal of the promise.",
       textColor: "#FFFFFF",
       title: "Unstarted",
+      year: 2014.4,
     },
   ],
   pages: {
