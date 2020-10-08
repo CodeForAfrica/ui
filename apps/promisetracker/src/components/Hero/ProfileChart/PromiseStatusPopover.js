@@ -115,7 +115,7 @@ function PromiseStatusPopover(props) {
         <DialogContent>
           <DialogPromiseStatusList
             items={promiseStatuses}
-            classes={{ root: classes.criteriaItems }}
+            classes={{ description: classes.description }}
           />
         </DialogContent>
       </Dialog>

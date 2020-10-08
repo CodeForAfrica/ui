@@ -1,4 +1,5 @@
 import React from "react";
+
 import PropTypes from "prop-types";
 
 import {
@@ -16,6 +17,7 @@ import Status from "@/promisetracker/components/PromiseStatus";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
   root: {},
+  description: {},
   status: {
     margin: 0,
     marginRight: typography.pxToRem(10),
@@ -26,9 +28,6 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
     [breakpoints.up("lg")]: {
       minWidth: typography.pxToRem(170),
     },
-  },
-  description: {
-    fontSize: typography.pxToRem(10),
   },
   divider: {
     border: "1 px solid EBEBEB",
@@ -53,8 +52,8 @@ function DialogPromiseStatusList({ items, ...props }) {
               secondary={
                 <RichTypography
                   color="textPrimary"
-                  variant="caption"
-                  className={classes.description}
+                  variant="body2"
+                  classes={{ description: classes.description }}
                 >
                   {description}
                 </RichTypography>

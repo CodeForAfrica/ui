@@ -14,7 +14,7 @@ import DialogPromiseStatusList from "@/promisetracker/components/Hero/ProfileCha
 
 import config from "@/promisetracker/config";
 
-const useStyles = makeStyles(({ palette }) => ({
+const useStyles = makeStyles(({ palette, typography }) => ({
   iconGrid: {
     display: "flex",
     flexDirection: "row",
@@ -32,7 +32,7 @@ const useStyles = makeStyles(({ palette }) => ({
   closeButton: {
     position: "absolute",
     right: "1rem",
-    top: 20,
+    top: 10,
     color: palette.secondary.main,
   },
   paper: {
@@ -41,18 +41,21 @@ const useStyles = makeStyles(({ palette }) => ({
     // Make it higher than any other component on the page
     zIndex: 1,
     left: 0,
-    height: "28.5rem",
+    height: "32.5rem",
     overflowY: "auto",
     width: "41.5rem",
   },
   paperTitle: {
-    padding: "2rem",
+    padding: "1.5rem",
   },
   paperContent: {
     padding: "1rem 2rem",
   },
   typo: {
     color: palette.primary.main,
+  },
+  description: {
+    fontSize: typography.pxToRem(13),
   },
 }));
 function PaperTitle({ children, onClose, ...other }) {
@@ -142,7 +145,7 @@ function DesktopInfoButtonPopover({ ...props }) {
           <PaperContent>
             <DialogPromiseStatusList
               items={promiseStatuses}
-              classes={{ root: classes.criteriaItems }}
+              classes={{ description: classes.description }}
             />
           </PaperContent>
         </Paper>
