@@ -71,7 +71,7 @@ function Index(props) {
             `,
             image: promiseImage,
             status: config.promiseStatuses[i % config.promiseStatuses.length],
-            title: "Codification of national sports and athletics law",
+            title: `Codification of national sports and athletics law ${i + 1}`,
           }))}
         title="Latest Promises"
         classes={{
@@ -85,15 +85,17 @@ function Index(props) {
       />
       <LatestArticles
         actionLabel="See All"
-        items={Array(6).fill({
-          date: "2019-08-10",
-          description: `
+        items={Array(6)
+          .fill(null)
+          .map((_, i) => ({
+            date: "2019-08-10",
+            description: `
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
               euismod odio non leo pretium pellentesque.
             `,
-          image: articleImage,
-          title: "Codification of national sports and athletics law",
-        })}
+            image: articleImage,
+            title: `Codification of national sports and athletics law ${i + 1}`,
+          }))}
         title="Latest Articles"
         classes={{
           section: classes.section,

@@ -32,7 +32,7 @@ function LatestArticles({ actionLabel, items, title, ...props }) {
         >
           <div className={classes.cardContainer}>
             {items.map((article) => (
-              <ArticleCard key={article.name} {...article} component="div" />
+              <ArticleCard key={article.title} {...article} component="div" />
             ))}
           </div>
         </ScrollBar>
