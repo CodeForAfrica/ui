@@ -6,7 +6,7 @@ import Newsletter from "@/promisetracker/components/Newsletter";
 import Footer from "@/promisetracker/components/Footer";
 import config from "@/promisetracker/config";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import Hero from "@/promisetracker/components/Hero";
 import ActNow from "@/promisetracker/components/ActNow";
@@ -38,6 +38,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
 
 function Index(props) {
   const classes = useStyles(props);
+  const theme = useTheme();
   const randomYear = () => {
     // https://www.jacklmoore.com/notes/rounding-in-javascript/
     const round = (number, decimalPlaces) =>
@@ -60,8 +61,18 @@ function Index(props) {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio.
             `,
             events: [
-              { year: randomYear(), title: "Event A", color: "white" },
-              { year: randomYear(), title: "Event B", color: "white" },
+              {
+                year: randomYear(),
+                title: "Event A",
+                color: "white",
+                textColor: theme.palette.text.main,
+              },
+              {
+                year: randomYear(),
+                title: "Event B",
+                color: "white",
+                textColor: theme.palette.text.main,
+              },
             ],
             image: promiseCarouselImage,
             title: `Codification of national sports and athletics law ${i + 1}`,

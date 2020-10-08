@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
 
-function Event({ color, interval, radius, title, year }) {
+function Event({ color, interval, radius, textColor, title, year }) {
   const theme = useTheme();
   const xposition = `${
     ((year - interval[0]) * 100) / (interval[1] - interval[0])
@@ -44,6 +44,7 @@ function Event({ color, interval, radius, title, year }) {
         ref={textRef}
         x={xposition}
         y={yposition}
+        fill={textColor}
         stroke="#202020"
         strokeWidth=".1"
         fontFamily={theme.typography.h6.fontFamily}
@@ -60,6 +61,7 @@ Event.propTypes = {
   color: PropTypes.string.isRequired,
   interval: PropTypes.arrayOf(PropTypes.number).isRequired,
   radius: PropTypes.string,
+  textColor: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
 };
