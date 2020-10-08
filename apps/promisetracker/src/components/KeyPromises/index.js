@@ -19,7 +19,14 @@ const DEFAULT_TITLE_PROPS = {
   variant: "h4",
 };
 
-function KeyPromises({ actionLabel, items, title, titleProps, ...props }) {
+function KeyPromises({
+  actionLabel,
+  interval,
+  items,
+  title,
+  titleProps,
+  ...props
+}) {
   const classes = useStyles(props);
   const [activeStep, setActiveStep] = useState(0);
   const stepperRef = useRef();
@@ -62,6 +69,7 @@ function KeyPromises({ actionLabel, items, title, titleProps, ...props }) {
         <KeyPromise
           key={items[activeStep].title}
           actionLabel={actionLabel}
+          interval={interval}
           {...items[activeStep]}
         />
         {/* ))} */}
@@ -104,13 +112,7 @@ function KeyPromises({ actionLabel, items, title, titleProps, ...props }) {
 
 KeyPromises.propTypes = {
   actionLabel: PropTypes.string,
-  classes: PropTypes.shape({
-    card: PropTypes.string,
-    scrollBar: PropTypes.string,
-    section: PropTypes.string,
-    sectionTitle: PropTypes.string,
-    root: PropTypes.string,
-  }),
+  interval: PropTypes.arrayOf(PropTypes.number),
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -122,7 +124,7 @@ KeyPromises.propTypes = {
 
 KeyPromises.defaultProps = {
   actionLabel: undefined,
-  classes: undefined,
+  interval: undefined,
   items: undefined,
   title: undefined,
   titleProps: undefined,

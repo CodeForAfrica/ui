@@ -135,8 +135,10 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   stepperDots: {
     padding: 0,
   },
+  timeline: {
+    marginTop: typography.pxToRem(41),
+  },
   timelineGrid: {
-    padding: "1rem 0",
     order: 3,
   },
 }));
