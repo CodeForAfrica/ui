@@ -136,7 +136,7 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
     padding: 0,
   },
   timelineGrid: {
-    margin: "1rem 0",
+    padding: "1rem 0",
     order: 3,
   },
 }));
