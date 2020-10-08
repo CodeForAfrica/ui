@@ -33,7 +33,7 @@ const useStyles = makeStyles(({ palette }) => ({
     position: "absolute",
     right: "1rem",
     top: 20,
-    color: palette.primary.main,
+    color: palette.secondary.main,
   },
   paper: {
     position: "absolute",
@@ -43,7 +43,7 @@ const useStyles = makeStyles(({ palette }) => ({
     left: 0,
     height: "28.5rem",
     overflowY: "auto",
-    width: "100%",
+    width: "41.5rem",
   },
   paperTitle: {
     padding: "2rem",
