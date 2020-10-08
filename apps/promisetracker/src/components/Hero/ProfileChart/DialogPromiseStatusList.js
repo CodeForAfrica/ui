@@ -30,6 +30,9 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   description: {
     fontSize: typography.pxToRem(10),
   },
+  divider: {
+    border: "1 px solid EBEBEB",
+  },
 }));
 
 function DialogPromiseStatusList({ items, ...props }) {
@@ -58,7 +61,9 @@ function DialogPromiseStatusList({ items, ...props }) {
               }
             />
           </ListItem>
-          {i < items.length - 1 && <Divider component="li" />}
+          {i < items.length - 1 && (
+            <Divider component="li" className={classes.divider} />
+          )}
         </>
       ))}
     </List>

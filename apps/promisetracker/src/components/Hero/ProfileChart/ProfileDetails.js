@@ -14,8 +14,8 @@ import {
 
 import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg";
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
-import info from "@/promisetracker/assets/hero-icon-info.svg";
 import share from "@/promisetracker/assets/hero-icon-share.svg";
+import DesktopInfoButtonPopover from "@/promisetracker/components/Hero/ProfileChart/DesktopInfoButtonPopover";
 import PromiseStatusPopover from "@/promisetracker/components/Hero/ProfileChart/PromiseStatusPopover";
 
 import MobileChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart";
@@ -32,6 +32,9 @@ import MobileUncertainChart from "@/promisetracker/components/Hero/ProfileChart/
 import RectChart from "@/promisetracker/components/Hero/ProfileChart/RectChart";
 
 const useStyles = makeStyles(({ typography }) => ({
+  root: {
+    position: "relative",
+  },
   iconGrid: {
     display: "flex",
     flexDirection: "row",
@@ -73,7 +76,14 @@ function ProfileDetails({ name, ...props }) {
 
   return (
     <>
-      <Grid container direction="row" item xs={12} spacing={3}>
+      <Grid
+        container
+        direction="row"
+        item
+        xs={12}
+        spacing={3}
+        className={classes.root}
+      >
         {isDesktop ? (
           <>
             <Grid item xs={8}>
@@ -108,17 +118,7 @@ function ProfileDetails({ name, ...props }) {
                   )}
                 </IconButton>
               </Grid>
-              <Grid item>
-                <IconButton
-                  disableRipple
-                  disableFocusRipple
-                  aria-label="Info"
-                  size="small"
-                  className={classes.iconButton}
-                >
-                  <img src={info} alt="Info" className={classes.img} />
-                </IconButton>
-              </Grid>
+              <DesktopInfoButtonPopover />
               <Grid item>
                 <IconButton
                   disableRipple
