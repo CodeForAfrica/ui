@@ -3,59 +3,46 @@ import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 import Labels from "./Labels";
-import Event from "./Event";
+import PromiseEvent from "./PromiseEvent";
+import PromiseStatus from "./PromiseStatus";
 
-function Index({ duration, events }) {
+function Index({ duration, events, status }) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   return (
     <>
       <svg width="100%" height="140">
-        {!isDesktop && (
-          <rect
-            x="8"
-            y="69"
-            width="100%"
-            height="2"
-            style={{
-              fill: "#EBEBEB",
-            }}
-          />
-        )}
         <rect
           x="8"
-          y="65"
-          width="15%"
-          height="10"
+          y="69"
+          width="100%"
+          height="2"
           style={{
-            fill: events.find((event) => event.isCurrent).color,
+            fill: "#EBEBEB",
           }}
         />
-        {isDesktop && (
-          <rect
-            x="8"
-            y="69"
-            width="100%"
-            height="2"
-            style={{
-              fill: "#EBEBEB",
-            }}
-          />
-        )}
-
-        <Labels duration={duration} />
-        {events.map((event) => (
-          <>
-            {(isDesktop || event.isCurrent) && (
-              <Event
+        {isDesktop &&
+          events.map((event) => (
+            <>
+              <PromiseEvent
                 key={event.label}
                 duration={duration}
                 event={event}
-                isCurrent
               />
-            )}
-          </>
-        ))}
+            </>
+          ))}
+        <PromiseStatus duration={duration} status={status}>
+          <rect
+            x="8"
+            y="69"
+            width="100%"
+            height="2"
+            style={{
+              fill: "#EBEBEB",
+            }}
+          />
+        </PromiseStatus>
+        <Labels duration={duration} />
       </svg>
     </>
   );
@@ -68,17 +55,18 @@ Index.propTypes = {
       label: PropTypes.string,
       year: PropTypes.number,
       color: PropTypes.string,
-      isCurrent: PropTypes.bool,
     })
   ),
+  status: PropTypes.shape({}),
 };
 Index.defaultProps = {
   duration: [2012, 2018],
   events: [
     { year: 2017, label: "Event A", color: "white" },
     { year: 2015, label: "Event B", color: "white" },
-    { year: 2013, label: "Delayed", color: "#FFB322", isCurrent: true },
+    { year: 2013, label: "Delayed", color: "#FFB322" },
   ],
+  status: { year: 2013, label: "Delayed", color: "#FFB322" },
 };
 
 export default Index;
