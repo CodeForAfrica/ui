@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
 
-function Event({ duration, event, isCurrent }) {
+function Event({ duration, event, radius }) {
   const theme = useTheme();
   const xposition = `${
     ((event.year - duration[0]) * 100) / (duration[1] - duration[0])
@@ -27,9 +27,9 @@ function Event({ duration, event, isCurrent }) {
       <circle
         cx={xposition}
         cy="70"
-        r={isCurrent ? "8" : "4"}
+        r={radius}
         stroke="#F7F7F7"
-        strokeWidth="1"
+        strokeWidth="3"
         fill={event.color}
       />
       <rect
@@ -59,10 +59,10 @@ function Event({ duration, event, isCurrent }) {
 Event.propTypes = {
   duration: PropTypes.arrayOf(PropTypes.number).isRequired,
   event: PropTypes.shape().isRequired,
-  isCurrent: PropTypes.bool,
+  radius: PropTypes.string,
 };
 
 Event.defaultProps = {
-  isCurrent: false,
+  radius: "4",
 };
 export default Event;
