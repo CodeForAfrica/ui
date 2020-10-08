@@ -2,10 +2,10 @@ import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
 
-function Event({ color, duration, radius, title, year }) {
+function Event({ color, interval, radius, title, year }) {
   const theme = useTheme();
   const xposition = `${
-    ((year - duration[0]) * 100) / (duration[1] - duration[0])
+    ((year - interval[0]) * 100) / (interval[1] - interval[0])
   }%`;
   const yposition = "20";
   const textRef = useRef();
@@ -29,7 +29,7 @@ function Event({ color, duration, radius, title, year }) {
         cy="70"
         r={radius}
         stroke="#F7F7F7"
-        strokeWidth="3"
+        strokeWidth="1"
         fill={color}
       />
       <rect
@@ -58,7 +58,7 @@ function Event({ color, duration, radius, title, year }) {
 
 Event.propTypes = {
   color: PropTypes.string.isRequired,
-  duration: PropTypes.arrayOf(PropTypes.number).isRequired,
+  interval: PropTypes.arrayOf(PropTypes.number).isRequired,
   radius: PropTypes.string,
   title: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,

@@ -12,57 +12,58 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function Index({ duration, events, statuses, ...props }) {
+function PromiseTimeline({ events, interval, statuses, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
+  if (interval?.length !== 2) {
+    return null;
+  }
   return (
-    <>
-      <svg width="100%" height="140" className={classes.root}>
-        <rect
-          x="8"
-          y="69"
-          width="100%"
-          height="2"
-          style={{
-            fill: "#EBEBEB",
-          }}
-        />
-        {isDesktop &&
-          events?.map((event) => (
-            <>
-              <PromiseEvent key={event.label} duration={duration} {...event} />
-            </>
-          ))}
-        {statuses?.map((status) => (
-          <PromiseStatus key={status.title} duration={duration} {...status}>
-            <rect
-              x="8"
-              y="69"
-              width="100%"
-              height="2"
-              style={{
-                fill: "#EBEBEB",
-              }}
-            />
-          </PromiseStatus>
+    <svg width="100%" height="100" className={classes.root}>
+      <rect
+        x="8"
+        y="69"
+        width="99%"
+        height="1"
+        style={{
+          fill: "#EBEBEB",
+        }}
+      />
+      {isDesktop &&
+        events?.map((event) => (
+          <>
+            <PromiseEvent key={event.label} interval={interval} {...event} />
+          </>
         ))}
-        <Labels duration={duration} />
-      </svg>
-    </>
+      {statuses?.map((status) => (
+        <PromiseStatus key={status.title} interval={interval} {...status}>
+          <rect
+            x="8"
+            y="69"
+            width="99%"
+            height="1"
+            style={{
+              fill: "#EBEBEB",
+            }}
+          />
+        </PromiseStatus>
+      ))}
+      <Labels interval={interval} />
+    </svg>
   );
 }
 
-Index.propTypes = {
-  duration: PropTypes.arrayOf(PropTypes.number),
+PromiseTimeline.propTypes = {
   events: PropTypes.arrayOf(PropTypes.shape({})),
+  interval: PropTypes.arrayOf(PropTypes.number),
   statuses: PropTypes.arrayOf(PropTypes.shape({})),
 };
-Index.defaultProps = {
-  duration: [2012, 2018],
+PromiseTimeline.defaultProps = {
+  interval: undefined,
   events: undefined,
   statuses: undefined,
 };
 
-export default Index;
+export default PromiseTimeline;

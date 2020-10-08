@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 
-const Labels = ({ duration }) => {
+const Labels = ({ interval }) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
@@ -14,18 +14,19 @@ const Labels = ({ duration }) => {
         cy="70"
         r="8"
         stroke="#F7F7F7"
-        strokeWidth="3"
+        strokeWidth="1"
         fill="#202020"
       />
       <text
-        x="8"
-        y="120"
+        x="0"
+        y="86"
+        dominantBaseline="hanging"
         stroke="#202020"
         strokeWidth=".2"
         fontFamily={theme.typography.body2.fontFamily}
         fontSize={theme.typography.body2.fontSize}
       >
-        {duration[0]}
+        {interval[0]}
       </text>
     </>
   );
@@ -36,31 +37,32 @@ const Labels = ({ duration }) => {
         cy="70"
         r="8"
         stroke="#F7F7F7"
-        strokeWidth="3"
+        strokeWidth="1"
         fill="#EBEBEB"
       />
       <text
-        x="99.4%"
-        y="120"
+        x="100%"
+        y="86"
+        dominantBaseline="hanging"
         stroke="#202020"
         strokeWidth=".2"
         fontFamily={theme.typography.body2.fontFamily}
         fontSize={theme.typography.body2.fontSize}
         textAnchor="end"
       >
-        {duration[1]}
+        {interval[1]}
       </text>
     </>
   );
   let labels = [];
   if (isDesktop) {
-    labels = Array(duration[1] - duration[0] - 1)
+    labels = Array(interval[1] - interval[0] - 1)
       .fill()
-      .map((_, idx) => duration[0] + 1 + idx)
+      .map((_, idx) => interval[0] + 1 + idx)
       .map((year, i) => (
         <React.Fragment key={year}>
           <circle
-            cx={`${((i + 1) * 100) / (duration[1] - duration[0])}%`}
+            cx={`${((i + 1) * 100) / (interval[1] - interval[0])}%`}
             cy="70"
             r="4"
             stroke="#F7F7F7"
@@ -68,8 +70,9 @@ const Labels = ({ duration }) => {
             fill="#202020"
           />
           <text
-            x={`${((i + 1) * 100) / (duration[1] - duration[0])}%`}
-            y="120"
+            x={`${((i + 1) * 100) / (interval[1] - interval[0])}%`}
+            y="86"
+            dominantBaseline="hanging"
             stroke="#202020"
             strokeWidth=".2"
             fontFamily={theme.typography.body2.fontFamily}
@@ -91,7 +94,7 @@ const Labels = ({ duration }) => {
 };
 
 Labels.propTypes = {
-  duration: PropTypes.arrayOf(PropTypes.number).isRequired,
+  interval: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default Labels;
