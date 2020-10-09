@@ -53,7 +53,7 @@ function DialogPromiseStatusList({ items, ...props }) {
                 <RichTypography
                   color="textPrimary"
                   variant="body2"
-                  classes={{ description: classes.description }}
+                  className={classes.description}
                 >
                   {description}
                 </RichTypography>
