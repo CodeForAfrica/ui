@@ -10,4 +10,7 @@ module.exports = withImages({
       },
     ];
   },
+  env: {
+    CHECK_ACCESS_TOKEN: "",
+  },
 });

@@ -20,6 +20,8 @@ import config from "@/promisetracker/config";
 import promiseCarouselImage from "@/promisetracker/assets/promise-carusel-01.png";
 import promiseImage from "@/promisetracker/assets/promise-thumb-01.png";
 
+import fetchPromises from "@/promisetracker/lib/fetchPromises";
+
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
     padding: `0 ${typography.pxToRem(23)}`,
@@ -38,16 +40,6 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
 
 function Index(props) {
   const classes = useStyles(props);
-  const theme = useTheme();
-  const randomYear = () => {
-    // https://www.jacklmoore.com/notes/rounding-in-javascript/
-    const round = (number, decimalPlaces) =>
-      Number(`${Math.round(`${number}e${decimalPlaces}`)}e-${decimalPlaces}`);
-    const month = Math.floor(Math.random() * 10) / 10; // 0 ~ 0.9
-    const year = 2017 + Math.floor(Math.random() * 4); // 2017 ~ 2020
-    return round(year + month, 1);
-  };
-
   return (
     <Page classes={{ section: classes.section, footer: classes.footer }}>
       <KeyPromises
@@ -143,5 +135,7 @@ function Index(props) {
     </Page>
   );
 }
+
+Index.getInitialProps = fetchPromises;
 
 export default Index;
