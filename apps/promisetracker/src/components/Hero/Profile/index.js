@@ -9,12 +9,20 @@ import profilePic from "@/promisetracker/assets/hero-sonko.png";
 
 const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {
+    paddingTop: typography.pxToRem(20),
     [breakpoints.up("lg")]: {
+      paddingTop: 0,
       marginLeft: typography.pxToRem(-55),
     },
   },
   caption: {
     color: "#20202059",
+  },
+  details: {
+    paddingLeft: typography.pxToRem(10),
+    [breakpoints.up("lg")]: {
+      paddingLeft: 0,
+    },
   },
   img: {
     maxWidth: typography.pxToRem(149),
@@ -25,7 +33,7 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
       width: typography.pxToRem(350),
     },
   },
-  subtitle: {
+  title: {
     color: palette.primary.main,
     textTransform: "uppercase",
   },
@@ -37,12 +45,17 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
 function Profile({ title, name, date, ...props }) {
   const classes = useStyles(props);
   return (
-    <Grid container alignItems="center" className={classes.root}>
-      <Grid item xs={6} lg={12}>
+    <Grid
+      container
+      justify="space-between"
+      alignItems="center"
+      className={classes.root}
+    >
+      <Grid item lg={12}>
         <img src={profilePic} alt={name} className={classes.img} />
       </Grid>
-      <Grid item xs={6} lg={12}>
-        <Typography variant="h5" className={classes.subtitle}>
+      <Grid item xs={6} lg={12} className={classes.details}>
+        <Typography variant="h5" className={classes.title}>
           {title}
         </Typography>
         <Typography variant="h6" className={classes.caption}>
