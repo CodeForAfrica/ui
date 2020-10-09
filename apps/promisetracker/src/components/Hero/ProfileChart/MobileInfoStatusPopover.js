@@ -19,44 +19,48 @@ import DialogPromiseStatusList from "@/promisetracker/components/Hero/ProfileCha
 
 import config from "@/promisetracker/config";
 
-const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
-  typo: {
+const useStyles = makeStyles(({ palette, typography }) => ({
+  closeButton: {
     color: palette.primary.main,
+    position: "absolute",
+    // has padding of 12px and we want it to align at 10px on the right
+    right: "-2px",
+    top: 0,
+  },
+  description: {
+    fontSize: typography.pxToRem(10),
+  },
+  dialogContent: {
+    padding: `${typography.pxToRem(16)} ${typography.pxToRem(10)}`,
+  },
+  iconButton: {},
+  paper: {
+    borderRadius: 0,
+    boxShadow: "0px 3px 6px #00000029",
+    margin: `0 ${typography.pxToRem(13)}`,
+    maxWidth: "100%",
+    overflow: "hidden",
+    position: "absolute",
+    top: typography.pxToRem(211),
   },
   status: {
     borderBottom: `1px solid ${palette.secondary.main}`,
     padding: "0.5rem 0rem",
   },
-  iconButton: {
-    background: palette.secondary.light,
-    padding: "1rem",
-  },
-  closeButton: {
-    position: "absolute",
-    right: "1rem",
-    top: 0,
+  title: {
     color: palette.primary.main,
-  },
-  description: {
-    fontSize: typography.pxToRem(10),
-  },
-  paper: {
-    borderRadius: 0,
-    boxShadow: "0px 3px 6px #00000029",
-    position: "absolute",
-    top: "1",
-    maxWidth: "100%",
-    [breakpoints.up("lg")]: {
-      top: 0,
-    },
   },
 }));
 
 function DialogTitle({ children, onClose, ...other }) {
   const classes = useStyles();
   return (
-    <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h5" className={classes.typo}>
+    <MuiDialogTitle
+      disableTypography
+      classes={{ root: classes.dialogContent }}
+      {...other}
+    >
+      <Typography variant="h5" className={classes.title}>
         {children}
       </Typography>
       {onClose ? (
@@ -79,7 +83,7 @@ DialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-function MobileInfoStatusPopover(props) {
+function MobileInfoStatusPopover({ title, ...props }) {
   const classes = useStyles(props);
   const { promiseStatuses } = config;
   const [open, setOpen] = useState(false);
@@ -91,7 +95,7 @@ function MobileInfoStatusPopover(props) {
   };
 
   return (
-    <Grid item xs={3}>
+    <Grid item>
       <IconButton
         disableRipple
         disableFocusRipple
@@ -106,13 +110,13 @@ function MobileInfoStatusPopover(props) {
       <Dialog
         classes={{ paper: classes.paper }}
         onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
+        aria-labelledby="promise-ratings"
         open={open}
       >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          What do the ratings mean?
+        <DialogTitle id="promise-ratings" onClose={handleClose}>
+          {title}
         </DialogTitle>
-        <DialogContent>
+        <DialogContent classes={{ root: classes.dialogContent }}>
           <DialogPromiseStatusList
             items={promiseStatuses}
             classes={{ description: classes.description }}
@@ -122,4 +126,9 @@ function MobileInfoStatusPopover(props) {
     </Grid>
   );
 }
+
+MobileInfoStatusPopover.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
 export default MobileInfoStatusPopover;
