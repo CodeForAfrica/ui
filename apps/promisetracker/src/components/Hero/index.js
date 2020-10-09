@@ -1,9 +1,8 @@
 import React from "react";
-
 import PropTypes from "prop-types";
 
-import { Grid, Typography, useMediaQuery } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Grid, Hidden, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
 import { Section } from "@commons-ui/core";
 import Profile from "@/promisetracker/components/Hero/Profile";
@@ -17,38 +16,37 @@ const useStyles = makeStyles(({ typography }) => ({
   },
 }));
 
-function TitleTypography({ name }) {
-  return <Typography variant="h1">{name}</Typography>;
-}
-
-TitleTypography.propTypes = {
-  name: PropTypes.string.isRequired,
-};
-
-function Hero(props) {
+function Hero({ name, position, title, ...props }) {
   const classes = useStyles(props);
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+
   return (
     <Section classes={{ root: classes.heroSection }}>
       <Grid
         container
         direction="row"
-        justify="center"
-        alignItems="flex-start"
-        spacing={6}
+        justify="space-between"
         className={classes.hero}
       >
-        {!isDesktop ? <TitleTypography name="Mike “Sonko” Mbuvi" /> : null}
-        <Profile
-          name="Mike “Sonko” Mbuvi"
-          subtitle="Campaign promises made by Mike Mbuvi"
-          date="Updated June 16, 2020"
-        />
-        <ProfileChart />
+        <Hidden lgUp>
+          <Grid item xs={12}>
+            <Typography variant="h1">{name}</Typography>
+          </Grid>
+        </Hidden>
+        <Grid item xs={12} lg={4}>
+          <Profile title={title} date="Updated June 16, 2020" />
+        </Grid>
+        <Grid item xs={12} lg={8}>
+          <ProfileChart name={name} />
+        </Grid>
       </Grid>
     </Section>
   );
 }
+
+Hero.propTypes = {
+  name: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default Hero;
