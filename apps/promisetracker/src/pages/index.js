@@ -42,6 +42,13 @@ function Index(props) {
   const classes = useStyles(props);
   return (
     <Page classes={{ section: classes.section, footer: classes.footer }}>
+      <Hero
+        name="Mike “Sonko” Mbuvi"
+        position="Nairobi Governor"
+        ratingsTitle="What do the ratings mean?"
+        title="Campaign promises made by Mike Mbuvi"
+        classes={{ section: classes.section }}
+      />
       <KeyPromises
         actionLabel="Learn More"
         interval={[2017, 2022]}
