@@ -2,15 +2,16 @@ import React, { useState } from "react";
 
 import PropTypes from "prop-types";
 
-import { makeStyles, useTheme } from "@material-ui/core/styles";
 import {
+  Divider,
+  Fade,
   Grid,
+  Hidden,
   IconButton,
   Typography,
   useMediaQuery,
-  Fade,
-  Divider,
 } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg";
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
@@ -32,7 +33,7 @@ import MobileUncertainChart from "@/promisetracker/components/Hero/ProfileChart/
 
 import RectChart from "@/promisetracker/components/Hero/ProfileChart/RectChart";
 
-const useStyles = makeStyles(({ typography }) => ({
+const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {
     position: "relative",
   },
@@ -43,8 +44,16 @@ const useStyles = makeStyles(({ typography }) => ({
     justifyContent: "space-between",
   },
   iconButton: {
-    background: "#F7F7F7",
-    padding: "1rem",
+    backgroundColor: palette.secondary.light,
+    height: typography.pxToRem(50),
+    marginLeft: typography.pxToRem(17),
+    width: typography.pxToRem(50),
+    "&:hover": {
+      backgroundColor: palette.secondary.light,
+    },
+    [breakpoints.up("lg")]: {
+      marginLeft: typography.pxToRem(20),
+    },
   },
   img: {
     height: "auto",
@@ -64,106 +73,72 @@ const useStyles = makeStyles(({ typography }) => ({
   },
 }));
 
-function ProfileDetails({ name, ...props }) {
+function ProfileDetails({ name, position, ratingsTitle, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-
   const [clicked, setClicked] = useState(false);
-
   const handleOnClick = () => {
     setClicked((prev) => !prev);
   };
+  const InfoStatusPopover = isDesktop
+    ? DesktopInfoStatusPopover
+    : MobileInfoStatusPopover;
 
   return (
     <>
-      <Grid
-        container
-        direction="row"
-        item
-        xs={12}
-        spacing={3}
-        className={classes.root}
-      >
-        {isDesktop ? (
-          <>
-            <Grid item xs={8}>
-              {isDesktop ? <Typography variant="h1">{name}</Typography> : null}
-              <Typography variant="body2">
-                Nairobi Governor Mike “Sonko” Mbuvi <b>510 promises </b>at a
-                glance
-              </Typography>
+      <Grid container className={classes.root} alignItems="center">
+        <Grid item xs={6} lg={8}>
+          <Hidden mdDown>
+            <Typography variant="h1">{name}</Typography>
+          </Hidden>
+          <Typography variant="body2">
+            {position} {name} <b>510 promises </b>at a glance
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          lg={4}
+          container
+          justify={isDesktop ? "flex-end" : "flex-start"}
+          alignItems="center"
+        >
+          <Hidden mdDown>
+            <Grid item>
+              <IconButton
+                disableRipple
+                disableFocusRipple
+                aria-label="Info"
+                size="small"
+                onClick={handleOnClick}
+                clicked={clicked}
+                className={classes.iconButton}
+              >
+                {clicked ? (
+                  <img src={viz1} alt="Viz1" className={classes.viz1} />
+                ) : (
+                  <img src={viz2} alt="Viz2" className={classes.img} />
+                )}
+              </IconButton>
             </Grid>
-            <Grid
-              container
-              direction="row"
-              item
-              xs={4}
-              justify="space-between"
-              alignItems="center"
+          </Hidden>
+          <InfoStatusPopover
+            title={ratingsTitle}
+            classes={{ iconButton: classes.iconButton }}
+          />
+          <Grid item>
+            <IconButton
+              disableRipple
+              disableFocusRipple
+              aria-label="Share"
+              size="small"
+              className={classes.iconButton}
             >
-              <Grid item>
-                <IconButton
-                  disableRipple
-                  disableFocusRipple
-                  aria-label="Info"
-                  size="small"
-                  onClick={handleOnClick}
-                  clicked={clicked}
-                  className={classes.iconButton}
-                >
-                  {clicked ? (
-                    <img src={viz1} alt="Viz1" className={classes.viz1} />
-                  ) : (
-                    <img src={viz2} alt="Viz2" className={classes.img} />
-                  )}
-                </IconButton>
-              </Grid>
-              <DesktopInfoStatusPopover />
-              <Grid item>
-                <IconButton
-                  disableRipple
-                  disableFocusRipple
-                  aria-label="Share"
-                  size="small"
-                  className={classes.iconButton}
-                >
-                  <img src={share} alt="Share" className={classes.img} />
-                </IconButton>
-              </Grid>
-            </Grid>
-          </>
-        ) : (
-          <>
-            <Grid item xs={6}>
-              <Typography variant="body2">
-                Nairobi Governor Mike “Sonko” Mbuvi <b>510 promises </b>at a
-                glance
-              </Typography>
-            </Grid>
-            <Grid
-              container
-              item
-              xs={6}
-              direction="row"
-              justify="space-evenly"
-              alignItems="center"
-            >
-              <MobileInfoStatusPopover />
-              <Grid item xs={3}>
-                <IconButton
-                  disableRipple
-                  disableFocusRipple
-                  aria-label="Share"
-                  size="medium"
-                  className={classes.iconButton}
-                >
-                  <img src={share} alt="Share" />
-                </IconButton>
-              </Grid>
-            </Grid>
-          </>
-        )}
+              <img src={share} alt="Share" className={classes.img} />
+            </IconButton>
+          </Grid>
+        </Grid>
       </Grid>
       <>
         {isDesktop ? (
@@ -198,6 +173,8 @@ function ProfileDetails({ name, ...props }) {
 
 ProfileDetails.propTypes = {
   name: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
+  ratingsTitle: PropTypes.string.isRequired,
 };
 
 export default ProfileDetails;
