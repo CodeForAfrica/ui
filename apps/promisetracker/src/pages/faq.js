@@ -65,7 +65,7 @@ function Index({ errorCode, promiseTracker, ...props }) {
   );
 }
 
-export async function getServerSideProps({ query }) {
+export async function getStaticProps({ query }) {
   const { lang: pageLanguage } = query;
   const lang = pageLanguage || config.DEFAULT_LANG;
   const promiseTracker = await getSitePage("faq", lang);
