@@ -15,9 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import info from "@/promisetracker/assets/hero-icon-info.svg";
 
-import DialogPromiseStatusList from "@/promisetracker/components/Hero/ProfileChart/DialogPromiseStatusList";
-
-import config from "@/promisetracker/config";
+import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   closeButton: {
@@ -83,9 +81,8 @@ DialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-function MobileInfoStatusPopover({ title, ...props }) {
+function MobileInfoStatusPopover({ items, title, ...props }) {
   const classes = useStyles(props);
-  const { promiseStatuses } = config;
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -94,6 +91,9 @@ function MobileInfoStatusPopover({ title, ...props }) {
     setOpen(false);
   };
 
+  if (!(title?.length || items?.length)) {
+    return null;
+  }
   return (
     <Grid item>
       <IconButton
@@ -113,22 +113,36 @@ function MobileInfoStatusPopover({ title, ...props }) {
         aria-labelledby="promise-ratings"
         open={open}
       >
-        <DialogTitle id="promise-ratings" onClose={handleClose}>
-          {title}
-        </DialogTitle>
-        <DialogContent classes={{ root: classes.dialogContent }}>
-          <DialogPromiseStatusList
-            items={promiseStatuses}
-            classes={{ description: classes.description }}
-          />
-        </DialogContent>
+        {title && (
+          <DialogTitle id="promise-ratings" onClose={handleClose}>
+            {title}
+          </DialogTitle>
+        )}
+        {items?.length && (
+          <DialogContent classes={{ root: classes.dialogContent }}>
+            <PromiseStatusList
+              items={items}
+              classes={{ description: classes.description }}
+            />
+          </DialogContent>
+        )}
       </Dialog>
     </Grid>
   );
 }
 
 MobileInfoStatusPopover.propTypes = {
-  title: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string,
+    })
+  ),
+  title: PropTypes.string,
+};
+
+MobileInfoStatusPopover.defaultProps = {
+  items: undefined,
+  title: undefined,
 };
 
 export default MobileInfoStatusPopover;

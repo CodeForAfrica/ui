@@ -10,9 +10,7 @@ import { RichTypography } from "@commons-ui/core";
 
 import info from "@/promisetracker/assets/hero-icon-info.svg";
 
-import DialogPromiseStatusList from "@/promisetracker/components/Hero/ProfileChart/DialogPromiseStatusList";
-
-import config from "@/promisetracker/config";
+import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   iconGrid: {
@@ -25,10 +23,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     height: "auto",
     maxWidth: "100%",
   },
-  iconButton: {
-    background: palette.secondary.light,
-    padding: "1rem",
-  },
+  iconButton: {},
   closeButton: {
     position: "absolute",
     right: "1rem",
@@ -108,19 +103,19 @@ PaperContent.propTypes = {
   ]).isRequired,
 };
 
-function DesktopInfoStatusPopover({ ...props }) {
+function DesktopInfoStatusPopover({ items, title, ...props }) {
   const classes = useStyles(props);
-  const { promiseStatuses } = config;
   const [open, setOpen] = React.useState(false);
-
   const handleChange = () => {
     setOpen((prev) => !prev);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
 
+  if (!(title?.length || items?.length)) {
+    return null;
+  }
   return (
     <>
       <Grid item>
@@ -136,22 +131,37 @@ function DesktopInfoStatusPopover({ ...props }) {
           <img src={info} alt="Info" className={classes.img} />
         </IconButton>
       </Grid>
-
       <Fade in={open}>
         <Paper elevation={4} className={classes.paper}>
-          <PaperTitle onClose={handleClose}>
-            What does the ratings mean?
-          </PaperTitle>
-          <PaperContent>
-            <DialogPromiseStatusList
-              items={promiseStatuses}
-              classes={{ description: classes.description }}
-            />
-          </PaperContent>
+          {title?.length && (
+            <PaperTitle onClose={handleClose}>{title}</PaperTitle>
+          )}
+          {items?.length && (
+            <PaperContent>
+              <PromiseStatusList
+                items={items}
+                classes={{ description: classes.description }}
+              />
+            </PaperContent>
+          )}
         </Paper>
       </Fade>
     </>
   );
 }
+
+DesktopInfoStatusPopover.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string,
+    })
+  ),
+  title: PropTypes.string,
+};
+
+DesktopInfoStatusPopover.defaultProps = {
+  items: undefined,
+  title: undefined,
+};
 
 export default DesktopInfoStatusPopover;

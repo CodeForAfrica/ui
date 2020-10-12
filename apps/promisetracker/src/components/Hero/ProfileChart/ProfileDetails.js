@@ -17,9 +17,6 @@ import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg";
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
 import share from "@/promisetracker/assets/hero-icon-share.svg";
 
-import DesktopInfoStatusPopover from "@/promisetracker/components/Hero/ProfileChart/DesktopInfoStatusPopover";
-import MobileInfoStatusPopover from "@/promisetracker/components/Hero/ProfileChart/MobileInfoStatusPopover";
-
 import MobileChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart";
 import DesktopChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart";
 
@@ -32,6 +29,9 @@ import MobilePromiseNotKeptChart from "@/promisetracker/components/Hero/ProfileC
 import MobileUncertainChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart/MobileUncertainChart";
 
 import RectChart from "@/promisetracker/components/Hero/ProfileChart/RectChart";
+
+import DesktopInfoStatusPopover from "./DesktopInfoStatusPopover";
+import MobileInfoStatusPopover from "./MobileInfoStatusPopover";
 
 const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {
@@ -73,7 +73,7 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   },
 }));
 
-function ProfileDetails({ name, position, ratingsTitle, ...props }) {
+function ProfileDetails({ criteria, name, position, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
@@ -124,7 +124,7 @@ function ProfileDetails({ name, position, ratingsTitle, ...props }) {
             </Grid>
           </Hidden>
           <InfoStatusPopover
-            title={ratingsTitle}
+            {...criteria}
             classes={{ iconButton: classes.iconButton }}
           />
           <Grid item>
@@ -172,9 +172,16 @@ function ProfileDetails({ name, position, ratingsTitle, ...props }) {
 }
 
 ProfileDetails.propTypes = {
+  criteria: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.shape({})),
+    title: PropTypes.string.isRequired,
+  }),
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
-  ratingsTitle: PropTypes.string.isRequired,
+};
+
+ProfileDetails.defaultProps = {
+  criteria: undefined,
 };
 
 export default ProfileDetails;
