@@ -13,7 +13,7 @@ import useStyles from "./useStyles";
 /**
  * Base page that can be used to build all other pages.
  */
-function BasePage({ children, title: titleProp, ...props }) {
+function BasePage({ children, page, title: titleProp, ...props }) {
   const classes = useStyles(props);
   const { title: defaultTitle } = config;
   const pageTitle = titleProp ? `${titleProp} | ` : "";
@@ -25,7 +25,7 @@ function BasePage({ children, title: titleProp, ...props }) {
       <NextSeo title={title} {...props} />
       <Navigation classes={{ section: classes.section }} />
       {children}
-      <Footer page={config.page} classes={{ root: classes.footer }} />
+      <Footer page={page} classes={{ root: classes.footer }} />
     </div>
   );
 }
@@ -35,6 +35,7 @@ BasePage.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  page: PropTypes.shape({}).isRequired,
   title: PropTypes.string,
 };
 
