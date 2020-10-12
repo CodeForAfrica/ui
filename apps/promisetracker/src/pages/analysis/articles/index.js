@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -6,8 +7,8 @@ import ActNow from "@/promisetracker/components/ActNow";
 import Articles from "@/promisetracker/components/Articles";
 import Page from "@/promisetracker/components/Page";
 import Subscribe from "@/promisetracker/components/Newsletter";
-
-import articleImage from "@/promisetracker/assets/article-thumb-01.png";
+import { getSitePage } from "@/promisetracker/cms";
+import config from "@/promisetracker/config";
 
 const useStyles = makeStyles(
   ({ breakpoints, typography, widths, palette }) => ({
@@ -46,25 +47,17 @@ const useStyles = makeStyles(
   })
 );
 
-function Index(props) {
+function Index({ page, posts, ...props }) {
   const classes = useStyles(props);
+  const {
+    page: { title: pageTitle },
+  } = page;
 
   return (
-    <Page
-      title="Articles"
-      classes={{ section: classes.section, footer: classes.footer }}
-    >
+    <Page {...page} title={pageTitle} classes={{ section: classes.section }}>
       <Articles
-        items={Array(20).fill({
-          date: "2019-08-10",
-          description: `
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              euismod odio non leo pretium pellentesque.
-            `,
-          image: articleImage,
-          title: "Codification of national sports and athletics law",
-        })}
-        title="Articles"
+        items={posts}
+        title={pageTitle}
         classes={{
           section: classes.section,
           sectionTitle: classes.sectionTitle,
@@ -85,4 +78,36 @@ function Index(props) {
   );
 }
 
+Index.propTypes = {
+  page: PropTypes.shape({
+    page: PropTypes.shape({
+      title: PropTypes.string,
+    }),
+  }).isRequired,
+  posts: PropTypes.shape({}),
+};
+
+Index.defaultProps = {
+  posts: undefined,
+};
+
 export default Index;
+
+export async function getStaticProps({ query = {} }) {
+  const { lang: pageLanguage } = query;
+  const lang = pageLanguage || config.DEFAULT_LANG;
+  const page = await getSitePage("analysis-articles", lang);
+  const posts = page.page.posts.map((post) => ({
+    image: post.featured_image,
+    description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
+    date: new Date(post.post_date).toLocaleDateString(),
+    title: post.post_title,
+  }));
+  delete page.page.posts;
+  return {
+    props: {
+      page,
+      posts,
+    },
+  };
+}
