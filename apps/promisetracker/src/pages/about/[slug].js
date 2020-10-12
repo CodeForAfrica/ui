@@ -3,6 +3,7 @@ import React from "react";
 import AboutPage from "@/promisetracker/components/AboutPage";
 
 import config from "@/promisetracker/config";
+import { getSitePageWithChildren } from "@/promisetracker/cms";
 
 function About(props) {
   return <AboutPage {...props} />;
@@ -20,14 +21,19 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug: slugParam } }) {
   const slug = slugParam.toLowerCase();
-  const slugs = Object.keys(config.pages.about.pages);
-  const index = slugs.findIndex((pageSlug) => slug === pageSlug);
+  const parent = await getSitePageWithChildren("about");
+  const index = parent.page.children.findIndex((child) => child.slug === slug);
   const errorCode = index === -1 ? 404 : null;
-  const page = errorCode ? {} : config.pages.about.pages[slug];
-
+  const page = errorCode ? {} : parent.page.children[index];
+  const about = {
+    content: page.content.rendered,
+    description: page.acf?.description,
+    title: page.title.rendered,
+  };
   return {
     props: {
-      ...page,
+      ...about,
+      page: parent.page,
       errorCode,
       slug,
     },
