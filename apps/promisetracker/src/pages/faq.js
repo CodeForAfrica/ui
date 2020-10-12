@@ -20,6 +20,9 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       width: typography.pxToRem(widths.values.lg),
     },
   },
+  footer: {
+    marginTop: 0,
+  },
 }));
 
 function Index({ errorCode, promiseTracker, ...props }) {
@@ -33,7 +36,10 @@ function Index({ errorCode, promiseTracker, ...props }) {
   const classes = useStyles(props);
 
   return (
-    <Page title="FAQs" classes={{ section: classes.section }}>
+    <Page
+      title="FAQs"
+      classes={{ section: classes.section, footer: classes.footer }}
+    >
       <FAQ
         title="FAQ"
         items={[
