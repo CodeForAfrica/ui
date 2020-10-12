@@ -16,6 +16,7 @@ function AboutPage({ content, criteria, description, title, ...props }) {
 
   return (
     <ContentPage
+      {...props}
       title={title}
       content={
         <>
