@@ -93,7 +93,7 @@ function Promises({ items, title, withFilter, ...props }) {
       >
         {items.map((promise, i) => (
           <Grid
-            key={promise.name}
+            key={promise.title}
             item
             xs={12}
             lg="auto"

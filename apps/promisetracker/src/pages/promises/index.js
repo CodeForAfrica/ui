@@ -51,7 +51,7 @@ function Index(props) {
             `,
             image: promiseImage,
             status: config.promiseStatuses[i % config.promiseStatuses.length],
-            title: "Codification of national sports and athletics law",
+            title: `Codification of national sports and athletics law ${i}`,
           }))}
         title="Promises"
         classes={{
