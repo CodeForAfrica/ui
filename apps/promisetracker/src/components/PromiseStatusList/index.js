@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {
-  Divider,
   List,
   ListItem,
   ListItemAvatar,
@@ -24,25 +23,27 @@ function PromiseStatusList({ items, ...props }) {
   return (
     <List className={classes.root}>
       {items.map(({ description, ...statusProps }, i) => (
-        <>
-          <ListItem disableGutters alignItems="center">
-            <ListItemAvatar className={classes.statusContainer}>
-              <Status {...statusProps} classes={{ root: classes.status }} />
-            </ListItemAvatar>
-            <ListItemText
-              secondary={
-                <RichTypography
-                  color="textPrimary"
-                  variant="body2"
-                  className={classes.description}
-                >
-                  {description}
-                </RichTypography>
-              }
-            />
-          </ListItem>
-          {i < items.length - 1 && <Divider component="li" />}
-        </>
+        <ListItem
+          key={statusProps.title}
+          alignItems="center"
+          disableGutters
+          divider={i < items.length - 1}
+        >
+          <ListItemAvatar className={classes.statusContainer}>
+            <Status {...statusProps} classes={{ root: classes.status }} />
+          </ListItemAvatar>
+          <ListItemText
+            secondary={
+              <RichTypography
+                color="textPrimary"
+                variant="body2"
+                className={classes.description}
+              >
+                {description}
+              </RichTypography>
+            }
+          />
+        </ListItem>
       ))}
     </List>
   );
