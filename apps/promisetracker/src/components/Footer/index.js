@@ -26,11 +26,11 @@ import { useTheme } from "@material-ui/core/styles";
 function MainFooter({
   page: {
     about,
-    contacts,
-    legal_links: legalLinksProp,
+    social_media: SocialMedia,
+    legal_links: legalLinksLinks,
     organization_logo: organizationLogoProp,
     quick_links: quickLinksProp,
-    copyright,
+    copyright_logo: copyright,
   },
   ...props
 }) {
@@ -152,7 +152,7 @@ function MainFooter({
               <div className={classes.legalContainer}>
                 {!isDesktop && (
                   <FooterStayInTouch
-                    {...contacts}
+                    socialMedia={SocialMedia}
                     options={{
                       socialMedia: {
                         color: "textSecondary",
@@ -196,7 +196,7 @@ function MainFooter({
             {isDesktop && (
               <Grid item xs={12} lg={6} className={classes.secondaryGridItem}>
                 <FooterStayInTouch
-                  {...contacts}
+                  socialMedia={SocialMedia}
                   options={{
                     socialMedia: {
                       color: "textSecondary",
@@ -229,8 +229,8 @@ MainFooter.propTypes = {
       initiative: PropTypes.string,
       about: PropTypes.string,
     }),
-    contacts: PropTypes.shape({}),
-    copyright: PropTypes.shape({}),
+    social_media: PropTypes.arrayOf(PropTypes.shape({})),
+    copyright_logo: PropTypes.shape({}),
     legal_links: PropTypes.arrayOf(PropTypes.shape({})),
     quick_links: PropTypes.arrayOf(PropTypes.shape({})),
     organization_logo: PropTypes.shape({}),
