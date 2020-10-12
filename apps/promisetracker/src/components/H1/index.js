@@ -1,4 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+import clsx from "clsx";
 
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -24,9 +27,24 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   },
 }));
 
-function Partners(props) {
+function H1({ className, ...props }) {
   const classes = useStyles(props);
-  return <Typography {...props} variant="h1" className={classes.root} />;
+
+  return (
+    <Typography
+      {...props}
+      variant="h1"
+      className={clsx(classes.root, className)}
+    />
+  );
 }
 
-export default Partners;
+H1.propTypes = {
+  className: PropTypes.string,
+};
+
+H1.defaultProps = {
+  className: undefined,
+};
+
+export default H1;
