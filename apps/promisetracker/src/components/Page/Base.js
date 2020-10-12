@@ -25,7 +25,7 @@ function BasePage({ children, page, title: titleProp, ...props }) {
       <NextSeo title={title} {...props} />
       <Navigation classes={{ section: classes.section }} />
       {children}
-      <Footer page={page} classes={{ root: classes.footer }} />
+      <Footer page={page || config.page} classes={{ root: classes.footer }} />
     </div>
   );
 }
