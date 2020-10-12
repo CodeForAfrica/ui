@@ -5,7 +5,12 @@ export async function getSiteOptions(lang) {
     `${config.WP_BACKEND_URL}/wp-json/acf/v3/options/hurumap-site?lang=${lang}`
   );
   const data = res.ok ? await res.json() : {};
-
+  data.acf.actNow = {
+    description: data.acf.act_now.description,
+    title: data.acf.act_now.title,
+    buttonLabel: data.acf.act_now.button_label,
+    link: data.acf.act_now.link,
+  };
   return data.acf;
 }
 
