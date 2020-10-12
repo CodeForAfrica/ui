@@ -18,6 +18,9 @@ import info from "@/promisetracker/assets/hero-icon-info.svg";
 import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
+  root: {
+    overflowY: "auto",
+  },
   closeButton: {
     color: palette.primary.main,
     position: "absolute",
@@ -108,10 +111,11 @@ function MobileInfoStatusPopover({ items, title, ...props }) {
       </IconButton>
 
       <Dialog
-        classes={{ paper: classes.paper }}
-        onClose={handleClose}
         aria-labelledby="promise-ratings"
+        onClose={handleClose}
         open={open}
+        scroll="paper"
+        classes={{ root: classes.root, paper: classes.paper }}
       >
         {title && (
           <DialogTitle id="promise-ratings" onClose={handleClose}>
