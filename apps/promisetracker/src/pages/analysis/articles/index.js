@@ -47,11 +47,9 @@ const useStyles = makeStyles(
   })
 );
 
-function Index({ page, posts, ...props }) {
+function Index({ page, posts, actNow, subscribe, ...props }) {
   const classes = useStyles(props);
-  const {
-    page: { title: pageTitle },
-  } = page;
+  const { title: pageTitle } = page;
 
   return (
     <Page {...page} title={pageTitle} classes={{ section: classes.section }}>
@@ -64,12 +62,14 @@ function Index({ page, posts, ...props }) {
         }}
       />
       <ActNow
+        {...actNow}
         classes={{
           section: classes.section,
           root: classes.actNow,
         }}
       />
       <Subscribe
+        {...subscribe}
         classes={{
           section: classes.section,
         }}
@@ -80,15 +80,17 @@ function Index({ page, posts, ...props }) {
 
 Index.propTypes = {
   page: PropTypes.shape({
-    page: PropTypes.shape({
-      title: PropTypes.string,
-    }),
+    title: PropTypes.string,
   }).isRequired,
   posts: PropTypes.shape({}),
+  actNow: PropTypes.shape({}),
+  subscribe: PropTypes.shape({}),
 };
 
 Index.defaultProps = {
   posts: undefined,
+  actNow: undefined,
+  subscribe: undefined,
 };
 
 export default Index;
@@ -106,8 +108,10 @@ export async function getStaticProps({ query = {} }) {
   delete page.page.posts;
   return {
     props: {
-      page,
+      page: page.page,
       posts,
+      actNow: page.page.actNow,
+      subscribe: page.page.subscribe,
     },
   };
 }
