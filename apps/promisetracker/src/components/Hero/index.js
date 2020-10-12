@@ -21,7 +21,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   section: {},
 }));
 
-function Hero({ name, position, ratingsTitle, title, ...props }) {
+function Hero({ criteria, name, position, title, ...props }) {
   const classes = useStyles(props);
 
   return (
@@ -34,14 +34,10 @@ function Hero({ name, position, ratingsTitle, title, ...props }) {
             </Grid>
           </Hidden>
           <Grid item xs={12} lg={4}>
-            <Profile title={title} date="Updated June 16, 2020" />
+            <Profile name={name} title={title} date="Updated June 16, 2020" />
           </Grid>
           <Grid item xs={12} lg={8}>
-            <ProfileChart
-              name={name}
-              position={position}
-              ratingsTitle={ratingsTitle}
-            />
+            <ProfileChart criteria={criteria} name={name} position={position} />
           </Grid>
         </Grid>
       </Section>
@@ -50,10 +46,17 @@ function Hero({ name, position, ratingsTitle, title, ...props }) {
 }
 
 Hero.propTypes = {
+  criteria: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.shape({})),
+    title: PropTypes.string.isRequired,
+  }),
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
-  ratingsTitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+};
+
+Hero.defaultProps = {
+  criteria: undefined,
 };
 
 export default Hero;

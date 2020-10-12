@@ -41,9 +41,12 @@ function Index(props) {
   return (
     <Page classes={{ section: classes.section, footer: classes.footer }}>
       <Hero
+        criteria={{
+          items: config.promiseStatuses,
+          title: "What do the ratings mean?",
+        }}
         name="Mike “Sonko” Mbuvi"
         position="Nairobi Governor"
-        ratingsTitle="What do the ratings mean?"
         title="Campaign promises made by Mike Mbuvi"
         classes={{ section: classes.section }}
       />
