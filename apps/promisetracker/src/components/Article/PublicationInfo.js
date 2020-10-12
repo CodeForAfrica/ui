@@ -32,7 +32,7 @@ function PublicationInfo({ author, date, readTime, classes: classesProp }) {
           {author.name}
         </Typography>
         <Typography className={classes.dateReadTime} variant="h6">
-          {date},{readTime}
+          {date.split(" ").slice(1, 3).join(" ")} - {readTime}
         </Typography>
       </div>
     </div>
@@ -57,12 +57,9 @@ PublicationInfo.propTypes = {
 
 PublicationInfo.defaultProps = {
   classes: undefined,
-  author: {
-    name: "Pesa Check",
-    image: "",
-  },
-  date: "Jun 04",
-  readTime: "5 min read",
+  author: undefined,
+  date: undefined,
+  readTime: undefined,
 };
 
 export default PublicationInfo;

@@ -51,12 +51,12 @@ function Article({
             {article.description}
           </RichTypography>
 
-          <PublicationInfo />
+          <PublicationInfo {...article} />
           <RichTypography className={classes.articleBody} variant="body1">
             {article.body}
           </RichTypography>
           <div className={classes.articleFooter}>
-            <PublicationInfo />
+            <PublicationInfo {...article} />
             <div className={classes.socialMediaContainer}>
               {socialMedia.map((platform) => (
                 <A
