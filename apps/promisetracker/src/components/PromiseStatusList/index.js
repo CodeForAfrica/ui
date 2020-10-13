@@ -33,6 +33,7 @@ function PromiseStatusList({ items, ...props }) {
             <Status {...statusProps} classes={{ root: classes.status }} />
           </ListItemAvatar>
           <ListItemText
+            disableTypography
             secondary={
               <RichTypography
                 color="textPrimary"
