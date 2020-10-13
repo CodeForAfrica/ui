@@ -17,7 +17,16 @@ import useStyles from "./useStyles";
  * For example, from `/about/methodology` with slug `methodology` to
  * `/about/partners` with slug `partners`
  */
-function ContentPage({ aside, children, content, slug, title, ...props }) {
+function ContentPage({
+  aside,
+  asideProps,
+  children,
+  content,
+  contentProps,
+  slug,
+  title,
+  ...props
+}) {
   const classes = useStyles(props);
 
   return (
@@ -25,7 +34,11 @@ function ContentPage({ aside, children, content, slug, title, ...props }) {
       {...props}
       key={slug}
       title={title}
-      classes={{ section: classes.section, footer: classes.footer }}
+      classes={{
+        root: classes.root,
+        section: classes.section,
+        footer: classes.footer,
+      }}
     >
       <Section
         title={title}
@@ -33,11 +46,23 @@ function ContentPage({ aside, children, content, slug, title, ...props }) {
         classes={{ root: classes.section, title: classes.sectionTitle }}
       >
         <Grid container justify="space-between" className={classes.grid}>
-          <Grid item xs={12} lg={7} className={classes.gridMain}>
+          <Grid
+            item
+            xs={12}
+            lg={7}
+            {...contentProps}
+            className={classes.gridContent}
+          >
             {content}
           </Grid>
           {aside && (
-            <Grid item xs={12} lg={4} className={classes.gridAside}>
+            <Grid
+              item
+              xs={12}
+              lg={4}
+              {...asideProps}
+              className={classes.gridAside}
+            >
               {aside}
             </Grid>
           )}
@@ -50,15 +75,19 @@ function ContentPage({ aside, children, content, slug, title, ...props }) {
 
 ContentPage.propTypes = {
   aside: PropTypes.node,
+  asideProps: PropTypes.shape({}),
   children: PropTypes.node,
   content: PropTypes.node.isRequired,
+  contentProps: PropTypes.shape({}),
   slug: PropTypes.string,
   title: PropTypes.string,
 };
 
 ContentPage.defaultProps = {
   aside: undefined,
+  asideProps: undefined,
   children: undefined,
+  contentProps: undefined,
   slug: undefined,
   title: undefined,
 };
