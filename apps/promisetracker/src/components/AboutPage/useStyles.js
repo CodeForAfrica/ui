@@ -29,7 +29,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
   grid: {},
   gridAside: {},
-  gridMain: {},
+  gridContent: {},
   image: {
     display: "flex",
     margin: `0 auto`,

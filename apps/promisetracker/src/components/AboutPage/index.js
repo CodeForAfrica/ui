@@ -54,7 +54,7 @@ function AboutPage({ content, criteria, description, title, ...props }) {
         footer: classes.footer,
         grid: classes.grid,
         gridAside: classes.gridAside,
-        gridMain: classes.gridMain,
+        gridContent: classes.gridContent,
       }}
     >
       <ActNow
