@@ -15,11 +15,6 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
       height: 2,
       top: -2,
     },
-    "&$expanded + &": {
-      "&:before": {
-        display: "initial",
-      },
-    },
     "&.Mui-expanded": {
       margin: 0,
       "&:before": {
