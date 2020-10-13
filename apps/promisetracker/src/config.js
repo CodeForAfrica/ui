@@ -7,9 +7,7 @@ import cc from "@/promisetracker/assets/cc.svg";
 import logo from "@/promisetracker/assets/logo-C4A.svg";
 
 const WP_BACKEND_URL =
-  process.env.NODE_ENV === "development"
-    ? "https://dashboard.hurumap.org/promisetracker"
-    : "https://dashboard.hurumap.org/promisetracker";
+  process.env.WP_BACKEND_URL || "https://dashboard.hurumap.org/promisetracker";
 
 const config = {
   WP_BACKEND_URL,
