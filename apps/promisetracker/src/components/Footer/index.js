@@ -63,9 +63,11 @@ function MainFooter({
     const linkify = ({ href: hrefProp = "", ...others }) => {
       const isRelativeHref =
         hrefProp.startsWith("/") && !hrefProp.startsWith("//");
-      const component = isRelativeHref ? Link : A;
-      const as = isRelativeHref ? hrefProp : undefined;
+      const component = isRelativeHref
+        ? Link
+        : React.forwardRef((props, ref) => <A ref={ref} {...props} />);
       const href = isRelativeHref ? hrefify(hrefProp) : hrefProp;
+      const as = href !== hrefProp ? hrefProp : undefined;
 
       return {
         ...others,
