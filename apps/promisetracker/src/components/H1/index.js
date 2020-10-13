@@ -11,6 +11,7 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
     fontWeight: 600,
     marginBottom: typography.pxToRem(0),
     marginTop: typography.pxToRem(38),
+    padding: `${typography.pxToRem(8)} 0`,
     position: "relative",
     "&:after": {
       content: '""',
@@ -23,6 +24,7 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
     [breakpoints.up("lg")]: {
       marginTop: typography.pxToRem(60),
       marginBottom: typography.pxToRem(42),
+      padding: `${typography.pxToRem(4)} 0`,
     },
   },
 }));
