@@ -1,18 +1,33 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import clsx from "clsx";
+
 import { RichTypography } from "@commons-ui/core";
 
 import ActNow from "@/promisetracker/components/ActNow";
 import ContentPage from "@/promisetracker/components/ContentPage";
-import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
+import ContentSection from "@/promisetracker/components/ContentPage/Section";
 
-import image from "@/promisetracker/assets/abouttheproject-img.png";
-
+import Partners from "./Partners";
+import PromiseCriteria from "./PromiseCriteria";
 import useStyles from "./useStyles";
 
-function AboutPage({ content, criteria, description, title, ...props }) {
+function AboutPage({
+  content,
+  criteria,
+  description,
+  featuredImage,
+  partners,
+  title,
+  ...props
+}) {
   const classes = useStyles(props);
+  const aside =
+    (featuredImage?.length && (
+      <img src={featuredImage} alt="About" className={classes.featuredImage} />
+    )) ||
+    undefined;
 
   return (
     <ContentPage
@@ -25,29 +40,9 @@ function AboutPage({ content, criteria, description, title, ...props }) {
               {description}
             </RichTypography>
           )}
-          {content?.length && (
-            <RichTypography variant="body2" className={classes.content}>
-              {content}
-            </RichTypography>
-          )}
-          {criteria && (
-            <div className={classes.criteria}>
-              <RichTypography
-                component="h2"
-                variant="h5"
-                className={classes.criteriaTitle}
-              >
-                {criteria.title}
-              </RichTypography>
-              <PromiseStatusList
-                items={criteria.items}
-                classes={{ root: classes.criteriaItems }}
-              />
-            </div>
-          )}
         </>
       }
-      aside={<img src={image} alt="About" className={classes.image} />}
+      aside={aside}
       classes={{
         section: classes.section,
         sectionTitle: classes.sectionTitle,
@@ -57,6 +52,27 @@ function AboutPage({ content, criteria, description, title, ...props }) {
         gridContent: classes.gridContent,
       }}
     >
+      <div className={classes.contentSection}>
+        <ContentSection
+          content={
+            <>
+              <Partners {...partners} />
+              <PromiseCriteria {...criteria} />
+              {content?.length && (
+                <RichTypography variant="body2" className={classes.content}>
+                  {content}
+                </RichTypography>
+              )}
+            </>
+          }
+          classes={{
+            section: classes.section,
+            grid: clsx(classes.grid, classes.contentSectionGrid),
+            gridAside: classes.gridAside,
+            gridContent: classes.gridContent,
+          }}
+        />
+      </div>
       <ActNow
         classes={{
           section: classes.section,
@@ -74,6 +90,10 @@ AboutPage.propTypes = {
     title: PropTypes.string.isRequired,
   }),
   description: PropTypes.string,
+  featuredImage: PropTypes.string,
+  partners: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.shape({})),
+  }),
   title: PropTypes.string,
 };
 
@@ -81,6 +101,8 @@ AboutPage.defaultProps = {
   content: undefined,
   criteria: undefined,
   description: undefined,
+  featuredImage: undefined,
+  partners: undefined,
   title: undefined,
 };
 
