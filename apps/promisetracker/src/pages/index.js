@@ -1,16 +1,10 @@
 import React from "react";
-<<<<<<< HEAD
-import { Container, Typography, Box } from "@material-ui/core";
-import Copyright from "@/promisetracker/components/Copyright";
-import TypographySetup from "@/promisetracker/components/TypographySetup";
-import Newsletter from "@/promisetracker/components/Newsletter";
-import Footer from "@/promisetracker/components/Footer";
-import config from "@/promisetracker/config";
-=======
 import PropTypes from "prop-types";
->>>>>>> get subscribe and actnow from cms
 
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import { gql } from "@apollo/client";
+
+import createApolloClient from "@/promisetracker/lib/createApolloClient";
 
 import Hero from "@/promisetracker/components/Hero";
 import ActNow from "@/promisetracker/components/ActNow";
@@ -42,8 +36,19 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function Index({ actNow, subscribe, ...props }) {
+const GET_TEAMS = gql`
+  query {
+    team(slug: "pesacheck-promise-tracker") {
+      id
+      name
+      dbid
+    }
+  }
+`;
+
+function Index(props) {
   const classes = useStyles(props);
+  // console.log(props.promises)
   return (
     <Page classes={{ section: classes.section, footer: classes.footer }}>
       <Hero
@@ -154,15 +159,20 @@ function Index({ actNow, subscribe, ...props }) {
   );
 }
 
-Index.propTypes = {
-  actNow: PropTypes.shape({}),
-  subscribe: PropTypes.shape({}),
-};
+export async function getStaticProps() {
+  const apolloClient = createApolloClient();
 
-Index.defaultProps = {
-  actNow: undefined,
-  subscribe: undefined,
-};
+  await apolloClient.query({
+    query: GET_TEAMS,
+  });
+
+  return {
+    props: {
+      promises: apolloClient.cache.extract(),
+    },
+    revalidate: 1,
+  };
+}
 
 export default Index;
 

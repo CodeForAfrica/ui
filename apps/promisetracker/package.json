@@ -3,6 +3,7 @@
   "version": "0.2.0-alpha.1",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.2.4",
     "@apollo/react-hooks": "^4.0.0",
     "@apollo/react-ssr": "^4.0.0",
     "@commons-ui/core": "^0.0.1-alpha.35",
