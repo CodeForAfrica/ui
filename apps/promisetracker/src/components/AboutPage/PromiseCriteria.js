@@ -7,7 +7,7 @@ import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
 
 import useStyles from "./useStyles";
 
-function Partners({ items, title, ...props }) {
+function PromiseCriteria({ items, title, ...props }) {
   const classes = useStyles(props);
 
   if (!items?.length) {
@@ -32,14 +32,14 @@ function Partners({ items, title, ...props }) {
   );
 }
 
-Partners.propTypes = {
+PromiseCriteria.propTypes = {
   title: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-Partners.defaultProps = {
+PromiseCriteria.defaultProps = {
   items: undefined,
   title: undefined,
 };
 
-export default Partners;
+export default PromiseCriteria;
