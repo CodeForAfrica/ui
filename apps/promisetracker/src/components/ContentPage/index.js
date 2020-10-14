@@ -1,17 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Grid } from "@material-ui/core";
-
-import { Section } from "@commons-ui/core";
-
 import H1 from "@/promisetracker/components/H1";
 import Page from "@/promisetracker/components/Page";
 
+import Section from "./Section";
 import useStyles from "./useStyles";
 
 /**
- * ContentPage is used to render related pages usually from CMS.
+ * ContentPage is used to render "site" pages such as about, usually with
+ * content coming from a CMS.
  *
  * Presence of `slug` is used by `ContentPage` to indicate a page has changed.
  * For example, from `/about/methodology` with slug `methodology` to
@@ -41,33 +39,20 @@ function ContentPage({
       }}
     >
       <Section
+        aside={aside}
+        asideProps={asideProps}
+        content={content}
+        contentProps={contentProps}
         title={title}
         titleProps={{ component: H1 }}
-        classes={{ root: classes.section, title: classes.sectionTitle }}
-      >
-        <Grid container justify="space-between" className={classes.grid}>
-          <Grid
-            item
-            xs={12}
-            lg={7}
-            {...contentProps}
-            className={classes.gridContent}
-          >
-            {content}
-          </Grid>
-          {aside && (
-            <Grid
-              item
-              xs={12}
-              lg={4}
-              {...asideProps}
-              className={classes.gridAside}
-            >
-              {aside}
-            </Grid>
-          )}
-        </Grid>
-      </Section>
+        classes={{
+          section: classes.section,
+          sectionTitle: classes.sectionTitle,
+          grid: classes.grid,
+          gridAside: classes.gridAside,
+          gridContent: classes.gridContent,
+        }}
+      />
       {children}
     </Page>
   );
@@ -77,6 +62,7 @@ ContentPage.propTypes = {
   aside: PropTypes.node,
   asideProps: PropTypes.shape({}),
   children: PropTypes.node,
+  classes: PropTypes.shape({}),
   content: PropTypes.node.isRequired,
   contentProps: PropTypes.shape({}),
   slug: PropTypes.string,
@@ -87,6 +73,7 @@ ContentPage.defaultProps = {
   aside: undefined,
   asideProps: undefined,
   children: undefined,
+  classes: undefined,
   contentProps: undefined,
   slug: undefined,
   title: undefined,
