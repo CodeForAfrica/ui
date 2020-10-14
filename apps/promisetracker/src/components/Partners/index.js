@@ -8,13 +8,6 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import { A, Section } from "@commons-ui/core";
 
-import partner1 from "@/promisetracker/assets/partner-01.png";
-import partner2 from "@/promisetracker/assets/partner-02.svg";
-import partner3 from "@/promisetracker/assets/partner-03.svg";
-import partner4 from "@/promisetracker/assets/partner-04.png";
-import partner5 from "@/promisetracker/assets/partner-05.png";
-import partner6 from "@/promisetracker/assets/partner-06.svg";
-
 const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {
     alignItems: "center",
@@ -82,10 +75,13 @@ function Partners({ items, title, ...props }) {
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const columnsCount = isDesktop ? 3 : 2;
 
+  if (!items?.length) {
+    return null;
+  }
   return (
     <div className={classes.root}>
       <Section
-        title="Partners"
+        title={title}
         titleProps={{ variant: "h4" }}
         classes={{ root: classes.section, title: classes.sectionTitle }}
       >
@@ -119,22 +115,7 @@ Partners.propTypes = {
 };
 
 Partners.defaultProps = {
-  items: [
-    { logo: partner1, name: "PesaCheck", href: "//pesacheck.org" },
-    { logo: partner2, name: "The Star", href: "//the-star.co.ke" },
-    {
-      logo: partner3,
-      name: "Piga Firimbi",
-      href: "//pigafirimbi.africauncensored.online",
-    },
-    {
-      logo: partner4,
-      name: "DW Akademie",
-      href: "//www.dw.com/en/dw-akademie/about-us/s-9519",
-    },
-    { logo: partner5, name: "Meedan", href: "//meedan.com" },
-    { logo: partner6, name: "AWS", href: "//aws.amazon.com" },
-  ],
+  items: undefined,
   title: undefined,
 };
 
