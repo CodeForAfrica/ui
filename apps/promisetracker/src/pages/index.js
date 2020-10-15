@@ -36,19 +36,69 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-const GET_TEAMS = gql`
-  query {
-    team(slug: "pesacheck-promise-tracker") {
-      id
-      name
-      dbid
+/* const GET_TEAMS = gql`
+	query {
+		team(slug: "pesacheck-promise-tracker") {
+			id
+			name
+			dbid
+		}
+	}
+`;
+
+const getPromisesList = gql`
+query {
+	team(slug:"pesacheck-promise-tracker") {
+		id
+		name
+		medias_count
+		projects {
+			edges {
+				node {
+					id
+					title
+					medias_count
+					project_medias {
+						edges {
+							node {
+								id
+								title
+								description
+								media {
+									id
+									thumbnail_path
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}`;
+ */
+const getPromisesQuery = gql`
+  query getPromises($query: String!, $limit: Int!) {
+    search(query: $query) {
+      medias(first: $limit) {
+        edges {
+          node {
+            id
+            dbid
+            title
+            description
+            status
+            archived
+          }
+        }
+      }
     }
   }
 `;
 
 function Index(props) {
   const classes = useStyles(props);
-  // console.log(props.promises)
+  /// console.log(props.promises)
   return (
     <Page classes={{ section: classes.section, footer: classes.footer }}>
       <Hero
@@ -163,7 +213,11 @@ export async function getStaticProps() {
   const apolloClient = createApolloClient();
 
   await apolloClient.query({
-    query: GET_TEAMS,
+    query: getPromisesQuery,
+    variables: {
+      limit: 2,
+      query: '{"projects":["2831"]}',
+    },
   });
 
   return {
