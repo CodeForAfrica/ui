@@ -10,12 +10,12 @@ import cc from "@/promisetracker/assets/cc.svg";
 
 import logo from "@/promisetracker/assets/logo-C4A.svg";
 
-import partner1 from "@/promisetracker/assets/partner-01.png";
-import partner2 from "@/promisetracker/assets/partner-02.svg";
-import partner3 from "@/promisetracker/assets/partner-03.svg";
-import partner4 from "@/promisetracker/assets/partner-04.png";
-import partner5 from "@/promisetracker/assets/partner-05.png";
-import partner6 from "@/promisetracker/assets/partner-06.svg";
+import partner1 from "@/promisetracker/assets/partner-logo@2x.png";
+import partner2 from "@/promisetracker/assets/partner-logo_1@2x.png";
+import partner3 from "@/promisetracker/assets/partner-logo_2@2x.png";
+import partner4 from "@/promisetracker/assets/partner-logo_3@2x.png";
+import partner5 from "@/promisetracker/assets/partner-logo_4@2x.png";
+import partner6 from "@/promisetracker/assets/partner-logo_5@2x.png";
 
 const config = {
   WP_BACKEND_URL,

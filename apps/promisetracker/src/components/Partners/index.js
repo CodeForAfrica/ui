@@ -25,13 +25,13 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   },
   partner: {
     display: "flex",
-    height: typography.pxToRem(70),
-    maxWidth: typography.pxToRem(153),
-    minWidth: typography.pxToRem(153),
+    height: typography.pxToRem(72),
+    minHeight: typography.pxToRem(72),
+    maxHeight: typography.pxToRem(72),
     [breakpoints.up("lg")]: {
-      height: typography.pxToRem(119),
-      maxWidth: typography.pxToRem(256),
-      minWidth: typography.pxToRem(256),
+      height: typography.pxToRem(120),
+      minHeight: typography.pxToRem(120),
+      maxHeight: typography.pxToRem(120),
     },
   },
   partnerFirst: {
