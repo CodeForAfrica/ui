@@ -25,7 +25,7 @@ function Partners({ items, ...props }) {
           underline="none"
           className={classes.partner}
         >
-          <Grid item xs={12}>
+          <Grid item xs={12} container justify="center">
             <img
               src={partner.logo}
               alt={partner.name}
