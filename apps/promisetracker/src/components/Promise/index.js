@@ -68,7 +68,7 @@ function Promise({
             </Typography>
             <Radar />
           </Hidden>
-          <NarativeUpdates />
+          <NarativeUpdates {...promise.narrative} />
           <RichTypography className={classes.promiseBody} variant="body1">
             {promise.body}
           </RichTypography>
@@ -104,6 +104,7 @@ Promise.propTypes = {
     title: PropTypes.string,
     status: PropTypes.shape({}),
     attribution: PropTypes.shape({}),
+    narrative: PropTypes.shape({}),
   }).isRequired,
   breadcrumb: PropTypes.string,
   classes: PropTypes.shape({

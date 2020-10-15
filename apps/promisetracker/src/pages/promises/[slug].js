@@ -138,6 +138,7 @@ export async function getStaticProps({ params: { slug: slugParam } }) {
         ""
       ),
     },
+    narrative: promiseProp.post.acf.narrative,
   };
 
   return {
