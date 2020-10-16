@@ -1,5 +1,6 @@
+import { ApolloClient, HttpLink, InMemoryCache } from "apollo-boost";
+
 import config from "@/promisetracker/config";
-import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 
 export default function createApolloClient(initialState = {}) {
   return new ApolloClient({
