@@ -207,9 +207,11 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
+.env*.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
+.parcel-cache
 
 # Next.js build output
 .next
@@ -286,5 +288,6 @@ tags
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+.ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/vim,node,react,linux,macos,intellij+all,visualstudiocode
