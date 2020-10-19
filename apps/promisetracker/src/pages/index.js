@@ -183,5 +183,6 @@ export async function getStaticProps({ query = {} }) {
       actNow: page.page.actNow,
       subscribe: page.page.subscribe,
     },
+    revalidate: 2 * 60, // seconds
   };
 }

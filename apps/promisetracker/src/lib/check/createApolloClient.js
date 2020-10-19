@@ -9,7 +9,7 @@ export default function createApolloClient(initialState = {}, team) {
   const uri = team ? `${GRAPHQL_URI}?team=${team}` : GRAPHQL_URI;
 
   return new ApolloClient({
-    ssrMode: typeof window === "undefined", // Disables forceFetch on the server (so queries are only run once)
+    ssrMode: typeof window === "undefined",
     link: new HttpLink({
       headers: {
         "X-Check-Token": process.env.CHECK_ACCESS_TOKEN,
