@@ -1,8 +1,8 @@
-import { gql } from "apollo-boost";
+import gql from "graphql-tag";
 
 export default gql`
-  query {
-    team(slug: "pesacheck-promise-tracker") {
+  query getPromisesByCategories($team: String!) {
+    team(slug: $team) {
       id
       name
       medias_count
