@@ -41,14 +41,18 @@ const useStyles = makeStyles(
     copyrightText: {
       color: palette.secondary.dark,
     },
-
     legalLinksLink: {},
-
+    organization: {
+      [breakpoints.up("lg")]: {
+        marginBottom: typography.pxToRem(37.15),
+      },
+    },
     primary: {
       background: palette.secondary.light,
       paddingTop: typography.pxToRem(50),
       paddingBottom: typography.pxToRem(50),
       [breakpoints.up("lg")]: {
+        paddingTop: typography.pxToRem(56.44),
         paddingBottom: typography.pxToRem(50),
       },
     },
