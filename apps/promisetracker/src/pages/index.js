@@ -10,9 +10,11 @@ import LatestArticles from "@/promisetracker/components/LatestArticles";
 import LatestPromises from "@/promisetracker/components/LatestPromises";
 import Page from "@/promisetracker/components/Page";
 
-import { getSitePage } from "@/promisetracker/cms";
 import config from "@/promisetracker/config";
 import check from "@/promisetracker/lib/check";
+import wp from "@/promisetracker/lib/wp";
+
+import articleImage from "@/promisetracker/assets/article-thumb-01.png";
 import promiseCarouselImage from "@/promisetracker/assets/promise-carusel-01.png";
 import promiseImage from "@/promisetracker/assets/promise-thumb-01.png";
 
@@ -32,9 +34,21 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function Index(props) {
+function Index({ page, ...props }) {
   const classes = useStyles(props);
-  /// console.log(props.promises)
+  const theme = useTheme();
+  const randomYear = () => {
+    // https://www.jacklmoore.com/notes/rounding-in-javascript/
+    const round = (number, decimalPlaces) =>
+      Number(`${Math.round(`${number}e${decimalPlaces}`)}e-${decimalPlaces}`);
+    const month = Math.floor(Math.random() * 10) / 10; // 0 ~ 0.9
+    const year = 2017 + Math.floor(Math.random() * 4); // 2017 ~ 2020
+    return round(year + month, 1);
+  };
+
+  if (!page) {
+    return null;
+  }
   return (
     <Page classes={{ section: classes.section, footer: classes.footer }}>
       <Hero
@@ -105,7 +119,7 @@ function Index(props) {
         }}
       />
       <ActNow
-        {...actNow}
+        {...page.actNow}
         classes={{
           section: classes.section,
         }}
@@ -129,14 +143,14 @@ function Index(props) {
         }}
       />
       <Partners
-        items={config.partners}
+        items={page.partners}
         title="Partners"
         classes={{
           section: classes.section,
         }}
       />
       <Subscribe
-        {...subscribe}
+        {...page.subscribe}
         classes={{
           section: classes.section,
         }}
@@ -145,7 +159,23 @@ function Index(props) {
   );
 }
 
-export async function getStaticProps() {
+Index.propTypes = {
+  page: PropTypes.shape({
+    actNow: PropTypes.shape({}),
+    partners: PropTypes.arrayOf(PropTypes.shape({})),
+    subscribe: PropTypes.shape({}),
+  }),
+};
+
+Index.defaultProps = {
+  page: undefined,
+};
+
+export default Index;
+
+export async function getStaticProps({ query = {} }) {
+  const { lang } = query;
+  const page = await wp().pages({ slug: "index", lang }).first;
   const promises = await check("pesacheck-promise-tracker").promises({
     limit: 6,
     query: `{ "projects": ["2831"] }`,
@@ -155,33 +185,12 @@ export async function getStaticProps() {
   ).promisesByCategories({
     team: "pesacheck-promise-tracker",
   });
-  const props = { promises, promisesByCategories };
 
-  return {
-    props,
-    revalidate: 1,
-  };
-}
-
-export default Index;
-
-export async function getStaticProps({ query = {} }) {
-  const { lang: pageLanguage } = query;
-  const lang = pageLanguage || config.DEFAULT_LANG;
-  const page = await getSitePage("analysis-articles", lang);
-  const posts = page.page.posts.map((post) => ({
-    image: post.featured_image,
-    description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
-    date: new Date(post.post_date).toLocaleDateString(),
-    title: post.post_title,
-  }));
-  delete page.page.posts;
   return {
     props: {
-      page: page.page,
-      posts,
-      actNow: page.page.actNow,
-      subscribe: page.page.subscribe,
+      page,
+      promises,
+      promisesByCategories,
     },
     revalidate: 2 * 60, // seconds
   };
