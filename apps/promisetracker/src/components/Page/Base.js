@@ -13,7 +13,13 @@ import useStyles from "./useStyles";
 /**
  * Base page that can be used to build all other pages.
  */
-function BasePage({ children, page, title: titleProp, ...props }) {
+function BasePage({
+  children,
+  footer,
+  navigation,
+  title: titleProp,
+  ...props
+}) {
   const classes = useStyles(props);
   const { title: defaultTitle } = config;
   const pageTitle = titleProp ? `${titleProp} | ` : "";
@@ -23,9 +29,9 @@ function BasePage({ children, page, title: titleProp, ...props }) {
     <div className={classes.root}>
       <GoogleFonts href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;700&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap" />
       <NextSeo title={title} {...props} />
-      <Navigation classes={{ section: classes.section }} />
+      <Navigation {...navigation} classes={{ section: classes.section }} />
       {children}
-      <Footer page={page || config.page} classes={{ root: classes.footer }} />
+      <Footer {...footer} classes={{ root: classes.footer }} />
     </div>
   );
 }
@@ -35,11 +41,14 @@ BasePage.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  page: PropTypes.shape({}).isRequired,
+  footer: PropTypes.shape({}),
+  navigation: PropTypes.shape({}),
   title: PropTypes.string,
 };
 
 BasePage.defaultProps = {
+  footer: undefined,
+  navigation: undefined,
   title: undefined,
 };
 
