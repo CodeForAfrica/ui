@@ -21,6 +21,8 @@ function ContentPage({
   children,
   content,
   contentProps,
+  footer,
+  navigation,
   slug,
   title,
   ...props
@@ -31,6 +33,8 @@ function ContentPage({
     <Page
       {...props}
       key={slug}
+      footer={footer}
+      navigation={navigation}
       title={title}
       classes={{
         root: classes.root,
@@ -65,6 +69,8 @@ ContentPage.propTypes = {
   classes: PropTypes.shape({}),
   content: PropTypes.node.isRequired,
   contentProps: PropTypes.shape({}),
+  footer: PropTypes.shape({}),
+  navigation: PropTypes.shape({}),
   slug: PropTypes.string,
   title: PropTypes.string,
 };
@@ -75,6 +81,8 @@ ContentPage.defaultProps = {
   children: undefined,
   classes: undefined,
   contentProps: undefined,
+  footer: undefined,
+  navigation: undefined,
   slug: undefined,
   title: undefined,
 };
