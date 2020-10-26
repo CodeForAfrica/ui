@@ -15,12 +15,41 @@ function wp(site) {
     const res = await fetch(
       `${WP_DASHBOARD_ACF_API_URL}/options/hurumap-site?lang=${lang}`
     );
-    const { acf: data = {} } = res.ok ? await res.json() : {};
-    data.actNow = {
-      description: data.act_now.description,
-      title: data.act_now.title,
-      buttonLabel: data.act_now.button_label,
-      link: data.act_now.link,
+    const { acf } = res.ok ? await res.json() : {};
+    if (!acf) {
+      return {};
+    }
+    let actNow = null;
+    if (acf.act_now) {
+      actNow = {
+        actionLabel: acf.act_now.button_label,
+        description: acf.act_now.description,
+        link: acf.act_now.link,
+        title: acf.act_now.title,
+      };
+    }
+    const footer = {
+      about: acf.about || null,
+      copyright: acf.copyright || null,
+      initiativeLogo: acf.initiative_logo || null,
+      legalLinks: acf.legal_links || null,
+      organizationLogo: acf.organization_logo || null,
+      quickLinks: acf.quick_links,
+      socialMedia: acf.social_media,
+    };
+    // WP sets urls to false if not set
+    if (footer.initiativeLogo) {
+      footer.initiativeLogo.image = footer.initiativeLogo.image || null;
+    }
+    if (footer.organizationLogo) {
+      footer.organizationLogo.image = footer.organizationLogo.image || null;
+    }
+    const data = {
+      actNow,
+      footer,
+      navigation: acf.navigation || null,
+      partners: acf.partners ? { items: acf.partners } : null,
+      subscribe: acf.subscribe || null,
     };
     return data;
   }
@@ -81,9 +110,10 @@ function wp(site) {
     const page = {
       ...options,
       ...post,
+      ...post.acf,
       content: post.content?.rendered,
-      languge: lang,
       title: post.title?.rendered,
+      languge: lang,
     };
     return page;
   }
