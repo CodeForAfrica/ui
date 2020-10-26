@@ -14,6 +14,7 @@ import PromiseCriteria from "./PromiseCriteria";
 import useStyles from "./useStyles";
 
 function AboutPage({
+  actNow,
   content,
   criteria,
   description,
@@ -78,6 +79,7 @@ function AboutPage({
         />
       </div>
       <ActNow
+        {...actNow}
         classes={{
           section: classes.section,
           root: classes.actNow,
@@ -88,6 +90,7 @@ function AboutPage({
 }
 
 AboutPage.propTypes = {
+  actNow: PropTypes.shape({}),
   content: PropTypes.string,
   criteria: PropTypes.shape({
     items: PropTypes.arrayOf(PropTypes.shape({})),
@@ -104,6 +107,7 @@ AboutPage.propTypes = {
 };
 
 AboutPage.defaultProps = {
+  actNow: undefined,
   content: undefined,
   criteria: undefined,
   description: undefined,
