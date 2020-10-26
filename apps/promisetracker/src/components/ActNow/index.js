@@ -72,7 +72,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   },
 }));
 
-function ActNow({ buttonLabel, description, title, ...props }) {
+function ActNow({ actionLabel, description, title, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
   const descriptionVariant = useMediaQuery(theme.breakpoints.up("lg"))
@@ -100,7 +100,7 @@ function ActNow({ buttonLabel, description, title, ...props }) {
                   button: classes.ctaButton,
                 }}
               >
-                {buttonLabel}
+                {actionLabel}
               </CtAButton>
             </div>
           </Grid>
@@ -113,16 +113,15 @@ function ActNow({ buttonLabel, description, title, ...props }) {
   );
 }
 ActNow.propTypes = {
+  actionLabel: PropTypes.string,
   description: PropTypes.string,
   title: PropTypes.string,
-  buttonLabel: PropTypes.string,
 };
 
 ActNow.defaultProps = {
-  description:
-    "Have you spotted a promise in action? See something wrong? Share data to help assess a promise!",
-  title: "Act Now",
-  buttonLabel: "See How",
+  actionLabel: undefined,
+  description: undefined,
+  title: undefined,
 };
 
 export default ActNow;
