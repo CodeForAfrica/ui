@@ -18,6 +18,8 @@ function AboutPage({
   criteria,
   description,
   featuredImage,
+  footer,
+  navigation,
   partners,
   title,
   ...props
@@ -32,6 +34,8 @@ function AboutPage({
   return (
     <ContentPage
       {...props}
+      footer={footer}
+      navigation={navigation}
       title={title}
       content={
         <>
@@ -91,6 +95,8 @@ AboutPage.propTypes = {
   }),
   description: PropTypes.string,
   featuredImage: PropTypes.string,
+  footer: PropTypes.shape({}),
+  navigation: PropTypes.shape({}),
   partners: PropTypes.shape({
     items: PropTypes.arrayOf(PropTypes.shape({})),
   }),
@@ -102,6 +108,8 @@ AboutPage.defaultProps = {
   criteria: undefined,
   description: undefined,
   featuredImage: undefined,
+  footer: undefined,
+  navigation: undefined,
   partners: undefined,
   title: undefined,
 };
