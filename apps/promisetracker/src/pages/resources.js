@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -6,6 +7,8 @@ import { RichTypography } from "@commons-ui/core";
 
 import ActNow from "@/promisetracker/components/ActNow";
 import ContentPage from "@/promisetracker/components/ContentPage";
+
+import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -29,26 +32,60 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function Index(props) {
+function Resources({ actNow, description, footer, navigation, ...props }) {
   const classes = useStyles(props);
 
   return (
     <ContentPage
-      slug="resources"
-      title="Resources"
-      classes={{ section: classes.section, footer: classes.footer }}
+      {...props}
+      footer={footer}
+      navigation={navigation}
+      classes={{
+        section: classes.section,
+        footer: classes.footer,
+      }}
       content={
-        <RichTypography className={classes.description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip.
-        </RichTypography>
+        description?.length ? (
+          <RichTypography className={classes.description}>
+            {description}
+          </RichTypography>
+        ) : null
       }
     >
-      <ActNow classes={{ section: classes.section }} />
+      <ActNow
+        {...actNow}
+        classes={{
+          section: classes.section,
+        }}
+      />
     </ContentPage>
   );
 }
 
-export default Index;
+Resources.propTypes = {
+  actNow: PropTypes.shape({}),
+  description: PropTypes.string,
+  footer: PropTypes.shape({}),
+  navigation: PropTypes.shape({}),
+};
+
+Resources.defaultProps = {
+  actNow: undefined,
+  description: undefined,
+  footer: undefined,
+  navigation: undefined,
+};
+
+export async function getStaticProps({ query = {} }) {
+  const { lang } = query;
+  const page = await wp().pages({ slug: "resources", lang }).first;
+
+  return {
+    props: {
+      ...page,
+    },
+    revalidate: 2 * 60, // seconds
+  };
+}
+
+export default Resources;
