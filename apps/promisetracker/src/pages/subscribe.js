@@ -1,10 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core/styles";
 
 import ActNow from "@/promisetracker/components/ActNow";
 import Page from "@/promisetracker/components/Page";
 import Subscribe from "@/promisetracker/components/Newsletter";
+
+import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -22,18 +25,46 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function Index(props) {
+function SubscribePage({ actNow, footer, navigation, subscribe, ...props }) {
   const classes = useStyles(props);
 
   return (
     <Page
-      title="Subscribe"
+      {...props}
+      footer={footer}
+      navigation={navigation}
       classes={{ section: classes.section, footer: classes.footer }}
     >
-      <Subscribe classes={{ section: classes.section }} />
-      <ActNow classes={{ section: classes.section }} />
+      <Subscribe {...subscribe} classes={{ section: classes.section }} />
+      <ActNow {...actNow} classes={{ section: classes.section }} />
     </Page>
   );
 }
 
-export default Index;
+SubscribePage.propTypes = {
+  actNow: PropTypes.shape({}),
+  footer: PropTypes.shape({}),
+  navigation: PropTypes.shape({}),
+  subscribe: PropTypes.shape({}),
+};
+
+SubscribePage.defaultProps = {
+  actNow: undefined,
+  footer: undefined,
+  navigation: undefined,
+  subscribe: undefined,
+};
+
+export async function getStaticProps({ query = {} }) {
+  const { lang } = query;
+  const page = await wp().pages({ slug: "subscribe", lang }).first;
+
+  return {
+    props: {
+      ...page,
+    },
+    revalidate: 2 * 60, // seconds
+  };
+}
+
+export default SubscribePage;
