@@ -21,7 +21,7 @@ function Articles({ items, title, ...props }) {
     >
       <Grid container>
         {items.map((article) => (
-          <Grid key={article.name} className={classes.grid} item md={4}>
+          <Grid key={article.title} className={classes.grid} item md={4}>
             <ArticleCard {...article} component="div" />
           </Grid>
         ))}

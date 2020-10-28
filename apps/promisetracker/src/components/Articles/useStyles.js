@@ -4,6 +4,7 @@ const useStyles = makeStyles(({ typography }) => ({
   section: {
     marginBottom: "4rem",
   },
+  sectionTitle: {},
   grid: {
     marginBottom: typography.pxToRem(20),
   },
