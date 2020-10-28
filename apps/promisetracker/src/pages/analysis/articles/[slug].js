@@ -9,8 +9,8 @@ import Page from "@/promisetracker/components/Page";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import RelatedArticles from "@/promisetracker/components/Articles";
 
-import { getArticle, getSitePage } from "@/promisetracker/cms";
-import config from "@/promisetracker/config";
+import wp from "@/promisetracker/lib/wp";
+
 import articleThumbnail from "@/promisetracker/assets/article-thumb-01.png";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
@@ -37,16 +37,27 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function Index({ article, page, relatedArticles, subscribe, ...props }) {
+function Index({
+  article,
+  footer,
+  navigation,
+  relatedArticles,
+  subscribe,
+  title: titleProp,
+  ...props
+}) {
   const classes = useStyles(props);
+  const title = article?.title ? `${article.title} | ${titleProp}` : titleProp;
 
   return (
     <Page
-      page={page}
-      title={article.title}
-      classes={{ section: classes.section }}
+      {...props}
+      footer={footer}
+      navigaiton={navigation}
+      title={title}
+      classes={{ section: classes.section, footer: classes.footer }}
     >
-      <Article article={article} />
+      {article ? <Article article={article} /> : null}
       <RelatedArticles
         items={relatedArticles}
         title="Related Articles"
@@ -76,64 +87,66 @@ Index.propTypes = {
     image: PropTypes.string,
     title: PropTypes.string,
   }),
-  page: PropTypes.shape({}),
+  footer: PropTypes.shape({}),
+  navigation: PropTypes.shape({}),
   subscribe: PropTypes.shape({}),
   relatedArticles: PropTypes.arrayOf(PropTypes.shape({})),
+  title: PropTypes.string,
 };
 
 Index.defaultProps = {
   article: undefined,
   classes: undefined,
-  relatedArticles: Array(3).fill({
-    date: "2019-08-10",
-    description: `
+  footer: undefined,
+  navigation: undefined,
+  relatedArticles: Array(3)
+    .fill(null)
+    .map((_, i) => ({
+      date: "2019-08-10",
+      description: `
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
               euismod odio non leo pretium pellentesque.
             `,
-    image: articleThumbnail,
-    title: "Codification of national sports and athletics law",
-  }),
-  page: undefined,
+      image: articleThumbnail,
+      title: `Codification of national sports and athletics law ${i + 1}`,
+    })),
   subscribe: undefined,
+  title: undefined,
 };
 
 export async function getStaticPaths() {
   const fallback = false;
-  const page = await getSitePage("analysis-articles");
-  const contents = page.page.acf.posts;
-  const paths = contents?.map((post) => ({
+  const page = await wp().pages({ slug: "analysis-articles" }).first;
+  const posts = page.acf?.posts?.length ? page.acf.posts : [{ post_name: "" }];
+  const paths = posts.map((post) => ({
     params: { slug: post.post_name },
-  })) ?? [{ params: { slug: "" } }];
+  }));
 
   return { fallback, paths };
 }
 
 export async function getStaticProps({ params: { slug: slugParam } }) {
   const slug = slugParam.toLowerCase();
-  const lang = config.DEFAULT_LANG;
-  const page = await getSitePage("analysis-articles", lang);
-  const articleProp = await getArticle(slug, lang);
-  const errorCode = articleProp ? null : 404;
-  const article = {
-    image: articleProp.media.full.source_url,
-    description: articleProp.post.content.rendered
-      .replace(/(<([^>]+)>)/gi, "")
-      .substring(0, 200),
-    date: new Date(articleProp.post.date).toDateString({
-      dateStyle: "short",
-    }),
-    title: articleProp.post.title.rendered,
-    body: articleProp.post.content.rendered,
-    author: { name: articleProp.author.name, image: "" },
-    readTime: readingTime(articleProp.post.content.rendered).text,
-  };
+  const page = await wp().pages({ slug: "analysis-articles" }).first;
+  const post = await wp().posts({ slug }).first;
+  const errorCode = post ? null : 404;
+  let article = null;
+  if (post) {
+    article = {
+      ...post,
+      image: post.featured_media.source_url,
+      description: post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 200),
+      date: new Date(post.date).toDateString({ dateStyle: "short" }),
+      readTime: readingTime(post.content).text,
+    };
+  }
   return {
     props: {
+      ...page,
       article,
       errorCode,
-      page: page.page,
-      subscribe: page.page.subscribe,
     },
+    revalidate: 2 * 60, // seconds
   };
 }
 

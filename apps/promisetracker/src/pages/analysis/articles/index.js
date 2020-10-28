@@ -7,8 +7,8 @@ import ActNow from "@/promisetracker/components/ActNow";
 import Articles from "@/promisetracker/components/Articles";
 import Page from "@/promisetracker/components/Page";
 import Subscribe from "@/promisetracker/components/Newsletter";
-import { getSitePage } from "@/promisetracker/cms";
-import config from "@/promisetracker/config";
+
+import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(
   ({ breakpoints, typography, widths, palette }) => ({
@@ -47,15 +47,18 @@ const useStyles = makeStyles(
   })
 );
 
-function Index({ page, posts, actNow, subscribe, ...props }) {
+function Index({ actNow, articles, footer, navigation, subscribe, ...props }) {
   const classes = useStyles(props);
-  const { title: pageTitle } = page;
 
   return (
-    <Page {...page} title={pageTitle} classes={{ section: classes.section }}>
+    <Page
+      {...props}
+      footer={footer}
+      navigation={navigation}
+      classes={{ section: classes.section, footer: classes.footer }}
+    >
       <Articles
-        items={posts}
-        title={pageTitle}
+        items={articles}
         classes={{
           section: classes.section,
           sectionTitle: classes.sectionTitle,
@@ -79,39 +82,38 @@ function Index({ page, posts, actNow, subscribe, ...props }) {
 }
 
 Index.propTypes = {
-  page: PropTypes.shape({
-    title: PropTypes.string,
-  }).isRequired,
-  posts: PropTypes.shape({}),
   actNow: PropTypes.shape({}),
+  articles: PropTypes.arrayOf(PropTypes.shape({})),
+  footer: PropTypes.shape({}),
+  navigation: PropTypes.shape({}),
   subscribe: PropTypes.shape({}),
 };
 
 Index.defaultProps = {
-  posts: undefined,
+  articles: undefined,
   actNow: undefined,
+  footer: undefined,
+  navigation: undefined,
   subscribe: undefined,
 };
 
-export default Index;
-
 export async function getStaticProps({ query = {} }) {
-  const { lang: pageLanguage } = query;
-  const lang = pageLanguage || config.DEFAULT_LANG;
-  const page = await getSitePage("analysis-articles", lang);
-  const posts = page.page.posts.map((post) => ({
+  const { lang } = query;
+  const page = await wp().pages({ slug: "analysis-articles", lang }).first;
+  const articles = page.posts?.map((post) => ({
     image: post.featured_image,
     description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
     date: new Date(post.post_date).toLocaleDateString(),
     title: post.post_title,
   }));
-  delete page.page.posts;
+  page.posts = null;
+
   return {
     props: {
-      page: page.page,
-      posts,
-      actNow: page.page.actNow,
-      subscribe: page.page.subscribe,
+      ...page,
+      articles,
     },
   };
 }
+
+export default Index;
