@@ -53,7 +53,7 @@ function Article({
 
           <PublicationInfo {...article} />
           <RichTypography className={classes.articleBody} variant="body1">
-            {article.body}
+            {article.content}
           </RichTypography>
           <div className={classes.articleFooter}>
             <PublicationInfo {...article} />
@@ -85,7 +85,7 @@ function Article({
 
 Article.propTypes = {
   article: PropTypes.shape({
-    body: PropTypes.string,
+    content: PropTypes.string,
     description: PropTypes.string,
     image: PropTypes.string,
     title: PropTypes.string,

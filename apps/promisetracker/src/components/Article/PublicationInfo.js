@@ -23,7 +23,8 @@ const useStyles = makeStyles(({ typography, palette }) => ({
   name: {},
 }));
 function PublicationInfo({ author, date, readTime, classes: classesProp }) {
-  const classes = useStyles({ image: author.image, classes: classesProp });
+  const classes = useStyles({ image: author?.image, classes: classesProp });
+
   return (
     <div className={classes.root}>
       <div className={classes.image} />
