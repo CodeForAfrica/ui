@@ -53,29 +53,33 @@ function wp(site) {
     };
     return data;
   }
-  async function getPostsBySlug(type, slug, lang) {
+  async function getResourcesBySlug(type, slug, lang, params) {
+    const fields = params?.fields ? `&_fields=${params.fields}` : "";
+    const embed = params?.embed ? `&_embed=${params.embed}` : "";
     const res = await fetch(
-      `${WP_DASHBOARD_API_URL}/${type}?slug=${slug}&lang=${lang}`
+      `${WP_DASHBOARD_API_URL}/${type}?slug=${slug}&lang=${lang}${fields}${embed}`
     );
     const data = res.ok ? await res.json() : [];
     return data;
   }
-  async function getPostsByParentId(type, parent, lang, order, orderBy) {
+  async function getResourcesByParentId(type, parent, lang, order, orderBy) {
     const res = await fetch(
       `${WP_DASHBOARD_API_URL}/${type}?parent=${parent}&order=${order}&orderby=${orderBy}&lang=${lang}`
     );
     const data = res.ok ? res.json() : [];
     return data;
   }
-  async function getPostById(type, id, lang) {
+  async function getResourceById(type, id, lang, params) {
+    const fields = params?.fields ? `&_fields=${params.fields}` : "";
+    const embed = params?.embed ? `&_embed=${params.embed}` : "";
     const res = await fetch(
-      `${WP_DASHBOARD_API_URL}/${type}/${id}?lang=${lang}`
+      `${WP_DASHBOARD_API_URL}/${type}/${id}?lang=${lang}${fields}${embed}`
     );
     const data = res.ok ? res.json() : {};
     return data;
   }
   async function getPagesByParentId(parent, lang, order, orderBy) {
-    const children = await getPostsByParentId(
+    const children = await getResourcesByParentId(
       "pages",
       parent,
       lang,
@@ -93,44 +97,66 @@ function wp(site) {
     return data;
   }
   async function getPagesByParentSlug(slug, lang, order, orderBy) {
-    const posts = await getPostsBySlug("pages", slug, lang);
-    const post = posts[0] || {};
-    if (post.id) {
-      return getPagesByParentId(post.id, lang, order, orderBy);
+    const resources = await getResourcesBySlug("pages", slug, lang, {
+      fields: "id",
+    });
+    const { id } = resources[0] || {};
+    if (id) {
+      return getPagesByParentId(id, lang, order, orderBy);
     }
     return [];
   }
   async function getPageBySlug(slug, lang) {
-    const posts = await getPostsBySlug("pages", slug, lang);
-    const post = posts[0] || {};
-    if (isEmpty(post)) {
-      return post;
+    const resources = await getResourcesBySlug("pages", slug, lang);
+    const resource = resources[0] || {};
+    if (isEmpty(resource)) {
+      return resource;
     }
     const options = await getOptions(lang);
     const page = {
       ...options,
-      ...post,
-      ...post.acf,
-      content: post.content?.rendered,
-      title: post.title?.rendered,
+      ...resource,
+      ...resource.acf,
+      content: resource.content?.rendered,
+      title: resource.title?.rendered,
       languge: lang,
     };
     return page;
   }
   async function getPageById(id, lang) {
-    const post = await getPostById("pages", id, lang);
-    if (isEmpty(post)) {
-      return post;
+    const resource = await getResourceById("pages", id, lang);
+    if (isEmpty(resource)) {
+      return resource;
     }
     const options = await getOptions(lang);
     const page = {
       ...options,
-      ...post,
-      content: post.content?.rendered,
+      ...resource,
+      ...resource.acf,
+      content: resource.content?.rendered,
+      title: resource.title?.rendered,
       languge: lang,
-      title: post.title?.rendered,
     };
     return page;
+  }
+  async function getPostBySlug(slug, lang) {
+    const resources = await getResourcesBySlug("posts", slug, lang, {
+      embed: 1,
+    });
+    const resource = resources[0];
+    if (isEmpty(resource)) {
+      return undefined;
+    }
+    const post = {
+      ...resource,
+      // eslint-disable-next-line no-underscore-dangle
+      author: resource._embedded.author[0],
+      content: resource.content.rendered,
+      // eslint-disable-next-line no-underscore-dangle
+      featured_media: resource._embedded["wp:featuredmedia"][0],
+      title: resource.title.rendered,
+    };
+    return post;
   }
 
   const api = {
@@ -161,6 +187,16 @@ function wp(site) {
             return getPagesByParentSlug(slug, lang, order, orderBy);
           }
           return [];
+        })();
+      },
+    }),
+    posts: ({ slug, lang = DEFAULT_LANG }) => ({
+      get first() {
+        return (async () => {
+          if (slug) {
+            return getPostBySlug(slug, lang);
+          }
+          return undefined;
         })();
       },
     }),
