@@ -65,6 +65,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
 
 function NarativeUpdates({ description, title, timelines, ...props }) {
   const classes = useStyles(props);
+
   return (
     <>
       <div className={classes.root}>
@@ -88,6 +89,7 @@ function NarativeUpdates({ description, title, timelines, ...props }) {
           >
             {timelines.map((timeline, index) => (
               <TimelineItem
+                key={timeline.date}
                 classes={{
                   root: classes.timelineItem,
                 }}

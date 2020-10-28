@@ -60,7 +60,7 @@ function Promise({
           </Hidden>
 
           <RichTypography className={classes.promiseBody} variant="body1">
-            {promise.body}
+            {promise.content}
           </RichTypography>
           <Hidden lgUp>
             <Typography className={classes.label} variant="h5">
@@ -70,7 +70,7 @@ function Promise({
           </Hidden>
           <NarativeUpdates {...promise.narrative} />
           <RichTypography className={classes.promiseBody} variant="body1">
-            {promise.body}
+            {promise.content}
           </RichTypography>
           <AuthorAtribution {...promise.attribution} />
         </Grid>
@@ -98,7 +98,7 @@ function Promise({
 
 Promise.propTypes = {
   promise: PropTypes.shape({
-    body: PropTypes.string,
+    content: PropTypes.string,
     description: PropTypes.string,
     image: PropTypes.string,
     title: PropTypes.string,
