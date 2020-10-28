@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 
 import ActNow from "@/promisetracker/components/ActNow";
-import Promises from "@/promisetracker/components/Promises";
 import Page from "@/promisetracker/components/Page";
+import Promises from "@/promisetracker/components/Promises";
 import Subscribe from "@/promisetracker/components/Newsletter";
 
 import config from "@/promisetracker/config";
-import { getSitePage } from "@/promisetracker/cms";
+import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -33,27 +33,36 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function Index({ page, posts, actNow, subscribe, title, ...props }) {
+function PromisesPage({
+  footer,
+  navigation,
+  promises,
+  actNow,
+  subscribe,
+  title,
+  ...props
+}) {
   const classes = useStyles(props);
 
   return (
-    <Page {...page} title={title} classes={{ section: classes.section }}>
+    <Page
+      {...props}
+      footer={footer}
+      navigation={navigation}
+      title={title}
+      classes={{ section: classes.section, footer: classes.footer }}
+    >
       <Promises
-        items={posts}
+        items={promises}
         title={title}
         classes={{
           section: classes.section,
         }}
       />
-      <Hidden lgDown>
-        <ActNow
-          {...actNow}
-          classes={{
-            section: classes.section,
-          }}
-        />
-      </Hidden>
-
+      <ActNow
+        {...actNow}
+        classes={{ section: classes.section, root: classes.actNow }}
+      />
       <Subscribe
         {...subscribe}
         classes={{
@@ -64,42 +73,42 @@ function Index({ page, posts, actNow, subscribe, title, ...props }) {
   );
 }
 
-Index.propTypes = {
-  page: PropTypes.shape({}).isRequired,
-  posts: PropTypes.shape({}),
+PromisesPage.propTypes = {
   actNow: PropTypes.shape({}),
+  footer: PropTypes.shape({}),
+  navigation: PropTypes.shape({}),
+  promises: PropTypes.arrayOf(PropTypes.shape({})),
   subscribe: PropTypes.shape({}),
   title: PropTypes.string,
 };
 
-Index.defaultProps = {
-  posts: undefined,
+PromisesPage.defaultProps = {
   actNow: undefined,
+  promises: undefined,
+  footer: undefined,
+  navigation: undefined,
   subscribe: undefined,
-  title: "Promises",
+  title: undefined,
 };
 
-export default Index;
-
 export async function getStaticProps({ query = {} }) {
-  const { lang: pageLanguage } = query;
-  const lang = pageLanguage || config.DEFAULT_LANG;
-  const page = await getSitePage("promises", lang);
-  const posts = page.page.posts.map((post, i) => ({
+  const { lang } = query;
+  const page = await wp().pages({ slug: "promises", lang }).first;
+  const promises = page.posts.map((post, i) => ({
     image: post.featured_image,
     description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
     date: new Date(post.post_date).toLocaleDateString(),
     title: post.post_title,
     status: config.promiseStatuses[i % config.promiseStatuses.length],
   }));
-  delete page.page.posts;
+
   return {
     props: {
-      page: page.page,
-      posts,
-      actNow: page.page.actNow,
-      subscribe: page.page.subscribe,
-      title: page.page.title.rendered,
+      ...page,
+      promises,
     },
+    revalidate: 2 * 60, // seconds
   };
 }
+
+export default PromisesPage;

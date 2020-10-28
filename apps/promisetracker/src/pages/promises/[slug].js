@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core/styles";
 
+import Page from "@/promisetracker/components/Page";
 import Promise from "@/promisetracker/components/Promise";
 import RelatedPromises from "@/promisetracker/components/Promises";
-import Page from "@/promisetracker/components/Page";
 import Subscribe from "@/promisetracker/components/Newsletter";
-import { getSitePage, getArticle } from "@/promisetracker/cms";
-import config from "@/promisetracker/config";
+
+import wp from "@/promisetracker/lib/wp";
 
 import promiseImage from "@/promisetracker/assets/promise-thumb-01@2x.png";
 
@@ -39,15 +39,26 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function Index({ promise, relatedPromises, ...props }) {
+function PromisePage({
+  footer,
+  navigation,
+  promise,
+  relatedPromises,
+  title: titleProp,
+  ...props
+}) {
   const classes = useStyles(props);
+  const title = promise?.title ? `${promise.title} | ${titleProp}` : titleProp;
 
   return (
     <Page
-      title={promise.title}
+      {...props}
+      footer={footer}
+      navigaiton={navigation}
+      title={title}
       classes={{ section: classes.section, footer: classes.footer }}
     >
-      <Promise promise={promise} />
+      {promise ? <Promise promise={promise} /> : null}
       <RelatedPromises
         items={relatedPromises}
         title="Related Promises"
@@ -66,11 +77,13 @@ function Index({ promise, relatedPromises, ...props }) {
   );
 }
 
-Index.propTypes = {
+PromisePage.propTypes = {
   classes: PropTypes.shape({
     section: PropTypes.string,
     sectionTitle: PropTypes.string,
   }),
+  footer: PropTypes.shape({}),
+  navigation: PropTypes.shape({}),
   promise: PropTypes.shape({
     date: PropTypes.string,
     description: PropTypes.string,
@@ -78,77 +91,80 @@ Index.propTypes = {
     title: PropTypes.string,
   }),
   relatedPromises: PropTypes.arrayOf(PropTypes.shape({})),
+  title: PropTypes.string,
 };
 
-Index.defaultProps = {
-  promise: undefined,
+PromisePage.defaultProps = {
   classes: undefined,
-  relatedPromises: Array(3).fill({
-    date: "2019-08-10",
-    description: `
+  footer: undefined,
+  navigation: undefined,
+  promise: undefined,
+  relatedPromises: Array(3)
+    .fill(null)
+    .map((_, i) => ({
+      date: "2019-08-10",
+      description: `
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
               euismod odio non leo pretium pellentesque.
             `,
-    image: promiseImage,
-    status: {
-      color: "#FFB322",
-      textColor: "#202020",
-      title: "delayed",
-    },
-    title: "Codification of national sports and athletics law",
-  }),
+      image: promiseImage,
+      status: {
+        color: "#FFB322",
+        textColor: "#202020",
+        title: "delayed",
+      },
+      title: `Codification of national sports and athletics law ${i + 1}`,
+    })),
+  title: undefined,
 };
 
 export async function getStaticPaths() {
   const fallback = false;
-  const page = await getSitePage("promises");
-  const contents = page.page.acf.posts;
-  const paths = contents?.map((post) => ({
+  const page = await wp().pages({ slug: "promises" }).first;
+  const posts = page.acf?.posts?.length ? page.acf.posts : [{ post_name: "" }];
+  const paths = posts.map((post) => ({
     params: { slug: post.post_name },
-  })) ?? [{ params: { slug: "" } }];
+  }));
+
   return { fallback, paths };
 }
 
 export async function getStaticProps({ params: { slug: slugParam } }) {
   const slug = slugParam.toLowerCase();
-  const lang = config.DEFAULT_LANG;
-  const page = await getSitePage("promises", lang);
-  const promiseProp = await getArticle(slug, lang);
-  const errorCode = promiseProp ? null : 404;
-  const promise = {
-    image: promiseProp.media.full.source_url,
-    description: promiseProp.post.content.rendered
-      .replace(/(<([^>]+)>)/gi, "")
-      .substring(0, 200),
-    date: new Date(promiseProp.post.date).toDateString({
-      dateStyle: "short",
-    }),
-    title: promiseProp.post.title.rendered,
-    body: promiseProp.post.content.rendered,
-    author: { name: promiseProp.author.name, image: "" },
-    status: {
-      color: "#FFB322",
-      textColor: "#202020",
-      title: "delayed",
-    },
-    attribution: {
-      title: promiseProp.post.acf.source_attribution.title,
-      description: promiseProp.post.acf.source_attribution.description.replace(
-        /(<([^>]+)>)/gi,
-        ""
-      ),
-    },
-    narrative: promiseProp.post.acf.narrative,
-  };
+  const page = await wp().pages({ slug: "promises" }).first;
+  const post = await wp().posts({ slug }).first;
+  const errorCode = post ? null : 404;
+  let promise = null;
+  if (post) {
+    promise = {
+      ...post,
+      image: post.featured_media.source_url,
+      description: post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 200),
+      date: new Date(post.date).toDateString({ dateStyle: "short" }),
+      status: {
+        color: "#FFB322",
+        textColor: "#202020",
+        title: "delayed",
+      },
+      attribution: {
+        title: post.acf.source_attribution.title,
+        description: post.acf.source_attribution.description.replace(
+          /(<([^>]+)>)/gi,
+          ""
+        ),
+      },
+      narrative: post.acf.narrative,
+    };
+  }
 
   return {
     props: {
+      ...page,
       promise,
       errorCode,
-      page: page.page,
-      subscribe: page.page.subscribe,
     },
+    revalidate: 2 * 60, // seconds
   };
 }
 
-export default Index;
+export default PromisePage;
