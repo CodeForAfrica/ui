@@ -17,17 +17,17 @@ import partner4 from "@/promisetracker/assets/partner-logo_3@2x.png";
 import partner5 from "@/promisetracker/assets/partner-logo_4@2x.png";
 import partner6 from "@/promisetracker/assets/partner-logo_5@2x.png";
 
-const config = {
-  WP_BACKEND_URL,
-  WP_HURUMAP_DATA_API: `${WP_BACKEND_URL}/wp-json/hurumap-data`,
-  DEFAULT_LANG: "en",
+import logo from "@/promisetracker/assets/logo-C4A.svg";
 
-  title: "PromiseTracker",
-  url: "https://promisetracker.pesacheck.org/",
+const config = {
+  DEFAULT_LANG: "en",
   GRAPHQL_URI: "https://check-api.checkmedia.org/api/graphql",
   PROXY_URL: "https://corsanywhere.devops.codeforafrica.org/",
   CHECK_PROJECT_DB_ID: 2831,
   CHECK_PROMISE_MAX_COUNT: 150,
+  WP_DASHBOARD_URL: "https://dashboard.hurumap.org/promisetracker",
+  title: "PromiseTracker",
+  url: "https://promisetracker.pesacheck.org/",
   settings: {
     subscribe: {
       embedCode: `
