@@ -31,9 +31,9 @@ export async function getStaticProps({ query = {} }) {
 
   return {
     props: {
+      ...page,
       description,
       items,
-      page,
       title,
     },
     revalidate: 2 * 60, // seconds
