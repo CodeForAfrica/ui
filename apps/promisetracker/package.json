@@ -24,7 +24,7 @@
     "lodash": "^4.17.15",
     "next": "^9.5.5",
     "next-google-fonts": "^1.2.1",
-    "next-images": "^1.6.0",
+    "next-images": "^1.6.2",
     "next-seo": "^4.14.0",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
