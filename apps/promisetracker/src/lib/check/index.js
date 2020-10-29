@@ -18,10 +18,24 @@ function check(team = undefined, initialState = {}) {
 
   const api = {
     promises: async (variables) => {
-      return client.query({ query: GET_PROMISES, variables });
+      return client.query({ query: GET_PROMISES, variables }).then((res) => {
+        return res.data.search.medias.edges.map((promise) => promise.node);
+      });
     },
     promisesByCategories: async (variables) => {
-      return client.query({ query: GET_PROMISES_BY_CATEGORIES, variables });
+      return client
+        .query({ query: GET_PROMISES_BY_CATEGORIES, variables })
+        .then(({ data }) => ({
+          id: data.team.id,
+          count: data.team.medias_count,
+          name: data.team.name,
+          categories: data.team.projects.edges.map(({ node }) => ({
+            id: node.id,
+            title: node.title,
+            count: node.medias_count,
+            projects: node.project_medias.edges.map((promise) => promise.node),
+          })),
+        }));
     },
   };
   return api;
