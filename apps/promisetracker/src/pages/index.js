@@ -16,7 +16,6 @@ import wp from "@/promisetracker/lib/wp";
 
 import articleImage from "@/promisetracker/assets/article-thumb-01.png";
 import promiseCarouselImage from "@/promisetracker/assets/promise-carusel-01.png";
-import promiseImage from "@/promisetracker/assets/promise-thumb-01.png";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -34,7 +33,15 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function Index({ actNow, footer, navigation, partners, subscribe, ...props }) {
+function Index({
+  actNow,
+  footer,
+  navigation,
+  partners,
+  promises,
+  subscribe,
+  ...props
+}) {
   const classes = useStyles(props);
   const theme = useTheme();
   const randomYear = () => {
@@ -103,18 +110,7 @@ function Index({ actNow, footer, navigation, partners, subscribe, ...props }) {
       />
       <LatestPromises
         actionLabel="See All"
-        items={Array(6)
-          .fill(null)
-          .map((_, i) => ({
-            date: "2019-08-10",
-            description: `
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              euismod odio non leo pretium pellentesque.
-            `,
-            image: promiseImage,
-            status: config.promiseStatuses[i % config.promiseStatuses.length],
-            title: `Codification of national sports and athletics law ${i + 1}`,
-          }))}
+        items={promises.slice(0, 6)}
         title="Latest Promises"
         classes={{
           section: classes.section,
@@ -166,6 +162,7 @@ Index.propTypes = {
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
   partners: PropTypes.shape({}),
+  promises: PropTypes.arrayOf(PropTypes.shape({})),
   subscribe: PropTypes.shape({}),
 };
 
@@ -174,6 +171,7 @@ Index.defaultProps = {
   footer: undefined,
   navigation: undefined,
   partners: undefined,
+  promises: undefined,
   subscribe: undefined,
 };
 
