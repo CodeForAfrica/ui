@@ -12,14 +12,15 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function PromiseTimeline({ events, interval, statuses, ...props }) {
+function PromiseTimeline({ events, promiseDate, statuses, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const interval = [
+    new Date(promiseDate).getFullYear(),
+    new Date().getFullYear() + 2,
+  ];
 
-  if (interval?.length !== 2) {
-    return null;
-  }
   return (
     <svg width="100%" height="100" className={classes.root}>
       <rect
@@ -57,11 +58,11 @@ function PromiseTimeline({ events, interval, statuses, ...props }) {
 
 PromiseTimeline.propTypes = {
   events: PropTypes.arrayOf(PropTypes.shape({})),
-  interval: PropTypes.arrayOf(PropTypes.number),
+  promiseDate: PropTypes.string,
   statuses: PropTypes.arrayOf(PropTypes.shape({})),
 };
 PromiseTimeline.defaultProps = {
-  interval: undefined,
+  promiseDate: undefined,
   events: undefined,
   statuses: undefined,
 };
