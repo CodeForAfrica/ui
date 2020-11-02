@@ -7,6 +7,7 @@ import ActNow from "@/promisetracker/components/ActNow";
 import ContentPage from "@/promisetracker/components/ContentPage";
 import FAQ from "@/promisetracker/components/FAQ";
 
+import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
@@ -58,9 +59,14 @@ FaqPage.defaultProps = {
   faqs: undefined,
 };
 
-export async function getStaticProps({ query = {} }) {
-  const { lang } = query;
-  const page = await wp().pages({ slug: "faq", lang }).first;
+export async function getStaticProps({ locale }) {
+  if (!i18n.locales.includes(locale)) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const page = await wp().pages({ slug: "faq", locale }).first;
   const faqs = page.faqs
     .reduce((arr, e) => arr.concat(e.questions_answers), [])
     .map((faq) => ({ title: faq.question, summary: faq.answer }));
