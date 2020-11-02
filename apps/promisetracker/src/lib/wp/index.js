@@ -4,8 +4,8 @@ import config from "@/promisetracker/config";
 
 function wp(site) {
   const SITE = site?.length ? `${site.trim().toUpperCase()}_` : "";
-  const DEFAULT_LANG =
-    process.env[`${SITE}DEFAULT_LANG`] || config.DEFAULT_LANG;
+  const DEFAULT_LOCALE =
+    process.env[`${SITE}DEFAULT_LOCALE`] || config.DEFAULT_LOCALE;
   const WP_DASHBOARD_URL =
     process.env[`${SITE}WP_DASHBOARD_URL`] || config.WP_DASHBOARD_URL;
   const WP_DASHBOARD_API_URL = `${WP_DASHBOARD_URL}/wp-json/wp/v2`;
@@ -163,17 +163,17 @@ function wp(site) {
     pages: ({
       id,
       slug,
-      lang = DEFAULT_LANG,
+      locale = DEFAULT_LOCALE,
       order = "asc",
       orderBy = "menu_order",
     }) => ({
       get first() {
         return (async () => {
           if (id) {
-            return getPageById(id, lang);
+            return getPageById(id, locale);
           }
           if (slug) {
-            return getPageBySlug(slug, lang);
+            return getPageBySlug(slug, locale);
           }
           return {};
         })();
@@ -181,20 +181,20 @@ function wp(site) {
       get children() {
         return (async () => {
           if (id) {
-            return getPagesByParentId(id, lang, order, orderBy);
+            return getPagesByParentId(id, locale, order, orderBy);
           }
           if (slug) {
-            return getPagesByParentSlug(slug, lang, order, orderBy);
+            return getPagesByParentSlug(slug, locale, order, orderBy);
           }
           return [];
         })();
       },
     }),
-    posts: ({ slug, lang = DEFAULT_LANG }) => ({
+    posts: ({ slug, locale = DEFAULT_LOCALE }) => ({
       get first() {
         return (async () => {
           if (slug) {
-            return getPostBySlug(slug, lang);
+            return getPostBySlug(slug, locale);
           }
           return undefined;
         })();
