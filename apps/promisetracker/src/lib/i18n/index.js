@@ -13,6 +13,9 @@ function i18n(site) {
     get locales() {
       return LOCALES;
     },
+
+    language: (locale) => config.LANGUAGE_BY_LOCALE[locale] || locale,
+
     localizePaths: (unlocalizedPaths) => {
       const paths = [];
       LOCALES.forEach((locale) => {
