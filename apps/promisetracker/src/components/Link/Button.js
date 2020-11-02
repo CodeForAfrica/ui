@@ -17,13 +17,17 @@ function ButtonLink(props) {
     className: classNameProps,
     href,
     innerRef,
+    locale,
     naked,
     ...other
   } = props;
   const router = useRouter();
 
   const className = clsx(classNameProps, {
-    [activeClassName]: router.pathname === href && activeClassName,
+    [activeClassName]:
+      router.asPath === href &&
+      (!locale || router.locale === locale) &&
+      activeClassName,
   });
 
   if (naked) {
@@ -31,6 +35,7 @@ function ButtonLink(props) {
       <NextComposed
         className={className}
         href={href}
+        locale={locale}
         ref={innerRef}
         {...other}
       />
@@ -42,7 +47,7 @@ function ButtonLink(props) {
       component={NextComposed}
       className={className}
       href={href}
-      ref={innerRef}
+      locale={locale}
       {...other}
     />
   );
@@ -54,6 +59,7 @@ ButtonLink.propTypes = {
   className: PropTypes.string,
   href: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  locale: PropTypes.string,
   naked: PropTypes.bool,
   onClick: PropTypes.func,
   prefetch: PropTypes.bool,
@@ -65,6 +71,7 @@ ButtonLink.defaultProps = {
   className: undefined,
   href: undefined,
   innerRef: undefined,
+  locale: undefined,
   naked: undefined,
   onClick: undefined,
   prefetch: undefined,

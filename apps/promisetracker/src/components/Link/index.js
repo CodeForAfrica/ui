@@ -18,13 +18,17 @@ function Link(props) {
     className: classNameProps,
     href,
     innerRef,
+    locale,
     naked,
     ...other
   } = props;
   const router = useRouter();
 
   const className = clsx(classNameProps, {
-    [activeClassName]: router.asPath === href && activeClassName,
+    [activeClassName]:
+      router.asPath === href &&
+      (!locale || router.locale === locale) &&
+      activeClassName,
   });
 
   if (naked) {
@@ -32,6 +36,7 @@ function Link(props) {
       <NextComposed
         className={className}
         href={href}
+        locale={locale}
         ref={innerRef}
         {...other}
       />
@@ -43,7 +48,7 @@ function Link(props) {
       component={NextComposed}
       className={className}
       href={href}
-      ref={innerRef}
+      locale={locale}
       {...other}
     />
   );
@@ -55,6 +60,7 @@ Link.propTypes = {
   className: PropTypes.string,
   href: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  locale: PropTypes.string,
   naked: PropTypes.bool,
   onClick: PropTypes.func,
   prefetch: PropTypes.bool,
@@ -67,6 +73,7 @@ Link.defaultProps = {
   href: undefined,
   innerRef: undefined,
   naked: undefined,
+  locale: undefined,
   onClick: undefined,
   prefetch: undefined,
 };
