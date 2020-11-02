@@ -5,7 +5,6 @@ import clsx from "clsx";
 import { useRouter } from "next/router";
 
 import {
-  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -19,11 +18,13 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import { Section } from "@commons-ui/core";
 
+import Button from "@/promisetracker/components/Link/Button";
 import Logo from "@/promisetracker/components/Navigation/Logo";
 import NavigationList from "@/promisetracker/components/Navigation/MobileNavigation/NavigationList";
 import SearchIcon from "@/promisetracker/icons/Search";
 
 import config from "@/promisetracker/config";
+import i18n from "@/promisetracker/lib/i18n";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   root: {
@@ -65,7 +66,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     color: palette.background.default,
     padding: "1rem",
   },
-  languageButton: {
+  buttonLanguage: {
     color: palette.primary.main,
     fontFamily: typography.fontFamily,
     fontSize: typography.pxToRem(14),
@@ -78,7 +79,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
       color: palette.background.default,
     },
   },
-  firstLanguageButton: {
+  buttonLanguageFirst: {
     marginLeft: "-1rem",
   },
 }));
@@ -91,8 +92,10 @@ function MobileNavigation(props) {
   const classes = useStyles(props);
   const [open, setOpen] = useState(false);
   const router = useRouter();
-  const { asPath } = router;
+  const { asPath, locale: activeLocale } = router;
   const { analysisMenu } = config;
+  const _ = i18n();
+  const { locales } = _;
   const currentPageUrl = asPath.split("/").slice(0, 2).join("/");
   const openAnalysisMenu = analysisMenu.url === currentPageUrl;
   const handleClickOpen = (e) => {
@@ -111,12 +114,6 @@ function MobileNavigation(props) {
     setOpen(false);
   };
 
-  const activeLanguageButton = clsx(
-    classes.button,
-    classes.languageButton,
-    "active"
-  );
-  const languageButton = clsx(classes.button, classes.languageButton);
   return (
     <Section classes={{ root: classes.section }}>
       <Grid
@@ -163,46 +160,27 @@ function MobileNavigation(props) {
                 justify="flex-start"
                 alignItems="center"
               >
-                <Grid item>
-                  <Button
-                    href="/#"
-                    variant="text"
-                    underline="none"
-                    className={clsx(
-                      activeLanguageButton,
-                      classes.firstLanguageButton
-                    )}
-                  >
-                    En
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button
-                    variant="text"
-                    underline="none"
-                    className={languageButton}
-                  >
-                    Am
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button
-                    variant="text"
-                    underline="none"
-                    className={languageButton}
-                  >
-                    Fr
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button
-                    variant="text"
-                    underline="none"
-                    className={languageButton}
-                  >
-                    عربى
-                  </Button>
-                </Grid>
+                {locales.slice(0, 4).map((locale, i) => (
+                  <Grid key={locale} item>
+                    <Button
+                      href={asPath}
+                      locale={locale}
+                      variant="text"
+                      className={clsx(
+                        classes.button,
+                        classes.buttonLanguage,
+                        {
+                          active: locale === activeLocale,
+                        },
+                        {
+                          [classes.buttonLanguageFirst]: i === 0,
+                        }
+                      )}
+                    >
+                      {_.language(locale)}
+                    </Button>
+                  </Grid>
+                ))}
               </Grid>
 
               <Grid item xs={2} container justify="flex-end">
