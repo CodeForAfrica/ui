@@ -48,6 +48,17 @@ function check(team = undefined, initialState = {}) {
     return filename && id ? getAssetURL(filename, id) : promiseImage;
   }
 
+  function getPromiseYear(node) {
+    const items = node.tasks?.edges;
+    const startDateTask = findItemByNodeLabel(
+      items,
+      "When was this promise made?"
+    );
+    return startDateTask
+      ? startDateTask.node.first_response_value.split(" ").slice(0, 3).join(" ")
+      : null;
+  }
+
   function getStatus(node) {
     const items = node.tasks?.edges;
     const statusTask = findItemByNodeLabel(
@@ -69,10 +80,12 @@ function check(team = undefined, initialState = {}) {
       title: node.title,
       image: getImage(node),
       description: node.description,
-      date: new Date(parseInt(node.created_at, 10)).toDateString({
+      date: new Date(parseInt(node.created_at, 10) * 1000).toDateString({
         dateStyle: "short",
       }),
+      promiseDate: getPromiseYear(node),
       status: getStatus(node),
+      statuses: [getStatus(node)],
     }));
   }
 
