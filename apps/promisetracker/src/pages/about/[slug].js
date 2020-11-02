@@ -11,7 +11,7 @@ function Legal(props) {
 
 export async function getStaticPaths() {
   const fallback = false;
-  const pages = await wp().pages({ slug: "about" }).children;
+  const pages = await wp().pages({ slug: "legal" }).children;
   const unlocalizedPaths = pages.map(({ slug }) => ({ params: { slug } }));
   const paths = i18n().localizePaths(unlocalizedPaths);
 
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const slug = slugParam.toLowerCase();
-  const pages = await wp().pages({ slug: "about", locale }).children;
+  const pages = await wp().pages({ slug: "legal", locale }).children;
   const index = pages.findIndex((page) => page.slug === slug);
   const notFound = index === -1;
   const errorCode = notFound ? 404 : null;
