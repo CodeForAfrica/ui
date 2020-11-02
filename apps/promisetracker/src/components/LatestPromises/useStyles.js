@@ -10,12 +10,21 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       marginTop: typography.pxToRem(96),
     },
   },
+  container: {
+    justifyContent: "flex-start",
+  },
   cta: {},
   ctaButton: {},
   row: {
     paddingTop: typography.pxToRem(30),
     [breakpoints.up("lg")]: {
       paddingTop: typography.pxToRem(16),
+    },
+  },
+  gridItem: {
+    [breakpoints.up("lg")]: {
+      paddingRight: "1rem",
+      paddingLeft: "1rem",
     },
   },
 }));

@@ -26,14 +26,17 @@ function LatestPromises({ actionLabel, items, title, ...props }) {
       title={title}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
-      <Grid container spacing={2} justify="flex-start">
+      <Grid container className={classes.container}>
         {items.map((promise, i) => (
           <Grid
             key={promise.title}
             item
             xs={12}
             lg="auto"
-            className={clsx({ [classes.row]: (!isDesktop && i > 0) || i > 2 })}
+            className={clsx({
+              [classes.row]: (!isDesktop && i > 0) || i > 2,
+              [classes.gridItem]: i % 3 === 1,
+            })}
           >
             <PromiseCard {...promise} component="div" />
           </Grid>
