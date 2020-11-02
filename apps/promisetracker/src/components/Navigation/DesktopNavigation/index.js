@@ -4,14 +4,17 @@ import clsx from "clsx";
 
 import { useRouter } from "next/router";
 
-import { Button, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Section } from "@commons-ui/core";
 
+import Button from "@/promisetracker/components/Link/Button";
 import Logo from "@/promisetracker/components/Navigation/Logo";
 import Search from "@/promisetracker/components/Search";
+
 import config from "@/promisetracker/config";
+import i18n from "@/promisetracker/lib/i18n";
 
 import MenuButton from "./MenuButton";
 import NavigationButton from "./NavigationButton";
@@ -34,16 +37,16 @@ const useStyles = makeStyles(({ typography }) => ({
     color: "#909090",
     fontFamily: typography.fontFamily,
     fontWeight: 400,
+    marginLeft: "0.75rem",
+    minWidth: 0,
+    padding: 0,
+    width: "auto",
     "&.active": {
       color: "#EBEBEB",
     },
     "&:hover": {
       background: "inherit",
     },
-    padding: 0,
-    marginLeft: "0.75rem",
-    minWidth: 0,
-    width: "auto",
   },
   buttonLanguageLast: {
     marginRight: "-5.5rem",
@@ -57,9 +60,11 @@ function DesktopNavigation(props) {
   const classes = useStyles(props);
   const { analysisMenu } = config;
   const router = useRouter();
-  const { asPath } = router;
+  const { asPath, locale: activeLocale } = router;
   const currentPageUrl = asPath.split("/").slice(0, 2).join("/");
   const pageNavigation = analysisMenu.url === currentPageUrl && analysisMenu;
+  const _ = i18n();
+  const { locales } = _;
 
   return (
     <Grid container>
@@ -115,30 +120,36 @@ function DesktopNavigation(props) {
 
             <Grid item lg={1} direction="column" container justify="flex-start">
               <Grid item>
-                <Button
-                  variant="text"
-                  className={clsx(classes.buttonLanguage, "active")}
-                >
-                  En
-                </Button>
-                <Button variant="text" className={classes.buttonLanguage}>
-                  Am
-                </Button>
+                {locales.slice(0, 2).map((locale) => (
+                  <Button
+                    key={locale}
+                    href={asPath}
+                    locale={locale}
+                    variant="text"
+                    className={clsx(classes.buttonLanguage, {
+                      active: locale === activeLocale,
+                    })}
+                  >
+                    {_.language(locale)}
+                  </Button>
+                ))}
               </Grid>
 
               <Grid item>
-                <Button variant="text" className={classes.buttonLanguage}>
-                  Fr
-                </Button>
-                <Button
-                  variant="text"
-                  className={clsx(
-                    classes.buttonLanguage,
-                    classes.buttonLanguageLast
-                  )}
-                >
-                  عربى
-                </Button>
+                {locales.slice(2, 4).map((locale, i) => (
+                  <Button
+                    key={locale}
+                    href={asPath}
+                    locale={locale}
+                    variant="text"
+                    className={clsx(classes.buttonLanguage, {
+                      active: locale === activeLocale,
+                      [classes.buttonLanguageLast]: i === 3,
+                    })}
+                  >
+                    {_.language(locale)}
+                  </Button>
+                ))}
               </Grid>
             </Grid>
             <Grid />
