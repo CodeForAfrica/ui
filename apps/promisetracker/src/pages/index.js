@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Hero from "@/promisetracker/components/Hero";
 import ActNow from "@/promisetracker/components/ActNow";
@@ -16,7 +16,6 @@ import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
 import articleImage from "@/promisetracker/assets/article-thumb-01.png";
-import promiseCarouselImage from "@/promisetracker/assets/promise-carusel-01.png";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -40,20 +39,11 @@ function Index({
   navigation,
   partners,
   promises,
+  keyPromises,
   subscribe,
   ...props
 }) {
   const classes = useStyles(props);
-  const theme = useTheme();
-  const randomYear = () => {
-    // https://www.jacklmoore.com/notes/rounding-in-javascript/
-    const round = (number, decimalPlaces) =>
-      Number(`${Math.round(`${number}e${decimalPlaces}`)}e-${decimalPlaces}`);
-    const month = Math.floor(Math.random() * 10) / 10; // 0 ~ 0.9
-    const year = 2017 + Math.floor(Math.random() * 4); // 2017 ~ 2020
-    return round(year + month, 1);
-  };
-
   return (
     <Page
       {...props}
@@ -73,37 +63,7 @@ function Index({
       />
       <KeyPromises
         actionLabel="Learn More"
-        interval={[2017, 2022]}
-        items={Array(6)
-          .fill(null)
-          .map((_, i) => ({
-            date: "2019-08-10",
-            description: `
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio.
-            `,
-            events: [
-              {
-                year: randomYear(),
-                title: "Event A",
-                color: "white",
-                textColor: theme.palette.text.main,
-              },
-              {
-                year: randomYear(),
-                title: "Event B",
-                color: "white",
-                textColor: theme.palette.text.main,
-              },
-            ],
-            image: promiseCarouselImage,
-            title: `Codification of national sports and athletics law ${i + 1}`,
-            statuses: [
-              {
-                ...config.promiseStatuses[i % config.promiseStatuses.length],
-                year: randomYear(),
-              },
-            ],
-          }))}
+        items={keyPromises}
         title="Key Promises"
         classes={{
           section: classes.section,
@@ -164,6 +124,7 @@ Index.propTypes = {
   navigation: PropTypes.shape({}),
   partners: PropTypes.shape({}),
   promises: PropTypes.arrayOf(PropTypes.shape({})),
+  keyPromises: PropTypes.arrayOf(PropTypes.shape({})),
   subscribe: PropTypes.shape({}),
 };
 
@@ -173,6 +134,7 @@ Index.defaultProps = {
   navigation: undefined,
   partners: undefined,
   promises: undefined,
+  keyPromises: undefined,
   subscribe: undefined,
 };
 
@@ -189,6 +151,11 @@ export async function getStaticProps({ locale }) {
     limit: 6,
     query: `{ "projects": ["2831"] }`,
   });
+  const keyPromises = await check("pesacheck-promise-tracker").promises({
+    limit: 6,
+    query: `{ "projects": ["4691"] }`,
+  });
+
   const promisesByCategories = await check(
     "pesacheck-promise-tracker"
   ).promisesByCategories({
@@ -199,6 +166,7 @@ export async function getStaticProps({ locale }) {
     props: {
       ...page,
       promises,
+      keyPromises,
       promisesByCategories,
     },
     revalidate: 2 * 60, // seconds
