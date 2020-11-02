@@ -70,6 +70,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
     height: typography.pxToRem(24 * 2), // Max 2 lines defined by h4.lineHeight
     maxHeight: typography.pxToRem(24 * 2),
     overflow: "hidden",
+    alignItems: "flex-start",
   },
 }));
 
