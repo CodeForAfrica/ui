@@ -13,10 +13,10 @@ function i18n(site) {
     get locales() {
       return LOCALES;
     },
-    localizePaths: (params) => {
+    localizePaths: (unlocalizedPaths) => {
       const paths = [];
       LOCALES.forEach((locale) => {
-        params.forEach((param) => paths.push({ ...param, locale }));
+        unlocalizedPaths.forEach((path) => paths.push({ ...path, locale }));
       });
       return paths;
     },
