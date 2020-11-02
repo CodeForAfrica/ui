@@ -9,6 +9,7 @@ import Page from "@/promisetracker/components/Page";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import RelatedArticles from "@/promisetracker/components/Articles";
 
+import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
 import articleThumbnail from "@/promisetracker/assets/article-thumb-01.png";
@@ -118,9 +119,10 @@ export async function getStaticPaths() {
   const fallback = false;
   const page = await wp().pages({ slug: "analysis-articles" }).first;
   const posts = page.acf?.posts?.length ? page.acf.posts : [{ post_name: "" }];
-  const paths = posts.map((post) => ({
+  const unlocalizedPaths = posts.map((post) => ({
     params: { slug: post.post_name },
   }));
+  const paths = i18n().localizePaths(unlocalizedPaths);
 
   return { fallback, paths };
 }
@@ -129,7 +131,8 @@ export async function getStaticProps({ params: { slug: slugParam } }) {
   const slug = slugParam.toLowerCase();
   const page = await wp().pages({ slug: "analysis-articles" }).first;
   const post = await wp().posts({ slug }).first;
-  const errorCode = post ? null : 404;
+  const notFound = !post;
+  const errorCode = notFound ? 404 : null;
   let article = null;
   if (post) {
     article = {
@@ -140,7 +143,9 @@ export async function getStaticProps({ params: { slug: slugParam } }) {
       readTime: readingTime(post.content).text,
     };
   }
+
   return {
+    notFound,
     props: {
       ...page,
       article,

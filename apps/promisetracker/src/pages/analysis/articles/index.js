@@ -8,6 +8,7 @@ import Articles from "@/promisetracker/components/Articles";
 import Page from "@/promisetracker/components/Page";
 import Subscribe from "@/promisetracker/components/Newsletter";
 
+import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(
@@ -97,9 +98,14 @@ Index.defaultProps = {
   subscribe: undefined,
 };
 
-export async function getStaticProps({ query = {} }) {
-  const { lang } = query;
-  const page = await wp().pages({ slug: "analysis-articles", lang }).first;
+export async function getStaticProps({ locale }) {
+  if (!i18n.locales.includes(locale)) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const page = await wp().pages({ slug: "analysis-articles", locale }).first;
   const articles = page.posts?.map((post) => ({
     image: post.featured_image,
     description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
