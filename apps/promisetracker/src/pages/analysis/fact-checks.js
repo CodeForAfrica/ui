@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Page from "@/promisetracker/components/Page";
 
+import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
@@ -36,7 +37,13 @@ function FactChecks(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
+  if (!i18n.locales.includes(locale)) {
+    return {
+      notFound: true,
+    };
+  }
+
   const page = await wp().pages({ slug: "index" }).first;
 
   return {
