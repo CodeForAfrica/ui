@@ -18,38 +18,24 @@ function check(team = undefined, initialState = {}) {
     CLIENT_PER_TEAM.set(clientTeam, existingClient);
   }
 
-  function getTaskfromTasks(tasks, label) {
+  function findItemByNodeLabel(tasks, label) {
     return tasks.find((item) => item.node.label === label);
   }
 
-  function findLogByTask(logs, label) {
-    return logs.find((item) => item.node.task?.label === label);
+  function findItemByTaskLabel(items, label) {
+    return items.find((item) => item.node.task?.label === label);
   }
 
-  function getassetURL(filename, id) {
+  function getAssetURL(filename, id) {
     return `${config.CHECK_ASSET_URI}/${id}/${filename.replace(/ /g, "_")}`;
   }
 
-  function getStatus(tasks) {
-    const statusTask = getTaskfromTasks(
-      tasks,
-      "What is the status of the promise?"
-    );
-    const promiseStatus = config.promiseStatuses.find(
-      (status) => status.title === statusTask.node.first_response_value
-    );
-    const defaultStatus = config.promiseStatuses.find(
-      (status) => status.title === "Unrated"
-    );
-    return promiseStatus || defaultStatus;
-  }
-
   function getImage(logs, tasks) {
-    const imageLog = findLogByTask(
+    const imageLog = findItemByTaskLabel(
       logs,
       "What is the image related to the promise"
     );
-    const imageTask = getTaskfromTasks(
+    const imageTask = findItemByNodeLabel(
       tasks,
       "What is the image related to the promise"
     );
@@ -57,38 +43,60 @@ function check(team = undefined, initialState = {}) {
     const annotationChanges = JSON.parse(imageLog.node.object_changes_json)
       .annotation_id;
     const id = annotationChanges ? annotationChanges[1] : null; // latest image ID
-    return filename ? getassetURL(filename, id) : promiseImage;
+    return filename && id ? getAssetURL(filename, id) : promiseImage;
+  }
+
+  function getStatus(items) {
+    const statusTask = findItemByNodeLabel(
+      items,
+      "What is the status of the promise?"
+    );
+    const promiseStatus = config.promiseStatuses.find(
+      (status) => status.title === statusTask?.node.first_response_value
+    );
+    const defaultStatus = config.promiseStatuses.find(
+      (status) => status.title === "Unrated"
+    );
+    return promiseStatus || defaultStatus;
+  }
+
+  function handlePromisesResult(res) {
+    return res.data.search.medias.edges.map(({ node }) => ({
+      id: node.id,
+      title: node.title,
+      image: getImage(node.log?.edges, node.tasks?.edges),
+      description: node.description,
+      date: new Date(parseInt(node.created_at, 10)).toDateString({
+        dateStyle: "short",
+      }),
+      status: getStatus(node.tasks?.edges),
+    }));
+  }
+
+  function handlePromisesCategoryResults({ data }) {
+    return {
+      id: data.team.id,
+      count: data.team.medias_count,
+      name: data.team.name,
+      categories: data.team.projects.edges.map(({ node }) => ({
+        id: node.id,
+        title: node.title,
+        count: node.medias_count,
+        projects: node.project_medias.edges.map((promise) => promise.node),
+      })),
+    };
   }
 
   const api = {
     promises: async (variables) => {
-      return client.query({ query: GET_PROMISES, variables }).then((res) => {
-        return res.data.search.medias.edges.map(({ node }) => ({
-          id: node.id,
-          title: node.title,
-          image: getImage(node.log?.edges, node.tasks?.edges),
-          description: node.description,
-          date: new Date(parseInt(node.created_at, 10)).toDateString({
-            dateStyle: "short",
-          }),
-          status: getStatus(node.tasks?.edges),
-        }));
-      });
+      return client
+        .query({ query: GET_PROMISES, variables })
+        .then(handlePromisesResult);
     },
     promisesByCategories: async (variables) => {
       return client
         .query({ query: GET_PROMISES_BY_CATEGORIES, variables })
-        .then(({ data }) => ({
-          id: data.team.id,
-          count: data.team.medias_count,
-          name: data.team.name,
-          categories: data.team.projects.edges.map(({ node }) => ({
-            id: node.id,
-            title: node.title,
-            count: node.medias_count,
-            projects: node.project_medias.edges.map((promise) => promise.node),
-          })),
-        }));
+        .then(handlePromisesCategoryResults);
     },
   };
   return api;
