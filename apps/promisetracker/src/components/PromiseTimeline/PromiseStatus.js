@@ -38,10 +38,11 @@ PromiseStatus.propTypes = {
   children: PropTypes.node,
   color: PropTypes.string.isRequired,
   interval: PropTypes.arrayOf(PropTypes.number).isRequired,
-  year: PropTypes.number.isRequired,
+  year: PropTypes.number,
 };
 
 PromiseStatus.defaultProps = {
   children: undefined,
+  year: new Date().getFullYear() + (new Date().getMonth() + 1) / 12, // current year + month as a fraction of year eg 2020.8
 };
 export default PromiseStatus;
