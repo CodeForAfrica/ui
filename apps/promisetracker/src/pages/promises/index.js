@@ -9,6 +9,7 @@ import Promises from "@/promisetracker/components/Promises";
 import Subscribe from "@/promisetracker/components/Newsletter";
 
 import config from "@/promisetracker/config";
+import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
@@ -91,9 +92,14 @@ PromisesPage.defaultProps = {
   title: undefined,
 };
 
-export async function getStaticProps({ query = {} }) {
-  const { lang } = query;
-  const page = await wp().pages({ slug: "promises", lang }).first;
+export async function getStaticProps({ locale }) {
+  if (!i18n().locales.includes(locale)) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const page = await wp().pages({ slug: "promises", locale }).first;
   const promises = page.posts.map((post, i) => ({
     image: post.featured_image,
     description: post.post_content.replace(/(<([^>]+)>)/gi, ""),

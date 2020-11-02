@@ -129,10 +129,10 @@ export async function getStaticPaths() {
   return { fallback, paths };
 }
 
-export async function getStaticProps({ params: { slug: slugParam } }) {
+export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const slug = slugParam.toLowerCase();
-  const page = await wp().pages({ slug: "promises" }).first;
-  const post = await wp().posts({ slug }).first;
+  const page = await wp().pages({ slug: "promises", locale }).first;
+  const post = await wp().posts({ slug, locale }).first;
   const errorCode = post ? null : 404;
   let promise = null;
   if (post) {
