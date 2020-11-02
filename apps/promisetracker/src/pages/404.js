@@ -2,7 +2,6 @@ import React from "react";
 
 import ErrorPage from "@/promisetracker/components/ErrorPage";
 
-import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
 import articleImage from "@/promisetracker/assets/article-thumb-01.png";
@@ -12,12 +11,6 @@ function NotFoundErrorPage(props) {
 }
 
 export async function getStaticProps({ locale }) {
-  if (!i18n.locales.includes(locale)) {
-    return {
-      notFound: true,
-    };
-  }
-
   const page = await wp().pages({ slug: "not-found", locale }).first;
   const items = Array(3)
     .fill(null)
