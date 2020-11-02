@@ -178,7 +178,7 @@ Index.defaultProps = {
 
 export async function getStaticProps({ locale }) {
   // Skip generating pages for unsuported locales
-  if (!i18n.locales.includes(locale)) {
+  if (!i18n().locales.includes(locale)) {
     return {
       notFound: true,
     };

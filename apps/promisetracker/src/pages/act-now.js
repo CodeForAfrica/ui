@@ -34,7 +34,7 @@ function ActNow(props) {
 }
 
 export async function getStaticProps({ locale }) {
-  if (!i18n.locales.includes(locale)) {
+  if (!i18n().locales.includes(locale)) {
     return {
       notFound: true,
     };
