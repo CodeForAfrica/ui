@@ -20,7 +20,8 @@ import partner6 from "@/promisetracker/assets/partner-logo_5@2x.png";
 import logo from "@/promisetracker/assets/logo-C4A.svg";
 
 const config = {
-  DEFAULT_LANG: "en",
+  LOCALES: ["am", "ar", "en", "fr"],
+  DEFAULT_LOCALE: "en",
   GRAPHQL_URI: "https://check-api.checkmedia.org/api/graphql",
   CHECK_ASSET_URI: "https://assets.checkmedia.org/uploads/dynamic",
   PROXY_URL: "https://corsanywhere.devops.codeforafrica.org/",
