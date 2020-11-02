@@ -12,6 +12,7 @@ import Page from "@/promisetracker/components/Page";
 
 import config from "@/promisetracker/config";
 import check from "@/promisetracker/lib/check";
+import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
 import articleImage from "@/promisetracker/assets/article-thumb-01.png";
@@ -175,9 +176,15 @@ Index.defaultProps = {
   subscribe: undefined,
 };
 
-export async function getStaticProps({ query = {} }) {
-  const { lang } = query;
-  const page = await wp().pages({ slug: "index", lang }).first;
+export async function getStaticProps({ locale }) {
+  // Skip generating pages for unsuported locales
+  if (!i18n.locales.includes(locale)) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const page = await wp().pages({ slug: "index", locale }).first;
   const promises = await check("pesacheck-promise-tracker").promises({
     limit: 6,
     query: `{ "projects": ["2831"] }`,
