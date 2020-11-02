@@ -19,14 +19,7 @@ const DEFAULT_TITLE_PROPS = {
   variant: "h4",
 };
 
-function KeyPromises({
-  actionLabel,
-  interval,
-  items,
-  title,
-  titleProps,
-  ...props
-}) {
+function KeyPromises({ actionLabel, items, title, titleProps, ...props }) {
   const classes = useStyles(props);
   const [activeStep, setActiveStep] = useState(0);
   const stepperRef = useRef();
@@ -69,7 +62,6 @@ function KeyPromises({
         <KeyPromise
           key={items[activeStep].title}
           actionLabel={actionLabel}
-          interval={interval}
           {...items[activeStep]}
         />
         {/* ))} */}
@@ -112,7 +104,6 @@ function KeyPromises({
 
 KeyPromises.propTypes = {
   actionLabel: PropTypes.string,
-  interval: PropTypes.arrayOf(PropTypes.number),
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -124,7 +115,6 @@ KeyPromises.propTypes = {
 
 KeyPromises.defaultProps = {
   actionLabel: undefined,
-  interval: undefined,
   items: undefined,
   title: undefined,
   titleProps: undefined,
