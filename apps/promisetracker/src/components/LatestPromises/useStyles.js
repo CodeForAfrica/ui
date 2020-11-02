@@ -10,9 +10,6 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       marginTop: typography.pxToRem(96),
     },
   },
-  container: {
-    justifyContent: "flex-start",
-  },
   cta: {},
   ctaButton: {},
   row: {

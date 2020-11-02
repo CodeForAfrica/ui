@@ -26,7 +26,7 @@ function LatestPromises({ actionLabel, items, title, ...props }) {
       title={title}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
-      <Grid container className={classes.container}>
+      <Grid container justify="flex-start">
         {items.map((promise, i) => (
           <Grid
             key={promise.title}
