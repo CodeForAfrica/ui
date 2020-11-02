@@ -30,7 +30,9 @@ function check(team = undefined, initialState = {}) {
     return `${config.CHECK_ASSET_URI}/${id}/${filename.replace(/ /g, "_")}`;
   }
 
-  function getImage(logs, tasks) {
+  function getImage(node) {
+    const logs = node.log?.edges;
+    const tasks = node.tasks?.edges;
     const imageLog = findItemByTaskLabel(
       logs,
       "What is the image related to the promise"
@@ -46,7 +48,8 @@ function check(team = undefined, initialState = {}) {
     return filename && id ? getAssetURL(filename, id) : promiseImage;
   }
 
-  function getStatus(items) {
+  function getStatus(node) {
+    const items = node.tasks?.edges;
     const statusTask = findItemByNodeLabel(
       items,
       "What is the status of the promise?"
@@ -64,12 +67,12 @@ function check(team = undefined, initialState = {}) {
     return res.data.search.medias.edges.map(({ node }) => ({
       id: node.id,
       title: node.title,
-      image: getImage(node.log?.edges, node.tasks?.edges),
+      image: getImage(node),
       description: node.description,
       date: new Date(parseInt(node.created_at, 10)).toDateString({
         dateStyle: "short",
       }),
-      status: getStatus(node.tasks?.edges),
+      status: getStatus(node),
     }));
   }
 
