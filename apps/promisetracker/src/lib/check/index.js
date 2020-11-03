@@ -118,4 +118,16 @@ function check(team = undefined, initialState = {}) {
   return api;
 }
 
+export function groupPromisesByStatus(promises) {
+  return {
+    count: promises.length,
+    /* eslint-disable no-param-reassign */
+    statuses: promises.reduce((promiseByStatus, promise) => {
+      (promiseByStatus[promise.status.title] =
+        promiseByStatus[promise.status.title] || []).push(promise);
+      return promiseByStatus;
+    }, {}),
+  };
+}
+
 export default check;
