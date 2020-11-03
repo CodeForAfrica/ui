@@ -22,7 +22,13 @@ const useStyles = makeStyles(({ typography }) => ({
   },
 }));
 
-function MobileUncertainChart({ name, ...props }) {
+function MobileUncertainChart({
+  name,
+  inconclusive,
+  totalPromises,
+  unstarted,
+  ...props
+}) {
   const classes = useStyles(props);
   return (
     <Grid
@@ -50,16 +56,16 @@ function MobileUncertainChart({ name, ...props }) {
           fill="#909090"
           stroke="1D1D1B"
           strokeWidth={1}
-          statusNumber={70}
-          statusPercentage="(25%)"
+          statusNumber={inconclusive}
+          statusPercentage={`(${(inconclusive * 100) / totalPromises}%)`}
           status="Inconclusive"
         />
         <MobileSvgChart
           fill="#EBEBEB"
           stroke="1D1D1B"
           strokeWidth={1}
-          statusNumber={50}
-          statusPercentage="(18%)"
+          statusNumber={unstarted}
+          statusPercentage={`(${(unstarted * 100) / totalPromises}%)`}
           status="Unstarted"
         />
       </Grid>
@@ -69,6 +75,14 @@ function MobileUncertainChart({ name, ...props }) {
 
 MobileUncertainChart.propTypes = {
   name: PropTypes.string.isRequired,
+  inconclusive: PropTypes.number,
+  unstarted: PropTypes.number,
+  totalPromises: PropTypes.number.isRequired,
+};
+
+MobileUncertainChart.defaultProps = {
+  inconclusive: 0,
+  unstarted: 0,
 };
 
 export default MobileUncertainChart;

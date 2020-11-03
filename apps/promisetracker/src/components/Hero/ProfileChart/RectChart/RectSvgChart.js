@@ -38,12 +38,16 @@ function RectSvgChart({
   strokeWidth,
   currentStatusNumber,
   status,
+  totalPromises,
+  containerWidth,
   ...props
 }) {
+  if (!currentStatusNumber) {
+    return null;
+  }
   const classes = useStyles(props);
-  const totalStatus = 510;
-  const currentStatusPercentage = (currentStatusNumber / totalStatus) * 100;
-  const width = (currentStatusNumber * height) / 130 + 8; // add 8px as an offset value
+  const currentStatusPercentage = (currentStatusNumber / totalPromises) * 100;
+  const width = (currentStatusPercentage * containerWidth) / 100;
 
   return (
     <div className={classes.root}>
@@ -68,7 +72,7 @@ function RectSvgChart({
           {status}
         </Typography>
         <Typography variant="h6" className={classes.percentage}>
-          {currentStatusNumber}
+          {/* {currentStatusNumber} */}
         </Typography>
       </div>
     </div>
@@ -76,20 +80,24 @@ function RectSvgChart({
 }
 
 RectSvgChart.propTypes = {
+  containerWidth: PropTypes.number,
   fill: PropTypes.string,
   stroke: PropTypes.string,
   height: PropTypes.number,
   strokeWidth: PropTypes.number,
   currentStatusNumber: PropTypes.number,
+  totalPromises: PropTypes.number,
   status: PropTypes.string,
 };
 
 RectSvgChart.defaultProps = {
+  containerWidth: undefined,
   fill: undefined,
   stroke: undefined,
   height: undefined,
   strokeWidth: undefined,
   currentStatusNumber: undefined,
+  totalPromises: undefined,
   status: undefined,
 };
 

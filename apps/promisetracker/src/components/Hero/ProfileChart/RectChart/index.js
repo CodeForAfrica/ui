@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -6,21 +7,46 @@ import RectSvgChart from "@/promisetracker/components/Hero/ProfileChart/RectChar
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: "100%",
+    width: "90%",
   },
 }));
 
-function ReactChart(...props) {
+function ReactChart({
+  totalPromises,
+  completed,
+  inconclusive,
+  inProgress,
+  unstarted,
+  stalled,
+  delayed,
+  ...props
+}) {
   const classes = useStyles(props);
+  const rectChartContainerRef = useRef();
+  const [chartContainerWidth, setChartContainerWidth] = useState();
+
+  useEffect(() => {
+    setChartContainerWidth(rectChartContainerRef.current.offsetWidth);
+  }, [rectChartContainerRef.current]);
+
   return (
-    <Grid container item xs={12} direction="row" className={classes.root}>
+    <Grid
+      container
+      ref={rectChartContainerRef}
+      item
+      xs={12}
+      direction="row"
+      className={classes.root}
+    >
       <RectSvgChart
         width={130}
         height={160}
         fill="#145BD5"
         stroke="#1D1D1B"
         strokeWidth={1}
-        currentStatusNumber={130}
+        containerWidth={chartContainerWidth}
+        totalPromises={totalPromises}
+        currentStatusNumber={completed}
         status="Completed"
       />
       <RectSvgChart
@@ -29,7 +55,9 @@ function ReactChart(...props) {
         fill="#84C6E7"
         stroke="#1D1D1B"
         strokeWidth={1}
-        currentStatusNumber={90}
+        containerWidth={chartContainerWidth}
+        totalPromises={totalPromises}
+        currentStatusNumber={inProgress}
         status="In Progress"
       />
       <RectSvgChart
@@ -38,7 +66,9 @@ function ReactChart(...props) {
         fill="#909090"
         stroke="#1D1D1B"
         strokeWidth={1}
-        currentStatusNumber={70}
+        containerWidth={chartContainerWidth}
+        totalPromises={totalPromises}
+        currentStatusNumber={inconclusive}
         status="Inconclusive"
       />
       <RectSvgChart
@@ -47,7 +77,9 @@ function ReactChart(...props) {
         fill="#EBEBEB"
         stroke="#1D1D1B"
         strokeWidth={1}
-        currentStatusNumber={50}
+        containerWidth={chartContainerWidth}
+        totalPromises={totalPromises}
+        currentStatusNumber={unstarted}
         status="Unstarted"
       />
       <RectSvgChart
@@ -56,7 +88,9 @@ function ReactChart(...props) {
         fill="#FFB322"
         stroke="#1D1D1B"
         strokeWidth={1}
-        currentStatusNumber={60}
+        containerWidth={chartContainerWidth}
+        totalPromises={totalPromises}
+        currentStatusNumber={delayed}
         status="Delayed"
       />
       <RectSvgChart
@@ -65,11 +99,33 @@ function ReactChart(...props) {
         fill="#FF5154"
         stroke="#1D1D1B"
         strokeWidth={1}
-        currentStatusNumber={110}
+        containerWidth={chartContainerWidth}
+        totalPromises={totalPromises}
+        currentStatusNumber={stalled}
         status="Stalled"
       />
     </Grid>
   );
 }
+
+ReactChart.propTypes = {
+  delayed: PropTypes.number,
+  stalled: PropTypes.number,
+  inconclusive: PropTypes.number,
+  completed: PropTypes.number,
+  inProgress: PropTypes.number,
+  totalPromises: PropTypes.number,
+  unstarted: PropTypes.number,
+};
+
+ReactChart.defaultProps = {
+  delayed: 0,
+  stalled: 0,
+  inconclusive: 0,
+  completed: 0,
+  inProgress: 0,
+  totalPromises: 0,
+  unstarted: 0,
+};
 
 export default ReactChart;

@@ -26,7 +26,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function UncertainChart({ name, ...props }) {
+function UncertainChart({
+  name,
+  inconclusive,
+  totalPromises,
+  unstarted,
+  ...props
+}) {
   const classes = useStyles(props);
   return (
     <Grid item xs={3} className={classes.root}>
@@ -43,7 +49,8 @@ function UncertainChart({ name, ...props }) {
           fill="#909090"
           stroke="#1D1D1B"
           strokeWidth={1}
-          currentStatusNumber={70}
+          totalPromises={totalPromises}
+          currentStatusNumber={inconclusive}
           status="Inconclusive"
         />
         <CircleSvgChart
@@ -53,7 +60,8 @@ function UncertainChart({ name, ...props }) {
           fill="#EBEBEB"
           stroke="#1D1D1B"
           strokeWidth={1}
-          currentStatusNumber={50}
+          totalPromises={totalPromises}
+          currentStatusNumber={unstarted}
           status="Unstarted"
         />
       </div>
@@ -63,10 +71,15 @@ function UncertainChart({ name, ...props }) {
 
 UncertainChart.propTypes = {
   name: PropTypes.string,
+  inconclusive: PropTypes.number,
+  unstarted: PropTypes.number,
+  totalPromises: PropTypes.number.isRequired,
 };
 
 UncertainChart.defaultProps = {
   name: undefined,
+  inconclusive: 0,
+  unstarted: 0,
 };
 
 export default UncertainChart;

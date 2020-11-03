@@ -22,7 +22,13 @@ const useStyles = makeStyles(({ typography }) => ({
   },
 }));
 
-function MobilePromiseKeptChart({ name, ...props }) {
+function MobilePromiseKeptChart({
+  completed,
+  inProgress,
+  name,
+  totalPromises,
+  ...props
+}) {
   const classes = useStyles(props);
   return (
     <Grid
@@ -50,16 +56,16 @@ function MobilePromiseKeptChart({ name, ...props }) {
           fill="#005DFD"
           stroke="1D1D1B"
           strokeWidth={1}
-          statusNumber={130}
-          statusPercentage="(25%)"
+          statusNumber={completed}
+          statusPercentage={`(${(completed * 100) / totalPromises}%)`}
           status="Completed"
         />
         <MobileSvgChart
           fill="#90DAFF"
           stroke="1D1D1B"
           strokeWidth={1}
-          statusNumber={90}
-          statusPercentage="(18%)"
+          statusNumber={inProgress}
+          statusPercentage={`(${(inProgress * 100) / totalPromises}%)`}
           status="In progress"
         />
       </Grid>
@@ -69,6 +75,14 @@ function MobilePromiseKeptChart({ name, ...props }) {
 
 MobilePromiseKeptChart.propTypes = {
   name: PropTypes.string.isRequired,
+  completed: PropTypes.number,
+  inProgress: PropTypes.number,
+  totalPromises: PropTypes.number.isRequired,
+};
+
+MobilePromiseKeptChart.defaultProps = {
+  completed: 0,
+  inProgress: 0,
 };
 
 export default MobilePromiseKeptChart;

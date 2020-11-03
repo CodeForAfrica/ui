@@ -26,7 +26,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function PromiseNotKeptChart({ name, ...props }) {
+function PromiseNotKeptChart({
+  delayed,
+  name,
+  stalled,
+  totalPromises,
+  ...props
+}) {
   const classes = useStyles(props);
   return (
     <Grid item xs={3} className={classes.root}>
@@ -43,7 +49,8 @@ function PromiseNotKeptChart({ name, ...props }) {
           fill="#FFB322"
           stroke="#1D1D1B"
           strokeWidth={1}
-          currentStatusNumber={60}
+          totalPromises={totalPromises}
+          currentStatusNumber={delayed}
           status="Delayed"
         />
         <CircleSvgChart
@@ -53,7 +60,8 @@ function PromiseNotKeptChart({ name, ...props }) {
           fill="#FF5154"
           stroke="#1D1D1B"
           strokeWidth={1}
-          currentStatusNumber={110}
+          totalPromises={totalPromises}
+          currentStatusNumber={stalled}
           status="Stalled"
         />
       </div>
@@ -63,9 +71,14 @@ function PromiseNotKeptChart({ name, ...props }) {
 
 PromiseNotKeptChart.propTypes = {
   name: PropTypes.string,
+  delayed: PropTypes.number,
+  stalled: PropTypes.number,
+  totalPromises: PropTypes.number.isRequired,
 };
 
 PromiseNotKeptChart.defaultProps = {
   name: undefined,
+  delayed: 0,
+  stalled: 0,
 };
 export default PromiseNotKeptChart;

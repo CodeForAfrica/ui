@@ -66,6 +66,7 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   },
   rect: {
     padding: "2rem 0rem",
+    width: "100%",
   },
   divider: {
     margin: "2rem 1rem 1rem 1rem",
@@ -73,7 +74,13 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   },
 }));
 
-function ProfileDetails({ criteria, name, position, ...props }) {
+function ProfileDetails({
+  criteria,
+  name,
+  position,
+  promisesByStatuses,
+  ...props
+}) {
   const classes = useStyles(props);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
@@ -93,7 +100,8 @@ function ProfileDetails({ criteria, name, position, ...props }) {
             <Typography variant="h1">{name}</Typography>
           </Hidden>
           <Typography variant="body2">
-            {position} {name} <b>510 promises </b>at a glance
+            {position} {name} <b>{promisesByStatuses.count} promises </b>at a
+            glance
           </Typography>
         </Grid>
         <Grid
@@ -146,24 +154,66 @@ function ProfileDetails({ criteria, name, position, ...props }) {
             {clicked ? (
               <Fade in={clicked}>
                 <div className={classes.rect}>
-                  <RectChart />
+                  <RectChart
+                    totalPromises={promisesByStatuses.count}
+                    inProgress={
+                      promisesByStatuses.statuses["In Progress"]?.length
+                    }
+                    completed={promisesByStatuses.statuses.Completed?.length}
+                    inconclusive={promisesByStatuses.statuses.Unrated?.length}
+                    unstarted={promisesByStatuses.statuses.Unstarted?.length}
+                    stalled={promisesByStatuses.statuses.Stalled?.length}
+                    delayed={promisesByStatuses.statuses.Delayed?.length}
+                  />
                 </div>
               </Fade>
             ) : (
               <>
-                <PromiseKeptChart name="Promises Kept" />
+                <PromiseKeptChart
+                  totalPromises={promisesByStatuses.count}
+                  inProgress={
+                    promisesByStatuses.statuses["In Progress"]?.length
+                  }
+                  completed={promisesByStatuses.statuses.Completed?.length}
+                  name="Promises Kept"
+                />
                 <Divider orientation="vertical" className={classes.divider} />
-                <UncertainChart name="Uncertain" />
+                <UncertainChart
+                  totalPromises={promisesByStatuses.count}
+                  inconclusive={promisesByStatuses.statuses.Unrated?.length}
+                  unstarted={promisesByStatuses.statuses.Unstarted?.length}
+                  name="Uncertain"
+                />
                 <Divider orientation="vertical" className={classes.divider} />
-                <PromiseNotKeptChart name="Promises Not Kept" />
+                <PromiseNotKeptChart
+                  totalPromises={promisesByStatuses.count}
+                  stalled={promisesByStatuses.statuses.Stalled?.length}
+                  delayed={promisesByStatuses.statuses.Delayed?.length}
+                  name="Promises Not Kept"
+                />
               </>
             )}
           </DesktopChart>
         ) : (
           <MobileChart>
-            <MobilePromiseKeptChart name="Promise Kept" />
-            <MobileUncertainChart name="Uncertain" />
-            <MobilePromiseNotKeptChart name="Promise Not Kept" />
+            <MobilePromiseKeptChart
+              totalPromises={promisesByStatuses.count}
+              inProgress={promisesByStatuses.statuses["In Progress"]?.length}
+              completed={promisesByStatuses.statuses.Completed?.length}
+              name="Promise Kept"
+            />
+            <MobileUncertainChart
+              totalPromises={promisesByStatuses.count}
+              inconclusive={promisesByStatuses.statuses.Unrated?.length}
+              unstarted={promisesByStatuses.statuses.Unstarted?.length}
+              name="Uncertain"
+            />
+            <MobilePromiseNotKeptChart
+              totalPromises={promisesByStatuses.count}
+              stalled={promisesByStatuses.statuses.Stalled?.length}
+              delayed={promisesByStatuses.statuses.Delayed?.length}
+              name="Promise Not Kept"
+            />
           </MobileChart>
         )}
       </>
@@ -178,10 +228,22 @@ ProfileDetails.propTypes = {
   }),
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
+  promisesByStatuses: PropTypes.shape({
+    count: PropTypes.number,
+    statuses: PropTypes.PropTypes.shape({
+      "In Progress": PropTypes.arrayOf(PropTypes.shape({})),
+      Completed: PropTypes.arrayOf(PropTypes.shape({})),
+      Unrated: PropTypes.arrayOf(PropTypes.shape({})),
+      Unstarted: PropTypes.arrayOf(PropTypes.shape({})),
+      Stalled: PropTypes.arrayOf(PropTypes.shape({})),
+      Delayed: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+  }),
 };
 
 ProfileDetails.defaultProps = {
   criteria: undefined,
+  promisesByStatuses: undefined,
 };
 
 export default ProfileDetails;

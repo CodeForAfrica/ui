@@ -26,7 +26,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function PromiseKeptChart({ name, ...props }) {
+function PromiseKeptChart({
+  completed,
+  inProgress,
+  name,
+  totalPromises,
+  ...props
+}) {
   const classes = useStyles(props);
   return (
     <Grid item xs={3} className={classes.root}>
@@ -43,7 +49,8 @@ function PromiseKeptChart({ name, ...props }) {
           fill="#145BD5"
           stroke="#1D1D1B"
           strokeWidth={1}
-          currentStatusNumber={130}
+          totalPromises={totalPromises}
+          currentStatusNumber={completed}
           status="Completed"
         />
         <CircleSvgChart
@@ -53,7 +60,8 @@ function PromiseKeptChart({ name, ...props }) {
           fill="#84C6E7"
           stroke="#1D1D1B"
           strokeWidth={1}
-          currentStatusNumber={90}
+          totalPromises={totalPromises}
+          currentStatusNumber={inProgress}
           status="In Progress"
         />
       </div>
@@ -63,10 +71,15 @@ function PromiseKeptChart({ name, ...props }) {
 
 PromiseKeptChart.propTypes = {
   name: PropTypes.string,
+  completed: PropTypes.number,
+  inProgress: PropTypes.number,
+  totalPromises: PropTypes.number.isRequired,
 };
 
 PromiseKeptChart.defaultProps = {
   name: undefined,
+  completed: 0,
+  inProgress: 0,
 };
 
 export default PromiseKeptChart;

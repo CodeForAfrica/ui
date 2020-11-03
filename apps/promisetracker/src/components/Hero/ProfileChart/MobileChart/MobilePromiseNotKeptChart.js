@@ -22,7 +22,13 @@ const useStyles = makeStyles(({ typography }) => ({
   },
 }));
 
-function MobilePromiseNotKeptChart({ name, ...props }) {
+function MobilePromiseNotKeptChart({
+  delayed,
+  name,
+  stalled,
+  totalPromises,
+  ...props
+}) {
   const classes = useStyles(props);
   return (
     <Grid
@@ -50,16 +56,16 @@ function MobilePromiseNotKeptChart({ name, ...props }) {
           fill="#FFB322"
           stroke="1D1D1B"
           strokeWidth={1}
-          statusNumber={60}
-          statusPercentage="(25%)"
+          statusNumber={delayed}
+          statusPercentage={`(${(delayed * 100) / totalPromises}%)`}
           status="Delayed"
         />
         <MobileSvgChart
           fill="#FF5255"
           stroke="1D1D1B"
           strokeWidth={1}
-          statusNumber={110}
-          statusPercentage="(18%)"
+          statusNumber={stalled}
+          statusPercentage={`(${(stalled * 100) / totalPromises}%)`}
           status="Stalled"
         />
       </Grid>
@@ -69,5 +75,13 @@ function MobilePromiseNotKeptChart({ name, ...props }) {
 
 MobilePromiseNotKeptChart.propTypes = {
   name: PropTypes.string.isRequired,
+  delayed: PropTypes.number,
+  stalled: PropTypes.number,
+  totalPromises: PropTypes.number.isRequired,
+};
+
+MobilePromiseNotKeptChart.defaultProps = {
+  delayed: 0,
+  stalled: 0,
 };
 export default MobilePromiseNotKeptChart;
