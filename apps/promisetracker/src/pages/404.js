@@ -22,15 +22,13 @@ export async function getStaticProps({ locale }) {
       image: articleImage,
       title: "Codification of national sports and athletics law",
     }));
-  const title = "Page not found";
 
   return {
     props: {
       ...page,
       items,
-      title,
     },
-    revalidate: 2 * 60, // seconds
+    revalidate: 30 * 60, // seconds
   };
 }
 
