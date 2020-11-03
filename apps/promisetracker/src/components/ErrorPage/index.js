@@ -13,14 +13,23 @@ import image from "@/promisetracker/assets/illo-404@2x.png";
 import useStyles from "./useStyles";
 
 /**
- * . This is essential ContentPage for errors.
+ * . This is essentially ContentPage for errors.
  */
-function ErrorPage({ description, items, title, ...props }) {
+function ErrorPage({
+  description,
+  footer,
+  items,
+  navigation,
+  title,
+  ...props
+}) {
   const classes = useStyles(props);
 
   return (
     <Page
       {...props}
+      footer={footer}
+      navigation={navigation}
       title={title}
       classes={{ root: classes.root, section: classes.section }}
     >
@@ -68,13 +77,17 @@ function ErrorPage({ description, items, title, ...props }) {
 
 ErrorPage.propTypes = {
   description: PropTypes.string,
+  footer: PropTypes.shape({}),
   items: PropTypes.arrayOf(PropTypes.shape({})),
+  navigation: PropTypes.shape({}),
   title: PropTypes.string,
 };
 
 ErrorPage.defaultProps = {
   description: undefined,
+  footer: undefined,
   items: undefined,
+  navigation: undefined,
   title: undefined,
 };
 
