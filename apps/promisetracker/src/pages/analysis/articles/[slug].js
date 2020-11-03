@@ -54,7 +54,7 @@ function Index({
     <Page
       {...props}
       footer={footer}
-      navigaiton={navigation}
+      navigation={navigation}
       title={title}
       classes={{ section: classes.section, footer: classes.footer }}
     >
@@ -134,7 +134,7 @@ export async function getStaticProps({ params: { slug: slugParam } }) {
   const notFound = !post;
   const errorCode = notFound ? 404 : null;
   let article = null;
-  if (post) {
+  if (!notFound) {
     article = {
       ...post,
       image: post.featured_media.source_url,
