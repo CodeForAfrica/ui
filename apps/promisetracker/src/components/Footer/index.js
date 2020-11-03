@@ -104,9 +104,9 @@ function MainFooter({
                   },
                 }}
                 classes={{ aboutInitiative: classes.initiative }}
-                initiative={about.initiative}
+                initiative={about?.initiative}
               >
-                {about.about}
+                {about?.about}
               </FooterAbout>
             </Grid>
             <Grid item lg={1} implementation="css" smDown component={Hidden} />
