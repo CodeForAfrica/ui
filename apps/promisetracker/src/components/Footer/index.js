@@ -38,20 +38,20 @@ function MainFooter({
 
   const organizationLogo = {
     image: {
-      url: organizationLogoProp.image || cfaLogo,
-      alt: organizationLogoProp.alt || "Code for Africa",
+      url: organizationLogoProp?.image || cfaLogo,
+      alt: organizationLogoProp?.alt || "Code for Africa",
     },
-    url: organizationLogoProp.link || "//codeforafrica.org",
+    url: organizationLogoProp?.link || "//codeforafrica.org",
   };
   const legalLinks = {
     linkComponent: Link,
-    links: legalLinksProp.map((l) => ({
+    links: legalLinksProp?.map((l) => ({
       ...l,
       as: l.href,
       href: "/legal/[...slug]",
     })),
   };
-  const quickLinks = quickLinksProp.map((q) => {
+  const quickLinks = quickLinksProp?.map((q) => {
     const hrefify = (href) => {
       const path = href.split("/").slice(0, 2).join("/");
       switch (path) {
@@ -110,40 +110,44 @@ function MainFooter({
               </FooterAbout>
             </Grid>
             <Grid item lg={1} implementation="css" smDown component={Hidden} />
-            <Grid item xs={6} lg={2} className={classes.quickLinksMore}>
-              <div className={classes.links}>
-                <FooterQuickLinks
-                  options={{
-                    link: {
-                      variant: "h6",
-                    },
-                    title: {
-                      color: "black",
-                      variant: "h3",
-                    },
-                  }}
-                  classes={{ root: classes.quickLinks, link: classes.link }}
-                  {...quickLinks[0]}
-                />
-              </div>
-            </Grid>
-            <Grid item xs={6} lg={1} className={classes.quickLinksContact}>
-              <div className={classes.links}>
-                <FooterQuickLinks
-                  options={{
-                    link: {
-                      variant: "h6",
-                    },
-                    title: {
-                      color: "black",
-                      variant: "h3",
-                    },
-                  }}
-                  classes={{ root: classes.quickLinks, link: classes.link }}
-                  {...quickLinks[1]}
-                />
-              </div>
-            </Grid>
+            {quickLinks?.length && (
+              <>
+                <Grid item xs={6} lg={2} className={classes.quickLinksMore}>
+                  <div className={classes.links}>
+                    <FooterQuickLinks
+                      options={{
+                        link: {
+                          variant: "h6",
+                        },
+                        title: {
+                          color: "black",
+                          variant: "h3",
+                        },
+                      }}
+                      classes={{ root: classes.quickLinks, link: classes.link }}
+                      {...quickLinks[0]}
+                    />
+                  </div>
+                </Grid>
+                <Grid item xs={6} lg={1} className={classes.quickLinksContact}>
+                  <div className={classes.links}>
+                    <FooterQuickLinks
+                      options={{
+                        link: {
+                          variant: "h6",
+                        },
+                        title: {
+                          color: "black",
+                          variant: "h3",
+                        },
+                      }}
+                      classes={{ root: classes.quickLinks, link: classes.link }}
+                      {...quickLinks[1]}
+                    />
+                  </div>
+                </Grid>
+              </>
+            )}
           </Grid>
         </Section>
       </div>
