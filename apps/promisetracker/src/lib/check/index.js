@@ -48,7 +48,7 @@ function check(team = undefined, initialState = {}) {
     return filename && id ? getAssetURL(filename, id) : promiseImage;
   }
 
-  function getPromiseYear(node) {
+  function getPromiseDate(node) {
     const items = node.tasks?.edges;
     const startDateTask = findItemByNodeLabel(
       items,
@@ -83,7 +83,7 @@ function check(team = undefined, initialState = {}) {
       date: new Date(parseInt(node.created_at, 10) * 1000).toDateString({
         dateStyle: "short",
       }),
-      promiseDate: getPromiseYear(node),
+      promiseDate: getPromiseDate(node),
       status: getStatus(node),
       statuses: [getStatus(node)],
     }));
