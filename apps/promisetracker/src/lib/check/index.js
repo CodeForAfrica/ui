@@ -10,7 +10,7 @@ import createApolloClient from "./createApolloClient";
 const UNSPECIFIED_TEAM = "unspecified";
 const CLIENT_PER_TEAM = new Map();
 
-function check(team = undefined, initialState = {}) {
+function check({ team = undefined, promiseStatuses, initialState = {} }) {
   const clientTeam = team || UNSPECIFIED_TEAM;
   const existingClient = CLIENT_PER_TEAM.get(clientTeam);
   const client = existingClient || createApolloClient(initialState, team);
@@ -65,10 +65,10 @@ function check(team = undefined, initialState = {}) {
       items,
       "What is the status of the promise?"
     );
-    const promiseStatus = config.promiseStatuses.find(
+    const promiseStatus = promiseStatuses.find(
       (status) => status.title === statusTask?.node.first_response_value
     );
-    const defaultStatus = config.promiseStatuses.find(
+    const defaultStatus = promiseStatuses.find(
       (status) => status.title === "Unrated"
     );
     return promiseStatus || defaultStatus;
