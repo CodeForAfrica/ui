@@ -230,45 +230,6 @@ const config = {
       name: "AWS",
     },
   ],
-  promiseStatuses: [
-    {
-      color: "#005DFD",
-      description: "The promise is mostly or completely fulfilled.",
-      textColor: "#FFFFFF",
-      title: "Completed",
-    },
-    {
-      color: "#90DAFF",
-      description: "The promise is in the works or being considered.",
-      title: "In Progress",
-    },
-    {
-      color: "#FF5255",
-      description:
-        "Could occur due to inaction by administration or lack of support from legislative branch.",
-      textColor: "#FFFFFF",
-      title: "Stalled",
-    },
-    {
-      color: "#FFB322",
-      description:
-        "No progress, perhaps due to financial limitations, opposition from lawmakers or a change in priorities.",
-      title: "Delayed",
-    },
-    {
-      color: "#EBEBEB",
-      description:
-        "Every promise begins at this level and retains this rating until evidence of progress or proof that it has been shelved.",
-      title: "Unrated",
-    },
-    {
-      color: "#909090",
-      description:
-        "The promise is accomplished only in part, but has succeeded at least in part consistently with the goal of the promise.",
-      textColor: "#FFFFFF",
-      title: "Unstarted",
-    },
-  ],
   pages: {
     about: {
       pages: {
@@ -312,10 +273,6 @@ const config = {
   },
 };
 
-config.pages.about.pages.methodology.criteria = {
-  items: config.promiseStatuses,
-  title: "Promise Criteria",
-};
 config.pages.about.pages.partners.partners = {
   items: config.partners,
 };
