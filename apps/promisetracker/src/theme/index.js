@@ -24,6 +24,14 @@ const theme = createTheme({
     secondary: { main: "#EBEBEB", light: "#F7F7F7" }, // grey
     highlight: { main: "#005DFD", light: "#FFB322", faded: "#90DAFF" }, // blue, yellow, light blue
     text: { primary: "#202020", secondary: "#ffffff" },
+    chart: {
+      completed: "#005DFD",
+      inprogress: "#90DAFF",
+      inconclusive: "#909090",
+      unstarted: "#EBEBEB",
+      delayed: "#FFB322",
+      stalled: "#FF5255",
+    },
   },
   typography: {
     fontFamily: FONT_FAMILY_TEXT_SECONDARY,

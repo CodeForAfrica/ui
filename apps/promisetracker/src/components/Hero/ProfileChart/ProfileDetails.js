@@ -24,10 +24,6 @@ import PromiseKeptChart from "@/promisetracker/components/Hero/ProfileChart/Desk
 import UncertainChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart/UncertainChart";
 import PromiseNotKeptChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart/PromiseNotKeptChart";
 
-import MobilePromiseKeptChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart/MobilePromiseKeptChart";
-import MobilePromiseNotKeptChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart/MobilePromiseNotKeptChart";
-import MobileUncertainChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart/MobileUncertainChart";
-
 import RectChart from "@/promisetracker/components/Hero/ProfileChart/RectChart";
 
 import DesktopInfoStatusPopover from "./DesktopInfoStatusPopover";
@@ -195,26 +191,7 @@ function ProfileDetails({
             )}
           </DesktopChart>
         ) : (
-          <MobileChart>
-            <MobilePromiseKeptChart
-              totalPromises={promisesByStatuses.count}
-              inProgress={promisesByStatuses.statuses["In Progress"]?.length}
-              completed={promisesByStatuses.statuses.Completed?.length}
-              name="Promise Kept"
-            />
-            <MobileUncertainChart
-              totalPromises={promisesByStatuses.count}
-              inconclusive={promisesByStatuses.statuses.Unrated?.length}
-              unstarted={promisesByStatuses.statuses.Unstarted?.length}
-              name="Uncertain"
-            />
-            <MobilePromiseNotKeptChart
-              totalPromises={promisesByStatuses.count}
-              stalled={promisesByStatuses.statuses.Stalled?.length}
-              delayed={promisesByStatuses.statuses.Delayed?.length}
-              name="Promise Not Kept"
-            />
-          </MobileChart>
+          <MobileChart />
         )}
       </>
     </>
