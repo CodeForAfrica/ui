@@ -74,21 +74,12 @@ function MobileSvgChart({
 }
 
 MobileSvgChart.propTypes = {
-  fill: PropTypes.string,
-  stroke: PropTypes.string,
-  strokeWidth: PropTypes.number,
-  statusNumber: PropTypes.number,
-  status: PropTypes.string,
-  statusPercentage: PropTypes.string,
-};
-
-MobileSvgChart.defaultProps = {
-  fill: undefined,
-  stroke: undefined,
-  strokeWidth: undefined,
-  statusNumber: undefined,
-  status: undefined,
-  statusPercentage: undefined,
+  fill: PropTypes.string.isRequired,
+  stroke: PropTypes.string.isRequired,
+  strokeWidth: PropTypes.number.isRequired,
+  statusNumber: PropTypes.number.isRequired,
+  status: PropTypes.string.isRequired,
+  statusPercentage: PropTypes.string.isRequired,
 };
 
 export default MobileSvgChart;
