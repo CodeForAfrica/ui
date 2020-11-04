@@ -10,8 +10,8 @@ import LatestArticles from "@/promisetracker/components/LatestArticles";
 import LatestPromises from "@/promisetracker/components/LatestPromises";
 import Page from "@/promisetracker/components/Page";
 
-import config from "@/promisetracker/config";
-import check, { groupPromisesByStatus } from "@/promisetracker/lib/check";
+import check from "@/promisetracker/lib/check";
+import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
 import articleImage from "@/promisetracker/assets/article-thumb-01.png";
@@ -34,9 +34,11 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
 
 function Index({
   actNow,
+  criteria,
   footer,
   navigation,
   partners,
+  promiseStatuses,
   promises,
   keyPromises,
   promisesByStatuses,
@@ -52,11 +54,7 @@ function Index({
       classes={{ section: classes.section, footer: classes.footer }}
     >
       <Hero
-        criteria={{
-          items: config.promiseStatuses,
-          title: "What do the ratings mean?",
-        }}
-        promisesByStatuses={promisesByStatuses}
+        criteria={criteria}
         name="Mike “Sonko” Mbuvi"
         position="Nairobi Governor"
         title="Campaign promises made by Mike Mbuvi"
@@ -64,7 +62,37 @@ function Index({
       />
       <KeyPromises
         actionLabel="Learn More"
-        items={keyPromises}
+        interval={[2017, 2022]}
+        items={Array(6)
+          .fill(null)
+          .map((_, i) => ({
+            date: "2019-08-10",
+            description: `
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio.
+            `,
+            events: [
+              {
+                year: randomYear(),
+                title: "Event A",
+                color: "white",
+                textColor: theme.palette.text.main,
+              },
+              {
+                year: randomYear(),
+                title: "Event B",
+                color: "white",
+                textColor: theme.palette.text.main,
+              },
+            ],
+            image: promiseCarouselImage,
+            title: `Codification of national sports and athletics law ${i + 1}`,
+            statuses: [
+              {
+                ...promiseStatuses[i % promiseStatuses.length],
+                year: randomYear(),
+              },
+            ],
+          }))}
         title="Key Promises"
         classes={{
           section: classes.section,
@@ -121,9 +149,11 @@ function Index({
 
 Index.propTypes = {
   actNow: PropTypes.shape({}),
+  criteria: PropTypes.shape({}),
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
   partners: PropTypes.shape({}),
+  promiseStatuses: PropTypes.arrayOf(PropTypes.shape({})),
   promises: PropTypes.arrayOf(PropTypes.shape({})),
   keyPromises: PropTypes.arrayOf(PropTypes.shape({})),
   promisesByStatuses: PropTypes.arrayOf(PropTypes.shape({})),
@@ -132,9 +162,11 @@ Index.propTypes = {
 
 Index.defaultProps = {
   actNow: undefined,
+  criteria: undefined,
   footer: undefined,
   navigation: undefined,
   partners: undefined,
+  promiseStatuses: undefined,
   promises: undefined,
   keyPromises: undefined,
   promisesByStatuses: undefined,
@@ -150,13 +182,17 @@ export async function getStaticProps({ locale }) {
   }
 
   const page = await wp().pages({ slug: "index", locale }).first;
-  const promises = await check("pesacheck-promise-tracker").promises({
+  const { promiseStatuses } = page;
+  const checkApi = check({
+    promiseStatuses,
+    team: "pesacheck-promise-tracker",
+  });
+  const promises = await checkApi.promises({
     limit: 6,
     query: `{ "projects": ["2831"] }`,
   });
-  const keyPromises = await check("pesacheck-promise-tracker").promises({
-    limit: 6,
-    query: `{ "projects": ["4691"] }`,
+  const promisesByCategories = await checkApi.promisesByCategories({
+    team: "pesacheck-promise-tracker",
   });
 
   return {
