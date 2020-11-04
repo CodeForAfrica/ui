@@ -28,6 +28,14 @@ function wp(site) {
         title: acf.act_now.title,
       };
     }
+    const promiseStatuses = acf.promiseStatuses || null;
+    let criteria = null;
+    if (acf.criteria?.show) {
+      criteria = {
+        title: acf.criteria.title || null,
+        items: promiseStatuses,
+      };
+    }
     const footer = {
       about: acf.about || null,
       copyright: acf.copyright || null,
@@ -46,9 +54,11 @@ function wp(site) {
     }
     const data = {
       actNow,
+      criteria,
       footer,
       navigation: acf.navigation || null,
       partners: acf.partners ? { items: acf.partners } : null,
+      promiseStatuses,
       subscribe: acf.subscribe || null,
     };
     return data;
