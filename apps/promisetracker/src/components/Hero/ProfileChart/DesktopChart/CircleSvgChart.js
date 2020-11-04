@@ -74,27 +74,14 @@ function CircleSvgChart({
 }
 
 CircleSvgChart.propTypes = {
-  cx: PropTypes.number,
-  cy: PropTypes.number,
-  currentStatusNumber: PropTypes.number,
-  size: PropTypes.number,
-  fill: PropTypes.string,
-  stroke: PropTypes.string,
-  strokeWidth: PropTypes.number,
-  totalPromises: PropTypes.number,
-  status: PropTypes.string,
-};
-
-CircleSvgChart.defaultProps = {
-  cx: undefined,
-  cy: undefined,
-  size: undefined,
-  fill: undefined,
-  stroke: undefined,
-  strokeWidth: undefined,
-  currentStatusNumber: undefined,
-  totalPromises: undefined,
-  status: undefined,
+  cx: PropTypes.number.isRequired,
+  cy: PropTypes.number.isRequired,
+  size: PropTypes.number.isRequired,
+  fill: PropTypes.string.isRequired,
+  stroke: PropTypes.string.isRequired,
+  strokeWidth: PropTypes.number.isRequired,
+  currentStatusNumber: PropTypes.number.isRequired,
+  status: PropTypes.string.isRequired,
 };
 
 export default CircleSvgChart;
