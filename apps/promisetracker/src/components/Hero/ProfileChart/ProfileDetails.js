@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import {
-  Divider,
   Fade,
   Grid,
   Hidden,
@@ -19,10 +18,6 @@ import share from "@/promisetracker/assets/hero-icon-share.svg";
 
 import MobileChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart";
 import DesktopChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart";
-
-import PromiseKeptChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart/PromiseKeptChart";
-import UncertainChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart/UncertainChart";
-import PromiseNotKeptChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart/PromiseNotKeptChart";
 
 import RectChart from "@/promisetracker/components/Hero/ProfileChart/RectChart";
 
@@ -146,7 +141,7 @@ function ProfileDetails({
       </Grid>
       <>
         {isDesktop ? (
-          <DesktopChart>
+          <div>
             {clicked ? (
               <Fade in={clicked}>
                 <div className={classes.rect}>
@@ -164,32 +159,9 @@ function ProfileDetails({
                 </div>
               </Fade>
             ) : (
-              <>
-                <PromiseKeptChart
-                  totalPromises={promisesByStatuses.count}
-                  inProgress={
-                    promisesByStatuses.statuses["In Progress"]?.length
-                  }
-                  completed={promisesByStatuses.statuses.Completed?.length}
-                  name="Promises Kept"
-                />
-                <Divider orientation="vertical" className={classes.divider} />
-                <UncertainChart
-                  totalPromises={promisesByStatuses.count}
-                  inconclusive={promisesByStatuses.statuses.Unrated?.length}
-                  unstarted={promisesByStatuses.statuses.Unstarted?.length}
-                  name="Uncertain"
-                />
-                <Divider orientation="vertical" className={classes.divider} />
-                <PromiseNotKeptChart
-                  totalPromises={promisesByStatuses.count}
-                  stalled={promisesByStatuses.statuses.Stalled?.length}
-                  delayed={promisesByStatuses.statuses.Delayed?.length}
-                  name="Promises Not Kept"
-                />
-              </>
+              <DesktopChart />
             )}
-          </DesktopChart>
+          </div>
         ) : (
           <MobileChart />
         )}
