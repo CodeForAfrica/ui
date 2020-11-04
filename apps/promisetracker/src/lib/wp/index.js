@@ -124,9 +124,9 @@ function wp(site) {
     }
     const options = await getOptions(lang);
     const page = {
-      ...options,
       ...resource,
       ...resource.acf,
+      ...options,
       content: resource.content?.rendered,
       title: resource.title?.rendered,
       languge: lang,
@@ -140,9 +140,9 @@ function wp(site) {
     }
     const options = await getOptions(lang);
     const page = {
-      ...options,
       ...resource,
       ...resource.acf,
+      ...options,
       content: resource.content?.rendered,
       title: resource.title?.rendered,
       languge: lang,
