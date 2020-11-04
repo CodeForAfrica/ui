@@ -123,7 +123,7 @@ function MobileChart({ children, ...props }) {
             stroke="1D1D1B"
             strokeWidth={1}
             statusNumber={70}
-            statusPercentage="(25%)"
+            statusPercentage="(14%)"
             status="Inconclusive"
           />
           <MobileSvgChart
@@ -131,7 +131,7 @@ function MobileChart({ children, ...props }) {
             stroke="1D1D1B"
             strokeWidth={1}
             statusNumber={50}
-            statusPercentage="(18%)"
+            statusPercentage="(10%)"
             status="Unstarted"
           />
         </Grid>
@@ -163,7 +163,7 @@ function MobileChart({ children, ...props }) {
             stroke="1D1D1B"
             strokeWidth={1}
             statusNumber={60}
-            statusPercentage="(25%)"
+            statusPercentage="(12%)"
             status="Delayed"
           />
           <MobileSvgChart
@@ -171,7 +171,7 @@ function MobileChart({ children, ...props }) {
             stroke="1D1D1B"
             strokeWidth={1}
             statusNumber={110}
-            statusPercentage="(18%)"
+            statusPercentage="(22%)"
             status="Stalled"
           />
         </Grid>
