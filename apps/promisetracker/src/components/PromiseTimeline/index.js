@@ -12,11 +12,18 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function PromiseTimeline({ events, date, statuses, ...props }) {
+function PromiseTimeline({
+  events,
+  date,
+  status,
+  statuses: statusesProps,
+  ...props
+}) {
   const classes = useStyles(props);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const interval = [new Date(date).getFullYear(), new Date().getFullYear() + 2];
+  const statuses = isDesktop ? statusesProps : [status];
 
   return (
     <svg width="100%" height="100" className={classes.root}>
@@ -35,17 +42,23 @@ function PromiseTimeline({ events, date, statuses, ...props }) {
             <PromiseEvent key={event.label} interval={interval} {...event} />
           </>
         ))}
-      {statuses?.map((status) => (
-        <PromiseStatus key={status.title} interval={interval} {...status}>
-          <rect
-            x="8"
-            y="69"
-            width="99%"
-            height="1"
-            style={{
-              fill: "#EBEBEB",
-            }}
-          />
+      {statuses?.map((currentStatus, idx) => (
+        <PromiseStatus
+          key={currentStatus.title}
+          interval={interval}
+          {...currentStatus}
+        >
+          {idx === 0 && (
+            <rect
+              x="8"
+              y="69"
+              width="99%"
+              height="1"
+              style={{
+                fill: "#EBEBEB",
+              }}
+            />
+          )}
         </PromiseStatus>
       ))}
       <Labels interval={interval} />
@@ -56,11 +69,13 @@ function PromiseTimeline({ events, date, statuses, ...props }) {
 PromiseTimeline.propTypes = {
   events: PropTypes.arrayOf(PropTypes.shape({})),
   date: PropTypes.string,
+  status: PropTypes.shape({}),
   statuses: PropTypes.arrayOf(PropTypes.shape({})),
 };
 PromiseTimeline.defaultProps = {
   date: undefined,
   events: undefined,
+  status: undefined,
   statuses: undefined,
 };
 
