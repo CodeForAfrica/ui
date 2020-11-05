@@ -63,7 +63,7 @@ function AboutPage({
             <>
               <Partners {...partners} />
               <PromiseCriteria {...criteria} />
-              {content?.length && (
+              {content?.length > 0 && (
                 <RichTypography variant="body2" className={classes.content}>
                   {content}
                 </RichTypography>
