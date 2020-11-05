@@ -10,8 +10,9 @@ import LatestArticles from "@/promisetracker/components/LatestArticles";
 import LatestPromises from "@/promisetracker/components/LatestPromises";
 import Page from "@/promisetracker/components/Page";
 
+import config from "@/promisetracker/config";
 import check from "@/promisetracker/lib/check";
-import i18n from "@/promisetracker/lib/i18n";
+import { groupPromisesByStatus } from "@/promisetracker/utils";
 import wp from "@/promisetracker/lib/wp";
 
 import articleImage from "@/promisetracker/assets/article-thumb-01.png";
