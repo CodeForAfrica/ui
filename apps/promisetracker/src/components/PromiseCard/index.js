@@ -5,7 +5,7 @@ import PostCard from "@/promisetracker/components/PostCard";
 import Link from "@/promisetracker/components/Link/Button";
 import Status from "@/promisetracker/components/PromiseStatus";
 
-import slugify from "@/promisetracker/utils";
+import { slugify } from "@/promisetracker/utils";
 
 import useStyles from "./useStyles";
 

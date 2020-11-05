@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import PostCard from "@/promisetracker/components/PostCard";
 import Link from "@/promisetracker/components/Link/Button";
-import slugify from "@/promisetracker/utils";
+import { slugify } from "@/promisetracker/utils";
 
 import useStyles from "./useStyles";
 
