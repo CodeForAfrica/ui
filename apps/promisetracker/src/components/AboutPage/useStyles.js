@@ -64,8 +64,15 @@ const useStyles = makeStyles(
         paddingTop: 0,
       },
     },
-    partnerImage: {
-      marginTop: typography.pxToRem(18),
+    partnerLogo: {
+      height: typography.pxToRem(72),
+      minHeight: typography.pxToRem(72),
+      maxHeight: typography.pxToRem(72),
+      [breakpoints.up("lg")]: {
+        height: typography.pxToRem(120),
+        minHeight: typography.pxToRem(120),
+        maxHeight: typography.pxToRem(120),
+      },
     },
     partnerName: {
       marginTop: typography.pxToRem(18),
