@@ -174,22 +174,11 @@ Index.defaultProps = {
   subscribe: undefined,
 };
 
-export async function getStaticProps({ locale }) {
-  // Skip generating pages for unsuported locales
-  if (!i18n().locales.includes(locale)) {
-    return {
-      notFound: true,
-    };
-  }
-
-  const page = await wp().pages({ slug: "index", locale }).first;
-  const { promiseStatuses } = page;
-  const checkApi = check({
-    promiseStatuses,
-    team: "pesacheck-promise-tracker",
-  });
-  const promises = await checkApi.promises({
-    limit: 6,
+export async function getStaticProps({ query = {} }) {
+  const { lang } = query;
+  const page = await wp().pages({ slug: "index", lang }).first;
+  const promises = await check("pesacheck-promise-tracker").promises({
+    limit: 10000,
     query: `{ "projects": ["2831"] }`,
   });
   const promisesByCategories = await checkApi.promisesByCategories({
