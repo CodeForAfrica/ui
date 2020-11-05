@@ -28,7 +28,6 @@ function wp(site) {
         title: acf.act_now.title,
       };
     }
-    const promiseStatuses = acf.promiseStatuses || null;
     const footer = {
       about: acf.about || null,
       copyright: acf.copyright || null,
@@ -49,8 +48,8 @@ function wp(site) {
       actNow,
       footer,
       navigation: acf.navigation || null,
-      partners: acf.partners ? { items: acf.partners } : null,
-      promiseStatuses,
+      partnerList: acf.partnerList || null,
+      promiseStatuses: acf.promiseStatuses || null,
       subscribe: acf.subscribe || null,
     };
     return data;
@@ -90,12 +89,21 @@ function wp(site) {
       };
     }
     acf.criteria = null;
+    let partners = null;
+    if (acf.partners?.show) {
+      partners = {
+        title: acf.partners.title || null,
+        items: options.partnerList,
+      };
+    }
+    acf.partners = null;
     const page = {
       ...acf,
       ...resource,
       ...options,
       criteria,
       content: resource.content?.rendered,
+      partners,
       title: resource.title?.rendered,
       languge: lang,
     };
