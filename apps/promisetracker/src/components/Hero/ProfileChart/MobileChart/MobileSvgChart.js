@@ -13,6 +13,7 @@ const useStyles = makeStyles(({ typography }) => ({
     fontWeight: "normal",
     textTransform: "capitalize",
     padding: "0rem 0.5rem",
+    whiteSpace: "nowrap",
     fontSize: typography.pxToRem(13),
   },
   h3: {
@@ -34,6 +35,7 @@ function MobileSvgChart({
     <Grid
       container
       direction="row"
+      xs={12}
       item
       jusify="space-between"
       alignItems="flex-start"
