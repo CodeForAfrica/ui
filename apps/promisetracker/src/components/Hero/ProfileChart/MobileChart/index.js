@@ -16,6 +16,7 @@ const useStyles = makeStyles(({ typography }) => ({
     fontStyle: "italic",
     fontSize: typography.pxToRem(14),
     whiteSpace: "pre-line",
+    paddingRight: "1rem",
   },
   promiseKeptBorder: {
     borderRight: "1px solid #005DFD",
@@ -26,6 +27,7 @@ const useStyles = makeStyles(({ typography }) => ({
     fontStyle: "italic",
     fontSize: typography.pxToRem(14),
     whiteSpace: "pre-line",
+    paddingRight: "1rem",
   },
   uncertainBorder: {
     borderRight: "1px solid #909090",
@@ -36,6 +38,7 @@ const useStyles = makeStyles(({ typography }) => ({
     fontStyle: "italic",
     fontSize: typography.pxToRem(14),
     whiteSpace: "pre-line",
+    paddingRight: "1rem",
   },
   promiseNotKeptBorder: {
     borderRight: "1px solid #FF5255",
