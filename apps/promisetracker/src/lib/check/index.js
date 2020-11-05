@@ -59,7 +59,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       : null;
   }
 
-  function getStatus(node) {
+  function getStatuses(node) {
     const logs = node.log?.edges;
     const statusLogs = logs.filter(
       (item) => item.node.task?.label === "What is the status of the promise?"
@@ -68,6 +68,10 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       (status) => status.title === "Unrated"
     );
     const statuses = statusLogs
+      .sort(
+        (statusA, statusB) =>
+          statusB.node?.created_at - statusA.node?.created_at
+      )
       .filter((statusLog, idx) => {
         const currentStatus = JSON.parse(statusLog.node.object_changes_json)
           .value[1].replace(/[^\w\s]/gi, "")
@@ -88,16 +92,13 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
               .value[1].replace(/[^\w\s]/gi, "")
               .trim()
         );
-        if (promiseStatus) {
-          const timeStamp =
-            statusLog.node?.task?.updated_at * 1000 || Date.now();
-          promiseStatus.date = new Date(timeStamp).toDateString({
-            dateStyle: "short",
-          });
-          promiseStatus.year =
-            new Date(timeStamp).getFullYear() +
-            (new Date(timeStamp).getMonth() + 1) / 12;
-        }
+        const timeStamp = statusLog.node?.created_at * 1000 || Date.now();
+        promiseStatus.date = new Date(timeStamp).toDateString({
+          dateStyle: "short",
+        });
+        promiseStatus.year =
+          new Date(timeStamp).getFullYear() +
+          (new Date(timeStamp).getMonth() + 1) / 12;
         return promiseStatus || defaultStatus;
       });
     return statuses.length ? statuses : [defaultStatus];
@@ -110,8 +111,8 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       image: getImage(node),
       description: node.description,
       date: getPromiseDate(node),
-      status: getStatus(node).reverse()[0],
-      statuses: getStatus(node),
+      status: getStatuses(node)[0],
+      statuses: getStatuses(node),
     }));
   }
 
