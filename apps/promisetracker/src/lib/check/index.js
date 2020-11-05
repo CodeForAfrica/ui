@@ -60,18 +60,38 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
   }
 
   function getStatus(node) {
-    const items = node.tasks?.edges;
-    const statusTask = findItemByNodeLabel(
-      items,
-      "What is the status of the promise?"
-    );
-    const promiseStatus = promiseStatuses.find(
-      (status) => status.title === statusTask?.node.first_response_value
+    const logs = node.log?.edges;
+    const statusLogs = logs.filter(
+      (item) => item.node.task?.label === "What is the status of the promise?"
     );
     const defaultStatus = promiseStatuses.find(
       (status) => status.title === "Unrated"
     );
-    return promiseStatus || defaultStatus;
+    const statuses = statusLogs
+      .filter((statusLog, idx) => {
+        const currentStatus = JSON.parse(statusLog.node.object_changes_json)
+          .value[1].replace(/[^\w\s]/gi, "")
+          .trim();
+        const prevStatus =
+          idx > 0
+            ? JSON.parse(statusLogs[idx - 1]?.node.object_changes_json)
+                .value[1].replace(/[^\w\s]/gi, "")
+                .trim()
+            : null;
+        return prevStatus !== currentStatus;
+      })
+      .map((statusLog) => {
+        const promiseStatus = config.promiseStatuses.find(
+          (status) =>
+            status.title ===
+            JSON.parse(statusLog?.node.object_changes_json)
+              .value[1].replace(/[^\w\s]/gi, "")
+              .trim()
+        );
+
+        return promiseStatus || defaultStatus;
+      });
+    return statuses.length ? statuses : [defaultStatus];
   }
 
   function handlePromisesResult(res) {
@@ -80,12 +100,9 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       title: node.title,
       image: getImage(node),
       description: node.description,
-      date: new Date(parseInt(node.created_at, 10) * 1000).toDateString({
-        dateStyle: "short",
-      }),
-      promiseDate: getPromiseDate(node),
-      status: getStatus(node),
-      statuses: [getStatus(node)],
+      date: getPromiseDate(node),
+      status: getStatus(node).reverse()[0],
+      statuses: getStatus(node),
     }));
   }
 
@@ -116,18 +133,6 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     },
   };
   return api;
-}
-
-export function groupPromisesByStatus(promises) {
-  return {
-    count: promises.length,
-    /* eslint-disable no-param-reassign */
-    statuses: promises.reduce((promiseByStatus, promise) => {
-      (promiseByStatus[promise.status.title] =
-        promiseByStatus[promise.status.title] || []).push(promise);
-      return promiseByStatus;
-    }, {}),
-  };
 }
 
 export default check;
