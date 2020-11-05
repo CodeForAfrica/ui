@@ -88,7 +88,16 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
               .value[1].replace(/[^\w\s]/gi, "")
               .trim()
         );
-
+        if (promiseStatus) {
+          const timeStamp =
+            statusLog.node?.task?.updated_at * 1000 || Date.now();
+          promiseStatus.date = new Date(timeStamp).toDateString({
+            dateStyle: "short",
+          });
+          promiseStatus.year =
+            new Date(timeStamp).getFullYear() +
+            (new Date(timeStamp).getMonth() + 1) / 12;
+        }
         return promiseStatus || defaultStatus;
       });
     return statuses.length ? statuses : [defaultStatus];
