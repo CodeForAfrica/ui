@@ -4,9 +4,15 @@ import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import TimelineEvent from "./TimelineEvent";
 
-function PromiseStatus({ children, color, date, interval, ...props }) {
-  const year =
-    new Date(date).getFullYear() + (new Date(date).getMonth() + 1) / 12; // current year + month as a fraction of year eg 2020.8
+function PromiseStatus({
+  children,
+  color,
+  date: dateProp,
+  interval,
+  ...props
+}) {
+  const date = new Date(dateProp);
+  const year = date.getFullYear() + (date.getMonth() + 1) / 12; // current year + month as a fraction of year eg 2020.8
   const width = `${
     ((year - interval[0]) * 100) / (interval[1] - interval[0])
   }%`;
