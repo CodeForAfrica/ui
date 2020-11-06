@@ -16,14 +16,14 @@ function PromiseTimeline({
   events,
   date,
   status,
-  statuses: statusesProps,
+  statusHistory: StatusHistoryProps,
   ...props
 }) {
   const classes = useStyles(props);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const interval = [new Date(date).getFullYear(), new Date().getFullYear() + 2];
-  const statuses = isDesktop ? statusesProps : [status];
+  const statusHistory = isDesktop ? StatusHistoryProps : [status];
 
   return (
     <svg width="100%" height="100" className={classes.root}>
@@ -42,9 +42,10 @@ function PromiseTimeline({
             <PromiseEvent key={event.label} interval={interval} {...event} />
           </>
         ))}
-      {statuses?.map((currentStatus, idx) => (
+      {statusHistory?.map((currentStatus, idx) => (
         <PromiseStatus
           key={currentStatus.title}
+          isOdd={idx % 2 === 1}
           interval={interval}
           {...currentStatus}
         >
@@ -70,13 +71,13 @@ PromiseTimeline.propTypes = {
   events: PropTypes.arrayOf(PropTypes.shape({})),
   date: PropTypes.string,
   status: PropTypes.shape({}),
-  statuses: PropTypes.arrayOf(PropTypes.shape({})),
+  statusHistory: PropTypes.arrayOf(PropTypes.shape({})),
 };
 PromiseTimeline.defaultProps = {
   date: undefined,
   events: undefined,
   status: undefined,
-  statuses: undefined,
+  statusHistory: undefined,
 };
 
 export default PromiseTimeline;
