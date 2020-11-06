@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import { Grid, Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ProgressChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart/ProgressChart";
@@ -25,7 +27,7 @@ const useStyles = makeStyles(({ typography }) => ({
   },
 }));
 
-function DesktopChart({ ...props }) {
+function DesktopChart({ children, ...props }) {
   const classes = useStyles(props);
   return (
     <Grid
@@ -35,6 +37,7 @@ function DesktopChart({ ...props }) {
       justify="flex-start"
       className={classes.root}
     >
+      {children}
       <ProgressChart
         color="#145BD5"
         borderBottom="1px solid #145BD5"
@@ -92,5 +95,13 @@ function DesktopChart({ ...props }) {
     </Grid>
   );
 }
+
+DesktopChart.propTypes = {
+  children: PropTypes.node,
+};
+
+DesktopChart.defaultProps = {
+  children: undefined,
+};
 
 export default DesktopChart;
