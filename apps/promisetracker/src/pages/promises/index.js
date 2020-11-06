@@ -105,7 +105,7 @@ export async function getStaticProps({ locale }) {
     description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
     date: new Date(post.post_date).toLocaleDateString(),
     title: post.post_title,
-    status: promiseStatuses[i % promiseStatuses.length],
+    status: config.promiseStatusHistory[i % config.promiseStatusHistory.length],
   }));
 
   return {

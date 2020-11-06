@@ -59,7 +59,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       : null;
   }
 
-  function getStatuses(node) {
+  function getStatusHistory(node) {
     const logs = node.log?.edges;
     const defaultStatus = config.promiseStatuses.find(
       (status) => status.title === "Unrated"
@@ -67,7 +67,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     const statusLogs = logs.filter(
       (item) => item.node.task?.label === "What is the status of the promise?"
     );
-    const statuses = statusLogs
+    const statusHistory = statusLogs
       .sort((statusA, statusB) =>
         statusB.node?.created_at.localeCompare(statusA.node?.created_at)
       )
@@ -95,7 +95,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
         return { date, ...matchingStatus };
       });
 
-    return statuses.length ? statuses : [defaultStatus];
+    return statusHistory.length ? statusHistory : [defaultStatus];
   }
 
   function handlePromisesResult(res) {
@@ -105,8 +105,8 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       image: getImage(node),
       description: node.description,
       date: getPromiseDate(node),
-      status: getStatuses(node)[0],
-      statuses: getStatuses(node),
+      status: getStatusHistory(node)[0],
+      statusHistory: getStatusHistory(node),
     }));
   }
 

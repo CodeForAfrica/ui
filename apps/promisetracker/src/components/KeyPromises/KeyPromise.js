@@ -19,7 +19,7 @@ function KeyPromise({
   events,
   image,
   date,
-  statuses,
+  statusHistory,
   status,
   title,
   ...props
@@ -84,7 +84,7 @@ function KeyPromise({
           events={events}
           date={date}
           status={status}
-          statuses={statuses}
+          statusHistory={statusHistory}
           classes={{ root: classes.timeline }}
         />
       </Grid>
@@ -105,7 +105,7 @@ KeyPromise.propTypes = {
   description: PropTypes.string,
   events: PropTypes.arrayOf(PropTypes.shape({})),
   image: PropTypes.string.isRequired,
-  statuses: PropTypes.arrayOf(PropTypes.shape({})),
+  statusHistory: PropTypes.arrayOf(PropTypes.shape({})),
   status: PropTypes.shape({}),
   title: PropTypes.string.isRequired,
 };
@@ -115,7 +115,7 @@ KeyPromise.defaultProps = {
   classes: undefined,
   description: undefined,
   events: undefined,
-  statuses: undefined,
+  statusHistory: undefined,
   status: undefined,
 };
 
