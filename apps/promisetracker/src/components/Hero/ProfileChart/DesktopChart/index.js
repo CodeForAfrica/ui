@@ -1,7 +1,5 @@
 import React from "react";
 
-import PropTypes from "prop-types";
-
 import { Grid, Divider, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -52,7 +50,7 @@ const useStyles = makeStyles(({ typography }) => ({
   },
 }));
 
-function DesktopChart({ children, ...props }) {
+function DesktopChart({ ...props }) {
   const classes = useStyles(props);
   return (
     <Grid
@@ -62,7 +60,6 @@ function DesktopChart({ children, ...props }) {
       justify="flex-start"
       className={classes.root}
     >
-      {children}
       <Grid item xs={3} className={classes.promiseGrid}>
         <div className={classes.promiseKeptTypo}>
           <Typography variant="caption" className={classes.promiseKeptCaption}>
@@ -162,9 +159,5 @@ function DesktopChart({ children, ...props }) {
     </Grid>
   );
 }
-
-DesktopChart.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default DesktopChart;

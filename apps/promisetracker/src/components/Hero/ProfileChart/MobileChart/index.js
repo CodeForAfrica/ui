@@ -1,7 +1,5 @@
 import React from "react";
 
-import PropTypes from "prop-types";
-
 import { Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -49,7 +47,7 @@ const useStyles = makeStyles(({ typography }) => ({
   },
 }));
 
-function MobileChart({ children, ...props }) {
+function MobileChart({ ...props }) {
   const classes = useStyles(props);
   return (
     <Grid
@@ -62,7 +60,6 @@ function MobileChart({ children, ...props }) {
       spacing={3}
       className={classes.root}
     >
-      {children}
       <Grid
         container
         item
@@ -185,9 +182,5 @@ function MobileChart({ children, ...props }) {
     </Grid>
   );
 }
-
-MobileChart.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default MobileChart;
