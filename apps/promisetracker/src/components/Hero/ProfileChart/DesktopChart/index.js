@@ -14,22 +14,6 @@ const useStyles = makeStyles(({ typography }) => ({
   promiseGrid: {
     margin: "0.5rem",
   },
-  uncertainTypo: {
-    textAlign: "center",
-    borderBottom: "1px solid #909090",
-  },
-  promiseNotKeptTypo: {
-    textAlign: "center",
-    borderBottom: "1px solid #FF5154",
-  },
-  uncertainCaption: {
-    color: "#909090",
-    fontStyle: "italic",
-  },
-  promiseNotKeptCaption: {
-    color: "#FF5154",
-    fontStyle: "italic",
-  },
   circleContainer: {
     display: "flex",
     flexDirection: "row",
@@ -91,7 +75,7 @@ function DesktopChart({ ...props }) {
       <ProgressChart
         color="#FF5255"
         borderBottom="1px solid #FF5255"
-        caption="Uncertain"
+        caption="Promise Not Kept"
         progressStatuses={[
           {
             color: "#FFB322",

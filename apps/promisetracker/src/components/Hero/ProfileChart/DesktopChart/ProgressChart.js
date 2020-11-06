@@ -29,17 +29,13 @@ const useStyles = makeStyles(({ typography }) => ({
   },
 }));
 
-function ProgressChart({
-  progressStatuses,
-
-  ...props
-}) {
+function ProgressChart({ progressStatuses, caption, ...props }) {
   const classes = useStyles({ color: null, borderBottom: null, ...props });
   return (
     <Grid item xs={3} className={classes.root}>
       <div className={`${classes.typo}`}>
         <Typography variant="caption" className={`${classes.caption}`}>
-          Promises Kept
+          {caption}
         </Typography>
       </div>
       <div className={classes.circleContainer}>
@@ -61,6 +57,7 @@ function ProgressChart({
 }
 
 ProgressChart.propTypes = {
+  caption: PropTypes.string.isRequired,
   progressStatuses: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
