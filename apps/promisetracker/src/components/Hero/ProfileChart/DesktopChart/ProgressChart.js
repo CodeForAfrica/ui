@@ -41,9 +41,10 @@ function ProgressChart({ progressStatuses, caption, ...props }) {
       <div className={classes.circleContainer}>
         {progressStatuses.map((progressStatus) => (
           <CircleSvgChart
-            cx="50"
-            cy="50"
-            size="100"
+            key={progressStatus.title}
+            cx={50}
+            cy={50}
+            size={100}
             fill={progressStatus.color}
             stroke="#1D1D1B"
             strokeWidth={1}

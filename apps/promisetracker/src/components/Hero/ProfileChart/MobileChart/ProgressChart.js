@@ -54,6 +54,7 @@ function ProgressChart({ progressStatuses, caption, ...props }) {
       >
         {progressStatuses.map((progressStatus) => (
           <MobileSvgChart
+            key={progressStatus.title}
             fill={progressStatus.color}
             stroke="1D1D1B"
             strokeWidth={1}
