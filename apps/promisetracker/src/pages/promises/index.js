@@ -100,13 +100,14 @@ export async function getStaticProps({ locale }) {
 
   const page = await wp().pages({ slug: "promises", locale }).first;
   const { promiseStatuses } = page;
-  const promises = page.posts.map((post, i) => ({
-    image: post.featured_image,
-    description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
-    date: new Date(post.post_date).toLocaleDateString(),
-    title: post.post_title,
-    status: config.promiseStatuses[i % config.promiseStatuses.length],
-  }));
+  const promises =
+    page.posts?.map((post, i) => ({
+      image: post.featured_image,
+      description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
+      date: new Date(post.post_date).toLocaleDateString(),
+      title: post.post_title,
+      status: promiseStatuses[i % promiseStatuses.length],
+    })) || null;
 
   return {
     props: {
