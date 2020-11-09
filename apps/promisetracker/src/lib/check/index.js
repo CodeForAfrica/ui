@@ -58,6 +58,27 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       ? startDateTask.node.first_response_value.split(" ").slice(0, 3).join(" ")
       : null;
   }
+  function getPromiseDeadlineEvent(node) {
+    const items = node.tasks?.edges;
+    const deadlineTask = findItemByNodeLabel(
+      items,
+      "What is the deadline for the implementation of the promise?"
+    );
+    const duration = Number(
+      deadlineTask?.node.first_response_value?.split("")[0]
+    );
+    const startYear = new Date(getPromiseDate(node)).getFullYear();
+
+    let deadlineEvent = {};
+
+    if (duration && startYear) {
+      deadlineEvent = {
+        title: "Deadline",
+        year: startYear + duration,
+      };
+    }
+    return deadlineEvent;
+  }
 
   function getStatusHistory(node) {
     const logs = node.log?.edges;
@@ -105,6 +126,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       image: getImage(node),
       description: node.description,
       date: getPromiseDate(node),
+      events: [getPromiseDeadlineEvent(node)],
       status: getStatusHistory(node)[0],
       statusHistory: getStatusHistory(node),
     }));
