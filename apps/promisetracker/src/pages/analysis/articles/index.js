@@ -106,12 +106,13 @@ export async function getStaticProps({ locale }) {
   }
 
   const page = await wp().pages({ slug: "analysis-articles", locale }).first;
-  const articles = page.posts?.map((post) => ({
-    image: post.featured_image,
-    description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
-    date: new Date(post.post_date).toLocaleDateString(),
-    title: post.post_title,
-  }));
+  const articles =
+    page.posts?.map((post) => ({
+      image: post.featured_image,
+      description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
+      date: new Date(post.post_date).toLocaleDateString(),
+      title: post.post_title,
+    })) || null;
   page.posts = null;
 
   return {
