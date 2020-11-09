@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function MobileChart({ ...props }) {
+function MobileChart(props) {
   const classes = useStyles(props);
   return (
     <Grid
