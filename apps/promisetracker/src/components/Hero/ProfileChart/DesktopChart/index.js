@@ -43,12 +43,12 @@ function DesktopChart(props) {
           {
             color: "#005DFD",
             count: 130,
-            title: "Inconclusive",
+            title: "Completed",
           },
           {
             color: "#90DAFF",
             count: 90,
-            title: "Unstarted",
+            title: "In Progress",
           },
         ]}
       />

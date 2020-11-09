@@ -49,7 +49,7 @@ function MobileChart(props) {
       <ProgressChart
         color="#909090"
         borderRight="1px solid #909090"
-        caption="Promise Kept"
+        caption="Uncertain"
         progressStatuses={[
           {
             color: "#909090",
