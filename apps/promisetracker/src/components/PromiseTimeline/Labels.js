@@ -1,9 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
+import config from "@/promisetracker/config";
 
-const Labels = ({ interval }) => {
+const Labels = () => {
+  const interval = config.promiseInterval;
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
@@ -33,7 +34,7 @@ const Labels = ({ interval }) => {
   const lastLabel = (
     <>
       <circle
-        cx="99%"
+        cx="100%"
         cy="70"
         r="8"
         stroke="#F7F7F7"
@@ -91,10 +92,6 @@ const Labels = ({ interval }) => {
       {lastLabel}
     </>
   );
-};
-
-Labels.propTypes = {
-  interval: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default Labels;

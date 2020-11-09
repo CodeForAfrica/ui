@@ -177,6 +177,90 @@ const config = {
     title: "Analysis",
     url: "/analysis",
   },
+  partners: [
+    {
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+      href: "//pesacheck.org",
+      logo: partner1,
+      name: "PesaCheck",
+    },
+    {
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+      href: "//the-star.co.ke",
+      logo: partner2,
+      name: "The Star",
+    },
+    {
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+      href: "//pigafirimbi.africauncensored.online",
+      logo: partner3,
+      name: "Piga Firimbi",
+    },
+    {
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+      href: "//www.dw.com/en/dw-akademie/about-us/s-9519",
+      logo: partner4,
+      name: "DW Akademie",
+    },
+    {
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+      href: "//meedan.com",
+      logo: partner5,
+      name: "Meedan",
+    },
+    {
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+      href: "//aws.amazon.com",
+      logo: partner6,
+      name: "AWS",
+    },
+  ],
+  promiseStatuses: [
+    {
+      color: "#005DFD",
+      description: "The promise is mostly or completely fulfilled.",
+      textColor: "#FFFFFF",
+      title: "Completed",
+    },
+    {
+      color: "#90DAFF",
+      description: "The promise is in the works or being considered.",
+      title: "In Progress",
+    },
+    {
+      color: "#FF5255",
+      description:
+        "Could occur due to inaction by administration or lack of support from legislative branch.",
+      textColor: "#FFFFFF",
+      title: "Stalled",
+    },
+    {
+      color: "#FFB322",
+      description:
+        "No progress, perhaps due to financial limitations, opposition from lawmakers or a change in priorities.",
+      title: "Delayed",
+    },
+    {
+      color: "#EBEBEB",
+      description:
+        "Every promise begins at this level and retains this rating until evidence of progress or proof that it has been shelved.",
+      title: "Unrated",
+    },
+    {
+      color: "#909090",
+      description:
+        "The promise is accomplished only in part, but has succeeded at least in part consistently with the goal of the promise.",
+      textColor: "#FFFFFF",
+      title: "Unstarted",
+    },
+  ],
+  promiseInterval: [2017, 2022],
   pages: {
     about: {
       pages: {

@@ -1,8 +1,10 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
+import config from "@/promisetracker/config";
 
-function Event({ color, interval, isOdd, radius, textColor, title, year }) {
+function Event({ color, isOdd, radius, textColor, title, year }) {
+  const interval = config.promiseInterval;
   const theme = useTheme();
   const xposition = `${
     ((year - interval[0]) * 100) / (interval[1] - interval[0])
@@ -58,11 +60,10 @@ function Event({ color, interval, isOdd, radius, textColor, title, year }) {
 }
 
 Event.propTypes = {
-  color: PropTypes.string.isRequired,
-  interval: PropTypes.arrayOf(PropTypes.number).isRequired,
+  color: PropTypes.string,
   isOdd: PropTypes.number,
   radius: PropTypes.string,
-  textColor: PropTypes.string.isRequired,
+  textColor: PropTypes.string,
   title: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
 };
@@ -70,5 +71,7 @@ Event.propTypes = {
 Event.defaultProps = {
   radius: "4",
   isOdd: false,
+  color: "#fff",
+  textColor: "#202020",
 };
 export default Event;
