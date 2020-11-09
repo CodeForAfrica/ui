@@ -1,7 +1,5 @@
 import React from "react";
 
-import PropTypes from "prop-types";
-
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ProgressChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart/ProgressChart";
@@ -15,7 +13,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function MobileChart({ children, ...props }) {
+function MobileChart({ ...props }) {
   const classes = useStyles(props);
   return (
     <Grid
@@ -28,7 +26,6 @@ function MobileChart({ children, ...props }) {
       spacing={3}
       className={classes.root}
     >
-      {children}
       <ProgressChart
         color="#005DFD"
         borderRight="1px solid #005DFD"
@@ -91,13 +88,5 @@ function MobileChart({ children, ...props }) {
     </Grid>
   );
 }
-
-MobileChart.propTypes = {
-  children: PropTypes.node,
-};
-
-MobileChart.defaultProps = {
-  children: undefined,
-};
 
 export default MobileChart;
