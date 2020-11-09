@@ -38,6 +38,12 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
+/**
+ * Since we wnat /analysis/articles to be different from /analysis/articles/[slug],
+ * we need to make sure [slug] doesn't return "" from getStaticPaths.
+ */
+const NO_ARTICLES_SLUG = "not_found";
+
 function Index({
   article,
   footer,
@@ -118,7 +124,9 @@ Index.defaultProps = {
 export async function getStaticPaths() {
   const fallback = false;
   const page = await wp().pages({ slug: "analysis-articles" }).first;
-  const posts = page.acf?.posts?.length ? page.acf.posts : [{ post_name: "" }];
+  const posts = page.acf?.posts?.length
+    ? page.acf.posts
+    : [{ post_name: NO_ARTICLES_SLUG }];
   const unlocalizedPaths = posts.map((post) => ({
     params: { slug: post.post_name },
   }));
@@ -127,25 +135,28 @@ export async function getStaticPaths() {
   return { fallback, paths };
 }
 
-export async function getStaticProps({ params: { slug: slugParam } }) {
+export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const slug = slugParam.toLowerCase();
-  const page = await wp().pages({ slug: "analysis-articles" }).first;
-  const post = await wp().posts({ slug }).first;
+  const post =
+    slug !== NO_ARTICLES_SLUG ? await wp().posts({ slug, locale }).first : null;
   const notFound = !post;
-  const errorCode = notFound ? 404 : null;
-  let article = null;
-  if (!notFound) {
-    article = {
-      ...post,
-      image: post.featured_media.source_url,
-      description: post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 200),
-      date: new Date(post.date).toDateString({ dateStyle: "short" }),
-      readTime: readingTime(post.content).text,
+  if (notFound) {
+    return {
+      notFound,
     };
   }
 
+  const errorCode = notFound ? 404 : null;
+  const page = await wp().pages({ slug: "analysis-articles" }).first;
+  const article = {
+    ...post,
+    image: post.featured_media.source_url,
+    description: post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 200),
+    date: new Date(post.date).toDateString({ dateStyle: "short" }),
+    readTime: readingTime(post.content).text,
+  };
+
   return {
-    notFound,
     props: {
       ...page,
       article,
