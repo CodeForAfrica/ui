@@ -7,6 +7,7 @@ import { useTheme } from "@material-ui/core/styles";
 import { ScrollBar, Section } from "@commons-ui/core";
 
 import ArticleCard from "@/promisetracker/components/ArticleCard";
+import Link from "@/promisetracker/components/Link";
 import CtAButton from "@/promisetracker/components/CtAButton";
 
 import useStyles from "./useStyles";
@@ -38,9 +39,11 @@ function LatestArticles({ actionLabel, items, title, ...props }) {
         </ScrollBar>
       </div>
       {actionLabel && (
-        <CtAButton classes={{ root: classes.cta, button: classes.ctaButton }}>
-          {actionLabel}
-        </CtAButton>
+        <Link href="/analysis/articles" className={classes.link}>
+          <CtAButton classes={{ root: classes.cta, button: classes.ctaButton }}>
+            {actionLabel}
+          </CtAButton>
+        </Link>
       )}
     </Section>
   );

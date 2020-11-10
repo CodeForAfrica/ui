@@ -2,6 +2,12 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   section: {},
+  link: {
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "none",
+    },
+  },
   sectionTitle: {
     marginBottom: typography.pxToRem(24),
     marginTop: typography.pxToRem(64),

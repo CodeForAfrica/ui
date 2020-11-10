@@ -6,6 +6,8 @@ import clsx from "clsx";
 import { Grid, useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 
+import Link from "@/promisetracker/components/Link";
+
 import { Section } from "@commons-ui/core";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
@@ -43,9 +45,11 @@ function LatestPromises({ actionLabel, items, title, ...props }) {
         ))}
       </Grid>
       {actionLabel && (
-        <CtAButton classes={{ root: classes.cta, button: classes.ctaButton }}>
-          {actionLabel}
-        </CtAButton>
+        <Link href="/promises" className={classes.link}>
+          <CtAButton classes={{ root: classes.cta, button: classes.ctaButton }}>
+            {actionLabel}
+          </CtAButton>
+        </Link>
       )}
     </Section>
   );
