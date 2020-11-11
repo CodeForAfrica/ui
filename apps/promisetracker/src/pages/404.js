@@ -2,6 +2,7 @@ import React from "react";
 
 import ErrorPage from "@/promisetracker/components/ErrorPage";
 
+import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
 import articleImage from "@/promisetracker/assets/article-thumb-01.png";
@@ -22,11 +23,13 @@ export async function getStaticProps({ locale }) {
       image: articleImage,
       title: "Codification of national sports and athletics law",
     }));
+  const languageAlternates = i18n().languageAlternates("/404");
 
   return {
     props: {
       ...page,
       items,
+      languageAlternates,
     },
     revalidate: 30 * 60, // seconds
   };

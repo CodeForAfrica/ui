@@ -139,6 +139,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug: slugParam }, locale }) {
+  const _ = i18n();
+  if (!_.locales.includes(locale)) {
+    return {
+      notFound: true,
+    };
+  }
+
   const slug = slugParam.toLowerCase();
   const post =
     slug !== NO_PROMISES_SLUG ? await wp().posts({ slug, locale }).first : null;
@@ -170,12 +177,14 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
     },
     narrative: post.acf.narrative,
   };
+  const languageAlternates = _.languageAlternates(`/promises/${slug}`);
 
   return {
     props: {
       ...page,
-      promise,
       errorCode,
+      languageAlternates,
+      promise,
     },
     revalidate: 2 * 60, // seconds
   };

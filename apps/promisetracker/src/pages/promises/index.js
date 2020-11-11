@@ -92,7 +92,8 @@ PromisesPage.defaultProps = {
 };
 
 export async function getStaticProps({ locale }) {
-  if (!i18n().locales.includes(locale)) {
+  const _ = i18n();
+  if (!_.locales.includes(locale)) {
     return {
       notFound: true,
     };
@@ -108,10 +109,12 @@ export async function getStaticProps({ locale }) {
       title: post.post_title,
       status: promiseStatuses[i % promiseStatuses.length],
     })) || null;
+  const languageAlternates = _.languageAlternates("/promises");
 
   return {
     props: {
       ...page,
+      languageAlternates,
       promises,
     },
     revalidate: 2 * 60, // seconds

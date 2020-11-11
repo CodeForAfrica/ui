@@ -60,7 +60,8 @@ FaqPage.defaultProps = {
 };
 
 export async function getStaticProps({ locale }) {
-  if (!i18n().locales.includes(locale)) {
+  const _ = i18n();
+  if (!_.locales.includes(locale)) {
     return {
       notFound: true,
     };
@@ -70,11 +71,13 @@ export async function getStaticProps({ locale }) {
   const faqs = page.faqs
     .reduce((arr, e) => arr.concat(e.questions_answers), [])
     .map((faq) => ({ title: faq.question, summary: faq.answer }));
+  const languageAlternates = _.languageAlternates("/faq");
 
   return {
     props: {
       ...page,
       faqs,
+      languageAlternates,
     },
     revalidate: 2 * 60, // seconds
   };

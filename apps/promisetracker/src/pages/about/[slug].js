@@ -19,16 +19,24 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug: slugParam }, locale }) {
+  const _ = i18n();
+  if (!_.locales.includes(locale)) {
+    return {
+      notFound: true,
+    };
+  }
+
   const slug = slugParam.toLowerCase();
   const pages = await wp().pages({ slug: "legal", locale }).children;
   const index = pages.findIndex((page) => page.slug === slug);
   const notFound = index === -1;
   const errorCode = notFound ? 404 : null;
   const page = pages[index] || null;
+  const languageAlternates = _.languageAlternates(`/about/${slug}`);
 
   return {
     notFound,
-    props: { ...page, errorCode, slug },
+    props: { ...page, errorCode, languageAlternates, slug },
     revalidate: 2 * 60, // seconds
   };
 }

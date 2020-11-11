@@ -99,7 +99,8 @@ Index.defaultProps = {
 };
 
 export async function getStaticProps({ locale }) {
-  if (!i18n().locales.includes(locale)) {
+  const _ = i18n();
+  if (!_.locales.includes(locale)) {
     return {
       notFound: true,
     };
@@ -114,11 +115,13 @@ export async function getStaticProps({ locale }) {
       title: post.post_title,
     })) || null;
   page.posts = null;
+  const languageAlternates = _.languageAlternates("/analysis/articles");
 
   return {
     props: {
       ...page,
       articles,
+      languageAlternates,
     },
   };
 }

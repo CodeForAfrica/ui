@@ -178,23 +178,36 @@ Index.defaultProps = {
   subscribe: undefined,
 };
 
-export async function getStaticProps({ query = {} }) {
-  const { lang } = query;
-  const page = await wp().pages({ slug: "index", lang }).first;
-  const promises = await check("pesacheck-promise-tracker").promises({
-    limit: 10000,
+export async function getStaticProps({ locale }) {
+  const _ = i18n();
+  // Skip generating pages for unsupported locales
+  if (!_.locales.includes(locale)) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const page = await wp().pages({ slug: "index", locale }).first;
+  const { promiseStatuses } = page;
+  const checkApi = check({
+    promiseStatuses,
+    team: "pesacheck-promise-tracker",
+  });
+  const promises = await checkApi.promises({
+    limit: 6,
     query: `{ "projects": ["2831"] }`,
   });
   const promisesByCategories = await checkApi.promisesByCategories({
     team: "pesacheck-promise-tracker",
   });
+  const languageAlternates = _.languageAlternates();
 
   return {
     props: {
       ...page,
-      promises: promises.slice(0, 6),
-      keyPromises,
-      promisesByStatus: groupPromisesByStatus(promises),
+      languageAlternates,
+      promises,
+      promisesByCategories,
     },
     revalidate: 2 * 60, // seconds
   };

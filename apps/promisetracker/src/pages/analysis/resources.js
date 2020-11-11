@@ -38,17 +38,20 @@ function Resources(props) {
 }
 
 export async function getStaticProps({ locale }) {
-  if (!i18n().locales.includes(locale)) {
+  const _ = i18n();
+  if (!_.locales.includes(locale)) {
     return {
       notFound: true,
     };
   }
 
   const page = await wp().pages({ slug: "index" }).first;
+  const languageAlternates = _.languageAlternates("/analysis/resources");
 
   return {
     props: {
       ...page,
+      languageAlternates,
     },
     revalidate: 2 * 60, // seconds
   };
