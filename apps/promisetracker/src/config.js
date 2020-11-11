@@ -21,7 +21,7 @@ const config = {
   CHECK_PROMISE_MAX_COUNT: 150,
   WP_DASHBOARD_URL: "https://dashboard.hurumap.org/promisetracker",
   title: "PromiseTracker",
-  url: "https://promisetracker.pesacheck.org/",
+  URL: "https://promisetracker.dev.codeforafrica.org/",
   settings: {
     subscribe: {
       embedCode: `
