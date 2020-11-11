@@ -1,13 +1,13 @@
 import isEmpty from "lodash/isEmpty";
 
+import server from "@/promisetracker/lib/server";
 import config from "@/promisetracker/config";
 
 function wp(site) {
-  const SITE = site?.length ? `${site.trim().toUpperCase()}_` : "";
-  const DEFAULT_LOCALE =
-    process.env[`${SITE}DEFAULT_LOCALE`] || config.DEFAULT_LOCALE;
+  const siteServer = server(site);
   const WP_DASHBOARD_URL =
-    process.env[`${SITE}WP_DASHBOARD_URL`] || config.WP_DASHBOARD_URL;
+    process.env[`${siteServer.site}WP_DASHBOARD_URL`] ||
+    config.WP_DASHBOARD_URL;
   const WP_DASHBOARD_API_URL = `${WP_DASHBOARD_URL}/wp-json/wp/v2`;
   const WP_DASHBOARD_ACF_API_URL = `${WP_DASHBOARD_URL}/wp-json/acf/v3`;
 
@@ -172,7 +172,7 @@ function wp(site) {
     pages: ({
       id,
       slug,
-      locale = DEFAULT_LOCALE,
+      locale = siteServer.defaultLocale,
       order = "asc",
       orderBy = "menu_order",
     }) => ({
@@ -199,7 +199,7 @@ function wp(site) {
         })();
       },
     }),
-    posts: ({ slug, locale = DEFAULT_LOCALE }) => ({
+    posts: ({ slug, locale = siteServer.defaultLocale }) => ({
       get first() {
         return (async () => {
           if (slug) {
