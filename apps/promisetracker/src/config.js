@@ -20,6 +20,8 @@ const config = {
   CHECK_PROJECT_DB_ID: 2831,
   CHECK_PROMISE_MAX_COUNT: 150,
   WP_DASHBOARD_URL: "https://dashboard.hurumap.org/promisetracker",
+  FACT_CHECKS_URL: "https://pesacheck.org",
+  FACT_CHECKS_TAG: "promise-tracker",
   title: "PromiseTracker",
   URL: "https://promisetracker.dev.codeforafrica.org/",
   settings: {
