@@ -159,7 +159,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
     ...post,
     image: post.featured_media.source_url,
     description: post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 200),
-    date: new Date(post.date).toDateString({ dateStyle: "short" }),
+    date: new Date(post.date).toISOString().slice(0, 10),
     readTime: readingTime(post.content).text,
   };
   const languageAlternates = _.languageAlternates(`/analysis/articles/${slug}`);

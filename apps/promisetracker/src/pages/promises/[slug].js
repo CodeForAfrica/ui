@@ -162,7 +162,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
     ...post,
     image: post.featured_media.source_url || null,
     description: post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 200),
-    date: new Date(post.date).toDateString({ dateStyle: "short" }),
+    date: new Date(post.date).toISOString().slice(0, 10),
     status: {
       color: "#FFB322",
       textColor: "#202020",
