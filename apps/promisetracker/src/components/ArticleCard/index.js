@@ -3,23 +3,17 @@ import PropTypes from "prop-types";
 
 import PostCard from "@/promisetracker/components/PostCard";
 import Link from "@/promisetracker/components/Link/Button";
-import { slugify } from "@/promisetracker/utils";
 
 import useStyles from "./useStyles";
 
-function ArticleCard({ classes: classesProp, title, ...props }) {
+function ArticleCard({ classes: classesProp, slug, ...props }) {
   const classes = useStyles({ classes: classesProp });
 
   return (
-    // <Link
-    //   className={classes.link}
-    // >
     <PostCard
       {...props}
-      as={`/analysis/articles/${slugify(title)}`}
+      href={`/analysis/articles/${slug}`}
       component={Link}
-      href="/analysis/articles/[slug]"
-      title={title}
       classes={{
         root: classes.root,
         content: classes.content,
@@ -33,13 +27,11 @@ function ArticleCard({ classes: classesProp, title, ...props }) {
         titleContainer: classes.titleContainer,
       }}
     />
-    // </Link>
   );
 }
 
 ArticleCard.propTypes = {
   children: PropTypes.node,
-  title: PropTypes.string.isRequired,
   classes: PropTypes.shape({
     content: PropTypes.string,
     contentRoot: PropTypes.string,
@@ -53,6 +45,7 @@ ArticleCard.propTypes = {
     title: PropTypes.string,
     titleContainer: PropTypes.string,
   }),
+  slug: PropTypes.string.isRequired,
 };
 
 ArticleCard.defaultProps = {
