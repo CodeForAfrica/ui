@@ -10,6 +10,7 @@ import Subscribe from "@/promisetracker/components/Newsletter";
 
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
+import { formatDate } from "@/promisetracker/utils";
 
 import promiseImage from "@/promisetracker/assets/promise-thumb-01@2x.png";
 
@@ -162,7 +163,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
     ...post,
     image: post.featured_media.source_url || null,
     description: post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 200),
-    date: new Date(post.date).toISOString().slice(0, 10),
+    date: formatDate(post.date),
     status: {
       color: "#FFB322",
       textColor: "#202020",

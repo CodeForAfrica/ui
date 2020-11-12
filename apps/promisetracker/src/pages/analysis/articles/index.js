@@ -12,6 +12,7 @@ import Subscribe from "@/promisetracker/components/Newsletter";
 
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
+import { formatDate } from "@/promisetracker/utils";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -116,7 +117,7 @@ export async function getStaticProps({ locale }) {
     page.posts?.map((post) => ({
       image: post.featured_image,
       description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
-      date: new Date(post.post_date).toISOString().slice(0, 10),
+      date: formatDate(post.post_date),
       slug: post.post_name,
       title: post.post_title,
     })) || null;

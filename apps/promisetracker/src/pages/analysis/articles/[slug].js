@@ -11,6 +11,7 @@ import RelatedArticles from "@/promisetracker/components/Articles";
 
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
+import { formatDate } from "@/promisetracker/utils";
 
 import articleThumbnail from "@/promisetracker/assets/article-thumb-01.png";
 
@@ -159,7 +160,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
     ...post,
     image: post.featured_media.source_url,
     description: post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 200),
-    date: new Date(post.date).toISOString().slice(0, 10),
+    date: formatDate(post.date),
     readTime: readingTime(post.content).text,
   };
   const languageAlternates = _.languageAlternates(`/analysis/articles/${slug}`);

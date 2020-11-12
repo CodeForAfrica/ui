@@ -1,5 +1,6 @@
-import server from "@/promisetracker/lib/server";
 import config from "@/promisetracker/config";
+import server from "@/promisetracker/lib/server";
+import { formatDate } from "@/promisetracker/utils";
 
 /**
  * Load fact checks stories from PesaCheck site.
@@ -24,7 +25,7 @@ function pc(site) {
         json.payload.references.Post[reportStreamItem.postPreview.postId]
     );
     const toFactCheck = (report) => ({
-      date: new Date(report.updatedAt).toISOString().slice(0, 10),
+      date: formatDate(report.updatedAt),
       image: `https://cdn-images-1.medium.com/max/480/${report.virtuals.previewImage.imageId}`,
       description: report.virtuals?.subtitle || null,
       href: `${SITE_FACT_CHECKS_URL}/${report.uniqueSlug}`,
