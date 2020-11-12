@@ -1,6 +1,7 @@
 import {
   GET_PROMISES,
   GET_PROMISES_BY_CATEGORIES,
+  GET_PROJECT_META,
 } from "@/promisetracker/lib/check/gql";
 
 import config from "@/promisetracker/config";
@@ -132,6 +133,29 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     }));
   }
 
+  function handleMeta({
+    data: {
+      me: {
+        current_team: { updated_at: updatedAt, description, tag_texts: tags },
+      },
+    },
+  }) {
+    const descriptionArr = description.split("|");
+    const position = descriptionArr[2];
+    const promiseLabel = descriptionArr[3];
+    const trailText = descriptionArr[4];
+
+    return {
+      updatedAt: Number(updatedAt) * 1000,
+      description: descriptionArr[0],
+      position,
+      promiseLabel,
+      trailText,
+      name: descriptionArr[1],
+      tags: tags.edges.map((tag) => tag.node),
+    };
+  }
+
   function handlePromisesCategoryResults({ data }) {
     return {
       id: data.team.id,
@@ -156,6 +180,9 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       return client
         .query({ query: GET_PROMISES_BY_CATEGORIES, variables })
         .then(handlePromisesCategoryResults);
+    },
+    projectMeta: async () => {
+      return client.query({ query: GET_PROJECT_META }).then(handleMeta);
     },
   };
   return api;

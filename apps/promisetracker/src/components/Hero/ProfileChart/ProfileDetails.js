@@ -69,6 +69,8 @@ function ProfileDetails({
   criteria,
   name,
   position,
+  promiseLabel,
+  trailText,
   promisesByStatus,
   ...props
 }) {
@@ -91,8 +93,11 @@ function ProfileDetails({
             <Typography variant="h1">{name}</Typography>
           </Hidden>
           <Typography variant="body2">
-            {position} {name} <b>{promisesByStatus.count} promises </b>at a
-            glance
+            {position} {name}{" "}
+            <b>
+              {promisesByStatus.count} {promiseLabel}{" "}
+            </b>
+            {trailText}
           </Typography>
         </Grid>
         <Grid
@@ -221,6 +226,8 @@ ProfileDetails.propTypes = {
   }),
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
+  promiseLabel: PropTypes.string.isRequired,
+  trailText: PropTypes.string.isRequired,
   promisesByStatus: PropTypes.shape({
     count: PropTypes.number,
     statusHistory: PropTypes.PropTypes.shape({
