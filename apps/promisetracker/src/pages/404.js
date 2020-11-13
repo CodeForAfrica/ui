@@ -5,30 +5,21 @@ import ErrorPage from "@/promisetracker/components/ErrorPage";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
-import articleImage from "@/promisetracker/assets/article-thumb-01.png";
-
 function NotFoundErrorPage(props) {
   return <ErrorPage {...props} />;
 }
 
 export async function getStaticProps({ locale }) {
-  const page = await wp().pages({ slug: "not-found", locale }).first;
-  const items = Array(3)
-    .fill(null)
-    .map((_, i) => ({
-      id: i,
-      date: "2019-08-10",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque.",
-      image: articleImage,
-      title: "Codification of national sports and athletics law",
-    }));
+  const wpApi = wp();
+  const page = await wpApi.pages({ slug: "not-found", locale }).first;
+  const posts = await wpApi.pages({ slug: "analysis-articles", locale }).posts;
+  const articles = posts?.slice(0, 4) || null;
   const languageAlternates = i18n().languageAlternates("/404");
 
   return {
     props: {
       ...page,
-      items,
+      articles,
       languageAlternates,
     },
     revalidate: 30 * 60, // seconds
