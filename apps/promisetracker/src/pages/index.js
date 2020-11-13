@@ -12,10 +12,9 @@ import Page from "@/promisetracker/components/Page";
 
 import config from "@/promisetracker/config";
 import check from "@/promisetracker/lib/check";
-import { groupPromisesByStatus } from "@/promisetracker/utils";
+import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
-
-import articleImage from "@/promisetracker/assets/article-thumb-01.png";
+import { groupPromisesByStatus } from "@/promisetracker/utils";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -35,6 +34,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
 
 function Index({
   actNow,
+  articles,
   criteria,
   footer,
   navigation,
@@ -126,17 +126,7 @@ function Index({
       />
       <LatestArticles
         actionLabel="See All"
-        items={Array(6)
-          .fill(null)
-          .map((_, i) => ({
-            date: "2019-08-10",
-            description: `
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              euismod odio non leo pretium pellentesque.
-            `,
-            image: articleImage,
-            title: `Codification of national sports and athletics law ${i + 1}`,
-          }))}
+        items={articles}
         title="Latest Articles"
         classes={{
           section: classes.section,
@@ -161,6 +151,7 @@ function Index({
 
 Index.propTypes = {
   actNow: PropTypes.shape({}),
+  articles: PropTypes.arrayOf(PropTypes.shape({})),
   criteria: PropTypes.shape({}),
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
@@ -182,6 +173,7 @@ Index.propTypes = {
 
 Index.defaultProps = {
   actNow: undefined,
+  articles: undefined,
   criteria: undefined,
   footer: undefined,
   navigation: undefined,
@@ -202,8 +194,8 @@ export async function getStaticProps({ locale }) {
       notFound: true,
     };
   }
-
-  const page = await wp().pages({ slug: "index", locale }).first;
+  const wpApi = wp();
+  const page = await wpApi.pages({ slug: "index", locale }).first;
   const { promiseStatuses } = page;
   const checkApi = check({
     promiseStatuses,
@@ -216,10 +208,16 @@ export async function getStaticProps({ locale }) {
   const promisesByCategories = await checkApi.promisesByCategories({
     team: "pesacheck-promise-tracker",
   });
-  const projectMeta = await checkApi.projectMeta();
+  const posts = await wpApi.pages({ slug: "analysis-articles", locale }).posts;
+  const articles = posts?.slice(0, 4) || null;
+  const languageAlternates = _.languageAlternates();
+
   return {
     props: {
       ...page,
+      articles,
+      keyPromises,
+      languageAlternates,
       promises: promises.slice(0, 6),
       keyPromises,
       promisesByStatus: groupPromisesByStatus(promises),
