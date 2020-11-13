@@ -148,8 +148,11 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   }
 
   const slug = slugParam.toLowerCase();
+  const wpApi = wp();
   const post =
-    slug !== NO_PROMISES_SLUG ? await wp().posts({ slug, locale }).first : null;
+    slug !== NO_PROMISES_SLUG
+      ? await wpApi.posts({ slug, locale }).first
+      : null;
   const notFound = !post;
   if (notFound) {
     return {
@@ -158,7 +161,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   }
 
   const errorCode = notFound ? 404 : null;
-  const page = await wp().pages({ slug: "promises", locale }).first;
+  const page = await wpApi.pages({ slug: "promises", locale }).first;
   const promise = {
     ...post,
     image: post.featured_media.source_url || null,
