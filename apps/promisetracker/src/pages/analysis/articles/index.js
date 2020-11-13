@@ -12,7 +12,6 @@ import Subscribe from "@/promisetracker/components/Newsletter";
 
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
-import { formatDate } from "@/promisetracker/utils";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -111,16 +110,10 @@ export async function getStaticProps({ locale }) {
       notFound: true,
     };
   }
-
-  const page = await wp().pages({ slug: "analysis-articles", locale }).first;
-  const articles =
-    page.posts?.map((post) => ({
-      image: post.featured_image,
-      description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
-      date: formatDate(post.post_date),
-      slug: post.post_name,
-      title: post.post_title,
-    })) || null;
+  const wpApi = wp();
+  const page = await wpApi.pages({ slug: "analysis-articles", locale }).first;
+  const posts = await wpApi.pages({ page }).posts;
+  const articles = posts?.slice(0, 4) || null;
   page.posts = null;
   const languageAlternates = _.languageAlternates("/analysis/articles");
 
