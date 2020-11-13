@@ -18,7 +18,7 @@ import useStyles from "./useStyles";
 function ErrorPage({
   description,
   footer,
-  items,
+  articles,
   navigation,
   title,
   ...props
@@ -51,7 +51,7 @@ function ErrorPage({
           </Grid>
         </Grid>
       </Section>
-      {items?.length > 0 && (
+      {articles?.length > 0 && (
         <div className={classes.articles}>
           <Section
             classes={{ root: classes.section }}
@@ -62,7 +62,7 @@ function ErrorPage({
               justify="space-between"
               className={classes.gridArticles}
             >
-              {items.map((article) => (
+              {articles.map((article) => (
                 <Grid item key={article.title} className={classes.gridArticle}>
                   <ArticleCard {...article} component="div" />
                 </Grid>
@@ -78,7 +78,7 @@ function ErrorPage({
 ErrorPage.propTypes = {
   description: PropTypes.string,
   footer: PropTypes.shape({}),
-  items: PropTypes.arrayOf(PropTypes.shape({})),
+  articles: PropTypes.arrayOf(PropTypes.shape({})),
   navigation: PropTypes.shape({}),
   title: PropTypes.string,
 };
@@ -86,7 +86,7 @@ ErrorPage.propTypes = {
 ErrorPage.defaultProps = {
   description: undefined,
   footer: undefined,
-  items: undefined,
+  articles: undefined,
   navigation: undefined,
   title: undefined,
 };
