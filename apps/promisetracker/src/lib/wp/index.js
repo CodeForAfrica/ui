@@ -2,6 +2,7 @@ import isEmpty from "lodash/isEmpty";
 
 import server from "@/promisetracker/lib/server";
 import config from "@/promisetracker/config";
+import { formatDate } from "@/promisetracker/utils";
 
 function wp(site) {
   const siteServer = server(site);
@@ -175,6 +176,7 @@ function wp(site) {
       locale = siteServer.defaultLocale,
       order = "asc",
       orderBy = "menu_order",
+      page,
     }) => ({
       get first() {
         return (async () => {
@@ -184,18 +186,40 @@ function wp(site) {
           if (slug) {
             return getPageBySlug(slug, locale);
           }
-          return {};
+          return page || {};
         })();
       },
       get children() {
         return (async () => {
-          if (id) {
-            return getPagesByParentId(id, locale, order, orderBy);
+          const parentId = id || page?.id;
+          if (parentId) {
+            return getPagesByParentId(parentId, locale, order, orderBy);
           }
           if (slug) {
             return getPagesByParentSlug(slug, locale, order, orderBy);
           }
           return [];
+        })();
+      },
+      get posts() {
+        return (async () => {
+          let pageWithPosts;
+          if (id) {
+            pageWithPosts = await getPageById(id, locale);
+          } else if (slug) {
+            pageWithPosts = await getPageBySlug(slug, locale);
+          } else {
+            pageWithPosts = page;
+          }
+          const posts =
+            pageWithPosts?.posts?.map((post) => ({
+              image: post.featured_image,
+              description: post.post_content.replace(/(<([^>]+)>)/gi, ""),
+              date: formatDate(post.post_date),
+              slug: post.post_name,
+              title: post.post_title,
+            })) || null;
+          return posts;
         })();
       },
     }),
