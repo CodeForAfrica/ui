@@ -19,8 +19,15 @@ const DEFAULT_TITLE_PROPS = {
   variant: "h4",
 };
 
-function KeyPromises({ actionLabel, items, title, titleProps, ...props }) {
-  const classes = useStyles(props);
+function KeyPromises({
+  actionLabel,
+  interval,
+  items,
+  title,
+  titleProps,
+  ...props
+}) {
+  const classes = useStyles({ ...props });
   const [activeStep, setActiveStep] = useState(0);
   const stepperRef = useRef();
   useEffect(() => {
@@ -63,6 +70,7 @@ function KeyPromises({ actionLabel, items, title, titleProps, ...props }) {
           key={items[activeStep].title}
           actionLabel={actionLabel}
           {...items[activeStep]}
+          {...props}
         />
         {/* ))} */}
         {/* </SwipeableViews> */}
