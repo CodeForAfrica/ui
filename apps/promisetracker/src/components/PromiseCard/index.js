@@ -9,16 +9,16 @@ import { slugify } from "@/promisetracker/utils";
 
 import useStyles from "./useStyles";
 
-function PromiseCard({ classes: classesProp, status, title, ...props }) {
+function PromiseCard({ classes: classesProp, status, dbid, title, ...props }) {
   const classes = useStyles({ classes: classesProp, status });
 
   return (
     <PostCard
       {...props}
       title={title}
-      as={`/promises/${slugify(title)}`}
+      as={`/promises/${dbid}/${slugify(title)}`}
       component={Link}
-      href="/promises/[slug]"
+      href="/promises/[id]/[slug]"
       classes={{
         root: classes.root,
         content: classes.content,
@@ -52,6 +52,7 @@ PromiseCard.propTypes = {
     title: PropTypes.string,
     titleContainer: PropTypes.string,
   }),
+  dbid: PropTypes.string.isRequired,
   status: PropTypes.shape({}).isRequired,
   title: PropTypes.string.isRequired,
 };
