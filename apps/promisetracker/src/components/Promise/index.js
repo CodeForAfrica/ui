@@ -60,7 +60,7 @@ function Promise({
           </Hidden>
 
           <RichTypography className={classes.promiseBody} variant="body1">
-            {promise.content}
+            {promise.description}
           </RichTypography>
           <Hidden lgUp>
             <Typography className={classes.label} variant="h5">
