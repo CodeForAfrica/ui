@@ -7,10 +7,11 @@ import Page from "@/promisetracker/components/Page";
 import Promise from "@/promisetracker/components/Promise";
 import RelatedPromises from "@/promisetracker/components/Promises";
 import Subscribe from "@/promisetracker/components/Newsletter";
+import check from "@/promisetracker/lib/check";
 
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
-import { formatDate } from "@/promisetracker/utils";
+import { slugify } from "@/promisetracker/utils";
 
 import promiseImage from "@/promisetracker/assets/promise-thumb-01@2x.png";
 
@@ -40,11 +41,6 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
     marginTop: 0,
   },
 }));
-
-/**
- * see: /pages/analysis/articles/[slug]#NO_RTICLES_SLUG
- */
-const NO_PROMISES_SLUG = "not_found";
 
 function PromisePage({
   footer,
@@ -127,12 +123,20 @@ PromisePage.defaultProps = {
 
 export async function getStaticPaths() {
   const fallback = false;
-  const page = await wp().pages({ slug: "promises" }).first;
-  const posts = page.acf?.posts?.length
-    ? page.acf.posts
-    : [{ post_name: NO_PROMISES_SLUG }];
-  const unlocalizedPaths = posts.map((post) => ({
-    params: { slug: post.post_name },
+  const wpApi = wp();
+  const page = await wpApi.pages({ slug: "promises" }).first;
+  const { promiseStatuses } = page;
+  const checkApi = check({
+    promiseStatuses,
+    team: "pesacheck-promise-tracker",
+  });
+  const promises = await checkApi.promises({
+    limit: 10000,
+    query: `{ "projects": ["2831"] }`,
+  });
+
+  const unlocalizedPaths = promises.map((promise) => ({
+    params: { slug: slugify(promise.title) },
   }));
   const paths = i18n().localizePaths(unlocalizedPaths);
 
@@ -146,14 +150,22 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
       notFound: true,
     };
   }
-
-  const slug = slugParam.toLowerCase();
   const wpApi = wp();
-  const post =
-    slug !== NO_PROMISES_SLUG
-      ? await wpApi.posts({ slug, locale }).first
-      : null;
-  const notFound = !post;
+  const page = await wpApi.pages({ slug: "promises", locale }).first;
+  const { promiseStatuses } = page;
+
+  const checkApi = check({
+    promiseStatuses,
+    team: "pesacheck-promise-tracker",
+  });
+
+  const slug = slugify(slugParam);
+  const promisePost = await checkApi.promise({
+    slug,
+    query: `{ "projects": ["2831"] }`,
+  });
+
+  const notFound = !promisePost;
   if (notFound) {
     return {
       notFound,
@@ -161,26 +173,16 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   }
 
   const errorCode = notFound ? 404 : null;
-  const page = await wpApi.pages({ slug: "promises", locale }).first;
+
   const promise = {
-    ...post,
-    image: post.featured_media.source_url || null,
-    description: post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 200),
-    date: formatDate(post.date),
-    status: {
-      color: "#FFB322",
-      textColor: "#202020",
-      title: "delayed",
-    },
+    ...promisePost,
     attribution: {
-      title: post.acf.source_attribution.title,
-      description: post.acf.source_attribution.description.replace(
-        /(<([^>]+)>)/gi,
-        ""
-      ),
+      title: "",
+      description: "",
     },
-    narrative: post.acf.narrative,
+    narrative: "",
   };
+
   const languageAlternates = _.languageAlternates(`/promises/${slug}`);
 
   return {

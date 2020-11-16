@@ -6,6 +6,7 @@ import {
 
 import config from "@/promisetracker/config";
 import promiseImage from "@/promisetracker/assets/promise-thumb-01.png";
+import { slugify } from "@/promisetracker/utils";
 import createApolloClient from "./createApolloClient";
 
 const UNSPECIFIED_TEAM = "unspecified";
@@ -133,6 +134,10 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     }));
   }
 
+  function handleSinglePromise(promises, slug) {
+    return promises.find((promise) => slugify(promise.title) === slug);
+  }
+
   function handleMeta({
     data: {
       me: {
@@ -183,6 +188,13 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     },
     projectMeta: async () => {
       return client.query({ query: GET_PROJECT_META }).then(handleMeta);
+    },
+    promise: async ({ slug, query }) => {
+      const variables = { limit: 10000, query };
+      return client
+        .query({ query: GET_PROMISES, variables })
+        .then(handlePromisesResult)
+        .then((promises) => handleSinglePromise(promises, slug));
     },
   };
   return api;
