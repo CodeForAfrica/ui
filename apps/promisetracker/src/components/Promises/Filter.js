@@ -15,6 +15,12 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    "&:hover": {
+      marginRight: ".6rem",
+      marginBottom: ".6rem",
+      padding: ".5rem .5rem",
+      border: `.122rem solid ${palette.primary.dark}`,
+    },
   },
   filterContainer: {
     alignItems: "center",
