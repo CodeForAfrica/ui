@@ -74,38 +74,8 @@ function Index({
       />
       <KeyPromises
         actionLabel="Learn More"
-        interval={[2017, 2022]}
-        borderBottom="blue"
-        items={Array(6)
-          .fill(null)
-          .map((_, i) => ({
-            date: "2019-08-10",
-            description: `
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod odio non leo pretium pellentesque. Curabitur blandit urna cursus, malesuada erat ut, egestas odio.
-            `,
-            events: [
-              {
-                year: randomYear(),
-                title: "Event A",
-                color: "white",
-                textColor: theme.palette.text.main,
-              },
-              {
-                year: randomYear(),
-                title: "Event B",
-                color: "white",
-                textColor: theme.palette.text.main,
-              },
-            ],
-            image: promiseCarouselImage,
-            title: `Codification of national sports and athletics law ${i + 1}`,
-            statuses: [
-              {
-                ...promiseStatuses[i % promiseStatuses.length],
-                year: randomYear(),
-              },
-            ],
-          }))}
+        items={keyPromises}
+        borderBottom="orange"
         title="Key Promises"
         classes={{
           section: classes.section,
