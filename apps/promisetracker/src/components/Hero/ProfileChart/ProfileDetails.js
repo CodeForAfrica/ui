@@ -55,6 +55,9 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
     height: "auto",
     maxWidth: "100%",
   },
+  popoverContainer: {
+    width: "100%",
+  },
   rect: {
     padding: "2rem 0rem",
     width: "100%",
@@ -146,7 +149,7 @@ function ProfileDetails({
       </Grid>
       <>
         {isDesktop ? (
-          <div>
+          <div className={classes.popoverContainer}>
             {clicked ? (
               <Fade in={clicked}>
                 <div className={classes.rect}>
