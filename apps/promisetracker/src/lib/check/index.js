@@ -7,6 +7,7 @@ import {
 
 import config from "@/promisetracker/config";
 import promiseImage from "@/promisetracker/assets/promise-thumb-01.png";
+import { slugify } from "@/promisetracker/utils";
 import createApolloClient from "./createApolloClient";
 
 const UNSPECIFIED_TEAM = "unspecified";
@@ -60,6 +61,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       ? startDateTask.node.first_response_value.split(" ").slice(0, 3).join(" ")
       : null;
   }
+
   function getPromiseDeadlineEvent(node) {
     const items = node.tasks?.edges;
     const deadlineTask = findItemByNodeLabel(
@@ -121,25 +123,11 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     return statusHistory.length ? statusHistory : [defaultStatus];
   }
 
-  function handlePromisesResult(res) {
-    return res.data.search.medias.edges.map(({ node }) => ({
-      id: node.id,
-      dbid: node.dbid,
-      title: node.title,
-      image: getImage(node),
-      description: node.description,
-      date: getPromiseDate(node),
-      events: [getPromiseDeadlineEvent(node)],
-      status: getStatusHistory(node)[0],
-      statusHistory: getStatusHistory(node),
-    }));
-  }
-
-  function handleSinglePromise({ data }) {
-    const node = data.project_media;
+  function adaptPromise(node) {
     return {
-      id: node.id,
-      dbid: node.dbid,
+      id: node.dbid,
+      href: `${node.dbid}/${slugify(node.title)}`,
+      slug: slugify(node.title),
       title: node.title,
       image: getImage(node),
       description: node.description,
@@ -148,6 +136,15 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       status: getStatusHistory(node)[0],
       statusHistory: getStatusHistory(node),
     };
+  }
+
+  function handlePromisesResult(res) {
+    return res.data.search.medias.edges.map(({ node }) => adaptPromise(node));
+  }
+
+  function handleSinglePromise({ data }) {
+    const node = data.project_media;
+    return adaptPromise(node);
   }
 
   function handleMeta({
