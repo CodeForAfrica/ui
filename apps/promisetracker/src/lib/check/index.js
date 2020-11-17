@@ -1,5 +1,6 @@
 import {
   GET_PROMISES,
+  GET_PROMISE,
   GET_PROMISES_BY_CATEGORIES,
   GET_PROJECT_META,
 } from "@/promisetracker/lib/check/gql";
@@ -134,8 +135,19 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     }));
   }
 
-  function handleSinglePromise(promises = [], dbid) {
-    return promises.find((promise) => Number(promise.dbid) === Number(dbid));
+  function handleSinglePromise({ data }) {
+    const node = data.project_media;
+    return {
+      id: node.id,
+      dbid: node.dbid,
+      title: node.title,
+      image: getImage(node),
+      description: node.description,
+      date: getPromiseDate(node),
+      events: [getPromiseDeadlineEvent(node)],
+      status: getStatusHistory(node)[0],
+      statusHistory: getStatusHistory(node),
+    };
   }
 
   function handleMeta({
@@ -191,9 +203,8 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     },
     promise: async (variables) => {
       return client
-        .query({ query: GET_PROMISES, variables })
-        .then(handlePromisesResult)
-        .then((promises) => handleSinglePromise(promises, variables.dbid));
+        .query({ query: GET_PROMISE, variables })
+        .then(handleSinglePromise);
     },
   };
   return api;

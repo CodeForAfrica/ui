@@ -164,9 +164,7 @@ export async function getStaticProps({
 
   const slug = slugify(slugParam);
   const promisePost = await checkApi.promise({
-    limit: 1,
     dbid,
-    query: `{ "dbid" : ["${dbid}"],"projects": ["2831"] }`,
   });
 
   const notFound = !promisePost;
