@@ -136,18 +136,17 @@ export async function getStaticPaths() {
   });
 
   const unlocalizedPaths = promises.map((promise) => ({
-    params: { dbid: `${promise.dbid}`, slug: slugify(promise.title) },
+    params: { slug: [`${promise.id}`, promise.slug] },
   }));
   const paths = i18n().localizePaths(unlocalizedPaths);
 
   return { fallback, paths };
 }
 
-export async function getStaticProps({
-  params: { dbid, slug: slugParam },
-  locale,
-}) {
+export async function getStaticProps({ params: { slug: slugParam }, locale }) {
+  console.log("slugParam", slugParam);
   const _ = i18n();
+  const id = slugParam[0];
   if (!_.locales.includes(locale)) {
     return {
       notFound: true,
@@ -164,7 +163,7 @@ export async function getStaticProps({
 
   const slug = slugify(slugParam);
   const promisePost = await checkApi.promise({
-    dbid,
+    id,
   });
 
   const notFound = !promisePost;
