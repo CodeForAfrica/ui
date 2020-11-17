@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export default gql`
-  query me($dbid: String!) {
-    project_media(ids: $dbid) {
+  query getPromise($id: String!) {
+    project_media(ids: $id) {
       id
       dbid
       title
