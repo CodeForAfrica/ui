@@ -10,20 +10,13 @@ Run the following to get started :
 On dev
 
 ```sh
-  cp .env.tmpl .env
-  # Edit .env with you Check Access Token
+  cp .env.template .env
+  # Edit .env file with your Check Access Token
   yarn
-  yarn now-dev
+  yarn dev
 ```
 
-To deploy:
-
-```sh
-  yarn run now login
-  yarn run now secrets add check-access-token <CHECK_ACCESS_TOKEN>
-  yarn run switch  # Select Team to deploy to
-  yarn deploy
-```
+**Note:** Reach out to your team lead for directions on how to receive the `CHECK_ACCESS_TOKEN`
 
 ## Attribution
 
