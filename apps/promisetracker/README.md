@@ -6,12 +6,13 @@
 
 PromiseTracker is a SSR rendered [Next](https://nextjs.org/) web app deployable to [Zeit](https://zeit.co). See [package.json](./package.json) for the full list of dependencies and build & deploy scripts.
 
-Run the following to get started :
-On dev
+Run the following to get started locally:
+
+#### Development Env
 
 ```sh
   cp .env.template .env
-  # Edit .env file with your Check Access Token
+  # Edit the .env file with your Check Access Token
   yarn
   yarn dev
 ```
