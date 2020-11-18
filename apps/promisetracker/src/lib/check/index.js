@@ -132,11 +132,14 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
 
     const expression = /(https?:\/\/(?:www\.|(?!www))[^\s.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
     const matches = dataSourceTask.node.first_response_value.match(expression);
-
     return Promise.all(
       matches?.map(async (match) => {
         const result = await fetch(match.replace(".html", ".json"));
-        return result.json();
+        const pageNumber = Number(
+          match.split("#document/")[1].split("/")[0].substring(1)
+        ); // get page number from url
+        const document = await result.json();
+        return Object.assign(document, { pageNumber });
       }) || []
     );
   }
@@ -211,7 +214,6 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
         .query({ query: GET_PROMISES, variables })
         .then(handlePromisesResult)
         .then((response) => {
-          console.log("response", response);
           return response;
         });
     },
@@ -229,7 +231,6 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
         .query({ query: GET_PROMISE, variables })
         .then(handleSinglePromise)
         .then((response) => {
-          console.log("response", response);
           return response;
         });
     },
