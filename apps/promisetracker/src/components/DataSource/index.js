@@ -7,12 +7,15 @@ import { replaceAll } from "@/promisetracker/utils";
 import ShareIcon from "@/promisetracker/icons/Share";
 import useStyles from "./useStyles";
 
-function DataSource({ classes: classesProp, documents }) {
+function DataSource({ classes: classesProp, documents, title }) {
   const classes = useStyles({ classes: classesProp });
   if (!documents || !documents.length) return null;
   return (
     <div className={classes.root}>
-      <div className={classes.shareContainer}>
+      <div className={classes.titleShareContainer}>
+        <Typography className={classes.title} variant="h4">
+          {title}
+        </Typography>
         <IconButton aria-label="share" className={classes.share}>
           <ShareIcon color="primary" fontSize="inherit" />
         </IconButton>
@@ -28,8 +31,8 @@ function DataSource({ classes: classesProp, documents }) {
                 "{size}": "large",
               })}
             />
-            <Typography variant="body2" className={classes.title}>
-              {document.title}
+            <Typography variant="body2" className={classes.name}>
+              {document.name}
             </Typography>
           </A>
         ))}
@@ -43,16 +46,19 @@ DataSource.propTypes = {
     documentContainer: PropTypes.string,
     document: PropTypes.string,
     root: PropTypes.string,
-    shareContainer: PropTypes.string,
+    titleShareContainer: PropTypes.string,
     share: PropTypes.string,
     image: PropTypes.string,
+    name: PropTypes.string,
     title: PropTypes.string,
   }),
   documents: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  title: PropTypes.string,
 };
 
 DataSource.defaultProps = {
   classes: undefined,
+  title: undefined,
 };
 
 export default DataSource;

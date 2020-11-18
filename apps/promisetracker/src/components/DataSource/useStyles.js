@@ -9,15 +9,16 @@ const useStyles = makeStyles(({ typography }) => ({
     width: "100%",
   },
   root: {
-    padding: "3rem 1rem 3rem 1rem",
+    padding: "3rem 2.5rem 3rem 2.5rem",
     margin: "4rem 0",
     background: "#F7F7F7 0% 0% no-repeat padding-box",
   },
-  shareContainer: {
+  titleShareContainer: {
     fontSize: typography.h4.fontSize,
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
+    marginBottom: "2.5rem",
   },
   share: {
     paddingTop: ".1rem",
@@ -28,7 +29,7 @@ const useStyles = makeStyles(({ typography }) => ({
   image: {
     width: "100%",
   },
-  title: {
+  name: {
     textAlign: "center",
   },
 }));
