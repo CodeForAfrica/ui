@@ -7,6 +7,7 @@ const useStyles = makeStyles(({ typography }) => ({
   },
   document: {
     width: "100%",
+    marginBottom: "1.5rem",
   },
   root: {
     padding: "3rem 2.5rem 3rem 2.5rem",
