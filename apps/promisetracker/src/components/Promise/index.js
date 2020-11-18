@@ -6,6 +6,7 @@ import { Grid, Hidden, Typography } from "@material-ui/core";
 import { RichTypography, Section } from "@commons-ui/core";
 
 import AuthorAtribution from "@/promisetracker/components/Promise/AuthorAtribution";
+import DataSource from "@/promisetracker/components/DataSource";
 import Link from "@/promisetracker/components/Link";
 import NarativeUpdates from "@/promisetracker/components/Promise/Narative";
 import Radar from "@/promisetracker/components/Promise/Radar";
@@ -58,7 +59,6 @@ function Promise({
               />
             </div>
           </Hidden>
-
           <RichTypography className={classes.promiseBody} variant="body1">
             {promise.description}
           </RichTypography>
@@ -69,6 +69,7 @@ function Promise({
             <Radar />
           </Hidden>
           <NarativeUpdates {...promise.narrative} />
+          <DataSource {...promise} />
           <RichTypography className={classes.promiseBody} variant="body1">
             {promise.content}
           </RichTypography>
