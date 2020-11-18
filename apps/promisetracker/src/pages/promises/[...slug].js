@@ -11,7 +11,6 @@ import check from "@/promisetracker/lib/check";
 
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
-import { slugify } from "@/promisetracker/utils";
 
 import promiseImage from "@/promisetracker/assets/promise-thumb-01@2x.png";
 
@@ -52,7 +51,6 @@ function PromisePage({
 }) {
   const classes = useStyles(props);
   const title = promise?.title ? `${promise.title} | ${titleProp}` : titleProp;
-
   return (
     <Page
       {...props}
@@ -144,9 +142,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug: slugParam }, locale }) {
-  console.log("slugParam", slugParam);
   const _ = i18n();
   const id = slugParam[0];
+  const slug = slugParam[1];
   if (!_.locales.includes(locale)) {
     return {
       notFound: true,
@@ -161,7 +159,6 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
     team: "pesacheck-promise-tracker",
   });
 
-  const slug = slugify(slugParam);
   const promisePost = await checkApi.promise({
     id,
   });
@@ -184,7 +181,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
     narrative: "",
   };
 
-  const languageAlternates = _.languageAlternates(`/promises/${slug}`);
+  const languageAlternates = _.languageAlternates(`/promises/${id}/${slug}`);
 
   return {
     props: {
