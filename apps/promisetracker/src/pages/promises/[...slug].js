@@ -144,7 +144,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const _ = i18n();
   const id = slugParam[0];
-  const slug = slugParam[1];
   if (!_.locales.includes(locale)) {
     return {
       notFound: true,
@@ -181,7 +180,9 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
     narrative: "",
   };
 
-  const languageAlternates = _.languageAlternates(`/promises/${id}/${slug}`);
+  const languageAlternates = _.languageAlternates(
+    `/promises/${id}/${promisePost.slug}`
+  );
 
   return {
     props: {
