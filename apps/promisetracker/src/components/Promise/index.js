@@ -69,7 +69,7 @@ function Promise({
             <Radar />
           </Hidden>
           <NarativeUpdates {...promise.narrative} />
-          <DataSource {...promise} />
+          <DataSource documents={promise.documents} title="DATA SOURCE EMBED" />
           <RichTypography className={classes.promiseBody} variant="body1">
             {promise.content}
           </RichTypography>
@@ -106,6 +106,7 @@ Promise.propTypes = {
     status: PropTypes.shape({}),
     attribution: PropTypes.shape({}),
     narrative: PropTypes.shape({}),
+    documents: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
   breadcrumb: PropTypes.string,
   classes: PropTypes.shape({
