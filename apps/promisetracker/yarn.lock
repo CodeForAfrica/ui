@@ -3495,12 +3495,10 @@ eslint-plugin-markdown@^1.0.2:
     remark-parse "^5.0.0"
     unified "^6.1.2"
 
-eslint-plugin-module-resolver@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-module-resolver/-/eslint-plugin-module-resolver-1.0.0.tgz#6640787bf95e6cef0f49ff61fcc7de9709224310"
-  integrity sha512-Z+FaIkmQ9Bqi0KLic7LISlg+L8eNNK1l57e9XXbKvsUmtQqvtTx2UbEpXwAGdahAI5e2o///gJXNfXgHzX9YpQ==
-  dependencies:
-    find-babel-config "^1.2.0"
+eslint-plugin-module-resolver@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-module-resolver/-/eslint-plugin-module-resolver-1.1.0.tgz#ed7c1936b4138e6ad1b812e3961744b969c8adef"
+  integrity sha512-NkoFHtUShDsFnOY+UZzxWFh5dVAVQdpiNnNuLl0xSTuUHbkQW0ygXzNDM+uM+viI6D29/0FP8XBwC80ZChadcg==
 
 eslint-plugin-prettier@^3.1.4:
   version "3.1.4"
