@@ -122,8 +122,22 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
 
     return statusHistory.length ? statusHistory : [defaultStatus];
   }
+  //  function getDataSource(node) {
+  //   const items = node.tasks?.edges;
+  //   const dataSourceTask = findItemByNodeLabel(
+  //     items,
+  //     "Where was this promise documented?"
+  //   );
 
-  function adaptPromise(node) {
+  //   const expression = /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
+  //   const matches = dataSourceTask.node.first_response_value.match(expression);
+
+  //   return Promise.all( matches?.map(async match => {
+  //     const result = await fetch(match.replace('.html', '.json'))
+  //     return result.json()
+  //   }))
+  // }
+  function nodeToPromise(node) {
     return {
       id: node.dbid,
       href: `${node.dbid}/${slugify(node.title)}`,
@@ -135,16 +149,17 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       events: [getPromiseDeadlineEvent(node)],
       status: getStatusHistory(node)[0],
       statusHistory: getStatusHistory(node),
+      // documents:   getDataSource(node) ||[]
     };
   }
 
   function handlePromisesResult(res) {
-    return res.data.search.medias.edges.map(({ node }) => adaptPromise(node));
+    return res.data.search.medias.edges.map(({ node }) => nodeToPromise(node));
   }
 
   function handleSinglePromise({ data }) {
     const node = data.project_media;
-    return adaptPromise(node);
+    return nodeToPromise(node);
   }
 
   function handleMeta({
@@ -188,12 +203,17 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     promises: async (variables) => {
       return client
         .query({ query: GET_PROMISES, variables })
-        .then(handlePromisesResult);
+        .then(handlePromisesResult)
+        .then((response) => {
+          console.log("response", response);
+          return response;
+        });
     },
     promisesByCategories: async (variables) => {
       return client
         .query({ query: GET_PROMISES_BY_CATEGORIES, variables })
-        .then(handlePromisesCategoryResults);
+        .then(handlePromisesCategoryResults)
+        .then((promise) => promise);
     },
     projectMeta: async () => {
       return client.query({ query: GET_PROJECT_META }).then(handleMeta);
@@ -201,7 +221,11 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     promise: async (variables) => {
       return client
         .query({ query: GET_PROMISE, variables })
-        .then(handleSinglePromise);
+        .then(handleSinglePromise)
+        .then((response) => {
+          console.log("response", response);
+          return response;
+        });
     },
   };
   return api;
