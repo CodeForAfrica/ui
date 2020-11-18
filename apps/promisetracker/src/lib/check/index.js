@@ -122,22 +122,26 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
 
     return statusHistory.length ? statusHistory : [defaultStatus];
   }
-  //  function getDataSource(node) {
-  //   const items = node.tasks?.edges;
-  //   const dataSourceTask = findItemByNodeLabel(
-  //     items,
-  //     "Where was this promise documented?"
-  //   );
 
-  //   const expression = /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
-  //   const matches = dataSourceTask.node.first_response_value.match(expression);
+  async function getDataSource(node) {
+    const items = node.tasks?.edges;
+    const dataSourceTask = findItemByNodeLabel(
+      items,
+      "Where was this promise documented?"
+    );
 
-  //   return Promise.all( matches?.map(async match => {
-  //     const result = await fetch(match.replace('.html', '.json'))
-  //     return result.json()
-  //   }))
-  // }
-  function nodeToPromise(node) {
+    const expression = /(https?:\/\/(?:www\.|(?!www))[^\s.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
+    const matches = dataSourceTask.node.first_response_value.match(expression);
+
+    return Promise.all(
+      matches?.map(async (match) => {
+        const result = await fetch(match.replace(".html", ".json"));
+        return result.json();
+      }) || []
+    );
+  }
+
+  async function nodeToPromise(node) {
     return {
       id: node.dbid,
       href: `${node.dbid}/${slugify(node.title)}`,
@@ -149,15 +153,17 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       events: [getPromiseDeadlineEvent(node)],
       status: getStatusHistory(node)[0],
       statusHistory: getStatusHistory(node),
-      // documents:   getDataSource(node) ||[]
+      documents: await (getDataSource(node) || []),
     };
   }
 
-  function handlePromisesResult(res) {
-    return res.data.search.medias.edges.map(({ node }) => nodeToPromise(node));
+  async function handlePromisesResult(res) {
+    return Promise.all(
+      res.data.search.medias.edges.map(({ node }) => nodeToPromise(node))
+    );
   }
 
-  function handleSinglePromise({ data }) {
+  async function handleSinglePromise({ data }) {
     const node = data.project_media;
     return nodeToPromise(node);
   }
