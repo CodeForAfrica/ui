@@ -23,7 +23,7 @@ function PromiseCard({
       title={title}
       as={`/promises/${id}/${slug}`}
       component={Link}
-      href="/promises/[id]/[slug]"
+      href="/promises/[...slug]"
       classes={{
         root: classes.root,
         content: classes.content,
