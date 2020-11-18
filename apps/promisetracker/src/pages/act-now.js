@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Page from "@/promisetracker/components/Page";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import ActNowComponent from "@/promisetracker/components/ActNow";
+import PickPromise from "@/promisetracker/components/PickPromise";
 
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
@@ -30,6 +31,7 @@ function ActNow({ actNow, ...props }) {
   return (
     <Page {...props} title="Act Now" classes={{ section: classes.section }}>
       <ActNowComponent {...actNow} classes={{ section: classes.section }} />
+      <PickPromise />
       <Subscribe classes={{ section: classes.section }} />
     </Page>
   );
