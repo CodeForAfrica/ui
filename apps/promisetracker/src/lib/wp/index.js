@@ -236,5 +236,4 @@ function wp(site) {
   };
   return api;
 }
-
 export default wp;

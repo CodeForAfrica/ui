@@ -50,13 +50,6 @@ function KeyPromises({
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
-
-  // const theme = useTheme();
-  // const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-
-  // if (!items?.length) {
-  //   return null;
-  // }
   return (
     <div className={classes.root}>
       <Section
@@ -68,6 +61,7 @@ function KeyPromises({
         {/* {items.map((keyPromise) => ( */}
         <KeyPromise
           key={items[activeStep].title}
+          borderBottom={items[activeStep].status.color}
           actionLabel={actionLabel}
           {...items[activeStep]}
           {...props}
@@ -115,6 +109,11 @@ KeyPromises.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
+      status: PropTypes.arrayOf(
+        PropTypes.shape({
+          color: PropTypes.string.isRequired,
+        })
+      ),
     })
   ),
   title: PropTypes.string,
