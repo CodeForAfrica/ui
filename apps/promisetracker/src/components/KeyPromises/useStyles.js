@@ -68,7 +68,10 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
         bottom: 0,
         left: 0,
         width: typography.pxToRem(72),
-        borderBottom: `8px solid ${props.borderBottom}`,
+        // NOTE(kilemensi): Since this useStyles is shared between KeyPromises
+        //                  and KeyPromise, props.status will be null when
+        //                  called in KeyPromises, and hence ?
+        borderBottom: `8px solid ${props.status?.color}`,
       },
     },
   }),
