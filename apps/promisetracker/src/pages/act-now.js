@@ -1,9 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import { Box, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Page from "@/promisetracker/components/Page";
+import Subscribe from "@/promisetracker/components/Newsletter";
+import ActNowComponent from "@/promisetracker/components/ActNow";
 
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
@@ -21,17 +23,25 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function ActNow(props) {
+function ActNow({ actNow, ...props }) {
+  // fetch the correct actNow data
   const classes = useStyles(props);
 
   return (
     <Page {...props} title="Act Now" classes={{ section: classes.section }}>
-      <Container maxWidth="sm">
-        <Box my={4}>Act now page</Box>
-      </Container>
+      <ActNowComponent {...actNow} classes={{ section: classes.section }} />
+      <Subscribe classes={{ section: classes.section }} />
     </Page>
   );
 }
+
+ActNow.propTypes = {
+  actNow: PropTypes.shape({}),
+};
+
+ActNow.defaultProps = {
+  actNow: null,
+};
 
 export async function getStaticProps({ locale }) {
   const _ = i18n();
