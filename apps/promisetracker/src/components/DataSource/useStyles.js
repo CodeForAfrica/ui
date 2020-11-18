@@ -3,9 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(({ typography }) => ({
   documentContainer: {
     display: "flex",
+    flexDirection: "column",
   },
   document: {
-    flex: 1,
+    width: "100%",
   },
   root: {
     padding: "3rem 1rem 3rem 1rem",

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { IconButton, Typography } from "@material-ui/core";
+import { A } from "@commons-ui/core";
 
 import { replaceAll } from "@/promisetracker/utils";
 import ShareIcon from "@/promisetracker/icons/Share";
@@ -8,6 +9,7 @@ import useStyles from "./useStyles";
 
 function DataSource({ classes: classesProp, documents }) {
   const classes = useStyles({ classes: classesProp });
+  if (!documents || !documents.length) return null;
   return (
     <div className={classes.root}>
       <div className={classes.shareContainer}>
@@ -17,7 +19,7 @@ function DataSource({ classes: classesProp, documents }) {
       </div>
       <div className={classes.documentContainer}>
         {documents.map((document) => (
-          <div className={classes.document}>
+          <A href={document.dataSourceUrl} className={classes.document}>
             <img
               className={classes.image}
               alt=""
@@ -29,7 +31,7 @@ function DataSource({ classes: classesProp, documents }) {
             <Typography variant="body2" className={classes.title}>
               {document.title}
             </Typography>
-          </div>
+          </A>
         ))}
       </div>
     </div>

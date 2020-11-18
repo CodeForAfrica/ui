@@ -135,11 +135,12 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     return Promise.all(
       matches?.map(async (match) => {
         const result = await fetch(match.replace(".html", ".json"));
+        // get page number from url eg https://localhost#document/p16/a4
         const pageNumber = Number(
           match.split("#document/")[1].split("/")[0].substring(1)
-        ); // get page number from url
+        );
         const document = await result.json();
-        return Object.assign(document, { pageNumber });
+        return Object.assign(document, { pageNumber, dataSourceUrl: match });
       }) || []
     );
   }
