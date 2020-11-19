@@ -146,10 +146,12 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
   }
 
   async function nodeToPromise(node) {
+    const id = node.dbid;
+    const slug = slugify(node.title);
     return {
-      id: node.dbid,
-      href: `${node.dbid}/${slugify(node.title)}`,
-      slug: slugify(node.title),
+      id,
+      href: `/promises/${id}/${slug}`,
+      slug,
       title: node.title,
       image: getImage(node),
       description: node.description,
@@ -163,13 +165,17 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
 
   async function handlePromisesResult(res) {
     return Promise.all(
-      res.data.search.medias.edges.map(({ node }) => nodeToPromise(node))
+      res?.data?.search?.medias?.edges.map(({ node }) => nodeToPromise(node)) ||
+        {}
     );
   }
 
   async function handleSinglePromise({ data }) {
-    const node = data.project_media;
-    return nodeToPromise(node);
+    const node = data?.project_media;
+    if (node) {
+      return nodeToPromise(node);
+    }
+    return {};
   }
 
   function handleMeta({
@@ -230,10 +236,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     promise: async (variables) => {
       return client
         .query({ query: GET_PROMISE, variables })
-        .then(handleSinglePromise)
-        .then((response) => {
-          return response;
-        });
+        .then(handleSinglePromise);
     },
   };
   return api;
