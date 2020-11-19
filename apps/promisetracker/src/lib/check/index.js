@@ -175,7 +175,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     if (node) {
       return nodeToPromise(node);
     }
-    return {};
+    return null;
   }
 
   function handleMeta({
