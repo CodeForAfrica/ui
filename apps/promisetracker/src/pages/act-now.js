@@ -24,13 +24,16 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function ActNow({ actNow, ...props }) {
-  // fetch the correct actNow data
+function ActNow({ actNow, description, ...props }) {
   const classes = useStyles(props);
+  const actNowWithDesc = { ...actNow, description };
 
   return (
     <Page {...props} title="Act Now" classes={{ section: classes.section }}>
-      <ActNowComponent {...actNow} classes={{ section: classes.section }} />
+      <ActNowComponent
+        {...actNowWithDesc}
+        classes={{ section: classes.section }}
+      />
       <PickPromise classes={{ section: classes.section }} />
       <Subscribe classes={{ section: classes.section }} />
     </Page>
@@ -39,10 +42,12 @@ function ActNow({ actNow, ...props }) {
 
 ActNow.propTypes = {
   actNow: PropTypes.shape({}),
+  description: PropTypes.string,
 };
 
 ActNow.defaultProps = {
   actNow: null,
+  description: null,
 };
 
 export async function getStaticProps({ locale }) {
@@ -53,7 +58,7 @@ export async function getStaticProps({ locale }) {
     };
   }
 
-  const page = await wp().pages({ slug: "index", locale }).first;
+  const page = await wp().pages({ slug: "act-now", locale }).first;
   const languageAlternates = _.languageAlternates("/act-now");
 
   return {
