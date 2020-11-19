@@ -9,7 +9,10 @@ import useStyles from "./useStyles";
 
 function DataSource({ classes: classesProp, documents, title }) {
   const classes = useStyles({ classes: classesProp });
-  if (!documents || !documents.length) return null;
+
+  if (!documents?.length) {
+    return null;
+  }
   return (
     <div className={classes.root}>
       <div className={classes.titleShareContainer}>
@@ -22,7 +25,11 @@ function DataSource({ classes: classesProp, documents, title }) {
       </div>
       <div className={classes.documentContainer}>
         {documents.map((document) => (
-          <A href={document.dataSourceUrl} className={classes.document}>
+          <A
+            key={document.dataSourceUrl}
+            href={document.dataSourceUrl}
+            className={classes.document}
+          >
             <img
               className={classes.image}
               alt=""
