@@ -10,38 +10,41 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import CtAButton from "@/promisetracker/components/CtAButton";
 
 const useStyles = makeStyles(({ typography, breakpoints }) => ({
-  section: {},
+  section: {
+    paddingBottom: typography.pxToRem(40),
+    paddingTop: typography.pxToRem(40),
+  },
   root: {
     width: "100%",
     backgroundColor: "#FFFFFF",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: typography.pxToRem(53),
-    paddingTop: typography.pxToRem(45),
     [breakpoints.up("lg")]: {
       padding: `${typography.pxToRem(25)} 0`,
     },
   },
   title: {
-    color: "black",
     textTransform: "uppercase",
     fontFamily: typography.fontFamily,
     fontWeight: 600,
     fontSize: typography.pxToRem(16),
   },
   textContent: {
-    padding: "0.5rem 0rem 0.5rem 0rem",
     fontSize: typography.pxToRem(14),
+    paddingTop: typography.pxToRem(8),
+    paddingBottom: typography.pxToRem(8),
   },
   cta: {
-    padding: "0rem 6.25rem 0rem 0rem",
+    padding: "0rem 4rem 0rem 0rem",
     width: "auto",
     justifyContent: "flex-start",
   },
 
   ctaButton: {
-    borderRadius: "0.313rem",
+    borderRadius: typography.pxToRem(5),
+    minWidth: typography.pxToRem(272),
+    padding: typography.pxToRem(25),
     "&:hover": {
       backgroundColor: "#005DFD",
       color: "white",
@@ -49,6 +52,9 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   },
   buttonContainer: {
     display: "flex",
+    [breakpoints.down("sm")]: {
+      display: "block",
+    },
   },
 }));
 
@@ -68,9 +74,15 @@ function PickPromise(props) {
             </Typography>
             <Autocomplete
               options={[
-                { label: "name" },
-                { label: "age" },
-                { label: "height" },
+                // test data - replace with actual data
+                { label: "Clean City" },
+                { label: "Improve Transport" },
+                { label: "Open Hospitals" },
+                { label: "Lower Unemployment" },
+                { label: "Improve Infrastructure" },
+                { label: "Build Education Facilities" },
+                { label: "Easy access to water" },
+                { label: "Food transport" },
               ]}
               autoHighlight
               getOptionLabel={(option) => option.label}
@@ -111,13 +123,6 @@ function PickPromise(props) {
             >
               Join A Petiton
             </CtAButton>
-
-            {/* <Button color="secondary" className={classes.button}>
-              Start A Petiton
-            </Button>
-            <Button color="secondary" className={classes.button}>
-              Join A Petiton */}
-            {/* </Button> */}
           </Grid>
         </Grid>
       </Section>
