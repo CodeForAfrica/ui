@@ -140,7 +140,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
           match.split("#document/")[1].split("/")[0].substring(1)
         );
         const document = await result.json();
-        return Object.assign(document, { pageNumber, dataSourceUrl: match });
+        return { ...document, pageNumber, dataSourceUrl: match };
       }) || []
     );
   }
