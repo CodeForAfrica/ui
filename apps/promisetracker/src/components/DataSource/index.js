@@ -7,7 +7,7 @@ import { replaceAll } from "@/promisetracker/utils";
 import ShareIcon from "@/promisetracker/icons/Share";
 import useStyles from "./useStyles";
 
-function DataSource({ classes: classesProp, documents, title }) {
+function DataSource({ classes: classesProp, documents, label }) {
   const classes = useStyles({ classes: classesProp });
 
   if (!documents?.length) {
@@ -17,7 +17,7 @@ function DataSource({ classes: classesProp, documents, title }) {
     <div className={classes.root}>
       <div className={classes.titleShareContainer}>
         <Typography className={classes.title} variant="h4">
-          {title}
+          {label}
         </Typography>
         <IconButton aria-label="share" className={classes.share}>
           <ShareIcon color="primary" fontSize="inherit" />
@@ -60,12 +60,12 @@ DataSource.propTypes = {
     title: PropTypes.string,
   }),
   documents: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  title: PropTypes.string,
+  label: PropTypes.string,
 };
 
 DataSource.defaultProps = {
   classes: undefined,
-  title: undefined,
+  label: undefined,
 };
 
 export default DataSource;

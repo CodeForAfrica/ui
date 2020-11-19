@@ -22,6 +22,8 @@ function Promise({
   promiseStatusLabel,
   promiseRadarLabel,
   relatedFactChecksLabel,
+  dataSourceEmbedLabel,
+  narrativeUpdatesLabel,
 }) {
   const classes = useStyles({ image: promise.image, classes: classesProp });
 
@@ -68,8 +70,14 @@ function Promise({
             </Typography>
             <Radar />
           </Hidden>
-          <NarativeUpdates {...promise.narrative} />
-          <DataSource documents={promise.documents} title="DATA SOURCE EMBED" />
+          <NarativeUpdates
+            {...promise.narrative}
+            label={narrativeUpdatesLabel}
+          />
+          <DataSource
+            documents={promise.documents}
+            label={dataSourceEmbedLabel}
+          />
           <RichTypography className={classes.promiseBody} variant="body1">
             {promise.content}
           </RichTypography>
@@ -130,14 +138,22 @@ Promise.propTypes = {
   promiseStatusLabel: PropTypes.string,
   promiseRadarLabel: PropTypes.string,
   relatedFactChecksLabel: PropTypes.string,
+  dataSourceEmbedLabel: PropTypes.string,
+  narrativeUpdatesLabel: PropTypes.string,
+  chartEmbedLabel: PropTypes.string,
+  authorAttributionLabel: PropTypes.string,
 };
 
 Promise.defaultProps = {
   breadcrumb: "Promises",
   classes: undefined,
-  promiseStatusLabel: "Promise rating status:",
-  promiseRadarLabel: "Promise radar:",
-  relatedFactChecksLabel: "Related Fact-Checks:",
+  promiseStatusLabel: undefined,
+  promiseRadarLabel: undefined,
+  relatedFactChecksLabel: undefined,
+  dataSourceEmbedLabel: undefined,
+  narrativeUpdatesLabel: undefined,
+  chartEmbedLabel: undefined,
+  authorAttributionLabel: undefined,
 };
 
 export default Promise;

@@ -45,6 +45,7 @@ function PromisePage({
   footer,
   navigation,
   promise,
+  labels,
   relatedPromises,
   title: titleProp,
   ...props
@@ -59,7 +60,7 @@ function PromisePage({
       title={title}
       classes={{ section: classes.section, footer: classes.footer }}
     >
-      {promise ? <Promise promise={promise} /> : null}
+      {promise ? <Promise promise={promise} {...labels} /> : null}
       <RelatedPromises
         items={relatedPromises}
         title="Related Promises"
@@ -83,6 +84,7 @@ PromisePage.propTypes = {
     section: PropTypes.string,
     sectionTitle: PropTypes.string,
   }),
+  labels: PropTypes.shape({}),
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
   promise: PropTypes.shape({
@@ -98,6 +100,7 @@ PromisePage.propTypes = {
 PromisePage.defaultProps = {
   classes: undefined,
   footer: undefined,
+  labels: undefined,
   navigation: undefined,
   promise: undefined,
   relatedPromises: Array(3)
@@ -177,7 +180,16 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
       title: "",
       description: "",
     },
-    narrative: "",
+    labels: {
+      dataSourceEmbedLabel: page.data_source_embed_label,
+      narrativeUpdatesLabel: page.narrative_updates_label,
+      chartEmbedLabel: page.chart_embed_label,
+      authorAttributionLabel: page.author_attribution_label,
+      promiseStatusLabel: page.promise_status_label,
+      promiseRadarLabel: page.promise_radar_label,
+      relatedFactChecksLabel: page.related_fact_checks_label,
+    },
+    narrative: {},
   };
 
   const languageAlternates = _.languageAlternates(
