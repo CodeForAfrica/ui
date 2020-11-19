@@ -39,7 +39,7 @@ function DataSource({ classes: classesProp, documents, title }) {
               })}
             />
             <Typography variant="body2" className={classes.name}>
-              {document.name}
+              {document.title}
             </Typography>
           </A>
         ))}
