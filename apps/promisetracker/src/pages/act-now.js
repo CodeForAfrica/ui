@@ -31,7 +31,7 @@ function ActNow({ actNow, ...props }) {
   return (
     <Page {...props} title="Act Now" classes={{ section: classes.section }}>
       <ActNowComponent {...actNow} classes={{ section: classes.section }} />
-      <PickPromise />
+      <PickPromise classes={{ section: classes.section }} />
       <Subscribe classes={{ section: classes.section }} />
     </Page>
   );
