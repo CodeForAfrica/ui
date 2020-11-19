@@ -11,7 +11,7 @@ function PromiseCard({
   classes: classesProp,
   status,
   id,
-  slug,
+  href,
   title,
   ...props
 }) {
@@ -21,7 +21,7 @@ function PromiseCard({
     <PostCard
       {...props}
       title={title}
-      as={`/promises/${id}/${slug}`}
+      as={href}
       component={Link}
       href="/promises/[...slug]"
       classes={{
@@ -58,7 +58,7 @@ PromiseCard.propTypes = {
     titleContainer: PropTypes.string,
   }),
   id: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
   status: PropTypes.shape({}).isRequired,
   title: PropTypes.string.isRequired,
 };
