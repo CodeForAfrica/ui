@@ -12,8 +12,8 @@ import CtAButton from "@/promisetracker/components/CtAButton";
 
 const useStyles = makeStyles(({ typography, breakpoints }) => ({
   section: {
-    paddingBottom: typography.pxToRem(40),
-    paddingTop: typography.pxToRem(40),
+    paddingBottom: typography.pxToRem(45),
+    paddingTop: typography.pxToRem(45),
   },
   root: {
     width: "100%",
@@ -62,19 +62,27 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
 function PickPromise({ promises, ...props }) {
   const classes = useStyles(props);
 
+  const {
+    pickPromiseTitle,
+    pickPromiseDescription,
+    mandatoryText,
+    petitionStart,
+    petitionJoin,
+  } = props;
+
   return (
     <div className={classes.root}>
       <Section classes={{ root: classes.section }}>
         <Grid container>
           <Grid item xs={12}>
             <Typography className={classes.title} variant="body1">
-              Pick a Promise*
+              {pickPromiseTitle}
             </Typography>
             <Typography variant="body2" className={classes.textContent}>
-              Which promise do you want to petition?
+              {pickPromiseDescription}
             </Typography>
             <Autocomplete
-              options={promises}
+              options={promises || []}
               autoHighlight
               getOptionLabel={(option) => option.title}
               renderOption={(option) => (
@@ -92,7 +100,7 @@ function PickPromise({ promises, ...props }) {
               )}
             />
             <Typography variant="body2" className={classes.textContent}>
-              *Mandatory fields
+              {mandatoryText}
             </Typography>
           </Grid>
           <Grid item xs={12} className={classes.buttonContainer}>
@@ -103,7 +111,7 @@ function PickPromise({ promises, ...props }) {
                 button: classes.ctaButton,
               }}
             >
-              Start A Petiton
+              {petitionStart}
             </CtAButton>
             <CtAButton
               color="secondary"
@@ -112,7 +120,7 @@ function PickPromise({ promises, ...props }) {
                 button: classes.ctaButton,
               }}
             >
-              Join A Petiton
+              {petitionJoin}
             </CtAButton>
           </Grid>
         </Grid>
@@ -123,10 +131,20 @@ function PickPromise({ promises, ...props }) {
 
 PickPromise.propTypes = {
   promises: PropTypes.arrayOf(PropTypes.shape({})),
+  pickPromiseTitle: PropTypes.string,
+  pickPromiseDescription: PropTypes.string,
+  mandatoryText: PropTypes.string,
+  petitionStart: PropTypes.string,
+  petitionJoin: PropTypes.string,
 };
 
 PickPromise.defaultProps = {
   promises: null,
+  pickPromiseTitle: null,
+  pickPromiseDescription: null,
+  mandatoryText: null,
+  petitionStart: null,
+  petitionJoin: null,
 };
 
 export default PickPromise;

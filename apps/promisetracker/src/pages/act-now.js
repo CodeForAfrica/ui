@@ -37,6 +37,7 @@ function ActNow({ actNow, description, keyPromises, ...props }) {
       />
       <PickPromise
         promises={keyPromises}
+        {...props}
         classes={{ section: classes.section }}
       />
       <Subscribe classes={{ section: classes.section }} />
