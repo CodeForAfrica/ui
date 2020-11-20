@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Grid } from "@material-ui/core";
@@ -58,7 +59,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   },
 }));
 
-function PickPromise(props) {
+function PickPromise({ promises, ...props }) {
   const classes = useStyles(props);
 
   return (
@@ -73,22 +74,12 @@ function PickPromise(props) {
               Which promise do you want to petition?
             </Typography>
             <Autocomplete
-              options={[
-                // test data - replace with actual data
-                { label: "Clean City" },
-                { label: "Improve Transport" },
-                { label: "Open Hospitals" },
-                { label: "Lower Unemployment" },
-                { label: "Improve Infrastructure" },
-                { label: "Build Education Facilities" },
-                { label: "Easy access to water" },
-                { label: "Food transport" },
-              ]}
+              options={promises}
               autoHighlight
-              getOptionLabel={(option) => option.label}
+              getOptionLabel={(option) => option.title}
               renderOption={(option) => (
                 <>
-                  <span>{option.label}</span>
+                  <span>{option.title}</span>
                 </>
               )}
               style={{ width: 300 }}
@@ -129,5 +120,13 @@ function PickPromise(props) {
     </div>
   );
 }
+
+PickPromise.propTypes = {
+  promises: PropTypes.arrayOf(PropTypes.shape({})),
+};
+
+PickPromise.defaultProps = {
+  promises: null,
+};
 
 export default PickPromise;
