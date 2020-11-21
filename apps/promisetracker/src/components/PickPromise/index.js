@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,6 +9,7 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
+import FormDialog from "./Dialog";
 
 const useStyles = makeStyles(({ typography, breakpoints }) => ({
   section: {
@@ -71,6 +72,15 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
 
 function PickPromise({ promises, ...props }) {
   const classes = useStyles(props);
+  const [open, setOpen] = useState(false);
+
+  const handleFormOpen = () => {
+    setOpen(true);
+  };
+
+  const handleFormClose = () => {
+    setOpen(false);
+  };
 
   const {
     pickPromiseTitle,
@@ -121,6 +131,7 @@ function PickPromise({ promises, ...props }) {
           <Grid item xs={12} className={classes.buttonContainer}>
             <CtAButton
               color="secondary"
+              onClick={handleFormOpen}
               classes={{
                 root: classes.cta,
                 button: classes.ctaButton,
@@ -137,6 +148,7 @@ function PickPromise({ promises, ...props }) {
             >
               {petitionJoin}
             </CtAButton>
+            <FormDialog open={open} handleFormClose={handleFormClose} />
           </Grid>
         </Grid>
       </Section>
