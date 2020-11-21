@@ -15,6 +15,16 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     paddingBottom: typography.pxToRem(45),
     paddingTop: typography.pxToRem(45),
   },
+  endAdornment: {
+    backgroundColor: "#005DFD",
+    top: 0,
+    height: "59px",
+    right: "0px !important",
+  },
+  popUpIndicator: {
+    color: "white",
+  },
+  clearIndicator: { color: "white" },
   root: {
     width: "100%",
     backgroundColor: "#FFFFFF",
@@ -82,6 +92,11 @@ function PickPromise({ promises, ...props }) {
               {pickPromiseDescription}
             </Typography>
             <Autocomplete
+              classes={{
+                endAdornment: classes.endAdornment,
+                popupIndicator: classes.popUpIndicator,
+                clearIndicator: classes.clearIndicator,
+              }}
               options={promises || []}
               autoHighlight
               getOptionLabel={(option) => option.title}
@@ -90,7 +105,7 @@ function PickPromise({ promises, ...props }) {
                   <span>{option.title}</span>
                 </>
               )}
-              style={{ width: 300 }}
+              style={{ width: 400 }}
               renderInput={(params) => (
                 <TextField
                   {...params}
