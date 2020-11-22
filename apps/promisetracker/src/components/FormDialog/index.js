@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 
-import { makeStyles } from "@material-ui/core/styles";
 import {
   Dialog,
-  Button,
   DialogTitle,
   DialogActions,
   DialogContent,
@@ -17,84 +15,65 @@ import {
   TextareaAutosize,
 } from "@material-ui/core";
 
-const useStyles = makeStyles(({ typography, breakpoints }) => ({
-  section: {},
-  root: {
-    width: "100%",
-    backgroundColor: "#F7F7F7",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    [breakpoints.up("lg")]: {
-      padding: `${typography.pxToRem(25)} 0`,
-    },
-  },
-  title: {
-    backgroundColor: "#F7F7F7",
-    borderRadius: "10px",
-    "& h2": {
-      textTransform: "none",
-      fontFamily: "Amiri, Regular",
-      fontSize: typography.pxToRem(30),
-      fontWeight: "100",
-    },
-  },
-  description: {
-    color: "black",
-  },
-  label: {
-    color: "black",
-    position: "static",
-    transform: "none",
-    textTransform: "uppercase",
-    fontFamily: typography.fontFamily,
-    fontWeight: 600,
-    fontSize: typography.pxToRem(16),
-  },
-  recipientLabel: {
-    textTransform: "uppercase",
-    fontFamily: "Open Sans, Bold",
-    fontWeight: 600,
-    fontSize: typography.pxToRem(10),
-    color: "#909090",
-    position: "static",
-    marginBottom: "10px",
-  },
-  helperText: {
-    color: "black",
-    fontFamily: "inherit",
-    marginBottom: "10px",
-    fontSize: typography.pxToRem(14),
-    lineHeight: "1.8",
-  },
-  input: {
-    border: "1px solid #EBEBEB",
-    backgroundColor: "#F7F7F7",
-    borderRadius: "5px",
-  },
-  underline: {
-    "&::before": {
-      borderBottom: 0,
-    },
-  },
-  formControl: {
-    width: "100%",
-    marginTop: "40px",
-    "& textarea": {
-      backgroundColor: "#F7F7F7",
-      border: "1px solid #EBEBEB",
-    },
-  },
-  formControlRecipient: {
-    width: "100%",
-  },
-  body1: {
-    marginTop: "40px",
-  },
-}));
-// yoh break this component - too large!
+import CtAButton from "@/promisetracker/components/CtAButton";
+import useStyles from "./useStyles";
+
 function FormDialog({ open, handleFormClose, ...props }) {
   const classes = useStyles(props);
+  const [images, setImages] = useState([]);
+  const [fileError, setFileError] = useState(false);
+  const fileInput = useRef(null);
+
+  const handleFileValidation = (fileSize) => {
+    const maxAllowedSize = 10 * 500 * 300;
+    // Check if file size is below 10MB
+    if (fileSize > maxAllowedSize) {
+      setFileError(true);
+      return true;
+    }
+
+    setFileError(false);
+    return false;
+  };
+
+  const onFileChange = (e) => {
+    const file = URL.createObjectURL(e.target.files[0]);
+    const fileSize = e.target.files[0].size;
+
+    if (handleFileValidation(fileSize)) return;
+
+    setImages([file]);
+  };
+
+  const handleDrag = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const uploadedImage = [];
+    const dt = e.dataTransfer;
+    const { files } = dt;
+
+    [...files].forEach((file) => {
+      if (handleFileValidation(file.size)) return;
+
+      // Get URL of image file to be used for thumbnail preview
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        uploadedImage.push(reader.result);
+        setImages(uploadedImage);
+      };
+    });
+  };
+
+  const handleClick = () => {
+    fileInput.current.click();
+  };
 
   return (
     <div classes={{ root: classes.section }}>
@@ -223,6 +202,61 @@ function FormDialog({ open, handleFormClose, ...props }) {
 
           <FormControl classes={{ root: classes.formControl }}>
             <InputLabel htmlFor="my-input" classes={{ root: classes.label }}>
+              Featured Image*
+            </InputLabel>
+            <FormHelperText
+              id="my-helper-text"
+              classes={{ root: classes.helperText }}
+              error={fileError}
+            >
+              The image should be at least 500px wide and 300px high and a
+              maximum size of 10MB
+            </FormHelperText>
+            <div className={classes.imageContainer}>
+              <p className={classes.inputText}>Drop Image here or:</p>
+
+              <Input
+                inputRef={fileInput}
+                type="file"
+                id="my-input"
+                onChange={onFileChange}
+                aria-describedby="my-helper-text"
+                classes={{
+                  root: classes.imageInput,
+                  underline: classes.underline,
+                }}
+                onDragOver={handleDrag}
+                onDragEnter={handleDrag}
+                onDragLeave={handleDrag}
+                onDrop={handleDrop}
+              />
+              <CtAButton
+                color="secondary"
+                onClick={handleClick}
+                classes={{
+                  button: classes.uploadButton,
+                  root: classes.button,
+                }}
+              >
+                Click to Select Image to Upload
+              </CtAButton>
+              <div>
+                {images.map((image) => {
+                  return (
+                    <img
+                      alt=""
+                      className={classes.imageThumbnail}
+                      key={image}
+                      src={image}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          </FormControl>
+
+          <FormControl classes={{ root: classes.formControl }}>
+            <InputLabel htmlFor="my-input" classes={{ root: classes.label }}>
               Minimum Signatures
             </InputLabel>
             <FormHelperText
@@ -240,12 +274,9 @@ function FormDialog({ open, handleFormClose, ...props }) {
           </FormControl>
         </DialogContent>
         <DialogActions>
-          <Button color="primary" onClick={handleFormClose}>
+          <CtAButton color="primary" onClick={handleFormClose}>
             Submit
-          </Button>
-          <Button color="primary" onClick={handleFormClose}>
-            Cancel
-          </Button>
+          </CtAButton>
         </DialogActions>
       </Dialog>
     </div>
