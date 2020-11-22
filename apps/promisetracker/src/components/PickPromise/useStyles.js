@@ -5,16 +5,6 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     paddingBottom: typography.pxToRem(45),
     paddingTop: typography.pxToRem(45),
   },
-  endAdornment: {
-    backgroundColor: "#005DFD",
-    top: 0,
-    height: "59px",
-    right: "0px !important",
-  },
-  popUpIndicator: {
-    color: "white",
-  },
-  clearIndicator: { color: "white" },
   root: {
     width: "100%",
     backgroundColor: "#FFFFFF",
@@ -22,7 +12,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     alignItems: "center",
     justifyContent: "center",
     [breakpoints.up("lg")]: {
-      padding: `${typography.pxToRem(25)} 0`,
+      padding: `${typography.pxToRem(70)} 0`,
     },
   },
   title: {
@@ -30,11 +20,43 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     fontFamily: typography.fontFamily,
     fontWeight: 600,
     fontSize: typography.pxToRem(16),
+    position: "static",
+    transform: "none",
+    color: "black",
+  },
+  inputSection: {
+    backgroundColor: "#F7F7F7",
+    border: "0.06rem solid #EBEBEB",
+    color: "#20202059",
+    padding: "0.313rem",
+    font: "normal normal bold 10px/24px Open Sans",
+    textTransform: "uppercase",
+    paddingLeft: "0.625rem",
+  },
+  icon: {
+    backgroundColor: "#005DFD",
+    color: "#FFFFFF",
+    top: "0",
+    width: "1.3em",
+    height: "1.5em",
+    right: 0,
+  },
+  formControl: {
+    width: "-webkit-fill-available",
+    "& .MuiInputBase-root": {
+      width: "40%",
+    },
+    [breakpoints.down("sm")]: {
+      "& .MuiInputBase-root": {
+        width: "85%",
+      },
+    },
   },
   textContent: {
     fontSize: typography.pxToRem(14),
-    paddingTop: typography.pxToRem(8),
-    paddingBottom: typography.pxToRem(8),
+    padding: "0.5rem 0 0.75rem 0",
+    color: "black",
+    fontFamily: "inherit",
   },
   cta: {
     padding: "0rem 4rem 0rem 0rem",
@@ -56,6 +78,10 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     [breakpoints.down("sm")]: {
       display: "block",
     },
+  },
+  mandatoryText: {
+    fontSize: typography.pxToRem(15),
+    paddingTop: "0.625rem",
   },
 }));
 

@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import { Typography, Grid } from "@material-ui/core";
+import {
+  Typography,
+  Grid,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  FormHelperText,
+  Select,
+} from "@material-ui/core";
 import { Section } from "@commons-ui/core";
-
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 import FormDialog from "@/promisetracker/components/FormDialog";
@@ -15,6 +20,7 @@ import useStyles from "./useStyles";
 function PickPromise({ promises, ...props }) {
   const classes = useStyles(props);
   const [open, setOpen] = useState(false);
+  const [selectedPromise, setPromise] = useState("No Promise Selected");
 
   const handleFormOpen = () => {
     setOpen(true);
@@ -22,6 +28,10 @@ function PickPromise({ promises, ...props }) {
 
   const handleFormClose = () => {
     setOpen(false);
+  };
+
+  const handleChange = (e) => {
+    setPromise(e.target.value);
   };
 
   const {
@@ -37,7 +47,40 @@ function PickPromise({ promises, ...props }) {
       <Section classes={{ root: classes.section }}>
         <Grid container>
           <Grid item xs={12}>
-            <Typography className={classes.title} variant="body1">
+            <form>
+              <FormControl
+                classes={{
+                  root: classes.formControl,
+                }}
+              >
+                <InputLabel classes={{ root: classes.title }}>
+                  {pickPromiseTitle}
+                </InputLabel>
+                <FormHelperText classes={{ root: classes.textContent }}>
+                  {pickPromiseDescription}
+                </FormHelperText>
+                <Select
+                  classes={{
+                    root: classes.inputSection,
+                    icon: classes.icon,
+                  }}
+                  value={selectedPromise}
+                  renderValue={(value) => value}
+                  onChange={handleChange}
+                  variant="outlined"
+                >
+                  {promises.map((promise) => (
+                    <MenuItem key={promise.title} value={promise.title}>
+                      {promise.title}
+                    </MenuItem>
+                  ))}
+                </Select>
+                <Typography classes={{ root: classes.mandatoryText }}>
+                  {mandatoryText}
+                </Typography>
+              </FormControl>
+            </form>
+            {/* <Typography className={classes.title} variant="body1">
               {pickPromiseTitle}
             </Typography>
             <Typography variant="body2" className={classes.textContent}>
@@ -68,7 +111,7 @@ function PickPromise({ promises, ...props }) {
             />
             <Typography variant="body2" className={classes.textContent}>
               {mandatoryText}
-            </Typography>
+            </Typography> */}
           </Grid>
           <Grid item xs={12} className={classes.buttonContainer}>
             <CtAButton

@@ -41,19 +41,19 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     fontSize: typography.pxToRem(10),
     color: "#909090",
     position: "static",
-    marginBottom: "10px",
+    marginBottom: typography.pxToRem(10),
   },
   helperText: {
     color: "black",
     fontFamily: "inherit",
-    marginBottom: "10px",
-    fontSize: typography.pxToRem(14),
+    margin: `${typography.pxToRem(10)} 0 ${typography.pxToRem(10)} 0`,
+    fontSize: typography.pxToRem(16),
     lineHeight: "1.8",
   },
   input: {
     border: "1px solid #EBEBEB",
     backgroundColor: "#F7F7F7",
-    borderRadius: "5px",
+    borderRadius: typography.pxToRem(5),
   },
   underline: {
     "&::before": {
@@ -62,7 +62,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   },
   formControl: {
     width: "100%",
-    marginTop: "40px",
+    marginTop: typography.pxToRem(40),
     "& textarea": {
       backgroundColor: "#F7F7F7",
       border: "1px solid #EBEBEB",
@@ -72,11 +72,11 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     width: "100%",
   },
   body1: {
-    marginTop: "40px",
+    marginTop: typography.pxToRem(40),
   },
   imageInput: {
     backgroundColor: "#F7F7F7",
-    height: "50px",
+    height: typography.pxToRem(50),
     minWidth: "-webkit-fill-available",
     "& input": {
       display: "none",
@@ -89,10 +89,10 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     },
   },
   imageThumbnail: {
-    width: "150px",
-    height: "150px",
+    width: typography.pxToRem(150),
+    height: typography.pxToRem(150),
     objectFit: "contain",
-    marginLeft: "30px",
+    marginLeft: typography.pxToRem(30),
   },
   imageContainer: {
     backgroundColor: "#F7F7F7",
@@ -101,14 +101,14 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     color: "#909090",
     backgroundColor: "#FFFFFF",
     border: "1px solid #909090",
-    borderRadius: "10px",
+    borderRadius: typography.pxToRem(10),
     "&:hover": {
       color: "#005DFD",
     },
   },
   button: {
     margin: 0,
-    paddingBottom: "30px",
+    paddingBottom: typography.pxToRem(30),
   },
   inputText: {
     textAlign: "center",
@@ -117,7 +117,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     color: "#20202059",
     fontWeight: "600",
     letterSpacing: "0.4px",
-    paddingTop: "10px",
+    paddingTop: typography.pxToRem(10),
   },
 }));
 
