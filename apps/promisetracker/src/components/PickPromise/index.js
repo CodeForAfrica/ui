@@ -53,13 +53,17 @@ function PickPromise({ promises, ...props }) {
                   root: classes.formControl,
                 }}
               >
-                <InputLabel classes={{ root: classes.title }}>
+                <InputLabel
+                  htmlFor="select-promise"
+                  classes={{ root: classes.title }}
+                >
                   {pickPromiseTitle}
                 </InputLabel>
                 <FormHelperText classes={{ root: classes.textContent }}>
                   {pickPromiseDescription}
                 </FormHelperText>
                 <Select
+                  inputProps={{ id: "select-promise" }}
                   classes={{
                     root: classes.inputSection,
                     icon: classes.icon,

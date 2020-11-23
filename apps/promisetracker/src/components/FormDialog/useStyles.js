@@ -96,6 +96,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     backgroundColor: "#FFFFFF",
     border: "1px solid #909090",
     borderRadius: typography.pxToRem(10),
+    fontSize: typography.pxToRem(12),
     "&:hover": {
       color: "#005DFD",
     },

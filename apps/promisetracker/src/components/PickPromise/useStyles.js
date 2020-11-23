@@ -28,7 +28,8 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   inputSection: {
     backgroundColor: "#F7F7F7",
     border: "0.06rem solid #EBEBEB",
-    color: "#20202059",
+    // color: "#20202059", // this is the original color in the design
+    color: "black", // I set it to black due to color contrast issues - Gertrude (resolve with designer)
     padding: "0.313rem",
     fontFamily: typography.fontFamily,
     fontSize: typography.pxToRem(10),
@@ -41,8 +42,9 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     color: "#FFFFFF",
     top: "0",
     width: "1.3em",
-    height: "1.5em",
+    height: "1.45em",
     right: 0,
+    borderRadius: `0 ${typography.pxToRem(5)} ${typography.pxToRem(5)} 0`,
   },
   formControl: {
     width: "-webkit-fill-available",
