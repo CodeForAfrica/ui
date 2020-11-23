@@ -2,6 +2,9 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ typography, breakpoints }) => ({
   section: {},
+  paperWidthSm: {
+    maxWidth: typography.pxToRem(716),
+  },
   root: {
     width: "100%",
     backgroundColor: "#F7F7F7",
@@ -14,13 +17,19 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   },
   title: {
     backgroundColor: "#F7F7F7",
-    borderRadius: "10px",
+    borderRadius: `0 0 ${typography.pxToRem(10)} ${typography.pxToRem(10)}`,
+    border: "1px solid #ebebeb",
+    padding: `${typography.pxToRem(16)} ${typography.pxToRem(51)}`,
+    height: typography.pxToRem(100),
     "& h2": {
       textTransform: "none",
       fontFamily: typography.h2.fontFamily,
       fontSize: typography.pxToRem(30),
       fontWeight: "100",
     },
+  },
+  dialogContent: {
+    padding: `${typography.pxToRem(51)} ${typography.pxToRem(51)}`,
   },
   description: {
     color: "black",
@@ -30,8 +39,9 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     position: "static",
     transform: "none",
     textTransform: "uppercase",
-    fontFamily: typography.fontFamily,
-    fontWeight: 600,
+    fontFamily: typography.h4.fontFamily,
+    fontWeight: typography.h4.fontWeight,
+    letterSpacing: typography.h4.letterSpacing,
     fontSize: typography.pxToRem(16),
   },
   recipientLabel: {
@@ -46,26 +56,34 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   helperText: {
     color: "black",
     fontFamily: typography.body2.fontFamily,
-    margin: `${typography.pxToRem(10)} 0 ${typography.pxToRem(10)} 0`,
+    margin: `0 0 ${typography.pxToRem(10)} 0`,
     fontSize: typography.pxToRem(16),
     lineHeight: "1.8",
+  },
+  mandatoryText: {
+    margin: `${typography.pxToRem(10)} 0 ${typography.pxToRem(10)} 0`,
   },
   input: {
     border: "1px solid #EBEBEB",
     backgroundColor: "#F7F7F7",
     borderRadius: typography.pxToRem(5),
+    marginTop: 0,
   },
   underline: {
     "&::before": {
       borderBottom: 0,
     },
   },
+  inputRoot: { order: 3, marginTop: 0 },
   formControl: {
     width: "100%",
     marginTop: typography.pxToRem(40),
     "& textarea": {
       backgroundColor: "#F7F7F7",
       border: "1px solid #EBEBEB",
+    },
+    "& .MuiInput-formControl": {
+      marginTop: 0,
     },
   },
   formControlRecipient: {

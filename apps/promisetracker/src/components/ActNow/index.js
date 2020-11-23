@@ -52,7 +52,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
     padding: "1rem 0rem 1.5rem 0rem",
     textAlign: "left",
     [breakpoints.up("lg")]: {
-      lineHeight: "1.875rem",
+      // lineHeight: "1.875rem",
     },
   },
   image: {
@@ -85,7 +85,7 @@ function ActNow({ actionLabel, description, title, ...props }) {
         <Grid container className={classes.content}>
           <Grid item xs={12} lg={6} container alignItems="center">
             <div className={classes.textContainer}>
-              <Typography variant="h1" className={classes.title}>
+              <Typography variant="h2" className={classes.title}>
                 {title}
               </Typography>
               <Typography

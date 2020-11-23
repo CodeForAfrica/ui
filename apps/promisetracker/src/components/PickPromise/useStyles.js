@@ -15,6 +15,9 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     [breakpoints.up("lg")]: {
       padding: `${typography.pxToRem(70)} 0`,
     },
+    "& fieldset": {
+      border: "1px solid #EBEBEB",
+    },
   },
   title: {
     textTransform: "uppercase",
@@ -30,7 +33,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     border: "0.06rem solid #EBEBEB",
     // color: "#20202059", // this is the original color in the design
     color: "black", // I set it to black due to color contrast issues - Gertrude (resolve with designer)
-    padding: "0.313rem",
+    padding: typography.pxToRem(12),
     fontFamily: typography.fontFamily,
     fontSize: typography.pxToRem(10),
     fontWeight: "bold",
@@ -41,15 +44,16 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     backgroundColor: "#005DFD",
     color: "#FFFFFF",
     top: "0",
-    width: "1.3em",
-    height: "1.45em",
+    width: "1.95em",
+    height: "1.95em",
     right: 0,
-    borderRadius: `0 ${typography.pxToRem(5)} ${typography.pxToRem(5)} 0`,
   },
   formControl: {
     width: "-webkit-fill-available",
     "& .MuiInputBase-root": {
       width: "40%",
+      height: typography.pxToRem(47),
+      borderRadius: 0,
     },
     [breakpoints.down("sm")]: {
       "& .MuiInputBase-root": {
@@ -59,18 +63,20 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   },
   textContent: {
     fontSize: typography.pxToRem(14),
-    padding: "0.5rem 0 0.75rem 0",
+    padding: "0 0 1.3rem 0",
     color: "black",
-    fontFamily: "inherit",
+    fontFamily: typography.body1.fontFamily,
   },
   cta: {
-    padding: "0rem 4rem 0rem 0rem",
+    padding: "0rem 2rem 0rem 0rem",
     width: "auto",
     justifyContent: "flex-start",
   },
 
   ctaButton: {
     borderRadius: typography.pxToRem(5),
+    fontFamily: typography.fontFamily,
+    fontSize: typography.pxToRem(14),
     minWidth: typography.pxToRem(272),
     padding: typography.pxToRem(25),
     "&:hover": {

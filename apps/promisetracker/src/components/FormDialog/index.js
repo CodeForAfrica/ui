@@ -19,18 +19,22 @@ function FormDialog({ open, handleFormClose, ...props }) {
   const { petitionTitle, petitionDescription } = props;
 
   return (
-    <div classes={{ root: classes.section }}>
+    <div>
       <Dialog
         open={open}
         onClose={handleFormClose}
         aria-labelledby="form-dialog-title"
-        classes={{ root: classes.section }}
+        aria-describedby="form-dialog-description"
+        classes={{ root: classes.section, paperWidthSm: classes.paperWidthSm }}
       >
         <DialogTitle id="form-dialog-title" classes={{ root: classes.title }}>
           {petitionTitle}
         </DialogTitle>
-        <DialogContent>
-          <DialogContentText classes={{ root: classes.description }}>
+        <DialogContent classes={{ root: classes.dialogContent }}>
+          <DialogContentText
+            id="form-dialog-description"
+            classes={{ root: classes.description }}
+          >
             {petitionDescription}
           </DialogContentText>
           <Form {...props} />

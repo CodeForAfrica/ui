@@ -175,6 +175,7 @@ deepmerge(
     h2: {
       fontSize: pxToRem(32),
       lineHeight: 48 / 32,
+      fontWeight: "bold",
       [breakpoints.up("lg")]: {
         fontSize: pxToRem(36),
         lineHeight: 56 / 36,

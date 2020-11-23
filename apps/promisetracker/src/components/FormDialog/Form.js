@@ -11,6 +11,8 @@ import {
 } from "@material-ui/core";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
+
+import FormTextField from "./FormTextField";
 import useStyles from "./useStyles";
 
 function Form({ ...props }) {
@@ -94,44 +96,16 @@ function Form({ ...props }) {
 
   return (
     <form>
-      <FormControl classes={{ root: classes.formControl }}>
-        <InputLabel htmlFor="petition-label" classes={{ root: classes.label }}>
-          {petitionLabel}
-        </InputLabel>
-        <FormHelperText
-          id="petition-helper-text"
-          classes={{ root: classes.helperText }}
-        >
-          {petitionHelper}
-        </FormHelperText>
-        <Input
-          variant="outlined"
-          id="petition-label"
-          aria-describedby="petition-helper-text"
-          classes={{ input: classes.input, underline: classes.underline }}
-        />
-      </FormControl>
-
-      <FormControl classes={{ root: classes.formControl }}>
-        <InputLabel
-          htmlFor="categories-input"
-          classes={{ root: classes.label }}
-        >
-          {categoryLabel}
-        </InputLabel>
-        <FormHelperText
-          id="categories-helper-text"
-          classes={{ root: classes.helperText }}
-        >
-          {categoryHelper}
-        </FormHelperText>
-        <Input
-          variant="outlined"
-          id="categories-input"
-          aria-describedby="categories-helper-text"
-          classes={{ input: classes.input, underline: classes.underline }}
-        />
-      </FormControl>
+      <FormTextField
+        labelText={petitionLabel}
+        helperDescription={petitionHelper}
+        elemId="petition-input"
+      />
+      <FormTextField
+        labelText={categoryLabel}
+        helperDescription={categoryHelper}
+        elemId="category-input"
+      />
 
       <Typography classes={{ root: classes.label, body1: classes.body1 }}>
         {recipientLabel}
@@ -143,50 +117,18 @@ function Form({ ...props }) {
         {recipientDescription}
       </Typography>
 
-      <FormControl classes={{ root: classes.formControlRecipient }}>
-        <InputLabel
-          htmlFor="recipient-input"
-          classes={{ root: classes.recipientLabel }}
-        >
-          {recipientNameLabel}
-        </InputLabel>
-        <Input
-          variant="outlined"
-          id="recipient-input"
-          aria-describedby="recipient-helper-text"
-          classes={{ input: classes.input, underline: classes.underline }}
-        />
-      </FormControl>
-
-      <FormControl classes={{ root: classes.formControlRecipient }}>
-        <InputLabel
-          htmlFor="recipient-email-input"
-          classes={{ root: classes.recipientLabel }}
-        >
-          {recipientEmailLabel}
-        </InputLabel>
-        <Input
-          variant="outlined"
-          id="recipient-email-input"
-          aria-describedby="recipient-helper-text"
-          classes={{ input: classes.input, underline: classes.underline }}
-        />
-      </FormControl>
-
-      <FormControl classes={{ root: classes.formControlRecipient }}>
-        <InputLabel
-          htmlFor="recipient-social-input"
-          classes={{ root: classes.recipientLabel }}
-        >
-          {recipientSocialLabel}
-        </InputLabel>
-        <Input
-          variant="outlined"
-          id="recipient-social-input"
-          aria-describedby="recipient-helper-text"
-          classes={{ input: classes.input, underline: classes.underline }}
-        />
-      </FormControl>
+      <FormTextField
+        labelText={recipientNameLabel}
+        elemId="recipient-name-input"
+      />
+      <FormTextField
+        labelText={recipientEmailLabel}
+        elemId="recipient-email-input"
+      />
+      <FormTextField
+        labelText={recipientSocialLabel}
+        elemId="recipient-social-input"
+      />
 
       <FormControl classes={{ root: classes.formControl }}>
         <InputLabel htmlFor="issue-input" classes={{ root: classes.label }}>
@@ -261,25 +203,16 @@ function Form({ ...props }) {
         </div>
       </FormControl>
 
-      <FormControl classes={{ root: classes.formControl }}>
-        <InputLabel htmlFor="signature-input" classes={{ root: classes.label }}>
-          {signatureLabel}
-        </InputLabel>
-        <FormHelperText
-          id="signature-helper-text"
-          classes={{ root: classes.helperText }}
-        >
-          {signatureHelper}
-        </FormHelperText>
-        <Input
-          variant="outlined"
-          id="signature-input"
-          aria-describedby="signature-helper-text"
-          classes={{ input: classes.input, underline: classes.underline }}
-        />
-      </FormControl>
+      <FormTextField
+        labelText={signatureLabel}
+        helperDescription={signatureHelper}
+        elemId="signature-input"
+      />
 
-      <Typography id="mandatory-text" classes={{ root: classes.helperText }}>
+      <Typography
+        id="mandatory-text"
+        classes={{ root: `${classes.helperText} ${classes.mandatoryText}` }}
+      >
         {mandatoryText}
       </Typography>
     </form>
