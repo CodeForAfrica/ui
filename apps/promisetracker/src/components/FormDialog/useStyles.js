@@ -17,7 +17,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     borderRadius: "10px",
     "& h2": {
       textTransform: "none",
-      fontFamily: "Amiri, Regular",
+      fontFamily: typography.h2.fontFamily,
       fontSize: typography.pxToRem(30),
       fontWeight: "100",
     },
@@ -36,8 +36,8 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   },
   recipientLabel: {
     textTransform: "uppercase",
-    fontFamily: "Open Sans, Bold",
-    fontWeight: 600,
+    fontFamily: typography.fontFamily,
+    fontWeight: "bold",
     fontSize: typography.pxToRem(10),
     color: "#909090",
     position: "static",
@@ -45,7 +45,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   },
   helperText: {
     color: "black",
-    fontFamily: "inherit",
+    fontFamily: typography.body2.fontFamily,
     margin: `${typography.pxToRem(10)} 0 ${typography.pxToRem(10)} 0`,
     fontSize: typography.pxToRem(16),
     lineHeight: "1.8",
@@ -81,12 +81,6 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     "& input": {
       display: "none",
     },
-    "&::before": {
-      borderBottom: "none",
-    },
-    "&::after": {
-      borderBottom: "none",
-    },
   },
   imageThumbnail: {
     width: typography.pxToRem(150),
@@ -113,9 +107,10 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   inputText: {
     textAlign: "center",
     textTransform: "uppercase",
-    fontFamily: "Source Sans Pro, sans-serif",
+    fontFamily: typography.fontFamily,
+    fontSize: typography.pxToRem(12),
+    fontWeight: "bold",
     color: "#20202059",
-    fontWeight: "600",
     letterSpacing: "0.4px",
     paddingTop: typography.pxToRem(10),
   },
