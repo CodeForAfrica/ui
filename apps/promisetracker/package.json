@@ -30,7 +30,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-swipeable-views": "^0.13.9",
-    "reading-time": "^1.2.0",
+    "reading-time": "^1.2.1",
     "simplebar": "^5.1.0",
     "simplebar-react": "^2.1.0",
     "victory": "^35.3.5",
