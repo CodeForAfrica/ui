@@ -80,38 +80,6 @@ function PickPromise({ promises, ...props }) {
                 </Typography>
               </FormControl>
             </form>
-            {/* <Typography className={classes.title} variant="body1">
-              {pickPromiseTitle}
-            </Typography>
-            <Typography variant="body2" className={classes.textContent}>
-              {pickPromiseDescription}
-            </Typography>
-            <Autocomplete
-              classes={{
-                endAdornment: classes.endAdornment,
-                popupIndicator: classes.popUpIndicator,
-                clearIndicator: classes.clearIndicator,
-              }}
-              options={promises || []}
-              autoHighlight
-              getOptionLabel={(option) => option.title}
-              renderOption={(option) => (
-                <>
-                  <span>{option.title}</span>
-                </>
-              )}
-              style={{ width: 400 }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="No Promises Selected"
-                  variant="outlined"
-                />
-              )}
-            />
-            <Typography variant="body2" className={classes.textContent}>
-              {mandatoryText}
-            </Typography> */}
           </Grid>
           <Grid item xs={12} className={classes.buttonContainer}>
             <CtAButton
@@ -133,7 +101,11 @@ function PickPromise({ promises, ...props }) {
             >
               {petitionJoin}
             </CtAButton>
-            <FormDialog open={open} handleFormClose={handleFormClose} />
+            <FormDialog
+              open={open}
+              handleFormClose={handleFormClose}
+              {...props}
+            />
           </Grid>
         </Grid>
       </Section>

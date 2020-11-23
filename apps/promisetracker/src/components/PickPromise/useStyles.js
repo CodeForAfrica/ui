@@ -11,6 +11,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    paddingTop: typography.pxToRem(40),
     [breakpoints.up("lg")]: {
       padding: `${typography.pxToRem(70)} 0`,
     },
