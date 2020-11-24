@@ -51,9 +51,6 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   description: {
     padding: "1rem 0rem 1.5rem 0rem",
     textAlign: "left",
-    [breakpoints.up("lg")]: {
-      // lineHeight: "1.875rem",
-    },
   },
   image: {
     maxWidth: typography.pxToRem(314),

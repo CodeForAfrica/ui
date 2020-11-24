@@ -109,6 +109,9 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   imageContainer: {
     backgroundColor: "#F7F7F7",
   },
+  gridContainer: {
+    justifyContent: "center",
+  },
   uploadButton: {
     color: "#909090",
     backgroundColor: "#FFFFFF",
@@ -131,7 +134,8 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     fontWeight: "bold",
     color: "#20202059",
     letterSpacing: "0.4px",
-    paddingTop: typography.pxToRem(10),
+    lineHeight: "3",
+    width: typography.pxToRem(120),
   },
 }));
 

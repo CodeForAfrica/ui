@@ -23,6 +23,9 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       width: typography.pxToRem(widths.values.lg),
     },
   },
+  footer: {
+    marginTop: 0,
+  },
 }));
 
 function ActNow({ actNow, description, keyPromises, ...props }) {
@@ -30,7 +33,11 @@ function ActNow({ actNow, description, keyPromises, ...props }) {
   const actNowWithDesc = { ...actNow, description };
 
   return (
-    <Page {...props} title="Act Now" classes={{ section: classes.section }}>
+    <Page
+      {...props}
+      title="Act Now"
+      classes={{ section: classes.section, footer: classes.footer }}
+    >
       <ActNowComponent
         {...actNowWithDesc}
         classes={{ section: classes.section }}

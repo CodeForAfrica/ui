@@ -5,6 +5,7 @@ import {
   FormControl,
   InputLabel,
   Input,
+  Grid,
   Typography,
   FormHelperText,
   TextareaAutosize,
@@ -161,7 +162,9 @@ function Form({ ...props }) {
           {imageHelper}
         </FormHelperText>
         <div className={classes.imageContainer}>
-          <p className={classes.inputText}>{uploadInstruction}</p>
+          <Grid container classes={{ root: classes.gridContainer }}>
+            <p className={classes.inputText}>{uploadInstruction}</p>
+          </Grid>
 
           <Input
             inputRef={fileInput}
