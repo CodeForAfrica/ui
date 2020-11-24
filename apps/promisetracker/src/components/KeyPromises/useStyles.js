@@ -58,15 +58,16 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
     marginTop: typography.pxToRem(11),
     maxHeight: typography.pxToRem(32 * 2),
     [breakpoints.up("lg")]: {
-      height: typography.pxToRem(56 * 2), // Max 2 lines defined by h2.lineHeight
+      display: "flex",
+      flexDirection: "column",
+      height: "auto",
+      marginBottom: typography.pxToRem(8), // Border height
       marginTop: typography.pxToRem(27),
-      maxHeight: typography.pxToRem(56 * 2),
+      maxHeight: typography.pxToRem(56 * 2), // Max 2 lines defined by h2.lineHeight
+      minHeight: typography.pxToRem(56),
       position: "relative",
       "&:after": {
         content: '""',
-        position: "absolute",
-        bottom: 0,
-        left: 0,
         width: typography.pxToRem(72),
         // NOTE(kilemensi): Since this useStyles is shared between KeyPromises
         //                  and KeyPromise, props.status will be null when
