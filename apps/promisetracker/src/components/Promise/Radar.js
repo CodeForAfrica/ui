@@ -40,9 +40,9 @@ function Radar(props) {
 				center={[8.7832, 34.5085]}
 				drawProfile={true}
 				drawChildren={false}
-				codeType="AFR"
-				geoLevel="level1"
-				geoCode="KE_1_008"
+				codeType="KEN"
+				geoLevel="country"
+				geoCode="KE"
 				geoLayerBlurStyle={{
 					color: "black",
 					fillColor: "#ccc",
