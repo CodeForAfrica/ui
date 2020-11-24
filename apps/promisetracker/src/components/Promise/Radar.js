@@ -39,7 +39,7 @@ function Radar(props) {
 				tolerance={0.001}
 				center={[8.7832, 34.5085]}
 				drawProfile={true}
-				drawChildren={false}
+				drawChildren={true}
 				codeType="KEN"
 				geoLevel="country"
 				geoCode="KE"
