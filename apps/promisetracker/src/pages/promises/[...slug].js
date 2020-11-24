@@ -11,6 +11,7 @@ import check from "@/promisetracker/lib/check";
 
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
+import pc from "@/promisetracker/lib/pc";
 
 import promiseImage from "@/promisetracker/assets/promise-thumb-01@2x.png";
 
@@ -191,7 +192,9 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
     },
     narrative: {},
   };
-
+  const factCheckAPI = pc()
+  const relatedFactChecks = await factCheckAPI.factChecks({ urls: promise.relatedFactChecksUrls }).list
+  promise.relatedFactChecks = relatedFactChecks || [];
   const languageAlternates = _.languageAlternates(
     `/promises/${id}/${promisePost.slug}`
   );
