@@ -30,7 +30,7 @@ function PostCard({
 
   return (
     <Card square variant="outlined" className={classes.root}>
-      <CardActionArea className={classes.contentRoot} {...props}>
+      <CardActionArea {...props} className={classes.contentRoot}>
         <CardContent classes={{ root: classes.content }}>
           <Box
             display="flex"

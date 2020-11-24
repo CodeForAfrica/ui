@@ -22,6 +22,9 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   contentRoot: {
     height: "100%",
     padding: "2rem 1rem",
+    "&:hover": {
+      backgroundColor: "inherit",
+    },
   },
   date: {
     lineHeight: 14 / 10,
