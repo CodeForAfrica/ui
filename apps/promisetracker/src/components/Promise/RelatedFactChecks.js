@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Typography } from "@material-ui/core";
+import { A } from "@commons-ui/core";
 
 const useStyles = makeStyles(({ palette }) => ({
   root: {},
@@ -26,15 +27,15 @@ function RelatedFactChecks({ factChecks, classes: classesProp }) {
 
   return (
     <div className={classes.root}>
-      {factChecks.map(({ title, date }) => (
-        <div key={title} className={classes.titleDateContainer}>
+      {factChecks.map(({ title, date,href }) => (
+        <A href={href} key={title} className={classes.titleDateContainer}>
           <Typography className={classes.name} variant="h4">
             {title}
           </Typography>
           <Typography className={classes.date} variant="h6">
             {date}
           </Typography>
-        </div>
+        </A>
       ))}
     </div>
   );
