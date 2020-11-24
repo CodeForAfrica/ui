@@ -97,7 +97,7 @@ function Promise({
             <Typography className={classes.label} variant="h5">
               {relatedFactChecksLabel}
             </Typography>
-            <RelatedFactChecks />
+            <RelatedFactChecks factChecks={promise.relatedFactChecks} />
           </Grid>
         </Hidden>
       </Grid>
