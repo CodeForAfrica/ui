@@ -39,7 +39,5 @@ export function formatDate(date) {
 export function replaceAll(str, mapObj) {
   const re = new RegExp(Object.keys(mapObj).join("|"), "gi");
 
-  return str.replace(re, function (matched) {
-    return mapObj[matched.toLowerCase()];
-  });
+  return str.replace(re, (matched) => mapObj[matched.toLowerCase()]);
 }
