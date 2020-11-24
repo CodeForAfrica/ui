@@ -6,7 +6,6 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import { Section } from "@commons-ui/core";
 
-import CtAButton from "@/promisetracker/components/CtAButton";
 import actNowImg from "@/promisetracker/assets/illo-actNow@2x.png";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
@@ -23,7 +22,15 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   title: {
     padding: 0,
     textAlign: "left",
-    textTransform: "capitalize",
+  },
+  titleRoot: {
+    "&::after": {
+      content: "''",
+      display: "block",
+      height: "0.2em",
+      width: "13%",
+      borderBottom: "solid 5px",
+    },
   },
   content: {
     alignItems: "center",
@@ -35,25 +42,9 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       justifyContent: "space-between",
     },
   },
-  cta: {
-    marginBottom: 0,
-    [breakpoints.up("lg")]: {
-      justifyContent: "left",
-      padding: 0,
-    },
-  },
-  ctaButton: {
-    minWidth: typography.pxToRem(138),
-    [breakpoints.up("lg")]: {
-      minWidth: typography.pxToRem(158),
-    },
-  },
   description: {
     padding: "1rem 0rem 1.5rem 0rem",
     textAlign: "left",
-    [breakpoints.up("lg")]: {
-      lineHeight: "1.875rem",
-    },
   },
   image: {
     maxWidth: typography.pxToRem(314),
@@ -72,7 +63,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   },
 }));
 
-function ActNow({ actionLabel, description, title, ...props }) {
+function ActNowPage({ title, description, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
   const descriptionVariant = useMediaQuery(theme.breakpoints.up("lg"))
@@ -83,25 +74,22 @@ function ActNow({ actionLabel, description, title, ...props }) {
     <div className={classes.root}>
       <Section classes={{ root: classes.section }}>
         <Grid container className={classes.content}>
-          <Grid item xs={12} lg={6} container alignItems="center">
+          <Grid item xs={12} lg={7} container alignItems="center">
             <div className={classes.textContainer}>
-              <Typography variant="h1" className={classes.title}>
+              <Typography
+                variant="h2"
+                className={classes.title}
+                classes={{ root: classes.titleRoot }}
+              >
                 {title}
               </Typography>
+              <div />
               <Typography
                 variant={descriptionVariant}
                 className={classes.description}
               >
                 {description}
               </Typography>
-              <CtAButton
-                classes={{
-                  root: classes.cta,
-                  button: classes.ctaButton,
-                }}
-              >
-                {actionLabel}
-              </CtAButton>
             </div>
           </Grid>
           <Grid item xs={12} lg={5}>
@@ -112,16 +100,14 @@ function ActNow({ actionLabel, description, title, ...props }) {
     </div>
   );
 }
-ActNow.propTypes = {
-  actionLabel: PropTypes.string,
+ActNowPage.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
 };
 
-ActNow.defaultProps = {
-  actionLabel: undefined,
-  description: undefined,
-  title: undefined,
+ActNowPage.defaultProps = {
+  description: null,
+  title: null,
 };
 
-export default ActNow;
+export default ActNowPage;

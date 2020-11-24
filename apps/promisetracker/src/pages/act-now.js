@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Page from "@/promisetracker/components/Page";
 import Subscribe from "@/promisetracker/components/Newsletter";
-import ActNowComponent from "@/promisetracker/components/ActNow";
+import ActNowPage from "@/promisetracker/components/ActNowPage";
 import PickPromise from "@/promisetracker/components/PickPromise";
 
 import i18n from "@/promisetracker/lib/i18n";
@@ -28,9 +28,8 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function ActNow({ actNow, description, allPromises, ...props }) {
+function ActNow({ allPromises, ...props }) {
   const classes = useStyles(props);
-  const actNowWithDesc = { ...actNow, description };
 
   return (
     <Page
@@ -38,10 +37,7 @@ function ActNow({ actNow, description, allPromises, ...props }) {
       title="Act Now"
       classes={{ section: classes.section, footer: classes.footer }}
     >
-      <ActNowComponent
-        {...actNowWithDesc}
-        classes={{ section: classes.section }}
-      />
+      <ActNowPage {...props} classes={{ section: classes.section }} />
       <PickPromise
         promises={allPromises}
         {...props}
@@ -73,6 +69,7 @@ export async function getStaticProps({ locale }) {
   }
 
   const page = await wp().pages({ slug: "act-now", locale }).first;
+
   const { promiseStatuses } = page;
   const checkApi = check({
     promiseStatuses,
