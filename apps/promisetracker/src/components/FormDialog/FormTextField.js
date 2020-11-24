@@ -20,15 +20,15 @@ function FormTextField({ ...props }) {
       helperText={helperDescription}
       label={labelText}
       id={elemId}
-      inputProps={{
-        variant: "outlined",
-        "aria-describedby": `${elemId}-helper-text`,
-      }}
       InputProps={{
         classes: {
           input: classes.input,
           underline: classes.underline,
           root: classes.inputRoot,
+        },
+        inputProps: {
+          variant: "outlined",
+          "aria-describedby": `${elemId}-helper-text`,
         },
       }}
       FormHelperTextProps={{

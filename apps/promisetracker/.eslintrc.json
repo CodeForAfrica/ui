@@ -26,7 +26,6 @@
         "extensions": [".js"]
       }
     ],
-    "react/jsx-props-no-spreading": 0,
-    "react/jsx-no-duplicate-props": [1, { "ignoreCase": true }]
+    "react/jsx-props-no-spreading": 0
   }
 }
