@@ -27,6 +27,9 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     position: "static",
     transform: "none",
     color: "black",
+    [breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
   },
   inputSection: {
     backgroundColor: "#F7F7F7",
@@ -46,32 +49,36 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     width: "2em",
     height: "2em",
     right: 0,
-    position: "static",
     zIndex: 1,
   },
   formControl: {
-    width: "-webkit-fill-available",
+    width: "100%",
     "& .MuiInputBase-root": {
-      width: "40%",
+      // width: "40%",
       height: typography.pxToRem(47),
       borderRadius: 0,
     },
-    [breakpoints.down("sm")]: {
-      "& .MuiInputBase-root": {
-        width: "85%",
-      },
-    },
+  },
+  mainContainer: {
+    padding: typography.pxToRem(20),
   },
   textContent: {
     fontSize: typography.pxToRem(14),
     padding: "0 0 1.3rem 0",
     color: "black",
     fontFamily: typography.body1.fontFamily,
+    [breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
   },
   cta: {
     padding: "0rem 2rem 0rem 0rem",
     width: "auto",
     justifyContent: "flex-start",
+    [breakpoints.down("sm")]: {
+      padding: 0,
+      justifyContent: "center",
+    },
   },
 
   ctaButton: {
@@ -94,6 +101,9 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   mandatoryText: {
     fontSize: typography.pxToRem(15),
     paddingTop: "0.625rem",
+    [breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
 }));
 

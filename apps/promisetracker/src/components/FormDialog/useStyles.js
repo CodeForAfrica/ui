@@ -5,6 +5,9 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   paperWidthSm: {
     maxWidth: typography.pxToRem(716),
   },
+  paper: {
+    margin: 0,
+  },
   root: {
     width: "100%",
     backgroundColor: "#F7F7F7",
@@ -95,7 +98,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   imageInput: {
     backgroundColor: "#F7F7F7",
     height: typography.pxToRem(50),
-    minWidth: "-webkit-fill-available",
+    minWidth: "100%",
     "& input": {
       display: "none",
     },

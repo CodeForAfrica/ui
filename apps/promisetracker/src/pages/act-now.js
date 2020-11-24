@@ -28,7 +28,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function ActNow({ actNow, description, keyPromises, ...props }) {
+function ActNow({ actNow, description, allPromises, ...props }) {
   const classes = useStyles(props);
   const actNowWithDesc = { ...actNow, description };
 
@@ -43,7 +43,7 @@ function ActNow({ actNow, description, keyPromises, ...props }) {
         classes={{ section: classes.section }}
       />
       <PickPromise
-        promises={keyPromises}
+        promises={allPromises}
         {...props}
         classes={{ section: classes.section }}
       />
@@ -55,13 +55,13 @@ function ActNow({ actNow, description, keyPromises, ...props }) {
 ActNow.propTypes = {
   actNow: PropTypes.shape({}),
   description: PropTypes.string,
-  keyPromises: PropTypes.arrayOf(PropTypes.shape({})),
+  allPromises: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 ActNow.defaultProps = {
   actNow: null,
   description: null,
-  keyPromises: null,
+  allPromises: null,
 };
 
 export async function getStaticProps({ locale }) {
@@ -81,15 +81,15 @@ export async function getStaticProps({ locale }) {
 
   const languageAlternates = _.languageAlternates("/act-now");
 
-  const keyPromises = await checkApi.promises({
-    limit: 6,
-    query: `{ "projects": ["4691"] }`,
+  const allPromises = await checkApi.promises({
+    limit: 10000,
+    query: `{ "projects": ["2831"] }`,
   });
 
   return {
     props: {
       ...page,
-      keyPromises,
+      allPromises,
       languageAlternates,
     },
     revalidate: 2 * 60, // seconds

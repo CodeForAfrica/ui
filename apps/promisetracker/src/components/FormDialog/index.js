@@ -25,7 +25,11 @@ function FormDialog({ open, handleFormClose, ...props }) {
         onClose={handleFormClose}
         aria-labelledby="form-dialog-title"
         aria-describedby="form-dialog-description"
-        classes={{ root: classes.section, paperWidthSm: classes.paperWidthSm }}
+        classes={{
+          root: classes.section,
+          paperWidthSm: classes.paperWidthSm,
+          paper: classes.paper,
+        }}
       >
         <DialogTitle id="form-dialog-title" classes={{ root: classes.title }}>
           {petitionTitle}

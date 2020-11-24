@@ -45,8 +45,8 @@ function PickPromise({ promises, ...props }) {
   return (
     <div className={classes.root}>
       <Section classes={{ root: classes.section }}>
-        <Grid container>
-          <Grid item xs={12}>
+        <Grid container classes={{ root: classes.mainContainer }}>
+          <Grid item lg={5} xs={12}>
             <form>
               <FormControl
                 classes={{
