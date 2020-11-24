@@ -103,8 +103,8 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
         const prevStatus =
           idx > 0
             ? JSON.parse(statusLogs[idx - 1]?.node.object_changes_json)
-                .value[1].replace(/[^\w\s]/gi, "")
-                .trim()
+              .value[1].replace(/[^\w\s]/gi, "")
+              .trim()
             : null;
         return prevStatus !== currentStatus;
       })
@@ -121,6 +121,17 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       });
 
     return statusHistory.length ? statusHistory : [defaultStatus];
+  }
+  function getRelatedFactCheckUrls(node) {
+    const items = node.tasks?.edges;
+    const relatedFactCheckTasks = findItemByNodeLabel(
+      items,
+      "What are the fact checks related to the promise?"
+    );
+    const expression = /(https?:\/\/(?:www\.|(?!www))[^\s.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
+    const matches = relatedFactCheckTasks?.node.first_response_value?.match(expression);
+
+    return matches || []
   }
 
   async function getDataSource(node) {
@@ -160,13 +171,14 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       status: getStatusHistory(node)[0],
       statusHistory: getStatusHistory(node),
       documents: await (getDataSource(node) || []),
+      relatedFactChecksUrls: getRelatedFactCheckUrls(node) || [],
     };
   }
 
   async function handlePromisesResult(res) {
     return Promise.all(
       res?.data?.search?.medias?.edges.map(({ node }) => nodeToPromise(node)) ||
-        {}
+      {}
     );
   }
 
