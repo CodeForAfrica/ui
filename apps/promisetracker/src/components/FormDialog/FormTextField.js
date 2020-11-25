@@ -1,14 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { TextField } from "@material-ui/core";
+import { TextField, Typography, useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 
 import useStyles from "./useStyles";
 
 function FormTextField({ ...props }) {
   const classes = useStyles(props);
+  const theme = useTheme();
 
   const { labelText, helperDescription, elemId } = props;
+
+  const helperVariant = useMediaQuery(theme.breakpoints.up("lg"))
+    ? "body1"
+    : "body2";
 
   return (
     <TextField
@@ -17,7 +23,9 @@ function FormTextField({ ...props }) {
           ? classes.formControl
           : classes.formControlRecipient,
       }}
-      helperText={helperDescription}
+      helperText={
+        <Typography variant={helperVariant}>{helperDescription}</Typography>
+      }
       label={labelText}
       id={elemId}
       InputProps={{

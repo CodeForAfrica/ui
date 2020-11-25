@@ -9,15 +9,19 @@ import {
   Typography,
   FormHelperText,
   TextareaAutosize,
+  useMediaQuery,
 } from "@material-ui/core";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 
+import { useTheme } from "@material-ui/core/styles";
 import FormTextField from "./FormTextField";
 import useStyles from "./useStyles";
 
 function Form({ ...props }) {
   const classes = useStyles(props);
+  const theme = useTheme();
+
   const [images, setImages] = useState([]);
   const [fileError, setFileError] = useState(false);
   const fileInput = useRef(null);
@@ -95,6 +99,10 @@ function Form({ ...props }) {
     fileInput.current.click();
   };
 
+  const helperVariant = useMediaQuery(theme.breakpoints.up("lg"))
+    ? "body1"
+    : "body2";
+
   return (
     <form>
       <FormTextField
@@ -114,6 +122,7 @@ function Form({ ...props }) {
       <Typography
         id="recipient-helper-text"
         classes={{ root: classes.helperText }}
+        variant={helperVariant}
       >
         {recipientDescription}
       </Typography>
@@ -139,7 +148,7 @@ function Form({ ...props }) {
           id="issue-helper-text"
           classes={{ root: classes.helperText }}
         >
-          {issueHelper}
+          <Typography variant={helperVariant}>{issueHelper}</Typography>
         </FormHelperText>
 
         <TextareaAutosize
@@ -159,7 +168,7 @@ function Form({ ...props }) {
           classes={{ root: classes.helperText }}
           error={fileError}
         >
-          {imageHelper}
+          <Typography variant={helperVariant}>{imageHelper}</Typography>
         </FormHelperText>
         <div className={classes.imageContainer}>
           <Grid container classes={{ root: classes.gridContainer }}>

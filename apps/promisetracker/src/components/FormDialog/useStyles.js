@@ -9,7 +9,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     margin: 0,
   },
   scrollBody: {
-    padding: `${typography.pxToRem(40)} 0`,
+    padding: `${typography.pxToRem(40)} ${typography.pxToRem(10)}`,
     scrollbarWidth: "none",
     "&::-webkit-scrollbar": {
       display: "none",
@@ -42,9 +42,15 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
       fontSize: typography.pxToRem(30),
       fontWeight: "100",
     },
+    [breakpoints.down("sm")]: {
+      padding: `${typography.pxToRem(15)} ${typography.pxToRem(15)}`,
+    },
   },
   dialogContent: {
     padding: `${typography.pxToRem(51)} ${typography.pxToRem(51)}`,
+    [breakpoints.down("sm")]: {
+      padding: `${typography.pxToRem(15)} ${typography.pxToRem(15)}`,
+    },
   },
   description: {
     color: "black",
@@ -70,10 +76,11 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   },
   helperText: {
     color: "black",
-    fontFamily: typography.body2.fontFamily,
     margin: `0 0 ${typography.pxToRem(10)} 0`,
-    fontSize: typography.pxToRem(16),
     lineHeight: "1.8",
+    [breakpoints.down("sm")]: {
+      paddingTop: typography.pxToRem(10),
+    },
   },
   mandatoryText: {
     margin: `${typography.pxToRem(10)} 0 ${typography.pxToRem(10)} 0`,

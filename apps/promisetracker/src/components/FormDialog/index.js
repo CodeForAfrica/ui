@@ -27,7 +27,6 @@ function FormDialog({ open, handleFormClose, ...props }) {
         aria-labelledby="form-dialog-title"
         aria-describedby="form-dialog-description"
         classes={{
-          root: classes.section,
           paperWidthSm: classes.paperWidthSm,
           paper: classes.paper,
           scrollBody: classes.scrollBody,
