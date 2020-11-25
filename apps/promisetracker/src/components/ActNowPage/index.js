@@ -28,7 +28,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       content: "''",
       display: "block",
       height: "0.2em",
-      width: "13%",
+      width: "12%",
       borderBottom: "solid 5px",
     },
   },

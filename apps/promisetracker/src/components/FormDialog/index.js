@@ -22,6 +22,7 @@ function FormDialog({ open, handleFormClose, ...props }) {
     <div>
       <Dialog
         open={open}
+        scroll="body"
         onClose={handleFormClose}
         aria-labelledby="form-dialog-title"
         aria-describedby="form-dialog-description"
@@ -29,6 +30,8 @@ function FormDialog({ open, handleFormClose, ...props }) {
           root: classes.section,
           paperWidthSm: classes.paperWidthSm,
           paper: classes.paper,
+          scrollBody: classes.scrollBody,
+          paperScrollBody: classes.paperScrollBody,
         }}
       >
         <DialogTitle id="form-dialog-title" classes={{ root: classes.title }}>

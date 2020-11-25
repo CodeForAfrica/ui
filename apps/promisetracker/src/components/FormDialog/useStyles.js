@@ -5,8 +5,20 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   paperWidthSm: {
     maxWidth: typography.pxToRem(716),
   },
-  paper: {
+  paperScrollBody: {
     margin: 0,
+  },
+  scrollBody: {
+    padding: `${typography.pxToRem(40)} 0`,
+    scrollbarWidth: "none",
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
+    [breakpoints.down("sm")]: {
+      "& .MuiDialog-paperWidthSm.MuiDialog-paperScrollBody": {
+        maxWidth: "none",
+      },
+    },
   },
   root: {
     width: "100%",
