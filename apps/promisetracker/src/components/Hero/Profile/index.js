@@ -42,7 +42,7 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   },
 }));
 
-function Profile({ title, name, date, ...props }) {
+function Profile({ title, name, date, dateLabel, ...props }) {
   const classes = useStyles(props);
   return (
     <Grid
@@ -59,7 +59,7 @@ function Profile({ title, name, date, ...props }) {
           {title}
         </Typography>
         <Typography variant="h6" className={classes.caption}>
-          {date}
+          {dateLabel} {date}
         </Typography>
       </Grid>
     </Grid>
@@ -69,6 +69,7 @@ function Profile({ title, name, date, ...props }) {
 Profile.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
+  dateLabel: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };
 export default Profile;

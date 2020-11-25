@@ -203,15 +203,16 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
   }) {
     const descriptionArr = description.split("|");
     const position = descriptionArr[2];
-    const promiseLabel = descriptionArr[3];
-    const trailText = descriptionArr[4];
-
+    const updatedDateLabel = descriptionArr[3];
+    const promiseLabel = descriptionArr[4];
+    const trailText = descriptionArr[5];
     return {
       updatedAt: Number(updatedAt) * 1000,
       description: descriptionArr[0],
       position,
       promiseLabel,
       trailText,
+      updatedDateLabel,
       name: descriptionArr[1],
       tags: tags.edges.map((tag) => tag.node),
     };

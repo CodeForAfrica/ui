@@ -27,6 +27,7 @@ function Hero({
   position,
   promisesByStatus,
   updatedAt,
+  updatedDateLabel,
   title,
   ...props
 }) {
@@ -42,7 +43,12 @@ function Hero({
             </Grid>
           </Hidden>
           <Grid item xs={12} lg={4}>
-            <Profile name={name} title={title} date={`${updatedAt}`} />
+            <Profile
+              name={name}
+              title={title}
+              dateLabel={updatedDateLabel}
+              date={`${updatedAt}`}
+            />
           </Grid>
           <Grid item xs={12} lg={8}>
             <ProfileChart
@@ -68,6 +74,7 @@ Hero.propTypes = {
   position: PropTypes.string.isRequired,
   updatedAt: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  updatedDateLabel: PropTypes.string.isRequired,
   promisesByStatus: PropTypes.shape({}),
 };
 
