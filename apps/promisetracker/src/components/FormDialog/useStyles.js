@@ -2,21 +2,18 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ typography, breakpoints }) => ({
   section: {},
-  paperWidthSm: {
-    maxWidth: typography.pxToRem(716),
-  },
   paperScrollBody: {
     margin: 0,
   },
   scrollBody: {
-    padding: `${typography.pxToRem(40)} ${typography.pxToRem(10)}`,
+    margin: `${typography.pxToRem(40)} ${typography.pxToRem(13)}`,
     scrollbarWidth: "none",
     "&::-webkit-scrollbar": {
       display: "none",
     },
     [breakpoints.down("sm")]: {
       "& .MuiDialog-paperWidthSm.MuiDialog-paperScrollBody": {
-        maxWidth: "none",
+        maxWidth: "100%",
       },
     },
   },
@@ -31,20 +28,33 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     },
   },
   title: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
     backgroundColor: "#F7F7F7",
     borderRadius: `0 0 ${typography.pxToRem(10)} ${typography.pxToRem(10)}`,
     border: "1px solid #ebebeb",
-    padding: `${typography.pxToRem(16)} ${typography.pxToRem(51)}`,
+    padding: ` ${typography.pxToRem(16)}
+    ${typography.pxToRem(15)}
+    ${typography.pxToRem(16)}
+    ${typography.pxToRem(51)}`,
     height: typography.pxToRem(100),
     "& h2": {
       textTransform: "none",
-      fontFamily: typography.h2.fontFamily,
-      fontSize: typography.pxToRem(30),
       fontWeight: "100",
+      [breakpoints.down("sm")]: {
+        fontSize: typography.pxToRem(23),
+      },
     },
     [breakpoints.down("sm")]: {
-      padding: `${typography.pxToRem(15)} ${typography.pxToRem(15)}`,
+      padding: `${typography.pxToRem(15)}
+      ${typography.pxToRem(10)}
+      ${typography.pxToRem(15)}
+      ${typography.pxToRem(15)}`,
     },
+  },
+  iconRoot: {
+    color: "#909090",
   },
   dialogContent: {
     padding: `${typography.pxToRem(51)} ${typography.pxToRem(51)}`,
