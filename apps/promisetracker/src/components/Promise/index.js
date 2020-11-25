@@ -115,6 +115,7 @@ Promise.propTypes = {
     attribution: PropTypes.shape({}),
     narrative: PropTypes.shape({}),
     documents: PropTypes.arrayOf(PropTypes.shape({})),
+    relatedFactChecks: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
   breadcrumb: PropTypes.string,
   classes: PropTypes.shape({
