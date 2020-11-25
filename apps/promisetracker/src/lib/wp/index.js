@@ -105,6 +105,7 @@ function wp(site) {
       criteria,
       content: resource.content?.rendered,
       partners,
+      featuredImage: resource.featured_image_src,
       title: resource.title?.rendered,
       languge: lang,
     };
