@@ -33,7 +33,7 @@
     "reading-time": "^1.2.1",
     "simplebar": "^5.1.0",
     "simplebar-react": "^2.1.0",
-    "victory": "^35.3.5",
+    "victory": "^35.4.0",
     "webpack": "^5.6.0"
   },
   "devDependencies": {
