@@ -22,14 +22,14 @@ import linkedIn from "@/promisetracker/assets/footer-social-ln.svg";
 
 import useStyles from "./useStyles";
 
-function Share({ status, id, link, size, title, description, ...props }) {
+function Share({ link, title, description, ...props }) {
   const classes = useStyles(props);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [placement, setPlacement] = React.useState(null);
   const [open, setOpen] = React.useState(false);
 
   const handleClick = (newPlacement) => (event) => {
-    event.stopPropagation( );
+    event.preventDefault();
     setAnchorEl(event.currentTarget);
     setOpen((prev) => placement !== newPlacement || !prev);
     setPlacement(newPlacement);
@@ -127,11 +127,17 @@ function Share({ status, id, link, size, title, description, ...props }) {
 Share.propTypes = {
   children: PropTypes.node,
   classes: PropTypes.shape({}),
+  link: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
 };
 
 Share.defaultProps = {
   children: undefined,
   classes: undefined,
+  link: undefined,
+  title: undefined,
+  description: undefined,
 };
 
 export default Share;
