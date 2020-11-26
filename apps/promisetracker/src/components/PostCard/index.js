@@ -23,11 +23,12 @@ function PostCard({
   description,
   image,
   title,
+  as,
   ...props
 }) {
   const classes = useStyles({ classes: classesProp });
-  const href = props.as ? props.as : ""
-  const link = config.URL + href
+  const href = as || "";
+  const link = config.URL + href;
 
   return (
     <Card square variant="outlined" className={classes.root}>
@@ -49,7 +50,7 @@ function PostCard({
               </RichTypography>
             </Grid>
             <Grid item>
-              <Share link={link} title={title}></Share>
+              <Share link={link} title={title} />
             </Grid>
           </Grid>
         </CardContent>
@@ -94,12 +95,15 @@ PostCard.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   href: PropTypes.string,
+  as: PropTypes.string,
 };
 
 PostCard.defaultProps = {
   children: undefined,
   classes: undefined,
   description: undefined,
+  href: undefined,
+  as: undefined,
 };
 
 export default PostCard;
