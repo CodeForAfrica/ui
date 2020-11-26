@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(({ typography }) => ({
   root: {
     border: 0,
-    padding: "0.8rem ",
+    padding: "0.8rem  1.2rem",
     textTransform: "uppercase",
     fontFamily: typography.fontFamily,
     letterSpacing: "0.56px",

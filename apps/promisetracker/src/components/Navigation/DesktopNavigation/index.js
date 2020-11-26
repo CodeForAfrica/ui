@@ -127,7 +127,7 @@ function DesktopNavigation(props) {
             </Grid>
 
             <Grid item lg={1} direction="column" container justify="flex-start">
-              <Grid item>
+              <Grid item container justify="flex-end">
                 {locales.slice(0, 2).map((locale) => (
                   <Button
                     key={locale}
@@ -143,7 +143,7 @@ function DesktopNavigation(props) {
                 ))}
               </Grid>
 
-              <Grid item>
+              <Grid item container justify="flex-end">
                 {locales.slice(2, 4).map((locale, i) => (
                   <Button
                     key={locale}
