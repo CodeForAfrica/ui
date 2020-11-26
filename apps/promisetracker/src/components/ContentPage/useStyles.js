@@ -2,8 +2,11 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(
   ({ breakpoints, palette, typography, widths }) => ({
-    root: {
-      backgroundColor: palette.secondary.light,
+    root: (props) => {
+      return {
+        backgroundColor:
+          props.slug === "act-now" ? "#ebebeb" : palette.secondary.light,
+      };
     },
     section: {
       padding: `0 ${typography.pxToRem(23)}`,

@@ -54,14 +54,11 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   formControl: {
     width: "100%",
     "& .MuiInputBase-root": {
-      // width: "40%",
       height: typography.pxToRem(47),
       borderRadius: 0,
     },
   },
-  mainContainer: {
-    padding: typography.pxToRem(20),
-  },
+
   textContent: {
     fontSize: typography.pxToRem(14),
     padding: "0 0 1.3rem 0",

@@ -3,14 +3,18 @@ import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import Page from "@/promisetracker/components/Page";
+import { RichTypography } from "@commons-ui/core";
+import { Typography } from "@material-ui/core";
+
 import Subscribe from "@/promisetracker/components/Newsletter";
-import ActNowPage from "@/promisetracker/components/ActNowPage";
 import PickPromise from "@/promisetracker/components/PickPromise";
+import ContentPage from "@/promisetracker/components/ContentPage";
 
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 import check from "@/promisetracker/lib/check";
+
+import actNowImg from "@/promisetracker/assets/illo-actNow@2x.png";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -23,41 +27,98 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       width: typography.pxToRem(widths.values.lg),
     },
   },
+  image: {
+    maxWidth: typography.pxToRem(314),
+    minWidth: typography.pxToRem(314),
+    objectFit: "cover",
+    [breakpoints.up("lg")]: {
+      maxWidth: typography.pxToRem(484),
+      minWidth: typography.pxToRem(484),
+    },
+  },
   footer: {
     marginTop: 0,
   },
+  title: {
+    padding: 0,
+    textAlign: "left",
+    fontWeight: "bold",
+  },
+  titleRoot: {
+    "&::after": {
+      content: "''",
+      display: "block",
+      height: "0.2em",
+      width: "12%",
+      borderBottom: "solid 5px",
+      marginBottom: typography.pxToRem(20),
+    },
+  },
 }));
 
-function ActNow({ allPromises, ...props }) {
+function ActNow({
+  promises,
+  footer,
+  title,
+  navigation,
+  description,
+  ...props
+}) {
   const classes = useStyles(props);
 
   return (
-    <Page
+    <ContentPage
       {...props}
-      title="Act Now"
-      classes={{ section: classes.section, footer: classes.footer }}
+      footer={footer}
+      navigation={navigation}
+      classes={{
+        section: classes.section,
+        footer: classes.footer,
+      }}
+      aside={<img src={actNowImg} alt="Act Now" className={classes.image} />}
+      content={
+        description?.length ? (
+          <>
+            <Typography
+              variant="h2"
+              className={classes.title}
+              classes={{ root: classes.titleRoot }}
+            >
+              {title}
+            </Typography>
+            <RichTypography className={classes.description}>
+              {description}
+            </RichTypography>
+          </>
+        ) : null
+      }
     >
-      <ActNowPage {...props} classes={{ section: classes.section }} />
       <PickPromise
-        promises={allPromises}
+        promises={promises}
         {...props}
         classes={{ section: classes.section }}
       />
       <Subscribe classes={{ section: classes.section }} />
-    </Page>
+    </ContentPage>
   );
 }
 
 ActNow.propTypes = {
   actNow: PropTypes.shape({}),
   description: PropTypes.string,
-  allPromises: PropTypes.arrayOf(PropTypes.shape({})),
+  title: PropTypes.string,
+  promises: PropTypes.arrayOf(PropTypes.shape({})),
+  footer: PropTypes.shape({}),
+  navigation: PropTypes.shape({}),
 };
 
 ActNow.defaultProps = {
   actNow: null,
   description: null,
-  allPromises: null,
+  promises: null,
+  footer: null,
+  navigation: null,
+  title: null,
 };
 
 export async function getStaticProps({ locale }) {
@@ -78,7 +139,7 @@ export async function getStaticProps({ locale }) {
 
   const languageAlternates = _.languageAlternates("/act-now");
 
-  const allPromises = await checkApi.promises({
+  const promises = await checkApi.promises({
     limit: 10000,
     query: `{ "projects": ["2831"] }`,
   });
@@ -86,7 +147,7 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       ...page,
-      allPromises,
+      promises,
       languageAlternates,
     },
     revalidate: 2 * 60, // seconds

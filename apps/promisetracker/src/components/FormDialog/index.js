@@ -31,6 +31,7 @@ function FormDialog({ open, handleFormClose, ...props }) {
       classes={{
         scrollBody: classes.scrollBody,
         paperScrollBody: classes.paperScrollBody,
+        paperWidthSm: classes.paperWidthSm,
       }}
     >
       <DialogTitle

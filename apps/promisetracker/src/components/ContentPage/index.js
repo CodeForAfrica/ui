@@ -27,7 +27,7 @@ function ContentPage({
   title,
   ...props
 }) {
-  const classes = useStyles(props);
+  const classes = useStyles({ ...props, slug });
 
   return (
     <Page

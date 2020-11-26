@@ -160,108 +160,108 @@ const theme = createTheme({
 const { breakpoints, typography, palette } = theme;
 const { pxToRem } = typography;
 deepmerge(
-	typography,
-	{
-		h1: {
-			color: palette.primary.dark,
-			fontSize: pxToRem(32),
-			lineHeight: 40 / 32,
-			fontWeight: 700,
-			[breakpoints.up("lg")]: {
-				fontSize: pxToRem(38),
-				lineHeight: 56 / 38,
-			},
-		},
-		h2: {
-			fontSize: pxToRem(32),
-			lineHeight: 48 / 32,
-			[breakpoints.up("lg")]: {
-				fontSize: pxToRem(36),
-				lineHeight: 56 / 36,
-			},
-		},
-		h3: {
-			color: palette.primary.dark,
-			fontSize: pxToRem(24),
-			lineHeight: 32 / 24,
-			[breakpoints.up("lg")]: {
-				fontSize: pxToRem(24),
-				lineHeight: 32 / 24,
-			},
-		},
-		h4: {
-			fontSize: pxToRem(16),
-			lineHeight: 24 / 16,
-			[breakpoints.up("lg")]: {
-				fontSize: pxToRem(16),
-				lineHeight: 24 / 16,
-			},
-		},
-		h5: {
-			fontSize: pxToRem(14),
-			lineHeight: 16 / 14,
-			[breakpoints.up("lg")]: {
-				color: palette.primary.main,
-				fontSize: pxToRem(14),
-				lineHeight: 16 / 14,
-			},
-		},
-		h6: {
-			fontSize: pxToRem(10),
-			lineHeight: 16 / 10,
-			[breakpoints.up("lg")]: {
-				fontSize: pxToRem(10),
-				lineHeight: 24 / 10,
-			},
-		},
-		body1: {
-			fontSize: pxToRem(18),
-			lineHeight: 40 / 18,
-			[breakpoints.up("lg")]: {
-				fontSize: pxToRem(18),
-				lineHeight: 40 / 18,
-			},
-		},
-		body2: {
-			fontSize: pxToRem(13),
-			lineHeight: 24 / 13,
-			[breakpoints.up("lg")]: {
-				fontSize: pxToRem(13),
-				lineHeight: 24 / 13,
-			},
-		},
-		subtitle1: {
-			fontSize: pxToRem(14),
-			lineHeight: 24 / 14,
-			[breakpoints.up("lg")]: {
-				fontSize: pxToRem(12),
-				lineHeight: 14.4 / 12,
-			},
-		},
-		subtitle2: {
-			fontSize: pxToRem(7),
-			lineHeight: 19 / 7,
-			[breakpoints.up("lg")]: {
-				fontSize: pxToRem(10),
-				lineHeight: 24 / 10,
-			},
-		},
-		caption: {
-			[breakpoints.up("lg")]: {
-				fontSize: pxToRem(12),
-				lineHeight: 12 / 10,
-			},
-		},
-		button: {
-			fontSize: pxToRem(14),
-			lineHeight: 18 / 14,
-			[breakpoints.up("lg")]: {
-				fontSize: pxToRem(14),
-				lineHeight: 18 / 14,
-			},
-		},
-	},
-	{ clone: false }
+  typography,
+  {
+    h1: {
+      color: palette.primary.dark,
+      fontSize: pxToRem(32),
+      lineHeight: 40 / 32,
+      fontWeight: 700,
+      [breakpoints.up("lg")]: {
+        fontSize: pxToRem(38),
+        lineHeight: 56 / 38,
+      },
+    },
+    h2: {
+      fontSize: pxToRem(32),
+      lineHeight: 48 / 32,
+      [breakpoints.up("lg")]: {
+        fontSize: pxToRem(36),
+        lineHeight: 56 / 36,
+      },
+    },
+    h3: {
+      color: palette.primary.dark,
+      fontSize: pxToRem(24),
+      lineHeight: 32 / 24,
+      [breakpoints.up("lg")]: {
+        fontSize: pxToRem(24),
+        lineHeight: 32 / 24,
+      },
+    },
+    h4: {
+      fontSize: pxToRem(16),
+      lineHeight: 24 / 16,
+      [breakpoints.up("lg")]: {
+        fontSize: pxToRem(16),
+        lineHeight: 24 / 16,
+      },
+    },
+    h5: {
+      fontSize: pxToRem(14),
+      lineHeight: 16 / 14,
+      [breakpoints.up("lg")]: {
+        color: palette.primary.main,
+        fontSize: pxToRem(14),
+        lineHeight: 16 / 14,
+      },
+    },
+    h6: {
+      fontSize: pxToRem(10),
+      lineHeight: 16 / 10,
+      [breakpoints.up("lg")]: {
+        fontSize: pxToRem(10),
+        lineHeight: 24 / 10,
+      },
+    },
+    body1: {
+      fontSize: pxToRem(18),
+      lineHeight: 40 / 18,
+      [breakpoints.up("lg")]: {
+        fontSize: pxToRem(18),
+        lineHeight: 40 / 18,
+      },
+    },
+    body2: {
+      fontSize: pxToRem(13),
+      lineHeight: 24 / 13,
+      [breakpoints.up("lg")]: {
+        fontSize: pxToRem(13),
+        lineHeight: 24 / 13,
+      },
+    },
+    subtitle1: {
+      fontSize: pxToRem(14),
+      lineHeight: 24 / 14,
+      [breakpoints.up("lg")]: {
+        fontSize: pxToRem(12),
+        lineHeight: 14.4 / 12,
+      },
+    },
+    subtitle2: {
+      fontSize: pxToRem(7),
+      lineHeight: 19 / 7,
+      [breakpoints.up("lg")]: {
+        fontSize: pxToRem(10),
+        lineHeight: 24 / 10,
+      },
+    },
+    caption: {
+      [breakpoints.up("lg")]: {
+        fontSize: pxToRem(12),
+        lineHeight: 12 / 10,
+      },
+    },
+    button: {
+      fontSize: pxToRem(14),
+      lineHeight: 18 / 14,
+      [breakpoints.up("lg")]: {
+        fontSize: pxToRem(14),
+        lineHeight: 18 / 14,
+      },
+    },
+  },
+  { clone: false }
 );
 
 // ## OVERRIDES

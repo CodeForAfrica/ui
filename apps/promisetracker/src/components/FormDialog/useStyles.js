@@ -5,6 +5,9 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   paperScrollBody: {
     margin: 0,
   },
+  paperWidthSm: {
+    maxWidth: typography.pxToRem(716),
+  },
   scrollBody: {
     margin: `${typography.pxToRem(40)} ${typography.pxToRem(13)}`,
     scrollbarWidth: "none",
