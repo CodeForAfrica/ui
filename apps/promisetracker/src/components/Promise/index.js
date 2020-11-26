@@ -77,6 +77,7 @@ function Promise({
           <DataSource
             documents={promise.documents}
             label={dataSourceEmbedLabel}
+            promise={promise}
           />
           <RichTypography className={classes.promiseBody} variant="body1">
             {promise.content}

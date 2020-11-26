@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { IconButton, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { A } from "@commons-ui/core";
 
-import { replaceAll } from "@/promisetracker/utils";
-import ShareIcon from "@/promisetracker/icons/Share";
+import { replaceAll, getLinkFromHref } from "@/promisetracker/utils";
+import Share from "@/promisetracker/components/Share";
 import useStyles from "./useStyles";
 
-function DataSource({ classes: classesProp, documents, label }) {
+function DataSource({ classes: classesProp, documents, label, promise }) {
   const classes = useStyles({ classes: classesProp });
 
   if (!documents?.length) {
@@ -19,9 +19,7 @@ function DataSource({ classes: classesProp, documents, label }) {
         <Typography className={classes.title} variant="h4">
           {label}
         </Typography>
-        <IconButton aria-label="share" className={classes.share}>
-          <ShareIcon color="primary" fontSize="inherit" />
-        </IconButton>
+        <Share title={promise.title} link={getLinkFromHref(promise.href)} />
       </div>
       <div className={classes.documentContainer}>
         {documents.map((document) => (
@@ -61,11 +59,16 @@ DataSource.propTypes = {
   }),
   documents: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   label: PropTypes.string,
+  promise: PropTypes.shape({
+    title: PropTypes.string,
+    href: PropTypes.string,
+  }),
 };
 
 DataSource.defaultProps = {
   classes: undefined,
   label: undefined,
+  promise: undefined,
 };
 
 export default DataSource;

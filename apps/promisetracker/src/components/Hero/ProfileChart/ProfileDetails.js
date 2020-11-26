@@ -14,13 +14,14 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg";
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
-import share from "@/promisetracker/assets/hero-icon-share.svg";
+import Share from "@/promisetracker/components/Share";
 
 import MobileChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart";
 import DesktopChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart";
 
 import RectChart from "@/promisetracker/components/Hero/ProfileChart/RectChart";
 
+import config from "@/promisetracker/config";
 import DesktopInfoStatusPopover from "./DesktopInfoStatusPopover";
 import MobileInfoStatusPopover from "./MobileInfoStatusPopover";
 
@@ -142,7 +143,10 @@ function ProfileDetails({
               size="small"
               className={classes.iconButton}
             >
-              <img src={share} alt="Share" className={classes.img} />
+              <Share
+                title={`${position} ${name} ${promisesByStatus.count} ${promiseLabel} ${trailText}`}
+                link={config.URL}
+              />
             </IconButton>
           </Grid>
         </Grid>

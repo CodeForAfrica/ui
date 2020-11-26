@@ -3,8 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(() => ({
   root: {
     zIndex: 999,
-    position: "absolute",
-    right: 0,
   },
   icon: {
     color: "#6A6A6A",

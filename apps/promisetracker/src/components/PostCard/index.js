@@ -12,7 +12,7 @@ import {
 
 import { RichTypography } from "@commons-ui/core";
 import Share from "@/promisetracker/components/Share";
-import config from "@/promisetracker/config";
+import { getLinkFromHref } from "@/promisetracker/utils";
 
 import useStyles from "./useStyles";
 
@@ -27,12 +27,9 @@ function PostCard({
   ...props
 }) {
   const classes = useStyles({ classes: classesProp });
-  const href = as || "";
-  const link = config.URL + href;
-
   return (
     <Card square variant="outlined" className={classes.root}>
-      <CardActionArea {...props} className={classes.contentRoot}>
+      <CardActionArea as={as} {...props} className={classes.contentRoot}>
         <CardContent classes={{ root: classes.content }}>
           <Box
             display="flex"
@@ -50,7 +47,11 @@ function PostCard({
               </RichTypography>
             </Grid>
             <Grid item>
-              <Share link={link} title={title} />
+              <Share
+                classes={{ root: classes.share }}
+                link={getLinkFromHref(as)}
+                title={title}
+              />
             </Grid>
           </Grid>
         </CardContent>
