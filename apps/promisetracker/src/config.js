@@ -23,6 +23,8 @@ const config = {
   FACT_CHECKS_URL: "https://pesacheck.org",
   FACT_CHECKS_TAG: "promise-tracker",
   title: "PromiseTracker",
+  description:
+    "The promise tracker is a platform-based promise tracker where citizens can track various promises and services promised by governors, institutions, political parties in their manifestos during the campaigns leading up to the elections and in the post election period.",
   URL: "https://promisetracker.dev.codeforafrica.org",
   settings: {
     subscribe: {
