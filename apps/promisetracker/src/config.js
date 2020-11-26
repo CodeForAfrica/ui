@@ -11,23 +11,22 @@ import cc from "@/promisetracker/assets/cc.svg";
 import logo from "@/promisetracker/assets/logo-C4A.svg";
 
 const config = {
-	MAPIT_URL: "https://mapit.hurumap.org",
-	LANGUAGE_BY_LOCALE: { ar: "عربى" },
-	LOCALES: ["en", "am", "fr", "ar"],
-	DEFAULT_LOCALE: "en",
-	GRAPHQL_URI: "https://check-api.checkmedia.org/api/graphql",
-	CHECK_ASSET_URI: "https://assets.checkmedia.org/uploads/dynamic",
-	PROXY_URL: "https://corsanywhere.devops.codeforafrica.org/",
-	CHECK_PROJECT_DB_ID: 2831,
-	CHECK_PROMISE_MAX_COUNT: 150,
-	WP_DASHBOARD_URL: "https://dashboard.hurumap.org/promisetracker",
-	FACT_CHECKS_URL: "https://pesacheck.org",
-	FACT_CHECKS_TAG: "promise-tracker",
-	title: "PromiseTracker",
-	URL: "https://promisetracker.dev.codeforafrica.org/",
-	settings: {
-		subscribe: {
-			embedCode: `
+  LANGUAGE_BY_LOCALE: { ar: "عربى" },
+  LOCALES: ["en", "am", "fr", "ar"],
+  DEFAULT_LOCALE: "en",
+  GRAPHQL_URI: "https://check-api.checkmedia.org/api/graphql",
+  CHECK_ASSET_URI: "https://assets.checkmedia.org/uploads/dynamic",
+  PROXY_URL: "https://corsanywhere.devops.codeforafrica.org",
+  CHECK_PROJECT_DB_ID: 2831,
+  CHECK_PROMISE_MAX_COUNT: 150,
+  WP_DASHBOARD_URL: "https://dashboard.hurumap.org/promisetracker",
+  FACT_CHECKS_URL: "https://pesacheck.org",
+  FACT_CHECKS_TAG: "promise-tracker",
+  title: "PromiseTracker",
+  URL: "https://promisetracker.dev.codeforafrica.org",
+  settings: {
+    subscribe: {
+      embedCode: `
         <!-- Begin Mailchimp Signup Form -->
         <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
         <style type="text/css">
