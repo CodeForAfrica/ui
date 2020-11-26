@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { RichTypography } from "@commons-ui/core";
-import { Typography } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 import Subscribe from "@/promisetracker/components/Newsletter";
 import PickPromise from "@/promisetracker/components/PickPromise";
@@ -25,6 +25,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       padding: 0,
       margin: "0 auto",
       width: typography.pxToRem(widths.values.lg),
+      position: "relative",
     },
   },
   image: {
@@ -34,10 +35,24 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
     [breakpoints.up("lg")]: {
       maxWidth: typography.pxToRem(484),
       minWidth: typography.pxToRem(484),
+      position: "absolute",
+      top: 0,
+    },
+  },
+  imageContainer: {
+    [breakpoints.down("sm")]: {
+      display: "flex",
+      justifyContent: "center",
     },
   },
   footer: {
     marginTop: 0,
+  },
+  description: {
+    paddingBottom: typography.pxToRem(50),
+    [breakpoints.up("lg")]: {
+      paddingBottom: typography.pxToRem(100),
+    },
   },
   title: {
     padding: 0,
@@ -71,21 +86,19 @@ function ActNow({
       {...props}
       footer={footer}
       navigation={navigation}
+      title={title}
       classes={{
         section: classes.section,
         footer: classes.footer,
       }}
-      aside={<img src={actNowImg} alt="Act Now" className={classes.image} />}
+      aside={
+        <Grid container classes={{ root: classes.imageContainer }}>
+          <img src={actNowImg} alt="Act Now" className={classes.image} />
+        </Grid>
+      }
       content={
         description?.length ? (
           <>
-            <Typography
-              variant="h2"
-              className={classes.title}
-              classes={{ root: classes.titleRoot }}
-            >
-              {title}
-            </Typography>
             <RichTypography className={classes.description}>
               {description}
             </RichTypography>
