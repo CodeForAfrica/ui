@@ -65,7 +65,7 @@ function Index({
         name={projectMeta.name}
         position={projectMeta.position}
         promiseLabel={projectMeta.promiseLabel}
-        updatedDateLabel={projectMeta.updatedDateLabel}
+        updatedAtLabel={projectMeta.updatedAtLabel}
         trailText={projectMeta.trailText}
         updatedAt={new Date(projectMeta.updatedAt)
           .toDateString({
@@ -136,7 +136,7 @@ Index.propTypes = {
     position: PropTypes.string,
     trailText: PropTypes.string,
     updatedAt: PropTypes.string,
-    updatedDateLabel: PropTypes.string,
+    updatedAtLabel: PropTypes.string,
     description: PropTypes.string,
     promiseLabel: PropTypes.string,
   }),

@@ -203,7 +203,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
   }) {
     const descriptionArr = description.split("|");
     const position = descriptionArr[2];
-    const updatedDateLabel = descriptionArr[3];
+    const updatedAtLabel = descriptionArr[3];
     const promiseLabel = descriptionArr[4];
     const trailText = descriptionArr[5];
     return {
@@ -212,7 +212,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       position,
       promiseLabel,
       trailText,
-      updatedDateLabel,
+      updatedAtLabel,
       name: descriptionArr[1],
       tags: tags.edges.map((tag) => tag.node),
     };
