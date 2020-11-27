@@ -30,17 +30,18 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
 
 function Radar(props) {
 	const classes = useStyles({ ...props });
-	const { MAPIT_URL, MAP_ACCESS_TOKEN} = config;
+	const { MAPIT_URL} = config;
+	console.log(process.env.ACCESS_TOKEN);
 	return (
 		<div className={classes.root}>
 			<HurumapUIMapIt
-				height="50vh"
+				height="40vh"
 				width="100%"
 				url={MAPIT_URL}
 				zoom={4}
 				tolerance={0.001}
 				tileLayer={leaflet.tileLayer(
-          `https://{s}.tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=${MAP_ACCESS_TOKEN}`
+          `https://{s}.tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=${process.env.ACCESS_TOKEN}`
         )}
 				center={[8.7832, 34.5085]}
 				latLng={[-1.28333, 36.81667]}
