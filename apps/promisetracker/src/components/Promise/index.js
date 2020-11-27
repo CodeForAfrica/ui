@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import dynamic from "next/dynamic";
+
 import { Grid, Hidden, Typography } from "@material-ui/core";
 
 import { RichTypography, Section } from "@commons-ui/core";
@@ -9,9 +11,13 @@ import AuthorAtribution from "@/promisetracker/components/Promise/AuthorAtributi
 import DataSource from "@/promisetracker/components/DataSource";
 import Link from "@/promisetracker/components/Link";
 import NarativeUpdates from "@/promisetracker/components/Promise/Narative";
-import Radar from "@/promisetracker/components/Promise/Radar";
+///import Radar from "@/promisetracker/components/Promise/Radar";
 import RelatedFactChecks from "@/promisetracker/components/Promise/RelatedFactChecks";
 import Status from "@/promisetracker/components/PromiseStatus";
+
+const Radar = dynamic(() => import("@/promisetracker/components/Promise/Radar"), {
+  ssr: false,
+});
 
 import useStyles from "./useStyles";
 
