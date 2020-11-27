@@ -31,20 +31,19 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
 function Radar(props) {
 	const classes = useStyles({ ...props });
 	const { MAPIT_URL} = config;
-	console.log(process.env.ACCESS_TOKEN);
+	console.log(process.env.MAP_ACCESS_TOKEN);
 	return (
 		<div className={classes.root}>
 			<HurumapUIMapIt
 				height="40vh"
 				width="100%"
 				url={MAPIT_URL}
-				zoom={4}
+				zoom={3}
 				tolerance={0.001}
 				tileLayer={leaflet.tileLayer(
-          `https://{s}.tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=${process.env.ACCESS_TOKEN}`
+          `https://tile.jawg.io/cc2f4d17-7886-4a6b-8e33-59c085f6d10b/{z}/{x}/{y}.png?access-token=${process.env.MAP_ACCESS_TOKEN}`
         )}
 				center={[8.7832, 34.5085]}
-				latLng={[-1.28333, 36.81667]}
 				drawProfile={true}
 				drawChildren={true}
 				codeType="KEN"
@@ -52,7 +51,7 @@ function Radar(props) {
 				geoCode="KE"
 				geoLayerBlurStyle={{
 					color: "black",
-					fillColor: "#ccc",
+					fillColor: "none",
 					weight: 1,
 					opacity: 0.3,
 					fillOpacity: 0.3
