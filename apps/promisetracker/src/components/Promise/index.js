@@ -11,7 +11,6 @@ import AuthorAtribution from "@/promisetracker/components/Promise/AuthorAtributi
 import DataSource from "@/promisetracker/components/DataSource";
 import Link from "@/promisetracker/components/Link";
 import NarativeUpdates from "@/promisetracker/components/Promise/Narative";
-///import Radar from "@/promisetracker/components/Promise/Radar";
 import RelatedFactChecks from "@/promisetracker/components/Promise/RelatedFactChecks";
 import Status from "@/promisetracker/components/PromiseStatus";
 

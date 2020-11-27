@@ -30,7 +30,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
 
 function Radar(props) {
 	const classes = useStyles({ ...props });
-	const { MAPIT_URL, MAP_ACCESS_TOKEN } = config;
+	const { MAPIT_URL, MAP_ACCESS_TOKEN} = config;
 	return (
 		<div className={classes.root}>
 			<HurumapUIMapIt
