@@ -165,6 +165,21 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
     id,
   });
 
+  const otherPromises = await checkApi.promises({
+    limit: 100,
+    query: `{ "projects": ["2831"] }`,
+  });
+
+  const relatedPromises = otherPromises.filter((p) => {
+    const pTagsIds = p.tags.map((t) => t.id) || [];
+    const currentTagsIds = promisePost.tags.map((y) => y.id) || [];
+
+    return (
+      p.id !== promisePost.id &&
+      currentTagsIds.some((v) => pTagsIds.includes(v))
+    );
+  });
+
   const notFound = !promisePost;
   if (notFound) {
     return {
@@ -176,6 +191,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
 
   const promise = {
     ...promisePost,
+    relatedPromises: relatedPromises.slice(3),
     attribution: {
       title: "",
       description: "",

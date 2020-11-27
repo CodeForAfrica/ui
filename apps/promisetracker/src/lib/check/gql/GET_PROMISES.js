@@ -13,6 +13,14 @@ export default gql`
             status
             archived
             created_at
+            tags {
+              edges {
+                node {
+                  id
+                  tag_text
+                }
+              }
+            }
             tasks {
               edges {
                 node {

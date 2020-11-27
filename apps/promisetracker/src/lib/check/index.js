@@ -160,10 +160,6 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     );
   }
 
-  async function getRelatedPromises() {
-    return [];
-  }
-
   async function nodeToPromise(node) {
     const id = node.dbid;
     const slug = slugify(node.title);
@@ -180,6 +176,10 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       statusHistory: getStatusHistory(node),
       documents: await (getDataSource(node) || []),
       relatedFactChecks: await (getRelatedFactCheckUrls(node) || []),
+      tags:
+        node?.tags?.edges?.map(({ node: { id: tagId, tag_text: text } }) => {
+          return { tagId, text };
+        }) || [],
     };
   }
 
@@ -193,11 +193,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
   async function handleSinglePromise({ data }) {
     const node = data?.project_media;
     if (node) {
-      const relatedPromises = await (getRelatedPromises() || []);
-      return {
-        ...nodeToPromise(node),
-        relatedPromises,
-      };
+      return nodeToPromise(node);
     }
     return null;
   }
