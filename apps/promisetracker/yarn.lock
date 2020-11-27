@@ -435,10 +435,34 @@
     prop-types "^15.7.2"
     shortid "^2.2.15"
 
-"@material-ui/core@^4.11.1":
-  version "4.11.1"
-  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.11.1.tgz#5bb94adc4257165d6ca1670fd71923a27f07d478"
-  integrity sha512-aesI8lOaaw0DRIfNG+Anepf61NH5Q+cmkxJOZvI1oHkmD5cKubkZ0C7INqFKjfFpSFlFnqHkTasoM7ogFAvzOg==
+"@hurumap-ui/charts@^0.3.5-alpha.41":
+  version "0.3.5-alpha.41"
+  resolved "https://registry.yarnpkg.com/@hurumap-ui/charts/-/charts-0.3.5-alpha.41.tgz#7f37fbf18bb8e9c0eb1ae2bea6083db54b28d91e"
+  integrity sha512-agSVgiFomkJOACTgKeb8+i2sT4Vryv6I2q/jlrGGSGk71n6RGzHuWuPxSTS22PykewXVRph4tuNt4BIZmbtq8A==
+  dependencies:
+    "@material-ui/utils" "^4.10.2"
+    prop-types "^15.7.2"
+    shortid "^2.2.15"
+
+"@hurumap-ui/core@^0.3.5-alpha.41":
+  version "0.3.5-alpha.41"
+  resolved "https://registry.yarnpkg.com/@hurumap-ui/core/-/core-0.3.5-alpha.41.tgz#ab2b3fde3267f8f7b413d0f12eb96d34746991ea"
+  integrity sha512-UO5pUFgr/msgyYfMJ4omkrlQ6TsXfN7mmDzR5wqWMpLfRCnvrrOgKzj00n2meGz+jm5kCLMg7g9RbhwsXiXfuQ==
+  dependencies:
+    "@hurumap-ui/charts" "^0.3.5-alpha.41"
+    classnames "^2.2.6"
+    dequal "^1.0.0"
+    dom-to-image "^2.6.0"
+    prop-types "^15.7.2"
+    react-content-loader "^5.0.1"
+    react-pdf "^4.1.0"
+    react-share "^4.0.0"
+    shortid "^2.2.15"
+
+"@material-ui/core@^4.11.0":
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.11.0.tgz#b69b26e4553c9e53f2bfaf1053e216a0af9be15a"
+  integrity sha512-bYo9uIub8wGhZySHqLQ833zi4ZML+XCBE1XwJ8EuUVSpTWWG57Pm+YugQToJNFsEyiKFhPh8DPD0bgupz8n01g==
   dependencies:
     "@babel/runtime" "^7.4.4"
     "@material-ui/styles" "^4.11.1"

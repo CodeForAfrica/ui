@@ -43,6 +43,7 @@ function Radar(props) {
           `https://{s}.tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=${MAP_ACCESS_TOKEN}`
         )}
 				center={[8.7832, 34.5085]}
+				latLng={[-1.28333, 36.81667]}
 				drawProfile={true}
 				drawChildren={true}
 				codeType="KEN"
