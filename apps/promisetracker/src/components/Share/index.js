@@ -40,24 +40,24 @@ function Share({ link, title, description, ...props }) {
   };
   return (
     <div className={classes.root}>
-      <ClickAwayListener onClickAway={handleClickAway}>
-        <>
-          <IconButton
-            onClick={handleClick("left")}
-            aria-label="share"
-            className={classes.share}
-          >
-            <ShareIcon color="primary" fontSize="inherit" />
-          </IconButton>
-          <Popper
-            open={open}
-            anchorEl={anchorEl}
-            disablePortal
-            placement={placement}
-            transition
-            className={classes.popper}
-          >
-            {({ TransitionProps }) => (
+      <>
+        <IconButton
+          onClick={handleClick("left")}
+          aria-label="share"
+          className={classes.share}
+        >
+          <ShareIcon color="primary" fontSize="inherit" />
+        </IconButton>
+        <Popper
+          open={open}
+          anchorEl={anchorEl}
+          disablePortal
+          placement={placement}
+          transition
+          className={classes.popper}
+        >
+          {({ TransitionProps }) => (
+            <ClickAwayListener onClickAway={handleClickAway}>
               <Fade {...TransitionProps} timeout={350}>
                 <Paper>
                   <Grid container className={classes.socialIconPopper}>
@@ -116,10 +116,10 @@ function Share({ link, title, description, ...props }) {
                   </Grid>
                 </Paper>
               </Fade>
-            )}
-          </Popper>
-        </>
-      </ClickAwayListener>
+            </ClickAwayListener>
+          )}
+        </Popper>
+      </>
     </div>
   );
 }
