@@ -1,5 +1,3 @@
-import config from "@/promisetracker/config";
-
 export function slugify(string) {
   const a =
     "àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;";
@@ -42,8 +40,4 @@ export function replaceAll(str, mapObj) {
   const re = new RegExp(Object.keys(mapObj).join("|"), "gi");
 
   return str.replace(re, (matched) => mapObj[matched.toLowerCase()]);
-}
-
-export function getLinkFromHref(href) {
-  return config.URL + (href || "");
 }
