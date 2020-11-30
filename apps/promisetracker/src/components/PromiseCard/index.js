@@ -57,8 +57,8 @@ PromiseCard.propTypes = {
     title: PropTypes.string,
     titleContainer: PropTypes.string,
   }),
-  id: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  href: PropTypes.string,
   status: PropTypes.shape({}).isRequired,
   title: PropTypes.string.isRequired,
 };
@@ -66,6 +66,8 @@ PromiseCard.propTypes = {
 PromiseCard.defaultProps = {
   children: undefined,
   classes: undefined,
+  id: undefined,
+  href: undefined,
 };
 
 export default PromiseCard;
