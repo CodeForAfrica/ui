@@ -16,5 +16,5 @@ module.exports = withImages({
   },
 	 env: {
     MAP_ACCESS_TOKEN: process.env.MAP_ACCESS_TOKEN,
-  },
+  }, 
 });

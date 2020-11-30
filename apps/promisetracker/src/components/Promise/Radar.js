@@ -51,10 +51,10 @@ function Radar(props) {
 				geoCode="KE"
 				geoLayerBlurStyle={{
 					color: "black",
-					fillColor: "none",
+					fillColor: "transparent",
 					weight: 1,
 					opacity: 0.3,
-					fillOpacity: 0.3
+					fillOpacity: 0.5
 				}}
 				{...props}
 			/>
