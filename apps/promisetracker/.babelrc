@@ -13,14 +13,6 @@
 				"material-ui/icons": {
 					"transform": "material-ui/icons/${member}",
 					"preventFullImport": true
-				},
-				"hurumap-ui/core": {
-					"transform": "hurumap-ui/core/${member}",
-					"preventFullImport": true
-				},
-				"hurumap-ui/charts": {
-					"transform": "hurumap-ui/charts/${member}",
-					"preventFullImport": true
 				}
 			}
 		],
