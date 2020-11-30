@@ -196,7 +196,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
       errorCode,
       languageAlternates,
       promise,
-      relatedPromises: relatedPromises.slice(3),
+      relatedPromises: relatedPromises.slice(0, 3),
     },
     revalidate: 2 * 60, // seconds
   };
