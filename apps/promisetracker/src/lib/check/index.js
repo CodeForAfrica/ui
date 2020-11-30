@@ -177,9 +177,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       documents: await (getDataSource(node) || []),
       relatedFactChecks: await (getRelatedFactCheckUrls(node) || []),
       tags:
-        node?.tags?.edges?.map(({ node: { id: tagId, tag_text: text } }) => {
-          return { tagId, text };
-        }) || [],
+        node?.tags?.edges?.map(({ node: { tag_text: text } }) => text) || [],
     };
   }
 

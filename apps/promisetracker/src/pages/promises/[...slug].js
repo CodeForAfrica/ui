@@ -153,15 +153,11 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
     query: `{ "projects": ["2831"] }`,
   });
 
-  const relatedPromises = otherPromises.filter((p) => {
-    const pTagsIds = p.tags.map((t) => t.id) || [];
-    const currentTagsIds = promisePost.tags.map((y) => y.id) || [];
-
-    return (
+  const relatedPromises = otherPromises.filter(
+    (p) =>
       p.id !== promisePost.id &&
-      currentTagsIds.some((v) => pTagsIds.includes(v))
-    );
-  });
+      promisePost.tags.some((v) => p.tags.includes(v))
+  );
 
   const notFound = !promisePost;
   if (notFound) {
