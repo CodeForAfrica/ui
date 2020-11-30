@@ -13,7 +13,6 @@ export default gql`
       tags {
         edges {
           node {
-            id
             tag_text
           }
         }
