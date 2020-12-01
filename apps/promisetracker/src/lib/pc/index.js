@@ -38,7 +38,8 @@ function pc(site) {
   }
 
   async function getFactCheck(pesacheckUrl) {
-    const url = `https://corsio.devops.codeforafrica.org/?${pesacheckUrl}?format=json`;
+    const { PROXY_URL } = config;
+    const url = `${PROXY_URL}/?${pesacheckUrl}?format=json`;
     const response = await fetch(url);
     const json = await JSON.parse(
       (await response.text()).replace("])}while(1);</x>", "")

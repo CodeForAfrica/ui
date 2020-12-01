@@ -17,14 +17,14 @@ const config = {
   DEFAULT_LOCALE: "en",
   GRAPHQL_URI: "https://check-api.checkmedia.org/api/graphql",
   CHECK_ASSET_URI: "https://assets.checkmedia.org/uploads/dynamic",
-  PROXY_URL: "https://corsanywhere.devops.codeforafrica.org/",
+  PROXY_URL: "https://corsanywhere.devops.codeforafrica.org",
   CHECK_PROJECT_DB_ID: 2831,
   CHECK_PROMISE_MAX_COUNT: 150,
   WP_DASHBOARD_URL: "https://dashboard.hurumap.org/promisetracker",
   FACT_CHECKS_URL: "https://pesacheck.org",
   FACT_CHECKS_TAG: "promise-tracker",
   title: "PromiseTracker",
-  URL: "https://promisetracker.dev.codeforafrica.org/",
+  URL: "https://promisetracker.dev.codeforafrica.org",
   settings: {
     subscribe: {
       embedCode: `
