@@ -39,9 +39,6 @@ function Radar(props) {
         url={MAPIT_URL}
         zoom={4}
         tolerance={0.001}
-        /* tileLayer={leaflet.tileLayer(
-					`https://tile.jawg.io/cc2f4d17-7886-4a6b-8e33-59c085f6d10b/{z}/{x}/{y}.png?access-token=${process.env.MAP_ACCESS_TOKEN}`
-				)} */
         tileLayer={leaflet.tileLayer(
           `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`
         )}
