@@ -49,9 +49,8 @@ function Filter({ label, filterItems, selected: selectedProps, ...props }) {
     const newFilters = isSelected
       ? [...filters, newFilter]
       : filters.filter((f) => f !== newFilter);
-
     setFilters(newFilters);
-    return newFilters;
+    return newFilter;
   };
 
   return (
