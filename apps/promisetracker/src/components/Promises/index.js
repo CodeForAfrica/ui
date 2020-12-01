@@ -16,6 +16,10 @@ function Promises({ items, title, withFilter, ...props }) {
   if (!items?.length) {
     return null;
   }
+  // console.log('items', items)
+  // const filteredItems = items.map(item => item.status.title === "Unrated" ? item : "this is not unrated");
+  // console.log('filteredItems', filteredItems)
+
   return (
     <PostCardGrid
       component={PromiseCard}
@@ -34,22 +38,28 @@ function Promises({ items, title, withFilter, ...props }) {
               filterItems={[
                 {
                   name: "Completed",
+                  value: "completed",
                 },
 
                 {
                   name: "In Progress",
+                  value: "in-progress",
                 },
                 {
                   name: "Stalled",
+                  value: "stalled",
                 },
                 {
                   name: "Behind",
+                  value: "behind",
                 },
                 {
                   name: "Unrated",
+                  value: "unrated",
                 },
                 {
                   name: "Unstarted",
+                  value: "unstarted",
                 },
               ]}
             />
@@ -60,22 +70,28 @@ function Promises({ items, title, withFilter, ...props }) {
               filterItems={[
                 {
                   name: "Immigration",
+                  value: "immigration",
                 },
 
                 {
                   name: "Trade",
+                  value: "trade",
                 },
                 {
                   name: "Economy",
+                  value: "economy",
                 },
                 {
                   name: "Government",
+                  value: "government",
                 },
                 {
                   name: "Environment",
+                  value: "environment",
                 },
                 {
                   name: "Energy",
+                  value: "energy",
                 },
               ]}
             />

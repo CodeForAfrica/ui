@@ -38,7 +38,21 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
 }));
 function Filter({ label, filterItems, selected: selectedProps, ...props }) {
   const classes = useStyles(props);
+
   const [selected, setSelected] = useState(selectedProps);
+  const [filters, setFilters] = React.useState([]);
+
+  const updateFilters = (newFilter, isSelected) => {
+    if (!newFilter) {
+      return setFilters([]);
+    }
+    const newFilters = isSelected
+      ? [...filters, newFilter]
+      : filters.filter((f) => f !== newFilter);
+
+    setFilters(newFilters);
+    return newFilters;
+  };
 
   return (
     <div className={classes.root}>
@@ -49,7 +63,13 @@ function Filter({ label, filterItems, selected: selectedProps, ...props }) {
         {filterItems.map((filterItem, idx) => (
           <Button
             key={filterItem.name}
-            onClick={() => setSelected(idx)}
+            value={filterItem.value}
+            onClick={(e) =>
+              updateFilters(
+                filterItem.name,
+                setSelected(e.currentTarget.value) || setSelected(idx)
+              )
+            }
             variant={idx === selected ? "contained" : "outlined"}
             className={classes.button}
           >
