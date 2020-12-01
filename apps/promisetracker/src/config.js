@@ -25,6 +25,60 @@ const config = {
   FACT_CHECKS_TAG: "promise-tracker",
   title: "PromiseTracker",
   URL: "https://promisetracker.dev.codeforafrica.org",
+  filterStatusItems: [
+    {
+      name: "Completed",
+      value: "completed",
+    },
+
+    {
+      name: "In Progress",
+      value: "in-progress",
+    },
+    {
+      name: "Stalled",
+      value: "stalled",
+    },
+    {
+      name: "Behind",
+      value: "behind",
+    },
+    {
+      name: "Unrated",
+      value: "unrated",
+    },
+    {
+      name: "Unstarted",
+      value: "unstarted",
+    },
+  ],
+  filterTagItems: [
+    {
+      name: "Immigration",
+      value: "immigration",
+    },
+
+    {
+      name: "Trade",
+      value: "trade",
+    },
+    {
+      name: "Economy",
+      value: "economy",
+    },
+    {
+      name: "Government",
+      value: "government",
+    },
+    {
+      name: "Environment",
+      value: "environment",
+    },
+    {
+      name: "Energy",
+      value: "energy",
+    },
+  ],
   settings: {
     subscribe: {
       embedCode: `
