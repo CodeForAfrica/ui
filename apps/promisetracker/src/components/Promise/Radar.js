@@ -1,13 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import "leaflet/dist/leaflet.css";
-import leaflet from "leaflet";
-
 import dynamic from "next/dynamic";
+
+import leaflet from "leaflet";
 import config from "@/promisetracker/config";
 
-const HurumapUIMapIt = dynamic(() => import("@hurumap-ui/core/MapIt"), {
+const MapIt = dynamic(() => import("@hurumap-ui/core/MapIt"), {
   ssr: false,
 });
 
@@ -31,9 +30,10 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
 function Radar(props) {
   const classes = useStyles({ ...props });
   const { MAPIT_URL } = config;
+
   return (
     <div className={classes.root}>
-      <HurumapUIMapIt
+      <MapIt
         height="238.5px"
         width="100%"
         url={MAPIT_URL}

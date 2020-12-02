@@ -9,6 +9,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "@/promisetracker/theme/index";
 import SEO from "next-seo.config";
 
+import "leaflet/dist/leaflet.css";
 import "simplebar/dist/simplebar.css";
 
 export default function MyApp(props) {

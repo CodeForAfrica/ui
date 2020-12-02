@@ -18,12 +18,7 @@ const Radar = dynamic(() => import("@/promisetracker/components/Promise/Radar"),
   ssr: false,
 });
 
-const Radar = dynamic(
-  () => import("@/promisetracker/components/Promise/Radar"),
-  {
-    ssr: false,
-  }
-);
+const Radar = dynamic(() => import("./Radar"), { ssr: false });
 
 function Promise({
   promise,
