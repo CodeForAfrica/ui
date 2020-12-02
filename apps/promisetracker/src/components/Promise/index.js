@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 
-import { Grid, Hidden, Typography } from "@material-ui/core";
+import { Grid, Hidden, Typography, useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 
 import { RichTypography, Section } from "@commons-ui/core";
 
@@ -18,7 +19,7 @@ const Radar = dynamic(() => import("@/promisetracker/components/Promise/Radar"),
   ssr: false,
 });
 
-// const Radar = dynamic(() => import("./Radar"), { ssr: false });
+const Radar = dynamic(() => import("./Radar"), { ssr: false });
 
 function Promise({
   promise,
@@ -31,6 +32,8 @@ function Promise({
   narrativeUpdatesLabel,
 }) {
   const classes = useStyles({ image: promise.image, classes: classesProp });
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <Section classes={{ root: classes.section }}>
@@ -99,7 +102,7 @@ function Promise({
             <Typography className={classes.label} variant="h5">
               {promiseRadarLabel}
             </Typography>
-            {/* <Radar /> */}
+            {isDesktop ? <Radar /> : null}
             <Typography className={classes.label} variant="h5">
               {relatedFactChecksLabel}
             </Typography>
