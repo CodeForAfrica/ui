@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
 import { Grid, Hidden, Typography } from "@material-ui/core";
 
@@ -18,7 +18,7 @@ const Radar = dynamic(() => import("@/promisetracker/components/Promise/Radar"),
   ssr: false,
 });
 
-const Radar = dynamic(() => import("./Radar"), { ssr: false });
+// const Radar = dynamic(() => import("./Radar"), { ssr: false });
 
 function Promise({
   promise,
@@ -73,7 +73,7 @@ function Promise({
             <Typography className={classes.label} variant="h5">
               {promiseRadarLabel}
             </Typography>
-            <Radar />
+            {/* <Radar /> */}
           </Hidden>
           <NarativeUpdates
             {...promise.narrative}
@@ -99,7 +99,7 @@ function Promise({
             <Typography className={classes.label} variant="h5">
               {promiseRadarLabel}
             </Typography>
-            <Radar />
+            {/* <Radar /> */}
             <Typography className={classes.label} variant="h5">
               {relatedFactChecksLabel}
             </Typography>
