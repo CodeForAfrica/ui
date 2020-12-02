@@ -36,8 +36,8 @@
     "reading-time": "^1.2.1",
     "simplebar": "^5.1.0",
     "simplebar-react": "^2.1.0",
-    "victory": "^35.3.5",
-    "webpack": "^5.6.0"
+    "victory": "^35.4.2",
+    "webpack": "^5.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.8",
