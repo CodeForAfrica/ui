@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import dynamic from "next/dynamic";
@@ -29,11 +29,13 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
 
 function Radar(props) {
   const classes = useStyles(props);
+  const [tileLayer, setTileLayer] = useState();
   const { MAPIT_URL } = config;
-  const tileLayer =
-    typeof window !== "undefined"
-      ? leaflet.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
-      : undefined;
+  useEffect(() => {
+    setTileLayer(
+      leaflet.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
+    );
+  }, []);
 
   return (
     <div className={classes.root}>
