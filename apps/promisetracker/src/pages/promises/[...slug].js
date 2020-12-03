@@ -7,8 +7,8 @@ import Page from "@/promisetracker/components/Page";
 import Promise from "@/promisetracker/components/Promise";
 import RelatedPromises from "@/promisetracker/components/Promises";
 import Subscribe from "@/promisetracker/components/Newsletter";
-import check from "@/promisetracker/lib/check";
 
+import check from "@/promisetracker/lib/check";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -50,6 +50,7 @@ function PromisePage({
 }) {
   const classes = useStyles(props);
   const title = promise?.title ? `${promise.title} | ${titleProp}` : titleProp;
+
   return (
     <Page
       {...props}
