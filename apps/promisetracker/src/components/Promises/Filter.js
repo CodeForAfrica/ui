@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Button } from "@material-ui/core";
@@ -36,8 +36,15 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
     },
   },
 }));
-function Filter({ label, filterItems, selected, onButtonClick, ...props }) {
+function Filter({
+  label,
+  filterItems,
+  selected: selectedProps,
+  onButtonClick,
+  ...props
+}) {
   const classes = useStyles(props);
+  const [selected, setSelected] = useState(selectedProps);
   return (
     <div className={classes.root}>
       <Typography className={classes.label} variant="h6">
@@ -48,9 +55,8 @@ function Filter({ label, filterItems, selected, onButtonClick, ...props }) {
           <Button
             key={filterItem.name}
             value={filterItem.slug}
-            // onClick={() => setSelected(console.log(filterItem.slug))}
-            onClick={() => onButtonClick(filterItem.slug)}
-            variant={idx ? "contained" : "outlined"}
+            onClick={() => onButtonClick(filterItem.slug) || setSelected(idx)}
+            variant={idx === selected ? "contained" : "outlined"}
             className={classes.button}
           >
             <Typography variant="h6">{filterItem.name}</Typography>
