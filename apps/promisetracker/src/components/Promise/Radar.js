@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import dynamic from "next/dynamic";
 
-import leaflet from "leaflet";
 import config from "@/promisetracker/config";
 
 const MapIt = dynamic(() => import("@hurumap-ui/core/MapIt"), {
@@ -29,13 +28,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
 
 function Radar(props) {
   const classes = useStyles(props);
-  const [tileLayer, setTileLayer] = useState();
   const { MAPIT_URL } = config;
-  useEffect(() => {
-    setTileLayer(
-      leaflet.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
-    );
-  }, []);
 
   return (
     <div className={classes.root}>
@@ -44,7 +37,6 @@ function Radar(props) {
         width="100%"
         url={MAPIT_URL}
         zoom={4}
-        tileLayer={tileLayer}
         tolerance={0.001}
         latLng={[-1.28333, 36.81667]}
         center={[8.7832, 34.5085]}
