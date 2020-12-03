@@ -22,8 +22,8 @@ function Sort({ categories, onButtonClick, ...props }) {
       {categories.map((sort) => (
         <Button
           key={sort.name}
-          value={sort.value}
-          onClick={() => onButtonClick(sort.value)}
+          value={sort.slug}
+          onClick={() => onButtonClick(sort.slug)}
           variant="text"
           className={classes.sort}
         >
