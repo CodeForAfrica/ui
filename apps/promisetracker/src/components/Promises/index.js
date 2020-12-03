@@ -25,8 +25,9 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
 
   const [activeStatus, setActiveStatus] = useState("");
   const [activeCategory, setActiveCategory] = useState("");
-  const [mostRecent, setMostRecent] = useState("");
-  const [deadline, setDeadline] = useState("");
+
+  const [activeMostRecent, setActiveMostRecent] = useState("");
+  const [activeDeadline, setActiveDeadline] = useState("");
 
   const handleStatusClick = (value) => {
     setActiveStatus(value);
@@ -35,10 +36,12 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
     setActiveCategory(value);
   };
   const handleCategoryMostRecent = (value) => {
-    setMostRecent(value);
+    setActiveMostRecent(value);
+    console.log(value);
   };
   const handleCategoryDeadline = (value) => {
-    setDeadline(value);
+    setActiveDeadline(value);
+    console.log(value);
   };
 
   if (!items?.length) {
@@ -88,13 +91,15 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
               Sort By
             </Typography>
             <Sort
+              items={items}
+              activeMostRecent={activeMostRecent}
               categories={categoryMostRecent}
-              mostRecent={mostRecent}
               onButtonClick={handleCategoryMostRecent}
             />
             <Sort
+              items={items}
+              activeDeadline={activeDeadline}
               categories={categoryDeadline}
-              deadline={deadline}
               onButtonClick={handleCategoryDeadline}
             />
           </Grid>

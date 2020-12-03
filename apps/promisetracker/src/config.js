@@ -100,7 +100,7 @@ const config = {
   categoryDeadline: [
     {
       name: "Promise Deadline",
-      value: "promise-deadline",
+      slug: "promise-deadline",
     },
   ],
   settings: {
