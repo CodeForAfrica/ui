@@ -35,18 +35,20 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
     return null;
   }
 
-  const filterUndefinedValue = items
+  const filteredItems = items
     .filter((item) => item !== undefined)
     .filter(
       (value) =>
-        (!activeStatus || slugify(value.status.title) === activeStatus) &&
-        (!value.tags[0] || slugify(value.tags[0]) === activeCategory)
+        !activeStatus ||
+        slugify(value.status.title) === activeStatus ||
+        !value.tags[0] ||
+        slugify(value.tags[0]) === activeCategory
     );
 
   return (
     <PostCardGrid
       component={PromiseCard}
-      items={filterUndefinedValue}
+      items={filteredItems}
       title={title}
       classes={{
         section: classes.section,
