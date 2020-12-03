@@ -184,7 +184,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
   async function handlePromisesResult(res) {
     return Promise.all(
       res?.data?.search?.medias?.edges.map(({ node }) => nodeToPromise(node)) ||
-        {}
+        []
     );
   }
 
