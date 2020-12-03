@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 import Filter from "@/promisetracker/components/Promises/Filter";
 import PostCardGrid from "@/promisetracker/components/PostCardGrid";
@@ -16,6 +16,7 @@ import useStyles from "./useStyles";
 function Promises({ items: itemsProp, title, withFilter, ...props }) {
   const classes = useStyles(props);
   const { filterStatusItems, filterCategoryItems } = config;
+  const { categoryMostRecent, categoryDeadline } = config;
 
   const [items, setItems] = useState(itemsProp);
   useEffect(() => {
@@ -24,11 +25,20 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
 
   const [activeStatus, setActiveStatus] = useState("");
   const [activeCategory, setActiveCategory] = useState("");
+  const [mostRecent, setMostRecent] = useState("");
+  const [deadline, setDeadline] = useState("");
+
   const handleStatusClick = (value) => {
     setActiveStatus(value);
   };
   const handleCategoryClick = (value) => {
     setActiveCategory(value);
+  };
+  const handleCategoryMostRecent = (value) => {
+    setMostRecent(value);
+  };
+  const handleCategoryDeadline = (value) => {
+    setDeadline(value);
   };
 
   if (!items?.length) {
@@ -73,8 +83,20 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
               onButtonClick={handleCategoryClick}
             />
           </Grid>
-          <Grid item xs={12} lg={2}>
-            <Sort />
+          <Grid item xs={12} lg={2} className={classes.sortItems}>
+            <Typography className={classes.label} variant="h6">
+              Sort By
+            </Typography>
+            <Sort
+              categories={categoryMostRecent}
+              mostRecent={mostRecent}
+              onButtonClick={handleCategoryMostRecent}
+            />
+            <Sort
+              categories={categoryDeadline}
+              deadline={deadline}
+              onButtonClick={handleCategoryDeadline}
+            />
           </Grid>
         </Grid>
       )}

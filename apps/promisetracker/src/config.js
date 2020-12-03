@@ -52,6 +52,7 @@ const config = {
       slug: "unstarted",
     },
   ],
+
   filterCategoryItems: [
     {
       name: "100 Days",
@@ -88,6 +89,18 @@ const config = {
     {
       name: "Women,Youth and People With Disabilities",
       slug: "women-youth-and-people-with-disabilities",
+    },
+  ],
+  categoryMostRecent: [
+    {
+      name: "Most Recent",
+      slug: "most-recent",
+    },
+  ],
+  categoryDeadline: [
+    {
+      name: "Promise Deadline",
+      value: "promise-deadline",
     },
   ],
   settings: {
