@@ -28,55 +28,66 @@ const config = {
   filterStatusItems: [
     {
       name: "Completed",
-      value: "completed",
+      slug: "completed",
     },
 
     {
       name: "In Progress",
-      value: "in-progress",
+      slug: "in-progress",
     },
     {
       name: "Stalled",
-      value: "stalled",
+      slug: "stalled",
     },
     {
       name: "Behind",
-      value: "behind",
+      slug: "behind",
     },
     {
       name: "Unrated",
-      value: "unrated",
+      slug: "unrated",
     },
     {
       name: "Unstarted",
-      value: "unstarted",
+      slug: "unstarted",
     },
   ],
-  filterTagItems: [
+  filterCategoryItems: [
     {
-      name: "Immigration",
-      value: "immigration",
-    },
-
-    {
-      name: "Trade",
-      value: "trade",
+      name: "100 Days",
+      slug: "100-days",
     },
     {
-      name: "Economy",
-      value: "economy",
+      name: "Environment and Sanitation",
+      slug: "environment-and-sanitation",
     },
     {
-      name: "Government",
-      value: "government",
+      name: "Governance",
+      slug: "governance",
     },
     {
-      name: "Environment",
-      value: "environment",
+      name: "Health",
+      slug: "health",
     },
     {
-      name: "Energy",
-      value: "energy",
+      name: "Housing",
+      slug: "housing",
+    },
+    {
+      name: "Jobs and Business Creation",
+      slug: "jobs-and-business-creation",
+    },
+    {
+      name: "Traffic Management",
+      slug: "traffic-management",
+    },
+    {
+      name: "transport",
+      slug: "transport",
+    },
+    {
+      name: "Women,Youth and People With Disabilities",
+      slug: "women-youth-and-people-with-disabilities",
     },
   ],
   settings: {

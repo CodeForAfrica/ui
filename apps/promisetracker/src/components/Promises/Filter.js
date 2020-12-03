@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Button } from "@material-ui/core";
@@ -36,23 +36,8 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
     },
   },
 }));
-function Filter({ label, filterItems, selected: selectedProps, ...props }) {
+function Filter({ label, filterItems, selected, onButtonClick, ...props }) {
   const classes = useStyles(props);
-
-  const [selected, setSelected] = useState(selectedProps);
-  const [filters, setFilters] = React.useState([]);
-
-  const updateFilters = (newFilter, isSelected) => {
-    if (!newFilter) {
-      return setFilters([]);
-    }
-    const newFilters = isSelected
-      ? [...filters, newFilter]
-      : filters.filter((f) => f !== newFilter);
-    setFilters(newFilters);
-    return newFilter;
-  };
-
   return (
     <div className={classes.root}>
       <Typography className={classes.label} variant="h6">
@@ -62,14 +47,10 @@ function Filter({ label, filterItems, selected: selectedProps, ...props }) {
         {filterItems.map((filterItem, idx) => (
           <Button
             key={filterItem.name}
-            value={filterItem.value}
-            onClick={(e) =>
-              updateFilters(
-                filterItem.name,
-                setSelected(e.currentTarget.value) || setSelected(idx)
-              )
-            }
-            variant={idx === selected ? "contained" : "outlined"}
+            value={filterItem.slug}
+            // onClick={() => setSelected(console.log(filterItem.slug))}
+            onClick={() => onButtonClick(filterItem.slug)}
+            variant={idx ? "contained" : "outlined"}
             className={classes.button}
           >
             <Typography variant="h6">{filterItem.name}</Typography>
@@ -87,6 +68,7 @@ Filter.propTypes = {
   filterItems: PropTypes.arrayOf(PropTypes.shape({})),
   label: PropTypes.string,
   selected: PropTypes.string,
+  onButtonClick: PropTypes.func,
 };
 
 Filter.defaultProps = {
@@ -94,6 +76,7 @@ Filter.defaultProps = {
   filterItems: undefined,
   label: undefined,
   selected: undefined,
+  onButtonClick: undefined,
 };
 
 export default Filter;
