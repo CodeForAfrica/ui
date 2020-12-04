@@ -19,6 +19,7 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
   const { categoryMostRecent, categoryDeadline } = config;
 
   const [items, setItems] = useState(itemsProp);
+
   useEffect(() => {
     setItems(itemsProp);
   }, [itemsProp]);
@@ -37,11 +38,11 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
   };
   const handleCategoryMostRecent = (value) => {
     setActiveMostRecent(value);
-    console.log(value);
+    // console.log(value);
   };
   const handleCategoryDeadline = (value) => {
     setActiveDeadline(value);
-    console.log(value);
+    // console.log(value);
   };
 
   if (!items?.length) {
@@ -52,10 +53,11 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
     .filter((item) => item !== undefined)
     .filter(
       (value) =>
+        ((!activeStatus || slugify(value.status.title) === activeStatus) &&
+          slugify(value.tags.toString()) === activeCategory) ||
         !activeStatus ||
         slugify(value.status.title) === activeStatus ||
-        !value.tags[0] ||
-        slugify(value.tags[0]) === activeCategory
+        slugify(value.tags.toString()) === activeCategory
     );
 
   return (
