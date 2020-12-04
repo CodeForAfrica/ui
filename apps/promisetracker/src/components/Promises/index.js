@@ -38,11 +38,9 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
   };
   const handleCategoryMostRecent = (value) => {
     setActiveMostRecent(value);
-    // console.log(value);
   };
   const handleCategoryDeadline = (value) => {
     setActiveDeadline(value);
-    // console.log(value);
   };
 
   if (!items?.length) {
