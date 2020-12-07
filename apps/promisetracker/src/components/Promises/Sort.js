@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles(({ palette }) => ({
-  sort: {
+  root: {
     marginRight: ".5rem",
     marginBottom: ".4rem",
     paddingLeft: "0rem",
@@ -15,37 +15,35 @@ const useStyles = makeStyles(({ palette }) => ({
     justifyContent: "start",
   },
 }));
-function Sort({ categories, onButtonClick, ...props }) {
+
+function Sort({ name, onClick, slug, ...props }) {
   const classes = useStyles(props);
+  const handleClick = () => {
+    if (onClick) {
+      onClick(slug);
+    }
+  };
+
   return (
-    <>
-      {categories.map((sort) => (
-        <Button
-          key={sort.name}
-          value={sort.slug}
-          onClick={() => onButtonClick(sort.slug)}
-          variant="text"
-          className={classes.sort}
-        >
-          {sort.name}
-        </Button>
-      ))}
-    </>
+    <Button
+      key={slug}
+      onClick={handleClick}
+      variant="text"
+      className={classes.root}
+    >
+      {name}
+    </Button>
   );
 }
 
 Sort.propTypes = {
-  classes: PropTypes.shape({
-    root: PropTypes.string,
-  }),
-  categories: PropTypes.arrayOf(PropTypes.shape({})),
-  onButtonClick: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  slug: PropTypes.string.isRequired,
 };
 
 Sort.defaultProps = {
-  classes: undefined,
-  categories: undefined,
-  onButtonClick: undefined,
+  onClick: undefined,
 };
 
 export default Sort;
