@@ -45,12 +45,10 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
   useEffect(() => {
     const selectedStatuses = statusesFilters
       .filter((filter) => filter.active)
-      .map((filter) => filter.name);
+      .map((filter) => filter.slug);
     const hasStatus = (item) => {
-      const promiseStatus = item.status.title;
-      return selectedStatuses.every(
-        (c) => c.toLocaleLowerCase() === promiseStatus.toLocaleLowerCase()
-      );
+      const promiseSlug = slugify(item.status.title);
+      return selectedStatuses.every((c) => c === promiseSlug);
     };
     const selectedCategories = categoriesFilters
       .filter((filter) => filter.active)
@@ -60,9 +58,9 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
       return selectedCategories.every((c) => promiseCategories.includes(c));
     };
     const filteredItems = itemsProp.filter(hasStatus).filter(hasCategory);
-    const hasFilters = selectedStatuses.length && selectedCategories.length;
+    const hasFilters = selectedStatuses.length || selectedCategories.length;
     setItems(hasFilters ? filteredItems : itemsProp);
-  }, [categoriesFilters, itemsProp]);
+  }, [statusesFilters, categoriesFilters, itemsProp]);
 
   return (
     <PostCardGrid
