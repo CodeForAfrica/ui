@@ -20,21 +20,21 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
 
   const [items, setItems] = useState(itemsProp);
 
-  useEffect(() => {
-    setItems(itemsProp);
-  }, [itemsProp]);
-
-  const [activeStatus, setActiveStatus] = useState("");
-  const [activeCategory, setActiveCategory] = useState("");
+  const [statusesFilters, setStatusesFilters] = useState(filterStatusItems);
+  const [categoriesFilters, setCategoriesFilters] = useState(
+    filterCategoryItems
+  );
 
   const [activeMostRecent, setActiveMostRecent] = useState("");
   const [activeDeadline, setActiveDeadline] = useState("");
 
-  const handleStatusClick = (value) => {
-    setActiveStatus((prev) => (prev !== value ? value : ""));
+  const updateFilters = (filters, slug) =>
+    filters.map((f) => (f.slug === slug ? { ...f, active: !f.active } : f));
+  const handleStatusClick = (slug) => {
+    setStatusesFilters((prev) => updateFilters(prev, slug));
   };
-  const handleCategoryClick = (value) => {
-    setActiveCategory((prev) => (prev !== value ? value : ""));
+  const handleCategoryClick = (slug) => {
+    setCategoriesFilters((prev) => updateFilters(prev, slug));
   };
   const handleCategoryMostRecent = (value) => {
     setActiveMostRecent((prev) => (prev !== value ? value : ""));
@@ -42,25 +42,32 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
   const handleCategoryDeadline = (value) => {
     setActiveDeadline((prev) => (prev !== value ? value : ""));
   };
-
-  if (!items?.length) {
-    return null;
-  }
-
-  const filteredItems = items
-    .filter((item) => item !== undefined)
-    .filter(
-      (value) =>
-        ((!activeStatus || slugify(value.status.title) === activeStatus) &&
-          slugify(value.tags.toString()) === activeCategory) ||
-        slugify(value.status.title) === activeStatus ||
-        slugify(value.tags.toString()) === activeCategory
-    );
+  useEffect(() => {
+    const selectedStatuses = statusesFilters
+      .filter((filter) => filter.active)
+      .map((filter) => filter.name);
+    const hasStatus = (item) => {
+      const promiseStatus = item.status.title;
+      return selectedStatuses.every(
+        (c) => c.toLocaleLowerCase() === promiseStatus.toLocaleLowerCase()
+      );
+    };
+    const selectedCategories = categoriesFilters
+      .filter((filter) => filter.active)
+      .map((filter) => filter.slug);
+    const hasCategory = (item) => {
+      const promiseCategories = item.tags.map((tag) => slugify(tag));
+      return selectedCategories.every((c) => promiseCategories.includes(c));
+    };
+    const filteredItems = itemsProp.filter(hasStatus).filter(hasCategory);
+    const hasFilters = selectedStatuses.length && selectedCategories.length;
+    setItems(hasFilters ? filteredItems : itemsProp);
+  }, [categoriesFilters, itemsProp]);
 
   return (
     <PostCardGrid
       component={PromiseCard}
-      items={filteredItems}
+      items={items}
       title={title}
       classes={{
         section: classes.section,
@@ -71,18 +78,16 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
         <Grid className={classes.filterGrid} container justify="space-between">
           <Grid item xs={12} lg={5}>
             <Filter
-              activeStatus={activeStatus}
               label="Promises by status"
-              filterItems={filterStatusItems}
-              onButtonClick={handleStatusClick}
+              items={statusesFilters}
+              onClick={handleStatusClick}
             />
           </Grid>
           <Grid item xs={12} lg={5}>
             <Filter
-              activeCategory={activeCategory}
               label="Promises by category"
-              filterItems={filterCategoryItems}
-              onButtonClick={handleCategoryClick}
+              items={categoriesFilters}
+              onClick={handleCategoryClick}
             />
           </Grid>
           <Grid item xs={12} lg={2} className={classes.sortItems}>
