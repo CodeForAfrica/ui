@@ -31,16 +31,16 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
   const [activeDeadline, setActiveDeadline] = useState("");
 
   const handleStatusClick = (value) => {
-    setActiveStatus(value);
+    setActiveStatus((prev) => (prev !== value ? value : ""));
   };
   const handleCategoryClick = (value) => {
-    setActiveCategory(value);
+    setActiveCategory((prev) => (prev !== value ? value : ""));
   };
   const handleCategoryMostRecent = (value) => {
-    setActiveMostRecent(value);
+    setActiveMostRecent((prev) => (prev !== value ? value : ""));
   };
   const handleCategoryDeadline = (value) => {
-    setActiveDeadline(value);
+    setActiveDeadline((prev) => (prev !== value ? value : ""));
   };
 
   if (!items?.length) {
@@ -53,7 +53,6 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
       (value) =>
         ((!activeStatus || slugify(value.status.title) === activeStatus) &&
           slugify(value.tags.toString()) === activeCategory) ||
-        !activeStatus ||
         slugify(value.status.title) === activeStatus ||
         slugify(value.tags.toString()) === activeCategory
     );
