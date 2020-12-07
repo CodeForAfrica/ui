@@ -15,8 +15,12 @@ import useStyles from "./useStyles";
 
 function Promises({ items: itemsProp, title, withFilter, ...props }) {
   const classes = useStyles(props);
-  const { filterStatusItems, filterCategoryItems } = config;
-  const { categoryMostRecent, categoryDeadline } = config;
+  const {
+    filterStatusItems,
+    filterCategoryItems,
+    sortByDeadline,
+    sortByMostRecent,
+  } = config;
 
   const [items, setItems] = useState(itemsProp);
 
@@ -24,9 +28,7 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
   const [categoriesFilters, setCategoriesFilters] = useState(
     filterCategoryItems
   );
-
-  const [activeMostRecent, setActiveMostRecent] = useState("");
-  const [activeDeadline, setActiveDeadline] = useState("");
+  const [sortBy, setSortBy] = useState(sortByMostRecent.slug);
 
   const updateFilters = (filters, slug) =>
     filters.map((f) => (f.slug === slug ? { ...f, active: !f.active } : f));
@@ -36,11 +38,8 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
   const handleCategoryClick = (slug) => {
     setCategoriesFilters((prev) => updateFilters(prev, slug));
   };
-  const handleCategoryMostRecent = (value) => {
-    setActiveMostRecent((prev) => (prev !== value ? value : ""));
-  };
-  const handleCategoryDeadline = (value) => {
-    setActiveDeadline((prev) => (prev !== value ? value : ""));
+  const handleSortClicked = (slug) => {
+    setSortBy(slug);
   };
   useEffect(() => {
     const selectedStatuses = statusesFilters
@@ -61,6 +60,19 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
     const hasFilters = selectedStatuses.length || selectedCategories.length;
     setItems(hasFilters ? filteredItems : itemsProp);
   }, [statusesFilters, categoriesFilters, itemsProp]);
+  useEffect(() => {
+    let sortedItems = items;
+    if (sortBy === sortByMostRecent.slug) {
+      sortedItems = items.sort((a, b) => a.date.localeCompare(b.date));
+    } else if (sortBy === sortByDeadline.slug) {
+      sortedItems = items.sort((a, b) => {
+        const aDeadline = a.events?.[0]?.year ?? 0;
+        const bDeadline = b.events?.[0]?.year ?? 0;
+        return bDeadline - aDeadline;
+      });
+    }
+    setItems(sortedItems);
+  }, [sortBy]);
 
   return (
     <PostCardGrid
@@ -92,18 +104,8 @@ function Promises({ items: itemsProp, title, withFilter, ...props }) {
             <Typography className={classes.label} variant="h6">
               Sort By
             </Typography>
-            <Sort
-              items={items}
-              activeMostRecent={activeMostRecent}
-              categories={categoryMostRecent}
-              onButtonClick={handleCategoryMostRecent}
-            />
-            <Sort
-              items={items}
-              activeDeadline={activeDeadline}
-              categories={categoryDeadline}
-              onButtonClick={handleCategoryDeadline}
-            />
+            <Sort {...sortByMostRecent} onClick={handleSortClicked} />
+            <Sort {...sortByDeadline} onClick={handleSortClicked} />
           </Grid>
         </Grid>
       )}
