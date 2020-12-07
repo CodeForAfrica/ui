@@ -27,7 +27,7 @@ function RelatedFactChecks({ factChecks, classes: classesProp }) {
 
   return (
     <div className={classes.root}>
-      {factChecks.map(({ title, date,href }) => (
+      {factChecks.map(({ title, date, href }) => (
         <A href={href} key={title} className={classes.titleDateContainer}>
           <Typography className={classes.name} variant="h4">
             {title}
