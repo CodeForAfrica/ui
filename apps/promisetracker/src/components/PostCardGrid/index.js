@@ -19,9 +19,6 @@ function PostCardGrid({ children, component, items, title, ...props }) {
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const Card = component || PostCard;
 
-  if (!items?.length) {
-    return null;
-  }
   return (
     <Section
       title={title}
@@ -29,21 +26,23 @@ function PostCardGrid({ children, component, items, title, ...props }) {
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
       {children}
-      <Grid container className={classes.cardGrid}>
-        {items.map((card, i) => (
-          <Grid
-            key={card.title}
-            item
-            xs={12}
-            lg={4}
-            className={clsx(classes.cardGridItem, {
-              [classes.row]: (!isDesktop && i > 0) || i > 2,
-            })}
-          >
-            <Card {...card} />
-          </Grid>
-        ))}
-      </Grid>
+      {items?.length > 0 && (
+        <Grid container className={classes.cardGrid}>
+          {items.map((card, i) => (
+            <Grid
+              key={card.title}
+              item
+              xs={12}
+              lg={4}
+              className={clsx(classes.cardGridItem, {
+                [classes.row]: (!isDesktop && i > 0) || i > 2,
+              })}
+            >
+              <Card {...card} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </Section>
   );
 }
