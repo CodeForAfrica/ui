@@ -13,6 +13,7 @@ import Link from "@/promisetracker/components/Link";
 import NarativeUpdates from "@/promisetracker/components/Promise/Narative";
 import RelatedFactChecks from "@/promisetracker/components/Promise/RelatedFactChecks";
 import Status from "@/promisetracker/components/PromiseStatus";
+import PromiseChart from "@/promisetracker/components/PromiseChart";
 
 import Radar from "./Radar";
 import useStyles from "./useStyles";
@@ -86,6 +87,7 @@ function Promise({
           <RichTypography className={classes.promiseBody} variant="body1">
             {promise.content}
           </RichTypography>
+          <PromiseChart {...promise} />
           <Dataset dataset={promise.dataset} />
           <AuthorAtribution {...promise.attribution} />
         </Grid>
@@ -117,6 +119,7 @@ Promise.propTypes = {
     description: PropTypes.string,
     image: PropTypes.string,
     title: PropTypes.string,
+    chartLink: PropTypes.string,
     status: PropTypes.shape({}),
     attribution: PropTypes.shape({}),
     narrative: PropTypes.shape({}),

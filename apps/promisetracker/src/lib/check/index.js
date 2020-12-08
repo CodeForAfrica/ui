@@ -79,6 +79,15 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     return result;
   }
 
+  function getChartLink(node) {
+    const items = node.tasks?.edges;
+    const chartTask = findItemByNodeLabel(
+      items,
+      "What charts are related to this promise."
+    );
+    return chartTask ? chartTask.node.first_response_value : null;
+  }
+
   function getPromiseDeadlineEvent(node) {
     const items = node.tasks?.edges;
     const deadlineTask = findItemByNodeLabel(
@@ -179,6 +188,8 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
   async function nodeToPromise(node) {
     const id = node.dbid;
     const slug = slugify(node.title);
+
+    getChartLink(node);
     return {
       id,
       href: `/promises/${id}/${slug}`,
@@ -186,6 +197,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       title: node.title,
       image: getImage(node),
       description: node.description,
+      chartLink: getChartLink(node),
       date: getPromiseDate(node),
       events: [getPromiseDeadlineEvent(node)],
       status: getStatusHistory(node)[0],
