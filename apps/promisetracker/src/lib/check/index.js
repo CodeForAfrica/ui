@@ -71,7 +71,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     );
     const slug =
       dataset?.node?.first_response_value?.split("/")[-1] ||
-      "health-facilities-in-africa";
+      "health-facilities-in-africa"; // TODO: sample dataset name needs to be removed
     const response = await fetch(
       `${config.CKAN_BACKEND_URL}/api/3/action/package_show?id=${slug}`
     );
