@@ -63,6 +63,24 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       : null;
   }
 
+  function getLinkedDataset(node) {
+    const items = node.tasks?.edges;
+    const dataset = findItemByNodeLabel(
+      items,
+      "What data sets are linked to this promise?"
+    );
+    return dataset?.node?.first_response_value;
+  }
+
+  function getRelatedChart(node) {
+    const items = node.tasks?.edges;
+    const dataset = findItemByNodeLabel(
+      items,
+      "What charts are related to this promise."
+    );
+    return dataset?.node?.first_response_value;
+  }
+
   function getPromiseDeadlineEvent(node) {
     const items = node.tasks?.edges;
     const deadlineTask = findItemByNodeLabel(
@@ -169,6 +187,8 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       slug,
       title: node.title,
       image: getImage(node),
+      chart: getRelatedChart(node),
+      dataset: getLinkedDataset(node),
       description: node.description,
       date: getPromiseDate(node),
       events: [getPromiseDeadlineEvent(node)],
