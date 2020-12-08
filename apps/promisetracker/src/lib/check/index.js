@@ -63,22 +63,20 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       : null;
   }
 
-  function getLinkedDataset(node) {
+  async function getLinkedDataset(node) {
     const items = node.tasks?.edges;
     const dataset = findItemByNodeLabel(
       items,
       "What data sets are linked to this promise?"
     );
-    return dataset?.node?.first_response_value;
-  }
-
-  function getRelatedChart(node) {
-    const items = node.tasks?.edges;
-    const dataset = findItemByNodeLabel(
-      items,
-      "What charts are related to this promise."
+    const slug =
+      dataset?.node?.first_response_value?.split("/")[-1] ||
+      "health-facilities-in-africa";
+    const response = await fetch(
+      `${config.CKAN_BACKEND_URL}/api/3/action/package_show?id=${slug}`
     );
-    return dataset?.node?.first_response_value;
+    const { result } = response.ok ? await response.json() : { result: {} };
+    return result;
   }
 
   function getPromiseDeadlineEvent(node) {
@@ -187,8 +185,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       slug,
       title: node.title,
       image: getImage(node),
-      chart: getRelatedChart(node),
-      dataset: getLinkedDataset(node),
+      dataset: await (getLinkedDataset(node) || {}),
       description: node.description,
       date: getPromiseDate(node),
       events: [getPromiseDeadlineEvent(node)],
