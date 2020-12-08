@@ -26,6 +26,11 @@ const config = {
   FACT_CHECKS_TAG: "promise-tracker",
   title: "PromiseTracker",
   URL: "https://promisetracker.dev.codeforafrica.org",
+  DATE_OPTIONS: {
+    day: "short",
+    month: "long",
+    year: "numeric",
+  },
   filterStatusItems: [
     {
       name: "Completed",

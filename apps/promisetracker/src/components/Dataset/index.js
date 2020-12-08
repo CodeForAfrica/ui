@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Avatar, Grid, Tooltip } from "@material-ui/core";
-import { BarChart, Check } from "@material-ui/icons";
+import { BarChart } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { A, RichTypography } from "@commons-ui/core";
@@ -116,25 +116,6 @@ function textifyUpdated(lastModified, dataUpdateFrequency) {
   );
 }
 
-function DatasetStatus({ overdueDate, ...props }) {
-  const classes = useStyles(props);
-  const isUpToDate = overdueDate && new Date(overdueDate) > new Date();
-  if (!isUpToDate) {
-    return null;
-  }
-  return (
-    <Tooltip title="This Dataset is up to date" placement="top">
-      <Avatar variant="square" className={classes.avatar}>
-        <Check size="small" />
-      </Avatar>
-    </Tooltip>
-  );
-}
-
-DatasetStatus.propTypes = {
-  overdueDate: PropTypes.string.isRequired,
-};
-
 function Dataset({ dataset, ...props }) {
   const classes = useStyles(props);
   const {
@@ -144,7 +125,6 @@ function Dataset({ dataset, ...props }) {
     name,
     notes,
     organization,
-    overdue_date: overdueDate,
     resources,
     subnational,
     tags,
@@ -202,14 +182,6 @@ function Dataset({ dataset, ...props }) {
           Updated: {textifyUpdated(lastModified, dataUpdateFrequency)}
         </RichTypography>
       </Grid>
-      {dataUpdateFrequency && (
-        <Grid item xs={12} container alignItems="center">
-          <RichTypography variant="overline">
-            This dataset updates: {textifyUpdateFrequency(dataUpdateFrequency)}
-          </RichTypography>
-          <DatasetStatus overdueDate={overdueDate} />
-        </Grid>
-      )}
       <Grid
         item
         xs={12}
