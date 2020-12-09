@@ -6,6 +6,7 @@ import { BarChart } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { A, RichTypography } from "@commons-ui/core";
+import { formatDate } from "@/promisetracker/utils";
 
 import config from "@/promisetracker/config";
 
@@ -73,16 +74,6 @@ const useStyles = makeStyles(({ breakpoints, palette, spacing }) => ({
   },
 }));
 
-function textifyUpdated(lastModified) {
-  if (!lastModified) {
-    return "";
-  }
-  return new Date(lastModified).toLocaleDateString(
-    undefined,
-    config.DATE_OPTIONS
-  );
-}
-
 function Dataset({ dataset, ...props }) {
   const classes = useStyles(props);
   const {
@@ -143,11 +134,13 @@ function Dataset({ dataset, ...props }) {
           {downloads > 0 ? `${downloads}+` : downloads} Downloads
         </RichTypography>
       </Grid>
-      <Grid item xs={12}>
-        <RichTypography variant="overline">
-          Updated: {textifyUpdated(lastModified)}
-        </RichTypography>
-      </Grid>
+      {lastModified && (
+        <Grid item xs={12}>
+          <RichTypography variant="overline">
+            Updated: {formatDate(lastModified)}
+          </RichTypography>
+        </Grid>
+      )}
       <Grid
         item
         xs={12}
