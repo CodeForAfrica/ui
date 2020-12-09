@@ -185,7 +185,6 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       slug,
       title: node.title,
       image: getImage(node),
-      dataset: await (getLinkedDataset(node) || {}),
       description: node.description,
       date: getPromiseDate(node),
       events: [getPromiseDeadlineEvent(node)],
@@ -208,7 +207,9 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
   async function handleSinglePromise({ data }) {
     const node = data?.project_media;
     if (node) {
-      return nodeToPromise(node);
+      const dataset = await (getLinkedDataset(node) || {});
+      const singlePromise = await nodeToPromise(node);
+      return { ...singlePromise, dataset };
     }
     return null;
   }

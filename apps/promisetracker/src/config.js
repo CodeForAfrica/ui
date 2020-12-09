@@ -27,7 +27,7 @@ const config = {
   title: "PromiseTracker",
   URL: "https://promisetracker.dev.codeforafrica.org",
   DATE_OPTIONS: {
-    day: "short",
+    day: "numeric",
     month: "long",
     year: "numeric",
   },
