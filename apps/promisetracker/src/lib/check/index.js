@@ -189,7 +189,6 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     const id = node.dbid;
     const slug = slugify(node.title);
 
-    getChartLink(node);
     return {
       id,
       href: `/promises/${id}/${slug}`,
