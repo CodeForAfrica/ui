@@ -73,40 +73,7 @@ const useStyles = makeStyles(({ breakpoints, palette, spacing }) => ({
   },
 }));
 
-function textifyUpdateFrequency(dataUpdateFrequency) {
-  const updateDays = Number.parseInt(dataUpdateFrequency, 10);
-  switch (updateDays) {
-    case -2: {
-      return "As Needed";
-    }
-    case 0: {
-      return "Live";
-    }
-    case 1: {
-      return "Every day";
-    }
-    case 7: {
-      return "Every week";
-    }
-    case 30: {
-      return "Every month";
-    }
-    case 60: {
-      return "Every 2 months";
-    }
-    case 90: {
-      return "Every 3 months";
-    }
-    default: {
-      return `Every ${dataUpdateFrequency} days`;
-    }
-  }
-}
-
-function textifyUpdated(lastModified, dataUpdateFrequency) {
-  if (dataUpdateFrequency && dataUpdateFrequency === "0") {
-    return textifyUpdateFrequency(dataUpdateFrequency);
-  }
+function textifyUpdated(lastModified) {
   if (!lastModified) {
     return "";
   }
@@ -119,7 +86,6 @@ function textifyUpdated(lastModified, dataUpdateFrequency) {
 function Dataset({ dataset, ...props }) {
   const classes = useStyles(props);
   const {
-    data_update_frequency: dataUpdateFrequency,
     has_quickcharts: hasQuickCharts,
     metadata_modified: lastModified,
     name,
@@ -179,7 +145,7 @@ function Dataset({ dataset, ...props }) {
       </Grid>
       <Grid item xs={12}>
         <RichTypography variant="overline">
-          Updated: {textifyUpdated(lastModified, dataUpdateFrequency)}
+          Updated: {textifyUpdated(lastModified)}
         </RichTypography>
       </Grid>
       <Grid
