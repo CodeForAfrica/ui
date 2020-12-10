@@ -17,6 +17,15 @@ export default gql`
             }
           }
         }
+        team_tasks {
+          edges {
+            node {
+              id
+              label
+              options
+            }
+          }
+        }
         projects {
           edges {
             node {
