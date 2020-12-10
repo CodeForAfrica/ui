@@ -21,13 +21,30 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
   if (!existingClient) {
     CLIENT_PER_TEAM.set(clientTeam, existingClient);
   }
+  let questions;
+
+  async function setUpQuestions() {
+    if (!questions) {
+      await client.query({ query: GET_PROJECT_META }).then(
+        ({
+          data: {
+            me: {
+              current_team: { team_tasks: tasks },
+            },
+          },
+        }) => {
+          questions = tasks.edges.map((task) => task.node.label);
+        }
+      );
+    }
+  }
 
   function findItemByNodeLabel(tasks, label) {
-    return tasks.find((item) => item.node.label === label);
+    return tasks.find((item) => item.node.label.trim() === label.trim());
   }
 
   function findItemByTaskLabel(items, label) {
-    return items.find((item) => item.node.task?.label === label);
+    return items.find((item) => item.node.task?.label.trim() === label.trim());
   }
 
   function getAssetURL(filename, id) {
@@ -37,14 +54,8 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
   function getImage(node) {
     const logs = node.log?.edges;
     const tasks = node.tasks?.edges;
-    const imageLog = findItemByTaskLabel(
-      logs,
-      "What is the image related to the promise"
-    );
-    const imageTask = findItemByNodeLabel(
-      tasks,
-      "What is the image related to the promise"
-    );
+    const imageLog = findItemByTaskLabel(logs, questions[8]);
+    const imageTask = findItemByNodeLabel(tasks, questions[8]);
     const filename = imageTask.node.first_response_value;
     const annotationChanges = JSON.parse(imageLog.node.object_changes_json)
       .annotation_id;
@@ -54,10 +65,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
 
   function getPromiseDate(node) {
     const items = node.tasks?.edges;
-    const startDateTask = findItemByNodeLabel(
-      items,
-      "When was this promise made?"
-    );
+    const startDateTask = findItemByNodeLabel(items, questions[5]);
     return startDateTask
       ? startDateTask.node.first_response_value.split(" ").slice(0, 3).join(" ")
       : null;
@@ -90,10 +98,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
 
   function getPromiseDeadlineEvent(node) {
     const items = node.tasks?.edges;
-    const deadlineTask = findItemByNodeLabel(
-      items,
-      "What is the deadline for the implementation of the promise?"
-    );
+    const deadlineTask = findItemByNodeLabel(items, questions[7]);
     const duration = Number(
       deadlineTask?.node.first_response_value?.split("")[0]
     );
@@ -116,7 +121,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       (status) => status.title === "Unrated"
     );
     const statusLogs = logs.filter(
-      (item) => item.node.task?.label === "What is the status of the promise?"
+      (item) => item.node.task?.label === questions[3]
     );
     const statusHistory = statusLogs
       .sort((statusA, statusB) =>
@@ -150,10 +155,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
   }
   async function getRelatedFactCheckUrls(node) {
     const items = node.tasks?.edges;
-    const relatedFactCheckTasks = findItemByNodeLabel(
-      items,
-      "What are the fact checks related to the promise?"
-    );
+    const relatedFactCheckTasks = findItemByNodeLabel(items, questions[18]);
     const expression = /(https?:\/\/(?:www\.|(?!www))[^\s.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
     const matches =
       relatedFactCheckTasks?.node.first_response_value?.match(expression) || [];
@@ -165,10 +167,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
 
   async function getDataSource(node) {
     const items = node.tasks?.edges;
-    const dataSourceTask = findItemByNodeLabel(
-      items,
-      "Where was this promise documented?"
-    );
+    const dataSourceTask = findItemByNodeLabel(items, questions[4]);
 
     const expression = /(https?:\/\/(?:www\.|(?!www))[^\s.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
     const matches = dataSourceTask.node.first_response_value.match(expression);
@@ -245,7 +244,10 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       trailText,
       updatedAtLabel,
       name: descriptionArr[1],
-      tags: tags.edges.map((tag) => tag.node),
+      tags: tags.edges.map((tag) => ({
+        name: tag.node.text,
+        slug: slugify(tag.node.text),
+      })),
     };
   }
 
@@ -265,6 +267,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
 
   const api = {
     promises: async (variables) => {
+      await setUpQuestions();
       return client
         .query({ query: GET_PROMISES, variables })
         .then(handlePromisesResult)
@@ -273,15 +276,18 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
         });
     },
     promisesByCategories: async (variables) => {
+      await setUpQuestions();
       return client
         .query({ query: GET_PROMISES_BY_CATEGORIES, variables })
         .then(handlePromisesCategoryResults)
         .then((promise) => promise);
     },
     projectMeta: async () => {
+      await setUpQuestions();
       return client.query({ query: GET_PROJECT_META }).then(handleMeta);
     },
     promise: async (variables) => {
+      await setUpQuestions();
       return client
         .query({ query: GET_PROMISE, variables })
         .then(handleSinglePromise);
