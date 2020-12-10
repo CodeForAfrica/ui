@@ -10,18 +10,21 @@ import Sort from "@/promisetracker/components/Promises/Sort";
 
 import { slugify } from "@/promisetracker/utils";
 
-import config from "@/promisetracker/config";
 import useStyles from "./useStyles";
 
-function Promises({ items: itemsProp, title, withFilter, ...props }) {
+function Promises({
+  items: itemsProp,
+  title,
+  withFilter,
+  projectMeta,
+  promiseStatuses,
+  sortLabels,
+  ...props
+}) {
   const classes = useStyles(props);
-  const {
-    filterStatusItems,
-    filterCategoryItems,
-    sortByDeadline,
-    sortByMostRecent,
-  } = config;
-
+  const { sortByDeadline, sortByMostRecent } = sortLabels;
+  const filterCategoryItems = projectMeta.tags;
+  const filterStatusItems = promiseStatuses;
   const [items, setItems] = useState(itemsProp);
 
   const [statusesFilters, setStatusesFilters] = useState(filterStatusItems);
@@ -121,6 +124,20 @@ Promises.propTypes = {
     root: PropTypes.string,
   }),
   items: PropTypes.arrayOf(PropTypes.shape({})),
+  projectMeta: PropTypes.shape({
+    tags: PropTypes.arrayOf(PropTypes.shape({})),
+  }),
+  promiseStatuses: PropTypes.shape({}),
+  sortLabels: PropTypes.shape({
+    sortByDeadline: PropTypes.shape({
+      name: PropTypes.string,
+      slug: PropTypes.string,
+    }),
+    sortByMostRecent: PropTypes.shape({
+      name: PropTypes.string,
+      slug: PropTypes.string,
+    }),
+  }),
   title: PropTypes.string,
   withFilter: PropTypes.bool,
 };
@@ -128,6 +145,9 @@ Promises.propTypes = {
 Promises.defaultProps = {
   classes: undefined,
   items: undefined,
+  projectMeta: undefined,
+  promiseStatuses: undefined,
+  sortLabels: undefined,
   title: undefined,
   withFilter: true,
 };

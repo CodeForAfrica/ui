@@ -11,6 +11,7 @@ import Subscribe from "@/promisetracker/components/Newsletter";
 import check from "@/promisetracker/lib/check";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
+import { slugify } from "@/promisetracker/utils";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -41,10 +42,12 @@ function PromisesPage({
   actNow,
   subscribe,
   title,
+  projectMeta,
+  promiseStatuses,
+  sortLabels,
   ...props
 }) {
   const classes = useStyles(props);
-
   return (
     <Page
       {...props}
@@ -54,7 +57,10 @@ function PromisesPage({
       classes={{ section: classes.section, footer: classes.footer }}
     >
       <Promises
+        promiseStatuses={promiseStatuses}
+        sortLabels={sortLabels}
         items={promises}
+        projectMeta={projectMeta}
         title={title}
         classes={{
           section: classes.section,
@@ -77,15 +83,21 @@ function PromisesPage({
 PromisesPage.propTypes = {
   actNow: PropTypes.shape({}),
   footer: PropTypes.shape({}),
+  projectMeta: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
   promises: PropTypes.arrayOf(PropTypes.shape({})),
   subscribe: PropTypes.shape({}),
+  sortLabels: PropTypes.shape({}),
+  promiseStatuses: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,
 };
 
 PromisesPage.defaultProps = {
   actNow: undefined,
   promises: undefined,
+  sortLabels: undefined,
+  promiseStatuses: undefined,
+  projectMeta: undefined,
   footer: undefined,
   navigation: undefined,
   subscribe: undefined,
@@ -106,6 +118,7 @@ export async function getStaticProps({ locale }) {
     promiseStatuses,
     team: "pesacheck-promise-tracker",
   });
+  const projectMeta = await checkApi.projectMeta();
   const promises = await checkApi.promises({
     limit: 10000,
     query: `{ "projects": ["2831"] }`,
@@ -117,6 +130,11 @@ export async function getStaticProps({ locale }) {
       ...page,
       languageAlternates,
       promises,
+      projectMeta,
+      promiseStatuses: promiseStatuses.map((status) => ({
+        name: status.title,
+        slug: slugify(status.title),
+      })),
     },
     revalidate: 2 * 60, // seconds
   };

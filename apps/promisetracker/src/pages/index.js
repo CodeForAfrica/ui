@@ -187,7 +187,6 @@ export async function getStaticProps({ locale }) {
   const posts = await wpApi.pages({ slug: "analysis-articles", locale }).posts;
   const articles = posts?.slice(0, 4) || null;
   const languageAlternates = _.languageAlternates();
-
   return {
     props: {
       ...page,
