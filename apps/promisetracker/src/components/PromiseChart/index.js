@@ -8,10 +8,7 @@ import useStyles from "./useStyles";
 function PromiseChart({ chartLink, title, description }) {
   const classes = useStyles();
 
-  // replace the coded link with the actual chart src
-  const iframeSrc = chartLink
-    ? "https://dashboard.hurumap.org/wp-json/hurumap-data/flourish/752/"
-    : "https://dashboard.hurumap.org/wp-json/hurumap-data/flourish/752/";
+  const iframeSrc = chartLink || null;
 
   return (
     <Grid className={classes.root}>
