@@ -22,8 +22,10 @@ function Promises({
   ...props
 }) {
   const classes = useStyles(props);
-  const { sortByDeadline, sortByMostRecent } = sortLabels;
-  const filterCategoryItems = projectMeta.tags;
+
+  const sortByDeadline = sortLabels?.sortByDeadline;
+  const sortByMostRecent = sortLabels?.sortByMostRecent;
+  const filterCategoryItems = projectMeta?.tags;
   const filterStatusItems = promiseStatuses;
   const [items, setItems] = useState(itemsProp);
 
@@ -31,7 +33,7 @@ function Promises({
   const [categoriesFilters, setCategoriesFilters] = useState(
     filterCategoryItems
   );
-  const [sortBy, setSortBy] = useState(sortByMostRecent.slug);
+  const [sortBy, setSortBy] = useState(sortByMostRecent?.slug);
 
   const updateFilters = (filters, slug) =>
     filters.map((f) => (f.slug === slug ? { ...f, active: !f.active } : f));
@@ -53,10 +55,10 @@ function Promises({
       return selectedStatuses.every((c) => c === promiseSlug);
     };
     const selectedCategories = categoriesFilters
-      .filter((filter) => filter.active)
+      ?.filter((filter) => filter.active)
       .map((filter) => filter.slug);
     const hasCategory = (item) => {
-      const promiseCategories = item.tags.map((tag) => slugify(tag));
+      const promiseCategories = item?.tags.map((tag) => slugify(tag));
       return selectedCategories.every((c) => promiseCategories.includes(c));
     };
     const filteredItems = itemsProp.filter(hasStatus).filter(hasCategory);

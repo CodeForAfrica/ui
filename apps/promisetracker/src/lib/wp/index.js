@@ -45,6 +45,11 @@ function wp(site) {
     if (footer.organizationLogo) {
       footer.organizationLogo.image = footer.organizationLogo.image || null;
     }
+
+    const sortLabels = {
+      sortByDeadline: acf.sort_by_deadline || null,
+      sortByMostRecent: acf.sort_by_most_recent || null,
+    };
     const data = {
       actNow,
       footer,
@@ -52,10 +57,7 @@ function wp(site) {
       partnerList: acf.partnerList || null,
       promiseStatuses: acf.promiseStatuses || null,
       subscribe: acf.subscribe || null,
-      sortLabels: {
-        sortByDeadline: acf.sort_by_deadline,
-        sortByMostRecent: acf.sort_by_most_recent,
-      },
+      sortLabels,
     };
     return data;
   }
