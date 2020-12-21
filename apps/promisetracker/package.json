@@ -46,7 +46,7 @@
     "babel-plugin-transform-imports": "^2.0.0",
     "eslint": "^7.14.0",
     "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-prettier": "^7.1.0",
     "eslint-import-resolver-babel-module": "^5.1.2",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-json": "^2.1.2",
