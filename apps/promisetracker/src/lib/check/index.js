@@ -216,10 +216,20 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
 
   async function handleSinglePromise({ data }) {
     const node = data?.project_media;
+
     if (node) {
       const dataset = await (getLinkedDataset(node) || {});
       const singlePromise = await nodeToPromise(node);
-      return { ...singlePromise, dataset };
+      const otherPromises = await Promise.all(
+        data?.search?.medias?.edges.map(({ node: n }) => nodeToPromise(n)) || []
+      );
+      const relatedPromises = otherPromises.filter(
+        (p) =>
+          p.id !== singlePromise.id &&
+          singlePromise.tags.some((v) => p.tags.includes(v))
+      );
+
+      return { ...singlePromise, dataset, relatedPromises };
     }
     return null;
   }
