@@ -229,7 +229,11 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
           singlePromise.tags.some((v) => p.tags.includes(v))
       );
 
-      return { ...singlePromise, dataset, relatedPromises };
+      return {
+        ...singlePromise,
+        dataset,
+        relatedPromises: relatedPromises.slice(0, 3),
+      };
     }
     return null;
   }
