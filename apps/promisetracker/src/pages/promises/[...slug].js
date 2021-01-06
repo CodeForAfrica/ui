@@ -58,16 +58,20 @@ function PromisePage({
       title={title}
       classes={{ section: classes.section, footer: classes.footer }}
     >
-      {promise ? <Promise promise={promise} {...labels} /> : null}
-      <RelatedPromises
-        items={promise?.relatedPromises}
-        title="Related Promises"
-        withFilter={false}
-        classes={{
-          section: classes.section,
-          sectionTitle: classes.sectionTitle,
-        }}
-      />
+      {promise && (
+        <>
+          <Promise promise={promise} {...labels} />
+          <RelatedPromises
+            items={promise?.relatedPromises}
+            title="Related Promises"
+            withFilter={false}
+            classes={{
+              section: classes.section,
+              sectionTitle: classes.sectionTitle,
+            }}
+          />
+        </>
+      )}
       <Subscribe
         classes={{
           section: classes.section,
