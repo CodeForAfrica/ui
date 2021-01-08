@@ -12,18 +12,19 @@ function PromiseChart({ chartLinks, title, description }) {
 
   return (
     <>
-      {iframeSrcs.map((iframeSrc) => (
-        <Grid className={classes.root}>
-          <Grid container justify="flex-end">
-            <Share link={iframeSrc} description={description} title={title} />
+      {iframeSrcs &&
+        iframeSrcs.map((iframeSrc) => (
+          <Grid className={classes.root}>
+            <Grid container justify="flex-end">
+              <Share link={iframeSrc} description={description} title={title} />
+            </Grid>
+            <iframe
+              title="Promise chart"
+              className={classes.chartStyles}
+              src={iframeSrc}
+            />
           </Grid>
-          <iframe
-            title="Promise chart"
-            className={classes.chartStyles}
-            src={iframeSrc}
-          />
-        </Grid>
-      ))}
+        ))}
     </>
   );
 }
