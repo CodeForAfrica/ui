@@ -8,23 +8,26 @@ import useStyles from "./useStyles";
 function PromiseChart({ chartLinks, title, description }) {
   const classes = useStyles();
 
+  if (!chartLinks.length) {
+    return null;
+  }
+
   const iframeSrcs = chartLinks.trim().split(/\s+/) || null;
 
   return (
     <>
-      {iframeSrcs &&
-        iframeSrcs.map((iframeSrc) => (
-          <Grid className={classes.root}>
-            <Grid container justify="flex-end">
-              <Share link={iframeSrc} description={description} title={title} />
-            </Grid>
-            <iframe
-              title="Promise chart"
-              className={classes.chartStyles}
-              src={iframeSrc}
-            />
+      {iframeSrcs.map((iframeSrc) => (
+        <Grid key={iframeSrc} className={classes.root}>
+          <Grid container justify="flex-end">
+            <Share link={iframeSrc} description={description} title={title} />
           </Grid>
-        ))}
+          <iframe
+            title={title}
+            className={classes.chartStyles}
+            src={iframeSrc}
+          />
+        </Grid>
+      ))}
     </>
   );
 }

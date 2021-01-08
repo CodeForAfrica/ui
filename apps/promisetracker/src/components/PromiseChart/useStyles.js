@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
   chartStyles: {
     border: 0,
     width: "100%",
-    height: "420px",
+    height: "100vh",
   },
 }));
 
