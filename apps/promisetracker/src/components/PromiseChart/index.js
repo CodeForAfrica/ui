@@ -5,33 +5,37 @@ import Share from "@/promisetracker/components/Share";
 
 import useStyles from "./useStyles";
 
-function PromiseChart({ chartLink, title, description }) {
+function PromiseChart({ chartLinks, title, description }) {
   const classes = useStyles();
 
-  const iframeSrc = chartLink || null;
+  const iframeSrcs = chartLinks.trim().split(/\s+/) || null;
 
   return (
-    <Grid className={classes.root}>
-      <Grid container justify="flex-end">
-        <Share link={chartLink} description={description} title={title} />
-      </Grid>
-      <iframe
-        title="Promise chart"
-        className={classes.chartStyles}
-        src={iframeSrc}
-      />
-    </Grid>
+    <>
+      {iframeSrcs.map((iframeSrc) => (
+        <Grid className={classes.root}>
+          <Grid container justify="flex-end">
+            <Share link={iframeSrc} description={description} title={title} />
+          </Grid>
+          <iframe
+            title="Promise chart"
+            className={classes.chartStyles}
+            src={iframeSrc}
+          />
+        </Grid>
+      ))}
+    </>
   );
 }
 
 PromiseChart.propTypes = {
-  chartLink: PropTypes.string,
+  chartLinks: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
 };
 
 PromiseChart.defaultProps = {
-  chartLink: null,
+  chartLinks: null,
   title: PropTypes.title,
   description: PropTypes.description,
 };

@@ -195,7 +195,7 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
       title: node.title,
       image: getImage(node),
       description: node.description,
-      chartLink: getChartLink(node),
+      chartLinks: getChartLink(node),
       date: getPromiseDate(node),
       events: [getPromiseDeadlineEvent(node)],
       status: getStatusHistory(node)[0],
