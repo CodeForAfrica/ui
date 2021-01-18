@@ -36,7 +36,7 @@
     "simplebar": "^5.1.0",
     "simplebar-react": "^2.1.0",
     "victory": "^35.4.2",
-    "webpack": "^5.14.0"
+    "webpack": "^5.15.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.8",
