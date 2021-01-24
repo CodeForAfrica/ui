@@ -33,7 +33,6 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   },
   inputSection: {
     backgroundColor: "#F7F7F7",
-    border: "0.06rem solid #EBEBEB",
     color: "#20202059",
     padding: typography.pxToRem(12),
     fontFamily: typography.fontFamily,
@@ -47,9 +46,10 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     color: "#FFFFFF",
     top: "0",
     width: "2em",
-    height: "2em",
+    height: "100%",
     right: 0,
-    zIndex: 1,
+    position: "relative",
+    border: "solid 10px #005DFD",
   },
   formControl: {
     width: "100%",
