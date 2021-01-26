@@ -58,12 +58,10 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
     const imageTask = findItemByNodeLabel(tasks, questions[8]);
     const filename = imageTask.node.first_response_value;
     let annotationChanges = {};
-
     if (imageLog?.node?.object_changes_json) {
       annotationChanges = JSON.parse(imageLog?.node?.object_changes_json)
         .annotation_id;
     }
-
     const id = annotationChanges ? annotationChanges[1] : null; // latest image ID
     return filename && id ? getAssetURL(filename, id) : promiseImage;
   }
