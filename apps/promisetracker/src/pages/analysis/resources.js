@@ -86,7 +86,7 @@ export async function getStaticProps({ locale }) {
   }
 
   const page = await wp().pages({ slug: "resources", locale }).first;
-  const languageAlternates = _.languageAlternates("/resources");
+  const languageAlternates = _.languageAlternates("/analysis/resources");
 
   return {
     props: {
