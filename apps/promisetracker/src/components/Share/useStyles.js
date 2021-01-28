@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(() => ({
   root: {
     zIndex: 999,
+    marginRight: "0.2rem",
   },
   icon: {
     color: "#6A6A6A",
