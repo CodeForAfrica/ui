@@ -27,10 +27,10 @@ const useStyles = makeStyles(() => ({
     padding: "0.5rem !important",
   },
   socialIcon: {
-    height: "1rem",
-    color: "black",
+    color: "#909090",
   },
   share: {
+    fontSize: "1.2rem",
     textAlign: "right",
     "&:hover": {
       cursor: "pointer",

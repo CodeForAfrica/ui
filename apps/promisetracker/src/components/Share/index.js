@@ -46,7 +46,7 @@ function Share({ link, title, description, ...props }) {
           aria-label="share"
           className={classes.share}
         >
-          <ShareIcon color="primary" fontSize="inherit" />
+          <ShareIcon fontSize="inherit" className={classes.shareIcon} />
         </IconButton>
         <Popper
           open={open}
