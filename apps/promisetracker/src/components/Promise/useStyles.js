@@ -65,7 +65,6 @@ const useStyles = makeStyles(
         color: "unset",
       },
     },
-
     label: {
       marginTop: "2rem",
       marginBottom: "1rem",
@@ -80,6 +79,9 @@ const useStyles = makeStyles(
       fontSize: "1rem",
       marginTop: "0",
       padding: "1.5rem 1rem",
+    },
+    statusTitle: {
+      padding: "1rem 0rem",
     },
     title: {
       marginBottom: "2rem",

@@ -97,6 +97,9 @@ function Promise({
             <Typography className={classes.label} variant="h5">
               {promiseStatusLabel}
             </Typography>
+            <RichTypography variant="h5" className={classes.statusTitle}>
+              Promise rating status:
+            </RichTypography>
             <Status {...promise.status} classes={{ root: classes.status }} />
             <Typography className={classes.label} variant="h5">
               {promiseRadarLabel}
@@ -132,6 +135,7 @@ Promise.propTypes = {
     promiseBody: PropTypes.string,
     promiseFooter: PropTypes.string,
     date: PropTypes.string,
+    statusTitle: PropTypes.string,
     description: PropTypes.string,
     descriptionContainer: PropTypes.string,
     featuredImageContainer: PropTypes.string,

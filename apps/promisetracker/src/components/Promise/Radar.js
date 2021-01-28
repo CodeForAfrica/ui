@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import dynamic from "next/dynamic";
 
 import config from "@/promisetracker/config";
+import RichTypography from "@commons-ui/core/RichTypography";
 
 const MapIt = dynamic(() => import("@hurumap-ui/core/MapIt"), {
   ssr: false,
@@ -15,7 +16,9 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     display: "flex",
     marginBottom: "2rem",
   },
-
+  title: {
+    padding: "1rem 0rem",
+  },
   radar: {
     width: "100%",
     objectFit: "cover",
@@ -39,31 +42,36 @@ function Radar(props) {
   }, []);
 
   return (
-    <div className={classes.root}>
-      <MapIt
-        height="238.5px"
-        width="100%"
-        url={MAPIT_URL}
-        zoom={4}
-        tolerance={0.001}
-        tileLayer={tileLayer}
-        latLng={[-1.28333, 36.81667]}
-        center={[8.7832, 34.5085]}
-        drawProfile
-        drawChildren
-        codeType="KEN"
-        geoLevel="country"
-        geoCode="KE"
-        geoLayerBlurStyle={{
-          color: "black",
-          fillColor: "transparent",
-          weight: 1,
-          opacity: 0.3,
-          fillOpacity: 0.5,
-        }}
-        {...props}
-      />
-    </div>
+    <>
+      <RichTypography variant="h5" className={classes.title}>
+        Promise Radar
+      </RichTypography>
+      <div className={classes.root}>
+        <MapIt
+          height="238.5px"
+          width="100%"
+          url={MAPIT_URL}
+          zoom={4}
+          tolerance={0.001}
+          tileLayer={tileLayer}
+          latLng={[-1.28333, 36.81667]}
+          center={[8.7832, 34.5085]}
+          drawProfile
+          drawChildren
+          codeType="KEN"
+          geoLevel="country"
+          geoCode="KE"
+          geoLayerBlurStyle={{
+            color: "black",
+            fillColor: "transparent",
+            weight: 1,
+            opacity: 0.3,
+            fillOpacity: 0.5,
+          }}
+          {...props}
+        />
+      </div>
+    </>
   );
 }
 
