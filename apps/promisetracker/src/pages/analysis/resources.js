@@ -1,9 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import { Box, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Page from "@/promisetracker/components/Page";
+import { RichTypography } from "@commons-ui/core";
+
+import ActNow from "@/promisetracker/components/ActNow";
+import ContentPage from "@/promisetracker/components/ContentPage";
 
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
@@ -19,23 +22,60 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       width: typography.pxToRem(widths.values.lg),
     },
   },
+  description: {
+    marginBottom: typography.pxToRem(40),
+    [breakpoints.up("lg")]: {
+      marginBottom: typography.pxToRem(86),
+    },
+  },
+  footer: {
+    marginTop: 0,
+  },
 }));
 
-function Resources(props) {
+function Resources({ actNow, description, footer, navigation, ...props }) {
   const classes = useStyles(props);
 
   return (
-    <Page
+    <ContentPage
       {...props}
-      title="Resources | Analysis"
-      classes={{ section: classes.section }}
+      footer={footer}
+      navigation={navigation}
+      classes={{
+        section: classes.section,
+        footer: classes.footer,
+      }}
+      content={
+        description?.length ? (
+          <RichTypography className={classes.description}>
+            {description}
+          </RichTypography>
+        ) : null
+      }
     >
-      <Container maxWidth="sm">
-        <Box my={4}>Resources Page</Box>
-      </Container>
-    </Page>
+      <ActNow
+        {...actNow}
+        classes={{
+          section: classes.section,
+        }}
+      />
+    </ContentPage>
   );
 }
+
+Resources.propTypes = {
+  actNow: PropTypes.shape({}),
+  description: PropTypes.string,
+  footer: PropTypes.shape({}),
+  navigation: PropTypes.shape({}),
+};
+
+Resources.defaultProps = {
+  actNow: undefined,
+  description: undefined,
+  footer: undefined,
+  navigation: undefined,
+};
 
 export async function getStaticProps({ locale }) {
   const _ = i18n();
@@ -45,8 +85,8 @@ export async function getStaticProps({ locale }) {
     };
   }
 
-  const page = await wp().pages({ slug: "index" }).first;
-  const languageAlternates = _.languageAlternates("/analysis/resources");
+  const page = await wp().pages({ slug: "resources", locale }).first;
+  const languageAlternates = _.languageAlternates("/resources");
 
   return {
     props: {
