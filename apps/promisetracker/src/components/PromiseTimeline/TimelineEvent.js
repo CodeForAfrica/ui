@@ -53,7 +53,7 @@ function Event({ color, isOdd, radius, textColor, title, year }) {
         fontSize={theme.typography.h6.fontSize}
         fontWeight={600}
       >
-        {title.toUpperCase()}
+        {title?.toUpperCase()}
       </text>
     </>
   );

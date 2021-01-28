@@ -9,7 +9,7 @@ import Link from "@/promisetracker/components/Link";
 const useStyles = makeStyles(({ typography, palette }) => ({
   root: {},
   collapse: {
-    borderLeft: `1.5px solid #707070`,
+    borderLeft: `1.5px solid white`,
     margin: 0,
     padding: 0,
   },
