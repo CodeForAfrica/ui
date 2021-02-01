@@ -26,6 +26,12 @@ const useStyles = makeStyles(
     mobileStatusLabel: {
       marginRight: "1rem",
     },
+    mobileStatusLabelGrid: {
+      display: "flex",
+      justifyContent: "space-between",
+      width: "100%",
+      alignItems: "center",
+    },
     promiseBody: {
       margin: "2rem 0",
     },

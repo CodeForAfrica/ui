@@ -60,15 +60,7 @@ function Promise({
               <Typography className={classes.mobileStatusLabel} variant="h5">
                 {promiseStatusLabel}
               </Typography>
-              <Grid
-                item
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  width: "100%",
-                  alignItems: "center",
-                }}
-              >
+              <Grid item className={classes.mobileStatusLabelGrid}>
                 <RichTypography variant="h5" className={classes.statusTitle}>
                   Promise rating status:
                 </RichTypography>
@@ -156,6 +148,7 @@ Promise.propTypes = {
     mobileStatus: PropTypes.string,
     mobileStatusContainer: PropTypes.string,
     mobileStatusLabel: PropTypes.string,
+    mobileStatusLabelGrid: PropTypes.string,
     root: PropTypes.string,
     section: PropTypes.string,
     status: PropTypes.string,
