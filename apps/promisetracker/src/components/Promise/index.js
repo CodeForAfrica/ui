@@ -60,10 +60,23 @@ function Promise({
               <Typography className={classes.mobileStatusLabel} variant="h5">
                 {promiseStatusLabel}
               </Typography>
-              <Status
-                {...promise.status}
-                classes={{ root: classes.mobileStatus }}
-              />
+              <Grid
+                item
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "100%",
+                  alignItems: "center",
+                }}
+              >
+                <RichTypography variant="h5" className={classes.statusTitle}>
+                  Promise rating status:
+                </RichTypography>
+                <Status
+                  {...promise.status}
+                  classes={{ root: classes.mobileStatus }}
+                />
+              </Grid>
             </div>
           </Hidden>
           <RichTypography className={classes.promiseBody} variant="body1">
