@@ -44,7 +44,7 @@ function Radar(props) {
   return (
     <>
       <RichTypography variant="h5" className={classes.title}>
-        Promise Radar
+        Promise Radar:
       </RichTypography>
       <div className={classes.root}>
         <MapIt
