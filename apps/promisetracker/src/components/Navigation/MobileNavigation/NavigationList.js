@@ -6,12 +6,15 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Link from "@/promisetracker/components/Link";
 
-const useStyles = makeStyles(({ typography, palette }) => ({
+const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   root: {},
   collapse: {
     borderLeft: `1.5px solid white`,
     margin: 0,
     padding: 0,
+    [breakpoints.up("md")]: {
+      borderLeft: `1.5px solid white`,
+    },
   },
   listItem: {
     padding: 0,
