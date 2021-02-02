@@ -42,8 +42,8 @@ function DesktopChart(props) {
         progressStatuses={[
           {
             color: "#005DFD",
-            count: 130,
-            title: "Completed",
+            count: promisesByStatus.statusHistory.Completed?.length,
+            title: "Complete",
           },
           {
             color: "#90DAFF",
@@ -79,8 +79,8 @@ function DesktopChart(props) {
         progressStatuses={[
           {
             color: "#FFB322",
-            count: 60,
-            title: "Delayed",
+            count: promisesByStatus.statusHistory.Delayed?.length,
+            title: "Behind Schedule",
           },
           {
             color: "#FF5154",

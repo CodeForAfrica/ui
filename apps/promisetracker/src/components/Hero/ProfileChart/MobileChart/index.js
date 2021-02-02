@@ -33,9 +33,8 @@ function MobileChart(props) {
         progressStatuses={[
           {
             color: "#005DFD",
-            count: 130,
-            title: "Completed",
-            percentage: "(25%)",
+            count: promisesByStatus.statusHistory.Completed?.length,
+            title: "Complete",
           },
           {
             color: "#90DAFF",
@@ -73,9 +72,8 @@ function MobileChart(props) {
         progressStatuses={[
           {
             color: "#FFB322",
-            count: 60,
-            title: "Delayed",
-            percentage: "(12%)",
+            count: promisesByStatus.statusHistory.Delayed?.length,
+            title: "Behind Schedule",
           },
           {
             color: "#FF5255",

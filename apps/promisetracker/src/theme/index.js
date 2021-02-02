@@ -25,11 +25,11 @@ const theme = createTheme({
     highlight: { main: "#005DFD", light: "#FFB322", faded: "#90DAFF" }, // blue, yellow, light blue
     text: { primary: "#202020", secondary: "#ffffff" },
     chart: {
-      completed: "#005DFD",
+      complete: "#005DFD",
       inprogress: "#90DAFF",
       inconclusive: "#909090",
       unstarted: "#EBEBEB",
-      delayed: "#FFB322",
+      behind: "#FFB322",
       stalled: "#FF5255",
     },
   },

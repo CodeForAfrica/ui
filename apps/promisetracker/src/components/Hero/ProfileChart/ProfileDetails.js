@@ -162,13 +162,13 @@ function ProfileDetails({
                     inProgress={
                       promisesByStatus.statusHistory["In Progress"]?.length
                     }
-                    completed={promisesByStatus.statusHistory.Completed?.length}
+                    complete={promisesByStatus.statusHistory.Completed?.length}
                     inconclusive={
                       promisesByStatus.statusHistory.Unrated?.length
                     }
                     unstarted={promisesByStatus.statusHistory.Unstarted?.length}
                     stalled={promisesByStatus.statusHistory.Stalled?.length}
-                    delayed={promisesByStatus.statusHistory.Delayed?.length}
+                    behind={promisesByStatus.statusHistory.Delayed?.length}
                   />
                 </div>
               </Fade>

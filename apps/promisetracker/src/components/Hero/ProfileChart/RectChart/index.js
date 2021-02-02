@@ -13,12 +13,12 @@ const useStyles = makeStyles(() => ({
 
 function ReactChart({
   totalPromises,
-  completed,
+  complete,
   inconclusive,
   inProgress,
   unstarted,
   stalled,
-  delayed,
+  behind,
   ...props
 }) {
   const classes = useStyles(props);
@@ -46,8 +46,8 @@ function ReactChart({
         strokeWidth={1}
         containerWidth={chartContainerWidth}
         totalPromises={totalPromises}
-        currentStatusNumber={completed}
-        status="Completed"
+        currentStatusNumber={complete}
+        status="Complete"
       />
       <RectSvgChart
         width={90}
@@ -90,8 +90,8 @@ function ReactChart({
         strokeWidth={1}
         containerWidth={chartContainerWidth}
         totalPromises={totalPromises}
-        currentStatusNumber={delayed}
-        status="Delayed"
+        currentStatusNumber={behind}
+        status="Behind Schedule"
       />
       <RectSvgChart
         width={110}
@@ -109,20 +109,20 @@ function ReactChart({
 }
 
 ReactChart.propTypes = {
-  delayed: PropTypes.number,
+  behind: PropTypes.number,
   stalled: PropTypes.number,
   inconclusive: PropTypes.number,
-  completed: PropTypes.number,
+  complete: PropTypes.number,
   inProgress: PropTypes.number,
   totalPromises: PropTypes.number,
   unstarted: PropTypes.number,
 };
 
 ReactChart.defaultProps = {
-  delayed: 0,
+  behind: 0,
   stalled: 0,
   inconclusive: 0,
-  completed: 0,
+  complete: 0,
   inProgress: 0,
   totalPromises: 0,
   unstarted: 0,
