@@ -162,7 +162,7 @@ function ProfileDetails({
                     inProgress={
                       promisesByStatus.statusHistory["In Progress"]?.length
                     }
-                    complete={promisesByStatus.statusHistory.Completed?.length}
+                    complete={promisesByStatus.statusHistory.Complete?.length}
                     inconclusive={
                       promisesByStatus.statusHistory.Inconclusive?.length
                     }
@@ -241,7 +241,7 @@ ProfileDetails.propTypes = {
     count: PropTypes.number,
     statusHistory: PropTypes.PropTypes.shape({
       "In Progress": PropTypes.arrayOf(PropTypes.shape({})),
-      Completed: PropTypes.arrayOf(PropTypes.shape({})),
+      Complete: PropTypes.arrayOf(PropTypes.shape({})),
       Inconclusive: PropTypes.arrayOf(PropTypes.shape({})),
       Unstarted: PropTypes.arrayOf(PropTypes.shape({})),
       Stalled: PropTypes.arrayOf(PropTypes.shape({})),

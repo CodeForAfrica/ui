@@ -72,7 +72,7 @@ function RectSvgChart({
           {status}
         </Typography>
         <Typography variant="h6" className={classes.percentage}>
-          {/* {currentStatusNumber} */}
+          {currentStatusNumber}
         </Typography>
       </div>
     </div>
