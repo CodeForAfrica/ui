@@ -8,7 +8,7 @@ import { RichTypography, Section } from "@commons-ui/core";
 
 import email from "@/promisetracker/assets/subscribe-email.svg";
 import config from "@/promisetracker/config";
-import subscribeImg from "@/promisetracker/assets/illo-subscribe@2x.png";
+import subscribeImg from "@/promisetracker/assets/illo-subscribe@2x@2x.png";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
   section: {},

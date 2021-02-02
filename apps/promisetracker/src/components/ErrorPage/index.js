@@ -8,7 +8,7 @@ import { RichTypography, Section } from "@commons-ui/core";
 import H1 from "@/promisetracker/components/H1";
 import ArticleCard from "@/promisetracker/components/ArticleCard";
 import Page from "@/promisetracker/components/Page/Base";
-import image from "@/promisetracker/assets/illo-404@2x.png";
+import image from "@/promisetracker/assets/illo-404@2x@2x.png";
 
 import useStyles from "./useStyles";
 

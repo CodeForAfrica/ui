@@ -14,7 +14,7 @@ import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 import check from "@/promisetracker/lib/check";
 
-import actNowImg from "@/promisetracker/assets/illo-actNow@2x.png";
+import actNowImg from "@/promisetracker/assets/illo-actNow@2x@2x.png";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {

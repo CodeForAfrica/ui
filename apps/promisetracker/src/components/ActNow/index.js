@@ -7,7 +7,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Section } from "@commons-ui/core";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
-import actNowImg from "@/promisetracker/assets/illo-actNow@2x.png";
+import actNowImg from "@/promisetracker/assets/illo-actNow@2x@2x.png";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
   section: {},
