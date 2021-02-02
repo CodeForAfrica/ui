@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import MobileSvgChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart/MobileSvgChart";
 
-const useStyles = makeStyles(({ typography }) => ({
+const useStyles = makeStyles(({ breakpoints, typography }) => ({
   root: {
     padding: "2rem 0rem",
   },
@@ -21,7 +21,10 @@ const useStyles = makeStyles(({ typography }) => ({
 
   border: (props) => ({
     borderRight: props.borderRight,
-    height: "57px",
+    height: "62px",
+    [breakpoints.up("md")]: {
+      height: "57px",
+    },
   }),
   chartGrid: {
     paddingLeft: "1rem",

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(({ typography }) => ({
+const useStyles = makeStyles(({ breakpoints, typography }) => ({
   root: {
     paddingLeft: "1rem",
   },
@@ -13,7 +13,12 @@ const useStyles = makeStyles(({ typography }) => ({
     fontWeight: "normal",
     textTransform: "capitalize",
     padding: "0rem 0.5rem",
-    whiteSpace: "nowrap",
+    whiteSpace: "normal",
+    paddingBottom: "0.5rem",
+    [breakpoints.up("sm")]: {
+      whiteSpace: "nowrap",
+      paddingBottom: 0,
+    },
     fontSize: typography.pxToRem(13),
   },
   h3: {
