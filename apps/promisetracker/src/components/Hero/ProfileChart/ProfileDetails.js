@@ -79,6 +79,7 @@ function ProfileDetails({
   ...props
 }) {
   const classes = useStyles(props);
+  console.log(promisesByStatus);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const [clicked, setClicked] = useState(false);
@@ -164,11 +165,13 @@ function ProfileDetails({
                     }
                     complete={promisesByStatus.statusHistory.Completed?.length}
                     inconclusive={
-                      promisesByStatus.statusHistory.Unrated?.length
+                      promisesByStatus.statusHistory.Inconclusive?.length
                     }
                     unstarted={promisesByStatus.statusHistory.Unstarted?.length}
                     stalled={promisesByStatus.statusHistory.Stalled?.length}
-                    behind={promisesByStatus.statusHistory.Delayed?.length}
+                    behind={
+                      promisesByStatus.statusHistory["Behind Schedule"]?.length
+                    }
                   />
                 </div>
               </Fade>
@@ -240,10 +243,10 @@ ProfileDetails.propTypes = {
     statusHistory: PropTypes.PropTypes.shape({
       "In Progress": PropTypes.arrayOf(PropTypes.shape({})),
       Completed: PropTypes.arrayOf(PropTypes.shape({})),
-      Unrated: PropTypes.arrayOf(PropTypes.shape({})),
+      Inconclusive: PropTypes.arrayOf(PropTypes.shape({})),
       Unstarted: PropTypes.arrayOf(PropTypes.shape({})),
       Stalled: PropTypes.arrayOf(PropTypes.shape({})),
-      Delayed: PropTypes.arrayOf(PropTypes.shape({})),
+      "Behind Schedule": PropTypes.arrayOf(PropTypes.shape({})),
     }),
   }),
 };

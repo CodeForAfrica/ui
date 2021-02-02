@@ -120,8 +120,8 @@ function check({ team = undefined, promiseStatuses, initialState = {} }) {
 
   function getStatusHistory(node) {
     const logs = node.log?.edges;
-    const defaultStatus = config.promiseStatuses.find(
-      (status) => status.title === "Unrated"
+    const defaultStatus = promiseStatuses.find(
+      (status) => status.title === "Inconclusive"
     );
     const statusLogs = logs.filter(
       (item) => item.node.task?.label === questions[3]

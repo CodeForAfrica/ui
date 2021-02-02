@@ -33,7 +33,7 @@ function MobileChart(props) {
         progressStatuses={[
           {
             color: "#005DFD",
-            count: promisesByStatus.statusHistory.Completed?.length,
+            count: promisesByStatus.statusHistory.Complete?.length,
             title: "Complete",
           },
           {
@@ -52,7 +52,7 @@ function MobileChart(props) {
         progressStatuses={[
           {
             color: "#909090",
-            count: 70,
+            count: promisesByStatus.statusHistory.Inconclusive?.length,
             title: "Inconclusive",
             percentage: "(14%)",
           },
@@ -72,7 +72,7 @@ function MobileChart(props) {
         progressStatuses={[
           {
             color: "#FFB322",
-            count: promisesByStatus.statusHistory.Delayed?.length,
+            count: promisesByStatus.statusHistory["Behind Schedule"]?.length,
             title: "Behind Schedule",
           },
           {
@@ -86,5 +86,24 @@ function MobileChart(props) {
     </Grid>
   );
 }
+
+MobileChart.propTypes = {
+  promisesByStatus: PropTypes.shape({
+    count: PropTypes.number,
+    statusHistory: PropTypes.PropTypes.shape({
+      "In Progress": PropTypes.arrayOf(PropTypes.shape({})),
+      Complete: PropTypes.arrayOf(PropTypes.shape({})),
+      Inconclusive: PropTypes.arrayOf(PropTypes.shape({})),
+      Unstarted: PropTypes.arrayOf(PropTypes.shape({})),
+      Stalled: PropTypes.arrayOf(PropTypes.shape({})),
+      "Behind Schedule": PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+  }),
+  totalPromises: PropTypes.number.isRequired,
+};
+
+MobileChart.defaultProps = {
+  promisesByStatus: undefined,
+};
 
 export default MobileChart;
