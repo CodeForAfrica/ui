@@ -19,7 +19,9 @@ function FilterButton({ active: activeProp, name, slug, onClick, ...props }) {
       variant={activeProp ? "contained" : "outlined"}
       className={classes.button}
     >
-      <Typography variant="h6">{name}</Typography>
+      <Typography variant="h6" className={classes.name}>
+        {name}
+      </Typography>
     </Button>
   );
 }

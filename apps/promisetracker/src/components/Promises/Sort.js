@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(({ palette }) => ({
   root: {
@@ -13,6 +13,8 @@ const useStyles = makeStyles(({ palette }) => ({
     display: "flex",
     alignItems: "start",
     justifyContent: "start",
+    fonstSize: "0.5rem",
+    lineHeight: "12px",
   },
 }));
 
@@ -31,7 +33,7 @@ function Sort({ name, onClick, slug, ...props }) {
       variant="text"
       className={classes.root}
     >
-      {name}
+      <Typography variant="h6">{name}</Typography>
     </Button>
   );
 }

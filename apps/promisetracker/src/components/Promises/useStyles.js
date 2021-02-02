@@ -20,7 +20,9 @@ const useStyles = makeStyles(({ typography, palette }) => ({
     flexDirection: "column",
     marginTop: "1rem",
   },
-  sectionTitle: {},
+  sectionTitle: {
+    margin: "2rem 0rem",
+  },
 }));
 
 export default useStyles;

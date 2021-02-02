@@ -7,18 +7,20 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
       marginBottom: 0,
     },
   },
+  name: {
+    fontSize: "0.6rem",
+    lineHeight: "0.9375rem",
+  },
   button: {
     border: `.122rem solid ${palette.primary.dark}`,
     marginRight: ".6rem",
     marginBottom: ".6rem",
-    padding: ".5rem .5rem",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     "&:hover": {
       marginRight: ".6rem",
       marginBottom: ".6rem",
-      padding: ".5rem .5rem",
       border: `.122rem solid ${palette.primary.dark}`,
     },
   },
