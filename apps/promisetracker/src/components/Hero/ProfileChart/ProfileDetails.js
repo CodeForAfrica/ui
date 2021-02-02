@@ -79,7 +79,6 @@ function ProfileDetails({
   ...props
 }) {
   const classes = useStyles(props);
-  console.log(promisesByStatus);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const [clicked, setClicked] = useState(false);
