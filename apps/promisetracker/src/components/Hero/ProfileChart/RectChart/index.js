@@ -90,7 +90,7 @@ function ReactChart({
         strokeWidth={1}
         containerWidth={chartContainerWidth}
         totalPromises={totalPromises}
-        currentStatusNumber={behind}
+        currentStatusNumber={behindSchedule}
         status="Behind Schedule"
       />
       <RectSvgChart
@@ -109,7 +109,7 @@ function ReactChart({
 }
 
 ReactChart.propTypes = {
-  behind: PropTypes.number,
+  behindSchedule: PropTypes.number,
   stalled: PropTypes.number,
   inconclusive: PropTypes.number,
   complete: PropTypes.number,
@@ -119,7 +119,7 @@ ReactChart.propTypes = {
 };
 
 ReactChart.defaultProps = {
-  behind: 0,
+  behindSchedule: 0,
   stalled: 0,
   inconclusive: 0,
   complete: 0,

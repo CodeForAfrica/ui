@@ -168,7 +168,7 @@ function ProfileDetails({
                     }
                     unstarted={promisesByStatus.statusHistory.Unstarted?.length}
                     stalled={promisesByStatus.statusHistory.Stalled?.length}
-                    behind={
+                    behindSchedule={
                       promisesByStatus.statusHistory["Behind Schedule"]?.length
                     }
                   />

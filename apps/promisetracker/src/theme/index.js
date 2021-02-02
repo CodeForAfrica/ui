@@ -29,7 +29,7 @@ const theme = createTheme({
       inprogress: "#90DAFF",
       inconclusive: "#909090",
       unstarted: "#EBEBEB",
-      behind: "#FFB322",
+      behindschedule: "#FFB322",
       stalled: "#FF5255",
     },
   },
