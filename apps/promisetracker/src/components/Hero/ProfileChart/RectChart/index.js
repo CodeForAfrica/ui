@@ -18,7 +18,7 @@ function ReactChart({
   inProgress,
   unstarted,
   stalled,
-  behind,
+  behindSchedule,
   ...props
 }) {
   const classes = useStyles(props);
