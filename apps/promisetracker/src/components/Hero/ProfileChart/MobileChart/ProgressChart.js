@@ -21,9 +21,9 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
 
   border: (props) => ({
     borderRight: props.borderRight,
-    height: "62px",
+    height: "3.875rem",
     [breakpoints.up("md")]: {
-      height: "57px",
+      height: "3.563rem",
     },
   }),
   chartGrid: {
