@@ -9,7 +9,7 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
   },
   name: {
     fontSize: typography.pxToRem(9.6),
-    lineHeight: typography.pxToRem(17),
+    lineHeight: typography.pxToRem(20),
   },
   button: {
     border: `.122rem solid ${palette.primary.dark}`,

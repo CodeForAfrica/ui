@@ -13,9 +13,10 @@ const useStyles = makeStyles(({ typography, palette }) => ({
   },
   label: {
     color: palette.secondary.dark,
+    paddingRight: "0.5rem",
   },
   sortItems: {
-    alignItems: "start",
+    alignItems: "flex-end",
     display: "flex",
     flexDirection: "column",
     marginTop: "1rem",
