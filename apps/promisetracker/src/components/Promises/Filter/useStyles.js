@@ -8,8 +8,8 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
     },
   },
   name: {
-    fontSize: "0.6rem",
-    lineHeight: "0.9375rem",
+    fontSize: typography.pxToRem(9.6),
+    lineHeight: typography.pxToRem(17),
   },
   button: {
     border: `.122rem solid ${palette.primary.dark}`,
@@ -29,7 +29,7 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
     display: "flex",
     flexWrap: "wrap",
     marginTop: "1rem",
-    maxWidth: typography.pxToRem(300),
+    maxWidth: typography.pxToRem(500),
   },
   label: {
     color: palette.secondary.dark,

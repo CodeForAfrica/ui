@@ -91,14 +91,14 @@ function Promises({
     >
       {withFilter && (
         <Grid className={classes.filterGrid} container justify="space-between">
-          <Grid item xs={12} lg={5}>
+          <Grid item xs={12} lg={4}>
             <Filter
               label="Promises by status"
               items={statusesFilters}
               onClick={handleStatusClick}
             />
           </Grid>
-          <Grid item xs={12} lg={5}>
+          <Grid item xs={12} lg={6}>
             <Filter
               label="Promises by category"
               items={categoriesFilters}
