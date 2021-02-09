@@ -111,7 +111,7 @@ Article.propTypes = {
 };
 
 Article.defaultProps = {
-  breadcrumb: "Articles",
+  breadcrumb: "Article",
   classes: undefined,
   shareLabel: "Share:",
   socialMedia: [
