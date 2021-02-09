@@ -28,7 +28,6 @@ function Promises({
   const filterCategoryItems = projectMeta?.tags;
   const filterStatusItems = promiseStatuses;
   const [items, setItems] = useState(itemsProp);
-
   const [statusesFilters, setStatusesFilters] = useState(filterStatusItems);
   const [categoriesFilters, setCategoriesFilters] = useState(
     filterCategoryItems
@@ -46,38 +45,41 @@ function Promises({
   const handleSortClicked = (slug) => {
     setSortBy(slug);
   };
-  useEffect(() => {
-    const selectedStatuses = statusesFilters
-      .filter((filter) => filter.active)
-      .map((filter) => filter.slug);
-    const hasStatus = (item) => {
-      const promiseSlug = slugify(item.status.title);
-      return selectedStatuses.every((c) => c === promiseSlug);
-    };
-    const selectedCategories = categoriesFilters
-      ?.filter((filter) => filter.active)
-      .map((filter) => filter.slug);
-    const hasCategory = (item) => {
-      const promiseCategories = item?.tags.map((tag) => slugify(tag));
-      return selectedCategories.every((c) => promiseCategories.includes(c));
-    };
-    const filteredItems = itemsProp.filter(hasStatus).filter(hasCategory);
-    const hasFilters = selectedStatuses.length || selectedCategories.length;
-    setItems(hasFilters ? filteredItems : itemsProp);
-  }, [statusesFilters, categoriesFilters, itemsProp]);
-  useEffect(() => {
-    let sortedItems = items;
-    if (sortBy === sortByMostRecent.slug) {
-      sortedItems = items.sort((a, b) => a.date.localeCompare(b.date));
-    } else if (sortBy === sortByDeadline.slug) {
-      sortedItems = items.sort((a, b) => {
-        const aDeadline = a.events?.[0]?.year ?? 0;
-        const bDeadline = b.events?.[0]?.year ?? 0;
-        return bDeadline - aDeadline;
-      });
-    }
-    setItems(sortedItems);
-  }, [sortBy]);
+
+  if (withFilter) {
+    useEffect(() => {
+      const selectedStatuses = statusesFilters
+        ?.filter((filter) => filter.active)
+        .map((filter) => filter.slug);
+      const hasStatus = (item) => {
+        const promiseSlug = slugify(item.status.title);
+        return selectedStatuses.every((c) => c === promiseSlug);
+      };
+      const selectedCategories = categoriesFilters
+        ?.filter((filter) => filter.active)
+        .map((filter) => filter.slug);
+      const hasCategory = (item) => {
+        const promiseCategories = item?.tags.map((tag) => slugify(tag));
+        return selectedCategories.every((c) => promiseCategories.includes(c));
+      };
+      const filteredItems = itemsProp.filter(hasStatus).filter(hasCategory);
+      const hasFilters = selectedStatuses.length || selectedCategories.length;
+      setItems(hasFilters ? filteredItems : itemsProp);
+    }, [statusesFilters, categoriesFilters, itemsProp]);
+    useEffect(() => {
+      let sortedItems = items;
+      if (sortBy === sortByMostRecent.slug) {
+        sortedItems = items.sort((a, b) => a.date.localeCompare(b.date));
+      } else if (sortBy === sortByDeadline.slug) {
+        sortedItems = items.sort((a, b) => {
+          const aDeadline = a.events?.[0]?.year ?? 0;
+          const bDeadline = b.events?.[0]?.year ?? 0;
+          return bDeadline - aDeadline;
+        });
+      }
+      setItems(sortedItems);
+    }, [sortBy]);
+  }
 
   return (
     <PostCardGrid
@@ -129,7 +131,7 @@ Promises.propTypes = {
   projectMeta: PropTypes.shape({
     tags: PropTypes.arrayOf(PropTypes.shape({})),
   }),
-  promiseStatuses: PropTypes.shape({}),
+  promiseStatuses: PropTypes.arrayOf(PropTypes.shape({})),
   sortLabels: PropTypes.shape({
     sortByDeadline: PropTypes.shape({
       name: PropTypes.string,
@@ -148,7 +150,7 @@ Promises.defaultProps = {
   classes: undefined,
   items: undefined,
   projectMeta: undefined,
-  promiseStatuses: undefined,
+  promiseStatuses: [],
   sortLabels: undefined,
   title: undefined,
   withFilter: true,

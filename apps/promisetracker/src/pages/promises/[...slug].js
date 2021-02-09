@@ -44,6 +44,7 @@ function PromisePage({
   navigation,
   promise,
   labels,
+  promiseStatuses,
   title: titleProp,
   ...props
 }) {
@@ -62,6 +63,7 @@ function PromisePage({
         <>
           <Promise promise={promise} {...labels} />
           <RelatedPromises
+            promiseStatuses={promiseStatuses}
             items={promise?.relatedPromises}
             title="Related Promises"
             withFilter={false}
@@ -96,6 +98,7 @@ PromisePage.propTypes = {
     title: PropTypes.string,
     relatedPromises: PropTypes.arrayOf(PropTypes.shape({})),
   }),
+  promiseStatuses: PropTypes.shape({}),
   title: PropTypes.string,
 };
 
@@ -105,6 +108,7 @@ PromisePage.defaultProps = {
   labels: undefined,
   navigation: undefined,
   promise: undefined,
+  promiseStatuses: undefined,
   title: undefined,
 };
 
@@ -190,6 +194,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
       errorCode,
       languageAlternates,
       promise,
+      promiseStatuses,
     },
     revalidate: 2 * 60, // seconds
   };
