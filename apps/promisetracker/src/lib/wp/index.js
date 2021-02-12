@@ -70,6 +70,7 @@ function wp(site) {
     const data = res.ok ? await res.json() : [];
     return data;
   }
+
   async function getResourcesByParentId(type, parent, lang, order, orderBy) {
     const res = await fetch(
       `${WP_DASHBOARD_API_URL}/${type}?parent=${parent}&order=${order}&orderby=${orderBy}&lang=${lang}`
@@ -77,6 +78,7 @@ function wp(site) {
     const data = res.ok ? res.json() : [];
     return data;
   }
+
   async function getResourceById(type, id, lang, params) {
     const fields = params?.fields ? `&_fields=${params.fields}` : "";
     const embed = params?.embed ? `&_embed=${params.embed}` : "";
@@ -86,6 +88,7 @@ function wp(site) {
     const data = res.ok ? res.json() : {};
     return data;
   }
+
   function createPageFrom(resource, options, lang) {
     const { acf } = resource;
     let criteria = null;
@@ -117,6 +120,7 @@ function wp(site) {
     };
     return page;
   }
+
   async function getPagesByParentId(parent, lang, order, orderBy) {
     const children = await getResourcesByParentId(
       "pages",
@@ -129,6 +133,7 @@ function wp(site) {
     const data = children.map((child) => createPageFrom(child, options, lang));
     return data;
   }
+
   async function getPagesByParentSlug(slug, lang, order, orderBy) {
     const resources = await getResourcesBySlug("pages", slug, lang, {
       fields: "id",
@@ -139,6 +144,7 @@ function wp(site) {
     }
     return [];
   }
+
   async function getPageBySlug(slug, lang) {
     const resources = await getResourcesBySlug("pages", slug, lang);
     const resource = resources[0] || {};
@@ -148,6 +154,7 @@ function wp(site) {
     const options = await getOptions(lang);
     return createPageFrom(resource, options, lang);
   }
+
   async function getPageById(id, lang) {
     const resource = await getResourceById("pages", id, lang);
     if (isEmpty(resource)) {
@@ -156,6 +163,14 @@ function wp(site) {
     const options = await getOptions(lang);
     return createPageFrom(resource, options, lang);
   }
+
+  /*  export async function getPostById(type, id, lang) {
+    const res = await fetch(
+      `${config.WP_BACKEND_URL}/wp-json/wp/v2/${type}/${id}?lang=${lang}`
+    );
+    return res.ok ? res.json() : null;
+  } */
+
   async function getPostBySlug(slug, lang) {
     const resources = await getResourcesBySlug("posts", slug, lang, {
       embed: 1,
@@ -164,6 +179,7 @@ function wp(site) {
     if (isEmpty(resource)) {
       return undefined;
     }
+
     const post = {
       ...resource,
       // eslint-disable-next-line no-underscore-dangle
@@ -172,7 +188,9 @@ function wp(site) {
       // eslint-disable-next-line no-underscore-dangle
       featured_media: resource._embedded["wp:featuredmedia"][0],
       title: resource.title.rendered,
+      media: resources.act.attributes.featured_image_src,
     };
+    // console.log(post)
     return post;
   }
 
