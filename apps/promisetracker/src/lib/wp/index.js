@@ -188,7 +188,8 @@ function wp(site) {
       // eslint-disable-next-line no-underscore-dangle
       featured_media: resource._embedded["wp:featuredmedia"][0],
       title: resource.title.rendered,
-      media: resources.act.attributes.featured_image_src,
+      thumbnail_image: resources.acf.attributes.thumbnail_image,
+      featured_image_src: resources.act.attributes.featured_image_src,
     };
     // console.log(post)
     return post;
