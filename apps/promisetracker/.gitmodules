@@ -1,0 +1,3 @@
+[submodule "src/commons-ui"]
+	path = src/commons-ui
+	url = git@github.com:CodeForAfrica/COMMONS-UI.git
