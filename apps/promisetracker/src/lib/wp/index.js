@@ -179,7 +179,7 @@ function wp(site) {
 
   async function getPostBySlug(slug, lang) {
     const resources = await getResourcesBySlug("posts", slug, lang, {
-      embed: 1,
+      embed: "true",
     });
     const resource = resources[0];
     if (isEmpty(resource)) {
@@ -194,6 +194,9 @@ function wp(site) {
       // eslint-disable-next-line no-underscore-dangle
       featured_media: resource._embedded["wp:featuredmedia"][0],
       title: resource.title.rendered,
+      thumbnail_image: resources?.acf?.attributes?.thumbnail_image || null,
+      featured_image_src:
+        resources?.act?.attributes?.featured_image_src || null,
     };
     // console.log(resources.author)
     return post;
