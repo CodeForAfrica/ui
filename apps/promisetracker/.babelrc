@@ -24,7 +24,7 @@
         "root": ["./"],
         "alias": {
           "@/promisetracker": "./src",
-          "@commonsui": "./src/commons-ui/packages/core/src"
+          "@commonsui": "./src/commons-ui/packages/core/src",
         }
       }
     ]
