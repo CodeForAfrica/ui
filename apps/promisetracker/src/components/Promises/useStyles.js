@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(({ typography, palette }) => ({
+const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
   filterGrid: {
     marginBottom: typography.pxToRem(32),
     marginTop: typography.pxToRem(16),
@@ -16,10 +16,13 @@ const useStyles = makeStyles(({ typography, palette }) => ({
     paddingRight: "0.5rem",
   },
   sortItems: {
-    alignItems: "flex-end",
+    alignItems: "flex-start",
     display: "flex",
     flexDirection: "column",
     marginTop: "1rem",
+    [breakpoints.up("lg")]: {
+      alignItems: "flex-end",
+    },
   },
   sectionTitle: {
     margin: "2rem 0rem",
