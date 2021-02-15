@@ -12,6 +12,18 @@ function wp(site) {
   const WP_DASHBOARD_API_URL = `${WP_DASHBOARD_URL}/wp-json/wp/v2`;
   const WP_DASHBOARD_ACF_API_URL = `${WP_DASHBOARD_URL}/wp-json/acf/v3`;
 
+  async function getMediaDetails() {
+    // const fields = params?.fields ? `&_fields=${params.fields}` : "";
+    // const embed = params?.embed ? `&_embed=${params.embed}` : "";
+    const res = await fetch(
+      `https://dashboard.hurumap.org/promisetracker/wp-json/wp/v2/media`
+    );
+    const data = res.ok ? await res.json() : [];
+    console.log("media details:", data.media_details);
+    return data;
+  }
+  getMediaDetails();
+
   async function getOptions(lang) {
     const res = await fetch(
       `${WP_DASHBOARD_ACF_API_URL}/options/hurumap-site?lang=${lang}`
@@ -61,6 +73,7 @@ function wp(site) {
     };
     return data;
   }
+
   async function getResourcesBySlug(type, slug, lang, params) {
     const fields = params?.fields ? `&_fields=${params.fields}` : "";
     const embed = params?.embed ? `&_embed=${params.embed}` : "";
@@ -164,13 +177,6 @@ function wp(site) {
     return createPageFrom(resource, options, lang);
   }
 
-  /*  export async function getPostById(type, id, lang) {
-    const res = await fetch(
-      `${config.WP_BACKEND_URL}/wp-json/wp/v2/${type}/${id}?lang=${lang}`
-    );
-    return res.ok ? res.json() : null;
-  } */
-
   async function getPostBySlug(slug, lang) {
     const resources = await getResourcesBySlug("posts", slug, lang, {
       embed: 1,
@@ -188,10 +194,8 @@ function wp(site) {
       // eslint-disable-next-line no-underscore-dangle
       featured_media: resource._embedded["wp:featuredmedia"][0],
       title: resource.title.rendered,
-      thumbnail_image: resources.acf.attributes.thumbnail_image,
-      featured_image_src: resources.act.attributes.featured_image_src,
     };
-    // console.log(post)
+    // console.log(resources.author)
     return post;
   }
 
@@ -245,6 +249,7 @@ function wp(site) {
               slug: post.post_name,
               title: post.post_title,
             })) || null;
+          // console.log(posts)
           return posts;
         })();
       },
