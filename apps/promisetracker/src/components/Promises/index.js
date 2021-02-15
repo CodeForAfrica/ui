@@ -107,7 +107,7 @@ function Promises({
               onClick={handleCategoryClick}
             />
           </Grid>
-          <Grid item xs={6} lg={2} className={classes.sortItems}>
+          <Grid item xs={12} lg={2} className={classes.sortItems}>
             <Typography className={classes.label} variant="h6">
               Sort By
             </Typography>
