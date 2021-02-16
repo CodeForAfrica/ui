@@ -70,7 +70,8 @@
     "format-staged": "prettier --write",
     "lint": "yarn eslint --fix --ignore-path './.gitignore' './'",
     "lint-staged": "yarn eslint --fix --ext '.js,.json,.md,.yml'",
-    "start": "next start"
+    "start": "next start",
+    "commons-build": "node commons.js && yarn && git restore package.json && git restore yarn.lock && yarn dev"
   },
   "browserslist": [
     "defaults"
