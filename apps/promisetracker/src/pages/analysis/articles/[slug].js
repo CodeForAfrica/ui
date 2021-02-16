@@ -122,9 +122,9 @@ export async function getStaticPaths() {
   const page = await wp().pages({ slug: "analysis-articles" }).first;
   const posts = page.acf?.posts?.length
     ? page.acf.posts
-    : [{ post_name: NO_ARTICLES_SLUG }];
+    : [{ slug: NO_ARTICLES_SLUG }];
   const unlocalizedPaths = posts.map((post) => ({
-    params: { slug: post.post_name },
+    params: { slug: post.slug },
   }));
   const paths = i18n().localizePaths(unlocalizedPaths);
 
