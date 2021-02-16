@@ -192,14 +192,16 @@ function wp(site) {
     if (isEmpty(resource)) {
       return resource;
     }
-    const posts = await Promise.all(
-      resource.acf?.posts?.map((post) =>
-        getPostBySlug(post.post_name, lang, {
-          embed: "true",
-        })
-      )
-    );
-    resource.acf.posts = posts;
+    if (resource.acf?.posts) {
+      const posts = await Promise.all(
+        resource.acf?.posts?.map((post) =>
+          getPostBySlug(post.post_name, lang, {
+            embed: "true",
+          })
+        )
+      );
+      resource.acf.posts = posts || [];
+    }
     const options = await getOptions(lang);
     return createPageFrom(resource, options, lang);
   }
@@ -209,14 +211,16 @@ function wp(site) {
     if (isEmpty(resource)) {
       return resource;
     }
-    const posts = await Promise.all(
-      resource.acf?.posts?.map((post) =>
-        getPostBySlug(post.post_name, lang, {
-          embed: "true",
-        })
-      )
-    );
-    resource.acf.posts = posts;
+    if (resource.acf?.posts) {
+      const posts = await Promise.all(
+        resource.acf?.posts?.map((post) =>
+          getPostBySlug(post.post_name, lang, {
+            embed: "true",
+          })
+        )
+      );
+      resource.acf.posts = posts || [];
+    }
     const options = await getOptions(lang);
     return createPageFrom(resource, options, lang);
   }
