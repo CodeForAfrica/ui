@@ -4,17 +4,6 @@ import PropTypes from "prop-types";
 import { Grid, Hidden, useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 
-// import {
-//   A,
-//   FooterAbout,
-//   FooterCopyright,
-//   FooterLegalLinks,
-//   FooterLogo,
-//   FooterQuickLinks,
-//   FooterStayInTouch,
-//   Section,
-// } from "@commons-ui/core";
-
 import {
   A,
   FooterAbout,
@@ -24,7 +13,18 @@ import {
   FooterQuickLinks,
   FooterStayInTouch,
   Section,
-} from "@commonsui";
+} from "@commons-ui/core";
+
+// import {
+//   A,
+//   FooterAbout,
+//   FooterCopyright,
+//   FooterLegalLinks,
+//   FooterLogo,
+//   FooterQuickLinks,
+//   FooterStayInTouch,
+//   Section,
+// } from "@commonsui";
 
 import Link from "@/promisetracker/components/Link";
 import ptLogo from "@/promisetracker/assets/footer-pt-logo.png";
