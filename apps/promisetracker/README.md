@@ -26,19 +26,18 @@ Run the following to get started locally:
 To install the commons-ui submodule locally, run:
 
 ```sh
-  git submodule init
-  git submodule update
-  npm run commons-build
+  yarn submodules
+  npm run commons-setup
 ```
 
-CommonsUI is now ready to be tested locally. To get started, run:
+CommonsUI is now ready to be tested locally. To get started, check out to the branch you want to test:
 
 ```sh
   cd src/commons-ui
   git checkout <desired-branch>
 ```
 
-And then replace any reference of `@commons-ui/core` with `@commonsui`
+And then replace any reference of `@commons-ui/core` with `@commonsui` for testing
 
 ## Attribution
 
