@@ -71,7 +71,8 @@
     "lint": "yarn eslint --fix --ignore-path './.gitignore' './'",
     "lint-staged": "yarn eslint --fix --ext '.js,.json,.md,.yml'",
     "start": "next start",
-    "commons-setup": "node commons.js && yarn && git restore package.json && git restore yarn.lock && yarn dev"
+    "commons-setup": "node commons.js && yarn && git restore package.json && git restore yarn.lock",
+    "build:commons": "yarn submodule && yarn commons-setup"
   },
   "browserslist": [
     "defaults"
