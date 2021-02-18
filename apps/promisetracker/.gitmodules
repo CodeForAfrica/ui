@@ -2,3 +2,6 @@
 	path = src/commons-ui
 	url = https://github.com/CodeForAfrica/COMMONS-UI.git
 
+[submodule "commons-ui"]
+	path = commons-ui
+	url = https://github.com/CodeForAfrica/COMMONS-UI.git
