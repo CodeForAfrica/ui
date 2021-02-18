@@ -43,6 +43,8 @@ function KeyPromises({
     }
   }, [stepperRef, setActiveStep]);
   const steps = items.length;
+  const newStep = items.length === 1 ? 1 : items.length;
+  console.log(newStep);
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -69,7 +71,7 @@ function KeyPromises({
         {/* </SwipeableViews> */}
         <MobileStepper
           ref={stepperRef}
-          steps={steps}
+          steps={newStep}
           position="static"
           variant="dots"
           activeStep={activeStep}
