@@ -73,7 +73,7 @@
     "start": "next start",
     "commons-setup": "node commons.js && yarn && git restore package.json && git restore yarn.lock",
     "build:commons": "yarn submodule && yarn commons-setup",
-    "delete:commons": "node clearCommons.js"
+    "delete:commons": "node clearCommons.js && git restore .babelrc.json"
   },
   "browserslist": [
     "defaults"
