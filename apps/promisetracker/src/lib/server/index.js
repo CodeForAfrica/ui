@@ -8,7 +8,9 @@ function server(site) {
   const SITE_URL = process.env[`${SITE}URL`] || config.URL;
   const SITE_DEFAULT_LOCALE =
     process.env[`${SITE}DEFAULT_LOCALE`] || config.DEFAULT_LOCALE;
-  const SITE_LOCALES_STRING = process.env[`${SITE}LOCALES`];
+  // process.env[KEY] may return empty string instead of undefined
+  const SITE_LOCALES_STRING =
+    process.env[`${SITE}LOCALES`]?.trim() || undefined;
   const SITE_LOCALES = SITE_LOCALES_STRING?.split(",") || config.LOCALES;
 
   const api = {
