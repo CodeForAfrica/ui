@@ -14,7 +14,7 @@ import createApolloClient from "./createApolloClient";
 const UNSPECIFIED_TEAM = "unspecified";
 const CLIENT_PER_TEAM = new Map();
 
-function check({ team = undefined, promiseStatuses, initialState = {} }) {
+function check({ team = undefined, promiseStatuses = [], initialState = {} }) {
   const clientTeam = team || UNSPECIFIED_TEAM;
   const existingClient = CLIENT_PER_TEAM.get(clientTeam);
   const client = existingClient || createApolloClient(initialState, team);
