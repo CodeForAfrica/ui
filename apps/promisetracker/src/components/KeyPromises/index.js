@@ -74,22 +74,26 @@ function KeyPromises({
           variant="dots"
           activeStep={activeStep}
           backButton={
-            <IconButton
-              onClick={handleBack}
-              disabled={activeStep === 0}
-              className={classes.stepperButton}
-            >
-              <KeyboardArrowLeft fontSize="inherit" />
-            </IconButton>
+            steps === 0 ? null : (
+              <IconButton
+                onClick={handleBack}
+                disabled={activeStep === 0}
+                className={classes.stepperButton}
+              >
+                <KeyboardArrowLeft fontSize="inherit" />
+              </IconButton>
+            )
           }
           nextButton={
-            <IconButton
-              onClick={handleNext}
-              disabled={activeStep === steps - 1}
-              className={classes.stepperButton}
-            >
-              <KeyboardArrowRight fontSize="inherit" />
-            </IconButton>
+            steps === 0 ? null : (
+              <IconButton
+                onClick={handleNext}
+                disabled={activeStep === steps - 1}
+                className={classes.stepperButton}
+              >
+                <KeyboardArrowRight fontSize="inherit" />
+              </IconButton>
+            )
           }
           classes={{
             root: classes.stepper,
