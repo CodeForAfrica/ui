@@ -174,7 +174,7 @@ export async function getStaticProps({ locale }) {
     };
   }
   const wpApi = wp();
-  const page = await wpApi.pages({ slug: "index", locale }).first;
+  const page = await wpApi.pages({ slug: "pt-index", locale }).first;
   const { promiseStatuses } = page;
   const checkApi = check({
     promiseStatuses,
