@@ -23,21 +23,24 @@ Run the following to get started locally:
 
 [CommonsUI](https://github.com/CodeForAfrica/COMMONS-UI) is a library developed and maintained by CfA, that packages React components used to develop various UIs.
 
-To install the commons-ui submodule locally, run:
+To build and run the project with COMMONS-UI submodule locally, run:
 
 ```sh
-  yarn submodules
-  npm run commons-setup
+  yarn dev:commons
 ```
 
-CommonsUI is now ready to be tested locally. To get started, check out to the branch you want to test:
+COMMONS-UI is now ready to be tested locally. To get started, check out to the branch you want to test:
 
 ```sh
   cd src/commons-ui
   git checkout <desired-branch>
 ```
 
-And then replace any reference of `@commons-ui/core` with `@commonsui` for testing
+To remove COMMONS-UI, run:
+
+```sh
+  yarn remove:commons
+```
 
 ## Attribution
 
