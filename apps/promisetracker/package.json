@@ -61,7 +61,7 @@
     "prettier": "^2.2.0"
   },
   "scripts": {
-    "build": "node clearCommons.js && next build",
+    "build": "node ./scripts/commons-ui-remove && next build",
     "dev": "yarn dev:next",
     "dev:next": "next dev",
     "submodule": "git submodule init && git submodule update",
