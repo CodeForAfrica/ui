@@ -21,7 +21,7 @@ Run the following to get started locally:
 
 #### Working with CommonsUI Locally
 
-[CommonsUI](https://github.com/CodeForAfrica/COMMONS-UI) is a library developed and maintained by CfA, that packages React components used to develop various UIs.
+[CommonsUI](https://github.com/CodeForAfrica/COMMONS-UI) is a library, developed and maintained by CfA, that packages React components used to develop various UIs.
 
 To build and run the project with COMMONS-UI submodule locally, run:
 
@@ -32,7 +32,7 @@ To build and run the project with COMMONS-UI submodule locally, run:
 COMMONS-UI is now ready to be tested locally. To get started, check out to the branch you want to test:
 
 ```sh
-  cd src/commons-ui
+  cd COMMONS-UI
   git checkout <desired-branch>
 ```
 
