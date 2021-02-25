@@ -133,13 +133,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({
   params: { slug: slugParam },
+  locale,
   preview = false,
   previewData,
-  locale,
 }) {
-  console.log(`Loading article content, preview mode is ${preview}`);
-  console.log(`Loading article content, previewData mode is ${previewData}`);
-
   const _ = i18n();
   if (!_.locales.includes(locale)) {
     return {
@@ -162,12 +159,12 @@ export async function getStaticProps({
 
   const errorCode = notFound ? 404 : null;
   const page = await wpApi.pages({ slug: "analysis-articles" }).first;
-  const posts = await wpApi.pages({ page }).posts;
-  console.log(posts);
+  const posts = await wpApi.pages({ page, preview, previewData }).posts;
   page.posts = null;
   const articles = posts?.slice(0, 4);
   const relatedArticles = articles.filter((article) => article.slug !== slug);
   const article = {
+    preview,
     ...post,
     image: post.featured_media.source_url,
     description: post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 200),
