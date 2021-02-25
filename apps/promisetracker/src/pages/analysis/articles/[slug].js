@@ -131,7 +131,15 @@ export async function getStaticPaths() {
   return { fallback, paths };
 }
 
-export async function getStaticProps({ params: { slug: slugParam }, locale }) {
+export async function getStaticProps({
+  params: { slug: slugParam },
+  preview = false,
+  previewData,
+  locale,
+}) {
+  /*   console.log(`Loading article content, preview mode is ${preview}`);
+  console.log(`Loading article content, previewData mode is ${previewData}`); */
+
   const _ = i18n();
   if (!_.locales.includes(locale)) {
     return {
@@ -143,7 +151,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const wpApi = wp();
   const post =
     slug !== NO_ARTICLES_SLUG
-      ? await wpApi.posts({ slug, locale }).first
+      ? await wpApi.posts({ slug, locale, preview, previewData }).first
       : null;
   const notFound = !post;
   if (notFound) {
@@ -169,6 +177,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
 
   return {
     props: {
+      preview,
       ...page,
       article,
       errorCode,
