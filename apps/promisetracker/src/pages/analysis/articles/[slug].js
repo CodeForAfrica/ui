@@ -137,8 +137,8 @@ export async function getStaticProps({
   previewData,
   locale,
 }) {
-  /*   console.log(`Loading article content, preview mode is ${preview}`);
-  console.log(`Loading article content, previewData mode is ${previewData}`); */
+  console.log(`Loading article content, preview mode is ${preview}`);
+  console.log(`Loading article content, previewData mode is ${previewData}`);
 
   const _ = i18n();
   if (!_.locales.includes(locale)) {
@@ -163,6 +163,7 @@ export async function getStaticProps({
   const errorCode = notFound ? 404 : null;
   const page = await wpApi.pages({ slug: "analysis-articles" }).first;
   const posts = await wpApi.pages({ page }).posts;
+  console.log(posts);
   page.posts = null;
   const articles = posts?.slice(0, 4);
   const relatedArticles = articles.filter((article) => article.slug !== slug);
@@ -173,6 +174,7 @@ export async function getStaticProps({
     date: formatDate(post.date),
     readTime: readingTime(post.content).text,
   };
+
   const languageAlternates = _.languageAlternates(`/analysis/articles/${slug}`);
 
   return {

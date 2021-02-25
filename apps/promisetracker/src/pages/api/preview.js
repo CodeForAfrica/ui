@@ -5,7 +5,7 @@ export default async function preview(req, res) {
 
   // Fetch WordPress to check if the provided `id` or `slug` exists
   const wpApi = wp();
-  const post = await wpApi.pages(id || slug, id || slug).posts;
+  const post = await wpApi.pages(id || slug).posts;
 
   // If the post doesn't exist prevent preview mode from being enabled
   if (!post) {
@@ -21,7 +21,7 @@ export default async function preview(req, res) {
 
   // Redirect to the path from the fetched post
   // We don't redirect to `req.query.slug` as that might lead to open redirect vulnerabilities
-  res.writeHead(307, { Location: `/posts/${post.slug || post.id}` });
+  res.writeHead(307, { Location: `api/preview/posts/${post.slug || post.id}` });
   res.end();
   return post;
 }
