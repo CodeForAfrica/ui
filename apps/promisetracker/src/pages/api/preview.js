@@ -23,9 +23,7 @@ export default async function preview(req, res) {
     return res.status(401).json({ message: "Post not found" });
   }
   res.setPreviewData({
-    post: {
-      slug: post.slug,
-    },
+    query: { id: postId, nonce, revisionId, thumbnailId },
   });
 
   // Redirect to the path from the fetched post

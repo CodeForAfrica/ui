@@ -146,10 +146,16 @@ export async function getStaticProps({
 
   const slug = slugParam.toLowerCase();
   const wpApi = wp();
-  const post =
-    slug !== NO_ARTICLES_SLUG
-      ? await wpApi.posts({ slug, locale, preview, previewData }).first
-      : null;
+  let post;
+  if (preview && previewData) {
+    post = await wpApi.revisions(previewData.query).post;
+  } else {
+    post =
+      slug !== NO_ARTICLES_SLUG
+        ? await wpApi.posts({ slug, locale }).first
+        : null;
+  }
+
   const notFound = !post;
   if (notFound) {
     return {
@@ -159,12 +165,12 @@ export async function getStaticProps({
 
   const errorCode = notFound ? 404 : null;
   const page = await wpApi.pages({ slug: "analysis-articles" }).first;
-  const posts = await wpApi.pages({ page, preview, previewData }).posts;
+  const posts = await wpApi.pages({ page }).posts;
   page.posts = null;
   const articles = posts?.slice(0, 4);
-  const relatedArticles = articles.filter((article) => article.slug !== slug);
+  const relatedArticles =
+    articles?.filter((article) => article.slug !== slug) || [];
   const article = {
-    preview,
     ...post,
     image: post.featured_media.source_url,
     description: post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 200),
@@ -173,10 +179,8 @@ export async function getStaticProps({
   };
 
   const languageAlternates = _.languageAlternates(`/analysis/articles/${slug}`);
-
   return {
     props: {
-      preview,
       ...page,
       article,
       errorCode,
