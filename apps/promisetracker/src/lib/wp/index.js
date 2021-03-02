@@ -294,7 +294,7 @@ function wp(site) {
       ...resource,
       author,
       content: resource.content.rendered,
-      featured_media: thumbnail.source_url,
+      featured_media: thumbnail,
       title: resource.title.rendered,
       thumbnail_image: thumbnail.source_url,
     };
