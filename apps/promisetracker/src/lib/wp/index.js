@@ -11,6 +11,7 @@ function wp(site) {
     config.WP_DASHBOARD_URL;
   const WP_DASHBOARD_API_URL = `${WP_DASHBOARD_URL}/wp-json/wp/v2`;
   const WP_DASHBOARD_ACF_API_URL = `${WP_DASHBOARD_URL}/wp-json/acf/v3`;
+  const WP_DASHBOARD_AUTH_API_URL = `${WP_DASHBOARD_URL}/wp-json/jwt-auth/v1/token`;
 
   async function getMediaDetails() {
     // const fields = params?.fields ? `&_fields=${params.fields}` : "";
@@ -73,7 +74,22 @@ function wp(site) {
     };
     return data;
   }
-
+  async function login(
+    credentials = {
+      username: process.env.DEFAULT_WP_USERNAME,
+      password: process.env.DEFAULT_WP_PASSWORD,
+    }
+  ) {
+    const res = await fetch(WP_DASHBOARD_AUTH_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
+    });
+    const data = res.ok ? res.json() : {};
+    return data;
+  }
   async function getResourcesBySlug(type, slug, lang, params) {
     const fields = params?.fields ? `&_fields=${params.fields}` : "";
     const embed = params?.embed ? `&_embed=${params.embed}` : "";
@@ -97,6 +113,23 @@ function wp(site) {
     const embed = params?.embed ? `&_embed=${params.embed}` : "";
     const res = await fetch(
       `${WP_DASHBOARD_API_URL}/${type}/${id}?lang=${lang}${fields}${embed}`
+    );
+    const data = res.ok ? res.json() : {};
+    return data;
+  }
+  async function getRevisionById(type, id, revisionId, lang, params) {
+    const auth = await login();
+    const fields = params?.fields ? `&_fields=${params.fields}` : "";
+    const embed = params?.embed ? `&_embed=${params.embed}` : "";
+    const nonce = params?.nonce ? `&_wpnonce=${params.nonce}` : "";
+    const res = await fetch(
+      `${WP_DASHBOARD_API_URL}/${type}/${id}/revisions/${revisionId}?lang=${lang}${fields}${embed}${nonce}`,
+      {
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }
     );
     const data = res.ok ? res.json() : {};
     return data;
@@ -127,7 +160,7 @@ function wp(site) {
       criteria,
       content: resource.content?.rendered,
       partners,
-      featuredImage: resource.featured_image_src,
+      featuredImage: resource.featured_image_src || null,
       title: resource.title?.rendered,
       languge: lang,
     };
@@ -225,6 +258,49 @@ function wp(site) {
     return createPageFrom(resource, options, lang);
   }
 
+  async function getPageRevisionById(id, revisionId, nonce, lang) {
+    const resource = await getRevisionById("pages", id, revisionId, lang, {
+      nonce,
+    });
+    if (isEmpty(resource)) {
+      return resource;
+    }
+    if (resource.acf?.posts) {
+      const posts = await Promise.all(
+        resource.acf?.posts?.map((post) =>
+          getPostBySlug(post.post_name, lang, {
+            embed: "true",
+          })
+        )
+      );
+      resource.acf.posts = posts || [];
+    }
+
+    const options = await getOptions(lang);
+    return createPageFrom(resource, options, lang);
+  }
+
+  async function getPostRevisionById(id, revisionId, nonce, thumbnailId, lang) {
+    const resource = await getRevisionById("posts", id, revisionId, lang);
+
+    const author = await getResourceById("users", resource.author, lang);
+    const thumbnail = await getResourceById("media", thumbnailId, lang);
+
+    if (isEmpty(resource)) {
+      return undefined;
+    }
+
+    const post = {
+      ...resource,
+      author,
+      content: resource.content.rendered,
+      featured_media: thumbnail.source_url,
+      title: resource.title.rendered,
+      thumbnail_image: thumbnail.source_url,
+    };
+    return post;
+  }
+
   /*  export async function getPostById(type, id, lang) {
     const res = await fetch(
       `${config.WP_BACKEND_URL}/wp-json/wp/v2/${type}/${id}?lang=${lang}`
@@ -292,6 +368,42 @@ function wp(site) {
         return (async () => {
           if (slug) {
             return getPostBySlug(slug, locale);
+          }
+          return undefined;
+        })();
+      },
+    }),
+    revisions: ({
+      id,
+      revisionId,
+      nonce,
+      thumbnailId,
+      locale = siteServer.defaultLocale,
+    }) => ({
+      get page() {
+        return (async () => {
+          if (id && revisionId) {
+            return getPageRevisionById(
+              id,
+              revisionId,
+              nonce,
+              thumbnailId,
+              locale
+            );
+          }
+          return undefined;
+        })();
+      },
+      get post() {
+        return (async () => {
+          if (id && revisionId) {
+            return getPostRevisionById(
+              id,
+              revisionId,
+              nonce,
+              thumbnailId,
+              locale
+            );
           }
           return undefined;
         })();
