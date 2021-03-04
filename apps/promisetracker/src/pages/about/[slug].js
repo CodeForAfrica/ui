@@ -18,7 +18,12 @@ export async function getStaticPaths() {
   return { fallback, paths };
 }
 
-export async function getStaticProps({ params: { slug: slugParam }, locale }) {
+export async function getStaticProps({
+  params: { slug: slugParam },
+  locale,
+  preview = false,
+  previewData,
+}) {
   const _ = i18n();
   if (!_.locales.includes(locale)) {
     return {
@@ -31,7 +36,12 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const index = pages.findIndex((page) => page.slug === slug);
   const notFound = index === -1;
   const errorCode = notFound ? 404 : null;
-  const page = pages[index] || null;
+  let page;
+  if (preview && previewData) {
+    page = await wp().revisions(previewData.query).page;
+  } else {
+    page = pages[index] || null;
+  }
   const languageAlternates = _.languageAlternates(`/about/${slug}`);
 
   return {

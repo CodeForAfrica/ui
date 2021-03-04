@@ -20,15 +20,17 @@ export default async function preview(req, res) {
   }
   // If the post doesn't exist prevent preview mode from being enabled
   if (!post) {
-    return res.status(401).json({ message: "Post not found" });
+    return res.status(404).redirect(`/not-found`);
   }
   res.setPreviewData({
     query: { id: postId, nonce, revisionId, thumbnailId },
   });
 
-  // Redirect to the path from the fetched post
-  res.redirect(`/analysis/articles/${post.slug}`);
+  if (postType === "pages") {
+    res.redirect(`/about/${post.slug}`);
+  } else {
+    res.redirect(`/analysis/articles/${post.slug}`);
+  }
   res.end();
-
   return post;
 }
