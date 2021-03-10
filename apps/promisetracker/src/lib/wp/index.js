@@ -121,9 +121,8 @@ function wp(site) {
     const auth = await login();
     const fields = params?.fields ? `&_fields=${params.fields}` : "";
     const embed = params?.embed ? `&_embed=${params.embed}` : "";
-    const nonce = params?.nonce ? `&_wpnonce=${params.nonce}` : "";
     const res = await fetch(
-      `${WP_DASHBOARD_API_URL}/${type}/${id}/revisions/${revisionId}?lang=${lang}${fields}${embed}${nonce}`,
+      `${WP_DASHBOARD_API_URL}/${type}/${id}/revisions/${revisionId}?lang=${lang}${fields}${embed}`,
       {
         headers: {
           Authorization: `Bearer ${auth.token}`,
@@ -259,10 +258,8 @@ function wp(site) {
     return createPageFrom(resource, options, lang);
   }
 
-  async function getPageRevisionById(id, revisionId, nonce, lang) {
-    const resource = await getRevisionById("pages", id, revisionId, lang, {
-      nonce,
-    });
+  async function getPageRevisionById(id, revisionId, lang) {
+    const resource = await getRevisionById("pages", id, revisionId, lang);
     if (isEmpty(resource)) {
       return resource;
     }
@@ -281,7 +278,7 @@ function wp(site) {
     return createPageFrom(resource, options, lang);
   }
 
-  async function getPostRevisionById(id, revisionId, nonce, thumbnailId, lang) {
+  async function getPostRevisionById(id, revisionId, thumbnailId, lang) {
     const resource = await getRevisionById("posts", id, revisionId, lang);
 
     const author = await getResourceById("users", resource.author, lang);
@@ -377,20 +374,13 @@ function wp(site) {
     revisions: ({
       id,
       revisionId,
-      nonce,
       thumbnailId,
       locale = siteServer.defaultLocale,
     }) => ({
       get page() {
         return (async () => {
           if (id && revisionId) {
-            return getPageRevisionById(
-              id,
-              revisionId,
-              nonce,
-              thumbnailId,
-              locale
-            );
+            return getPageRevisionById(id, revisionId, thumbnailId, locale);
           }
           return undefined;
         })();
@@ -398,13 +388,7 @@ function wp(site) {
       get post() {
         return (async () => {
           if (id && revisionId) {
-            return getPostRevisionById(
-              id,
-              revisionId,
-              nonce,
-              thumbnailId,
-              locale
-            );
+            return getPostRevisionById(id, revisionId, thumbnailId, locale);
           }
           return undefined;
         })();
