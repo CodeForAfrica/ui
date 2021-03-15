@@ -99,6 +99,7 @@ function ActNow({ actionLabel, description, title, ...props }) {
                   root: classes.cta,
                   button: classes.ctaButton,
                 }}
+                href="/act-now"
               >
                 {actionLabel}
               </CtAButton>
