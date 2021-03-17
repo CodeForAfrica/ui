@@ -155,7 +155,6 @@ export async function getStaticProps({
         ? await wpApi.posts({ slug, locale }).first
         : null;
   }
-  console.log("res", post);
 
   const notFound = !post;
   if (notFound) {
