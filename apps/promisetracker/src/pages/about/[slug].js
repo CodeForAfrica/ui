@@ -10,8 +10,8 @@ function Legal(props) {
 }
 
 export async function getStaticPaths() {
-  const fallback = false;
-  const pages = await wp().pages({ slug: "legal" }).children;
+  const fallback = true;
+  const pages = await wp().pages({ slug: "about" }).children;
   const unlocalizedPaths = pages.map(({ slug }) => ({ params: { slug } }));
   const paths = i18n().localizePaths(unlocalizedPaths);
 
