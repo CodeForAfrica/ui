@@ -118,7 +118,7 @@ Index.defaultProps = {
 };
 
 export async function getStaticPaths() {
-  const fallback = false;
+  const fallback = true;
   const page = await wp().pages({ slug: "analysis-articles" }).first;
   const posts = page.acf?.posts?.length
     ? page.acf.posts
@@ -155,6 +155,7 @@ export async function getStaticProps({
         ? await wpApi.posts({ slug, locale }).first
         : null;
   }
+  console.log("res", post);
 
   const notFound = !post;
   if (notFound) {
