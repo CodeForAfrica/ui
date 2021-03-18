@@ -11,7 +11,6 @@ function wp(site) {
     config.WP_DASHBOARD_URL;
   const WP_DASHBOARD_API_URL = `${WP_DASHBOARD_URL}/wp-json/wp/v2`;
   const WP_DASHBOARD_ACF_API_URL = `${WP_DASHBOARD_URL}/wp-json/acf/v3`;
-  const WP_DASHBOARD_AUTH_API_URL = `${WP_DASHBOARD_URL}/wp-json/jwt-auth/v1/token`;
 
   async function getMediaDetails() {
     // const fields = params?.fields ? `&_fields=${params.fields}` : "";
@@ -74,22 +73,7 @@ function wp(site) {
     };
     return data;
   }
-  async function login(
-    credentials = {
-      username: process.env.DEFAULT_WP_USERNAME,
-      password: process.env.DEFAULT_WP_PASSWORD,
-    }
-  ) {
-    const res = await fetch(WP_DASHBOARD_AUTH_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    });
-    const data = res.ok ? res.json() : {};
-    return data;
-  }
+
   async function getResourcesBySlug(type, slug, lang, params) {
     const fields = params?.fields ? `&_fields=${params.fields}` : "";
     const embed = params?.embed ? `&_embed=${params.embed}` : "";
@@ -118,14 +102,13 @@ function wp(site) {
     return data;
   }
   async function getRevisionById(type, id, revisionId, lang, params) {
-    const auth = await login();
     const fields = params?.fields ? `&_fields=${params.fields}` : "";
     const embed = params?.embed ? `&_embed=${params.embed}` : "";
     const res = await fetch(
       `${WP_DASHBOARD_API_URL}/${type}/${id}/revisions/${revisionId}?lang=${lang}${fields}${embed}`,
       {
         headers: {
-          Authorization: `Bearer ${auth.token}`,
+          Authorization: `Bearer ${process.env.WP_TOKEN}`,
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
       }
