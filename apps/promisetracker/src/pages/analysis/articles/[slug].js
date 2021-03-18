@@ -149,6 +149,7 @@ export async function getStaticProps({
   let post;
   if (preview && previewData) {
     post = await wpApi.revisions(previewData.query).post;
+    console.log(previewData, post);
   } else {
     post =
       slug !== NO_ARTICLES_SLUG
