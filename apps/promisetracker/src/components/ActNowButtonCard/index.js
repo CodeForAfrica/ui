@@ -7,12 +7,16 @@ const ActNowButtonCard = () => {
   const classes = useStyles();
 
   return (
-    <Card>
+    <Card className={classes.root}>
       <CardContent>
         <Grid container justify="center">
           <Typography variant="h4">Act Now!</Typography>
         </Grid>
-        <Grid container justify="space-between">
+        <Grid
+          className={classes.buttonContainer}
+          container
+          justify="space-between"
+        >
           <Button className={classes.button} variant="contained">
             Connect
           </Button>
