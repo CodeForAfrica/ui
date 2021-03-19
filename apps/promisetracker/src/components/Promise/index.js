@@ -14,6 +14,7 @@ import NarativeUpdates from "@/promisetracker/components/Promise/Narative";
 import RelatedFactChecks from "@/promisetracker/components/Promise/RelatedFactChecks";
 import Status from "@/promisetracker/components/PromiseStatus";
 import PromiseChart from "@/promisetracker/components/PromiseChart";
+import ActNowButtonCard from "@/promisetracker/components/ActNowButtonCard";
 
 import Radar from "./Radar";
 import useStyles from "./useStyles";
@@ -55,6 +56,7 @@ function Promise({
           <RichTypography variant="h1" className={classes.promiseTitle}>
             {promise.title}
           </RichTypography>
+          <ActNowButtonCard />
           <Hidden lgUp>
             <div className={classes.mobileStatusContainer}>
               <Typography className={classes.mobileStatusLabel} variant="h5">
