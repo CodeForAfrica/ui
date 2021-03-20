@@ -4,10 +4,11 @@ export default async function preview(req, res) {
     postId,
     revisionId,
     _thumbnail_id: thumbnailId,
+    token,
   } = req.query;
 
   res.setPreviewData({
-    query: { id: postId, revisionId, thumbnailId },
+    query: { id: postId, revisionId, thumbnailId, token },
   });
 
   if (postType === "pages") {

@@ -101,14 +101,14 @@ function wp(site) {
     const data = res.ok ? res.json() : {};
     return data;
   }
-  async function getRevisionById(type, id, revisionId, lang, params) {
+  async function getRevisionById(type, id, revisionId, token, lang, params) {
     const fields = params?.fields ? `&_fields=${params.fields}` : "";
     const embed = params?.embed ? `&_embed=${params.embed}` : "";
     const res = await fetch(
       `${WP_DASHBOARD_API_URL}/${type}/${id}/revisions/${revisionId}?lang=${lang}${fields}${embed}`,
       {
         headers: {
-          Authorization: `Bearer ${process.env.WP_TOKEN}`,
+          Authorization: `Bearer ${token}`,
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
       }
@@ -241,8 +241,14 @@ function wp(site) {
     return createPageFrom(resource, options, lang);
   }
 
-  async function getPageRevisionById(id, revisionId, lang) {
-    const resource = await getRevisionById("pages", id, revisionId, lang);
+  async function getPageRevisionById(id, revisionId, token, lang) {
+    const resource = await getRevisionById(
+      "pages",
+      id,
+      revisionId,
+      token,
+      lang
+    );
     if (isEmpty(resource)) {
       return resource;
     }
@@ -261,8 +267,14 @@ function wp(site) {
     return createPageFrom(resource, options, lang);
   }
 
-  async function getPostRevisionById(id, revisionId, thumbnailId, lang) {
-    const resource = await getRevisionById("posts", id, revisionId, lang);
+  async function getPostRevisionById(id, revisionId, thumbnailId, token, lang) {
+    const resource = await getRevisionById(
+      "posts",
+      id,
+      revisionId,
+      token,
+      lang
+    );
 
     const author = await getResourceById("users", resource.author, lang);
     const thumbnail = await getResourceById("media", thumbnailId, lang);
@@ -358,12 +370,13 @@ function wp(site) {
       id,
       revisionId,
       thumbnailId,
+      token,
       locale = siteServer.defaultLocale,
     }) => ({
       get page() {
         return (async () => {
           if (id && revisionId) {
-            return getPageRevisionById(id, revisionId, thumbnailId, locale);
+            return getPageRevisionById(id, revisionId, token, locale);
           }
           return undefined;
         })();
@@ -371,7 +384,13 @@ function wp(site) {
       get post() {
         return (async () => {
           if (id && revisionId) {
-            return getPostRevisionById(id, revisionId, thumbnailId, locale);
+            return getPostRevisionById(
+              id,
+              revisionId,
+              thumbnailId,
+              token,
+              locale
+            );
           }
           return undefined;
         })();
