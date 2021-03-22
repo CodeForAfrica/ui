@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, Typography, Grid, Button } from "@material-ui/core";
+import FormDialog from "@/promisetracker/components/FormDialog";
+
 // import ConnectCard from "./ConnectCard";
 // import PetitionCard from "./PetitionCard";
 // import FollowCard from "./FollowCard";
@@ -8,6 +10,15 @@ import { Card, CardContent, Typography, Grid, Button } from "@material-ui/core";
 import useStyles from "./useStyles";
 
 const ActNowButtonCard = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleFormOpen = () => {
+    setOpen(true);
+  };
+
+  const handleFormClose = () => {
+    setOpen(false);
+  };
   const classes = useStyles();
 
   return (
@@ -29,7 +40,11 @@ const ActNowButtonCard = () => {
             <Button className={classes.button} variant="contained">
               Follow
             </Button>
-            <Button className={classes.button} variant="contained">
+            <Button
+              onClick={handleFormOpen}
+              className={classes.button}
+              variant="contained"
+            >
               Update
             </Button>
             <Button className={classes.button} variant="contained">
@@ -38,6 +53,7 @@ const ActNowButtonCard = () => {
           </Grid>
         </CardContent>
       </Card>
+      <FormDialog open={open} handleFormClose={handleFormClose} />
     </>
   );
 };
