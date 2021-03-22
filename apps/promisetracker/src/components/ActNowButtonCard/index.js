@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Card, CardContent, Typography, Grid, Button } from "@material-ui/core";
 import FormDialog from "@/promisetracker/components/FormDialog";
 
+import AllInclusiveIcon from "@material-ui/icons/AllInclusive";
+import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
+import ControlPointIcon from "@material-ui/icons/ControlPoint";
+import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
+import ShareIcon from "@material-ui/icons/Share";
+
 import ConnectCard from "./ConnectCard";
 import ShareCard from "./ShareCard";
 import FollowCard from "./FollowCard";
@@ -61,35 +67,50 @@ const ActNowButtonCard = () => {
                 className={classes.button}
                 variant="contained"
               >
-                Connect
+                <div className={classes.buttonIcon}>
+                  <AllInclusiveIcon />
+                </div>
+                <div>Connect</div>
               </Button>
               <Button
                 onClick={() => toggleState(connect, setPetition)}
                 className={classes.button}
                 variant="contained"
               >
-                Petition
+                <div className={classes.buttonIcon}>
+                  <ChatBubbleOutlineIcon />
+                </div>
+                <div>Petition</div>
               </Button>
               <Button
                 onClick={() => toggleState(connect, setFollow)}
                 className={classes.button}
                 variant="contained"
               >
-                Follow
+                <div className={classes.buttonIcon}>
+                  <ControlPointIcon />
+                </div>
+                <div>Follow</div>
               </Button>
               <Button
                 onClick={handleFormOpen}
                 className={classes.button}
                 variant="contained"
               >
-                Update
+                <div className={classes.buttonIcon}>
+                  <NotificationsNoneIcon />
+                </div>
+                <div>Update</div>
               </Button>
               <Button
                 onClick={() => toggleState(connect, setShare)}
                 className={classes.button}
                 variant="contained"
               >
-                Share
+                <div className={classes.buttonIcon}>
+                  <ShareIcon />
+                </div>
+                <div>Share</div>
               </Button>
             </Grid>
           </CardContent>

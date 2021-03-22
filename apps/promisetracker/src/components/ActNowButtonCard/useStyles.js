@@ -21,6 +21,12 @@ const useStyles = makeStyles(({ breakpoints }) => ({
   cardContent: {
     padding: "0",
   },
+  buttonIcon: {
+    display: "none",
+    [breakpoints.up("sm")]: {
+      display: "block",
+    },
+  },
   buttonContainer: {
     marginTop: "20px",
     flexDirection: "column",
@@ -38,9 +44,13 @@ const useStyles = makeStyles(({ breakpoints }) => ({
       backgroundColor: "#015dfd",
       color: "#ffffff",
     },
+    "& .MuiButton-label": {
+      display: "flex",
+      flexDirection: "column",
+    },
     [breakpoints.up("sm")]: {
       marginTop: 0,
-      padding: "50px 35px",
+      padding: "30px 35px",
       margin: "8px",
     },
   },
