@@ -33,8 +33,8 @@ const FollowCard = ({ toggle }) => {
             <CtAButton
               color="primary"
               classes={{
-                root: classes.cardButtonRoot,
-                button: `${classes.submitButton} } `,
+                root: classes.submitButton,
+                button: classes.submitButton,
               }}
             >
               SUBMIT
