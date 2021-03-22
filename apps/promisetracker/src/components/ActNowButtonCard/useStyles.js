@@ -8,6 +8,12 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     borderRadius: "10px",
     boxShadow:
       "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+
+    "& .MuiIconButton-colorPrimary": {
+      backgroundColor: "#EBEBEB",
+      margin: "10px",
+      padding: "3%",
+    },
   },
   buttonContainer: {
     marginTop: "20px",
@@ -19,8 +25,6 @@ const useStyles = makeStyles(({ breakpoints }) => ({
   button: {
     padding: "50px 35px",
     margin: "8px",
-    // marginTop: "15px",
-    // marginRight: "10px",
     borderRadius: "10px",
     backgroundColor: "#ebebeb",
     color: "#015dfd",
@@ -75,6 +79,12 @@ const useStyles = makeStyles(({ breakpoints }) => ({
   },
   cardText: {
     fontSize: "15px",
+  },
+  iconButton: {
+    "& .MuiIconButton-colorPrimary": {
+      backgroundColor: "blue",
+      color: "blue",
+    },
   },
 }));
 

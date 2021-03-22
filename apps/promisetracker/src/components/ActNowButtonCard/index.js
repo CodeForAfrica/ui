@@ -3,6 +3,7 @@ import { Card, CardContent, Typography, Grid, Button } from "@material-ui/core";
 // import ConnectCard from "./ConnectCard";
 // import PetitionCard from "./PetitionCard";
 // import FollowCard from "./FollowCard";
+// import ShareCard from "./ShareCard";
 
 import useStyles from "./useStyles";
 
