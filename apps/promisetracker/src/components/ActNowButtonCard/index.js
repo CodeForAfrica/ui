@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardContent, Typography, Grid, Button } from "@material-ui/core";
 // import ConnectCard from "./ConnectCard";
 // import PetitionCard from "./PetitionCard";
+// import FollowCard from "./FollowCard";
 
 import useStyles from "./useStyles";
 

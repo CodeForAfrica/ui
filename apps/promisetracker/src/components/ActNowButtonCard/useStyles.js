@@ -47,6 +47,24 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     color: "#FD0000",
     width: "300px",
   },
+  submitButton: {
+    // marginLeft: "10px",
+    width: "100px",
+  },
+  formContainer: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  input: {
+    width: "400px",
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "0px",
+      border: "none",
+    },
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#005DFD",
+    },
+  },
   cardButton: {
     padding: "30px 80px",
     borderRadius: "10px",
