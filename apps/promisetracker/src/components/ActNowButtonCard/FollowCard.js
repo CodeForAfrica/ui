@@ -1,15 +1,19 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { TextField, CardContent, Typography, Grid } from "@material-ui/core";
 import CtAButton from "@/promisetracker/components/CtAButton";
+import CloseIcon from "@material-ui/icons/Close";
 
 import useStyles from "./useStyles";
 
-const FollowCard = () => {
+const FollowCard = ({ toggle }) => {
   const classes = useStyles();
 
   return (
     <>
-      <CardContent>
+      <CardContent className={classes.cardContent}>
+        <CloseIcon onClick={toggle} className={classes.closeIcon} />
         <Grid container justify="center">
           <Typography variant="h4">Follow</Typography>
         </Grid>
@@ -20,8 +24,6 @@ const FollowCard = () => {
         </Grid>
         <Grid>
           <form className={classes.formContainer}>
-            {/* <InputLabel htmlFor="data">Enter data</InputLabel>
-            <Input id="data" /> */}
             <TextField
               id="outlined-basic"
               label="Outlined"
@@ -42,6 +44,14 @@ const FollowCard = () => {
       </CardContent>
     </>
   );
+};
+
+FollowCard.propTypes = {
+  toggle: PropTypes.func,
+};
+
+FollowCard.defaultProps = {
+  toggle: undefined,
 };
 
 export default FollowCard;

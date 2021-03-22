@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(({ breakpoints }) => ({
   root: {
     marginTop: "70px",
+    padding: "0",
     maxHeight: "210px",
     height: "210px",
     borderRadius: "10px",
@@ -14,6 +15,9 @@ const useStyles = makeStyles(({ breakpoints }) => ({
       margin: "10px",
       padding: "3%",
     },
+  },
+  cardContent: {
+    padding: "0",
   },
   buttonContainer: {
     marginTop: "20px",
@@ -39,11 +43,11 @@ const useStyles = makeStyles(({ breakpoints }) => ({
   cardTitle: {
     marginTop: "10px",
   },
-  closeIcon: {
-    position: "relative",
-    top: "21px",
-    left: "95%",
-  },
+  // closeIcon: {
+  //   position: "relative",
+  //   top: "21px",
+  //   left: "95%",
+  // },
   petitionButtons: {
     display: "flex",
   },
@@ -85,6 +89,11 @@ const useStyles = makeStyles(({ breakpoints }) => ({
       backgroundColor: "blue",
       color: "blue",
     },
+  },
+  closeIcon: {
+    position: "relative",
+    top: "30px",
+    left: "90%",
   },
 }));
 

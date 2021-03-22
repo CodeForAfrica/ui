@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
+
 import { CardContent, Typography, Grid } from "@material-ui/core";
 import CtAButton from "@/promisetracker/components/CtAButton";
 import FormDialog from "@/promisetracker/components/FormDialog";
+import CloseIcon from "@material-ui/icons/Close";
 
 import useStyles from "./useStyles";
 
-const PetitionCard = ({ ...props }) => {
+const PetitionCard = ({ toggle }) => {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
@@ -20,8 +23,8 @@ const PetitionCard = ({ ...props }) => {
 
   return (
     <>
-      <CardContent>
-        {/* <span className={classes.closeIcon}>X</span> */}
+      <CardContent className={classes.cardContent}>
+        <CloseIcon onClick={toggle} className={classes.closeIcon} />
         <Grid container justify="center">
           <Typography variant="h4">Petition</Typography>
         </Grid>
@@ -50,15 +53,19 @@ const PetitionCard = ({ ...props }) => {
           >
             Join a Petition
           </CtAButton>
-          <FormDialog
-            open={open}
-            handleFormClose={handleFormClose}
-            {...props}
-          />
+          <FormDialog open={open} handleFormClose={handleFormClose} />
         </Grid>
       </CardContent>
     </>
   );
+};
+
+PetitionCard.propTypes = {
+  toggle: PropTypes.func,
+};
+
+PetitionCard.defaultProps = {
+  toggle: undefined,
 };
 
 export default PetitionCard;

@@ -1,5 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { CardContent, Typography, Grid, IconButton } from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
 
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 
@@ -9,12 +12,13 @@ import instagram from "@/promisetracker/assets/footer-social-ig.svg";
 
 import useStyles from "./useStyles";
 
-const ShareCard = () => {
+const ShareCard = ({ toggle }) => {
   const classes = useStyles();
 
   return (
     <>
-      <CardContent>
+      <CardContent className={classes.cardContent}>
+        <CloseIcon onClick={toggle} className={classes.closeIcon} />
         <Grid container justify="center">
           <Typography variant="h4">Share</Typography>
         </Grid>
@@ -63,6 +67,14 @@ const ShareCard = () => {
       </CardContent>
     </>
   );
+};
+
+ShareCard.propTypes = {
+  toggle: PropTypes.func,
+};
+
+ShareCard.defaultProps = {
+  toggle: undefined,
 };
 
 export default ShareCard;

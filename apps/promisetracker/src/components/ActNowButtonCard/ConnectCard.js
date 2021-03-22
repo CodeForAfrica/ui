@@ -1,15 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { CardContent, Typography, Grid } from "@material-ui/core";
 import CtAButton from "@/promisetracker/components/CtAButton";
 
+import CloseIcon from "@material-ui/icons/Close";
+
 import useStyles from "./useStyles";
 
-const ConnectCard = () => {
+const ConnectCard = ({ toggle }) => {
   const classes = useStyles();
 
   return (
     <>
-      <CardContent>
+      <CardContent className={classes.cardContent}>
+        <CloseIcon onClick={toggle} className={classes.closeIcon} />
         <Grid container justify="center">
           <Typography variant="h4">Connect!</Typography>
         </Grid>
@@ -32,6 +37,14 @@ const ConnectCard = () => {
       </CardContent>
     </>
   );
+};
+
+ConnectCard.propTypes = {
+  toggle: PropTypes.func,
+};
+
+ConnectCard.defaultProps = {
+  toggle: undefined,
 };
 
 export default ConnectCard;
