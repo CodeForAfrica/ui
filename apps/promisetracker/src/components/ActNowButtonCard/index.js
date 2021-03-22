@@ -15,7 +15,7 @@ import PetitionCard from "./PetitionCard";
 
 import useStyles from "./useStyles";
 
-const ActNowButtonCard = () => {
+const ActNowButtonCard = ({ ...props }) => {
   const [open, setOpen] = useState(false);
 
   const [connect, setConnect] = useState(false);
@@ -47,7 +47,10 @@ const ActNowButtonCard = () => {
         )}
         {follow && <FollowCard toggle={() => toggleState(follow, setFollow)} />}
         {petition && (
-          <PetitionCard toggle={() => toggleState(petition, setPetition)} />
+          <PetitionCard
+            {...props}
+            toggle={() => toggleState(petition, setPetition)}
+          />
         )}
         {share && <ShareCard toggle={() => toggleState(share, setShare)} />}
         {act && (
@@ -116,7 +119,7 @@ const ActNowButtonCard = () => {
           </CardContent>
         )}
       </Card>
-      <FormDialog open={open} handleFormClose={handleFormClose} />
+      <FormDialog open={open} handleFormClose={handleFormClose} {...props} />
     </>
   );
 };

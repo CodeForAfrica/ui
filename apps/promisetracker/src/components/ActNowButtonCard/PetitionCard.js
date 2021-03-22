@@ -8,7 +8,7 @@ import CloseIcon from "@material-ui/icons/Close";
 
 import useStyles from "./useStyles";
 
-const PetitionCard = ({ toggle }) => {
+const PetitionCard = ({ toggle, ...props }) => {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
@@ -53,7 +53,11 @@ const PetitionCard = ({ toggle }) => {
           >
             Join a Petition
           </CtAButton>
-          <FormDialog open={open} handleFormClose={handleFormClose} />
+          <FormDialog
+            open={open}
+            handleFormClose={handleFormClose}
+            {...props}
+          />
         </Grid>
       </CardContent>
     </>

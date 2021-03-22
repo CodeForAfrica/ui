@@ -28,6 +28,7 @@ function Promise({
   relatedFactChecksLabel,
   dataSourceEmbedLabel,
   narrativeUpdatesLabel,
+  ...props
 }) {
   const classes = useStyles({ image: promise.image, classes: classesProp });
   const theme = useTheme();
@@ -56,7 +57,7 @@ function Promise({
           <RichTypography variant="h1" className={classes.promiseTitle}>
             {promise.title}
           </RichTypography>
-          <ActNowButtonCard />
+          <ActNowButtonCard {...props} />
           <Hidden lgUp>
             <div className={classes.mobileStatusContainer}>
               <Typography className={classes.mobileStatusLabel} variant="h5">

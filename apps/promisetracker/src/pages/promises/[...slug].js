@@ -61,7 +61,7 @@ function PromisePage({
     >
       {promise && (
         <>
-          <Promise promise={promise} {...labels} />
+          <Promise promise={promise} {...labels} {...props} />
           <RelatedPromises
             promiseStatuses={promiseStatuses}
             items={promise?.relatedPromises}
@@ -144,6 +144,8 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   }
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "promises", locale }).first;
+  const actNowPage = await wp().pages({ slug: "act-now", locale }).first;
+
   const { promiseStatuses } = page;
 
   const checkApi = check({
@@ -191,6 +193,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   return {
     props: {
       ...page,
+      ...actNowPage,
       errorCode,
       languageAlternates,
       promise,
