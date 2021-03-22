@@ -11,15 +11,14 @@ const ActNowButtonCard = () => {
   return (
     <>
       <Card className={classes.root}>
+        {/* <PetitionCard /> */}
         <CardContent>
           <Grid container justify="center">
-            <Typography variant="h4">Act Now!</Typography>
+            <Typography className={classes.cardTitle} variant="h4">
+              Act Now!
+            </Typography>
           </Grid>
-          <Grid
-            className={classes.buttonContainer}
-            container
-            justify="space-between"
-          >
+          <Grid className={classes.buttonContainer} container justify="center">
             <Button className={classes.button} variant="contained">
               Connect
             </Button>
