@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardContent, Typography, Grid, Button } from "@material-ui/core";
-import FormDialog from "@/promisetracker/components/FormDialog";
+import UpdateFormDialog from "@/promisetracker/components/FormDialog/UpdateDialog";
 
 import AllInclusiveIcon from "@material-ui/icons/AllInclusive";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
@@ -119,7 +119,11 @@ const ActNowButtonCard = ({ ...props }) => {
           </CardContent>
         )}
       </Card>
-      <FormDialog open={open} handleFormClose={handleFormClose} {...props} />
+      <UpdateFormDialog
+        open={open}
+        handleFormClose={handleFormClose}
+        {...props}
+      />
     </>
   );
 };
