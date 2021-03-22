@@ -43,15 +43,19 @@ const useStyles = makeStyles(({ breakpoints }) => ({
   petitionButtons: {
     display: "flex",
   },
-  petitionButton: {
+  connectButton: {
+    color: "#FD0000",
+    width: "300px",
+  },
+  cardButton: {
     padding: "30px 80px",
     borderRadius: "10px",
   },
-  petitionRoot: {
+  cardButtonRoot: {
     margin: 0,
     width: "auto",
   },
-  petitionText: {
+  cardText: {
     fontSize: "15px",
   },
 }));

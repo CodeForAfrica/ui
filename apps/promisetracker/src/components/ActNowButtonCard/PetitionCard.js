@@ -26,7 +26,7 @@ const PetitionCard = ({ ...props }) => {
           <Typography variant="h4">Petition</Typography>
         </Grid>
         <Grid container justify="center">
-          <p className={classes.petitionText}>
+          <p className={classes.cardText}>
             Not happy with progress or promise? Start or join a petition!
           </p>
         </Grid>
@@ -35,8 +35,8 @@ const PetitionCard = ({ ...props }) => {
             color="secondary"
             onClick={handleFormOpen}
             classes={{
-              root: classes.petitionRoot,
-              button: classes.petitionButton,
+              root: classes.cardButtonRoot,
+              button: classes.cardButton,
             }}
           >
             Start a Petition
@@ -44,8 +44,8 @@ const PetitionCard = ({ ...props }) => {
           <CtAButton
             color="secondary"
             classes={{
-              root: classes.petitionRoot,
-              button: classes.petitionButton,
+              root: classes.cardButtonRoot,
+              button: classes.cardButton,
             }}
           >
             Join a Petition

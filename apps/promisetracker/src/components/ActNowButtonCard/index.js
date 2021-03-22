@@ -11,7 +11,6 @@ const ActNowButtonCard = () => {
   return (
     <>
       <Card className={classes.root}>
-        {/* <PetitionCard /> */}
         <CardContent>
           <Grid container justify="center">
             <Typography className={classes.cardTitle} variant="h4">
