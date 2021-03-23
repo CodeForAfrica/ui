@@ -43,7 +43,14 @@ export async function getStaticProps({
     page = pages[index] || null;
   }
   const languageAlternates = _.languageAlternates(`/about/${slug}`);
-
+  if (!page && preview) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/preview-error",
+      },
+    };
+  }
   return {
     notFound,
     props: { ...page, errorCode, languageAlternates, slug },

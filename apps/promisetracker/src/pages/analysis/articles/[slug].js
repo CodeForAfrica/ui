@@ -157,6 +157,14 @@ export async function getStaticProps({
   }
 
   const notFound = !post;
+  if (notFound && preview) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/preview-error",
+      },
+    };
+  }
   if (notFound) {
     return {
       notFound,
