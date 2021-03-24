@@ -68,6 +68,10 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     margin: "0 0 10px 0",
     height: "58px",
     width: "auto",
+    color: "white",
+    "& :hover": {
+      backgroundColor: "#015dfd",
+    },
   },
   formContainer: {
     display: "flex",
@@ -87,17 +91,21 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     },
     "& .MuiOutlinedInput-notchedOutline": {
       borderColor: "#005DFD",
+      borderWidth: "2px",
+    },
+    "& .MuiInputLabel-outlined": {
+      color: "#8f8f8f",
     },
     [breakpoints.up("sm")]: {
       width: "400px",
       margin: 0,
     },
+    [breakpoints.up("lg")]: {
+      "& .MuiInputLabel-outlined": {
+        top: "-10px",
+      },
+    },
   },
-
-  // submitButton: {
-  //   margin: "0 0 10px 0",
-  //   width: "auto",
-  // },
 
   cardButton: {
     padding: "20px 80px",

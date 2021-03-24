@@ -25,7 +25,7 @@ const FollowCard = ({ toggle }) => {
         <form className={classes.formContainer}>
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="example@mail.com"
             variant="outlined"
             className={classes.input}
           />
