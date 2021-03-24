@@ -22,45 +22,39 @@ const PetitionCard = ({ toggle, ...props }) => {
   };
 
   return (
-    <>
-      <CardContent className={classes.cardContent}>
-        <CloseIcon onClick={toggle} className={classes.closeIcon} />
-        <Grid container justify="center">
-          <Typography variant="h4">Petition</Typography>
-        </Grid>
-        <Grid container justify="center">
-          <p className={classes.cardText}>
-            Not happy with progress or promise? Start or join a petition!
-          </p>
-        </Grid>
-        <Grid container justify="center">
-          <CtAButton
-            color="secondary"
-            onClick={handleFormOpen}
-            classes={{
-              root: classes.cardButtonRoot,
-              button: classes.cardButton,
-            }}
-          >
-            Start a Petition
-          </CtAButton>
-          <CtAButton
-            color="secondary"
-            classes={{
-              root: classes.cardButtonRoot,
-              button: classes.cardButton,
-            }}
-          >
-            Join a Petition
-          </CtAButton>
-          <FormDialog
-            open={open}
-            handleFormClose={handleFormClose}
-            {...props}
-          />
-        </Grid>
-      </CardContent>
-    </>
+    <CardContent className={classes.cardContent}>
+      <CloseIcon onClick={toggle} className={classes.closeIcon} />
+      <Grid container justify="center">
+        <Typography variant="h4">Petition</Typography>
+      </Grid>
+      <Grid container justify="center">
+        <p className={classes.cardText}>
+          Not happy with progress or promise? Start or join a petition!
+        </p>
+      </Grid>
+      <Grid container justify="center">
+        <CtAButton
+          color="secondary"
+          onClick={handleFormOpen}
+          classes={{
+            root: classes.cardButtonRoot,
+            button: classes.cardButton,
+          }}
+        >
+          Start a Petition
+        </CtAButton>
+        <CtAButton
+          color="secondary"
+          classes={{
+            root: classes.cardButtonRoot,
+            button: classes.cardButton,
+          }}
+        >
+          Join a Petition
+        </CtAButton>
+        <FormDialog open={open} handleFormClose={handleFormClose} {...props} />
+      </Grid>
+    </CardContent>
   );
 };
 

@@ -16,56 +16,54 @@ const ShareCard = ({ toggle }) => {
   const classes = useStyles();
 
   return (
-    <>
-      <CardContent className={classes.cardContent}>
-        <CloseIcon onClick={toggle} className={classes.closeIcon} />
-        <Grid container justify="center">
-          <Typography variant="h4">Share</Typography>
-        </Grid>
-        <Grid container justify="center">
-          <p className={classes.cardText}>
-            Help mobilise your community by sharing this promise on social media
-          </p>
-        </Grid>
-        <Grid container justify="center">
-          <IconButton color="primary">
-            <FacebookShareButton>
-              <img src={instagram} alt="Instagram" />
-            </FacebookShareButton>
-          </IconButton>
+    <CardContent className={classes.cardContent}>
+      <CloseIcon onClick={toggle} className={classes.closeIcon} />
+      <Grid container justify="center">
+        <Typography variant="h4">Share</Typography>
+      </Grid>
+      <Grid container justify="center">
+        <p className={classes.cardText}>
+          Help mobilise your community by sharing this promise on social media
+        </p>
+      </Grid>
+      <Grid container justify="center">
+        <IconButton color="primary">
+          <FacebookShareButton>
+            <img src={instagram} alt="Instagram" />
+          </FacebookShareButton>
+        </IconButton>
 
-          <IconButton color="primary">
-            <TwitterShareButton>
-              <img src={twitter} alt="Twitter" />
-            </TwitterShareButton>
-          </IconButton>
+        <IconButton color="primary">
+          <TwitterShareButton>
+            <img src={twitter} alt="Twitter" />
+          </TwitterShareButton>
+        </IconButton>
 
-          <IconButton color="primary">
-            <FacebookShareButton>
-              <img src={facebook} alt="Facebook" />
-            </FacebookShareButton>
-          </IconButton>
+        <IconButton color="primary">
+          <FacebookShareButton>
+            <img src={facebook} alt="Facebook" />
+          </FacebookShareButton>
+        </IconButton>
 
-          <IconButton color="primary">
-            <FacebookShareButton>
-              <img src={instagram} alt="Instagram" />
-            </FacebookShareButton>
-          </IconButton>
+        <IconButton color="primary">
+          <FacebookShareButton>
+            <img src={instagram} alt="Instagram" />
+          </FacebookShareButton>
+        </IconButton>
 
-          <IconButton color="primary">
-            <TwitterShareButton>
-              <img src={twitter} alt="Twitter" />
-            </TwitterShareButton>
-          </IconButton>
+        <IconButton color="primary">
+          <TwitterShareButton>
+            <img src={twitter} alt="Twitter" />
+          </TwitterShareButton>
+        </IconButton>
 
-          <IconButton color="primary">
-            <FacebookShareButton>
-              <img src={facebook} alt="Facebook" />
-            </FacebookShareButton>
-          </IconButton>
-        </Grid>
-      </CardContent>
-    </>
+        <IconButton color="primary">
+          <FacebookShareButton>
+            <img src={facebook} alt="Facebook" />
+          </FacebookShareButton>
+        </IconButton>
+      </Grid>
+    </CardContent>
   );
 };
 

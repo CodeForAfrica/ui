@@ -11,38 +11,36 @@ const FollowCard = ({ toggle }) => {
   const classes = useStyles();
 
   return (
-    <>
-      <CardContent className={classes.cardContent}>
-        <CloseIcon onClick={toggle} className={classes.closeIcon} />
-        <Grid container justify="center">
-          <Typography variant="h4">Follow</Typography>
-        </Grid>
-        <Grid container justify="center">
-          <p className={classes.cardText}>
-            Get alerts whenever there is a development on the promise
-          </p>
-        </Grid>
-        <Grid>
-          <form className={classes.formContainer}>
-            <TextField
-              id="outlined-basic"
-              label="Outlined"
-              variant="outlined"
-              className={classes.input}
-            />
-            <CtAButton
-              color="primary"
-              classes={{
-                root: classes.submitButton,
-                button: classes.submitButton,
-              }}
-            >
-              SUBMIT
-            </CtAButton>
-          </form>
-        </Grid>
-      </CardContent>
-    </>
+    <CardContent className={classes.cardContent}>
+      <CloseIcon onClick={toggle} className={classes.closeIcon} />
+      <Grid container justify="center">
+        <Typography variant="h4">Follow</Typography>
+      </Grid>
+      <Grid container justify="center">
+        <p className={classes.cardText}>
+          Get alerts whenever there is a development on the promise
+        </p>
+      </Grid>
+      <Grid>
+        <form className={classes.formContainer}>
+          <TextField
+            id="outlined-basic"
+            label="Outlined"
+            variant="outlined"
+            className={classes.input}
+          />
+          <CtAButton
+            color="primary"
+            classes={{
+              root: classes.submitButton,
+              button: classes.submitButton,
+            }}
+          >
+            SUBMIT
+          </CtAButton>
+        </form>
+      </Grid>
+    </CardContent>
   );
 };
 
