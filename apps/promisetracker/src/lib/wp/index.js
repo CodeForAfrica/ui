@@ -240,7 +240,7 @@ function wp(site) {
     return createPageFrom(resource, options, lang);
   }
 
-  async function getPageRevisionById(id, revisionId, token, lang) {
+  async function getPageRevisionById(id, revisionId, thumbnailId, token, lang) {
     const resource = await getRevisionById(
       "pages",
       id,
@@ -251,6 +251,10 @@ function wp(site) {
     if (isEmpty(resource)) {
       return resource;
     }
+    const thumbnail = await getResourceById("media", thumbnailId, lang);
+
+    resource.featured_image_src = thumbnail?.source_url || null;
+
     if (resource.acf?.posts) {
       const posts = await Promise.all(
         resource.acf?.posts?.map((post) =>
@@ -375,7 +379,13 @@ function wp(site) {
       get page() {
         return (async () => {
           if (id && revisionId) {
-            return getPageRevisionById(id, revisionId, token, locale);
+            return getPageRevisionById(
+              id,
+              revisionId,
+              thumbnailId,
+              token,
+              locale
+            );
           }
           return undefined;
         })();
