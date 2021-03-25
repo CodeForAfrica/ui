@@ -1,31 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { CardContent, Typography, Grid, IconButton } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+import { Grid, IconButton } from "@material-ui/core";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import LinkIcon from "@material-ui/icons/Link";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import CodeIcon from "@material-ui/icons/Code";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
+import BaseCard from "./BaseCard";
 
-import useStyles from "./useStyles";
-
-const ShareCard = ({ toggle }) => {
-  const classes = useStyles();
-
+const ShareCard = ({ closeCard }) => {
   return (
-    <CardContent className={classes.cardContent}>
-      <CloseIcon onClick={toggle} className={classes.closeIcon} />
-      <Grid container justify="center">
-        <Typography variant="h4">Share</Typography>
-      </Grid>
-      <Grid container justify="center">
-        <p className={classes.cardText}>
-          Help mobilise your community by sharing this promise on social media
-        </p>
-      </Grid>
+    <BaseCard
+      closeCard={closeCard}
+      title="Share"
+      description="Help mobilise your community by sharing this promise on social media"
+    >
       <Grid container justify="center">
         <IconButton color="primary">
           <LinkIcon />
@@ -51,16 +42,16 @@ const ShareCard = ({ toggle }) => {
           <FacebookIcon />
         </IconButton>
       </Grid>
-    </CardContent>
+    </BaseCard>
   );
 };
 
 ShareCard.propTypes = {
-  toggle: PropTypes.func,
+  closeCard: PropTypes.func,
 };
 
 ShareCard.defaultProps = {
-  toggle: undefined,
+  closeCard: undefined,
 };
 
 export default ShareCard;

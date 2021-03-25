@@ -43,16 +43,18 @@ const ActNowButtonCard = ({ ...props }) => {
     <>
       <Card className={classes.root}>
         {connect && (
-          <ConnectCard toggle={() => toggleState(connect, setConnect)} />
+          <ConnectCard closeCard={() => toggleState(connect, setConnect)} />
         )}
-        {follow && <FollowCard toggle={() => toggleState(follow, setFollow)} />}
+        {follow && (
+          <FollowCard closeCard={() => toggleState(follow, setFollow)} />
+        )}
         {petition && (
           <PetitionCard
             {...props}
-            toggle={() => toggleState(petition, setPetition)}
+            closeCard={() => toggleState(petition, setPetition)}
           />
         )}
-        {share && <ShareCard toggle={() => toggleState(share, setShare)} />}
+        {share && <ShareCard closeCard={() => toggleState(share, setShare)} />}
         {act && (
           <CardContent>
             <Grid container justify="center">

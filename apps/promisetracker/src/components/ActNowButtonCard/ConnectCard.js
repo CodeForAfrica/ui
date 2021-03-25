@@ -1,27 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { CardContent, Typography, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import CtAButton from "@/promisetracker/components/CtAButton";
-
-import CloseIcon from "@material-ui/icons/Close";
+import BaseCard from "./BaseCard";
 
 import useStyles from "./useStyles";
 
-const ConnectCard = ({ toggle }) => {
+const ConnectCard = ({ closeCard }) => {
   const classes = useStyles();
 
   return (
-    <CardContent className={classes.cardContent}>
-      <CloseIcon onClick={toggle} className={classes.closeIcon} />
-      <Grid container justify="center">
-        <Typography variant="h4">Connect!</Typography>
-      </Grid>
-      <Grid container justify="center">
-        <p className={classes.cardText}>
-          Connect with others who care about this promise
-        </p>
-      </Grid>
+    <BaseCard
+      closeCard={closeCard}
+      title="Connect!"
+      description="Connect with others who care about this promise"
+    >
       <Grid>
         <CtAButton
           color="secondary"
@@ -33,16 +27,16 @@ const ConnectCard = ({ toggle }) => {
           CTA TBC
         </CtAButton>
       </Grid>
-    </CardContent>
+    </BaseCard>
   );
 };
 
 ConnectCard.propTypes = {
-  toggle: PropTypes.func,
+  closeCard: PropTypes.func,
 };
 
 ConnectCard.defaultProps = {
-  toggle: undefined,
+  closeCard: undefined,
 };
 
 export default ConnectCard;

@@ -7,14 +7,14 @@ import BaseCard from "./BaseCard";
 
 import useStyles from "./useStyles";
 
-const FollowCard = ({ toggle }) => {
+const FollowCard = ({ closeCard }) => {
   const classes = useStyles();
 
   return (
     <BaseCard
       title="Follow"
       description="Get alerts whenever there is a development on the promise"
-      toggle={toggle}
+      closeCard={closeCard}
     >
       <Grid>
         <form className={classes.formContainer}>
@@ -40,11 +40,11 @@ const FollowCard = ({ toggle }) => {
 };
 
 FollowCard.propTypes = {
-  toggle: PropTypes.func,
+  closeCard: PropTypes.func,
 };
 
 FollowCard.defaultProps = {
-  toggle: undefined,
+  closeCard: undefined,
 };
 
 export default FollowCard;
