@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 import { CardContent, Typography, Grid, IconButton } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
-
-import { FacebookShareButton, TwitterShareButton } from "react-share";
-
-import twitter from "@/promisetracker/assets/footer-social-tw.svg";
-import facebook from "@/promisetracker/assets/footer-social-fb.svg";
-import instagram from "@/promisetracker/assets/footer-social-ig.svg";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import LinkIcon from "@material-ui/icons/Link";
+import GetAppIcon from "@material-ui/icons/GetApp";
+import CodeIcon from "@material-ui/icons/Code";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import FacebookIcon from "@material-ui/icons/Facebook";
 
 import useStyles from "./useStyles";
 
@@ -28,39 +28,27 @@ const ShareCard = ({ toggle }) => {
       </Grid>
       <Grid container justify="center">
         <IconButton color="primary">
-          <FacebookShareButton>
-            <img src={instagram} alt="Instagram" />
-          </FacebookShareButton>
+          <LinkIcon />
         </IconButton>
 
         <IconButton color="primary">
-          <TwitterShareButton>
-            <img src={twitter} alt="Twitter" />
-          </TwitterShareButton>
+          <GetAppIcon />
         </IconButton>
 
         <IconButton color="primary">
-          <FacebookShareButton>
-            <img src={facebook} alt="Facebook" />
-          </FacebookShareButton>
+          <CodeIcon />
         </IconButton>
 
         <IconButton color="primary">
-          <FacebookShareButton>
-            <img src={instagram} alt="Instagram" />
-          </FacebookShareButton>
+          <InstagramIcon />
         </IconButton>
 
         <IconButton color="primary">
-          <TwitterShareButton>
-            <img src={twitter} alt="Twitter" />
-          </TwitterShareButton>
+          <TwitterIcon />
         </IconButton>
 
         <IconButton color="primary">
-          <FacebookShareButton>
-            <img src={facebook} alt="Facebook" />
-          </FacebookShareButton>
+          <FacebookIcon />
         </IconButton>
       </Grid>
     </CardContent>
