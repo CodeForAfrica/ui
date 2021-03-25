@@ -6,7 +6,7 @@ import CloseIcon from "@material-ui/icons/Close";
 
 import useStyles from "./useStyles";
 
-const BaseCard = ({ toggle, title, description }) => {
+const BaseCard = ({ toggle, title, description, children }) => {
   const classes = useStyles();
 
   return (
@@ -22,6 +22,7 @@ const BaseCard = ({ toggle, title, description }) => {
           <p className={classes.cardText}>{description}</p>
         </Grid>
       )}
+      {children}
     </CardContent>
   );
 };
@@ -30,12 +31,14 @@ BaseCard.propTypes = {
   toggle: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
+  children: PropTypes.node,
 };
 
 BaseCard.defaultProps = {
   toggle: undefined,
   description: undefined,
   title: undefined,
+  children: undefined,
 };
 
 export default BaseCard;
