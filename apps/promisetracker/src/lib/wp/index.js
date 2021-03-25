@@ -101,6 +101,7 @@ function wp(site) {
     const data = res.ok ? res.json() : {};
     return data;
   }
+
   async function getRevisionById(type, id, revisionId, token, lang, params) {
     const fields = params?.fields ? `&_fields=${params.fields}` : "";
     const embed = params?.embed ? `&_embed=${params.embed}` : "";
