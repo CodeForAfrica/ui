@@ -60,11 +60,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 Act Now!
               </Typography>
             </Grid>
-            <Grid
-              className={classes.buttonContainer}
-              container
-              justify="center"
-            >
+            <Grid className={classes.buttonContainer} item justify="center">
               <Button
                 onClick={() => toggleState(connect, setConnect)}
                 className={classes.button}

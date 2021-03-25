@@ -30,6 +30,7 @@ const useStyles = makeStyles(({ breakpoints }) => ({
   buttonContainer: {
     marginTop: "20px",
     flexDirection: "column",
+    display: "flex",
     [breakpoints.up("sm")]: {
       flexDirection: "row",
     },
@@ -140,6 +141,7 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     position: "relative",
     top: "30px",
     left: "90%",
+    color: "#c7c7c7",
   },
 }));
 
