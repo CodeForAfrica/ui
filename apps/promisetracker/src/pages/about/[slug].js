@@ -34,14 +34,17 @@ export async function getStaticProps({
   const slug = slugParam.toLowerCase();
   const pages = await wp().pages({ slug: "legal", locale }).children;
   const index = pages.findIndex((page) => page.slug === slug);
-  const notFound = index === -1;
-  const errorCode = notFound ? 404 : null;
+  let notFound;
   let page;
   if (preview && previewData) {
     page = await wp().revisions(previewData.query).page;
+    notFound = !page;
   } else {
     page = pages[index] || null;
+    notFound = index === -1;
   }
+  const errorCode = notFound ? 404 : null;
+
   const languageAlternates = _.languageAlternates(`/about/${slug}`);
   if (!page && preview) {
     return {
