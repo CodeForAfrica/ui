@@ -18,11 +18,15 @@ import useStyles from "./useStyles";
 const ActNowButtonCard = ({ ...props }) => {
   const [open, setOpen] = useState(false);
 
-  const [connect, setConnect] = useState(false);
-  const [follow, setFollow] = useState(false);
-  const [petition, setPetition] = useState(false);
-  const [share, setShare] = useState(false);
-  const [act, setAct] = useState(true);
+  const cardStates = {
+    connect: false,
+    follow: false,
+    petition: false,
+    share: false,
+    act: true,
+  };
+
+  const [cardState, setState] = useState(cardStates);
 
   const handleFormOpen = () => {
     setOpen(true);
@@ -32,9 +36,12 @@ const ActNowButtonCard = ({ ...props }) => {
     setOpen(false);
   };
 
-  const toggleState = (state, stateMethod) => {
-    stateMethod(!state);
-    setAct(!act);
+  const toggleState = (name) => {
+    setState({
+      ...cardState,
+      [name]: !cardState[name],
+      act: !cardState.act,
+    });
   };
 
   const classes = useStyles();
@@ -42,20 +49,19 @@ const ActNowButtonCard = ({ ...props }) => {
   return (
     <>
       <Card className={classes.root}>
-        {connect && (
-          <ConnectCard closeCard={() => toggleState(connect, setConnect)} />
+        {cardState.connect && (
+          <ConnectCard closeCard={() => toggleState("connect")} />
         )}
-        {follow && (
-          <FollowCard closeCard={() => toggleState(follow, setFollow)} />
+        {cardState.follow && (
+          <FollowCard closeCard={() => toggleState("follow")} />
         )}
-        {petition && (
-          <PetitionCard
-            {...props}
-            closeCard={() => toggleState(petition, setPetition)}
-          />
+        {cardState.petition && (
+          <PetitionCard {...props} closeCard={() => toggleState("petition")} />
         )}
-        {share && <ShareCard closeCard={() => toggleState(share, setShare)} />}
-        {act && (
+        {cardState.share && (
+          <ShareCard closeCard={() => toggleState("share")} />
+        )}
+        {cardState.act && (
           <CardContent>
             <Grid container justify="center">
               <Typography className={classes.cardTitle} variant="h4">
@@ -64,7 +70,7 @@ const ActNowButtonCard = ({ ...props }) => {
             </Grid>
             <Grid className={classes.buttonContainer} item justify="center">
               <Button
-                onClick={() => toggleState(connect, setConnect)}
+                onClick={() => toggleState("connect")}
                 className={classes.button}
                 variant="contained"
               >
@@ -74,7 +80,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 <div>Connect</div>
               </Button>
               <Button
-                onClick={() => toggleState(connect, setPetition)}
+                onClick={() => toggleState("petition")}
                 className={classes.button}
                 variant="contained"
               >
@@ -84,7 +90,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 <div>Petition</div>
               </Button>
               <Button
-                onClick={() => toggleState(connect, setFollow)}
+                onClick={() => toggleState("follow")}
                 className={classes.button}
                 variant="contained"
               >
@@ -104,7 +110,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 <div>Update</div>
               </Button>
               <Button
-                onClick={() => toggleState(connect, setShare)}
+                onClick={() => toggleState("share")}
                 className={classes.button}
                 variant="contained"
               >

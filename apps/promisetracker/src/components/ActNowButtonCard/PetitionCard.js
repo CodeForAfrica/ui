@@ -27,7 +27,7 @@ const PetitionCard = ({ closeCard, ...props }) => {
       title="Petition"
       description="Not happy with progress or promise? Start or join a petition!"
     >
-      <Grid container justify="center">
+      <Grid className={classes.flexItem} justify="center">
         <CtAButton
           color="secondary"
           onClick={handleFormOpen}

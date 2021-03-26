@@ -10,14 +10,18 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import BaseCard from "./BaseCard";
 
+import useStyles from "./useStyles";
+
 const ShareCard = ({ closeCard }) => {
+  const classes = useStyles();
+
   return (
     <BaseCard
       closeCard={closeCard}
       title="Share"
       description="Help mobilise your community by sharing this promise on social media"
     >
-      <Grid container justify="center">
+      <Grid className={classes.flexItem} justify="center">
         <IconButton color="primary">
           <LinkIcon />
         </IconButton>

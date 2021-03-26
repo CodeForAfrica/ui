@@ -137,6 +137,10 @@ const useStyles = makeStyles(({ breakpoints }) => ({
       color: "blue",
     },
   },
+  flexItem: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
   closeIcon: {
     position: "relative",
     top: "30px",
