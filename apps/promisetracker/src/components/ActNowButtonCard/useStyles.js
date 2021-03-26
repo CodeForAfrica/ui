@@ -7,16 +7,15 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     borderRadius: "10px",
     boxShadow:
       "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-
-    "& .MuiIconButton-colorPrimary": {
-      backgroundColor: "#EBEBEB",
-      margin: "10px",
-      padding: "3%",
-    },
     [breakpoints.up("sm")]: {
       maxHeight: "210px",
       height: "210px",
     },
+  },
+  iconButton: {
+    backgroundColor: "#EBEBEB",
+    margin: "10px",
+    padding: "3%",
   },
   cardContent: {
     padding: "0",
@@ -131,12 +130,7 @@ const useStyles = makeStyles(({ breakpoints }) => ({
       margin: "0",
     },
   },
-  iconButton: {
-    "& .MuiIconButton-colorPrimary": {
-      backgroundColor: "blue",
-      color: "blue",
-    },
-  },
+
   flexItem: {
     display: "flex",
     flexWrap: "wrap",

@@ -22,27 +22,27 @@ const ShareCard = ({ closeCard }) => {
       description="Help mobilise your community by sharing this promise on social media"
     >
       <Grid className={classes.flexItem} justify="center">
-        <IconButton color="primary">
+        <IconButton className={classes.iconButton} color="primary">
           <LinkIcon />
         </IconButton>
 
-        <IconButton color="primary">
+        <IconButton className={classes.iconButton} color="primary">
           <GetAppIcon />
         </IconButton>
 
-        <IconButton color="primary">
+        <IconButton className={classes.iconButton} color="primary">
           <CodeIcon />
         </IconButton>
 
-        <IconButton color="primary">
+        <IconButton className={classes.iconButton} color="primary">
           <InstagramIcon />
         </IconButton>
 
-        <IconButton color="primary">
+        <IconButton className={classes.iconButton} color="primary">
           <TwitterIcon />
         </IconButton>
 
-        <IconButton color="primary">
+        <IconButton className={classes.iconButton} color="primary">
           <FacebookIcon />
         </IconButton>
       </Grid>
