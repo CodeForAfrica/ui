@@ -8,7 +8,7 @@ import GetAppIcon from "@material-ui/icons/GetApp";
 import CodeIcon from "@material-ui/icons/Code";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
-import BaseCard from "./BaseCard";
+import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
@@ -16,8 +16,8 @@ const ShareCard = ({ closeCard }) => {
   const classes = useStyles();
 
   return (
-    <BaseCard
-      closeCard={closeCard}
+    <BaseContent
+      onCloseCard={closeCard}
       title="Share"
       description="Help mobilise your community by sharing this promise on social media"
     >
@@ -46,16 +46,12 @@ const ShareCard = ({ closeCard }) => {
           <FacebookIcon />
         </IconButton>
       </Grid>
-    </BaseCard>
+    </BaseContent>
   );
 };
 
 ShareCard.propTypes = {
-  closeCard: PropTypes.func,
-};
-
-ShareCard.defaultProps = {
-  closeCard: undefined,
+  closeCard: PropTypes.func.isRequired,
 };
 
 export default ShareCard;

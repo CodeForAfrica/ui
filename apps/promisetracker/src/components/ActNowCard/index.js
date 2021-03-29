@@ -12,21 +12,14 @@ import ConnectCard from "./ConnectCard";
 import ShareCard from "./ShareCard";
 import FollowCard from "./FollowCard";
 import PetitionCard from "./PetitionCard";
+import selectedCard from "./enums";
 
 import useStyles from "./useStyles";
 
 const ActNowButtonCard = ({ ...props }) => {
   const [open, setOpen] = useState(false);
 
-  const selectedCard = {
-    CONNECT: "connect",
-    FOLLOW: "follow",
-    PETITION: "petition",
-    SHARE: "share",
-    ACT: "act",
-  };
-
-  const [card, setSelectedCard] = useState(selectedCard.ACT);
+  const [card, setCard] = useState(selectedCard.ACT);
 
   const handleFormOpen = () => {
     setOpen(true);
@@ -37,7 +30,7 @@ const ActNowButtonCard = ({ ...props }) => {
   };
 
   const selectCard = (name) => {
-    setSelectedCard(selectedCard[name]);
+    setCard(selectedCard[name]);
   };
 
   const classes = useStyles();

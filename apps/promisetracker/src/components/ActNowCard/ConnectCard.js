@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { Grid } from "@material-ui/core";
 import CtAButton from "@/promisetracker/components/CtAButton";
-import BaseCard from "./BaseCard";
+import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
@@ -11,8 +11,8 @@ const ConnectCard = ({ closeCard }) => {
   const classes = useStyles();
 
   return (
-    <BaseCard
-      closeCard={closeCard}
+    <BaseContent
+      onCloseCard={closeCard}
       title="Connect!"
       description="Connect with others who care about this promise"
     >
@@ -27,16 +27,12 @@ const ConnectCard = ({ closeCard }) => {
           CTA TBC
         </CtAButton>
       </Grid>
-    </BaseCard>
+    </BaseContent>
   );
 };
 
 ConnectCard.propTypes = {
-  closeCard: PropTypes.func,
-};
-
-ConnectCard.defaultProps = {
-  closeCard: undefined,
+  closeCard: PropTypes.func.isRequired,
 };
 
 export default ConnectCard;

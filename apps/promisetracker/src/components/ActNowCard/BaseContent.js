@@ -6,12 +6,12 @@ import CloseIcon from "@material-ui/icons/Close";
 
 import useStyles from "./useStyles";
 
-const BaseCard = ({ closeCard, title, description, children }) => {
+const BaseCard = ({ onCloseCard, title, description, children }) => {
   const classes = useStyles();
 
   return (
     <CardContent className={classes.cardContent}>
-      <CloseIcon onClick={closeCard} className={classes.closeIcon} />
+      <CloseIcon onClick={onCloseCard} className={classes.closeIcon} />
       {title && (
         <Grid container justify="center">
           <Typography variant="h4">{title}</Typography>
@@ -28,16 +28,14 @@ const BaseCard = ({ closeCard, title, description, children }) => {
 };
 
 BaseCard.propTypes = {
-  closeCard: PropTypes.func,
+  onCloseCard: PropTypes.func.isRequired,
   description: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   children: PropTypes.node,
 };
 
 BaseCard.defaultProps = {
-  closeCard: undefined,
   description: undefined,
-  title: undefined,
   children: undefined,
 };
 

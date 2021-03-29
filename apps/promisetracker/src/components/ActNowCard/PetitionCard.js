@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Grid } from "@material-ui/core";
 import CtAButton from "@/promisetracker/components/CtAButton";
 import FormDialog from "@/promisetracker/components/FormDialog";
-import BaseCard from "./BaseCard";
+import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
@@ -22,8 +22,8 @@ const PetitionCard = ({ closeCard, ...props }) => {
   };
 
   return (
-    <BaseCard
-      closeCard={closeCard}
+    <BaseContent
+      onCloseCard={closeCard}
       title="Petition"
       description="Not happy with progress or promise? Start or join a petition!"
     >
@@ -49,16 +49,12 @@ const PetitionCard = ({ closeCard, ...props }) => {
         </CtAButton>
         <FormDialog open={open} handleFormClose={handleFormClose} {...props} />
       </Grid>
-    </BaseCard>
+    </BaseContent>
   );
 };
 
 PetitionCard.propTypes = {
-  closeCard: PropTypes.func,
-};
-
-PetitionCard.defaultProps = {
-  closeCard: undefined,
+  closeCard: PropTypes.func.isRequired,
 };
 
 export default PetitionCard;

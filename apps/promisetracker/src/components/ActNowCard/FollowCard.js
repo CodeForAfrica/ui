@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { TextField, Grid } from "@material-ui/core";
 import CtAButton from "@/promisetracker/components/CtAButton";
-import BaseCard from "./BaseCard";
+import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
@@ -11,10 +11,10 @@ const FollowCard = ({ closeCard }) => {
   const classes = useStyles();
 
   return (
-    <BaseCard
+    <BaseContent
       title="Follow"
       description="Get alerts whenever there is a development on the promise"
-      closeCard={closeCard}
+      onCloseCard={closeCard}
     >
       <Grid>
         <form className={classes.formContainer}>
@@ -35,16 +35,12 @@ const FollowCard = ({ closeCard }) => {
           </CtAButton>
         </form>
       </Grid>
-    </BaseCard>
+    </BaseContent>
   );
 };
 
 FollowCard.propTypes = {
-  closeCard: PropTypes.func,
-};
-
-FollowCard.defaultProps = {
-  closeCard: undefined,
+  closeCard: PropTypes.func.isRequired,
 };
 
 export default FollowCard;
