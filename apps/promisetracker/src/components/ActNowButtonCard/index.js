@@ -18,15 +18,15 @@ import useStyles from "./useStyles";
 const ActNowButtonCard = ({ ...props }) => {
   const [open, setOpen] = useState(false);
 
-  const cardStates = {
-    connect: false,
-    follow: false,
-    petition: false,
-    share: false,
-    act: true,
+  const selectedCard = {
+    CONNECT: "connect",
+    FOLLOW: "follow",
+    PETITION: "petition",
+    SHARE: "share",
+    ACT: "act",
   };
 
-  const [cardState, setState] = useState(cardStates);
+  const [card, setSelectedCard] = useState(selectedCard.ACT);
 
   const handleFormOpen = () => {
     setOpen(true);
@@ -36,12 +36,8 @@ const ActNowButtonCard = ({ ...props }) => {
     setOpen(false);
   };
 
-  const toggleState = (name) => {
-    setState({
-      ...cardState,
-      [name]: !cardState[name],
-      act: !cardState.act,
-    });
+  const selectCard = (name) => {
+    setSelectedCard(selectedCard[name]);
   };
 
   const classes = useStyles();
@@ -49,19 +45,17 @@ const ActNowButtonCard = ({ ...props }) => {
   return (
     <>
       <Card className={classes.root}>
-        {cardState.connect && (
-          <ConnectCard closeCard={() => toggleState("connect")} />
+        {card === "connect" && (
+          <ConnectCard closeCard={() => selectCard("ACT")} />
         )}
-        {cardState.follow && (
-          <FollowCard closeCard={() => toggleState("follow")} />
+        {card === "follow" && (
+          <FollowCard closeCard={() => selectCard("ACT")} />
         )}
-        {cardState.petition && (
-          <PetitionCard {...props} closeCard={() => toggleState("petition")} />
+        {card === "petition" && (
+          <PetitionCard {...props} closeCard={() => selectCard("ACT")} />
         )}
-        {cardState.share && (
-          <ShareCard closeCard={() => toggleState("share")} />
-        )}
-        {cardState.act && (
+        {card === "share" && <ShareCard closeCard={() => selectCard("ACT")} />}
+        {card === "act" && (
           <CardContent>
             <Grid container justify="center">
               <Typography className={classes.cardTitle} variant="h4">
@@ -70,7 +64,7 @@ const ActNowButtonCard = ({ ...props }) => {
             </Grid>
             <Grid className={classes.buttonContainer} item justify="center">
               <Button
-                onClick={() => toggleState("connect")}
+                onClick={() => selectCard("CONNECT")}
                 className={classes.button}
                 variant="contained"
               >
@@ -80,7 +74,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 <div>Connect</div>
               </Button>
               <Button
-                onClick={() => toggleState("petition")}
+                onClick={() => selectCard("PETITION")}
                 className={classes.button}
                 variant="contained"
               >
@@ -90,7 +84,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 <div>Petition</div>
               </Button>
               <Button
-                onClick={() => toggleState("follow")}
+                onClick={() => selectCard("FOLLOW")}
                 className={classes.button}
                 variant="contained"
               >
@@ -110,7 +104,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 <div>Update</div>
               </Button>
               <Button
-                onClick={() => toggleState("share")}
+                onClick={() => selectCard("SHARE")}
                 className={classes.button}
                 variant="contained"
               >
