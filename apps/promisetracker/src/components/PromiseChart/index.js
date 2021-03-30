@@ -8,7 +8,7 @@ import useStyles from "./useStyles";
 function PromiseChart({ chartLinks, title, description }) {
   const classes = useStyles();
 
-  if (!chartLinks && chartLinks.length) {
+  if (!(chartLinks && chartLinks.length)) {
     return null;
   }
 
