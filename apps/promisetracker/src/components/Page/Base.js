@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { GoogleFonts } from "next-google-fonts";
+import GoogleFonts from "next-google-fonts";
 import { NextSeo } from "next-seo";
 
 import Footer from "@/promisetracker/components/Footer";
