@@ -66,6 +66,9 @@ const useStyles = makeStyles(({ palette, typography }) => ({
 function NarativeUpdates({ description, title, timelines, ...props }) {
   const classes = useStyles(props);
 
+  if (!(description || title || timelines)) {
+    return null;
+  }
   return (
     <>
       <div className={classes.root}>

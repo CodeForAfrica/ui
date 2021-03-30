@@ -53,6 +53,10 @@ function AuthorAtribution({
   mobileTitle,
   classes: classesProp,
 }) {
+  if (!(title || description)) {
+    return null;
+  }
+
   const classes = useStyles({ image, classes: classesProp });
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
