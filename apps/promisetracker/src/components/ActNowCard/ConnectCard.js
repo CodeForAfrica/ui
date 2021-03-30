@@ -12,6 +12,7 @@ const ConnectCard = ({ closeCard }) => {
 
   return (
     <BaseContent
+      close
       onCloseCard={closeCard}
       title="Connect!"
       description="Connect with others who care about this promise"

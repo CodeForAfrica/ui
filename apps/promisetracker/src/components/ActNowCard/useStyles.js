@@ -141,6 +141,9 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     left: "90%",
     color: "#c7c7c7",
   },
+  titleContent: {
+    paddingTop: "32px",
+  },
 }));
 
 export default useStyles;

@@ -23,6 +23,7 @@ const PetitionCard = ({ closeCard, ...props }) => {
 
   return (
     <BaseContent
+      close
       onCloseCard={closeCard}
       title="Petition"
       description="Not happy with progress or promise? Start or join a petition!"

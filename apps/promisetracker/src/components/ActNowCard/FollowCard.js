@@ -12,6 +12,7 @@ const FollowCard = ({ closeCard }) => {
 
   return (
     <BaseContent
+      close
       title="Follow"
       description="Get alerts whenever there is a development on the promise"
       onCloseCard={closeCard}

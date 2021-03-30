@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, CardContent, Typography, Grid, Button } from "@material-ui/core";
+import { Card, Grid, Button } from "@material-ui/core";
 import UpdateFormDialog from "@/promisetracker/components/FormDialog/UpdateDialog";
 
 import AllInclusiveIcon from "@material-ui/icons/AllInclusive";
@@ -12,6 +12,7 @@ import ConnectCard from "./ConnectCard";
 import ShareCard from "./ShareCard";
 import FollowCard from "./FollowCard";
 import PetitionCard from "./PetitionCard";
+import BaseContent from "./BaseContent";
 import selectedCard from "./enums";
 
 import useStyles from "./useStyles";
@@ -49,12 +50,12 @@ const ActNowButtonCard = ({ ...props }) => {
         )}
         {card === "share" && <ShareCard closeCard={() => selectCard("ACT")} />}
         {card === "act" && (
-          <CardContent>
-            <Grid container justify="center">
+          <BaseContent className={classes.baseContent} title="Act Now!">
+            {/* <Grid container justify="center">
               <Typography className={classes.cardTitle} variant="h4">
                 Act Now!
               </Typography>
-            </Grid>
+            </Grid> */}
             <Grid className={classes.buttonContainer} item justify="center">
               <Button
                 onClick={() => selectCard("CONNECT")}
@@ -107,7 +108,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 <div>Share</div>
               </Button>
             </Grid>
-          </CardContent>
+          </BaseContent>
         )}
       </Card>
       <UpdateFormDialog

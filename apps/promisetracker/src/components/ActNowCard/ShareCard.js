@@ -17,6 +17,7 @@ const ShareCard = ({ closeCard }) => {
 
   return (
     <BaseContent
+      close
       onCloseCard={closeCard}
       title="Share"
       description="Help mobilise your community by sharing this promise on social media"
