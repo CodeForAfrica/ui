@@ -194,7 +194,7 @@ function wp(site) {
       title: resource.title.rendered,
       // set thumbail from acf | generated thumbnail | Featured Image
       thumbnail_image:
-        resource.acf.attributes.thumbnail_image ||
+        resource.acf?.attributes?.thumbnail_image ||
         resource.featured_image_src ||
         embedded["wp:featuredmedia"][0] ||
         null,
