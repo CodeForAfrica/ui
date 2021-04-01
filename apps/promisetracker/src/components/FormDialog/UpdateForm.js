@@ -25,7 +25,24 @@ function Form({ ...props }) {
   const [fileError, setFileError] = useState(false);
   const fileInput = useRef(null);
 
-  const { uploadInstruction, uploadText, mandatoryText } = props;
+  const {
+    mandatoryText,
+    promise_act_now: {
+      update: {
+        contact_label: contactLabel,
+        contact_label_description: contactLabelDescription,
+        evidence_label: evidenceLabel,
+        evidence_label_description: evidenceLabelDescription,
+        image_upload_description: imageUploadDescription,
+        what_label: whatLabel,
+        what_label_description: whatLabelDescription,
+        when_label: whenLabel,
+        when_label_description: whenLabelDescription,
+        who_label: whoLabel,
+        who_label_description: whoLabelDescription,
+      },
+    },
+  } = props;
 
   const handleFileValidation = (fileSize) => {
     const maxAllowedSize = 10 * 500 * 300;
@@ -86,29 +103,29 @@ function Form({ ...props }) {
   return (
     <form>
       <FormTextField
-        labelText="What's your Update?*"
-        helperDescription="Explain what the developments are, so that we understand how to update the promise"
+        labelText={whatLabel}
+        helperDescription={whatLabelDescription}
         elemId="petition-input"
       />
       <FormTextField
-        labelText="Who else can confirm your update?"
-        helperDescription="Do you have any witnesses or are there any other people we can confirm your update with?"
+        labelText={whoLabel}
+        helperDescription={whoLabelDescription}
         elemId="category-input"
       />
       <FormTextField
-        labelText="When did the update happen?*"
-        helperDescription="Tell us how recently the development happened, so we understand the timelines"
+        labelText={whenLabel}
+        helperDescription={whenLabelDescription}
         elemId="category-input"
       />
       <FormTextField
-        labelText="How do we contact you?*"
-        helperDescription="What is your WhatsApp numer or email, so we can confirm the update and keep you informed?"
+        labelText={contactLabel}
+        helperDescription={contactLabelDescription}
         elemId="category-input"
       />
 
       <FormControl classes={{ root: classes.formControl }}>
         <InputLabel htmlFor="image-input" classes={{ root: classes.label }}>
-          What evidence do you have?
+          {evidenceLabel}
         </InputLabel>
         <FormHelperText
           id="image-helper-text"
@@ -116,13 +133,12 @@ function Form({ ...props }) {
           error={fileError}
         >
           <Typography variant={helperVariant}>
-            Upload photos, videos, audio recordings or documents to support your
-            update
+            {evidenceLabelDescription}
           </Typography>
         </FormHelperText>
         <div className={classes.imageContainer}>
           <Grid container classes={{ root: classes.gridContainer }}>
-            <p className={classes.inputText}>{uploadInstruction}</p>
+            <p className={classes.inputText}>drop image here or</p>
           </Grid>
 
           <Input
@@ -148,7 +164,7 @@ function Form({ ...props }) {
               root: classes.button,
             }}
           >
-            {uploadText}
+            {imageUploadDescription}
           </CtAButton>
           <div>
             {images.map((image) => {
@@ -176,14 +192,44 @@ function Form({ ...props }) {
 
 Form.propTypes = {
   mandatoryText: PropTypes.string,
-  uploadInstruction: PropTypes.string,
-  uploadText: PropTypes.string,
+  promise_act_now: PropTypes.shape({
+    update: {
+      uploadInstruction: PropTypes.string,
+      uploadText: PropTypes.string,
+      contactLabel: PropTypes.string,
+      contactLabelDescription: PropTypes.string,
+      evidenceLabel: PropTypes.string,
+      evidenceLabelDescription: PropTypes.string,
+      imageUploadDescription: PropTypes.string,
+      whatLabel: PropTypes.string,
+      whatLabelDescription: PropTypes.string,
+      whenLabel: PropTypes.string,
+      whenLabelDescription: PropTypes.string,
+      whoLabel: PropTypes.string,
+      whoLabelDescription: PropTypes.string,
+    },
+  }),
 };
 
 Form.defaultProps = {
   mandatoryText: null,
-  uploadInstruction: null,
-  uploadText: null,
+  promise_act_now: PropTypes.shape({
+    update: {
+      uploadInstruction: null,
+      uploadText: null,
+      contactLabel: null,
+      contactLabelDescription: null,
+      evidenceLabel: null,
+      evidenceLabelDescription: null,
+      imageUploadDescription: null,
+      whatLabel: null,
+      whatLabelDescription: null,
+      whenLabel: null,
+      whenLabelDescription: null,
+      whoLabel: null,
+      whoLabelDescription: null,
+    },
+  }),
 };
 
 export default Form;

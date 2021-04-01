@@ -12,15 +12,21 @@ import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
-const ShareCard = ({ closeCard }) => {
+const ShareCard = ({ closeCard, ...props }) => {
   const classes = useStyles();
+
+  const {
+    promise_act_now: {
+      share: { share_title: shareTitle, share_description: shareDescription },
+    },
+  } = props;
 
   return (
     <BaseContent
       close
       onCloseCard={closeCard}
-      title="Share"
-      description="Help mobilise your community by sharing this promise on social media"
+      title={shareTitle}
+      description={shareDescription}
     >
       <Grid className={classes.flexItem} justify="center">
         <IconButton className={classes.iconButton} color="primary">
@@ -53,6 +59,21 @@ const ShareCard = ({ closeCard }) => {
 
 ShareCard.propTypes = {
   closeCard: PropTypes.func.isRequired,
+  promise_act_now: PropTypes.shape({
+    share: {
+      shareTitle: PropTypes.string,
+      shareDescription: PropTypes.string,
+    },
+  }),
+};
+
+ShareCard.defaultProps = {
+  promise_act_now: PropTypes.shape({
+    share: {
+      shareTitle: null,
+      shareDescription: null,
+    },
+  }),
 };
 
 export default ShareCard;

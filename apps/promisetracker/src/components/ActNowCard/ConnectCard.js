@@ -7,15 +7,24 @@ import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
-const ConnectCard = ({ closeCard }) => {
+const ConnectCard = ({ closeCard, ...props }) => {
+  const {
+    promise_act_now: {
+      connect: {
+        connect_title: connectTitle,
+        connect_description: connectDescription,
+        connect_button: connectButton,
+      },
+    },
+  } = props;
   const classes = useStyles();
 
   return (
     <BaseContent
       close
       onCloseCard={closeCard}
-      title="Connect!"
-      description="Connect with others who care about this promise"
+      title={connectTitle}
+      description={connectDescription}
     >
       <Grid>
         <CtAButton
@@ -25,7 +34,7 @@ const ConnectCard = ({ closeCard }) => {
             button: `${classes.connectButton} ${classes.cardButton} `,
           }}
         >
-          CTA TBC
+          {connectButton}
         </CtAButton>
       </Grid>
     </BaseContent>
@@ -34,6 +43,23 @@ const ConnectCard = ({ closeCard }) => {
 
 ConnectCard.propTypes = {
   closeCard: PropTypes.func.isRequired,
+  promise_act_now: PropTypes.shape({
+    connect: {
+      connectTitle: PropTypes.string,
+      connectDescription: PropTypes.string,
+      connectButton: PropTypes.string,
+    },
+  }),
+};
+
+ConnectCard.defaultProps = {
+  promise_act_now: PropTypes.shape({
+    connect: {
+      connectTitle: null,
+      connectDescription: null,
+      connectButton: null,
+    },
+  }),
 };
 
 export default ConnectCard;

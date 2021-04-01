@@ -47,8 +47,8 @@ function wp(site) {
       initiativeLogo: acf.initiative_logo || null,
       legalLinks: acf.legal_links || null,
       organizationLogo: acf.organization_logo || null,
-      quickLinks: acf.quick_links,
-      socialMedia: acf.social_media,
+      quickLinks: acf.quick_links || null,
+      socialMedia: acf.social_media || null,
     };
     // WP sets urls to false if not set
     if (footer.initiativeLogo) {

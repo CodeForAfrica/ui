@@ -19,6 +19,15 @@ import useStyles from "./useStyles";
 function FormDialog({ open, handleFormClose, ...props }) {
   const classes = useStyles(props);
 
+  const {
+    promise_act_now: {
+      update: {
+        update_title: updateTitle,
+        update_description: updateDescription,
+      },
+    },
+  } = props;
+
   return (
     <Dialog
       open={open}
@@ -37,7 +46,7 @@ function FormDialog({ open, handleFormClose, ...props }) {
         id="form-dialog-title"
         classes={{ root: classes.title }}
       >
-        <Typography variant="h2">Update a petition</Typography>
+        <Typography variant="h2">{updateTitle}</Typography>
         <IconButton
           disableRipple
           disableFocusRipple
@@ -52,8 +61,7 @@ function FormDialog({ open, handleFormClose, ...props }) {
           id="form-dialog-description"
           classes={{ root: classes.description }}
         >
-          Let us know of any recent change in this petition that you are aware
-          of. A team of experts will review and update the petition.
+          {updateDescription}
         </DialogContentText>
         <UpdateForm {...props} />
       </DialogContent>
@@ -71,6 +79,12 @@ FormDialog.propTypes = {
   open: PropTypes.bool,
   petitionDescription: PropTypes.string,
   petitionTitle: PropTypes.string,
+  promise_act_now: PropTypes.shape({
+    update: {
+      updateTitle: PropTypes.string,
+      updateDescription: PropTypes.string,
+    },
+  }),
 };
 
 FormDialog.defaultProps = {
@@ -78,6 +92,12 @@ FormDialog.defaultProps = {
   handleFormClose: null,
   petitionDescription: null,
   petitionTitle: null,
+  promise_act_now: PropTypes.shape({
+    update: {
+      updateTitle: null,
+      updateDescription: null,
+    },
+  }),
 };
 
 export default FormDialog;

@@ -40,22 +40,19 @@ const ActNowButtonCard = ({ ...props }) => {
     <>
       <Card className={classes.root}>
         {card === "connect" && (
-          <ConnectCard closeCard={() => selectCard("ACT")} />
+          <ConnectCard {...props} closeCard={() => selectCard("ACT")} />
         )}
         {card === "follow" && (
-          <FollowCard closeCard={() => selectCard("ACT")} />
+          <FollowCard {...props} closeCard={() => selectCard("ACT")} />
         )}
         {card === "petition" && (
           <PetitionCard {...props} closeCard={() => selectCard("ACT")} />
         )}
-        {card === "share" && <ShareCard closeCard={() => selectCard("ACT")} />}
+        {card === "share" && (
+          <ShareCard {...props} closeCard={() => selectCard("ACT")} />
+        )}
         {card === "act" && (
           <BaseContent className={classes.baseContent} title="Act Now!">
-            {/* <Grid container justify="center">
-              <Typography className={classes.cardTitle} variant="h4">
-                Act Now!
-              </Typography>
-            </Grid> */}
             <Grid className={classes.buttonContainer} item justify="center">
               <Button
                 onClick={() => selectCard("CONNECT")}

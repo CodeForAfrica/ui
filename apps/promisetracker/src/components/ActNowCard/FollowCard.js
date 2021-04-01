@@ -7,14 +7,24 @@ import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
-const FollowCard = ({ closeCard }) => {
+const FollowCard = ({ closeCard, ...props }) => {
   const classes = useStyles();
+
+  const {
+    promise_act_now: {
+      follow: {
+        follow_title: followTitle,
+        follow_description: followDescription,
+        follow_button: followButton,
+      },
+    },
+  } = props;
 
   return (
     <BaseContent
       close
-      title="Follow"
-      description="Get alerts whenever there is a development on the promise"
+      title={followTitle}
+      description={followDescription}
       onCloseCard={closeCard}
     >
       <Grid>
@@ -32,7 +42,7 @@ const FollowCard = ({ closeCard }) => {
               button: classes.submitButton,
             }}
           >
-            SUBMIT
+            {followButton}
           </CtAButton>
         </form>
       </Grid>
@@ -42,6 +52,23 @@ const FollowCard = ({ closeCard }) => {
 
 FollowCard.propTypes = {
   closeCard: PropTypes.func.isRequired,
+  promise_act_now: PropTypes.shape({
+    follow: {
+      followTitle: PropTypes.string,
+      followDescription: PropTypes.string,
+      followButton: PropTypes.string,
+    },
+  }),
+};
+
+FollowCard.defaultProps = {
+  promise_act_now: PropTypes.shape({
+    follow: {
+      followTitle: null,
+      followDescription: null,
+      followButton: null,
+    },
+  }),
 };
 
 export default FollowCard;
