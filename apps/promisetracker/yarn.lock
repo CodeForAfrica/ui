@@ -3300,10 +3300,10 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-next-google-fonts@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/next-google-fonts/-/next-google-fonts-2.1.0.tgz#0c23b9c2a04d7a340f84326337b0b62b660176be"
-  integrity sha512-gar5RnNhtGaZ1CvHSw7MJh0D/mUDijY/LVyfWkxnJxKeD63EOLFXd4m6c7S0u3W0aOdhgVjYNKYqQqcI42XW7w==
+next-google-fonts@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/next-google-fonts/-/next-google-fonts-2.2.0.tgz#b7ef8d1ba880a81ddf4303c4615b51a17e16ee6f"
+  integrity sha512-TCtNp+uu0vof2X8Xfptfw96Unc3zsUekBY2l4g2mGAX+U8QO/yfAaEioGhFCwU05M8NbMgwP5C8V40Vtwp87iQ==
 
 next-images@^1.6.2:
   version "1.7.0"
