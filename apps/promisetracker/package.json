@@ -79,11 +79,6 @@
   "browserslist": [
     "defaults"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "git restore --staged .babelrc.json && lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,json,md}": [
       "yarn lint-staged"
