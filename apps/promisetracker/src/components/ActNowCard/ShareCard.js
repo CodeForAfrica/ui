@@ -12,18 +12,15 @@ import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
-const ShareCard = ({ closeCard, ...props }) => {
+const ShareCard = ({ closeCard, promise_act_now: promiseActNow }) => {
   const classes = useStyles();
 
   const {
-    promise_act_now: {
-      share: { share_title: shareTitle, share_description: shareDescription },
-    },
-  } = props;
+    share: { share_title: shareTitle, share_description: shareDescription },
+  } = promiseActNow;
 
   return (
     <BaseContent
-      close
       onCloseCard={closeCard}
       title={shareTitle}
       description={shareDescription}

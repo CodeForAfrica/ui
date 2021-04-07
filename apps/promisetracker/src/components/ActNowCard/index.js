@@ -13,7 +13,7 @@ import ShareCard from "./ShareCard";
 import FollowCard from "./FollowCard";
 import PetitionCard from "./PetitionCard";
 import BaseContent from "./BaseContent";
-import selectedCard from "./enums";
+import selectedCard from "./cards";
 
 import useStyles from "./useStyles";
 
@@ -39,19 +39,19 @@ const ActNowButtonCard = ({ ...props }) => {
   return (
     <>
       <Card className={classes.root}>
-        {card === "connect" && (
+        {card === selectedCard.CONNECT && (
           <ConnectCard {...props} closeCard={() => selectCard("ACT")} />
         )}
-        {card === "follow" && (
+        {card === selectedCard.FOLLOW && (
           <FollowCard {...props} closeCard={() => selectCard("ACT")} />
         )}
-        {card === "petition" && (
+        {card === selectedCard.PETITION && (
           <PetitionCard {...props} closeCard={() => selectCard("ACT")} />
         )}
-        {card === "share" && (
+        {card === selectedCard.SHARE && (
           <ShareCard {...props} closeCard={() => selectCard("ACT")} />
         )}
-        {card === "act" && (
+        {card === selectedCard.ACT && (
           <BaseContent className={classes.baseContent} title="Act Now!">
             <Grid className={classes.buttonContainer} item justify="center">
               <Button

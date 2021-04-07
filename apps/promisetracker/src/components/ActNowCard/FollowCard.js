@@ -7,22 +7,19 @@ import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
-const FollowCard = ({ closeCard, ...props }) => {
+const FollowCard = ({ closeCard, promise_act_now: promiseActNow }) => {
   const classes = useStyles();
 
   const {
-    promise_act_now: {
-      follow: {
-        follow_title: followTitle,
-        follow_description: followDescription,
-        follow_button: followButton,
-      },
+    follow: {
+      follow_title: followTitle,
+      follow_description: followDescription,
+      follow_button: followButton,
     },
-  } = props;
+  } = promiseActNow;
 
   return (
     <BaseContent
-      close
       title={followTitle}
       description={followDescription}
       onCloseCard={closeCard}

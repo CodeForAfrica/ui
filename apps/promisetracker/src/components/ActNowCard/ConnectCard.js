@@ -7,21 +7,18 @@ import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
-const ConnectCard = ({ closeCard, ...props }) => {
+const ConnectCard = ({ closeCard, promise_act_now: promiseActNow }) => {
   const {
-    promise_act_now: {
-      connect: {
-        connect_title: connectTitle,
-        connect_description: connectDescription,
-        connect_button: connectButton,
-      },
+    connect: {
+      connect_title: connectTitle,
+      connect_description: connectDescription,
+      connect_button: connectButton,
     },
-  } = props;
+  } = promiseActNow;
   const classes = useStyles();
 
   return (
     <BaseContent
-      close
       onCloseCard={closeCard}
       title={connectTitle}
       description={connectDescription}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+import PropTypes, { string } from "prop-types";
 
 import { Grid } from "@material-ui/core";
 import CtAButton from "@/promisetracker/components/CtAButton";
@@ -8,7 +8,19 @@ import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
-const PetitionCard = ({ closeCard, ...props }) => {
+const PetitionCard = ({
+  closeCard,
+  promise_act_now: promiseActNow,
+  ...props
+}) => {
+  const {
+    petition: {
+      petition_title: petitionTitle,
+      petition_description: petitionDescription,
+    },
+  } = promiseActNow;
+
+  const { petitionJoin, petitionTitle: petitionStart } = props;
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
@@ -23,10 +35,9 @@ const PetitionCard = ({ closeCard, ...props }) => {
 
   return (
     <BaseContent
-      close
       onCloseCard={closeCard}
-      title="Petition"
-      description="Not happy with progress or promise? Start or join a petition!"
+      title={petitionTitle}
+      description={petitionDescription}
     >
       <Grid className={classes.flexItem} justify="center">
         <CtAButton
@@ -37,7 +48,7 @@ const PetitionCard = ({ closeCard, ...props }) => {
             button: classes.cardButton,
           }}
         >
-          Start a Petition
+          {petitionStart}
         </CtAButton>
         <CtAButton
           color="secondary"
@@ -46,7 +57,7 @@ const PetitionCard = ({ closeCard, ...props }) => {
             button: classes.cardButton,
           }}
         >
-          Join a Petition
+          {petitionJoin}
         </CtAButton>
         <FormDialog open={open} handleFormClose={handleFormClose} {...props} />
       </Grid>
@@ -56,6 +67,27 @@ const PetitionCard = ({ closeCard, ...props }) => {
 
 PetitionCard.propTypes = {
   closeCard: PropTypes.func.isRequired,
+  petitionJoin: PropTypes.string,
+  petitionStart: PropTypes.string,
+  petitionTitle: PropTypes.string,
+  promise_act_now: PropTypes.shape({
+    petition: {
+      petitionTitle: PropTypes.string,
+      petitionDescription: PropTypes.string,
+    },
+  }),
+};
+
+PetitionCard.defaultProps = {
+  petitionJoin: null,
+  petitionStart: null,
+  petitionTitle: string,
+  promise_act_now: PropTypes.shape({
+    petition: {
+      petitionTitle: null,
+      petitionDescription: null,
+    },
+  }),
 };
 
 export default PetitionCard;
