@@ -7,7 +7,7 @@ import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
-const FollowCard = ({ closeCard, promise_act_now: promiseActNow }) => {
+const FollowCard = ({ closeCard, promiseActNow }) => {
   const classes = useStyles();
 
   const {
@@ -49,7 +49,7 @@ const FollowCard = ({ closeCard, promise_act_now: promiseActNow }) => {
 
 FollowCard.propTypes = {
   closeCard: PropTypes.func.isRequired,
-  promise_act_now: PropTypes.shape({
+  promiseActNow: PropTypes.shape({
     follow: {
       followTitle: PropTypes.string,
       followDescription: PropTypes.string,
@@ -59,7 +59,7 @@ FollowCard.propTypes = {
 };
 
 FollowCard.defaultProps = {
-  promise_act_now: PropTypes.shape({
+  promiseActNow: PropTypes.shape({
     follow: {
       followTitle: null,
       followDescription: null,

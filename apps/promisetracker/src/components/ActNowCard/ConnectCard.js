@@ -7,7 +7,7 @@ import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
-const ConnectCard = ({ closeCard, promise_act_now: promiseActNow }) => {
+const ConnectCard = ({ closeCard, promiseActNow }) => {
   const {
     connect: {
       connect_title: connectTitle,
@@ -40,7 +40,7 @@ const ConnectCard = ({ closeCard, promise_act_now: promiseActNow }) => {
 
 ConnectCard.propTypes = {
   closeCard: PropTypes.func.isRequired,
-  promise_act_now: PropTypes.shape({
+  promiseActNow: PropTypes.shape({
     connect: {
       connectTitle: PropTypes.string,
       connectDescription: PropTypes.string,
@@ -50,7 +50,7 @@ ConnectCard.propTypes = {
 };
 
 ConnectCard.defaultProps = {
-  promise_act_now: PropTypes.shape({
+  promiseActNow: PropTypes.shape({
     connect: {
       connectTitle: null,
       connectDescription: null,

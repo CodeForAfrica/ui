@@ -8,11 +8,7 @@ import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
-const PetitionCard = ({
-  closeCard,
-  promise_act_now: promiseActNow,
-  ...props
-}) => {
+const PetitionCard = ({ closeCard, promiseActNow, ...props }) => {
   const {
     petition: {
       petition_title: petitionTitle,
@@ -70,7 +66,7 @@ PetitionCard.propTypes = {
   petitionJoin: PropTypes.string,
   petitionStart: PropTypes.string,
   petitionTitle: PropTypes.string,
-  promise_act_now: PropTypes.shape({
+  promiseActNow: PropTypes.shape({
     petition: {
       petitionTitle: PropTypes.string,
       petitionDescription: PropTypes.string,
@@ -82,7 +78,7 @@ PetitionCard.defaultProps = {
   petitionJoin: null,
   petitionStart: null,
   petitionTitle: string,
-  promise_act_now: PropTypes.shape({
+  promiseActNow: PropTypes.shape({
     petition: {
       petitionTitle: null,
       petitionDescription: null,

@@ -12,7 +12,7 @@ import BaseContent from "./BaseContent";
 
 import useStyles from "./useStyles";
 
-const ShareCard = ({ closeCard, promise_act_now: promiseActNow }) => {
+const ShareCard = ({ closeCard, promiseActNow }) => {
   const classes = useStyles();
 
   const {
@@ -56,7 +56,7 @@ const ShareCard = ({ closeCard, promise_act_now: promiseActNow }) => {
 
 ShareCard.propTypes = {
   closeCard: PropTypes.func.isRequired,
-  promise_act_now: PropTypes.shape({
+  promiseActNow: PropTypes.shape({
     share: {
       shareTitle: PropTypes.string,
       shareDescription: PropTypes.string,
@@ -65,7 +65,7 @@ ShareCard.propTypes = {
 };
 
 ShareCard.defaultProps = {
-  promise_act_now: PropTypes.shape({
+  promiseActNow: PropTypes.shape({
     share: {
       shareTitle: null,
       shareDescription: null,

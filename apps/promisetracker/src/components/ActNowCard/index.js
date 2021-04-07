@@ -53,28 +53,28 @@ const ActNowButtonCard = ({ promise_act_now: promiseActNow, ...props }) => {
       <Card className={classes.root}>
         {selectedCard === Cards.CONNECT && (
           <ConnectCard
-            promise_act_now={promiseActNow}
+            promiseActNow={promiseActNow}
             {...props}
             closeCard={() => selectCard("ACT")}
           />
         )}
         {selectedCard === Cards.FOLLOW && (
           <FollowCard
-            promise_act_now={promiseActNow}
+            promiseActNow={promiseActNow}
             {...props}
             closeCard={() => selectCard("ACT")}
           />
         )}
         {selectedCard === Cards.PETITION && (
           <PetitionCard
-            promise_act_now={promiseActNow}
+            promiseActNow={promiseActNow}
             {...props}
             closeCard={() => selectCard("ACT")}
           />
         )}
         {selectedCard === Cards.SHARE && (
           <ShareCard
-            promise_act_now={promiseActNow}
+            promiseActNow={promiseActNow}
             {...props}
             closeCard={() => selectCard("ACT")}
           />
