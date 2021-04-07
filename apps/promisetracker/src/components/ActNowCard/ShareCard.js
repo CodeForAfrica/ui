@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { Grid, IconButton } from "@material-ui/core";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import LinkIcon from "@material-ui/icons/Link";
-import GetAppIcon from "@material-ui/icons/GetApp";
 import CodeIcon from "@material-ui/icons/Code";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -28,10 +27,6 @@ const ShareCard = ({ closeCard, promiseActNow }) => {
       <Grid className={classes.flexItem} justify="center">
         <IconButton className={classes.iconButton} color="primary">
           <LinkIcon />
-        </IconButton>
-
-        <IconButton className={classes.iconButton} color="primary">
-          <GetAppIcon />
         </IconButton>
 
         <IconButton className={classes.iconButton} color="primary">
