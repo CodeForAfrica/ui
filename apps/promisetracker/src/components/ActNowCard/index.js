@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Card, Grid, Button } from "@material-ui/core";
 import UpdateFormDialog from "@/promisetracker/components/FormDialog/UpdateDialog";
+import PropTypes from "prop-types";
 
 import AllInclusiveIcon from "@material-ui/icons/AllInclusive";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
@@ -13,14 +14,25 @@ import ShareCard from "./ShareCard";
 import FollowCard from "./FollowCard";
 import PetitionCard from "./PetitionCard";
 import BaseContent from "./BaseContent";
-import selectedCard from "./cards";
+import Cards from "./cards";
 
 import useStyles from "./useStyles";
 
-const ActNowButtonCard = ({ ...props }) => {
+const ActNowButtonCard = ({ promise_act_now: promiseActNow, ...props }) => {
+  const {
+    act_now: {
+      act_now_title: actNowTitle,
+      connect_label: connectLabel,
+      petition_label: petitionLabel,
+      follow_label: followLabel,
+      update_label: updateLabel,
+      share_label: shareLabel,
+    },
+  } = promiseActNow;
+
   const [open, setOpen] = useState(false);
 
-  const [card, setCard] = useState(selectedCard.ACT);
+  const [selectedCard, setSelectedCard] = useState(Cards.ACT);
 
   const handleFormOpen = () => {
     setOpen(true);
@@ -31,7 +43,7 @@ const ActNowButtonCard = ({ ...props }) => {
   };
 
   const selectCard = (name) => {
-    setCard(selectedCard[name]);
+    setSelectedCard(Cards[name]);
   };
 
   const classes = useStyles();
@@ -39,20 +51,36 @@ const ActNowButtonCard = ({ ...props }) => {
   return (
     <>
       <Card className={classes.root}>
-        {card === selectedCard.CONNECT && (
-          <ConnectCard {...props} closeCard={() => selectCard("ACT")} />
+        {selectedCard === Cards.CONNECT && (
+          <ConnectCard
+            promise_act_now={promiseActNow}
+            {...props}
+            closeCard={() => selectCard("ACT")}
+          />
         )}
-        {card === selectedCard.FOLLOW && (
-          <FollowCard {...props} closeCard={() => selectCard("ACT")} />
+        {selectedCard === Cards.FOLLOW && (
+          <FollowCard
+            promise_act_now={promiseActNow}
+            {...props}
+            closeCard={() => selectCard("ACT")}
+          />
         )}
-        {card === selectedCard.PETITION && (
-          <PetitionCard {...props} closeCard={() => selectCard("ACT")} />
+        {selectedCard === Cards.PETITION && (
+          <PetitionCard
+            promise_act_now={promiseActNow}
+            {...props}
+            closeCard={() => selectCard("ACT")}
+          />
         )}
-        {card === selectedCard.SHARE && (
-          <ShareCard {...props} closeCard={() => selectCard("ACT")} />
+        {selectedCard === Cards.SHARE && (
+          <ShareCard
+            promise_act_now={promiseActNow}
+            {...props}
+            closeCard={() => selectCard("ACT")}
+          />
         )}
-        {card === selectedCard.ACT && (
-          <BaseContent className={classes.baseContent} title="Act Now!">
+        {selectedCard === Cards.ACT && (
+          <BaseContent className={classes.baseContent} title={actNowTitle}>
             <Grid className={classes.buttonContainer} item justify="center">
               <Button
                 onClick={() => selectCard("CONNECT")}
@@ -62,7 +90,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 <div className={classes.buttonIcon}>
                   <AllInclusiveIcon />
                 </div>
-                <div>Connect</div>
+                <div>{connectLabel}</div>
               </Button>
               <Button
                 onClick={() => selectCard("PETITION")}
@@ -72,7 +100,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 <div className={classes.buttonIcon}>
                   <ChatBubbleOutlineIcon />
                 </div>
-                <div>Petition</div>
+                <div>{petitionLabel}</div>
               </Button>
               <Button
                 onClick={() => selectCard("FOLLOW")}
@@ -82,7 +110,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 <div className={classes.buttonIcon}>
                   <ControlPointIcon />
                 </div>
-                <div>Follow</div>
+                <div>{followLabel}</div>
               </Button>
               <Button
                 onClick={handleFormOpen}
@@ -92,7 +120,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 <div className={classes.buttonIcon}>
                   <NotificationsNoneIcon />
                 </div>
-                <div>Update</div>
+                <div>{updateLabel}</div>
               </Button>
               <Button
                 onClick={() => selectCard("SHARE")}
@@ -102,7 +130,7 @@ const ActNowButtonCard = ({ ...props }) => {
                 <div className={classes.buttonIcon}>
                   <ShareIcon />
                 </div>
-                <div>Share</div>
+                <div>{shareLabel}</div>
               </Button>
             </Grid>
           </BaseContent>
@@ -111,10 +139,37 @@ const ActNowButtonCard = ({ ...props }) => {
       <UpdateFormDialog
         open={open}
         handleFormClose={handleFormClose}
+        promise_act_now={promiseActNow}
         {...props}
       />
     </>
   );
+};
+
+ActNowButtonCard.propTypes = {
+  promise_act_now: PropTypes.shape({
+    act_now: {
+      act_now_title: PropTypes.string,
+      connect_label: PropTypes.string,
+      petition_label: PropTypes.string,
+      follow_label: PropTypes.string,
+      update_label: PropTypes.string,
+      share_label: PropTypes.string,
+    },
+  }),
+};
+
+ActNowButtonCard.defaultProps = {
+  promise_act_now: PropTypes.shape({
+    act_now: {
+      act_now_title: null,
+      connect_label: null,
+      petition_label: null,
+      follow_label: null,
+      update_label: null,
+      share_label: null,
+    },
+  }),
 };
 
 export default ActNowButtonCard;

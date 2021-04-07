@@ -1,4 +1,4 @@
-const selectedCard = {
+const cards = {
   CONNECT: "connect",
   FOLLOW: "follow",
   PETITION: "petition",
@@ -6,4 +6,4 @@ const selectedCard = {
   ACT: "act",
 };
 
-export default selectedCard;
+export default cards;

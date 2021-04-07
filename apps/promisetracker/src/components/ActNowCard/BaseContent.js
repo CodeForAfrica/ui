@@ -15,17 +15,21 @@ const BaseCard = ({ onCloseCard, title, description, children }) => {
         <CloseIcon onClick={onCloseCard} className={classes.closeIcon} />
       )}
       {title && (
-        <Grid
-          container
-          justify="center"
-          className={!onCloseCard ? classes.titleContent : ""}
-        >
-          <Typography variant="h4">{title}</Typography>
+        <Grid className={!onCloseCard ? classes.titleContent : ""}>
+          <Typography align="center" variant="h4">
+            {title}
+          </Typography>
         </Grid>
       )}
       {description && (
-        <Grid container justify="center">
-          <p className={classes.cardText}>{description}</p>
+        <Grid>
+          <Typography
+            align="center"
+            variant="body2"
+            className={classes.cardText}
+          >
+            {description}
+          </Typography>
         </Grid>
       )}
       {children}

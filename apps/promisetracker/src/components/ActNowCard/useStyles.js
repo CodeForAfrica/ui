@@ -123,10 +123,8 @@ const useStyles = makeStyles(({ breakpoints }) => ({
   },
   cardText: {
     fontSize: "15px",
-    textAlign: "center",
     margin: "10px",
     [breakpoints.up("sm")]: {
-      textAlign: "unset",
       margin: "0",
     },
   },

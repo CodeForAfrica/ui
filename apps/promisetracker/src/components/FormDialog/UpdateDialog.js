@@ -16,17 +16,20 @@ import CloseIcon from "@material-ui/icons/Close";
 import UpdateForm from "./UpdateForm";
 import useStyles from "./useStyles";
 
-function FormDialog({ open, handleFormClose, ...props }) {
+function FormDialog({
+  open,
+  handleFormClose,
+  promise_act_now: promiseActNow,
+  ...props
+}) {
   const classes = useStyles(props);
 
   const {
-    promise_act_now: {
-      update: {
-        update_title: updateTitle,
-        update_description: updateDescription,
-      },
+    update: {
+      update_title: updateTitle,
+      update_description: updateDescription,
     },
-  } = props;
+  } = promiseActNow;
 
   return (
     <Dialog
@@ -63,7 +66,7 @@ function FormDialog({ open, handleFormClose, ...props }) {
         >
           {updateDescription}
         </DialogContentText>
-        <UpdateForm {...props} />
+        <UpdateForm promise_act_now={promiseActNow} {...props} />
       </DialogContent>
       <DialogActions>
         <CtAButton color="primary" onClick={handleFormClose}>

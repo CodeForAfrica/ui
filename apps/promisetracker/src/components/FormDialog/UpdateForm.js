@@ -17,7 +17,7 @@ import { useTheme } from "@material-ui/core/styles";
 import FormTextField from "./FormTextField";
 import useStyles from "./useStyles";
 
-function Form({ ...props }) {
+function Form({ promise_act_now: promiseActNow, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
 
@@ -25,24 +25,22 @@ function Form({ ...props }) {
   const [fileError, setFileError] = useState(false);
   const fileInput = useRef(null);
 
+  const { mandatoryText } = props;
   const {
-    mandatoryText,
-    promise_act_now: {
-      update: {
-        contact_label: contactLabel,
-        contact_label_description: contactLabelDescription,
-        evidence_label: evidenceLabel,
-        evidence_label_description: evidenceLabelDescription,
-        image_upload_description: imageUploadDescription,
-        what_label: whatLabel,
-        what_label_description: whatLabelDescription,
-        when_label: whenLabel,
-        when_label_description: whenLabelDescription,
-        who_label: whoLabel,
-        who_label_description: whoLabelDescription,
-      },
+    update: {
+      contact_label: contactLabel,
+      contact_label_description: contactLabelDescription,
+      evidence_label: evidenceLabel,
+      evidence_label_description: evidenceLabelDescription,
+      image_upload_description: imageUploadDescription,
+      what_label: whatLabel,
+      what_label_description: whatLabelDescription,
+      when_label: whenLabel,
+      when_label_description: whenLabelDescription,
+      who_label: whoLabel,
+      who_label_description: whoLabelDescription,
     },
-  } = props;
+  } = promiseActNow;
 
   const handleFileValidation = (fileSize) => {
     const maxAllowedSize = 10 * 500 * 300;
