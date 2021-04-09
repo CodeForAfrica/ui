@@ -144,7 +144,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   }
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "promises", locale }).first;
-  const actNowPage = await wp().pages({ slug: "act-now", locale }).first;
+  const actNowPage = await wpApi.pages({ slug: "act-now", locale }).first;
 
   const { promiseStatuses } = page;
 
