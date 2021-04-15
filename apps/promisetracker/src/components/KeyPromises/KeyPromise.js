@@ -26,7 +26,7 @@ function KeyPromise({
   title,
   ...props
 }) {
-  const classes = useStyles({ ...props, status });
+  const classes = useStyles({ ...props, image, status });
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const titleVariant = isDesktop ? "h2" : "h3";
@@ -40,7 +40,7 @@ function KeyPromise({
     >
       <Grid item xs={12} lg={5} className={classes.keyPromiseMediaGrid}>
         <div className={classes.mediaContainer}>
-          <img src={image} alt={title} className={classes.media} />
+          <div className={classes.media} />
         </div>
       </Grid>
       <Grid
