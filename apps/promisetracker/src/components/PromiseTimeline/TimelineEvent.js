@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
 import config from "@/promisetracker/config";
 
-function Event({ color, isOdd, radius, textColor, title, year }) {
+function Event({ color, isOdd, radius, rx, textColor, title, year }) {
   const interval = config.promiseInterval;
   const theme = useTheme();
   const xposition = `${
@@ -40,7 +40,7 @@ function Event({ color, isOdd, radius, textColor, title, year }) {
         x={`${textPosition.x - (textPosition.width * 1.5) / 6}`}
         y={`${textPosition.y - textPosition.height / 2}`}
         fill={color}
-        rx="8"
+        rx={rx}
       />
       <text
         ref={textRef}
@@ -63,15 +63,17 @@ Event.propTypes = {
   color: PropTypes.string,
   isOdd: PropTypes.number,
   radius: PropTypes.string,
+  rx: PropTypes.string,
   textColor: PropTypes.string,
   title: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
 };
 
 Event.defaultProps = {
-  radius: "4",
-  isOdd: false,
   color: "#fff",
+  isOdd: false,
+  radius: "4",
+  rx: "0",
   textColor: "#202020",
 };
 export default Event;

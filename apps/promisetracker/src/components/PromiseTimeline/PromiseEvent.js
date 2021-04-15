@@ -4,7 +4,7 @@ import TimelineEvent from "./TimelineEvent";
 function PromiseEvent(props) {
   return (
     <>
-      <TimelineEvent {...props} />
+      <TimelineEvent rx="5" {...props} />
     </>
   );
 }
