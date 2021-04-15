@@ -31,10 +31,11 @@ const useStyles = makeStyles(({ typography }) => ({
 
 function ProgressChart({ progressStatuses, caption, ...props }) {
   const classes = useStyles({ color: null, borderBottom: null, ...props });
+
   return (
     <Grid item xs={3} className={classes.root}>
       <div className={`${classes.typo}`}>
-        <Typography variant="caption" className={`${classes.caption}`}>
+        <Typography variant="caption" className={classes.caption}>
           {caption}
         </Typography>
       </div>

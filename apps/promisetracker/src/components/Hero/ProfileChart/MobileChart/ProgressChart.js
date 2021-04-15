@@ -11,14 +11,13 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   root: {
     padding: "2rem 0rem",
   },
-  typo: (props) => ({
+  caption: (props) => ({
     color: props.color,
-    fontStyle: "italic",
     fontSize: typography.pxToRem(14),
-    whiteSpace: "pre-line",
+    fontStyle: "italic",
     paddingRight: "1rem",
+    whiteSpace: "pre-line",
   }),
-
   border: (props) => ({
     borderRight: props.borderRight,
     height: "3.875rem",
@@ -33,6 +32,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
 
 function ProgressChart({ progressStatuses, caption, ...props }) {
   const classes = useStyles({ color: null, borderRight: null, ...props });
+
   return (
     <Grid
       container
@@ -43,7 +43,7 @@ function ProgressChart({ progressStatuses, caption, ...props }) {
       alignItems="flex-start"
     >
       <Grid item xs={4} className={`${classes.border}`}>
-        <Typography variant="body2" className={`${classes.typo}`}>
+        <Typography variant="body2" className={classes.caption}>
           {caption}
         </Typography>
       </Grid>

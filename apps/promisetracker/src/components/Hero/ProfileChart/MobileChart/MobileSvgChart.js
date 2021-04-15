@@ -67,7 +67,7 @@ function MobileSvgChart({
 
       <Grid item xs={3}>
         <Typography variant="h3" className={classes.h3}>
-          {statusPercentage}
+          ({Math.round(statusPercentage)}%)
         </Typography>
       </Grid>
 
