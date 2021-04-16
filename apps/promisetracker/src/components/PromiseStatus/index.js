@@ -11,7 +11,7 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
 
     return {
       backgroundColor,
-      borderRadius: 10,
+      borderRadius: 0,
       color,
       fontSize: typography.pxToRem(7),
       fontWeight: 700,
