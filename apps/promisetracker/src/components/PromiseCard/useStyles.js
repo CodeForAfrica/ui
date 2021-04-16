@@ -47,7 +47,10 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       color: "unset",
     },
   },
-  media: {},
+  media: (props) => ({
+    backgroundBlendMode: "soft-light",
+    border: `8px solid ${props.status?.color}`,
+  }),
   share: {},
   status: {},
   title: {},

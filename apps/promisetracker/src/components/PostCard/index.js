@@ -18,15 +18,17 @@ import useStyles from "./useStyles";
 function PostCard({
   children,
   classes: classesProp,
+  as,
   date,
   description,
   image,
   title,
-  as,
+  style,
   ...props
 }) {
-  const classes = useStyles({ classes: classesProp });
+  const classes = useStyles({ classes: classesProp, image });
   const siteServer = server();
+
   return (
     <Card square variant="outlined" className={classes.root}>
       <CardActionArea as={as} {...props} className={classes.contentRoot}>
@@ -57,10 +59,11 @@ function PostCard({
         </CardContent>
         <CardMedia
           alt={title}
-          component="img"
+          component="div"
           image={image}
           title={title}
-          className={classes.media}
+          classes={{ root: classes.media }}
+          style={style}
         />
         {description && (
           <CardContent classes={{ root: classes.content }}>
@@ -97,6 +100,7 @@ PostCard.propTypes = {
   title: PropTypes.string.isRequired,
   href: PropTypes.string,
   as: PropTypes.string,
+  style: PropTypes.shape({}),
 };
 
 PostCard.defaultProps = {
@@ -105,6 +109,7 @@ PostCard.defaultProps = {
   description: undefined,
   href: undefined,
   as: undefined,
+  style: undefined,
 };
 
 export default PostCard;

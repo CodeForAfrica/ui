@@ -43,14 +43,15 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   },
 
   media: {
+    backgroundSize: "contain",
     display: "block",
     marginTop: typography.pxToRem(19 - 16),
-    maxHeight: typography.pxToRem(185),
+    minHeight: typography.pxToRem(185),
     maxWidth: typography.pxToRem(277),
     width: "100%",
     [breakpoints.up("lg")]: {
       height: typography.pxToRem(210),
-      maxHeight: typography.pxToRem(210),
+      minHeight: typography.pxToRem(210),
       margin: 0,
       maxWidth: typography.pxToRem(315),
       width: "auto",
