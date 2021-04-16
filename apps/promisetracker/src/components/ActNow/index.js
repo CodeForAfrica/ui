@@ -6,10 +6,11 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import { Section } from "@commons-ui/core";
 
+import H1 from "@/promisetracker/components/H1";
 import CtAButton from "@/promisetracker/components/CtAButton";
-import actNowImg from "@/promisetracker/assets/illo-actNow@2x@2x.png";
+import actNowImg from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
 
-const useStyles = makeStyles(({ breakpoints, typography }) => ({
+const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   section: {},
   root: {
     backgroundColor: "#ebebeb",
@@ -21,9 +22,17 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
     paddingTop: typography.pxToRem(45),
   },
   title: {
-    padding: 0,
-    textAlign: "left",
-    textTransform: "capitalize",
+    marginBottom: 0,
+    marginTop: 0,
+    width: "fit-content",
+    "&:after": {
+      borderBottom: `8px solid ${palette.text.primary}`,
+      content: '""',
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      width: "100%",
+    },
   },
   content: {
     alignItems: "center",
@@ -37,6 +46,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   },
   cta: {
     marginBottom: 0,
+    marginTop: 0,
     [breakpoints.up("lg")]: {
       justifyContent: "left",
       padding: 0,
@@ -85,9 +95,9 @@ function ActNow({ actionLabel, description, title, ...props }) {
         <Grid container className={classes.content}>
           <Grid item xs={12} lg={6} container alignItems="center">
             <div className={classes.textContainer}>
-              <Typography variant="h1" className={classes.title}>
+              <H1 variant="h2" className={classes.title}>
                 {title}
-              </Typography>
+              </H1>
               <Typography
                 variant={descriptionVariant}
                 className={classes.description}
