@@ -48,6 +48,7 @@ function Index({
   ...props
 }) {
   const classes = useStyles(props);
+
   return (
     <Page
       {...props}
@@ -109,7 +110,6 @@ function Index({
       />
       <Partners
         {...partners}
-        title="Partners"
         classes={{
           section: classes.section,
         }}
@@ -135,7 +135,7 @@ Index.propTypes = {
     name: PropTypes.string,
     position: PropTypes.string,
     trailText: PropTypes.string,
-    updatedAt: PropTypes.string,
+    updatedAt: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     updatedAtLabel: PropTypes.string,
     description: PropTypes.string,
     promiseLabel: PropTypes.string,
@@ -143,7 +143,7 @@ Index.propTypes = {
   promiseStatuses: PropTypes.arrayOf(PropTypes.shape({})),
   promises: PropTypes.arrayOf(PropTypes.shape({})),
   keyPromises: PropTypes.arrayOf(PropTypes.shape({})),
-  promisesByStatus: PropTypes.arrayOf(PropTypes.shape({})),
+  promisesByStatus: PropTypes.shape({}),
   subscribe: PropTypes.shape({}),
 };
 

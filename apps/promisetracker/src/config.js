@@ -1,5 +1,5 @@
 import aboutMethodology from "@/promisetracker/assets/illo-method@2x.png";
-import aboutPartners from "@/promisetracker/assets/illo-partners@2x.png";
+import aboutPartners from "@/promisetracker/assets/illo-partners@2400x.png";
 import aboutProject from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
 
 import facebook from "@/promisetracker/assets/footer-social-fb.svg";
@@ -25,6 +25,7 @@ const config = {
   FACT_CHECKS_URL: "https://pesacheck.org",
   FACT_CHECKS_TAG: "promise-tracker",
   title: "PromiseTracker",
+  name: "Promise Tracker",
   URL: "https://promisetracker.dev.codeforafrica.org",
   DATE_OPTIONS: {
     day: "numeric",

@@ -5,6 +5,8 @@ import { Grid } from "@material-ui/core";
 
 import { Section } from "@commons-ui/core";
 
+import H1 from "@/promisetracker/components/H1";
+
 import useStyles from "./useStyles";
 
 /**
@@ -23,7 +25,7 @@ function ContentSection({
   return (
     <Section
       {...props}
-      title={title}
+      // title={title}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
       <Grid container justify="space-between" className={classes.grid}>
@@ -34,6 +36,7 @@ function ContentSection({
           {...contentProps}
           className={classes.gridContent}
         >
+          {title ? <H1>{title}</H1> : null}
           {content}
         </Grid>
         {aside && (

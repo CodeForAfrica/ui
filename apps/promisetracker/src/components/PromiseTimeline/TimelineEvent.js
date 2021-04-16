@@ -61,7 +61,7 @@ function Event({ color, isOdd, radius, rx, textColor, title, year }) {
 
 Event.propTypes = {
   color: PropTypes.string,
-  isOdd: PropTypes.number,
+  isOdd: PropTypes.bool,
   radius: PropTypes.string,
   rx: PropTypes.string,
   textColor: PropTypes.string,

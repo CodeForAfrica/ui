@@ -43,7 +43,7 @@ function wp(site) {
     }
     const footer = {
       about: acf.about || null,
-      copyright: acf.copyright || null,
+      copyright: { copyright: config.name, ...acf.copyright },
       initiativeLogo: acf.initiative_logo || null,
       legalLinks: acf.legal_links || null,
       organizationLogo: acf.organization_logo || null,
@@ -66,7 +66,7 @@ function wp(site) {
       actNow,
       footer,
       navigation: acf.navigation || null,
-      partnerList: acf.partnerList || null,
+      partners: acf.partners || null,
       promiseStatuses: acf.promiseStatuses || null,
       subscribe: acf.subscribe || null,
       sortLabels,
@@ -129,13 +129,13 @@ function wp(site) {
     }
     acf.criteria = null;
     let partners = null;
-    if (acf.partners?.show) {
+    if (acf.partners_visibility?.show) {
       partners = {
-        title: acf.partners.title || null,
-        items: options.partnerList,
+        title: acf.partners_visibility.title || null,
+        items: options.partners,
       };
     }
-    acf.partners = null;
+    acf.partners_visibility = null;
     const page = {
       ...acf,
       ...resource,

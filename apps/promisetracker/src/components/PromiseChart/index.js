@@ -5,15 +5,13 @@ import Share from "@/promisetracker/components/Share";
 
 import useStyles from "./useStyles";
 
-function PromiseChart({ chartLinks, title, description }) {
-  const classes = useStyles();
+function PromiseChart({ chartLinks, title, description, ...props }) {
+  const classes = useStyles(props);
 
-  if (!(chartLinks && chartLinks.length)) {
+  if (!chartLinks?.length) {
     return null;
   }
-
   const iframeSrcs = chartLinks.trim().split(/\s+/) || null;
-
   return (
     <>
       {iframeSrcs.map((iframeSrc) => (

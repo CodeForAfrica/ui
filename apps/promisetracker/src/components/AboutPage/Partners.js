@@ -27,7 +27,7 @@ function Partners({ items, ...props }) {
         >
           <Grid item xs={12} container justify="center">
             <img
-              src={partner.logo}
+              src={partner.image}
               alt={partner.name}
               className={classes.partnerLogo}
             />

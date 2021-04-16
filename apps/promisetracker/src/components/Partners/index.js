@@ -90,7 +90,7 @@ function Partners({ items, title, ...props }) {
             <Grid key={partner.name} item xs={6} lg={4}>
               <A href={partner.href}>
                 <img
-                  src={partner.logo}
+                  src={partner.image}
                   alt={partner.name}
                   className={clsx(classes.partner, {
                     [classes.partnerFirst]: (i + 1) % columnsCount === 1,

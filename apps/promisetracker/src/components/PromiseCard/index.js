@@ -7,14 +7,7 @@ import Status from "@/promisetracker/components/PromiseStatus";
 
 import useStyles from "./useStyles";
 
-function PromiseCard({
-  classes: classesProp,
-  status,
-  id,
-  href,
-  title,
-  ...props
-}) {
+function PromiseCard({ classes: classesProp, status, href, title, ...props }) {
   const classes = useStyles({ classes: classesProp, status });
   const style = {
     background: `linear-gradient(to right, ${status?.color}, ${status?.color}), url(${props.image}) no-repeat center/cover`,
@@ -61,7 +54,6 @@ PromiseCard.propTypes = {
     title: PropTypes.string,
     titleContainer: PropTypes.string,
   }),
-  id: PropTypes.string,
   image: PropTypes.string.isRequired,
   href: PropTypes.string,
   status: PropTypes.shape({
@@ -73,7 +65,6 @@ PromiseCard.propTypes = {
 PromiseCard.defaultProps = {
   children: undefined,
   classes: undefined,
-  id: undefined,
   href: undefined,
 };
 

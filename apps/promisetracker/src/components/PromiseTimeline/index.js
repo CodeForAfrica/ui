@@ -23,6 +23,7 @@ function PromiseTimeline({
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const statusHistory = isDesktop ? StatusHistoryProps : [status];
+
   return (
     <svg width="100%" height="100" className={classes.root}>
       <rect
@@ -35,14 +36,10 @@ function PromiseTimeline({
         }}
       />
       {isDesktop &&
-        events?.map((event) => (
-          <>
-            <PromiseEvent key={event.label} {...event} />
-          </>
-        ))}
+        events?.map((event) => <PromiseEvent key={event.label} {...event} />)}
       {statusHistory?.map((currentStatus, idx) => (
         <PromiseStatus
-          key={currentStatus.title}
+          key={currentStatus.date}
           isOdd={idx % 2 === 1}
           {...currentStatus}
         >

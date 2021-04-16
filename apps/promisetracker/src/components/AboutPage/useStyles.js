@@ -42,18 +42,12 @@ const useStyles = makeStyles(
     gridAside: {},
     gridContent: {},
     featuredImage: {
-      display: "flex",
-      margin: `0 auto`,
       minWidth: typography.pxToRem(314),
       width: typography.pxToRem(314),
       [breakpoints.up("lg")]: {
-        // Assumes image size of 440 x 350
-        bottom: `-${typography.pxToRem(350 / 2)}`,
         marginTop: typography.pxToRem(0),
         maxWidth: typography.pxToRem(440),
         minWidth: typography.pxToRem(440),
-        position: "absolute",
-        right: 0,
         width: typography.pxToRem(440),
       },
     },

@@ -26,12 +26,12 @@ function AboutPage({
   ...props
 }) {
   const classes = useStyles(props);
+
   const aside =
     (featuredImage?.length && (
       <img src={featuredImage} alt="About" className={classes.featuredImage} />
     )) ||
     undefined;
-
   return (
     <ContentPage
       {...props}
