@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import PostCard from "@/promisetracker/components/PostCard";
 import Link from "@/promisetracker/components/Link/Button";
+import PostCard from "@/promisetracker/components/PostCard";
 import Status from "@/promisetracker/components/PromiseStatus";
 
 import useStyles from "./useStyles";

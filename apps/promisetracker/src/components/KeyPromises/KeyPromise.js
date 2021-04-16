@@ -71,7 +71,6 @@ function KeyPromise({
         </Grid>
         {actionLabel && (
           <CtAButton
-            color="primary"
             component={Button}
             as={href}
             href="/promises/[...slug]"

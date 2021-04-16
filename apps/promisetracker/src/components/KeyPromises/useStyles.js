@@ -31,10 +31,6 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   },
   keyPromiseCtaButton: {
     minWidth: typography.pxToRem(158),
-    "&:hover": {
-      // Generated from palette.highlight.main using https://material-ui.com/customization/color/
-      backgroundColor: "#337dfd",
-    },
   },
   keyPromiseDescription: {
     fontSize: typography.pxToRem(13),
