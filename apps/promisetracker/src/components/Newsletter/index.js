@@ -8,7 +8,7 @@ import { RichTypography, Section } from "@commons-ui/core";
 
 import email from "@/promisetracker/assets/subscribe-email.svg";
 import config from "@/promisetracker/config";
-import subscribeImg from "@/promisetracker/assets/illo-subscribe@2x@2x.png";
+import subscribeImg from "@/promisetracker/assets/illo-subscribe@2400x.png";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
   section: {},
@@ -38,7 +38,6 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
     },
   },
   form: {
-    marginTop: typography.pxToRem(65),
     "& #mc_embed_signup": {
       background: "inherit",
       color: "inherit",
@@ -59,6 +58,9 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       width: "100%",
       "&:focus": {
         outline: "none",
+      },
+      "&::placeholder": {
+        opacity: 1.0,
       },
     },
     "& #mc_embed_signup .button": {
