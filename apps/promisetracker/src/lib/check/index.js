@@ -6,7 +6,7 @@ import {
 } from "@/promisetracker/lib/check/gql";
 
 import config from "@/promisetracker/config";
-import promiseImage from "@/promisetracker/assets/promise-thumb-01.png";
+import defaultPromiseImage from "@/promisetracker/assets/promise-default.png";
 import { slugify } from "@/promisetracker/utils";
 import pc from "@/promisetracker/lib/pc";
 import createApolloClient from "./createApolloClient";
@@ -63,7 +63,7 @@ function check({ team = undefined, promiseStatuses = [], initialState = {} }) {
         .annotation_id;
     }
     const id = annotationChanges ? annotationChanges[1] : null; // latest image ID
-    return filename && id ? getAssetURL(filename, id) : promiseImage;
+    return filename && id ? getAssetURL(filename, id) : defaultPromiseImage;
   }
 
   function getPromiseDate(node) {
