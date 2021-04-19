@@ -6,7 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { RichTypography } from "@commons-ui/core";
 import { Grid } from "@material-ui/core";
 
-import Subscribe from "@/promisetracker/components/Newsletter";
 import PickPromise from "@/promisetracker/components/PickPromise";
 import ContentPage from "@/promisetracker/components/ContentPage";
 
@@ -14,7 +13,7 @@ import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 import check from "@/promisetracker/lib/check";
 
-import actNowImg from "@/promisetracker/assets/illo-actNow@2x@2x.png";
+import actNowImg from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -111,7 +110,6 @@ function ActNow({
         {...props}
         classes={{ section: classes.section }}
       />
-      <Subscribe classes={{ section: classes.section }} />
     </ContentPage>
   );
 }

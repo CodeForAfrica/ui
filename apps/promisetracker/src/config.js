@@ -1,6 +1,6 @@
-import aboutMethodology from "@/promisetracker/assets/illo-method@2x.png";
+import aboutMethodology from "@/promisetracker/assets/illo-method@2400x.png";
 import aboutPartners from "@/promisetracker/assets/illo-partners@2400x.png";
-import aboutProject from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
+import aboutProject from "@/promisetracker/assets/illo-aboutTheProject@2400x.png";
 
 import facebook from "@/promisetracker/assets/footer-social-fb.svg";
 import twitter from "@/promisetracker/assets/footer-social-tw.svg";
