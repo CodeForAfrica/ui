@@ -8,7 +8,7 @@ import { RichTypography, Section } from "@commons-ui/core";
 import H1 from "@/promisetracker/components/H1";
 import ArticleCard from "@/promisetracker/components/ArticleCard";
 import Page from "@/promisetracker/components/Page/Base";
-import image from "@/promisetracker/assets/illo-404@2x@2x.png";
+import defaultImage from "@/promisetracker/assets/copy-bg@2400x.png";
 
 import useStyles from "./useStyles";
 
@@ -16,14 +16,16 @@ import useStyles from "./useStyles";
  * . This is essentially ContentPage for errors.
  */
 function ErrorPage({
-  description,
-  footer,
   articles,
+  description,
+  featuredImage,
+  footer,
   navigation,
   title,
   ...props
 }) {
   const classes = useStyles(props);
+  const image = featuredImage || defaultImage;
 
   return (
     <Page
@@ -76,17 +78,19 @@ function ErrorPage({
 }
 
 ErrorPage.propTypes = {
-  description: PropTypes.string,
-  footer: PropTypes.shape({}),
   articles: PropTypes.arrayOf(PropTypes.shape({})),
+  description: PropTypes.string,
+  featuredImage: PropTypes.string,
+  footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
   title: PropTypes.string,
 };
 
 ErrorPage.defaultProps = {
-  description: undefined,
-  footer: undefined,
   articles: undefined,
+  description: undefined,
+  featuredImage: undefined,
+  footer: undefined,
   navigation: undefined,
   title: undefined,
 };
