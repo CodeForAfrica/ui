@@ -86,8 +86,9 @@ const useStyles = makeStyles(
       marginTop: "0",
       padding: "1.5rem 1rem",
     },
-    statusTitle: {
-      padding: "1rem 0rem",
+    statusLabel: {
+      marginBottom: "1rem",
+      marginTop: "2rem",
     },
     title: {
       marginBottom: "2rem",

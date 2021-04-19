@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Grid, Hidden, Typography, useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
+import { Grid, Hidden, Typography } from "@material-ui/core";
 
 import { RichTypography, Section } from "@commons-ui/core";
 
@@ -31,40 +30,25 @@ function Promise({
   ...props
 }) {
   const classes = useStyles({ image: promise.image, classes: classesProp });
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <Section classes={{ root: classes.section }}>
-      <Hidden lgUp>
-        <Typography className={classes.promisesLabel} variant="h4">
-          <Link href="/promises" as="/promises" className={classes.link}>
-            {breadcrumb}
-          </Link>
-        </Typography>
-      </Hidden>
-
       <Grid container>
         <Grid item xs={12} lg={8}>
-          <div className={classes.featuredImageContainer} />
-          <Hidden mdDown>
-            <Typography className={classes.promisesLabel} variant="h4">
-              <Link href="/promises" as="/promises" className={classes.link}>
-                {breadcrumb}
-              </Link>
-            </Typography>
-          </Hidden>
+          <Typography className={classes.promisesLabel} variant="h4">
+            <Link href="/promises" as="/promises" className={classes.link}>
+              {breadcrumb}
+            </Link>
+          </Typography>
           <RichTypography variant="h1" className={classes.promiseTitle}>
             {promise.title}
           </RichTypography>
+          <div className={classes.featuredImageContainer} />
           <ActNowCard {...props} />
           <Hidden lgUp>
             <div className={classes.mobileStatusContainer}>
-              <Typography className={classes.mobileStatusLabel} variant="h5">
-                {promiseStatusLabel}
-              </Typography>
               <Grid item className={classes.mobileStatusLabelGrid}>
-                <RichTypography variant="h5" className={classes.statusTitle}>
+                <RichTypography variant="h5" className={classes.statusLabel}>
                   Promise rating status:
                 </RichTypography>
                 <Status
@@ -81,7 +65,7 @@ function Promise({
             <Typography className={classes.label} variant="h5">
               {promiseRadarLabel}
             </Typography>
-            {!isDesktop ? <Radar /> : null}
+            <Radar />
           </Hidden>
           <NarativeUpdates
             {...promise.narrative}
@@ -102,17 +86,14 @@ function Promise({
         <Grid item md={1} implementation="css" smDown component={Hidden} />
         <Hidden mdDown>
           <Grid item xs={12} lg={3}>
-            <Typography className={classes.label} variant="h5">
-              {promiseStatusLabel}
-            </Typography>
-            <RichTypography variant="h5" className={classes.statusTitle}>
+            <RichTypography variant="h4" className={classes.statusLabel}>
               Promise rating status:
             </RichTypography>
             <Status {...promise.status} classes={{ root: classes.status }} />
             <Typography className={classes.label} variant="h5">
               {promiseRadarLabel}
             </Typography>
-            {isDesktop ? <Radar /> : null}
+            <Radar />
             <Typography className={classes.label} variant="h5">
               {relatedFactChecksLabel}
             </Typography>
@@ -143,7 +124,7 @@ Promise.propTypes = {
     promiseBody: PropTypes.string,
     promiseFooter: PropTypes.string,
     date: PropTypes.string,
-    statusTitle: PropTypes.string,
+    statusLabel: PropTypes.string,
     description: PropTypes.string,
     descriptionContainer: PropTypes.string,
     featuredImageContainer: PropTypes.string,

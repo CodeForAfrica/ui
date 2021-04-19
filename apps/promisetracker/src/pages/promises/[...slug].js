@@ -3,8 +3,11 @@ import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core/styles";
 
+import { Section } from "@commons-ui/core";
+
 import Page from "@/promisetracker/components/Page";
 import Promise from "@/promisetracker/components/Promise";
+import PromiseTimeline from "@/promisetracker/components/PromiseTimeline";
 import RelatedPromises from "@/promisetracker/components/Promises";
 import Subscribe from "@/promisetracker/components/Newsletter";
 
@@ -12,32 +15,42 @@ import check from "@/promisetracker/lib/check";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
-const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
-  section: {
-    padding: `0 ${typography.pxToRem(23)}`,
-    margin: 0,
-    width: "100%",
-    [breakpoints.up("lg")]: {
-      padding: 0,
-      margin: "0 auto",
-      width: typography.pxToRem(widths.values.lg),
+const useStyles = makeStyles(
+  ({ breakpoints, palette, typography, widths }) => ({
+    section: {
+      padding: `0 ${typography.pxToRem(23)}`,
+      margin: 0,
+      width: "100%",
+      [breakpoints.up("lg")]: {
+        padding: 0,
+        margin: "0 auto",
+        width: typography.pxToRem(widths.values.lg),
+      },
     },
-  },
-  sectionTitle: {
-    marginBottom: typography.pxToRem(21),
-    marginTop: typography.pxToRem(46),
-    [breakpoints.up("lg")]: {
-      marginTop: typography.pxToRem(96),
+    sectionTitle: {
+      marginBottom: typography.pxToRem(21),
+      marginTop: typography.pxToRem(46),
+      [breakpoints.up("lg")]: {
+        marginTop: typography.pxToRem(96),
+      },
+      fontWeight: 400,
+      "&:after": {
+        borderBottom: "none",
+      },
     },
-    fontWeight: 400,
-    "&:after": {
-      borderBottom: "none",
+    footer: {
+      marginTop: 0,
     },
-  },
-  footer: {
-    marginTop: 0,
-  },
-}));
+    promiseTimeline: {
+      backgroundColor: palette.secondary.light,
+    },
+    timeline: {
+      [breakpoints.up("lg")]: {
+        margin: `${typography.pxToRem(36)} 0`,
+      },
+    },
+  })
+);
 
 function PromisePage({
   footer,
@@ -51,6 +64,10 @@ function PromisePage({
   const classes = useStyles(props);
   const title = promise?.title ? `${promise.title} | ${titleProp}` : titleProp;
 
+  if (!promise) {
+    return null;
+  }
+  const { events, date, status, statusHistory } = promise;
   return (
     <Page
       {...props}
@@ -59,21 +76,32 @@ function PromisePage({
       title={title}
       classes={{ section: classes.section, footer: classes.footer }}
     >
-      {promise && (
-        <>
-          <Promise promise={promise} {...labels} {...props} />
-          <RelatedPromises
-            promiseStatuses={promiseStatuses}
-            items={promise?.relatedPromises}
-            title="Related Promises"
-            withFilter={false}
-            classes={{
-              section: classes.section,
-              sectionTitle: classes.sectionTitle,
-            }}
+      <div className={classes.promiseTimeline}>
+        <Section
+          classes={{
+            root: classes.section,
+          }}
+        >
+          <PromiseTimeline
+            events={events}
+            date={date}
+            status={status}
+            statusHistory={statusHistory}
+            classes={{ root: classes.timeline }}
           />
-        </>
-      )}
+        </Section>
+      </div>
+      <Promise promise={promise} {...labels} {...props} />
+      <RelatedPromises
+        promiseStatuses={promiseStatuses}
+        items={promise?.relatedPromises}
+        title="Related Promises"
+        withFilter={false}
+        classes={{
+          section: classes.section,
+          sectionTitle: classes.sectionTitle,
+        }}
+      />
       <Subscribe
         classes={{
           section: classes.section,
@@ -94,8 +122,11 @@ PromisePage.propTypes = {
   promise: PropTypes.shape({
     date: PropTypes.string,
     description: PropTypes.string,
+    events: PropTypes.arrayOf(PropTypes.shape({})),
     image: PropTypes.string,
     title: PropTypes.string,
+    status: PropTypes.shape({}),
+    statusHistory: PropTypes.arrayOf(PropTypes.shape({})),
     relatedPromises: PropTypes.arrayOf(PropTypes.shape({})),
   }),
   promiseStatuses: PropTypes.shape({}),
