@@ -8,8 +8,8 @@ import {
   Typography,
   IconButton,
   DialogContent,
+  DialogTitle as MuiDialogTitle,
 } from "@material-ui/core";
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/core/styles";
 

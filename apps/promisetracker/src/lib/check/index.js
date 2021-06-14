@@ -59,8 +59,9 @@ function check({ team = undefined, promiseStatuses = [], initialState = {} }) {
     const filename = imageTask.node.first_response_value;
     let annotationChanges = {};
     if (imageLog?.node?.object_changes_json) {
-      annotationChanges = JSON.parse(imageLog?.node?.object_changes_json)
-        .annotation_id;
+      annotationChanges = JSON.parse(
+        imageLog?.node?.object_changes_json
+      ).annotation_id;
     }
     const id = annotationChanges ? annotationChanges[1] : null; // latest image ID
     return filename && id ? getAssetURL(filename, id) : defaultPromiseImage;
@@ -159,7 +160,8 @@ function check({ team = undefined, promiseStatuses = [], initialState = {} }) {
   async function getRelatedFactCheckUrls(node) {
     const items = node.tasks?.edges;
     const relatedFactCheckTasks = findItemByNodeLabel(items, questions[18]);
-    const expression = /(https?:\/\/(?:www\.|(?!www))[^\s.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
+    const expression =
+      /(https?:\/\/(?:www\.|(?!www))[^\s.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
     const matches =
       relatedFactCheckTasks?.node.first_response_value?.match(expression) || [];
     const factCheckAPI = pc();
@@ -172,7 +174,8 @@ function check({ team = undefined, promiseStatuses = [], initialState = {} }) {
     const items = node.tasks?.edges;
     const dataSourceTask = findItemByNodeLabel(items, questions[4]);
 
-    const expression = /(https?:\/\/(?:www\.|(?!www))[^\s.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
+    const expression =
+      /(https?:\/\/(?:www\.|(?!www))[^\s.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
     const matches = dataSourceTask.node.first_response_value.match(expression);
     return Promise.all(
       matches?.map(async (match) => {

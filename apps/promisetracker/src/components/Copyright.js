@@ -1,6 +1,5 @@
 import React from "react";
-import { Grid, Typography } from "@material-ui/core";
-import MuiLink from "@material-ui/core/Link";
+import { Grid, Typography, Link as MuiLink } from "@material-ui/core";
 
 export default function Copyright() {
   return (

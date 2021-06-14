@@ -5,8 +5,7 @@ import clsx from "clsx";
 
 import { useRouter } from "next/router";
 
-import Button from "@material-ui/core/Button";
-
+import { Button } from "@material-ui/core";
 import NextComposed from "./NextComposed";
 
 // A styled version of the Next.js Link component:

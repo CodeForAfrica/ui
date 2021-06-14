@@ -41,6 +41,7 @@
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/eslint-parser": "^7.13.14",
+    "@material-ui/codemod": "^4.5.0",
     "@types/react": "^17.0.3",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-transform-imports": "^2.0.0",
@@ -57,6 +58,7 @@
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^6.0.0",
+    "jscodeshift": "^0.12.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.2.1"
   },
@@ -66,10 +68,13 @@
     "dev:next": "next dev",
     "submodule": "git submodule init && git submodule update",
     "export": "yarn run build && next export",
-    "format": "yarn prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'",
-    "format-staged": "prettier --write",
+    "format": "yarn prettier --write --ignore-path './.gitignore' '**/*.+(json|md|yml)' '.'",
+    "format-staged": "yarn prettier --write '**/*.+(json|md|yml)'",
+    "codemod": "yarn codemod-staged-optimal-imports './src' && yarn codemod-staged-top-level-imports './src'",
+    "codemod-staged-optimal-imports": "yarn jscodeshift --transform=node_modules/@material-ui/codemod/lib/v4.0.0/optimal-imports.js",
+    "codemod-staged-top-level-imports": "yarn jscodeshift --transform=node_modules/@material-ui/codemod/lib/v4.0.0/top-level-imports.js",
     "lint": "yarn eslint --fix --ignore-path './.gitignore' './'",
-    "lint-staged": "yarn eslint --fix --ext '.js,.json,.md,.yml'",
+    "lint-staged": "yarn eslint --fix --ext '.js,.json,.md'",
     "start": "next start",
     "setup:commons": "node ./scripts/commons-ui-add.js && yarn && git restore package.json && git restore yarn.lock",
     "dev:commons": "yarn submodule && yarn setup:commons && yarn dev",
@@ -80,10 +85,16 @@
     "defaults"
   ],
   "lint-staged": {
-    "*.{js,json,md}": [
+    "*.js": [
+      "yarn codemod-staged-optimal-imports",
+      "yarn codemod-staged-top-level-imports",
       "yarn lint-staged"
     ],
-    "*.{json,md,yml}": [
+    "*.{json,md}": [
+      "yarn lint-staged",
+      "yarn format-staged"
+    ],
+    "*.yml": [
       "yarn format-staged"
     ]
   },

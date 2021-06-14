@@ -4,13 +4,13 @@ import PropTypes from "prop-types";
 import { DefaultSeo } from "next-seo";
 
 import { ThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-
 import theme from "@/promisetracker/theme/index";
-import SEO from "next-seo.config";
 
+import SEO from "next-seo.config";
 import "leaflet/dist/leaflet.css";
+
 import "simplebar/dist/simplebar.css";
+import { CssBaseline } from "@material-ui/core";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;

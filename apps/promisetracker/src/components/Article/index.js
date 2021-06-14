@@ -124,8 +124,7 @@ Article.defaultProps = {
     },
 
     {
-      url:
-        "https://twitter.com/Code4Africa?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5EShare",
+      url: "https://twitter.com/Code4Africa?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5EShare",
       image: {
         url: twitter,
         alt: "",

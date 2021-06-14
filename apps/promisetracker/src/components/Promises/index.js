@@ -29,9 +29,8 @@ function Promises({
   const filterStatusItems = promiseStatuses;
   const [items, setItems] = useState(itemsProp);
   const [statusesFilters, setStatusesFilters] = useState(filterStatusItems);
-  const [categoriesFilters, setCategoriesFilters] = useState(
-    filterCategoryItems
-  );
+  const [categoriesFilters, setCategoriesFilters] =
+    useState(filterCategoryItems);
   const [sortBy, setSortBy] = useState(sortByMostRecent?.slug);
 
   const updateFilters = (filters, slug) =>

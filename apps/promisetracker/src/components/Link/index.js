@@ -6,8 +6,7 @@ import clsx from "clsx";
 
 import { useRouter } from "next/router";
 
-import MuiLink from "@material-ui/core/Link";
-
+import { Link as MuiLink } from "@material-ui/core";
 import NextComposed from "./NextComposed";
 
 // A styled version of the Next.js Link component:
