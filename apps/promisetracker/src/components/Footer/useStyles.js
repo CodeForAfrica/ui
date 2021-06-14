@@ -42,9 +42,14 @@ const useStyles = makeStyles(
       color: palette.secondary.dark,
     },
     legalLinksLink: {},
-    organization: {
-      [breakpoints.up("lg")]: {
-        marginBottom: typography.pxToRem(37.15),
+    logo: {
+      width: "100%",
+      maxHeight: typography.pxToRem(107.85),
+      marginBottom: typography.pxToRem(65.11),
+      [breakpoints.up("md")]: {
+        marginBottom: typography.pxToRem(34.38),
+        maxHeight: typography.pxToRem(97.12),
+        width: "auto",
       },
     },
     primary: {
@@ -84,6 +89,7 @@ const useStyles = makeStyles(
       },
     },
     stayInTouchLinks: {
+      justifyContent: "center",
       marginTop: "2.215rem",
       "& a": {
         height: "3rem",
@@ -104,12 +110,14 @@ const useStyles = makeStyles(
       },
     },
     stayInTouch: {
+      alignItems: "center",
       justifyContent: "center",
       [breakpoints.up("lg")]: {
         justifyContent: "flex-end",
       },
     },
     stayInTouchText: {
+      ...typography.button,
       color: palette.secondary.dark,
       [breakpoints.up("lg")]: {
         marginRight: typography.pxToRem(17),
