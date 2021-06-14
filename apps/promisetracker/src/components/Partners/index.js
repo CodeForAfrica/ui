@@ -88,7 +88,7 @@ function Partners({ items, title, ...props }) {
         <Grid container className={classes.partners}>
           {items.slice(0, 6).map((partner, i) => (
             <Grid key={partner.name} item xs={6} lg={4}>
-              <A href={partner.href}>
+              <A href={partner.url}>
                 <img
                   src={partner.image}
                   alt={partner.name}

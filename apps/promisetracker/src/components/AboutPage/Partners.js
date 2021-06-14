@@ -21,7 +21,7 @@ function Partners({ items, ...props }) {
           xs={12}
           container
           component={A}
-          href={partner.href}
+          href={partner.url}
           underline="none"
           className={classes.partner}
         >
