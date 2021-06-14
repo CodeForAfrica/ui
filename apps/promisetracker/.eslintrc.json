@@ -2,29 +2,41 @@
   "root": true,
   "parser": "@babel/eslint-parser",
   "extends": [
+    "plugin:markdown/recommended",
     "plugin:json/recommended",
     "plugin:import/warnings",
     "plugin:import/errors",
     "airbnb",
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
   ],
   "env": {
     "browser": true
   },
-  "plugins": ["module-resolver", "react-hooks", "json", "markdown"],
+  "plugins": ["module-resolver"],
   "settings": {
     "import/resolver": {
       "babel-module": {}
     }
   },
   "rules": {
-    "module-resolver/use-alias": 2,
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always"
+      }
+    ],
+    "module-resolver/use-alias": "error",
     "react/jsx-filename-extension": [
       1,
       {
         "extensions": [".js"]
       }
     ],
-    "react/jsx-props-no-spreading": 0
+    "react/jsx-props-no-spreading": "off"
   }
 }

@@ -1,6 +1,10 @@
-# [Promise Tracker](https://promisetracker.codeforafrica.org)
+<p align="center">
+  <img width="235" src="https://user-images.githubusercontent.com/1779590/121872276-c0550b80-cd0d-11eb-970a-3128cecf1bc1.png" alt="PromiseTracker" />
+</p>
 
-**Promise Tracker**, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges, using official evidence / data, as well as crowdsourced information, with a transparent and defensible methodology, to help inject accountability and honesty into the often cavalier way that promises are made to citizens to win their support for elections, policies, contracts ... but are then seldom honoured.
+# [PromiseTracker](https://promisetracker.codeforafrica.org)
+
+**PromiseTracker**, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges, using official evidence / data, as well as crowdsourced information, with a transparent and defensible methodology, to help inject accountability and honesty into the often cavalier way that promises are made to citizens to win their support for elections, policies, contracts ... but are then seldom honoured.
 
 ## Installation
 
@@ -44,7 +48,7 @@ To remove COMMONS-UI, run:
 
 ## Attribution
 
-Promise Tracker is modelled on [Rouhani Meter](https://rouhanimeter.com) and made possible thank you to the generous support of DW Akademie and Meedan. Built by the Code for Africa Tech team and content courtesy of PesaCheck and ANCIR's iLab teams.
+PromiseTracker is modelled on [Rouhani Meter](https://rouhanimeter.com) and made possible thank you to the generous support of DW Akademie and Meedan. Built by the Code for Africa Tech team and content courtesy of PesaCheck and ANCIR's iLab teams.
 
 ## Contributing
 
