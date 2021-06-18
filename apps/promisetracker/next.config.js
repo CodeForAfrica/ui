@@ -6,7 +6,7 @@ const moduleExports = {
     defaultLocale: "en",
   },
   images: {
-    domains: process.env.IMAGE_DOMAINS?.split(",") ?? "dashboard.hurumap.org",
+    domains: (process.env.IMAGE_DOMAINS || "dashboard.hurumap.org").split(","),
   },
   async redirects() {
     return [
