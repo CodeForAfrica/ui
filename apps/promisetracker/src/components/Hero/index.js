@@ -9,11 +9,11 @@ import ProfileChart from "@/promisetracker/components/Hero/ProfileChart";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
   root: {
-    marginBottom: typography.pxToRem(40),
-    marginTop: typography.pxToRem(22),
+    paddingBottom: typography.pxToRem(40),
+    paddingTop: typography.pxToRem(22),
     [breakpoints.up("lg")]: {
-      marginBottom: typography.pxToRem(44),
-      marginTop: typography.pxToRem(80),
+      paddingBottom: typography.pxToRem(44),
+      paddingTop: typography.pxToRem(80),
     },
   },
   section: {},

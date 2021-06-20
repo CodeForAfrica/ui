@@ -10,8 +10,9 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {
     paddingTop: typography.pxToRem(20),
     [breakpoints.up("lg")]: {
+      left: typography.pxToRem(-55),
       paddingTop: 0,
-      // marginLeft: typography.pxToRem(-55),
+      position: "relative",
     },
   },
   caption: {
@@ -54,7 +55,12 @@ function Profile({ date, dateLabel, name, photo: photoProp, title, ...props }) {
   const photo = photoProp || profilePic?.src;
 
   return (
-    <Box display="flex" flexDirection={flexDirection} alignItems="center">
+    <Box
+      display="flex"
+      flexDirection={flexDirection}
+      alignItems="center"
+      className={classes.root}
+    >
       <figure className={classes.figure}>
         <Image src={photo} layout="fill" alt={name} className={classes.img} />
       </figure>
