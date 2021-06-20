@@ -1,7 +1,6 @@
+import { AppBar, Hidden, Toolbar } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-
-import { AppBar, Toolbar, useMediaQuery } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import DesktopNavigation from "./DesktopNavigation";
 import MobileNavigation from "./MobileNavigation";
@@ -16,6 +15,7 @@ const useStyles = makeStyles(({ breakpoints, palette }) => ({
   },
   section: {},
   toolbar: {
+    display: "block",
     [breakpoints.up("lg")]: {
       height: "auto",
     },
@@ -24,21 +24,18 @@ const useStyles = makeStyles(({ breakpoints, palette }) => ({
 
 function Navigation(props) {
   const classes = useStyles(props);
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
-    <>
-      <AppBar color="primary" position="sticky" className={classes.root}>
-        <Toolbar disableGutters className={classes.toolbar}>
-          {isDesktop ? (
-            <DesktopNavigation classes={{ section: classes.section }} />
-          ) : (
-            <MobileNavigation classes={{ section: classes.section }} />
-          )}
-        </Toolbar>
-      </AppBar>
-    </>
+    <AppBar color="primary" position="sticky" className={classes.root}>
+      <Toolbar disableGutters className={classes.toolbar}>
+        <Hidden mdDown implementation="css">
+          <DesktopNavigation classes={{ section: classes.section }} />
+        </Hidden>
+        <Hidden lgUp implementation="css">
+          <MobileNavigation classes={{ section: classes.section }} />
+        </Hidden>
+      </Toolbar>
+    </AppBar>
   );
 }
 

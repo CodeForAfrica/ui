@@ -1,12 +1,9 @@
-import React, { useRef } from "react";
-import PropTypes from "prop-types";
-
-import clsx from "clsx";
-
+import { Section } from "@commons-ui/core";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
-import { Section } from "@commons-ui/core";
+import clsx from "clsx";
+import PropTypes from "prop-types";
+import React, { useRef } from "react";
 
 import LinkButton from "@/promisetracker/components/Link/Button";
 

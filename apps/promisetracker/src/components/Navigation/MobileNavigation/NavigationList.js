@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-
 import { Grid, List, ListItem, Collapse, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
 
 import Link from "@/promisetracker/components/Link";
 
