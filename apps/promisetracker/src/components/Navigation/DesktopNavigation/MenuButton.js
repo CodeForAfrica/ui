@@ -1,9 +1,8 @@
-import React, { useRef } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
+import React, { useRef } from "react";
 
 import LinkButton from "@/promisetracker/components/Link/Button";
-
-import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ typography }) => ({
   root: {
@@ -15,6 +14,9 @@ const useStyles = makeStyles(({ typography }) => ({
     letterSpacing: "0.56px",
     fontWeight: 600,
     fontSize: typography.pxToRem(14),
+    // Limit text to just one line
+    overflow: "hidden",
+    whiteSpace: "nowrap",
   },
 }));
 
