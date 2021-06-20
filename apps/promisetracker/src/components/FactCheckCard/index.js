@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import PostCard from "@/promisetracker/components/PostCard";
 import { A } from "@commons-ui/core";
+import PropTypes from "prop-types";
+import React from "react";
 
 import useStyles from "./useStyles";
+
+import PostCard from "@/promisetracker/components/PostCard";
 
 function FactCheckCard({ classes: classesProp, ...props }) {
   const classes = useStyles({ classes: classesProp });

@@ -1,12 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React from "react";
-import PropTypes from "prop-types";
-
-import clsx from "clsx";
-
-import { useRouter } from "next/router";
-
 import { Link as MuiLink } from "@material-ui/core";
+import clsx from "clsx";
+import { useRouter } from "next/router";
+import PropTypes from "prop-types";
+import React from "react";
+
 import NextComposed from "./NextComposed";
 
 // A styled version of the Next.js Link component:

@@ -1,16 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-
+import { ScrollBar, Section } from "@commons-ui/core";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
-
-import { ScrollBar, Section } from "@commons-ui/core";
-
-import ArticleCard from "@/promisetracker/components/ArticleCard";
-import Link from "@/promisetracker/components/Link";
-import CtAButton from "@/promisetracker/components/CtAButton";
+import PropTypes from "prop-types";
+import React from "react";
 
 import useStyles from "./useStyles";
+
+import ArticleCard from "@/promisetracker/components/ArticleCard";
+import CtAButton from "@/promisetracker/components/CtAButton";
+import Link from "@/promisetracker/components/Link";
 
 function LatestArticles({ actionLabel, items, title, ...props }) {
   const classes = useStyles(props);

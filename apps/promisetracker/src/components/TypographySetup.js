@@ -1,5 +1,5 @@
-import React from "react";
 import { Grid, Typography, Button } from "@material-ui/core";
+import React from "react";
 
 export default function TypographySetup() {
   return (

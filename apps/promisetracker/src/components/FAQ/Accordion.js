@@ -1,18 +1,17 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-
+import { RichTypography } from "@commons-ui/core";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Typography,
 } from "@material-ui/core";
-import { RichTypography } from "@commons-ui/core";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+
+import useStyles from "./useStyles";
 
 import MinusIcon from "@/promisetracker/icons/Minus";
 import PlusIcon from "@/promisetracker/icons/Plus";
-
-import useStyles from "./useStyles";
 
 function AccordionPanel({ expanded: expandedProp, summary, title, ...props }) {
   const classes = useStyles(props);

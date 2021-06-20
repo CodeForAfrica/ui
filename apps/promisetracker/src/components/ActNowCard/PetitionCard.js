@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import PropTypes, { string } from "prop-types";
-
 import { Grid } from "@material-ui/core";
+import PropTypes, { string } from "prop-types";
+import React, { useState } from "react";
+
+import BaseContent from "./BaseContent";
+import useStyles from "./useStyles";
+
 import CtAButton from "@/promisetracker/components/CtAButton";
 import FormDialog from "@/promisetracker/components/FormDialog";
-import BaseContent from "./BaseContent";
-
-import useStyles from "./useStyles";
 
 const PetitionCard = ({ closeCard, promiseActNow, ...props }) => {
   const {

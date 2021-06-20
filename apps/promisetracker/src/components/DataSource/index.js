@@ -1,12 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Typography } from "@material-ui/core";
 import { A } from "@commons-ui/core";
+import { Typography } from "@material-ui/core";
+import PropTypes from "prop-types";
+import React from "react";
 
-import { replaceAll } from "@/promisetracker/utils";
+import useStyles from "./useStyles";
+
 import Share from "@/promisetracker/components/Share";
 import server from "@/promisetracker/lib/server";
-import useStyles from "./useStyles";
+import { replaceAll } from "@/promisetracker/utils";
 
 function DataSource({ classes: classesProp, documents, label, promise }) {
   const classes = useStyles({ classes: classesProp });

@@ -1,11 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { RichTypography } from "@commons-ui/core";
-
-import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
+import PropTypes from "prop-types";
+import React from "react";
 
 import useStyles from "./useStyles";
+
+import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
 
 function PromiseCriteria({ items, title, ...props }) {
   const classes = useStyles(props);

@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { Grid } from "@material-ui/core";
-import CtAButton from "@/promisetracker/components/CtAButton";
-import BaseContent from "./BaseContent";
+import PropTypes from "prop-types";
+import React from "react";
 
+import BaseContent from "./BaseContent";
 import useStyles from "./useStyles";
+
+import CtAButton from "@/promisetracker/components/CtAButton";
 
 const ConnectCard = ({ closeCard, promiseActNow }) => {
   const {

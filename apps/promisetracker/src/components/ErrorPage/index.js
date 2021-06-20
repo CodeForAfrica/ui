@@ -1,16 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { Grid, Hidden } from "@material-ui/core";
-
 import { RichTypography, Section } from "@commons-ui/core";
-
-import H1 from "@/promisetracker/components/H1";
-import ArticleCard from "@/promisetracker/components/ArticleCard";
-import Page from "@/promisetracker/components/Page/Base";
-import defaultImage from "@/promisetracker/assets/copy-bg@2400x.png";
+import { Grid, Hidden } from "@material-ui/core";
+import PropTypes from "prop-types";
+import React from "react";
 
 import useStyles from "./useStyles";
+
+import defaultImage from "@/promisetracker/assets/copy-bg@2400x.png";
+import ArticleCard from "@/promisetracker/components/ArticleCard";
+import H1 from "@/promisetracker/components/H1";
+import Page from "@/promisetracker/components/Page/Base";
 
 /**
  * . This is essentially ContentPage for errors.

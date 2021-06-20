@@ -1,9 +1,9 @@
-import React from "react";
 import PropTypes from "prop-types";
-
-import Accordion from "@/promisetracker/components/FAQ/Accordion";
+import React from "react";
 
 import useStyles from "./useStyles";
+
+import Accordion from "@/promisetracker/components/FAQ/Accordion";
 
 function FAQ({ items, ...props }) {
   const classes = useStyles(props);

@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
-import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React, { useState, useRef } from "react";
+
 import config from "@/promisetracker/config";
 
 function Event({ color, isOdd, radius, rx, textColor, title, year }) {

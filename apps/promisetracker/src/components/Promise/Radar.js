@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import RichTypography from "@commons-ui/core/RichTypography";
 import { makeStyles } from "@material-ui/core/styles";
-
 import dynamic from "next/dynamic";
+import React, { useEffect, useState } from "react";
 
 import config from "@/promisetracker/config";
-import RichTypography from "@commons-ui/core/RichTypography";
 
 const MapIt = dynamic(() => import("@hurumap-ui/core/MapIt"), {
   ssr: false,

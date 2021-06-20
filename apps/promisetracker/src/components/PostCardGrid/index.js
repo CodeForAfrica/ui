@@ -1,17 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import clsx from "clsx";
-
+import { Section } from "@commons-ui/core";
 import { Grid, useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
+import clsx from "clsx";
+import PropTypes from "prop-types";
+import React from "react";
 
-import { Section } from "@commons-ui/core";
+import useStyles from "./useStyles";
 
 import H1 from "@/promisetracker/components/H1";
 import PostCard from "@/promisetracker/components/PostCard";
-
-import useStyles from "./useStyles";
 
 function PostCardGrid({ children, component, items, title, ...props }) {
   const classes = useStyles(props);

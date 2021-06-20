@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-
+import { Section } from "@commons-ui/core";
 import {
   Typography,
   Grid,
@@ -10,12 +8,13 @@ import {
   FormHelperText,
   Select,
 } from "@material-ui/core";
-import { Section } from "@commons-ui/core";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+
+import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 import FormDialog from "@/promisetracker/components/FormDialog";
-
-import useStyles from "./useStyles";
 
 function PickPromise({ promises, ...props }) {
   const classes = useStyles(props);

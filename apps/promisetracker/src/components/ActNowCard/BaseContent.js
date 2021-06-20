@@ -1,8 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { CardContent, Typography, Grid } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
+import PropTypes from "prop-types";
+import React from "react";
 
 import useStyles from "./useStyles";
 

@@ -1,15 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { Grid, useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React from "react";
 
 import ActNow from "@/promisetracker/components/ActNow";
 import ArticleCard from "@/promisetracker/components/ArticleCard";
+import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
 import PostCardGrid from "@/promisetracker/components/PostCardGrid";
-import Subscribe from "@/promisetracker/components/Newsletter";
-
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 

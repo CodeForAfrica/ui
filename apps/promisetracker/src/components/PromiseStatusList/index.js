@@ -1,18 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-
+import { RichTypography } from "@commons-ui/core";
 import {
   List,
   ListItem,
   ListItemAvatar,
   ListItemText,
 } from "@material-ui/core";
-
-import { RichTypography } from "@commons-ui/core";
-
-import Status from "@/promisetracker/components/PromiseStatus";
+import PropTypes from "prop-types";
+import React from "react";
 
 import useStyles from "./useStyles";
+
+import Status from "@/promisetracker/components/PromiseStatus";
 
 function PromiseStatusList({ items, ...props }) {
   const classes = useStyles(props);

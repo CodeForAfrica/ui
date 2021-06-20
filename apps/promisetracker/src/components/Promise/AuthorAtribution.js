@@ -1,8 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { Typography, Hidden, useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React from "react";
 
 const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
   root: {
@@ -53,14 +52,13 @@ function AuthorAtribution({
   mobileTitle,
   classes: classesProp,
 }) {
-  if (!(title || description)) {
-    return null;
-  }
-
   const classes = useStyles({ image, classes: classesProp });
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
+  if (!(title || description)) {
+    return null;
+  }
   return (
     <div className={classes.root}>
       <div className={classes.titleDescriptionContainer}>

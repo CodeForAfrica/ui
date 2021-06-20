@@ -1,6 +1,7 @@
-import React from "react";
-import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
+import React from "react";
+
 import config from "@/promisetracker/config";
 
 const Labels = () => {

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-
-import { makeStyles } from "@material-ui/core/styles";
 import { IconButton, InputBase, Paper } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
 
 import SearchIcon from "@/promisetracker/icons/Search";
 

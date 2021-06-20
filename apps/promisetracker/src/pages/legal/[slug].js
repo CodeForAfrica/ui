@@ -9,20 +9,15 @@ function Legal(props) {
 }
 
 export async function getStaticPaths() {
-  const fallback = true;
-  const pages = await wp().pages({ slug: "about" }).children;
+  const fallback = false;
+  const pages = await wp().pages({ slug: "legal" }).children;
   const unlocalizedPaths = pages.map(({ slug }) => ({ params: { slug } }));
   const paths = i18n().localizePaths(unlocalizedPaths);
 
   return { fallback, paths };
 }
 
-export async function getStaticProps({
-  params: { slug: slugParam },
-  locale,
-  preview = false,
-  previewData,
-}) {
+export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const _ = i18n();
   if (!_.locales.includes(locale)) {
     return {
@@ -33,29 +28,14 @@ export async function getStaticProps({
   const slug = slugParam.toLowerCase();
   const pages = await wp().pages({ slug: "legal", locale }).children;
   const index = pages.findIndex((page) => page.slug === slug);
-  let notFound;
-  let page;
-  if (preview && previewData) {
-    page = await wp().revisions(previewData.query).page;
-    notFound = !page;
-  } else {
-    page = pages[index] || null;
-    notFound = index === -1;
-  }
+  const notFound = index === -1;
   const errorCode = notFound ? 404 : null;
+  const page = pages[index] || null;
+  const languageAlternates = _.languageAlternates(`/legal/${slug}`);
 
-  const languageAlternates = _.languageAlternates(`/about/${slug}`);
-  if (!page && preview) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/preview-error",
-      },
-    };
-  }
   return {
     notFound,
-    props: { ...page, errorCode, languageAlternates, slug },
+    props: { ...page, errorCode, slug, languageAlternates },
     revalidate: 2 * 60, // seconds
   };
 }

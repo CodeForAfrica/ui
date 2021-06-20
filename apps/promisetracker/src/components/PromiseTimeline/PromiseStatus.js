@@ -1,9 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
-import config from "@/promisetracker/config";
+import PropTypes from "prop-types";
+import React from "react";
+
 import TimelineEvent from "./TimelineEvent";
+
+import config from "@/promisetracker/config";
 
 function PromiseStatus({ children, color, date: dateProp, ...props }) {
   const interval = config.promiseInterval;

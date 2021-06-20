@@ -1,7 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React from "react";
+
 import Labels from "./Labels";
 import PromiseEvent from "./PromiseEvent";
 import PromiseStatus from "./PromiseStatus";

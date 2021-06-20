@@ -1,11 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
-import {
-  FacebookShareButton,
-  LinkedinShareButton,
-  TwitterShareButton,
-} from "react-share";
-
 import {
   Grid,
   Fade,
@@ -14,13 +6,21 @@ import {
   IconButton,
   ClickAwayListener,
 } from "@material-ui/core";
-
-import ShareIcon from "@/promisetracker/icons/Share";
-import twitter from "@/promisetracker/assets/footer-social-tw.svg";
-import facebook from "@/promisetracker/assets/footer-social-fb.svg";
-import linkedIn from "@/promisetracker/assets/footer-social-ln.svg";
+import Image from "next/image";
+import PropTypes from "prop-types";
+import React from "react";
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+} from "react-share";
 
 import useStyles from "./useStyles";
+
+import facebook from "@/promisetracker/assets/footer-social-fb.svg";
+import linkedIn from "@/promisetracker/assets/footer-social-ln.svg";
+import twitter from "@/promisetracker/assets/footer-social-tw.svg";
+import ShareIcon from "@/promisetracker/icons/Share";
 
 function Share({ link, title, description, ...props }) {
   const classes = useStyles(props);
@@ -72,7 +72,7 @@ function Share({ link, title, description, ...props }) {
                       }}
                       className={classes.socialLink}
                     >
-                      <img
+                      <Image
                         src={twitter}
                         alt="Twitter"
                         className={classes.socialIcon}
@@ -89,7 +89,7 @@ function Share({ link, title, description, ...props }) {
                       }}
                       className={classes.socialLink}
                     >
-                      <img
+                      <Image
                         src={facebook}
                         alt="Facebook"
                         className={classes.socialIcon}
@@ -107,7 +107,7 @@ function Share({ link, title, description, ...props }) {
                       }}
                       className={classes.socialLink}
                     >
-                      <img
+                      <Image
                         src={linkedIn}
                         alt="LinkedIn"
                         className={classes.socialIcon}

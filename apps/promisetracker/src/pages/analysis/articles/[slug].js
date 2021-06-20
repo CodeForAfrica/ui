@@ -1,14 +1,12 @@
-import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
+import React from "react";
 import readingTime from "reading-time";
 
-import { makeStyles } from "@material-ui/core/styles";
-
 import Article from "@/promisetracker/components/Article";
-import Page from "@/promisetracker/components/Page";
-import Subscribe from "@/promisetracker/components/Newsletter";
 import RelatedArticles from "@/promisetracker/components/LatestArticles";
-
+import Subscribe from "@/promisetracker/components/Newsletter";
+import Page from "@/promisetracker/components/Page";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 import { formatDate } from "@/promisetracker/utils";

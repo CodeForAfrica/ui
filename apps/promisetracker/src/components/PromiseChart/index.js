@@ -1,9 +1,10 @@
-import React from "react";
 import { Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
-import Share from "@/promisetracker/components/Share";
+import React from "react";
 
 import useStyles from "./useStyles";
+
+import Share from "@/promisetracker/components/Share";
 
 function PromiseChart({ chartLinks, title, description, ...props }) {
   const classes = useStyles(props);

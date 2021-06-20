@@ -1,19 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import clsx from "clsx";
-
 import { RichTypography } from "@commons-ui/core";
+import clsx from "clsx";
+import PropTypes from "prop-types";
+import React from "react";
 
+import Partners from "./Partners";
+import PromiseCriteria from "./PromiseCriteria";
+import useStyles from "./useStyles";
+
+import background from "@/promisetracker/assets/about-bg.png";
 import ActNow from "@/promisetracker/components/ActNow";
 import ContentPage from "@/promisetracker/components/ContentPage";
 import ContentSection from "@/promisetracker/components/ContentPage/Section";
 
-import background from "@/promisetracker/assets/about-bg.png";
 // import background from "@/promisetracker/assets/copy-bg@2400x.png";
-import Partners from "./Partners";
-import PromiseCriteria from "./PromiseCriteria";
-import useStyles from "./useStyles";
 
 function AboutPage({
   actNow,

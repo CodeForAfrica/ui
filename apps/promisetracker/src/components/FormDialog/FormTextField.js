@@ -1,8 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { TextField, Typography, useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React from "react";
 
 import useStyles from "./useStyles";
 

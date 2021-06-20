@@ -1,7 +1,7 @@
 import isEmpty from "lodash/isEmpty";
 
-import server from "@/promisetracker/lib/server";
 import config from "@/promisetracker/config";
+import server from "@/promisetracker/lib/server";
 import { formatDate } from "@/promisetracker/utils";
 
 function wp(site) {
@@ -43,7 +43,11 @@ function wp(site) {
     }
     const footer = {
       about: acf.about || null,
-      copyright: { copyright: config.name, ...acf.copyright },
+      copyright: {
+        ...config.page?.copyright,
+        children:
+          acf.copyright?.copyright ?? config.page?.copyright?.children ?? null,
+      },
       initiativeLogo: acf.initiative_logo || null,
       legalLinks: acf.legal_links || null,
       organizationLogo: acf.organization_logo || null,

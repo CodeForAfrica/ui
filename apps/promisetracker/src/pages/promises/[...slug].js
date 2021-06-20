@@ -1,16 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { makeStyles } from "@material-ui/core/styles";
-
 import { Section } from "@commons-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React from "react";
 
+import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
 import Promise from "@/promisetracker/components/Promise";
-import PromiseTimeline from "@/promisetracker/components/PromiseTimeline";
 import RelatedPromises from "@/promisetracker/components/Promises";
-import Subscribe from "@/promisetracker/components/Newsletter";
-
+import PromiseTimeline from "@/promisetracker/components/PromiseTimeline";
 import check from "@/promisetracker/lib/check";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";

@@ -1,12 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import clsx from "clsx";
-
+import { A, Section } from "@commons-ui/core";
 import { Grid, useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-
-import { A, Section } from "@commons-ui/core";
+import clsx from "clsx";
+import PropTypes from "prop-types";
+import React from "react";
 
 const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {

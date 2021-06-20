@@ -1,15 +1,15 @@
+import createApolloClient from "./createApolloClient";
+
+import defaultPromiseImage from "@/promisetracker/assets/promise-default.png";
+import config from "@/promisetracker/config";
 import {
   GET_PROMISES,
   GET_PROMISE,
   GET_PROMISES_BY_CATEGORIES,
   GET_PROJECT_META,
 } from "@/promisetracker/lib/check/gql";
-
-import config from "@/promisetracker/config";
-import defaultPromiseImage from "@/promisetracker/assets/promise-default.png";
-import { slugify } from "@/promisetracker/utils";
 import pc from "@/promisetracker/lib/pc";
-import createApolloClient from "./createApolloClient";
+import { slugify } from "@/promisetracker/utils";
 
 const UNSPECIFIED_TEAM = "unspecified";
 const CLIENT_PER_TEAM = new Map();

@@ -1,13 +1,12 @@
+import cc from "@/promisetracker/assets/cc.svg";
+import facebook from "@/promisetracker/assets/footer-social-fb.svg";
+import github from "@/promisetracker/assets/footer-social-gh.svg";
+import instagram from "@/promisetracker/assets/footer-social-ig.svg";
+import linkedIn from "@/promisetracker/assets/footer-social-ln.svg";
+import twitter from "@/promisetracker/assets/footer-social-tw.svg";
+import aboutProject from "@/promisetracker/assets/illo-aboutTheProject@2400x.png";
 import aboutMethodology from "@/promisetracker/assets/illo-method@2400x.png";
 import aboutPartners from "@/promisetracker/assets/illo-partners@2400x.png";
-import aboutProject from "@/promisetracker/assets/illo-aboutTheProject@2400x.png";
-
-import facebook from "@/promisetracker/assets/footer-social-fb.svg";
-import twitter from "@/promisetracker/assets/footer-social-tw.svg";
-import linkedIn from "@/promisetracker/assets/footer-social-ln.svg";
-import github from "@/promisetracker/assets/footer-social-gh.svg";
-import cc from "@/promisetracker/assets/cc.svg";
-
 import logo from "@/promisetracker/assets/logo-C4A.svg";
 
 const config = {
@@ -142,12 +141,9 @@ const config = {
       alt: "CodeforAfrica",
     },
     copyright: {
-      copyright: "PROMISE TRACKER",
-      copyrightLogo: {
-        image: { url: cc, alt: "Copyright" },
-        url: "/",
-        alt: "Promise Tracker",
-      },
+      children: "PROMISETRACKER",
+      src: cc,
+      alt: "Copyright",
     },
     initiative_logo: {
       image:

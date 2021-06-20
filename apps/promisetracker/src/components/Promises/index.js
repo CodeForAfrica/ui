@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-
 import { Grid, Typography } from "@material-ui/core";
-
-import Filter from "@/promisetracker/components/Promises/Filter";
-import PostCardGrid from "@/promisetracker/components/PostCardGrid";
-import PromiseCard from "@/promisetracker/components/PromiseCard";
-import Sort from "@/promisetracker/components/Promises/Sort";
-
-import { slugify } from "@/promisetracker/utils";
+import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
 
 import useStyles from "./useStyles";
+
+import PostCardGrid from "@/promisetracker/components/PostCardGrid";
+import PromiseCard from "@/promisetracker/components/PromiseCard";
+import Filter from "@/promisetracker/components/Promises/Filter";
+import Sort from "@/promisetracker/components/Promises/Sort";
+import { slugify } from "@/promisetracker/utils";
 
 function Promises({
   items: itemsProp,
@@ -45,8 +43,8 @@ function Promises({
     setSortBy(slug);
   };
 
-  if (withFilter) {
-    useEffect(() => {
+  useEffect(() => {
+    if (withFilter) {
       const selectedStatuses = statusesFilters
         ?.filter((filter) => filter.active)
         .map((filter) => filter.slug);
@@ -64,8 +62,10 @@ function Promises({
       const filteredItems = itemsProp.filter(hasStatus).filter(hasCategory);
       const hasFilters = selectedStatuses.length || selectedCategories.length;
       setItems(hasFilters ? filteredItems : itemsProp);
-    }, [statusesFilters, categoriesFilters, itemsProp]);
-    useEffect(() => {
+    }
+  }, [statusesFilters, categoriesFilters, itemsProp]);
+  useEffect(() => {
+    if (withFilter) {
       let sortedItems = items;
       if (sortBy === sortByMostRecent.slug) {
         sortedItems = items.sort((a, b) => a.date.localeCompare(b.date));
@@ -77,8 +77,8 @@ function Promises({
         });
       }
       setItems(sortedItems);
-    }, [sortBy]);
-  }
+    }
+  }, [sortBy]);
 
   return (
     <PostCardGrid

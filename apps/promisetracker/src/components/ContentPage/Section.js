@@ -1,13 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { Grid } from "@material-ui/core";
-
 import { Section } from "@commons-ui/core";
-
-import H1 from "@/promisetracker/components/H1";
+import { Grid } from "@material-ui/core";
+import PropTypes from "prop-types";
+import React from "react";
 
 import useStyles from "./useStyles";
+
+import H1 from "@/promisetracker/components/H1";
 
 /**
  * .

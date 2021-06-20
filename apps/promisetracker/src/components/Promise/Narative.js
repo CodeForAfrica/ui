@@ -1,7 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { IconButton, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Timeline,
   TimelineItem,
@@ -10,8 +8,8 @@ import {
   TimelineContent,
   TimelineDot,
 } from "@material-ui/lab";
-
-import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React from "react";
 
 import ShareIcon from "@/promisetracker/icons/Share";
 

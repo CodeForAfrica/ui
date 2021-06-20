@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React from "react";
-import PropTypes from "prop-types";
 import NextLink from "next/link";
+import PropTypes from "prop-types";
+import React from "react";
 
 const NextComposed = React.forwardRef(function NextComposed(props, ref) {
   const { as, href, locale, prefetch, ...other } = props;

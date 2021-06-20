@@ -1,16 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import PropTypes from "prop-types";
-
-// import clsx from "clsx";
-
-// import { Grid, useMediaQuery } from "@material-ui/core";
-// import { useTheme } from "@material-ui/core/styles";
+import { Section } from "@commons-ui/core";
 import { IconButton, MobileStepper } from "@material-ui/core";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@material-ui/icons";
-
-// import SwipeableViews from "react-swipeable-views";
-
-import { Section } from "@commons-ui/core";
+import PropTypes from "prop-types";
+import React, { useEffect, useRef, useState } from "react";
 
 import KeyPromise from "./KeyPromise";
 import useStyles from "./useStyles";

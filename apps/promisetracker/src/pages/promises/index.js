@@ -1,13 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React from "react";
 
 import ActNow from "@/promisetracker/components/ActNow";
+import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
 import Promises from "@/promisetracker/components/Promises";
-import Subscribe from "@/promisetracker/components/Newsletter";
-
 import check from "@/promisetracker/lib/check";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";

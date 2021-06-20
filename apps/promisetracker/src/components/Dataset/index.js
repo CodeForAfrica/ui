@@ -1,14 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { Avatar, Grid, Tooltip } from "@material-ui/core";
-import { BarChart } from "@material-ui/icons";
-import { makeStyles } from "@material-ui/core/styles";
-
 import { A, RichTypography } from "@commons-ui/core";
-import { formatDate } from "@/promisetracker/utils";
+import { Avatar, Grid, Tooltip } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { BarChart } from "@material-ui/icons";
+import PropTypes from "prop-types";
+import React from "react";
 
 import config from "@/promisetracker/config";
+import { formatDate } from "@/promisetracker/utils";
 
 const useStyles = makeStyles(({ breakpoints, palette, spacing }) => ({
   root: {

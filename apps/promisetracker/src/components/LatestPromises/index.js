@@ -1,19 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import clsx from "clsx";
-
+import { Section } from "@commons-ui/core";
 import { Grid, useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
-
-import Link from "@/promisetracker/components/Link";
-
-import { Section } from "@commons-ui/core";
-
-import CtAButton from "@/promisetracker/components/CtAButton";
-import PromiseCard from "@/promisetracker/components/PromiseCard";
+import clsx from "clsx";
+import PropTypes from "prop-types";
+import React from "react";
 
 import useStyles from "./useStyles";
+
+import CtAButton from "@/promisetracker/components/CtAButton";
+import Link from "@/promisetracker/components/Link";
+import PromiseCard from "@/promisetracker/components/PromiseCard";
 
 function LatestPromises({ actionLabel, items, title, ...props }) {
   const classes = useStyles(props);

@@ -1,14 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import { Grid, IconButton } from "@material-ui/core";
+import CodeIcon from "@material-ui/icons/Code";
+import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import LinkIcon from "@material-ui/icons/Link";
-import CodeIcon from "@material-ui/icons/Code";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import BaseContent from "./BaseContent";
+import PropTypes from "prop-types";
+import React from "react";
 
+import BaseContent from "./BaseContent";
 import useStyles from "./useStyles";
 
 const ShareCard = ({ closeCard, promiseActNow }) => {

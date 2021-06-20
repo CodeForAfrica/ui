@@ -1,10 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
-
-import PostCard from "@/promisetracker/components/PostCard";
-import Link from "@/promisetracker/components/Link/Button";
+import React from "react";
 
 import useStyles from "./useStyles";
+
+import Link from "@/promisetracker/components/Link/Button";
+import PostCard from "@/promisetracker/components/PostCard";
 
 function ArticleCard({ classes: classesProp, slug, ...props }) {
   const classes = useStyles({ classes: classesProp });

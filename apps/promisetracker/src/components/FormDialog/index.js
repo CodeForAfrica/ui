@@ -1,6 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import {
   Dialog,
   IconButton,
@@ -10,11 +7,14 @@ import {
   DialogContentText,
   Typography,
 } from "@material-ui/core";
-
-import CtAButton from "@/promisetracker/components/CtAButton";
 import CloseIcon from "@material-ui/icons/Close";
+import PropTypes from "prop-types";
+import React from "react";
+
 import Form from "./Form";
 import useStyles from "./useStyles";
+
+import CtAButton from "@/promisetracker/components/CtAButton";
 
 function FormDialog({ open, handleFormClose, ...props }) {
   const classes = useStyles(props);

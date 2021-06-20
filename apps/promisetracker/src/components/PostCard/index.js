@@ -1,6 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
-
+import { RichTypography } from "@commons-ui/core";
 import {
   Box,
   Card,
@@ -9,11 +7,13 @@ import {
   CardMedia,
   Grid,
 } from "@material-ui/core";
+import PropTypes from "prop-types";
+import React from "react";
 
-import { RichTypography } from "@commons-ui/core";
+import useStyles from "./useStyles";
+
 import Share from "@/promisetracker/components/Share";
 import server from "@/promisetracker/lib/server";
-import useStyles from "./useStyles";
 
 function PostCard({
   children,

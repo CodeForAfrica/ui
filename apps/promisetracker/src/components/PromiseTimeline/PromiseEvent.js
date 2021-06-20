@@ -1,4 +1,5 @@
 import React from "react";
+
 import TimelineEvent from "./TimelineEvent";
 
 function PromiseEvent(props) {

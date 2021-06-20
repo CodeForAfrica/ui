@@ -1,10 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
+
+import Base from "./Base";
 
 import NotFoundError from "@/promisetracker/pages/404";
 import Error from "@/promisetracker/pages/_error";
-
-import Base from "./Base";
 
 /**
  * Page component that adds error handling.

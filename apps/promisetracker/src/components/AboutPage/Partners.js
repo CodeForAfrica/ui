@@ -1,8 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { Grid } from "@material-ui/core";
 import { A, RichTypography } from "@commons-ui/core";
+import { Grid } from "@material-ui/core";
+import PropTypes from "prop-types";
+import React from "react";
 
 import useStyles from "./useStyles";
 

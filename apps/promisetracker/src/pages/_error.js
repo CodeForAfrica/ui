@@ -1,8 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
-import ErrorPage from "@/promisetracker/components/ErrorPage";
 import articleImage from "@/promisetracker/assets/article-thumb-01.png";
+import ErrorPage from "@/promisetracker/components/ErrorPage";
 
 function CustomErrorPage(props) {
   return <ErrorPage {...props} />;

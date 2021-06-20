@@ -1,11 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import clsx from "clsx";
-
-import { useRouter } from "next/router";
-
 import { IconButton } from "@material-ui/core";
+import clsx from "clsx";
+import { useRouter } from "next/router";
+import PropTypes from "prop-types";
+import React from "react";
 
 import NextComposed from "./NextComposed";
 

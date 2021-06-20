@@ -1,11 +1,11 @@
-import React from "react";
 import PropTypes from "prop-types";
-
-import H1 from "@/promisetracker/components/H1";
-import Page from "@/promisetracker/components/Page";
+import React from "react";
 
 import Section from "./Section";
 import useStyles from "./useStyles";
+
+import H1 from "@/promisetracker/components/H1";
+import Page from "@/promisetracker/components/Page";
 
 /**
  * ContentPage is used to render "site" pages such as about, usually with

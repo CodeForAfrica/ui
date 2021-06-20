@@ -1,22 +1,21 @@
-import React, { useState } from "react";
 import { Card, Grid, Button } from "@material-ui/core";
-import UpdateFormDialog from "@/promisetracker/components/FormDialog/UpdateDialog";
-import PropTypes from "prop-types";
-
 import AllInclusiveIcon from "@material-ui/icons/AllInclusive";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import ControlPointIcon from "@material-ui/icons/ControlPoint";
 import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 import ShareIcon from "@material-ui/icons/Share";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
 
-import ConnectCard from "./ConnectCard";
-import ShareCard from "./ShareCard";
-import FollowCard from "./FollowCard";
-import PetitionCard from "./PetitionCard";
 import BaseContent from "./BaseContent";
 import Cards from "./cards";
-
+import ConnectCard from "./ConnectCard";
+import FollowCard from "./FollowCard";
+import PetitionCard from "./PetitionCard";
+import ShareCard from "./ShareCard";
 import useStyles from "./useStyles";
+
+import UpdateFormDialog from "@/promisetracker/components/FormDialog/UpdateDialog";
 
 const ActNowButtonCard = ({ promise_act_now: promiseActNow, ...props }) => {
   const {

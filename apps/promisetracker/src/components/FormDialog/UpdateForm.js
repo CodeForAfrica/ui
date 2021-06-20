@@ -1,6 +1,3 @@
-import React, { useState, useRef } from "react";
-import PropTypes from "prop-types";
-
 import {
   FormControl,
   InputLabel,
@@ -10,12 +7,14 @@ import {
   FormHelperText,
   useMediaQuery,
 } from "@material-ui/core";
-
-import CtAButton from "@/promisetracker/components/CtAButton";
-
 import { useTheme } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React, { useState, useRef } from "react";
+
 import FormTextField from "./FormTextField";
 import useStyles from "./useStyles";
+
+import CtAButton from "@/promisetracker/components/CtAButton";
 
 function Form({ promise_act_now: promiseActNow, ...props }) {
   const classes = useStyles(props);

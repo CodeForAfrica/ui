@@ -1,19 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { Grid, Typography, Hidden } from "@material-ui/core";
 import { A, RichTypography } from "@commons-ui/core";
-
-import Link from "@/promisetracker/components/Link";
 import Section from "@commons-ui/core/Section";
+import { Grid, Typography, Hidden } from "@material-ui/core";
+import PropTypes from "prop-types";
+import React from "react";
+
+import PublicationInfo from "./PublicationInfo";
+import Share from "./Share";
+import useStyles from "./useStyles";
 
 import facebook from "@/promisetracker/assets/share-facebook.svg";
 import instagram from "@/promisetracker/assets/share-instagram.svg";
 import twitter from "@/promisetracker/assets/share-twitter.svg";
-import Share from "./Share";
-import PublicationInfo from "./PublicationInfo";
-
-import useStyles from "./useStyles";
+import Link from "@/promisetracker/components/Link";
 
 function Article({
   article,

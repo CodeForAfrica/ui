@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { DefaultSeo } from "next-seo";
-
-import { ThemeProvider } from "@material-ui/core/styles";
-import theme from "@/promisetracker/theme/index";
-
-import SEO from "next-seo.config";
-import "leaflet/dist/leaflet.css";
-
-import "simplebar/dist/simplebar.css";
 import { CssBaseline } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/core/styles";
+import { DefaultSeo } from "next-seo";
+import PropTypes from "prop-types";
+import React from "react";
+
+import theme from "@/promisetracker/theme/index";
+import SEO from "next-seo.config";
+
+import "leaflet/dist/leaflet.css";
+// simplebar-react has a hard dependency on simplebar
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "simplebar/dist/simplebar.css";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;

@@ -1,11 +1,11 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
+
+import useStyles from "./useStyles";
 
 import Link from "@/promisetracker/components/Link/Button";
 import PostCard from "@/promisetracker/components/PostCard";
 import Status from "@/promisetracker/components/PromiseStatus";
-
-import useStyles from "./useStyles";
 
 function PromiseCard({ classes: classesProp, status, href, title, ...props }) {
   const classes = useStyles({ classes: classesProp, status });

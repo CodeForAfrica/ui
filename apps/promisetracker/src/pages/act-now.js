@@ -1,19 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { makeStyles } from "@material-ui/core/styles";
-
 import { RichTypography } from "@commons-ui/core";
 import { Grid } from "@material-ui/core";
-
-import PickPromise from "@/promisetracker/components/PickPromise";
-import ContentPage from "@/promisetracker/components/ContentPage";
-
-import i18n from "@/promisetracker/lib/i18n";
-import wp from "@/promisetracker/lib/wp";
-import check from "@/promisetracker/lib/check";
+import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React from "react";
 
 import actNowImg from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
+import ContentPage from "@/promisetracker/components/ContentPage";
+import PickPromise from "@/promisetracker/components/PickPromise";
+import check from "@/promisetracker/lib/check";
+import i18n from "@/promisetracker/lib/i18n";
+import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
