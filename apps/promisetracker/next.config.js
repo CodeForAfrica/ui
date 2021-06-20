@@ -1,6 +1,9 @@
 const { withSentryConfig } = require("@sentry/nextjs");
 
 const moduleExports = {
+  eslint: {
+    dirs: ["src"],
+  },
   i18n: {
     locales: ["am", "ar", "en", "fr"],
     defaultLocale: "en",

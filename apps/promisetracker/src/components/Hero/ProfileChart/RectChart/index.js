@@ -1,8 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
-import PropTypes from "prop-types";
-
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React, { useRef, useState, useEffect } from "react";
+
 import RectSvgChart from "@/promisetracker/components/Hero/ProfileChart/RectChart/RectSvgChart";
 
 const useStyles = makeStyles(() => ({

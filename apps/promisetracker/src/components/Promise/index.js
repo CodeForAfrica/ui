@@ -1,22 +1,20 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { Grid, Hidden, Typography } from "@material-ui/core";
-
 import { RichTypography, Section } from "@commons-ui/core";
-
-import AuthorAtribution from "@/promisetracker/components/Promise/AuthorAtribution";
-import Dataset from "@/promisetracker/components/Dataset";
-import DataSource from "@/promisetracker/components/DataSource";
-import Link from "@/promisetracker/components/Link";
-import NarativeUpdates from "@/promisetracker/components/Promise/Narative";
-import RelatedFactChecks from "@/promisetracker/components/Promise/RelatedFactChecks";
-import Status from "@/promisetracker/components/PromiseStatus";
-import PromiseChart from "@/promisetracker/components/PromiseChart";
-import ActNowCard from "@/promisetracker/components/ActNowCard";
+import { Grid, Hidden, Typography } from "@material-ui/core";
+import PropTypes from "prop-types";
+import React from "react";
 
 import Radar from "./Radar";
 import useStyles from "./useStyles";
+
+import ActNowCard from "@/promisetracker/components/ActNowCard";
+import Dataset from "@/promisetracker/components/Dataset";
+import DataSource from "@/promisetracker/components/DataSource";
+import Link from "@/promisetracker/components/Link";
+import AuthorAtribution from "@/promisetracker/components/Promise/AuthorAtribution";
+import NarativeUpdates from "@/promisetracker/components/Promise/Narative";
+import RelatedFactChecks from "@/promisetracker/components/Promise/RelatedFactChecks";
+import PromiseChart from "@/promisetracker/components/PromiseChart";
+import Status from "@/promisetracker/components/PromiseStatus";
 
 function Promise({
   promise,

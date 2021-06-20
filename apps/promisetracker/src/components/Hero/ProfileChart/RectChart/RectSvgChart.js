@@ -1,10 +1,7 @@
-import React from "react";
-
-import PropTypes from "prop-types";
-
 import { Typography } from "@material-ui/core";
-
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React from "react";
 
 const useStyles = makeStyles(({ typography }) => ({
   root: {
@@ -42,13 +39,13 @@ function RectSvgChart({
   containerWidth,
   ...props
 }) {
+  const classes = useStyles(props);
+
   if (!currentStatusNumber) {
     return null;
   }
-  const classes = useStyles(props);
   const currentStatusPercentage = (currentStatusNumber / totalPromises) * 100;
   const width = (currentStatusPercentage * containerWidth) / 100;
-
   return (
     <div className={classes.root}>
       <svg width={width} height={height}>
