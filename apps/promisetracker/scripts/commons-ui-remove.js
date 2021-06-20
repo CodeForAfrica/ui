@@ -1,4 +1,5 @@
 const fs = require("fs");
+
 const babel = require("../.babelrc.json");
 
 if (babel.plugins[1][1].alias["@commons-ui/core"]) {
