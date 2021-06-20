@@ -1,29 +1,26 @@
+import { useMediaQuery } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Image from "next/image";
 import React from "react";
 
-import logo from "@/promisetracker/assets/PT-logo-header-mob@2x.png";
 import desktoplogo from "@/promisetracker/assets/PT-logo-header-desktop@2x.png";
-
-import { useMediaQuery } from "@material-ui/core";
-
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import logo from "@/promisetracker/assets/PT-logo-header-mob@2x.png";
 import IconButton from "@/promisetracker/components/Link/IconButton";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
   logo: {
+    maxWidth: typography.pxToRem(135),
+    minWidth: typography.pxToRem(135),
     padding: 0,
     "&:hover": {
       backgroundColor: "inherit",
     },
-  },
-  img: {
-    height: "auto",
-    maxWidth: typography.pxToRem(135),
-    minWidth: typography.pxToRem(135),
     [breakpoints.up("lg")]: {
       maxWidth: typography.pxToRem(236),
       minWidth: typography.pxToRem(236),
     },
   },
+  img: {},
 }));
 
 function Logo(props) {
@@ -39,7 +36,7 @@ function Logo(props) {
       href="/"
       className={classes.logo}
     >
-      <img src={src} alt="Promise Tracker" className={classes.img} />
+      <Image src={src} alt="PromiseTracker" className={classes.img} />
     </IconButton>
   );
 }
