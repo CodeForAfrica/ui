@@ -1,25 +1,24 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { Grid, Hidden, useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
-
 import {
   A,
   AboutOrganization,
-  Copyright,
   LegalLinks,
   Logo,
   QuickLinks,
   StayInTouch,
   Section,
 } from "@commons-ui/core";
-
-import Link from "@/promisetracker/components/Link";
-import ptLogo from "@/promisetracker/assets/footer-pt-logo.png";
-
-import useStyles from "@/promisetracker/components/Footer/useStyles";
+import { Grid, Hidden, useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
+import Image from "next/image";
+import PropTypes from "prop-types";
+import React from "react";
+
+import Copyright from "./Copyright";
+import useStyles from "./useStyles";
+
+import ptLogo from "@/promisetracker/assets/footer-pt-logo.png";
+import cfaLogo from "@/promisetracker/assets/logo-C4A.svg";
+import Link from "@/promisetracker/components/Link";
 
 function MainFooter({
   about,
@@ -149,11 +148,14 @@ function MainFooter({
         <Section classes={{ root: classes.section }}>
           <Grid container>
             <Grid item xs={12} lg={6} className={classes.secondaryGridItem}>
-              <img
-                className={classes.ptLogo}
-                src={ptLogo}
-                alt="PromiseTracker"
-              />
+              <figure className={classes.logoFigure}>
+                <Image
+                  className={classes.logoImage}
+                  src={ptLogo}
+                  layout="fill"
+                  alt="PromiseTracker"
+                />
+              </figure>
               <div className={classes.legalContainer}>
                 {!isDesktop && socialMedia?.length && (
                   <StayInTouch
@@ -169,9 +171,8 @@ function MainFooter({
 
                 <Copyright
                   {...copyright}
-                  variant="button"
                   classes={{
-                    copyright: classes.copyright,
+                    root: classes.copyright,
                     text: classes.copyrightText,
                   }}
                 />

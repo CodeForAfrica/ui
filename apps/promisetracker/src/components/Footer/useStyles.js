@@ -23,19 +23,8 @@ const useStyles = makeStyles(
       textAlign: "center",
       display: "flex",
       alignItems: "center",
-      flexDirection: "row-reverse",
       [breakpoints.up("lg")]: {
         marginTop: 0,
-      },
-      "& a": {
-        display: "flex",
-        alignItems: "center",
-        marginRight: ".6rem",
-      },
-      "& img": {
-        marginLeft: "0rem",
-        height: typography.h5.fontSize,
-        width: typography.h5.fontSize,
       },
     },
     copyrightText: {
@@ -177,12 +166,18 @@ const useStyles = makeStyles(
     legalLink: {
       color: palette.secondary.dark,
     },
-    ptLogo: {
-      maxWidth: "14.75rem",
+    logoFigure: {
+      height: typography.pxToRem(70),
+      margin: 0,
       marginBottom: "1rem",
+      position: "relative",
+      width: typography.pxToRem(235),
       [breakpoints.up("lg")]: {
-        marginBottom: "0rem",
+        marginBottom: 0,
       },
+    },
+    logoImage: {
+      objectFit: "contain",
     },
     links: {},
     link: {
