@@ -1,9 +1,8 @@
-import React from "react";
-
+import { Box, Typography, useMediaQuery } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Image from "next/image";
 import PropTypes from "prop-types";
-
-import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography } from "@material-ui/core";
+import React from "react";
 
 import profilePic from "@/promisetracker/assets/hero-sonko.png";
 
@@ -12,7 +11,7 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
     paddingTop: typography.pxToRem(20),
     [breakpoints.up("lg")]: {
       paddingTop: 0,
-      marginLeft: typography.pxToRem(-55),
+      // marginLeft: typography.pxToRem(-55),
     },
   },
   caption: {
@@ -20,56 +19,62 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   },
   details: {
     paddingLeft: typography.pxToRem(10),
+    minWidth: typography.pxToRem(149),
     [breakpoints.up("lg")]: {
       paddingLeft: 0,
     },
   },
-  img: {
-    maxWidth: typography.pxToRem(149),
-    objectFit: "cover",
+  figure: {
+    height: typography.pxToRem(149),
+    margin: 0,
+    minWidth: typography.pxToRem(149),
     width: typography.pxToRem(149),
+    position: "relative",
     [breakpoints.up("lg")]: {
-      maxWidth: typography.pxToRem(350),
+      height: typography.pxToRem(350),
+      minWidth: typography.pxToRem(350),
       width: typography.pxToRem(350),
     },
+  },
+  img: {
+    objectFit: "contain",
   },
   title: {
     color: palette.primary.main,
     textTransform: "uppercase",
   },
-  typography: {
-    textAlign: "center",
-  },
 }));
 
-function Profile({ title, name, date, dateLabel, ...props }) {
+function Profile({ date, dateLabel, name, photo: photoProp, title, ...props }) {
   const classes = useStyles(props);
+  const theme = useTheme();
+  const flexDirection = useMediaQuery(theme.breakpoints.up("lg"))
+    ? "column"
+    : "row";
+  const photo = photoProp || profilePic?.src;
+
   return (
-    <Grid
-      container
-      justify="space-between"
-      alignItems="center"
-      className={classes.root}
-    >
-      <Grid item lg={12}>
-        <img src={profilePic} alt={name} className={classes.img} />
-      </Grid>
-      <Grid item xs={6} lg={12} className={classes.details}>
+    <Box display="flex" flexDirection={flexDirection} alignItems="center">
+      <figure className={classes.figure}>
+        <Image src={photo} layout="fill" alt={name} className={classes.img} />
+      </figure>
+      <div className={classes.details}>
         <Typography variant="h5" className={classes.title}>
           {title}
         </Typography>
         <Typography variant="h6" className={classes.caption}>
           {dateLabel} {date}
         </Typography>
-      </Grid>
-    </Grid>
+      </div>
+    </Box>
   );
 }
 
 Profile.propTypes = {
-  title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   dateLabel: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  photo: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 export default Profile;
