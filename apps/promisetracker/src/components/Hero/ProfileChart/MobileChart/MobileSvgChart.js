@@ -34,6 +34,10 @@ function MobileSvgChart({
   ...props
 }) {
   const classes = useStyles(props);
+  const statusPercentage = totalPromises
+    ? (statusNumber / totalPromises) * 100
+    : 0;
+
   return (
     <Grid
       container
