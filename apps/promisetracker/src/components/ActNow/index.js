@@ -1,14 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-
+import { Section } from "@commons-ui/core";
 import { Grid, Typography, useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Image from "next/image";
+import PropTypes from "prop-types";
+import React from "react";
 
-import { Section } from "@commons-ui/core";
-
-import H1 from "@/promisetracker/components/H1";
-import CtAButton from "@/promisetracker/components/CtAButton";
 import actNowImg from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
+import CtAButton from "@/promisetracker/components/CtAButton";
+import H1 from "@/promisetracker/components/H1";
 
 const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   section: {},
@@ -116,7 +115,7 @@ function ActNow({ actionLabel, description, title, ...props }) {
             </div>
           </Grid>
           <Grid item xs={12} lg={5}>
-            <img src={actNowImg} alt="Act Now" className={classes.image} />
+            <Image src={actNowImg} alt="Act Now" className={classes.image} />
           </Grid>
         </Grid>
       </Section>
