@@ -1,14 +1,12 @@
+import { RichTypography } from "@commons-ui/core";
+import { Paper, Fade, IconButton } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import CloseIcon from "@material-ui/icons/Close";
+import Image from "next/image";
+import PropTypes from "prop-types";
 import React from "react";
 
-import PropTypes from "prop-types";
-
-import { Grid, Paper, Fade, IconButton } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
-import { makeStyles } from "@material-ui/core/styles";
-import { RichTypography } from "@commons-ui/core";
-
 import info from "@/promisetracker/assets/hero-icon-info.svg";
-
 import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
@@ -18,10 +16,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     flexWrap: "nowrap",
     justifyContent: "space-between",
   },
-  img: {
-    height: "auto",
-    maxWidth: "100%",
-  },
+  infoIcon: {},
   iconButton: {},
   closeButton: {
     position: "absolute",
@@ -54,6 +49,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
 }));
 function PaperTitle({ children, onClose, ...other }) {
   const classes = useStyles();
+
   return (
     <div className={classes.paperTitle} {...other}>
       <RichTypography variant="h5" className={classes.typo}>
@@ -116,20 +112,18 @@ function DesktopInfoStatusPopover({ items, title, ...props }) {
     return null;
   }
   return (
-    <>
-      <Grid item>
-        <IconButton
-          disableRipple
-          disableFocusRipple
-          aria-label="Info"
-          size="small"
-          open={open}
-          onClick={handleChange}
-          className={classes.iconButton}
-        >
-          <img src={info} alt="Info" className={classes.img} />
-        </IconButton>
-      </Grid>
+    <div>
+      <IconButton
+        disableRipple
+        disableFocusRipple
+        aria-label="Info"
+        size="small"
+        open={open}
+        onClick={handleChange}
+        className={classes.iconButton}
+      >
+        <Image src={info} alt="Info" className={classes.infoIcon} />
+      </IconButton>
       <Fade in={open}>
         <Paper elevation={4} className={classes.paper}>
           {title?.length && (
@@ -145,7 +139,7 @@ function DesktopInfoStatusPopover({ items, title, ...props }) {
           )}
         </Paper>
       </Fade>
-    </>
+    </div>
   );
 }
 

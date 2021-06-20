@@ -1,20 +1,17 @@
-import React, { useState } from "react";
-
-import PropTypes from "prop-types";
-
 import {
-  Grid,
   Dialog,
   Typography,
   IconButton,
   DialogContent,
   DialogTitle as MuiDialogTitle,
 } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/core/styles";
+import CloseIcon from "@material-ui/icons/Close";
+import Image from "next/image";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
 
 import info from "@/promisetracker/assets/hero-icon-info.svg";
-
 import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
@@ -35,6 +32,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     padding: `${typography.pxToRem(16)} ${typography.pxToRem(10)}`,
   },
   iconButton: {},
+  infoIcon: {},
   paper: {
     borderRadius: 0,
     boxShadow: "0px 3px 6px #00000029",
@@ -55,6 +53,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
 
 function DialogTitle({ children, onClose, ...other }) {
   const classes = useStyles();
+
   return (
     <MuiDialogTitle
       disableTypography
@@ -98,7 +97,7 @@ function MobileInfoStatusPopover({ items, title, ...props }) {
     return null;
   }
   return (
-    <Grid item>
+    <div>
       <IconButton
         disableRipple
         disableFocusRipple
@@ -107,7 +106,7 @@ function MobileInfoStatusPopover({ items, title, ...props }) {
         onClick={handleClickOpen}
         className={classes.iconButton}
       >
-        <img src={info} alt="Info" />
+        <Image src={info} alt="Info" className={classes.infoIcon} />
       </IconButton>
 
       <Dialog
@@ -131,7 +130,7 @@ function MobileInfoStatusPopover({ items, title, ...props }) {
           </DialogContent>
         )}
       </Dialog>
-    </Grid>
+    </div>
   );
 }
 

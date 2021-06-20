@@ -1,7 +1,3 @@
-import React, { useState } from "react";
-
-import PropTypes from "prop-types";
-
 import {
   Fade,
   Grid,
@@ -11,19 +7,20 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Image from "next/image";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+
+import DesktopInfoStatusPopover from "./DesktopInfoStatusPopover";
+import MobileInfoStatusPopover from "./MobileInfoStatusPopover";
 
 import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg";
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
-import Share from "@/promisetracker/components/Share";
-
-import MobileChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart";
 import DesktopChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart";
-
+import MobileChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart";
 import RectChart from "@/promisetracker/components/Hero/ProfileChart/RectChart";
-
+import Share from "@/promisetracker/components/Share";
 import config from "@/promisetracker/config";
-import DesktopInfoStatusPopover from "./DesktopInfoStatusPopover";
-import MobileInfoStatusPopover from "./MobileInfoStatusPopover";
 
 const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {
@@ -47,15 +44,8 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
       marginLeft: typography.pxToRem(20),
     },
   },
-  img: {
-    height: "auto",
-    maxWidth: "100%",
-  },
-  viz1: {
-    width: "1.5rem",
-    height: "auto",
-    maxWidth: "100%",
-  },
+  viz1: {},
+  viz2: {},
   popoverContainer: {
     width: "100%",
   },
@@ -124,17 +114,19 @@ function ProfileDetails({
                 className={classes.iconButton}
               >
                 {clicked ? (
-                  <img src={viz1} alt="Viz1" className={classes.viz1} />
+                  <Image src={viz1} alt="Viz1" className={classes.viz1} />
                 ) : (
-                  <img src={viz2} alt="Viz2" className={classes.img} />
+                  <Image src={viz2} alt="Viz2" className={classes.viz2} />
                 )}
               </IconButton>
             </Grid>
           </Hidden>
-          <InfoStatusPopover
-            {...criteria}
-            classes={{ iconButton: classes.iconButton }}
-          />
+          <Grid item>
+            <InfoStatusPopover
+              {...criteria}
+              classes={{ iconButton: classes.iconButton }}
+            />
+          </Grid>
           <Grid item>
             <IconButton
               disableRipple
