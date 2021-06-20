@@ -64,14 +64,18 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
       lineHeight: "1.875rem",
     },
   },
-  image: {
-    maxWidth: typography.pxToRem(314),
-    minWidth: typography.pxToRem(314),
-    objectFit: "cover",
+  figure: {
+    height: typography.pxToRem(272),
+    margin: 0,
+    position: "relative",
+    width: typography.pxToRem(314),
     [breakpoints.up("lg")]: {
-      maxWidth: typography.pxToRem(484),
-      minWidth: typography.pxToRem(484),
+      height: typography.pxToRem(350),
+      width: typography.pxToRem(440),
     },
+  },
+  image: {
+    objectFit: "contain",
   },
   textContainer: {
     marginTop: typography.pxToRem(19),
@@ -115,7 +119,14 @@ function ActNow({ actionLabel, description, title, ...props }) {
             </div>
           </Grid>
           <Grid item xs={12} lg={5}>
-            <Image src={actNowImg} alt="Act Now" className={classes.image} />
+            <figure className={classes.figure}>
+              <Image
+                src={actNowImg}
+                layout="fill"
+                alt="Act Now"
+                className={classes.image}
+              />
+            </figure>
           </Grid>
         </Grid>
       </Section>
