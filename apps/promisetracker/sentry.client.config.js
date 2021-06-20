@@ -7,9 +7,7 @@ import * as Sentry from "@sentry/nextjs";
 const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
 
 Sentry.init({
-  dsn:
-    SENTRY_DSN ||
-    "https://90edf481b85b4f5098cc93608a0179d0@o210651.ingest.sentry.io/5820846",
+  dsn: SENTRY_DSN,
   // Note: if you want to override the automatic release value, do not set a
   // `release` value here - use the environment variable `SENTRY_RELEASE`, so
   // that it will also get attached to your source maps
