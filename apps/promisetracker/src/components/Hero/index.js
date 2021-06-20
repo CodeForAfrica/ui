@@ -1,10 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-
+import { Section } from "@commons-ui/core";
 import { Grid, Hidden, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
-import { Section } from "@commons-ui/core";
+import PropTypes from "prop-types";
+import React from "react";
 
 import Profile from "@/promisetracker/components/Hero/Profile";
 import ProfileChart from "@/promisetracker/components/Hero/ProfileChart";
@@ -24,6 +22,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
 function Hero({
   criteria,
   name,
+  photo,
   position,
   promisesByStatus,
   updatedAt,
@@ -44,10 +43,11 @@ function Hero({
           </Hidden>
           <Grid item xs={12} lg={4}>
             <Profile
-              name={name}
-              title={title}
-              dateLabel={updatedAtLabel}
               date={`${updatedAt}`}
+              dateLabel={updatedAtLabel}
+              name={name}
+              photo={photo}
+              title={title}
             />
           </Grid>
           <Grid item xs={12} lg={8}>
@@ -71,6 +71,7 @@ Hero.propTypes = {
     title: PropTypes.string.isRequired,
   }),
   name: PropTypes.string.isRequired,
+  photo: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   updatedAt: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
     .isRequired,
