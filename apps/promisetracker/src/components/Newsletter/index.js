@@ -122,8 +122,8 @@ function Newsletter({
   return (
     <div className={classes.root}>
       <Section classes={{ root: classes.section }}>
-        <Grid container alignItems="stretch">
-          <Grid item xs={12} lg={8}>
+        <Grid container justify="space-between" alignItems="stretch">
+          <Grid item>
             <figure className={classes.figure}>
               <Image
                 src={subscribeImg}

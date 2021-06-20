@@ -118,7 +118,7 @@ function ActNow({ actionLabel, description, title, ...props }) {
               </CtAButton>
             </div>
           </Grid>
-          <Grid item xs={12} lg={5}>
+          <Grid item>
             <figure className={classes.figure}>
               <Image
                 src={actNowImg}
