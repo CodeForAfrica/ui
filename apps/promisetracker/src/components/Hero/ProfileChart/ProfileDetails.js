@@ -83,7 +83,7 @@ function ProfileDetails({
     <>
       <Grid container className={classes.root} alignItems="center">
         <Grid item xs={6} lg={8}>
-          <Hidden mdDown>
+          <Hidden mdDown implementation="css">
             <Typography variant="h1">{name}</Typography>
           </Hidden>
           <Typography variant="body2">
@@ -102,7 +102,7 @@ function ProfileDetails({
           justify={isDesktop ? "flex-end" : "flex-start"}
           alignItems="center"
         >
-          <Hidden mdDown>
+          <Hidden mdDown implementation="css">
             <Grid item>
               <IconButton
                 disableRipple
