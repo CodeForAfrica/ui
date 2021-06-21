@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Grid, Typography, useMediaQuery } from "@material-ui/core";
+import { Box, Grid, Typography, useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Head from "next/head";
 import Image from "next/image";
@@ -36,11 +36,9 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   },
   content: {
     alignItems: "center",
-    flexDirection: "column-reverse",
     justifyContent: "center",
     [breakpoints.up("lg")]: {
       alignItems: "stretch",
-      flexDirection: "row",
       justifyContent: "space-between",
     },
   },
@@ -89,9 +87,9 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
     objectFit: "contain",
   },
   textContainer: {
-    marginTop: typography.pxToRem(19),
+    alignItems: "center",
     [breakpoints.up("lg")]: {
-      marginTop: 0,
+      alignItems: "flex-start",
     },
   },
 }));
@@ -111,7 +109,11 @@ function ActNow({ actionLabel, description, title, ...props }) {
       <Section classes={{ root: classes.section }}>
         <Grid container className={classes.content}>
           <Grid item xs={12} lg={6} container alignItems="center">
-            <div className={classes.textContainer}>
+            <Box
+              display="flex"
+              flexDirection="column"
+              className={classes.textContainer}
+            >
               <figure className={classes.logoFigure}>
                 <Image
                   src={actNowLogo}
@@ -135,7 +137,7 @@ function ActNow({ actionLabel, description, title, ...props }) {
               >
                 {actionLabel}
               </CtAButton>
-            </div>
+            </Box>
           </Grid>
           <Grid item>
             <figure className={classes.figure}>
