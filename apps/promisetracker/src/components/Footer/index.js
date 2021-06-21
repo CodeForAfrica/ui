@@ -2,7 +2,6 @@ import {
   A,
   AboutOrganization,
   LegalLinks,
-  Logo,
   QuickLinks,
   StayInTouch,
   Section,
@@ -14,6 +13,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import Copyright from "./Copyright";
+import Logo from "./Logo";
 import useStyles from "./useStyles";
 
 import ptLogo from "@/promisetracker/assets/footer-pt-logo.png";
@@ -84,8 +84,10 @@ function MainFooter({
     <div className={classes.root}>
       <div className={classes.primary}>
         <Section classes={{ root: classes.section }}>
-          <Logo {...organizationLogo} classes={{ root: classes.logo }} />
           <Grid container>
+            <Grid item xs={12} container className={classes.logoContainer}>
+              <Logo {...organizationLogo} classes={{ root: classes.logo }} />
+            </Grid>
             <Grid item xs={12} lg={8}>
               <AboutOrganization
                 options={{

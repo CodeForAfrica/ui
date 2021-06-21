@@ -31,14 +31,18 @@ const useStyles = makeStyles(
       color: palette.secondary.dark,
     },
     legalLinksLink: {},
-    logo: {
+    logoContainer: {
+      justifyContent: "center",
       width: "100%",
-      maxHeight: typography.pxToRem(107.85),
+      [breakpoints.up("md")]: {
+        justifyContent: "flex-start",
+        width: "auto",
+      },
+    },
+    logo: {
       marginBottom: typography.pxToRem(65.11),
       [breakpoints.up("md")]: {
         marginBottom: typography.pxToRem(34.38),
-        maxHeight: typography.pxToRem(97.12),
-        width: "auto",
       },
     },
     primary: {
