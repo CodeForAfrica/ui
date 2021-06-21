@@ -9,16 +9,18 @@ import {
   Typography,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { Close as CloseIcon, Menu as MenuIcon } from "@material-ui/icons";
+import { Close as CloseIcon } from "@material-ui/icons";
 import clsx from "clsx";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
+import hamburgerIcon from "@/promisetracker/assets/hamburger-icon.svg";
+import searchIcon from "@/promisetracker/assets/search-icon.svg";
 import Button from "@/promisetracker/components/Link/Button";
 import Logo from "@/promisetracker/components/Navigation/Logo";
 import NavigationList from "@/promisetracker/components/Navigation/MobileNavigation/NavigationList";
 import config from "@/promisetracker/config";
-import SearchIcon from "@/promisetracker/icons/Search";
 import i18n from "@/promisetracker/lib/i18n";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
@@ -129,7 +131,7 @@ function MobileNavigation(props) {
               edge="start"
               className={classes.searchButton}
             >
-              <SearchIcon viewBox="0 0 24 16" htmlColor="#D6D6D6" />
+              <Image src={searchIcon} />
             </IconButton>
             <IconButton
               aria-label="Open drawer"
@@ -137,7 +139,7 @@ function MobileNavigation(props) {
               onClick={handleClickOpen}
               className={classes.menuButton}
             >
-              <MenuIcon viewBox="0 0 24 16" />
+              <Image src={hamburgerIcon} />
             </IconButton>
           </Grid>
 
