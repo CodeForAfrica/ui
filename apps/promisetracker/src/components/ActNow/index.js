@@ -6,9 +6,9 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
+import actNowLogo from "@/promisetracker/assets/Component 121 – 1@2x.png";
 import actNowImg from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
 import CtAButton from "@/promisetracker/components/CtAButton";
-import H1 from "@/promisetracker/components/H1";
 
 const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   section: {},
@@ -65,6 +65,16 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
       lineHeight: "1.875rem",
     },
   },
+  logoFigure: {
+    height: typography.pxToRem(105.5),
+    margin: 0,
+    position: "relative",
+    width: typography.pxToRem(208.36),
+    [breakpoints.up("lg")]: {
+      height: typography.pxToRem(140.63),
+      width: typography.pxToRem(277.74),
+    },
+  },
   figure: {
     height: typography.pxToRem(272),
     margin: 0,
@@ -102,9 +112,14 @@ function ActNow({ actionLabel, description, title, ...props }) {
         <Grid container className={classes.content}>
           <Grid item xs={12} lg={6} container alignItems="center">
             <div className={classes.textContainer}>
-              <H1 variant="h2" className={classes.title}>
-                {title}
-              </H1>
+              <figure className={classes.logoFigure}>
+                <Image
+                  src={actNowLogo}
+                  layout="fill"
+                  alt="actNOW"
+                  className={classes.image}
+                />
+              </figure>
               <Typography
                 variant={descriptionVariant}
                 className={classes.description}
@@ -127,7 +142,7 @@ function ActNow({ actionLabel, description, title, ...props }) {
               <Image
                 src={actNowImg}
                 layout="fill"
-                alt="Act Now"
+                alt={actionLabel}
                 className={classes.image}
               />
             </figure>
