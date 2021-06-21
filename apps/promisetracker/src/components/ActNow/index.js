@@ -1,6 +1,7 @@
 import { Section } from "@commons-ui/core";
 import { Grid, Typography, useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Head from "next/head";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
@@ -94,6 +95,9 @@ function ActNow({ actionLabel, description, title, ...props }) {
 
   return (
     <div className={classes.root}>
+      <Head>
+        <link key="act-now" rel="preload" href={actNowImg.src} as="image" />
+      </Head>
       <Section classes={{ root: classes.section }}>
         <Grid container className={classes.content}>
           <Grid item xs={12} lg={6} container alignItems="center">
