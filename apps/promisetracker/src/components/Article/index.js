@@ -1,6 +1,7 @@
 import { A, RichTypography } from "@commons-ui/core";
 import Section from "@commons-ui/core/Section";
 import { Grid, Typography, Hidden } from "@material-ui/core";
+import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -62,7 +63,7 @@ function Article({
                   key={platform.url}
                   className={classes.socialMedia}
                 >
-                  <img src={platform.image.url} alt={platform.image.alt} />
+                  <Image src={platform.image.url} alt={platform.image.alt} />
                 </A>
               ))}
             </div>
