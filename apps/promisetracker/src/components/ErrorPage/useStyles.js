@@ -15,9 +15,12 @@ const useStyles = makeStyles(
         width: typography.pxToRem(widths.values.lg),
       },
     },
-    sectionTitle: {},
     articles: {
       background: palette.background.default,
+      padding: `${typography.pxToRem(24)} 0 ${typography.pxToRem(52)}`,
+      [breakpoints.up("lg")]: {
+        padding: `${typography.pxToRem(80)} 0`,
+      },
     },
     description: {
       marginTop: typography.pxToRem(52),
@@ -26,7 +29,10 @@ const useStyles = makeStyles(
       },
     },
     grid: {
-      paddingBottom: typography.pxToRem(19),
+      padding: `${typography.pxToRem(28)} 0 ${typography.pxToRem(45)}`,
+      [breakpoints.up("lg")]: {
+        padding: `${typography.pxToRem(88)} 0`,
+      },
     },
     gridAside: {
       order: 0,
@@ -54,27 +60,32 @@ const useStyles = makeStyles(
         order: 0,
       },
     },
-    image: {
+    figure: {
       display: "flex",
+      height: typography.pxToRem(250),
       margin: `${typography.pxToRem(34)} auto 0 auto`,
-      minWidth: typography.pxToRem(314),
+      position: "relative",
       width: typography.pxToRem(314),
       [breakpoints.up("lg")]: {
+        height: typography.pxToRem(350),
         margin: `${typography.pxToRem(28)} 0 0 0`,
-        maxWidth: typography.pxToRem(440),
-        minWidth: typography.pxToRem(440),
+        width: typography.pxToRem(440),
       },
     },
-    latestArticles: {
-      marginTop: typography.pxToRem(34),
-      [breakpoints.up("lg")]: {
-        marginTop: typography.pxToRem(60),
-      },
+    image: {
+      objectFit: "contain",
     },
     title: {
       marginTop: typography.pxToRem(38),
       [breakpoints.up("lg")]: {
         marginTop: typography.pxToRem(60),
+      },
+    },
+    latestArticlesTitle: {
+      margin: 0,
+      marginBottom: typography.pxToRem(24),
+      [breakpoints.up("lg")]: {
+        margin: 0,
       },
     },
   })
