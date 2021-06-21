@@ -1,5 +1,6 @@
 import { A, RichTypography } from "@commons-ui/core";
 import { Grid } from "@material-ui/core";
+import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -25,11 +26,14 @@ function Partners({ items, ...props }) {
           className={classes.partner}
         >
           <Grid item xs={12} container justify="center">
-            <img
-              src={partner.image}
-              alt={partner.name}
-              className={classes.partnerLogo}
-            />
+            <figure className={classes.partnerFigure}>
+              <Image
+                src={partner.image}
+                layout="fill"
+                alt={partner.name}
+                className={classes.partnerLogo}
+              />
+            </figure>
           </Grid>
           <Grid item xs={12}>
             <RichTypography variant="h4" className={classes.partnerName}>

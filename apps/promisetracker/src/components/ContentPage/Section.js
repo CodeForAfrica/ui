@@ -23,7 +23,6 @@ function ContentSection({
   return (
     <Section
       {...props}
-      // title={title}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
       <Grid container justify="space-between" className={classes.grid}>

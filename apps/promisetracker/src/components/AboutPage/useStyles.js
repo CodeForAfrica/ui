@@ -30,15 +30,15 @@ const useStyles = makeStyles(
       display: "none",
       [breakpoints.up("lg")]: {
         display: "flex",
-        marginTop: typography.pxToRem(0),
-        maxWidth: typography.pxToRem(526),
-        minWidth: typography.pxToRem(526),
+        height: typography.pxToRem(550),
+        margin: 0,
         opacity: 0.2,
-        position: "absolute",
-        right: 0,
-        top: 0,
+        position: "relative",
         width: typography.pxToRem(526),
       },
+    },
+    contentSectionAsideBackgroundImage: {
+      objectFit: "contain",
     },
     criteria: {},
     criteriaItems: {
@@ -55,15 +55,18 @@ const useStyles = makeStyles(
     },
     gridAside: {},
     gridContent: {},
-    featuredImage: {
-      minWidth: typography.pxToRem(314),
+    featuredFigure: {
+      height: typography.pxToRem(250),
+      margin: 0,
+      position: "relative",
       width: typography.pxToRem(314),
       [breakpoints.up("lg")]: {
-        marginTop: typography.pxToRem(0),
-        maxWidth: typography.pxToRem(440),
-        minWidth: typography.pxToRem(440),
+        height: typography.pxToRem(350),
         width: typography.pxToRem(440),
       },
+    },
+    featuredImage: {
+      objectFit: "contain",
     },
     footer: {},
     partner: {
@@ -72,19 +75,16 @@ const useStyles = makeStyles(
         paddingTop: 0,
       },
     },
+    partnerFigure: {
+      height: typography.pxToRem(120),
+      margin: 0,
+      position: "relative",
+      width: typography.pxToRem(260),
+    },
     partnerLogo: {
-      height: typography.pxToRem(72),
-      minHeight: typography.pxToRem(72),
-      maxHeight: typography.pxToRem(72),
-      [breakpoints.up("lg")]: {
-        height: typography.pxToRem(120),
-        minHeight: typography.pxToRem(120),
-        maxHeight: typography.pxToRem(120),
-      },
+      objectFit: "contain",
     },
-    partnerName: {
-      marginTop: typography.pxToRem(18),
-    },
+    partnerName: {},
     partnerDescription: {
       marginTop: typography.pxToRem(36),
     },
