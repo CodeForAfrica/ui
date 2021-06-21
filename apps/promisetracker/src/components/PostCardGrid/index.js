@@ -19,7 +19,7 @@ function PostCardGrid({ children, component, items, title, ...props }) {
   return (
     <Section
       title={title}
-      titleProps={{ component: H1 }}
+      titleProps={{ component: H1, variant: "h1" }}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
       {children}
