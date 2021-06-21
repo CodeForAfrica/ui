@@ -166,11 +166,14 @@ function Form({ promise_act_now: promiseActNow, ...props }) {
           <div>
             {images.map((image) => {
               return (
+                // next/image doesn't support blob URL
+                // see: https://github.com/vercel/next.js/pull/23622
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  alt=""
-                  className={classes.imageThumbnail}
                   key={image}
                   src={image}
+                  alt=""
+                  className={classes.imageThumbnail}
                 />
               );
             })}
