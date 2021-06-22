@@ -6,24 +6,26 @@
 
 ## Installation
 
-PromiseTracker is a SSR rendered [Next](https://nextjs.org/) web app deployable to [Zeit](https://zeit.co). See [package.json](./package.json) for the full list of dependencies and build & deploy scripts.
+PromiseTracker is a SSG [Next](https://nextjs.org/) web app deployable to [Vercel](https://vercel.com). See [package.json](./package.json) for the full list of dependencies and build & deploy scripts.
+
+### Local Development
+
+### Environment Variables & Setup
 
 Run the following to get started locally:
 
-#### Development Env
-
 ```sh
   cp .env.template .env
-  # Edit the .env file with your Check Access Token
+  # Edit the .env file
   yarn
   yarn dev
 ```
 
-**Note:** Reach out to your team lead for directions on how to receive the `CHECK_ACCESS_TOKEN`
+**Note:** Reach out to the project champion for directions on how to receive the [Check](https://checkmedia.org) and [Sentry](https://sentry.io) tokens
 
-#### Working with CommonsUI Locally
+#### Working with COMMONS UI
 
-[CommonsUI](https://github.com/CodeForAfrica/COMMONS-UI) is a library, developed and maintained by CfA, that packages React components used to develop various UIs.
+[COMMONS UI](https://github.com/CodeForAfrica/COMMONS-UI) is a library, developed and maintained by CfA, that packages React components used to develop various UIs.
 
 To build and run the project with COMMONS-UI submodule locally, run:
 
@@ -46,7 +48,7 @@ To remove COMMONS-UI, run:
 
 ## Attribution
 
-PromiseTracker is modelled on [Rouhani Meter](https://rouhanimeter.com) and made possible thank you to the generous support of DW Akademie and Meedan. Built by the Code for Africa Tech team and content courtesy of PesaCheck and ANCIR's iLab teams.
+PromiseTracker is modelled on [Rouhani Meter](https://rouhanimeter.com) and made possible thans to the generous support of DW Akademie and Meedan. Built by the Code for Africa Tech team and content courtesy of PesaCheck and ANCIR's iLab teams.
 
 ## Contributing
 
