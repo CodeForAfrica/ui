@@ -31,6 +31,9 @@ const theme = createTheme({
       behindSchedule: "#FFB322",
       stalled: "#FF5255",
     },
+    google: {
+      main: "#4285F4",
+    },
   },
   typography: {
     fontFamily: FONT_FAMILY_TEXT_SECONDARY,
