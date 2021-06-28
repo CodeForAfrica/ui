@@ -1,132 +1,26 @@
-import { RichTypography } from "@commons-ui/core";
-import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
+import { useSession } from "next-auth/client";
 import React from "react";
 
-import actNowImg from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
-import ContentPage from "@/promisetracker/components/ContentPage";
-import PickPromise from "@/promisetracker/components/PickPromise";
+import ActNowPage from "@/promisetracker/components/ActNowPage";
+import ActNowLoggedInPage from "@/promisetracker/components/ActNowPage/LoggedIn";
 import check from "@/promisetracker/lib/check";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
-const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
-  section: {
-    padding: `0 ${typography.pxToRem(23)}`,
-    margin: 0,
-    width: "100%",
-    [breakpoints.up("lg")]: {
-      padding: 0,
-      margin: "0 auto",
-      width: typography.pxToRem(widths.values.lg),
-      position: "relative",
-    },
-  },
-  image: {
-    maxWidth: typography.pxToRem(314),
-    minWidth: typography.pxToRem(314),
-    objectFit: "cover",
-    [breakpoints.up("lg")]: {
-      maxWidth: typography.pxToRem(484),
-      minWidth: typography.pxToRem(484),
-      position: "absolute",
-      top: 0,
-    },
-  },
-  imageContainer: {
-    [breakpoints.down("sm")]: {
-      display: "flex",
-      justifyContent: "center",
-    },
-  },
-  footer: {
-    marginTop: 0,
-  },
-  description: {
-    paddingBottom: typography.pxToRem(50),
-    [breakpoints.up("lg")]: {
-      paddingBottom: typography.pxToRem(100),
-    },
-  },
-  title: {
-    padding: 0,
-    textAlign: "left",
-    fontWeight: "bold",
-  },
-  titleRoot: {
-    "&::after": {
-      content: "''",
-      display: "block",
-      height: "0.2em",
-      width: "12%",
-      borderBottom: "solid 5px",
-      marginBottom: typography.pxToRem(20),
-    },
-  },
-}));
+function ActNow(props) {
+  const [session, loading] = useSession();
 
-function ActNow({
-  promises,
-  footer,
-  title,
-  navigation,
-  description,
-  ...props
-}) {
-  const classes = useStyles(props);
+  // When rendering client side don't display anything until loading is complete
+  if (typeof window !== "undefined" && loading) return null;
 
-  return (
-    <ContentPage
-      {...props}
-      footer={footer}
-      navigation={navigation}
-      title={title}
-      classes={{
-        section: classes.section,
-        footer: classes.footer,
-      }}
-      aside={
-        <Grid container classes={{ root: classes.imageContainer }}>
-          <img src={actNowImg} alt="Act Now" className={classes.image} />
-        </Grid>
-      }
-      content={
-        description?.length ? (
-          <>
-            <RichTypography className={classes.description}>
-              {description}
-            </RichTypography>
-          </>
-        ) : null
-      }
-    >
-      <PickPromise
-        promises={promises}
-        {...props}
-        classes={{ section: classes.section }}
-      />
-    </ContentPage>
-  );
+  // If no session exists, display access denied message
+  if (!session) {
+    return <ActNowPage {...props} />;
+  }
+
+  // If session exists, display content
+  return <ActNowLoggedInPage {...props} />;
 }
-
-ActNow.propTypes = {
-  actNow: PropTypes.shape({}),
-  description: PropTypes.string,
-  title: PropTypes.string,
-  promises: PropTypes.arrayOf(PropTypes.shape({})),
-  footer: PropTypes.shape({}),
-  navigation: PropTypes.shape({}),
-};
-
-ActNow.defaultProps = {
-  actNow: null,
-  description: null,
-  promises: null,
-  footer: null,
-  navigation: null,
-  title: null,
-};
 
 export async function getStaticProps({ locale }) {
   const _ = i18n();
