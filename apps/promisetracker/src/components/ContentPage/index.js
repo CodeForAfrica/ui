@@ -23,6 +23,7 @@ function ContentPage({
   contentProps,
   footer,
   navigation,
+  showTitle,
   slug,
   title,
   ...props
@@ -47,7 +48,7 @@ function ContentPage({
         asideProps={asideProps}
         content={content}
         contentProps={contentProps}
-        title={title}
+        title={showTitle ? title : undefined}
         titleProps={{ component: H1 }}
         classes={{
           section: classes.section,
@@ -71,6 +72,7 @@ ContentPage.propTypes = {
   contentProps: PropTypes.shape({}),
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
+  showTitle: PropTypes.bool,
   slug: PropTypes.string,
   title: PropTypes.string,
 };
@@ -83,6 +85,7 @@ ContentPage.defaultProps = {
   contentProps: undefined,
   footer: undefined,
   navigation: undefined,
+  showTitle: true,
   slug: undefined,
   title: undefined,
 };
