@@ -1,3 +1,5 @@
+import { pickBy } from "lodash";
+
 import createApolloClient from "./createApolloClient";
 
 import defaultPromiseImage from "@/promisetracker/assets/promise-default.png";
@@ -304,7 +306,11 @@ function check({ team = undefined, promiseStatuses = [], initialState = {} }) {
     },
     projectMeta: async () => {
       await setUpQuestions();
-      return client.query({ query: GET_PROJECT_META }).then(handleMeta);
+      const meta = await client
+        .query({ query: GET_PROJECT_META })
+        .then(handleMeta);
+      // Return defined props only
+      return pickBy(meta);
     },
     promise: async (variables) => {
       await setUpQuestions();
