@@ -1,5 +1,6 @@
 import { CssBaseline } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
+import { Provider } from "next-auth/client";
 import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
@@ -25,16 +26,20 @@ export default function MyApp(props) {
   return (
     <>
       <DefaultSeo {...SEO} />
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Provider session={pageProps.session}>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Provider>
     </>
   );
 }
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.shape({}).isRequired,
+  pageProps: PropTypes.shape({
+    session: PropTypes.shape({}),
+  }).isRequired,
 };
