@@ -32,7 +32,7 @@ export async function getStaticProps({ locale }) {
 
   const page = await wp().pages({ slug: "act-now", locale }).first;
 
-  const { promiseStatuses } = page;
+  const { actNow = {}, promiseStatuses } = page;
   const checkApi = check({
     promiseStatuses,
     team: "pesacheck-promise-tracker",
@@ -44,10 +44,12 @@ export async function getStaticProps({ locale }) {
     limit: 10000,
     query: `{ "projects": ["2831"] }`,
   });
+  actNow.url = process.env.ACTNOW_URL ?? null;
 
   return {
     props: {
       ...page,
+      actNow,
       promises,
       languageAlternates,
     },
