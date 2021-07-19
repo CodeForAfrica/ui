@@ -13,12 +13,12 @@ function ActNow(props) {
   // When rendering client side don't display anything until loading is complete
   if (typeof window !== "undefined" && loading) return null;
 
-  // If no session exists, display access denied message
+  // If no session exists, show default landing page
   if (!session) {
     return <ActNowPage {...props} />;
   }
 
-  // If session exists, display content
+  // If session exists, display logged in page
   return <ActNowLoggedInPage {...props} />;
 }
 
