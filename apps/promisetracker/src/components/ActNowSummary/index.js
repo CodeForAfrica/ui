@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function ActNowMetrics({ className, ...props }) {
+function ActNowSummary({ className, ...props }) {
   const classes = useStyles(props);
   const [registeredAccountsCount, setRegisteredAccountsCount] = useState(0);
   const [petitionsCount, setPetitionsCount] = useState(0);
@@ -43,12 +43,12 @@ function ActNowMetrics({ className, ...props }) {
   );
 }
 
-ActNowMetrics.propTypes = {
+ActNowSummary.propTypes = {
   className: PropTypes.string,
 };
 
-ActNowMetrics.defaultProps = {
+ActNowSummary.defaultProps = {
   className: undefined,
 };
 
-export default ActNowMetrics;
+export default ActNowSummary;
