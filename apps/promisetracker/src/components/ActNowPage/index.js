@@ -12,10 +12,10 @@ import actNowLogo from "@/promisetracker/assets/Component 121 – 1@2x.png";
 import actNowImg from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
 import ContentPage from "@/promisetracker/components/ContentPage";
 import ContentSection from "@/promisetracker/components/ContentPage/Section";
-import IndividualRegistrationDialog from "@/promisetracker/components/IndividualRegistrationDialog";
+import RegistrationDialog from "@/promisetracker/components/RegistrationDialog";
 
 const individualRegistrationDialogArgs = {
-  title: "Individual registration form",
+  title: "Register an Individual",
   fields: {
     agree: {
       label: "Agree to our terms and conditions",
@@ -152,12 +152,17 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
           />
         </div>
       </ContentPage>
-      <IndividualRegistrationDialog
+      <RegistrationDialog
         {...individualRegistrationDialogArgs}
+        title="REGISTER"
+        description="Create an account here"
         key={open}
         open={open}
         onClose={handleClose}
-        submitUrl={submitUrl}
+        individualRegistrationDialogProps={{
+          ...individualRegistrationDialogArgs,
+          submitUrl,
+        }}
       />
     </>
   );

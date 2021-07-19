@@ -7,7 +7,7 @@ import {
 } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React from "react";
 
 import useStyles from "./useStyles";
 
@@ -17,19 +17,16 @@ function IndividualRegistrationDialog({
   name: nameProp,
   onClose,
   onSubmit,
-  open: openProp,
+  open,
   title,
   ...props
 }) {
   const classes = useStyles(props);
-  const [open, setOpen] = useState(openProp);
   const name = nameProp || "individual-registration-dialog";
 
   const handleClose = () => {
     if (onClose) {
       onClose();
-    } else {
-      setOpen(false);
     }
   };
 
@@ -65,10 +62,10 @@ function IndividualRegistrationDialog({
           aria-label="close"
           onClick={handleClose}
         >
-          <CloseIcon classes={{ root: classes.iconRoot }} />
+          <CloseIcon className={classes.iconRoot} />
         </IconButton>
       </DialogTitle>
-      <DialogContent classes={{ root: classes.content }}>
+      <DialogContent className={classes.content}>
         <Form {...props} onSubmit={handleSubmit} />
       </DialogContent>
     </Dialog>
