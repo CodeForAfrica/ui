@@ -10,9 +10,11 @@ import useStyles from "./useStyles";
 
 import actNowLogo from "@/promisetracker/assets/Component 121 – 1@2x.png";
 import actNowImg from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
+import ActNowSummary from "@/promisetracker/components/ActNowSummary/index";
 import ContentPage from "@/promisetracker/components/ContentPage";
 import ContentSection from "@/promisetracker/components/ContentPage/Section";
 import RegistrationDialog from "@/promisetracker/components/RegistrationDialog";
+import SuggestPromise from "@/promisetracker/components/SuggestPromise/index";
 
 const individualRegistrationDialogArgs = {
   title: "Register an Individual",
@@ -111,7 +113,7 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
       >
         <div className={classes.contentSection}>
           <ContentSection
-            contentProps={{ lg: 9, title: null }}
+            contentProps={{ lg: 7, title: null }}
             aside={
               <Grid container classes={{ root: classes.imageContainer }}>
                 <Grid item xs={12}>
@@ -141,6 +143,18 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
                   </Button>
                 </Grid>
               </Grid>
+            }
+            content={
+              <>
+                <Grid container spacing={5}>
+                  <Grid item xs={12}>
+                    <ActNowSummary />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <SuggestPromise />
+                  </Grid>
+                </Grid>
+              </>
             }
             asideProps={{ lg: 3 }}
             classes={{
