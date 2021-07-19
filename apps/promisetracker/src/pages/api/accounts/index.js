@@ -16,9 +16,28 @@ async function registerNewUser(req, res) {
   }
 }
 
+async function getSummary(req, res) {
+  try {
+    const headers = new Headers({
+      "Content-Type": "application/json",
+      Authorization: `Token ${process.env.ACTNOW_API_KEY}`,
+    });
+    const response = await fetch(`${process.env.ACTNOW_URL}/`, {
+      method: "GET",
+      headers,
+    });
+    return res.status(response.status).json(response.body);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+}
+
 async function handleAccounts(req, res) {
   if (req.method === "POST") {
     return registerNewUser(req, res);
+  }
+  if (req.method === "GET") {
+    return getSummary(req, res);
   }
   return res.status(403).json();
 }
