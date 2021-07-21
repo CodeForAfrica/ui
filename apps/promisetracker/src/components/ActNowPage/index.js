@@ -148,7 +148,7 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
               <>
                 <Grid container spacing={5}>
                   <Grid item xs={12}>
-                    <ActNowSummary />
+                    <ActNowSummary actNow={actNow} />
                   </Grid>
                   <Grid item xs={12}>
                     <SuggestPromise />
