@@ -54,6 +54,7 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
   const classes = useStyles(props);
   const [open, setOpen] = useState(false);
   const submitUrl = actNow?.url;
+  const summary = actNow?.summary;
 
   const handleRegister = () => {
     setOpen(true);
@@ -148,7 +149,7 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
               <>
                 <Grid container spacing={5}>
                   <Grid item xs={12}>
-                    <ActNowSummary actNow={actNow} />
+                    <ActNowSummary summary={summary} />
                   </Grid>
                   <Grid item xs={12}>
                     <SuggestPromise />
@@ -185,6 +186,7 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
 ActNow.propTypes = {
   actNow: PropTypes.shape({
     url: PropTypes.string,
+    summary: PropTypes.shape({}),
   }),
   description: PropTypes.string,
   title: PropTypes.string,

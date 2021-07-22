@@ -17,8 +17,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function ActNowSummary({ className, actNow, ...props }) {
-  const { summary } = actNow;
+function ActNowSummary({ className, summary, ...props }) {
   const classes = useStyles(props);
   return (
     <Grid container className={classes.root}>
@@ -46,12 +45,12 @@ function ActNowSummary({ className, actNow, ...props }) {
 
 ActNowSummary.propTypes = {
   className: PropTypes.string,
-  actNow: PropTypes.shape,
+  summary: PropTypes.shape,
 };
 
 ActNowSummary.defaultProps = {
   className: undefined,
-  actNow: undefined,
+  summary: undefined,
 };
 
 export default ActNowSummary;
