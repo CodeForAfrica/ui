@@ -6,13 +6,14 @@ import React from "react";
 const useStyles = makeStyles(() => ({
   root: {
     display: "flex",
-    textAlign: "left",
     backgroundColor: "#F7F7F7",
     padding: "1rem",
+    justifyContent: "space-around",
+    alignItems: "flex-end",
   },
   count: {
     fontSize: "1.2rem",
-    fontWeight: 600,
+    fontWeight: 700,
   },
 }));
 
@@ -26,15 +27,17 @@ function ActNowSummary({ className, actNow, ...props }) {
           {summary.accounts.count}
         </Typography>
       </Grid>
-      <Grid item xs={3}>
-        <Typography variant="body2">REGISTERED CITIZENS</Typography>
+      <Grid item xs={4}>
+        <Typography variant="body2" noWrap>
+          REGISTERED CITIZENS
+        </Typography>
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={1} noWrap>
         <Typography variant="h4" className={classes.count}>
           {summary.petitions.count}
         </Typography>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={5}>
         <Typography variant="body2">PETITIONS</Typography>
       </Grid>
     </Grid>
