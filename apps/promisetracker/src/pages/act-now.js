@@ -57,7 +57,7 @@ export async function getStaticProps({ locale }) {
     }).then(async (response) => response.json());
     actNow.summary = actnowSummary.summary;
   } catch (error) {
-    actNow.summary = error;
+    return { notFound: true };
   }
 
   return {
