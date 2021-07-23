@@ -54,7 +54,7 @@ export async function getStaticProps({ locale }) {
     method: "GET",
     headers,
   }).then(async (response) => response.json());
-  actNow.summary = actnowSummary.summary;
+  actNow.summary = actnowSummary?.summary;
 
   return {
     props: {

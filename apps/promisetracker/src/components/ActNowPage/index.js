@@ -114,7 +114,7 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
       >
         <div className={classes.contentSection}>
           <ContentSection
-            contentProps={{ lg: 7, title: null }}
+            contentProps={{ lg: 8, title: null }}
             aside={
               <Grid container classes={{ root: classes.imageContainer }}>
                 <Grid item xs={12}>
@@ -146,16 +146,14 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
               </Grid>
             }
             content={
-              <>
-                <Grid container spacing={5}>
-                  <Grid item xs={12}>
-                    <ActNowSummary summary={summary} />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <SuggestPromise />
-                  </Grid>
+              <Grid container>
+                <Grid item xs={12} className={classes.actNowSummary}>
+                  <ActNowSummary summary={summary} />
                 </Grid>
-              </>
+                <Grid item xs={12}>
+                  <SuggestPromise />
+                </Grid>
+              </Grid>
             }
             asideProps={{ lg: 3 }}
             classes={{

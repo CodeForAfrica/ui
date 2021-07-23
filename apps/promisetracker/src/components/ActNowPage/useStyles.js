@@ -170,6 +170,9 @@ const useStyles = makeStyles(
       },
     },
     accountLogout: {},
+    actNowSummary: {
+      paddingBottom: typography.pxToRem(43),
+    },
   })
 );
 

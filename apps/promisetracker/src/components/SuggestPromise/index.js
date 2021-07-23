@@ -1,11 +1,10 @@
 import { RichTypography } from "@commons-ui/core";
 import { Button, Grid } from "@material-ui/core";
-import PropTypes from "prop-types";
 import React from "react";
 
 import useStyles from "./useStyles";
 
-function SuggestPromise({ className, ...props }) {
+function SuggestPromise({ ...props }) {
   const classes = useStyles(props);
 
   return (
@@ -22,12 +21,8 @@ function SuggestPromise({ className, ...props }) {
   );
 }
 
-SuggestPromise.propTypes = {
-  className: PropTypes.string,
-};
+SuggestPromise.propTypes = {};
 
-SuggestPromise.defaultProps = {
-  className: undefined,
-};
+SuggestPromise.defaultProps = {};
 
 export default SuggestPromise;
