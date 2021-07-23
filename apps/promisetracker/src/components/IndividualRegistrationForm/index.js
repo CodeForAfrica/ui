@@ -59,40 +59,40 @@ function IndividualRegistrationForm({
           phoneNumber,
           socialMedia,
         },
-        { setSubmitting }
+        { setErrors, setSubmitting }
       ) => {
         const body = {
-          firstName,
-          lastName,
+          first_name: firstName,
+          last_name: lastName,
           email,
           password,
           bio,
           location,
-          phoneNumber,
-          socialMedia,
+          phone_number: phoneNumber,
+          social_media_link: socialMedia,
         };
         if (submitUrl) {
           try {
             const headers = new Headers({
               "Content-Type": "application/json",
             });
-            const response = await fetch(`/v1/accounts`, {
+            const response = await fetch(`/api/accounts`, {
               method: "POST",
               headers,
               body: JSON.stringify(body),
             });
-            const { status: responseStatus, statusText } =
-              await response.json();
-            if (responseStatus.OK) {
-              setStatus({ children: statusText });
+            const responseJson = await response.json();
+            if (response.status === 201) {
+              setStatus({ children: undefined });
               if (onSubmit) {
                 onSubmit();
               }
             } else {
-              throw new Error(statusText);
+              setErrors(responseJson);
+              setStatus({ error: true, children: "Error" });
             }
-          } catch ({ message: errorMessage = defaultErrorMessage }) {
-            setStatus({ error: true, children: errorMessage });
+          } catch (e) {
+            setStatus({ error: true, children: "Error" });
           } finally {
             setSubmitting(false);
           }
