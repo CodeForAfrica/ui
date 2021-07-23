@@ -4,12 +4,13 @@ async function registerNewUser(req, res) {
       "Content-Type": "application/json",
       Authorization: `Token ${process.env.ACTNOW_API_KEY}`,
     });
-    const response = await fetch(`${process.env.ACTNOW_URL}/accounts/`, {
+    const response = await fetch(`${process.env.ACTNOW_URL}/v1/accounts/`, {
       method: "POST",
       headers,
       body: JSON.stringify(req.body),
     });
-    return res.status(response.status).json(response);
+    const json = await response.json();
+    return res.status(response.status).json(json);
   } catch (error) {
     return res.status(500).json(error);
   }
