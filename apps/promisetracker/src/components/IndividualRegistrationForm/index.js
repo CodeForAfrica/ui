@@ -76,7 +76,7 @@ function IndividualRegistrationForm({
             const headers = new Headers({
               "Content-Type": "application/json",
             });
-            const response = await fetch(`/api/accounts`, {
+            const response = await fetch(`/v1/accounts`, {
               method: "POST",
               headers,
               body: JSON.stringify(body),
