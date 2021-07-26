@@ -250,6 +250,10 @@ const config = {
         href: "/analysis/articles",
       },
       {
+        name: "Petitions",
+        href: "/analysis/petitions",
+      },
+      {
         name: "Resources",
         href: "/analysis/resources",
       },
@@ -303,6 +307,17 @@ const config = {
       },
     },
   },
+  petitions: [
+    {
+      id: 1,
+      status: "closed",
+      title: "Codification of national sports and athletics law",
+      supporters: "145 Supporters",
+      author: "Author name",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies suspendisse dictumst eros convallis dapibus, nisi facilisis torquent vel himenaeos ad leo diam tortor posuere neque.",
+    },
+  ],
 };
 
 export default config;
