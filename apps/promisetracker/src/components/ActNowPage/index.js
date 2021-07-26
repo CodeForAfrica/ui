@@ -146,7 +146,7 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
               </Grid>
             }
             content={
-              <Grid container>
+              <Grid container className={classes.summaryDetails}>
                 <Grid item xs={12} className={classes.actNowSummary}>
                   <ActNowSummary summary={summary} />
                 </Grid>
