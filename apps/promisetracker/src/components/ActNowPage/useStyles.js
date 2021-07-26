@@ -173,11 +173,6 @@ const useStyles = makeStyles(
     actNowSummary: {
       paddingBottom: typography.pxToRem(43),
     },
-    summaryDetails: {
-      [breakpoints.down("xs")]: {
-        display: "none",
-      },
-    },
   })
 );
 

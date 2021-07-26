@@ -1,5 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid, Hidden } from "@material-ui/core";
 import clsx from "clsx";
 import { signIn } from "next-auth/client";
 import Image from "next/image";
@@ -146,20 +146,22 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
               </Grid>
             }
             content={
-              <Grid container className={classes.summaryDetails}>
-                <Grid item xs={12} className={classes.actNowSummary}>
-                  <ActNowSummary
-                    summary={summary}
-                    titles={{
-                      citizens: "REGISTERED CITIZENS",
-                      petitions: "PETITIONS",
-                    }}
-                  />
+              <Hidden smDown implementation="css">
+                <Grid container>
+                  <Grid item xs={12} className={classes.actNowSummary}>
+                    <ActNowSummary
+                      summary={summary}
+                      titles={{
+                        citizens: "REGISTERED CITIZENS",
+                        petitions: "PETITIONS",
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <SuggestPromise />
+                  </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                  <SuggestPromise />
-                </Grid>
-              </Grid>
+              </Hidden>
             }
             asideProps={{ lg: 3 }}
             classes={{
