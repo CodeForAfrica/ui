@@ -158,7 +158,10 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
                     />
                   </Grid>
                   <Grid item xs={12}>
-                    <SuggestPromise />
+                    <SuggestPromise
+                      description="Know of a promise we should investigate? Tell us about it."
+                      label="Suggest A Promise"
+                    />
                   </Grid>
                 </Grid>
               </Hidden>
