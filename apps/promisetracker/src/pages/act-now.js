@@ -50,7 +50,7 @@ export async function getStaticProps({ locale }) {
     "Content-Type": "application/json",
     Authorization: `Token ${process.env.ACTNOW_API_KEY}`,
   });
-  const actnowSummary = await fetch(`${actNow.url}/`, {
+  const actnowSummary = await fetch(`${actNow.url}/v1/`, {
     method: "GET",
     headers,
   }).then(async (response) => response.json());
