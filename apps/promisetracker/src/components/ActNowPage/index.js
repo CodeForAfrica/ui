@@ -148,7 +148,13 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
             content={
               <Grid container className={classes.summaryDetails}>
                 <Grid item xs={12} className={classes.actNowSummary}>
-                  <ActNowSummary summary={summary} />
+                  <ActNowSummary
+                    summary={summary}
+                    titles={{
+                      citizens: "REGISTERED CITIZENS",
+                      petitions: "PETITIONS",
+                    }}
+                  />
                 </Grid>
                 <Grid item xs={12}>
                   <SuggestPromise />
