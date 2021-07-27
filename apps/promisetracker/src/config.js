@@ -317,6 +317,60 @@ const config = {
       description:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies suspendisse dictumst eros convallis dapibus, nisi facilisis torquent vel himenaeos ad leo diam tortor posuere neque.",
     },
+    {
+      id: 2,
+      status: "closed",
+      title: "Codification of national sports and athletics law",
+      supporters: "145 Supporters",
+      author: "Author name",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies suspendisse dictumst eros convallis dapibus, nisi facilisis torquent vel himenaeos ad leo diam tortor posuere neque.",
+    },
+    {
+      id: 3,
+      status: "closed",
+      title: "Codification of national sports and athletics law",
+      supporters: "145 Supporters",
+      author: "Author name",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies suspendisse dictumst eros convallis dapibus, nisi facilisis torquent vel himenaeos ad leo diam tortor posuere neque.",
+    },
+    {
+      id: 4,
+      status: "closed",
+      title: "Codification of national sports and athletics law",
+      supporters: "145 Supporters",
+      author: "Author name",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies suspendisse dictumst eros convallis dapibus, nisi facilisis torquent vel himenaeos ad leo diam tortor posuere neque.",
+    },
+    {
+      id: 5,
+      status: "closed",
+      title: "Codification of national sports and athletics law",
+      supporters: "145 Supporters",
+      author: "Author name",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies suspendisse dictumst eros convallis dapibus, nisi facilisis torquent vel himenaeos ad leo diam tortor posuere neque.",
+    },
+    {
+      id: 6,
+      status: "closed",
+      title: "Codification of national sports and athletics law",
+      supporters: "145 Supporters",
+      author: "Author name",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies suspendisse dictumst eros convallis dapibus, nisi facilisis torquent vel himenaeos ad leo diam tortor posuere neque.",
+    },
+    {
+      id: 7,
+      status: "closed",
+      title: "Codification of national sports and athletics law",
+      supporters: "145 Supporters",
+      author: "Author name",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies suspendisse dictumst eros convallis dapibus, nisi facilisis torquent vel himenaeos ad leo diam tortor posuere neque.",
+    },
   ],
 };
 
