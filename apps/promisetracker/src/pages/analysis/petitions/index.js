@@ -7,7 +7,7 @@ import ActNow from "@/promisetracker/components/ActNow";
 import ContentSection from "@/promisetracker/components/ContentPage/Section";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
-import PetitionCard from "@/promisetracker/components/PetitionCard";
+import Petitions from "@/promisetracker/components/Petitions";
 import config from "@/promisetracker/config";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
@@ -23,7 +23,20 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       width: typography.pxToRem(widths.values.lg),
     },
   },
-  sectionTitle: {},
+  sectionTitle: {
+    marginBottom: typography.pxToRem(70),
+    marginTop: typography.pxToRem(28),
+    [breakpoints.up("lg")]: {
+      marginBottom: typography.pxToRem(53),
+      marginTop: typography.pxToRem(50),
+    },
+  },
+  contentSection: {
+    margin: 0,
+  },
+  petitionCard: {
+    marginBottom: typography.pxToRem(20),
+  },
   actNow: {},
   footer: {
     marginTop: 0,
@@ -53,11 +66,14 @@ function Index({
       classes={{ section: classes.section, footer: classes.footer }}
     >
       <ContentSection
-        content={petitions?.map((petition) => (
-          <PetitionCard key={petition.id} {...petition} />
-        ))}
+        content={<Petitions items={petitions} />}
         contentProps={{ lg: 8 }}
         title={title}
+        classes={{
+          section: classes.section,
+          sectionTitle: classes.sectionTitle,
+          grid: classes.contentSection,
+        }}
       />
       <Grid container direction={direction}>
         <Grid item>
