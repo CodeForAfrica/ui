@@ -1,5 +1,6 @@
 import { Chip } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -28,19 +29,21 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   },
 }));
 
-function Status({ title, ...props }) {
+function Status({ className, title, ...props }) {
   const classes = useStyles(props);
 
-  return <Chip label={title} classes={{ root: classes.root }} />;
+  return <Chip label={title} className={clsx(classes.root, className)} />;
 }
 
 Status.propTypes = {
+  className: PropTypes.string,
   color: PropTypes.string,
   textColor: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
 
 Status.defaultProps = {
+  className: undefined,
   color: undefined,
   textColor: undefined,
 };
