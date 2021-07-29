@@ -29,6 +29,7 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
     },
   },
   supporters: {
+    display: "flex",
     fontSize: typography.pxToRem(10),
     fontWeight: "bold",
     marginTop: typography.pxToRem(20),
@@ -73,14 +74,14 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
 }));
 
 function PostCard({
-  author,
+  as,
   children,
   classes: classesProp,
-  as,
   description,
-  title,
+  owner,
+  signatures,
   status,
-  supporters,
+  title,
   ...props
 }) {
   const classes = useStyles({ classes: classesProp });
@@ -102,12 +103,12 @@ function PostCard({
           <Grid container justify="flex-start">
             <Grid item>
               <RichTypography variant="caption" className={classes.supporters}>
-                {supporters}
+                {signatures?.length} Supporters
               </RichTypography>
             </Grid>
             <Grid item>
               <RichTypography variant="caption" className={classes.author}>
-                {author}
+                {owner.username}
               </RichTypography>
             </Grid>
           </Grid>
@@ -132,7 +133,7 @@ function PostCard({
 }
 
 PostCard.propTypes = {
-  author: PropTypes.string,
+  as: PropTypes.string,
   children: PropTypes.node,
   classes: PropTypes.shape({
     author: PropTypes.string,
@@ -147,22 +148,24 @@ PostCard.propTypes = {
     title: PropTypes.string,
     titleContainer: PropTypes.string,
   }),
-  supporters: PropTypes.string,
   description: PropTypes.string,
-  title: PropTypes.string.isRequired,
   href: PropTypes.string,
-  as: PropTypes.string,
+  owner: PropTypes.shape({
+    username: PropTypes.string,
+  }),
+  signatures: PropTypes.string,
   status: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
 PostCard.defaultProps = {
-  author: undefined,
+  owner: undefined,
   children: undefined,
   classes: undefined,
   description: undefined,
   href: undefined,
   as: undefined,
-  supporters: undefined,
+  signatures: undefined,
   status: undefined,
 };
 
