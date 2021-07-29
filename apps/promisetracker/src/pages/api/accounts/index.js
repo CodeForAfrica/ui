@@ -1,16 +1,9 @@
+import actnow from "@/promisetracker/lib/actnow";
+
 async function registerNewUser(req, res) {
   try {
-    const headers = new Headers({
-      "Content-Type": "application/json",
-      Authorization: `Token ${process.env.ACTNOW_API_KEY}`,
-    });
-    const response = await fetch(`${process.env.ACTNOW_URL}/v1/accounts/`, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(req.body),
-    });
-    const json = await response.json();
-    return res.status(response.status).json(json);
+    const account = await actnow().accounts().create(req.body);
+    return res.status(201).json(account);
   } catch (error) {
     return res.status(500).json(error);
   }
