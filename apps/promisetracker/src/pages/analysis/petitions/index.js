@@ -8,7 +8,7 @@ import ContentSection from "@/promisetracker/components/ContentPage/Section";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
 import Petitions from "@/promisetracker/components/Petitions";
-import config from "@/promisetracker/config";
+import actnow from "@/promisetracker/lib/actnow";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -125,8 +125,8 @@ export async function getStaticProps({ locale }) {
   }
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "analysis-petitions", locale }).first;
-  const { petitions } = config;
   page.posts = null;
+  const petitions = await actnow().petitions().list;
   const languageAlternates = _.languageAlternates("/analysis/petitions");
 
   return {
