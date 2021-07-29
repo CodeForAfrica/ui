@@ -23,6 +23,7 @@ const config = {
   WP_DASHBOARD_URL: "https://dashboard.hurumap.org/promisetracker",
   FACT_CHECKS_URL: "https://pesacheck.org",
   FACT_CHECKS_TAG: "promise-tracker",
+  ACTNOW_URL: "https://actnow.dev.codeforafrica.org",
   title: "PromiseTracker",
   name: "Promise Tracker",
   URL: "https://promisetracker.dev.codeforafrica.org",
