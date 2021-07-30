@@ -8,6 +8,7 @@ import Page from "@/promisetracker/components/Page";
 import Promises from "@/promisetracker/components/Promises";
 import check from "@/promisetracker/lib/check";
 import i18n from "@/promisetracker/lib/i18n";
+import JsonpromiseSource from "@/promisetracker/lib/json_source";
 import wp from "@/promisetracker/lib/wp";
 import { slugify } from "@/promisetracker/utils";
 
@@ -112,12 +113,20 @@ export async function getStaticProps({ locale }) {
 
   const page = await wp().pages({ slug: "promises", locale }).first;
   const { promiseStatuses } = page;
-  const checkApi = check({
-    promiseStatuses,
-    team: "pesacheck-promise-tracker",
-  });
-  const projectMeta = await checkApi.projectMeta();
-  const promises = await checkApi.promises({
+  const promiseSourceLibs = {
+    Json: JsonpromiseSource(),
+    Check: check({
+      promiseStatuses,
+      team: "pesacheck-promise-tracker",
+    }),
+  };
+
+  const sourceLib = process.env.SOURCE_LIB || "Check";
+
+  const api = promiseSourceLibs[sourceLib];
+
+  const projectMeta = await api.projectMeta();
+  const promises = await api.promises({
     limit: 10000,
     query: `{ "projects": ["2831"] }`,
   });
