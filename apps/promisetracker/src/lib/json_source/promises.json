@@ -1,0 +1,22 @@
+{
+  "promises": [
+    {
+      "title": "Health",
+      "description": "By 2022 more than 13 million Kenyans will have health insurance through NHIF",
+      "status": { "title": "in progress" },
+      "content": "in content moto",
+      "date": "29/07/2021",
+      "image": "https://africacheck.org/sites/default/files/2018/05/Jubilee_party.jpg",
+      "tags": ["crime", "war"]
+    },
+    {
+      "title": "Build School",
+      "description": "Kampala, Uganda",
+      "status": { "title": "unstarted" },
+      "content": "in content moto",
+      "date": "29/07/2021",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Uhuru_Kenyatta.jpg",
+      "tags": ["crime", "war"]
+    }
+  ]
+}
