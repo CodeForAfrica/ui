@@ -19,7 +19,10 @@
           "tags": ["health", "war"],
           "title": "Build School",
           "slug": "Build-School",
-          "href": "/promises/2/Build-School"
+          "href": "/promises/2/Build-School",
+          "date": "29/07/2021",
+          "status": { "title": "unstarted" },
+          "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Uhuru_Kenyatta.jpg"
         }
       ],
       "dataset": {}
