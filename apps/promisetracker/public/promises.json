@@ -1,0 +1,44 @@
+{
+  "promises": [
+    {
+      "title": "Health",
+      "description": "By 2022 more than 13 million Kenyans will have health insurance through NHIF",
+      "status": { "title": "in progress" },
+      "content": "in content moto",
+      "date": "29/07/2021",
+      "image": "https://africacheck.org/sites/default/files/2018/05/Jubilee_party.jpg",
+      "tags": ["war", "health"],
+      "category": "health",
+      "slug": "health",
+      "href": "/promises/1/health",
+      "id": 1,
+      "statusHistory": [],
+      "relatedPromises": [
+        {
+          "id": 2,
+          "tags": ["health", "war"],
+          "title": "Build School",
+          "slug": "Build-School",
+          "href": "/promises/2/Build-School"
+        }
+      ],
+      "dataset": {}
+    },
+    {
+      "title": "Build School",
+      "description": "Build Schools in kajiado",
+      "status": { "title": "unstarted" },
+      "content": "in content moto",
+      "date": "29/07/2021",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Uhuru_Kenyatta.jpg",
+      "tags": ["crime"],
+      "category": "crime",
+      "slug": "Build-School",
+      "href": "/promises/2/Build-School",
+      "id": 2,
+      "statusHistory": [],
+      "relatedPromises": [],
+      "dataset": {}
+    }
+  ]
+}
