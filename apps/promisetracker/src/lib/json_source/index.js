@@ -18,10 +18,7 @@ const promiseSource = () => {
     },
     projectMeta: async () => {
       return {
-        tags: [
-          { slug: "crime", name: "crime" },
-          { slug: "war", name: "war" },
-        ],
+        tags: client.getTags(),
       };
     },
     promise: async ({ id }) => {

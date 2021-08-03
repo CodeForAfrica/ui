@@ -37,6 +37,16 @@ const JsonSourceClient = () => {
           return new Promise();
       }
     },
+    getTags() {
+      let tt = [];
+      promises.promises.map((p) => {
+        p.tags.forEach((t) => {
+          tt = tt.concat({ slug: t, name: t });
+        });
+        return tt;
+      });
+      return tt;
+    },
   };
 };
 
