@@ -4,13 +4,30 @@ const client = JsonSourceClient();
 
 const promiseSource = () => {
   const api = {
-    promises: async () => {
-      return client.query("GET_PROMISES").then((response) => {
+    promises: async ({ limit }) => {
+      return client.query({ query: "GET_PROMISES", limit }).then((response) => {
         return response;
       });
     },
+    promisesByCategories: async (category) => {
+      return client
+        .query({ query: "GET_PROMISES_BY_CATEGORY", category })
+        .then((response) => {
+          return response;
+        });
+    },
     projectMeta: async () => {
-      return { tags: ["crime", "war"] };
+      return {
+        tags: [
+          { slug: "crime", name: "crime" },
+          { slug: "war", name: "war" },
+        ],
+      };
+    },
+    promise: async ({ id }) => {
+      return client.query({ query: "GET_PROMISE", id }).then((response) => {
+        return response;
+      });
     },
   };
   return api;
