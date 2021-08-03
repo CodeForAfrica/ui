@@ -10,6 +10,7 @@ import RelatedPromises from "@/promisetracker/components/Promises";
 import PromiseTimeline from "@/promisetracker/components/PromiseTimeline";
 import check from "@/promisetracker/lib/check";
 import i18n from "@/promisetracker/lib/i18n";
+import JsonpromiseSource from "@/promisetracker/lib/json_source";
 import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(
@@ -145,11 +146,18 @@ export async function getStaticPaths() {
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "promises" }).first;
   const { promiseStatuses } = page;
-  const checkApi = check({
-    promiseStatuses,
-    team: "pesacheck-promise-tracker",
-  });
-  const promises = await checkApi.promises({
+  const promiseSourceLibs = {
+    Json: JsonpromiseSource(),
+    Check: check({
+      promiseStatuses,
+      team: "pesacheck-promise-tracker",
+    }),
+  };
+  const sourceLib = process.env.SOURCE_LIB || "Check";
+
+  const api = promiseSourceLibs[sourceLib];
+
+  const promises = await api.promises({
     limit: 10000,
     query: `{ "projects": ["2831"] }`,
   });
@@ -176,12 +184,18 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
 
   const { promiseStatuses } = page;
 
-  const checkApi = check({
-    promiseStatuses,
-    team: "pesacheck-promise-tracker",
-  });
+  const promiseSourceLibs = {
+    Json: JsonpromiseSource(),
+    Check: check({
+      promiseStatuses,
+      team: "pesacheck-promise-tracker",
+    }),
+  };
+  const sourceLib = process.env.SOURCE_LIB || "Check";
 
-  const promisePost = await checkApi.promise({
+  const api = promiseSourceLibs[sourceLib];
+
+  const promisePost = await api.promise({
     id,
     limit: 100,
     query: `{ "projects": ["2831"] }`,

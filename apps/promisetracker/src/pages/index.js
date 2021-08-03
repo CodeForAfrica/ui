@@ -12,6 +12,7 @@ import Page from "@/promisetracker/components/Page";
 import Partners from "@/promisetracker/components/Partners";
 import check from "@/promisetracker/lib/check";
 import i18n from "@/promisetracker/lib/i18n";
+import JsonpromiseSource from "@/promisetracker/lib/json_source";
 import wp from "@/promisetracker/lib/wp";
 import { groupPromisesByStatus } from "@/promisetracker/utils";
 
@@ -168,19 +169,29 @@ export async function getStaticProps({ locale }) {
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "index", locale }).first;
   const { promiseStatuses } = page;
-  const checkApi = check({
-    promiseStatuses,
-    team: "pesacheck-promise-tracker",
-  });
-  const promises = await checkApi.promises({
-    limit: 6,
+  const promiseSourceLibs = {
+    Json: JsonpromiseSource(),
+    Check: check({
+      promiseStatuses,
+      team: "pesacheck-promise-tracker",
+    }),
+  };
+
+  const sourceLib = process.env.SOURCE_LIB || "Check";
+
+  const api = promiseSourceLibs[sourceLib];
+
+  const promises = await api.promises({
+    limit: 10000,
     query: `{ "projects": ["2831"] }`,
   });
-  const promisesByCategories = await checkApi.promisesByCategories({
-    team: "pesacheck-promise-tracker",
+  const keyPromises = await api.promises({
+    limit: 6,
+    query: `{ "projects": ["4691"] }`,
   });
   const posts = await wpApi.pages({ slug: "analysis-articles", locale }).posts;
   const articles = posts?.slice(0, 4) || null;
+  const projectMeta = await api.projectMeta();
   const languageAlternates = _.languageAlternates();
 
   return {
