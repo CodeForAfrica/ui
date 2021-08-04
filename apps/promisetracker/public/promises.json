@@ -13,6 +13,7 @@
       "href": "/promises/1/health",
       "id": 1,
       "statusHistory": [],
+      "key_promise": "True",
       "relatedPromises": [
         {
           "id": 2,
@@ -34,11 +35,28 @@
       "content": "in content moto",
       "date": "29/07/2021",
       "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Uhuru_Kenyatta.jpg",
-      "tags": ["crime"],
-      "category": "crime",
+      "tags": ["education"],
+      "category": "education",
       "slug": "Build-School",
       "href": "/promises/2/Build-School",
       "id": 2,
+      "key_promise": "True",
+      "statusHistory": [],
+      "relatedPromises": [],
+      "dataset": {}
+    },
+    {
+      "title": "Build stadiums",
+      "description": "Build stadiums in 5 counties",
+      "status": { "title": "behind schedule" },
+      "content": "Build stadiums",
+      "date": "29/07/2021",
+      "image": "https://image.shutterstock.com/image-photo/open-city-sports-grounds-playing-260nw-1767938552.jpg",
+      "tags": ["games"],
+      "category": "games",
+      "slug": "Build-Stadiums",
+      "href": "/promises/3/Build-Stadiums",
+      "id": 3,
       "statusHistory": [],
       "relatedPromises": [],
       "dataset": {}

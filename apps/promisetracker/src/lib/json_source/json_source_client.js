@@ -22,6 +22,16 @@ const JsonSourceClient = () => {
               return reject(e);
             }
           });
+        case "GET_KEY_PROMISES":
+          return new Promise((resolve, reject) => {
+            if (promises.promises === undefined) {
+              reject(new Error("No promises defined"));
+            }
+            const keyPromises = promises.promises.filter(
+              (p) => `${p.key_promise}` === "True"
+            );
+            resolve(keyPromises.slice(0, limit));
+          });
         case "GET_PROMISES_BY_CATEGORY":
           return new Promise((resolve, reject) => {
             const promise = promises.promises.filter(

@@ -19,6 +19,11 @@ const promiseSource = () => {
         .query({ query: "GET_PROMISES", limit })
         .then(handlePromises);
     },
+    keyPromises: async ({ limit }) => {
+      return client
+        .query({ query: "GET_KEY_PROMISES", limit })
+        .then(handlePromises);
+    },
     promisesByCategories: async (category) => {
       return client
         .query({ query: "GET_PROMISES_BY_CATEGORY", category })

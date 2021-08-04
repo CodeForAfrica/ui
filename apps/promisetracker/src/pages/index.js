@@ -185,7 +185,7 @@ export async function getStaticProps({ locale }) {
     limit: 10000,
     query: `{ "projects": ["2831"] }`,
   });
-  const keyPromises = await api.promises({
+  const keyPromises = await api.keyPromises({
     limit: 6,
     query: `{ "projects": ["4691"] }`,
   });
