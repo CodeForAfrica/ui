@@ -170,7 +170,7 @@ export async function getStaticProps({ locale }) {
   const page = await wpApi.pages({ slug: "index", locale }).first;
   const { promiseStatuses } = page;
   const promiseSourceLibs = {
-    Json: JsonpromiseSource(),
+    Json: JsonpromiseSource({ promiseStatuses }),
     Check: check({
       promiseStatuses,
       team: "pesacheck-promise-tracker",

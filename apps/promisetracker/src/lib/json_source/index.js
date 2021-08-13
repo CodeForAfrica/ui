@@ -2,27 +2,42 @@ import JsonSourceClient from "./json_source_client";
 
 const client = JsonSourceClient();
 
-async function handleSinglePromise(promise) {
-  // Perform more actions on the promise here. E.g Getting related promises instead of having them in the json file.
-  return promise;
+function handleSinglePromise(defaultStatus, promiseStatuses, promise) {
+  const p = promise;
+  let matchingStatus = promiseStatuses.find(
+    (currentStatus) => currentStatus.title === promise.status.title
+  );
+  matchingStatus = matchingStatus || defaultStatus;
+  p.status = matchingStatus;
+
+  return p;
 }
 
-async function handlePromises(promises) {
-  // Perform more actions on the promises here
-  return promises;
+function handlePromises(defaultStatus, promiseStatuses, promises) {
+  return promises.map((promise) => {
+    return handleSinglePromise(defaultStatus, promiseStatuses, promise);
+  });
 }
 
-const promiseSource = () => {
+const promiseSource = ({ promiseStatuses }) => {
+  const defaultStatus = promiseStatuses.find(
+    (status) => status.title === "Inconclusive"
+  );
+
   const api = {
     promises: async ({ limit }) => {
       return client
         .query({ query: "GET_PROMISES", limit })
-        .then(handlePromises);
+        .then((promises) =>
+          handlePromises(defaultStatus, promiseStatuses, promises)
+        );
     },
     keyPromises: async ({ limit }) => {
       return client
         .query({ query: "GET_KEY_PROMISES", limit })
-        .then(handlePromises);
+        .then((promises) =>
+          handlePromises(defaultStatus, promiseStatuses, promises)
+        );
     },
     promisesByCategories: async (category) => {
       return client
@@ -39,7 +54,9 @@ const promiseSource = () => {
     promise: async ({ id }) => {
       return client
         .query({ query: "GET_PROMISE", id })
-        .then(handleSinglePromise);
+        .then((promise) =>
+          handleSinglePromise(defaultStatus, promiseStatuses, promise)
+        );
     },
   };
   return api;

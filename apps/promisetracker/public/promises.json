@@ -3,7 +3,7 @@
     {
       "title": "Health",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non maiores provident numquam adipisci illum facere doloribus quasi eos sapiente similique! Enim accusantium, eaque laboriosam et nemo eligendi officiis aliquam totam adipisci reiciendis eos ipsam, voluptatum quo suscipit modi odio beatae exercitationem ut! Velit rem saepe quod modi distinctio incidunt cupiditate?",
-      "status": { "title": "In Progress", "color": "#90DAFF" },
+      "status": { "title": "In Progress" },
       "content": "By 2022 more than 13 million Kenyans will have health insurance through NHIF",
       "date": "29/07/2021",
       "image": "https://africacheck.org/sites/default/files/2018/05/Jubilee_party.jpg",
@@ -21,7 +21,7 @@
           "slug": "Build-School",
           "href": "/promises/2/Build-School",
           "date": "29/07/2021",
-          "status": { "title": "Unstarted" },
+          "status": { "title": "Complete" },
           "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Uhuru_Kenyatta.jpg"
         }
       ],
@@ -30,7 +30,7 @@
     {
       "title": "Build School",
       "description": "Build Schools in kajiado",
-      "status": { "title": "Unstarted", "color": "#145BD5" },
+      "status": { "title": "Complete" },
       "content": "in content moto",
       "date": "29/07/2021",
       "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Uhuru_Kenyatta.jpg",
@@ -46,7 +46,7 @@
     {
       "title": "Build stadiums",
       "description": "Build stadiums in 5 counties",
-      "status": { "title": "Behind Schedule", "color": "#FF5154" },
+      "status": { "title": "Behind Schedule" },
       "content": "Build stadiums",
       "date": "29/07/2021",
       "image": "https://image.shutterstock.com/image-photo/open-city-sports-grounds-playing-260nw-1767938552.jpg",
@@ -61,7 +61,7 @@
     {
       "title": "Codification of national sports and athletics law",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non maiores provident numquam adipisci illum facere doloribus quasi eos sapiente similique! Enim accusantium, eaque laboriosam et nemo eligendi officiis aliquam totam adipisci reiciendis eos ipsam, voluptatum quo suscipit modi odio beatae exercitationem ut! Velit rem saepe quod modi distinctio incidunt cupiditate?",
-      "status": { "title": "Delayed", "color": "#ffb322" },
+      "status": { "title": "Stalled" },
       "content": "Some more content",
       "date": "29/07/2021",
       "image": "https://image.shutterstock.com/image-photo/open-city-sports-grounds-playing-260nw-1767938552.jpg",

@@ -147,7 +147,7 @@ export async function getStaticPaths() {
   const page = await wpApi.pages({ slug: "promises" }).first;
   const { promiseStatuses } = page;
   const promiseSourceLibs = {
-    Json: JsonpromiseSource(),
+    Json: JsonpromiseSource({ promiseStatuses }),
     Check: check({
       promiseStatuses,
       team: "pesacheck-promise-tracker",
@@ -185,7 +185,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const { promiseStatuses } = page;
 
   const promiseSourceLibs = {
-    Json: JsonpromiseSource(),
+    Json: JsonpromiseSource({ promiseStatuses }),
     Check: check({
       promiseStatuses,
       team: "pesacheck-promise-tracker",
