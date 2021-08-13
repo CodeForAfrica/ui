@@ -5,43 +5,34 @@ const JsonSourceClient = () => {
     query({ query, limit, category, id }) {
       switch (query) {
         case "GET_PROMISES":
-          return new Promise((resolve, reject) => {
-            if (promises.promises === undefined) {
-              reject(new Error("No promises defined"));
-            }
+          return new Promise((resolve) => {
             resolve(promises.promises.slice(0, limit));
           });
         case "GET_PROMISE":
-          return new Promise((resolve, reject) => {
+          return new Promise((resolve) => {
             try {
               const promise = promises.promises.filter(
                 (p) => `${p.id}` === id
               )[0];
               return resolve(promise);
             } catch (e) {
-              return reject(e);
+              return resolve([]);
             }
           });
         case "GET_KEY_PROMISES":
-          return new Promise((resolve, reject) => {
-            if (promises.promises === undefined) {
-              reject(new Error("No promises defined"));
-            }
-            const keyPromises = promises.promises.filter(
-              (p) => `${p.key_promise}` === "True"
-            );
+          return new Promise((resolve) => {
+            const keyPromises =
+              promises?.promises?.filter(
+                (p) => `${p.key_promise}` === "True"
+              ) ?? [];
             resolve(keyPromises.slice(0, limit));
           });
         case "GET_PROMISES_BY_CATEGORY":
-          return new Promise((resolve, reject) => {
-            const promise = promises.promises.filter(
+          return new Promise((resolve) => {
+            const promisesByCat = promises.promises.filter(
               (p) => p.category === category
             );
-            if (promise.length > 0) {
-              resolve(promise);
-            } else {
-              reject(new Error("No promises found"));
-            }
+            resolve(promisesByCat);
           });
         default:
           return new Promise();
