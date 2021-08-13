@@ -2,9 +2,9 @@
   "promises": [
     {
       "title": "Health",
-      "description": "By 2022 more than 13 million Kenyans will have health insurance through NHIF",
-      "status": { "title": "In Progress" },
-      "content": "in content moto",
+      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non maiores provident numquam adipisci illum facere doloribus quasi eos sapiente similique! Enim accusantium, eaque laboriosam et nemo eligendi officiis aliquam totam adipisci reiciendis eos ipsam, voluptatum quo suscipit modi odio beatae exercitationem ut! Velit rem saepe quod modi distinctio incidunt cupiditate?",
+      "status": { "title": "In Progress", "color": "#90DAFF" },
+      "content": "By 2022 more than 13 million Kenyans will have health insurance through NHIF",
       "date": "29/07/2021",
       "image": "https://africacheck.org/sites/default/files/2018/05/Jubilee_party.jpg",
       "tags": ["war", "health"],
@@ -12,7 +12,6 @@
       "slug": "health",
       "href": "/promises/1/health",
       "id": 1,
-      "statusHistory": [],
       "key_promise": "True",
       "relatedPromises": [
         {
@@ -31,7 +30,7 @@
     {
       "title": "Build School",
       "description": "Build Schools in kajiado",
-      "status": { "title": "Unstarted" },
+      "status": { "title": "Unstarted", "color": "#145BD5" },
       "content": "in content moto",
       "date": "29/07/2021",
       "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Uhuru_Kenyatta.jpg",
@@ -41,14 +40,13 @@
       "href": "/promises/2/Build-School",
       "id": 2,
       "key_promise": "True",
-      "statusHistory": [],
       "relatedPromises": [],
       "dataset": {}
     },
     {
       "title": "Build stadiums",
       "description": "Build stadiums in 5 counties",
-      "status": { "title": "Behind Schedule" },
+      "status": { "title": "Behind Schedule", "color": "#FF5154" },
       "content": "Build stadiums",
       "date": "29/07/2021",
       "image": "https://image.shutterstock.com/image-photo/open-city-sports-grounds-playing-260nw-1767938552.jpg",
@@ -57,7 +55,22 @@
       "slug": "Build-Stadiums",
       "href": "/promises/3/Build-Stadiums",
       "id": 3,
-      "statusHistory": [],
+      "relatedPromises": [],
+      "dataset": {}
+    },
+    {
+      "title": "Codification of national sports and athletics law",
+      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non maiores provident numquam adipisci illum facere doloribus quasi eos sapiente similique! Enim accusantium, eaque laboriosam et nemo eligendi officiis aliquam totam adipisci reiciendis eos ipsam, voluptatum quo suscipit modi odio beatae exercitationem ut! Velit rem saepe quod modi distinctio incidunt cupiditate?",
+      "status": { "title": "Delayed", "color": "#ffb322" },
+      "content": "Some more content",
+      "date": "29/07/2021",
+      "image": "https://image.shutterstock.com/image-photo/open-city-sports-grounds-playing-260nw-1767938552.jpg",
+      "tags": ["sports"],
+      "category": "sports",
+      "slug": "Codification-of-national-sports",
+      "href": "/promises/4/Codification-of-national-sports",
+      "id": 4,
+      "key_promise": "True",
       "relatedPromises": [],
       "dataset": {}
     }
