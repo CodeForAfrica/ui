@@ -3,7 +3,7 @@
     {
       "title": "Health",
       "description": "By 2022 more than 13 million Kenyans will have health insurance through NHIF",
-      "status": { "title": "in progress" },
+      "status": { "title": "In Progress" },
       "content": "in content moto",
       "date": "29/07/2021",
       "image": "https://africacheck.org/sites/default/files/2018/05/Jubilee_party.jpg",
@@ -22,7 +22,7 @@
           "slug": "Build-School",
           "href": "/promises/2/Build-School",
           "date": "29/07/2021",
-          "status": { "title": "unstarted" },
+          "status": { "title": "Unstarted" },
           "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Uhuru_Kenyatta.jpg"
         }
       ],
@@ -31,7 +31,7 @@
     {
       "title": "Build School",
       "description": "Build Schools in kajiado",
-      "status": { "title": "unstarted" },
+      "status": { "title": "Unstarted" },
       "content": "in content moto",
       "date": "29/07/2021",
       "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Uhuru_Kenyatta.jpg",
@@ -48,7 +48,7 @@
     {
       "title": "Build stadiums",
       "description": "Build stadiums in 5 counties",
-      "status": { "title": "behind schedule" },
+      "status": { "title": "Behind Schedule" },
       "content": "Build stadiums",
       "date": "29/07/2021",
       "image": "https://image.shutterstock.com/image-photo/open-city-sports-grounds-playing-260nw-1767938552.jpg",
