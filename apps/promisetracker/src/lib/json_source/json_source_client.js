@@ -5,35 +5,28 @@ const JsonSourceClient = () => {
     query({ query, limit, category, id }) {
       switch (query) {
         case "GET_PROMISES":
-          return new Promise((resolve) => {
-            resolve(promises.promises.slice(0, limit));
-          });
+          return promises.promises.slice(0, limit);
         case "GET_PROMISE":
-          return new Promise((resolve) => {
-            try {
-              const promise = promises.promises.filter(
-                (p) => `${p.id}` === id
-              )[0];
-              return resolve(promise);
-            } catch (e) {
-              return resolve([]);
-            }
-          });
-        case "GET_KEY_PROMISES":
-          return new Promise((resolve) => {
-            const keyPromises =
-              promises?.promises?.filter(
-                (p) => `${p.key_promise}` === "True"
-              ) ?? [];
-            resolve(keyPromises.slice(0, limit));
-          });
-        case "GET_PROMISES_BY_CATEGORY":
-          return new Promise((resolve) => {
-            const promisesByCat = promises.promises.filter(
-              (p) => p.category === category
-            );
-            resolve(promisesByCat);
-          });
+          try {
+            const promise = promises.promises.filter(
+              (p) => `${p.id}` === id
+            )[0];
+            return promise;
+          } catch (e) {
+            return [];
+          }
+        case "GET_KEY_PROMISES": {
+          const keyPromises =
+            promises?.promises?.filter((p) => `${p.key_promise}` === "True") ??
+            [];
+          return keyPromises.slice(0, limit);
+        }
+        case "GET_PROMISES_BY_CATEGORY": {
+          const promisesByCat = promises.promises.filter(
+            (p) => p.category === category
+          );
+          return promisesByCat;
+        }
         default:
           return new Promise();
       }

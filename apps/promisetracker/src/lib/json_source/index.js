@@ -25,38 +25,25 @@ const promiseSource = ({ promiseStatuses }) => {
   );
 
   const api = {
-    promises: async ({ limit }) => {
-      return client
-        .query({ query: "GET_PROMISES", limit })
-        .then((promises) =>
-          handlePromises(defaultStatus, promiseStatuses, promises)
-        );
+    promises: ({ limit }) => {
+      const promises = client.query({ query: "GET_PROMISES", limit });
+      return handlePromises(defaultStatus, promiseStatuses, promises);
     },
-    keyPromises: async ({ limit }) => {
-      return client
-        .query({ query: "GET_KEY_PROMISES", limit })
-        .then((promises) =>
-          handlePromises(defaultStatus, promiseStatuses, promises)
-        );
+    keyPromises: ({ limit }) => {
+      const keyPromises = client.query({ query: "GET_KEY_PROMISES", limit });
+      return handlePromises(defaultStatus, promiseStatuses, keyPromises);
     },
-    promisesByCategories: async (category) => {
-      return client
-        .query({ query: "GET_PROMISES_BY_CATEGORY", category })
-        .then((response) => {
-          return response;
-        });
+    promisesByCategories: (category) => {
+      return client.query({ query: "GET_PROMISES_BY_CATEGORY", category });
     },
-    projectMeta: async () => {
+    projectMeta: () => {
       return {
         tags: client.getTags(),
       };
     },
-    promise: async ({ id }) => {
-      return client
-        .query({ query: "GET_PROMISE", id })
-        .then((promise) =>
-          handleSinglePromise(defaultStatus, promiseStatuses, promise)
-        );
+    promise: ({ id }) => {
+      const promise = client.query({ query: "GET_PROMISE", id });
+      return handleSinglePromise(defaultStatus, promiseStatuses, promise);
     },
   };
   return api;
