@@ -3393,10 +3393,10 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-husky@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-6.0.0.tgz#810f11869adf51604c32ea577edbc377d7f9319e"
-  integrity sha512-SQS2gDTB7tBN486QSoKPKQItZw97BMOd+Kdb6ghfpBc0yXyzrddI0oDV5MkDAbuB4X2mO3/nj60TRMcYxwzZeQ==
+husky@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-7.0.1.tgz#579f4180b5da4520263e8713cc832942b48e1f1c"
+  integrity sha512-gceRaITVZ+cJH9sNHqx5tFwbzlLCVxtVZcusME8JYQ8Edy5mpGDOqD8QBCdMhpyo9a+JXddnujQ4rpY2Ff9SJA==
 
 hyphenate-style-name@^1.0.3:
   version "1.0.4"
@@ -3883,10 +3883,10 @@ jscodeshift-find-imports@^2.0.2:
   resolved "https://registry.yarnpkg.com/jscodeshift-find-imports/-/jscodeshift-find-imports-2.0.4.tgz#4dc427bff6c8f8c6c766a19043cdbee4e1d10782"
   integrity sha512-HxOzjWDOFFSCf8EKSTQGqCxXeRFqZszOywnZ0HuMB9YPDFHVpxftGRsY+QS+Qq8o2qUojlmNU3JEHts5DWYS1A==
 
-jscodeshift@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/jscodeshift/-/jscodeshift-0.12.0.tgz#de7302f3d3e1f4b3b36f9e484f451ba4ab7cc1f4"
-  integrity sha512-LEgr+wklbtEQD6SptyVYox+YZ7v+4NQeWHgqASedxl2LxQ+/kSQs6Nhs/GX+ymVOu84Hsz9/C2hQfDY89dKZ6A==
+jscodeshift@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/jscodeshift/-/jscodeshift-0.13.0.tgz#4b3835c3755ea86bc4910ac80acd4acd230b53ee"
+  integrity sha512-FNHLuwh7TeI0F4EzNVIRwUSxSqsGWM5nTv596FK4NfBnEEKFpIcyFeG559DMFGHSTIYA5AY4Fqh2cBrJx0EAwg==
   dependencies:
     "@babel/core" "^7.13.16"
     "@babel/parser" "^7.13.16"
@@ -3905,7 +3905,7 @@ jscodeshift@^0.12.0:
     neo-async "^2.5.0"
     node-dir "^0.1.17"
     recast "^0.20.4"
-    temp "^0.8.1"
+    temp "^0.8.4"
     write-file-atomic "^2.3.0"
 
 jsesc@^2.5.1:
@@ -6301,7 +6301,7 @@ tapable@^2.1.1, tapable@^2.2.0:
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.0.tgz#5c373d281d9c672848213d0e037d1c4165ab426b"
   integrity sha512-FBk4IesMV1rBxX2tfiK8RAmogtWn53puLOQlvO8XuwlgxcYbP4mVPS9Ph4aeamSyyVjOl24aYWAuc8U5kCVwMw==
 
-temp@^0.8.1:
+temp@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/temp/-/temp-0.8.4.tgz#8c97a33a4770072e0a05f919396c7665a7dd59f2"
   integrity sha512-s0ZZzd0BzYv5tLSptZooSjK8oj6C+c19p7Vqta9+6NPOf7r+fxq0cJe6/oN4LTC79sy5NY8ucOJNgwsKCSbfqg==
