@@ -29,8 +29,7 @@ const JsonSourceClient = () => {
           }
         case "GET_KEY_PROMISES": {
           const keyPromises =
-            promises?.promises?.filter((p) => `${p.key_promise}` === "True") ??
-            [];
+            promises?.promises?.filter((p) => p.keyPromise) ?? [];
           return keyPromises.slice(0, limit);
         }
         case "GET_PROMISES_BY_CATEGORY": {

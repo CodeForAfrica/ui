@@ -10,7 +10,7 @@
       "tags": ["war", "health"],
       "category": "health",
       "id": 1,
-      "key_promise": "True",
+      "keyPromise": true,
       "dataset": {}
     },
     {
@@ -23,7 +23,7 @@
       "tags": ["education"],
       "category": "education",
       "id": 2,
-      "key_promise": "True",
+      "keyPromise": true,
       "dataset": {}
     },
     {
@@ -48,7 +48,7 @@
       "tags": ["sports"],
       "category": "sports",
       "id": 4,
-      "key_promise": "True",
+      "keyPromise": true,
       "dataset": {}
     }
   ]
