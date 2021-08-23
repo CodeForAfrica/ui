@@ -32,10 +32,12 @@ const JsonSourceClient = () => {
       }
     },
     getTags() {
-      let tt = [];
+      const tt = [];
       promises.promises.map((p) => {
         p.tags.forEach((t) => {
-          tt = tt.concat({ slug: t, name: t });
+          if (!tt.find((tag) => Object.values(tag).includes(t))) {
+            tt.push({ slug: t, name: t });
+          }
         });
         return tt;
       });
