@@ -44,16 +44,17 @@ const JsonSourceClient = () => {
       }
     },
     getTags() {
-      const tt = [];
-      allPromises.map((p) => {
-        p.tags.forEach((t) => {
-          if (!tt.find((tag) => Object.values(tag).includes(t))) {
-            tt.push({ slug: t, name: t });
+      return allPromises.reduce((acc, curr) => {
+        curr.tags.forEach((tag) => {
+          if (!acc.find((tagObj) => tagObj.slug === tag)) {
+            acc.push({
+              slug: tag,
+              name: tag,
+            });
           }
         });
-        return tt;
-      });
-      return tt;
+        return acc;
+      }, []);
     },
   };
 };
