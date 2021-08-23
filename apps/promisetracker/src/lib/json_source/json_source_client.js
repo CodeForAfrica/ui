@@ -40,7 +40,7 @@ const JsonSourceClient = () => {
           return promisesByCat;
         }
         default:
-          return new Promise();
+          return [];
       }
     },
     getTags() {

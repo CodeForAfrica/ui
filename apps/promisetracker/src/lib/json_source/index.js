@@ -1,24 +1,20 @@
 import JsonSourceClient from "./json_source_client";
 
-import { slugify } from "@/promisetracker/utils";
-
 const client = JsonSourceClient();
 const allPromises = client.query({ query: "GET_PROMISES" });
 
 function handleSinglePromise(defaultStatus, promiseStatuses, promise) {
-  const singlePromise = promise;
   let matchingStatus = promiseStatuses.find(
-    (currentStatus) => currentStatus.title === singlePromise.status.title
+    (currentStatus) => currentStatus.title === promise.status.title
   );
   matchingStatus = matchingStatus || defaultStatus;
   const relatedPromises = allPromises.filter(
     (p) =>
-      slugify(p.title) !== slugify(singlePromise.title) &&
-      singlePromise.tags.some((v) => p.tags.includes(v))
+      p.slug !== promise.slug && promise.tags.some((v) => p.tags.includes(v))
   );
 
   return {
-    ...singlePromise,
+    ...promise,
     relatedPromises: relatedPromises.slice(0, 3),
     status: matchingStatus,
   };
