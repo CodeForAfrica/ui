@@ -9,14 +9,12 @@
       "image": "https://africacheck.org/sites/default/files/2018/05/Jubilee_party.jpg",
       "tags": ["war", "health"],
       "category": "health",
-      "slug": "health",
-      "href": "/promises/1/health",
       "id": 1,
       "key_promise": "True",
       "dataset": {}
     },
     {
-      "title": "Build School",
+      "title": "Build Better School",
       "description": "Build Schools in kajiado",
       "status": { "title": "Complete" },
       "content": "in content moto",
@@ -24,8 +22,6 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Uhuru_Kenyatta.jpg",
       "tags": ["education"],
       "category": "education",
-      "slug": "Build-School",
-      "href": "/promises/2/Build-School",
       "id": 2,
       "key_promise": "True",
       "dataset": {}
@@ -39,8 +35,6 @@
       "image": "https://image.shutterstock.com/image-photo/open-city-sports-grounds-playing-260nw-1767938552.jpg",
       "tags": ["games", "education", "health"],
       "category": "games",
-      "slug": "Build-Stadiums",
-      "href": "/promises/3/Build-Stadiums",
       "id": 3,
       "dataset": {}
     },
@@ -53,8 +47,6 @@
       "image": "https://image.shutterstock.com/image-photo/open-city-sports-grounds-playing-260nw-1767938552.jpg",
       "tags": ["sports"],
       "category": "sports",
-      "slug": "Codification-of-national-sports",
-      "href": "/promises/4/Codification-of-national-sports",
       "id": 4,
       "key_promise": "True",
       "dataset": {}

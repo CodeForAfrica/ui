@@ -1,28 +1,27 @@
 import JsonSourceClient from "./json_source_client";
 
+import { slugify } from "@/promisetracker/utils";
+
 const client = JsonSourceClient();
 const allPromises = client.query({ query: "GET_PROMISES" });
 
 function handleSinglePromise(defaultStatus, promiseStatuses, promise) {
   const singlePromise = promise;
   let matchingStatus = promiseStatuses.find(
-    (currentStatus) => currentStatus.title === promise.status.title
+    (currentStatus) => currentStatus.title === singlePromise.status.title
   );
   matchingStatus = matchingStatus || defaultStatus;
-  singlePromise.status = matchingStatus;
   const relatedPromises = allPromises.filter(
     (p) =>
-      p.id !== singlePromise.id &&
+      slugify(p.title) !== slugify(singlePromise.title) &&
       singlePromise.tags.some((v) => p.tags.includes(v))
   );
-  relatedPromises.map((p) => {
-    const prom = p;
-    delete prom.relatedPromises;
-    return prom;
-  });
-  singlePromise.relatedPromises = relatedPromises;
 
-  return singlePromise;
+  return {
+    ...singlePromise,
+    relatedPromises: relatedPromises.slice(0, 3),
+    status: matchingStatus,
+  };
 }
 
 function handlePromises(defaultStatus, promiseStatuses, promises) {
@@ -53,8 +52,8 @@ const promiseSource = ({ promiseStatuses }) => {
         tags: client.getTags(),
       };
     },
-    promise: ({ id }) => {
-      const promise = client.query({ query: "GET_PROMISE", id });
+    promise: ({ slug }) => {
+      const promise = client.query({ query: "GET_PROMISE", slug });
       return handleSinglePromise(defaultStatus, promiseStatuses, promise);
     },
   };

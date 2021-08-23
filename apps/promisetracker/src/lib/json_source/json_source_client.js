@@ -1,16 +1,28 @@
 import promises from "../../../public/promises.json";
 
+import { slugify } from "@/promisetracker/utils";
+
 const JsonSourceClient = () => {
+  // Sulugify all promises
+  let allPromises = promises.promises;
+
+  allPromises = allPromises.map((promise) => {
+    const slug = slugify(promise.title);
+    return {
+      ...promise,
+      href: `/promises/${promise.id}/${slug}`,
+      slug,
+    };
+  });
+
   return {
-    query({ query, limit, category, id }) {
+    query({ query, limit, category, slug }) {
       switch (query) {
         case "GET_PROMISES":
-          return promises.promises.slice(0, limit);
+          return allPromises.slice(0, limit);
         case "GET_PROMISE":
           try {
-            const promise = promises.promises.filter(
-              (p) => `${p.id}` === id
-            )[0];
+            const promise = allPromises.filter((p) => `${p.slug}` === slug)[0];
             return promise;
           } catch (e) {
             return [];
@@ -33,7 +45,7 @@ const JsonSourceClient = () => {
     },
     getTags() {
       const tt = [];
-      promises.promises.map((p) => {
+      allPromises.map((p) => {
         p.tags.forEach((t) => {
           if (!tt.find((tag) => Object.values(tag).includes(t))) {
             tt.push({ slug: t, name: t });
