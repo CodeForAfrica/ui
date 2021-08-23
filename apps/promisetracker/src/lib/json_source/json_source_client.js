@@ -34,7 +34,8 @@ const JsonSourceClient = () => {
         }
         case "GET_PROMISES_BY_CATEGORY": {
           const promisesByCat = promises.promises.filter(
-            (p) => p.category === category
+            (p) =>
+              p.category.toLocaleLowerCase() === category.toLocaleLowerCase()
           );
           return promisesByCat;
         }
