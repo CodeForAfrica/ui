@@ -13,18 +13,6 @@
       "href": "/promises/1/health",
       "id": 1,
       "key_promise": "True",
-      "relatedPromises": [
-        {
-          "id": 2,
-          "tags": ["health", "war"],
-          "title": "Build School",
-          "slug": "Build-School",
-          "href": "/promises/2/Build-School",
-          "date": "29/07/2021",
-          "status": { "title": "Complete" },
-          "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Uhuru_Kenyatta.jpg"
-        }
-      ],
       "dataset": {}
     },
     {
@@ -40,7 +28,6 @@
       "href": "/promises/2/Build-School",
       "id": 2,
       "key_promise": "True",
-      "relatedPromises": [],
       "dataset": {}
     },
     {
@@ -50,12 +37,11 @@
       "content": "Build stadiums",
       "date": "29/07/2021",
       "image": "https://image.shutterstock.com/image-photo/open-city-sports-grounds-playing-260nw-1767938552.jpg",
-      "tags": ["games"],
+      "tags": ["games", "education", "health"],
       "category": "games",
       "slug": "Build-Stadiums",
       "href": "/promises/3/Build-Stadiums",
       "id": 3,
-      "relatedPromises": [],
       "dataset": {}
     },
     {
@@ -71,7 +57,6 @@
       "href": "/promises/4/Codification-of-national-sports",
       "id": 4,
       "key_promise": "True",
-      "relatedPromises": [],
       "dataset": {}
     }
   ]

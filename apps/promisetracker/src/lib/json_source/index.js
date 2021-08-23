@@ -1,16 +1,28 @@
 import JsonSourceClient from "./json_source_client";
 
 const client = JsonSourceClient();
+const allPromises = client.query({ query: "GET_PROMISES" });
 
 function handleSinglePromise(defaultStatus, promiseStatuses, promise) {
-  const p = promise;
+  const singlePromise = promise;
   let matchingStatus = promiseStatuses.find(
     (currentStatus) => currentStatus.title === promise.status.title
   );
   matchingStatus = matchingStatus || defaultStatus;
-  p.status = matchingStatus;
+  singlePromise.status = matchingStatus;
+  const relatedPromises = allPromises.filter(
+    (p) =>
+      p.id !== singlePromise.id &&
+      singlePromise.tags.some((v) => p.tags.includes(v))
+  );
+  relatedPromises.map((p) => {
+    const prom = p;
+    delete prom.relatedPromises;
+    return prom;
+  });
+  singlePromise.relatedPromises = relatedPromises;
 
-  return p;
+  return singlePromise;
 }
 
 function handlePromises(defaultStatus, promiseStatuses, promises) {
