@@ -8,7 +8,7 @@ import Page from "@/promisetracker/components/Page";
 import Promises from "@/promisetracker/components/Promises";
 import check from "@/promisetracker/lib/check";
 import i18n from "@/promisetracker/lib/i18n";
-import JsonpromiseSource from "@/promisetracker/lib/json_source";
+import JsonpromiseSource from "@/promisetracker/lib/jsonSource";
 import wp from "@/promisetracker/lib/wp";
 import { slugify } from "@/promisetracker/utils";
 

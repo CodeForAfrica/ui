@@ -1,4 +1,4 @@
-import JsonSourceClient from "./json_source_client";
+import JsonSourceClient from "./jsonSourceClient";
 
 const client = JsonSourceClient();
 const allPromises = client.query({ query: "GET_PROMISES" });
