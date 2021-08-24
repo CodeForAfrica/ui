@@ -48,8 +48,8 @@ const promiseSource = ({ promiseStatuses }) => {
         tags: client.getTags(),
       };
     },
-    promise: ({ slug }) => {
-      const promise = client.query({ query: "GET_PROMISE", slug });
+    promise: ({ id }) => {
+      const promise = client.query({ query: "GET_PROMISE", id });
       return handleSinglePromise(defaultStatus, promiseStatuses, promise);
     },
   };

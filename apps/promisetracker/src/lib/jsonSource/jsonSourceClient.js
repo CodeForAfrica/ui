@@ -16,13 +16,13 @@ const JsonSourceClient = () => {
   });
 
   return {
-    query({ query, limit, category, slug }) {
+    query({ query, limit, category, id }) {
       switch (query) {
         case "GET_PROMISES":
           return allPromises.slice(0, limit);
         case "GET_PROMISE":
           try {
-            const promise = allPromises.filter((p) => `${p.slug}` === slug)[0];
+            const promise = allPromises.filter((p) => `${p.id}` === id)[0];
             return promise;
           } catch (e) {
             return [];
