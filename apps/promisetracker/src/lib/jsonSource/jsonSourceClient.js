@@ -28,8 +28,10 @@ const JsonSourceClient = () => {
             return [];
           }
         case "GET_KEY_PROMISES": {
-          const keyPromises = allPromises.filter((p) => p.keyPromise) ?? [];
-          return keyPromises.slice(0, limit);
+          const keyPromises = allPromises
+            .filter((p) => p.keyPromise)
+            .slice(0, limit);
+          return keyPromises;
         }
         case "GET_PROMISES_BY_CATEGORY": {
           return allPromises.filter(
