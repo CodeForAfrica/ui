@@ -35,6 +35,32 @@ const theme = createTheme({
       main: "#4285F4",
     },
   },
+  status: {
+    status0: {
+      main: "#EBEBEB",
+      contrastText: "#202020",
+    },
+    status1: {
+      main: "#90DAFF",
+      contrastText: "#202020",
+    },
+    status2: {
+      main: "#FFB322",
+      contrastText: "#202020",
+    },
+    status3: {
+      main: "#FF5255",
+      contrastText: "#FFF",
+    },
+    status4: {
+      main: "#909090",
+      contrastText: "#FFF",
+    },
+    status5: {
+      main: "#005DFD",
+      contrastText: "#FFF",
+    },
+  },
   typography: {
     fontFamily: FONT_FAMILY_TEXT_SECONDARY,
     // PT H1
