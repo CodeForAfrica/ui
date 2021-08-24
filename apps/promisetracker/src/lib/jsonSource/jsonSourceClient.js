@@ -3,7 +3,7 @@ import promises from "../../../public/promises.json";
 import { slugify } from "@/promisetracker/utils";
 
 const JsonSourceClient = () => {
-  // Sulugify all promises
+  // Slugify all promises' titles
   let allPromises = promises.promises;
 
   allPromises = allPromises.map((promise) => {
