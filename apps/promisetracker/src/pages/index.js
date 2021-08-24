@@ -10,9 +10,8 @@ import LatestPromises from "@/promisetracker/components/LatestPromises";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
 import Partners from "@/promisetracker/components/Partners";
-import check from "@/promisetracker/lib/check";
+import promisesApi from "@/promisetracker/lib/api";
 import i18n from "@/promisetracker/lib/i18n";
-import JsonpromiseSource from "@/promisetracker/lib/jsonSource";
 import wp from "@/promisetracker/lib/wp";
 import { groupPromisesByStatus } from "@/promisetracker/utils";
 
@@ -169,17 +168,11 @@ export async function getStaticProps({ locale }) {
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "index", locale }).first;
   const { promiseStatuses } = page;
-  const promiseSourceLibs = {
-    Json: JsonpromiseSource({ promiseStatuses }),
-    Check: check({
-      promiseStatuses,
-      team: "pesacheck-promise-tracker",
-    }),
-  };
 
-  const sourceLib = process.env.SOURCE_LIB || "Check";
-
-  const api = promiseSourceLibs[sourceLib];
+  const api = promisesApi({
+    promiseStatuses,
+    team: "pesacheck-promise-tracker",
+  });
 
   const promises = await api.promises({
     limit: 10000,
