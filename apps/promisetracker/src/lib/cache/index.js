@@ -56,12 +56,12 @@ async function load(filename, fetchNew) {
   return cached;
 }
 
-function cache({ fetch }) {
+function cache({ fetchFor }) {
   const api = {
     get site() {
       return (async () => {
         const fetchNew = async () => {
-          const data = await fetch.site();
+          const data = await fetchFor.site();
           return { lastUpdated: Date.now(), data };
         };
         return load(SITES_CACHE_FILENAME, fetchNew);
