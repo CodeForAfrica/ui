@@ -6,6 +6,10 @@ const FONT_FAMILY_TEXT_PRIMARY = '"Merriweather", "serif"';
 const FONT_FAMILY_TEXT_SECONDARY = '"Open Sans", "sans-serif"';
 const FONT_FAMILY_TEXT_HIGHTLIGHT = '"Source Sans Pro", "sans-serif"';
 
+const primary = { main: "#202020", dark: "#000000" };
+const secondary = { main: "#EBEBEB", light: "#F7F7F7" }; // grey
+const text = { primary: primary.main, secondary: "#ffffff" };
+
 // ## DEFAULT
 const theme = createTheme({
   breakpoints: {
@@ -19,10 +23,10 @@ const theme = createTheme({
   },
   palette: {
     background: { default: "#fff" },
-    primary: { main: "#202020", dark: "#000000" },
-    secondary: { main: "#EBEBEB", light: "#F7F7F7" }, // grey
+    primary,
+    secondary,
     highlight: { main: "#005DFD", light: "#FFB322", faded: "#90DAFF" }, // blue, yellow, light blue
-    text: { primary: "#202020", secondary: "#ffffff" },
+    text,
     chart: {
       complete: "#005DFD",
       inprogress: "#90DAFF",
@@ -37,28 +41,28 @@ const theme = createTheme({
   },
   status: {
     status0: {
-      main: "#EBEBEB",
-      contrastText: "#202020",
+      main: secondary.main,
+      contrastText: text.primary,
     },
     status1: {
-      main: "#90DAFF",
-      contrastText: "#202020",
+      main: "#FF5255",
+      contrastText: text.secondary,
     },
     status2: {
       main: "#FFB322",
-      contrastText: "#202020",
+      contrastText: text.primary,
     },
     status3: {
-      main: "#FF5255",
-      contrastText: "#FFF",
+      main: "#90DAFF",
+      contrastText: text.primary,
     },
     status4: {
       main: "#909090",
-      contrastText: "#FFF",
+      contrastText: text.secondary,
     },
     status5: {
       main: "#005DFD",
-      contrastText: "#FFF",
+      contrastText: text.secondary,
     },
   },
   typography: {
