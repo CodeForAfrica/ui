@@ -297,4 +297,8 @@ tags
 ### Sentry ###
 sentry.properties
 
+### Data cache ###
+public/data/*
+!public/data/.keep
+
 # End of Customizations
