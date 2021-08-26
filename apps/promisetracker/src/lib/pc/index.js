@@ -1,16 +1,14 @@
 import config from "@/promisetracker/config";
-import server from "@/promisetracker/lib/server";
+import serverFn from "@/promisetracker/lib/server";
 import { formatDate } from "@/promisetracker/utils";
 
 /**
  * Load fact checks stories from PesaCheck site.
  */
 function pc(site) {
-  const siteServer = server(site);
-  const SITE_FACT_CHECKS_URL =
-    process.env[`${siteServer.site}FACT_CHECKS_URL`] || config.FACT_CHECKS_URL;
-  const SITE_FACT_CHECKS_TAG =
-    process.env[`${siteServer.site}FACT_CHECKS_TAG`] || config.FACT_CHECKS_TAG;
+  const server = serverFn(site);
+  const SITE_FACT_CHECKS_URL = server.env("FACT_CHECKS_URL");
+  const SITE_FACT_CHECKS_TAG = server.env("FACT_CHECKS_TAG");
 
   const toFactCheck = (report) => ({
     date: formatDate(report.updatedAt) || null,
