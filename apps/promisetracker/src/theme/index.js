@@ -39,30 +39,30 @@ const theme = createTheme({
       main: "#4285F4",
     },
   },
-  status: {
+  statusPalette: {
     status0: {
-      main: secondary.main,
-      contrastText: text.primary,
+      color: secondary.main,
+      textColor: text.primary,
     },
     status1: {
-      main: "#FF5255",
-      contrastText: text.secondary,
+      color: "#FF5255",
+      textColor: text.secondary,
     },
     status2: {
-      main: "#FFB322",
-      contrastText: text.primary,
+      color: "#FFB322",
+      textColor: text.primary,
     },
     status3: {
-      main: "#90DAFF",
-      contrastText: text.primary,
+      color: "#90DAFF",
+      textColor: text.primary,
     },
     status4: {
-      main: "#909090",
-      contrastText: text.secondary,
+      color: "#909090",
+      textColor: text.secondary,
     },
     status5: {
-      main: "#005DFD",
-      contrastText: text.secondary,
+      color: "#005DFD",
+      textColor: text.secondary,
     },
   },
   typography: {
