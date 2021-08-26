@@ -41,3 +41,7 @@ export function replaceAll(str, mapObj) {
 
   return str.replace(re, (matched) => mapObj[matched.toLowerCase()]);
 }
+
+export function equalsIgnoreCase(str1, str2, locale = "en") {
+  return str1?.localeCompare(str2, locale, { sensitivity: "base" }) === 0;
+}
