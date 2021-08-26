@@ -3,29 +3,29 @@ import config from "@/promisetracker/config";
 /**
  * Tells us about the server itself.
  */
-function server(site) {
-  const SITE = site?.length ? `${site.trim().toUpperCase()}_` : "";
-  const SITE_URL = process.env[`${SITE}URL`] || config.URL;
-  const SITE_DEFAULT_LOCALE =
-    process.env[`${SITE}DEFAULT_LOCALE`] || config.DEFAULT_LOCALE;
-  // process.env[KEY] may return empty string instead of undefined
-  const SITE_LOCALES_STRING =
-    process.env[`${SITE}LOCALES`]?.trim() || undefined;
-  const SITE_LOCALES = SITE_LOCALES_STRING?.split(",") || config.LOCALES;
+function server(siteSlug) {
+  const slug = siteSlug?.trim();
+  const SITE_ENV = siteSlug ? `${slug.toUpperCase()}` : "";
+  const env = (NAME) =>
+    process.env[`${SITE_ENV}_${NAME}`]?.trim() ||
+    process.env[`${NAME}`]?.trim() ||
+    config[NAME];
 
   const api = {
     get defaultLocale() {
-      return SITE_DEFAULT_LOCALE;
+      return env("DEFAULT_LOCALE");
     },
     get locales() {
-      return SITE_LOCALES;
+      const locales = env("LOCALES");
+      return Array.isArray(locales) ? locales : locales?.split(",");
     },
-    get site() {
-      return SITE;
+    get slug() {
+      return slug;
     },
     get url() {
-      return SITE_URL;
+      return env("URL");
     },
+    env,
   };
 
   return api;
