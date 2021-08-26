@@ -191,7 +191,6 @@ export async function getStaticProps({ locale }) {
   const projectMeta = {};
   // const projectMeta = await api.projectMeta();
   const languageAlternates = _.languageAlternates();
-  console.log("BOOM", { promises, keyPromises });
 
   return {
     props: {

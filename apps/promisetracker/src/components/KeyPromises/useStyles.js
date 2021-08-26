@@ -37,6 +37,7 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
     height: typography.pxToRem(24 * 4), // Max 4 lines defined by body2.lineHeight
     marginTop: typography.pxToRem(40 - 4),
     maxHeight: typography.pxToRem(24 * 4),
+    overflowY: "hidden",
   },
   keyPromiseDetailsGrid: {
     [breakpoints.up("lg")]: {
