@@ -10,7 +10,8 @@ import LatestPromises from "@/promisetracker/components/LatestPromises";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
 import Partners from "@/promisetracker/components/Partners";
-import promisesApi from "@/promisetracker/lib/api";
+// import promisesApi from "@/promisetracker/lib/api";
+import gsheetsFn from "@/promisetracker/lib/gsheets";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 import { groupPromisesByStatus } from "@/promisetracker/utils";
@@ -167,25 +168,30 @@ export async function getStaticProps({ locale }) {
   }
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "index", locale }).first;
-  const { promiseStatuses } = page;
+  // const { promiseStatuses } = page;
+  const gsheets = gsheetsFn();
+  const promisesApi = gsheets.promises();
+  // const api = promisesApi({
+  //   promiseStatuses,
+  //   team: "pesacheck-promise-tracker",
+  // });
 
-  const api = promisesApi({
-    promiseStatuses,
-    team: "pesacheck-promise-tracker",
-  });
-
-  const promises = await api.promises({
-    limit: 10000,
-    query: `{ "projects": ["2831"] }`,
-  });
-  const keyPromises = await api.keyPromises({
-    limit: 6,
-    query: `{ "projects": ["4691"] }`,
-  });
+  const promises = await promisesApi.all;
+  // const promises = await api.promises({
+  //   limit: 10000,
+  //   query: `{ "projects": ["2831"] }`,
+  // });
+  const keyPromises = await promisesApi.key;
+  // const keyPromises = await api.keyPromises({
+  //   limit: 6,
+  //   query: `{ "projects": ["4691"] }`,
+  // });
   const posts = await wpApi.pages({ slug: "analysis-articles", locale }).posts;
   const articles = posts?.slice(0, 4) || null;
-  const projectMeta = await api.projectMeta();
+  const projectMeta = {};
+  // const projectMeta = await api.projectMeta();
   const languageAlternates = _.languageAlternates();
+  console.log("BOOM", { promises, keyPromises });
 
   return {
     props: {
