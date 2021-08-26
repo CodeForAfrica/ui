@@ -1,14 +1,12 @@
 import isEmpty from "lodash/isEmpty";
 
 import config from "@/promisetracker/config";
-import server from "@/promisetracker/lib/server";
+import serverFn from "@/promisetracker/lib/server";
 import { formatDate } from "@/promisetracker/utils";
 
 function wp(site) {
-  const siteServer = server(site);
-  const WP_DASHBOARD_URL =
-    process.env[`${siteServer.site}WP_DASHBOARD_URL`] ||
-    config.WP_DASHBOARD_URL;
+  const server = serverFn(site);
+  const WP_DASHBOARD_URL = server.env("WP_DASHBOARD_URL");
   const WP_DASHBOARD_API_URL = `${WP_DASHBOARD_URL}/wp-json/wp/v2`;
   const WP_DASHBOARD_ACF_API_URL = `${WP_DASHBOARD_URL}/wp-json/acf/v3`;
 
@@ -313,7 +311,7 @@ function wp(site) {
     pages: ({
       id,
       slug,
-      locale = siteServer.defaultLocale,
+      locale = server.defaultLocale,
       order = "asc",
       orderBy = "menu_order",
       page,
@@ -364,7 +362,7 @@ function wp(site) {
         })();
       },
     }),
-    posts: ({ slug, locale = siteServer.defaultLocale }) => ({
+    posts: ({ slug, locale = server.defaultLocale }) => ({
       get first() {
         return (async () => {
           if (slug) {
@@ -379,7 +377,7 @@ function wp(site) {
       revisionId,
       thumbnailId,
       token,
-      locale = siteServer.defaultLocale,
+      locale = server.defaultLocale,
     }) => ({
       get page() {
         return (async () => {
