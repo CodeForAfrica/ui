@@ -1,9 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-import config from "@/promisetracker/config";
+import serverFn from "@/promisetracker/lib/server";
 
-const CACHE_TIMEOUT = process.env.CACHE_TIMEOUT || config.CACHE_TIMEOUT;
 const PROMISES_CACHE_FILENAME = "promises.json";
 const SITES_CACHE_FILENAME = "sites.json";
 
@@ -29,34 +28,37 @@ const SITES_CACHE_FILENAME = "sites.json";
 //   );
 // }
 
-async function read(filename) {
-  const publicDirectory = path.join(process.cwd(), "public/data");
-  const filePath = path.join(publicDirectory, filename);
-  return JSON.parse(fs.readFileSync(filePath, "utf8"));
-}
+function cache(siteSlug, { fetchFor }) {
+  const server = serverFn(siteSlug);
+  const CACHE_TIMEOUT = server.env("CACHE_TIMEOUT");
 
-async function write(filename, data) {
-  const publicDirectory = path.join(process.cwd(), "public/data");
-  const filePath = path.join(publicDirectory, filename);
-  fs.writeFileSync(filePath, JSON.stringify(data), "utf8");
-}
-
-async function load(filename, fetchNew) {
-  let cached;
-  try {
-    cached = read(filename);
-  } catch (error) {
-    cached = null;
-  }
-  if (!cached || cached.lastUpdated < Date.now() - CACHE_TIMEOUT * 1000) {
-    cached = await fetchNew();
-    write(PROMISES_CACHE_FILENAME, cached);
+  async function read(filename) {
+    const publicDirectory = path.join(process.cwd(), "public/data");
+    const filePath = path.join(publicDirectory, filename);
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
   }
 
-  return cached;
-}
+  async function write(filename, data) {
+    const publicDirectory = path.join(process.cwd(), "public/data");
+    const filePath = path.join(publicDirectory, filename);
+    fs.writeFileSync(filePath, JSON.stringify(data), "utf8");
+  }
 
-function cache({ fetchFor }) {
+  async function load(filename, fetchNew) {
+    let cached;
+    try {
+      cached = await read(filename);
+    } catch (error) {
+      cached = null;
+    }
+    if (!cached || cached.lastUpdated < Date.now() - CACHE_TIMEOUT * 1000) {
+      cached = await fetchNew();
+      write(PROMISES_CACHE_FILENAME, cached);
+    }
+
+    return cached;
+  }
+
   const api = {
     get site() {
       return (async () => {
@@ -70,7 +72,8 @@ function cache({ fetchFor }) {
     get promises() {
       return (async () => {
         const fetchNew = async () => {
-          const data = await fetch.promises();
+          const site = await api.site;
+          const data = await fetchFor.promises(site.data);
           return { count: data.length, lastUpdated: Date.now(), data };
         };
         return load(PROMISES_CACHE_FILENAME, fetchNew);
