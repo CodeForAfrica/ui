@@ -1,14 +1,12 @@
-import config from "@/promisetracker/config";
-import server from "@/promisetracker/lib/server";
+import serverFn from "@/promisetracker/lib/server";
 
 /**
  * Load fact checks stories from PesaCheck site.
  */
 function actnow(site) {
-  const siteServer = server(site);
+  const server = serverFn(site);
 
-  const ACTNOW_URL =
-    process.env[`${siteServer.site}ACTNOW_URL`] || config.ACTNOW_URL;
+  const ACTNOW_URL = server.env("ACTNOW_URL");
 
   async function createAccount(user) {
     const headers = new Headers({
