@@ -61,16 +61,44 @@ function gsheets(server) {
     return fetchSheet(sitesSheetId, options);
   }
 
+  async function fetchStatuses() {
+    const statusesSheet = await fetchSheet(statusesSheetId);
+    const { statusPalette } = theme;
+    const getPalette = (ordinal) =>
+      statusPalette[`status${ordinal}`] || statusPalette.status0;
+    return statusesSheet.map((row) => ({
+      ...row,
+      ...getPalette(row.ordinal),
+      // FIXME(kilemensi): Some components expect title instead of name
+      title: row.name,
+      slug: slugify(row.name),
+    }));
+  }
+
+  async function fetchCategories() {
+    const categoriesSheet = await fetchSheet(categoriesSheetId);
+    return categoriesSheet
+      .filter((row) => row.name)
+      .map((row) => ({
+        ...row,
+        // FIXME(kilemensi): Some components expect title instead of name
+        title: row.name,
+        slug: slugify(row.name),
+      }));
+  }
+
   async function fetchSite() {
-    const sitesSheet = await fetchSitesSheet();
+    const statuses = await fetchStatuses();
+    const categories = await fetchCategories();
     const entitiesSheet = await fetchSheet(entitiesSheetId);
+    const sitesSheet = await fetchSitesSheet();
     const siteRow = server.slug
       ? sitesSheet.find((row) => equalsIgnoreCase(server.slug, row.slug))
       : sitesSheet[0];
     const entity = entitiesSheet.find((row) =>
       equalsIgnoreCase(row.name, siteRow.entity)
     );
-    return { ...siteRow, entity };
+    return { ...siteRow, categories, entity, statuses };
   }
 
   function formatSiteAsProjectMeta(site) {
@@ -82,6 +110,7 @@ function gsheets(server) {
     const position = entity.title || null;
     const promiseLabel = "promises";
     const tagline = `<span class="highlight">Tracking</span> ${name}`;
+    const tags = site.categories;
     const trailText = "at a glance";
     const updatedAt = formatDate(site.lastUpdated || Date.now);
     const updatedAtLabel = "Updated";
@@ -93,33 +122,15 @@ function gsheets(server) {
       position,
       promiseLabel,
       tagline,
+      tags,
       trailText,
       updatedAt,
       updatedAtLabel,
     };
   }
 
-  async function fetchCategories() {
-    const categoriesSheet = await fetchSheet(categoriesSheetId);
-    return categoriesSheet.filter((row) => row.name);
-  }
-
-  async function fetchStatuses() {
-    const statusesSheet = await fetchSheet(statusesSheetId);
-    const { statusPalette } = theme;
-    const getPalette = (ordinal) =>
-      statusPalette[`status${ordinal}`] || statusPalette.status0;
-    return statusesSheet.map((row) => ({
-      ...row,
-      ...getPalette(row.ordinal),
-      slu: slugify(row.name),
-    }));
-  }
-
   function reduceByName(acc, current) {
-    // FIXME(kilemensi): Some components expect title instead of name
-    const title = current.name;
-    acc[camelCase(current.name)] = { ...current, title };
+    acc[camelCase(current.name)] = current;
     return acc;
   }
 
@@ -156,7 +167,7 @@ function gsheets(server) {
 
   async function fetchPromises(cache) {
     const { data: site } = await cache.site;
-    const statuses = (await fetchStatuses()).reduce(reduceByName, {});
+    const statuses = site.statuses.reduce(reduceByName, {});
     const promisesOptions = {
       ...papaOptions,
       dynamicTyping: (header) => ["iskey"].includes(header.toLowerCase()),
@@ -179,6 +190,7 @@ function gsheets(server) {
             }
             return [];
           }),
+          date: statusVerificationDate,
           events: promisesEvents.flatMap(({ promise, ...event }) => {
             if (equalsIgnoreCase(promise.id, other.id)) {
               return [event];
