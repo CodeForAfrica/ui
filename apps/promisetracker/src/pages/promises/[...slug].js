@@ -8,7 +8,7 @@ import Page from "@/promisetracker/components/Page";
 import Promise from "@/promisetracker/components/Promise";
 import RelatedPromises from "@/promisetracker/components/Promises";
 import PromiseTimeline from "@/promisetracker/components/PromiseTimeline";
-import promisesApi from "@/promisetracker/lib/api";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -142,19 +142,10 @@ PromisePage.defaultProps = {
 
 export async function getStaticPaths() {
   const fallback = false;
-  const wpApi = wp();
-  const page = await wpApi.pages({ slug: "promises" }).first;
-  const { promiseStatuses } = page;
 
-  const api = promisesApi({
-    promiseStatuses,
-    team: "pesacheck-promise-tracker",
-  });
-
-  const promises = await api.promises({
-    limit: 10000,
-    query: `{ "projects": ["2831"] }`,
-  });
+  const backend = backendFn();
+  const promisesApi = backend.promises();
+  const promises = await promisesApi.all;
 
   const unlocalizedPaths = promises.map((promise) => ({
     params: { slug: [`${promise.id}`, promise.slug] },
@@ -176,17 +167,9 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const page = await wpApi.pages({ slug: "promises", locale }).first;
   const actNowPage = await wpApi.pages({ slug: "act-now", locale }).first;
 
-  const { promiseStatuses } = page;
-
-  const api = promisesApi({
-    promiseStatuses,
-    team: "pesacheck-promise-tracker",
-  });
-  const promisePost = await api.promise({
-    id,
-    limit: 100,
-    query: `{ "projects": ["2831"] }`,
-  });
+  const backend = backendFn();
+  const promisePost = await backend.promises({ id }).first;
+  const promiseStatuses = await backend.promises({ id }).statuses;
 
   const notFound = !promisePost;
   if (notFound) {
