@@ -1,9 +1,9 @@
+import { RichTypography } from "@commons-ui/core";
 import {
   Fade,
   Grid,
   Hidden,
   IconButton,
-  Typography,
   useMediaQuery,
 } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -57,6 +57,11 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
     margin: "2rem 1rem 1rem 1rem",
     height: typography.pxToRem(200),
   },
+  tagline: {
+    "& .highlight": {
+      color: palette.highlight.main,
+    },
+  },
 }));
 
 function ProfileDetails({
@@ -64,6 +69,7 @@ function ProfileDetails({
   name,
   position,
   promiseLabel,
+  tagline,
   trailText,
   promisesByStatus,
   ...props
@@ -84,15 +90,21 @@ function ProfileDetails({
       <Grid container className={classes.root} alignItems="center">
         <Grid item xs={6} lg={8}>
           <Hidden mdDown implementation="css">
-            <Typography variant="h1">{name}</Typography>
+            <RichTypography
+              component="h1"
+              variant="h1"
+              className={classes.tagline}
+            >
+              {tagline || name}
+            </RichTypography>
           </Hidden>
-          <Typography variant="body2">
+          <RichTypography component="p" variant="body2">
             {position} {name}{" "}
             <b>
               {promisesByStatus.count} {promiseLabel}{" "}
             </b>
             {trailText}
-          </Typography>
+          </RichTypography>
         </Grid>
         <Grid
           item
@@ -154,7 +166,7 @@ function ProfileDetails({
                     inProgress={
                       promisesByStatus.statusHistory["In Progress"]?.length
                     }
-                    complete={promisesByStatus.statusHistory.Complete?.length}
+                    completed={promisesByStatus.statusHistory.Completed?.length}
                     inconclusive={
                       promisesByStatus.statusHistory.Inconclusive?.length
                     }
@@ -228,12 +240,13 @@ ProfileDetails.propTypes = {
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   promiseLabel: PropTypes.string.isRequired,
+  tagline: PropTypes.string,
   trailText: PropTypes.string.isRequired,
   promisesByStatus: PropTypes.shape({
     count: PropTypes.number,
     statusHistory: PropTypes.PropTypes.shape({
       "In Progress": PropTypes.arrayOf(PropTypes.shape({})),
-      Complete: PropTypes.arrayOf(PropTypes.shape({})),
+      Completed: PropTypes.arrayOf(PropTypes.shape({})),
       Inconclusive: PropTypes.arrayOf(PropTypes.shape({})),
       Unstarted: PropTypes.arrayOf(PropTypes.shape({})),
       Stalled: PropTypes.arrayOf(PropTypes.shape({})),
@@ -245,6 +258,7 @@ ProfileDetails.propTypes = {
 ProfileDetails.defaultProps = {
   criteria: undefined,
   promisesByStatus: undefined,
+  tagline: undefined,
 };
 
 export default ProfileDetails;

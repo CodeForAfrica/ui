@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
 
 function ReactChart({
   totalPromises,
-  complete,
+  completed,
   inconclusive,
   inProgress,
   unstarted,
@@ -27,7 +27,7 @@ function ReactChart({
 
   useEffect(() => {
     setChartContainerWidth(rectChartContainerRef.current.offsetWidth);
-  }, [rectChartContainerRef.current]);
+  }, []);
 
   return (
     <Grid
@@ -46,8 +46,8 @@ function ReactChart({
         strokeWidth={1}
         containerWidth={chartContainerWidth}
         totalPromises={totalPromises}
-        currentStatusNumber={complete}
-        status="Complete"
+        currentStatusNumber={completed}
+        status="Completed"
       />
       <RectSvgChart
         width={90}
@@ -112,7 +112,7 @@ ReactChart.propTypes = {
   behindSchedule: PropTypes.number,
   stalled: PropTypes.number,
   inconclusive: PropTypes.number,
-  complete: PropTypes.number,
+  completed: PropTypes.number,
   inProgress: PropTypes.number,
   totalPromises: PropTypes.number,
   unstarted: PropTypes.number,
@@ -122,7 +122,7 @@ ReactChart.defaultProps = {
   behindSchedule: 0,
   stalled: 0,
   inconclusive: 0,
-  complete: 0,
+  completed: 0,
   inProgress: 0,
   totalPromises: 0,
   unstarted: 0,

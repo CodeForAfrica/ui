@@ -35,8 +35,8 @@ function MobileChart({ promisesByStatus, ...props }) {
         progressStatuses={[
           {
             color: "#005DFD",
-            count: promisesByStatus.statusHistory.Complete?.length,
-            title: "Complete",
+            count: promisesByStatus.statusHistory.Completed?.length,
+            title: "Completed",
           },
           {
             color: "#90DAFF",
@@ -94,7 +94,7 @@ MobileChart.propTypes = {
     count: PropTypes.number,
     statusHistory: PropTypes.PropTypes.shape({
       "In Progress": PropTypes.arrayOf(PropTypes.shape({})),
-      Complete: PropTypes.arrayOf(PropTypes.shape({})),
+      Completed: PropTypes.arrayOf(PropTypes.shape({})),
       Inconclusive: PropTypes.arrayOf(PropTypes.shape({})),
       Unstarted: PropTypes.arrayOf(PropTypes.shape({})),
       Stalled: PropTypes.arrayOf(PropTypes.shape({})),

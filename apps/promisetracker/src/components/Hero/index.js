@@ -1,5 +1,5 @@
-import { Section } from "@commons-ui/core";
-import { Grid, Hidden, Typography } from "@material-ui/core";
+import { RichTypography, Section } from "@commons-ui/core";
+import { Grid, Hidden } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -7,7 +7,7 @@ import React from "react";
 import Profile from "@/promisetracker/components/Hero/Profile";
 import ProfileChart from "@/promisetracker/components/Hero/ProfileChart";
 
-const useStyles = makeStyles(({ breakpoints, typography }) => ({
+const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {
     paddingBottom: typography.pxToRem(40),
     paddingTop: typography.pxToRem(22),
@@ -17,17 +17,24 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
     },
   },
   section: {},
+  tagline: {
+    "& .highlight": {
+      color: palette.highlight.main,
+    },
+  },
 }));
 
 function Hero({
   criteria,
+  fullName,
   name,
   photo,
   position,
   promisesByStatus,
+  tagline,
+  title,
   updatedAt,
   updatedAtLabel,
-  title,
   ...props
 }) {
   const classes = useStyles(props);
@@ -38,7 +45,13 @@ function Hero({
         <Grid container direction="row" justify="space-between">
           <Hidden lgUp implementation="css">
             <Grid item xs={12}>
-              <Typography variant="h1">{name}</Typography>
+              <RichTypography
+                component="h1"
+                variant="h1"
+                className={classes.tagline}
+              >
+                {tagline || name}
+              </RichTypography>
             </Grid>
           </Hidden>
           <Grid item xs={12} lg={4}>
@@ -54,8 +67,9 @@ function Hero({
             <ProfileChart
               promisesByStatus={promisesByStatus}
               criteria={criteria}
-              name={name}
+              name={fullName || name}
               position={position}
+              tagline={tagline}
               {...props}
             />
           </Grid>
@@ -71,10 +85,12 @@ Hero.propTypes = {
     title: PropTypes.string.isRequired,
   }),
   name: PropTypes.string.isRequired,
+  fullName: PropTypes.string,
   photo: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   updatedAt: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
     .isRequired,
+  tagline: PropTypes.string,
   title: PropTypes.string.isRequired,
   updatedAtLabel: PropTypes.string.isRequired,
   promisesByStatus: PropTypes.shape({}),
@@ -82,7 +98,9 @@ Hero.propTypes = {
 
 Hero.defaultProps = {
   criteria: undefined,
+  fullName: undefined,
   promisesByStatus: undefined,
+  tagline: undefined,
 };
 
 export default Hero;
