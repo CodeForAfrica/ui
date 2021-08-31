@@ -15,15 +15,14 @@ const useStyles = makeStyles(() => ({
 
 function PromiseTimeline({
   events,
-  date,
   status,
-  statusHistory: StatusHistoryProps,
+  statusHistory: statusHistoryProp,
   ...props
 }) {
   const classes = useStyles(props);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-  const statusHistory = isDesktop ? StatusHistoryProps : [status];
+  const statusHistory = isDesktop ? statusHistoryProp : [status];
 
   return (
     <svg width="100%" height="100" className={classes.root}>
@@ -64,12 +63,10 @@ function PromiseTimeline({
 
 PromiseTimeline.propTypes = {
   events: PropTypes.arrayOf(PropTypes.shape({})),
-  date: PropTypes.string,
   status: PropTypes.shape({}),
   statusHistory: PropTypes.arrayOf(PropTypes.shape({})),
 };
 PromiseTimeline.defaultProps = {
-  date: undefined,
   events: [],
   status: undefined,
   statusHistory: undefined,
