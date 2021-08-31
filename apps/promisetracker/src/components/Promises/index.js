@@ -63,7 +63,8 @@ function Promises({
       const hasFilters = selectedStatuses.length || selectedCategories.length;
       setItems(hasFilters ? filteredItems : itemsProp);
     }
-  }, [statusesFilters, categoriesFilters, itemsProp]);
+  }, [statusesFilters, categoriesFilters, itemsProp, withFilter]);
+
   useEffect(() => {
     if (withFilter) {
       let sortedItems = items;
@@ -78,7 +79,7 @@ function Promises({
       }
       setItems(sortedItems);
     }
-  }, [sortBy]);
+  }, [sortBy, items, sortByDeadline, sortByMostRecent, withFilter]);
 
   return (
     <PostCardGrid
