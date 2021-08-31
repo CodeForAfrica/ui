@@ -6,10 +6,9 @@ import ActNow from "@/promisetracker/components/ActNow";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
 import Promises from "@/promisetracker/components/Promises";
-import promisesApi from "@/promisetracker/lib/api";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
-import { slugify } from "@/promisetracker/utils";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -113,16 +112,15 @@ export async function getStaticProps({ locale }) {
   const page = await wp().pages({ slug: "promises", locale }).first;
   const { promiseStatuses } = page;
 
-  const api = promisesApi({
-    promiseStatuses,
-    team: "pesacheck-promise-tracker",
-  });
+  const backend = backendFn();
+  const projectApi = backend.project();
+  const projectMeta = await projectApi.meta;
 
-  const projectMeta = await api.projectMeta();
-  const promises = await api.promises({
-    limit: 10000,
-    query: `{ "projects": ["2831"] }`,
-  });
+  const promisesApi = backend.promises();
+  const promises = await promisesApi.all;
+
+  console.log("BOOM", { projectMeta, promises });
+
   const languageAlternates = _.languageAlternates("/promises");
 
   return {
@@ -131,10 +129,7 @@ export async function getStaticProps({ locale }) {
       languageAlternates,
       promises,
       projectMeta,
-      promiseStatuses: promiseStatuses.map((status) => ({
-        name: status.title,
-        slug: slugify(status.title),
-      })),
+      promiseStatuses,
     },
     revalidate: 2 * 60, // seconds
   };
