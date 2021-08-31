@@ -1,62 +1,65 @@
-import promises from "../../../public/promises.json";
+import { equalsIgnoreCase, slugify } from "@/promisetracker/utils";
 
-import { slugify } from "@/promisetracker/utils";
+function jsonQL(promises) {
+  const allPromises = promises.map((promise) => {
+    const slug = promise.slug || slugify(promise.title);
+    const href = promise.href || `/promises/${promise.id}/${slug}`;
 
-const JsonSourceClient = () => {
-  // Slugify all promises' titles
-  let allPromises = promises.promises;
-
-  allPromises = allPromises.map((promise) => {
-    const slug = slugify(promise.title);
-    return {
-      ...promise,
-      href: `/promises/${promise.id}/${slug}`,
-      slug,
-    };
+    return { ...promise, href, slug };
   });
-
-  return {
-    query({ query, limit, category, id }) {
-      switch (query) {
-        case "GET_PROMISES":
-          return allPromises.slice(0, limit);
-        case "GET_PROMISE":
-          try {
-            const promise = allPromises.filter((p) => `${p.id}` === id)[0];
-            return promise;
-          } catch (e) {
-            return [];
-          }
-        case "GET_KEY_PROMISES": {
-          const keyPromises = allPromises
-            .filter((p) => p.keyPromise)
-            .slice(0, limit);
-          return keyPromises;
-        }
-        case "GET_PROMISES_BY_CATEGORY": {
-          return allPromises.filter(
-            (p) =>
-              p.category.toLocaleLowerCase() === category.toLocaleLowerCase()
-          );
-        }
-        default:
-          return [];
-      }
-    },
-    getTags() {
-      return allPromises.reduce((acc, curr) => {
-        curr.tags.forEach((tag) => {
-          if (!acc.find((tagObj) => tagObj.slug === tag)) {
-            acc.push({
-              slug: tag,
-              name: tag,
-            });
-          }
-        });
+  const categories = Array.from(
+    allPromises
+      .reduce((acc, curr) => {
+        curr.categories.reduce((currAcc, c) => {
+          const slug = c.slug || slugify(c.name);
+          currAcc.set(slug, { ...c, slug });
+          return currAcc;
+        }, acc);
         return acc;
-      }, []);
+      }, new Map())
+      .values()
+  );
+  const statuses = Array.from(
+    allPromises
+      .reduce((acc, curr) => {
+        const { status } = curr;
+        const slug = status.slug || slugify(status.name);
+        acc.set(slug, { ...curr, slug });
+        return acc;
+      }, new Map())
+      .values()
+  );
+
+  const api = {
+    getCategories() {
+      return categories;
+    },
+    getPromises({ limit, category, isKey, status } = {}) {
+      const hasCategory = (p) =>
+        !category ||
+        p.categories.some((c) => equalsIgnoreCase(c.name, category));
+      const isKeyPromise = (p) => !isKey || p.isKey;
+      const hasStatus = (p) =>
+        !status || equalsIgnoreCase(p.status.name, status);
+      const filteredPromises = allPromises.filter(
+        (p) => hasCategory(p) && isKeyPromise(p) && hasStatus(p)
+      );
+      return filteredPromises.slice(0, limit);
+    },
+    getPromise({ id, ...others } = {}) {
+      const filteredPromises = api.getPromises(others);
+      if (id) {
+        return allPromises.find((p) => equalsIgnoreCase(p.id, id));
+      }
+      const [promise] = filteredPromises;
+      return promise;
+    },
+    getStatuses() {
+      return statuses;
     },
   };
-};
 
-export default JsonSourceClient;
+  return api;
+}
+
+export default jsonQL;
