@@ -1,7 +1,9 @@
-import JsonSourceClient from "./jsonSourceClient";
+import promisesCache from "../../../public/promises.json";
 
-const client = JsonSourceClient();
-const allPromises = client.query({ query: "GET_PROMISES" });
+import promisesQL from "@/promisetracker/lib/jsonql/promises";
+
+const client = promisesQL(promisesCache.promises);
+const allPromises = client.getPromises();
 
 function handleSinglePromise(defaultStatus, promiseStatuses, promise) {
   let matchingStatus = promiseStatuses.find(
@@ -10,7 +12,8 @@ function handleSinglePromise(defaultStatus, promiseStatuses, promise) {
   matchingStatus = matchingStatus || defaultStatus;
   const relatedPromises = allPromises.filter(
     (p) =>
-      p.slug !== promise.slug && promise.tags.some((v) => p.tags.includes(v))
+      p.slug !== promise.slug &&
+      promise.categories.some((v) => p.categories.includes(v))
   );
 
   return {
@@ -33,25 +36,25 @@ const promiseSource = ({ promiseStatuses }) => {
 
   const api = {
     promises: ({ limit }) => {
-      const promises = client.query({ query: "GET_PROMISES", limit });
+      const promises = client.getPromises({ limit });
       return handlePromises(defaultStatus, promiseStatuses, promises);
     },
-    keyPromises: ({ limit }) => {
-      const keyPromises = client.query({ query: "GET_KEY_PROMISES", limit });
-      return handlePromises(defaultStatus, promiseStatuses, keyPromises);
-    },
-    promisesByCategories: (category) => {
-      return client.query({ query: "GET_PROMISES_BY_CATEGORY", category });
-    },
-    projectMeta: () => {
-      return {
-        tags: client.getTags(),
-      };
-    },
-    promise: ({ id }) => {
-      const promise = client.query({ query: "GET_PROMISE", id });
-      return handleSinglePromise(defaultStatus, promiseStatuses, promise);
-    },
+    // keyPromises: ({ limit }) => {
+    //   const keyPromises = client.query({ query: "GET_KEY_PROMISES", limit });
+    //   return handlePromises(defaultStatus, promiseStatuses, keyPromises);
+    // },
+    // promisesByCategories: (category) => {
+    //   return client.query({ query: "GET_PROMISES_BY_CATEGORY", category });
+    // },
+    // projectMeta: () => {
+    //   return {
+    //     tags: client.getTags(),
+    //   };
+    // },
+    // promise: ({ id }) => {
+    //   const promise = client.query({ query: "GET_PROMISE", id });
+    //   return handleSinglePromise(defaultStatus, promiseStatuses, promise);
+    // },
   };
   return api;
 };
