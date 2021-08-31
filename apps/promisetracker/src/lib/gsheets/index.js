@@ -1,13 +1,12 @@
 import { camelCase } from "lodash";
 import papa from "papaparse";
 
-import cache from "@/promisetracker/lib/cache";
-import serverFn from "@/promisetracker/lib/server";
+import cacheFn from "@/promisetracker/lib/cache";
+import promisesQLFn from "@/promisetracker/lib/jsonql/promises";
 import theme from "@/promisetracker/theme";
-import { equalsIgnoreCase } from "@/promisetracker/utils";
+import { equalsIgnoreCase, formatDate, slugify } from "@/promisetracker/utils";
 
-function gsheets(siteSlug) {
-  const server = serverFn(siteSlug);
+function gsheets(server) {
   const SPREADSHEETS_URL = "https://docs.google.com/spreadsheets/";
   const spreadsheetId = server.env("GSHEETS_SPREADSHEET_ID");
   const entitiesSheetId = server.env("GSHEETS_ENTITIES_SHEET_ID");
@@ -65,13 +64,39 @@ function gsheets(siteSlug) {
   async function fetchSite() {
     const sitesSheet = await fetchSitesSheet();
     const entitiesSheet = await fetchSheet(entitiesSheetId);
-    const siteRow = siteSlug
-      ? sitesSheet.find((row) => equalsIgnoreCase(siteSlug, row.slug))
+    const siteRow = server.slug
+      ? sitesSheet.find((row) => equalsIgnoreCase(server.slug, row.slug))
       : sitesSheet[0];
     const entity = entitiesSheet.find((row) =>
       equalsIgnoreCase(row.name, siteRow.entity)
     );
     return { ...siteRow, entity };
+  }
+
+  function formatSiteAsProjectMeta(site) {
+    const { entity } = site;
+    const description = `Campaign Promises made by ${entity.name}`;
+    const fullName = entity.fullName || null;
+    const name = entity.preferredName || entity.name || null;
+    const photo = entity.image || null;
+    const position = entity.title || null;
+    const promiseLabel = "promises";
+    const tagline = `<span class="highlight">Tracking</span> ${name}`;
+    const trailText = "at a glance";
+    const updatedAt = formatDate(site.lastUpdated || Date.now);
+    const updatedAtLabel = "Updated";
+    return {
+      description,
+      fullName,
+      name,
+      photo,
+      position,
+      promiseLabel,
+      tagline,
+      trailText,
+      updatedAt,
+      updatedAtLabel,
+    };
   }
 
   async function fetchCategories() {
@@ -84,12 +109,17 @@ function gsheets(siteSlug) {
     const { statusPalette } = theme;
     const getPalette = (ordinal) =>
       statusPalette[`status${ordinal}`] || statusPalette.status0;
-    return statusesSheet.map((row) => ({ ...row, ...getPalette(row.ordinal) }));
+    return statusesSheet.map((row) => ({
+      ...row,
+      ...getPalette(row.ordinal),
+      slu: slugify(row.name),
+    }));
   }
 
   function reduceByName(acc, current) {
     // FIXME(kilemensi): Some components expect title instead of name
-    acc[camelCase(current.name)] = { ...current, title: current.name };
+    const title = current.name;
+    acc[camelCase(current.name)] = { ...current, title };
     return acc;
   }
 
@@ -124,7 +154,8 @@ function gsheets(siteSlug) {
       .filter((row) => row.promise.id);
   }
 
-  async function fetchPromises(site) {
+  async function fetchPromises(cache) {
+    const { data: site } = await cache.site;
     const statuses = (await fetchStatuses()).reduce(reduceByName, {});
     const promisesOptions = {
       ...papaOptions,
@@ -142,7 +173,7 @@ function gsheets(siteSlug) {
         // 2. statusVerificationDate should be part of status
         .map(({ entity, statusVerificationDate, ...other }) => ({
           ...other,
-          category: promisesCategories.flatMap(({ promise, ...category }) => {
+          categories: promisesCategories.flatMap(({ promise, ...category }) => {
             if (equalsIgnoreCase(promise.id, other.id)) {
               return [category];
             }
@@ -154,10 +185,19 @@ function gsheets(siteSlug) {
             }
             return [];
           }),
+          slug: slugify(other.title),
           status: {
             ...statuses?.[camelCase(other.status)],
             date: statusVerificationDate,
           },
+          // TODO(kilemensi): We should change UI components to just use
+          //                  status rather than duplicating it here.
+          statusHistory: [
+            {
+              ...statuses?.[camelCase(other.status)],
+              date: statusVerificationDate,
+            },
+          ],
         }))
     );
   }
@@ -166,29 +206,66 @@ function gsheets(siteSlug) {
     site: fetchSite,
     promises: fetchPromises,
   };
-  const gcache = cache(siteSlug, { fetchFor });
+  const gcache = cacheFn(server, fetchFor);
+
+  async function promisesQL() {
+    const { data: promises } = await gcache.promises;
+    return promisesQLFn(promises);
+  }
+
   const api = {
     sites: () => ({
       get current() {
         return (async () => {
-          return gcache.site;
+          const { data: site } = await gcache.site;
+          return site;
         })();
       },
     }),
-    promises: () => ({
-      get all() {
+    // TODO(kilemensi): This should be replaced by current but it requires
+    //                  changing components first.
+    project: () => ({
+      get meta() {
         return (async () => {
-          const { data: promises } = await gcache.promises;
-          return promises;
-        })();
-      },
-      get key() {
-        return (async () => {
-          const { data: promises } = await gcache.promises;
-          return promises.filter((promise) => promise.isKey);
+          const site = await api.sites().current;
+          return formatSiteAsProjectMeta(site);
         })();
       },
     }),
+    promises: (options) => {
+      return {
+        get all() {
+          return (async () => {
+            const ql = await promisesQL();
+            return ql.getPromises(options);
+          })();
+        },
+        get categories() {
+          return (async () => {
+            const ql = await promisesQL();
+            return ql.getCategories();
+          })();
+        },
+        get first() {
+          return (async () => {
+            const ql = await promisesQL();
+            return ql.getPromise(options);
+          })();
+        },
+        get key() {
+          return (async () => {
+            const ql = await promisesQL();
+            return ql.getPromises({ ...options, isKey: true });
+          })();
+        },
+        get statuses() {
+          return (async () => {
+            const ql = await promisesQL();
+            return ql.getStatuses();
+          })();
+        },
+      };
+    },
   };
 
   return api;
