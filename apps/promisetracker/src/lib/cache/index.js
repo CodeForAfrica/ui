@@ -1,4 +1,4 @@
-import fs from "fs";
+import { readFile, writeFile } from "fs/promises";
 import path from "path";
 
 const PROMISES_CACHE_FILENAME = "promises.json";
@@ -14,12 +14,13 @@ function cache(server, fetchFor) {
 
   async function read(filename) {
     const filePath = getFilePath(filename);
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+    const data = await readFile(filePath, { encoding: "utf8" });
+    return JSON.parse(data);
   }
 
   async function write(filename, data) {
     const filePath = getFilePath(filename);
-    fs.writeFileSync(filePath, JSON.stringify(data), "utf8");
+    return writeFile(filePath, JSON.stringify(data), { encoding: "utf8" });
   }
 
   async function load(filename, fetchNew) {
@@ -31,7 +32,7 @@ function cache(server, fetchFor) {
     }
     if (!cached || cached.lastUpdated < Date.now() - CACHE_TIMEOUT * 1000) {
       cached = await fetchNew();
-      write(filename, cached);
+      await write(filename, cached);
     }
 
     return cached;
