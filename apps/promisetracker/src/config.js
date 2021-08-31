@@ -36,8 +36,8 @@ const config = {
   CACHE_TIMEOUT: 5 * 60, // 5 minutes
   filterStatusItems: [
     {
-      name: "Complete",
-      slug: "complete",
+      name: "Completed",
+      slug: "completed",
     },
 
     {

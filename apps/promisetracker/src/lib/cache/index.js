@@ -1,8 +1,6 @@
 import fs from "fs";
 import path from "path";
 
-import serverFn from "@/promisetracker/lib/server";
-
 const PROMISES_CACHE_FILENAME = "promises.json";
 const SITES_CACHE_FILENAME = "sites.json";
 
@@ -28,9 +26,8 @@ const SITES_CACHE_FILENAME = "sites.json";
 //   );
 // }
 
-function cache(siteSlug, { fetchFor }) {
-  const server = serverFn(siteSlug);
-  const CACHE_TIMEOUT = server.env("CACHE_TIMEOUT");
+function cache(server, { fetchFor }) {
+  const CACHE_TIMEOUT = Number.parseInt(server.env("CACHE_TIMEOUT"), 10);
 
   async function read(filename) {
     const publicDirectory = path.join(process.cwd(), "public/data");
