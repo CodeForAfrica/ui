@@ -81,7 +81,6 @@ function Promises({
     }
   }, [sortBy, items, sortByDeadline, sortByMostRecent, withFilter]);
 
-  console.log("BOOMFILTER", { statusesFilters, categoriesFilters });
   return (
     <PostCardGrid
       component={PromiseCard}
