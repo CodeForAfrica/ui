@@ -10,7 +10,6 @@ import LatestPromises from "@/promisetracker/components/LatestPromises";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
 import Partners from "@/promisetracker/components/Partners";
-// import promisesApi from "@/promisetracker/lib/api";
 import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";

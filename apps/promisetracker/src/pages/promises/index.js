@@ -110,16 +110,15 @@ export async function getStaticProps({ locale }) {
   }
 
   const page = await wp().pages({ slug: "promises", locale }).first;
-  const { promiseStatuses } = page;
 
   const backend = backendFn();
+  const sitesApi = backend.sites();
+  const { statuses: promiseStatuses } = await sitesApi.current;
   const projectApi = backend.project();
   const projectMeta = await projectApi.meta;
 
   const promisesApi = backend.promises();
   const promises = await promisesApi.all;
-
-  console.log("BOOM", { projectMeta, promises });
 
   const languageAlternates = _.languageAlternates("/promises");
 
