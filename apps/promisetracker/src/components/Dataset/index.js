@@ -85,16 +85,19 @@ function Dataset({ dataset, ...props }) {
     tags,
     title,
     total_res_downloads: totalDownloads,
-  } = dataset;
+  } = dataset || {};
   const downloads = Math.ceil((totalDownloads || 0) / 100.0) * 100;
   const formats = {};
-  if (resources && resources.length) {
+  if (resources?.length) {
     resources.forEach((resource) => {
       formats[resource.format.toUpperCase()] = true;
     });
   }
-  const hasHxlTags =
-    tags && tags.find((tag) => tag.name.toLowerCase() === "hxl");
+  const hasHxlTags = tags?.find((tag) => tag.name.toLowerCase() === "hxl");
+
+  if (!title) {
+    return null;
+  }
   return (
     <Grid container direction="column" className={classes.root}>
       <A
