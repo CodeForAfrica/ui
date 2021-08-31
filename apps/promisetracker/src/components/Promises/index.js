@@ -56,7 +56,7 @@ function Promises({
         ?.filter((filter) => filter.active)
         .map((filter) => filter.slug);
       const hasCategory = (item) => {
-        const promiseCategories = item?.tags.map((tag) => slugify(tag));
+        const promiseCategories = item?.categories.map((c) => slugify(c.name));
         return selectedCategories.every((c) => promiseCategories.includes(c));
       };
       const filteredItems = itemsProp.filter(hasStatus).filter(hasCategory);
@@ -81,6 +81,7 @@ function Promises({
     }
   }, [sortBy, items, sortByDeadline, sortByMostRecent, withFilter]);
 
+  console.log("BOOMFILTER", { statusesFilters, categoriesFilters });
   return (
     <PostCardGrid
       component={PromiseCard}
