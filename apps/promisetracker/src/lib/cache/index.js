@@ -13,14 +13,15 @@ function cache(server, fetchFor) {
   const CACHE_TIMEOUT = Number.parseInt(server.env("CACHE_TIMEOUT"), 10);
 
   async function read(filename) {
-    const filePath = getFilePath(filename);
-    const data = await readFile(filePath, { encoding: "utf8" });
+    const file = getFilePath(filename);
+    const data = await readFile(file, { encoding: "utf8" });
     return JSON.parse(data);
   }
 
-  async function write(filename, data) {
-    const filePath = getFilePath(filename);
-    return writeFile(filePath, JSON.stringify(data), { encoding: "utf8" });
+  async function write(filename, jsonData) {
+    const file = getFilePath(filename);
+    const data = JSON.stringify(jsonData, undefined, 2);
+    return writeFile(file, data, { encoding: "utf8" });
   }
 
   async function load(filename, fetchNew) {
