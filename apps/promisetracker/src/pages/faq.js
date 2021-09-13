@@ -5,6 +5,7 @@ import React from "react";
 import ActNow from "@/promisetracker/components/ActNow";
 import ContentPage from "@/promisetracker/components/ContentPage";
 import FAQ from "@/promisetracker/components/FAQ";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -65,6 +66,9 @@ export async function getStaticProps({ locale }) {
     };
   }
 
+  const backend = backendFn();
+  const site = await backend.sites().current;
+  const { navigation } = site;
   const page = await wp().pages({ slug: "faq", locale }).first;
   const faqs = page.faqs
     .reduce((arr, e) => arr.concat(e.questions_answers), [])
@@ -76,6 +80,7 @@ export async function getStaticProps({ locale }) {
       ...page,
       faqs,
       languageAlternates,
+      navigation,
     },
     revalidate: 2 * 60, // seconds
   };
