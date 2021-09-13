@@ -1,6 +1,7 @@
 import React from "react";
 
 import AboutPage from "@/promisetracker/components/AboutPage";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -25,6 +26,9 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
     };
   }
 
+  const backend = backendFn();
+  const site = await backend.sites().current;
+  const { navigation } = site;
   const slug = slugParam.toLowerCase();
   const pages = await wp().pages({ slug: "legal", locale }).children;
   const index = pages.findIndex((page) => page.slug === slug);
@@ -35,7 +39,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
 
   return {
     notFound,
-    props: { ...page, errorCode, slug, languageAlternates },
+    props: { ...page, errorCode, slug, languageAlternates, navigation },
     revalidate: 2 * 60, // seconds
   };
 }
