@@ -26,7 +26,10 @@ function BasePage({
   return (
     <div className={classes.root}>
       <NextSeo title={title} {...props} />
-      <Navigation {...navigation} classes={{ section: classes.section }} />
+      <Navigation
+        navigation={navigation}
+        classes={{ section: classes.section }}
+      />
       {children}
       <Footer {...footer} classes={{ root: classes.footer }} />
     </div>
