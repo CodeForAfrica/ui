@@ -1,6 +1,7 @@
 import React from "react";
 
 import ErrorPage from "@/promisetracker/components/ErrorPage";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -9,6 +10,9 @@ function PreviewErrorPage(props) {
 }
 
 export async function getStaticProps({ locale }) {
+  const backend = backendFn();
+  const site = await backend.sites().current;
+  const { navigation } = site;
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "preview-error", locale }).first;
   const posts = await wpApi.pages({ slug: "analysis-articles", locale }).posts;
@@ -20,6 +24,7 @@ export async function getStaticProps({ locale }) {
       ...page,
       articles,
       languageAlternates,
+      navigation,
     },
     revalidate: 30 * 60, // seconds
   };
