@@ -1,6 +1,7 @@
-import { camelCase } from "lodash";
+import { camelCase, merge } from "lodash";
 import papa from "papaparse";
 
+import config from "@/promisetracker/config";
 import cacheFn from "@/promisetracker/lib/cache";
 import promisesQLFn from "@/promisetracker/lib/jsonql/promises";
 import theme from "@/promisetracker/theme";
@@ -9,6 +10,9 @@ import { equalsIgnoreCase, formatDate, slugify } from "@/promisetracker/utils";
 function gsheets(server) {
   const SPREADSHEETS_URL = "https://docs.google.com/spreadsheets/";
   const spreadsheetId = server.env("GSHEETS_SPREADSHEET_ID");
+  const sitesNavigationsSheetId = server.env(
+    "GSHEETS_SITES_NAVIGATIONS_SHEET_ID"
+  );
   const entitiesSheetId = server.env("GSHEETS_ENTITIES_SHEET_ID");
   const sitesSheetId = server.env("GSHEETS_SITES_SHEET_ID");
   const statusesSheetId = server.env("GSHEETS_STATUSES_SHEET_ID");
@@ -21,6 +25,7 @@ function gsheets(server) {
 
   const papaOptions = {
     header: true,
+    skipEmptyLines: "greedy",
     transformHeader: (header) => camelCase(header.trim()),
     transform: (value) => value?.trim(),
   };
@@ -48,6 +53,34 @@ function gsheets(server) {
       `${SPREADSHEETS_URL}d/${spreadsheetId}/export?format=csv&gid=${sheetId}`
     );
     return papaPromise(response.body, options);
+  }
+
+  async function fetchSitesNavigationsSheet() {
+    const options = {
+      ...papaOptions,
+      transform: (value) => value?.trim() || undefined,
+    };
+    const sitesNavigationsSheet = await fetchSheet(
+      sitesNavigationsSheetId,
+      options
+    );
+    return sitesNavigationsSheet
+      .filter((row) => row.site)
+      .map((row) => {
+        const transformed = {};
+        transformed.promises = { title: row.promises };
+        transformed.actNow = { title: row.actNow };
+        transformed.analysis = {
+          title: row.analysis,
+          navigation: {
+            articles: { title: row.analysisArticles },
+            petitions: { title: row.analysisPetitions },
+            resources: { title: row.analysisResources },
+            factChecks: { title: row.analysisFactChecks },
+          },
+        };
+        return transformed;
+      });
   }
 
   async function fetchSitesSheet() {
@@ -91,6 +124,7 @@ function gsheets(server) {
     const statuses = await fetchStatuses();
     const categories = await fetchCategories();
     const entitiesSheet = await fetchSheet(entitiesSheetId);
+    const sitesNavigationsSheet = await fetchSitesNavigationsSheet();
     const sitesSheet = await fetchSitesSheet();
     const siteRow = server.slug
       ? sitesSheet.find((row) => equalsIgnoreCase(server.slug, row.slug))
@@ -98,7 +132,45 @@ function gsheets(server) {
     const entity = entitiesSheet.find((row) =>
       equalsIgnoreCase(row.name, siteRow.entity)
     );
-    return { ...siteRow, categories, entity, statuses };
+    const {
+      articles: showArticles,
+      resources: showResources,
+      factChecks: showFactChecks,
+      actNow: showActNow,
+      ...site
+    } = siteRow;
+    const navigationRow =
+      sitesNavigationsSheet.find((row) =>
+        equalsIgnoreCase(row.site, siteRow.slug)
+      ) || {};
+    const navigation = merge({}, config.site.header.navigation, navigationRow);
+    const {
+      analysis: { navigation: analysisNavigation },
+    } = navigation;
+    if (!showArticles) {
+      delete analysisNavigation.articles;
+    }
+    if (!showResources) {
+      delete analysisNavigation.resources;
+    }
+    if (!showFactChecks) {
+      delete analysisNavigation.factChecks;
+    }
+    if (!showActNow) {
+      delete analysisNavigation.petitions;
+      delete navigation.actNow;
+    }
+    navigation.analysis.navigation = Object.keys(analysisNavigation)
+      .map((k) => analysisNavigation[k])
+      .sort((a, b) => a.order > b.order);
+
+    return {
+      ...site,
+      categories,
+      entity,
+      navigation,
+      statuses,
+    };
   }
 
   function formatSiteAsProjectMeta(site) {
