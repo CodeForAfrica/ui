@@ -70,10 +70,12 @@ function NavigationList({ onNavigate, open: openProp, navigation, ...props }) {
   const handleClick = () => {
     setOpen(!open);
   };
+  const {
+    promises: promisesMenu,
+    analysis: { navigation: analysisMenuNavigation, ...analysisMenu },
+    actNow: actNowMenu,
+  } = navigation;
 
-  if (!navigation?.length) {
-    return null;
-  }
   return (
     <Grid
       container
@@ -92,68 +94,75 @@ function NavigationList({ onNavigate, open: openProp, navigation, ...props }) {
           onClick={onNavigate}
           className={classes.listItem}
         >
-          <ListItemLink underline="none" href="/promises">
+          <ListItemLink underline="none" href={promisesMenu.href}>
             <Typography variant="h4" className={classes.title}>
-              Promises
+              {promisesMenu.title}
             </Typography>
           </ListItemLink>
         </ListItem>
 
-        <ListItem
-          autoFocus={false}
-          button
-          onClick={handleClick}
-          className={classes.listItem}
-        >
-          <Typography
-            variant="h4"
-            className={open ? classes.openTitle : classes.title}
-          >
-            Analysis
-          </Typography>
-        </ListItem>
-
-        <Collapse in={open} timeout="auto">
-          <List component="nav" className={classes.collapse}>
-            {navigation.map((item) => (
-              <ListItemLink
-                key={item.name}
-                href={item.href}
-                onClick={onNavigate}
-                underline="none"
+        {analysisMenuNavigation?.length > 0 ? (
+          <>
+            <ListItem
+              autoFocus={false}
+              button
+              onClick={handleClick}
+              className={classes.listItem}
+            >
+              <Typography
+                variant="h4"
+                className={open ? classes.openTitle : classes.title}
               >
-                <Typography variant="h4" className={classes.listItemText}>
-                  {item.name}
-                </Typography>
-              </ListItemLink>
-            ))}
-          </List>
-        </Collapse>
+                {analysisMenu.title}
+              </Typography>
+            </ListItem>
 
-        <ListItem
-          component="div"
-          autoFocus={false}
-          onClick={onNavigate}
-          className={classes.listItem}
-        >
-          <ListItemLink underline="none" href="/act-now">
-            <Typography variant="h4" className={classes.title}>
-              Act Now
-            </Typography>
-          </ListItemLink>
-        </ListItem>
+            <Collapse in={open} timeout="auto">
+              <List component="nav" className={classes.collapse}>
+                {analysisMenuNavigation.map((item) => (
+                  <ListItemLink
+                    key={item.title}
+                    href={item.href}
+                    onClick={onNavigate}
+                    underline="none"
+                  >
+                    <Typography variant="h4" className={classes.listItemText}>
+                      {item.title}
+                    </Typography>
+                  </ListItemLink>
+                ))}
+              </List>
+            </Collapse>
+          </>
+        ) : null}
+
+        {actNowMenu?.href ? (
+          <ListItem
+            component="div"
+            autoFocus={false}
+            onClick={onNavigate}
+            className={classes.listItem}
+          >
+            <ListItemLink underline="none" href={actNowMenu.href}>
+              <Typography variant="h4" className={classes.title}>
+                {actNowMenu.title}
+              </Typography>
+            </ListItemLink>
+          </ListItem>
+        ) : null}
       </List>
     </Grid>
   );
 }
 
 NavigationList.propTypes = {
-  navigation: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  navigation: PropTypes.shape({
+    promises: PropTypes.shape({}),
+    analysis: PropTypes.shape({
+      navigation: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+    actNow: PropTypes.shape({}),
+  }).isRequired,
   onNavigate: PropTypes.func,
   open: PropTypes.bool,
 };

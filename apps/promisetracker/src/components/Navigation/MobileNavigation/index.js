@@ -13,6 +13,7 @@ import { Close as CloseIcon } from "@material-ui/icons";
 import clsx from "clsx";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 
 import hamburgerIcon from "@/promisetracker/assets/hamburger-icon.svg";
@@ -20,7 +21,6 @@ import searchIcon from "@/promisetracker/assets/search-icon.svg";
 import Button from "@/promisetracker/components/Link/Button";
 import Logo from "@/promisetracker/components/Navigation/Logo";
 import NavigationList from "@/promisetracker/components/Navigation/MobileNavigation/NavigationList";
-import config from "@/promisetracker/config";
 import i18n from "@/promisetracker/lib/i18n";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
@@ -86,16 +86,16 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" ref={ref} {...props} />;
 });
 
-function MobileNavigation(props) {
+function MobileNavigation({ navigation, ...props }) {
   const classes = useStyles(props);
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const { asPath, locale: activeLocale } = router;
-  const { analysisMenu } = config;
+  const { analysis: analysisMenu } = navigation;
   const _ = i18n();
   const { locales } = _;
   const currentPageUrl = asPath.split("/").slice(0, 2).join("/");
-  const openAnalysisMenu = analysisMenu.url === currentPageUrl;
+  const openAnalysisMenu = analysisMenu.href === currentPageUrl;
   const handleClickOpen = (e) => {
     if (e) {
       e.preventDefault();
@@ -197,7 +197,7 @@ function MobileNavigation(props) {
             <DialogContent className={classes.dialogContent}>
               <Typography variant="body2" style={{ color: "white" }}>
                 <NavigationList
-                  navigation={analysisMenu.subnav}
+                  navigation={navigation}
                   onNavigate={handleNavigate}
                   open={openAnalysisMenu}
                 />
@@ -209,5 +209,19 @@ function MobileNavigation(props) {
     </div>
   );
 }
+
+MobileNavigation.propTypes = {
+  navigation: PropTypes.shape({
+    promises: PropTypes.shape({}),
+    analysis: PropTypes.shape({
+      navigation: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+    actNow: PropTypes.shape({}),
+  }),
+};
+
+MobileNavigation.defaultProps = {
+  navigation: undefined,
+};
 
 export default MobileNavigation;
