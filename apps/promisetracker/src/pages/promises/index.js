@@ -113,7 +113,7 @@ export async function getStaticProps({ locale }) {
 
   const backend = backendFn();
   const sitesApi = backend.sites();
-  const { statuses: promiseStatuses } = await sitesApi.current;
+  const { navigation, statuses: promiseStatuses } = await sitesApi.current;
   const projectApi = backend.project();
   const projectMeta = await projectApi.meta;
 
@@ -126,6 +126,7 @@ export async function getStaticProps({ locale }) {
     props: {
       ...page,
       languageAlternates,
+      navigation,
       promises,
       projectMeta,
       promiseStatuses,
