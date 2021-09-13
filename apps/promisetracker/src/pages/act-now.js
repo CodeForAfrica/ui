@@ -3,7 +3,7 @@ import React from "react";
 
 import ActNowPage from "@/promisetracker/components/ActNowPage";
 import ActNowLoggedInPage from "@/promisetracker/components/ActNowPage/LoggedIn";
-import check from "@/promisetracker/lib/check";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -30,20 +30,14 @@ export async function getStaticProps({ locale }) {
     };
   }
 
-  const page = await wp().pages({ slug: "act-now", locale }).first;
+  const backend = backendFn();
+  const { navigation } = await backend.sites().current;
+  const promises = await backend.promises().all;
 
-  const { actNow = {}, promiseStatuses } = page;
-  const checkApi = check({
-    promiseStatuses,
-    team: "pesacheck-promise-tracker",
-  });
+  const page = await wp().pages({ slug: "act-now", locale }).first;
+  const { actNow = {} } = page;
 
   const languageAlternates = _.languageAlternates("/act-now");
-
-  const promises = await checkApi.promises({
-    limit: 10000,
-    query: `{ "projects": ["2831"] }`,
-  });
   actNow.url = process.env.ACTNOW_URL ?? null;
 
   const headers = new Headers({
@@ -60,8 +54,9 @@ export async function getStaticProps({ locale }) {
     props: {
       ...page,
       actNow,
-      promises,
       languageAlternates,
+      navigation,
+      promises,
     },
     revalidate: 2 * 60, // seconds
   };
