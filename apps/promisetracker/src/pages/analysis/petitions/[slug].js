@@ -7,6 +7,7 @@ import Article from "@/promisetracker/components/Article";
 import RelatedArticles from "@/promisetracker/components/LatestArticles";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 import { formatDate } from "@/promisetracker/utils";
@@ -169,6 +170,8 @@ export async function getStaticProps({
     };
   }
 
+  const backend = backendFn();
+  const { navigation } = await backend.sites().current;
   const errorCode = notFound ? 404 : null;
   const page = await wpApi.pages({ slug: "analysis-articles" }).first;
   const posts = await wpApi.pages({ page }).posts;
@@ -191,6 +194,7 @@ export async function getStaticProps({
       article,
       errorCode,
       languageAlternates,
+      navigation,
       relatedArticles,
     },
     revalidate: 2 * 60, // seconds

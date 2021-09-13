@@ -9,6 +9,7 @@ import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
 import Petitions from "@/promisetracker/components/Petitions";
 import actnow from "@/promisetracker/lib/actnow";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -123,6 +124,9 @@ export async function getStaticProps({ locale }) {
       notFound: true,
     };
   }
+
+  const backend = backendFn();
+  const { navigation } = await backend.sites().current;
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "analysis-petitions", locale }).first;
   page.posts = null;
@@ -132,8 +136,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       ...page,
-      petitions,
       languageAlternates,
+      navigation,
+      petitions,
     },
   };
 }

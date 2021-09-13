@@ -5,6 +5,7 @@ import React from "react";
 
 import ActNow from "@/promisetracker/components/ActNow";
 import ContentPage from "@/promisetracker/components/ContentPage";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -82,6 +83,8 @@ export async function getStaticProps({ locale }) {
     };
   }
 
+  const backend = backendFn();
+  const { navigation } = await backend.sites().current;
   const page = await wp().pages({ slug: "resources", locale }).first;
   const languageAlternates = _.languageAlternates("/analysis/resources");
 
@@ -89,6 +92,7 @@ export async function getStaticProps({ locale }) {
     props: {
       ...page,
       languageAlternates,
+      navigation,
     },
     revalidate: 2 * 60, // seconds
   };

@@ -8,6 +8,7 @@ import ArticleCard from "@/promisetracker/components/ArticleCard";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
 import PostCardGrid from "@/promisetracker/components/PostCardGrid";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -108,6 +109,10 @@ export async function getStaticProps({ locale }) {
       notFound: true,
     };
   }
+
+  const backend = backendFn();
+  const site = await backend.sites().current;
+  const { navigation } = site;
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "analysis-articles", locale }).first;
   const posts = await wpApi.pages({ page }).posts;
@@ -120,7 +125,9 @@ export async function getStaticProps({ locale }) {
       ...page,
       articles,
       languageAlternates,
+      navigation,
     },
+    revalidate: 2 * 60, // seconds
   };
 }
 

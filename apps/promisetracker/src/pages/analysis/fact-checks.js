@@ -8,6 +8,7 @@ import FactCheckCard from "@/promisetracker/components/FactCheckCard";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
 import PostCardGrid from "@/promisetracker/components/PostCardGrid";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import pc from "@/promisetracker/lib/pc";
 import wp from "@/promisetracker/lib/wp";
@@ -110,6 +111,9 @@ export async function getStaticProps({ locale }) {
     };
   }
 
+  const backend = backendFn();
+  const site = await backend.sites().current;
+  const { navigation } = site;
   const page = await wp().pages({ slug: "analysis-fact-checks", locale }).first;
   const factChecks = await pc().factChecks().latest;
   const languageAlternates = _.languageAlternates("/analysis/fact-checks");
@@ -119,6 +123,7 @@ export async function getStaticProps({ locale }) {
       ...page,
       factChecks,
       languageAlternates,
+      navigation,
     },
     revalidate: 2 * 60, // seconds
   };
