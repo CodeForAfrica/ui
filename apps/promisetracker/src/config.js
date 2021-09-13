@@ -246,28 +246,6 @@ const config = {
       },
     ],
   },
-  analysisMenu: {
-    subnav: [
-      {
-        name: "Articles",
-        href: "/analysis/articles",
-      },
-      {
-        name: "Petitions",
-        href: "/analysis/petitions",
-      },
-      {
-        name: "Resources",
-        href: "/analysis/resources",
-      },
-      {
-        name: "Fact-checks",
-        href: "/analysis/fact-checks",
-      },
-    ],
-    title: "Analysis",
-    url: "/analysis",
-  },
   promiseInterval: [2017, 2022],
   pages: {
     about: {
@@ -308,6 +286,51 @@ const config = {
           title: "Methodology",
         },
       },
+    },
+  },
+  site: {
+    header: {
+      navigation: {
+        promises: {
+          href: "/promises",
+          order: 0,
+          title: "Promises",
+        },
+        analysis: {
+          title: "Analysis",
+          order: 1,
+          navigation: {
+            articles: {
+              href: "/analysis/articles",
+              order: 0,
+              title: "Articles",
+            },
+            petitions: {
+              href: "/analysis/petitions",
+              order: 1,
+              title: "Petitions",
+            },
+            resources: {
+              href: "/analysis/resources",
+              order: 2,
+              title: "Resources",
+            },
+            factChecks: {
+              href: "/analysis/fact-checks",
+              order: 3,
+              title: "Fact-Checks",
+            },
+          },
+        },
+        actNow: {
+          href: "/act-now",
+          order: 2,
+          title: "Act Now",
+        },
+      },
+    },
+    footer: {
+      navigation: {},
     },
   },
 };
