@@ -1,6 +1,7 @@
 import React from "react";
 
 import AboutPage from "@/promisetracker/components/AboutPage";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -44,6 +45,8 @@ export async function getStaticProps({
   }
   const errorCode = notFound ? 404 : null;
 
+  const backend = backendFn();
+  const { navigation } = await backend.sites().current;
   const languageAlternates = _.languageAlternates(`/about/${slug}`);
   if (!page && preview) {
     return {
@@ -55,7 +58,7 @@ export async function getStaticProps({
   }
   return {
     notFound,
-    props: { ...page, errorCode, languageAlternates, slug },
+    props: { ...page, errorCode, languageAlternates, navigation, slug },
     revalidate: 2 * 60, // seconds
   };
 }
