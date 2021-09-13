@@ -66,7 +66,7 @@ function PageNavigation({
         <Grid
           container
           direction="row"
-          justify="space-between"
+          justify="space-around"
           className={classes.navigation}
         >
           {navigation.map((menu) => (
@@ -82,7 +82,7 @@ function PageNavigation({
                   [classes.buttonCurrent]: menu.href.startsWith(navigationUrl),
                 })}
               >
-                {menu.name}
+                {menu.title}
               </LinkButton>
             </Grid>
           ))}

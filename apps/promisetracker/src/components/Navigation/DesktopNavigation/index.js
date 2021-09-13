@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import { useRouter } from "next/router";
+import PropTypes from "prop-types";
 import React from "react";
 
 import MenuButton from "./MenuButton";
@@ -12,7 +13,6 @@ import PageNavigation from "./PageNavigation";
 import Button from "@/promisetracker/components/Link/Button";
 import Logo from "@/promisetracker/components/Navigation/Logo";
 import Search from "@/promisetracker/components/Search";
-import config from "@/promisetracker/config";
 import i18n from "@/promisetracker/lib/i18n";
 
 const useStyles = makeStyles(({ typography }) => ({
@@ -56,13 +56,18 @@ const useStyles = makeStyles(({ typography }) => ({
   },
 }));
 
-function DesktopNavigation(props) {
+function DesktopNavigation({ navigation, ...props }) {
   const classes = useStyles(props);
-  const { analysisMenu } = config;
+  const {
+    promises: promisesMenu,
+    analysis: { navigation: analysisMenuNavigation, ...analysisMenu },
+    actNow: actNowMenu,
+  } = navigation;
   const router = useRouter();
   const { asPath, locale: activeLocale } = router;
   const currentPageUrl = asPath.split("/").slice(0, 2).join("/");
-  const pageNavigation = analysisMenu.url === currentPageUrl && analysisMenu;
+  const pageNavigation =
+    analysisMenu.url === currentPageUrl && analysisMenuNavigation;
   const _ = i18n();
   const { locales } = _;
 
@@ -85,40 +90,39 @@ function DesktopNavigation(props) {
                 >
                   <Grid item>
                     <MenuButton
-                      active={currentPageUrl === "/promises"}
-                      href="/promises"
                       size="large"
-                      title="Promises"
                       variant="outlined"
+                      {...promisesMenu}
+                      active={currentPageUrl === promisesMenu.href}
                       classes={{ root: classes.button }}
                     />
                   </Grid>
 
                   <Grid item>
                     <NavigationButton
-                      title={analysisMenu.title}
                       size="large"
-                      active={analysisMenu.url === currentPageUrl}
+                      {...analysisMenu}
+                      active={currentPageUrl === analysisMenu.href}
                       classes={{ root: classes.button }}
                     >
                       <PageNavigation
-                        asPath={analysisMenu.url}
-                        navigation={analysisMenu.subnav}
+                        asPath={analysisMenu.href}
+                        navigation={analysisMenuNavigation}
                         classes={{ section: classes.section }}
                       />
                     </NavigationButton>
                   </Grid>
-
-                  <Grid item>
-                    <MenuButton
-                      active={currentPageUrl === "/act-now"}
-                      href="/act-now"
-                      size="large"
-                      title="Act Now"
-                      variant="outlined"
-                      classes={{ root: classes.button }}
-                    />
-                  </Grid>
+                  {actNowMenu?.href ? (
+                    <Grid item>
+                      <MenuButton
+                        size="large"
+                        variant="outlined"
+                        {...actNowMenu}
+                        active={currentPageUrl === actNowMenu.href}
+                        classes={{ root: classes.button }}
+                      />
+                    </Grid>
+                  ) : null}
                 </Grid>
 
                 <Grid className={classes.searchContainer} item lg={3}>
@@ -170,21 +174,35 @@ function DesktopNavigation(props) {
             </Section>
           </div>
         </Grid>
-        {pageNavigation && pageNavigation.subnav && (
+        {pageNavigation ? (
           <Grid item xs={12}>
             <PageNavigation
               asPath={asPath}
-              navigation={pageNavigation.subnav}
+              navigation={analysisMenuNavigation}
               classes={{
                 root: classes.pageNavigation,
                 section: classes.section,
               }}
             />
           </Grid>
-        )}
+        ) : null}
       </Grid>
     </div>
   );
 }
+
+DesktopNavigation.propTypes = {
+  navigation: PropTypes.shape({
+    promises: PropTypes.shape({}),
+    analysis: PropTypes.shape({
+      navigation: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
+    actNow: PropTypes.shape({}),
+  }),
+};
+
+DesktopNavigation.defaultProps = {
+  navigation: undefined,
+};
 
 export default DesktopNavigation;
