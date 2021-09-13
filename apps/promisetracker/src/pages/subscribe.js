@@ -5,6 +5,7 @@ import React from "react";
 import ActNow from "@/promisetracker/components/ActNow";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -62,6 +63,9 @@ export async function getStaticProps({ locale }) {
     };
   }
 
+  const backend = backendFn();
+  const site = await backend.sites().current;
+  const { navigation } = site;
   const page = await wp().pages({ slug: "subscribe", locale }).first;
   const languageAlternates = _.languageAlternates("/subscribe");
 
@@ -69,6 +73,7 @@ export async function getStaticProps({ locale }) {
     props: {
       ...page,
       languageAlternates,
+      navigation,
     },
     revalidate: 2 * 60, // seconds
   };
