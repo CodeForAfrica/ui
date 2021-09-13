@@ -31,7 +31,7 @@ function ActNowSummary({ summary, titles, ...props }) {
           {titles.citizens}
         </Typography>
       </Grid>
-      <Grid item xs={1} noWrap>
+      <Grid item xs={1}>
         <Typography variant="h4" className={classes.count}>
           {summary.petitions.count}
         </Typography>

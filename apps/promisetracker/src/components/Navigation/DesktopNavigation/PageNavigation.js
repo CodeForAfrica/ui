@@ -93,12 +93,7 @@ function PageNavigation({
 }
 
 PageNavigation.propTypes = {
-  navigation: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  navigation: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   asPath: PropTypes.string,
   pathname: PropTypes.string,
 };
