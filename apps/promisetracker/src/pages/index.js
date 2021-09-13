@@ -193,7 +193,10 @@ export async function getStaticProps({ locale }) {
   const articles = posts?.slice(0, 4) || null;
   // const projectMeta = await api.projectMeta();
   const projectApi = backend.project();
+  const site = await backend.sites().current;
+  const { navigation } = site;
   const projectMeta = await projectApi.meta;
+  const promisesByStatus = groupPromisesByStatus(promises);
   const languageAlternates = _.languageAlternates();
 
   return {
@@ -202,9 +205,9 @@ export async function getStaticProps({ locale }) {
       articles,
       keyPromises,
       languageAlternates,
+      navigation,
       promises: promises.slice(0, 6),
-      keyPromises,
-      promisesByStatus: groupPromisesByStatus(promises),
+      promisesByStatus,
       projectMeta,
     },
     revalidate: 2 * 60, // seconds
