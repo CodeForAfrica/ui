@@ -37,6 +37,7 @@ function PromisesPage({
   navigation,
   promises,
   actNow,
+  actNowEnabled,
   subscribe,
   title,
   projectMeta,
@@ -63,10 +64,12 @@ function PromisesPage({
           section: classes.section,
         }}
       />
-      <ActNow
-        {...actNow}
-        classes={{ section: classes.section, root: classes.actNow }}
-      />
+      {actNowEnabled ? (
+        <ActNow
+          {...actNow}
+          classes={{ section: classes.section, root: classes.actNow }}
+        />
+      ) : null}
       <Subscribe
         {...subscribe}
         classes={{
@@ -79,6 +82,7 @@ function PromisesPage({
 
 PromisesPage.propTypes = {
   actNow: PropTypes.shape({}),
+  actNowEnabled: PropTypes.bool,
   footer: PropTypes.shape({}),
   projectMeta: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
@@ -91,6 +95,7 @@ PromisesPage.propTypes = {
 
 PromisesPage.defaultProps = {
   actNow: undefined,
+  actNowEnabled: undefined,
   promises: undefined,
   sortLabels: undefined,
   promiseStatuses: undefined,
@@ -113,7 +118,11 @@ export async function getStaticProps({ locale }) {
 
   const backend = backendFn();
   const sitesApi = backend.sites();
-  const { navigation, statuses: promiseStatuses } = await sitesApi.current;
+  const {
+    navigation,
+    statuses: promiseStatuses,
+    ...site
+  } = await sitesApi.current;
   const projectApi = backend.project();
   const projectMeta = await projectApi.meta;
 
@@ -125,6 +134,7 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       ...page,
+      ...site,
       languageAlternates,
       navigation,
       promises,
