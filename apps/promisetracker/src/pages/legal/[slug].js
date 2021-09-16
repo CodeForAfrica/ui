@@ -28,7 +28,6 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
 
   const backend = backendFn();
   const site = await backend.sites().current;
-  const { navigation } = site;
   const slug = slugParam.toLowerCase();
   const pages = await wp().pages({ slug: "legal", locale }).children;
   const index = pages.findIndex((page) => page.slug === slug);
@@ -39,7 +38,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
 
   return {
     notFound,
-    props: { ...page, errorCode, slug, languageAlternates, navigation },
+    props: { ...page, ...site, errorCode, slug, languageAlternates },
     revalidate: 2 * 60, // seconds
   };
 }
