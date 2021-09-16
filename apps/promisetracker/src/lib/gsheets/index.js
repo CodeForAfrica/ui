@@ -3,6 +3,8 @@ import papa from "papaparse";
 
 import config from "@/promisetracker/config";
 import cacheFn from "@/promisetracker/lib/cache";
+import articlesQLFn from "@/promisetracker/lib/jsonql/articles";
+import factChecksQLFn from "@/promisetracker/lib/jsonql/factChecks";
 import promisesQLFn from "@/promisetracker/lib/jsonql/promises";
 import theme from "@/promisetracker/theme";
 import { equalsIgnoreCase, formatDate, slugify } from "@/promisetracker/utils";
@@ -22,6 +24,8 @@ function gsheets(server) {
     "GSHEETS_PROMISES_CATEGORIES_SHEET_ID"
   );
   const promisesEventsSheetId = server.env("GSHEETS_PROMISES_EVENTS_SHEET_ID");
+  const articlesSheetId = server.env("GSHEETS_ARTICLES_SHEET_ID");
+  const factChecksSheetId = server.env("GSHEETS_FACTCHECKS_SHEET_ID");
 
   const papaOptions = {
     header: true,
@@ -133,10 +137,10 @@ function gsheets(server) {
       equalsIgnoreCase(row.name, siteRow.entity)
     );
     const {
-      articles: showArticles,
-      resources: showResources,
-      factChecks: showFactChecks,
-      actNow: showActNow,
+      articles: articlesEnabled,
+      resources: resourcesEnabled,
+      factChecks: factChecksEnabled,
+      actNow: actNowEnabled,
       ...site
     } = siteRow;
     const navigationRow =
@@ -147,16 +151,16 @@ function gsheets(server) {
     const {
       analysis: { navigation: analysisNavigation },
     } = navigation;
-    if (!showArticles) {
+    if (!articlesEnabled) {
       delete analysisNavigation.articles;
     }
-    if (!showResources) {
+    if (!resourcesEnabled) {
       delete analysisNavigation.resources;
     }
-    if (!showFactChecks) {
+    if (!factChecksEnabled) {
       delete analysisNavigation.factChecks;
     }
-    if (!showActNow) {
+    if (!actNowEnabled) {
       delete analysisNavigation.petitions;
       delete navigation.actNow;
     }
@@ -166,6 +170,10 @@ function gsheets(server) {
 
     return {
       ...site,
+      actNowEnabled,
+      articlesEnabled,
+      factChecksEnabled,
+      resourcesEnabled,
       categories,
       entity,
       navigation,
@@ -199,6 +207,24 @@ function gsheets(server) {
       updatedAt,
       updatedAtLabel,
     };
+  }
+
+  async function fetchArticles(cache) {
+    const { data: site } = await cache.site;
+    const articlesSheet = await fetchSheet(articlesSheetId);
+
+    return articlesSheet
+      .filter((row) => equalsIgnoreCase(row.site, site.slug))
+      .map(({ photo, ...others }) => ({ ...others, photo, image: photo }));
+  }
+
+  async function fetchFactChecks(cache) {
+    const { data: site } = await cache.site;
+    const factChecksSheet = await fetchSheet(factChecksSheetId);
+
+    return factChecksSheet
+      .filter((row) => equalsIgnoreCase(row.site, site.slug))
+      .map(({ photo, ...others }) => ({ ...others, photo, image: photo }));
   }
 
   function reduceByName(acc, current) {
@@ -288,9 +314,21 @@ function gsheets(server) {
 
   const fetchFor = {
     site: fetchSite,
+    articles: fetchArticles,
     promises: fetchPromises,
+    factChecks: fetchFactChecks,
   };
   const gcache = cacheFn(server, fetchFor);
+
+  async function articlesQL() {
+    const { data: articles } = await gcache.articles;
+    return articlesQLFn(articles);
+  }
+
+  async function factChecksQL() {
+    const { data: factChecks } = await gcache.factChecks;
+    return factChecksQLFn(factChecks);
+  }
 
   async function promisesQL() {
     const { data: promises } = await gcache.promises;
@@ -316,6 +354,44 @@ function gsheets(server) {
         })();
       },
     }),
+    articles: (options) => {
+      return {
+        get all() {
+          return (async () => {
+            const site = await api.sites().current;
+            if (!site.articlesEnabled) {
+              return null;
+            }
+            const ql = await articlesQL();
+            return ql.getArticles(options);
+          })();
+        },
+        get first() {
+          return (async () => {
+            const site = await api.sites().current;
+            if (!site.articlesEnabled) {
+              return null;
+            }
+            const ql = await articlesQL();
+            return ql.getArticle(options);
+          })();
+        },
+      };
+    },
+    factChecks: (options) => {
+      return {
+        get all() {
+          return (async () => {
+            const site = await api.sites().current;
+            if (!site.factChecksEnabled) {
+              return null;
+            }
+            const ql = await factChecksQL();
+            return ql.getFactChecks(options);
+          })();
+        },
+      };
+    },
     promises: (options) => {
       return {
         get all() {
