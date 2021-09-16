@@ -31,7 +31,7 @@ export async function getStaticProps({ locale }) {
   }
 
   const backend = backendFn();
-  const { navigation } = await backend.sites().current;
+  const site = await backend.sites().current;
   const promises = await backend.promises().all;
 
   const page = await wp().pages({ slug: "act-now", locale }).first;
@@ -53,9 +53,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       ...page,
+      ...site,
       actNow,
       languageAlternates,
-      navigation,
       promises,
     },
     revalidate: 2 * 60, // seconds

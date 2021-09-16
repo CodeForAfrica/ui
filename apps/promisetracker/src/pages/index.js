@@ -33,6 +33,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
 
 function Index({
   actNow,
+  actNowEnabled,
   articles,
   criteria,
   footer,
@@ -91,12 +92,14 @@ function Index({
           section: classes.section,
         }}
       />
-      <ActNow
-        {...actNow}
-        classes={{
-          section: classes.section,
-        }}
-      />
+      {actNowEnabled ? (
+        <ActNow
+          {...actNow}
+          classes={{
+            section: classes.section,
+          }}
+        />
+      ) : null}
       <LatestArticles
         actionLabel="See All"
         items={articles}
@@ -123,6 +126,7 @@ function Index({
 
 Index.propTypes = {
   actNow: PropTypes.shape({}),
+  actNowEnabled: PropTypes.bool,
   articles: PropTypes.arrayOf(PropTypes.shape({})),
   criteria: PropTypes.shape({}),
   footer: PropTypes.shape({}),
@@ -148,6 +152,7 @@ Index.propTypes = {
 
 Index.defaultProps = {
   actNow: undefined,
+  actNowEnabled: undefined,
   articles: undefined,
   criteria: undefined,
   footer: undefined,
@@ -189,8 +194,9 @@ export async function getStaticProps({ locale }) {
   //   limit: 6,
   //   query: `{ "projects": ["4691"] }`,
   // });
-  const posts = await wpApi.pages({ slug: "analysis-articles", locale }).posts;
-  const articles = posts?.slice(0, 4) || null;
+  const articles = (await backend.articles().all)?.slice(0, 4) ?? null;
+  // const posts = await wpApi.pages({ slug: "analysis-articles", locale }).posts;
+  // const articles = posts?.slice(0, 4) || null;
   // const projectMeta = await api.projectMeta();
   const projectApi = backend.project();
   const site = await backend.sites().current;
