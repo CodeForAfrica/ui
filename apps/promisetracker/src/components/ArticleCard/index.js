@@ -6,14 +6,14 @@ import useStyles from "./useStyles";
 import Link from "@/promisetracker/components/Link/Button";
 import PostCard from "@/promisetracker/components/PostCard";
 
-function ArticleCard({ classes: classesProp, slug, ...props }) {
+function ArticleCard({ classes: classesProp, href, ...props }) {
   const classes = useStyles({ classes: classesProp });
 
   return (
     <PostCard
       {...props}
-      href={`/analysis/articles/${slug}`}
-      component={Link}
+      component={href ? Link : undefined}
+      href={href}
       classes={{
         root: classes.root,
         content: classes.content,
@@ -45,11 +45,12 @@ ArticleCard.propTypes = {
     title: PropTypes.string,
     titleContainer: PropTypes.string,
   }),
-  slug: PropTypes.string.isRequired,
+  href: PropTypes.string,
 };
 
 ArticleCard.defaultProps = {
   children: undefined,
+  href: undefined,
   classes: undefined,
 };
 
