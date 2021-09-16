@@ -25,7 +25,14 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function SubscribePage({ actNow, footer, navigation, subscribe, ...props }) {
+function SubscribePage({
+  actNow,
+  actNowEnabled,
+  footer,
+  navigation,
+  subscribe,
+  ...props
+}) {
   const classes = useStyles(props);
 
   return (
@@ -36,13 +43,21 @@ function SubscribePage({ actNow, footer, navigation, subscribe, ...props }) {
       classes={{ section: classes.section, footer: classes.footer }}
     >
       <Subscribe {...subscribe} classes={{ section: classes.section }} />
-      <ActNow {...actNow} classes={{ section: classes.section }} />
+      {actNowEnabled ? (
+        <ActNow
+          {...actNow}
+          classes={{
+            section: classes.section,
+          }}
+        />
+      ) : null}
     </Page>
   );
 }
 
 SubscribePage.propTypes = {
   actNow: PropTypes.shape({}),
+  actNowEnabled: PropTypes.bool,
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
   subscribe: PropTypes.shape({}),
@@ -50,6 +65,7 @@ SubscribePage.propTypes = {
 
 SubscribePage.defaultProps = {
   actNow: undefined,
+  actNowEnabled: undefined,
   footer: undefined,
   navigation: undefined,
   subscribe: undefined,
@@ -65,15 +81,14 @@ export async function getStaticProps({ locale }) {
 
   const backend = backendFn();
   const site = await backend.sites().current;
-  const { navigation } = site;
   const page = await wp().pages({ slug: "subscribe", locale }).first;
   const languageAlternates = _.languageAlternates("/subscribe");
 
   return {
     props: {
       ...page,
+      ...site,
       languageAlternates,
-      navigation,
     },
     revalidate: 2 * 60, // seconds
   };
