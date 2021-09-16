@@ -15,6 +15,7 @@ import ContentSection from "@/promisetracker/components/ContentPage/Section";
 
 function AboutPage({
   actNow,
+  actNowEnabled,
   content,
   criteria,
   description,
@@ -97,19 +98,22 @@ function AboutPage({
           }}
         />
       </div>
-      <ActNow
-        {...actNow}
-        classes={{
-          section: classes.section,
-          root: classes.actNow,
-        }}
-      />
+      {actNowEnabled ? (
+        <ActNow
+          {...actNow}
+          classes={{
+            section: classes.section,
+            root: classes.actNow,
+          }}
+        />
+      ) : null}
     </ContentPage>
   );
 }
 
 AboutPage.propTypes = {
   actNow: PropTypes.shape({}),
+  actNowEnabled: PropTypes.bool,
   content: PropTypes.string,
   criteria: PropTypes.shape({
     items: PropTypes.arrayOf(PropTypes.shape({})),
@@ -127,6 +131,7 @@ AboutPage.propTypes = {
 
 AboutPage.defaultProps = {
   actNow: undefined,
+  actNowEnabled: undefined,
   content: undefined,
   criteria: undefined,
   description: undefined,
