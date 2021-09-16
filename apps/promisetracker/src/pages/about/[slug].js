@@ -46,7 +46,7 @@ export async function getStaticProps({
   const errorCode = notFound ? 404 : null;
 
   const backend = backendFn();
-  const { navigation } = await backend.sites().current;
+  const site = await backend.sites().current;
   const languageAlternates = _.languageAlternates(`/about/${slug}`);
   if (!page && preview) {
     return {
@@ -58,7 +58,7 @@ export async function getStaticProps({
   }
   return {
     notFound,
-    props: { ...page, errorCode, languageAlternates, navigation, slug },
+    props: { ...page, ...site, errorCode, languageAlternates, slug },
     revalidate: 2 * 60, // seconds
   };
 }
