@@ -10,7 +10,6 @@ import Page from "@/promisetracker/components/Page";
 import PostCardGrid from "@/promisetracker/components/PostCardGrid";
 import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
-import pc from "@/promisetracker/lib/pc";
 import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
@@ -33,6 +32,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
 
 function FactChecks({
   actNow,
+  actNowEnabled,
   factChecks,
   footer,
   navigation,
@@ -71,15 +71,17 @@ function FactChecks({
             }}
           />
         </Grid>
-        <Grid item>
-          <ActNow
-            {...actNow}
-            classes={{
-              section: classes.section,
-              root: classes.actNow,
-            }}
-          />
-        </Grid>
+        {actNowEnabled ? (
+          <Grid item>
+            <ActNow
+              {...actNow}
+              classes={{
+                section: classes.section,
+                root: classes.actNow,
+              }}
+            />
+          </Grid>
+        ) : null}
       </Grid>
     </Page>
   );
@@ -87,6 +89,7 @@ function FactChecks({
 
 FactChecks.propTypes = {
   actNow: PropTypes.shape({}),
+  actNowEnabled: PropTypes.bool,
   factChecks: PropTypes.arrayOf(PropTypes.shape({})),
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
@@ -96,6 +99,7 @@ FactChecks.propTypes = {
 
 FactChecks.defaultProps = {
   actNow: undefined,
+  actNowEnabled: undefined,
   factChecks: undefined,
   footer: undefined,
   navigation: undefined,
@@ -113,17 +117,16 @@ export async function getStaticProps({ locale }) {
 
   const backend = backendFn();
   const site = await backend.sites().current;
-  const { navigation } = site;
+  const factChecks = await backend.factChecks().all;
   const page = await wp().pages({ slug: "analysis-fact-checks", locale }).first;
-  const factChecks = await pc().factChecks().latest;
   const languageAlternates = _.languageAlternates("/analysis/fact-checks");
 
   return {
     props: {
       ...page,
+      ...site,
       factChecks,
       languageAlternates,
-      navigation,
     },
     revalidate: 2 * 60, // seconds
   };

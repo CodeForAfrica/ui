@@ -101,6 +101,7 @@ function Index({
 
 Index.propTypes = {
   actNow: PropTypes.shape({}),
+  actNowEnabled: PropTypes.bool,
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
   petitions: PropTypes.arrayOf(PropTypes.shape({})),
@@ -110,6 +111,7 @@ Index.propTypes = {
 
 Index.defaultProps = {
   actNow: undefined,
+  actNowEnabled: undefined,
   footer: undefined,
   navigation: undefined,
   petitions: undefined,
@@ -126,7 +128,7 @@ export async function getStaticProps({ locale }) {
   }
 
   const backend = backendFn();
-  const { navigation } = await backend.sites().current;
+  const site = await backend.sites().current;
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "analysis-petitions", locale }).first;
   page.posts = null;
@@ -136,8 +138,8 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       ...page,
+      ...site,
       languageAlternates,
-      navigation,
       petitions,
     },
   };

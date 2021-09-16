@@ -32,6 +32,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
 
 function Index({
   actNow,
+  actNowEnabled,
   articles,
   footer,
   navigation,
@@ -70,15 +71,17 @@ function Index({
             }}
           />
         </Grid>
-        <Grid item>
-          <ActNow
-            {...actNow}
-            classes={{
-              section: classes.section,
-              root: classes.actNow,
-            }}
-          />
-        </Grid>
+        {actNowEnabled ? (
+          <Grid item>
+            <ActNow
+              {...actNow}
+              classes={{
+                section: classes.section,
+                root: classes.actNow,
+              }}
+            />
+          </Grid>
+        ) : null}
       </Grid>
     </Page>
   );
@@ -86,6 +89,7 @@ function Index({
 
 Index.propTypes = {
   actNow: PropTypes.shape({}),
+  actNowEnabled: PropTypes.bool,
   articles: PropTypes.arrayOf(PropTypes.shape({})),
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
@@ -94,8 +98,9 @@ Index.propTypes = {
 };
 
 Index.defaultProps = {
-  articles: undefined,
+  actNowEnabled: undefined,
   actNow: undefined,
+  articles: undefined,
   footer: undefined,
   navigation: undefined,
   subscribe: undefined,
@@ -112,7 +117,6 @@ export async function getStaticProps({ locale }) {
 
   const backend = backendFn();
   const site = await backend.sites().current;
-  const { navigation } = site;
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "analysis-articles", locale }).first;
   const posts = await wpApi.pages({ page }).posts;
@@ -123,9 +127,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       ...page,
+      ...site,
       articles,
       languageAlternates,
-      navigation,
     },
     revalidate: 2 * 60, // seconds
   };

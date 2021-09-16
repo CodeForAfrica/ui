@@ -171,7 +171,7 @@ export async function getStaticProps({
   }
 
   const backend = backendFn();
-  const { navigation } = await backend.sites().current;
+  const site = await backend.sites().current;
   const errorCode = notFound ? 404 : null;
   const page = await wpApi.pages({ slug: "analysis-articles" }).first;
   const posts = await wpApi.pages({ page }).posts;
@@ -191,10 +191,10 @@ export async function getStaticProps({
   return {
     props: {
       ...page,
+      ...site,
       article,
       errorCode,
       languageAlternates,
-      navigation,
       relatedArticles,
     },
     revalidate: 2 * 60, // seconds
