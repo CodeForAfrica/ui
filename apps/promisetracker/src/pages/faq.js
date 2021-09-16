@@ -25,7 +25,14 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function FaqPage({ actNow, faqs, footer, navigation, ...props }) {
+function FaqPage({
+  actNow,
+  actNowEnabled,
+  faqs,
+  footer,
+  navigation,
+  ...props
+}) {
   const classes = useStyles(props);
 
   return (
@@ -39,13 +46,21 @@ function FaqPage({ actNow, faqs, footer, navigation, ...props }) {
         lg: 8,
       }}
     >
-      <ActNow {...actNow} classes={{ section: classes.section }} />
+      {actNowEnabled ? (
+        <ActNow
+          {...actNow}
+          classes={{
+            section: classes.section,
+          }}
+        />
+      ) : null}
     </ContentPage>
   );
 }
 
 FaqPage.propTypes = {
   actNow: PropTypes.shape({}),
+  actNowEnabled: PropTypes.bool,
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
   faqs: PropTypes.arrayOf(PropTypes.shape({})),
@@ -53,6 +68,7 @@ FaqPage.propTypes = {
 
 FaqPage.defaultProps = {
   actNow: undefined,
+  actNowEnabled: undefined,
   footer: undefined,
   navigation: undefined,
   faqs: undefined,
@@ -68,7 +84,6 @@ export async function getStaticProps({ locale }) {
 
   const backend = backendFn();
   const site = await backend.sites().current;
-  const { navigation } = site;
   const page = await wp().pages({ slug: "faq", locale }).first;
   const faqs = page.faqs
     .reduce((arr, e) => arr.concat(e.questions_answers), [])
@@ -78,9 +93,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       ...page,
+      ...site,
       faqs,
       languageAlternates,
-      navigation,
     },
     revalidate: 2 * 60, // seconds
   };
