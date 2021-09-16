@@ -1,6 +1,8 @@
 import { readFile, writeFile } from "fs/promises";
 import path from "path";
 
+const ARTICLES_CACHE_FILENAME = "articles.json";
+const FACTCHECKS_CACHE_FILENAME = "factchecks.json";
 const PROMISES_CACHE_FILENAME = "promises.json";
 const SITES_CACHE_FILENAME = "sites.json";
 
@@ -47,6 +49,24 @@ function cache(server, fetchFor) {
           return { lastUpdated: Date.now(), data };
         };
         return load(SITES_CACHE_FILENAME, fetchNew);
+      })();
+    },
+    get articles() {
+      return (async () => {
+        const fetchNew = async () => {
+          const data = await fetchFor.articles(this);
+          return { count: data.length, lastUpdated: Date.now(), data };
+        };
+        return load(ARTICLES_CACHE_FILENAME, fetchNew);
+      })();
+    },
+    get factChecks() {
+      return (async () => {
+        const fetchNew = async () => {
+          const data = await fetchFor.factChecks(this);
+          return { count: data.length, lastUpdated: Date.now(), data };
+        };
+        return load(FACTCHECKS_CACHE_FILENAME, fetchNew);
       })();
     },
     get promises() {
