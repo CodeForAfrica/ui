@@ -31,7 +31,14 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function Join({ actNow, description, footer, navigation, ...props }) {
+function Join({
+  actNow,
+  actNowEnabled,
+  description,
+  footer,
+  navigation,
+  ...props
+}) {
   const classes = useStyles(props);
 
   return (
@@ -51,18 +58,21 @@ function Join({ actNow, description, footer, navigation, ...props }) {
         ) : null
       }
     >
-      <ActNow
-        {...actNow}
-        classes={{
-          section: classes.section,
-        }}
-      />
+      {actNowEnabled ? (
+        <ActNow
+          {...actNow}
+          classes={{
+            section: classes.section,
+          }}
+        />
+      ) : null}
     </ContentPage>
   );
 }
 
 Join.propTypes = {
   actNow: PropTypes.shape({}),
+  actNowEnabled: PropTypes.bool,
   description: PropTypes.string,
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
@@ -70,6 +80,7 @@ Join.propTypes = {
 
 Join.defaultProps = {
   actNow: undefined,
+  actNowEnabled: undefined,
   description: undefined,
   footer: undefined,
   navigation: undefined,
@@ -85,15 +96,14 @@ export async function getStaticProps({ locale }) {
 
   const backend = backendFn();
   const site = await backend.sites().current;
-  const { navigation } = site;
   const page = await wp().pages({ slug: "join", locale }).first;
   const languageAlternates = _.languageAlternates("/join");
 
   return {
     props: {
       ...page,
+      ...site,
       languageAlternates,
-      navigation,
     },
     revalidate: 2 * 60, // seconds
   };
