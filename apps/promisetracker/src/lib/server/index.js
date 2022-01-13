@@ -4,7 +4,7 @@ import config from "@/promisetracker/config";
  * Tells us about the server itself.
  */
 function server(siteSlug) {
-  const slug = siteSlug?.trim();
+  const slug = (siteSlug || process.env.APP_SLUG)?.trim();
   const SITE_ENV = siteSlug ? `${slug.toUpperCase()}` : "";
   const env = (NAME) =>
     process.env[`${SITE_ENV}_${NAME}`]?.trim() ||
@@ -21,9 +21,6 @@ function server(siteSlug) {
     },
     get slug() {
       return slug;
-    },
-    get url() {
-      return env("URL");
     },
     env,
   };
