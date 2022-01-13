@@ -117,6 +117,12 @@ export async function getStaticProps({ locale }) {
 
   const backend = backendFn();
   const site = await backend.sites().current;
+  if (!site.factChecksEnabled) {
+    return {
+      notFound: true,
+    };
+  }
+
   const factChecks = await backend.factChecks().all;
   const page = await wp().pages({ slug: "analysis-fact-checks", locale }).first;
   const languageAlternates = _.languageAlternates("/analysis/fact-checks");
