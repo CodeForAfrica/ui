@@ -13,7 +13,7 @@ import React from "react";
 import useStyles from "./useStyles";
 
 import Share from "@/promisetracker/components/Share";
-import server from "@/promisetracker/lib/server";
+import site from "@/promisetracker/utils/site";
 
 function PostCard({
   children,
@@ -27,7 +27,6 @@ function PostCard({
   ...props
 }) {
   const classes = useStyles({ classes: classesProp, image });
-  const siteServer = server();
 
   return (
     <Card square variant="outlined" className={classes.root}>
@@ -51,7 +50,7 @@ function PostCard({
             <Grid item>
               <Share
                 classes={{ root: classes.share }}
-                link={siteServer.url + (as || "")}
+                link={site.url + (as || "")}
                 title={title}
               />
             </Grid>

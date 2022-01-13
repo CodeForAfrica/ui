@@ -6,12 +6,11 @@ import React from "react";
 import useStyles from "./useStyles";
 
 import Share from "@/promisetracker/components/Share";
-import server from "@/promisetracker/lib/server";
 import { replaceAll } from "@/promisetracker/utils";
+import site from "@/promisetracker/utils/site";
 
 function DataSource({ classes: classesProp, documents, label, promise }) {
   const classes = useStyles({ classes: classesProp });
-  const siteServer = server();
 
   if (!documents?.length) {
     return null;
@@ -22,10 +21,7 @@ function DataSource({ classes: classesProp, documents, label, promise }) {
         <Typography className={classes.title} variant="h4">
           {label}
         </Typography>
-        <Share
-          title={promise.title}
-          link={siteServer.url + (promise.href || "")}
-        />
+        <Share title={promise.title} link={site.url + (promise.href || "")} />
       </div>
       <div className={classes.documentContainer}>
         {documents.map((document) => (
