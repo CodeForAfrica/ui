@@ -84,15 +84,21 @@ export async function getStaticProps({ locale }) {
   }
 
   const backend = backendFn();
-  const { navigation } = await backend.sites().current;
+  const site = await backend.sites().current;
+  if (!site.resourcesEnabled) {
+    return {
+      notFound: true,
+    };
+  }
+
   const page = await wp().pages({ slug: "resources", locale }).first;
   const languageAlternates = _.languageAlternates("/analysis/resources");
 
   return {
     props: {
       ...page,
+      ...site,
       languageAlternates,
-      navigation,
     },
     revalidate: 2 * 60, // seconds
   };
