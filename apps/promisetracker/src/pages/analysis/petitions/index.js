@@ -129,6 +129,12 @@ export async function getStaticProps({ locale }) {
 
   const backend = backendFn();
   const site = await backend.sites().current;
+  if (!site.actNowEnabled) {
+    return {
+      notFound: true,
+    };
+  }
+
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "analysis-petitions", locale }).first;
   page.posts = null;

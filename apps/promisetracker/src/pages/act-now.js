@@ -32,6 +32,12 @@ export async function getStaticProps({ locale }) {
 
   const backend = backendFn();
   const site = await backend.sites().current;
+  if (!site.actNowEnabled) {
+    return {
+      notFound: true,
+    };
+  }
+
   const promises = await backend.promises().all;
 
   const page = await wp().pages({ slug: "act-now", locale }).first;
