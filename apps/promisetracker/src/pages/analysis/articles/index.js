@@ -117,6 +117,12 @@ export async function getStaticProps({ locale }) {
 
   const backend = backendFn();
   const site = await backend.sites().current;
+  if (!site.articlesEnabled) {
+    return {
+      notFound: true,
+    };
+  }
+
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "analysis-articles", locale }).first;
   const posts = await wpApi.pages({ page }).posts;
