@@ -1,8 +1,9 @@
 import config from "@/promisetracker/config";
 import server from "@/promisetracker/lib/server";
+import site from "@/promisetracker/utils/site";
 
-function i18n(site) {
-  const siteServer = server(site);
+function i18n(siteSlug) {
+  const siteServer = server(siteSlug);
 
   const api = {
     get defaultLocale() {
@@ -21,7 +22,7 @@ function i18n(site) {
      * uses it so we'll use it here as well.
      */
     languageAlternates: (asPath = "") => {
-      const { url } = siteServer;
+      const { url } = site;
       const baseUrl = url.endsWith("/") ? url.slice(0, -1) : url;
       let pagePath = asPath.endsWith("/") ? asPath.slice(0, -1) : asPath;
       pagePath =
