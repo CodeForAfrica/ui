@@ -302,3 +302,5 @@ public/data/*
 !public/data/.keep
 
 # End of Customizations
+
+.vercel
