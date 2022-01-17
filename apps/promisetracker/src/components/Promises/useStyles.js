@@ -16,9 +16,9 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
     paddingRight: "0.5rem",
   },
   sortItems: {
-    alignItems: "flex-start",
+    alignItems: "flex-end",
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     marginTop: "1rem",
     [breakpoints.up("lg")]: {
       alignItems: "flex-end",

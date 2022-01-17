@@ -6,7 +6,8 @@ import React from "react";
 const useStyles = makeStyles(({ palette }) => ({
   root: {
     marginRight: ".5rem",
-    marginBottom: ".4rem",
+    marginBottom: 0,
+    paddingBottom: 0,
     paddingLeft: "0rem",
     paddingRight: "0rem",
     borderBottom: `.12rem solid ${palette.primary.dark}`,

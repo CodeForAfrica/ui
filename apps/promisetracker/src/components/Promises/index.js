@@ -30,6 +30,7 @@ function Promises({
   const [categoriesFilters, setCategoriesFilters] =
     useState(filterCategoryItems);
   const [sortBy, setSortBy] = useState(sortByMostRecent?.slug);
+  const [filterBy, setFilterBy] = useState("status");
 
   const updateFilters = (filters, slug) =>
     filters.map((f) => (f.slug === slug ? { ...f, active: !f.active } : f));
@@ -38,6 +39,9 @@ function Promises({
   };
   const handleCategoryClick = (slug) => {
     setCategoriesFilters((prev) => updateFilters(prev, slug));
+  };
+  const handleFilterByClick = (slug) => {
+    setFilterBy(slug);
   };
   const handleSortClicked = (slug) => {
     setSortBy(slug);
@@ -95,19 +99,37 @@ function Promises({
         <Grid className={classes.filterGrid} container justify="space-between">
           <Grid item xs={12} lg={4}>
             <Filter
-              label="Promises by status"
-              items={statusesFilters}
-              onClick={handleStatusClick}
+              label="Filter By"
+              items={[
+                {
+                  name: "Status",
+                  slug: "status",
+                  active: filterBy === "status",
+                },
+                {
+                  name: "Category",
+                  slug: "category",
+                  active: filterBy === "category",
+                },
+              ]}
+              onClick={handleFilterByClick}
+              variant="outline"
             />
-          </Grid>
-          <Grid item xs={12} lg={6}>
             <Filter
-              label="Promises by category"
-              items={categoriesFilters}
-              onClick={handleCategoryClick}
+              label=""
+              items={
+                filterBy === "category" ? categoriesFilters : statusesFilters
+              }
+              onClick={
+                filterBy === "category"
+                  ? handleCategoryClick
+                  : handleStatusClick
+              }
+              variant="text"
             />
           </Grid>
-          <Grid item xs={12} lg={2} className={classes.sortItems}>
+
+          <Grid item xs={12} lg={5} className={classes.sortItems}>
             <Typography className={classes.label} variant="h6">
               Sort By
             </Typography>
