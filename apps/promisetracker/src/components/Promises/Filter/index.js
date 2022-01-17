@@ -21,9 +21,11 @@ function Filter({ label, items, onClick, variant, ...props }) {
   }
   return (
     <div className={classes.root}>
-      <Typography className={classes.label} variant="h6">
-        {label}
-      </Typography>
+      {label && (
+        <Typography className={classes.label} variant="h6">
+          {label}
+        </Typography>
+      )}
       <div className={classes.filterContainer}>
         {variant === "text"
           ? items.map((item) => (

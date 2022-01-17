@@ -27,6 +27,13 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
   sectionTitle: {
     margin: "2rem 0rem",
   },
+  chips: {
+    marginTop: typography.pxToRem(26),
+  },
+  chip: {
+    borderRadius: 0,
+    marginRight: typography.pxToRem(16),
+  },
 }));
 
 export default useStyles;
