@@ -144,7 +144,7 @@ function Promises({
             />
           </Grid>
 
-          <Grid item xs={12} lg={5} className={classes.sortItems}>
+          <Grid item xs={12} lg="auto" className={classes.sortItems}>
             <Typography className={classes.label} variant="h6">
               Sort By
             </Typography>
@@ -160,11 +160,13 @@ function Promises({
                 onDelete={handleChipDelete(filterItem.slug)}
               />
             ))}
-            <Chip
-              className={classes.chip}
-              label="Delete All"
-              onDelete={handleDeleteAllFilters}
-            />
+            {selectedFilters?.length > 0 && (
+              <Chip
+                className={classes.chip}
+                label="Delete All"
+                onDelete={handleDeleteAllFilters}
+              />
+            )}
           </Grid>
         </Grid>
       )}
