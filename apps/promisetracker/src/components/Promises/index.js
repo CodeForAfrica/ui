@@ -41,7 +41,6 @@ function Promises({
   };
   const handleFilterClick = (slug) => {
     setSelectedFilters((prev) => {
-      prev.find((f) => f.slug === slug);
       if (prev.find((f) => f.slug === slug)) {
         return prev;
       }
@@ -68,13 +67,11 @@ function Promises({
     if (withFilter) {
       const hasStatus = (item) => {
         const promiseSlug = slugify(item.status.title);
-        return selectedFilters?.some((c) => c.slug === promiseSlug);
+        return selectedFilters.some((c) => c.slug === promiseSlug);
       };
       const hasCategory = (item) => {
         const promiseCategories = item?.categories.map((c) => slugify(c.name));
-        return selectedFilters?.every((c) =>
-          promiseCategories.includes(c.slug)
-        );
+        return selectedFilters.every((c) => promiseCategories.includes(c.slug));
       };
       let filteredItems;
       if (filterBy === "status") {
