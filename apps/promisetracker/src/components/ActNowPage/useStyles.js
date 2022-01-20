@@ -173,6 +173,9 @@ const useStyles = makeStyles(
     actNowSummary: {
       paddingBottom: typography.pxToRem(43),
     },
+    loginContainer: {
+      marginTop: typography.pxToRem(100),
+    },
   })
 );
 

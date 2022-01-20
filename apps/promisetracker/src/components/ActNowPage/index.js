@@ -13,6 +13,7 @@ import actNowImg from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
 import ActNowSummary from "@/promisetracker/components/ActNowSummary/index";
 import ContentPage from "@/promisetracker/components/ContentPage";
 import ContentSection from "@/promisetracker/components/ContentPage/Section";
+import LoginForm from "@/promisetracker/components/LoginForm";
 import RegistrationDialog from "@/promisetracker/components/RegistrationDialog";
 import SuggestPromise from "@/promisetracker/components/SuggestPromise/index";
 
@@ -116,34 +117,49 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
           <ContentSection
             contentProps={{ lg: 8, title: null }}
             aside={
-              <Grid container classes={{ root: classes.imageContainer }}>
-                <Grid item xs={12}>
-                  <RichTypography variant="h4">NEW USER</RichTypography>
+              <>
+                <Grid container classes={{ root: classes.imageContainer }}>
+                  <Grid item xs={12}>
+                    <RichTypography variant="h4">NEW USER</RichTypography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <RichTypography variant="body2">
+                      Create an account here
+                    </RichTypography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Button
+                      variant="contained"
+                      onClick={() => signIn("google")}
+                      className={clsx(classes.authButton, classes.authGoogle)}
+                    >
+                      Continue with Google
+                    </Button>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Button
+                      variant="contained"
+                      onClick={handleRegister}
+                      className={clsx(classes.authButton)}
+                    >
+                      Register
+                    </Button>
+                  </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                  <RichTypography variant="body2">
-                    Create an account here
-                  </RichTypography>
+                <Grid container classes={{ root: classes.loginContainer }}>
+                  <Grid item xs={12}>
+                    <RichTypography variant="h4">EXISTING USER</RichTypography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <RichTypography variant="body2">
+                      Have an account? Sign in now.
+                    </RichTypography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <LoginForm />
+                  </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                  <Button
-                    variant="contained"
-                    onClick={() => signIn("google")}
-                    className={clsx(classes.authButton, classes.authGoogle)}
-                  >
-                    Continue with Google
-                  </Button>
-                </Grid>
-                <Grid item xs={12}>
-                  <Button
-                    variant="contained"
-                    onClick={handleRegister}
-                    className={clsx(classes.authButton)}
-                  >
-                    Register
-                  </Button>
-                </Grid>
-              </Grid>
+              </>
             }
             content={
               <Hidden smDown implementation="css">

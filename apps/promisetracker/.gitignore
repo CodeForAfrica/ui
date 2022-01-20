@@ -301,6 +301,7 @@ sentry.properties
 public/data/*
 !public/data/.keep
 
-# End of Customizations
-
+# Vercel
 .vercel
+
+# End of Customizations

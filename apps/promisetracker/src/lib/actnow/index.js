@@ -21,6 +21,22 @@ function actnow(site) {
     return response.json();
   }
 
+  async function loginUser(user) {
+    const headers = new Headers({
+      "Content-Type": "application/json",
+      Authorization: `Token ${process.env.ACTNOW_API_KEY}`,
+    });
+    const response = await fetch(
+      `${process.env.ACTNOW_URL}/v1/accounts/login/`,
+      {
+        method: "POST",
+        headers,
+        body: JSON.stringify(user),
+      }
+    );
+    return response.json();
+  }
+
   async function getPetitions() {
     const url = `${ACTNOW_URL}/v1/petitions/?format=json`;
     const response = await fetch(url);
@@ -36,6 +52,11 @@ function actnow(site) {
         create: (user) => {
           return (async () => {
             return createAccount(user);
+          })();
+        },
+        login: (user) => {
+          return (async () => {
+            return loginUser(user);
           })();
         },
       };

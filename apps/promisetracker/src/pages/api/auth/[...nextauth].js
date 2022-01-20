@@ -1,11 +1,30 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 
+import actnow from "@/promisetracker/lib/actnow";
+
 export default NextAuth({
   providers: [
     Providers.Google({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+    }),
+    Providers.CredentialsProvider({
+      name: "Credentials",
+      async authorize(credentials) {
+        const authBody = {
+          email: credentials.email,
+          password: credentials.password,
+        };
+        try {
+          const user = await actnow().accounts().login(authBody);
+          user.accessToken = user.access_token;
+          user.refreshToken = user.refresh_token;
+          return user;
+        } catch (error) {
+          return null;
+        }
+      },
     }),
   ],
 
