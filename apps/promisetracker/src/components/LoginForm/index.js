@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 import Form from "./Form";
 
-function LoginForm({ defaultErrorMessage, onSubmit, submitUrl }) {
+function LoginForm({ onSubmit }) {
   const [status, setStatus] = useState({});
   const fields = {
     email: {
@@ -42,21 +42,17 @@ function LoginForm({ defaultErrorMessage, onSubmit, submitUrl }) {
         return errors;
       }}
       onSubmit={async ({ email, password }, { setErrors, setSubmitting }) => {
-        if (submitUrl) {
-          try {
-            setStatus({ children: undefined });
-            await signIn("credentials", { email, password });
-            if (onSubmit) {
-              onSubmit();
-            }
-          } catch (e) {
-            setErrors(e);
-            setStatus({ error: true, children: "Error" });
-          } finally {
-            setSubmitting(false);
+        try {
+          setStatus({ children: undefined });
+          await signIn("credentials", { email, password });
+          if (onSubmit) {
+            onSubmit();
           }
-        } else {
-          setStatus({ error: true, children: defaultErrorMessage });
+        } catch (e) {
+          setErrors(e);
+          setStatus({ error: true, children: "Error" });
+        } finally {
+          setSubmitting(false);
         }
       }}
     >
@@ -74,15 +70,11 @@ function LoginForm({ defaultErrorMessage, onSubmit, submitUrl }) {
 }
 
 LoginForm.propTypes = {
-  defaultErrorMessage: PropTypes.string,
   onSubmit: PropTypes.func,
-  submitUrl: PropTypes.string,
 };
 
 LoginForm.defaultProps = {
-  defaultErrorMessage: undefined,
   onSubmit: false,
-  submitUrl: undefined,
 };
 
 export default LoginForm;
