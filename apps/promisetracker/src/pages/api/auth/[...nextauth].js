@@ -10,6 +10,7 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_SECRET,
     }),
     Providers.Credentials({
+      id: "credentials",
       name: "Credentials",
       async authorize(credentials) {
         const authBody = {

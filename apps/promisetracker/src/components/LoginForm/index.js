@@ -10,13 +10,13 @@ function LoginForm({ onSubmit }) {
   const fields = {
     email: {
       label: "Email*",
-      placeholder: "",
+      placeholder: "Email",
       error: "Required and must be a valid email address",
     },
 
     password: {
       label: "Password*",
-      placeholder: "",
+      placeholder: "Password",
       error: "Required",
     },
     submit: { label: "Submit" },

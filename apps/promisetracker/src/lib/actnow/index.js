@@ -23,17 +23,20 @@ function actnow(site) {
 
   async function loginUser(user) {
     const headers = new Headers({
-      "Content-Type": "application/json",
-      Authorization: `Token ${process.env.ACTNOW_API_KEY}`,
+      "content-type": "application/x-www-form-urlencoded",
+      "cache-control": "no-cache",
     });
-    const response = await fetch(
-      `${process.env.ACTNOW_URL}/v1/accounts/login/`,
-      {
-        method: "POST",
-        headers,
-        body: JSON.stringify(user),
-      }
-    );
+    const body = new URLSearchParams({
+      grant_type: "password",
+      ...user,
+      client_id: process.env.ACTNOW_CLIENT_ID,
+      client_secret: process.env.ACTNOW_CLIENT_SECRET,
+    });
+    const response = await fetch(`${process.env.ACTNOW_URL}/o/token/`, {
+      method: "POST",
+      headers,
+      body: body.toString(),
+    });
     return response.json();
   }
 
