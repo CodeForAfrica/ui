@@ -6,6 +6,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     border: `1px solid ${palette.secondary.main}`,
     display: "flex",
     marginTop: typography.pxToRem(20),
+    height: typography.pxToRem(47),
   },
   label: {
     ...typography.h4,

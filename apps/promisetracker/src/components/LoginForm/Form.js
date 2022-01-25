@@ -24,6 +24,7 @@ function Form({
       <Grid container>
         <Grid item xs={12}>
           <Input
+            inputProps={{ className: classes.input }}
             id={`${name}-email`}
             name="email"
             type="email"
@@ -38,6 +39,7 @@ function Form({
         </Grid>
         <Grid item xs={12}>
           <Input
+            inputProps={{ className: classes.input }}
             id={`${name}-password`}
             name="password"
             type="password"

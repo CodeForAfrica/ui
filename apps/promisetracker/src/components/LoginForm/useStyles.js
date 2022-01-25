@@ -15,6 +15,11 @@ const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
       minWidth: typography.pxToRem(158),
     },
   },
+  input: {
+    paddingLeft: typography.pxToRem(10),
+    fontFamily: typography.h5.fontFamily,
+    fontSize: typography.h5.fontSize,
+  },
 }));
 
 export default useStyles;
