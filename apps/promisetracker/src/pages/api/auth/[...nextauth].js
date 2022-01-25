@@ -14,7 +14,7 @@ export default NextAuth({
       name: "Credentials",
       async authorize(credentials) {
         const authBody = {
-          email: credentials.email,
+          username: credentials.email,
           password: credentials.password,
         };
         try {
