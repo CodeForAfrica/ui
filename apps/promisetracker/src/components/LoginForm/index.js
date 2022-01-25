@@ -10,13 +10,13 @@ function LoginForm({ onSubmit }) {
   const fields = {
     email: {
       label: "Email*",
-      placeholder: "Email",
+      placeholder: "EMAIL",
       error: "Required and must be a valid email address",
     },
 
     password: {
       label: "Password*",
-      placeholder: "Password",
+      placeholder: "PASSWORD",
       error: "Required",
     },
     submit: { label: "Sign In" },
@@ -27,6 +27,7 @@ function LoginForm({ onSubmit }) {
         email: "",
         password: "",
       }}
+      isInitialValid={false}
       validate={(values) => {
         const errors = {};
         if (!values.email) {

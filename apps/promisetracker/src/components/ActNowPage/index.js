@@ -123,7 +123,10 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
                     <RichTypography variant="h4">NEW USER</RichTypography>
                   </Grid>
                   <Grid item xs={12}>
-                    <RichTypography variant="body2">
+                    <RichTypography
+                      className={classes.subtitle}
+                      variant="body2"
+                    >
                       Create an account here
                     </RichTypography>
                   </Grid>
@@ -151,7 +154,10 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
                     <RichTypography variant="h4">EXISTING USER</RichTypography>
                   </Grid>
                   <Grid item xs={12}>
-                    <RichTypography variant="body2">
+                    <RichTypography
+                      className={classes.subtitle}
+                      variant="body2"
+                    >
                       Have an account? Sign in now.
                     </RichTypography>
                   </Grid>

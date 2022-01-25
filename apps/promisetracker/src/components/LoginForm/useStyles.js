@@ -25,10 +25,13 @@ const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
       minWidth: typography.pxToRem(158),
     },
   },
-  input: {
+  inputProps: {
     paddingLeft: typography.pxToRem(10),
     fontFamily: typography.h5.fontFamily,
     fontSize: typography.h5.fontSize,
+  },
+  input: {
+    border: "none",
   },
 }));
 

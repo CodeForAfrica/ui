@@ -260,8 +260,8 @@ deepmerge(
       fontSize: pxToRem(13),
       lineHeight: 24 / 13,
       [breakpoints.up("lg")]: {
-        fontSize: pxToRem(13),
-        lineHeight: 24 / 13,
+        fontSize: pxToRem(14),
+        lineHeight: 24 / 14,
       },
     },
     subtitle1: {

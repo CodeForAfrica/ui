@@ -143,6 +143,9 @@ const useStyles = makeStyles(
         backgroundColor: palette.google.main,
       },
     },
+    subtitle: {
+      marginTop: typography.pxToRem(20),
+    },
     accountButton: {
       backgroundColor: palette.background.default,
       color: palette.text.primary,
