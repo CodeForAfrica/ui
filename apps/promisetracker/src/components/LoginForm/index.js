@@ -56,9 +56,9 @@ function LoginForm({ onSubmit }) {
         }
       }}
     >
-      {({ submitForm, isSubmitting, errors }) => (
+      {({ submitForm, isSubmitting, errors, isValid }) => (
         <Form
-          disabled={isSubmitting}
+          disabled={isSubmitting || !isValid}
           errors={errors}
           status={status}
           fields={fields}

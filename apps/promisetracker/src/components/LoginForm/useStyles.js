@@ -1,6 +1,16 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
+  root: {
+    "& .MuiButton-contained.Mui-disabled": {
+      backgroundColor: "#909090",
+      color: palette.common.white,
+      "&:hover": {
+        backgroundColor: "#909090",
+        color: palette.common.white,
+      },
+    },
+  },
   authButton: {
     backgroundColor: palette.primary.dark,
     color: palette.common.white,
