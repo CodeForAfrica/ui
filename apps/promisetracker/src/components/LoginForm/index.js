@@ -19,7 +19,7 @@ function LoginForm({ onSubmit }) {
       placeholder: "Password",
       error: "Required",
     },
-    submit: { label: "Submit" },
+    submit: { label: "Sign In" },
   };
   return (
     <Formik
