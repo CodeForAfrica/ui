@@ -28,6 +28,7 @@ const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
   inputProps: {
     paddingLeft: typography.pxToRem(10),
     ...typography.h5,
+    textTransform: "none",
   },
   input: {
     border: "none",
