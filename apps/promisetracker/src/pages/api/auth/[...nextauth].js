@@ -19,11 +19,15 @@ export default NextAuth({
         };
         try {
           const user = await actnow().accounts().login(authBody);
+          if (user.error) {
+            throw new Error(user.error_description);
+          }
           user.accessToken = user.access_token;
           user.refreshToken = user.refresh_token;
           return user;
         } catch (error) {
-          return null;
+          // eslint-disable-next-line no-throw-literal
+          throw "/act-now";
         }
       },
     }),
