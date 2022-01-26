@@ -27,7 +27,6 @@ function LoginForm({ onSubmit }) {
         email: "",
         password: "",
       }}
-      isInitialValid={false}
       validate={(values) => {
         const errors = {};
         if (!values.email) {
@@ -57,9 +56,9 @@ function LoginForm({ onSubmit }) {
         }
       }}
     >
-      {({ submitForm, isSubmitting, errors, isValid }) => (
+      {({ submitForm, isSubmitting, errors }) => (
         <Form
-          disabled={isSubmitting || !isValid}
+          disabled={isSubmitting}
           errors={errors}
           status={status}
           fields={fields}
