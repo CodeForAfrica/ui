@@ -44,13 +44,23 @@ function LoginForm({ onSubmit }) {
       onSubmit={async ({ email, password }, { setErrors, setSubmitting }) => {
         try {
           setStatus({ children: undefined });
-          await signIn("credentials", { email, password });
+          const res = await signIn("credentials", {
+            email,
+            password,
+            redirect: false,
+          });
+          if (res.error) {
+            throw new Error(res.error);
+          }
           if (onSubmit) {
             onSubmit();
           }
         } catch (e) {
           setErrors(e);
-          setStatus({ error: true, children: "Error" });
+          setStatus({
+            error: true,
+            children: "Check username or password and try again",
+          });
         } finally {
           setSubmitting(false);
         }
