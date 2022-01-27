@@ -49,7 +49,6 @@ function LoginForm({ onSubmit }) {
             password,
             redirect: false,
           });
-          console.group(res);
           if (res.error) {
             throw new Error(res.error);
           }

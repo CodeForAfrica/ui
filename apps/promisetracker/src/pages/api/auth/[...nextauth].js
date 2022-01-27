@@ -19,8 +19,7 @@ export default NextAuth({
         };
         const user = await actnow().accounts().login(authBody);
         if (user.error) {
-          console.group(user);
-          throw new Error(user.error_description);
+          throw new Error(user.error);
         }
         user.accessToken = user.access_token;
         user.refreshToken = user.refresh_token;
