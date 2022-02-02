@@ -1,6 +1,7 @@
 import RichTypography from "@commons-ui/core/RichTypography";
 import { makeStyles } from "@material-ui/core/styles";
 import dynamic from "next/dynamic";
+import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
 import config from "@/promisetracker/config";
@@ -28,7 +29,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   },
 }));
 
-function Radar(props) {
+function Radar({ location, ...props }) {
   const classes = useStyles({ ...props });
   const [tileLayer, setTileLayer] = useState();
   const { MAPIT_URL } = config;
@@ -53,8 +54,8 @@ function Radar(props) {
           zoom={4}
           tolerance={0.001}
           tileLayer={tileLayer}
-          latLng={[-1.28333, 36.81667]}
-          center={[8.7832, 34.5085]}
+          latLng={location}
+          center={location}
           drawProfile
           drawChildren
           codeType="KEN"
@@ -73,5 +74,13 @@ function Radar(props) {
     </>
   );
 }
+
+Radar.propTypes = {
+  location: PropTypes.arrayOf(PropTypes.number),
+};
+
+Radar.defaultProps = {
+  location: undefined,
+};
 
 export default Radar;

@@ -1,5 +1,16 @@
 import { equalsIgnoreCase, slugify } from "@/promisetracker/utils";
 
+const formatLocation = (latlng) => {
+  if (latlng) {
+    const formatted = latlng.split(",");
+    return [parseFloat(formatted[0]), parseFloat(formatted[1])];
+  }
+  if (process.env.DEFAULT_LAT && process.env.DEFAULT_LONG) {
+    return [process.env.DEFAULT_LAT, process.env.DEFAULT_LONG];
+  }
+  return null;
+};
+
 function jsonQL(promises) {
   const allPromises = promises.map((promise) => {
     const slug = promise.slug || slugify(promise.title);
@@ -49,7 +60,11 @@ function jsonQL(promises) {
     getPromise({ id, ...others } = {}) {
       const filteredPromises = api.getPromises(others);
       if (id) {
-        return filteredPromises.find((p) => equalsIgnoreCase(p.id, id));
+        const foundPromise = filteredPromises.find((p) =>
+          equalsIgnoreCase(p.id, id)
+        );
+        foundPromise.location = formatLocation(foundPromise.location);
+        return foundPromise;
       }
       const [promise] = filteredPromises;
       return promise;

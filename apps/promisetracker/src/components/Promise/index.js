@@ -63,7 +63,7 @@ function Promise({
             <Typography className={classes.label} variant="h5">
               {promiseRadarLabel}
             </Typography>
-            <Radar />
+            <Radar location={promise.location} />
           </Hidden>
           <NarativeUpdates
             {...promise.narrative}
@@ -114,6 +114,7 @@ Promise.propTypes = {
     attribution: PropTypes.shape({}),
     narrative: PropTypes.shape({}),
     dataset: PropTypes.shape({}),
+    location: PropTypes.arrayOf(PropTypes.string),
     documents: PropTypes.arrayOf(PropTypes.shape({})),
     relatedFactChecks: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
