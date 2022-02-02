@@ -92,8 +92,12 @@ function Promises({
         sortedItems = items.sort((a, b) => a.date.localeCompare(b.date));
       } else if (sortBy === sortByDeadline.slug) {
         sortedItems = items.sort((a, b) => {
-          const aDeadline = a.events?.[0]?.year ?? 0;
-          const bDeadline = b.events?.[0]?.year ?? 0;
+          const aDeadline = a?.promiseDeadline
+            ? new Date(a.promiseDeadline).getTime()
+            : a.events?.[0]?.year ?? 0;
+          const bDeadline = b?.promiseDeadline
+            ? new Date(b.promiseDeadline).getTime()
+            : b.events?.[0]?.year ?? 0;
           return bDeadline - aDeadline;
         });
       }
