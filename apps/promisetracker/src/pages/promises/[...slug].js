@@ -206,8 +206,8 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   return {
     props: {
       ...page,
-      ...site,
       ...actNowPage,
+      ...site,
       errorCode,
       languageAlternates,
       promise,
