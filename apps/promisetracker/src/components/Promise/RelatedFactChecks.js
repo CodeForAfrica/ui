@@ -24,9 +24,12 @@ const useStyles = makeStyles(({ palette }) => ({
 function RelatedFactChecks({ factChecks, classes: classesProp }) {
   const classes = useStyles({ classes: classesProp });
 
+  if (!factChecks?.length) {
+    return null;
+  }
   return (
     <div className={classes.root}>
-      {factChecks?.map(({ title, date, href }) => (
+      {factChecks.map(({ title, date, href }) => (
         <A href={href} key={title} className={classes.titleDateContainer}>
           <Typography className={classes.name} variant="h4">
             {title}
