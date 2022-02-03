@@ -27,6 +27,9 @@ function gsheets(server) {
   const articlesSheetId = server.env("GSHEETS_ARTICLES_SHEET_ID");
   const factChecksSheetId = server.env("GSHEETS_FACTCHECKS_SHEET_ID");
 
+  const defaultLat = server.env("DEFAULT_LAT");
+  const defaultLng = server.env("DEFAULT_LONG");
+
   const papaOptions = {
     header: true,
     skipEmptyLines: "greedy",
@@ -263,6 +266,18 @@ function gsheets(server) {
       .filter((row) => row.promise.id);
   }
 
+  function formatLocation(latlng) {
+    const [latStr, lngStr] = latlng?.split(",") ?? [defaultLat, defaultLng];
+    if (latStr && lngStr) {
+      const lat = parseFloat(latStr);
+      const lng = parseFloat(lngStr);
+      if (Number.isFinite(lat) && Number.isFinite(lng)) {
+        return [lat, lng];
+      }
+    }
+    return null;
+  }
+
   async function fetchPromises(cache) {
     const { data: site } = await cache.site;
     const statuses = site.statuses.reduce(reduceByName, {});
@@ -295,6 +310,7 @@ function gsheets(server) {
             }
             return [];
           }),
+          location: formatLocation(other.latlng),
           slug: slugify(other.title),
           status: {
             ...statuses?.[camelCase(other.status)],
