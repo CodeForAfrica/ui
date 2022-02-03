@@ -202,9 +202,13 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const languageAlternates = _.languageAlternates(
     `/promises/${id}/${promisePost.slug}`
   );
-
   return {
     props: {
+      // NOTE(Kilemensi): WP pages set null to any prop that doesn't exist
+      //                  e.g. navigation. While a page shoudl be allowed to
+      //                  override site settings, for now we're going to
+      //                  reverse the order until we can completely remove
+      //                  WP dependency.
       ...page,
       ...actNowPage,
       ...site,
