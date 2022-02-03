@@ -68,70 +68,66 @@ function NarativeUpdates({ description, title, timelines, ...props }) {
     return null;
   }
   return (
-    <>
-      <div className={classes.root}>
-        <div className={classes.titleShareContainer}>
-          <Typography className={classes.title} variant="h4">
-            {title}
-          </Typography>
-          <IconButton aria-label="share" className={classes.share}>
-            <ShareIcon color="primary" fontSize="inherit" />
-          </IconButton>
-        </div>
-        <Typography className={classes.description} variant="body1">
-          {description}
+    <div className={classes.root}>
+      <div className={classes.titleShareContainer}>
+        <Typography className={classes.title} variant="h4">
+          {title}
         </Typography>
-        {timelines && (
-          <Timeline
-            boxS
-            classes={{
-              root: classes.timelineList,
-            }}
-          >
-            {timelines.map((timeline, index) => (
-              <TimelineItem
-                key={timeline.date}
+        <IconButton aria-label="share" className={classes.share}>
+          <ShareIcon color="primary" fontSize="inherit" />
+        </IconButton>
+      </div>
+      <Typography className={classes.description} variant="body1">
+        {description}
+      </Typography>
+      {timelines && (
+        <Timeline
+          boxS
+          classes={{
+            root: classes.timelineList,
+          }}
+        >
+          {timelines.map((timeline, index) => (
+            <TimelineItem
+              key={timeline.date}
+              classes={{
+                root: classes.timelineItem,
+              }}
+            >
+              <TimelineSeparator>
+                <TimelineDot
+                  color="primary"
+                  classes={{
+                    root: classes.timelineDot,
+                  }}
+                  variant="outlined"
+                >
+                  <Typography variant="h4">{index + 1}</Typography>
+                </TimelineDot>
+                {index + 1 !== timelines.length && (
+                  <TimelineConnector className={classes.timelineConnector} />
+                )}
+              </TimelineSeparator>
+              <TimelineContent
                 classes={{
-                  root: classes.timelineItem,
+                  root: classes.timelineDescription,
                 }}
               >
-                <TimelineSeparator>
-                  <TimelineDot
-                    color="primary"
-                    classes={{
-                      root: classes.timelineDot,
-                    }}
-                    variant="outlined"
-                  >
-                    <Typography variant="h4">{index + 1}</Typography>
-                  </TimelineDot>
-                  {index + 1 !== timelines.length && (
-                    <TimelineConnector className={classes.timelineConnector} />
-                  )}
-                </TimelineSeparator>
-                <TimelineContent
-                  classes={{
-                    root: classes.timelineDescription,
-                  }}
+                <Typography
+                  color="primary"
+                  className={classes.timelineDate}
+                  variant="h5"
                 >
-                  <Typography
-                    color="primary"
-                    className={classes.timelineDate}
-                    variant="h5"
-                  >
-                    {timeline.date}
-                  </Typography>
+                  {timeline.date}
+                </Typography>
 
-                  <Typography variant="body2">
-                    {timeline.description}
-                  </Typography>
-                </TimelineContent>
-              </TimelineItem>
-            ))}
-          </Timeline>
-        )}
-      </div>
-    </>
+                <Typography variant="body2">{timeline.description}</Typography>
+              </TimelineContent>
+            </TimelineItem>
+          ))}
+        </Timeline>
+      )}
+    </div>
   );
 }
 

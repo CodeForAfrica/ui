@@ -5,7 +5,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-const BaseCard = ({ onCloseCard, title, description, children }) => {
+function BaseCard({ onCloseCard, title, description, children }) {
   const classes = useStyles();
 
   return (
@@ -34,7 +34,7 @@ const BaseCard = ({ onCloseCard, title, description, children }) => {
       {children}
     </CardContent>
   );
-};
+}
 
 BaseCard.propTypes = {
   onCloseCard: PropTypes.func,

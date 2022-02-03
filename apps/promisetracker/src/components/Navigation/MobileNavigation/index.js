@@ -212,11 +212,16 @@ function MobileNavigation({ navigation, ...props }) {
 
 MobileNavigation.propTypes = {
   navigation: PropTypes.shape({
-    promises: PropTypes.shape({}),
+    actNow: PropTypes.shape({
+      href: PropTypes.string,
+    }),
     analysis: PropTypes.shape({
+      href: PropTypes.string,
       navigation: PropTypes.arrayOf(PropTypes.shape({})),
     }),
-    actNow: PropTypes.shape({}),
+    promises: PropTypes.shape({
+      href: PropTypes.string,
+    }),
   }),
 };
 

@@ -40,86 +40,84 @@ function Share({ link, title, description, ...props }) {
   };
   return (
     <div className={classes.root}>
-      <>
-        <IconButton
-          onClick={handleClick("left")}
-          aria-label="share"
-          className={classes.share}
-        >
-          <ShareIcon fontSize="inherit" className={classes.shareIcon} />
-        </IconButton>
-        <Popper
-          open={open}
-          anchorEl={anchorEl}
-          disablePortal
-          placement={placement}
-          transition
-          className={classes.popper}
-        >
-          {({ TransitionProps }) => (
-            <ClickAwayListener onClickAway={handleClickAway}>
-              <Fade {...TransitionProps} timeout={350}>
-                <Paper>
-                  <Grid container className={classes.socialIconPopper}>
-                    <TwitterShareButton
-                      title={title}
-                      url={link}
-                      additionalProps={{
-                        "ga-on": "click",
-                        "ga-event-category": "twitter",
-                        "ga-event-action": "tweet",
-                        "ga-event-label": link,
-                      }}
-                      className={classes.socialLink}
-                    >
-                      <Image
-                        src={twitter}
-                        alt="Twitter"
-                        className={classes.socialIcon}
-                      />
-                    </TwitterShareButton>
-                    <FacebookShareButton
-                      quote={title}
-                      url={link}
-                      additionalProps={{
-                        "ga-on": "click",
-                        "ga-event-category": "facebook",
-                        "ga-event-action": "send",
-                        "ga-event-label": link,
-                      }}
-                      className={classes.socialLink}
-                    >
-                      <Image
-                        src={facebook}
-                        alt="Facebook"
-                        className={classes.socialIcon}
-                      />
-                    </FacebookShareButton>
-                    <LinkedinShareButton
-                      title={title}
-                      url={link}
-                      source={link}
-                      additionalProps={{
-                        "ga-on": "click",
-                        "ga-event-category": "linkedin",
-                        "ga-event-action": "share",
-                        "ga-event-label": link,
-                      }}
-                      className={classes.socialLink}
-                    >
-                      <Image
-                        src={linkedIn}
-                        alt="LinkedIn"
-                        className={classes.socialIcon}
-                      />
-                    </LinkedinShareButton>
-                  </Grid>
-                </Paper>
-              </Fade>
-            </ClickAwayListener>
-          )}
-        </Popper>
-      </>
+      <IconButton
+        onClick={handleClick("left")}
+        aria-label="share"
+        className={classes.share}
+      >
+        <ShareIcon fontSize="inherit" className={classes.shareIcon} />
+      </IconButton>
+      <Popper
+        open={open}
+        anchorEl={anchorEl}
+        disablePortal
+        placement={placement}
+        transition
+        className={classes.popper}
+      >
+        {({ TransitionProps }) => (
+          <ClickAwayListener onClickAway={handleClickAway}>
+            <Fade {...TransitionProps} timeout={350}>
+              <Paper>
+                <Grid container className={classes.socialIconPopper}>
+                  <TwitterShareButton
+                    title={title}
+                    url={link}
+                    additionalProps={{
+                      "ga-on": "click",
+                      "ga-event-category": "twitter",
+                      "ga-event-action": "tweet",
+                      "ga-event-label": link,
+                    }}
+                    className={classes.socialLink}
+                  >
+                    <Image
+                      src={twitter}
+                      alt="Twitter"
+                      className={classes.socialIcon}
+                    />
+                  </TwitterShareButton>
+                  <FacebookShareButton
+                    quote={title}
+                    url={link}
+                    additionalProps={{
+                      "ga-on": "click",
+                      "ga-event-category": "facebook",
+                      "ga-event-action": "send",
+                      "ga-event-label": link,
+                    }}
+                    className={classes.socialLink}
+                  >
+                    <Image
+                      src={facebook}
+                      alt="Facebook"
+                      className={classes.socialIcon}
+                    />
+                  </FacebookShareButton>
+                  <LinkedinShareButton
+                    title={title}
+                    url={link}
+                    source={link}
+                    additionalProps={{
+                      "ga-on": "click",
+                      "ga-event-category": "linkedin",
+                      "ga-event-action": "share",
+                      "ga-event-label": link,
+                    }}
+                    className={classes.socialLink}
+                  >
+                    <Image
+                      src={linkedIn}
+                      alt="LinkedIn"
+                      className={classes.socialIcon}
+                    />
+                  </LinkedinShareButton>
+                </Grid>
+              </Paper>
+            </Fade>
+          </ClickAwayListener>
+        )}
+      </Popper>
     </div>
   );
 }

@@ -4,7 +4,10 @@ import { HttpLink } from "apollo-link-http";
 
 import config from "@/promisetracker/config";
 
-export default function createApolloClient(initialState = {}, team) {
+export default function createApolloClient(
+  initialState = {},
+  team = undefined
+) {
   const { GRAPHQL_URI } = config;
   const uri = team ? `${GRAPHQL_URI}?team=${team}` : GRAPHQL_URI;
 

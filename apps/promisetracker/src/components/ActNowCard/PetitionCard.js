@@ -8,7 +8,7 @@ import useStyles from "./useStyles";
 import CtAButton from "@/promisetracker/components/CtAButton";
 import FormDialog from "@/promisetracker/components/FormDialog";
 
-const PetitionCard = ({ closeCard, promiseActNow, ...props }) => {
+function PetitionCard({ closeCard, promiseActNow, ...props }) {
   const {
     petition: {
       petition_title: petitionTitle,
@@ -59,7 +59,7 @@ const PetitionCard = ({ closeCard, promiseActNow, ...props }) => {
       </Grid>
     </BaseContent>
   );
-};
+}
 
 PetitionCard.propTypes = {
   closeCard: PropTypes.func.isRequired,

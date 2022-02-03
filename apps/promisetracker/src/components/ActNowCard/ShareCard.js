@@ -10,7 +10,7 @@ import React from "react";
 import BaseContent from "./BaseContent";
 import useStyles from "./useStyles";
 
-const ShareCard = ({ closeCard, promiseActNow }) => {
+function ShareCard({ closeCard, promiseActNow }) {
   const classes = useStyles();
 
   const {
@@ -46,7 +46,7 @@ const ShareCard = ({ closeCard, promiseActNow }) => {
       </Grid>
     </BaseContent>
   );
-};
+}
 
 ShareCard.propTypes = {
   closeCard: PropTypes.func.isRequired,

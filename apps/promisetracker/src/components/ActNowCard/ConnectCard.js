@@ -7,7 +7,7 @@ import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 
-const ConnectCard = ({ closeCard, promiseActNow }) => {
+function ConnectCard({ closeCard, promiseActNow }) {
   const {
     connect: {
       connect_title: connectTitle,
@@ -36,7 +36,7 @@ const ConnectCard = ({ closeCard, promiseActNow }) => {
       </Grid>
     </BaseContent>
   );
-};
+}
 
 ConnectCard.propTypes = {
   closeCard: PropTypes.func.isRequired,

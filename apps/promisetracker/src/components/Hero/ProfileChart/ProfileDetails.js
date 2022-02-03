@@ -155,79 +155,35 @@ function ProfileDetails({
           </Grid>
         </Grid>
       </Grid>
-      <>
-        {isDesktop ? (
-          <div className={classes.popoverContainer}>
-            {clicked ? (
-              <Fade in={clicked}>
-                <div className={classes.rect}>
-                  <RectChart
-                    totalPromises={promisesByStatus.count}
-                    inProgress={
-                      promisesByStatus.statusHistory["In Progress"]?.length
-                    }
-                    completed={promisesByStatus.statusHistory.Completed?.length}
-                    inconclusive={
-                      promisesByStatus.statusHistory.Inconclusive?.length
-                    }
-                    unstarted={promisesByStatus.statusHistory.Unstarted?.length}
-                    stalled={promisesByStatus.statusHistory.Stalled?.length}
-                    behindSchedule={
-                      promisesByStatus.statusHistory["Behind Schedule"]?.length
-                    }
-                  />
-                </div>
-              </Fade>
-            ) : (
-              <>
-                <PromiseKeptChart
+      {isDesktop ? (
+        <div className={classes.popoverContainer}>
+          {clicked ? (
+            <Fade in={clicked}>
+              <div className={classes.rect}>
+                <RectChart
                   totalPromises={promisesByStatus.count}
                   inProgress={
                     promisesByStatus.statusHistory["In Progress"]?.length
                   }
                   completed={promisesByStatus.statusHistory.Completed?.length}
-                  name="Promises Kept"
-                />
-                <Divider orientation="vertical" className={classes.divider} />
-                <UncertainChart
-                  totalPromises={promisesByStatus.count}
-                  inconclusive={promisesByStatus.statusHistory.Unrated?.length}
+                  inconclusive={
+                    promisesByStatus.statusHistory.Inconclusive?.length
+                  }
                   unstarted={promisesByStatus.statusHistory.Unstarted?.length}
-                  name="Uncertain"
-                />
-                <Divider orientation="vertical" className={classes.divider} />
-                <PromiseNotKeptChart
-                  totalPromises={promisesByStatus.count}
                   stalled={promisesByStatus.statusHistory.Stalled?.length}
-                  delayed={promisesByStatus.statusHistory.Delayed?.length}
-                  name="Promises Not Kept"
+                  behindSchedule={
+                    promisesByStatus.statusHistory["Behind Schedule"]?.length
+                  }
                 />
-              </>
-            )}
-          </div>
-        ) : (
-          <MobileChart>
-            <MobilePromiseKeptChart
-              totalPromises={promisesByStatus.count}
-              inProgress={promisesByStatus.statusHistory["In Progress"]?.length}
-              completed={promisesByStatus.statusHistory.Completed?.length}
-              name="Promise Kept"
-            />
-            <MobileUncertainChart
-              totalPromises={promisesByStatus.count}
-              inconclusive={promisesByStatus.statusHistory.Unrated?.length}
-              unstarted={promisesByStatus.statusHistory.Unstarted?.length}
-              name="Uncertain"
-            />
-            <MobilePromiseNotKeptChart
-              totalPromises={promisesByStatus.count}
-              stalled={promisesByStatus.statusHistory.Stalled?.length}
-              delayed={promisesByStatus.statusHistory.Delayed?.length}
-              name="Promise Not Kept"
-            />
-          </MobileChart>
-        )}
-      </>
+              </div>
+            </Fade>
+          ) : (
+            <DesktopChart promisesByStatus={promisesByStatus} />
+          )}
+        </div>
+      ) : (
+        <MobileChart promisesByStatus={promisesByStatus} />
+      )}
     </>
   );
 }

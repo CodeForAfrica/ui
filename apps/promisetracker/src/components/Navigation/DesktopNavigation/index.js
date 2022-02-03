@@ -193,11 +193,15 @@ function DesktopNavigation({ navigation, ...props }) {
 
 DesktopNavigation.propTypes = {
   navigation: PropTypes.shape({
-    promises: PropTypes.shape({}),
+    actNow: PropTypes.shape({
+      href: PropTypes.string,
+    }),
     analysis: PropTypes.shape({
       navigation: PropTypes.arrayOf(PropTypes.shape({})),
     }),
-    actNow: PropTypes.shape({}),
+    promises: PropTypes.shape({
+      href: PropTypes.string,
+    }),
   }),
 };
 

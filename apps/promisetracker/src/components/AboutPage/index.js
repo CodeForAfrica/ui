@@ -47,13 +47,11 @@ function AboutPage({
       navigation={navigation}
       title={title}
       content={
-        <>
-          {description?.length && (
-            <RichTypography className={classes.description}>
-              {description}
-            </RichTypography>
-          )}
-        </>
+        description?.length && (
+          <RichTypography className={classes.description}>
+            {description}
+          </RichTypography>
+        )
       }
       contentProps={{ lg: 6 }}
       aside={aside}

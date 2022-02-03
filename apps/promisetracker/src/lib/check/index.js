@@ -146,7 +146,7 @@ function check({ team = undefined, promiseStatuses = [], initialState = {} }) {
         return prevStatus !== currentStatus;
       })
       .map((statusLog) => {
-        const date = statusLog.node?.created_at * 1000; // convert from secons to milliseconds
+        const date = (statusLog.node?.created_at ?? 0) * 1000; // convert from secons to milliseconds
         const status = JSON.parse(statusLog?.node.object_changes_json)
           .value[1].replace(/[^\w\s]/gi, "")
           .trim();

@@ -4,7 +4,7 @@ import React from "react";
 
 import config from "@/promisetracker/config";
 
-const Labels = () => {
+function Labels() {
   const interval = config.promiseInterval;
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
@@ -93,6 +93,6 @@ const Labels = () => {
       {lastLabel}
     </>
   );
-};
+}
 
 export default Labels;

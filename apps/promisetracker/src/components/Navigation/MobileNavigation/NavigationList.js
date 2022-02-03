@@ -157,11 +157,17 @@ function NavigationList({ onNavigate, open: openProp, navigation, ...props }) {
 
 NavigationList.propTypes = {
   navigation: PropTypes.shape({
-    promises: PropTypes.shape({}),
+    actNow: PropTypes.shape({
+      href: PropTypes.string,
+      title: PropTypes.string,
+    }),
     analysis: PropTypes.shape({
       navigation: PropTypes.arrayOf(PropTypes.shape({})),
     }),
-    actNow: PropTypes.shape({}),
+    promises: PropTypes.shape({
+      href: PropTypes.string,
+      title: PropTypes.string,
+    }),
   }).isRequired,
   onNavigate: PropTypes.func,
   open: PropTypes.bool,

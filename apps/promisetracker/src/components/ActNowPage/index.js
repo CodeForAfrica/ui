@@ -65,16 +65,14 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
   };
 
   const aside = (
-    <>
-      <figure className={classes.figure}>
-        <Image
-          src={actNowImg}
-          layout="fill"
-          alt="actNOW"
-          className={classes.image}
-        />
-      </figure>
-    </>
+    <figure className={classes.figure}>
+      <Image
+        src={actNowImg}
+        layout="fill"
+        alt="actNOW"
+        className={classes.image}
+      />
+    </figure>
   );
   return (
     <>

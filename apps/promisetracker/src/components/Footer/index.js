@@ -228,7 +228,11 @@ MainFooter.propTypes = {
   }),
   copyright: PropTypes.shape({}),
   legalLinks: PropTypes.arrayOf(PropTypes.shape({})),
-  organizationLogo: PropTypes.shape({}),
+  organizationLogo: PropTypes.shape({
+    image: PropTypes.string,
+    alt: PropTypes.string,
+    link: PropTypes.string,
+  }),
   quickLinks: PropTypes.arrayOf(PropTypes.shape({})),
   socialMedia: PropTypes.arrayOf(PropTypes.shape({})),
 };

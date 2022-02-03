@@ -7,7 +7,7 @@ import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 
-const FollowCard = ({ closeCard, promiseActNow }) => {
+function FollowCard({ closeCard, promiseActNow }) {
   const classes = useStyles();
 
   const {
@@ -45,7 +45,7 @@ const FollowCard = ({ closeCard, promiseActNow }) => {
       </Grid>
     </BaseContent>
   );
-};
+}
 
 FollowCard.propTypes = {
   closeCard: PropTypes.func.isRequired,
