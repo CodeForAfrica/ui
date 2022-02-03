@@ -29,6 +29,7 @@ function Promise({
 }) {
   const classes = useStyles({ image: promise.image, classes: classesProp });
 
+  const { location } = promise;
   return (
     <Section classes={{ root: classes.section }}>
       <Grid container>
@@ -43,7 +44,7 @@ function Promise({
           </RichTypography>
           <div className={classes.featuredImageContainer} />
           <ActNowCard {...props} />
-          <Hidden lgUp>
+          <Hidden lgUp implementation="css">
             <div className={classes.mobileStatusContainer}>
               <Grid item className={classes.mobileStatusLabelGrid}>
                 <RichTypography variant="h5" className={classes.statusLabel}>
@@ -63,7 +64,7 @@ function Promise({
             <Typography className={classes.label} variant="h5">
               {promiseRadarLabel}
             </Typography>
-            <Radar location={promise.location} />
+            {location?.length ? <Radar location={promise.location} /> : null}
           </Hidden>
           <NarativeUpdates
             {...promise.narrative}
@@ -91,7 +92,7 @@ function Promise({
             <Typography className={classes.label} variant="h5">
               {promiseRadarLabel}
             </Typography>
-            <Radar />
+            {location?.length ? <Radar location={promise.location} /> : null}
             <Typography className={classes.label} variant="h5">
               {relatedFactChecksLabel}
             </Typography>

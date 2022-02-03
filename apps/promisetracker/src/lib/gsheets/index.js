@@ -310,7 +310,7 @@ function gsheets(server) {
             }
             return [];
           }),
-          location: formatLocation(other.latlng),
+          location: formatLocation(other.location),
           slug: slugify(other.title),
           status: {
             ...statuses?.[camelCase(other.status)],
