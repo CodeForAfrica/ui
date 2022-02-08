@@ -222,11 +222,13 @@ function gsheets(server) {
   async function fetchArticlesCategories() {
     const categories = (await fetchCategories()).reduce(reduceByName, {});
     const categoriesSheet = await fetchSheet(articlesCategoriesSheetId);
-
     return categoriesSheet
-      .filter((row) => row.id && row.category)
-      .map(({ id, category }) => {
-        return { ...categories[camelCase(category)], article: { id } };
+      .filter((row) => row.articleId && row.category)
+      .map(({ articleId, category }) => {
+        return {
+          ...categories[camelCase(category)],
+          article: { id: articleId },
+        };
       })
       .filter((row) => row.article.id);
   }
