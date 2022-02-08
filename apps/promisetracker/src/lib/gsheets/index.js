@@ -23,12 +23,20 @@ function gsheets(server) {
   const promisesCategoriesSheetId = server.env(
     "GSHEETS_PROMISES_CATEGORIES_SHEET_ID"
   );
+  const articlesCategoriesSheetId = server.env(
+    "GSHEETS_ARTICLES_CATEGORIES_SHEET_ID"
+  );
   const promisesEventsSheetId = server.env("GSHEETS_PROMISES_EVENTS_SHEET_ID");
   const articlesSheetId = server.env("GSHEETS_ARTICLES_SHEET_ID");
   const factChecksSheetId = server.env("GSHEETS_FACTCHECKS_SHEET_ID");
 
   const defaultLat = server.env("DEFAULT_LAT");
   const defaultLng = server.env("DEFAULT_LONG");
+
+  function reduceByName(acc, current) {
+    acc[camelCase(current.name)] = current;
+    return acc;
+  }
 
   const papaOptions = {
     header: true,
@@ -211,14 +219,36 @@ function gsheets(server) {
       updatedAtLabel,
     };
   }
+  async function fetchArticlesCategories() {
+    const categories = (await fetchCategories()).reduce(reduceByName, {});
+    const categoriesSheet = await fetchSheet(articlesCategoriesSheetId);
+
+    return categoriesSheet
+      .filter((row) => row.id && row.category)
+      .map(({ id, category }) => {
+        return { ...categories[camelCase(category)], article: { id } };
+      })
+      .filter((row) => row.article.id);
+  }
 
   async function fetchArticles(cache) {
     const { data: site } = await cache.site;
     const articlesSheet = await fetchSheet(articlesSheetId);
+    const articleCategories = await fetchArticlesCategories();
 
     return articlesSheet
       .filter((row) => equalsIgnoreCase(row.site, site.slug))
-      .map(({ photo, ...others }) => ({ ...others, photo, image: photo }));
+      .map(({ photo, ...others }) => ({
+        ...others,
+        photo,
+        categories: articleCategories.flatMap(({ article, ...category }) => {
+          if (equalsIgnoreCase(article.id, others.id)) {
+            return [category];
+          }
+          return [];
+        }),
+        image: photo,
+      }));
   }
 
   async function fetchFactChecks(cache) {
@@ -228,11 +258,6 @@ function gsheets(server) {
     return factChecksSheet
       .filter((row) => equalsIgnoreCase(row.site, site.slug))
       .map(({ photo, ...others }) => ({ ...others, photo, image: photo }));
-  }
-
-  function reduceByName(acc, current) {
-    acc[camelCase(current.name)] = current;
-    return acc;
   }
 
   function extractIdFromEntityPromise(promise) {
