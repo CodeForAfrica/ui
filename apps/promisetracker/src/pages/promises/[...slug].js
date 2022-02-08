@@ -3,10 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
+import RelatedArticles from "@/promisetracker/components/LatestArticles";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
 import Promise from "@/promisetracker/components/Promise";
-import RelatedPromises from "@/promisetracker/components/Promises";
 import PromiseTimeline from "@/promisetracker/components/PromiseTimeline";
 import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
@@ -22,6 +22,12 @@ const useStyles = makeStyles(
         padding: 0,
         margin: "0 auto",
         width: typography.pxToRem(widths.values.lg),
+      },
+    },
+    relatedArticles: {
+      marginBottom: typography.pxToRem(43),
+      [breakpoints.up("lg")]: {
+        marginBottom: typography.pxToRem(76),
       },
     },
     sectionTitle: {
@@ -89,14 +95,13 @@ function PromisePage({
         </Section>
       </div>
       <Promise promise={promise} {...labels} {...props} />
-      <RelatedPromises
-        promiseStatuses={promiseStatuses}
-        items={promise?.relatedPromises}
-        title="Related Promises"
-        withFilter={false}
+      <RelatedArticles
+        items={promise.relatedArticles}
+        title="Related Articles"
         classes={{
           section: classes.section,
           sectionTitle: classes.sectionTitle,
+          root: classes.relatedArticles,
         }}
       />
       <Subscribe
@@ -125,6 +130,7 @@ PromisePage.propTypes = {
     status: PropTypes.shape({}),
     statusHistory: PropTypes.arrayOf(PropTypes.shape({})),
     relatedPromises: PropTypes.arrayOf(PropTypes.shape({})),
+    relatedArticles: PropTypes.arrayOf(PropTypes.shape({})),
   }),
   promiseStatuses: PropTypes.shape({}),
   title: PropTypes.string,
@@ -172,6 +178,16 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const promiseStatuses = await backend.promises({ id }).statuses;
   const site = await backend.sites().current;
 
+  let articles = await backend.articles().all;
+
+  articles = articles.filter((article) =>
+    article.categories.some(
+      (category) =>
+        promisePost.categories.map((cat) => cat.name).indexOf(category.name) !==
+        -1
+    )
+  );
+
   const notFound = !promisePost;
   if (notFound) {
     return {
@@ -183,6 +199,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
 
   const promise = {
     ...promisePost,
+    relatedArticles: articles,
     attribution: {
       title: "",
       description: "",
