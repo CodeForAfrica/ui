@@ -38,6 +38,12 @@ function gsheets(server) {
     return acc;
   }
 
+  function extractIdFromEntity(entity) {
+    // idET = (promise) id, (entity) Name and (promise) Title
+    const idNT = entity.split("/");
+    return idNT.length > 1 ? idNT[0]?.trim() : undefined;
+  }
+
   const papaOptions = {
     header: true,
     skipEmptyLines: "greedy",
@@ -223,11 +229,12 @@ function gsheets(server) {
     const categories = (await fetchCategories()).reduce(reduceByName, {});
     const categoriesSheet = await fetchSheet(articlesCategoriesSheetId);
     return categoriesSheet
-      .filter((row) => row.articleId && row.category)
-      .map(({ articleId, category }) => {
+      .filter((row) => row.article && row.category)
+      .map(({ article, category }) => {
+        const id = extractIdFromEntity(article);
         return {
           ...categories[camelCase(category)],
-          article: { id: articleId },
+          article: { id },
         };
       })
       .filter((row) => row.article.id);
@@ -262,12 +269,6 @@ function gsheets(server) {
       .map(({ photo, ...others }) => ({ ...others, photo, image: photo }));
   }
 
-  function extractIdFromEntityPromise(promise) {
-    // idET = (promise) id, (entity) Name and (promise) Title
-    const idNT = promise.split("/");
-    return idNT.length > 1 ? idNT[0]?.trim() : undefined;
-  }
-
   async function fetchPromisesCategories() {
     const categories = (await fetchCategories()).reduce(reduceByName, {});
     const pcSheet = await fetchSheet(promisesCategoriesSheetId);
@@ -275,7 +276,7 @@ function gsheets(server) {
     return pcSheet
       .filter((row) => row.promise && row.category)
       .map(({ promise, category }) => {
-        const id = extractIdFromEntityPromise(promise);
+        const id = extractIdFromEntity(promise);
         return { ...categories[camelCase(category)], promise: { id } };
       })
       .filter((row) => row.promise.id);
@@ -287,7 +288,7 @@ function gsheets(server) {
     return peSheet
       .filter((row) => row.promise && row.name && row.date)
       .map(({ promise, ...event }) => {
-        const id = extractIdFromEntityPromise(promise);
+        const id = extractIdFromEntity(promise);
         return { ...event, promise: { id } };
       })
       .filter((row) => row.promise.id);
