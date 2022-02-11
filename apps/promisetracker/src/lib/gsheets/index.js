@@ -225,10 +225,11 @@ function gsheets(server) {
       updatedAtLabel,
     };
   }
+
   async function fetchArticlesCategories() {
     const categories = (await fetchCategories()).reduce(reduceByName, {});
-    const categoriesSheet = await fetchSheet(articlesCategoriesSheetId);
-    return categoriesSheet
+    const articleCategoriesSheet = await fetchSheet(articlesCategoriesSheetId);
+    return articleCategoriesSheet
       .filter((row) => row.article && row.category)
       .map(({ article, category }) => {
         const id = extractIdFromEntity(article);
@@ -250,12 +251,9 @@ function gsheets(server) {
       .map(({ photo, ...others }) => ({
         ...others,
         photo,
-        categories: articleCategories.flatMap(({ article, ...category }) => {
-          if (equalsIgnoreCase(article.id, others.id)) {
-            return [category];
-          }
-          return [];
-        }),
+        categories: articleCategories
+          .filter(({ article }) => equalsIgnoreCase(article.id, others.id))
+          .map(({ category }) => category),
         image: photo,
       }));
   }
@@ -453,7 +451,7 @@ function gsheets(server) {
         get first() {
           return (async () => {
             const ql = await promisesQL();
-            return ql.getPromise(options);
+            return ql.getPromise({ articles: articlesQL(), ...options });
           })();
         },
         get key() {

@@ -178,16 +178,6 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const promiseStatuses = await backend.promises({ id }).statuses;
   const site = await backend.sites().current;
 
-  let articles = await backend.articles().all;
-
-  articles = articles.filter((article) =>
-    article.categories.some(
-      (category) =>
-        promisePost.categories.map((cat) => cat.name).indexOf(category.name) !==
-        -1
-    )
-  );
-
   const notFound = !promisePost;
   if (notFound) {
     return {
@@ -199,7 +189,6 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
 
   const promise = {
     ...promisePost,
-    relatedArticles: articles,
     attribution: {
       title: "",
       description: "",

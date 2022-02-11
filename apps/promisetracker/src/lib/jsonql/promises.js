@@ -46,12 +46,20 @@ function jsonQL(promises) {
       );
       return filteredPromises.slice(0, limit);
     },
-    getPromise({ id, ...others } = {}) {
+    getPromise({ id, articles, ...others } = {}) {
       const filteredPromises = api.getPromises(others);
       if (id) {
         return filteredPromises.find((p) => equalsIgnoreCase(p.id, id));
       }
       const [promise] = filteredPromises;
+      const relatedArticles = articles.filter((article) =>
+        article.categories.some(
+          (category) =>
+            promise.categories.map((cat) => cat.name).indexOf(category.name) !==
+            -1
+        )
+      );
+      promise.relatedArticles = relatedArticles;
       return promise;
     },
     getStatuses() {
