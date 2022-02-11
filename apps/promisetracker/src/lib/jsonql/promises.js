@@ -48,10 +48,12 @@ function jsonQL(promises) {
     },
     getPromise({ id, articles, ...others } = {}) {
       const filteredPromises = api.getPromises(others);
+      let promise;
       if (id) {
-        return filteredPromises.find((p) => equalsIgnoreCase(p.id, id));
+        promise = filteredPromises.find((p) => equalsIgnoreCase(p.id, id));
+      } else {
+        [promise] = filteredPromises;
       }
-      const [promise] = filteredPromises;
       const relatedArticles = articles.filter((article) =>
         article.categories.some(
           (category) =>

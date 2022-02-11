@@ -251,9 +251,9 @@ function gsheets(server) {
       .map(({ photo, ...others }) => ({
         ...others,
         photo,
-        categories: articleCategories
-          .filter(({ article }) => equalsIgnoreCase(article.id, others.id))
-          .map(({ category }) => category),
+        categories: articleCategories.filter(({ article }) =>
+          equalsIgnoreCase(article.id, others.id)
+        ),
         image: photo,
       }));
   }
@@ -451,7 +451,8 @@ function gsheets(server) {
         get first() {
           return (async () => {
             const ql = await promisesQL();
-            return ql.getPromise({ articles: articlesQL(), ...options });
+            const articles = (await articlesQL()).getArticles();
+            return ql.getPromise({ articles, ...options });
           })();
         },
         get key() {
