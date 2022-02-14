@@ -79,9 +79,6 @@
     "lint": "yarn eslint --fix --ignore-path './.gitignore' './'",
     "lint-staged": "yarn eslint --fix --ext '.js,.json,.md'",
     "start": "next start",
-    "setup:commons": "node ./scripts/commons-ui-add.js && yarn && git restore package.json && git restore yarn.lock",
-    "dev:commons": "yarn submodule && yarn setup:commons && yarn dev",
-    "remove:commons": "node ./scripts/commons-ui-remove.js && git restore .babelrc.json",
     "prepare": "husky install"
   },
   "browserslist": [

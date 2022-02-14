@@ -23,29 +23,6 @@ Run the following to get started locally:
 
 **Note:** Reach out to the project champion for directions on how to receive the [Check](https://checkmedia.org) and [Sentry](https://sentry.io) tokens
 
-#### Working with COMMONS UI
-
-[COMMONS UI](https://github.com/CodeForAfrica/COMMONS-UI) is a library, developed and maintained by CfA, that packages React components used to develop various UIs.
-
-To build and run the project with COMMONS-UI submodule locally, run:
-
-```sh
-  yarn dev:commons
-```
-
-COMMONS-UI is now ready to be tested locally. To get started, check out to the branch you want to test:
-
-```sh
-  cd COMMONS-UI
-  git checkout <desired-branch>
-```
-
-To remove COMMONS-UI, run:
-
-```sh
-  yarn remove:commons
-```
-
 ## Attribution
 
 PromiseTracker is modelled on [Rouhani Meter](https://rouhanimeter.com) and made possible thans to the generous support of DW Akademie and Meedan. Built by the Code for Africa Tech team and content courtesy of PesaCheck and ANCIR's iLab teams.
