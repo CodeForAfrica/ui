@@ -6,7 +6,7 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-import actNowLogo from "@/promisetracker/assets/Component 121 – 1@2x.png";
+import actNowLogo from "@/promisetracker/assets/actNowLogo2x.png";
 import actNowImg from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
 import CtAButton from "@/promisetracker/components/CtAButton";
 

@@ -8,7 +8,7 @@ import React, { useState } from "react";
 
 import useStyles from "./useStyles";
 
-import actNowLogo from "@/promisetracker/assets/Component 121 – 1@2x.png";
+import actNowLogo from "@/promisetracker/assets/actNowLogo2x.png";
 import actNowImg from "@/promisetracker/assets/illo-aboutTheProject@2x.png";
 import ActNowSummary from "@/promisetracker/components/ActNowSummary/index";
 import ContentPage from "@/promisetracker/components/ContentPage";

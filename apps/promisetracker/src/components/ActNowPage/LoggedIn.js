@@ -1,17 +1,43 @@
 import { Box, Button } from "@material-ui/core";
 import clsx from "clsx";
-import { signOut } from "next-auth/client";
+import { signOut, useSession } from "next-auth/client";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
 import useStyles from "./useStyles";
 
-import actNowLogo from "@/promisetracker/assets/Component 121 – 1@2x.png";
+import actNowLogo from "@/promisetracker/assets/actNowLogo2x.png";
 import ContentPage from "@/promisetracker/components/ContentPage";
+import Section from "@/promisetracker/components/ContentPage/Section";
+import Petitions from "@/promisetracker/components/Petitions";
+import Tabs from "@/promisetracker/components/Tabs";
 
-function ActNowLoggedInPage({ footer, title, navigation, ...props }) {
+function ActNowLoggedInPage({
+  footer,
+  title,
+  navigation,
+  petitions,
+  ...props
+}) {
   const classes = useStyles(props);
+  const session = useSession();
+  const started = petitions?.filter(
+    (petition) => petition.owner.id === session.user.id
+  );
+  const signed = petitions?.filter((petition) =>
+    petition.signatures.find(({ id }) => id === session.user.id)
+  );
+  const formatedItems = [
+    { title: "Signed", petitions: signed },
+    { title: "Started", petitions: started },
+  ].map((item) => {
+    return {
+      label: item.title,
+      href: `#${item.title}`,
+      children: <Petitions items={item.petitions} />,
+    };
+  });
 
   const aside = (
     <Box display="flex" justifyContent="flex-end">
@@ -59,19 +85,31 @@ function ActNowLoggedInPage({ footer, title, navigation, ...props }) {
         gridAside: classes.gridAside,
         gridContent: classes.gridContent,
       }}
-    />
+    >
+      <Section
+        classes={{
+          section: classes.section,
+          sectionTitle: classes.sectionTitle,
+        }}
+      >
+        sdsd
+        <Tabs name="signed-started-actnow" items={formatedItems} classes={{}} />
+      </Section>
+    </ContentPage>
   );
 }
 
 ActNowLoggedInPage.propTypes = {
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
+  petitions: PropTypes.shape(PropTypes.shape({})),
   title: PropTypes.string,
 };
 
 ActNowLoggedInPage.defaultProps = {
   footer: undefined,
   navigation: undefined,
+  petitions: undefined,
   title: undefined,
 };
 

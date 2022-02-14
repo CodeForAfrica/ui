@@ -179,6 +179,7 @@ const useStyles = makeStyles(
     loginContainer: {
       marginTop: typography.pxToRem(100),
     },
+    tabs: {},
   })
 );
 
