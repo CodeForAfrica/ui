@@ -91,10 +91,14 @@ function ActNowLoggedInPage({
           section: classes.section,
           sectionTitle: classes.sectionTitle,
         }}
-      >
-        sdsd
-        <Tabs name="signed-started-actnow" items={formatedItems} classes={{}} />
-      </Section>
+        content={
+          <Tabs
+            name="signed-started-actnow"
+            items={formatedItems}
+            classes={{}}
+          />
+        }
+      />
     </ContentPage>
   );
 }
