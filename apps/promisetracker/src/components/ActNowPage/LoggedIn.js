@@ -91,11 +91,14 @@ function ActNowLoggedInPage({
           section: classes.section,
           sectionTitle: classes.sectionTitle,
         }}
+        title="My Petitions"
         content={
           <Tabs
             name="signed-started-actnow"
             items={formatedItems}
-            classes={{}}
+            classes={{
+              root: classes.tabs,
+            }}
           />
         }
       />

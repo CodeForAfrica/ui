@@ -12,7 +12,9 @@ const useStyles = makeStyles(
         width: typography.pxToRem(widths.values.lg),
       },
     },
-    sectionTitle: {},
+    sectionTitle: {
+      marginBottom: typography.pxToRem(40),
+    },
     actNow: {},
     content: {},
     contentSection: {
@@ -179,7 +181,9 @@ const useStyles = makeStyles(
     loginContainer: {
       marginTop: typography.pxToRem(100),
     },
-    tabs: {},
+    tabs: {
+      marginTop: typography.pxToRem(100),
+    },
   })
 );
 
