@@ -55,8 +55,7 @@ const useStyles = makeStyles(
       },
     },
     featuredImageContainer: {
-      backgroundImage: (props) => `url(${props.image})`,
-      border: (props) => `10px solid (${props.status?.color})`,
+      backgroundBlendMode: "soft-light",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       width: "100%",

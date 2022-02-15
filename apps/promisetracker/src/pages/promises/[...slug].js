@@ -71,10 +71,10 @@ function PromisePage({
     return null;
   }
   const { events, date, status, statusHistory, image } = promise;
-  console.log(image);
 
   const style = {
-    /* background: `linear-gradient(to right, ${status?.color}, ${status?.color}), url(${image}) no-repeat center/cover`,  */
+    background: `linear-gradient(to right, ${status?.color}, ${status?.color}), url(${image}) no-repeat center/cover`,
+    border: `10px solid ${status?.color}`,
   };
 
   return (
@@ -133,7 +133,9 @@ PromisePage.propTypes = {
     events: PropTypes.arrayOf(PropTypes.shape({})),
     image: PropTypes.string,
     title: PropTypes.string,
-    status: PropTypes.shape({}),
+    status: PropTypes.shape({
+      color: PropTypes.string,
+    }),
     statusHistory: PropTypes.arrayOf(PropTypes.shape({})),
     relatedPromises: PropTypes.arrayOf(PropTypes.shape({})),
     relatedArticles: PropTypes.arrayOf(PropTypes.shape({})),
