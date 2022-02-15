@@ -71,6 +71,7 @@ function PromisePage({
     return null;
   }
   const { events, date, status, statusHistory } = promise;
+
   return (
     <Page
       {...props}
