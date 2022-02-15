@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import { signIn } from "next-auth/client";
+import { signIn } from "next-auth/react";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
