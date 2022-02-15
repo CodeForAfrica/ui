@@ -25,6 +25,7 @@ function Promise({
   relatedFactChecksLabel,
   dataSourceEmbedLabel,
   narrativeUpdatesLabel,
+  style,
   ...props
 }) {
   const classes = useStyles({ image: promise.image, classes: classesProp });
@@ -42,7 +43,7 @@ function Promise({
           <RichTypography variant="h1" className={classes.promiseTitle}>
             {promise.title}
           </RichTypography>
-          <div className={classes.featuredImageContainer} />
+          <div className={classes.featuredImageContainer} style={style} />
           <ActNowCard {...props} />
           <Hidden lgUp implementation="css">
             <div className={classes.mobileStatusContainer}>
@@ -147,6 +148,7 @@ Promise.propTypes = {
   narrativeUpdatesLabel: PropTypes.string,
   chartEmbedLabel: PropTypes.string,
   authorAttributionLabel: PropTypes.string,
+  style: PropTypes.shape({}),
 };
 
 Promise.defaultProps = {
@@ -159,6 +161,7 @@ Promise.defaultProps = {
   narrativeUpdatesLabel: undefined,
   chartEmbedLabel: undefined,
   authorAttributionLabel: undefined,
+  style: undefined,
 };
 
 export default Promise;
