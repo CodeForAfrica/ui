@@ -8,10 +8,10 @@ import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
 function ActNow(props) {
-  const [session, loading] = useSession();
+  const { data: session, status } = useSession();
 
   // When rendering client side don't display anything until loading is complete
-  if (typeof window !== "undefined" && loading) return null;
+  if (typeof window !== "undefined" && status === "loading") return null;
 
   // If no session exists, show default landing page
   if (!session) {
