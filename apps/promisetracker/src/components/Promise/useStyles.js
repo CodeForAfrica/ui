@@ -50,7 +50,7 @@ const useStyles = makeStyles(
           bottom: 0,
           left: 0,
           width: typography.pxToRem(72),
-          borderBottom: `8px solid ${palette.highlight.light}`,
+          borderBottom: (props) => `8px solid ${props?.status?.color}`,
         },
       },
     },
