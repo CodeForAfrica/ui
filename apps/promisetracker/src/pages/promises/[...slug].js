@@ -30,6 +30,9 @@ const useStyles = makeStyles(
         marginBottom: typography.pxToRem(76),
       },
     },
+    /*  promiseTitle:{
+      borderBottom: (props) => `8px solid ${props?.status?.color}`,
+    }, */
     sectionTitle: {
       marginBottom: typography.pxToRem(21),
       marginTop: typography.pxToRem(46),
@@ -70,12 +73,7 @@ function PromisePage({
   if (!promise) {
     return null;
   }
-  const { events, date, status, statusHistory, image } = promise;
-
-  const style = {
-    background: `linear-gradient(to right, ${status?.color}, ${status?.color}), url(${image}) no-repeat center/cover`,
-    border: `10px solid ${status?.color}`,
-  };
+  const { events, date, status, statusHistory } = promise;
 
   return (
     <Page
@@ -100,7 +98,7 @@ function PromisePage({
           />
         </Section>
       </div>
-      <Promise promise={promise} {...labels} {...props} style={style} />
+      <Promise promise={promise} {...labels} {...props} />
       <RelatedArticles
         items={promise.relatedArticles}
         title="Related Articles"
