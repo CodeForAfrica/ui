@@ -46,7 +46,7 @@ function Promise({
           <RichTypography variant="h1" className={classes.promiseTitle}>
             {promise.title}
           </RichTypography>
-          <div className={classes.featuredImageContainer} {...props} />
+          <div className={classes.featuredImageContainer} />
           <ActNowCard {...props} />
           <Hidden lgUp implementation="css">
             <div className={classes.mobileStatusContainer}>

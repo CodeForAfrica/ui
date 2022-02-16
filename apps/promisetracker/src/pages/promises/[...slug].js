@@ -30,9 +30,6 @@ const useStyles = makeStyles(
         marginBottom: typography.pxToRem(76),
       },
     },
-    /*  promiseTitle:{
-      borderBottom: (props) => `8px solid ${props?.status?.color}`,
-    }, */
     sectionTitle: {
       marginBottom: typography.pxToRem(21),
       marginTop: typography.pxToRem(46),
