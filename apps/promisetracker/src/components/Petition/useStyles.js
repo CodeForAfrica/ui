@@ -74,8 +74,17 @@ const useStyles = makeStyles(
     label: {
       marginTop: "2rem",
       marginBottom: "1rem",
+      width: typography.pxToRem(171),
+      fontWeight: "bold",
 
       color: palette.primary.main,
+      "& span": {
+        color: "#005DFD",
+      },
+    },
+    progressBar: {
+      background: "#EBEBEB",
+      height: typography.pxToRem(15),
     },
     promisesLabel: {
       marginBottom: "1rem",

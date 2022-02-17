@@ -1,5 +1,5 @@
 import { Section, RichTypography } from "@commons-ui/core";
-import { Grid, Hidden, Typography } from "@material-ui/core";
+import { Grid, Hidden, Typography, LinearProgress } from "@material-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -20,7 +20,12 @@ const petition = {
 };
 
 function Petition({ petitionPost }) {
-  const { title, description } = petitionPost;
+  const {
+    title,
+    description,
+    signatures,
+    number_of_signatures_required: requiredSignatures,
+  } = petitionPost;
   const classes = useStyles({ image: petition.image });
 
   return (
@@ -57,6 +62,16 @@ function Petition({ petitionPost }) {
               Promise rating status:
             </RichTypography>
             <Status {...petition.status} classes={{ root: classes.status }} />
+            <RichTypography className={classes.label} variant="h4">
+              <span>{signatures.length}</span> have signed, let us get to{" "}
+              {requiredSignatures}
+            </RichTypography>
+            <LinearProgress
+              value={signatures.length}
+              valueBuffer={requiredSignatures}
+              variant="determinate"
+              className={classes.progressBar}
+            />
           </Grid>
         </Hidden>
       </Grid>
@@ -68,6 +83,8 @@ Petition.propTypes = {
   petitionPost: PropTypes.shape({
     description: PropTypes.string,
     title: PropTypes.string,
+    signatures: PropTypes.arrayOf(PropTypes.string),
+    number_of_signatures_required: PropTypes.number,
   }),
 };
 
