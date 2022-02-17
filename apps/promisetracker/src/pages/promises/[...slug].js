@@ -159,6 +159,7 @@ export async function getStaticPaths() {
   const unlocalizedPaths = promises.map((promise) => ({
     params: { slug: [`${promise.id}`, promise.slug] },
   }));
+
   const paths = i18n().localizePaths(unlocalizedPaths);
 
   return { fallback, paths };

@@ -90,7 +90,10 @@ function PostCard({
     <Card square variant="outlined" className={classes.root}>
       <CardActionArea as={as} {...props} className={classes.contentRoot}>
         <CardContent classes={{ root: classes.content }}>
-          <Status title={status} classes={{ root: classes.status }} />
+          <Status
+            title={status || "Pending"}
+            classes={{ root: classes.status }}
+          />
           <Box
             display="flex"
             alignItems="flex-end"

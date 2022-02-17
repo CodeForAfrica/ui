@@ -49,6 +49,14 @@ function actnow(site) {
     return petitions.map((petition) => ({ ...petition, status: "closed" }));
   }
 
+  async function getPetition(id) {
+    const url = `${ACTNOW_URL}/v1/petitions/${id}/?format=json`;
+    const response = await fetch(url);
+    const petition = (await response.json()) || [];
+
+    return petition;
+  }
+
   const api = {
     accounts: () => {
       return {
@@ -69,6 +77,15 @@ function actnow(site) {
         get list() {
           return (async () => {
             return getPetitions();
+          })();
+        },
+      };
+    },
+    petition: (id) => {
+      return {
+        get lists() {
+          return (async () => {
+            return getPetition(id);
           })();
         },
       };

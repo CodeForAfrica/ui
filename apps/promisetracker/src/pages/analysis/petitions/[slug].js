@@ -4,6 +4,8 @@ import React from "react";
 
 import Page from "@/promisetracker/components/Page";
 import Petition from "@/promisetracker/components/Petition";
+import actnow from "@/promisetracker/lib/actnow";
+import i18n from "@/promisetracker/lib/i18n";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -41,6 +43,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
  */
 function Index({
   article,
+  petition,
   relatedArticles,
   subscribe,
   title: titleProp,
@@ -49,6 +52,7 @@ function Index({
   const classes = useStyles(props);
   const title = article?.title ? `${article.title} | ${titleProp}` : titleProp;
 
+  // replace
   const footer = {
     about: {
       about:
@@ -142,7 +146,7 @@ function Index({
       title={title}
       classes={{ section: classes.section, footer: classes.footer }}
     >
-      <Petition />
+      <Petition petitionPost={petition} />
     </Page>
   );
 }
@@ -161,6 +165,7 @@ Index.propTypes = {
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
   subscribe: PropTypes.shape({}),
+  petition: PropTypes.shape({}),
   relatedArticles: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,
 };
@@ -173,6 +178,33 @@ Index.defaultProps = {
   relatedArticles: undefined,
   subscribe: undefined,
   title: undefined,
+  petition: undefined,
 };
+
+export async function getStaticPaths() {
+  const fallback = true;
+  // replace
+  const unlocalizedPaths = [
+    { params: { slug: "1" } },
+    { params: { slug: "2" } },
+    { params: { slug: "3" } },
+    { params: { slug: "4" } },
+    { params: { slug: "5" } },
+  ];
+
+  const paths = i18n().localizePaths(unlocalizedPaths);
+
+  return { fallback, paths };
+}
+
+export async function getStaticProps({ params: { slug: slugParam } }) {
+  const petition = await actnow().petition(slugParam).lists;
+
+  return {
+    props: {
+      petition,
+    },
+  };
+}
 
 export default Index;
