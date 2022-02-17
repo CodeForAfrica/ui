@@ -5,7 +5,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-function FormTextField({ ...props }) {
+function FormTextField(props) {
   const classes = useStyles(props);
   const theme = useTheme();
 
@@ -46,6 +46,7 @@ function FormTextField({ ...props }) {
           root: helperDescription ? classes.label : classes.recipientLabel,
         },
       }}
+      {...props}
     />
   );
 }

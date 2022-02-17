@@ -17,7 +17,7 @@ import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 
-function Form({ ...props }) {
+function Form({ values, onChange: handleFormChange, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
 
@@ -28,13 +28,9 @@ function Form({ ...props }) {
   const {
     petitionLabel,
     petitionHelper,
-    categoryLabel,
-    categoryHelper,
     recipientLabel,
     recipientDescription,
-    recipientNameLabel,
     recipientEmailLabel,
-    recipientSocialLabel,
     issueLabel,
     issueHelper,
     imageLabel,
@@ -98,6 +94,13 @@ function Form({ ...props }) {
     fileInput.current.click();
   };
 
+  const handleChange = (event, name) => {
+    const newValues = { ...values };
+    newValues[name] = event.target.value;
+    console.log(newValues);
+    handleFormChange(newValues);
+  };
+
   const helperVariant = useMediaQuery(theme.breakpoints.up("lg"))
     ? "body1"
     : "body2";
@@ -108,13 +111,9 @@ function Form({ ...props }) {
         labelText={petitionLabel}
         helperDescription={petitionHelper}
         elemId="petition-input"
+        onChange={(event) => handleChange(event, "title")}
+        value={values.title}
       />
-      <FormTextField
-        labelText={categoryLabel}
-        helperDescription={categoryHelper}
-        elemId="category-input"
-      />
-
       <Typography classes={{ root: classes.label, body1: classes.body1 }}>
         {recipientLabel}
       </Typography>
@@ -125,20 +124,12 @@ function Form({ ...props }) {
       >
         {recipientDescription}
       </Typography>
-
-      <FormTextField
-        labelText={recipientNameLabel}
-        elemId="recipient-name-input"
-      />
       <FormTextField
         labelText={recipientEmailLabel}
         elemId="recipient-email-input"
+        value={values.recipients}
+        onChange={(event) => handleChange(event, "recipients")}
       />
-      <FormTextField
-        labelText={recipientSocialLabel}
-        elemId="recipient-social-input"
-      />
-
       <FormControl classes={{ root: classes.formControl }}>
         <InputLabel htmlFor="issue-input" classes={{ root: classes.label }}>
           {issueLabel}
@@ -151,6 +142,7 @@ function Form({ ...props }) {
         </FormHelperText>
 
         <TextareaAutosize
+          onChange={(event) => handleChange(event, "problemStatement")}
           rowsMin={10}
           aria-label="maximum height"
           aria-describedby="issue-helper-text"
@@ -234,28 +226,35 @@ function Form({ ...props }) {
 }
 
 Form.propTypes = {
-  mandatoryText: PropTypes.string,
-  petitionLabel: PropTypes.string,
-  petitionHelper: PropTypes.string,
-  categoryLabel: PropTypes.string,
   categoryHelper: PropTypes.string,
-  recipientLabel: PropTypes.string,
-  recipientDescription: PropTypes.string,
-  recipientNameLabel: PropTypes.string,
-  recipientEmailLabel: PropTypes.string,
-  recipientSocialLabel: PropTypes.string,
-  issueLabel: PropTypes.string,
-  issueHelper: PropTypes.string,
-  imageLabel: PropTypes.string,
+  categoryLabel: PropTypes.string,
   imageHelper: PropTypes.string,
+  imageLabel: PropTypes.string,
+  issueHelper: PropTypes.string,
+  issueLabel: PropTypes.string,
+  mandatoryText: PropTypes.string,
+  onChange: PropTypes.func,
+  petitionHelper: PropTypes.string,
+  petitionLabel: PropTypes.string,
+  recipientDescription: PropTypes.string,
+  recipientEmailLabel: PropTypes.string,
+  recipientLabel: PropTypes.string,
+  recipientNameLabel: PropTypes.string,
+  recipientSocialLabel: PropTypes.string,
+  signatureHelper: PropTypes.string,
+  signatureLabel: PropTypes.string,
   uploadInstruction: PropTypes.string,
   uploadText: PropTypes.string,
-  signatureLabel: PropTypes.string,
-  signatureHelper: PropTypes.string,
+  values: PropTypes.shape({
+    description: PropTypes.string,
+    recipients: PropTypes.string,
+    title: PropTypes.string,
+  }),
 };
 
 Form.defaultProps = {
   mandatoryText: null,
+  onChange: null,
   petitionLabel: null,
   petitionHelper: null,
   categoryLabel: null,
@@ -273,6 +272,7 @@ Form.defaultProps = {
   uploadText: null,
   signatureLabel: null,
   signatureHelper: null,
+  values: null,
 };
 
 export default Form;
