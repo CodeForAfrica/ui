@@ -1,10 +1,11 @@
 import { Section, RichTypography } from "@commons-ui/core";
-import { Grid, Hidden, Typography, LinearProgress } from "@material-ui/core";
+import { Grid, Hidden, LinearProgress, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
 
 import useStyles from "./useStyles";
 
+import CtAButton from "@/promisetracker/components/CtAButton";
 import Status from "@/promisetracker/components/PromiseStatus";
 
 // replace
@@ -25,8 +26,11 @@ function Petition({ petitionPost }) {
     description,
     signatures,
     number_of_signatures_required: requiredSignatures,
+    owner,
   } = petitionPost;
   const classes = useStyles({ image: petition.image });
+
+  const { name } = owner;
 
   return (
     <Section classes={{ root: classes.section }}>
@@ -36,7 +40,9 @@ function Petition({ petitionPost }) {
             {title}
           </RichTypography>
           <div className={classes.featuredImageContainer} />
-          <Typography>Gertrude Nyenyeshi started this petition</Typography>
+          <RichTypography className={classes.owner}>
+            <span>{name}</span> started this petition
+          </RichTypography>
           {/* <ActNowCard {...props} /> */}
           <Hidden lgUp implementation="css">
             <div className={classes.mobileStatusContainer}>
@@ -54,6 +60,24 @@ function Petition({ petitionPost }) {
           <RichTypography className={classes.promiseBody} variant="body1">
             {description}
           </RichTypography>
+          <Grid container className={classes.petitionContainer}>
+            <Grid item lg={6} justify="center">
+              <Typography variant="h3" className={classes.petitionTitle}>
+                Start your petiton now
+              </Typography>
+            </Grid>
+            <Grid item lg={6} justify="center">
+              <CtAButton
+                color="secondary"
+                classes={{
+                  root: classes.cardButtonRoot,
+                  button: classes.cardButton,
+                }}
+              >
+                Start a new Petition
+              </CtAButton>
+            </Grid>
+          </Grid>
         </Grid>
         <Grid item md={1} implementation="css" smDown component={Hidden} />
         <Hidden mdDown>
@@ -71,6 +95,7 @@ function Petition({ petitionPost }) {
               valueBuffer={requiredSignatures}
               variant="determinate"
               className={classes.progressBar}
+              classes={{ barColorPrimary: classes.barColor }}
             />
           </Grid>
         </Hidden>
@@ -85,6 +110,9 @@ Petition.propTypes = {
     title: PropTypes.string,
     signatures: PropTypes.arrayOf(PropTypes.string),
     number_of_signatures_required: PropTypes.number,
+    owner: PropTypes.shape({
+      name: PropTypes.string,
+    }),
   }),
 };
 

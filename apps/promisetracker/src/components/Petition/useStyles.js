@@ -86,9 +86,37 @@ const useStyles = makeStyles(
       background: "#EBEBEB",
       height: typography.pxToRem(15),
     },
+    barColor: {
+      background: "#005DFD",
+    },
     promisesLabel: {
       marginBottom: "1rem",
       marginTop: "2rem",
+    },
+    owner: {
+      margin: `${typography.pxToRem(40)} 0`,
+      "& span": {
+        fontWeight: "bold",
+        textTransform: "capitalize",
+      },
+    },
+    petitionContainer: {
+      background: "#F7F7F7",
+      padding: `${typography.pxToRem(56)} 0`,
+      marginBottom: typography.pxToRem(96),
+    },
+    petitionTitle: {
+      textAlign: "center",
+      "& h3": {
+        textAlign: "center",
+      },
+    },
+    cardButtonRoot: {
+      margin: 0,
+    },
+    cardButton: {
+      border: `1px solid #005DFD`,
+      background: "#fff",
     },
     status: {
       fontSize: "1rem",
