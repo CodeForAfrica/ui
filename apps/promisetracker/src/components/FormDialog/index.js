@@ -16,7 +16,7 @@ import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 
-function FormDialog({ open, handleFormClose, ...props }) {
+function FormDialog({ session, open, handleFormClose, ...props }) {
   const classes = useStyles(props);
   const { petitionTitle, petitionDescription } = props;
   const [values, setValues] = React.useState({
@@ -34,11 +34,11 @@ function FormDialog({ open, handleFormClose, ...props }) {
     values.source = { link: values.source };
     values.number_of_signatures_required = values.numberOfSignaturesRequired;
     values.problem_statement = values.problemStatement;
-
-    fetch("/api/petition", {
+    fetch(" https://actnow.dev.codeforafrica.org/v1/petitions/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessToken}`,
       },
       body: JSON.stringify(values),
     })
@@ -103,6 +103,9 @@ FormDialog.propTypes = {
   open: PropTypes.bool,
   petitionDescription: PropTypes.string,
   petitionTitle: PropTypes.string,
+  session: PropTypes.shape({
+    accessToken: PropTypes.string,
+  }),
 };
 
 FormDialog.defaultProps = {
@@ -110,6 +113,7 @@ FormDialog.defaultProps = {
   handleFormClose: null,
   petitionDescription: null,
   petitionTitle: null,
+  session: null,
 };
 
 export default FormDialog;

@@ -15,7 +15,7 @@ function ActNow(props) {
 
   // If no session exists, show default landing page
   if (!session) {
-    return <ActNowPage {...props} />;
+    return <ActNowPage session={session} {...props} />;
   }
 
   // If session exists, display logged in page
