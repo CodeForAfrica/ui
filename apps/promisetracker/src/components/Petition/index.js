@@ -7,13 +7,15 @@ import {
   IconButton,
 } from "@material-ui/core";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 
 import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 import Status from "@/promisetracker/components/PromiseStatus";
 import SignPetition from "@/promisetracker/components/SignPetition";
+import FormDialog from "@/promisetracker/components/FormDialog";
+
 import UserIcon from "@material-ui/icons/Person";
 
 import Share from "./ShareCard";
@@ -30,7 +32,7 @@ const petition = {
   },
 };
 
-function Petition({ petitionPost }) {
+function Petition({ petitionPost, ...props }) {
   const {
     title,
     description,
@@ -38,7 +40,17 @@ function Petition({ petitionPost }) {
     number_of_signatures_required: requiredSignatures,
     owner,
   } = petitionPost;
+  const [open, setOpen] = useState(false);
+
   const classes = useStyles({ image: petition.image });
+
+  const handleFormOpen = () => {
+    setOpen(true);
+  };
+
+  const handleFormClose = () => {
+    setOpen(false);
+  };
 
   const { name } = owner;
 
@@ -89,6 +101,7 @@ function Petition({ petitionPost }) {
             <Grid item lg={6} justify="center">
               <CtAButton
                 color="secondary"
+                onClick={handleFormOpen}
                 classes={{
                   root: classes.cardButtonRoot,
                   button: classes.cardButton,
@@ -96,6 +109,11 @@ function Petition({ petitionPost }) {
               >
                 Start a new Petition
               </CtAButton>
+              <FormDialog
+                open={open}
+                handleFormClose={handleFormClose}
+                {...props}
+              />
             </Grid>
           </Grid>
         </Grid>
