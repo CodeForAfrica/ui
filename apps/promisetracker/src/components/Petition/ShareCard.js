@@ -11,7 +11,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-function ShareCard({ closeCard, promiseActNow }) {
+function ShareCard() {
   const classes = useStyles();
 
   return (

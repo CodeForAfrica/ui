@@ -39,10 +39,10 @@ const useStyles = makeStyles(
       fontWeight: 600,
       marginTop: "1rem",
       marginBottom: "2rem",
-      maxHeight: typography.pxToRem(40 * 3),
+      // maxHeight: typography.pxToRem(40 * 3),
       [breakpoints.up("lg")]: {
         marginTop: typography.pxToRem(27),
-        maxHeight: typography.pxToRem(56 * 2),
+        // maxHeight: typography.pxToRem(56 * 2),
         position: "relative",
         "&:after": {
           content: '""',
@@ -95,10 +95,14 @@ const useStyles = makeStyles(
     },
     owner: {
       margin: `${typography.pxToRem(40)} 0`,
+      display: "inline",
       "& span": {
         fontWeight: "bold",
         textTransform: "capitalize",
       },
+    },
+    ownerSection: {
+      marginTop: typography.pxToRem(20),
     },
     shareTitle: {
       marginBottom: typography.pxToRem(20),
@@ -109,6 +113,13 @@ const useStyles = makeStyles(
       padding: "3%",
       width: "60px",
       height: "60px",
+    },
+    usericonButton: {
+      backgroundColor: "#EBEBEB",
+      marginRight: typography.pxToRem(10),
+      padding: "3%",
+      width: "40px",
+      height: "40px",
     },
     flexItem: {
       display: "flex",

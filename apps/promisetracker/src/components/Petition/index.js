@@ -1,5 +1,11 @@
 import { Section, RichTypography } from "@commons-ui/core";
-import { Grid, Hidden, LinearProgress, Typography } from "@material-ui/core";
+import {
+  Grid,
+  Hidden,
+  LinearProgress,
+  Typography,
+  IconButton,
+} from "@material-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -8,6 +14,8 @@ import useStyles from "./useStyles";
 import CtAButton from "@/promisetracker/components/CtAButton";
 import Status from "@/promisetracker/components/PromiseStatus";
 import SignPetition from "@/promisetracker/components/SignPetition";
+import UserIcon from "@material-ui/icons/Person";
+
 import Share from "./ShareCard";
 
 // replace
@@ -48,10 +56,14 @@ function Petition({ petitionPost }) {
             {title}
           </RichTypography>
           <div className={classes.featuredImageContainer} />
-          <RichTypography className={classes.owner}>
-            <span>{name}</span> started this petition
-          </RichTypography>
-          {/* <ActNowCard {...props} /> */}
+          <div className={classes.ownerSection}>
+            <IconButton className={classes.usericonButton} color="primary">
+              <UserIcon />
+            </IconButton>
+            <RichTypography className={classes.owner}>
+              <span>{name}</span> started this petition
+            </RichTypography>
+          </div>
           <Hidden lgUp implementation="css">
             <div className={classes.mobileStatusContainer}>
               <Grid item className={classes.mobileStatusLabelGrid}>
