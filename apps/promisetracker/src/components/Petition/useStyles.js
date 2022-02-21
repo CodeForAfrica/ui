@@ -96,6 +96,9 @@ const useStyles = makeStyles(
     owner: {
       margin: `${typography.pxToRem(40)} 0`,
       display: "inline",
+      position: "relative",
+      top: "5px",
+      fontSize: typography.pxToRem(24),
       "& span": {
         fontWeight: "bold",
         textTransform: "capitalize",

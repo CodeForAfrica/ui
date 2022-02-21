@@ -29,6 +29,8 @@ const useStyles = makeStyles(({ typography }) => ({
     color: "#202020",
     fontSize: typography.pxToRem(14),
     opacity: "0.5",
+    transform: "none",
+    margin: `${typography.pxToRem(19)} 0 0 ${typography.pxToRem(19)}`,
   },
   checkbox: {
     color: "#909090",
@@ -59,7 +61,9 @@ const useStyles = makeStyles(({ typography }) => ({
     border: `1px solid #005DFD`,
     background: "#fff",
     width: "100%",
+    padding: 0,
     height: typography.pxToRem(80),
+    marginTop: typography.pxToRem(7),
   },
 }));
 
