@@ -23,8 +23,9 @@ function ActNowLoggedInPage({
   const classes = useStyles(props);
   const session = useSession();
   const started = petitions?.filter(
-    (petition) => petition.owner.id === session.user.id
+    (petition) => petition.owner.user.email === session.user.email
   );
+  console.log(session, petitions);
   const signed = petitions?.filter((petition) =>
     petition.signatures.find(({ id }) => id === session.user.id)
   );

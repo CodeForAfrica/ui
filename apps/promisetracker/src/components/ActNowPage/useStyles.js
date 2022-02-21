@@ -53,7 +53,7 @@ const useStyles = makeStyles(
       },
     },
     grid: {
-      alignItems: "center",
+      alignItems: "start",
       paddingBottom: typography.pxToRem(40),
     },
     gridAside: {
@@ -183,6 +183,9 @@ const useStyles = makeStyles(
     },
     tabs: {
       marginTop: typography.pxToRem(100),
+    },
+    petitionsContainer: {
+      marginTop: typography.pxToRem(40),
     },
   })
 );

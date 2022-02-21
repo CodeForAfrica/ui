@@ -14,6 +14,7 @@ import ActNowSummary from "@/promisetracker/components/ActNowSummary/index";
 import ContentPage from "@/promisetracker/components/ContentPage";
 import ContentSection from "@/promisetracker/components/ContentPage/Section";
 import LoginForm from "@/promisetracker/components/LoginForm";
+import Petitions from "@/promisetracker/components/Petitions";
 import RegistrationDialog from "@/promisetracker/components/RegistrationDialog";
 import SuggestPromise from "@/promisetracker/components/SuggestPromise/index";
 
@@ -51,7 +52,15 @@ const individualRegistrationDialogArgs = {
   },
 };
 
-function ActNow({ actNow, footer, title, navigation, description, ...props }) {
+function ActNow({
+  actNow,
+  footer,
+  title,
+  navigation,
+  description,
+  petitions,
+  ...props
+}) {
   const classes = useStyles(props);
   const [open, setOpen] = useState(false);
   const submitUrl = actNow?.url;
@@ -182,6 +191,10 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
                       description="Know of a promise we should investigate? Tell us about it."
                       label="Suggest A Promise"
                     />
+                    <Petitions
+                      classes={{ root: classes.petitionsContainer }}
+                      items={petitions}
+                    />
                   </Grid>
                 </Grid>
               </Hidden>
@@ -214,13 +227,14 @@ function ActNow({ actNow, footer, title, navigation, description, ...props }) {
 
 ActNow.propTypes = {
   actNow: PropTypes.shape({
-    url: PropTypes.string,
     summary: PropTypes.shape({}),
+    url: PropTypes.string,
   }),
   description: PropTypes.string,
-  title: PropTypes.string,
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
+  petitions: PropTypes.shape({}),
+  title: PropTypes.string,
 };
 
 ActNow.defaultProps = {
@@ -228,6 +242,7 @@ ActNow.defaultProps = {
   description: null,
   footer: null,
   navigation: null,
+  petitions: null,
   title: null,
 };
 

@@ -3,6 +3,7 @@ import React from "react";
 
 import ActNowPage from "@/promisetracker/components/ActNowPage";
 import ActNowLoggedInPage from "@/promisetracker/components/ActNowPage/LoggedIn";
+import actnow from "@/promisetracker/lib/actnow";
 import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
@@ -42,6 +43,7 @@ export async function getStaticProps({ locale }) {
 
   const page = await wp().pages({ slug: "act-now", locale }).first;
   const { actNow = {} } = page;
+  const petitions = await actnow().petitions().list;
 
   const languageAlternates = _.languageAlternates("/act-now");
   actNow.url = process.env.ACTNOW_URL ?? null;
@@ -63,6 +65,7 @@ export async function getStaticProps({ locale }) {
       actNow,
       languageAlternates,
       promises,
+      petitions,
     },
     revalidate: 2 * 60, // seconds
   };
