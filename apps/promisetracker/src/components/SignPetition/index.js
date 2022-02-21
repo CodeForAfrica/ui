@@ -6,6 +6,7 @@ import {
   FormControlLabel,
   Typography,
 } from "@material-ui/core";
+import CtAButton from "@/promisetracker/components/CtAButton";
 
 import PropTypes from "prop-types";
 import React from "react";
@@ -53,6 +54,15 @@ function SignPetition({ signatures, owner }) {
             }
           />
         </FormGroup>
+        <CtAButton
+          color="secondary"
+          classes={{
+            root: classes.cardButtonRoot,
+            button: classes.cardButton,
+          }}
+        >
+          Sign Petition
+        </CtAButton>
       </form>
     </div>
   );

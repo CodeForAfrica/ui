@@ -41,6 +41,17 @@ const useStyles = makeStyles(({ typography }) => ({
       color: "#000",
     },
   },
+  cardButtonRoot: {
+    margin: 0,
+    justifyContent: "unset",
+    padding: 0,
+  },
+  cardButton: {
+    border: `1px solid #005DFD`,
+    background: "#fff",
+    width: "100%",
+    height: typography.pxToRem(80),
+  },
 }));
 
 export default useStyles;
