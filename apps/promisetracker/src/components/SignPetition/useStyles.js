@@ -23,6 +23,7 @@ const useStyles = makeStyles(({ typography }) => ({
     width: "100%",
     height: typography.pxToRem(150),
     border: "none",
+    overflow: "hidden",
   },
   textFieldLabel: {
     color: "#202020",

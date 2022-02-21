@@ -52,6 +52,7 @@ function SignPetition({ signatures, owner }) {
           }}
           InputProps={{ className: classes.input, disableUnderline: true }}
           variant="standard"
+          multiline
           className={classes.textfield}
           label="Your message (optional)..."
         />
