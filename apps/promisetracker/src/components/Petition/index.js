@@ -7,6 +7,7 @@ import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 import Status from "@/promisetracker/components/PromiseStatus";
+import SignPetition from "@/promisetracker/components/SignPetition";
 
 // replace
 const petition = {
@@ -31,6 +32,12 @@ function Petition({ petitionPost }) {
   const classes = useStyles({ image: petition.image });
 
   const { name } = owner;
+
+  const signaturesData = [
+    { name: "Gertrude", time: 4 },
+    { name: "Brenda", time: 6 },
+    { name: "Obed", time: 8 },
+  ];
 
   return (
     <Section classes={{ root: classes.section }}>
@@ -97,6 +104,9 @@ function Petition({ petitionPost }) {
               className={classes.progressBar}
               classes={{ barColorPrimary: classes.barColor }}
             />
+            <div className={classes.petition}>
+              {signaturesData && <SignPetition signatures={signaturesData}  />}
+            </div>
           </Grid>
         </Hidden>
       </Grid>

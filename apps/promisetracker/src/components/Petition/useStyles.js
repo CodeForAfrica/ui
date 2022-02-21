@@ -100,6 +100,9 @@ const useStyles = makeStyles(
         textTransform: "capitalize",
       },
     },
+    petition: {
+      marginTop: typography.pxToRem(60),
+    },
     petitionContainer: {
       background: "#F7F7F7",
       padding: `${typography.pxToRem(56)} 0`,
