@@ -5,7 +5,10 @@ import {
   Checkbox,
   FormControlLabel,
   Typography,
+  IconButton,
 } from "@material-ui/core";
+import UserIcon from "@material-ui/icons/Person";
+
 import CtAButton from "@/promisetracker/components/CtAButton";
 
 import PropTypes from "prop-types";
@@ -22,6 +25,9 @@ function SignPetition({ signatures, owner }) {
         {signatures &&
           signatures.map(({ name, time }) => (
             <div className={classes.signature}>
+              <IconButton className={classes.iconButton} color="primary">
+                <UserIcon />
+              </IconButton>
               <RichTypography variant="caption" className={classes.text}>
                 <span>{name}</span> signed {time} hours ago.
               </RichTypography>
@@ -29,7 +35,13 @@ function SignPetition({ signatures, owner }) {
           ))}
       </div>
       <div className={classes.sign}>
-        <RichTypography variant="caption" className={classes.text}>
+        <IconButton className={classes.iconButton} color="primary">
+          <UserIcon />
+        </IconButton>
+        <RichTypography
+          variant="caption"
+          className={`${classes.text} ${classes.name}`}
+        >
           You
         </RichTypography>
       </div>

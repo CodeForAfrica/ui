@@ -41,6 +41,14 @@ const useStyles = makeStyles(({ typography }) => ({
       color: "#000",
     },
   },
+  name: {
+    display: "inline",
+  },
+  iconButton: {
+    backgroundColor: "#EBEBEB",
+    marginRight: typography.pxToRem(10),
+    padding: "3%",
+  },
   cardButtonRoot: {
     margin: 0,
     justifyContent: "unset",
