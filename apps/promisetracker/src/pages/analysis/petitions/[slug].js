@@ -6,6 +6,7 @@ import Page from "@/promisetracker/components/Page";
 import Petition from "@/promisetracker/components/Petition";
 import actnow from "@/promisetracker/lib/actnow";
 import i18n from "@/promisetracker/lib/i18n";
+import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   section: {
@@ -146,7 +147,7 @@ function Index({
       title={title}
       classes={{ section: classes.section, footer: classes.footer }}
     >
-      <Petition petitionPost={petition} />
+      <Petition petitionPost={petition} {...props} />
     </Page>
   );
 }
@@ -197,11 +198,14 @@ export async function getStaticPaths() {
   return { fallback, paths };
 }
 
-export async function getStaticProps({ params: { slug: slugParam } }) {
+export async function getStaticProps({ params: { slug: slugParam }, locale }) {
+  const wpApi = wp();
   const petition = await actnow().petition(slugParam).lists;
+  const actNowPage = await wpApi.pages({ slug: "act-now", locale }).first;
 
   return {
     props: {
+      ...actNowPage,
       petition,
     },
   };
