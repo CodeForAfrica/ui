@@ -32,7 +32,7 @@ const options = {
   secret: process.env.NEXTAUTH_SECRET,
 
   callbacks: {
-    async jwt({ user, account }) {
+    async jwt({ user, account, token }) {
       if (account && user) {
         if (account.provider === "credentials") {
           return {
@@ -41,13 +41,22 @@ const options = {
           };
         }
       }
+      if (token) {
+        return token;
+      }
       return { ...account, ...user };
+    },
+    async session({ session, token }) {
+      if (!(session && token)) {
+        return null;
+      }
+      return { ...session, ...token };
     },
   },
 
   pages: {
     signIn: "/login",
-    error: "/404", // Error code passed in query string as ?error=
+    error: "/404",
   },
 };
 
