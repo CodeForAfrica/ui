@@ -8,6 +8,7 @@ import useStyles from "./useStyles";
 import CtAButton from "@/promisetracker/components/CtAButton";
 import Status from "@/promisetracker/components/PromiseStatus";
 import SignPetition from "@/promisetracker/components/SignPetition";
+import Share from "./ShareCard";
 
 // replace
 const petition = {
@@ -105,8 +106,9 @@ function Petition({ petitionPost }) {
               classes={{ barColorPrimary: classes.barColor }}
             />
             <div className={classes.petition}>
-              {signaturesData && <SignPetition signatures={signaturesData}  />}
+              {signaturesData && <SignPetition signatures={signaturesData} />}
             </div>
+            <Share />
           </Grid>
         </Hidden>
       </Grid>

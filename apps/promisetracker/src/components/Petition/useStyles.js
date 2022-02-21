@@ -100,6 +100,20 @@ const useStyles = makeStyles(
         textTransform: "capitalize",
       },
     },
+    shareTitle: {
+      marginBottom: typography.pxToRem(20),
+    },
+    iconButton: {
+      backgroundColor: "#EBEBEB",
+      margin: `0 ${typography.pxToRem(20)} ${typography.pxToRem(20)} 0`,
+      padding: "3%",
+      width: "60px",
+      height: "60px",
+    },
+    flexItem: {
+      display: "flex",
+      flexWrap: "wrap",
+    },
     petition: {
       marginTop: typography.pxToRem(60),
     },
