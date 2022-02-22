@@ -17,20 +17,14 @@ function ActNowLoggedInPage({
   footer,
   title,
   navigation,
-  petitions,
+  signedPetitions,
+  ownedPetitions,
   ...props
 }) {
   const classes = useStyles(props);
-  const session = useSession();
-  const started = petitions?.filter(
-    (petition) => petition.owner.user.email === session.user.email
-  );
-  const signed = petitions?.filter((petition) =>
-    petition.signatures.find(({ id }) => id === session.user.id)
-  );
   const formatedItems = [
-    { title: "Signed", petitions: signed },
-    { title: "Started", petitions: started },
+    { title: "Signed", petitions: signedPetitions },
+    { title: "Started", petitions: ownedPetitions },
   ].map((item) => {
     return {
       label: `${item.title} (${item.petitions.length})`,
@@ -110,14 +104,16 @@ function ActNowLoggedInPage({
 ActNowLoggedInPage.propTypes = {
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
-  petitions: PropTypes.shape(PropTypes.shape({})),
+  signedPetitions: PropTypes.arrayOf(PropTypes.shape({})),
+  ownedPetitions: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,
 };
 
 ActNowLoggedInPage.defaultProps = {
   footer: undefined,
   navigation: undefined,
-  petitions: undefined,
+  ownedPetitions: undefined,
+  signedPetitions: undefined,
   title: undefined,
 };
 
