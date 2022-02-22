@@ -101,14 +101,11 @@ Index.defaultProps = {
 
 export async function getStaticPaths() {
   const fallback = true;
-  // replace
-  const unlocalizedPaths = [
-    { params: { slug: "1" } },
-    { params: { slug: "2" } },
-    { params: { slug: "3" } },
-    { params: { slug: "4" } },
-    { params: { slug: "5" } },
-  ];
+  const petitions = await actnow().petitions().list;
+
+  const unlocalizedPaths = petitions.map((petition) => ({
+    params: { slug: `${petition.id}` },
+  }));
 
   const paths = i18n().localizePaths(unlocalizedPaths);
 
