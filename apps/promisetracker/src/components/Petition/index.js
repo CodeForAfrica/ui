@@ -62,17 +62,21 @@ function Petition({ petitionPost, ...props }) {
     <Section classes={{ root: classes.section }}>
       <Grid container>
         <Grid item xs={12} lg={8}>
-          <RichTypography variant="h1" className={classes.promiseTitle}>
-            {title}
-          </RichTypography>
+          {title && (
+            <RichTypography variant="h1" className={classes.promiseTitle}>
+              {title}
+            </RichTypography>
+          )}
           <div className={classes.featuredImageContainer} />
           <div className={classes.ownerSection}>
             <IconButton className={classes.usericonButton} color="primary">
               <UserIcon />
             </IconButton>
-            <RichTypography className={classes.owner}>
-              <span>{name}</span> started this petition
-            </RichTypography>
+            {name && (
+              <RichTypography className={classes.owner}>
+                <span>{name}</span> started this petition
+              </RichTypography>
+            )}
           </div>
           <Hidden lgUp implementation="css">
             <div className={classes.mobileStatusContainer}>
@@ -87,9 +91,11 @@ function Petition({ petitionPost, ...props }) {
               </Grid>
             </div>
           </Hidden>
-          <RichTypography className={classes.promiseBody} variant="body1">
-            {description}
-          </RichTypography>
+          {description && (
+            <RichTypography className={classes.promiseBody} variant="body1">
+              {description}
+            </RichTypography>
+          )}
           <Grid container className={classes.petitionContainer}>
             <Grid item lg={6} container justify="center" alignItems="center">
               <Typography variant="h3" className={classes.petitionTitle}>
