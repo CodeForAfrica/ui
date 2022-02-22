@@ -56,7 +56,7 @@ const options = {
 
   pages: {
     signIn: "/login",
-    error: "/404",
+    error: "/act-now", // Error code passed in query string as ?error=
   },
 };
 
