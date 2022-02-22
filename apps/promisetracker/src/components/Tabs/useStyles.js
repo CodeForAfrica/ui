@@ -20,13 +20,13 @@ const useStyles = makeStyles(({ palette, typography }) => ({
   tab: {
     color: "#666666",
     fontWeight: 600,
-    fontSize: typography.pxToRem(16),
-    letterSpacing: typography.pxToRem(1.6),
-    lineHeight: 25 / 16,
-    marginRight: typography.pxToRem(40),
+    fontSize: typography.h5.fontSize,
+    letterSpacing: typography.h5.letterSpacing,
+    lineHeight: typography.h5.lineHeight,
+    marginRight: typography.pxToRem(2),
     minHeight: typography.pxToRem(23),
     minWidth: 0,
-    padding: `0 0 ${typography.pxToRem(4)} 0`,
+    padding: `0 ${typography.pxToRem(4)} ${typography.pxToRem(4)}`,
     textTransform: "uppercase",
     "&:last-of-type": {
       marginRight: 0,

@@ -33,7 +33,7 @@ function ActNowLoggedInPage({
     { title: "Started", petitions: started },
   ].map((item) => {
     return {
-      label: item.title,
+      label: `${item.title} (${item.petitions.length})`,
       href: `#${item.title}`,
       children: <Petitions items={item.petitions} />,
     };
@@ -98,6 +98,7 @@ function ActNowLoggedInPage({
             items={formatedItems}
             classes={{
               root: classes.tabs,
+              tab: classes.tab,
             }}
           />
         }

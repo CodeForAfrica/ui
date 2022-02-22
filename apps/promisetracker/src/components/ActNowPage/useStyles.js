@@ -184,6 +184,9 @@ const useStyles = makeStyles(
     tabs: {
       marginTop: typography.pxToRem(100),
     },
+    tab: {
+      borderBottom: "5px solid",
+    },
     petitionsContainer: {
       marginTop: typography.pxToRem(40),
     },
