@@ -20,16 +20,16 @@ function PetitionCard({ closeCard, promiseActNow, ...props }) {
 
   const { petitionJoin, petitionTitle: petitionStart } = props;
   const [open, setOpen] = useState(false);
-  const { session } = useSession();
+  const { data: session } = useSession();
 
   const classes = useStyles();
 
   const handleFormOpen = () => {
+    setOpen(true);
+
     if (!session) {
       setOpen(false);
       Router.push("/act-now");
-    } else {
-      setOpen(true);
     }
   };
 
