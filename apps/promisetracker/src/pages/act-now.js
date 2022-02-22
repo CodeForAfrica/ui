@@ -1,4 +1,5 @@
-import { useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
+import PropTypes from "prop-types";
 import React from "react";
 
 import ActNowPage from "@/promisetracker/components/ActNowPage";
@@ -8,22 +9,26 @@ import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
-function ActNow(props) {
-  const { data: session, status } = useSession();
-
-  // When rendering client side don't display anything until loading is complete
-  if (typeof window !== "undefined" && status === "loading") return null;
-
+function ActNow({ session, ...props }) {
   // If no session exists, show default landing page
   if (!session) {
-    return <ActNowPage session={session} {...props} />;
+    return <ActNowPage {...props} />;
   }
 
   // If session exists, display logged in page
   return <ActNowLoggedInPage {...props} />;
 }
 
-export async function getStaticProps({ locale }) {
+ActNow.propTypes = {
+  session: PropTypes.shape({}),
+};
+
+ActNow.defaultProps = {
+  session: null,
+};
+
+export async function getServerSideProps({ locale, ...context }) {
+  const session = getSession(context);
   const _ = i18n();
   if (!_.locales.includes(locale)) {
     return {
@@ -66,6 +71,7 @@ export async function getStaticProps({ locale }) {
       languageAlternates,
       promises,
       petitions,
+      session,
     },
     revalidate: 2 * 60, // seconds
   };
