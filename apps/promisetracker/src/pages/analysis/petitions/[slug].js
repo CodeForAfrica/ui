@@ -5,8 +5,8 @@ import React from "react";
 import Page from "@/promisetracker/components/Page";
 import Petition from "@/promisetracker/components/Petition";
 import actnow from "@/promisetracker/lib/actnow";
-import i18n from "@/promisetracker/lib/i18n";
 import backendFn from "@/promisetracker/lib/backend";
+import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({

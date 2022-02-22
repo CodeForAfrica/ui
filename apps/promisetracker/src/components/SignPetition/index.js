@@ -8,15 +8,14 @@ import {
   IconButton,
 } from "@material-ui/core";
 import UserIcon from "@material-ui/icons/Person";
-
-import CtAButton from "@/promisetracker/components/CtAButton";
-
 import PropTypes from "prop-types";
 import React from "react";
 
 import useStyles from "./useStyles";
 
-function SignPetition({ signatures, owner }) {
+import CtAButton from "@/promisetracker/components/CtAButton";
+
+function SignPetition({ signatures }) {
   const classes = useStyles();
 
   return (
@@ -82,7 +81,7 @@ function SignPetition({ signatures, owner }) {
 }
 
 SignPetition.propTypes = {
-  signature: PropTypes.arrayOf(PropTypes.shape({})),
+  signatures: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 SignPetition.defaultProps = {

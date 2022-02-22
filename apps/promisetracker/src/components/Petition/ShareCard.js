@@ -2,12 +2,10 @@ import { Grid, IconButton, Typography } from "@material-ui/core";
 import CodeIcon from "@material-ui/icons/Code";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
-import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import TwitterIcon from "@material-ui/icons/Twitter";
 import MailIcon from "@material-ui/icons/MailOutline";
-
-import PropTypes from "prop-types";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import React from "react";
 
 import useStyles from "./useStyles";
@@ -52,24 +50,5 @@ function ShareCard() {
     </>
   );
 }
-
-ShareCard.propTypes = {
-  closeCard: PropTypes.func.isRequired,
-  promiseActNow: PropTypes.shape({
-    share: {
-      shareTitle: PropTypes.string,
-      shareDescription: PropTypes.string,
-    },
-  }),
-};
-
-ShareCard.defaultProps = {
-  promiseActNow: PropTypes.shape({
-    share: {
-      shareTitle: null,
-      shareDescription: null,
-    },
-  }),
-};
 
 export default ShareCard;

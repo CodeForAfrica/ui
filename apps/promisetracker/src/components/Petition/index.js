@@ -6,19 +6,17 @@ import {
   Typography,
   IconButton,
 } from "@material-ui/core";
+import UserIcon from "@material-ui/icons/Person";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
+import Share from "./ShareCard";
 import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
+import FormDialog from "@/promisetracker/components/FormDialog";
 import Status from "@/promisetracker/components/PromiseStatus";
 import SignPetition from "@/promisetracker/components/SignPetition";
-import FormDialog from "@/promisetracker/components/FormDialog";
-
-import UserIcon from "@material-ui/icons/Person";
-
-import Share from "./ShareCard";
 
 // replace
 const petition = {
