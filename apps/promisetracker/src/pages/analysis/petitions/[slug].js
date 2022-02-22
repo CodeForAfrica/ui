@@ -6,6 +6,7 @@ import Page from "@/promisetracker/components/Page";
 import Petition from "@/promisetracker/components/Petition";
 import actnow from "@/promisetracker/lib/actnow";
 import i18n from "@/promisetracker/lib/i18n";
+import backendFn from "@/promisetracker/lib/backend";
 import wp from "@/promisetracker/lib/wp";
 
 const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
@@ -44,6 +45,8 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
  */
 function Index({
   article,
+  footer,
+  navigation,
   petition,
   relatedArticles,
   subscribe,
@@ -53,95 +56,9 @@ function Index({
   const classes = useStyles(props);
   const title = article?.title ? `${article.title} | ${titleProp}` : titleProp;
 
-  // replace
-  const footer = {
-    about: {
-      about:
-        "PromiseTracker, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges, using official evidence / data, as well as crowdsourced information, with a transparent and defensible methodology, to help inject accountability and honesty into the often cavalier way that promises are made to citizens to win their support for elections, policies and contracts but are seldom honoured. ",
-      initiative:
-        "This site is an openAFRICA project of Code for Africa. All content is released under a Creative Commons 4 Attribution Licence. Reuse it to help empower your own community. The code is available on GitHub and data is available on openAFRICA.",
-    },
-    copyright: {
-      children: "PROMISETRACKER",
-      src: {
-        src: "/_next/static/media/cc.89a4f96d.svg",
-        height: 19,
-        width: 19,
-      },
-      alt: "Copyright",
-    },
-    initiativeLogo: {
-      image:
-        "https://dashboard.hurumap.org/wp-content/uploads/2020/05/pulitzer.png",
-      link: "#",
-      alt: "Pulitzer Center",
-    },
-    legalLinks: [],
-    organizationLogo: {},
-    quickLinks: [
-      {
-        title: "About Us",
-        links: [
-          {
-            label: "The project",
-            href: "/about/project",
-          },
-          {
-            label: "The team",
-            href: "/about/team",
-          },
-          {
-            label: "The partners",
-            href: "/about/partners",
-          },
-          {
-            label: "Methodology",
-            href: "/about/methodology",
-          },
-        ],
-      },
-      {
-        title: "More",
-        links: [
-          {
-            label: "Subscribe",
-            href: "/subscribe",
-          },
-          {
-            label: "Join Us",
-            href: "/join",
-          },
-          {
-            label: "FAQ",
-            href: "/faq",
-          },
-          {
-            label: "Resources",
-            href: "/resources",
-          },
-        ],
-      },
-    ],
-    social: [],
-  };
-
-  const navigation = {
-    actNow: { href: "/act-now", order: 2, title: "Act Now" },
-    analysis: {
-      title: "Analysis",
-      order: 1,
-      navigation: {
-        0: { href: "/analysis/articles", order: 0, title: "Articles" },
-        1: { href: "/analysis/petitions", order: 1, title: "Petitions" },
-        2: { href: "/analysis/fact-checks", order: 3, title: "Fact-Checks" },
-      },
-    },
-    promises: { href: "/promises", order: 0, title: "Promises" },
-  };
-
   return (
     <Page
-      // {...props}
+      {...props}
       footer={footer}
       navigation={navigation}
       title={title}
@@ -199,13 +116,19 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug: slugParam }, locale }) {
+  const backend = backendFn();
   const wpApi = wp();
+
   const petition = await actnow().petition(slugParam).lists;
+  const page = await wpApi.pages({ slug: "promises", locale }).first;
   const actNowPage = await wpApi.pages({ slug: "act-now", locale }).first;
+  const site = await backend.sites().current;
 
   return {
     props: {
+      ...page,
       ...actNowPage,
+      ...site,
       petition,
     },
   };
