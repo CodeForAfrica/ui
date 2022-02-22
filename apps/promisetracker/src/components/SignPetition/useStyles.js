@@ -17,6 +17,7 @@ const useStyles = makeStyles(({ typography }) => ({
   input: {
     position: "static",
     height: typography.pxToRem(150),
+    margin: `0 ${typography.pxToRem(20)}`,
   },
   textfield: {
     background: "#F7F7F7",

@@ -93,9 +93,9 @@ function Petition({ petitionPost, ...props }) {
             {description}
           </RichTypography>
           <Grid container className={classes.petitionContainer}>
-            <Grid item lg={6} justify="center">
+            <Grid item lg={6} container justify="center" alignItems="center">
               <Typography variant="h3" className={classes.petitionTitle}>
-                Start your petiton now
+                Start a petition of your own
               </Typography>
             </Grid>
             <Grid item lg={6} justify="center">
