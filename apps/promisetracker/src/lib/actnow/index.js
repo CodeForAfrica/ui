@@ -40,8 +40,8 @@ function actnow(site) {
     return response.json();
   }
 
-  async function getPetitions() {
-    const url = `${ACTNOW_URL}/v1/petitions/?format=json`;
+  async function getPetitions(query) {
+    const url = `${ACTNOW_URL}/v1/petitions/?${query || ""}format=json`;
     const response = await fetch(url);
     const petitions = (await response.json()) || [];
 
@@ -72,11 +72,11 @@ function actnow(site) {
         },
       };
     },
-    petitions: () => {
+    petitions: (queryParam) => {
       return {
         get list() {
           return (async () => {
-            return getPetitions();
+            return getPetitions(queryParam);
           })();
         },
       };
