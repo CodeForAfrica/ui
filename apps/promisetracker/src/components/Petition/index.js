@@ -31,6 +31,10 @@ const petition = {
 };
 
 function Petition({ petitionPost, ...props }) {
+  if (!petitionPost) {
+    return null;
+  }
+
   const {
     title,
     description,
