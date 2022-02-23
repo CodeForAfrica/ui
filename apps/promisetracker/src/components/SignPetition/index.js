@@ -8,6 +8,7 @@ import {
   IconButton,
 } from "@material-ui/core";
 import UserIcon from "@material-ui/icons/Person";
+import { formatDistance } from "date-fns";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -18,20 +19,37 @@ import CtAButton from "@/promisetracker/components/CtAButton";
 function SignPetition({ signatures }) {
   const classes = useStyles();
 
+  if (!signatures) {
+    return null;
+  }
+
   return (
     <div className={classes.root}>
       <div className={classes.signatures}>
         {signatures &&
-          signatures.map(({ name, time }) => (
-            <div className={classes.signature}>
-              <IconButton className={classes.iconButton} color="primary">
-                <UserIcon />
-              </IconButton>
-              <RichTypography variant="caption" className={classes.text}>
-                <span>{name}</span> signed {time} hours ago.
-              </RichTypography>
-            </div>
-          ))}
+          signatures.map(({ signatory, created_at: time }) => {
+            let name = "Anonymous";
+
+            if (signatory) {
+              const { first_name: firstName } = signatory;
+              name = firstName;
+            }
+
+            const timeRange = formatDistance(new Date(time), new Date(), {
+              addSuffix: true,
+            });
+
+            return (
+              <div className={classes.signature}>
+                <IconButton className={classes.iconButton} color="primary">
+                  <UserIcon />
+                </IconButton>
+                <RichTypography variant="caption" className={classes.text}>
+                  <span>{name}</span> signed {timeRange}
+                </RichTypography>
+              </div>
+            );
+          })}
       </div>
       <div className={classes.sign}>
         <IconButton className={classes.iconButton} color="primary">

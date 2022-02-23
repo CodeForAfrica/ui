@@ -31,9 +31,10 @@ const petition = {
 };
 
 function Petition({ petitionPost, ...props }) {
-  if (!petitionPost) {
-    return null;
-  }
+  const [open, setOpen] = useState(false);
+  // if (!petitionPost) {
+  //   return null;
+  // }
 
   const {
     title,
@@ -42,7 +43,6 @@ function Petition({ petitionPost, ...props }) {
     number_of_signatures_required: requiredSignatures,
     owner,
   } = petitionPost;
-  const [open, setOpen] = useState(false);
 
   const classes = useStyles({ image: petition.image });
 
@@ -55,12 +55,6 @@ function Petition({ petitionPost, ...props }) {
   };
 
   const { name } = owner;
-
-  const signaturesData = [
-    { name: "Gertrude", time: 4 },
-    { name: "Brenda", time: 6 },
-    { name: "Obed", time: 8 },
-  ];
 
   return (
     <Section classes={{ root: classes.section }}>
@@ -144,7 +138,7 @@ function Petition({ petitionPost, ...props }) {
               classes={{ barColorPrimary: classes.barColor }}
             />
             <div className={classes.petition}>
-              {signaturesData && <SignPetition signatures={signaturesData} />}
+              {signatures && <SignPetition signatures={signatures} />}
             </div>
             <Share />
           </Grid>
