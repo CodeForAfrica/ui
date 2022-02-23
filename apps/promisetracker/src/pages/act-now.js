@@ -55,7 +55,9 @@ export async function getServerSideProps({ locale, ...context }) {
 
   if (session) {
     signedPetitions = await actnow().petitions(
-      new URLSearchParams({ signatures: session?.user?.profile?.id }).toString()
+      new URLSearchParams({
+        individual_signatories: session?.user?.profile?.id,
+      }).toString()
     ).list;
     ownedPetitions = await actnow().petitions(
       new URLSearchParams({ owner: session?.user?.profile?.id }).toString()
