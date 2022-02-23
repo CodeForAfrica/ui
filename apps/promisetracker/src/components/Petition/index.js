@@ -58,7 +58,7 @@ function Petition({ petitionPost = {}, ...props }) {
       <Grid container>
         <Grid item xs={12} lg={8}>
           {title && (
-            <RichTypography variant="h1" className={classes.promiseTitle}>
+            <RichTypography variant="h1" className={classes.petitionTitle}>
               {title}
             </RichTypography>
           )}
@@ -87,15 +87,13 @@ function Petition({ petitionPost = {}, ...props }) {
             </div>
           </Hidden>
           {description && (
-            <RichTypography className={classes.promiseBody} variant="body1">
+            <RichTypography className={classes.petitionBody} variant="body1">
               {description}
             </RichTypography>
           )}
           <Grid container className={classes.petitionContainer}>
             <Grid item lg={6} container justify="center" alignItems="center">
-              <Typography variant="h3" className={classes.petitionTitle}>
-                Start a petition of your own
-              </Typography>
+              <Typography variant="h3">Start a petition of your own</Typography>
             </Grid>
             <Grid item lg={6} justify="center">
               <CtAButton

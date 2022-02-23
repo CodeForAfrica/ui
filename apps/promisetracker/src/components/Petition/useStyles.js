@@ -23,26 +23,21 @@ const useStyles = makeStyles(
       borderBottom: `.1rem solid ${palette.secondary.light}`,
       padding: ".5rem 0",
     },
-    mobileStatusLabel: {
-      marginRight: "1rem",
-    },
     mobileStatusLabelGrid: {
       display: "flex",
       justifyContent: "space-between",
       width: "100%",
       alignItems: "center",
     },
-    promiseBody: {
+    petitionBody: {
       margin: "2rem 0",
     },
-    promiseTitle: {
+    petitionTitle: {
       fontWeight: 600,
       marginTop: "1rem",
       marginBottom: "2rem",
-      // maxHeight: typography.pxToRem(40 * 3),
       [breakpoints.up("lg")]: {
         marginTop: typography.pxToRem(27),
-        // maxHeight: typography.pxToRem(56 * 2),
         position: "relative",
         "&:after": {
           content: '""',
@@ -64,13 +59,6 @@ const useStyles = makeStyles(
         height: typography.pxToRem(477),
       },
     },
-    link: {
-      color: "unset",
-      "&:hover": {
-        textDecoration: "none",
-        color: "unset",
-      },
-    },
     label: {
       marginTop: "2rem",
       marginBottom: "1rem",
@@ -88,10 +76,6 @@ const useStyles = makeStyles(
     },
     barColor: {
       background: "#005DFD",
-    },
-    promisesLabel: {
-      marginBottom: "1rem",
-      marginTop: "2rem",
     },
     owner: {
       margin: `${typography.pxToRem(40)} 0`,
@@ -124,10 +108,6 @@ const useStyles = makeStyles(
       width: "40px",
       height: "40px",
     },
-    flexItem: {
-      display: "flex",
-      flexWrap: "wrap",
-    },
     petition: {
       marginTop: typography.pxToRem(60),
     },
@@ -135,12 +115,6 @@ const useStyles = makeStyles(
       background: "#F7F7F7",
       padding: `${typography.pxToRem(56)} 0`,
       marginBottom: typography.pxToRem(96),
-    },
-    petitionTitle: {
-      textAlign: "center",
-      "& h3": {
-        textAlign: "center",
-      },
     },
     cardButtonRoot: {
       margin: 0,
