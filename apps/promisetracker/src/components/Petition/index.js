@@ -40,7 +40,7 @@ function Petition({ petitionPost = {}, ...props }) {
     owner = "",
   } = petitionPost;
 
-  const classes = useStyles({ image: image });
+  const classes = useStyles({ image });
 
   const handleFormOpen = () => {
     setOpen(true);
