@@ -20,8 +20,6 @@ import SignPetition from "@/promisetracker/components/SignPetition";
 
 // replace
 const petition = {
-  image:
-    "http://dashboard.hurumap.org/promisetracker/wp-content/uploads/sites/2/2021/08/adeboro-odunlami-bJgTryACMF0-unsplash.jpg",
   status: {
     name: "Closed",
     description: "",
@@ -36,12 +34,13 @@ function Petition({ petitionPost = {}, ...props }) {
   const {
     title = "",
     description = "",
+    image,
     signatures = [],
     number_of_signatures_required: requiredSignatures = 0,
     owner = "",
   } = petitionPost;
 
-  const classes = useStyles({ image: petition.image });
+  const classes = useStyles({ image: image });
 
   const handleFormOpen = () => {
     setOpen(true);

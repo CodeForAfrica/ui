@@ -94,6 +94,10 @@ const useStyles = makeStyles(
     shareTitle: {
       marginBottom: typography.pxToRem(20),
     },
+    flexItem: {
+      display: "flex",
+      flexWrap: "wrap",
+    },
     iconButton: {
       backgroundColor: "#EBEBEB",
       margin: `0 ${typography.pxToRem(20)} ${typography.pxToRem(20)} 0`,
