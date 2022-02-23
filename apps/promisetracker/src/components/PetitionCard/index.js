@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
+import Link from "@/promisetracker/components/Link";
 import Status from "@/promisetracker/components/PromiseStatus";
 
 const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
@@ -82,56 +83,62 @@ function PostCard({
   signatures,
   status,
   title,
+  id,
   ...props
 }) {
   const classes = useStyles({ classes: classesProp });
 
   return (
-    <Card square variant="outlined" className={classes.root}>
-      <CardActionArea as={as} {...props} className={classes.contentRoot}>
-        <CardContent classes={{ root: classes.content }}>
-          <Status
-            title={status || "Pending"}
-            classes={{ root: classes.status }}
-          />
-          <Box
-            display="flex"
-            alignItems="flex-end"
-            className={classes.titleContainer}
-          >
-            <RichTypography variant="h4" className={classes.title}>
-              {title}
-            </RichTypography>
-          </Box>
-          <Grid container justify="flex-start">
-            <Grid item>
-              <RichTypography variant="caption" className={classes.supporters}>
-                {signatures?.length} Supporters
-              </RichTypography>
-            </Grid>
-            <Grid item>
-              <RichTypography variant="caption" className={classes.author}>
-                {owner.username}
-              </RichTypography>
-            </Grid>
-          </Grid>
-        </CardContent>
-        {description && (
+    <Link href={`/analysis/petitions/${id}`}>
+      <Card square variant="outlined" className={classes.root}>
+        <CardActionArea as={as} {...props} className={classes.contentRoot}>
           <CardContent classes={{ root: classes.content }}>
-            <Box display="flex" className={classes.descriptionContainer}>
-              <RichTypography variant="body2" className={classes.description}>
-                {description}
+            <Status
+              title={status || "Pending"}
+              classes={{ root: classes.status }}
+            />
+            <Box
+              display="flex"
+              alignItems="flex-end"
+              className={classes.titleContainer}
+            >
+              <RichTypography variant="h4" className={classes.title}>
+                {title}
               </RichTypography>
             </Box>
+            <Grid container justify="flex-start">
+              <Grid item>
+                <RichTypography
+                  variant="caption"
+                  className={classes.supporters}
+                >
+                  {signatures?.length} Supporters
+                </RichTypography>
+              </Grid>
+              <Grid item>
+                <RichTypography variant="caption" className={classes.author}>
+                  {owner.username}
+                </RichTypography>
+              </Grid>
+            </Grid>
           </CardContent>
-        )}
-        <CardContent classes={{ root: classes.content }}>
-          <RichTypography variant="caption" className={classes.cta}>
-            Learn More
-          </RichTypography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+          {description && (
+            <CardContent classes={{ root: classes.content }}>
+              <Box display="flex" className={classes.descriptionContainer}>
+                <RichTypography variant="body2" className={classes.description}>
+                  {description}
+                </RichTypography>
+              </Box>
+            </CardContent>
+          )}
+          <CardContent classes={{ root: classes.content }}>
+            <RichTypography variant="caption" className={classes.cta}>
+              Learn More
+            </RichTypography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </Link>
   );
 }
 
@@ -159,6 +166,7 @@ PostCard.propTypes = {
   signatures: PropTypes.string,
   status: PropTypes.string,
   title: PropTypes.string.isRequired,
+  id: PropTypes.number,
 };
 
 PostCard.defaultProps = {
@@ -170,6 +178,7 @@ PostCard.defaultProps = {
   as: undefined,
   signatures: undefined,
   status: undefined,
+  id: undefined,
 };
 
 export default PostCard;
