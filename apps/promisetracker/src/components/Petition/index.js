@@ -30,14 +30,14 @@ const petition = {
   },
 };
 
-function Petition({ petitionPost, ...props }) {
+function Petition({ petitionPost = {}, ...props }) {
   const [open, setOpen] = useState(false);
 
   const {
     title = "",
     description = "",
-    signatures = null,
-    number_of_signatures_required: requiredSignatures = null,
+    signatures = [],
+    number_of_signatures_required: requiredSignatures = 0,
     owner = "",
   } = petitionPost;
 
