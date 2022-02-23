@@ -49,12 +49,18 @@ export async function getServerSideProps({ locale, ...context }) {
   const page = await wp().pages({ slug: "act-now", locale }).first;
   const { actNow = {} } = page;
   const petitions = await actnow().petitions().list;
-  const signedPetitions = await actnow().petitions(
-    new URLSearchParams({ owner: session.user.profile.id }).toString()
-  ).list;
-  const ownedPetitions = await actnow().petitions(
-    new URLSearchParams({ signed: session.user.profile.id }).toString()
-  ).list;
+
+  let signedPetitions = null;
+  let ownedPetitions = null;
+
+  if (session) {
+    signedPetitions = await actnow().petitions(
+      new URLSearchParams({ signatures: session?.user?.profile?.id }).toString()
+    ).list;
+    ownedPetitions = await actnow().petitions(
+      new URLSearchParams({ owner: session?.user?.profile?.id }).toString()
+    ).list;
+  }
 
   const languageAlternates = _.languageAlternates("/act-now");
   actNow.url = process.env.ACTNOW_URL ?? null;
@@ -81,7 +87,6 @@ export async function getServerSideProps({ locale, ...context }) {
       signedPetitions,
       ownedPetitions,
     },
-    revalidate: 2 * 60, // seconds
   };
 }
 

@@ -41,9 +41,9 @@ function actnow(site) {
   }
 
   async function getPetitions(query) {
-    const url = `${ACTNOW_URL}/v1/petitions/?${query || ""}format=json`;
+    const url = `${ACTNOW_URL}/v1/petitions/?${`${query}&` || ""}format=json`;
     const response = await fetch(url);
-    const petitions = (await response.json()) || [];
+    const petitions = response.ok ? await response.json() : [];
 
     // TODO(kilemensi): Remove hard-coded status once implemented in actNOW
     return petitions.map((petition) => ({ ...petition, status: "closed" }));
