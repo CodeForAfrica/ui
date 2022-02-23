@@ -32,16 +32,13 @@ const petition = {
 
 function Petition({ petitionPost, ...props }) {
   const [open, setOpen] = useState(false);
-  // if (!petitionPost) {
-  //   return null;
-  // }
 
   const {
-    title,
-    description,
-    signatures,
-    number_of_signatures_required: requiredSignatures,
-    owner,
+    title = "",
+    description = "",
+    signatures = null,
+    number_of_signatures_required: requiredSignatures = null,
+    owner = "",
   } = petitionPost;
 
   const classes = useStyles({ image: petition.image });
