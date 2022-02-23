@@ -18,16 +18,6 @@ import FormDialog from "@/promisetracker/components/FormDialog";
 import Status from "@/promisetracker/components/PromiseStatus";
 import SignPetition from "@/promisetracker/components/SignPetition";
 
-// replace
-const petition = {
-  status: {
-    name: "Closed",
-    description: "",
-    title: "Closed",
-    color: "#EBEBEB",
-  },
-};
-
 function Petition({ petitionPost = {}, ...props }) {
   const [open, setOpen] = useState(false);
 
@@ -39,6 +29,13 @@ function Petition({ petitionPost = {}, ...props }) {
     number_of_signatures_required: requiredSignatures = 0,
     owner = "",
   } = petitionPost;
+
+  const status = {
+    name: requiredSignatures === signatures.length ? "Closed" : "Pending",
+    description: "",
+    title: "Closed",
+    color: "#EBEBEB",
+  };
 
   const classes = useStyles({ image });
 
@@ -78,10 +75,7 @@ function Petition({ petitionPost = {}, ...props }) {
                 <RichTypography variant="h5" className={classes.statusLabel}>
                   Promise rating status:
                 </RichTypography>
-                <Status
-                  {...petition.status}
-                  classes={{ root: classes.mobileStatus }}
-                />
+                <Status {...status} classes={{ root: classes.mobileStatus }} />
               </Grid>
             </div>
           </Hidden>
@@ -119,7 +113,7 @@ function Petition({ petitionPost = {}, ...props }) {
             <RichTypography variant="h4" className={classes.statusLabel}>
               Promise rating status:
             </RichTypography>
-            <Status {...petition.status} classes={{ root: classes.status }} />
+            <Status {...status} classes={{ root: classes.status }} />
             <RichTypography className={classes.label} variant="h4">
               <span>{signatures.length}</span> have signed, let us get to{" "}
               {requiredSignatures}
@@ -146,7 +140,7 @@ Petition.propTypes = {
   petitionPost: PropTypes.shape({
     description: PropTypes.string,
     title: PropTypes.string,
-    signatures: PropTypes.arrayOf(PropTypes.string),
+    signatures: PropTypes.arrayOf(PropTypes.shape({})),
     number_of_signatures_required: PropTypes.number,
     owner: PropTypes.shape({
       name: PropTypes.string,

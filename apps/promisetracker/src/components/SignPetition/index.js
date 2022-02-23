@@ -40,7 +40,7 @@ function SignPetition({ signatures }) {
             });
 
             return (
-              <div className={classes.signature}>
+              <div className={classes.signature} key={time}>
                 <IconButton className={classes.iconButton} color="primary">
                   <UserIcon />
                 </IconButton>
