@@ -64,6 +64,11 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   status: {
     backgroundColor: palette.secondary.main,
   },
+  link: {
+    "&:hover": {
+      textDecoration: "none",
+    },
+  },
   cta: {
     color: palette.highlight.main,
     fontSize: typography.pxToRem(10),
@@ -89,7 +94,7 @@ function PostCard({
   const classes = useStyles({ classes: classesProp });
 
   return (
-    <Link href={`/analysis/petitions/${id}`}>
+    <Link href={`/analysis/petitions/${id}`} className={classes.link}>
       <Card square variant="outlined" className={classes.root}>
         <CardActionArea as={as} {...props} className={classes.contentRoot}>
           <CardContent classes={{ root: classes.content }}>
