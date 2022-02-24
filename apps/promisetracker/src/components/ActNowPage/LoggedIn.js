@@ -27,7 +27,7 @@ function ActNowLoggedInPage({
     { title: "Started", petitions: ownedPetitions },
   ].map((item) => {
     return {
-      label: `${item.title} (${item.petitions.length})`,
+      label: `${item.title} (${item.petitions?.length || 0})`,
       href: `#${item.title}`,
       children: <Petitions items={item.petitions} />,
     };
