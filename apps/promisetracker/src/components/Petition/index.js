@@ -86,6 +86,23 @@ function Petition({ petitionPost = {}, ...props }) {
                 <Status {...status} classes={{ root: classes.mobileStatus }} />
               </Grid>
             </div>
+            <RichTypography className={classes.label} variant="h4">
+              <span>{signatures.length}</span> have signed, let us get to{" "}
+              {requiredSignatures}
+            </RichTypography>
+            <LinearProgress
+              value={signatures.length}
+              valueBuffer={requiredSignatures}
+              variant="determinate"
+              className={classes.progressBar}
+              classes={{ barColorPrimary: classes.barColor }}
+            />
+            <div className={classes.petition}>
+              {signatures && (
+                <SignPetition signatures={signatures} session={session} />
+              )}
+            </div>
+            <Share />
           </Hidden>
           {description && (
             <RichTypography className={classes.petitionBody} variant="body1">
@@ -93,10 +110,18 @@ function Petition({ petitionPost = {}, ...props }) {
             </RichTypography>
           )}
           <Grid container className={classes.petitionContainer}>
-            <Grid item lg={6} container justify="center" alignItems="center">
+            <Grid
+              item
+              lg={6}
+              sm={6}
+              xs={12}
+              container
+              justify="center"
+              alignItems="center"
+            >
               <Typography variant="h3">Start a petition of your own</Typography>
             </Grid>
-            <Grid item lg={6} justify="center">
+            <Grid item lg={6} sm={6} xs={12} justify="center">
               <CtAButton
                 color="secondary"
                 onClick={handleFormOpen}

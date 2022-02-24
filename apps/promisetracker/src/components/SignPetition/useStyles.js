@@ -25,13 +25,10 @@ const useStyles = makeStyles(({ typography }) => ({
     height: typography.pxToRem(150),
     border: "none",
     overflow: "hidden",
-  },
-  textFieldLabel: {
-    color: "#202020",
-    fontSize: typography.pxToRem(14),
-    opacity: "0.5",
-    transform: "none",
-    margin: `${typography.pxToRem(19)} 0 0 ${typography.pxToRem(19)}`,
+    "& .MuiInputBase-input": {
+      position: "relative",
+      top: "-50px",
+    },
   },
   checkbox: {
     color: "#909090",

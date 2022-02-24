@@ -124,8 +124,12 @@ const useStyles = makeStyles(
       margin: 0,
     },
     cardButton: {
+      marginTop: typography.pxToRem(10),
       border: `1px solid #005DFD`,
       background: "#fff",
+      [breakpoints.up("sm")]: {
+        marginTop: 0,
+      },
     },
     status: {
       fontSize: "1rem",
