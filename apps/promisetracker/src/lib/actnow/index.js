@@ -46,7 +46,7 @@ function actnow(site) {
     const petitions = response.ok ? await response.json() : [];
 
     // TODO(kilemensi): Remove hard-coded status once implemented in actNOW
-    return petitions.map((petition) => ({ ...petition, status: "closed" }));
+    return petitions?.map((petition) => ({ ...petition, status: "closed" }));
   }
 
   async function getPetition(id) {
