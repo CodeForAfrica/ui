@@ -16,7 +16,7 @@ import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 
-function SignPetition({ signatures }) {
+function SignPetition({ signatures, session }) {
   const classes = useStyles();
 
   if (!signatures) {
@@ -85,6 +85,7 @@ function SignPetition({ signatures }) {
           />
         </FormGroup>
         <CtAButton
+          disabled={!session}
           color="secondary"
           classes={{
             root: classes.cardButtonRoot,
@@ -100,10 +101,12 @@ function SignPetition({ signatures }) {
 
 SignPetition.propTypes = {
   signatures: PropTypes.arrayOf(PropTypes.shape({})),
+  session: PropTypes.string,
 };
 
 SignPetition.defaultProps = {
   signatures: undefined,
+  session: undefined,
 };
 
 export default SignPetition;

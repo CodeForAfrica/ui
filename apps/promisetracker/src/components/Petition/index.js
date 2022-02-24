@@ -7,6 +7,8 @@ import {
   IconButton,
 } from "@material-ui/core";
 import UserIcon from "@material-ui/icons/Person";
+import { useSession } from "next-auth/react";
+import Router from "next/router";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
@@ -20,6 +22,7 @@ import SignPetition from "@/promisetracker/components/SignPetition";
 
 function Petition({ petitionPost = {}, ...props }) {
   const [open, setOpen] = useState(false);
+  const { data: session } = useSession();
 
   const {
     title = "",
@@ -40,7 +43,12 @@ function Petition({ petitionPost = {}, ...props }) {
   const classes = useStyles({ image });
 
   const handleFormOpen = () => {
-    setOpen(true);
+    if (!session) {
+      setOpen(false);
+      Router.push("/act-now");
+    } else {
+      setOpen(true);
+    }
   };
 
   const handleFormClose = () => {
@@ -126,7 +134,9 @@ function Petition({ petitionPost = {}, ...props }) {
               classes={{ barColorPrimary: classes.barColor }}
             />
             <div className={classes.petition}>
-              {signatures && <SignPetition signatures={signatures} />}
+              {signatures && (
+                <SignPetition signatures={signatures} session={session} />
+              )}
             </div>
             <Share />
           </Grid>
