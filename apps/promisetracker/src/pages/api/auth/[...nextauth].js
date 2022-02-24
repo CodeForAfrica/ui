@@ -1,9 +1,55 @@
+import jwtDecode from "jwt-decode";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 
 import actnow from "@/promisetracker/lib/actnow";
 
+async function fetchToken(url, params) {
+  const body = new URLSearchParams({
+    grant_type: "password",
+    client_id: process.env.ACTNOW_CLIENT_ID,
+    client_secret: process.env.ACTNOW_CLIENT_SECRET,
+    ...params,
+  });
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "content-type": "application/x-www-form-urlencoded",
+      "cache-control": "no-cache",
+    },
+    body: body.toString(),
+    redirect: "follow",
+  };
+
+  return fetch(url, requestOptions).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error(response.statusText);
+  });
+}
+
+async function fetchRefreshedToken({ token: currentToken }) {
+  try {
+    const params = {
+      refresh_token: currentToken.refreshToken,
+      grant_type: "refresh_token",
+    };
+    const url = `${process.env.ACTNOW_URL}/o/token/`;
+    const { access_token: accessToken, refresh_token: refreshToken } =
+      await fetchToken(url, params);
+    return {
+      ...currentToken,
+      accessToken,
+      exp: jwtDecode(accessToken).exp,
+      // Fall back to current refresh token if new one is not available
+      refreshToken: refreshToken || currentToken.refreshToken,
+    };
+  } catch (error) {
+    return null;
+  }
+}
 const options = {
   providers: [
     GoogleProvider({
@@ -32,7 +78,9 @@ const options = {
   secret: process.env.NEXTAUTH_SECRET,
 
   callbacks: {
-    async jwt({ user, account, token }) {
+    async jwt({ token, user, account }) {
+      // when created: e.g. at sign in
+      //              fetch new access token
       if (account && user) {
         if (account.provider === "credentials") {
           return {
@@ -41,10 +89,15 @@ const options = {
           };
         }
       }
-      if (token) {
+      // when updated: e.g. when session is accessed in the client
+      //               return current token if the access token
+      //               has not expired yet
+      if (token && Date.now() < token.exp * 1000) {
         return token;
       }
-      return { ...account, ...user };
+
+      //               otherwise, refresh the current token
+      return fetchRefreshedToken({ token });
     },
     async session({ session, token }) {
       if (!(session && token)) {
