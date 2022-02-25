@@ -39,10 +39,8 @@ const useStyles = makeStyles(
       fontWeight: 600,
       marginTop: "1rem",
       marginBottom: "2rem",
-      maxHeight: typography.pxToRem(40 * 3),
       [breakpoints.up("lg")]: {
         marginTop: typography.pxToRem(27),
-        maxHeight: typography.pxToRem(60 * 2),
         position: "relative",
         "&:after": {
           content: '""',
