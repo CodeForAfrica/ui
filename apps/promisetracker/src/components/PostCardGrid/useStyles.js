@@ -8,9 +8,9 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
     marginBottom: typography.pxToRem(20),
   },
   row: {
-    paddingTop: typography.pxToRem(30),
+    paddingBottom: typography.pxToRem(30),
     [breakpoints.up("lg")]: {
-      paddingTop: typography.pxToRem(16),
+      paddingBottom: typography.pxToRem(16),
     },
   },
 }));

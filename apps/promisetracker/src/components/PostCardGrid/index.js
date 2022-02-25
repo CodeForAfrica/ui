@@ -1,6 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Grid, useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
+import { Grid } from "@material-ui/core";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
@@ -12,8 +11,6 @@ import PostCard from "@/promisetracker/components/PostCard";
 
 function PostCardGrid({ children, component, items, title, ...props }) {
   const classes = useStyles(props);
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const Card = component || PostCard;
 
   if (!items?.length) {
@@ -27,15 +24,13 @@ function PostCardGrid({ children, component, items, title, ...props }) {
     >
       {children}
       <Grid container className={classes.cardGrid}>
-        {items.map((card, i) => (
+        {items.map((card) => (
           <Grid
             key={card.title}
             item
             xs={12}
             lg={4}
-            className={clsx(classes.cardGridItem, {
-              [classes.row]: (!isDesktop && i > 0) || i > 2,
-            })}
+            className={clsx(classes.cardGridItem, classes.row)}
           >
             <Card {...card} />
           </Grid>
