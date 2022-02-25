@@ -85,7 +85,7 @@ function DesktopNavigation({ navigation, ...props }) {
                   item
                   lg={4}
                   container
-                  justify="flex-start"
+                  justify="flex-end"
                   alignItems="center"
                 >
                   <Grid item>
