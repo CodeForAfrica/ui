@@ -128,6 +128,17 @@ export async function getStaticProps({ locale }) {
 
   const promisesApi = backend.promises();
   const promises = await promisesApi.all;
+  projectMeta.tags = Object.values(
+    promises.reduce((acc, promise) => {
+      promise.categories.forEach((category) => {
+        if (!acc[category.slug]) {
+          acc[category.slug] = category;
+        }
+      });
+
+      return acc;
+    }, {})
+  );
 
   const languageAlternates = _.languageAlternates("/promises");
 
