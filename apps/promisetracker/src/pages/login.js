@@ -51,6 +51,15 @@ Login.defaultProps = {
 };
 
 export async function getServerSideProps({ locale, ...context }) {
+  const session = await getSession(context);
+  if (session && session?.user) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/act-now",
+      },
+    };
+  }
   const _ = i18n();
   // Skip generating pages for unsupported locales
   if (!_.locales.includes(locale)) {
@@ -62,7 +71,6 @@ export async function getServerSideProps({ locale, ...context }) {
   const page = await wpApi.pages({ slug: "index", locale }).first;
 
   const providers = await getProviders();
-  const session = await getSession(context);
   const backend = backendFn();
   const site = await backend.sites().current;
   const { navigation } = site;
