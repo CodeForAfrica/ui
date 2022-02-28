@@ -45,7 +45,7 @@ function Petition({ petitionPost = {}, ...props }) {
   const handleFormOpen = () => {
     if (!session) {
       setOpen(false);
-      Router.push("/act-now");
+      Router.push("/login");
     } else {
       setOpen(true);
     }

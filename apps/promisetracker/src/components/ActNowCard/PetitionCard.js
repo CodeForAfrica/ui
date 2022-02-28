@@ -29,7 +29,7 @@ function PetitionCard({ closeCard, promiseActNow, ...props }) {
 
     if (!session) {
       setOpen(false);
-      Router.push("/act-now");
+      Router.push("/login");
     }
   };
 
