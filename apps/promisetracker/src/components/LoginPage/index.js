@@ -1,6 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { Button, Typography, Grid } from "@material-ui/core";
-import { useSession, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Router from "next/router";
 import PropTypes from "prop-types";
@@ -19,18 +19,11 @@ function Login({
   ...props
 }) {
   const classes = useStyles(props);
-  const { data: session } = useSession();
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     setErrorMessage(getErrorDescription(Router.query?.error));
   }, []);
-
-  useEffect(() => {
-    if (session) {
-      Router.push("/act-now");
-    }
-  }, [session]);
 
   const providers = providersProp ? Object.values(providersProp) : undefined;
 
