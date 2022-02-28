@@ -2,8 +2,6 @@
 
 export default function getErrorDescription(code) {
   if (!code) return null;
-
-  let description = "";
   switch (code) {
     case "OAUTH_GET_ACCESS_TOKEN_ERROR":
     case "OAUTH_V1_GET_ACCESS_TOKEN_ERROR":
@@ -21,12 +19,8 @@ export default function getErrorDescription(code) {
     case "JWT_SESSION_ERROR":
     case "SESSION_ERROR":
     case "SIGNOUT_ERROR":
-      description =
-        "Authentication Failed. Please check your credentials and try again.";
-      break;
+      return "Authentication Failed. Please check your credentials and try again.";
     default:
-      description = "An error occurred. Please try again.";
-      break;
+      return "An error occurred. Please try again.";
   }
-  return description;
 }

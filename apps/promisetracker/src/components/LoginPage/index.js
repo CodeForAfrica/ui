@@ -32,7 +32,8 @@ function Login({
     }
   }, [session]);
 
-  const providers = Object.values(providersProp ?? {});
+  const providers = providersProp ? Object.values(providersProp) : undefined;
+
   return (
     <Section classes={{ root: classes.section, title: classes.sectionTitle }}>
       <Grid container>
