@@ -4,12 +4,13 @@ import { useSession, signIn } from "next-auth/react";
 import Image from "next/image";
 import Router from "next/router";
 import PropTypes from "prop-types";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import useStyles from "./useStyles";
 
 import googleIcon from "@/promisetracker/assets/google-icon.svg";
 import LoginForm from "@/promisetracker/components/LoginForm";
+import getErrorDescription from "@/promisetracker/utils/auth/error-list";
 
 function Login({
   providers: providersProp,
@@ -19,6 +20,11 @@ function Login({
 }) {
   const classes = useStyles(props);
   const { data: session } = useSession();
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  useEffect(() => {
+    setErrorMessage(getErrorDescription(Router.query?.error));
+  }, []);
 
   useEffect(() => {
     if (session) {
@@ -33,6 +39,11 @@ function Login({
         <Grid item xs={12} md={7} className={classes.container}>
           <Typography variant="h2">Login</Typography>
           <Typography className={classes.text}>{description}</Typography>
+          {errorMessage && (
+            <Typography variant="body2" className={classes.error}>
+              {errorMessage}
+            </Typography>
+          )}
           <LoginForm />
           <div className={classes.buttonContainer}>
             {providers?.map((provider) => {

@@ -3,7 +3,7 @@ import { getProviders, getSession } from "next-auth/react";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Login from "@/promisetracker/components/LoginPage";
+import LoginPage from "@/promisetracker/components/LoginPage";
 import Page from "@/promisetracker/components/Page";
 import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
@@ -25,7 +25,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function SignIn({ providers: providersProp, ...props }) {
+function Login({ providers: providersProp, ...props }) {
   const classes = useStyles(props);
 
   return (
@@ -33,7 +33,7 @@ function SignIn({ providers: providersProp, ...props }) {
       {...props}
       classes={{ section: classes.section, footer: classes.footer }}
     >
-      <Login
+      <LoginPage
         classes={{ section: classes.section }}
         providers={providersProp}
         {...props}
@@ -42,19 +42,14 @@ function SignIn({ providers: providersProp, ...props }) {
   );
 }
 
-SignIn.propTypes = {
+Login.propTypes = {
   providers: PropTypes.shape({}),
 };
 
-SignIn.defaultProps = {
+Login.defaultProps = {
   providers: undefined,
 };
 
-/**
- *  NOTE: [getProviders()](https://next-auth.js.org/v3/getting-started/client#getproviders)
- *                   calls /api/providers, which is not available during build
- *                   time and hence we can't use it here.
- */
 export async function getServerSideProps({ locale, ...context }) {
   const _ = i18n();
   // Skip generating pages for unsupported locales
@@ -82,4 +77,4 @@ export async function getServerSideProps({ locale, ...context }) {
   };
 }
 
-export default SignIn;
+export default Login;

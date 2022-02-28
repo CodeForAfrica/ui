@@ -51,6 +51,10 @@ const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
   text: {
     marginTop: typography.pxToRem(22),
   },
+  error: {
+    color: palette.error.main,
+    marginTop: typography.pxToRem(22),
+  },
   container: {
     background: "#F7F7F7",
     padding: typography.pxToRem(30),
