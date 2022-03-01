@@ -1,5 +1,5 @@
-import { getSession, useSession } from "next-auth/react";
-import React from "react";
+import { useSession } from "next-auth/react";
+import React, { useEffect } from "react";
 
 import ActNowPage from "@/promisetracker/components/ActNowPage";
 import ActNowLoggedInPage from "@/promisetracker/components/ActNowPage/LoggedIn";
@@ -10,6 +10,26 @@ import wp from "@/promisetracker/lib/wp";
 
 function ActNow({ ...props }) {
   const { data: session, status } = useSession();
+  const [signedPetitions, setSignedPetitions] = React.useState([]);
+  const [ownedPetitions, setOwnedPetitions] = React.useState([]);
+
+  useEffect(() => {
+    if (session) {
+      actnow()
+        .petitions(
+          new URLSearchParams({
+            individual_signatories: session?.user?.profile?.id,
+          }).toString()
+        )
+        .list.then((res) => setSignedPetitions(res));
+      actnow()
+        .petitions(
+          new URLSearchParams({ owner: session?.user?.profile?.id }).toString()
+        )
+        .list.then((res) => setOwnedPetitions(res));
+    }
+  }, [session]);
+
   // When rendering client side don't display anything until loading is complete
   if (typeof window !== "undefined" && status === "loading") return null;
 
@@ -19,11 +39,16 @@ function ActNow({ ...props }) {
   }
 
   // If session exists, display logged in page
-  return <ActNowLoggedInPage {...props} />;
+  return (
+    <ActNowLoggedInPage
+      signedPetitions={signedPetitions}
+      ownedPetitions={ownedPetitions}
+      {...props}
+    />
+  );
 }
 
-export async function getServerSideProps({ locale, ...context }) {
-  const session = await getSession(context);
+export async function getStaticProps({ locale }) {
   const _ = i18n();
   if (!_.locales.includes(locale)) {
     return {
@@ -44,20 +69,6 @@ export async function getServerSideProps({ locale, ...context }) {
   const page = await wp().pages({ slug: "act-now", locale }).first;
   const { actNow = {} } = page;
   const petitions = await actnow().petitions().list;
-
-  let signedPetitions = null;
-  let ownedPetitions = null;
-
-  if (session) {
-    signedPetitions = await actnow().petitions(
-      new URLSearchParams({
-        individual_signatories: session?.user?.profile?.id,
-      }).toString()
-    ).list;
-    ownedPetitions = await actnow().petitions(
-      new URLSearchParams({ owner: session?.user?.profile?.id }).toString()
-    ).list;
-  }
 
   const languageAlternates = _.languageAlternates("/act-now");
   actNow.url = process.env.ACTNOW_URL ?? null;
@@ -80,8 +91,6 @@ export async function getServerSideProps({ locale, ...context }) {
       languageAlternates,
       promises,
       petitions,
-      signedPetitions,
-      ownedPetitions,
     },
   };
 }
