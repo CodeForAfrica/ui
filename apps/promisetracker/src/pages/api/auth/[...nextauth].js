@@ -5,6 +5,8 @@ import GoogleProvider from "next-auth/providers/google";
 
 import actnow from "@/promisetracker/lib/actnow";
 
+const OAUTH_PROVIDERS = ["google"];
+
 async function fetchToken(url, params) {
   const body = new URLSearchParams({
     grant_type: "password",
@@ -28,6 +30,43 @@ async function fetchToken(url, params) {
     }
     throw new Error(response.statusText);
   });
+}
+
+async function fetchNewToken({ account, user: nextAuthUser }) {
+  const url = new URL(
+    `${account.provider}/`,
+    `${process.env.ACTNOW_URL}/auth/`
+  ).toString();
+  const {
+    access_token: accessToken,
+    refresh_token: refreshToken,
+    user: authUser,
+  } = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      access_token: account?.access_token,
+      client_id: process.env.ACTNOW_CLIENT_ID,
+      client_secret: process.env.ACTNOW_CLIENT_SECRET,
+    }),
+  }).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error(response.statusText);
+  });
+
+  const user = { ...nextAuthUser, ...authUser };
+  return {
+    accessToken,
+    exp: jwtDecode(accessToken).exp * 1000,
+    idToken: account?.id_token ?? null,
+    refreshToken,
+    accountType: account?.provider,
+    user,
+  };
 }
 
 async function fetchRefreshedToken({ token: currentToken }) {
@@ -82,6 +121,9 @@ const options = {
       // when created: e.g. at sign in
       //              fetch new access token
       if (account && user) {
+        if (OAUTH_PROVIDERS.includes(account.provider)) {
+          return fetchNewToken({ account, user });
+        }
         if (account.provider === "credentials") {
           return {
             accountType: "credentials",
@@ -108,8 +150,8 @@ const options = {
   },
 
   pages: {
-    signIn: "/login",
-    error: "/login", // Error code passed in query string as ?error=
+    signIn: "/act-now",
+    error: "/act-now", // Error code passed in query string as ?error=
   },
 };
 
