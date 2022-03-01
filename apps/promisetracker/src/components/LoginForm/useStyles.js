@@ -11,6 +11,7 @@ const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
       },
     },
   },
+  buttonContainer: {},
   authButton: {
     backgroundColor: palette.primary.dark,
     color: palette.common.white,

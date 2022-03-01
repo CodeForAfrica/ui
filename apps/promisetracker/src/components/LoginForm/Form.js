@@ -54,7 +54,7 @@ function Form({
             <ErrorMessage name="password" />
           </FormHelperText>
         </Grid>
-        <Grid item xs={12}>
+        <Grid className={classes.buttonContainer} item xs={12}>
           <FormHelperText
             className={!status.error ? classes.success : ""}
             id={`${name}-status-helper-text`}

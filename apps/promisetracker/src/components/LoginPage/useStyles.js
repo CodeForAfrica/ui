@@ -13,28 +13,21 @@ const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
     },
   },
   loginButton: {
-    marginBottom: "1rem",
-    marginTop: typography.pxToRem(40),
-    paddingLeft: typography.pxToRem(2),
-    paddingRight: "2rem",
-    color: "#4285F4",
-    borderRadius: 0,
-    "&:hover": {
-      textDecoration: "none",
-      color: "#4285F4",
-      backgroundColor: palette.background.default,
-    },
-    backgroundColor: palette.background.default,
-    boxShadow: `2px 2px 5px rgba(0, 0, 0, 0.25)`,
-    height: "3rem",
+    color: palette.common.white,
+    marginTop: typography.pxToRem(20),
+    minWidth: typography.pxToRem(74),
     [breakpoints.up("lg")]: {
-      height: "3.5rem",
+      paddingBottom: typography.pxToRem(15),
+      paddingTop: typography.pxToRem(14),
+      minWidth: typography.pxToRem(158),
+    },
+    backgroundColor: palette.google.main,
+    width: "100%",
+    "&:hover": {
+      backgroundColor: palette.google.main,
     },
   },
   buttonContainer: {
-    [breakpoints.up("md")]: {
-      width: "400px",
-    },
     "& .MuiLink-underlineHover": {
       "&:hover": {
         textDecoration: "none",
@@ -54,6 +47,11 @@ const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
   error: {
     color: palette.error.main,
     marginTop: typography.pxToRem(22),
+  },
+  formButtonContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   container: {
     background: "#F7F7F7",

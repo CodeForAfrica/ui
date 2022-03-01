@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 import Form from "./Form";
 
-function LoginForm({ onSubmit }) {
+function LoginForm({ onSubmit, classes }) {
   const [status, setStatus] = useState({});
   const fields = {
     email: {
@@ -68,6 +68,7 @@ function LoginForm({ onSubmit }) {
     >
       {({ submitForm, isSubmitting, errors, isValid }) => (
         <Form
+          classes={classes}
           disabled={isSubmitting || !isValid}
           errors={errors}
           status={status}
@@ -80,11 +81,13 @@ function LoginForm({ onSubmit }) {
 }
 
 LoginForm.propTypes = {
+  classes: PropTypes.shape({}),
   onSubmit: PropTypes.func,
 };
 
 LoginForm.defaultProps = {
   onSubmit: false,
+  classes: null,
 };
 
 export default LoginForm;
