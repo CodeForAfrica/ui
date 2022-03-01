@@ -1,7 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { getProviders, getSession } from "next-auth/react";
+import { getProviders, useSession } from "next-auth/react";
+import { Router } from "next/router";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect } from "react";
 
 import LoginPage from "@/promisetracker/components/LoginPage";
 import Page from "@/promisetracker/components/Page";
@@ -26,7 +27,17 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
 }));
 
 function Login({ providers: providersProp, ...props }) {
+  const { data: session, status } = useSession();
+
   const classes = useStyles(props);
+  useEffect(() => {
+    if (session && session?.user) {
+      Router.push("/act-now");
+    }
+  }, []);
+
+  // When rendering client side don't display anything until loading is complete
+  if (typeof window !== "undefined" && status === "loading") return null;
 
   return (
     <Page
@@ -50,16 +61,7 @@ Login.defaultProps = {
   providers: undefined,
 };
 
-export async function getServerSideProps({ locale, ...context }) {
-  const session = await getSession(context);
-  if (session && session?.user) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/act-now",
-      },
-    };
-  }
+export async function getStaticProps({ locale }) {
   const _ = i18n();
   // Skip generating pages for unsupported locales
   if (!_.locales.includes(locale)) {
@@ -80,7 +82,6 @@ export async function getServerSideProps({ locale, ...context }) {
       ...page,
       navigation,
       providers,
-      session,
     },
   };
 }
