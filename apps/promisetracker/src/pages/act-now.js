@@ -48,7 +48,7 @@ function ActNow({ ...props }) {
   );
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   const _ = i18n();
   if (!_.locales.includes(locale)) {
     return {
