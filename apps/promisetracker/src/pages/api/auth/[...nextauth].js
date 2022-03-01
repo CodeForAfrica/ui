@@ -109,7 +109,7 @@ const options = {
 
   pages: {
     signIn: "/login",
-    error: "/500", // Error code passed in query string as ?error=
+    error: "/login", // Error code passed in query string as ?error=
   },
 };
 
