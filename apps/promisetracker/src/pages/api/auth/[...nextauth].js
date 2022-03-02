@@ -3,38 +3,9 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 
-import actnow from "@/promisetracker/lib/actnow";
+import actnowFn from "@/promisetracker/lib/actnow";
 
 const OAUTH_PROVIDERS = ["google"];
-
-async function fetchToken(url, params) {
-  const body = new URLSearchParams({
-    grant_type: "password",
-    ...params,
-  });
-  const requestOptions = {
-    method: "POST",
-    headers: {
-      "content-type": "application/x-www-form-urlencoded",
-      "cache-control": "no-cache",
-      Authorization: `Basic ${
-        (Buffer.from(
-          `${process.env.ACTNOW_CLIENT_ID}:${process.env.ACTNOW_CLIENT_SECRET}`
-        ),
-        "base64")
-      }`,
-    },
-    body: body.toString(),
-    redirect: "follow",
-  };
-
-  return fetch(url, requestOptions).then((response) => {
-    if (response.ok) {
-      return response.json();
-    }
-    throw new Error(response.statusText);
-  });
-}
 
 async function fetchNewToken({ account, user: nextAuthUser }) {
   const url = new URL(
@@ -71,26 +42,8 @@ async function fetchNewToken({ account, user: nextAuthUser }) {
   };
 }
 
-async function fetchRefreshedToken({ token: currentToken }) {
-  try {
-    const params = {
-      refresh_token: currentToken.refreshToken,
-      grant_type: "refresh_token",
-    };
-    const url = `${process.env.ACTNOW_URL}/o/token/`;
-    const { access_token: accessToken, refresh_token: refreshToken } =
-      await fetchToken(url, params);
-    return {
-      ...currentToken,
-      accessToken,
-      exp: jwtDecode(accessToken).exp,
-      // Fall back to current refresh token if new one is not available
-      refreshToken: refreshToken || currentToken.refreshToken,
-    };
-  } catch (error) {
-    return null;
-  }
-}
+const actnow = actnowFn();
+
 const options = {
   providers: [
     GoogleProvider({
@@ -105,13 +58,7 @@ const options = {
           username: credentials.email,
           password: credentials.password,
         };
-        const user = await actnow().accounts().login(authBody);
-        if (user.error) {
-          throw new Error(user.error);
-        }
-        user.accessToken = user.access_token;
-        user.refreshToken = user.refresh_token;
-        return user;
+        return actnow.accounts().login(authBody);
       },
     }),
   ],
@@ -141,7 +88,7 @@ const options = {
       }
 
       //               otherwise, refresh the current token
-      return fetchRefreshedToken({ token });
+      return actnow.accounts().refresh(token);
     },
     async session({ session, token }) {
       if (!(session && token)) {
