@@ -70,23 +70,24 @@ export async function getServerSideProps({ locale, ...context }) {
   const wpApi = wp();
   console.time("getServerSideProps");
   const backend = backendFn();
-  console.timeEnd("getServerSideProps: backend");
+  console.timeEnd("getServerSideProps");
 
-  const [page, providers] = await Promise.all([
+  console.time("getServerSidePropsAsync");
+  const [page, providers, site] = await Promise.all([
     wpApi.pages({ slug: "index", locale }).first,
     getProviders(),
-    // backend.sites().current,
+    backend.sites().current,
   ]);
+  console.timeEnd("getServerSidePropsAsync");
 
-  // const { navigation } = site;
+  const { navigation } = site;
 
   return {
     props: {
       ...page,
-      // navigation,
+      navigation,
       providers,
       session,
-      backend,
     },
   };
 }
