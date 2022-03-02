@@ -12,11 +12,16 @@ function GeneralError(props) {
 export async function getStaticProps({ locale }) {
   const backend = backendFn();
   const site = await backend.sites().current;
+
   const { navigation } = site;
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "error", locale }).first;
-  const posts = await wpApi.pages({ slug: "analysis-articles", locale }).posts;
-  const articles = posts?.slice(0, 4) || null;
+  let articles = null;
+  if (site.articlesEnabled) {
+    const posts = await wpApi.pages({ slug: "analysis-articles", locale })
+      .posts;
+    articles = posts?.slice(0, 4) || null;
+  }
   const languageAlternates = i18n().languageAlternates("/500");
 
   return {
