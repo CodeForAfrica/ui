@@ -16,10 +16,7 @@ function cache(server, fetchFor) {
 
   async function read(filename) {
     const file = getFilePath(filename);
-    console.time(`read ${file}`);
     const data = await readFile(file, { encoding: "utf8" });
-    console.timeEnd(`read ${file}`);
-    console.log(data);
     return JSON.parse(data);
   }
 
