@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import LoginPage from "@/promisetracker/components/LoginPage";
-// import Page from "@/promisetracker/components/Page";
+import Page from "@/promisetracker/components/Page";
 import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
@@ -29,16 +29,16 @@ function Login({ providers: providersProp, ...props }) {
   const classes = useStyles(props);
 
   return (
-    // <Page
-    //   {...props}
-    //   classes={{ section: classes.section, footer: classes.footer }}
-    // >
-    <LoginPage
-      classes={{ section: classes.section }}
-      providers={providersProp}
+    <Page
       {...props}
-    />
-    // </Page>
+      classes={{ section: classes.section, footer: classes.footer }}
+    >
+      <LoginPage
+        classes={{ section: classes.section }}
+        providers={providersProp}
+        {...props}
+      />
+    </Page>
   );
 }
 
@@ -68,17 +68,13 @@ export async function getServerSideProps({ locale, ...context }) {
     };
   }
   const wpApi = wp();
-  console.time("getServerSideProps");
   const backend = backendFn();
-  console.timeEnd("getServerSideProps");
 
-  console.time("getServerSidePropsAsync");
   const [page, providers, site] = await Promise.all([
     wpApi.pages({ slug: "index", locale }).first,
     getProviders(),
     backend.sites().current,
   ]);
-  console.timeEnd("getServerSidePropsAsync");
 
   const { navigation } = site;
 
