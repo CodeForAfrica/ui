@@ -68,11 +68,13 @@ export async function getServerSideProps({ locale, ...context }) {
     };
   }
   const wpApi = wp();
-  const page = await wpApi.pages({ slug: "index", locale }).first;
-
-  const providers = await getProviders();
   const backend = backendFn();
-  const site = await backend.sites().current;
+  const [page, providers, site] = await Promise.all([
+    wpApi.pages({ slug: "index", locale }).first,
+    getProviders(),
+    backend.sites().current,
+  ]);
+
   const { navigation } = site;
 
   return {
