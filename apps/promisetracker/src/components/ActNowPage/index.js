@@ -117,7 +117,7 @@ function ActNow({
           footer: classes.footer,
           grid: classes.grid,
           gridAside: classes.gridAside,
-          gridContent: classes.gridContent,
+          gridContent: classes.gridContentActNow,
         }}
       >
         <div className={classes.contentSection}>

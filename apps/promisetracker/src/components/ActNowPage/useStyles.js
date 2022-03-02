@@ -62,10 +62,16 @@ const useStyles = makeStyles(
         order: 1,
       },
     },
+    gridContentActNow: {
+      order: 0,
+      [breakpoints.up("lg")]: {
+        order: 0,
+      },
+    },
     gridContent: {
       order: 0,
       [breakpoints.up("lg")]: {
-        marginTop: typography.pxToRem(368),
+        marginTop: typography.pxToRem(-368),
         order: 0,
       },
     },
