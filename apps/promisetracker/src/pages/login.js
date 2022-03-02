@@ -32,7 +32,7 @@ function Login({ providers: providersProp, ...props }) {
   const classes = useStyles(props);
 
   /**
-   * Note: Using sessiong in frontend is a workaround for Next.js SSR file system bug.(Tracked here https://www.pivotaltracker.com/story/show/181432688)
+   * Note: Using session in frontend is a workaround for Next.js SSR file system bug.(Tracked here https://www.pivotaltracker.com/story/show/181432688)
    */
   useEffect(() => {
     if (session && session?.user) {
