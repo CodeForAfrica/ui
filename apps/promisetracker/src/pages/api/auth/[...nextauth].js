@@ -10,8 +10,6 @@ const OAUTH_PROVIDERS = ["google"];
 async function fetchToken(url, params) {
   const body = new URLSearchParams({
     grant_type: "password",
-    client_id: process.env.ACTNOW_CLIENT_ID,
-    client_secret: process.env.ACTNOW_CLIENT_SECRET,
     ...params,
   });
   const requestOptions = {
@@ -19,6 +17,12 @@ async function fetchToken(url, params) {
     headers: {
       "content-type": "application/x-www-form-urlencoded",
       "cache-control": "no-cache",
+      Authorization: `Basic ${
+        (Buffer.from(
+          `${process.env.ACTNOW_CLIENT_ID}:${process.env.ACTNOW_CLIENT_SECRET}`
+        ),
+        "base64")
+      }`,
     },
     body: body.toString(),
     redirect: "follow",
@@ -48,8 +52,6 @@ async function fetchNewToken({ account, user: nextAuthUser }) {
     },
     body: JSON.stringify({
       access_token: account?.access_token,
-      client_id: process.env.ACTNOW_CLIENT_ID,
-      client_secret: process.env.ACTNOW_CLIENT_SECRET,
     }),
   }).then((response) => {
     if (response.ok) {
