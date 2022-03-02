@@ -5,7 +5,7 @@ import React from "react";
 
 import LoginPage from "@/promisetracker/components/LoginPage";
 // import Page from "@/promisetracker/components/Page";
-// import backendFn from "@/promisetracker/lib/backend";
+import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
 
@@ -68,7 +68,10 @@ export async function getServerSideProps({ locale, ...context }) {
     };
   }
   const wpApi = wp();
-  // const backend = backendFn();
+  console.time("getServerSideProps");
+  const backend = backendFn();
+  console.timeEnd("getServerSideProps: backend");
+
   const [page, providers] = await Promise.all([
     wpApi.pages({ slug: "index", locale }).first,
     getProviders(),
@@ -82,7 +85,8 @@ export async function getServerSideProps({ locale, ...context }) {
       ...page,
       // navigation,
       providers,
-      // session,
+      session,
+      backend,
     },
   };
 }
