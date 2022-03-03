@@ -49,9 +49,13 @@ function PostCard({
             </Grid>
             <Grid item>
               <Share
-                classes={{ root: classes.share }}
+                classes={{
+                  root: classes.share,
+                  socialLink: classes.socialLink,
+                }}
                 link={site.url + (as || "")}
                 title={title}
+                {...props}
               />
             </Grid>
           </Grid>
