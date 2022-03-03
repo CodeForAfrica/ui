@@ -14,14 +14,15 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
   label: {
     color: palette.secondary.dark,
     paddingRight: "0.5rem",
+    paddingTop: "0.4rem",
   },
   sortItems: {
     alignItems: "flex-end",
     display: "flex",
     flexDirection: "row",
-    marginTop: "1rem",
+    marginTop: "4rem",
     [breakpoints.up("lg")]: {
-      alignItems: "flex-end",
+      alignItems: "center",
     },
   },
   sectionTitle: {

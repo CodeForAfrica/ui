@@ -10,12 +10,16 @@ const useStyles = makeStyles(({ palette }) => ({
     paddingBottom: 0,
     paddingLeft: "0rem",
     paddingRight: "0rem",
-    borderBottom: `.12rem solid ${palette.primary.dark}`,
+    /*  borderBottom: `.12rem solid ${palette.primary.dark}`, */
     display: "flex",
     alignItems: "start",
     justifyContent: "start",
     fonstSize: "0.5rem",
     lineHeight: "12px",
+  },
+  name: {
+    borderBottom: `.12rem solid ${palette.primary.dark}`,
+    lineHeight: "1.4",
   },
 }));
 
@@ -32,9 +36,12 @@ function Sort({ name, onClick, slug, ...props }) {
       key={slug}
       onClick={handleClick}
       variant="text"
+      disableFocusRipple
       className={classes.root}
     >
-      <Typography variant="h6">{name}</Typography>
+      <Typography variant="h6" className={classes.name}>
+        {name}
+      </Typography>
     </Button>
   );
 }
