@@ -10,12 +10,12 @@ const useStyles = makeStyles(({ palette }) => ({
     paddingBottom: 0,
     paddingLeft: "0rem",
     paddingRight: "0rem",
-    /*  borderBottom: `.12rem solid ${palette.primary.dark}`, */
     display: "flex",
     alignItems: "start",
     justifyContent: "start",
-    fonstSize: "0.5rem",
+    fontSize: "0.5rem",
     lineHeight: "12px",
+    minWidth: 0,
   },
   name: {
     borderBottom: `.12rem solid ${palette.primary.dark}`,
