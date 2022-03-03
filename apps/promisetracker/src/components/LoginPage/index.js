@@ -10,12 +10,7 @@ import useStyles from "./useStyles";
 import LoginForm from "@/promisetracker/components/LoginForm";
 import getErrorDescription from "@/promisetracker/utils/auth/error-list";
 
-function Login({
-  providers: providersProp,
-  loginLabel,
-  description,
-  ...props
-}) {
+function Login({ providers: providersProp, ...props }) {
   const classes = useStyles(props);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -38,7 +33,6 @@ function Login({
           className={classes.container}
         >
           <Typography variant="h2">Login</Typography>
-          <Typography className={classes.text}>{description}</Typography>
           {errorMessage && (
             <Typography variant="body2" className={classes.error}>
               {errorMessage}
@@ -76,18 +70,10 @@ function Login({
 
 Login.propTypes = {
   providers: PropTypes.shape({}),
-  title: PropTypes.string,
-  loginLabel: PropTypes.string,
-  description: PropTypes.string,
-  googleIcon: PropTypes.string,
 };
 
 Login.defaultProps = {
   providers: undefined,
-  loginLabel: undefined,
-  title: undefined,
-  description: undefined,
-  googleIcon: undefined,
 };
 
 export default Login;

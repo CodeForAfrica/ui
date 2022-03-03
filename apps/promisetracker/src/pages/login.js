@@ -51,7 +51,6 @@ function Login({ providers: providersProp, ...props }) {
       <LoginPage
         classes={{ section: classes.section }}
         providers={providersProp}
-        {...props}
       />
     </Page>
   );
