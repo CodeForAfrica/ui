@@ -15,11 +15,12 @@ const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
   loginButton: {
     color: palette.common.white,
     marginTop: typography.pxToRem(20),
-    minWidth: typography.pxToRem(74),
+    minWidth: typography.pxToRem(150),
+    maxWidth: "100%",
     [breakpoints.up("lg")]: {
       paddingBottom: typography.pxToRem(15),
       paddingTop: typography.pxToRem(14),
-      minWidth: typography.pxToRem(158),
+      minWidth: typography.pxToRem(270),
     },
     backgroundColor: palette.google.main,
     width: "100%",
