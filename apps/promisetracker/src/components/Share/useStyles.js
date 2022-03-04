@@ -24,7 +24,6 @@ const useStyles = makeStyles(() => ({
   },
   socialLink: {
     display: "inline-flex",
-    marginRight: "0.5rem",
     padding: "0.5rem !important",
   },
   share: {

@@ -72,7 +72,11 @@ function Share({ link, title, description, children, ...props }) {
                     }}
                     className={classes.socialLink}
                   >
-                    <SvgIcon component={TwitterIcon} alt="Twitter" />
+                    <SvgIcon
+                      component={TwitterIcon}
+                      viewBox="0 0 25 25"
+                      alt="Twitter"
+                    />
                   </TwitterShareButton>
                   <FacebookShareButton
                     quote={title}
@@ -85,7 +89,11 @@ function Share({ link, title, description, children, ...props }) {
                     }}
                     className={classes.socialLink}
                   >
-                    <SvgIcon component={FacebookIcon} alt="Facebook" />
+                    <SvgIcon
+                      component={FacebookIcon}
+                      viewBox="0 0 25 25"
+                      alt="Facebook"
+                    />
                   </FacebookShareButton>
                   <LinkedinShareButton
                     title={title}
@@ -99,7 +107,11 @@ function Share({ link, title, description, children, ...props }) {
                     }}
                     className={classes.socialLink}
                   >
-                    <SvgIcon component={LinkedInIcon} alt="LinkedIn" />
+                    <SvgIcon
+                      component={LinkedInIcon}
+                      viewBox="0 0 25 25"
+                      alt="LinkedIn"
+                    />
                   </LinkedinShareButton>
                 </Grid>
               </Paper>
