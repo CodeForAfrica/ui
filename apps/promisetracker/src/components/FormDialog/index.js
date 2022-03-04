@@ -34,7 +34,10 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
     values.source = { link: values.source };
     values.number_of_signatures_required = values.numberOfSignaturesRequired;
     values.problem_statement = values.problemStatement;
-    fetch(" https://actnow.dev.codeforafrica.org/v1/petitions/", {
+    delete values.problemStatement;
+    delete values.numberOfSignaturesRequired;
+
+    fetch("/api/petitions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

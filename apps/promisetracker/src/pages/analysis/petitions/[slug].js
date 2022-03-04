@@ -101,7 +101,7 @@ Index.defaultProps = {
 
 export async function getStaticPaths() {
   const fallback = true;
-  const petitions = await actnow().petitions().list;
+  const petitions = await actnow().petitions().fetchAll();
 
   const unlocalizedPaths = petitions.map((petition) => ({
     params: { slug: `${petition.id}` },
@@ -116,7 +116,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const backend = backendFn();
   const wpApi = wp();
 
-  const petition = await actnow().petition(slugParam).lists;
+  const petition = await actnow().petitions().petition(slugParam);
   const page = await wpApi.pages({ slug: "promises", locale }).first;
   const actNowPage = await wpApi.pages({ slug: "act-now", locale }).first;
   const site = await backend.sites().current;

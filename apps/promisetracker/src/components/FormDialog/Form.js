@@ -97,7 +97,6 @@ function Form({ values, onChange: handleFormChange, ...props }) {
   const handleChange = (event, name) => {
     const newValues = { ...values };
     newValues[name] = event.target.value;
-    console.log(newValues);
     handleFormChange(newValues);
   };
 
@@ -143,7 +142,7 @@ function Form({ values, onChange: handleFormChange, ...props }) {
 
         <TextareaAutosize
           onChange={(event) => handleChange(event, "problemStatement")}
-          rowsMin={10}
+          minRows={10}
           aria-label="maximum height"
           aria-describedby="issue-helper-text"
           classes={{ root: classes.textArea }}
@@ -213,6 +212,7 @@ function Form({ values, onChange: handleFormChange, ...props }) {
         labelText={signatureLabel}
         helperDescription={signatureHelper}
         elemId="signature-input"
+        onChange={(event) => handleChange(event, "numberOfSignaturesRequired")}
       />
 
       <Typography

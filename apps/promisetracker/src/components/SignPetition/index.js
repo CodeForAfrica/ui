@@ -98,7 +98,7 @@ function SignPetition({ signatures, session }) {
 
 SignPetition.propTypes = {
   signatures: PropTypes.arrayOf(PropTypes.shape({})),
-  session: PropTypes.string,
+  session: PropTypes.shape({}),
 };
 
 SignPetition.defaultProps = {

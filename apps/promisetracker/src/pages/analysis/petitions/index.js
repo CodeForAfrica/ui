@@ -138,7 +138,7 @@ export async function getStaticProps({ locale }) {
   const wpApi = wp();
   const page = await wpApi.pages({ slug: "analysis-petitions", locale }).first;
   page.posts = null;
-  const petitions = await actnow().petitions().list;
+  const petitions = await actnow().petitions().fetchAll();
   const languageAlternates = _.languageAlternates("/analysis/petitions");
 
   return {

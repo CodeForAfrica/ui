@@ -134,6 +134,7 @@ function Petition({ petitionPost = {}, ...props }) {
               </CtAButton>
               <FormDialog
                 open={open}
+                session={session}
                 handleFormClose={handleFormClose}
                 {...props}
               />
