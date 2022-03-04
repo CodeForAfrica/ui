@@ -139,7 +139,7 @@ function MobileNavigation({ navigation, ...props }) {
               onClick={handleClickOpen}
               className={classes.menuButton}
             >
-              <Image src={hamburgerIcon} />
+              <Image src={hamburgerIcon} width="25" height="18" />
             </IconButton>
           </Grid>
 
