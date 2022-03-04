@@ -142,16 +142,16 @@ function ProfileDetails({
                     src={viz1}
                     alt="Viz1"
                     className={classes.viz1}
-                    width="18px"
-                    height="22px"
+                    width={18}
+                    height={22}
                   />
                 ) : (
                   <Image
                     src={viz2}
                     alt="Viz2"
                     className={classes.viz2}
-                    width="18px"
-                    height="22px"
+                    width={18}
+                    height={22}
                   />
                 )}
               </IconButton>

@@ -66,8 +66,8 @@ function Article({
                   <Image
                     src={platform.image.url}
                     alt={platform.image.alt}
-                    width="20"
-                    height="20"
+                    width={20}
+                    height={20}
                   />
                 </A>
               ))}

@@ -126,8 +126,8 @@ function DesktopInfoStatusPopover({ items, title, ...props }) {
           src={info}
           alt="Info"
           className={classes.infoIcon}
-          width="11"
-          height="22"
+          width={11}
+          height={22}
         />
       </IconButton>
       <Fade in={open}>

@@ -43,8 +43,8 @@ function Share({ platforms, ...props }) {
               <Image
                 src={platform.image.url}
                 alt={platform.image.alt}
-                width="24px"
-                height="24"
+                width={24}
+                height={24}
               />
             </span>
           </Grid>

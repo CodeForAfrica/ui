@@ -28,8 +28,8 @@ function Logo(props) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const src = isDesktop ? desktoplogo : logo;
-  const width = isDesktop ? "236" : "135";
-  const height = isDesktop ? "31" : "17";
+  const width = isDesktop ? 236 : 135;
+  const height = isDesktop ? 31 : 17;
 
   return (
     <IconButton

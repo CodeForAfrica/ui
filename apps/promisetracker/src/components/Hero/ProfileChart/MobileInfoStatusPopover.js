@@ -110,8 +110,8 @@ function MobileInfoStatusPopover({ items, title, ...props }) {
           src={info}
           alt="Info"
           className={classes.infoIcon}
-          width="14"
-          height="14"
+          width={14}
+          height={14}
         />
       </IconButton>
 
