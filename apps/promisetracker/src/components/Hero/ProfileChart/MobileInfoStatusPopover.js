@@ -106,7 +106,13 @@ function MobileInfoStatusPopover({ items, title, ...props }) {
         onClick={handleClickOpen}
         className={classes.iconButton}
       >
-        <Image src={info} alt="Info" className={classes.infoIcon} />
+        <Image
+          src={info}
+          alt="Info"
+          className={classes.infoIcon}
+          width="14"
+          height="14"
+        />
       </IconButton>
 
       <Dialog

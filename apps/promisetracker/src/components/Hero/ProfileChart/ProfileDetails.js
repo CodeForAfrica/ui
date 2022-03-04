@@ -126,9 +126,21 @@ function ProfileDetails({
                 className={classes.iconButton}
               >
                 {clicked ? (
-                  <Image src={viz1} alt="Viz1" className={classes.viz1} />
+                  <Image
+                    src={viz1}
+                    alt="Viz1"
+                    className={classes.viz1}
+                    width="18px"
+                    height="22px"
+                  />
                 ) : (
-                  <Image src={viz2} alt="Viz2" className={classes.viz2} />
+                  <Image
+                    src={viz2}
+                    alt="Viz2"
+                    className={classes.viz2}
+                    width="18px"
+                    height="22px"
+                  />
                 )}
               </IconButton>
             </Grid>

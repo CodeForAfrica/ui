@@ -40,7 +40,12 @@ function Share({ platforms, ...props }) {
         {platforms.map((platform) => (
           <Grid key={platform.image.url} item xs={4}>
             <span className={classes.platform}>
-              <Image src={platform.image.url} alt={platform.image.alt} />
+              <Image
+                src={platform.image.url}
+                alt={platform.image.alt}
+                width="24px"
+                height="24"
+              />
             </span>
           </Grid>
         ))}

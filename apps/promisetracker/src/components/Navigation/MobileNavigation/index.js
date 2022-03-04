@@ -131,7 +131,7 @@ function MobileNavigation({ navigation, ...props }) {
               edge="start"
               className={classes.searchButton}
             >
-              <Image src={searchIcon} />
+              <Image src={searchIcon} width="21.561" height="21.561" />
             </IconButton>
             <IconButton
               aria-label="Open drawer"

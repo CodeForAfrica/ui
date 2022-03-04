@@ -17,7 +17,7 @@ function Copyright({ children, typographyProps, ...props }) {
 
   return (
     <div className={classes.root}>
-      <Image {...props} className={classes.image} />
+      <Image {...props} className={classes.image} width="19px" height="19" />
       {children && (
         <Typography {...typographyProps} className={classes.text}>
           {children}

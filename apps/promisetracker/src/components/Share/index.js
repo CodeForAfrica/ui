@@ -74,6 +74,8 @@ function Share({ link, title, description, ...props }) {
                     <Image
                       src={twitter}
                       alt="Twitter"
+                      height="40"
+                      width="40"
                       className={classes.socialIcon}
                     />
                   </TwitterShareButton>
@@ -91,6 +93,8 @@ function Share({ link, title, description, ...props }) {
                     <Image
                       src={facebook}
                       alt="Facebook"
+                      height="40"
+                      width="40"
                       className={classes.socialIcon}
                     />
                   </FacebookShareButton>
@@ -109,6 +113,8 @@ function Share({ link, title, description, ...props }) {
                     <Image
                       src={linkedIn}
                       alt="LinkedIn"
+                      height="40"
+                      width="40"
                       className={classes.socialIcon}
                     />
                   </LinkedinShareButton>

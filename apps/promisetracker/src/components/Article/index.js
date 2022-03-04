@@ -63,7 +63,12 @@ function Article({
                   key={platform.url}
                   className={classes.socialMedia}
                 >
-                  <Image src={platform.image.url} alt={platform.image.alt} />
+                  <Image
+                    src={platform.image.url}
+                    alt={platform.image.alt}
+                    width="20"
+                    height="20"
+                  />
                 </A>
               ))}
             </div>

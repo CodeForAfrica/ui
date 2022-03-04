@@ -122,7 +122,13 @@ function DesktopInfoStatusPopover({ items, title, ...props }) {
         onClick={handleChange}
         className={classes.iconButton}
       >
-        <Image src={info} alt="Info" className={classes.infoIcon} />
+        <Image
+          src={info}
+          alt="Info"
+          className={classes.infoIcon}
+          width="11"
+          height="22"
+        />
       </IconButton>
       <Fade in={open}>
         <Paper elevation={4} className={classes.paper}>
