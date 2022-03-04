@@ -11,6 +11,19 @@ const moduleExports = {
   images: {
     domains: (process.env.IMAGE_DOMAINS || "dashboard.hurumap.org").split(","),
   },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [
+        "@svgr/webpack",
+        {
+          loader: "svg-url-loader",
+          options: {},
+        },
+      ],
+    });
+    return config;
+  },
   async redirects() {
     return [
       {

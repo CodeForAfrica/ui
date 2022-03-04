@@ -4,6 +4,7 @@ import {
   Grid,
   Hidden,
   IconButton,
+  SvgIcon,
   useMediaQuery,
 } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -14,6 +15,7 @@ import React, { useState } from "react";
 import DesktopInfoStatusPopover from "./DesktopInfoStatusPopover";
 import MobileInfoStatusPopover from "./MobileInfoStatusPopover";
 
+import { ReactComponent as ShareIcon } from "@/promisetracker/assets/hero-icon-share (1).svg";
 import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg";
 import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
 import DesktopChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart";
@@ -60,6 +62,16 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   tagline: {
     "& .highlight": {
       color: palette.highlight.main,
+    },
+  },
+  share: {
+    fontSize: "1rem",
+    textAlign: "center",
+    marginLeft: "0.5rem",
+    marginTop: "0.2rem",
+    "&:hover": {
+      cursor: "pointer",
+      background: "transparent",
     },
   },
 }));
@@ -162,7 +174,12 @@ function ProfileDetails({
               <Share
                 title={`${position} ${name} ${promisesByStatus.count} ${promiseLabel} ${trailText}`}
                 link={config.URL}
-              />
+                classes={{
+                  share: classes.share,
+                }}
+              >
+                <SvgIcon component={ShareIcon} viewBox="0 0 24 24" />
+              </Share>
             </IconButton>
           </Grid>
         </Grid>
