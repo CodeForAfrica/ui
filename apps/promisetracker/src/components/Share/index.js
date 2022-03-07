@@ -76,6 +76,9 @@ function Share({ link, title, description, children, ...props }) {
                       component={TwitterIcon}
                       viewBox="0 0 20 16"
                       alt="Twitter"
+                      classes={{
+                        root: classes.svgIcon,
+                      }}
                     />
                   </TwitterShareButton>
                   <FacebookShareButton
@@ -93,6 +96,9 @@ function Share({ link, title, description, children, ...props }) {
                       component={FacebookIcon}
                       viewBox="0 0 10 20"
                       alt="Facebook"
+                      classes={{
+                        root: classes.svgIcon,
+                      }}
                     />
                   </FacebookShareButton>
                   <LinkedinShareButton
@@ -111,6 +117,9 @@ function Share({ link, title, description, children, ...props }) {
                       component={LinkedInIcon}
                       viewBox="0 0 15.288 15.287"
                       alt="LinkedIn"
+                      classes={{
+                        root: classes.svgIcon,
+                      }}
                     />
                   </LinkedinShareButton>
                 </Grid>

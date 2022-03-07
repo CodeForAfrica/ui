@@ -33,6 +33,10 @@ const useStyles = makeStyles(() => ({
       cursor: "pointer",
     },
   },
+  svgIcon: {
+    width: "1rem",
+    height: "1rem",
+  },
 }));
 
 export default useStyles;
