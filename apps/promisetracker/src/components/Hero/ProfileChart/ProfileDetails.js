@@ -178,7 +178,7 @@ function ProfileDetails({
                   share: classes.share,
                 }}
               >
-                <SvgIcon component={ShareIcon} viewBox="0 0 24 24" />
+                <SvgIcon component={ShareIcon} viewBox="0 0 20 20" />
               </Share>
             </IconButton>
           </Grid>
