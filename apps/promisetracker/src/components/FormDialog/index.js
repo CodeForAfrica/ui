@@ -32,10 +32,16 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
 
   const handleSubmit = () => {
     values.source = { link: values.source };
-    values.number_of_signatures_required = values.numberOfSignaturesRequired;
+    values.number_of_signatures_required = Number(
+      values.numberOfSignaturesRequired
+    );
     values.problem_statement = values.problemStatement;
     delete values.problemStatement;
     delete values.numberOfSignaturesRequired;
+
+    // temporary
+    delete values.image;
+    delete values.video;
 
     fetch("/api/petitions", {
       method: "POST",

@@ -19,17 +19,19 @@ function ActNow({ ...props }) {
   useEffect(() => {
     if (session) {
       actnow()
-        .petitions(
+        .petitions()
+        .fetchAll(
           new URLSearchParams({
             individual_signatories: session?.user?.profile?.id,
           }).toString()
         )
-        .list.then((res) => setSignedPetitions(res));
+        .then((res) => setSignedPetitions(res));
       actnow()
-        .petitions(
+        .petitions()
+        .fetchAll(
           new URLSearchParams({ owner: session?.user?.profile?.id }).toString()
         )
-        .list.then((res) => setOwnedPetitions(res));
+        .then((res) => setOwnedPetitions(res));
     }
   }, [session]);
 
@@ -71,7 +73,7 @@ export async function getStaticProps({ locale }) {
 
   const page = await wp().pages({ slug: "act-now", locale }).first;
   const { actNow = {} } = page;
-  const petitions = await actnow().petitions().list;
+  const petitions = await actnow().petitions().fetchAll();
 
   const languageAlternates = _.languageAlternates("/act-now");
   actNow.url = process.env.ACTNOW_URL ?? null;

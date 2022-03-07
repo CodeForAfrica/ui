@@ -113,6 +113,13 @@ function Form({ values, onChange: handleFormChange, ...props }) {
         onChange={(event) => handleChange(event, "title")}
         value={values.title}
       />
+      <FormTextField
+        labelText="Petition Description *"
+        helperDescription="Short and presice description"
+        elemId="petition-descriptioninput"
+        onChange={(event) => handleChange(event, "description")}
+        value={values.description}
+      />
       <Typography classes={{ root: classes.label, body1: classes.body1 }}>
         {recipientLabel}
       </Typography>
@@ -128,6 +135,13 @@ function Form({ values, onChange: handleFormChange, ...props }) {
         elemId="recipient-email-input"
         value={values.recipients}
         onChange={(event) => handleChange(event, "recipients")}
+      />
+      <FormTextField
+        labelText="Petition Source"
+        helperDescription="Link to describe this petition"
+        elemId="petition-source-input"
+        onChange={(event) => handleChange(event, "source")}
+        value={values.source}
       />
       <FormControl classes={{ root: classes.formControl }}>
         <InputLabel htmlFor="issue-input" classes={{ root: classes.label }}>
@@ -249,6 +263,7 @@ Form.propTypes = {
     description: PropTypes.string,
     recipients: PropTypes.string,
     title: PropTypes.string,
+    source: PropTypes.string,
   }),
 };
 
