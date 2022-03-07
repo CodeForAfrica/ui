@@ -74,7 +74,7 @@ function Share({ link, title, description, children, ...props }) {
                   >
                     <SvgIcon
                       component={TwitterIcon}
-                      viewBox="0 0 25 25"
+                      viewBox="0 0 20 16"
                       alt="Twitter"
                     />
                   </TwitterShareButton>
@@ -91,7 +91,7 @@ function Share({ link, title, description, children, ...props }) {
                   >
                     <SvgIcon
                       component={FacebookIcon}
-                      viewBox="0 0 25 25"
+                      viewBox="0 0 10 20"
                       alt="Facebook"
                     />
                   </FacebookShareButton>
@@ -109,7 +109,7 @@ function Share({ link, title, description, children, ...props }) {
                   >
                     <SvgIcon
                       component={LinkedInIcon}
-                      viewBox="0 0 25 25"
+                      viewBox="0 0 15.288 15.287"
                       alt="LinkedIn"
                     />
                   </LinkedinShareButton>
