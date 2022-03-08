@@ -60,6 +60,7 @@ function Index({
         promisesByStatus={promisesByStatus}
         criteria={criteria}
         fullName={projectMeta.fullName}
+        photo={projectMeta.photo}
         name={projectMeta.name}
         position={projectMeta.position}
         promiseLabel={projectMeta.promiseLabel}
@@ -136,6 +137,7 @@ Index.propTypes = {
     description: PropTypes.string,
     fullName: PropTypes.string,
     name: PropTypes.string,
+    photo: PropTypes.string,
     position: PropTypes.string,
     promiseLabel: PropTypes.string,
     updatedAt: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

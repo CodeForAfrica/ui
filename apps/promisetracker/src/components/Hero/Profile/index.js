@@ -53,7 +53,6 @@ function Profile({ date, dateLabel, name, photo: photoProp, title, ...props }) {
     ? "column"
     : "row";
   const photo = photoProp || profilePic?.src;
-
   return (
     <Box
       display="flex"
