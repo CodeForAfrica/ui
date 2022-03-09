@@ -7,7 +7,6 @@ module.exports = {
   testTimeout: 30000,
 
   projects: [
-      "./apps/docs/jest.docs.config.js",
-      "./apps/web/jest.web.config.js",
+      "./apps/docs/jest.docs.config.js"
   ],
 }
