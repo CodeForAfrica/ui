@@ -16,9 +16,9 @@ const useStyles = makeStyles(({ palette }) => ({
     fontSize: "0.5rem",
     lineHeight: "12px",
     minWidth: 0,
+    borderBottom: `.12rem solid ${palette.primary.dark}`,
   },
   name: {
-    borderBottom: `.12rem solid ${palette.primary.dark}`,
     lineHeight: "1.4",
   },
 }));
