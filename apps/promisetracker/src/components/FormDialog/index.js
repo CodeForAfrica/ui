@@ -25,12 +25,13 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
     recipients: "",
     problemStatement: "",
     numberOfSignaturesRequired: null,
-    image: null,
-    video: null,
+    image: "",
+    video: "",
     source: "",
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     values.source = { link: values.source };
     values.number_of_signatures_required = Number(
       values.numberOfSignaturesRequired
@@ -38,10 +39,6 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
     values.problem_statement = values.problemStatement;
     delete values.problemStatement;
     delete values.numberOfSignaturesRequired;
-
-    // temporary
-    delete values.image;
-    delete values.video;
 
     fetch("/api/petitions", {
       method: "POST",
@@ -99,7 +96,12 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
         <Form values={values} onChange={setValues} {...props} />
       </DialogContent>
       <DialogActions>
-        <CtAButton color="primary" onClick={handleSubmit}>
+        <CtAButton
+          form="form-data"
+          type="submit"
+          color="primary"
+          onClick={handleSubmit}
+        >
           Submit
         </CtAButton>
       </DialogActions>

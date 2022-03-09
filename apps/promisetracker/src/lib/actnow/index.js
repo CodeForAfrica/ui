@@ -111,19 +111,6 @@ function actnow(site) {
   async function createPetition(session, data) {
     const url = `${ACTNOW_URL}/v1/petitions/`;
 
-    // const mock = {
-    //   title: "sdsadsa dzzz dzz",
-    //   description: "dasdasdas",
-    //   recipients: "dasd@gmial.com",
-    //   problem_statement: "sdfdsfds",
-    //   image: "",
-    //   video: "",
-    //   number_of_signatures_required: 32,
-    //   source: {
-    //     link: "http://fdsfdsfsdtrewwsdcsd.com",
-    //   },
-    // };
-
     try {
       const response = await fetch(url, {
         method: "POST",

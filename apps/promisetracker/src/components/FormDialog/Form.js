@@ -55,10 +55,13 @@ function Form({ values, onChange: handleFormChange, ...props }) {
   };
 
   const onFileChange = (e) => {
+    const formData = new FormData();
     const file = URL.createObjectURL(e.target.files[0]);
     const fileSize = e.target.files[0].size;
 
     if (handleFileValidation(fileSize)) return;
+
+    formData.append("image", e.target.files[0]);
 
     setImages([file]);
   };
@@ -105,8 +108,9 @@ function Form({ values, onChange: handleFormChange, ...props }) {
     : "body2";
 
   return (
-    <form>
+    <form id="form-data">
       <FormTextField
+        required
         labelText={petitionLabel}
         helperDescription={petitionHelper}
         elemId="petition-input"
@@ -114,7 +118,8 @@ function Form({ values, onChange: handleFormChange, ...props }) {
         value={values.title}
       />
       <FormTextField
-        labelText="Petition Description *"
+        required
+        labelText="Petition Description"
         helperDescription="Short and presice description"
         elemId="petition-descriptioninput"
         onChange={(event) => handleChange(event, "description")}
@@ -131,12 +136,16 @@ function Form({ values, onChange: handleFormChange, ...props }) {
         {recipientDescription}
       </Typography>
       <FormTextField
+        required
+        type="email"
         labelText={recipientEmailLabel}
         elemId="recipient-email-input"
         value={values.recipients}
         onChange={(event) => handleChange(event, "recipients")}
       />
       <FormTextField
+        required
+        type="url"
         labelText="Petition Source"
         helperDescription="Link to describe this petition"
         elemId="petition-source-input"
@@ -223,6 +232,7 @@ function Form({ values, onChange: handleFormChange, ...props }) {
       </FormControl>
 
       <FormTextField
+        required
         labelText={signatureLabel}
         helperDescription={signatureHelper}
         elemId="signature-input"

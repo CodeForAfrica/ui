@@ -9,7 +9,7 @@ function FormTextField(props) {
   const classes = useStyles(props);
   const theme = useTheme();
 
-  const { labelText, helperDescription, elemId } = props;
+  const { labelText, helperDescription, elemId, required, type } = props;
 
   const helperVariant = useMediaQuery(theme.breakpoints.up("lg"))
     ? "body1"
@@ -27,6 +27,8 @@ function FormTextField(props) {
       }
       label={labelText}
       id={elemId}
+      type={type}
+      required={required}
       InputProps={{
         classes: {
           input: classes.input,
@@ -55,12 +57,16 @@ FormTextField.propTypes = {
   labelText: PropTypes.string,
   helperDescription: PropTypes.string,
   elemId: PropTypes.string,
+  required: PropTypes.bool,
+  type: PropTypes.string,
 };
 
 FormTextField.defaultProps = {
   labelText: null,
   helperDescription: null,
   elemId: null,
+  required: null,
+  type: null,
 };
 
 export default FormTextField;
