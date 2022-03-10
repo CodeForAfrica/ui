@@ -6,7 +6,8 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "test": "jest --watch"
+    "test docs": "jest --watch",
+    "playwright": "playwright test"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
