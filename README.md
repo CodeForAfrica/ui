@@ -16,3 +16,19 @@ To develop all apps and packages, run the following command:
 ```
 pnpm run dev
 ```
+### Testing
+
+To run jest
+
+```
+pnpm test 
+
+```
+
+To run playwright
+
+```
+
+pnpm test:e2e
+
+```
