@@ -5,5 +5,10 @@
   "license": "MIT",
   "devDependencies": {
     "config": "workspace:*"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.0"
   }
 }
