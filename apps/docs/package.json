@@ -6,7 +6,8 @@
     "dev": "next dev --port 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --detectOpenHandles"
   },
   "dependencies": {
     "next": "^12.1.0",
@@ -17,6 +18,10 @@
   "devDependencies": {
     "config": "workspace:*",
     "eslint": "^7.32.0",
+    "jest": "^27.5.1",
     "next-transpile-modules": "^9.0.0"
+  },
+  "jest": {
+    "preset": "config/jest/node"
   }
 }
