@@ -40,6 +40,10 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
     delete values.problemStatement;
     delete values.numberOfSignaturesRequired;
 
+    // temporary
+    delete values.image;
+    delete values.video;
+
     fetch("/api/petitions", {
       method: "POST",
       headers: {
@@ -93,15 +97,15 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
         >
           {petitionDescription}
         </DialogContentText>
-        <Form values={values} onChange={setValues} {...props} />
+        <Form
+          values={values}
+          onChange={setValues}
+          {...props}
+          onSubmit={handleSubmit}
+        />
       </DialogContent>
       <DialogActions>
-        <CtAButton
-          form="form-data"
-          type="submit"
-          color="primary"
-          onClick={handleSubmit}
-        >
+        <CtAButton form="form-data" type="submit" color="primary">
           Submit
         </CtAButton>
       </DialogActions>

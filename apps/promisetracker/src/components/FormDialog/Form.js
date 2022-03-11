@@ -17,7 +17,12 @@ import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 
-function Form({ values, onChange: handleFormChange, ...props }) {
+function Form({
+  values,
+  onChange: handleFormChange,
+  onSubmit: handleSubmit,
+  ...props
+}) {
   const classes = useStyles(props);
   const theme = useTheme();
 
@@ -108,7 +113,7 @@ function Form({ values, onChange: handleFormChange, ...props }) {
     : "body2";
 
   return (
-    <form id="form-data">
+    <form id="form-data" onSubmit={handleSubmit}>
       <FormTextField
         required
         labelText={petitionLabel}
@@ -120,7 +125,7 @@ function Form({ values, onChange: handleFormChange, ...props }) {
       <FormTextField
         required
         labelText="Petition Description"
-        helperDescription="Short and presice description"
+        helperDescription="Short and precise description"
         elemId="petition-descriptioninput"
         onChange={(event) => handleChange(event, "description")}
         value={values.description}
@@ -258,6 +263,7 @@ Form.propTypes = {
   issueLabel: PropTypes.string,
   mandatoryText: PropTypes.string,
   onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
   petitionHelper: PropTypes.string,
   petitionLabel: PropTypes.string,
   recipientDescription: PropTypes.string,
@@ -280,6 +286,7 @@ Form.propTypes = {
 Form.defaultProps = {
   mandatoryText: null,
   onChange: null,
+  onSubmit: null,
   petitionLabel: null,
   petitionHelper: null,
   categoryLabel: null,
