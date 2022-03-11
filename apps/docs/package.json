@@ -22,6 +22,6 @@
     "next-transpile-modules": "^9.0.0"
   },
   "jest": {
-    "preset": "config/jest/node"
+    "preset": "config/jest/presets"
   }
 }
