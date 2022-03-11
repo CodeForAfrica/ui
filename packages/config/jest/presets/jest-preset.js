@@ -6,7 +6,6 @@ module.exports = {
     '!**/node_modules/**',
   ],
   moduleFileExtensions: [ "js", "jsx", "json", "node"],
-
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
     // https://jestjs.io/docs/webpack#mocking-css-modules
@@ -21,7 +20,6 @@ module.exports = {
 
     // Handle module aliases
     '^@/components/(.*)$': '<rootDir>/components/$1',
-
   },
   // Add more setup options before each test is run
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
