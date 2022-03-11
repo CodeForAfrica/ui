@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --detectOpenHandles",
-    "test:e2e": "playwright test"
+    "playwright": "playwright test",
+    "show": " playwright show-report"
   },
   "dependencies": {
     "next": "^12.1.0",
@@ -25,8 +26,5 @@
   },
   "jest": {
     "preset": "config/jest/presets"
-  },
-  "playwright": {
-    "preset": "config/playwright/presets"
   }
 }
