@@ -1,8 +1,6 @@
 module.exports = {
   root: true,
-  parser: "@babel/eslint-parser",
   extends: [
-    "next",
     "prettier",
     "plugin:markdown/recommended",
     "plugin:json/recommended",
@@ -11,8 +9,8 @@ module.exports = {
     "airbnb",
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
-    "next/babel",
     "next/core-web-vitals",
+    "next",
   ],
   settings: {
     next: {
