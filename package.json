@@ -12,6 +12,5 @@
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@6.31.0",
-  "dependencies": {}
+  "packageManager": "pnpm@6.31.0"
 }
