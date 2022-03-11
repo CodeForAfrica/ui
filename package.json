@@ -7,11 +7,11 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "prepare": "husky install",
-    "format": "yarn prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'",
-    "format-staged": "yarn prettier --write",
-    "lint-staged-optimal-imports": "yarn jscodeshift -t node_modules/@material-ui/codemod/lib/v4.0.0/optimal-imports.js",
-    "lint-staged-top-level-imports": "yarn jscodeshift -t node_modules/@material-ui/codemod/lib/v4.0.0/top-level-imports.js",
-    "lint-staged": "yarn eslint --fix --ext '.js,.json,.md,.yml'"
+    "format": "pnpm prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'",
+    "format-staged": "pnpm prettier --write",
+    "lint-staged-optimal-imports": "pnpm jscodeshift -t node_modules/@material-ui/codemod/lib/v4.0.0/optimal-imports.js",
+    "lint-staged-top-level-imports": "pnpm jscodeshift -t node_modules/@material-ui/codemod/lib/v4.0.0/top-level-imports.js",
+    "lint-staged": "pnpm eslint --fix --ext '.js,.json,.md,.yml'"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
