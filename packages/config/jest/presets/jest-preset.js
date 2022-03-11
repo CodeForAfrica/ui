@@ -1,15 +1,12 @@
 module.exports = {
   roots: ["<rootDir>"],
-  moduleFileExtensions: [ "js", "jsx", "json", "node"],
-  setupFilesAfterEnv: ['./jest.setup.js'],
-  transform: {
-    "^.+\\.jsx?$": "babel-jest",
-  },
   collectCoverageFrom: [
     '**/*.{js,jsx}',
     '!**/*.d.ts',
     '!**/node_modules/**',
   ],
+  moduleFileExtensions: [ "js", "jsx", "json", "node"],
+
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
     // https://jestjs.io/docs/webpack#mocking-css-modules
@@ -24,9 +21,15 @@ module.exports = {
 
     // Handle module aliases
     '^@/components/(.*)$': '<rootDir>/components/$1',
+
   },
   // Add more setup options before each test is run
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+
+  transform: {
+    "^.+\\.jsx?$": "babel-jest",
+  },
+
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
   testEnvironment: 'jsdom',
   transform: {
@@ -38,4 +41,5 @@ module.exports = {
     '/node_modules/',
     '^.+\\.module\\.(css|sass|scss)$',
   ],
+  testURL: "http://localhost/",
 }
