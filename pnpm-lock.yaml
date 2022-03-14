@@ -6,13 +6,6 @@ importers:
     specifiers:
       '@babel/core': ^7.17.5
       '@material-ui/core': ^4.12.3
-      '@storybook/addon-actions': ^6.4.19
-      '@storybook/addon-essentials': ^6.4.19
-      '@storybook/addon-links': ^6.4.19
-      '@storybook/addons': ^6.4.19
-      '@storybook/client-api': ^6.4.19
-      '@storybook/react': ^6.4.19
-      '@svgr/webpack': ^6.2.1
       babel-loader: ^8.2.3
       eslint: 7.32.0
       next: ^12.1.0
@@ -20,35 +13,20 @@ importers:
       prop-types: ^15.8.1
       react: ^17.0.2
       react-dom: ^17.0.2
-      storybook-addon-material-ui: ^0.9.0-alpha.24
-      storybook-addon-next-router: ^3.1.1
-      svg-url-loader: ^7.1.1
       turbo: latest
       typescript: ^4.6.2
-      webpack: ^5.70.0
     devDependencies:
       '@babel/core': 7.17.5
       '@material-ui/core': 4.12.3_react-dom@17.0.2+react@17.0.2
-      '@storybook/addon-actions': 6.4.19_react-dom@17.0.2+react@17.0.2
-      '@storybook/addon-essentials': 6.4.19_bc9bcd74e1f61fa6d9d0234dee4fe53e
-      '@storybook/addon-links': 6.4.19_react-dom@17.0.2+react@17.0.2
-      '@storybook/addons': 6.4.19_react-dom@17.0.2+react@17.0.2
-      '@storybook/client-api': 6.4.19_react-dom@17.0.2+react@17.0.2
-      '@storybook/react': 6.4.19_7aabb56f694068aae1f0ce5ab8fc0f1d
-      '@svgr/webpack': 6.2.1
-      babel-loader: 8.2.3_ed870ac3ba52c4ec230ba2bc3dbb311c
+      babel-loader: 8.2.3_@babel+core@7.17.5
       eslint: 7.32.0
       next: 12.1.0_33bdac975a6e334c49640fab91e2abb4
       prettier: 2.5.1
       prop-types: 15.8.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      storybook-addon-material-ui: 0.9.0-alpha.24_04dad4d53f7eca4e6aec0b415c1b7fa6
-      storybook-addon-next-router: 3.1.1_9a8016499d762bf5b0c840f3045e2d78
-      svg-url-loader: 7.1.1_webpack@5.70.0
       turbo: 1.1.6
       typescript: 4.6.2
-      webpack: 5.70.0
 
   apps/docs:
     specifiers:
@@ -109,10 +87,12 @@ importers:
       '@storybook/addons': ^6.4.19
       '@storybook/client-api': ^6.4.19
       '@storybook/react': ^6.4.19
+      '@svgr/webpack': ^6.2.1
       config: workspace:*
       storybook-addon-material-ui: ^0.9.0-alpha.24
       storybook-addon-next-router: ^3.1.1
       svg-url-loader: ^7.1.1
+      webpack: ^5.70.0
     devDependencies:
       '@storybook/addon-actions': 6.4.19_react-dom@17.0.2+react@17.0.2
       '@storybook/addon-essentials': 6.4.19_bc9bcd74e1f61fa6d9d0234dee4fe53e
@@ -120,10 +100,12 @@ importers:
       '@storybook/addons': 6.4.19_react-dom@17.0.2+react@17.0.2
       '@storybook/client-api': 6.4.19_react-dom@17.0.2+react@17.0.2
       '@storybook/react': 6.4.19_7aabb56f694068aae1f0ce5ab8fc0f1d
+      '@svgr/webpack': 6.2.1
       config: link:../config
       storybook-addon-material-ui: 0.9.0-alpha.24_04dad4d53f7eca4e6aec0b415c1b7fa6
       storybook-addon-next-router: 3.1.1_9a8016499d762bf5b0c840f3045e2d78
       svg-url-loader: 7.1.1_webpack@5.70.0
+      webpack: 5.70.0
 
 packages:
 
@@ -4495,6 +4477,20 @@ packages:
     resolution: {integrity: sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==}
     dev: false
 
+  /babel-loader/8.2.3_@babel+core@7.17.5:
+    resolution: {integrity: sha512-n4Zeta8NC3QAsuyiizu0GkmRcQ6clkV9WFUnUf1iXP//IeSKbWjofW3UHyZVwlOB4y039YQKefawyTn64Zwbuw==}
+    engines: {node: '>= 8.9'}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+      webpack: '>=2'
+    dependencies:
+      '@babel/core': 7.17.5
+      find-cache-dir: 3.3.2
+      loader-utils: 1.4.0
+      make-dir: 3.1.0
+      schema-utils: 2.7.1
+    dev: true
+
   /babel-loader/8.2.3_a58183228c2c7b1a132de84b2b6f9adf:
     resolution: {integrity: sha512-n4Zeta8NC3QAsuyiizu0GkmRcQ6clkV9WFUnUf1iXP//IeSKbWjofW3UHyZVwlOB4y039YQKefawyTn64Zwbuw==}
     engines: {node: '>= 8.9'}
@@ -4508,21 +4504,6 @@ packages:
       make-dir: 3.1.0
       schema-utils: 2.7.1
       webpack: 4.46.0
-    dev: true
-
-  /babel-loader/8.2.3_ed870ac3ba52c4ec230ba2bc3dbb311c:
-    resolution: {integrity: sha512-n4Zeta8NC3QAsuyiizu0GkmRcQ6clkV9WFUnUf1iXP//IeSKbWjofW3UHyZVwlOB4y039YQKefawyTn64Zwbuw==}
-    engines: {node: '>= 8.9'}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-      webpack: '>=2'
-    dependencies:
-      '@babel/core': 7.17.5
-      find-cache-dir: 3.3.2
-      loader-utils: 1.4.0
-      make-dir: 3.1.0
-      schema-utils: 2.7.1
-      webpack: 5.70.0
     dev: true
 
   /babel-plugin-add-react-displayname/0.0.5:

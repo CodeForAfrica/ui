@@ -7,7 +7,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.4.19",
@@ -16,9 +16,11 @@
     "@storybook/addons": "^6.4.19",
     "@storybook/client-api": "^6.4.19",
     "@storybook/react": "^6.4.19",
+    "@svgr/webpack": "^6.2.1",
     "config": "workspace:*",
     "storybook-addon-material-ui": "^0.9.0-alpha.24",
     "storybook-addon-next-router": "^3.1.1",
-    "svg-url-loader": "^7.1.1"
+    "svg-url-loader": "^7.1.1",
+    "webpack": "^5.70.0"
   }
 }
