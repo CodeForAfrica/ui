@@ -99,8 +99,8 @@ const options = {
   },
 
   pages: {
-    signIn: "/act-now",
-    error: "/act-now", // Error code passed in query string as ?error=
+    signIn: "/login",
+    error: "/login", // Error code passed in query string as ?error=
   },
 };
 
