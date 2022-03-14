@@ -60,14 +60,17 @@ function Form({
   };
 
   const onFileChange = (e) => {
-    const formData = new FormData();
     const file = URL.createObjectURL(e.target.files[0]);
     const fileSize = e.target.files[0].size;
-
     if (handleFileValidation(fileSize)) return;
 
-    formData.append("image", e.target.files[0]);
-
+    const reader = new FileReader();
+    reader.onload = function loadFiles(readerEvt) {
+      const newValues = { ...values };
+      newValues.image = readerEvt.target.result;
+      handleFormChange(newValues);
+    };
+    reader.readAsBinaryString(e.target.files[0]);
     setImages([file]);
   };
 

@@ -110,15 +110,13 @@ function actnow(site) {
 
   async function createPetition(session, data) {
     const url = `${ACTNOW_URL}/v1/petitions/`;
-
     try {
       const response = await fetch(url, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session.accessToken}`,
+          Authorization: `Bearer ${session?.accessToken}`,
         },
-        body: JSON.stringify(data),
+        body: data,
       });
 
       const petition = (await response.json()) || [];
