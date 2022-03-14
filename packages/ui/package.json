@@ -3,7 +3,22 @@
   "version": "0.0.0",
   "main": "./index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "storybook": "start-storybook -p 9001 -c .storybook"
+  },
   "devDependencies": {
-    "config": "workspace:*"
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/addons": "^6.4.19",
+    "@storybook/client-api": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "config": "workspace:*",
+    "storybook-addon-material-ui": "^0.9.0-alpha.24",
+    "storybook-addon-next-router": "^3.1.1",
+    "svg-url-loader": "^7.1.1"
   }
 }
