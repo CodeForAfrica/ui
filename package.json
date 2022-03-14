@@ -1,4 +1,4 @@
-{ 
+{
   "name": "ui",
   "version": "0.0.0",
   "private": true,
@@ -8,9 +8,26 @@
     "lint": "turbo run lint"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@material-ui/core": "^4.12.3",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/addons": "^6.4.19",
+    "@storybook/client-api": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "babel-loader": "^8.2.3",
     "eslint": "7.32.0",
+    "next": "^12.1.0",
     "prettier": "^2.5.1",
-    "turbo": "latest"
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "storybook-addon-material-ui": "^0.9.0-alpha.24",
+    "storybook-addon-next-router": "^3.1.1",
+    "turbo": "latest",
+    "typescript": "^4.6.2",
+    "webpack": "^5.70.0"
   },
   "packageManager": "pnpm@6.31.0"
 }
