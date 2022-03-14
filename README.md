@@ -6,7 +6,9 @@ This project is using [pnpm](https://pnpm.io/) as a package manager.
 To build all apps and packages, run the following command:
 
 ```
+
 pnpm run build
+
 ```
 
 ### Develop
@@ -14,5 +16,7 @@ pnpm run build
 To develop all apps and packages, run the following command:
 
 ```
+
 pnpm run dev
+
 ```
