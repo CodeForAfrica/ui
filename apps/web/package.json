@@ -10,9 +10,10 @@
   },
   "dependencies": {
     "next": "^12.1.0",
-    "react": "^17.0.2",
+    "react": "17.0.0",
     "react-dom": "^17.0.2",
-    "ui": "workspace:*"
+    "ui": "workspace:*",
+    "web": "workspace:^1.0.0"
   },
   "devDependencies": {
     "config": "workspace:*",
