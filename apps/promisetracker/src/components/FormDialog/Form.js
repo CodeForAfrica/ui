@@ -238,6 +238,7 @@ function Form({
 
       <FormTextField
         required
+        type="number"
         labelText={signatureLabel}
         helperDescription={signatureHelper}
         elemId="signature-input"
