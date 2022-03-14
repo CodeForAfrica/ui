@@ -5,8 +5,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "lint": "turbo run lint"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
