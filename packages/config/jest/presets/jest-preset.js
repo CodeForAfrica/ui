@@ -39,5 +39,6 @@ module.exports = {
     '/node_modules/',
     '^.+\\.module\\.(css|sass|scss)$',
   ],
+  testMatch: ['**/*.(test|spec).(js|jsx|ts|tsx)'],
   testURL: "http://localhost/",
 }
