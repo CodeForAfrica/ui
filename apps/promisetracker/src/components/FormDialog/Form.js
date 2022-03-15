@@ -67,7 +67,10 @@ function Form({
     const reader = new FileReader();
     reader.onload = function loadFiles(readerEvt) {
       const newValues = { ...values };
-      newValues.image = readerEvt.target.result;
+      newValues.image = {
+        name: e.target.files[0].name,
+        binary: readerEvt.target.result,
+      };
       handleFormChange(newValues);
     };
     reader.readAsBinaryString(e.target.files[0]);

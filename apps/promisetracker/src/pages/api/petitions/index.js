@@ -17,11 +17,8 @@ async function createPetition(req, res) {
       "number_of_signatures_required",
       Number(values.numberOfSignaturesRequired)
     );
-    formdata.append(
-      "image",
-      new Blob([values.image], { type: "application/octet-stream" })
-    );
-
+    const imageBuffer = Buffer.from(values.image.binary, "binary");
+    formdata.append("image", imageBuffer, values.image.name);
     try {
       const petition = await actnow().petitions().create(session, formdata);
 

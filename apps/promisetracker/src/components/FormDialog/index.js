@@ -25,7 +25,7 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
     recipients: "",
     problemStatement: "",
     numberOfSignaturesRequired: null,
-    image: "",
+    image: {},
     video: "",
     source: "",
   });

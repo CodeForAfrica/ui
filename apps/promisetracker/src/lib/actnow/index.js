@@ -118,10 +118,10 @@ function actnow(site) {
         },
         body: data,
       });
-
-      const petition = (await response.json()) || [];
-
-      return petition;
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
     } catch (error) {
       return error;
     }
