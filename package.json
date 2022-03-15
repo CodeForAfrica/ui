@@ -5,7 +5,13 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "prepare": "husky install",
+    "format": "pnpm prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'",
+    "format-staged": "pnpm prettier --write",
+    "lint-staged-optimal-imports": "pnpm jscodeshift -t node_modules/@material-ui/codemod/lib/v4.0.0/optimal-imports.js",
+    "lint-staged-top-level-imports": "pnpm jscodeshift -t node_modules/@material-ui/codemod/lib/v4.0.0/top-level-imports.js",
+    "lint-staged": "pnpm eslint --fix --ext '.js,.json,.md,.yml'"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
@@ -13,14 +19,41 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
     "babel-jest": "^27.5.1",
-    "eslint": "7.32.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
+    "@material-ui/codemod": "^4.5.0",
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-config-next": "^12.0.7",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-json": "^3.0.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-markdown": "^2.2.0",
+    "eslint-plugin-module-resolver": "^1.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.4",
+    "jscodeshift": "^0.13.0",
+    "lint-staged": "^12.3.5",
     "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
     "turbo": "latest"
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn lint-staged-optimal-imports",
+      "yarn lint-staged-top-level-imports"
+    ],
+    "*.{js,json,md}": [
+      "yarn lint-staged"
+    ],
+    "*.{json,md,yml}": [
+      "yarn format-staged"
+    ]
   },
   "packageManager": "pnpm@6.31.0"
 }
