@@ -1,5 +1,5 @@
-import type { PlaywrightTestConfig } from '@playwright/test';
-import { devices } from '@playwright/test';
+// @ts-check
+const { devices } = require('@playwright/test');
 
 /**
  * Read environment variables from file.
@@ -7,10 +7,12 @@ import { devices } from '@playwright/test';
  */
 // require('dotenv').config();
 
+
 /**
- * See https://playwright.dev/docs/test-configuration.
+ * @see https://playwright.dev/docs/test-configuration
+ * @type {import('@playwright/test').PlaywrightTestConfig}
  */
-const config: PlaywrightTestConfig = {
+const config = {
   testDir: './e2e',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
@@ -102,4 +104,4 @@ const config: PlaywrightTestConfig = {
   // },
 };
 
-export default config;
+module.exports = config;
