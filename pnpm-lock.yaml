@@ -85,6 +85,37 @@ importers:
       next-transpile-modules: 9.0.0
       react-test-renderer: 17.0.2_react@17.0.2
 
+  apps/web:
+    specifiers:
+      '@testing-library/jest-dom': ^5.16.2
+      '@testing-library/react': ^12.1.4
+      babel-jest: ^27.5.1
+      config: workspace:*
+      eslint: ^7.32.0
+      identity-obj-proxy: ^3.0.0
+      jest: ^27.5.1
+      next: ^12.1.0
+      next-transpile-modules: ^9.0.0
+      react: ^17.0.2
+      react-dom: ^17.0.2
+      react-test-renderer: ^17.0.2
+      ui: workspace:*
+    dependencies:
+      next: 12.1.0_33bdac975a6e334c49640fab91e2abb4
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      ui: link:../../packages/ui
+    devDependencies:
+      '@testing-library/jest-dom': 5.16.2
+      '@testing-library/react': 12.1.4_react-dom@17.0.2+react@17.0.2
+      babel-jest: 27.5.1_@babel+core@7.17.5
+      config: link:../../packages/config
+      eslint: 7.32.0
+      identity-obj-proxy: 3.0.0
+      jest: 27.5.1
+      next-transpile-modules: 9.0.0
+      react-test-renderer: 17.0.2_react@17.0.2
+
   packages/config:
     specifiers:
       eslint-config-next: ^12.0.8
