@@ -7,6 +7,7 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "prepare": "husky install",
+    "clean": "turbo run clean && rm -rf node_modules",
     "format": "pnpm prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'",
     "format-staged": "pnpm prettier --write",
     "lint-staged-optimal-imports": "pnpm jscodeshift -t node_modules/@material-ui/codemod/lib/v4.0.0/optimal-imports.js",
