@@ -1,6 +1,8 @@
+import MuiButton from "@mui/material/Button";
 import * as React from "react";
-import { Button as MuiButton } from "@mui/material";
 
-export const Button = () => {
+function Button() {
   return <MuiButton>Boop</MuiButton>;
-};
+}
+
+export default Button;
