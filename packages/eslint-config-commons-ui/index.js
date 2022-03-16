@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:markdown/recommended",
+    "plugin:json/recommended",
     "airbnb",
     "airbnb/hooks",
     "plugin:prettier/recommended",
@@ -30,8 +31,8 @@ module.exports = {
     "no-restricted-imports": [
       "error",
       {
-        "patterns": ["@mui/*/*/*", "!@mui/material/test-utils/*"]
-      }
+        patterns: ["@mui/*/*/*", "!@mui/material/test-utils/*"],
+      },
     ],
     "react/jsx-filename-extension": [
       1,
