@@ -19,6 +19,7 @@ import CtAButton from "@/promisetracker/components/CtAButton";
 function FormDialog({ session, open, handleFormClose, ...props }) {
   const classes = useStyles(props);
   const { petitionTitle, petitionDescription } = props;
+  const [error, setError] = React.useState(null);
   const [values, setValues] = React.useState({
     title: "",
     description: "",
@@ -32,22 +33,21 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError(null);
     fetch("/api/petitions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(values),
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Network response was not ok.");
-      })
-      .finally(() => {
+    }).then((response) => {
+      if (response.ok) {
+        console.log(response);
         handleFormClose();
-      });
+        return response.json();
+      }
+      return setError(response.statusText || "Something went wrong");
+    });
   };
   return (
     <Dialog
@@ -90,6 +90,7 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
           {...props}
           onSubmit={handleSubmit}
         />
+        <Typography>{error}</Typography>
       </DialogContent>
       <DialogActions>
         <CtAButton form="form-data" type="submit" color="primary">

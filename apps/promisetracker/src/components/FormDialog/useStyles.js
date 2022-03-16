@@ -107,6 +107,7 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
   underline: {
     "&::before": {
       borderBottom: 0,
+      top: 0,
     },
   },
   inputRoot: { order: 3, marginTop: 0 },
@@ -128,8 +129,13 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     marginTop: typography.pxToRem(40),
   },
   imageInput: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    opacity: 0,
     backgroundColor: "#F7F7F7",
-    height: typography.pxToRem(50),
     minWidth: "100%",
     "& input": {
       display: "none",
@@ -139,10 +145,12 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     width: typography.pxToRem(150),
     height: typography.pxToRem(150),
     objectFit: "contain",
-    marginLeft: typography.pxToRem(30),
+    marginLeft: typography.pxToRem(15),
+    marginRight: typography.pxToRem(15),
   },
   imageContainer: {
     backgroundColor: "#F7F7F7",
+    position: "relative",
   },
   gridContainer: {
     justifyContent: "center",

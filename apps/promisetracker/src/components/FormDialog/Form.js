@@ -195,10 +195,6 @@ function Form({
           <Typography variant={helperVariant}>{imageHelper}</Typography>
         </FormHelperText>
         <div className={classes.imageContainer}>
-          <Grid container classes={{ root: classes.gridContainer }}>
-            <p className={classes.inputText}>{uploadInstruction}</p>
-          </Grid>
-
           <Input
             inputRef={fileInput}
             type="file"
@@ -214,31 +210,35 @@ function Form({
             onDragLeave={handleDrag}
             onDrop={handleDrop}
           />
-          <CtAButton
-            color="secondary"
-            onClick={handleClick}
-            classes={{
-              button: classes.uploadButton,
-              root: classes.button,
-            }}
-          >
-            {uploadText}
-          </CtAButton>
-          <div>
-            {images.map((image) => {
-              return (
-                // next/image doesn't support blob URL
-                // see: https://github.com/vercel/next.js/pull/23622
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  key={image}
-                  src={image}
-                  alt=""
-                  className={classes.imageThumbnail}
-                />
-              );
-            })}
-          </div>
+
+          <Grid container classes={{ root: classes.gridContainer }}>
+            <p className={classes.inputText}>{uploadInstruction}</p>
+            <CtAButton
+              color="secondary"
+              onClick={handleClick}
+              classes={{
+                button: classes.uploadButton,
+                root: classes.button,
+              }}
+            >
+              {uploadText}
+            </CtAButton>
+            <div>
+              {images.map((image) => {
+                return (
+                  // next/image doesn't support blob URL
+                  // see: https://github.com/vercel/next.js/pull/23622
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={image}
+                    src={image}
+                    alt=""
+                    className={classes.imageThumbnail}
+                  />
+                );
+              })}
+            </div>
+          </Grid>
         </div>
       </FormControl>
 
