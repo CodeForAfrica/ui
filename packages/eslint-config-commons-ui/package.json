@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "lint": "eslint --fix './'",
-    "clean": "rm -rf .turbo && rm -rf node_modules"
+    "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.17.0",
