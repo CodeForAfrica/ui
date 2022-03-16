@@ -23,7 +23,6 @@ async function createPetition(req, res) {
     }
     try {
       const petition = await actnow().petitions().create(session, formdata);
-
       return res.status(201).json(petition);
     } catch (error) {
       return res.status(500).json(error);

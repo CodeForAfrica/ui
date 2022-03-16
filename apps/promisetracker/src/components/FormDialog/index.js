@@ -42,7 +42,6 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
       body: JSON.stringify(values),
     }).then((response) => {
       if (response.ok) {
-        console.log(response);
         handleFormClose();
         return response.json();
       }
@@ -90,7 +89,9 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
           {...props}
           onSubmit={handleSubmit}
         />
-        <Typography>{error}</Typography>
+        <Typography className={classes.error} variant="caption">
+          {error}
+        </Typography>
       </DialogContent>
       <DialogActions>
         <CtAButton form="form-data" type="submit" color="primary">

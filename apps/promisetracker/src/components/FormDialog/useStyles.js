@@ -20,6 +20,11 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
       },
     },
   },
+  error: {
+    color: "red",
+    textAlign: "center",
+    display: "block",
+  },
   root: {
     width: "100%",
     backgroundColor: "#F7F7F7",

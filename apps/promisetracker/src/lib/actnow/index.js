@@ -110,21 +110,17 @@ function actnow(site) {
 
   async function createPetition(session, data) {
     const url = `${ACTNOW_URL}/v1/petitions/`;
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${session?.accessToken}`,
-        },
-        body: data,
-      });
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error(response.statusText);
-    } catch (error) {
-      return error;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${session?.accessToken}`,
+      },
+      body: data,
+    });
+    if (response.ok) {
+      return response.json();
     }
+    throw new Error(response.statusText);
   }
 
   const api = {
