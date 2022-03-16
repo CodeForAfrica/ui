@@ -37,6 +37,7 @@ importers:
       '@emotion/styled': 11.8.1_014d3fd47caecfb5ae8372631ae4f839
       '@mui/material': 5.5.1_04cccb159326fc32d263f5d228230564
       next: 12.1.0_fbf64ceed39fcaf258f74679fe7c79ca
+      next-transpile-modules: 9.0.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       ui: link:../../packages/ui
@@ -45,7 +46,6 @@ importers:
       '@types/react': 17.0.40
       eslint: 8.11.0
       eslint-config-commons-ui: link:../../packages/eslint-config-commons-ui
-      next-transpile-modules: 9.0.0
       prettier: 2.6.0
       typescript: 4.6.2
 
@@ -72,6 +72,7 @@ importers:
       '@emotion/styled': 11.8.1_014d3fd47caecfb5ae8372631ae4f839
       '@mui/material': 5.5.1_04cccb159326fc32d263f5d228230564
       next: 12.1.0_fbf64ceed39fcaf258f74679fe7c79ca
+      next-transpile-modules: 9.0.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       ui: link:../../packages/ui
@@ -80,7 +81,6 @@ importers:
       '@types/react': 17.0.40
       eslint: 8.11.0
       eslint-config-commons-ui: link:../../packages/eslint-config-commons-ui
-      next-transpile-modules: 9.0.0
       prettier: 2.6.0
       typescript: 4.6.2
 
@@ -104,6 +104,7 @@ importers:
       eslint-plugin-react: ^7.28.0
       eslint-plugin-react-hooks: ^4.3.0
       prettier: ^2.6.0
+      react: ^17.0.2
     dependencies:
       '@babel/eslint-parser': 7.17.0_@babel+core@7.17.7+eslint@8.11.0
       '@babel/preset-react': 7.16.7_@babel+core@7.17.7
@@ -121,6 +122,7 @@ importers:
       '@babel/core': 7.17.7
       eslint: 8.11.0
       prettier: 2.6.0
+      react: 17.0.2
 
   packages/ui:
     specifiers:
@@ -1277,7 +1279,6 @@ packages:
     dependencies:
       graceful-fs: 4.2.9
       tapable: 2.2.1
-    dev: true
 
   /error-ex/1.3.2:
     resolution: {integrity: sha512-7dFHNmqeFSEt2ZBsCriorKnn3Z2pj+fd9kmI6QoWw4//DL+icEBfc0U7qJCisqrTsKTjw4fNFy2pW9OqStD84g==}
@@ -1760,7 +1761,6 @@ packages:
 
   /graceful-fs/4.2.9:
     resolution: {integrity: sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==}
-    dev: true
 
   /has-bigints/1.0.1:
     resolution: {integrity: sha512-LSBS2LjbNBTf6287JEbEzvJgftkF5qFkmCo9hDRpAzKhUOlJ+hx8dd4USs00SgsUNwc4617J9ki5YtEClM2ffA==}
@@ -2208,7 +2208,7 @@ packages:
     dependencies:
       enhanced-resolve: 5.9.2
       escalade: 3.1.1
-    dev: true
+    dev: false
 
   /next/12.1.0_fbf64ceed39fcaf258f74679fe7c79ca:
     resolution: {integrity: sha512-s885kWvnIlxsUFHq9UGyIyLiuD0G3BUC/xrH0CEnH5lHEWkwQcHOORgbDF0hbrW9vr/7am4ETfX4A7M6DjrE7Q==}
@@ -2765,7 +2765,6 @@ packages:
   /tapable/2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
-    dev: true
 
   /text-table/0.2.0:
     resolution: {integrity: sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=}

@@ -8,6 +8,7 @@
     "next.js"
   ],
   "scripts": {
+    "lint": "eslint --fix './'",
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "dependencies": {
@@ -27,7 +28,8 @@
   "devDependencies": {
     "@babel/core": "^7.17.7",
     "eslint": "^8.11.0",
-    "prettier": "^2.6.0"
+    "prettier": "^2.6.0",
+    "react": "^17.0.2"
   },
   "peerDependencies": {
     "eslint": "^8",
