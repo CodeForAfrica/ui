@@ -1,2 +1,3 @@
-import * as React from "react";
-export * from "./Button";
+/* eslint-disable import/prefer-default-export */
+
+export { default as Button } from "./Button";

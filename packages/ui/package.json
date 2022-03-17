@@ -4,12 +4,16 @@
   "main": "./index.js",
   "license": "MIT",
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
-    "storybook": "start-storybook"
+    "lint": "eslint --fix './'",
+    "clean": "rm -rf .turbo node_modules"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.7",
+    "@babel/preset-react": "^7.16.7",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@material-ui/core": "^4.12.3",
+    "@mui/material": "^5.5.1",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-links": "^6.4.19",
@@ -17,10 +21,25 @@
     "@storybook/client-api": "^6.4.19",
     "@storybook/react": "^6.4.19",
     "@svgr/webpack": "^6.2.1",
-    "config": "workspace:*",
+    "@types/react": "^17.0.40",
+    "babel-loader": "^8.2.3",
+    "eslint": "^8.11.0",
+    "eslint-config-commons-ui": "workspace:*",
+    "prettier": "^2.6.0",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "storybook-addon-material-ui": "^0.9.0-alpha.24",
-    "storybook-addon-next-router": "^3.1.1",
     "svg-url-loader": "^7.1.1",
+    "typescript": "^4.6.2",
     "webpack": "^5.70.0"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.17.7",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
