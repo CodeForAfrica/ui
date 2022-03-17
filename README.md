@@ -1,16 +1,18 @@
 # ui
-# Get started 
+
+# Get started
 
 This project is using [pnpm](https://pnpm.io/) as a package manager. To setup the monorepo run the following:
 
 ```
 
-npm install -g pnpm 
+npm install -g pnpm
 cd ui
 pnpm install
 
 ```
 
+This project is using [pnpm](https://pnpm.io/) as a package manager.
 
 ### Build
 
@@ -31,6 +33,7 @@ To develop all apps and packages, run the following command:
 pnpm  dev
 
 ```
+
 ### Testing
 
 To run jest
@@ -38,6 +41,12 @@ To run jest
 ```
 
 cd apps/docs
-pnpm test 
+pnpm test
+
+```
+
+pnpm run dev
+
+```
 
 ```
