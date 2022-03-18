@@ -1,1 +1,5 @@
-export { default as Typography } from "./RichTypography";
+import RichTypography from "./RichTypography";
+
+export default {
+  RichTypography,
+};
