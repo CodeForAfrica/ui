@@ -5,8 +5,10 @@ import {
   LinearProgress,
   Typography,
   IconButton,
+  Snackbar,
 } from "@material-ui/core";
 import UserIcon from "@material-ui/icons/Person";
+import Alert from "@material-ui/lab/Alert";
 import { useSession } from "next-auth/react";
 import Router from "next/router";
 import PropTypes from "prop-types";
@@ -22,6 +24,7 @@ import SignPetition from "@/promisetracker/components/SignPetition";
 
 function Petition({ petitionPost = {}, ...props }) {
   const [open, setOpen] = useState(false);
+  const [success, setSuccess] = useState(false);
   const { data: session } = useSession();
 
   const {
@@ -49,6 +52,14 @@ function Petition({ petitionPost = {}, ...props }) {
     } else {
       setOpen(true);
     }
+  };
+
+  const handleSnackbarClose = () => {
+    setSuccess(false);
+  };
+
+  const handleSnackbarOpen = () => {
+    setSuccess(true);
   };
 
   const handleFormClose = () => {
@@ -135,9 +146,15 @@ function Petition({ petitionPost = {}, ...props }) {
               <FormDialog
                 open={open}
                 session={session}
+                petitionSuccess={handleSnackbarOpen}
                 handleFormClose={handleFormClose}
                 {...props}
               />
+              <Snackbar open={success}>
+                <Alert onClose={handleSnackbarClose} severity="success">
+                  Petition successfully created!
+                </Alert>
+              </Snackbar>
             </Grid>
           </Grid>
         </Grid>

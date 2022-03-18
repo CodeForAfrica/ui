@@ -18,7 +18,13 @@ import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 
-function FormDialog({ session, open, handleFormClose, ...props }) {
+function FormDialog({
+  session,
+  open,
+  petitionSuccess,
+  handleFormClose,
+  ...props
+}) {
   const classes = useStyles(props);
   const { petitionTitle, petitionDescription } = props;
   const [error, setError] = React.useState(null);
@@ -48,6 +54,7 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
       setLoading(null);
       if (response.ok) {
         handleFormClose();
+        petitionSuccess();
 
         return response.json();
       }
@@ -96,11 +103,6 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
           onSubmit={handleSubmit}
         />
         {error && <Alert severity="error">{error}</Alert>}
-        {/* {success && (
-          <Alert severity="success">
-            This is a success alert check it out!
-          </Alert>
-        )} */}
       </DialogContent>
       {loading && (
         <div className={classes.loaderContainer}>
@@ -118,6 +120,7 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
 
 FormDialog.propTypes = {
   handleFormClose: PropTypes.func,
+  petitionSuccess: PropTypes.func,
   open: PropTypes.bool,
   petitionDescription: PropTypes.string,
   petitionTitle: PropTypes.string,
@@ -129,6 +132,7 @@ FormDialog.propTypes = {
 FormDialog.defaultProps = {
   open: null,
   handleFormClose: null,
+  petitionSuccess: null,
   petitionDescription: null,
   petitionTitle: null,
   session: null,
