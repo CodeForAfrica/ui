@@ -25,6 +25,13 @@ const useStyles = makeStyles(({ typography, breakpoints }) => ({
     textAlign: "center",
     display: "block",
   },
+  loader: {
+    color: "#005DFD",
+  },
+  loaderContainer: {
+    display: "flex",
+    justifyContent: "center",
+  },
   root: {
     width: "100%",
     backgroundColor: "#F7F7F7",

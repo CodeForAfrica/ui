@@ -6,8 +6,10 @@ import {
   DialogContent,
   DialogContentText,
   Typography,
+  CircularProgress,
 } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
+import Alert from "@material-ui/lab/Alert";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -20,6 +22,7 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
   const classes = useStyles(props);
   const { petitionTitle, petitionDescription } = props;
   const [error, setError] = React.useState(null);
+  const [loading, setLoading] = React.useState(null);
   const [values, setValues] = React.useState({
     title: "",
     description: "",
@@ -34,6 +37,7 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(null);
+    setLoading(true);
     fetch("/api/petitions", {
       method: "POST",
       headers: {
@@ -41,11 +45,13 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
       },
       body: JSON.stringify(values),
     }).then((response) => {
+      setLoading(null);
       if (response.ok) {
         handleFormClose();
+
         return response.json();
       }
-      return setError(response.statusText || "Something went wrong");
+      return setError("Something went wrong. Please try again");
     });
   };
   return (
@@ -89,10 +95,18 @@ function FormDialog({ session, open, handleFormClose, ...props }) {
           {...props}
           onSubmit={handleSubmit}
         />
-        <Typography className={classes.error} variant="caption">
-          {error}
-        </Typography>
+        {error && <Alert severity="error">{error}</Alert>}
+        {/* {success && (
+          <Alert severity="success">
+            This is a success alert check it out!
+          </Alert>
+        )} */}
       </DialogContent>
+      {loading && (
+        <div className={classes.loaderContainer}>
+          <CircularProgress className={classes.loader} />
+        </div>
+      )}
       <DialogActions>
         <CtAButton form="form-data" type="submit" color="primary">
           Submit
