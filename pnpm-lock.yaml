@@ -178,6 +178,7 @@ importers:
       '@testing-library/react': ^12.1.4
       '@types/react': ^17.0.40
       babel-jest: ^27.5.1
+      config: workspace:*
       eslint: ^8.11.0
       eslint-config-commons-ui: workspace:*
       identity-obj-proxy: ^3.0.0
@@ -197,6 +198,7 @@ importers:
       '@testing-library/react': 12.1.4_react-dom@17.0.2+react@17.0.2
       '@types/react': 17.0.41
       babel-jest: 27.5.1_@babel+core@7.17.8
+      config: link:../config
       eslint: 8.11.0
       eslint-config-commons-ui: link:../eslint-config-commons-ui
       identity-obj-proxy: 3.0.0
