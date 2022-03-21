@@ -23,9 +23,9 @@ module.exports = {
   // Add more setup options before each test is run
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 
-  transform: {
-    "^.+\\.jsx?$": "babel-jest",
-  },
+
+
+
 
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
   testEnvironment: 'jsdom',
