@@ -2,7 +2,6 @@ module.exports = {
   roots: ["<rootDir>"],
   collectCoverageFrom: [
     '**/*.{js,jsx}',
-    '!**/*.d.ts',
     '!**/node_modules/**',
   ],
   moduleFileExtensions: [ "js", "jsx", "json", "node"],
