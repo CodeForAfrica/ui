@@ -1,13 +1,15 @@
 import React from "react";
 
-import { Button } from './index'
+import { Button } from "./index";
 
 export default {
   title: "Component/Button",
   argTypes: {},
 };
 
-const Template = ({ ...args }) => <Button {...args} />;
+function Template({ ...args }) {
+  return <Button {...args} />;
+}
 
 export const Default = Template.bind({});
 
