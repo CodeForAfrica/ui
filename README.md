@@ -40,7 +40,6 @@ To run jest
 
 ```
 
-cd apps/docs
 pnpm test
 
 ```
