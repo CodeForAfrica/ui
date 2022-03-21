@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "eslint --fix './'",
     "clean": "rm -rf .turbo node_modules",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook --ci -p 6006",
+    "build-storybook": "build-storybook --quiet -o dist"
   },
   "devDependencies": {
     "@babel/core": "^7.17.7",
@@ -30,7 +30,7 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "storybook-addon-material-ui": "^0.9.0-alpha.24",
+    "storybook-addon-material-ui5": "^1.0.0",
     "storybook-addon-turbo-build": "^1.1.0",
     "svg-url-loader": "^7.1.1",
     "typescript": "^4.6.2",
