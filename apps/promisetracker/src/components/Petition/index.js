@@ -36,8 +36,6 @@ function Petition({ petitionPost = {}, ...props }) {
     owner = "",
   } = petitionPost;
 
-  console.log(image);
-
   const status = {
     name: requiredSignatures === signatures.length ? "Closed" : "Pending",
     description: "",
