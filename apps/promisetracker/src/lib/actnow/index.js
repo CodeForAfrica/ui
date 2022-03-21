@@ -104,7 +104,9 @@ function actnow(site) {
     const url = `${ACTNOW_URL}/v1/petitions/${id}/?format=json`;
     const response = await fetch(url);
     const petition = (await response.json()) || [];
-    [petition.image] = petition.image.split("?");
+    if (petition?.image) {
+      petition.image = petition.image.split("?")?.[0];
+    }
     return petition;
   }
 
