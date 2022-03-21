@@ -1,5 +1,4 @@
 import Head from "next/head";
-import * as React from "react";
 import { Button } from "ui";
 
 import styles from "./index.module.css";
@@ -8,13 +7,13 @@ export default function Docs() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Docs: Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Docs Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className={styles.description}>

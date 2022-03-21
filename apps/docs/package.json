@@ -7,9 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix './'",
-    "test": "jest --detectOpenHandles",
-    "playwright": "playwright test",
-    "show": " playwright show-report",
+    "test": "jest",
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
@@ -27,13 +25,18 @@
   "devDependencies": {
     "@types/node": "^17.0.21",
     "@types/react": "^17.0.40",
-    "config": "workspace:*",
     "eslint": "^8.11.0",
+    "config": "workspace:*",
     "eslint-config-commons-ui": "workspace:*",
     "jest": "^27.5.1",
     "next-transpile-modules": "^9.0.0",
     "prettier": "^2.6.0",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.2",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
+    "babel-jest": "^27.5.1",
+    "identity-obj-proxy": "^3.0.0",
+    "react-test-renderer": "^17.0.2"
   },
   "jest": {
     "preset": "config/jest/presets"
