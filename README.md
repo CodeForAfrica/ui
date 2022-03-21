@@ -29,9 +29,7 @@ pnpm  build
 To develop all apps and packages, run the following command:
 
 ```
-
 pnpm dev
-
 ```
 
 ### Testing
@@ -39,7 +37,5 @@ pnpm dev
 To test all apps and packages, run the following command:
 
 ```
-
 pnpm test
-
 ```
