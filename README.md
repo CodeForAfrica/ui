@@ -43,13 +43,3 @@ To test all apps and packages, run the following command:
 pnpm test
 
 ```
-
-Turborepo will ran all test in your application
-
-To run jest on individual packages or apps
-
-```
-cd apps/docs or cd/web
-pnpm test
-
-```
