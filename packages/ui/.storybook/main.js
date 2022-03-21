@@ -33,10 +33,6 @@ module.exports = {
         "@svgr/webpack",
         {
           loader: "svg-url-loader",
-          options: {
-            // https://github.com/bhovhannes/svg-url-loader#iesafe
-            iesafe: true,
-          },
         },
       ],
     });
