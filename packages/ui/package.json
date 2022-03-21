@@ -4,7 +4,7 @@
   "main": "./index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest --detectOpenHandles",
+    "test": "jest",
     "lint": "eslint --fix './'",
     "clean": "rm -rf .turbo node_modules"
   },
