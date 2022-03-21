@@ -36,7 +36,7 @@ pnpm dev
 
 ### Testing
 
-To run all test in the monorepo:
+To test all apps and packages, run the following command:
 
 ```
 
