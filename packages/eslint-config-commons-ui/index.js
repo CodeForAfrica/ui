@@ -41,5 +41,9 @@ module.exports = {
       },
     ],
     "react/jsx-props-no-spreading": "off",
+    "react/react-in-jsx-scope": "off",
+  },
+  env: {
+    jest: true,
   },
 };

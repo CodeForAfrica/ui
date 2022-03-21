@@ -1,5 +1,15 @@
 # ui
 
+# Get started
+
+This project is using [pnpm](https://pnpm.io/) as a package manager. To setup the monorepo run the following:
+
+```
+npm install -g pnpm
+cd ui
+pnpm install
+```
+
 This project is using [pnpm](https://pnpm.io/) as a package manager.
 
 ### Build
@@ -7,9 +17,7 @@ This project is using [pnpm](https://pnpm.io/) as a package manager.
 To build all apps and packages, run the following command:
 
 ```
-
-pnpm run build
-
+pnpm  build
 ```
 
 ### Develop
@@ -17,17 +25,13 @@ pnpm run build
 To develop all apps and packages, run the following command:
 
 ```
-
-pnpm run dev
-
+pnpm dev
 ```
 
-### StoryBook
+### Testing
 
-To run storybook in UI folder
+To test all apps and packages, run the following command:
 
 ```
-cd packages/ui
-pnpm storybook
-
+pnpm test
 ```
