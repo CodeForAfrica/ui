@@ -128,7 +128,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
       ...site,
       petition,
     },
-    revalidate: 30 * 60, // seconds
+    revalidate: 2 * 60, // seconds
   };
 }
 
