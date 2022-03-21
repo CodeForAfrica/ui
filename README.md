@@ -36,7 +36,7 @@ pnpm  dev
 
 ### Testing
 
-To run jest
+To run all test in the monorepo:
 
 ```
 
@@ -44,8 +44,12 @@ pnpm test
 
 ```
 
-pnpm run dev
+Turborepo will ran all test in your application
+
+To run jest on individual packages or apps
 
 ```
+cd apps/docs or cd/web
+pnpm test
 
 ```
