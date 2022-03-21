@@ -55,7 +55,6 @@ function Index({
 }) {
   const classes = useStyles(props);
   const title = article?.title ? `${article.title} | ${titleProp}` : titleProp;
-  console.log(petition);
 
   return (
     <Page
@@ -122,7 +121,6 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   const actNowPage = await wpApi.pages({ slug: "act-now", locale }).first;
   const site = await backend.sites().current;
 
-  console.log(petition);
   return {
     props: {
       ...page,
