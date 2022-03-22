@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.7",
+    "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
@@ -19,8 +20,8 @@
     "@types/react": "^17.0.40",
     "babel-jest": "^27.5.1",
     "eslint": "^8.11.0",
-    "config": "workspace:*",
     "eslint-config-commons-ui": "workspace:*",
+    "jest-config-commons-ui": "workspace:*",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "prettier": "^2.6.0",
@@ -36,8 +37,5 @@
     "@mui/material": "^5.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  },
-  "jest": {
-    "preset": "config/jest/presets"
   }
 }
