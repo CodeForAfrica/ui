@@ -38,7 +38,7 @@ pnpm test
 
 ### Adding changesets
 
-To publish a package, run the following command. This will let you choose what package you wish to publish
+To add changeset, run the following command. This will let you choose what package you wish to publish
 
 ```
 pnpm changeset
@@ -46,7 +46,10 @@ pnpm changeset
 
 ### Releasing and publishng to npm
 
+To publish you packages, run
+
 ```
-pnpm changeset version
-pnpm changeset publish
+pnpm release
 ```
+
+Make sure you are logged in to npm before publishing your package
