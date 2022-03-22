@@ -38,7 +38,7 @@ pnpm test
 
 ### Adding changesets
 
-To add changeset, run the following command. This will let you choose what package you wish to publish
+To add changeset, run the following command. This will let you choose what package you want to publish
 
 ```
 pnpm changeset
