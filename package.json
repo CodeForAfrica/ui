@@ -12,6 +12,7 @@
     "format": "prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.21.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
     "prettier": "^2.6.0",
