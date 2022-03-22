@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint --fix './'",
     "test": "jest",
+    "playwright": "playwright test",
+    "report": " playwright show-report",
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
