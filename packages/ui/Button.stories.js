@@ -7,8 +7,8 @@ export default {
   argTypes: {},
 };
 
-function Template({ ...args }) {
-  return <Button {...args} />;
+function Template() {
+  return <Button />;
 }
 
 export const Default = Template.bind({});
