@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+<<<<<<< HEAD
     "dev": "next dev --port 3002",
+=======
+    "dev": "next dev --port 3001",
+>>>>>>> parent of 8d2857d (Remove args, remove port)
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix './'",
