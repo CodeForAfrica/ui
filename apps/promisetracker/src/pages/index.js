@@ -3,28 +3,27 @@ import { Button } from "ui";
 
 import styles from "./index.module.css";
 
-export default function Docs() {
+function Index() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Web: Create Next App</title>
+        <title>PromiseTracker</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className={styles.title}>
-          Web Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <h1 className={styles.title}>Tracking Politician</h1>
 
         <p className={styles.description}>
           Get started by editing <code>pages/index.js</code>
         </p>
 
         <div className={styles.grid}>
-          <h1>DOCS IS HERE</h1>
           <Button />
         </div>
       </main>
     </div>
   );
 }
+
+export default Index;
