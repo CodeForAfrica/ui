@@ -13,7 +13,7 @@ importers:
       prettier: 2.6.0
       turbo: 1.1.6
 
-  apps/docs:
+  apps/pesayetu:
     specifiers:
       "@babel/core": ^7.17.7
       "@emotion/react": ^11.8.2
@@ -64,7 +64,7 @@ importers:
       react-test-renderer: 17.0.2_react@17.0.2
       typescript: 4.6.2
 
-  apps/web:
+  apps/promisetracker:
     specifiers:
       "@babel/core": ^7.17.7
       "@emotion/react": ^11.8.2
