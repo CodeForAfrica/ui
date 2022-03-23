@@ -1,5 +1,4 @@
 module.exports = {
-  roots: ["<rootDir>"],
   collectCoverageFrom: ["**/*.{js,jsx}", "!**/node_modules/**"],
   moduleFileExtensions: ["js", "jsx", "json", "node"],
   moduleNameMapper: {
@@ -8,16 +7,19 @@ module.exports = {
     "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
 
     // Handle CSS imports (without CSS modules)
-    "^.+\\.(css|sass|scss)$": "../../__mocks__/styleMock.js",
+    "^.+\\.(css|sass|scss)$": "jest-config-commons-ui/__mocks__/styleMock.js",
 
     // Handle image imports
     // https://jestjs.io/docs/webpack#handling-static-assets
-    "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i": `../../__mocks__/fileMock.js`,
+    "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i": `jest-config-commons-ui/__mocks__/fileMock.js`,
   },
+  roots: ["<rootDir>"],
   // Add more setup options before each test is run
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
+  snapshotResolver: "jest-config-commons-ui/snapshotResolver",
   testEnvironment: "jsdom",
+  testPathIgnorePatterns: ["<rootDir>/node_modules/"],
+  testURL: "http://localhost/",
   transform: {
     "^.+\\.(js|jsx)$": [
       "babel-jest",
@@ -28,5 +30,4 @@ module.exports = {
     "/node_modules/",
     "^.+\\.module\\.(css|sass|scss)$",
   ],
-  testURL: "http://localhost/",
 };
