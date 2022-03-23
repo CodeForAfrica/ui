@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button } from "ui";
 
-export default function Docs() {
+export default function Web() {
   return (
     <div>
       <h1>Web</h1>
