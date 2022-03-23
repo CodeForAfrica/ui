@@ -1,7 +1,7 @@
-import Head from 'next/head'
+import Head from "next/head";
 import { Button } from "ui";
 
-import styles from '../pages/index.module.css'
+import styles from "./index.module.css";
 
 export default function Docs() {
   return (
@@ -21,12 +21,10 @@ export default function Docs() {
         </p>
 
         <div className={styles.grid}>
-            <h1>DOCS IS HERE</h1>
-            <Button />
-          </div>
+          <h1>DOCS IS HERE</h1>
+          <Button />
+        </div>
       </main>
     </div>
-  )
+  );
 }
-
-
