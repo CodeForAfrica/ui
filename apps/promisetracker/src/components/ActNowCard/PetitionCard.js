@@ -1,4 +1,5 @@
-import { Grid } from "@material-ui/core";
+import { Grid, Snackbar } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 import { useSession } from "next-auth/react";
 import Router from "next/router";
 import PropTypes, { string } from "prop-types";
@@ -20,21 +21,31 @@ function PetitionCard({ closeCard, promiseActNow, ...props }) {
 
   const { petitionJoin, petitionTitle: petitionStart } = props;
   const [open, setOpen] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   const { data: session } = useSession();
 
   const classes = useStyles();
 
   const handleFormOpen = () => {
-    setOpen(true);
-
     if (!session) {
       setOpen(false);
       Router.push("/login");
+    } else {
+      setOpen(true);
     }
   };
 
   const handleFormClose = () => {
     setOpen(false);
+  };
+
+  const handleSnackbarClose = () => {
+    setSuccess(false);
+  };
+
+  const handleSnackbarOpen = () => {
+    setSuccess(true);
   };
 
   return (
@@ -63,7 +74,18 @@ function PetitionCard({ closeCard, promiseActNow, ...props }) {
         >
           {petitionJoin}
         </CtAButton>
-        <FormDialog open={open} handleFormClose={handleFormClose} {...props} />
+        <FormDialog
+          session={session}
+          petitionSuccess={handleSnackbarOpen}
+          open={open}
+          handleFormClose={handleFormClose}
+          {...props}
+        />
+        <Snackbar open={success}>
+          <Alert onClose={handleSnackbarClose} severity="success">
+            Petition successfully created!
+          </Alert>
+        </Snackbar>
       </Grid>
     </BaseContent>
   );
