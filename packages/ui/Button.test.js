@@ -1,11 +1,11 @@
 import { render } from "@testing-library/react";
-import * as React from "react";
-import "@testing-library/jest-dom/extend-expect";
+import React from "react";
 
 import Button from "./Button";
 
 describe("Button", () => {
-  it("renders a button", () => {
-    render(<Button />);
+  it("renders a button unchanged", () => {
+    const { container } = render(<Button />);
+    expect(container).toMatchSnapshot();
   });
 });
