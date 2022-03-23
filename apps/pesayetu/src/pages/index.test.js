@@ -3,8 +3,8 @@ import "@testing-library/jest-dom/extend-expect";
 
 import Index from ".";
 
-describe("Home", () => {
-  it("renders homepage unchanged", () => {
+describe("Homepage", () => {
+  it("renders unchanged", () => {
     const { container } = render(<Index />);
     expect(container).toMatchSnapshot();
   });

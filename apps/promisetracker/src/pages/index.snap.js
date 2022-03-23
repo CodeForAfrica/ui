@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home renders homepage unchanged 1`] = `
+exports[`Homepage renders unchanged 1`] = `
 <div>
   <div
     class="container"

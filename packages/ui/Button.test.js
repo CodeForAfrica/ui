@@ -4,7 +4,7 @@ import React from "react";
 import Button from "./Button";
 
 describe("Button", () => {
-  it("renders a button unchanged", () => {
+  it("renders unchanged", () => {
     const { container } = render(<Button />);
     expect(container).toMatchSnapshot();
   });
