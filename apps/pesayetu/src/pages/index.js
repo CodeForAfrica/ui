@@ -3,17 +3,17 @@ import { Button } from "ui";
 
 import styles from "./index.module.css";
 
-export default function Docs() {
+function Index() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>PesaYetu</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className={styles.title}>
-          Docs Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Data to hold your government accountable
         </h1>
 
         <p className={styles.description}>
@@ -21,10 +21,11 @@ export default function Docs() {
         </p>
 
         <div className={styles.grid}>
-          <h1>DOCS IS HERE</h1>
           <Button />
         </div>
       </main>
     </div>
   );
 }
+
+export default Index;
