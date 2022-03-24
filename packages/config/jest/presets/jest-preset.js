@@ -5,6 +5,7 @@ module.exports = {
     '!**/node_modules/**',
   ],
   moduleFileExtensions: [ "js", "jsx", "json", "node"],
+  testMatch: [ "**/?(*.)+(test).[jt]s?(x)"],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
     // https://jestjs.io/docs/webpack#mocking-css-modules
