@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix './'",
-    "test": "jest",
-    "playwright": "playwright test && playwright show-report",
+    "test": "jest && playwright test && playwright show-report",
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
@@ -16,7 +15,6 @@
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.5.1",
-    "@playwright/test": "^1.19.2",
     "next": "12.1.0",
     "next-transpile-modules": "^9.0.0",
     "playwright-config-commons-ui": "workspace:*",
@@ -25,6 +23,7 @@
     "ui": "workspace:*"
   },
   "devDependencies": {
+    "@playwright/test": "^1.19.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@types/node": "^17.0.21",

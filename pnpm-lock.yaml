@@ -98,7 +98,6 @@ importers:
       '@emotion/react': 11.8.2_5a943fc55a0ff92c0edb94756a5bda3c
       '@emotion/styled': 11.8.1_4f34f9dcb4a72ea8dc26be56200ba2d2
       '@mui/material': 5.5.2_0177f6fdb6acb6d74036e1259a0d9727
-      '@playwright/test': 1.20.1
       next: 12.1.0_978f344c876a57c1143ffe356b90df31
       next-transpile-modules: 9.0.0
       playwright-config-commons-ui: link:../../packages/playwright-config-commons-ui
@@ -106,6 +105,7 @@ importers:
       react-dom: 17.0.2_react@17.0.2
       ui: link:../../packages/ui
     devDependencies:
+      '@playwright/test': 1.20.1
       '@testing-library/jest-dom': 5.16.2
       '@testing-library/react': 12.1.4_react-dom@17.0.2+react@17.0.2
       '@types/node': 17.0.23
