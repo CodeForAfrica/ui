@@ -3,3 +3,4 @@ module.exports = {
   "*.js": "eslint --fix",
   "*.yml": "prettier --write",
 };
+
