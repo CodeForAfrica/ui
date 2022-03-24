@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "eslint --fix './'",
     "test": "jest",
-    "playwright": "playwright test",
-    "report": " playwright show-report",
+    "playwright": "playwright test && playwright show-report",
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
@@ -19,6 +18,7 @@
     "@mui/material": "^5.5.1",
     "next": "12.1.0",
     "next-transpile-modules": "^9.0.0",
+    "playwright-config-commons-ui": "workspace:*",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "ui": "workspace:*"
