@@ -2,6 +2,10 @@
   "name": "playwright-config-commons-ui",
   "version": "1.0.0",
   "private": true,
+  "files": [
+    "index.js",
+    "next.js"
+  ],
   "scripts": {
     "clean": "rm -rf .turbo node_modules"
   },
