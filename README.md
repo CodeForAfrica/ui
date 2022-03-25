@@ -35,3 +35,21 @@ To test all apps and packages, run the following command:
 ```
 pnpm test
 ```
+
+### Adding changesets
+
+To add changeset, run the following command. This will let you choose what package you want to publish
+
+```
+pnpm changeset
+```
+
+### Releasing and publishng to npm
+
+To publish you packages, run
+
+```
+pnpm release
+```
+
+Make sure you are logged in to npm before publishing your package
