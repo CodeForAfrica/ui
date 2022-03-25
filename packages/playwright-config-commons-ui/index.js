@@ -3,9 +3,6 @@ const { devices } = require("@playwright/test");
 const config = {
   timeout: 30 * 1000,
   testMatch: /.*\.spec.js/,
-  expect: {
-    timeout: 5000,
-  },
   reporter: "html",
   use: {
     actionTimeout: 0,
