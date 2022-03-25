@@ -8,7 +8,7 @@
     "lint": "turbo run lint",
     "prepare": "husky install",
     "release": "changeset version && pnpm install",
-    "publish": "changeset publish",
+    "publish": "pnpm publish -r",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'"
