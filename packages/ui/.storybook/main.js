@@ -13,7 +13,7 @@ module.exports = {
       },
     },
   ],
-  
+
   stories: ["../**/*.stories.js"],
   webpackFinal: async (config) => {
     // Need to remove default svg-url-loader first
