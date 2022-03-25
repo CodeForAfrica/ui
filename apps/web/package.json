@@ -17,7 +17,6 @@
     "@mui/material": "^5.5.1",
     "next": "12.1.0",
     "next-transpile-modules": "^9.0.0",
-    "playwright-config-commons-ui": "workspace:*",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "ui": "workspace:*"
@@ -31,6 +30,7 @@
     "babel-jest": "^27.5.1",
     "config": "workspace:*",
     "eslint": "^8.11.0",
+    "playwright-config-commons-ui": "workspace:*",
     "eslint-config-commons-ui": "workspace:*",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
