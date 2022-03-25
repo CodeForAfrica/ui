@@ -7,7 +7,7 @@ export default function Docs() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Docs: Create Next App</title>
+        <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
