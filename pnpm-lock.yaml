@@ -169,6 +169,72 @@ importers:
       prettier: 2.6.0
       react: 17.0.2
 
+  packages/publish-ui:
+    specifiers:
+      '@babel/core': ^7.17.7
+      '@babel/preset-react': ^7.16.7
+      '@emotion/react': ^11.8.2
+      '@emotion/styled': ^11.8.1
+      '@mui/material': ^5.5.1
+      '@storybook/addon-actions': ^6.4.19
+      '@storybook/addon-essentials': ^6.4.19
+      '@storybook/addon-links': ^6.4.19
+      '@storybook/addons': ^6.4.19
+      '@storybook/client-api': ^6.4.19
+      '@storybook/react': ^6.4.19
+      '@svgr/webpack': ^6.2.1
+      '@testing-library/jest-dom': ^5.16.2
+      '@testing-library/react': ^12.1.4
+      '@types/react': ^17.0.40
+      babel-jest: ^27.5.1
+      babel-loader: ^8.2.3
+      config: workspace:*
+      eslint: ^8.11.0
+      eslint-config-commons-ui: workspace:*
+      identity-obj-proxy: ^3.0.0
+      jest: ^27.5.1
+      prettier: ^2.6.0
+      prop-types: ^15.8.1
+      react: ^17.0.2
+      react-dom: ^17.0.2
+      react-test-renderer: ^17.0.2
+      storybook-addon-material-ui5: ^1.0.0
+      svg-url-loader: ^7.1.1
+      typescript: ^4.6.2
+      webpack: ^5.70.0
+    devDependencies:
+      '@babel/core': 7.17.8
+      '@babel/preset-react': 7.16.7_@babel+core@7.17.8
+      '@emotion/react': 11.8.2_5a943fc55a0ff92c0edb94756a5bda3c
+      '@emotion/styled': 11.8.1_4f34f9dcb4a72ea8dc26be56200ba2d2
+      '@mui/material': 5.5.2_0177f6fdb6acb6d74036e1259a0d9727
+      '@storybook/addon-actions': 6.4.19_b236a318752056aac88306873bc2bcc1
+      '@storybook/addon-essentials': 6.4.19_3f1650e9a8ee77d2b90ae95603f9392a
+      '@storybook/addon-links': 6.4.19_react-dom@17.0.2+react@17.0.2
+      '@storybook/addons': 6.4.19_react-dom@17.0.2+react@17.0.2
+      '@storybook/client-api': 6.4.19_react-dom@17.0.2+react@17.0.2
+      '@storybook/react': 6.4.19_100b4f099a349eb15730f9092a420ead
+      '@svgr/webpack': 6.2.1
+      '@testing-library/jest-dom': 5.16.3
+      '@testing-library/react': 12.1.4_react-dom@17.0.2+react@17.0.2
+      '@types/react': 17.0.42
+      babel-jest: 27.5.1_@babel+core@7.17.8
+      babel-loader: 8.2.4_fa907c5a4f16ccc493e21649ccc59574
+      config: link:../config
+      eslint: 8.11.0
+      eslint-config-commons-ui: link:../eslint-config-commons-ui
+      identity-obj-proxy: 3.0.0
+      jest: 27.5.1
+      prettier: 2.6.0
+      prop-types: 15.8.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-test-renderer: 17.0.2_react@17.0.2
+      storybook-addon-material-ui5: 1.0.0_a5c94d456bc5c47edd94354abcdd395a
+      svg-url-loader: 7.1.1_webpack@5.70.0
+      typescript: 4.6.2
+      webpack: 5.70.0
+
   packages/ui:
     specifiers:
       '@babel/core': ^7.17.7
