@@ -1,1 +1,1 @@
-module.exports = require("playwright-config-commons-ui/next");
+module.exports = require("playwright-config-commons-ui");
