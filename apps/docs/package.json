@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix './'",
-    "test": "jest && playwright test && playwright show-report",
+    "test": "jest && playwright test",
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
