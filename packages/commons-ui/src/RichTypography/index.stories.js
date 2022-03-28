@@ -8,7 +8,7 @@ export default {
 };
 
 function Template() {
-  return <RichTypography />;
+  return <RichTypography>this is an example</RichTypography>;
 }
 
 export const Default = Template.bind({});
