@@ -54,5 +54,8 @@
   "dependencies": {
     "@mui/styles": "^5.5.1",
     "prop-types": "^15.8.1"
+  },
+  "jest": {
+    "preset": "config/jest/presets"
   }
 }

@@ -114,7 +114,7 @@ importers:
       react-test-renderer: 17.0.2_react@17.0.2
       typescript: 4.6.3
 
-  packages/commons-ui:
+  packages/commons-ui-core:
     specifiers:
       '@babel/core': ^7.17.7
       '@babel/plugin-syntax-flow': ^7.16.7
