@@ -183,6 +183,7 @@ importers:
       config: workspace:*
       eslint: ^8.11.0
       eslint-config-commons-ui: workspace:*
+      jest: ^27.5.1
       next: 12.1.0
       prop-types: ^15.8.1
       react: ^17.0.2
@@ -206,6 +207,7 @@ importers:
       config: link:../config
       eslint: 8.11.0
       eslint-config-commons-ui: link:../eslint-config-commons-ui
+      jest: 27.5.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       typescript: 4.6.2
