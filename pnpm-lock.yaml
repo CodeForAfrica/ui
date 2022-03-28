@@ -8,12 +8,14 @@ importers:
       husky: ^7.0.4
       lint-staged: ^12.3.5
       prettier: ^2.6.0
+      scripty: ^2.0.0
       turbo: 1.1.6
     devDependencies:
       '@changesets/cli': 2.21.1
       husky: 7.0.4
       lint-staged: 12.3.7
       prettier: 2.6.0
+      scripty: 2.0.0
       turbo: 1.1.6
 
   apps/docs:
@@ -5386,6 +5388,12 @@ packages:
     resolution: {integrity: sha512-z/WhQ5FPySLdvREByI2vZiTWwCnF0moMJ1hK9YQwDTHKh6I7/uSckMetoRGb5UBZPC1z0jlw+n/XCgjeH7y1AQ==}
     dev: true
     optional: true
+
+  /async/2.6.3:
+    resolution: {integrity: sha512-zflvls11DCy+dQWzTW2dzuilv8Z5X/pjfmZOWba6TNIVDm+2UDaJmXSOXlasHKfNBs8oo3M0aT50fDEWfKZjXg==}
+    dependencies:
+      lodash: 4.17.21
+    dev: true
 
   /asynckit/0.4.0:
     resolution: {integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=}
@@ -12252,6 +12260,11 @@ packages:
       resolve-from: 5.0.0
     dev: true
 
+  /resolve-from/2.0.0:
+    resolution: {integrity: sha1-lICrIOlP+h2egKgEx+oUdhGWa1c=}
+    engines: {node: '>=0.10.0'}
+    dev: true
+
   /resolve-from/4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
     engines: {node: '>=4'}
@@ -12259,6 +12272,13 @@ packages:
   /resolve-from/5.0.0:
     resolution: {integrity: sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==}
     engines: {node: '>=8'}
+    dev: true
+
+  /resolve-pkg/1.0.0:
+    resolution: {integrity: sha1-4ZoV54rKLhJEYdySsuOUPvk0lNk=}
+    engines: {node: '>=4'}
+    dependencies:
+      resolve-from: 2.0.0
     dev: true
 
   /resolve-url/0.2.1:
@@ -12437,6 +12457,16 @@ packages:
       '@types/json-schema': 7.0.10
       ajv: 6.12.6
       ajv-keywords: 3.5.2_ajv@6.12.6
+    dev: true
+
+  /scripty/2.0.0:
+    resolution: {integrity: sha512-vbd4FPeuNwYNGtRtYa1wDZLPCx5PpW6VrldCEiBGqPz7Je1xZOgNvVPD2axymvqNghBIRiXxAU+JwYrOzvuLJg==}
+    hasBin: true
+    dependencies:
+      async: 2.6.3
+      glob: 7.2.0
+      lodash: 4.17.21
+      resolve-pkg: 1.0.0
     dev: true
 
   /semver/5.7.1:
