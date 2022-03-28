@@ -4,9 +4,9 @@
   "main": "./index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
-    "lint": "eslint --fix './'",
-    "clean": "rm -rf .turbo node_modules",
+    "test": "scripty",
+    "lint": "scripty",
+    "clean": "scripty",
     "storybook": "start-storybook --ci -p 6006",
     "build-storybook": "build-storybook --quiet -o dist"
   },
@@ -53,5 +53,8 @@
   },
   "jest": {
     "preset": "config/jest/presets"
+  },
+  "scripty": {
+    "path": "../../scripts/packages"
   }
 }

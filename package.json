@@ -18,6 +18,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
     "prettier": "^2.6.0",
+    "scripty": "^2.0.0",
     "turbo": "1.1.6"
   },
   "packageManager": "pnpm@6.31.0"
