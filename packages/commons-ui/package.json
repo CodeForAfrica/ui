@@ -4,20 +4,12 @@
   "author": "CodeForAfrica",
   "license": "GPL-2.0-or-later",
   "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "prop-types": "^15.8.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "lint": "eslint --fix './'",
-    "clean": "rm -rf .turbo node_modules"
+    "clean": "rm -rf .turbo node_modules",
+    "storybook": "start-storybook --ci -p 6006",
+    "build-storybook": "build-storybook --quiet -o dist"
   },
   "devDependencies": {
     "@babel/core": "^7.17.7",
@@ -27,28 +19,37 @@
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.5.1",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/addons": "^6.4.19",
+    "@storybook/client-api": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "@svgr/webpack": "^6.2.1",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
     "@types/react": "^17.0.40",
-    "autoprefixer": "^10.4.4",
+    "babel-loader": "^8.2.3",
+    "config": "workspace:*",
     "eslint": "^8.11.0",
     "eslint-config-commons-ui": "workspace:*",
+    "jest": "^27.5.1",
     "prettier": "^2.6.0",
-    "react": "^17.0.2",
+    "prop-types": "^15.8.1",
+    "react": "^16.0.0 || ^17.0.2",
     "react-dom": "^17.0.2",
-    "typescript": "^4.6.2"
+    "react-test-renderer": "^17.0.2",
+    "storybook-addon-material-ui5": "^1.0.0",
+    "svg-url-loader": "^7.1.1",
+    "typescript": "^4.6.2",
+    "webpack": "^5.70.0"
   },
   "peerDependencies": {
-    "postcss": "^8.1.0 "
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@babel/core": "^7.17.7",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.1",
+    "react": "^16.0.0 || ^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
