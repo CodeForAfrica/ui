@@ -1,12 +1,12 @@
-import { makeStyles } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
 import { PropTypes } from "prop-types";
 import * as React from "react";
 
 const useStyles = makeStyles(() => ({
   root: {
     "& a": {
-      color: " red",
+      color: "red",
     },
   },
 }));
