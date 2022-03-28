@@ -42,7 +42,7 @@ module.exports = {
     ],
     "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
-    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+    /* "import/no-extraneous-dependencies": ["error", { devDependencies: true }], */
   },
   env: {
     jest: true,
