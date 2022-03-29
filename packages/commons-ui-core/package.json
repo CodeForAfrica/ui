@@ -4,6 +4,7 @@
   "author": "CodeForAfrica",
   "license": "GPL-2.0-or-later",
   "private": true,
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint --fix './'",
