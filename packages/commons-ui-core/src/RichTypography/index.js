@@ -3,11 +3,11 @@ import Typography from "@mui/material/Typography";
 import { PropTypes } from "prop-types";
 import * as React from "react";
 
-const MyRichTypographyComponent = styled(Typography)({
+const RichTypographyRoot = styled(Typography)(({ theme }) => ({
   "& a": {
-    color: "red",
+    color: theme.palette.main,
   },
-});
+}));
 
 const RichTypography = React.forwardRef(function RichTypography(
   { children, component, ...props },
@@ -18,16 +18,16 @@ const RichTypography = React.forwardRef(function RichTypography(
   }
   if (typeof children === "string") {
     return (
-      <MyRichTypographyComponent 
-          // We default to `div` to allow other block elements like <p> to be used inside
-          // `children`
-          component={component || "div"}
-          dangerouslySetInnerHTML={{
-            __html: children,
-          }}
-          {...props}
-          ref={ref}>
-      </MyRichTypographyComponent>
+      <RichTypographyRoot
+        // We default to `div` to allow other block elements like <p> to be used inside
+        // `children`
+        component={component || "div"}
+        dangerouslySetInnerHTML={{
+          __html: children,
+        }}
+        {...props}
+        ref={ref}
+      />
     );
   }
   return (
