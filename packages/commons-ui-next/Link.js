@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable jsx-a11y/anchor-has-content */
 import { Link as MuiLink } from "@mui/material";
 import clsx from "clsx";
 import { useRouter } from "next/router";
