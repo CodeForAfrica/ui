@@ -19,7 +19,8 @@
     "next-transpile-modules": "^9.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "ui": "workspace:*"
+    "ui": "workspace:*",
+    "commons-ui-core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",

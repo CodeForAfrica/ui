@@ -1,3 +1,4 @@
+import { RichTypography } from "commons-ui-core";
 import Head from "next/head";
 import { Button } from "ui";
 
@@ -24,6 +25,7 @@ export default function Docs() {
           <h1>DOCS IS HERE</h1>
           <Button />
         </div>
+        <RichTypography>this is an example</RichTypography>
       </main>
     </div>
   );
