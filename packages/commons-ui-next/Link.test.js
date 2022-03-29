@@ -5,6 +5,6 @@ import Link from "./Link";
 
 describe("Link", () => {
   it("renders a next/router Link", () => {
-    render(<Link />);
+    render(<Link href="/" />);
   });
 });
