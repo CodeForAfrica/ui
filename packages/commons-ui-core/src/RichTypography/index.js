@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import { PropTypes } from "prop-types";
 import * as React from "react";
 
-const MyRichTypographyComponent = styled("div")({
+const MyRichTypographyComponent = styled(Typography)({
   "& a": {
     color: "red",
   },
@@ -18,8 +18,7 @@ const RichTypography = React.forwardRef(function RichTypography(
   }
   if (typeof children === "string") {
     return (
-      <MyRichTypographyComponent>
-        <Typography
+      <MyRichTypographyComponent 
           // We default to `div` to allow other block elements like <p> to be used inside
           // `children`
           component={component || "div"}
@@ -27,8 +26,7 @@ const RichTypography = React.forwardRef(function RichTypography(
             __html: children,
           }}
           {...props}
-          ref={ref}
-        />
+          ref={ref}>
       </MyRichTypographyComponent>
     );
   }
