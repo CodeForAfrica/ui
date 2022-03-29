@@ -5,12 +5,11 @@
 This project is using [pnpm](https://pnpm.io/) as a package manager. To setup the monorepo run the following:
 
 ```
-npm install -g pnpm
+git clone https://github.com/CodeForAfrica/ui.git
 cd ui
 pnpm install
-```
 
-This project is using [pnpm](https://pnpm.io/) as a package manager.
+```
 
 ### Build
 
@@ -49,7 +48,7 @@ pnpm changeset
 To publish you packages, run
 
 ```
-pnpm release
+pnpm publish
 ```
 
 Make sure you are logged in to npm before publishing your package
