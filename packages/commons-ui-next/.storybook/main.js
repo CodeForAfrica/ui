@@ -1,1 +1,1 @@
-module.exports = require("../../ui/.storybook/main");
+module.exports = require("../../config/.storybook/main");
