@@ -1,6 +1,6 @@
 import React from "react";
 
-import RichTypography from "./RichTypography";
+import RichTypography from ".";
 
 export default {
   title: "Component/RichTypography",

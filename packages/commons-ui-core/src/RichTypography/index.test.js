@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import RichTypography from "./RichTypography";
+import RichTypography from ".";
 
 describe("Button", () => {
   it("renders a richtypography", () => {
