@@ -3,8 +3,10 @@ import Typography from "@mui/material/Typography";
 import { PropTypes } from "prop-types";
 import * as React from "react";
 
-const MyRichTypographyComponent = styled("div: & a")({
-  color: "red",
+const MyRichTypographyComponent = styled("div")({
+  "& a": {
+    color: "red",
+  },
 });
 
 const RichTypography = React.forwardRef(function RichTypography(
