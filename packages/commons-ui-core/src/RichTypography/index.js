@@ -48,7 +48,7 @@ RichTypography.propTypes = {
 };
 
 RichTypography.defaultProps = {
-  children: null,
+  children: undefined,
   component: undefined,
 };
 
