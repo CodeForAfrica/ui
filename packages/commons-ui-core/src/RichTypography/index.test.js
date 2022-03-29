@@ -3,7 +3,7 @@ import "@testing-library/jest-dom/extend-expect";
 
 import RichTypography from ".";
 
-describe("Button", () => {
+describe("RichTypography", () => {
   it("renders a richtypography", () => {
     render(<RichTypography />);
   });
