@@ -50,10 +50,10 @@
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.5.1",
     "react": "^16.0.0 || ^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "@mui/styles": "^5.5.1"
   },
   "dependencies": {
-    "@mui/styles": "^5.5.1",
     "prop-types": "^15.8.1"
   },
   "jest": {
