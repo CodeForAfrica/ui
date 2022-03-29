@@ -3,11 +3,7 @@ const { devices } = require("@playwright/test");
 const config = {
   timeout: 30 * 1000,
   testMatch: /.*\.spec.js/,
-  reporter: "html",
   use: {
-    actionTimeout: 0,
-    headless: false,
-    viewport: { width: 1280, height: 720 },
     trace: "on-first-retry",
   },
   projects: [
