@@ -8,7 +8,7 @@ describe("RichTypography", () => {
     render(<RichTypography />);
   });
 
-  it("Should return richtypography with html element", () => {
+  it("RichTypography should contain html element inside", () => {
     const { container } = render(
       <RichTypography>
         <b>this is an example</b>
