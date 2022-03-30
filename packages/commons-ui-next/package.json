@@ -1,45 +1,48 @@
 {
-	"name": "next-commons-ui",
-	"version": "0.0.0",
-	"main": "index.js",
-	"license": "MIT",
-	"scripts": {
-		"test": "jest",
-		"lint": "eslint --fix './'",
-		"clean": "rm -rf .turbo node_modules",
-		"storybook": "start-storybook --ci -p 6006",
-		"build-storybook": "build-storybook --quiet -o dist"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.17.7",
-		"@babel/preset-react": "^7.16.7",
-		"@mui/material": "^5.5.1",
-		"@storybook/addon-actions": "^6.4.19",
-		"@storybook/addon-essentials": "^6.4.19",
-		"@storybook/addon-links": "^6.4.19",
-		"@storybook/addons": "^6.4.19",
-		"@storybook/client-api": "^6.4.19",
-		"@storybook/react": "^6.4.19",
-		"babel-loader": "^8.2.3",
-		"@testing-library/jest-dom": "^5.16.2",
+  "name": "next-commons-ui",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint --fix './'",
+    "clean": "rm -rf .turbo node_modules",
+    "storybook": "start-storybook --ci -p 6006",
+    "build-storybook": "build-storybook --quiet -o dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.7",
+    "@babel/preset-react": "^7.16.7",
+    "@mui/material": "^5.5.1",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/addons": "^6.4.19",
+    "@storybook/client-api": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "babel-loader": "^8.2.3",
+    "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
-		"config": "workspace:*",
-		"eslint": "^8.11.0",
-		"eslint-config-commons-ui": "workspace:*",
-		"jest": "^27.5.1",
-		"storybook-addon-material-ui5": "^1.0.0",
-		"typescript": "^4.6.2",
-		"webpack": "^5.70.0"
-	},
-	"peerDependencies": {
-		"@mui/material": "^5.5.1",
+    "config": "workspace:*",
+    "eslint": "^8.11.0",
+    "eslint-config-commons-ui": "workspace:*",
+    "jest": "^27.5.1",
 		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
-		"next": "12.1.0",
+    "react-dom": "^17.0.2",
 		"prop-types": "^15.8.1",
-		"clsx": "^1.1.1"
-	},
-	"jest": {
-		"preset": "config/jest/presets"
-	}
+    "storybook-addon-material-ui5": "^1.0.0",
+    "typescript": "^4.6.2",
+    "webpack": "^5.70.0"
+  },
+  "peerDependencies": {
+    "@mui/material": "^5.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "next": "12.1.0",
+    "prop-types": "^15.8.1",
+    "clsx": "^1.1.1"
+  },
+  "jest": {
+    "preset": "config/jest/presets"
+  }
 }
