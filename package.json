@@ -17,7 +17,7 @@
     "@changesets/cli": "^2.21.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
-    "prettier": "^2.6.0",
+    "prettier": "^2.6.1",
     "turbo": "^1.1.6"
   },
   "packageManager": "pnpm@6.31.0"
