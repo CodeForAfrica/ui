@@ -1,4 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
+import Link from "@commons-ui/next/Link";
 import Head from "next/head";
 import { Button } from "ui";
 
@@ -18,7 +19,7 @@ function Index() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
+          Get started by editing <Link href="/">pages/index.js</Link>
         </p>
 
         <div className={styles.grid}>

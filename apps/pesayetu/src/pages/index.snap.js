@@ -15,9 +15,12 @@ exports[`Homepage renders unchanged 1`] = `
         class="description"
       >
         Get started by editing 
-        <code>
+        <a
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
+          href="/"
+        >
           pages/index.js
-        </code>
+        </a>
       </p>
       <div
         class="grid"
