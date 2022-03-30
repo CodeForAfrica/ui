@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import * as React from "react";
-import PropTypes from "prop-types";
-import clsx from "clsx";
-import { useRouter } from "next/router";
-import NextLink from "next/link";
 import MuiLink from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
+import clsx from "clsx";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
+import PropTypes from "prop-types";
+import * as React from "react";
 
 // Add support for the sx prop for consistency with the other branches.
 const Anchor = styled("a")({});
@@ -34,7 +34,7 @@ export const NextLinkComposed = React.forwardRef(function NextLinkComposed(
 });
 
 NextLinkComposed.propTypes = {
-  href: PropTypes.any,
+  href: PropTypes.string,
   linkAs: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   locale: PropTypes.string,
   passHref: PropTypes.bool,
@@ -43,6 +43,17 @@ NextLinkComposed.propTypes = {
   scroll: PropTypes.bool,
   shallow: PropTypes.bool,
   to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
+};
+
+NextLinkComposed.defaultProps = {
+  href: undefined,
+  linkAs: undefined,
+  locale: undefined,
+  passHref: undefined,
+  prefetch: undefined,
+  replace: undefined,
+  scroll: undefined,
+  shallow: undefined,
 };
 
 // A styled version of the Next.js Link component:
@@ -119,7 +130,7 @@ Link.propTypes = {
   activeClassName: PropTypes.string,
   as: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   className: PropTypes.string,
-  href: PropTypes.any,
+  href: PropTypes.string,
   linkAs: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   locale: PropTypes.string,
   noLinkStyle: PropTypes.bool,
@@ -128,6 +139,21 @@ Link.propTypes = {
   role: PropTypes.string,
   scroll: PropTypes.bool,
   shallow: PropTypes.bool,
+};
+
+Link.defaultProps = {
+  activeClassName: undefined,
+  as: undefined,
+  className: undefined,
+  href: undefined,
+  linkAs: undefined,
+  locale: undefined,
+  noLinkStyle: undefined,
+  prefetch: undefined,
+  replace: undefined,
+  role: undefined,
+  scroll: undefined,
+  shallow: undefined,
 };
 
 export default Link;

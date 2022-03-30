@@ -24,8 +24,7 @@ export default {
   },
 };
 
-function Template({ ...args }) {
-  const { label } = args;
+function Template({ label, ...args }) {
   return (
     <Link variant="button" {...args}>
       {label}
