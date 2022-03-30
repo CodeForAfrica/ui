@@ -4,13 +4,21 @@ import RichTypography from ".";
 
 export default {
   title: "Component/RichTypography",
-  argTypes: {},
+  argTypes: {
+    children: {
+      control: {
+        type: "text",
+      },
+    },
+  },
 };
 
-function Template() {
-  return <RichTypography> This is an example</RichTypography>;
+function Template({children}) {
+  return <RichTypography><b>{childrem}</b></RichTypography>;
 }
 
 export const Default = Template.bind({});
 
-Default.args = {};
+Default.args = {
+  children: "This is where the test example goes"
+};
