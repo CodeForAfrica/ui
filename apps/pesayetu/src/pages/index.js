@@ -1,3 +1,4 @@
+import { RichTypography } from "@commons-ui/core";
 import Head from "next/head";
 import { Button } from "ui";
 
@@ -23,6 +24,7 @@ function Index() {
         <div className={styles.grid}>
           <Button />
         </div>
+        <RichTypography>this is an example</RichTypography>
       </main>
     </div>
   );

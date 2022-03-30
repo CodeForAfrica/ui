@@ -33,6 +33,11 @@ exports[`Homepage renders unchanged 1`] = `
           />
         </button>
       </div>
+      <div
+        class="MuiTypography-root MuiTypography-body1 css-1htparw-MuiTypography-root"
+      >
+        this is an example
+      </div>
     </main>
   </div>
 </div>
