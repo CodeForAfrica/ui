@@ -13,12 +13,12 @@ export default {
   },
 };
 
-function Template({children}) {
-  return <RichTypography><b>{childrem}</b></RichTypography>;
+function Template({ children, ...args }) {
+  return <RichTypography {...args}>{children}</RichTypography>;
 }
 
 export const Default = Template.bind({});
 
 Default.args = {
-  children: "This is where the test example goes"
+  children: `<b>This is where the test example goes</b>`,
 };

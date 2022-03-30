@@ -11,6 +11,6 @@ describe("RichTypography", () => {
     const { getByText } = render(
       <RichTypography>this is an example</RichTypography>
     );
-    expect(getByText("this is an example")).toBeInTheDocument();
+    expect(getByText(`this is an example`)).toBeInTheDocument();
   });
 });
