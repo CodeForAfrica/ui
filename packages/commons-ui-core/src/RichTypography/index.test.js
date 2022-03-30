@@ -7,10 +7,14 @@ describe("RichTypography", () => {
   it("renders a richtypography", () => {
     render(<RichTypography />);
   });
-  it("Should return richtypography component with test", () => {
-    const { getByText } = render(
-      <RichTypography>this is an example</RichTypography>
+
+  it("Should return richtypography with html element", () => {
+    const { container } = render(
+      <RichTypography>
+        <b>this is an example</b>
+      </RichTypography>
     );
-    expect(getByText(`this is an example`)).toBeInTheDocument();
+    const node = container.querySelector("b");
+    expect(node).toHaveTextContent("this is an example");
   });
 });
