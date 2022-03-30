@@ -48,5 +48,9 @@ module.exports = {
       files: ["**/*.test.js"],
       extends: ["plugin:jest/recommended"],
     },
+    {
+      files: ["**/*.spec.js"],
+      extends: ["plugin:playwright/playwright-test"],
+    },
   ],
 };

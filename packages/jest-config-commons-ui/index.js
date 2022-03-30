@@ -18,6 +18,7 @@ module.exports = {
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   snapshotResolver: "jest-config-commons-ui/snapshotResolver",
   testEnvironment: "jsdom",
+  testMatch: ["**/?(*.)+(test).js?(x)"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/"],
   testURL: "http://localhost/",
   transform: {
