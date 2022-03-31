@@ -12,27 +12,16 @@ exports[`Homepage renders unchanged 1`] = `
         Tracking Politician
       </h1>
       <p
-        class="description"
+        class="MuiTypography-root MuiTypography-body1 description css-ahj2mt-MuiTypography-root"
       >
         Get started by editing 
-        <code>
-          pages/index.js
-        </code>
-      </p>
-      <div
-        class="grid"
-      >
-        <button
-          class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
-          tabindex="0"
-          type="button"
+        <a
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
+          href="/"
         >
-          Boop
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-      </div>
+          pages/index.js
+        </a>
+      </p>
     </main>
   </div>
 </div>

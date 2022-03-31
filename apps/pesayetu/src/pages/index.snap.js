@@ -12,7 +12,7 @@ exports[`Homepage renders unchanged 1`] = `
         Data to hold your government accountable
       </h1>
       <p
-        class="description"
+        class="MuiTypography-root MuiTypography-body1 description css-ahj2mt-MuiTypography-root"
       >
         Get started by editing 
         <a
@@ -22,25 +22,6 @@ exports[`Homepage renders unchanged 1`] = `
           pages/index.js
         </a>
       </p>
-      <div
-        class="grid"
-      >
-        <button
-          class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
-          tabindex="0"
-          type="button"
-        >
-          Boop
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <div
-        class="MuiTypography-root MuiTypography-body1 css-1htparw-MuiTypography-root"
-      >
-        this is an example
-      </div>
     </main>
   </div>
 </div>

@@ -1,7 +1,7 @@
 import { RichTypography } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import Head from "next/head";
-import { Button } from "ui";
+import React from "react";
 
 import styles from "./index.module.css";
 
@@ -18,14 +18,9 @@ function Index() {
           Data to hold your government accountable
         </h1>
 
-        <p className={styles.description}>
+        <RichTypography component="p" className={styles.description}>
           Get started by editing <Link href="/">pages/index.js</Link>
-        </p>
-
-        <div className={styles.grid}>
-          <Button />
-        </div>
-        <RichTypography>this is an example</RichTypography>
+        </RichTypography>
       </main>
     </div>
   );
