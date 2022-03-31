@@ -12,8 +12,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.7",
-    "@babel/plugin-syntax-flow": "^7.16.7",
-    "@babel/plugin-transform-react-jsx": "^7.17.3",
     "@babel/preset-react": "^7.16.7",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",

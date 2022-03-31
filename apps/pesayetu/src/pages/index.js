@@ -1,5 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
-import Link from "@commons-ui/next/Link";
+import { Link } from "@commons-ui/next";
 import Head from "next/head";
 import { Button } from "ui";
 
