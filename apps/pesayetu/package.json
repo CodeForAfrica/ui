@@ -2,6 +2,24 @@
   "name": "pesayetu",
   "version": "1.0.0",
   "private": true,
+  "author": "Code for Africa <tech@codeforafrica.org>",
+  "description": "PesaYetu helps journalists, researchers and activists transform their work with in-depth county-specific information. Get started now with datasets from Kenya.",
+  "keywords": [
+    "pesayetu",
+    "next",
+    "next.js",
+    "react",
+    "mui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeforafrica/ui.git",
+    "directory": "apps/pesayetu"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeforafrica/ui/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

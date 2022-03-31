@@ -1,3 +1,7 @@
+# PesaYetu
+
+PesaYetu helps journalists, researchers and activists transform their work with in-depth county-specific information. Get started now with datasets from Kenya.
+
 ## Getting Started
 
 First, run the development server:

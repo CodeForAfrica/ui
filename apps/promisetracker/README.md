@@ -1,3 +1,7 @@
+# PromiseTracker
+
+PromiseTracker, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges, using official evidence / data, as well as crowdsourced information, with a transparent and defensible methodology, to help inject accountability and honesty into the often cavalier way that promises are made to citizens to win their support for elections, policies and contracts but are seldom honoured.
+
 ## Getting Started
 
 First, run the development server:

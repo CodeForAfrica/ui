@@ -2,7 +2,25 @@
   "name": "@commons-ui/core",
   "version": "2.0.0-alpha.0",
   "private": false,
-  "main": "src/index.js",
+  "author": "Code for Africa <tech@codeforafrica.org>",
+  "description": "",
+  "main": "./src/index.js",
+  "keywords": [
+    "react",
+    "react-component",
+    "mui",
+    "material-ui",
+    "material design"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeforafrica/ui.git",
+    "directory": "packages/commons-ui-core"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeforafrica/ui/issues"
+  },
   "scripts": {
     "test": "jest",
     "lint": "eslint --fix './'",

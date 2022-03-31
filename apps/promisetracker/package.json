@@ -2,6 +2,24 @@
   "name": "promisetracker",
   "version": "1.0.0",
   "private": true,
+  "author": "Code for Africa <tech@codeforafrica.org>",
+  "description": "PromiseTracker, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges, using official evidence / data, as well as crowdsourced information, with a transparent and defensible methodology, to help inject accountability and honesty into the often cavalier way that promises are made to citizens to win their support for elections, policies and contracts but are seldom honoured.",
+  "keywords": [
+    "promisetracker",
+    "next",
+    "next.js",
+    "react",
+    "mui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeforafrica/ui.git",
+    "directory": "apps/promisetracker"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeforafrica/ui/issues"
+  },
   "scripts": {
     "dev": "next dev --port 3001",
     "build": "next build",
