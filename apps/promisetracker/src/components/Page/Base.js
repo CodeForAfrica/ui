@@ -12,7 +12,7 @@ import config from "@/promisetracker/config";
 /**
  * Base page that can be used to build all other pages.
  */
-const GTM = process.env.GTM || "G-34Z6YFKL3B";
+const GTM = process.env.GTM || "GTM-P8QSVKT";
 function BasePage({
   children,
   footer,
@@ -40,7 +40,7 @@ function BasePage({
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer',${GTM});        
+          })(window,document,'script','dataLayer','${GTM}');        
         `}
       </Script>
     </div>
