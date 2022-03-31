@@ -12,7 +12,7 @@ import config from "@/promisetracker/config";
 /**
  * Base page that can be used to build all other pages.
  */
-const GTM = process.env.GTM || "GTM-P8QSVKT";
+const GTM = process.env.GTM || "G-34Z6YFKL3B";
 function BasePage({
   children,
   footer,
