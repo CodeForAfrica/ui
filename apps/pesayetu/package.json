@@ -26,7 +26,7 @@
     "start": "next start",
     "lint": "eslint --fix './'",
     "test": "jest && playwright test",
-    "clean": "rm -rf .turbo node_modules"
+    "clean": "rm -rf .next .turbo node_modules"
   },
   "dependencies": {
     "@babel/core": "^7.17.7",
