@@ -1,14 +1,16 @@
 import { render } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import React from "react";
 
 import RichTypography from ".";
 
 describe("RichTypography", () => {
-  it("renders a richtypography", () => {
-    render(<RichTypography />);
+  it("renders unchanged", () => {
+    render(<RichTypography>Rich Typography</RichTypography>);
+    const { container } = render(<RichTypography />);
+    expect(container).toMatchSnapshot();
   });
 
-  it("RichTypography should contain html element inside", () => {
+  it("renders html content", () => {
     const { container } = render(
       <RichTypography>
         <b>this is an example</b>

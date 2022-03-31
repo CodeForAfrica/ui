@@ -44,7 +44,14 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
   },
-  env: {
-    jest: true,
-  },
+  overrides: [
+    {
+      files: ["**/*.test.js"],
+      extends: ["plugin:jest/recommended"],
+    },
+    {
+      files: ["**/*.spec.js"],
+      extends: ["plugin:playwright/playwright-test"],
+    },
+  ],
 };

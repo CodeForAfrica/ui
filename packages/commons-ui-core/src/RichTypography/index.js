@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import { PropTypes } from "prop-types";
+import PropTypes from "prop-types";
 import * as React from "react";
 
 const RichTypographyRoot = styled(Typography)(({ theme }) => ({
