@@ -5,7 +5,7 @@ import RichTypography from ".";
 export default {
   title: "Component/RichTypography",
   argTypes: {
-    children: {
+    content: {
       control: {
         type: "text",
       },
