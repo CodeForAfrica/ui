@@ -1,7 +1,7 @@
 import { createTheme as MuiCreateTheme } from "@mui/material/styles";
 import { deepmerge } from "@mui/utils";
 
-const createTheme = (options) => {
+const createTheme = (options = {}) => {
   const { breakpoints, contentWidths } = options;
 
   if (breakpoints && contentWidths) {
