@@ -27,13 +27,6 @@ function BasePage({
 
   return (
     <div className={classes.root}>
-      <NextSeo title={title} {...props} />
-      <Navigation
-        navigation={navigation}
-        classes={{ section: classes.section }}
-      />
-      {children}
-      <Footer {...footer} classes={{ root: classes.footer }} />
       <Script id="google-analytics">
         {`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -43,6 +36,13 @@ function BasePage({
           })(window,document,'script','dataLayer','${GTM_ID}');        
         `}
       </Script>
+      <NextSeo title={title} {...props} />
+      <Navigation
+        navigation={navigation}
+        classes={{ section: classes.section }}
+      />
+      {children}
+      <Footer {...footer} classes={{ root: classes.footer }} />
     </div>
   );
 }
