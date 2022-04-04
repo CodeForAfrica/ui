@@ -1,3 +1,3 @@
-/* eslint-disable import/prefer-default-export */
+import NavBar from "./NavBar";
 
-export { default as NavBar } from "./NavBar";
+export default NavBar;
