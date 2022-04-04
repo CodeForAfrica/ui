@@ -5,7 +5,6 @@ import RichTypography from ".";
 
 describe("RichTypography", () => {
   it("renders unchanged", () => {
-    render(<RichTypography>Rich Typography</RichTypography>);
     const { container } = render(<RichTypography />);
     expect(container).toMatchSnapshot();
   });
