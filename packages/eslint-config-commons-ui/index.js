@@ -16,6 +16,13 @@ module.exports = {
     },
     allowImportExportEverywhere: true,
   },
+  settings: {
+    "import/resolver": {
+      jsconfig: {
+        config: "jsconfig.json",
+      },
+    },
+  },
   rules: {
     "import/order": [
       "error",
