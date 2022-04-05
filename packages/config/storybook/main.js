@@ -1,4 +1,5 @@
 const path = require("path");
+const toPath = (filePath) => path.join(process.cwd(), filePath);
 
 module.exports = {
   addons: [
@@ -8,6 +9,9 @@ module.exports = {
   ],
 
   stories: ["../**/*.stories.js"],
+  features: {
+    emotionAlias: false,
+  },
   webpackFinal: async (config) => {
     // Need to remove default svg-url-loader first
     // See: https://github.com/webpack/webpack/issues/595
@@ -29,6 +33,12 @@ module.exports = {
         },
       ],
     });
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@emotion/core": toPath("node_modules/@emotion/react"),
+      "emotion-theming": toPath("node_modules/@emotion/react"),
+    };
 
     return config;
   },
