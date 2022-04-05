@@ -3,16 +3,16 @@ lockfileVersion: 5.3
 importers:
   .:
     specifiers:
-      "@changesets/cli": ^2.21.1
+      "@changesets/cli": ^2.22.0
       husky: ^7.0.4
-      lint-staged: ^12.3.5
-      prettier: ^2.6.1
-      turbo: ^1.1.6
+      lint-staged: ^12.3.7
+      prettier: ^2.6.2
+      turbo: ^1.1.10
     devDependencies:
       "@changesets/cli": 2.22.0
       husky: 7.0.4
       lint-staged: 12.3.7
-      prettier: 2.6.1
+      prettier: 2.6.2
       turbo: 1.1.10
 
   apps/pesayetu:
@@ -272,6 +272,7 @@ importers:
       eslint: ^8.11.0
       eslint-config-airbnb: ^19.0.4
       eslint-config-prettier: ^8.5.0
+      eslint-import-resolver-jsconfig: ^1.1.0
       eslint-plugin-import: ^2.25.4
       eslint-plugin-jest: ^26.1.1
       eslint-plugin-json: ^3.1.0
@@ -290,6 +291,7 @@ importers:
       "@next/eslint-plugin-next": 12.1.2
       eslint-config-airbnb: 19.0.4_0e8add1558a5db1c8c27993badaaf9fd
       eslint-config-prettier: 8.5.0_eslint@8.12.0
+      eslint-import-resolver-jsconfig: 1.1.0
       eslint-plugin-import: 2.25.4_eslint@8.12.0
       eslint-plugin-jest: 26.1.3_eslint@8.12.0+typescript@4.6.3
       eslint-plugin-json: 3.1.0
@@ -11051,6 +11053,17 @@ packages:
       eslint: 8.12.0
     dev: false
 
+  /eslint-import-resolver-jsconfig/1.1.0:
+    resolution:
+      {
+        integrity: sha512-MEiD/zyEkVVwnblRI058/0liYrKXMUwgAtM4EKrTldrThb1AvgPIQeR4emDKC2IotTuWF7KzekvGP+KLhtM3rw==,
+      }
+    dependencies:
+      find-root: 1.1.0
+      glob-parent: 6.0.2
+      resolve: 1.22.0
+    dev: false
+
   /eslint-import-resolver-node/0.3.6:
     resolution:
       {
@@ -12320,7 +12333,6 @@ packages:
     engines: { node: ">=10.13.0" }
     dependencies:
       is-glob: 4.0.3
-    dev: true
 
   /glob-promise/3.4.0_glob@7.2.0:
     resolution:
@@ -16716,6 +16728,15 @@ packages:
     resolution:
       {
         integrity: sha512-8UVbTBYGwN37Bs9LERmxCPjdvPxlEowx2urIL6urHzdb3SDq4B/Z6xLFCblrSnE4iKWcS6ziJ3aOYrc1kz/E2A==,
+      }
+    engines: { node: ">=10.13.0" }
+    hasBin: true
+    dev: true
+
+  /prettier/2.6.2:
+    resolution:
+      {
+        integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==,
       }
     engines: { node: ">=10.13.0" }
     hasBin: true

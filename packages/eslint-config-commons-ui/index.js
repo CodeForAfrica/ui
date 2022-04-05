@@ -3,6 +3,8 @@ module.exports = {
     "eslint:recommended",
     "plugin:markdown/recommended",
     "plugin:json/recommended",
+    // airbnb enables: eslint-plugin-import, eslint-plugin-react,
+    //                 eslint-plugin-react-hooks, and eslint-plugin-jsx-a11y
     "airbnb",
     "airbnb/hooks",
     "plugin:prettier/recommended",
@@ -43,6 +45,13 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+  },
+  settings: {
+    "import/resolver": {
+      jsconfig: {
+        config: "jsconfig.json",
+      },
+    },
   },
   overrides: [
     {
