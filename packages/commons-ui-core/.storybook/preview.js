@@ -1,17 +1,18 @@
 import createTheme from "../styles/createTheme";
 import { ThemeProvider } from "@mui/material/styles";
-import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
+import { ThemeProvider as EmotionThemeProvider } from "emotion-theming";
 
 const theme = createTheme();
+
 import "./styles.css";
 
 const withThemeProvider = (Story, context) => {
   return (
-    <Emotion10ThemeProvider theme={theme}>
+    <EmotionThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
         <Story {...context} />
       </ThemeProvider>
-    </Emotion10ThemeProvider>
+    </EmotionThemeProvider>
   );
 };
 

@@ -9,18 +9,13 @@ const createTheme = (options = {}) => {
   }
   return MuiCreateTheme(
     deepmerge(options, {
-      breakpoints: {
-        values: {
-          xs: 0,
-          sm: 360, // mobile
-          md: 720, // tablet
-          lg: 1280, // desktop
-        },
-      },
       contentWidths: {
         values: {
-          md: 608, // 0, 80, 0, 80 margin
-          lg: 1160, // 0, 140, 0, 140 margin
+          xs: 0,
+          sm: 480,
+          md: 608,
+          lg: 1160,
+          xl: 1440,
         },
       },
     })

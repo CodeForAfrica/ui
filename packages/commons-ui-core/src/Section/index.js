@@ -9,6 +9,12 @@ const Section = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     maxWidth: theme.contentWidths.values.md,
   },
+  [theme.breakpoints.up("lg")]: {
+    maxWidth: theme.contentWidths.values.md,
+  },
+  [theme.breakpoints.up("xl")]: {
+    maxWidth: theme.contentWidths.values.md,
+  },
 }));
 
 export default Section;
