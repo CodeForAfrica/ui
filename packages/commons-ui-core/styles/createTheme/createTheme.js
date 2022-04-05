@@ -11,7 +11,7 @@ const createTheme = (options = {}) => {
     deepmerge(options, {
       contentWidths: {
         values: {
-          xs: 0,
+          xs: 300,
           sm: 480,
           md: 608,
           lg: 1160,

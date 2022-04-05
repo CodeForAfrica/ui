@@ -17,6 +17,7 @@ export default {
 
 function Template({ content, ...args }) {
   return (
+    // Temporary Section for testing
     <Section>
       <RichTypography {...args}>{content}</RichTypography>
     </Section>
