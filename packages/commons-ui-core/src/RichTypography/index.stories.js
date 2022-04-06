@@ -1,5 +1,7 @@
 import React from "react";
 
+import Section from "../Section";
+
 import RichTypography from ".";
 
 export default {
@@ -14,7 +16,12 @@ export default {
 };
 
 function Template({ content, ...args }) {
-  return <RichTypography {...args}>{content}</RichTypography>;
+  return (
+    // Temporary Section for testing
+    <Section>
+      <RichTypography {...args}>{content}</RichTypography>
+    </Section>
+  );
 }
 
 export const Default = Template.bind({});
