@@ -1,0 +1,61 @@
+{
+  "name": "cfawebsite",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Code for Africa <tech@codeforafrica.org>",
+  "description": "This is the main CFA website.",
+  "keywords": [
+    "cfawebsite",
+    "next",
+    "next.js",
+    "react",
+    "mui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeforafrica/ui.git",
+    "directory": "apps/cfasite"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeforafrica/ui/issues"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint --fix './'",
+    "test": "jest && npx playwright test",
+    "clean": "rm -rf .next .turbo node_modules"
+  },
+  "dependencies": {
+    "@babel/core": "^7.17.7",
+    "@commons-ui/core": "workspace:*",
+    "@commons-ui/next": "workspace:*",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.1",
+    "next": "12.1.0",
+    "next-transpile-modules": "^9.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.19.2",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
+    "@types/node": "^17.0.21",
+    "@types/react": "^17.0.40",
+    "babel-jest": "^27.5.1",
+    "config": "workspace:*",
+    "eslint": "^8.11.0",
+    "eslint-config-commons-ui": "workspace:*",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1",
+    "jest-config-commons-ui": "workspace:*",
+    "playwright-config-commons-ui": "workspace:*",
+    "prettier": "^2.6.1",
+    "react-test-renderer": "^17.0.2",
+    "typescript": "^4.6.2"
+  }
+}
