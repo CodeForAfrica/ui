@@ -1,25 +1,41 @@
+import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import { RichTypography, Layout } from "@commons-ui/core";
+import Layout from "../Layout";
+import RichTypography from "../RichTypography";
+
+const RichTypographyStyled = styled(RichTypography)(() => ({
+  title: {},
+}));
+
+const LayoutStyled = styled(Layout)(({ theme }) => ({
+  boxSizing: "border-box",
+  display: "block", // Fix IE 11 layout when used with main.
+  marginLeft: "auto",
+  marginRight: "auto",
+  minWidth: theme.typography.pxToRem(360),
+  padding: `0 ${theme.typography.pxToRem(15)}`,
+  width: "100%",
+}));
 
 const Section = React.forwardRef(function Section(
-  { children, className, title, titleProps, ...props },
+  { children, title, titleProps, ...props },
   ref
 ) {
   if (!children) {
     return null;
   }
   return (
-    <Layout {...props} ref={ref}>
+    <LayoutStyled {...props} ref={ref}>
       {title?.length ? (
-        <RichTypography variant="h2" {...titleProps}>
+        <RichTypographyStyled variant="h2" {...titleProps}>
           {title}
-        </RichTypography>
+        </RichTypographyStyled>
       ) : null}
 
       {children}
-    </Layout>
+    </LayoutStyled>
   );
 });
 
