@@ -9,12 +9,12 @@ function Index() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>CFA WEBSITE</title>
+        <title>CFA SITE</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className={styles.title}>This is the official CFA website</h1>
+        <h1 className={styles.title}>This is the official CFA SITE</h1>
 
         <RichTypography component="p" className={styles.description}>
           Get started by editing <Link href="/">pages/index.js</Link>

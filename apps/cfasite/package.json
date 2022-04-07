@@ -1,11 +1,11 @@
 {
-  "name": "cfawebsite",
+  "name": "cfasite",
   "version": "1.0.0",
   "private": true,
   "author": "Code for Africa <tech@codeforafrica.org>",
-  "description": "This is the main CFA website.",
+  "description": "This is the main CFA site.",
   "keywords": [
-    "cfawebsite",
+    "cfasite",
     "next",
     "next.js",
     "react",

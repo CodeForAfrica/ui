@@ -13,7 +13,7 @@ describe("Homepage", () => {
     render(<Index />);
 
     const heading = screen.getByRole("heading", {
-      name: /This is the official CFA website/i,
+      name: /This is the official CFA SITE/i,
     });
 
     expect(heading).toBeInTheDocument();

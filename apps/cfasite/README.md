@@ -1,6 +1,6 @@
-# CFA WEBSITE
+# CFA SITE
 
-This is the official cfa website
+This is the official cfa site
 
 ## Getting Started
 

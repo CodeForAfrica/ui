@@ -9,7 +9,7 @@ exports[`Homepage renders unchanged 1`] = `
       <h1
         class="title"
       >
-        This is the official CFA website
+        This is the official CFA SITE
       </h1>
       <p
         class="MuiTypography-root MuiTypography-body1 description css-ahj2mt-MuiTypography-root"
