@@ -3,10 +3,6 @@ function createContentWidths(contentWidths, breakpoints) {
     return contentWidths;
   }
   if (breakpoints) {
-    // if breakpoints are manually set, then contentWidths should be manually
-    // set as well
-    // error
-
     // Use https://mui.com/customization/breakpoints/#default-breakpoints
     // as is for content widths i.e. body
     const { values: breakpointValues, unit } = breakpoints;
