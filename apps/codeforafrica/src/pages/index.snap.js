@@ -2,17 +2,13 @@
 
 exports[`Homepage renders unchanged 1`] = `
 <div>
-  <div
-    class="container"
-  >
+  <div>
     <main>
-      <h1
-        class="title"
-      >
+      <h1>
         This is the official CFA SITE
       </h1>
       <p
-        class="MuiTypography-root MuiTypography-body1 description css-ahj2mt-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
       >
         Get started by editing 
         <a
