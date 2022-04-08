@@ -8,7 +8,7 @@ importers:
       husky: ^7.0.4
       lint-staged: ^12.3.7
       prettier: ^2.6.2
-      turbo: ^1.1.10
+      turbo: ^1.2.1
     devDependencies:
       '@changesets/cli': 2.22.0
       husky: 7.0.4
@@ -18,32 +18,32 @@ importers:
 
   apps/codeforafrica:
     specifiers:
-      '@babel/core': ^7.17.7
+      '@babel/core': ^7.17.9
       '@commons-ui/core': workspace:*
       '@commons-ui/next': workspace:*
-      '@emotion/react': ^11.8.2
+      '@emotion/react': ^11.9.0
       '@emotion/styled': ^11.8.1
-      '@mui/material': ^5.5.1
-      '@playwright/test': ^1.19.2
-      '@testing-library/jest-dom': ^5.16.2
+      '@mui/material': ^5.6.0
+      '@playwright/test': ^1.20.2
+      '@testing-library/jest-dom': ^5.16.4
       '@testing-library/react': ^12.1.4
-      '@types/node': ^17.0.21
-      '@types/react': ^17.0.40
+      '@types/node': ^17.0.23
+      '@types/react': ^17.0.44
       babel-jest: ^27.5.1
       config: workspace:*
-      eslint: ^8.11.0
+      eslint: ^8.12.0
       eslint-config-commons-ui: workspace:*
       identity-obj-proxy: ^3.0.0
       jest: ^27.5.1
       jest-config-commons-ui: workspace:*
-      next: 12.1.0
+      next: ^12.1.4
       next-transpile-modules: ^9.0.0
       playwright-config-commons-ui: workspace:*
-      prettier: ^2.6.1
+      prettier: ^2.6.2
       react: ^17.0.2
       react-dom: ^17.0.2
       react-test-renderer: ^17.0.2
-      typescript: ^4.6.2
+      typescript: ^4.6.3
     dependencies:
       '@babel/core': 7.17.9
       '@commons-ui/core': link:../../packages/commons-ui-core
@@ -51,7 +51,7 @@ importers:
       '@emotion/react': 11.9.0_e6bd7585f4e0972b809c85f7a8594d19
       '@emotion/styled': 11.8.1_690fbe9e307bc3519937bb562dc3a813
       '@mui/material': 5.6.0_1a397cabda4e9f6398e9deafd8c60d27
-      next: 12.1.0_f370f735164a03a12cea0cc89593cbee
+      next: 12.1.4_f370f735164a03a12cea0cc89593cbee
       next-transpile-modules: 9.0.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -75,32 +75,32 @@ importers:
 
   apps/pesayetu:
     specifiers:
-      '@babel/core': ^7.17.7
+      '@babel/core': ^7.17.9
       '@commons-ui/core': workspace:*
       '@commons-ui/next': workspace:*
-      '@emotion/react': ^11.8.2
+      '@emotion/react': ^11.9.0
       '@emotion/styled': ^11.8.1
-      '@mui/material': ^5.5.1
-      '@playwright/test': ^1.19.2
-      '@testing-library/jest-dom': ^5.16.2
+      '@mui/material': ^5.6.0
+      '@playwright/test': ^1.20.2
+      '@testing-library/jest-dom': ^5.16.4
       '@testing-library/react': ^12.1.4
-      '@types/node': ^17.0.21
-      '@types/react': ^17.0.40
+      '@types/node': ^17.0.23
+      '@types/react': ^17.0.44
       babel-jest: ^27.5.1
       config: workspace:*
-      eslint: ^8.11.0
+      eslint: ^8.12.0
       eslint-config-commons-ui: workspace:*
       identity-obj-proxy: ^3.0.0
       jest: ^27.5.1
       jest-config-commons-ui: workspace:*
-      next: 12.1.0
+      next: ^12.1.4
       next-transpile-modules: ^9.0.0
       playwright-config-commons-ui: workspace:*
-      prettier: ^2.6.1
+      prettier: ^2.6.2
       react: ^17.0.2
       react-dom: ^17.0.2
       react-test-renderer: ^17.0.2
-      typescript: ^4.6.2
+      typescript: ^4.6.3
     dependencies:
       '@babel/core': 7.17.9
       '@commons-ui/core': link:../../packages/commons-ui-core
@@ -108,7 +108,7 @@ importers:
       '@emotion/react': 11.9.0_e6bd7585f4e0972b809c85f7a8594d19
       '@emotion/styled': 11.8.1_690fbe9e307bc3519937bb562dc3a813
       '@mui/material': 5.6.0_1a397cabda4e9f6398e9deafd8c60d27
-      next: 12.1.0_f370f735164a03a12cea0cc89593cbee
+      next: 12.1.4_f370f735164a03a12cea0cc89593cbee
       next-transpile-modules: 9.0.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -132,32 +132,32 @@ importers:
 
   apps/promisetracker:
     specifiers:
-      '@babel/core': ^7.17.7
+      '@babel/core': ^7.17.9
       '@commons-ui/core': workspace:*
       '@commons-ui/next': workspace:*
-      '@emotion/react': ^11.8.2
+      '@emotion/react': ^11.9.0
       '@emotion/styled': ^11.8.1
-      '@mui/material': ^5.5.1
-      '@playwright/test': ^1.19.2
-      '@testing-library/jest-dom': ^5.16.2
+      '@mui/material': ^5.6.0
+      '@playwright/test': ^1.20.2
+      '@testing-library/jest-dom': ^5.16.4
       '@testing-library/react': ^12.1.4
-      '@types/node': ^17.0.21
-      '@types/react': ^17.0.40
+      '@types/node': ^17.0.23
+      '@types/react': ^17.0.44
       babel-jest: ^27.5.1
       config: workspace:*
-      eslint: ^8.11.0
+      eslint: ^8.12.0
       eslint-config-commons-ui: workspace:*
       identity-obj-proxy: ^3.0.0
       jest: ^27.5.1
       jest-config-commons-ui: workspace:*
-      next: 12.1.0
+      next: ^12.1.4
       next-transpile-modules: ^9.0.0
       playwright-config-commons-ui: workspace:*
-      prettier: ^2.6.1
+      prettier: ^2.6.2
       react: ^17.0.2
       react-dom: ^17.0.2
       react-test-renderer: ^17.0.2
-      typescript: ^4.6.2
+      typescript: ^4.6.3
     dependencies:
       '@babel/core': 7.17.9
       '@commons-ui/core': link:../../packages/commons-ui-core
@@ -165,7 +165,7 @@ importers:
       '@emotion/react': 11.9.0_e6bd7585f4e0972b809c85f7a8594d19
       '@emotion/styled': 11.8.1_690fbe9e307bc3519937bb562dc3a813
       '@mui/material': 5.6.0_1a397cabda4e9f6398e9deafd8c60d27
-      next: 12.1.0_f370f735164a03a12cea0cc89593cbee
+      next: 12.1.4_f370f735164a03a12cea0cc89593cbee
       next-transpile-modules: 9.0.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -189,37 +189,37 @@ importers:
 
   packages/commons-ui-core:
     specifiers:
-      '@babel/core': ^7.17.7
+      '@babel/core': ^7.17.9
       '@babel/preset-react': ^7.16.7
-      '@emotion/react': ^11.8.2
+      '@emotion/react': ^11.9.0
       '@emotion/styled': ^11.8.1
-      '@mui/material': ^5.5.2
+      '@mui/material': ^5.6.0
       '@mui/utils': ^5.6.0
-      '@storybook/addon-actions': ^6.4.19
-      '@storybook/addon-essentials': ^6.4.19
-      '@storybook/addon-links': ^6.4.19
-      '@storybook/addons': ^6.4.19
-      '@storybook/client-api': ^6.4.19
-      '@storybook/react': ^6.4.19
+      '@storybook/addon-actions': ^6.4.20
+      '@storybook/addon-essentials': ^6.4.20
+      '@storybook/addon-links': ^6.4.20
+      '@storybook/addons': ^6.4.20
+      '@storybook/client-api': ^6.4.20
+      '@storybook/react': ^6.4.20
       '@svgr/webpack': ^6.2.1
-      '@testing-library/jest-dom': ^5.16.2
+      '@testing-library/jest-dom': ^5.16.4
       '@testing-library/react': ^12.1.4
-      '@types/react': ^17.0.40
-      babel-loader: ^8.2.3
+      '@types/react': ^17.0.44
+      babel-loader: ^8.2.4
       config: workspace:*
-      eslint: ^8.11.0
+      eslint: ^8.12.0
       eslint-config-commons-ui: workspace:*
       identity-obj-proxy: ^3.0.0
       jest: ^27.5.1
       jest-config-commons-ui: workspace:*
-      prettier: ^2.6.1
+      prettier: ^2.6.2
       prop-types: ^15.8.1
       react: ^17.0.2
       react-dom: ^17.0.2
       react-test-renderer: ^17.0.2
       svg-url-loader: ^7.1.1
-      typescript: ^4.6.2
-      webpack: ^5.70.0
+      typescript: ^4.6.3
+      webpack: ^5.72.0
     dependencies:
       prop-types: 15.8.1
     devDependencies:
@@ -256,31 +256,31 @@ importers:
 
   packages/commons-ui-next:
     specifiers:
-      '@babel/core': ^7.17.7
+      '@babel/core': ^7.17.9
       '@babel/preset-react': ^7.16.7
-      '@mui/material': ^5.5.1
-      '@storybook/addon-actions': ^6.4.19
-      '@storybook/addon-essentials': ^6.4.19
-      '@storybook/addon-links': ^6.4.19
-      '@storybook/addons': ^6.4.19
-      '@storybook/client-api': ^6.4.19
-      '@storybook/react': ^6.4.19
-      '@testing-library/jest-dom': ^5.16.2
+      '@mui/material': ^5.6.0
+      '@storybook/addon-actions': ^6.4.20
+      '@storybook/addon-essentials': ^6.4.20
+      '@storybook/addon-links': ^6.4.20
+      '@storybook/addons': ^6.4.20
+      '@storybook/client-api': ^6.4.20
+      '@storybook/react': ^6.4.20
+      '@testing-library/jest-dom': ^5.16.4
       '@testing-library/react': ^12.1.4
-      babel-loader: ^8.2.3
+      babel-loader: ^8.2.4
       clsx: ^1.1.1
       config: workspace:*
-      eslint: ^8.11.0
+      eslint: ^8.12.0
       eslint-config-commons-ui: workspace:*
       jest: ^27.5.1
       jest-config-commons-ui: workspace:*
-      next: 12.1.0
+      next: ^12.1.4
       prop-types: ^15.8.1
       react: ^17.0.2
       react-dom: ^17.0.2
       storybook-addon-material-ui5: ^1.0.0
-      typescript: ^4.6.2
-      webpack: ^5.70.0
+      typescript: ^4.6.3
+      webpack: ^5.72.0
     dependencies:
       clsx: 1.1.1
     devDependencies:
@@ -301,7 +301,7 @@ importers:
       eslint-config-commons-ui: link:../eslint-config-commons-ui
       jest: 27.5.1
       jest-config-commons-ui: link:../jest-config-commons-ui
-      next: 12.1.0_f370f735164a03a12cea0cc89593cbee
+      next: 12.1.4_f370f735164a03a12cea0cc89593cbee
       prop-types: 15.8.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -311,10 +311,10 @@ importers:
 
   packages/config:
     specifiers:
-      eslint: ^8.11.0
+      eslint: ^8.12.0
       eslint-config-commons-ui: workspace:*
-      prettier: ^2.6.1
-      typescript: ^4.6.2
+      prettier: ^2.6.2
+      typescript: ^4.6.3
     devDependencies:
       eslint: 8.12.0
       eslint-config-commons-ui: link:../eslint-config-commons-ui
@@ -323,26 +323,26 @@ importers:
 
   packages/eslint-config-commons-ui:
     specifiers:
-      '@babel/core': ^7.17.7
+      '@babel/core': ^7.17.9
       '@babel/eslint-parser': ^7.17.0
       '@babel/preset-react': ^7.16.7
-      '@next/eslint-plugin-next': ^12.1.0
-      eslint: ^8.11.0
+      '@next/eslint-plugin-next': ^12.1.4
+      eslint: ^8.12.0
       eslint-config-airbnb: ^19.0.4
       eslint-config-prettier: ^8.5.0
       eslint-import-resolver-jsconfig: ^1.1.0
-      eslint-plugin-import: ^2.25.4
-      eslint-plugin-jest: ^26.1.1
+      eslint-plugin-import: ^2.26.0
+      eslint-plugin-jest: ^26.1.4
       eslint-plugin-json: ^3.1.0
       eslint-plugin-jsx-a11y: ^6.5.1
       eslint-plugin-markdown: ^2.2.1
       eslint-plugin-playwright: ^0.8.0
       eslint-plugin-prettier: ^4.0.0
-      eslint-plugin-react: ^7.28.0
-      eslint-plugin-react-hooks: ^4.3.0
-      prettier: ^2.6.1
+      eslint-plugin-react: ^7.29.4
+      eslint-plugin-react-hooks: ^4.4.0
+      prettier: ^2.6.2
       react: ^17.0.2
-      typescript: ^4.6.2
+      typescript: ^4.6.3
     dependencies:
       '@babel/eslint-parser': 7.17.0_@babel+core@7.17.9+eslint@8.12.0
       '@babel/preset-react': 7.16.7_@babel+core@7.17.9
@@ -368,16 +368,16 @@ importers:
 
   packages/jest-config-commons-ui:
     specifiers:
-      '@babel/core': ^7.17.7
+      '@babel/core': ^7.17.9
       '@babel/preset-env': ^7.16.11
       '@babel/preset-react': ^7.16.7
-      eslint: ^8.11.0
+      eslint: ^8.12.0
       eslint-config-commons-ui: workspace:*
       identity-obj-proxy: ^3.0.0
       jest: ^27.5.1
-      prettier: ^2.6.1
+      prettier: ^2.6.2
       react: ^17.0.2
-      typescript: ^4.6.2
+      typescript: ^4.6.3
     devDependencies:
       '@babel/core': 7.17.9
       '@babel/preset-env': 7.16.11_@babel+core@7.17.9
@@ -392,15 +392,15 @@ importers:
 
   packages/playwright-config-commons-ui:
     specifiers:
-      '@babel/core': ^7.17.7
+      '@babel/core': ^7.17.9
       '@babel/preset-env': ^7.16.11
       '@babel/preset-react': ^7.16.7
-      '@playwright/test': ^1.19.2
-      eslint: ^8.11.0
+      '@playwright/test': ^1.20.2
+      eslint: ^8.12.0
       eslint-config-commons-ui: workspace:*
-      prettier: ^2.6.1
+      prettier: ^2.6.2
       react: ^17.0.2
-      typescript: ^4.6.2
+      typescript: ^4.6.3
     devDependencies:
       '@babel/core': 7.17.9
       '@babel/preset-env': 7.16.11_@babel+core@7.17.9
@@ -3276,8 +3276,8 @@ packages:
       react: 17.0.2
       react-is: 17.0.2
 
-  /@next/env/12.1.0:
-    resolution: {integrity: sha512-nrIgY6t17FQ9xxwH3jj0a6EOiQ/WDHUos35Hghtr+SWN/ntHIQ7UpuvSi0vaLzZVHQWaDupKI+liO5vANcDeTQ==}
+  /@next/env/12.1.4:
+    resolution: {integrity: sha512-7gQwotJDKnfMxxXd8xJ2vsX5AzyDxO3zou0+QOXX8/unypA6icw5+wf6A62yKZ6qQ4UZHHxS68pb6UV+wNneXg==}
 
   /@next/eslint-plugin-next/12.1.4:
     resolution: {integrity: sha512-BRy565KVK6Cdy8LHaHTiwctLqBu/RT84RLpESug70BDJzBlV8QBvODyx/j7wGhvYqp9kvstM05lyb6JaTkSCcQ==}
@@ -3285,88 +3285,96 @@ packages:
       glob: 7.1.7
     dev: false
 
-  /@next/swc-android-arm64/12.1.0:
-    resolution: {integrity: sha512-/280MLdZe0W03stA69iL+v6I+J1ascrQ6FrXBlXGCsGzrfMaGr7fskMa0T5AhQIVQD4nA/46QQWxG//DYuFBcA==}
+  /@next/swc-android-arm-eabi/12.1.4:
+    resolution: {integrity: sha512-FJg/6a3s2YrUaqZ+/DJZzeZqfxbbWrynQMT1C5wlIEq9aDLXCFpPM/PiOyJh0ahxc0XPmi6uo38Poq+GJTuKWw==}
+    engines: {node: '>= 10'}
+    cpu: [arm]
+    os: [android]
+    requiresBuild: true
+    optional: true
+
+  /@next/swc-android-arm64/12.1.4:
+    resolution: {integrity: sha512-LXraazvQQFBgxIg3Htny6G5V5he9EK7oS4jWtMdTGIikmD/OGByOv8ZjLuVLZLtVm3UIvaAiGtlQSLecxJoJDw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [android]
     requiresBuild: true
     optional: true
 
-  /@next/swc-darwin-arm64/12.1.0:
-    resolution: {integrity: sha512-R8vcXE2/iONJ1Unf5Ptqjk6LRW3bggH+8drNkkzH4FLEQkHtELhvcmJwkXcuipyQCsIakldAXhRbZmm3YN1vXg==}
+  /@next/swc-darwin-arm64/12.1.4:
+    resolution: {integrity: sha512-SSST/dBymecllZxcqTCcSTCu5o1NKk9I+xcvhn/O9nH6GWjgvGgGkNqLbCarCa0jJ1ukvlBA138FagyrmZ/4rQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     optional: true
 
-  /@next/swc-darwin-x64/12.1.0:
-    resolution: {integrity: sha512-ieAz0/J0PhmbZBB8+EA/JGdhRHBogF8BWaeqR7hwveb6SYEIJaDNQy0I+ZN8gF8hLj63bEDxJAs/cEhdnTq+ug==}
+  /@next/swc-darwin-x64/12.1.4:
+    resolution: {integrity: sha512-p1lwdX0TVjaoDXQVuAkjtxVBbCL/urgxiMCBwuPDO7TikpXtSRivi+mIzBj5q7ypgICFmIAOW3TyupXeoPRAnA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-arm-gnueabihf/12.1.0:
-    resolution: {integrity: sha512-njUd9hpl6o6A5d08dC0cKAgXKCzm5fFtgGe6i0eko8IAdtAPbtHxtpre3VeSxdZvuGFh+hb0REySQP9T1ttkog==}
+  /@next/swc-linux-arm-gnueabihf/12.1.4:
+    resolution: {integrity: sha512-67PZlgkCn3TDxacdVft0xqDCL7Io1/C4xbAs0+oSQ0xzp6OzN2RNpuKjHJrJgKd0DsE1XZ9sCP27Qv0591yfyg==}
     engines: {node: '>= 10'}
     cpu: [arm]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-arm64-gnu/12.1.0:
-    resolution: {integrity: sha512-OqangJLkRxVxMhDtcb7Qn1xjzFA3s50EIxY7mljbSCLybU+sByPaWAHY4px97ieOlr2y4S0xdPKkQ3BCAwyo6Q==}
+  /@next/swc-linux-arm64-gnu/12.1.4:
+    resolution: {integrity: sha512-OnOWixhhw7aU22TQdQLYrgpgFq0oA1wGgnjAiHJ+St7MLj82KTDyM9UcymAMbGYy6nG/TFOOHdTmRMtCRNOw0g==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-arm64-musl/12.1.0:
-    resolution: {integrity: sha512-hB8cLSt4GdmOpcwRe2UzI5UWn6HHO/vLkr5OTuNvCJ5xGDwpPXelVkYW/0+C3g5axbDW2Tym4S+MQCkkH9QfWA==}
+  /@next/swc-linux-arm64-musl/12.1.4:
+    resolution: {integrity: sha512-UoRMzPZnsAavdWtVylYxH8DNC7Uy0i6RrvNwT4PyQVdfANBn2omsUkcH5lgS2O7oaz0nAYLk1vqyZDO7+tJotA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-x64-gnu/12.1.0:
-    resolution: {integrity: sha512-OKO4R/digvrVuweSw/uBM4nSdyzsBV5EwkUeeG4KVpkIZEe64ZwRpnFB65bC6hGwxIBnTv5NMSnJ+0K/WmG78A==}
+  /@next/swc-linux-x64-gnu/12.1.4:
+    resolution: {integrity: sha512-nM+MA/frxlTLUKLJKorctdI20/ugfHRjVEEkcLp/58LGG7slNaP1E5d5dRA1yX6ISjPcQAkywas5VlGCg+uTvA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-x64-musl/12.1.0:
-    resolution: {integrity: sha512-JohhgAHZvOD3rQY7tlp7NlmvtvYHBYgY0x5ZCecUT6eCCcl9lv6iV3nfu82ErkxNk1H893fqH0FUpznZ/H3pSw==}
+  /@next/swc-linux-x64-musl/12.1.4:
+    resolution: {integrity: sha512-GoRHxkuW4u4yKw734B9SzxJwVdyEJosaZ62P7ifOwcujTxhgBt3y76V2nNUrsSuopcKI2ZTDjaa+2wd5zyeXbA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /@next/swc-win32-arm64-msvc/12.1.0:
-    resolution: {integrity: sha512-T/3gIE6QEfKIJ4dmJk75v9hhNiYZhQYAoYm4iVo1TgcsuaKLFa+zMPh4056AHiG6n9tn2UQ1CFE8EoybEsqsSw==}
+  /@next/swc-win32-arm64-msvc/12.1.4:
+    resolution: {integrity: sha512-6TQkQze0ievXwHJcVUrIULwCYVe3ccX6T0JgZ1SiMeXpHxISN7VJF/O8uSCw1JvXZYZ6ud0CJ7nfC5HXivgfPg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     optional: true
 
-  /@next/swc-win32-ia32-msvc/12.1.0:
-    resolution: {integrity: sha512-iwnKgHJdqhIW19H9PRPM9j55V6RdcOo6rX+5imx832BCWzkDbyomWnlzBfr6ByUYfhohb8QuH4hSGEikpPqI0Q==}
+  /@next/swc-win32-ia32-msvc/12.1.4:
+    resolution: {integrity: sha512-CsbX/IXuZ5VSmWCpSetG2HD6VO5FTsO39WNp2IR2Ut/uom9XtLDJAZqjQEnbUTLGHuwDKFjrIO3LkhtROXLE/g==}
     engines: {node: '>= 10'}
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
     optional: true
 
-  /@next/swc-win32-x64-msvc/12.1.0:
-    resolution: {integrity: sha512-aBvcbMwuanDH4EMrL2TthNJy+4nP59Bimn8egqv6GHMVj0a44cU6Au4PjOhLNqEh9l+IpRGBqMTzec94UdC5xg==}
+  /@next/swc-win32-x64-msvc/12.1.4:
+    resolution: {integrity: sha512-JtYuWzKXKLDMgE/xTcFtCm1MiCIRaAc5XYZfYX3n/ZWSI1SJS/GMm+Su0SAHJgRFavJh6U/p998YwO/iGTIgqQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -12347,8 +12355,8 @@ packages:
       escalade: 3.1.1
     dev: false
 
-  /next/12.1.0_f370f735164a03a12cea0cc89593cbee:
-    resolution: {integrity: sha512-s885kWvnIlxsUFHq9UGyIyLiuD0G3BUC/xrH0CEnH5lHEWkwQcHOORgbDF0hbrW9vr/7am4ETfX4A7M6DjrE7Q==}
+  /next/12.1.4_f370f735164a03a12cea0cc89593cbee:
+    resolution: {integrity: sha512-DA4g97BM4Z0nKtDvCTm58RxdvoQyYzeg0AeVbh0N4Y/D8ELrNu47lQeEgRGF8hV4eQ+Sal90zxrJQQG/mPQ8CQ==}
     engines: {node: '>=12.22.0'}
     hasBin: true
     peerDependencies:
@@ -12365,25 +12373,25 @@ packages:
       sass:
         optional: true
     dependencies:
-      '@next/env': 12.1.0
+      '@next/env': 12.1.4
       caniuse-lite: 1.0.30001327
       postcss: 8.4.5
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      styled-jsx: 5.0.0_@babel+core@7.17.9+react@17.0.2
-      use-subscription: 1.5.1_react@17.0.2
+      styled-jsx: 5.0.1_@babel+core@7.17.9+react@17.0.2
     optionalDependencies:
-      '@next/swc-android-arm64': 12.1.0
-      '@next/swc-darwin-arm64': 12.1.0
-      '@next/swc-darwin-x64': 12.1.0
-      '@next/swc-linux-arm-gnueabihf': 12.1.0
-      '@next/swc-linux-arm64-gnu': 12.1.0
-      '@next/swc-linux-arm64-musl': 12.1.0
-      '@next/swc-linux-x64-gnu': 12.1.0
-      '@next/swc-linux-x64-musl': 12.1.0
-      '@next/swc-win32-arm64-msvc': 12.1.0
-      '@next/swc-win32-ia32-msvc': 12.1.0
-      '@next/swc-win32-x64-msvc': 12.1.0
+      '@next/swc-android-arm-eabi': 12.1.4
+      '@next/swc-android-arm64': 12.1.4
+      '@next/swc-darwin-arm64': 12.1.4
+      '@next/swc-darwin-x64': 12.1.4
+      '@next/swc-linux-arm-gnueabihf': 12.1.4
+      '@next/swc-linux-arm64-gnu': 12.1.4
+      '@next/swc-linux-arm64-musl': 12.1.4
+      '@next/swc-linux-x64-gnu': 12.1.4
+      '@next/swc-linux-x64-musl': 12.1.4
+      '@next/swc-win32-arm64-msvc': 12.1.4
+      '@next/swc-win32-ia32-msvc': 12.1.4
+      '@next/swc-win32-x64-msvc': 12.1.4
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
@@ -14787,13 +14795,13 @@ packages:
       inline-style-parser: 0.1.1
     dev: true
 
-  /styled-jsx/5.0.0_@babel+core@7.17.9+react@17.0.2:
-    resolution: {integrity: sha512-qUqsWoBquEdERe10EW8vLp3jT25s/ssG1/qX5gZ4wu15OZpmSMFI2v+fWlRhLfykA5rFtlJ1ME8A8pm/peV4WA==}
+  /styled-jsx/5.0.1_@babel+core@7.17.9+react@17.0.2:
+    resolution: {integrity: sha512-+PIZ/6Uk40mphiQJJI1202b+/dYeTVd9ZnMPR80pgiWbjIwvN2zIp4r9et0BgqBuShh48I0gttPlAXA7WVvBxw==}
     engines: {node: '>= 12.0.0'}
     peerDependencies:
       '@babel/core': '*'
       babel-plugin-macros: '*'
-      react: '>= 16.8.0 || 17.x.x || 18.x.x'
+      react: '>= 16.8.0 || 17.x.x || ^18.0.0-0'
     peerDependenciesMeta:
       '@babel/core':
         optional: true
@@ -15656,14 +15664,6 @@ packages:
       react: 17.0.2
       use-isomorphic-layout-effect: 1.1.2_react@17.0.2
     dev: true
-
-  /use-subscription/1.5.1_react@17.0.2:
-    resolution: {integrity: sha512-Xv2a1P/yReAjAbhylMfFplFKj9GssgTwN7RlcTxBujFQcloStWNDQdc4g4NRWH9xS4i/FDk04vQBptAXoF3VcA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      object-assign: 4.1.1
-      react: 17.0.2
 
   /use/3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==}
