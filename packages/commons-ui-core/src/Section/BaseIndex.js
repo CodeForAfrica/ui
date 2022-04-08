@@ -40,22 +40,15 @@ const Section = React.forwardRef(function Section(
 });
 
 Section.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  classes: PropTypes.shape({
-    root: PropTypes.string,
-    fixed: PropTypes.string,
-  }),
   title: PropTypes.string,
   titleProps: PropTypes.shape({}),
 };
 
 Section.defaultProps = {
-  classes: undefined,
-  className: undefined,
   title: undefined,
   titleProps: undefined,
 };
