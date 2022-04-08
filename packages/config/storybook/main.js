@@ -1,8 +1,5 @@
 module.exports = {
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-  ],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
 
   stories: ["../**/*.stories.js"],
   previewHead: (head) => `
