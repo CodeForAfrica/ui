@@ -3,20 +3,18 @@ import { Link } from "@commons-ui/next";
 import Head from "next/head";
 import React from "react";
 
-import styles from "./index.module.css";
-
 function Index() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>CFA SITE</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className={styles.title}>This is the official CFA SITE</h1>
+        <h1>This is the official CFA SITE</h1>
 
-        <RichTypography component="p" className={styles.description}>
+        <RichTypography component="p">
           Get started by editing <Link href="/">pages/index.js</Link>
         </RichTypography>
       </main>

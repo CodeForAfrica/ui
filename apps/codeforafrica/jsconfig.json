@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@/codeforafrica/*": ["src/*"]
+    }
   },
   "exclude": ["node_modules"]
 }
