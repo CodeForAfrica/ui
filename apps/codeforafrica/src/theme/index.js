@@ -14,37 +14,71 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "'Open Sans', sans-serif",
+    h1: {
+      fontSize: 48,
+      lineHeight: 48 / 56,
+      fontStyle: "normal",
+      fontWeight: 700,
+    },
     h2: {
       fontSize: 39,
       lineHeight: 39 / 47,
+      fontStyle: "normal",
+      fontWeight: 700,
     },
     h3: {
       fontSize: 34,
       lineHeight: 39 / 40,
+      fontStyle: "normal",
+      fontWeight: 700,
     },
     h4: {
       fontSize: 28,
       lineHeight: 28 / 34,
+      fontStyle: "normal",
+      fontWeight: 700,
     },
     h5: {
       fontSize: 23,
       lineHeight: 28 / 28,
+      fontStyle: "normal",
+      fontWeight: 700,
     },
     body1: {
       fontSize: 20,
       lineHeight: 20 / 28,
+      fontStyle: "normal",
+      fontWeight: 400,
     },
     body2: {
       fontSize: 18,
       lineHeight: 18 / 28,
+      fontStyle: "normal",
+      fontWeight: 400,
     },
     subtitle1: {
       fontSize: 16,
       lineHeight: 16 / 26,
+      fontStyle: "normal",
+      fontWeight: 400,
     },
     subtitle2: {
       fontSize: 14,
       lineHeight: 14 / 23,
+      fontStyle: "normal",
+      fontWeight: 400,
+    },
+    caption: {
+      fontSize: 12,
+      lineHeight: 12 / 14,
+      fontStyle: "normal",
+      fontWeight: 400,
+    },
+    button: {
+      fontSize: 16,
+      lineHeight: 16 / 19,
+      fontStyle: "normal",
+      fontWeight: 600,
     },
   },
   breakpoints: {
