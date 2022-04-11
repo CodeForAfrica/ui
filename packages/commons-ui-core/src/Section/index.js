@@ -1,18 +1,17 @@
 import { styled } from "@mui/material/styles";
+import { Container } from "@mui/material";
 
-import BaseSection from "./BaseIndex";
-
-const SectionStyled = styled(BaseSection)(({ theme }) => ({
+const ContainerStyled = styled(Container)(({ theme }) => ({
   display: "flex",
   [theme.breakpoints.up("xs")]: {
     justifyContent: "center",
     maxWidth: theme.contentWidths.values.xs,
   },
   [theme.breakpoints.up("sm")]: {
-    justifyContent: "center",
     maxWidth: theme.contentWidths.values.sm,
   },
   [theme.breakpoints.up("md")]: {
+    justifyContent: "flex-start",
     maxWidth: theme.contentWidths.values.md,
   },
   [theme.breakpoints.up("lg")]: {
@@ -24,7 +23,7 @@ const SectionStyled = styled(BaseSection)(({ theme }) => ({
 }));
 
 function Section({ ...props }) {
-  return <SectionStyled {...props} />;
+  return <ContainerStyled fixed {...props} />;
 }
 
 export default Section;
