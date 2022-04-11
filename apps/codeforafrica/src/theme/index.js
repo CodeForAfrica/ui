@@ -14,6 +14,38 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "'Open Sans', sans-serif",
+    h2: {
+      fontSize: 39,
+      lineHeight: 39 / 47,
+    },
+    h3: {
+      fontSize: 34,
+      lineHeight: 39 / 40,
+    },
+    h4: {
+      fontSize: 28,
+      lineHeight: 28 / 34,
+    },
+    h5: {
+      fontSize: 23,
+      lineHeight: 28 / 28,
+    },
+    body1: {
+      fontSize: 20,
+      lineHeight: 20 / 28,
+    },
+    body2: {
+      fontSize: 18,
+      lineHeight: 18 / 28,
+    },
+    subtitle1: {
+      fontSize: 16,
+      lineHeight: 16 / 26,
+    },
+    subtitle2: {
+      fontSize: 14,
+      lineHeight: 14 / 23,
+    },
   },
   breakpoints: {
     values: {
@@ -25,7 +57,6 @@ const theme = createTheme({
     },
   },
   components: {
-    // Name of the component
     MuiButton: {
       styleOverrides: {
         root: {
