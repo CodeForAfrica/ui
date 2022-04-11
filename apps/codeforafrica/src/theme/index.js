@@ -11,6 +11,9 @@ const theme = createTheme({
     },
     highlight: { main: "#ED1C24" },
   },
+  typography: {
+    fontFamily: "'Open Sans', sans-serif",
+  },
   breakpoints: {
     values: {
       mobile: 390,
