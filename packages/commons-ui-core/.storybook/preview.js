@@ -1,5 +1,5 @@
-import createTheme from "../styles/createTheme";
 import { ThemeProvider } from "@mui/material/styles";
+import createTheme from "@/commons-ui/core/styles/createTheme";
 
 const theme = createTheme();
 

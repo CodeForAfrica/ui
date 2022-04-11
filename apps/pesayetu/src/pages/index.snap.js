@@ -16,7 +16,7 @@ exports[`Homepage renders unchanged 1`] = `
       >
         Get started by editing 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-ah22b5-MuiTypography-root-MuiLink-root"
           href="/"
         >
           pages/index.js
