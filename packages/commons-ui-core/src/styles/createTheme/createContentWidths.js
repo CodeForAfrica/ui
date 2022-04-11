@@ -7,8 +7,8 @@ function createContentWidths(contentWidths, breakpoints) {
     // as is for content widths i.e. body
     const { values: breakpointValues, unit } = breakpoints;
     const values = { ...breakpointValues };
-    // Assume values are sorted, remove the first value so that content width
-    // is 100% of the size.
+    // Assume values are sorted by screen sizes, remove the first value so that
+    // content width is 100% of the size.
     delete values[Object.keys(breakpointValues)[0]];
     return {
       values,
