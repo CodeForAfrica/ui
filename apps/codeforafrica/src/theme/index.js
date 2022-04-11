@@ -9,6 +9,7 @@ const theme = createTheme({
       primary: { main: "#000000" },
       secondary: { main: "#FFFFFF" },
     },
+    background: { main: "#F6F5F5" },
     highlight: { main: "#ED1C24" },
   },
   typography: {
@@ -21,6 +22,16 @@ const theme = createTheme({
       laptop: 1152,
       desktop: 1440,
       xl: 1920,
+    },
+  },
+  components: {
+    // Name of the component
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontSize: "1rem",
+        },
+      },
     },
   },
 });
