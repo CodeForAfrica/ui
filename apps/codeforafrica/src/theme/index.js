@@ -17,7 +17,7 @@ const theme = createTheme({
       tablet: 768,
       laptop: 1152,
       desktop: 1440,
-      largeDesktop: 1920,
+      xl: 1920,
     },
   },
 });
