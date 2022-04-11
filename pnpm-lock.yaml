@@ -16,7 +16,7 @@ importers:
       prettier: 2.6.2
       turbo: 1.1.10
 
-  apps/cfasite:
+  apps/codeforafrica:
     specifiers:
       '@babel/core': ^7.17.7
       '@commons-ui/core': workspace:*
