@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import React from "react";
 
-import NavBar from ".";
+import NavBar from "./NavBar";
 
 import RichTypography from "@/commons-ui/core/RichTypography";
 
