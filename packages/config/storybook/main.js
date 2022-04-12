@@ -1,6 +1,6 @@
 module.exports = {
   core: {
-    builder: 'webpack5',
+    builder: "webpack5",
   },
   addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
 
