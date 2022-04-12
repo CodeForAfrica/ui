@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
-const theme = createTheme({
+const defaultTheme = createTheme({
   palette: {
     mode: "light",
     primary: { main: "#1020E1", light: "#EFF0FD" },
@@ -90,13 +90,33 @@ const theme = createTheme({
       xl: 1920,
     },
   },
+});
+
+const theme = createTheme(defaultTheme, {
+  typography: {},
   components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          fontSize: "1rem",
-        },
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+        color: defaultTheme.palette.primary.main,
       },
+    },
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: "contained", color: "primary" },
+          style: {
+            textTransform: "none",
+            backgroundColor: defaultTheme.palette.secondary.main,
+          },
+        },
+        {
+          props: { variant: "outlined", color: "secondary" },
+          style: {
+            backgroundColor: defaultTheme.palette.primary.main,
+          },
+        },
+      ],
     },
   },
 });
