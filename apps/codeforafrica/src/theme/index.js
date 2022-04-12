@@ -98,7 +98,6 @@ const theme = createTheme(defaultTheme, {
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,
-        color: defaultTheme.palette.primary.main,
       },
     },
     MuiButton: {
@@ -108,12 +107,25 @@ const theme = createTheme(defaultTheme, {
           style: {
             textTransform: "none",
             backgroundColor: defaultTheme.palette.secondary.main,
+            color: defaultTheme.text.secondary,
+            transition: "none !important",
+            "&:hover": {
+              color: defaultTheme.palette.secondary.main,
+              backgroundColor: defaultTheme.text.secondary,
+            },
           },
         },
         {
-          props: { variant: "outlined", color: "secondary" },
+          props: { variant: "contained", color: "secondary" },
           style: {
-            backgroundColor: defaultTheme.palette.primary.main,
+            textTransform: "none",
+            backgroundColor: defaultTheme.palette.text.primary.main,
+            color: defaultTheme.palette.primary.main,
+            transition: "none !important",
+            "&:hover": {
+              color: defaultTheme.palette.text.primary.main,
+              backgroundColor: defaultTheme.palette.primary.main,
+            },
           },
         },
       ],
