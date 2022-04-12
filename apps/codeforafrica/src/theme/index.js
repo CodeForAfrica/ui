@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from "@commons-ui/core";
 
 const FONT_FAMILY_PRIMARY = "'Open Sans', sans-serif";
 const FONT_FAMILY_SECONDARY = "'Merriweather', serif";
@@ -16,8 +16,19 @@ const palette = {
   grey: { main: "#B4ABAB", light: "#E3DFDF" },
 };
 
+const breakpoints = {
+  values: {
+    mobile: 390,
+    tablet: 768,
+    laptop: 1152,
+    desktop: 1440,
+    largeDesktop: 1920,
+  },
+};
+
 const theme = createTheme({
   palette,
+  breakpoints,
   typography: {
     FONT_FAMILY_PRIMARY,
     FONT_FAMILY_SECONDARY,
@@ -524,15 +535,6 @@ const theme = createTheme({
       fontWeight: 600,
       textTransform: "uppercase",
       letterSpacing: "0.08em",
-    },
-  },
-  breakpoints: {
-    values: {
-      mobile: 390,
-      tablet: 768,
-      laptop: 1152,
-      desktop: 1440,
-      xl: 1920,
     },
   },
   components: {
