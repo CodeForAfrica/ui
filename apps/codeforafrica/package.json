@@ -21,7 +21,7 @@
     "url": "https://github.com/codeforafrica/ui/issues"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 3002",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix './'",
