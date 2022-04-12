@@ -2,20 +2,34 @@ import { createTheme } from "@mui/material/styles";
 
 const FONT_FAMILY_PRIMARY = "'Open Sans', sans-serif";
 
-const defaultTheme = createTheme({
-  palette: {
-    mode: "light",
-    primary: { main: "#1020E1", light: "#EFF0FD" },
-    secondary: { main: "#000000", light: "#7F7272" },
-    text: {
-      primary: { main: "#000000" },
-      secondary: { main: "#FFFFFF" },
-    },
-    background: { main: "#F6F5F5" },
-    highlight: { main: "#ED1C24" },
+const palette = {
+  mode: "light",
+  primary: { main: "#1020E1", light: "#EFF0FD" },
+  secondary: { main: "#000000", light: "#7F7272" },
+  text: {
+    primary: { main: "#000000" },
+    secondary: { main: "#FFFFFF" },
   },
+  background: { main: "#F6F5F5" },
+  highlight: { main: "#ED1C24" },
+};
+
+const theme = createTheme({
+  palette,
   typography: {
     fontFamily: FONT_FAMILY_PRIMARY,
+    d1: {
+      fontSize: 48,
+      lineHeight: 48 / 56,
+      fontStyle: "normal",
+      fontWeight: 700,
+    },
+    d2: {
+      fontSize: 48,
+      lineHeight: 48 / 56,
+      fontStyle: "normal",
+      fontWeight: 700,
+    },
     h1: {
       fontSize: 48,
       lineHeight: 48 / 56,
@@ -41,6 +55,12 @@ const defaultTheme = createTheme({
       fontWeight: 700,
     },
     h5: {
+      fontSize: 23,
+      lineHeight: 28 / 28,
+      fontStyle: "normal",
+      fontWeight: 700,
+    },
+    h6: {
       fontSize: 23,
       lineHeight: 28 / 28,
       fontStyle: "normal",
@@ -82,6 +102,12 @@ const defaultTheme = createTheme({
       fontStyle: "normal",
       fontWeight: 600,
     },
+    footer: {
+      fontSize: 16,
+      lineHeight: 16 / 19,
+      fontStyle: "normal",
+      fontWeight: 600,
+    },
   },
   breakpoints: {
     values: {
@@ -92,10 +118,6 @@ const defaultTheme = createTheme({
       xl: 1920,
     },
   },
-});
-
-const theme = createTheme(defaultTheme, {
-  typography: {},
   components: {
     MuiButtonBase: {
       defaultProps: {
@@ -108,12 +130,12 @@ const theme = createTheme(defaultTheme, {
           props: { variant: "contained", color: "primary" },
           style: {
             textTransform: "none",
-            backgroundColor: defaultTheme.palette.secondary.main,
-            color: defaultTheme.text.secondary,
+            backgroundColor: palette.secondary.main,
+            color: palette.text.secondary,
             transition: "none !important",
             "&:hover": {
-              color: defaultTheme.palette.secondary.main,
-              backgroundColor: defaultTheme.text.secondary,
+              color: palette.secondary.main,
+              backgroundColor: palette.text.secondary,
             },
           },
         },
@@ -121,12 +143,12 @@ const theme = createTheme(defaultTheme, {
           props: { variant: "contained", color: "secondary" },
           style: {
             textTransform: "none",
-            backgroundColor: defaultTheme.palette.text.primary.main,
-            color: defaultTheme.palette.primary.main,
+            backgroundColor: palette.text.primary.main,
+            color: palette.primary.main,
             transition: "none !important",
             "&:hover": {
-              color: defaultTheme.palette.text.primary.main,
-              backgroundColor: defaultTheme.palette.primary.main,
+              color: palette.text.primary.main,
+              backgroundColor: palette.primary.main,
             },
           },
         },

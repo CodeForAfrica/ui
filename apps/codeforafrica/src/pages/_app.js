@@ -23,8 +23,12 @@ function MyApp(props) {
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  emotionCache: PropTypes.shape({}).isRequired,
+  emotionCache: PropTypes.shape({}),
   pageProps: PropTypes.shape({}).isRequired,
+};
+
+MyApp.defaultProps = {
+  emotionCache: undefined,
 };
 
 export default MyApp;
