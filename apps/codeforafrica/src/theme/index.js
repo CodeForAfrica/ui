@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
 const FONT_FAMILY_PRIMARY = "'Open Sans', sans-serif";
+const FONT_FAMILY_SECONDARY = "'Merriweather', serif";
 
 const palette = {
   mode: "light",
@@ -17,96 +18,511 @@ const palette = {
 const theme = createTheme({
   palette,
   typography: {
-    fontFamily: FONT_FAMILY_PRIMARY,
-    d1: {
+    FONT_FAMILY_PRIMARY,
+    FONT_FAMILY_SECONDARY,
+    // all display1 available on figma design
+    display1SemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontSize: 72,
+      lineHeight: 72 / 72,
+      fontWeight: 300,
+    },
+    display1Bold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontSize: 72,
+      lineHeight: 72 / 80,
+      fontWeight: 700,
+    },
+    display1ExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontSize: 72,
+      lineHeight: 72 / 80,
+      fontWeight: 800,
+    },
+
+    // all display2 available on figma design
+    display2SemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontSize: 60,
+      lineHeight: 60 / 72,
+      fontWeight: 300,
+    },
+    display2Bold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontSize: 60,
+      lineHeight: 60 / 72,
+      fontWeight: 700,
+    },
+    display2ExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontSize: 60,
+      lineHeight: 60 / 72,
+      fontWeight: 800,
+    },
+
+    // all h1 available on figma design
+    h1SemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 48,
+      lineHeight: 48 / 56,
+      fontStyle: "normal",
+      fontWeight: 300,
+      letterSpacing: "-0.04em",
+    },
+    h1Bold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 48,
       lineHeight: 48 / 56,
       fontStyle: "normal",
       fontWeight: 700,
+      letterSpacing: "-0.04em",
     },
-    d2: {
+    h1ExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 48,
       lineHeight: 48 / 56,
       fontStyle: "normal",
       fontWeight: 700,
+      letterSpacing: "-0.04em",
+      textTransform: "uppercase",
     },
-    h1: {
-      fontSize: 48,
-      lineHeight: 48 / 56,
+
+    h1SmallSemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 34,
+      lineHeight: 34 / 40,
+      fontStyle: "normal",
+      fontWeight: 300,
+      letterSpacing: "-0.04em",
+    },
+    h1SmallBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 34,
+      lineHeight: 34 / 40,
       fontStyle: "normal",
       fontWeight: 700,
+      letterSpacing: "-0.04em",
     },
-    h2: {
+    h1SmallExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 34,
+      lineHeight: 34 / 40,
+      fontStyle: "normal",
+      fontWeight: 700,
+      letterSpacing: "-0.04em",
+      textTransform: "uppercase",
+    },
+
+    // all h2 typography available on figma design
+    h2SemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 39,
+      lineHeight: 39 / 47,
+      fontStyle: "normal",
+      fontWeight: 300,
+      letterSpacing: "-0.02em",
+    },
+    h2Bold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 39,
       lineHeight: 39 / 47,
       fontStyle: "normal",
       fontWeight: 700,
+      letterSpacing: "-0.04em",
     },
-    h3: {
-      fontSize: 34,
-      lineHeight: 39 / 40,
+    h2ExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 39,
+      lineHeight: 39 / 47,
+      fontStyle: "normal",
+      fontWeight: 700,
+      letterSpacing: "-0.04em",
+      textTransform: "uppercase",
+    },
+
+    h2SmallSemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 33,
+      lineHeight: 33 / 40,
+      fontStyle: "normal",
+      fontWeight: 300,
+      letterSpacing: "-0.02em",
+    },
+    h2SmallBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 33,
+      lineHeight: 33 / 40,
+      fontStyle: "normal",
+      fontWeight: 700,
+      letterSpacing: "-0.02em",
+    },
+    h2SmallExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 33,
+      lineHeight: 33 / 40,
+      fontStyle: "normal",
+      fontWeight: 700,
+      letterSpacing: "-0.02em",
+      textTransform: "uppercase",
+    },
+
+    // all h4 typography available on figma design
+    h3SemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 33,
+      lineHeight: 33 / 40,
+      fontStyle: "normal",
+      fontWeight: 300,
+    },
+    h3Bold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 33,
+      lineHeight: 33 / 40,
       fontStyle: "normal",
       fontWeight: 700,
     },
-    h4: {
+    h3ExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 33,
+      lineHeight: 33 / 40,
+      fontStyle: "normal",
+      fontWeight: 700,
+      textTransform: "uppercase",
+      letterSpacing: "-0.02em",
+    },
+
+    h3SmallSemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 28,
+      lineHeight: 28 / 34,
+      fontStyle: "normal",
+      fontWeight: 300,
+      letterSpacing: "-0.02em",
+    },
+    h3SmallBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 28,
+      lineHeight: 28 / 34,
+      fontStyle: "normal",
+      letterSpacing: "-0.02em",
+      fontWeight: 700,
+    },
+    h3SmallExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 28,
+      lineHeight: 28 / 34,
+      fontStyle: "normal",
+      fontWeight: 800,
+      textTransform: "uppercase",
+      letterSpacing: "-0.02em",
+    },
+
+    // all h4 typography available on figma design
+    h4SemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 28,
+      lineHeight: 28 / 34,
+      fontStyle: "normal",
+      fontWeight: 300,
+    },
+    h4Bold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 28,
       lineHeight: 28 / 34,
       fontStyle: "normal",
       fontWeight: 700,
+      letterSpacing: "-0.02em",
     },
-    h5: {
+    h4ExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 28,
+      lineHeight: 28 / 34,
+      fontStyle: "normal",
+      fontWeight: 700,
+      textTransform: "uppercase",
+      letterSpacing: "-0.02em",
+    },
+
+    h4SmallSemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 23,
+      lineHeight: 23 / 28,
+      fontStyle: "normal",
+      fontWeight: 300,
+    },
+    h4SmallBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 23,
+      lineHeight: 23 / 28,
+      fontStyle: "normal",
+      fontWeight: 700,
+      letterSpacing: "-0.02em",
+    },
+    h4SmallExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 23,
+      lineHeight: 23 / 28,
+      fontStyle: "normal",
+      fontWeight: 800,
+      letterSpacing: "-0.02em",
+    },
+
+    // all h5 typography available on figma design
+    h5SemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 23,
       lineHeight: 28 / 28,
       fontStyle: "normal",
-      fontWeight: 700,
+      fontWeight: 300,
+      letterSpacing: "-0.02em",
     },
-    h6: {
+    h5Bold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 23,
-      lineHeight: 28 / 28,
+      lineHeight: 23 / 28,
       fontStyle: "normal",
       fontWeight: 700,
+      letterSpacing: "-0.02em",
     },
-    body1: {
+    h5ExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 23,
+      lineHeight: 23 / 28,
+      fontStyle: "normal",
+      fontWeight: 300,
+      letterSpacing: "-0.02em",
+      textTransform: "uppercase",
+    },
+
+    h5SmallSemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 19,
+      lineHeight: 19 / 23,
+      fontStyle: "normal",
+      fontWeight: 300,
+      letterSpacing: "-0.02em",
+    },
+    h5SmallBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 19,
+      lineHeight: 19 / 23,
+      fontStyle: "normal",
+      fontWeight: 700,
+      letterSpacing: "-0.02em",
+    },
+    h5SmallExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 19,
+      lineHeight: 19 / 23,
+      fontStyle: "normal",
+      fontWeight: 800,
+      letterSpacing: "-0.02em",
+    },
+
+    // all h6 typography available on figma design
+    h6SemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontSize: 19,
+      lineHeight: 19 / 23,
+      fontWeight: 300,
+      letterSpacing: "-0.02em",
+    },
+    h6Bold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 19,
+      lineHeight: 19 / 23,
+      fontWeight: 700,
+      fontStyle: "normal",
+      letterSpacing: "-0.02em",
+    },
+    h6ExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 19,
+      lineHeight: 19 / 23,
+      fontWeight: 700,
+      fontStyle: "normal",
+      letterspacing: "-0.02em",
+      textTransform: "uppercase",
+    },
+
+    h6SmallSemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontSize: 16,
+      lineHeight: 16 / 19,
+      fontWeight: 300,
+      letterSpacing: "-0.02em",
+    },
+    h6SmallBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontSize: 16,
+      lineHeight: 16 / 19,
+      fontWeight: 700,
+      letterSpacing: "-0.02em",
+    },
+    h6SmallExtraBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontSize: 16,
+      lineHeight: 16 / 19,
+      fontWeight: 800,
+      letterSpacing: "-0.02em",
+    },
+
+    // all h6 subheadings available on figma design
+    subheadingRegular: {
+      fontFamily: FONT_FAMILY_SECONDARY,
+      fontSize: 20,
+      lineHeight: 20 / 30,
+      fontStyle: "normal",
+      fontWeight: 300,
+    },
+    subheadingSemiBold: {
+      fontFamily: FONT_FAMILY_SECONDARY,
       fontSize: 20,
       lineHeight: 20 / 28,
       fontStyle: "normal",
-      fontWeight: 400,
+      fontWeight: 700,
     },
-    body2: {
+    subheadingUnderline: {
+      fontFamily: FONT_FAMILY_SECONDARY,
+      fontSize: 20,
+      lineHeight: 20 / 28,
+      fontStyle: "normal",
+      fontWeight: 300,
+      textDecorationLine: "underline",
+    },
+
+    // all  paragraph3 available on figma design
+    subtitle1Regular: {
+      fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 18,
       lineHeight: 18 / 28,
       fontStyle: "normal",
       fontWeight: 400,
     },
-    subtitle1: {
+    subtitle1SemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 18,
+      lineHeight: 18 / 24,
+      fontStyle: "normal",
+      fontWeight: 600,
+    },
+    subtitle1Underline: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 18,
+      lineHeight: 18 / 24,
+      fontStyle: "normal",
+      fontWeight: 300,
+      textDecorationLine: "underline",
+    },
+
+    // all  paragraph2 available on figma design
+    body2Regular: {
+      fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 16,
       lineHeight: 16 / 26,
       fontStyle: "normal",
       fontWeight: 400,
     },
-    subtitle2: {
+    body2SemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 16,
+      lineHeight: 16 / 19,
+      fontStyle: "normal",
+      fontWeight: 600,
+    },
+    body2Underline: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 16,
+      lineHeight: 16 / 20,
+      fontStyle: "normal",
+      fontWeight: 400,
+      textDecorationLine: "underline",
+    },
+
+    // all  paragraph1 available on figma design
+    body1Regular: {
+      fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 14,
       lineHeight: 14 / 23,
       fontStyle: "normal",
       fontWeight: 400,
     },
-    caption: {
+    body1SemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 14,
+      lineHeight: 14 / 17,
+      fontStyle: "normal",
+      fontWeight: 600,
+    },
+    body1Underline: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 14,
+      lineHeight: 14 / 17,
+      fontStyle: "normal",
+      fontWeight: 400,
+      textDecorationLine: "underline",
+    },
+
+    // all caption available on figma design
+    captionRegular: {
+      fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 12,
       lineHeight: 12 / 14,
       fontStyle: "normal",
       fontWeight: 400,
     },
-    button: {
-      fontSize: 16,
-      lineHeight: 16 / 19,
+    captionSemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 12,
+      lineHeight: 12 / 14,
       fontStyle: "normal",
       fontWeight: 600,
     },
-    footer: {
-      fontSize: 16,
-      lineHeight: 16 / 19,
+    captionCAP: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 12,
+      lineHeight: 12 / 14,
       fontStyle: "normal",
       fontWeight: 600,
+      letterSpacing: "0.08em",
+      textTransform: "uppercase",
+    },
+
+    // all footer available on figma design
+    footerRegular: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 12,
+      lineHeight: 12 / 14,
+      fontStyle: "normal",
+      fontWeight: 300,
+      letterSpacing: "0.02em",
+    },
+    footerSemiBold: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 10,
+      lineHeight: 10 / 12,
+      fontStyle: "normal",
+      fontWeight: 600,
+      letterSpacing: "0.02em",
+    },
+    footerCAP: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontSize: 10,
+      lineHeight: 10 / 12,
+      fontStyle: "normal",
+      fontWeight: 600,
+      textTransform: "uppercase",
+      letterSpacing: "0.08em",
     },
   },
   breakpoints: {
