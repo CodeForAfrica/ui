@@ -1,5 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
+const FONT_FAMILY_PRIMARY = "'Open Sans', sans-serif";
+
 const defaultTheme = createTheme({
   palette: {
     mode: "light",
@@ -13,7 +15,7 @@ const defaultTheme = createTheme({
     highlight: { main: "#ED1C24" },
   },
   typography: {
-    fontFamily: "'Open Sans', sans-serif",
+    fontFamily: FONT_FAMILY_PRIMARY,
     h1: {
       fontSize: 48,
       lineHeight: 48 / 56,
