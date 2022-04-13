@@ -5,7 +5,7 @@ const FONT_FAMILY_SECONDARY = "'Merriweather', serif";
 
 const palette = {
   mode: "light",
-  primary: { main: "#1020E1", light: "#EFF0FD", dark: "#08125C" },
+  primary: { main: "#1020E1", light: "#EFF0FD", dark: "#08125C" }, // blues
   secondary: { main: "#000000", light: "#7F7272" },
   text: {
     primary: { main: "#000000" },
@@ -31,8 +31,11 @@ const theme = createTheme({
   breakpoints,
   contentWidths: {
     values: {
+      xs: 350,
       sm: 708,
       md: 904,
+      lg: 1024,
+      xl: 1160,
     },
     unit: "px",
   },
@@ -120,56 +123,56 @@ const theme = createTheme({
         {
           props: { variant: "contained", color: "primary" },
           style: {
-            backgroundColor: palette.primary.main, // #1020E1 => light blue
-            color: palette.text.secondary.main, // white
+            backgroundColor: palette.primary.main,
+            color: palette.text.secondary.main,
             transition: "none !important",
             letterSpacing: "0.1em",
             textTransform: "uppercase",
             "&:hover": {
-              backgroundColor: palette.primary.main, // #1020E1
-              color: palette.text.secondary.main, // white
+              backgroundColor: palette.primary.main,
+              color: palette.text.secondary.main,
             },
           },
         },
         {
           props: { variant: "contained", color: "secondary" },
           style: {
-            backgroundColor: palette.primary.dark, /// #08125C => dark blue
-            color: palette.text.secondary.main, // white
+            backgroundColor: palette.primary.dark,
+            color: palette.text.secondary.main,
             transition: "none !important",
             letterSpacing: "0.1em",
             textTransform: "uppercase",
             "&:hover": {
-              backgroundColor: palette.primary.dark, /// #08125C
-              color: palette.text.secondary.main, // white
+              backgroundColor: palette.primary.dark,
+              color: palette.text.secondary.main,
             },
           },
         },
         {
           props: { variant: "outlined", color: "primary" },
           style: {
-            backgroundColor: palette.text.secondary.main, /// white background
-            color: palette.primary.main, // #1020E1
+            backgroundColor: palette.text.secondary.main,
+            color: palette.primary.main,
             transition: "none !important",
             letterSpacing: "0.1em",
             textTransform: "uppercase",
             "&:hover": {
-              backgroundColor: palette.text.secondary.main, /// white
-              color: palette.primary.main, // #1020E1
+              backgroundColor: palette.text.secondary.main,
+              color: palette.primary.main,
             },
           },
         },
         {
           props: { variant: "default", color: "primary" },
           style: {
-            backgroundColor: palette.grey.light, /// #E3DFDF => light grey
-            color: palette.grey.main, // #B4ABAB
+            backgroundColor: palette.grey.light,
+            color: palette.grey.main,
             transition: "none !important",
             letterSpacing: "0.1em",
             textTransform: "uppercase",
             "&:hover": {
-              backgroundColor: palette.grey.light, /// #E3DFDF
-              color: palette.grey.main, // #B4ABAB
+              backgroundColor: palette.grey.light,
+              color: palette.grey.main,
             },
           },
         },
