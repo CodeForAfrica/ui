@@ -51,7 +51,6 @@
     "@types/react": "^17.0.44",
     "babel-jest": "^27.5.1",
     "config": "workspace:*",
-    "@commons-ui/core": "workspace:*",
     "eslint": "^8.12.0",
     "eslint-config-commons-ui": "workspace:*",
     "identity-obj-proxy": "^3.0.0",
