@@ -18,11 +18,11 @@ const palette = {
 
 const breakpoints = {
   values: {
-    mobile: 390,
-    tablet: 768,
-    laptop: 1152,
-    desktop: 1440,
-    largeDesktop: 1920,
+    xs: 390,
+    sm: 768,
+    md: 1152,
+    lg: 1440,
+    xl: 1920,
   },
 };
 
@@ -172,13 +172,13 @@ const theme = createTheme({
 });
 
 theme.typography.display1 = {
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up("md")]: {
     fontSize: 72,
     lineHeight: 72 / 72,
   },
 };
 theme.typography.display2 = {
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up("md")]: {
     fontSize: 60,
     lineHeight: 60 / 72,
   },
@@ -187,7 +187,7 @@ theme.typography.display2 = {
 theme.typography.h1 = {
   fontSize: 28,
   lineHeight: 28 / 34,
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up("md")]: {
     fontSize: 48,
     lineHeight: 48 / 56,
   },
@@ -196,7 +196,7 @@ theme.typography.h1 = {
 theme.typography.h2 = {
   fontSize: 23,
   lineHeight: 23 / 28,
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up("md")]: {
     fontSize: 39,
     lineHeight: 39 / 47,
   },
@@ -205,7 +205,7 @@ theme.typography.h2 = {
 theme.typography.h3 = {
   fontSize: 28,
   lineHeight: 28 / 34,
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up("md")]: {
     fontSize: 33,
     lineHeight: 33 / 40,
   },
@@ -214,7 +214,7 @@ theme.typography.h3 = {
 theme.typography.h4 = {
   fontSize: 23,
   lineHeight: 23 / 28,
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up("md")]: {
     fontSize: 28,
     lineHeight: 28 / 34,
   },
@@ -223,7 +223,7 @@ theme.typography.h4 = {
 theme.typography.h5 = {
   fontSize: 19,
   lineHeight: 19 / 23,
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up("md")]: {
     fontSize: 23,
     lineHeight: 28 / 28,
   },
@@ -232,7 +232,7 @@ theme.typography.h5 = {
 theme.typography.h6 = {
   fontSize: 16,
   lineHeight: 16 / 19,
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up("md")]: {
     fontSize: 19,
     lineHeight: 19 / 23,
   },
@@ -241,7 +241,7 @@ theme.typography.h6 = {
 theme.typography.subheading = {
   fontSize: 18,
   lineHeight: 18 / 28,
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up("md")]: {
     fontSize: 20,
     lineHeight: 20 / 30,
   },
@@ -250,7 +250,7 @@ theme.typography.subheading = {
 theme.typography.subtitle1 = {
   fontSize: 16,
   lineHeight: 16 / 26,
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up("md")]: {
     fontSize: 18,
     lineHeight: 18 / 28,
   },
@@ -259,7 +259,7 @@ theme.typography.subtitle1 = {
 theme.typography.subtitle2 = {
   fontSize: 14,
   lineHeight: 14 / 23,
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up("md")]: {
     fontSize: 16,
     lineHeight: 16 / 26,
   },
@@ -268,7 +268,7 @@ theme.typography.subtitle2 = {
 theme.typography.body1 = {
   fontSize: 12,
   lineHeight: 12 / 14,
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up("md")]: {
     fontSize: 14,
     lineHeight: 14 / 23,
   },
