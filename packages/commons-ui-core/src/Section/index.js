@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 import { Container } from "@mui/material";
 
-const ContainerStyled = styled(Container)(({ theme }) => ({
+const SectionRoot = styled(Container)(({ theme }) => ({
   display: "flex",
   [theme.breakpoints.up("xs")]: {
     justifyContent: "center",
@@ -23,7 +23,7 @@ const ContainerStyled = styled(Container)(({ theme }) => ({
 }));
 
 function Section({ ...props }) {
-  return <ContainerStyled fixed {...props} />;
+  return <SectionRoot fixed {...props} />;
 }
 
 export default Section;
