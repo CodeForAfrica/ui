@@ -46,11 +46,15 @@ const theme = createTheme({
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
       fontWeight: 300,
+      fontSize: 72,
+      lineHeight: 72 / 72,
     },
     display2: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
       fontWeight: 300,
+      fontSize: 60,
+      lineHeight: 60 / 72,
     },
     h1: {
       fontFamily: FONT_FAMILY_PRIMARY,
@@ -110,6 +114,8 @@ const theme = createTheme({
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
       fontWeight: 400,
+      fontSize: 14,
+      lineHeight: 14 / 23,
     },
   },
   components: {
@@ -180,19 +186,6 @@ const theme = createTheme({
     },
   },
 });
-
-theme.typography.display1 = {
-  [theme.breakpoints.up("md")]: {
-    fontSize: 72,
-    lineHeight: 72 / 72,
-  },
-};
-theme.typography.display2 = {
-  [theme.breakpoints.up("md")]: {
-    fontSize: 60,
-    lineHeight: 60 / 72,
-  },
-};
 
 theme.typography.h1 = {
   fontSize: 28,
@@ -282,11 +275,6 @@ theme.typography.body1 = {
     fontSize: 14,
     lineHeight: 14 / 23,
   },
-};
-
-theme.typography.caption = {
-  fontSize: 14,
-  lineHeight: 14 / 23,
 };
 
 export default theme;
