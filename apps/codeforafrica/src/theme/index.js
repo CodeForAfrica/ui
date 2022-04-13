@@ -46,8 +46,6 @@ const theme = createTheme({
       lineHeight: 60 / 72,
       fontWeight: 300,
     },
-
-    // all h1 available on figma design
     h1: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 48,
@@ -56,17 +54,6 @@ const theme = createTheme({
       fontWeight: 300,
       letterSpacing: "-0.04em",
     },
-
-    h1Small: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 34,
-      lineHeight: 34 / 40,
-      fontStyle: "normal",
-      fontWeight: 300,
-      letterSpacing: "-0.04em",
-    },
-
-    // all h2 typography available on figma design
     h2: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 39,
@@ -75,17 +62,6 @@ const theme = createTheme({
       fontWeight: 300,
       letterSpacing: "-0.02em",
     },
-
-    h2Small: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 33,
-      lineHeight: 33 / 40,
-      fontStyle: "normal",
-      fontWeight: 300,
-      letterSpacing: "-0.02em",
-    },
-
-    // all h4 typography available on figma design
     h3: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 33,
@@ -93,17 +69,6 @@ const theme = createTheme({
       fontStyle: "normal",
       fontWeight: 300,
     },
-
-    h3Small: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 28,
-      lineHeight: 28 / 34,
-      fontStyle: "normal",
-      fontWeight: 300,
-      letterSpacing: "-0.02em",
-    },
-
-    // all h4 typography available on figma design
     h4: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 28,
@@ -111,16 +76,6 @@ const theme = createTheme({
       fontStyle: "normal",
       fontWeight: 300,
     },
-
-    h4Small: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 23,
-      lineHeight: 23 / 28,
-      fontStyle: "normal",
-      fontWeight: 300,
-    },
-
-    // all h5 typography available on figma design
     h5: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 23,
@@ -129,16 +84,6 @@ const theme = createTheme({
       fontWeight: 300,
       letterSpacing: "-0.02em",
     },
-
-    h5Small: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 19,
-      lineHeight: 19 / 23,
-      fontStyle: "normal",
-      fontWeight: 300,
-      letterSpacing: "-0.02em",
-    },
-    // all h6 typography available on figma design
     h6: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
@@ -147,15 +92,6 @@ const theme = createTheme({
       fontWeight: 300,
       letterSpacing: "-0.02em",
     },
-    h6Small: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontSize: 16,
-      lineHeight: 16 / 19,
-      fontWeight: 300,
-      letterSpacing: "-0.02em",
-    },
-
     subheading: {
       fontFamily: FONT_FAMILY_SECONDARY,
       fontSize: 20,
@@ -170,14 +106,14 @@ const theme = createTheme({
       fontStyle: "normal",
       fontWeight: 400,
     },
-    body2: {
+    subtitle2: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 16,
       lineHeight: 16 / 26,
       fontStyle: "normal",
       fontWeight: 400,
     },
-    body: {
+    body1: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontSize: 14,
       lineHeight: 14 / 23,
@@ -190,14 +126,6 @@ const theme = createTheme({
       lineHeight: 12 / 14,
       fontStyle: "normal",
       fontWeight: 400,
-    },
-    footer: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 12,
-      lineHeight: 12 / 14,
-      fontStyle: "normal",
-      fontWeight: 300,
-      letterSpacing: "0.02em",
     },
   },
   components: {
@@ -268,5 +196,101 @@ const theme = createTheme({
     },
   },
 });
+
+theme.typography.display1 = {
+  [theme.breakpoints.up("lg")]: {
+    fontSize: 72,
+    lineHeight: 72 / 72,
+  },
+};
+theme.typography.display2 = {
+  [theme.breakpoints.up("lg")]: {
+    fontSize: 60,
+    lineHeight: 60 / 72,
+  },
+};
+
+theme.typography.h1 = {
+  fontSize: 28,
+  lineHeight: 28 / 34,
+  [theme.breakpoints.up("lg")]: {
+    fontSize: 48,
+    lineHeight: 48 / 56,
+  },
+};
+
+theme.typography.h2 = {
+  fontSize: 23,
+  lineHeight: 23 / 28,
+  [theme.breakpoints.up("lg")]: {
+    fontSize: 39,
+    lineHeight: 39 / 47,
+  },
+};
+
+theme.typography.h3 = {
+  fontSize: 28,
+  lineHeight: 28 / 34,
+  [theme.breakpoints.up("lg")]: {
+    fontSize: 33,
+    lineHeight: 33 / 40,
+  },
+};
+
+theme.typography.h4 = {
+  fontSize: 23,
+  lineHeight: 23 / 28,
+  [theme.breakpoints.up("lg")]: {
+    fontSize: 28,
+    lineHeight: 28 / 34,
+  },
+};
+
+theme.typography.h5 = {
+  fontSize: 19,
+  lineHeight: 19 / 23,
+  [theme.breakpoints.up("lg")]: {
+    fontSize: 23,
+    lineHeight: 28 / 28,
+  },
+};
+
+theme.typography.h6 = {
+  fontSize: 16,
+  lineHeight: 16 / 19,
+  [theme.breakpoints.up("lg")]: {
+    fontSize: 19,
+    lineHeight: 19 / 23,
+  },
+};
+
+theme.typography.subheading = {
+  fontSize: 18,
+  lineHeight: 18 / 28,
+  [theme.breakpoints.up("lg")]: {
+    fontSize: 20,
+    lineHeight: 20 / 30,
+  },
+};
+
+theme.typography.subtitle1 = {
+  fontSize: 18,
+  lineHeight: 18 / 28,
+};
+
+theme.typography.subtitle2 = {
+  fontSize: 16,
+  lineHeight: 16 / 26,
+};
+
+theme.typography.body1 = {
+  fontSize: 14,
+  lineHeight: 14 / 23,
+};
+
+theme.typography.caption = {
+  fontSize: 12,
+  lineHeight: 12 / 14,
+};
 
 export default theme;
