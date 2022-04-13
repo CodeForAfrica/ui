@@ -35,51 +35,37 @@ const theme = createTheme({
     display1: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontSize: 72,
-      lineHeight: 72 / 72,
       fontWeight: 300,
     },
     display2: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontSize: 60,
-      lineHeight: 60 / 72,
       fontWeight: 300,
     },
     h1: {
       fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 48,
-      lineHeight: 48 / 56,
       fontStyle: "normal",
       fontWeight: 300,
       letterSpacing: "-0.04em",
     },
     h2: {
       fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 39,
-      lineHeight: 39 / 47,
       fontStyle: "normal",
       fontWeight: 300,
       letterSpacing: "-0.02em",
     },
     h3: {
       fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 33,
-      lineHeight: 33 / 40,
       fontStyle: "normal",
       fontWeight: 300,
     },
     h4: {
       fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 28,
-      lineHeight: 28 / 34,
       fontStyle: "normal",
       fontWeight: 300,
     },
     h5: {
       fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 23,
-      lineHeight: 28 / 28,
       fontStyle: "normal",
       fontWeight: 300,
       letterSpacing: "-0.02em",
@@ -87,43 +73,31 @@ const theme = createTheme({
     h6: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontSize: 19,
-      lineHeight: 19 / 23,
       fontWeight: 300,
       letterSpacing: "-0.02em",
     },
     subheading: {
       fontFamily: FONT_FAMILY_SECONDARY,
-      fontSize: 20,
-      lineHeight: 20 / 30,
       fontStyle: "normal",
       fontWeight: 300,
     },
     subtitle1: {
       fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 18,
-      lineHeight: 18 / 28,
       fontStyle: "normal",
       fontWeight: 400,
     },
     subtitle2: {
       fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 16,
-      lineHeight: 16 / 26,
       fontStyle: "normal",
       fontWeight: 400,
     },
     body1: {
       fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 14,
-      lineHeight: 14 / 23,
       fontStyle: "normal",
       fontWeight: 400,
     },
     caption: {
       fontFamily: FONT_FAMILY_PRIMARY,
-      fontSize: 12,
-      lineHeight: 12 / 14,
       fontStyle: "normal",
       fontWeight: 400,
     },
@@ -274,23 +248,35 @@ theme.typography.subheading = {
 };
 
 theme.typography.subtitle1 = {
-  fontSize: 18,
-  lineHeight: 18 / 28,
+  fontSize: 16,
+  lineHeight: 16 / 26,
+  [theme.breakpoints.up("lg")]: {
+    fontSize: 18,
+    lineHeight: 18 / 28,
+  },
 };
 
 theme.typography.subtitle2 = {
-  fontSize: 16,
-  lineHeight: 16 / 26,
+  fontSize: 14,
+  lineHeight: 14 / 23,
+  [theme.breakpoints.up("lg")]: {
+    fontSize: 16,
+    lineHeight: 16 / 26,
+  },
 };
 
 theme.typography.body1 = {
-  fontSize: 14,
-  lineHeight: 14 / 23,
+  fontSize: 12,
+  lineHeight: 12 / 14,
+  [theme.breakpoints.up("lg")]: {
+    fontSize: 14,
+    lineHeight: 14 / 23,
+  },
 };
 
 theme.typography.caption = {
-  fontSize: 12,
-  lineHeight: 12 / 14,
+  fontSize: 14,
+  lineHeight: 14 / 23,
 };
 
 export default theme;
