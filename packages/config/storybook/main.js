@@ -1,13 +1,14 @@
-const path = require("path");
-
 module.exports = {
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "storybook-addon-material-ui",
-  ],
-
   stories: ["../**/*.stories.js"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  staticDirs: ["../public"],
+  previewHead: (head) => `
+    ${head}
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+  `,
   features: {
     emotionAlias: false,
   },
