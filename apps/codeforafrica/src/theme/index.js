@@ -29,6 +29,13 @@ const breakpoints = {
 const theme = createTheme({
   palette,
   breakpoints,
+  contentWidths: {
+    values: {
+      sm: 708,
+      md: 904,
+    },
+    unit: "px",
+  },
   typography: {
     FONT_FAMILY_PRIMARY,
     FONT_FAMILY_SECONDARY,
