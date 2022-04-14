@@ -8,10 +8,7 @@ const palette = {
   mode: "light",
   primary: { main: "#1020E1", light: "#EFF0FD", dark: "#08125C" }, // blues
   secondary: { main: "#000000", light: "#7F7272" },
-  text: {
-    primary: { main: "#000000" },
-    secondary: { main: "#FFFFFF" },
-  },
+  text: { primary: "#000000", secondary: "#FFFFFF" },
   background: { main: "#F6F5F5" },
   highlight: { main: "#ED1C24" },
   grey: { main: "#B4ABAB", light: "#E3DFDF" },
