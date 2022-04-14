@@ -1,36 +1,36 @@
-import { Grid, Typography } from "@mui/material";
 import PropTypes from "prop-types";
-import React from "react";
+import * as React from "react";
 
-function NavList({ children, menu }) {
+import Menu from "./Menu";
+import MenuIcon from "./MenuIcon";
+
+function NavList({ menu, links }) {
   if (!menu?.length) {
     return null;
   }
-
+  if (!links?.length) {
+    return null;
+  }
   return (
-    <Grid container>
-      {menu.map((item) => (
-        <Grid item key={item.label}>
-          <Typography variant="body1">{item.label}</Typography>
-        </Grid>
-      ))}
-      {children}
-    </Grid>
+    <Menu menu={menu}>
+      <MenuIcon links={links} />
+    </Menu>
   );
 }
 
 NavList.propTypes = {
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string,
+      alt: PropTypes.string,
+    }).isRequired
+  ).isRequired,
   menu: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
     }).isRequired
   ).isRequired,
-  children: PropTypes.node,
-};
-
-NavList.defaultProps = {
-  children: undefined,
 };
 
 export default NavList;

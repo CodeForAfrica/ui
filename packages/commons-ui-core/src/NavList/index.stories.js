@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 import NavList from ".";
 
@@ -8,6 +8,11 @@ export default {
     menu: {
       control: {
         type: "array",
+      },
+      links: {
+        control: {
+          type: "array",
+        },
       },
     },
   },
@@ -40,6 +45,12 @@ Default.args = {
     {
       label: "Contact",
       href: "/contact",
+    },
+  ],
+  links: [
+    {
+      src: "/twitter.svg",
+      alt: "/our-work",
     },
   ],
 };
