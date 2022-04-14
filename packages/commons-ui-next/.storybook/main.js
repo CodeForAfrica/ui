@@ -9,7 +9,6 @@ module.exports = {
     config = await webpackFinal(config);
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@/commons-ui/core": path.resolve(__dirname, "../../commons-ui-core/src"),
       "@/commons-ui/next": path.resolve(__dirname, "../src"),
     };
 

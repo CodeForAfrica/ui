@@ -33,6 +33,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/preset-react": "^7.16.7",
+    "@commons-ui/core": "workspace:*",
     "@mui/material": "^5.6.1",
     "@storybook/addon-actions": "^6.4.21",
     "@storybook/addon-essentials": "^6.4.21",
