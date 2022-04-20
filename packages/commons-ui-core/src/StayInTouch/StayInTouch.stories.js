@@ -10,28 +10,28 @@ import linkedin from "../../public/linkedin.png";
 
 const socialMedia = [
   {
-    url: "https://www.instagram.com/code4africa__/",
-    image: { alt: "Instagram", url: instagram },
-  },
-  {
-    url: "https://github.com/CodeForAfrica",
-    image: { alt: "Github", url: github },
-  },
-  {
     url: "https://twitter.com/Code4Africa",
     image: { alt: "Twitter", url: twitter },
-  },
-  {
-    url: "https://ke.linkedin.com/company/code-for-africa",
-    image: { alt: "LinkedIn", url: linkedin },
   },
   {
     url: "https://ke.linkedin.com/company/code-for-africa",
     image: { alt: "Slack", url: slack },
   },
   {
+    url: "https://ke.linkedin.com/company/code-for-africa",
+    image: { alt: "LinkedIn", url: linkedin },
+  },
+  {
     url: "https://www.facebook.com/CodeForAfrica/",
     image: { alt: "Facebook", url: facebook },
+  },
+  {
+    url: "https://www.instagram.com/code4africa__/",
+    image: { alt: "Instagram", url: instagram },
+  },
+  {
+    url: "https://github.com/CodeForAfrica",
+    image: { alt: "Github", url: github },
   },
 ];
 
