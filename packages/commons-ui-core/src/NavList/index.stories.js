@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import Section from "../Section/index";
+
 import NavList from ".";
 
 export default {
@@ -19,12 +21,17 @@ export default {
 };
 
 function Template({ ...args }) {
-  return <NavList {...args} />;
+  return (
+    <Section {...args}>
+      <NavList {...args} />
+    </Section>
+  );
 }
 
 export const Default = Template.bind({});
 
 Default.args = {
+  fixed: true,
   menu: [
     {
       label: "Our Work",

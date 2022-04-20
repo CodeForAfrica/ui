@@ -7,7 +7,7 @@ import * as React from "react";
 
 function Menu({ children, menu, butttonVariant, typographyVariant, footer }) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   if (!menu?.length) {
     return null;
@@ -17,7 +17,7 @@ function Menu({ children, menu, butttonVariant, typographyVariant, footer }) {
     <Grid
       container
       direction={isMobile || footer ? "column" : "row"}
-      alignItems="center"
+      alignItems="flex-start"
       justifyContent={isMobile ? "flex-start" : "flex-end"}
     >
       {menu.map((item) => (
