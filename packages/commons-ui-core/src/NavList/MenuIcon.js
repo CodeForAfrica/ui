@@ -9,14 +9,7 @@ function MenuIcon({ links }) {
   }
 
   return (
-    <Grid
-      item
-      xs={8}
-      container
-      direction="row"
-      alignItems="center"
-      justifyContent="space-around"
-    >
+    <Grid item>
       {links.map((item) => (
         <Button key={item.alt}>
           <img src={item.src} alt={item.alt} />
