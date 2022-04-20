@@ -22,22 +22,12 @@ const NavButton = styled(Button)({
   fontSize: "1rem",
   color: "black",
   margin: "1rem",
-  backgroundColor: "none",
+  backgroundColor: "transparent",
   borderColor: "none",
-  "&:hover": {
-    backgroundColor: "none",
+  "&:hover, &:active, &:focus, &:focus-within": {
+    backgroundColor: "transparent",
     borderColor: "none",
     boxShadow: "none",
-  },
-  "&:active": {
-    boxShadow: "none",
-    backgroundColor: "none",
-    borderColor: "none",
-  },
-  "&:focus": {
-    boxShadow: "none",
-    backgroundColor: "none",
-    borderColor: "none",
   },
 });
 
