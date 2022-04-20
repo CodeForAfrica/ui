@@ -1,9 +1,62 @@
 import { Grid } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
 import A from "../A";
 import RichTypography from "../RichTypography";
+
+const TitleRoot = styled(Grid, {
+  slot: "Root",
+  name: "StayInTouchTitle",
+})(({ theme }) => ({
+  textAlign: "center",
+  [theme.breakpoints.up("md")]: {
+    textAlign: "left",
+  },
+}));
+
+const LinksRoot = styled(Grid, {
+  slot: "Root",
+  name: "StayInTouchLinks",
+})(({ theme }) => ({
+  "& > a": {
+    display: "inline-block",
+    borderRight: "1px solid white",
+  },
+  "& > a:last-of-type": {
+    border: "none",
+  },
+  [theme.breakpoints.up("md")]: {
+    justifyContent: "flex-start",
+    width: "auto",
+  },
+}));
+
+const SocialLinkRoot = styled(A, {
+  slot: "Root",
+  name: "StayInTouchSocialLink",
+})(() => ({
+  display: "inline-block",
+  padding: "0 0.625rem",
+}));
+
+const SupportLinkRoot = styled(A, {
+  slot: "Root",
+  name: "StayInTouchSupportLink",
+})(() => ({
+  display: "inline-block",
+  padding: "0 0.625rem",
+}));
+
+const IconRoot = styled("img", {
+  slot: "Root",
+  name: "StayInTouchIcon",
+})(() => ({
+  width: "1.375rem",
+  height: "1.375rem",
+  objectFit: "contain",
+}));
 
 function StayInTouch({ support, socialMedia, title }) {
   if (!(socialMedia && socialMedia.length)) {
@@ -13,22 +66,22 @@ function StayInTouch({ support, socialMedia, title }) {
   return (
     <Grid>
       {title && (
-        <Grid item xs={12} md="auto">
+        <TitleRoot item xs={12} md="auto">
           <RichTypography>{title}</RichTypography>
-        </Grid>
+        </TitleRoot>
       )}
-      <Grid item xs={12} md="auto" container>
+      <LinksRoot item xs={12} md="auto" container>
         {support && (
-          <A href={`mailto:${support.email}`}>
-            <img src={support.image.url} alt={support.image.alt} />
-          </A>
+          <SupportLinkRoot href={`mailto:${support.email}`}>
+            <IconRoot src={support.image.url} alt={support.image.alt} />
+          </SupportLinkRoot>
         )}
         {socialMedia.map((media) => (
-          <A key={media.url} href={media.url}>
-            <img src={media.image.url} alt={media.image.alt} />
-          </A>
+          <SocialLinkRoot key={media.url} href={media.url}>
+            <IconRoot src={media.image.url} alt={media.image.alt} />
+          </SocialLinkRoot>
         ))}
-      </Grid>
+      </LinksRoot>
     </Grid>
   );
 }
