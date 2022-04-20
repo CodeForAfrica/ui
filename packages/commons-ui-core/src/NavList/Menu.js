@@ -1,16 +1,14 @@
 import { Grid, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-function Menu({
-  children,
-  menu,
-  butttonVariant,
-  isMobile,
-  typographyVariant,
-  footer,
-}) {
+function Menu({ children, menu, butttonVariant, typographyVariant, footer }) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   if (!menu?.length) {
     return null;
   }
@@ -20,10 +18,10 @@ function Menu({
       container
       direction={isMobile || footer ? "column" : "row"}
       alignItems="center"
-      justifyContent="space-between"
+      justifyContent={isMobile ? "flex-start" : "flex-end"}
     >
       {menu.map((item) => (
-        <Grid item xs={2} key={item.label}>
+        <Grid item key={item.label}>
           <Button variant={butttonVariant} href={item.href}>
             <Typography variant={typographyVariant}>{item.label}</Typography>
           </Button>
@@ -44,7 +42,6 @@ Menu.propTypes = {
     }).isRequired
   ).isRequired,
   children: PropTypes.node,
-  isMobile: PropTypes.bool,
   footer: PropTypes.bool,
 };
 
@@ -53,7 +50,6 @@ Menu.defaultProps = {
   butttonVariant: undefined,
   typographyVariant: undefined,
   children: undefined,
-  isMobile: undefined,
 };
 
 export default Menu;
