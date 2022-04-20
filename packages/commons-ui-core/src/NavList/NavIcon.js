@@ -8,24 +8,14 @@ import ImageButton from "../ImageButton/index";
 const ImageIcon = styled(ImageButton)({
   boxShadow: "none",
   textTransform: "capitalize",
-  fontSize: "3rem",
-  margin: "1.5rem",
-  backgroundColor: "none",
+  fontSize: 48,
+  margin: 24,
+  backgroundColor: "transparent",
   borderColor: "none",
-  "&:hover": {
-    backgroundColor: "none",
-    borderColor: "none",
+  "&:hover, &:focus, &:active, &:focus-within": {
+    backgroundColor: "transparent",
+    borderColor: "transparent",
     boxShadow: "none",
-  },
-  "&:active": {
-    boxShadow: "none",
-    backgroundColor: "none",
-    borderColor: "none",
-  },
-  "&:focus": {
-    boxShadow: "none",
-    backgroundColor: "none",
-    borderColor: "none",
   },
 });
 

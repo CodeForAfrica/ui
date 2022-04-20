@@ -19,9 +19,9 @@ const NavContainer = styled(Grid)({
 const NavButton = styled(Button)({
   boxShadow: "none",
   textTransform: "capitalize",
-  fontSize: "1rem",
+  fontSize: 16,
   color: "black",
-  margin: "1rem",
+  margin: 16,
   backgroundColor: "transparent",
   borderColor: "none",
   "&:hover, &:active, &:focus, &:focus-within": {
