@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
-import React from "react";
+import * as React from "react";
 
 import A from "../A";
 import RichTypography from "../RichTypography";
@@ -58,13 +58,16 @@ const IconRoot = styled("img", {
   objectFit: "contain",
 }));
 
-function StayInTouch({ support, socialMedia, title }) {
+const StayInTouch = React.forwardRef(function StayInTouch(
+  { children, support, socialMedia, title, ...props },
+  ref
+) {
   if (!(socialMedia && socialMedia.length)) {
     return null;
   }
 
   return (
-    <Grid>
+    <Grid ref={ref} {...props}>
       {title && (
         <TitleRoot item xs={12} md="auto">
           <RichTypography>{title}</RichTypography>
@@ -84,7 +87,7 @@ function StayInTouch({ support, socialMedia, title }) {
       </LinksRoot>
     </Grid>
   );
-}
+});
 
 StayInTouch.propTypes = {
   socialMedia: PropTypes.arrayOf(

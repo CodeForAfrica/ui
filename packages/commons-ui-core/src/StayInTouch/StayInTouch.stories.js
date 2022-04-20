@@ -48,7 +48,14 @@ export default {
 };
 
 function Template({ ...args }) {
-  return <StayInTouch {...args} />;
+  return (
+    <StayInTouch
+      sx={{
+        backgroundColor: "black",
+      }}
+      {...args}
+    />
+  );
 }
 
 export const Default = Template.bind({});
