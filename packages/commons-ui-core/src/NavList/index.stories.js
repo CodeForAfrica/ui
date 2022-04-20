@@ -33,7 +33,7 @@ export const Default = Template.bind({});
 Default.args = {
   fixed: true,
   buttonVariant: "text",
-  typographyVariant: "body1",
+  typographyVariant: "h1",
   menu: [
     {
       label: "Our Work",

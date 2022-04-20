@@ -5,6 +5,13 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import PropTypes from "prop-types";
 import * as React from "react";
 
+const NavTypography = styled(Typography)({
+  "&:hover": {
+    textDecoration: "underline",
+    color: "blue",
+  },
+});
+
 const NavContainer = styled(Grid)({
   background: "white",
 });
@@ -13,6 +20,7 @@ const NavButton = styled(Button)({
   boxShadow: "none",
   textTransform: "capitalize",
   fontSize: "1rem",
+  color: "black",
   margin: "1rem",
   backgroundColor: "none",
   borderColor: "none",
@@ -33,13 +41,7 @@ const NavButton = styled(Button)({
   },
 });
 
-function NavMenu({
-  children,
-  menu,
-  butttonVariant,
-  typographyVariant,
-  footer,
-}) {
+function NavMenu({ children, menu, buttonVariant, typographyVariant, footer }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -56,8 +58,10 @@ function NavMenu({
     >
       {menu.map((item) => (
         <Grid item key={item.label}>
-          <NavButton variant={butttonVariant} href={item.href}>
-            <Typography variant={typographyVariant}>{item.label}</Typography>
+          <NavButton variant={buttonVariant} href={item.href}>
+            <NavTypography variant={typographyVariant}>
+              {item.label}
+            </NavTypography>
           </NavButton>
         </Grid>
       ))}
@@ -67,7 +71,7 @@ function NavMenu({
 }
 
 NavMenu.propTypes = {
-  butttonVariant: PropTypes.string,
+  buttonVariant: PropTypes.string,
   typographyVariant: PropTypes.string,
   menu: PropTypes.arrayOf(
     PropTypes.shape({
@@ -81,7 +85,7 @@ NavMenu.propTypes = {
 
 NavMenu.defaultProps = {
   footer: undefined,
-  butttonVariant: undefined,
+  buttonVariant: undefined,
   typographyVariant: undefined,
   children: undefined,
 };
