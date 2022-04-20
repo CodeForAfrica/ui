@@ -1,4 +1,4 @@
-import Link from "@mui/material";
+import Link from "@mui/material/Link";
 import PropTypes from "prop-types";
 import React from "react";
 
