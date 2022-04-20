@@ -3,6 +3,7 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import "@/codeforafrica/theme/fonts.css";
 import theme from "@/codeforafrica/theme";
 import createEmotionCache from "@/codeforafrica/utils/createEmotionCache";
 

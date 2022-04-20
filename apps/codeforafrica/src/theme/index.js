@@ -1,16 +1,14 @@
 import { createTheme } from "@commons-ui/core";
+import { deepmerge } from "@mui/utils";
 
-const FONT_FAMILY_PRIMARY = "'Open Sans', sans-serif";
-const FONT_FAMILY_SECONDARY = "'Merriweather', serif";
+const FONT_FAMILY_PRIMARY = '"Open Sans", sans-serif';
+const FONT_FAMILY_SECONDARY = "Merriweather, serif";
 
 const palette = {
   mode: "light",
   primary: { main: "#1020E1", light: "#EFF0FD", dark: "#08125C" }, // blues
   secondary: { main: "#000000", light: "#7F7272" },
-  text: {
-    primary: { main: "#000000" },
-    secondary: { main: "#FFFFFF" },
-  },
+  text: { primary: "#000000", secondary: "#FFFFFF" },
   background: { main: "#F6F5F5" },
   highlight: { main: "#ED1C24" },
   grey: { main: "#B4ABAB", light: "#E3DFDF" },
@@ -40,54 +38,51 @@ const theme = createTheme({
     unit: "px",
   },
   typography: {
-    FONT_FAMILY_PRIMARY,
-    FONT_FAMILY_SECONDARY,
+    fontFamily: FONT_FAMILY_PRIMARY,
     display1: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 300,
-      fontSize: 72,
+      fontWeight: 700,
       lineHeight: 72 / 72,
     },
     display2: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 300,
-      fontSize: 60,
+      fontWeight: 700,
       lineHeight: 60 / 72,
     },
     h1: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 300,
+      fontWeight: 700,
       letterSpacing: "-0.04em",
     },
     h2: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 300,
+      fontWeight: 700,
       letterSpacing: "-0.02em",
     },
     h3: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 300,
+      fontWeight: 700,
     },
     h4: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 300,
+      fontWeight: 700,
     },
     h5: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 300,
+      fontWeight: 700,
       letterSpacing: "-0.02em",
     },
     h6: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 300,
+      fontWeight: 700,
       letterSpacing: "-0.02em",
     },
     subheading: {
@@ -114,7 +109,6 @@ const theme = createTheme({
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
       fontWeight: 400,
-      fontSize: 14,
       lineHeight: 14 / 23,
     },
   },
@@ -187,94 +181,112 @@ const theme = createTheme({
   },
 });
 
-theme.typography.h1 = {
-  fontSize: 28,
-  lineHeight: 28 / 34,
-  [theme.breakpoints.up("md")]: {
-    fontSize: 48,
-    lineHeight: 48 / 56,
-  },
-};
+// deepmerge font-size so that we don't overide other settings such as
+// font-family set above
+const { pxToRem } = theme.typography;
+deepmerge(
+  theme.typography,
+  {
+    display1: {
+      fontSize: pxToRem(72),
+    },
+    display2: {
+      fontSize: pxToRem(60),
+    },
+    h1: {
+      fontSize: pxToRem(28),
+      lineHeight: 28 / 34,
+      [theme.breakpoints.up("md")]: {
+        fontSize: pxToRem(48),
+        lineHeight: 48 / 56,
+      },
+    },
 
-theme.typography.h2 = {
-  fontSize: 23,
-  lineHeight: 23 / 28,
-  [theme.breakpoints.up("md")]: {
-    fontSize: 39,
-    lineHeight: 39 / 47,
-  },
-};
+    h2: {
+      fontSize: pxToRem(23),
+      lineHeight: 23 / 28,
+      [theme.breakpoints.up("md")]: {
+        fontSize: pxToRem(39),
+        lineHeight: 39 / 47,
+      },
+    },
 
-theme.typography.h3 = {
-  fontSize: 28,
-  lineHeight: 28 / 34,
-  [theme.breakpoints.up("md")]: {
-    fontSize: 33,
-    lineHeight: 33 / 40,
-  },
-};
+    h3: {
+      fontSize: pxToRem(28),
+      lineHeight: 28 / 34,
+      [theme.breakpoints.up("md")]: {
+        fontSize: pxToRem(33),
+        lineHeight: 33 / 40,
+      },
+    },
 
-theme.typography.h4 = {
-  fontSize: 23,
-  lineHeight: 23 / 28,
-  [theme.breakpoints.up("md")]: {
-    fontSize: 28,
-    lineHeight: 28 / 34,
-  },
-};
+    h4: {
+      fontSize: pxToRem(23),
+      lineHeight: 23 / 28,
+      [theme.breakpoints.up("md")]: {
+        fontSize: pxToRem(28),
+        lineHeight: 28 / 34,
+      },
+    },
 
-theme.typography.h5 = {
-  fontSize: 19,
-  lineHeight: 19 / 23,
-  [theme.breakpoints.up("md")]: {
-    fontSize: 23,
-    lineHeight: 28 / 28,
-  },
-};
+    h5: {
+      fontSize: pxToRem(19),
+      lineHeight: 19 / 23,
+      [theme.breakpoints.up("md")]: {
+        fontSize: pxToRem(23),
+        lineHeight: 28 / 28,
+      },
+    },
 
-theme.typography.h6 = {
-  fontSize: 16,
-  lineHeight: 16 / 19,
-  [theme.breakpoints.up("md")]: {
-    fontSize: 19,
-    lineHeight: 19 / 23,
-  },
-};
+    h6: {
+      fontSize: pxToRem(16),
+      lineHeight: 16 / 19,
+      [theme.breakpoints.up("md")]: {
+        fontSize: pxToRem(19),
+        lineHeight: 19 / 23,
+      },
+    },
 
-theme.typography.subheading = {
-  fontSize: 18,
-  lineHeight: 18 / 28,
-  [theme.breakpoints.up("md")]: {
-    fontSize: 20,
-    lineHeight: 20 / 30,
-  },
-};
+    subheading: {
+      fontSize: pxToRem(18),
+      lineHeight: 18 / 28,
+      [theme.breakpoints.up("md")]: {
+        fontSize: pxToRem(20),
+        lineHeight: 20 / 30,
+      },
+    },
 
-theme.typography.subtitle1 = {
-  fontSize: 16,
-  lineHeight: 16 / 26,
-  [theme.breakpoints.up("md")]: {
-    fontSize: 18,
-    lineHeight: 18 / 28,
-  },
-};
+    subtitle1: {
+      fontSize: pxToRem(16),
+      lineHeight: 16 / 26,
+      [theme.breakpoints.up("md")]: {
+        fontSize: pxToRem(18),
+        lineHeight: 18 / 28,
+      },
+    },
 
-theme.typography.subtitle2 = {
-  fontSize: 14,
-  lineHeight: 14 / 23,
-  [theme.breakpoints.up("md")]: {
-    fontSize: 16,
-    lineHeight: 16 / 26,
-  },
-};
+    subtitle2: {
+      fontSize: pxToRem(14),
+      lineHeight: 14 / 23,
+      [theme.breakpoints.up("md")]: {
+        fontSize: pxToRem(16),
+        lineHeight: 16 / 26,
+      },
+    },
 
-theme.typography.body1 = {
-  fontSize: 12,
-  lineHeight: 12 / 14,
-  [theme.breakpoints.up("md")]: {
-    fontSize: 14,
-    lineHeight: 14 / 23,
+    body1: {
+      fontSize: pxToRem(12),
+      lineHeight: 12 / 14,
+      [theme.breakpoints.up("md")]: {
+        fontSize: pxToRem(14),
+        lineHeight: 14 / 23,
+      },
+    },
+    caption: {
+      fontSize: pxToRem(14),
+    },
   },
-};
+  { clone: false }
+);
 
 export default theme;
