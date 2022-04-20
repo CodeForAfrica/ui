@@ -32,6 +32,8 @@ export const Default = Template.bind({});
 
 Default.args = {
   fixed: true,
+  buttonVariant: "text",
+  typographyVariant: "body1",
   menu: [
     {
       label: "Our Work",
@@ -58,6 +60,8 @@ Default.args = {
     {
       src: "/twitter.svg",
       alt: "/our-work",
+      height: "22px",
+      width: "17.94px",
     },
   ],
 };

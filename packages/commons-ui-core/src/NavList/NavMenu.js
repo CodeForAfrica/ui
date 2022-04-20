@@ -1,11 +1,45 @@
 import { Grid, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
-import { useTheme } from "@mui/material/styles";
+import { useTheme, styled } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-function Menu({ children, menu, butttonVariant, typographyVariant, footer }) {
+const NavContainer = styled(Grid)({
+  background: "white",
+});
+
+const NavButton = styled(Button)({
+  boxShadow: "none",
+  textTransform: "capitalize",
+  fontSize: "1rem",
+  margin: "1rem",
+  backgroundColor: "none",
+  borderColor: "none",
+  "&:hover": {
+    backgroundColor: "none",
+    borderColor: "none",
+    boxShadow: "none",
+  },
+  "&:active": {
+    boxShadow: "none",
+    backgroundColor: "none",
+    borderColor: "none",
+  },
+  "&:focus": {
+    boxShadow: "none",
+    backgroundColor: "none",
+    borderColor: "none",
+  },
+});
+
+function NavMenu({
+  children,
+  menu,
+  butttonVariant,
+  typographyVariant,
+  footer,
+}) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -14,7 +48,7 @@ function Menu({ children, menu, butttonVariant, typographyVariant, footer }) {
   }
 
   return (
-    <Grid
+    <NavContainer
       container
       direction={isMobile || footer ? "column" : "row"}
       alignItems="flex-start"
@@ -22,17 +56,17 @@ function Menu({ children, menu, butttonVariant, typographyVariant, footer }) {
     >
       {menu.map((item) => (
         <Grid item key={item.label}>
-          <Button variant={butttonVariant} href={item.href}>
+          <NavButton variant={butttonVariant} href={item.href}>
             <Typography variant={typographyVariant}>{item.label}</Typography>
-          </Button>
+          </NavButton>
         </Grid>
       ))}
       {children}
-    </Grid>
+    </NavContainer>
   );
 }
 
-Menu.propTypes = {
+NavMenu.propTypes = {
   butttonVariant: PropTypes.string,
   typographyVariant: PropTypes.string,
   menu: PropTypes.arrayOf(
@@ -45,11 +79,11 @@ Menu.propTypes = {
   footer: PropTypes.bool,
 };
 
-Menu.defaultProps = {
+NavMenu.defaultProps = {
   footer: undefined,
   butttonVariant: undefined,
   typographyVariant: undefined,
   children: undefined,
 };
 
-export default Menu;
+export default NavMenu;

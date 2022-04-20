@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import * as React from "react";
 
-import Menu from "./Menu";
-import MenuIcon from "./MenuIcon";
+import NavIcon from "./NavIcon";
+import NavMenu from "./NavMenu";
 
 function NavList({ menu, links }) {
   if (!menu?.length) {
@@ -12,9 +12,9 @@ function NavList({ menu, links }) {
     return null;
   }
   return (
-    <Menu menu={menu}>
-      <MenuIcon links={links} />
-    </Menu>
+    <NavMenu menu={menu}>
+      <NavIcon links={links} />
+    </NavMenu>
   );
 }
 
