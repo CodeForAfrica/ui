@@ -7,6 +7,6 @@ module.exports = {
   moduleNameMapper: {
     ...moduleNameMapper,
     // Handle module aliases
-    "^@/cdeforafrica/(.*)$": "<rootDir>/src/$1",
+    "^@/codeforafrica/(.*)$": "<rootDir>/src/$1",
   },
 };
