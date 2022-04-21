@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import Section from "../Section/index";
-
 import NavList from ".";
+
+import Section from "@/commons-ui/core/Section/index";
 
 export default {
   title: "Component/NavList",

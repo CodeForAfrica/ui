@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import * as React from "react";
 
-import NavIcon from "./NavIcon";
-import NavMenu from "./NavMenu";
+import NavIcon from "@/commons-ui/core/NavList/NavIcon";
+import NavMenu from "@/commons-ui/core/NavList/NavMenu";
 
 function NavList({ menu, links }) {
   if (!menu?.length) {

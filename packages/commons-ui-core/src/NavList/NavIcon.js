@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-import ImageButton from "../ImageButton/index";
+import ImageButton from "@/commons-ui/core/ImageButton/index";
 
 const ImageIcon = styled(ImageButton)({
   boxShadow: "none",
