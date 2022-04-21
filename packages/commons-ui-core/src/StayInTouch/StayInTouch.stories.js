@@ -52,6 +52,9 @@ function Template({ ...args }) {
     <StayInTouch
       sx={{
         backgroundColor: "black",
+        "& .MuiTypography-root": {
+          color: "white",
+        },
       }}
       {...args}
     />

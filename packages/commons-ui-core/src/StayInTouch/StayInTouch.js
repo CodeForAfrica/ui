@@ -67,7 +67,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
   }
 
   return (
-    <Grid ref={ref} {...props}>
+    <Grid container ref={ref} {...props}>
       {title && (
         <TitleRoot item xs={12} md="auto">
           <RichTypography>{title}</RichTypography>
