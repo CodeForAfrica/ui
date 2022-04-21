@@ -12,14 +12,12 @@ const SectionRoot = styled(Container, {
 })(
   ({ ownerState, theme }) =>
     ownerState.fixed &&
-    Object.keys(theme.contentWidths.values).reduce((acc, breakpoint) => {
+    Object.keys(theme.breakpoints.values).reduce((acc, breakpoint) => {
       const value = theme.contentWidths.values[breakpoint];
-
-      if (value) {
-        acc[theme.breakpoints.up(breakpoint)] = {
-          maxWidth: `${value}${theme.contentWidths.unit}`,
-        };
-      }
+      const maxWidth = value ? `${value}${theme.contentWidths.unit}` : "none";
+      acc[theme.breakpoints.up(breakpoint)] = {
+        maxWidth,
+      };
       return acc;
     }, {})
 );
