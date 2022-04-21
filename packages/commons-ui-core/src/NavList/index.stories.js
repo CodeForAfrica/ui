@@ -28,6 +28,7 @@ export const Default = Template.bind({});
 Default.args = {
   fixed: true,
   typographyVariant: "body1",
+  children: <img src="/twitter.svg" alt="Twitter" />,
   menu: [
     {
       label: "Our Work",

@@ -11,7 +11,7 @@ const NavLink = styled(Link)({
   fontSize: 16,
   color: "black",
   textDecoration: "none",
-  margin: 16,
+  margin: "24px",
   backgroundColor: "transparent",
   borderColor: "none",
   "&:hover, &:active, &:focus, &:focus-within": {
