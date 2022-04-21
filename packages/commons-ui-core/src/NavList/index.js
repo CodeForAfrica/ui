@@ -1,36 +1,77 @@
+import { Grid } from "@mui/material";
+import Link from "@mui/material/Link";
+import { useTheme, styled } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-import NavIcon from "@/commons-ui/core/NavList/NavIcon";
-import NavMenu from "@/commons-ui/core/NavList/NavMenu";
+const NavLink = styled(Link)({
+  boxShadow: "none",
+  textTransform: "capitalize",
+  fontSize: 16,
+  color: "black",
+  textDecoration: "none",
+  margin: 16,
+  backgroundColor: "transparent",
+  borderColor: "none",
+  "&:hover, &:active, &:focus, &:focus-within": {
+    backgroundColor: "transparent",
+    borderColor: "none",
+    boxShadow: "none",
+  },
+  "&:hover": {
+    textDecoration: "underline",
+    color: "blue",
+  },
+});
 
-function NavList({ menu, links }) {
+const NavContainer = styled(Grid)({
+  background: "white",
+});
+
+function NavMenu({ children, menu, typographyVariant, footer }) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   if (!menu?.length) {
     return null;
   }
-  if (!links?.length) {
-    return null;
-  }
+
   return (
-    <NavMenu menu={menu}>
-      <NavIcon links={links} />
-    </NavMenu>
+    <NavContainer
+      container
+      direction={isMobile || footer ? "column" : "row"}
+      alignItems="flex-start"
+      justifyContent={isMobile ? "flex-start" : "flex-end"}
+    >
+      {menu.map((item) => (
+        <Grid item key={item.label}>
+          <NavLink href={item.href} variant={typographyVariant}>
+            {item.label}
+          </NavLink>
+        </Grid>
+      ))}
+      {children}
+    </NavContainer>
   );
 }
 
-NavList.propTypes = {
-  links: PropTypes.arrayOf(
-    PropTypes.shape({
-      src: PropTypes.string,
-      alt: PropTypes.string,
-    }).isRequired
-  ).isRequired,
+NavMenu.propTypes = {
+  typographyVariant: PropTypes.string,
   menu: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
     }).isRequired
   ).isRequired,
+  children: PropTypes.node,
+  footer: PropTypes.bool,
 };
 
-export default NavList;
+NavMenu.defaultProps = {
+  footer: undefined,
+  typographyVariant: undefined,
+  children: undefined,
+};
+
+export default NavMenu;

@@ -11,11 +11,11 @@ export default {
       control: {
         type: "array",
       },
-      links: {
+      /*  links: {
         control: {
           type: "array",
         },
-      },
+      }, */
     },
   },
 };
@@ -32,8 +32,7 @@ export const Default = Template.bind({});
 
 Default.args = {
   fixed: true,
-  buttonVariant: "text",
-  typographyVariant: "h1",
+  typographyVariant: "body1",
   menu: [
     {
       label: "Our Work",
@@ -56,12 +55,12 @@ Default.args = {
       href: "/contact",
     },
   ],
-  links: [
+  /*  links: [
     {
       src: "/twitter.svg",
       alt: "/our-work",
       height: "22px",
       width: "17.94px",
     },
-  ],
+  ], */
 };
