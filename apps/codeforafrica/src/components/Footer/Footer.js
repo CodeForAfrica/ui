@@ -1,13 +1,16 @@
 import { Section } from "@commons-ui/core";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+// import Box from "@mui/material/Box";
+import { Grid, Typography, List, ListItem } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
+import Image from "next/image";
+
 import React from "react";
+import cfaIcon from "@/codeforafrica/assets/images/CfAlogoBW.png";
 
 import NewsletterSubscription from "@/codeforafrica/components/NewsletterSubscription";
 
-const FooterRoot = styled(Box)(
+const FooterRoot = styled("footer")(
   ({ theme: { breakpoints, palette, typography } }) => ({
     backgroundColor: palette.common.black,
     color: palette.text.secondary,
@@ -27,7 +30,25 @@ const Footer = React.forwardRef(function Footer(props, ref) {
   return (
     <FooterRoot ref={ref}>
       <Section>
-        <Grid container justifyContent="flex-end">
+        <Grid container>
+          <Grid item xs={12} md={4}>
+            <Image src={cfaIcon} />
+            <Typography>
+              This site is a project of Code for Africa, the continent’s largest
+              network of civic technology and data journalism labs. All content
+              is released under a Creative Commons 4 Attribution Licence. Reuse
+              it to help empower your own community.
+            </Typography>
+          </Grid>
+          <Grid container item justifyContent="center" xs={12} md={3}>
+            <List>
+              <ListItem>Our Work</ListItem>
+              <ListItem>About</ListItem>
+              <ListItem>Stories</ListItem>
+              <ListItem>Opportunities</ListItem>
+              <ListItem>Contact</ListItem>
+            </List>
+          </Grid>
           <Grid item xs={12} md={3} sx={{ order: { xs: 0, md: 1 } }}>
             <NewsletterSubscription {...subscription} />
           </Grid>
