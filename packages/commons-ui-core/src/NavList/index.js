@@ -29,7 +29,7 @@ const NavContainer = styled(Grid)({
   background: "white",
 });
 
-function NavMenu({ children, menu, typographyVariant, footer }) {
+function NavMenu({ children, menu, typographyVariant }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -40,7 +40,7 @@ function NavMenu({ children, menu, typographyVariant, footer }) {
   return (
     <NavContainer
       container
-      direction={isMobile || footer ? "column" : "row"}
+      direction={isMobile ? "column" : "row"}
       alignItems="flex-start"
       justifyContent={isMobile ? "flex-start" : "flex-end"}
     >
@@ -65,11 +65,9 @@ NavMenu.propTypes = {
     }).isRequired
   ).isRequired,
   children: PropTypes.node,
-  footer: PropTypes.bool,
 };
 
 NavMenu.defaultProps = {
-  footer: undefined,
   typographyVariant: undefined,
   children: undefined,
 };

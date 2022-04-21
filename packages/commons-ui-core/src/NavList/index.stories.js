@@ -11,11 +11,6 @@ export default {
       control: {
         type: "array",
       },
-      /*  links: {
-        control: {
-          type: "array",
-        },
-      }, */
     },
   },
 };
@@ -55,12 +50,4 @@ Default.args = {
       href: "/contact",
     },
   ],
-  /*  links: [
-    {
-      src: "/twitter.svg",
-      alt: "/our-work",
-      height: "22px",
-      width: "17.94px",
-    },
-  ], */
 };
