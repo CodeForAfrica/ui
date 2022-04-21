@@ -5,7 +5,7 @@ import A from ".";
 
 describe("A", () => {
   it("renders unchanged", () => {
-    const { container } = render(<A />);
+    const { container } = render(<A href="www.test.com">Link</A>);
     expect(container).toMatchSnapshot();
   });
 });

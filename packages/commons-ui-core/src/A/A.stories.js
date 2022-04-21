@@ -19,9 +19,11 @@ export default {
 };
 
 function Template({ ...args }) {
-  return <A {...args} />;
+  return <A {...args}>Link</A>;
 }
 
 export const Default = Template.bind({});
 
-Default.args = {};
+Default.args = {
+  href: "www.link.com",
+};
