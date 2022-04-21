@@ -1,9 +1,10 @@
-import { render } from "@testing-library/react";
 import React from "react";
 
 import Footer from "./Footer";
 
-const footerProps = {
+import { render } from "@/codeforafrica/utils/test";
+
+const defaultProps = {
   subscription: {
     embedCode: "",
   },
@@ -11,7 +12,7 @@ const footerProps = {
 
 describe("<Footer />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Footer {...footerProps} />);
+    const { container } = render(<Footer {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

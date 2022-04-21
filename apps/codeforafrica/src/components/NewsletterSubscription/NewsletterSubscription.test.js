@@ -1,7 +1,8 @@
-import { render } from "@testing-library/react";
 import React from "react";
 
 import NewsletterSubscription from "./NewsletterSubscription";
+
+import { render } from "@/codeforafrica/utils/test";
 
 const subscriptionProps = {
   embedCode: `
