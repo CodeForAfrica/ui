@@ -1,0 +1,67 @@
+{
+  "name": "@commons-ui/testing-library",
+  "version": "2.0.0-alpha.0",
+  "private": false,
+  "author": "Code for Africa <tech@codeforafrica.org>",
+  "description": "",
+  "main": "./src/index.js",
+  "files": [
+    "jest.setup.js"
+  ],
+  "keywords": [
+    "react",
+    "react-component",
+    "mui",
+    "material-ui",
+    "material design",
+    "testing",
+    "testing-library"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeforafrica/ui.git",
+    "directory": "packages/commons-ui-core"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeforafrica/ui/issues"
+  },
+  "scripts": {
+    "lint": "eslint --fix './'",
+    "clean": "rm -rf .turbo node_modules dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-react": "^7.16.7",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.6.1",
+    "@types/react": "^17.0.44",
+    "babel-loader": "^8.2.4",
+    "config": "workspace:*",
+    "eslint": "^8.13.0",
+    "eslint-config-commons-ui": "workspace:*",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1",
+    "jest-config-commons-ui": "workspace:*",
+    "prettier": "^2.6.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
+    "typescript": "^4.6.3",
+    "webpack": "^5.72.0"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.17.7",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.5",
+    "prop-types": "^15.8.1"
+  }
+}

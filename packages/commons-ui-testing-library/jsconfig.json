@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/commons-ui/testing-library/*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
