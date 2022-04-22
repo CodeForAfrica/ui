@@ -1,7 +1,8 @@
+import { NavBar } from "@commons-ui/core";
 import React from "react";
 
 function Navigation() {
-  return <div>this is the navigation bar</div>;
+  return <NavBar>this is the navigation bar</NavBar>;
 }
 
 export default Navigation;
