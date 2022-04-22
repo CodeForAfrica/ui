@@ -5,13 +5,19 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import PropTypes from "prop-types";
 import * as React from "react";
 
+const NavLinkGrid = styled(Grid)(({ theme }) => ({
+  margin: "6px 0",
+  [theme.breakpoints.up("lg")]: {
+    margin: 0,
+  },
+}));
+
 const NavLink = styled(Link)(({ theme }) => ({
   boxShadow: "none",
   textTransform: "capitalize",
   color: theme.palette.text.secondary.main,
   textDecoration: "none",
-  fontSize: "18px",
-  margin: "24px",
+  fontSize: "28px",
   backgroundColor: "transparent",
   "&:hover, &:active, &:focus, &:focus-within": {
     color: theme.palette.text.secondary.main,
@@ -47,11 +53,11 @@ function NavMenu({ children, menu }) {
       justifyContent={isMobile ? "flex-start" : "flex-end"}
     >
       {menu.map((item) => (
-        <Grid item key={item.label}>
+        <NavLinkGrid item key={item.label}>
           <NavLink href={item.href} variant="body1">
             {item.label}
           </NavLink>
-        </Grid>
+        </NavLinkGrid>
       ))}
       {children}
     </Grid>
