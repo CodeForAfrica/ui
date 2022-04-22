@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import Footer from "@/codeforafrica/components/Footer";
+import config from "@/codeforafrica/config";
 
 function Page({ children, sections, title }) {
   const { footer } = sections;
+  const { menu } = config;
 
   return (
     <>
@@ -13,7 +15,7 @@ function Page({ children, sections, title }) {
         <title>{title}</title>
       </Head>
       {children}
-      {footer ? <Footer {...footer} /> : null}
+      {footer ? <Footer {...footer} menu={menu} /> : null}
     </>
   );
 }

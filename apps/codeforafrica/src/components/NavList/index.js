@@ -5,38 +5,40 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-const NavLinkGrid = styled(Grid)(({ theme }) => ({
-  margin: "6px 0",
-  [theme.breakpoints.up("lg")]: {
+const NavLinkGrid = styled(Grid)(({ theme: { breakpoints, typography } }) => ({
+  margin: `${typography.pxToRem(6)} 0`,
+  [breakpoints.up("lg")]: {
     margin: 0,
   },
 }));
 
-const NavLink = styled(Link)(({ theme }) => ({
-  boxShadow: "none",
-  textTransform: "capitalize",
-  color: theme.palette.text.secondary.main,
-  textDecoration: "none",
-  fontSize: "28px",
-  backgroundColor: "transparent",
-  "&:hover, &:active, &:focus, &:focus-within": {
-    color: theme.palette.text.secondary.main,
-  },
-  [theme.breakpoints.up("lg")]: {
+const NavLink = styled(Link)(
+  ({ theme: { breakpoints, palette, typography } }) => ({
     boxShadow: "none",
     textTransform: "capitalize",
-    color: theme.palette.text.primary.main,
+    color: palette.text.secondary.main,
     textDecoration: "none",
-    fontSize: "18px",
-    margin: "24px",
+    fontSize: typography.pxToRem(28),
     backgroundColor: "transparent",
-    borderColor: "none",
     "&:hover, &:active, &:focus, &:focus-within": {
-      textDecoration: "underline",
-      color: theme.palette.primary.main,
+      color: palette.text.secondary.main,
     },
-  },
-}));
+    [breakpoints.up("lg")]: {
+      boxShadow: "none",
+      textTransform: "capitalize",
+      color: palette.text.primary.main,
+      textDecoration: "none",
+      fontSize: typography.pxToRem(18),
+      margin: typography.pxToRem(24),
+      backgroundColor: "transparent",
+      borderColor: "none",
+      "&:hover, &:active, &:focus, &:focus-within": {
+        textDecoration: "underline",
+        color: palette.primary.main,
+      },
+    },
+  })
+);
 function NavMenu({ children, menu }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
