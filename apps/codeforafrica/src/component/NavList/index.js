@@ -5,31 +5,33 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-const NavLink = styled(Link)({
+const NavLink = styled(Link)(({ theme }) => ({
   boxShadow: "none",
   textTransform: "capitalize",
-  fontSize: 16,
-  color: "black",
+  color: theme.palette.text.secondary.main,
   textDecoration: "none",
+  fontSize: "18px",
   margin: "24px",
   backgroundColor: "transparent",
-  borderColor: "none",
   "&:hover, &:active, &:focus, &:focus-within": {
+    color: theme.palette.text.secondary.main,
+  },
+  [theme.breakpoints.up("lg")]: {
+    boxShadow: "none",
+    textTransform: "capitalize",
+    color: theme.palette.text.primary.main,
+    textDecoration: "none",
+    fontSize: "18px",
+    margin: "24px",
     backgroundColor: "transparent",
     borderColor: "none",
-    boxShadow: "none",
+    "&:hover, &:active, &:focus, &:focus-within": {
+      textDecoration: "underline",
+      color: theme.palette.primary.main,
+    },
   },
-  "&:hover": {
-    textDecoration: "underline",
-    color: "blue",
-  },
-});
-
-const NavContainer = styled(Grid)({
-  background: "white",
-});
-
-function NavMenu({ children, menu, typographyVariant }) {
+}));
+function NavMenu({ children, menu }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -38,7 +40,7 @@ function NavMenu({ children, menu, typographyVariant }) {
   }
 
   return (
-    <NavContainer
+    <Grid
       container
       direction={isMobile ? "column" : "row"}
       alignItems="flex-start"
@@ -46,18 +48,17 @@ function NavMenu({ children, menu, typographyVariant }) {
     >
       {menu.map((item) => (
         <Grid item key={item.label}>
-          <NavLink href={item.href} variant={typographyVariant}>
+          <NavLink href={item.href} variant="body1">
             {item.label}
           </NavLink>
         </Grid>
       ))}
       {children}
-    </NavContainer>
+    </Grid>
   );
 }
 
 NavMenu.propTypes = {
-  typographyVariant: PropTypes.string,
   menu: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -68,7 +69,6 @@ NavMenu.propTypes = {
 };
 
 NavMenu.defaultProps = {
-  typographyVariant: undefined,
   children: undefined,
 };
 

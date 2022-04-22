@@ -3,7 +3,11 @@ import { Link } from "@commons-ui/next";
 import Head from "next/head";
 import React from "react";
 
+import NavList from "@/codeforafrica/component/NavList";
+import config from "@/codeforafrica/config";
+
 function Index() {
+  const { menu } = config;
   return (
     <div>
       <Head>
@@ -17,6 +21,7 @@ function Index() {
         <RichTypography component="p">
           Get started by editing <Link href="/">pages/index.js</Link>
         </RichTypography>
+        <NavList menu={menu} />
       </main>
     </div>
   );
