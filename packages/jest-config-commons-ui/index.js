@@ -15,7 +15,7 @@ module.exports = {
   },
   roots: ["<rootDir>"],
   // Add more setup options before each test is run
-  // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   snapshotResolver: "jest-config-commons-ui/snapshotResolver",
   testEnvironment: "jsdom",
   testMatch: ["**/?(*.)+(test).js?(x)"],
