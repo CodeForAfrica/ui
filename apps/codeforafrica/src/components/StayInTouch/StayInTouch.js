@@ -1,8 +1,8 @@
+import { A } from "@commons-ui/core";
 import React from "react";
-import A from "@commons-ui/core";
 
-const StayInTouch = () => {
-  <A href="ww.test.com">Link</A>;
-};
+function StayInTouch() {
+  return <A>Stay in touch</A>;
+}
 
 export default StayInTouch;
