@@ -1,8 +1,17 @@
-import { A, RichTypography } from "@commons-ui/core";
+import { A } from "@commons-ui/core";
 import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import * as React from "react";
+
+import Title from "./Title";
+
+const StayInTouchRoot = styled(Grid, {
+  slot: "Root",
+  name: "StayInTouch",
+})(({ theme: { typography } }) => ({
+  marginTop: typography.pxToRem(50),
+}));
 
 const TitleRoot = styled(Grid, {
   slot: "Root",
@@ -20,10 +29,10 @@ const LinksRoot = styled(Grid, {
 })(({ theme }) => ({
   "& > a": {
     display: "inline-block",
-    borderRight: "1px solid white",
+    // borderRight: "1px solid white",
   },
   "& > a:last-of-type": {
-    border: "none",
+    // border: "none",
   },
   [theme.breakpoints.up("md")]: {
     justifyContent: "flex-start",
@@ -65,13 +74,13 @@ const StayInTouch = React.forwardRef(function StayInTouch(
   }
 
   return (
-    <Grid container ref={ref} {...props}>
+    <StayInTouchRoot container ref={ref} {...props}>
       {title && (
-        <TitleRoot item xs={12} md="auto">
-          <RichTypography>{title}</RichTypography>
+        <TitleRoot item xs={12} md={4}>
+          <Title title="Stay in touch:" />
         </TitleRoot>
       )}
-      <LinksRoot item xs={12} md="auto" container>
+      <LinksRoot item xs={12} md={8} container>
         {support && (
           <SupportLinkRoot href={`mailto:${support.email}`}>
             <IconRoot src={support.image.url} alt={support.image.alt} />
@@ -83,7 +92,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
           </SocialLinkRoot>
         ))}
       </LinksRoot>
-    </Grid>
+    </StayInTouchRoot>
   );
 });
 

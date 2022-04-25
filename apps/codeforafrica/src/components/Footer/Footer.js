@@ -62,6 +62,14 @@ const LinkRoot = styled(Link)(({ theme: { palette } }) => ({
   color: palette.text.secondary,
 }));
 
+const ListItemRoot = styled(ListItem)(() => ({
+  paddingTop: 0,
+}));
+
+const ListGridRoot = styled(Grid)(({ theme: { typography } }) => ({
+  marginTop: typography.pxToRem(40),
+}));
+
 const FooterDescription = styled(Typography)(({ theme: { typography } }) => ({
   marginTop: typography.pxToRem(50),
 }));
@@ -120,20 +128,20 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   </ListItem>
                 </List>
               </Grid>
-              <Grid item xs={12}>
+              <ListGridRoot item xs={12}>
                 <List>
-                  <ListItem>
+                  <ListItemRoot>
                     <LinkRoot href="www.contact.com">
                       <Typography variant="p2">Imprint</Typography>
                     </LinkRoot>
-                  </ListItem>
-                  <ListItem>
+                  </ListItemRoot>
+                  <ListItemRoot>
                     <LinkRoot href="www.contact.com">
                       <Typography variant="p2">Privacy policy</Typography>
                     </LinkRoot>
-                  </ListItem>
+                  </ListItemRoot>
                 </List>
-              </Grid>
+              </ListGridRoot>
             </Grid>
           </Grid>
           <Grid item xs={12} md={3} sx={{ order: { xs: 0, md: 1 } }}>
