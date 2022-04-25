@@ -76,7 +76,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               <Grid item xs={12}>
                 <List>
                   {footerLinks &&
-                    footerLinks.map((item) => (
+                    footerLinks.main.map((item) => (
                       <ListItemLinks>
                         <LinkRoot href={item.href}>
                           <Typography variant="h5">{item.name}</Typography>
@@ -87,16 +87,14 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               </Grid>
               <ListGridRoot item xs={12}>
                 <List>
-                  <ListItemRoot>
-                    <LinkRoot href="www.contact.com">
-                      <Typography variant="p2">Imprint</Typography>
-                    </LinkRoot>
-                  </ListItemRoot>
-                  <ListItemRoot>
-                    <LinkRoot href="www.contact.com">
-                      <Typography variant="p2">Privacy policy</Typography>
-                    </LinkRoot>
-                  </ListItemRoot>
+                  {footerLinks &&
+                    footerLinks.secondary.map((item) => (
+                      <ListItemRoot>
+                        <LinkRoot href={item.href}>
+                          <Typography variant="p2">{item.name}</Typography>
+                        </LinkRoot>
+                      </ListItemRoot>
+                    ))}
                 </List>
               </ListGridRoot>
             </Grid>
