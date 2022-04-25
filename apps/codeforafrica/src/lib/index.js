@@ -1,9 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 
-const commonSections = {
-  footer: {
-    subscription: {
-      embedCode: `
+const footer = {
+  subscription: {
+    embedCode: `
           <!-- Begin Mailchimp Signup Form -->
           <div id="mc_embed_signup">
             <form action="https://twitter.us6.list-manage.com/subscribe/post?u=65e5825507b3cec760f272e79&amp;id=c2ff751541" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -20,9 +19,78 @@ const commonSections = {
           </div>
           <!--End mc_embed_signup-->
     `,
-    },
   },
 };
+
+const articles = [
+  {
+    title: "Battle for gender equality in African media continues",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    date: "2022-01-06",
+    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png",
+  },
+  {
+    title: "Article title goes in here",
+    date: "2022-01-06",
+    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
+  },
+  {
+    title: "Article title goes in here",
+    date: "2022-01-06",
+    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
+  },
+  {
+    title: "Article title goes in here",
+    date: "2022-01-06",
+    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
+  },
+  {
+    title: "Article title goes in here",
+    date: "2022-01-06",
+    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
+  },
+  {
+    title: "Article title goes in here",
+    date: "2022-01-06",
+    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
+  },
+  {
+    title: "Article title goes in here",
+    date: "2022-01-06",
+    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
+  },
+  {
+    title: "Article title goes in here",
+    date: "2022-01-06",
+    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
+  },
+  {
+    title: "Article title goes in here",
+    date: "2022-01-06",
+    url: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
+  },
+  {
+    title: "Article title goes in here",
+    date: "2022-01-06",
+    url: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
+  },
+  {
+    title: "Article title goes in here",
+    date: "2022-01-06",
+    url: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
+  },
+  {
+    title: "Article title goes in here",
+    date: "2022-01-06",
+    url: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
+  },
+  {
+    title: "Article title goes in here",
+    date: "2022-01-06",
+    url: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
+  },
+];
 
 const DEFAULT_REVALIDATE = 3 * 60; // 3 minutes
 
@@ -30,9 +98,15 @@ function getHomePageStaticProps() {
   return {
     props: {
       title: "Code for Africa",
-      sections: {
-        ...commonSections,
-      },
+      sections: [
+        {
+          slug: "news-stories",
+          title: "News and stories",
+          articles: articles.slice(0, 4),
+          cta: {},
+        },
+      ],
+      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
