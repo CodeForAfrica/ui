@@ -31,7 +31,7 @@ function Page({ children, sections, title }) {
           </a>
         </NavIcon>
       </NavList>
-      {footer ? <Footer {...footer} menu={menu} /> : null}
+      {footer ? <Footer {...footer} /> : null}
     </>
   );
 }

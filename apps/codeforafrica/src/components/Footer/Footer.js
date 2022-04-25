@@ -39,12 +39,10 @@ const Footer = React.forwardRef(function Footer(props, ref) {
 
 Footer.propTypes = {
   subscription: PropTypes.shape({}),
-  menu: PropTypes.shape({}),
 };
 
 Footer.defaultProps = {
   subscription: undefined,
-  menu: undefined,
 };
 
 export default Footer;
