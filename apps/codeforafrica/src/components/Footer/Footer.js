@@ -5,7 +5,6 @@ import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import NavList from "@/codeforafrica/components/NavList";
 import NewsletterSubscription from "@/codeforafrica/components/NewsletterSubscription";
 
 const FooterRoot = styled(Box)(
@@ -23,15 +22,12 @@ const FooterRoot = styled(Box)(
 );
 
 const Footer = React.forwardRef(function Footer(props, ref) {
-  const { subscription, menu } = props;
+  const { subscription } = props;
 
   return (
     <FooterRoot ref={ref}>
       <Section>
         <Grid container justifyContent="flex-end">
-          <Grid item xs={12} md={2} sx={{ order: { xs: 0, md: 1 } }}>
-            <NavList menu={menu} />
-          </Grid>
           <Grid item xs={12} md={3} sx={{ order: { xs: 0, md: 1 } }}>
             <NewsletterSubscription {...subscription} />
           </Grid>

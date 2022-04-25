@@ -34,7 +34,7 @@ const NavLink = styled(Link)(
       borderColor: "none",
       "&:hover, &:active, &:focus, &:focus-within": {
         textDecoration: "underline",
-        color: palette.primary.main,
+        color: palette.primary.main, // passprops for color
       },
     },
   })
