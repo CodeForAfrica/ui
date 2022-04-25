@@ -30,18 +30,39 @@ const LinkRoot = styled(Link)(({ theme: { palette } }) => ({
   color: palette.text.secondary,
 }));
 
-const ListItemRoot = styled(ListItem)(() => ({
+const ListRoot = styled(List)(({ theme: { breakpoints, typography } }) => ({
+  marginTop: typography.pxToRem(85),
+  [breakpoints.up("lg")]: {
+    marginTop: 0,
+  },
+}));
+
+const ListItemRoot = styled(ListItem)(({ theme: { breakpoints } }) => ({
   paddingTop: 0,
   paddingLeft: 0,
+  display: "flex",
+  justifyContent: "center",
+  [breakpoints.up("md")]: {
+    display: "block",
+    justifyContent: "flex-start",
+  },
 }));
 
-const ListItemLinks = styled(ListItem)(({ theme: { typography } }) => ({
-  padding: 0,
-  paddingBottom: typography.pxToRem(20),
-}));
+const ListItemLinks = styled(ListItem)(
+  ({ theme: { typography, breakpoints } }) => ({
+    padding: 0,
+    paddingBottom: typography.pxToRem(20),
+    display: "flex",
+    justifyContent: "center",
+    [breakpoints.up("md")]: {
+      display: "block",
+      justifyContent: "flex-start",
+    },
+  })
+);
 
 const ListGridRoot = styled(Grid)(({ theme: { typography } }) => ({
-  marginTop: typography.pxToRem(40),
+  marginTop: typography.pxToRem(20),
 }));
 
 const FooterDescription = styled(Typography)(({ theme: { typography } }) => ({
@@ -74,7 +95,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
           <Grid item xs={12} md={3}>
             <Grid container justifyContent="center">
               <Grid item xs={12}>
-                <List>
+                <ListRoot>
                   {footerLinks &&
                     footerLinks.main.map((item) => (
                       <ListItemLinks>
@@ -83,7 +104,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                         </LinkRoot>
                       </ListItemLinks>
                     ))}
-                </List>
+                </ListRoot>
               </Grid>
               <ListGridRoot item xs={12}>
                 <List>

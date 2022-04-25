@@ -3,10 +3,16 @@ import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
-const TypographyRoot = styled(RichTypography)(() => ({
-  textTransform: "uppercase",
-  fontWeight: "bold",
-}));
+const TypographyRoot = styled(RichTypography)(
+  ({ theme: { typography, breakpoints } }) => ({
+    textTransform: "uppercase",
+    fontWeight: "bold",
+    marginBottom: typography.pxToRem(23),
+    [breakpoints.up("md")]: {
+      marginBottom: 0,
+    },
+  })
+);
 
 function Title({ title }) {
   return <TypographyRoot>{title}</TypographyRoot>;

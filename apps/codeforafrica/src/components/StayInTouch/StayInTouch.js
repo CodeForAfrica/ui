@@ -9,8 +9,12 @@ import Title from "./Title";
 const StayInTouchRoot = styled(Grid, {
   slot: "Root",
   name: "StayInTouch",
-})(({ theme: { typography } }) => ({
+})(({ theme: { typography, breakpoints } }) => ({
   marginTop: typography.pxToRem(50),
+  justifyContent: "center",
+  [breakpoints.up("md")]: {
+    justifyContent: "flex-start",
+  },
 }));
 
 const TitleRoot = styled(Grid, {
@@ -29,11 +33,8 @@ const LinksRoot = styled(Grid, {
 })(({ theme }) => ({
   "& > a": {
     display: "inline-block",
-    // borderRight: "1px solid white",
   },
-  "& > a:last-of-type": {
-    // border: "none",
-  },
+  justifyContent: "center",
   [theme.breakpoints.up("md")]: {
     justifyContent: "flex-start",
     width: "auto",
