@@ -65,6 +65,13 @@ const ListGridRoot = styled(Grid)(({ theme: { typography } }) => ({
   marginTop: typography.pxToRem(20),
 }));
 
+const ImageGrid = styled(Grid)(({ theme: { breakpoints } }) => ({
+  textAlign: "center",
+  [breakpoints.up("md")]: {
+    textAlign: "left",
+  },
+}));
+
 const FooterDescription = styled(Typography)(({ theme: { typography } }) => ({
   marginTop: typography.pxToRem(50),
 }));
@@ -78,7 +85,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         <Grid container>
           <Grid item xs={12} md={4}>
             <Grid container>
-              <Grid item xs={12}>
+              <ImageGrid item xs={12}>
                 <Image src={cfaIcon} />
                 <FooterDescription>
                   This site is a project of Code for Africa, the continent’s
@@ -86,7 +93,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   All content is released under a Creative Commons 4 Attribution
                   Licence. Reuse it to help empower your own community.
                 </FooterDescription>
-              </Grid>
+              </ImageGrid>
               <Grid item xs={12}>
                 <StayInTouch socialMedia={socialMedia} />
               </Grid>
