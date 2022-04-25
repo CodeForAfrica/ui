@@ -1,83 +1,37 @@
-import { Grid } from "@mui/material";
-import Link from "@mui/material/Link";
-import { useTheme, styled } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import PropTypes from "prop-types";
-import * as React from "react";
+import React from "react";
 
-const NavLinkGrid = styled(Grid)(({ theme: { breakpoints, typography } }) => ({
-  margin: `${typography.pxToRem(6)} 0`,
-  [breakpoints.up("lg")]: {
-    margin: 0,
-  },
-}));
+import NavContainer from "./NavContainer";
+import NavListItem from "./NavListItem";
 
-const NavLink = styled(Link)(
-  ({ theme: { breakpoints, palette, typography } }) => ({
-    boxShadow: "none",
-    textTransform: "capitalize",
-    color: palette.text.secondary.main,
-    textDecoration: "none",
-    fontSize: typography.pxToRem(28),
-    backgroundColor: "transparent",
-    "&:hover, &:active, &:focus, &:focus-within": {
-      color: palette.text.secondary.main,
-    },
-    [breakpoints.up("lg")]: {
-      boxShadow: "none",
-      textTransform: "capitalize",
-      color: palette.text.primary.main,
-      textDecoration: "none",
-      fontSize: typography.pxToRem(18),
-      margin: typography.pxToRem(24),
-      backgroundColor: "transparent",
-      borderColor: "none",
-      "&:hover, &:active, &:focus, &:focus-within": {
-        textDecoration: "underline",
-        color: palette.primary.main, // passprops for color
-      },
-    },
-  })
-);
-function NavMenu({ children, menu }) {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
+function NavList({ children, menu }) {
   if (!menu?.length) {
     return null;
   }
 
   return (
-    <Grid
-      container
-      direction={isMobile ? "column" : "row"}
-      alignItems="flex-start"
-      justifyContent={isMobile ? "flex-start" : "flex-end"}
-    >
+    <NavContainer>
       {menu.map((item) => (
-        <NavLinkGrid item key={item.label}>
-          <NavLink href={item.href} variant="body1">
-            {item.label}
-          </NavLink>
-        </NavLinkGrid>
+        <NavListItem label={item.label} key={item.label} href={item.href} />
       ))}
       {children}
-    </Grid>
+    </NavContainer>
   );
 }
 
-NavMenu.propTypes = {
+NavList.propTypes = {
+  children: PropTypes.node,
   menu: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
-    }).isRequired
-  ).isRequired,
-  children: PropTypes.node,
+    })
+  ),
 };
 
-NavMenu.defaultProps = {
+NavList.defaultProps = {
   children: undefined,
+  menu: undefined,
 };
 
-export default NavMenu;
+export default NavList;

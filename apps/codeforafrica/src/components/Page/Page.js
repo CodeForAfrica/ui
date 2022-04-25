@@ -1,9 +1,18 @@
+import { styled } from "@mui/material/styles";
 import Head from "next/head";
+import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
+import Twitter from "@/codeforafrica/assets/twitter.svg";
 import Footer from "@/codeforafrica/components/Footer";
+import NavList from "@/codeforafrica/components/NavList";
 import config from "@/codeforafrica/config";
+
+const NavIcon = styled("li")(({ theme: { typography } }) => ({
+  listStyle: "none",
+  margin: typography.pxToRem(5),
+}));
 
 function Page({ children, sections, title }) {
   const { footer } = sections;
@@ -15,6 +24,13 @@ function Page({ children, sections, title }) {
         <title>{title}</title>
       </Head>
       {children}
+      <NavList menu={menu}>
+        <NavIcon>
+          <a href="/twitter">
+            <Image src={Twitter} alt="twitter" />
+          </a>
+        </NavIcon>
+      </NavList>
       {footer ? <Footer {...footer} menu={menu} /> : null}
     </>
   );
