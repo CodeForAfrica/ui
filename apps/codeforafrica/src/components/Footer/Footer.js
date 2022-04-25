@@ -7,41 +7,9 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import cfaIcon from "@/codeforafrica/assets/images/CfAlogoBW.png";
-import facebook from "@/codeforafrica/assets/images/facebook.png";
-import github from "@/codeforafrica/assets/images/github.png";
-import instagram from "@/codeforafrica/assets/images/instagram.png";
-import linkedin from "@/codeforafrica/assets/images/linkedin.png";
-import slack from "@/codeforafrica/assets/images/slack.png";
-import twitter from "@/codeforafrica/assets/images/twitter.png";
 import NewsletterSubscription from "@/codeforafrica/components/NewsletterSubscription";
 import StayInTouch from "@/codeforafrica/components/StayInTouch";
-
-const socialMedia = [
-  {
-    url: "https://twitter.com/Code4Africa",
-    image: { alt: "Twitter", url: twitter.src },
-  },
-  {
-    url: "https://ke.linkedin.com/company/code-for-africa",
-    image: { alt: "Slack", url: slack.src },
-  },
-  {
-    url: "https://ke.linkedin.com/company/code-for-africa",
-    image: { alt: "LinkedIn", url: linkedin.src },
-  },
-  {
-    url: "https://www.facebook.com/CodeForAfrica/",
-    image: { alt: "Facebook", url: facebook.src },
-  },
-  {
-    url: "https://www.instagram.com/code4africa__/",
-    image: { alt: "Instagram", url: instagram.src },
-  },
-  {
-    url: "https://github.com/CodeForAfrica",
-    image: { alt: "Github", url: github.src },
-  },
-];
+import { socialMedia, footerLinks } from "@/codeforafrica/config";
 
 const FooterRoot = styled("footer")(
   ({ theme: { breakpoints, palette, typography } }) => ({
@@ -64,6 +32,12 @@ const LinkRoot = styled(Link)(({ theme: { palette } }) => ({
 
 const ListItemRoot = styled(ListItem)(() => ({
   paddingTop: 0,
+  paddingLeft: 0,
+}));
+
+const ListItemLinks = styled(ListItem)(({ theme: { typography } }) => ({
+  padding: 0,
+  paddingBottom: typography.pxToRem(20),
 }));
 
 const ListGridRoot = styled(Grid)(({ theme: { typography } }) => ({
@@ -101,31 +75,14 @@ const Footer = React.forwardRef(function Footer(props, ref) {
             <Grid container justifyContent="center">
               <Grid item xs={12}>
                 <List>
-                  <ListItem>
-                    <LinkRoot href="www.ourwork.com">
-                      <Typography variant="h5">Our Work</Typography>
-                    </LinkRoot>
-                  </ListItem>
-                  <ListItem>
-                    <LinkRoot href="www.about.com">
-                      <Typography variant="h5">About</Typography>
-                    </LinkRoot>
-                  </ListItem>
-                  <ListItem>
-                    <LinkRoot href="www.stories.com">
-                      <Typography variant="h5">Stories</Typography>
-                    </LinkRoot>
-                  </ListItem>
-                  <ListItem>
-                    <LinkRoot href="www.opportunities.com">
-                      <Typography variant="h5">Opportunities</Typography>
-                    </LinkRoot>
-                  </ListItem>
-                  <ListItem>
-                    <LinkRoot href="www.contact.com">
-                      <Typography variant="h5">Contact</Typography>
-                    </LinkRoot>
-                  </ListItem>
+                  {footerLinks &&
+                    footerLinks.map((item) => (
+                      <ListItemLinks>
+                        <LinkRoot href={item.href}>
+                          <Typography variant="h5">{item.name}</Typography>
+                        </LinkRoot>
+                      </ListItemLinks>
+                    ))}
                 </List>
               </Grid>
               <ListGridRoot item xs={12}>
