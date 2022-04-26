@@ -7,6 +7,7 @@ import React from "react";
 
 import FooterDescription from "./FooterDescription";
 
+import FooterLinks from "@/codeforafrica/components/FooterLinks";
 import NewsletterSubscription from "@/codeforafrica/components/NewsletterSubscription";
 import StayInTouch from "@/codeforafrica/components/StayInTouch";
 import { socialMedia, footerLinks, footer } from "@/codeforafrica/config";
@@ -30,13 +31,6 @@ const LinkRoot = styled(Link)(({ theme: { palette } }) => ({
   color: palette.text.secondary,
 }));
 
-const ListRoot = styled(List)(({ theme: { breakpoints, typography } }) => ({
-  marginTop: typography.pxToRem(85),
-  [breakpoints.up("lg")]: {
-    marginTop: 0,
-  },
-}));
-
 const ListItemRoot = styled(ListItem)(({ theme: { breakpoints } }) => ({
   paddingTop: 0,
   paddingLeft: 0,
@@ -48,24 +42,11 @@ const ListItemRoot = styled(ListItem)(({ theme: { breakpoints } }) => ({
   },
 }));
 
-const ListItemLinks = styled(ListItem)(
-  ({ theme: { typography, breakpoints } }) => ({
-    padding: 0,
-    paddingBottom: typography.pxToRem(20),
-    display: "flex",
-    justifyContent: "center",
-    [breakpoints.up("md")]: {
-      display: "block",
-      justifyContent: "flex-start",
-    },
-  })
-);
-
 const ListGridRoot = styled(Grid)(({ theme: { typography } }) => ({
   marginTop: typography.pxToRem(20),
 }));
 
-const ImageGrid = styled(Grid)(({ theme: { breakpoints } }) => ({
+const DescriptionGrid = styled(Grid)(({ theme: { breakpoints } }) => ({
   textAlign: "center",
   [breakpoints.up("md")]: {
     textAlign: "left",
@@ -82,9 +63,9 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         <Grid container>
           <Grid item xs={12} md={4}>
             <Grid container>
-              <ImageGrid item xs={12}>
+              <DescriptionGrid item xs={12}>
                 <FooterDescription description={description} />
-              </ImageGrid>
+              </DescriptionGrid>
               <Grid item xs={12}>
                 <StayInTouch socialMedia={socialMedia} />
               </Grid>
@@ -93,16 +74,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
           <Grid item xs={12} md={4}>
             <Grid container justifyContent="center">
               <Grid item xs={12}>
-                <ListRoot>
-                  {footerLinks &&
-                    footerLinks.main.map((item) => (
-                      <ListItemLinks>
-                        <LinkRoot href={item.href}>
-                          <Typography variant="h5">{item.name}</Typography>
-                        </LinkRoot>
-                      </ListItemLinks>
-                    ))}
-                </ListRoot>
+                <FooterLinks footerLinks={footerLinks} />
               </Grid>
               <ListGridRoot item xs={12}>
                 <List>
