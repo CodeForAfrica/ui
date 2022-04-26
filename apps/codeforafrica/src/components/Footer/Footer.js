@@ -2,14 +2,14 @@ import { Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import { Grid, Typography, List, ListItem } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-import cfaIcon from "@/codeforafrica/assets/images/CfAlogoBW.png";
+import FooterDescription from "./FooterDescription";
+
 import NewsletterSubscription from "@/codeforafrica/components/NewsletterSubscription";
 import StayInTouch from "@/codeforafrica/components/StayInTouch";
-import { socialMedia, footerLinks } from "@/codeforafrica/config";
+import { socialMedia, footerLinks, footer } from "@/codeforafrica/config";
 
 const FooterRoot = styled("footer")(
   ({ theme: { breakpoints, palette, typography } }) => ({
@@ -72,12 +72,9 @@ const ImageGrid = styled(Grid)(({ theme: { breakpoints } }) => ({
   },
 }));
 
-const FooterDescription = styled(Typography)(({ theme: { typography } }) => ({
-  marginTop: typography.pxToRem(50),
-}));
-
 const Footer = React.forwardRef(function Footer(props, ref) {
   const { subscription } = props;
+  const { description } = footer;
 
   return (
     <FooterRoot ref={ref}>
@@ -86,20 +83,14 @@ const Footer = React.forwardRef(function Footer(props, ref) {
           <Grid item xs={12} md={4}>
             <Grid container>
               <ImageGrid item xs={12}>
-                <Image src={cfaIcon} />
-                <FooterDescription>
-                  This site is a project of Code for Africa, the continent’s
-                  largest network of civic technology and data journalism labs.
-                  All content is released under a Creative Commons 4 Attribution
-                  Licence. Reuse it to help empower your own community.
-                </FooterDescription>
+                <FooterDescription description={description} />
               </ImageGrid>
               <Grid item xs={12}>
                 <StayInTouch socialMedia={socialMedia} />
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={4}>
             <Grid container justifyContent="center">
               <Grid item xs={12}>
                 <ListRoot>
@@ -127,7 +118,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               </ListGridRoot>
             </Grid>
           </Grid>
-          <Grid item xs={12} md={3} sx={{ order: { xs: 0, md: 1 } }}>
+          <Grid item xs={12} md={4} sx={{ order: { xs: 0, md: 1 } }}>
             <NewsletterSubscription {...subscription} />
           </Grid>
         </Grid>

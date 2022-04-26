@@ -45,3 +45,8 @@ export const footerLinks = {
     { name: "Privacy policy", href: "www.policy.com" },
   ],
 };
+
+export const footer = {
+  description:
+    "This site is a project of Code for Africa, the continent's largest network of civic technology and data journalism labs. All content is released under a Creative Commons 4 Attribution Licence. Reuse it to help empower your own community.",
+};
