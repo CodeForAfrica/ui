@@ -6,7 +6,7 @@ import React from "react";
 
 import Twitter from "@/codeforafrica/assets/twitter.svg";
 import Footer from "@/codeforafrica/components/Footer";
-import NavList from "@/codeforafrica/components/NavList";
+import NavMenu from "@/codeforafrica/components/NavMenu";
 import config from "@/codeforafrica/config";
 
 const NavIcon = styled("li")(({ theme: { typography } }) => ({
@@ -24,13 +24,13 @@ function Page({ children, sections, title }) {
         <title>{title}</title>
       </Head>
       {children}
-      <NavList menu={menu}>
+      <NavMenu menu={menu}>
         <NavIcon>
           <a href="/twitter">
             <Image src={Twitter} alt="twitter" />
           </a>
         </NavIcon>
-      </NavList>
+      </NavMenu>
       {footer ? <Footer {...footer} /> : null}
     </>
   );

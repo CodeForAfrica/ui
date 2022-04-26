@@ -1,37 +1,30 @@
+import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
-import React from "react";
+import * as React from "react";
 
-import NavContainer from "./NavContainer";
-import NavListItem from "./NavListItem";
+const NavUl = styled("ul")(({ theme: { breakpoints } }) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "flex-start",
+  alignItem: "flex-start",
+  [breakpoints.up("lg")]: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItem: "center",
+  },
+}));
 
-function NavList({ children, menu }) {
-  if (!menu?.length) {
-    return null;
-  }
-
-  return (
-    <NavContainer>
-      {menu.map((item) => (
-        <NavListItem label={item.label} key={item.label} href={item.href} />
-      ))}
-      {children}
-    </NavContainer>
-  );
+function NavList({ children }) {
+  return <NavUl>{children}</NavUl>;
 }
 
 NavList.propTypes = {
   children: PropTypes.node,
-  menu: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      href: PropTypes.string,
-    })
-  ),
 };
 
 NavList.defaultProps = {
   children: undefined,
-  menu: undefined,
 };
 
 export default NavList;
