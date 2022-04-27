@@ -28,11 +28,17 @@ const SectionRoot = styled(Container, {
  * This is only applicable when fixed is true.
  */
 const Section = React.forwardRef(function Section(props, ref) {
-  const { fixed = true, ...others } = props;
+  const { disableGutters = true, fixed = true, ...others } = props;
   const ownerState = { ...others, fixed };
 
   return (
-    <SectionRoot {...props} fixed={fixed} ownerState={ownerState} ref={ref} />
+    <SectionRoot
+      {...props}
+      disableGutters={disableGutters}
+      fixed={fixed}
+      ownerState={ownerState}
+      ref={ref}
+    />
   );
 });
 
