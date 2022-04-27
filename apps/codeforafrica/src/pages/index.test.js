@@ -9,10 +9,10 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  sections: {},
+  sections: [],
 };
 
-describe("Homepage", () => {
+describe("/", () => {
   it("renders unchanged", () => {
     const { container } = render(<Index {...defaultProps} />);
     expect(container).toMatchSnapshot();
