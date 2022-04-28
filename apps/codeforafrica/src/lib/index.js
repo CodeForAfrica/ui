@@ -135,13 +135,39 @@ function getStoriesPageStaticProps() {
           slug: "articles",
           title: "Articles",
           articles,
-          cta: {},
         },
       ],
       footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
+}
+
+function getStoryPageStaticProps(params) {
+  const article = articles.find(
+    ({ href }) =>
+      href.localeCompare(params?.slug, undefined, {
+        sensitivity: "accent",
+      }) === 0
+  );
+  if (article) {
+    return {
+      props: {
+        title: `${article.title} | Stories | Code for Africa`,
+        sections: [
+          {
+            slug: "related-stories",
+            title: "News and Stories",
+            articles: articles.slice(0, 3),
+          },
+        ],
+        footer,
+      },
+      revalidate: DEFAULT_REVALIDATE,
+    };
+  }
+
+  return { notFound: true };
 }
 
 export async function getPageStaticProps(params) {
@@ -153,6 +179,9 @@ export async function getPageStaticProps(params) {
       return getStoriesPageStaticProps(params);
     }
     default:
+      if (params?.slug?.startsWith("/stories/")) {
+        return getStoryPageStaticProps(params);
+      }
       return { notFound: true };
   }
 }
