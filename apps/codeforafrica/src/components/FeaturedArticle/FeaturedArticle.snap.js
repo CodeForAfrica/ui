@@ -28,7 +28,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
             class="MuiCardContent-root css-yii6g9-MuiCardContent-root"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 css-112fkr8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-43k7f9-MuiTypography-root"
             >
               Battle for gender equality in African media continues
             </p>
