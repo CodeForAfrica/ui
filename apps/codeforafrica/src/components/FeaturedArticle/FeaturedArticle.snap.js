@@ -17,12 +17,12 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gjb3vx-MuiGrid-root"
         >
           <img
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-cyzzxg-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-t5e89h-MuiCardMedia-root"
             src="https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png"
           />
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true css-1k3l4qj-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true css-1w7778q-MuiGrid-root"
         >
           <div
             class="MuiCardContent-root css-yii6g9-MuiCardContent-root"
@@ -52,7 +52,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-kk3stl-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-xrunq7-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-md-9 css-sio24f-MuiGrid-root"
