@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FooterMenu /> renders unchanged 1`] = `
+<div>
+  <ul
+    class="css-0"
+    ownerstate="[object Object]"
+  >
+    <li
+      class="css-17g3syn"
+    >
+      <a
+        class="css-1ucc7hb"
+        href="/our-work"
+      >
+        Our Work
+      </a>
+    </li>
+    <li
+      class="css-17g3syn"
+    >
+      <a
+        class="css-1ucc7hb"
+        href="/about"
+      >
+        About
+      </a>
+    </li>
+    <li
+      class="css-17g3syn"
+    >
+      <a
+        class="css-1ucc7hb"
+        href="/about"
+      >
+        Stories
+      </a>
+    </li>
+    <li
+      class="css-17g3syn"
+    >
+      <a
+        class="css-1ucc7hb"
+        href="/opportunity"
+      >
+        Opportunity
+      </a>
+    </li>
+    <li
+      class="css-17g3syn"
+    >
+      <a
+        class="css-1ucc7hb"
+        href="/contact"
+      >
+        Contact
+      </a>
+    </li>
+  </ul>
+</div>
+`;

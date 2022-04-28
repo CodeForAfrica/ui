@@ -1,13 +1,10 @@
 import React from "react";
 
-import Footer from "./Footer";
+import FooterMenu from ".";
 
 import { render } from "@/codeforafrica/utils/test";
 
 const defaultProps = {
-  subscription: {
-    embedCode: "",
-  },
   menu: [
     {
       label: "Our Work",
@@ -32,9 +29,9 @@ const defaultProps = {
   ],
 };
 
-describe("<Footer />", () => {
+describe("<FooterMenu />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Footer {...defaultProps} />);
+    const { container } = render(<FooterMenu {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
