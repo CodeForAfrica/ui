@@ -4,28 +4,26 @@ import React from "react";
 import NavList from "@/codeforafrica/components/NavList";
 import NavListItem from "@/codeforafrica/components/NavList/NavListItem";
 
-function NavMenu({ children, menu }) {
+function FooterMenu({ menu }) {
   if (!menu?.length) {
     return null;
   }
 
   return (
-    <NavList footer={false}>
+    <NavList footer>
       {menu.map((item) => (
         <NavListItem
           label={item.label}
           key={item.label}
           href={item.href}
-          footer={false}
+          footer
         />
       ))}
-      {children}
     </NavList>
   );
 }
 
-NavMenu.propTypes = {
-  children: PropTypes.node,
+FooterMenu.propTypes = {
   menu: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -34,9 +32,8 @@ NavMenu.propTypes = {
   ),
 };
 
-NavMenu.defaultProps = {
-  children: undefined,
+FooterMenu.defaultProps = {
   menu: undefined,
 };
 
-export default NavMenu;
+export default FooterMenu;
