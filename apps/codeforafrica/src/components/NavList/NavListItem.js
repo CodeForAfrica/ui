@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import * as React from "react";
 
 const NavLinkGrid = styled("li")(({ theme: { breakpoints, typography } }) => ({
-  margin: `${typography.pxToRem(6)} 0`,
+  margin: `${typography.pxToRem(20)} 0`,
   listStyle: "none",
   [breakpoints.up("lg")]: {
-    marginBottom: `${typography.pxToRem(20)}`,
+    margin: `${typography.pxToRem(10)} 0`,
     listStyle: "none",
   },
 }));
