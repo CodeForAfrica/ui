@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import React from "react";
 
 import Page from "@/codeforafrica/components/Page";
@@ -9,11 +10,17 @@ function Index({ sections, ...props }) {
     <Page {...props}>
       {sections?.map((section) =>
         section.slug === "related-stories" ? (
-          <RelatedStories
-            {...section}
-            sx={{ px: { xs: "20px", sm: 0 } }}
-            key={section.slug}
-          />
+          <Box
+            sx={{
+              bgcolor: { xs: "inherit", sm: "background.main" },
+            }}
+          >
+            <RelatedStories
+              {...section}
+              sx={{ px: { xs: "20px", sm: 0 } }}
+              key={section.slug}
+            />
+          </Box>
         ) : null
       )}
     </Page>
