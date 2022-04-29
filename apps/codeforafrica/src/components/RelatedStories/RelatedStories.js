@@ -13,15 +13,14 @@ const RelatedStories = React.forwardRef(function RelatedStories(props, ref) {
   return (
     <Section
       sx={{
-        px: { xs: "20px", sm: 0 },
-        py: { xs: 5, sm: "20px", md: 4, lg: 10 },
+        px: { xs: 2.5, sm: 0 },
+        py: { xs: 5, sm: 10, md: 7 },
       }}
       ref={ref}
     >
       <RichTypography
-        textAlign="center"
         variant="h4"
-        sx={{ mb: { xs: 5, lg: "55px" }, typography: { xs: "h3", sm: "h4" } }}
+        sx={{ mb: { xs: 2.5, md: "55px" }, typography: { xs: "h5", md: "h4" } }}
       >
         {title}
       </RichTypography>
