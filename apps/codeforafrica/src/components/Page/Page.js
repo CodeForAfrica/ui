@@ -4,9 +4,7 @@ import React from "react";
 
 import Footer from "@/codeforafrica/components/Footer";
 
-function Page({ children, sections, title }) {
-  const { footer } = sections;
-
+function Page({ children, footer, title }) {
   return (
     <>
       <Head>
@@ -20,15 +18,13 @@ function Page({ children, sections, title }) {
 
 Page.propTypes = {
   children: PropTypes.node,
-  sections: PropTypes.shape({
-    footer: PropTypes.shape({}),
-  }),
+  footer: PropTypes.shape({}),
   title: PropTypes.string,
 };
 
 Page.defaultProps = {
   children: undefined,
-  sections: undefined,
+  footer: undefined,
   title: undefined,
 };
 

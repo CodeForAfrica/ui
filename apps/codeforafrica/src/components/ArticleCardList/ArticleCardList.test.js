@@ -1,20 +1,16 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Index from ".";
+import ArticleCardList from "./ArticleCardList";
 
 import theme from "@/codeforafrica/theme";
 
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-const defaultProps = {
-  sections: [],
-};
-
-describe("/", () => {
+describe("<ArticleCardList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Index {...defaultProps} />);
+    const { container } = render(<ArticleCardList />);
     expect(container).toMatchSnapshot();
   });
 });

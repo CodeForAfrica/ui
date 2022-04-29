@@ -9,7 +9,7 @@ function Index({ sections, ...props }) {
   return (
     <Page {...props}>
       {sections?.map((section) =>
-        section.slug === "news-stories" ? (
+        section.slug === "articles" ? (
           <Section sx={{ px: { xs: "20px", sm: 0 } }} key={section.slug}>
             <ArticleCardList items={section.articles.slice(1)} />
           </Section>
@@ -20,7 +20,7 @@ function Index({ sections, ...props }) {
 }
 
 export async function getStaticProps() {
-  return getPageStaticProps({ slug: "/" });
+  return getPageStaticProps({ slug: "/stories" });
 }
 
 export default Index;
