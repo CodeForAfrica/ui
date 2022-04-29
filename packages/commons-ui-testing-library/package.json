@@ -1,71 +1,67 @@
 {
-  "name": "@commons-ui/next",
+  "name": "@commons-ui/testing-library",
   "version": "2.0.0-alpha.0",
   "private": false,
   "author": "Code for Africa <tech@codeforafrica.org>",
   "description": "",
   "main": "./src/index.js",
+  "files": [
+    "jest.setup.js"
+  ],
   "keywords": [
-    "next",
-    "next.js",
     "react",
     "react-component",
     "mui",
     "material-ui",
-    "material design"
+    "material design",
+    "testing",
+    "testing-library"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/codeforafrica/ui.git",
-    "directory": "packages/commons-ui-next"
+    "directory": "packages/commons-ui-core"
   },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/codeforafrica/ui/issues"
   },
   "scripts": {
-    "test": "jest",
     "lint": "eslint --fix './'",
-    "storybook": "start-storybook --ci -p 6007",
-    "build-storybook": "build-storybook --quiet -o dist",
     "clean": "rm -rf .turbo node_modules dist"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/preset-react": "^7.16.7",
-    "@commons-ui/core": "workspace:*",
-    "@commons-ui/testing-library": "workspace:*",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.6.2",
-    "@storybook/addon-actions": "^6.4.22",
-    "@storybook/addon-essentials": "^6.4.22",
-    "@storybook/addon-links": "^6.4.22",
-    "@storybook/addons": "^6.4.22",
-    "@storybook/builder-webpack5": "^6.4.22",
-    "@storybook/client-api": "^6.4.22",
-    "@storybook/manager-webpack5": "^6.4.22",
-    "@storybook/react": "^6.4.22",
+    "@types/react": "^17.0.44",
     "babel-loader": "^8.2.5",
     "config": "workspace:*",
     "eslint": "^8.13.0",
     "eslint-config-commons-ui": "workspace:*",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "jest-config-commons-ui": "workspace:*",
-    "next": "^12.1.5",
-    "prop-types": "^15.8.1",
+    "prettier": "^2.6.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
     "typescript": "^4.6.3",
     "webpack": "^5.72.0"
   },
   "peerDependencies": {
+    "@babel/core": "^7.17.7",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.5.1",
-    "clsx": "^1.1.1",
-    "next": "^12.1.0",
-    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "clsx": "^1.1.1"
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.5",
+    "prop-types": "^15.8.1"
   }
 }

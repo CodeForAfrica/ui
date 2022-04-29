@@ -18,6 +18,7 @@ module.exports = {
     },
     allowImportExportEverywhere: true,
   },
+  plugins: ["jest-dom", "testing-library"],
   rules: {
     "import/order": [
       "error",
@@ -56,7 +57,11 @@ module.exports = {
   overrides: [
     {
       files: ["**/*.test.js"],
-      extends: ["plugin:jest/recommended"],
+      extends: [
+        "plugin:jest/recommended",
+        "plugin:jest-dom/recommended",
+        "plugin:testing-library/react",
+      ],
     },
     {
       files: ["**/*.spec.js"],
