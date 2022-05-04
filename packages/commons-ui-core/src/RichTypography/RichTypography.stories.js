@@ -2,7 +2,7 @@ import React from "react";
 
 import Section from "../Section";
 
-import RichTypography from ".";
+import RichTypography from "./RichTypography";
 
 export default {
   title: "Component/RichTypography",
