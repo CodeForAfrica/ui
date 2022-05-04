@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render } from "@commons-ui/testing-library";
 import React from "react";
 
 import NavBar from "./NavBar";

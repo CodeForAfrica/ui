@@ -7,7 +7,8 @@
     "index.js",
     "__mocks__",
     "snapshotResolver",
-    "next.js"
+    "next.js",
+    "jest.setup.js"
   ],
   "scripts": {
     "lint": "eslint --fix './'",

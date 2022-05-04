@@ -1,7 +1,7 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@commons-ui/testing-library";
 import React from "react";
 
-import RichTypography from ".";
+import RichTypography from "./RichTypography";
 
 describe("RichTypography", () => {
   it("renders unchanged", () => {
@@ -10,12 +10,12 @@ describe("RichTypography", () => {
   });
 
   it("renders html content", () => {
-    const { container } = render(
+    render(
       <RichTypography>
         <b>this is an example</b>
       </RichTypography>
     );
-    const node = container.querySelector("b");
-    expect(node).toBeTruthy();
+    const node = screen.getByText("this is an example");
+    expect(node).toBeInTheDocument();
   });
 });
