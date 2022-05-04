@@ -2,7 +2,7 @@ import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-const NavLinkGrid = styled("li")(({ theme: { breakpoints, typography } }) => ({
+const NavLinkItemRoot = styled("li")(({ theme: { breakpoints, typography } }) => ({
   margin: `${typography.pxToRem(20)} 0`,
   listStyle: "none",
   [breakpoints.up("lg")]: {
