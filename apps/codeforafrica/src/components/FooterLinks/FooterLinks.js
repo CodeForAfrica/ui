@@ -17,6 +17,19 @@ const ListItemLinks = styled(ListItem)(
   })
 );
 
+const ListItemRoot = styled(ListItem)(
+  ({ theme: { breakpoints, typography } }) => ({
+    padding: 0,
+    paddingBottom: typography.pxToRem(10),
+    display: "flex",
+    justifyContent: "center",
+    [breakpoints.up("md")]: {
+      display: "block",
+      justifyContent: "flex-start",
+    },
+  })
+);
+
 const ListRoot = styled(List)(({ theme: { breakpoints, typography } }) => ({
   marginTop: typography.pxToRem(85),
   [breakpoints.up("lg")]: {
@@ -29,6 +42,10 @@ const LinkRoot = styled(Link)(({ theme: { palette } }) => ({
   color: palette.text.secondary,
 }));
 
+const SecondaryList = styled("div")(({ theme: { typography } }) => ({
+  marginTop: typography.pxToRem(20),
+}));
+
 function FooterLinks({ footerLinks }) {
   if (!footerLinks) {
     return null;
@@ -36,12 +53,21 @@ function FooterLinks({ footerLinks }) {
   return (
     <ListRoot>
       {footerLinks.main.map((item) => (
-        <ListItemLinks>
+        <ListItemLinks key={item.name}>
           <LinkRoot href={item.href}>
             <Typography variant="h5">{item.name}</Typography>
           </LinkRoot>
         </ListItemLinks>
       ))}
+      <SecondaryList>
+        {footerLinks.secondary.map((item) => (
+          <ListItemRoot>
+            <LinkRoot href={item.href}>
+              <Typography variant="p2">{item.name}</Typography>
+            </LinkRoot>
+          </ListItemRoot>
+        ))}
+      </SecondaryList>
     </ListRoot>
   );
 }

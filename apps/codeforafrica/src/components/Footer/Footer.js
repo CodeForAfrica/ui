@@ -1,6 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Link } from "@commons-ui/next";
-import { Grid, Typography, List, ListItem } from "@mui/material";
+import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -26,26 +25,6 @@ const FooterRoot = styled("footer")(
   })
 );
 
-const LinkRoot = styled(Link)(({ theme: { palette } }) => ({
-  textDecoration: "none",
-  color: palette.text.secondary,
-}));
-
-const ListItemRoot = styled(ListItem)(({ theme: { breakpoints } }) => ({
-  paddingTop: 0,
-  paddingLeft: 0,
-  display: "flex",
-  justifyContent: "center",
-  [breakpoints.up("md")]: {
-    display: "block",
-    justifyContent: "flex-start",
-  },
-}));
-
-const ListGridRoot = styled(Grid)(({ theme: { typography } }) => ({
-  marginTop: typography.pxToRem(20),
-}));
-
 const DescriptionGrid = styled(Grid)(({ theme: { breakpoints } }) => ({
   textAlign: "center",
   [breakpoints.up("md")]: {
@@ -60,7 +39,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
   return (
     <FooterRoot ref={ref}>
       <Section>
-        <Grid container>
+        <Grid container spacing={2}>
           <Grid item xs={12} md={4}>
             <Grid container>
               <DescriptionGrid item xs={12}>
@@ -73,21 +52,9 @@ const Footer = React.forwardRef(function Footer(props, ref) {
           </Grid>
           <Grid item xs={12} md={4}>
             <Grid container justifyContent="center">
-              <Grid item xs={12}>
+              <Grid item container justifyContent="center" xs={12}>
                 <FooterLinks footerLinks={footerLinks} />
               </Grid>
-              <ListGridRoot item xs={12}>
-                <List>
-                  {footerLinks &&
-                    footerLinks.secondary.map((item) => (
-                      <ListItemRoot>
-                        <LinkRoot href={item.href}>
-                          <Typography variant="p2">{item.name}</Typography>
-                        </LinkRoot>
-                      </ListItemRoot>
-                    ))}
-                </List>
-              </ListGridRoot>
             </Grid>
           </Grid>
           <Grid item xs={12} md={4} sx={{ order: { xs: 0, md: 1 } }}>
