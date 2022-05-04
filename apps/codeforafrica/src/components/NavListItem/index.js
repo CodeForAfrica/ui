@@ -1,4 +1,4 @@
-import Link from "@commons-ui/next";
+import { Link } from "@commons-ui/next";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import * as React from "react";
