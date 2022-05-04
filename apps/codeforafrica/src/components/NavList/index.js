@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import * as React from "react";
 
 const NavListRoot = styled("ul", {
-  shouldForwardProp: (prop) => prop !== "footer",
+  shouldForwardProp: (prop) => prop !== "direction",
   slot: "Root",
   overridesResolver: (props, styles) => {
-    const { footer } = props.ownerState;
-    return [styles.root, footer && styles.footer];
+    const { direction } = props.ownerState;
+    return [styles.root, direction && styles.direction];
   },
 })(({ theme: { breakpoints }, ownerState }) => ({
-  ...(!ownerState?.footer && {
+  ...(!ownerState?.direction && {
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
@@ -25,11 +25,16 @@ const NavListRoot = styled("ul", {
 }));
 
 const NavList = React.forwardRef(function NavList(props, ref) {
-  const { footer = true, children, ...others } = props;
-  const ownerState = { ...others, footer };
+  const { direction = true, children, ...others } = props;
+  const ownerState = { ...others, direction };
 
   return (
-    <NavListRoot {...props} footer={footer} ownerState={ownerState} ref={ref}>
+    <NavListRoot
+      {...props}
+      direction={direction}
+      ownerState={ownerState}
+      ref={ref}
+    >
       {children}
     </NavListRoot>
   );
@@ -37,12 +42,12 @@ const NavList = React.forwardRef(function NavList(props, ref) {
 
 NavList.propTypes = {
   children: PropTypes.node,
-  footer: PropTypes.bool,
+  direction: PropTypes.bool,
 };
 
 NavList.defaultProps = {
   children: undefined,
-  footer: undefined,
+  direction: undefined,
 };
 
 export default NavList;

@@ -1,3 +1,4 @@
+import Link from "@commons-ui/next";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import * as React from "react";
@@ -13,11 +14,11 @@ const NavLinkItemRoot = styled("li")(
   })
 );
 
-const NavLink = styled("a", {
+const NavLink = styled(Link, {
   slot: "Root",
   overridesResolver: (props, styles) => {
     const { ownerState } = props;
-    return [styles.root, ownerState.footer && styles.footer];
+    return [styles.root, ownerState.direction && styles.direction];
   },
 })(({ theme: { breakpoints, palette, typography }, ownerState }) => ({
   textTransform: "capitalize",
@@ -42,7 +43,7 @@ const NavLink = styled("a", {
       color: "white",
     },
   },
-  ...(!ownerState.footer && {
+  ...(!ownerState.direction && {
     textTransform: "capitalize",
     color: palette.text.secondary,
     textDecoration: "none",
@@ -68,12 +69,17 @@ const NavLink = styled("a", {
 }));
 
 const NavListItem = React.forwardRef(function NavListItem(props, ref) {
-  const { footer = true, label, href, ...others } = props;
-  const ownerState = { ...others, footer };
+  const { direction = true, label, href, ...others } = props;
+  const ownerState = { ...others, direction };
 
   return (
     <NavLinkItemRoot key={label}>
-      <NavLink href={href} ownerState={ownerState} footer={footer} ref={ref}>
+      <NavLink
+        href={href}
+        ownerState={ownerState}
+        direction={direction}
+        ref={ref}
+      >
         {label}
       </NavLink>
     </NavLinkItemRoot>
@@ -83,13 +89,13 @@ const NavListItem = React.forwardRef(function NavListItem(props, ref) {
 NavListItem.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
-  footer: PropTypes.bool,
+  direction: PropTypes.bool,
 };
 
 NavListItem.defaultProps = {
   label: undefined,
   href: undefined,
-  footer: undefined,
+  direction: undefined,
 };
 
 export default NavListItem;
