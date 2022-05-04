@@ -44,17 +44,19 @@ const LinksRoot = styled(Grid, {
 const SocialLinkRoot = styled(A, {
   slot: "Root",
   name: "StayInTouchSocialLink",
-})(() => ({
+})(({ theme: { typography } }) => ({
   display: "inline-block",
-  padding: "0 0.625rem",
+  padding: 0,
+  paddingRight: typography.pxToRem(10),
 }));
 
 const SupportLinkRoot = styled(A, {
   slot: "Root",
   name: "StayInTouchSupportLink",
-})(() => ({
+})(({ theme: { typography } }) => ({
   display: "inline-block",
-  padding: "0 0.625rem",
+  padding: 0,
+  paddingRight: typography.pxToRem(10),
 }));
 
 const IconRoot = styled("img", {
