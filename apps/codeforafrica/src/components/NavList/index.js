@@ -2,7 +2,7 @@ import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-const NavUl = styled("ul", {
+const NavListRoot = styled("ul", {
   shouldForwardProp: (prop) => prop !== "footer",
   slot: "Root",
   overridesResolver: (props, styles) => {
