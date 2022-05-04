@@ -8,15 +8,16 @@ const palette = {
   mode: "light",
   primary: { main: "#1020E1", light: "#EFF0FD", dark: "#08125C" }, // blues
   secondary: { main: "#000000", light: "#7F7272" },
-  text: { primary: "#000000", secondary: "#FFFFFF" },
-  background: { main: "#F6F5F5" },
   highlight: { main: "#ED1C24" },
   grey: { main: "#B4ABAB", light: "#E3DFDF" },
+  text: { primary: "#000000", secondary: "#FFFFFF" },
+  background: { main: "#F6F5F5" },
+  action: { hoverOpacity: 0, focusOpacity: 0 },
 };
 
 const breakpoints = {
   values: {
-    xs: 390,
+    xs: 0,
     sm: 768,
     md: 1152,
     lg: 1440,
@@ -29,11 +30,10 @@ const theme = createTheme({
   breakpoints,
   contentWidths: {
     values: {
-      xs: 350,
-      sm: 708,
-      md: 904,
-      lg: 1024,
-      xl: 1440,
+      sm: 728,
+      md: 1024,
+      lg: 1144,
+      xl: 1144,
     },
     unit: "px",
   },
@@ -195,91 +195,91 @@ deepmerge(
     },
     h1: {
       fontSize: pxToRem(28),
-      lineHeight: 28 / 34,
+      lineHeight: 34 / 28,
       [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(48),
-        lineHeight: 48 / 56,
+        lineHeight: 56 / 48,
       },
     },
 
     h2: {
       fontSize: pxToRem(23),
-      lineHeight: 23 / 28,
+      lineHeight: 28 / 23,
       [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(39),
-        lineHeight: 39 / 47,
+        lineHeight: 47 / 39,
       },
     },
 
     h3: {
       fontSize: pxToRem(28),
-      lineHeight: 28 / 34,
+      lineHeight: 34 / 28,
       [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(33),
-        lineHeight: 33 / 40,
+        lineHeight: 40 / 33,
       },
     },
 
     h4: {
       fontSize: pxToRem(23),
-      lineHeight: 23 / 28,
+      lineHeight: 28 / 23,
       [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(28),
-        lineHeight: 28 / 34,
+        lineHeight: 34 / 28,
       },
     },
 
     h5: {
       fontSize: pxToRem(19),
-      lineHeight: 19 / 23,
+      lineHeight: 23 / 19,
       [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(23),
-        lineHeight: 28 / 28,
+        lineHeight: 28 / 23,
       },
     },
 
     h6: {
       fontSize: pxToRem(16),
-      lineHeight: 16 / 19,
+      lineHeight: 19 / 16,
       [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(19),
-        lineHeight: 19 / 23,
+        lineHeight: 23 / 19,
       },
     },
 
     subheading: {
       fontSize: pxToRem(18),
-      lineHeight: 18 / 28,
+      lineHeight: 28 / 18,
       [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(20),
-        lineHeight: 20 / 30,
+        lineHeight: 30 / 20,
       },
     },
 
     subtitle1: {
       fontSize: pxToRem(16),
-      lineHeight: 16 / 26,
+      lineHeight: 26 / 16,
       [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(18),
-        lineHeight: 18 / 28,
+        lineHeight: 28 / 18,
       },
     },
 
     subtitle2: {
       fontSize: pxToRem(14),
-      lineHeight: 14 / 23,
+      lineHeight: 23 / 14,
       [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(16),
-        lineHeight: 16 / 26,
+        lineHeight: 26 / 16,
       },
     },
 
     body1: {
       fontSize: pxToRem(12),
-      lineHeight: 12 / 14,
+      lineHeight: 14 / 12,
       [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(14),
-        lineHeight: 14 / 23,
+        lineHeight: 23 / 14,
       },
     },
     caption: {

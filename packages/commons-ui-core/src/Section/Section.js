@@ -12,14 +12,12 @@ const SectionRoot = styled(Container, {
 })(
   ({ ownerState, theme }) =>
     ownerState.fixed &&
-    Object.keys(theme.contentWidths.values).reduce((acc, breakpoint) => {
+    Object.keys(theme.breakpoints.values).reduce((acc, breakpoint) => {
       const value = theme.contentWidths.values[breakpoint];
-
-      if (value) {
-        acc[theme.breakpoints.up(breakpoint)] = {
-          maxWidth: `${value}${theme.contentWidths.unit}`,
-        };
-      }
+      const maxWidth = value ? `${value}${theme.contentWidths.unit}` : "none";
+      acc[theme.breakpoints.up(breakpoint)] = {
+        maxWidth,
+      };
       return acc;
     }, {})
 );
@@ -30,11 +28,17 @@ const SectionRoot = styled(Container, {
  * This is only applicable when fixed is true.
  */
 const Section = React.forwardRef(function Section(props, ref) {
-  const { fixed = true, ...others } = props;
+  const { disableGutters = true, fixed = true, ...others } = props;
   const ownerState = { ...others, fixed };
 
   return (
-    <SectionRoot {...props} fixed={fixed} ownerState={ownerState} ref={ref} />
+    <SectionRoot
+      {...props}
+      disableGutters={disableGutters}
+      fixed={fixed}
+      ownerState={ownerState}
+      ref={ref}
+    />
   );
 });
 

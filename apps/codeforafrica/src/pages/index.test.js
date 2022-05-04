@@ -1,22 +1,20 @@
-import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
 import Index from ".";
 
-describe("Homepage", () => {
+import theme from "@/codeforafrica/theme";
+
+// eslint-disable-next-line testing-library/render-result-naming-convention
+const render = createRender({ theme });
+
+const defaultProps = {
+  sections: [],
+};
+
+describe("/", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Index />);
+    const { container } = render(<Index {...defaultProps} />);
     expect(container).toMatchSnapshot();
-  });
-
-  it("renders a heading", () => {
-    render(<Index />);
-
-    const heading = screen.getByRole("heading", {
-      name: /This is the official CFA SITE/i,
-    });
-
-    expect(heading).toBeInTheDocument();
   });
 });
