@@ -12,10 +12,7 @@ function FooterMenu({ menu }) {
   return (
     <NavList footer>
       {menu.map((item) => (
-        <NavListItem
-          {..item}
-          footer
-        />
+        <NavListItem {...item} footer />
       ))}
     </NavList>
   );
