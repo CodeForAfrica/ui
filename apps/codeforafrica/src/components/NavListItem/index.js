@@ -74,12 +74,7 @@ const NavListItem = React.forwardRef(function NavListItem(props, ref) {
 
   return (
     <NavLinkItemRoot key={label}>
-      <NavLink
-        href={href}
-        ownerState={ownerState}
-        direction={direction}
-        ref={ref}
-      >
+      <NavLink href={href} ownerState={ownerState} ref={ref}>
         {label}
       </NavLink>
     </NavLinkItemRoot>

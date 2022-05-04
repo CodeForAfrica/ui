@@ -10,13 +10,13 @@ function NavMenu({ children, menu }) {
   }
 
   return (
-    <NavList footer={false}>
+    <NavList direction={false}>
       {menu.map((item) => (
         <NavListItem
           label={item.label}
           key={item.label}
           href={item.href}
-          footer={false}
+          direction={false}
         />
       ))}
       {children}
