@@ -10,7 +10,7 @@ const NavListRoot = styled("ul", {
     return [styles.root, direction && styles.direction];
   },
 })(({ theme: { breakpoints }, ownerState }) => ({
-  ...(!ownerState?.direction && {
+  ...(!ownerState.direction && {
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
