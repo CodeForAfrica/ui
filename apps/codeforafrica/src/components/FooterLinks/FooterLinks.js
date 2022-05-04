@@ -32,7 +32,7 @@ const ListItemRoot = styled(ListItem)(
 
 const ListRoot = styled(List)(({ theme: { breakpoints, typography } }) => ({
   marginTop: typography.pxToRem(85),
-  [breakpoints.up("lg")]: {
+  [breakpoints.up("md")]: {
     marginTop: 0,
   },
 }));
