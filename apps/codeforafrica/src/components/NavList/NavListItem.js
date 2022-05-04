@@ -2,14 +2,16 @@ import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-const NavLinkItemRoot = styled("li")(({ theme: { breakpoints, typography } }) => ({
-  margin: `${typography.pxToRem(20)} 0`,
-  listStyle: "none",
-  [breakpoints.up("lg")]: {
-    margin: `${typography.pxToRem(10)} 0`,
+const NavLinkItemRoot = styled("li")(
+  ({ theme: { breakpoints, typography } }) => ({
+    margin: `${typography.pxToRem(20)} 0`,
     listStyle: "none",
-  },
-}));
+    [breakpoints.up("lg")]: {
+      margin: `${typography.pxToRem(10)} 0`,
+      listStyle: "none",
+    },
+  })
+);
 
 const NavLink = styled("a", {
   slot: "Root",
@@ -70,11 +72,11 @@ const NavListItem = React.forwardRef(function NavListItem(props, ref) {
   const ownerState = { ...others, footer };
 
   return (
-    <NavLinkGrid key={label}>
+    <NavLinkItemRoot key={label}>
       <NavLink href={href} ownerState={ownerState} footer={footer} ref={ref}>
         {label}
       </NavLink>
-    </NavLinkGrid>
+    </NavLinkItemRoot>
   );
 });
 

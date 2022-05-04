@@ -29,9 +29,9 @@ const NavList = React.forwardRef(function NavList(props, ref) {
   const ownerState = { ...others, footer };
 
   return (
-    <NavUl {...props} footer={footer} ownerState={ownerState} ref={ref}>
+    <NavListRoot {...props} footer={footer} ownerState={ownerState} ref={ref}>
       {children}
-    </NavUl>
+    </NavListRoot>
   );
 });
 
