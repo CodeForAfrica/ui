@@ -13,9 +13,7 @@ function FooterMenu({ menu }) {
     <NavList footer>
       {menu.map((item) => (
         <NavListItem
-          label={item.label}
-          key={item.label}
-          href={item.href}
+          {..item}
           footer
         />
       ))}
