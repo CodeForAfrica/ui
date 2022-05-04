@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import NavList from "@/codeforafrica/components/NavList";
-import NavListItem from "@/codeforafrica/components/NavList/NavListItem";
+import NavListItem from "@/codeforafrica/components/NavListItem";
 
 function NavMenu({ children, menu }) {
   if (!menu?.length) {
