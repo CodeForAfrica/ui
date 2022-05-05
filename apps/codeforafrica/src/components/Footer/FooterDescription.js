@@ -1,14 +1,9 @@
 import { Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
 import cfaIcon from "@/codeforafrica/assets/images/CfAlogoBW.png";
-
-const DescriptionRoot = styled(Typography)(({ theme: { typography } }) => ({
-  marginTop: typography.pxToRem(50),
-}));
 
 function FooterDescription({ description }) {
   if (!description) {
@@ -18,7 +13,7 @@ function FooterDescription({ description }) {
   return (
     <>
       <Image src={cfaIcon} />
-      <DescriptionRoot>{description}</DescriptionRoot>
+      <Typography sx={{ marginTop: "3.125rem" }}>{description}</Typography>
     </>
   );
 }

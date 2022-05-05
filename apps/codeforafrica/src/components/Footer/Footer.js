@@ -24,13 +24,6 @@ const FooterRoot = styled(Box)(
   })
 );
 
-const DescriptionGrid = styled(Grid)(({ theme: { breakpoints } }) => ({
-  textAlign: "center",
-  [breakpoints.up("md")]: {
-    textAlign: "left",
-  },
-}));
-
 const Footer = React.forwardRef(function Footer(props, ref) {
   const { subscription, description, footerLinks, socialMedia } = props;
 
@@ -40,9 +33,13 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>
             <Grid container>
-              <DescriptionGrid item xs={12}>
+              <Grid
+                sx={{ textAlign: { xs: "center", md: "left" } }}
+                item
+                xs={12}
+              >
                 <FooterDescription description={description} />
-              </DescriptionGrid>
+              </Grid>
               <Grid item xs={12}>
                 <StayInTouch socialMedia={socialMedia} />
               </Grid>
