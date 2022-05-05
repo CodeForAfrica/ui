@@ -6,27 +6,6 @@ import * as React from "react";
 
 import Title from "./Title";
 
-const StayInTouchRoot = styled(Grid, {
-  slot: "Root",
-  name: "StayInTouch",
-})(({ theme: { typography, breakpoints } }) => ({
-  marginTop: typography.pxToRem(50),
-  justifyContent: "center",
-  [breakpoints.up("md")]: {
-    justifyContent: "flex-start",
-  },
-}));
-
-const TitleRoot = styled(Grid, {
-  slot: "Root",
-  name: "StayInTouchTitle",
-})(({ theme }) => ({
-  textAlign: "center",
-  [theme.breakpoints.up("md")]: {
-    textAlign: "left",
-  },
-}));
-
 const LinksRoot = styled(Grid, {
   slot: "Root",
   name: "StayInTouchLinks",
@@ -77,11 +56,24 @@ const StayInTouch = React.forwardRef(function StayInTouch(
   }
 
   return (
-    <StayInTouchRoot container ref={ref} {...props}>
+    <Grid
+      sx={{
+        marginTop: "3.125rem",
+        justifyContent: { xs: "center", md: "flex-start" },
+      }}
+      container
+      ref={ref}
+      {...props}
+    >
       {title && (
-        <TitleRoot item xs={12} md={4}>
+        <Grid
+          item
+          xs={12}
+          md={4}
+          sx={{ textAlign: { xs: "center", md: "left" } }}
+        >
           <Title title="Stay in touch:" />
-        </TitleRoot>
+        </Grid>
       )}
       <LinksRoot item xs={12} md={8} container>
         {support && (
@@ -95,7 +87,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
           </SocialLinkRoot>
         ))}
       </LinksRoot>
-    </StayInTouchRoot>
+    </Grid>
   );
 });
 
