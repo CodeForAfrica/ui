@@ -69,7 +69,7 @@ const NavLink = styled(Link, {
 }));
 
 const NavListItem = React.forwardRef(function NavListItem(props, ref) {
-  const { direction = true, label, href, ...others } = props;
+  const { direction = "column", label, href, ...others } = props;
   const ownerState = { ...others, direction };
 
   return (

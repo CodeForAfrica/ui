@@ -10,7 +10,7 @@ function FooterMenu({ menu }) {
   }
 
   return (
-    <NavList direction>
+    <NavList direction="column">
       {menu.map((item) => (
         <NavListItem {...item} direction />
       ))}

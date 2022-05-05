@@ -7,25 +7,24 @@ const NavListRoot = styled("ul", {
   slot: "Root",
   overridesResolver: (props, styles) => {
     const { direction } = props.ownerState;
-    return [styles.root, direction && styles.direction];
+    return [styles.root, styles[direction]];
   },
-})(({ theme: { breakpoints }, ownerState }) => ({
-  ...(!ownerState.direction && {
-    display: "flex",
+})(({ ownerState }) => ({
+  display: "flex",
+  ...(ownerState.direction === "column" && {
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItem: "flex-start",
-    [breakpoints.up("lg")]: {
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "flex-end",
-      alignItem: "center",
-    },
+  }),
+  ...(ownerState.direction === "row" && {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItem: "center",
   }),
 }));
 
 const NavList = React.forwardRef(function NavList(props, ref) {
-  const { direction = true, children, ...others } = props;
+  const { direction = "column", children, ...others } = props;
   const ownerState = { ...others, direction };
 
   return (
@@ -37,7 +36,7 @@ const NavList = React.forwardRef(function NavList(props, ref) {
 
 NavList.propTypes = {
   children: PropTypes.node,
-  direction: PropTypes.bool,
+  direction: PropTypes.oneOf(["column", "row"]),
 };
 
 NavList.defaultProps = {
