@@ -11,7 +11,7 @@ export const socialMedia = [
     image: { alt: "Twitter", url: twitter.src },
   },
   {
-    url: "https://ke.linkedin.com/company/code-for-africa",
+    url: "cfa.slack.com",
     image: { alt: "Slack", url: slack.src },
   },
   {
