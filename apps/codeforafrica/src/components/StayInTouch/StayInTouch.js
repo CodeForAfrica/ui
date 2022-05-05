@@ -29,15 +29,6 @@ const SocialLinkRoot = styled(A, {
   paddingRight: typography.pxToRem(10),
 }));
 
-const SupportLinkRoot = styled(A, {
-  slot: "Root",
-  name: "StayInTouchSupportLink",
-})(({ theme: { typography } }) => ({
-  display: "inline-block",
-  padding: 0,
-  paddingRight: typography.pxToRem(10),
-}));
-
 const IconRoot = styled("img", {
   slot: "Root",
   name: "StayInTouchIcon",
@@ -48,7 +39,7 @@ const IconRoot = styled("img", {
 }));
 
 const StayInTouch = React.forwardRef(function StayInTouch(
-  { children, support, socialMedia, title, ...props },
+  { children, socialMedia, title, ...props },
   ref
 ) {
   if (!(socialMedia && socialMedia.length)) {
@@ -76,11 +67,6 @@ const StayInTouch = React.forwardRef(function StayInTouch(
         </Grid>
       )}
       <LinksRoot item xs={12} md={8} container>
-        {support && (
-          <SupportLinkRoot href={`mailto:${support.email}`}>
-            <IconRoot src={support.image.url} alt={support.image.alt} />
-          </SupportLinkRoot>
-        )}
         {socialMedia.map((media) => (
           <SocialLinkRoot key={media.url} href={media.url}>
             <IconRoot src={media.image.url} alt={media.image.alt} />
@@ -101,18 +87,10 @@ StayInTouch.propTypes = {
       }).isRequired,
     }).isRequired
   ).isRequired,
-  support: PropTypes.shape({
-    email: PropTypes.string.isRequired,
-    image: PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      alt: PropTypes.string.isRequired,
-    }).isRequired,
-  }),
   title: PropTypes.string,
 };
 
 StayInTouch.defaultProps = {
-  support: undefined,
   title: "Stay in touch with us @ &nbsp;",
 };
 
