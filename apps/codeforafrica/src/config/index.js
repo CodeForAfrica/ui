@@ -11,7 +11,7 @@ export const socialMedia = [
     image: { alt: "Twitter", url: twitter.src },
   },
   {
-    url: "cfa.slack.com",
+    url: "https://cfa.slack.com",
     image: { alt: "Slack", url: slack.src },
   },
   {

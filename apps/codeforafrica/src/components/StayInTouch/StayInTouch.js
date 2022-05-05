@@ -1,4 +1,4 @@
-import { A } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
 import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
@@ -59,7 +59,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
       )}
       <LinksRoot item xs={12} md={8} container>
         {socialMedia.map((media) => (
-          <A
+          <Link
             sx={{
               display: "inline-block",
               padding: 0,
@@ -69,7 +69,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
             href={media.url}
           >
             <IconRoot src={media.image.url} alt={media.image.alt} />
-          </A>
+          </Link>
         ))}
       </LinksRoot>
     </Grid>
