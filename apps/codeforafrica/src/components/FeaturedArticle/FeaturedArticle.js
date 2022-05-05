@@ -44,7 +44,11 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
             <ArticleCardMedia
               src={src}
               sx={{
-                height: { xs: "217px", md: "476px" },
+                height: {
+                  xs: "217px",
+                  sm: variant === "cover" ? "401px" : "217px",
+                  md: "476px",
+                },
                 width: {
                   xs: "100%",
                   md: variant === "cover" ? "100%" : "758px",
@@ -57,7 +61,7 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
             xs={12}
             md
             sx={{
-              display: { md: variant === "cover" ? "none" : "flex" },
+              display: { sm: variant === "cover" ? "none" : "flex" },
             }}
           >
             <ArticleCardContent
@@ -118,7 +122,7 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
             sx={{
               display: {
                 xs: "none",
-                md: variant === "cover" ? "flex" : "none",
+                sm: variant === "cover" ? "flex" : "none",
               },
               position: "absolute",
               top: 0,
