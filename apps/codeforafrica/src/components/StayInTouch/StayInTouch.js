@@ -20,15 +20,6 @@ const LinksRoot = styled(Grid, {
   },
 }));
 
-const SocialLinkRoot = styled(A, {
-  slot: "Root",
-  name: "StayInTouchSocialLink",
-})(({ theme: { typography } }) => ({
-  display: "inline-block",
-  padding: 0,
-  paddingRight: typography.pxToRem(10),
-}));
-
 const IconRoot = styled("img", {
   slot: "Root",
   name: "StayInTouchIcon",
@@ -68,9 +59,17 @@ const StayInTouch = React.forwardRef(function StayInTouch(
       )}
       <LinksRoot item xs={12} md={8} container>
         {socialMedia.map((media) => (
-          <SocialLinkRoot key={media.url} href={media.url}>
+          <A
+            sx={{
+              display: "inline-block",
+              padding: 0,
+              paddingRight: "0.625rem",
+            }}
+            key={media.url}
+            href={media.url}
+          >
             <IconRoot src={media.image.url} alt={media.image.alt} />
-          </SocialLinkRoot>
+          </A>
         ))}
       </LinksRoot>
     </Grid>

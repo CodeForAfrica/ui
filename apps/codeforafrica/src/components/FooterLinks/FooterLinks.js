@@ -61,7 +61,7 @@ function FooterLinks({ footerLinks }) {
       ))}
       <SecondaryList>
         {footerLinks.secondary.map((item) => (
-          <ListItemRoot>
+          <ListItemRoot key={item.name}>
             <LinkRoot href={item.href}>
               <Typography variant="p2">{item.name}</Typography>
             </LinkRoot>
