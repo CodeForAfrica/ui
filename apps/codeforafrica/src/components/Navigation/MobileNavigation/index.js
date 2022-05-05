@@ -6,6 +6,7 @@ import React from "react";
 
 import cfaLogo from "@/codeforafrica/assets/CfA logo.svg";
 import menuIcon from "@/codeforafrica/assets/menu-icon.svg";
+import Logo from "@/codeforafrica/components/Logo";
 
 const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   "& .MuiDialog-container": {
@@ -56,15 +57,7 @@ function MobileNavigation() {
       direction="row"
     >
       <Grid item xs={4}>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-        >
-          <Image src={cfaLogo} alt="mobile logo" />
-        </IconButton>
+        <Logo src={cfaLogo} alt="Logo" />
       </Grid>
       <Grid item xs={6} sx={{ display: "flex", justifyContent: "flex-end" }}>
         <IconButton

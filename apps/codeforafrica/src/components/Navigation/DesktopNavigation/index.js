@@ -1,8 +1,8 @@
-import { Grid, IconButton } from "@mui/material";
-import Image from "next/image";
+import { Grid } from "@mui/material";
 import React from "react";
 
 import cfaLogo from "@/codeforafrica/assets/CfA logo.svg";
+import Logo from "@/codeforafrica/components/Logo";
 
 function DesktopNavigation() {
   return (
@@ -13,18 +13,10 @@ function DesktopNavigation() {
       direction="row"
     >
       <Grid item xs={4}>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-        >
-          <Image src={cfaLogo} alt="desktop logo" />
-        </IconButton>
+        <Logo src={cfaLogo} alt="Logo" />
       </Grid>
       <Grid item xs={8} sx={{ display: "flex", justifyContent: "flex-end" }}>
-        this is the menulist
+        NAV MENULIST
       </Grid>
     </Grid>
   );
