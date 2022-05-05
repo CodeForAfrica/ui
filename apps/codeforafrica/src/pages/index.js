@@ -1,6 +1,3 @@
-
-import React from "react";
-import Page from "@/codeforafrica/components/Page";
 import { Section } from "@commons-ui/core";
 import React from "react";
 
