@@ -9,7 +9,6 @@ import FooterDescription from "./FooterDescription";
 import FooterLinks from "@/codeforafrica/components/FooterLinks";
 import NewsletterSubscription from "@/codeforafrica/components/NewsletterSubscription";
 import StayInTouch from "@/codeforafrica/components/StayInTouch";
-import { socialMedia, footerLinks, footer } from "@/codeforafrica/config";
 
 const FooterRoot = styled(Box)(
   ({ theme: { breakpoints, palette, typography } }) => ({
@@ -33,8 +32,7 @@ const DescriptionGrid = styled(Grid)(({ theme: { breakpoints } }) => ({
 }));
 
 const Footer = React.forwardRef(function Footer(props, ref) {
-  const { subscription } = props;
-  const { description } = footer;
+  const { subscription, description, footerLinks, socialMedia } = props;
 
   return (
     <FooterRoot component="footer" ref={ref}>
