@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -11,7 +11,7 @@ import NewsletterSubscription from "@/codeforafrica/components/NewsletterSubscri
 import StayInTouch from "@/codeforafrica/components/StayInTouch";
 import { socialMedia, footerLinks, footer } from "@/codeforafrica/config";
 
-const FooterRoot = styled("footer")(
+const FooterRoot = styled(Box)(
   ({ theme: { breakpoints, palette, typography } }) => ({
     backgroundColor: palette.common.black,
     color: palette.text.secondary,
@@ -37,7 +37,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
   const { description } = footer;
 
   return (
-    <FooterRoot ref={ref}>
+    <FooterRoot component="footer" ref={ref}>
       <Section sx={{ px: { xs: "20px", sm: 0 } }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>
