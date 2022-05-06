@@ -133,7 +133,6 @@ function getHomePageStaticProps() {
 }
 
 function getStoriesPageStaticProps() {
-  console.log("BOOM", [...new Set(articles.flatMap((a) => a.tags))]);
   return {
     props: {
       title: "Stories | Code for Africa",
