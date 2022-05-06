@@ -163,7 +163,6 @@ function getStoriesPageStaticProps() {
         },
       ],
       footer,
-      menu,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
