@@ -35,7 +35,6 @@ const NavList = React.forwardRef(function NavList(props, ref) {
 });
 
 NavList.propTypes = {
-  children: PropTypes.node,
   direction: PropTypes.oneOf(["column", "row"]),
 };
 
