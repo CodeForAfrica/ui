@@ -25,15 +25,14 @@ function FooterNavList({ menu }) {
     >
       <NavList direction="column">
         {menu.map((item) => (
-          <NavListItem key={item.label}>
+          <NavListItem key={item.label} sx={{ mb: "20px" }}>
             <Link
               href={item.href}
+              color="inherit"
+              underline="none"
+              variant="h5"
+              fontWeight="700"
               sx={{
-                color: "inherit",
-                background: "inherit",
-                textDecoration: "none",
-                fontWeight: 700,
-                fontSize: 23,
                 "&:hover, &:active, &:focus, &:focus-within": {
                   textDecoration: "none",
                   color: "inherit",
