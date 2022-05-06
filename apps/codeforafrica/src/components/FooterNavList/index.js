@@ -18,7 +18,7 @@ function FooterNavList({ menu }) {
       xs={12}
       md={3}
       sx={{
-        order: { xs: 1, md: 0 },
+        order: { xs: 1, md: 2 },
         display: "flex",
         justifyContent: "center",
       }}
