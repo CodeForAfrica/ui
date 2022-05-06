@@ -11,7 +11,7 @@ function Page({ children, footer, title }) {
         <title>{title}</title>
       </Head>
       {children}
-      {footer ? <Footer {...footer} menu={menu} /> : null}
+      {footer ? <Footer {...footer} /> : null}
     </>
   );
 }
