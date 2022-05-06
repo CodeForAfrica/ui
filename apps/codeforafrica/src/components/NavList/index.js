@@ -23,8 +23,8 @@ const NavListRoot = styled("ul", {
   }),
 }));
 
-const NavList = React.forwardRef(function NavList(props, ref) {
-  const { direction = "column", children, ...others } = props;
+const NavList = React.forwardRef(function NavList({ children, ...props }, ref) {
+  const { direction = "column", ...others } = props;
   const ownerState = { ...others, direction };
 
   return (
@@ -36,6 +36,7 @@ const NavList = React.forwardRef(function NavList(props, ref) {
 
 NavList.propTypes = {
   direction: PropTypes.oneOf(["column", "row"]),
+  children: PropTypes.node,
 };
 
 NavList.defaultProps = {

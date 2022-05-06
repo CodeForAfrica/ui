@@ -1,8 +1,12 @@
+import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import NavMenu from ".";
+import FooterMenu from ".";
 
-import { render } from "@/codeforafrica/utils/test";
+import theme from "@/codeforafrica/theme";
+
+// eslint-disable-next-line testing-library/render-result-naming-convention
+const render = createRender({ theme });
 
 const defaultProps = {
   menu: [
@@ -29,9 +33,9 @@ const defaultProps = {
   ],
 };
 
-describe("<NavMenu />", () => {
+describe("<FooterMenu />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<NavMenu {...defaultProps} />);
+    const { container } = render(<FooterMenu {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

@@ -29,18 +29,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     <FooterRoot ref={ref}>
       <Section sx={{ px: { xs: "20px", sm: 0 } }}>
         <Grid container justifyContent="flex-end">
-          <Grid
-            item
-            xs={12}
-            md={3}
-            sx={{
-              order: { xs: 1, md: 0 },
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <FooterMenu menu={menu} />
-          </Grid>
+          <FooterNavList menu={menu} />
           <Grid item xs={12} md={3} sx={{ order: { xs: 0, md: 1 } }}>
             <NewsletterSubscription {...subscription} />
           </Grid>
