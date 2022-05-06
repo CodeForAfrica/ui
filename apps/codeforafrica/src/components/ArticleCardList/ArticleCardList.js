@@ -8,7 +8,7 @@ import ArticleCardContent from "@/codeforafrica/components/ArticleCardContent";
 import ArticleCardMedia from "@/codeforafrica/components/ArticleCardMedia";
 
 const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
-  const { items: articles, ...other } = props;
+  const { articles, ...other } = props;
 
   if (!articles?.length) {
     return null;
