@@ -11,10 +11,10 @@ const NavListRoot = styled("ul", {
   },
 })(({ ownerState }) => ({
   display: "flex",
+  justifyContent: "flex-start",
+  alignItem: "flex-start",
   ...(ownerState.direction === "column" && {
     flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItem: "flex-start",
   }),
   ...(ownerState.direction === "row" && {
     flexDirection: "row",
@@ -23,24 +23,18 @@ const NavListRoot = styled("ul", {
   }),
 }));
 
-const NavList = React.forwardRef(function NavList({ children, ...props }, ref) {
-  const { direction = "column", ...others } = props;
-  const ownerState = { ...others, direction };
+const NavList = React.forwardRef(function NavList(props, ref) {
+  const { direction = "column" } = props;
+  const ownerState = { direction };
 
-  return (
-    <NavListRoot {...props} ownerState={ownerState} ref={ref}>
-      {children}
-    </NavListRoot>
-  );
+  return <NavListRoot {...props} ownerState={ownerState} ref={ref} />;
 });
 
 NavList.propTypes = {
   direction: PropTypes.oneOf(["column", "row"]),
-  children: PropTypes.node,
 };
 
 NavList.defaultProps = {
-  children: undefined,
   direction: undefined,
 };
 
