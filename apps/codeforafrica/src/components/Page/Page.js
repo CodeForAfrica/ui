@@ -4,7 +4,7 @@ import React from "react";
 
 import Footer from "@/codeforafrica/components/Footer";
 
-function Page({ children, footer, menu, title }) {
+function Page({ children, footer, title }) {
   return (
     <>
       <Head>
