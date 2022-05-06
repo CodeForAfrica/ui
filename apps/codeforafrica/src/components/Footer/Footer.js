@@ -34,7 +34,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
             xs={12}
             md={3}
             sx={{
-              order: { xs: 2, md: 1 },
+              order: { xs: 1, md: 0 },
               display: "flex",
               justifyContent: "center",
             }}
