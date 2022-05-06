@@ -1,4 +1,3 @@
-import { Link } from "@commons-ui/next";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import * as React from "react";
@@ -14,83 +13,23 @@ const NavLinkItemRoot = styled("li")(
   })
 );
 
-const NavLink = styled(Link, {
-  slot: "Root",
-  overridesResolver: (props, styles) => {
-    const { ownerState } = props;
-    return [styles.root, ownerState.direction && styles.direction];
-  },
-})(({ theme: { breakpoints, palette, typography }, ownerState }) => ({
-  textTransform: "capitalize",
-  color: "white",
-  textDecoration: "none",
-  fontSize: typography.pxToRem(28),
-  backgroundColor: "transparent",
-  "&:hover, &:active, &:focus, &:focus-within": {
-    color: "white",
-  },
-  [breakpoints.up("lg")]: {
-    textTransform: "capitalize",
-    color: "white",
-    textDecoration: "none",
-    fontSize: typography.pxToRem(23),
-    margin: typography.pxToRem(24),
-    fontweight: 700,
-    lineHeight: typography.pxToRem(28),
-    backgroundColor: "transparent",
-    borderColor: "none",
-    "&:hover, &:active, &:focus, &:focus-within": {
-      color: "white",
-    },
-  },
-  ...(!ownerState.direction && {
-    textTransform: "capitalize",
-    color: palette.text.secondary,
-    textDecoration: "none",
-    fontSize: typography.pxToRem(28),
-    backgroundColor: "transparent",
-    "&:hover, &:active, &:focus, &:focus-within": {
-      color: palette.text.secondary.main,
-    },
-    [breakpoints.up("lg")]: {
-      textTransform: "capitalize",
-      color: palette.secondary.main,
-      textDecoration: "none",
-      fontSize: typography.pxToRem(18),
-      margin: typography.pxToRem(24),
-      backgroundColor: "transparent",
-      borderColor: "none",
-      "&:hover, &:active, &:focus, &:focus-within": {
-        textDecoration: "underline",
-        color: palette.primary.main,
-      },
-    },
-  }),
-}));
-
 const NavListItem = React.forwardRef(function NavListItem(props, ref) {
-  const { direction = "column", label, href, ...others } = props;
-  const ownerState = { ...others, direction };
-
+  const { key, children } = props;
   return (
-    <NavLinkItemRoot key={label}>
-      <NavLink href={href} ownerState={ownerState} ref={ref}>
-        {label}
-      </NavLink>
+    <NavLinkItemRoot key={key} ref={ref}>
+      {children}
     </NavLinkItemRoot>
   );
 });
 
 NavListItem.propTypes = {
-  label: PropTypes.string,
-  href: PropTypes.string,
-  direction: PropTypes.bool,
+  key: PropTypes.string,
+  children: PropTypes.node,
 };
 
 NavListItem.defaultProps = {
-  label: undefined,
-  href: undefined,
-  direction: undefined,
+  key: undefined,
+  children: undefined,
 };
 
 export default NavListItem;

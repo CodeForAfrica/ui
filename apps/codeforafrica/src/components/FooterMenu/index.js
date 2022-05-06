@@ -1,3 +1,4 @@
+import { Link } from "@commons-ui/next";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -12,7 +13,25 @@ function FooterMenu({ menu }) {
   return (
     <NavList direction="column">
       {menu.map((item) => (
-        <NavListItem {...item} direction />
+        <NavListItem key={item.label}>
+          <Link
+            href={item.href}
+            sx={{
+              color: "inherit",
+              background: "inherit",
+              textDecoration: "none",
+              fontweight: 700,
+              margin: "24px",
+              fontSize: "23px",
+              "&:hover, &:active, &:focus, &:focus-within": {
+                textDecoration: "none",
+                color: "inherit",
+              },
+            }}
+          >
+            {item.label}
+          </Link>
+        </NavListItem>
       ))}
     </NavList>
   );
