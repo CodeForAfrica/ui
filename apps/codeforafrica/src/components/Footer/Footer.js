@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import FooterMenu from "@/codeforafrica/components/FooterMenu";
+import FooterNavList from "@/codeforafrica/components/FooterNavList";
 import NewsletterSubscription from "@/codeforafrica/components/NewsletterSubscription";
 
 const FooterRoot = styled(Box)(
