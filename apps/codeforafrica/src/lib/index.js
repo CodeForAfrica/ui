@@ -24,6 +24,7 @@ const menu = [
 ];
 
 const footer = {
+  menu,
   subscription: {
     embedCode: `
           <!-- Begin Mailchimp Signup Form -->
