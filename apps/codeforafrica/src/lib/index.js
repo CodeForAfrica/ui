@@ -30,6 +30,7 @@ const articles = [
     date: "2022-01-06",
     src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png",
     href: "/stories/article-1",
+    tags: ["Africa", "Media", "Equality"],
   },
   {
     title:
@@ -37,6 +38,7 @@ const articles = [
     date: "2022-01-06",
     src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
     href: "/stories/article-2",
+    tags: ["Kenya", "Water scarcity"],
   },
   {
     title: "Article title goes in here",
@@ -50,18 +52,21 @@ const articles = [
     date: "2022-01-06",
     src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
     href: "/stories/article-4",
+    tags: ["Kenya", "Water scarcity"],
   },
   {
     title: "Article title goes in here",
     date: "2022-01-06",
     src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
     href: "/stories/article-5",
+    tags: ["Kenya"],
   },
   {
     title: "Article title goes in here",
     date: "2022-01-06",
     src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
     href: "/stories/article-6",
+    tags: ["Water scarcity"],
   },
   {
     title: "Article title goes in here",
@@ -104,6 +109,7 @@ const articles = [
     date: "2022-01-06",
     src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
     href: "/stories/article-13",
+    tags: ["Decision-making", "Empowerment citizens"],
   },
 ];
 
@@ -127,6 +133,7 @@ function getHomePageStaticProps() {
 }
 
 function getStoriesPageStaticProps() {
+  console.log("BOOM", [...new Set(articles.flatMap((a) => a.tags))]);
   return {
     props: {
       title: "Stories | Code for Africa",
