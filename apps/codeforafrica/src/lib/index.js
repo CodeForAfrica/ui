@@ -1,5 +1,28 @@
 /* eslint-disable import/prefer-default-export */
 
+const menu = [
+  {
+    label: "Our Work",
+    href: "/our-work",
+  },
+  {
+    label: "About",
+    href: "/about",
+  },
+  {
+    label: "Stories",
+    href: "/about",
+  },
+  {
+    label: "Opportunity",
+    href: "/opportunity",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
+];
+
 const footer = {
   subscription: {
     embedCode: `
@@ -121,6 +144,7 @@ function getHomePageStaticProps() {
         },
       ],
       footer,
+      menu,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -139,6 +163,7 @@ function getStoriesPageStaticProps() {
         },
       ],
       footer,
+      menu,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
