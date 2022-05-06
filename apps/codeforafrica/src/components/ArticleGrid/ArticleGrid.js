@@ -7,21 +7,23 @@ import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
 import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 import FeaturedArticle from "@/codeforafrica/components/FeaturedArticle";
 
+const ALL_TAG = "All";
+
 const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
   const { articles, title, ...other } = props;
   const [tags] = useState(() => {
     const uniqueTags = [...new Set(articles?.flatMap((a) => a.tags || []))];
-    uniqueTags.unshift("All");
+    uniqueTags.unshift(ALL_TAG);
     return uniqueTags;
   });
-  const [selectedTag, setSelectedTag] = useState("all");
+  const [selectedTag, setSelectedTag] = useState(ALL_TAG);
   const [filteredArticles, setFilteredArticles] = useState(articles);
   const handleChange = (_, value) => {
-    const newTag = value || "all";
+    const newTag = value || ALL_TAG;
     setSelectedTag(newTag);
   };
   useEffect(() => {
-    if (selectedTag !== "all") {
+    if (selectedTag !== ALL_TAG) {
       const found = articles.filter((a) => a.tags?.includes(selectedTag));
       setFilteredArticles(found);
     } else {
