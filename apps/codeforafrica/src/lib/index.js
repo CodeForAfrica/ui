@@ -144,7 +144,6 @@ function getHomePageStaticProps() {
         },
       ],
       footer,
-      menu,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
