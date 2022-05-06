@@ -20,9 +20,8 @@ function FooterMenu({ menu }) {
               color: "inherit",
               background: "inherit",
               textDecoration: "none",
-              fontweight: 700,
-              margin: "24px",
-              fontSize: "18px",
+              fontWeight: 700,
+              fontSize: 18,
               "&:hover, &:active, &:focus, &:focus-within": {
                 textDecoration: "underline",
                 color: "#1020E1",

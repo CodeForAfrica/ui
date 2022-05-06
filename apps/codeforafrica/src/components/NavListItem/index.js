@@ -4,10 +4,10 @@ import * as React from "react";
 
 const NavLinkItemRoot = styled("li")(
   ({ theme: { breakpoints, typography } }) => ({
-    margin: `${typography.pxToRem(20)} 0`,
+    marginBottom: `${typography.pxToRem(20)}`,
     listStyle: "none",
     [breakpoints.up("lg")]: {
-      margin: `${typography.pxToRem(10)} 0`,
+      marginBottom: `${typography.pxToRem(10)}`,
       listStyle: "none",
     },
   })
