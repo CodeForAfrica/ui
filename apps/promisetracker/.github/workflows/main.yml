@@ -8,6 +8,7 @@ env:
   GIT_PUSH_FLAGS: "--force"
   BACKEND: "gsheet"
   APP_SLUG: "sonko"
+  IMAGE_DOMAINS: "dashboard.hurumap.org,promisetracker.org.zw,res.cloudinary.com"
   ACTNOW_URL: "https://actnow.dev.codeforafrica.org"
   GSHEETS_ENTITIES_SHEET_ID: "1160397588"
   GSHEETS_ARTICLES_CATEGORIES_SHEET_ID: "1120844020"
@@ -84,6 +85,7 @@ jobs:
             BACKEND: ${{ env.BACKEND }}
             APP_SLUG: ${{ env.APP_SLUG }}
             ACTNOW_URL: ${{ env.ACTNOW_URL }}
+            IMAGE_DOMAINS: ${{ env.IMAGE_DOMAINS }}
             ACTNOW_API_KEY: ${{ secrets.ACTNOW_API_KEY }}
             ACTNOW_CLIENT_ID: ${{ secrets.ACTNOW_CLIENT_ID }}
             ACTNOW_CLIENT_SECRET: ${{ secrets.ACTNOW_CLIENT_SECRET }}
