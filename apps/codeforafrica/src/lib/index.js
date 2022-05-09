@@ -2,7 +2,7 @@
 
 const menu = [
   {
-    label: "Our Work",
+    label: "Our work",
     href: "/our-work",
   },
   {
