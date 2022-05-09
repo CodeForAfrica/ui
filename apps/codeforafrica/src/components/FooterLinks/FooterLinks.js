@@ -1,21 +1,10 @@
 import { Link } from "@commons-ui/next";
-import { Typography, List, ListItem } from "@mui/material";
+import { Typography, List, ListItem, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
-const ListItemLinks = styled(ListItem)(
-  ({ theme: { typography, breakpoints } }) => ({
-    padding: 0,
-    paddingBottom: typography.pxToRem(20),
-    display: "flex",
-    justifyContent: "center",
-    [breakpoints.up("md")]: {
-      display: "block",
-      justifyContent: "flex-start",
-    },
-  })
-);
+import FooterNavList from "@/codeforafrica/components/FooterNavList";
 
 const ListItemRoot = styled(ListItem)(
   ({ theme: { breakpoints, typography } }) => ({
@@ -46,19 +35,22 @@ const SecondaryList = styled("div")(({ theme: { typography } }) => ({
   marginTop: typography.pxToRem(20),
 }));
 
-function FooterLinks({ footerLinks }) {
+function FooterLinks({ footerLinks, menu }) {
   if (!footerLinks) {
     return null;
   }
   return (
     <ListRoot>
-      {footerLinks.main.map((item) => (
-        <ListItemLinks key={item.name}>
-          <LinkRoot href={item.href}>
-            <Typography variant="h5">{item.name}</Typography>
-          </LinkRoot>
-        </ListItemLinks>
-      ))}
+      <Grid
+        item
+        xs={12}
+        md={3}
+        sx={{
+          order: { xs: 2, md: 1 },
+        }}
+      >
+        <FooterNavList menu={menu} />
+      </Grid>
       <SecondaryList>
         {footerLinks.secondary.map((item) => (
           <ListItemRoot key={item.name}>

@@ -7,7 +7,6 @@ import React from "react";
 import FooterDescription from "./FooterDescription";
 
 import FooterLinks from "@/codeforafrica/components/FooterLinks";
-import FooterNavList from "@/codeforafrica/components/FooterNavList";
 import NewsletterSubscription from "@/codeforafrica/components/NewsletterSubscription";
 import StayInTouch from "@/codeforafrica/components/StayInTouch";
 
@@ -49,22 +48,12 @@ const Footer = React.forwardRef(function Footer(props, ref) {
           <Grid item xs={12} md={4}>
             <Grid container justifyContent="center">
               <Grid item container justifyContent="center" xs={12}>
-                <FooterLinks footerLinks={footerLinks} />
+                <FooterLinks footerLinks={footerLinks} menu={menu} />
               </Grid>
             </Grid>
           </Grid>
           <Grid item xs={12} md={4} sx={{ order: { xs: 0, md: 1 } }}>
             <NewsletterSubscription {...subscription} />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={3}
-            sx={{
-              order: { xs: 2, md: 1 },
-            }}
-          >
-            <FooterNavList menu={menu} />
           </Grid>
         </Grid>
       </Section>

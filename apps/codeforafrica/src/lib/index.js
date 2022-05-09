@@ -57,13 +57,6 @@ const footer = {
     },
   ],
   footerLinks: {
-    main: [
-      { name: "Our Work", href: "www.work.com" },
-      { name: "About", href: "www.about.com" },
-      { name: "Stories", href: "www.stories.com" },
-      { name: "Opportunities", href: "www.opportunities.com" },
-      { name: "Contact", href: "www.contact.com" },
-    ],
     secondary: [
       { name: "Imprint", href: "www.imprint.com" },
       { name: "Privacy policy", href: "www.policy.com" },
