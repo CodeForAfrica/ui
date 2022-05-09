@@ -12,7 +12,7 @@ const Logo = React.forwardRef(function Logo(props) {
       edge="start"
       color="inherit"
       aria-label="menu"
-      sx={{ mr: 2 }}
+      sx={{ ml: 2 }}
     >
       <Image src={src} alt={alt} />
     </IconButton>
