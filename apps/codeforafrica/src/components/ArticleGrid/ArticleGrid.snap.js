@@ -16,7 +16,7 @@ exports[`<ArticleGrid /> renders unchanged 1`] = `
           role="group"
         >
           <div
-            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-d0hcy-MuiButtonBase-root-MuiChip-root"
+            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-12j4o5v-MuiButtonBase-root-MuiChip-root"
             role="button"
             tabindex="0"
             value="All"
@@ -26,6 +26,9 @@ exports[`<ArticleGrid /> renders unchanged 1`] = `
             >
               All
             </span>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
           </div>
         </div>
       </div>
