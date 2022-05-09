@@ -38,8 +38,6 @@ const Footer = React.forwardRef(function Footer(props, ref) {
             md={3}
             sx={{
               order: { xs: 2, md: 1 },
-              display: "flex",
-              justifyContent: "center",
             }}
           >
             <FooterNavList menu={menu} />
