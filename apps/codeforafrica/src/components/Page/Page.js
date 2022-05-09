@@ -6,12 +6,13 @@ import Footer from "@/codeforafrica/components/Footer";
 import Navigation from "@/codeforafrica/components/Navigation";
 
 function Page({ children, footer, title }) {
+  console.log(footer);
   return (
     <>
       <Head>
         <title>{title}</title>
       </Head>
-      <Navigation />
+      <Navigation menu={footer?.menu} />
       {children}
       {footer ? <Footer {...footer} /> : null}
     </>

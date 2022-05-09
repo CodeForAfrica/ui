@@ -7,6 +7,7 @@ import React from "react";
 import cfaLogo from "@/codeforafrica/assets/CfA logo.svg";
 import menuIcon from "@/codeforafrica/assets/menu-icon.svg";
 import Logo from "@/codeforafrica/components/Logo";
+import NavigationNavList from "@/codeforafrica/components/NavigationNavList";
 
 const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   "& .MuiDialog-container": {
@@ -40,7 +41,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-function MobileNavigation() {
+function MobileNavigation({ menu }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -79,12 +80,25 @@ function MobileNavigation() {
           open={open}
         >
           <DialogMenu id="customized-dialog-title" onClose={handleClose}>
-            Nav mobile menu
+            <NavigationNavList menu={menu} />
           </DialogMenu>
         </DialogContainer>
       </Grid>
     </Grid>
   );
 }
+
+MobileNavigation.propTypes = {
+  menu: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
+};
+
+MobileNavigation.defaultProps = {
+  menu: undefined,
+};
 
 export default MobileNavigation;

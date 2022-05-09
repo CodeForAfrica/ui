@@ -1,10 +1,12 @@
 import { Grid } from "@mui/material";
+import PropTypes from "prop-types";
 import React from "react";
 
 import cfaLogo from "@/codeforafrica/assets/CfA logo.svg";
 import Logo from "@/codeforafrica/components/Logo";
+import NavigationNavList from "@/codeforafrica/components/NavigationNavList";
 
-function DesktopNavigation() {
+function DesktopNavigation({ menu }) {
   return (
     <Grid
       container
@@ -16,10 +18,23 @@ function DesktopNavigation() {
         <Logo src={cfaLogo} alt="Logo" />
       </Grid>
       <Grid item xs={8} sx={{ display: "flex", justifyContent: "flex-end" }}>
-        NAV MENULIST
+        <NavigationNavList menu={menu} />
       </Grid>
     </Grid>
   );
 }
+
+DesktopNavigation.propTypes = {
+  menu: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
+};
+
+DesktopNavigation.defaultProps = {
+  menu: undefined,
+};
 
 export default DesktopNavigation;
