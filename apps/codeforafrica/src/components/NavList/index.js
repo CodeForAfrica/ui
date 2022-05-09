@@ -3,11 +3,9 @@ import PropTypes from "prop-types";
 import * as React from "react";
 
 const NavListRoot = styled("ul", {
-  shouldForwardProp: (prop) => prop !== "direction",
-  slot: "Root",
   overridesResolver: (props, styles) => {
     const { direction } = props.ownerState;
-    return [styles.root, styles[direction]];
+    return [styles.root, direction && styles[direction]];
   },
 })(({ ownerState }) => ({
   display: "flex",
