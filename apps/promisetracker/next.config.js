@@ -1,6 +1,9 @@
 const { withSentryConfig } = require("@sentry/nextjs");
 
 const moduleExports = {
+  experimental: {
+    outputStandalone: true,
+  },
   eslint: {
     dirs: ["src"],
   },
