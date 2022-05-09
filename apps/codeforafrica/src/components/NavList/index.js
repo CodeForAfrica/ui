@@ -11,13 +11,9 @@ const NavListRoot = styled("ul", {
   display: "flex",
   justifyContent: "flex-start",
   alignItem: "flex-start",
-  ...(ownerState.direction === "column" && {
-    flexDirection: "column",
-  }),
+  flexDirection: ownerState.direction,
   ...(ownerState.direction === "row" && {
-    flexDirection: "row",
     justifyContent: "flex-end",
-
     alignItem: "center",
   }),
 }));
