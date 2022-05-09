@@ -4,7 +4,6 @@ import * as React from "react";
 
 const NavLinkItemRoot = styled("li")(() => ({
   listStyle: "none",
-  marginBottom: "20px",
 }));
 
 const NavListItem = React.forwardRef(function NavListItem(props, ref) {

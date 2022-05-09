@@ -16,7 +16,7 @@ function FooterNavList({ menu }) {
       component="nav"
       sx={{
         display: "flex",
-        justifyContent: { xs: "center", mb: "flex-start" },
+        justifyContent: { xs: "center", md: "flex-start" },
       }}
     >
       <NavList direction="column">
