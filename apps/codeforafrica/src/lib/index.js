@@ -6,6 +6,29 @@ import linkedin from "@/codeforafrica/assets/images/linkedin.png";
 import slack from "@/codeforafrica/assets/images/slack.png";
 import twitter from "@/codeforafrica/assets/images/twitter.png";
 
+const menu = [
+  {
+    label: "Our work",
+    href: "/our-work",
+  },
+  {
+    label: "About",
+    href: "/about",
+  },
+  {
+    label: "Stories",
+    href: "/about",
+  },
+  {
+    label: "Opportunity",
+    href: "/opportunity",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
+];
+
 const footer = {
   socialMedia: [
     {
@@ -48,6 +71,7 @@ const footer = {
   },
   description:
     "This site is a project of Code for Africa, the continent's largest network of civic technology and data journalism labs. All content is released under a Creative Commons 4 Attribution Licence. Reuse it to help empower your own community.",
+  menu,
   subscription: {
     embedCode: `
           <!-- Begin Mailchimp Signup Form -->

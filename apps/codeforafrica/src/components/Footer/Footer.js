@@ -7,6 +7,7 @@ import React from "react";
 import FooterDescription from "./FooterDescription";
 
 import FooterLinks from "@/codeforafrica/components/FooterLinks";
+import FooterNavList from "@/codeforafrica/components/FooterNavList";
 import NewsletterSubscription from "@/codeforafrica/components/NewsletterSubscription";
 import StayInTouch from "@/codeforafrica/components/StayInTouch";
 
@@ -25,7 +26,7 @@ const FooterRoot = styled(Box)(
 );
 
 const Footer = React.forwardRef(function Footer(props, ref) {
-  const { subscription, description, footerLinks, socialMedia } = props;
+  const { subscription, description, footerLinks, socialMedia, menu } = props;
 
   return (
     <FooterRoot component="footer" ref={ref}>
@@ -55,6 +56,16 @@ const Footer = React.forwardRef(function Footer(props, ref) {
           <Grid item xs={12} md={4} sx={{ order: { xs: 0, md: 1 } }}>
             <NewsletterSubscription {...subscription} />
           </Grid>
+          <Grid
+            item
+            xs={12}
+            md={3}
+            sx={{
+              order: { xs: 2, md: 1 },
+            }}
+          >
+            <FooterNavList menu={menu} />
+          </Grid>
         </Grid>
       </Section>
     </FooterRoot>
@@ -63,10 +74,17 @@ const Footer = React.forwardRef(function Footer(props, ref) {
 
 Footer.propTypes = {
   subscription: PropTypes.shape({}),
+  menu: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
 };
 
 Footer.defaultProps = {
   subscription: undefined,
+  menu: undefined,
 };
 
 export default Footer;
