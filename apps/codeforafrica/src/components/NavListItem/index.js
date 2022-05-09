@@ -7,8 +7,7 @@ const NavLinkItemRoot = styled("li")(() => ({
 }));
 
 const NavListItem = React.forwardRef(function NavListItem(props, ref) {
-  const { children } = props;
-  return <NavLinkItemRoot ref={ref}>{children}</NavLinkItemRoot>;
+  return <NavLinkItemRoot {...props} ref={ref} />;
 });
 
 NavListItem.propTypes = {
