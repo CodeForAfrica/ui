@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Index from ".";
+import Index from "./index.page";
 
 import theme from "@/codeforafrica/theme";
 

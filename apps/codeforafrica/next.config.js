@@ -4,5 +4,6 @@ const withTM = require("next-transpile-modules")([
 ]);
 
 module.exports = withTM({
+  pageExtensions: ["page.js"],
   reactStrictMode: true,
 });
