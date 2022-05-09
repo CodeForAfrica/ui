@@ -25,20 +25,20 @@ function NavigationNavList({ menu }) {
     >
       <NavList
         direction={isMobile ? "column" : "row"}
-        sx={{ alignItems: { xs: "center", md: "flex-start" } }}
+        sx={{ alignItems: "flex-start" }}
       >
         {menu.map((item) => (
           <NavListItem key={item.label} sx={{ m: "20px" }}>
             <Link
               href={item.href}
-              color="inherit"
+              color={isMobile ? "white" : "inherit"}
               underline="none"
-              variant="subtitle1"
-              fontWeight="400"
+              variant={isMobile ? "h4" : "subtitle1"}
+              fontWeight={isMobile ? 700 : 400}
               sx={{
                 "&:hover, &:active, &:focus, &:focus-within": {
-                  textDecoration: "underline",
-                  color: "#1020E1",
+                  textDecoration: { xs: "none", md: "underline" },
+                  color: { xs: "white", md: "#1020E1" },
                 },
               }}
             >

@@ -6,7 +6,6 @@ import Footer from "@/codeforafrica/components/Footer";
 import Navigation from "@/codeforafrica/components/Navigation";
 
 function Page({ children, footer, title }) {
-  console.log(footer);
   return (
     <>
       <Head>
