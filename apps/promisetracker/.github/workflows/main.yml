@@ -81,7 +81,7 @@ jobs:
         if: steps.version-check.outputs.changed == 'true'
         uses: docker/build-push-action@v2
         with:
-          build-arg: |
+          build-args: |
             BACKEND=${{ env.BACKEND }}
             APP_SLUG=${{ env.APP_SLUG }}
             ACTNOW_URL=${{ env.ACTNOW_URL }}
