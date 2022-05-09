@@ -10,7 +10,6 @@ function FooterNavList({ menu }) {
   if (!menu?.length) {
     return null;
   }
-
   return (
     <Box
       component="nav"
