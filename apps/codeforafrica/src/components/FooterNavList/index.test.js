@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import FooterMenu from ".";
+import FooterNavList from ".";
 
 import theme from "@/codeforafrica/theme";
 
@@ -33,9 +33,9 @@ const defaultProps = {
   ],
 };
 
-describe("<FooterMenu />", () => {
+describe("<FooterNavList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<FooterMenu {...defaultProps} />);
+    const { container } = render(<FooterNavList {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

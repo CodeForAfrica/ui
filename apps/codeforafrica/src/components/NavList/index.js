@@ -17,6 +17,7 @@ const NavListRoot = styled("ul", {
   ...(ownerState.direction === "row" && {
     flexDirection: "row",
     justifyContent: "flex-end",
+
     alignItem: "center",
   }),
 }));

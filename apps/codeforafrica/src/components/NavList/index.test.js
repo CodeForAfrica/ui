@@ -10,7 +10,7 @@ const render = createRender({ theme });
 
 describe("<NavList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<NavList />);
+    const { container } = render(<NavList direction="column" />);
     expect(container).toMatchSnapshot();
   });
 });

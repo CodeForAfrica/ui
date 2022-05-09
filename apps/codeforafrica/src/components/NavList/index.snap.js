@@ -3,8 +3,8 @@
 exports[`<NavList /> renders unchanged 1`] = `
 <div>
   <ul
-    class="css-0"
-    ownerstate="[object Object]"
+    class="css-cgb4av"
+    direction="column"
   />
 </div>
 `;

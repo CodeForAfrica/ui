@@ -1,56 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FooterMenu /> renders unchanged 1`] = `
+exports[`<FooterNavList /> renders unchanged 1`] = `
 <div>
   <ul
-    class="css-0"
-    ownerstate="[object Object]"
+    class="css-cgb4av"
+    direction="column"
   >
     <li
-      class="css-17g3syn"
+      class="css-o9b79t"
     >
       <a
-        class="css-1ucc7hb"
+        class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
         href="/our-work"
       >
         Our Work
       </a>
     </li>
     <li
-      class="css-17g3syn"
+      class="css-o9b79t"
     >
       <a
-        class="css-1ucc7hb"
+        class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
         href="/about"
       >
         About
       </a>
     </li>
     <li
-      class="css-17g3syn"
+      class="css-o9b79t"
     >
       <a
-        class="css-1ucc7hb"
+        class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
         href="/about"
       >
         Stories
       </a>
     </li>
     <li
-      class="css-17g3syn"
+      class="css-o9b79t"
     >
       <a
-        class="css-1ucc7hb"
+        class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
         href="/opportunity"
       >
         Opportunity
       </a>
     </li>
     <li
-      class="css-17g3syn"
+      class="css-o9b79t"
     >
       <a
-        class="css-1ucc7hb"
+        class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
         href="/contact"
       >
         Contact
