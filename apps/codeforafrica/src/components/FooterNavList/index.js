@@ -21,7 +21,7 @@ function FooterNavList({ menu }) {
       <NavList
         direction="column"
         sx={{ alignItems: { xs: "center", md: "flex-start" } }}
-      
+      >
         {menu.map((item) => (
           <NavListItem key={item.label} sx={{ mb: "20px" }}>
             <Link
