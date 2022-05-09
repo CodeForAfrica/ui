@@ -12,7 +12,13 @@ function FooterNavList({ menu }) {
   }
 
   return (
-    <Box component="nav">
+    <Box
+      component="nav"
+      sx={{
+        display: "flex",
+        justifyContent: { xs: "center", mb: "flex-start" },
+      }}
+    >
       <NavList direction="column">
         {menu.map((item) => (
           <NavListItem key={item.label} sx={{ mb: "20px" }}>
