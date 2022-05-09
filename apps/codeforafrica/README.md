@@ -9,3 +9,7 @@ First, run the development server:
 ```bash
 pnpm  dev
 ```
+
+## Debugging
+
+Chrome DevTools debugging is enabled by default for both client-side and server-side code. See Next.js [docs](https://nextjs.org/docs/advanced-features/debugging#debugging-with-chrome-devtools) for more information.
