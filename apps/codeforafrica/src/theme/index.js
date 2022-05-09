@@ -105,6 +105,11 @@ const theme = createTheme({
       fontStyle: "normal",
       fontWeight: 400,
     },
+    body2: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontWeight: 600,
+    },
     button: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
@@ -163,6 +168,33 @@ const theme = createTheme({
           },
         },
       ],
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: ({ ownerState }) => ({
+          borderRadius: 3,
+          padding: 8,
+          "&.MuiChip-clickable": {
+            "&:hover": {
+              backgroundColor: palette.background.main,
+              ...(ownerState.variant === "filled" &&
+                ownerState.color === "primary" && {
+                  backgroundColor: "#E0E2FC",
+                }),
+            },
+          },
+        }),
+        filled: ({ ownerState }) => ({
+          border: `1px solid ${palette.background.main}`,
+          backgroundColor: palette.background.main,
+          color: palette.secondary.light,
+          ...(ownerState.color === "primary" && {
+            border: `1px solid ${palette.primary.main}`,
+            backgroundColor: "#E0E2FC",
+            color: palette.primary.main,
+          }),
+        }),
+      },
     },
   },
 });
@@ -259,7 +291,6 @@ deepmerge(
         lineHeight: 26 / 16,
       },
     },
-
     body1: {
       fontSize: pxToRem(12),
       lineHeight: 14 / 12,
@@ -267,6 +298,10 @@ deepmerge(
         fontSize: pxToRem(14),
         lineHeight: 23 / 14,
       },
+    },
+    body2: {
+      fontSize: pxToRem(14),
+      lineHeight: 17 / 14,
     },
     caption: {
       fontSize: pxToRem(14),

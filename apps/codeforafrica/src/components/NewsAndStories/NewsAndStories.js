@@ -42,7 +42,7 @@ const NewsAndStories = React.forwardRef(function NewsAndStories(props, ref) {
           sx={{ mb: { xs: "28px", sm: "40px", lg: "55px" }, width: "100%" }}
         />
         <ArticleCardList
-          items={articles.slice(1)}
+          articles={articles.slice(1)}
           sx={{ mb: { xs: 5, lg: "55px" } }}
         />
         <Button
