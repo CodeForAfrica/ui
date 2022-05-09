@@ -18,12 +18,21 @@ function Page({ children, footer, title }) {
 
 Page.propTypes = {
   children: PropTypes.node,
+  sections: PropTypes.shape({}),
   footer: PropTypes.shape({}),
+  menu: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
   title: PropTypes.string,
 };
 
 Page.defaultProps = {
   children: undefined,
+  menu: undefined,
+  sections: undefined,
   footer: undefined,
   title: undefined,
 };

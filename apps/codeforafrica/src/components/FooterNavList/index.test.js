@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Footer from "./Footer";
+import FooterNavList from ".";
 
 import theme from "@/codeforafrica/theme";
 
@@ -9,9 +9,6 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  subscription: {
-    embedCode: "",
-  },
   menu: [
     {
       label: "Our Work",
@@ -36,9 +33,9 @@ const defaultProps = {
   ],
 };
 
-describe("<Footer />", () => {
+describe("<FooterNavList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Footer {...defaultProps} />);
+    const { container } = render(<FooterNavList {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
