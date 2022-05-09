@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import Footer from "@/codeforafrica/components/Footer";
+import Navigation from "@/codeforafrica/components/Navigation";
 
 function Page({ children, footer, title }) {
   return (
@@ -10,6 +11,7 @@ function Page({ children, footer, title }) {
       <Head>
         <title>{title}</title>
       </Head>
+      <Navigation />
       {children}
       {footer ? <Footer {...footer} /> : null}
     </>
@@ -18,12 +20,21 @@ function Page({ children, footer, title }) {
 
 Page.propTypes = {
   children: PropTypes.node,
+  sections: PropTypes.shape({}),
   footer: PropTypes.shape({}),
+  menu: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
   title: PropTypes.string,
 };
 
 Page.defaultProps = {
   children: undefined,
+  menu: undefined,
+  sections: undefined,
   footer: undefined,
   title: undefined,
 };
