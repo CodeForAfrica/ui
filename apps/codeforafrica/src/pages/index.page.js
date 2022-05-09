@@ -1,7 +1,6 @@
-import { Section } from "@commons-ui/core";
 import React from "react";
 
-import ArticleCardList from "@/codeforafrica/components/ArticleCardList";
+import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
 import Page from "@/codeforafrica/components/Page";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
@@ -10,9 +9,7 @@ function Index({ sections, ...props }) {
     <Page {...props}>
       {sections?.map((section) =>
         section.slug === "news-stories" ? (
-          <Section sx={{ px: { xs: "20px", sm: 0 } }} key={section.slug}>
-            <ArticleCardList items={section.articles.slice(1)} />
-          </Section>
+          <NewsAndStories key={section.slug} {...section} />
         ) : null
       )}
     </Page>
