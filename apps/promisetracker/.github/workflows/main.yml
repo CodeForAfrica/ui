@@ -6,6 +6,24 @@ env:
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://dokku@dokku-1.codeforafrica.org/promise-tracker"
   GIT_PUSH_FLAGS: "--force"
+  BACKEND: "gsheet"
+  APP_SLUG: "sonko"
+  ACTNOW_URL: "https://actnow.dev.codeforafrica.org"
+  GSHEETS_ENTITIES_SHEET_ID: "1160397588"
+  GSHEETS_ARTICLES_CATEGORIES_SHEET_ID: "1120844020"
+  GSHEETS_FACTCHECKS_CATEGORIES_SHEET_ID: "1911965554"
+  GSHEETS_SITES_NAVIGATIONS_SHEET_ID: "2049055854"
+  GSHEETS_CATEGORIES_SHEET_ID: "1509305349"
+  GSHEETS_SPREADSHEET_ID: "1OHhP_0xeymHs7aX1pmbqetW1i5wz-kXX45Xr894L6HQ"
+  GSHEETS_PROMISES_SHEET_ID: "0"
+  GSHEETS_SITES_SHEET_ID: "1815808092"
+  GOOGLE_ID: "742298677772-neno281kelle2fqbcp935buhn5sc6msc.apps.googleusercontent.com"
+  GSHEETS_STATUSES_SHEET_ID: "260491438"
+  GSHEETS_ARTICLES_SHEET_ID: "1101723406"
+  GSHEETS_FACTCHECKS_SHEET_ID: "1909841950"
+  GSHEETS_PROMISES_CATEGORIES_SHEET_ID: "975116023"
+  GSHEETS_PROMISES_EVENTS_SHEET_ID: "797580123"
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -62,6 +80,29 @@ jobs:
         if: steps.version-check.outputs.changed == 'true'
         uses: docker/build-push-action@v2
         with:
+          build-arg:
+            BACKEND: ${{ env.BACKEND }}
+            APP_SLUG: ${{ env.APP_SLUG }}
+            ACTNOW_URL: ${{ env.ACTNOW_URL }}
+            ACTNOW_API_KEY: ${{ secrets.ACTNOW_API_KEY }}
+            ACTNOW_CLIENT_ID: ${{ secrets.ACTNOW_CLIENT_ID }}
+            ACTNOW_CLIENT_SECRET: ${{ secrets.ACTNOW_CLIENT_SECRET }}
+            GOOGLE_ID: ${{ env.GOOGLE_ID }}
+            GOOGLE_SECRET: ${{ secrets.GOOGLE_SECRET }}
+            GSHEETS_ENTITIES_SHEET_ID: ${{ env.GSHEETS_ENTITIES_SHEET_ID }}
+            GSHEETS_ARTICLES_CATEGORIES_SHEET_ID: ${{ env.GSHEETS_ARTICLES_CATEGORIES_SHEET_ID }}
+            GSHEETS_FACTCHECKS_CATEGORIES_SHEET_ID: ${{ env.GSHEETS_FACTCHECKS_CATEGORIES_SHEET_ID }}
+            GSHEETS_SITES_NAVIGATIONS_SHEET_ID: ${{ env.GSHEETS_SITES_NAVIGATIONS_SHEET_ID }}
+            GSHEETS_CATEGORIES_SHEET_ID: ${{ env.GSHEETS_CATEGORIES_SHEET_ID }}
+            GSHEETS_SPREADSHEET_ID: ${{ env.GSHEETS_SPREADSHEET_ID }}
+            GSHEETS_PROMISES_SHEET_ID: ${{ env.GSHEETS_PROMISES_SHEET_ID }}
+            GSHEETS_SITES_SHEET_ID: ${{ env.GSHEETS_SITES_SHEET_ID }}
+            GSHEETS_STATUSES_SHEET_ID: ${{ env.GSHEETS_STATUSES_SHEET_ID }}
+            GSHEETS_ARTICLES_SHEET_ID: ${{ env.GSHEETS_ARTICLES_SHEET_ID }}
+            GSHEETS_FACTCHECKS_SHEET_ID: ${{ env.GSHEETS_FACTCHECKS_SHEET_ID }}
+            GSHEETS_PROMISES_CATEGORIES_SHEET_ID: ${{ env.GSHEETS_PROMISES_CATEGORIES_SHEET_ID }}
+            GSHEETS_PROMISES_EVENTS_SHEET_ID: ${{ env.GSHEETS_PROMISES_EVENTS_SHEET_ID }}
+
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
