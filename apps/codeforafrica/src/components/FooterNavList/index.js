@@ -1,4 +1,5 @@
 import { Link } from "@commons-ui/next";
+import Box from "@mui/material/Box";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -11,27 +12,29 @@ function FooterNavList({ menu }) {
   }
 
   return (
-    <NavList direction="column">
-      {menu.map((item) => (
-        <NavListItem key={item.label} sx={{ mb: "20px" }}>
-          <Link
-            href={item.href}
-            color="inherit"
-            underline="none"
-            variant="h5"
-            fontWeight="700"
-            sx={{
-              "&:hover, &:active, &:focus, &:focus-within": {
-                textDecoration: "none",
-                color: "inherit",
-              },
-            }}
-          >
-            {item.label}
-          </Link>
-        </NavListItem>
-      ))}
-    </NavList>
+    <Box component="nav">
+      <NavList direction="column">
+        {menu.map((item) => (
+          <NavListItem key={item.label} sx={{ mb: "20px" }}>
+            <Link
+              href={item.href}
+              color="inherit"
+              underline="none"
+              variant="h5"
+              fontWeight="700"
+              sx={{
+                "&:hover, &:active, &:focus, &:focus-within": {
+                  textDecoration: "none",
+                  color: "inherit",
+                },
+              }}
+            >
+              {item.label}
+            </Link>
+          </NavListItem>
+        ))}
+      </NavList>
+    </Box>
   );
 }
 
