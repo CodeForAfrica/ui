@@ -17,6 +17,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gjb3vx-MuiGrid-root"
         >
           <img
+            alt="Battle for gender equality in African media continues"
             class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-t5e89h-MuiCardMedia-root"
             src="https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png"
           />
@@ -43,6 +44,9 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
               type="button"
             >
               READ STORY
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </button>
             <span
               class="MuiTypography-root MuiTypography-caption css-uu8fpb-MuiTypography-root"
@@ -72,12 +76,18 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
               type="button"
             >
               READ STORY
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </button>
           </div>
         </div>
       </div>
       <span
         class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+      />
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </a>
   </div>

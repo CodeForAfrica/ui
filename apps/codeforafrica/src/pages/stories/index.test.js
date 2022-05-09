@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Index from ".";
+import Index from "./index.page";
 
 import theme from "@/codeforafrica/theme";
 
@@ -12,7 +12,7 @@ const defaultProps = {
   sections: [],
 };
 
-describe("/stories", () => {
+describe("<Pages/Stories />", () => {
   it("renders unchanged", () => {
     const { container } = render(<Index {...defaultProps} />);
     expect(container).toMatchSnapshot();

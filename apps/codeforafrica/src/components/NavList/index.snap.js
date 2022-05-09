@@ -3,7 +3,7 @@
 exports[`<NavList /> renders unchanged 1`] = `
 <div>
   <ul
-    class="css-cgb4av"
+    class="css-f15emd"
     direction="column"
   />
 </div>
