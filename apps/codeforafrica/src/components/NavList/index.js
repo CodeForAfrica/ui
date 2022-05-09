@@ -9,9 +9,9 @@ const NavListRoot = styled("ul", {
   },
 })(({ ownerState }) => ({
   display: "flex",
-  justifyContent: "flex-start",
-  alignItem: "flex-start",
   flexDirection: ownerState.direction,
+  padding: 0,
+  margin: 0,
   ...(ownerState.direction === "row" && {
     justifyContent: "flex-end",
     alignItem: "center",
