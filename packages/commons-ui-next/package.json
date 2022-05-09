@@ -31,11 +31,11 @@
     "clean": "rm -rf .turbo node_modules dist"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.9",
+    "@babel/core": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
     "@commons-ui/core": "workspace:*",
     "@commons-ui/testing-library": "workspace:*",
-    "@mui/material": "^5.6.2",
+    "@mui/material": "^5.6.4",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-links": "^6.4.22",
@@ -46,15 +46,15 @@
     "@storybook/react": "^6.4.22",
     "babel-loader": "^8.2.5",
     "config": "workspace:*",
-    "eslint": "^8.13.0",
+    "eslint": "^8.15.0",
     "eslint-config-commons-ui": "workspace:*",
     "jest": "^27.5.1",
     "jest-config-commons-ui": "workspace:*",
-    "next": "^12.1.5",
+    "next": "^12.1.6",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "typescript": "^4.6.3",
+    "typescript": "^4.6.4",
     "webpack": "^5.72.0"
   },
   "peerDependencies": {
