@@ -38,7 +38,7 @@ function NavigationNavList({ menu }) {
               sx={{
                 "&:hover, &:active, &:focus, &:focus-within": {
                   textDecoration: "underline",
-                  color: "blue",
+                  color: "#1020E1",
                 },
               }}
             >
