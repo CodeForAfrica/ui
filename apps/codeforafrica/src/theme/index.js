@@ -105,6 +105,12 @@ const theme = createTheme({
       fontStyle: "normal",
       fontWeight: 400,
     },
+    button: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontWeight: 600,
+      letterSpacing: "0.1em",
+    },
     caption: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
@@ -117,62 +123,42 @@ const theme = createTheme({
       defaultProps: {
         disableRipple: true,
       },
+      styleOverrides: {
+        root: {
+          borderRadius: 0,
+        },
+      },
     },
     MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 0,
+        },
+        containedPrimary: {
+          border: `1px solid ${palette.primary.main}`,
+          "&:hover": {
+            backgroundColor: palette.text.secondary,
+            color: palette.primary.main,
+          },
+        },
+        sizeMedium: {
+          padding: "12px 18px",
+        },
+        sizeLarge: {
+          padding: 24,
+        },
+      },
       variants: [
         {
-          props: { variant: "contained", color: "primary" },
+          props: { variant: "contained-reverse", color: "primary" },
           style: {
-            backgroundColor: palette.primary.main,
-            color: palette.text.secondary.main,
-            transition: "none !important",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
+            backgroundColor: palette.text.secondary,
+            border: `1px solid ${palette.primary.main}`,
+            color: palette.primary.main,
             "&:hover": {
               backgroundColor: palette.primary.main,
-              color: palette.text.secondary.main,
-            },
-          },
-        },
-        {
-          props: { variant: "contained", color: "secondary" },
-          style: {
-            backgroundColor: palette.primary.dark,
-            color: palette.text.secondary.main,
-            transition: "none !important",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            "&:hover": {
-              backgroundColor: palette.primary.dark,
-              color: palette.text.secondary.main,
-            },
-          },
-        },
-        {
-          props: { variant: "outlined", color: "primary" },
-          style: {
-            backgroundColor: palette.text.secondary.main,
-            color: palette.primary.main,
-            transition: "none !important",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            "&:hover": {
-              backgroundColor: palette.text.secondary.main,
-              color: palette.primary.main,
-            },
-          },
-        },
-        {
-          props: { variant: "default", color: "primary" },
-          style: {
-            backgroundColor: palette.grey.light,
-            color: palette.grey.main,
-            transition: "none !important",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            "&:hover": {
-              backgroundColor: palette.grey.light,
-              color: palette.grey.main,
+              border: `1px solid ${palette.text.secondary}`,
+              color: palette.text.secondary,
             },
           },
         },
@@ -214,7 +200,7 @@ deepmerge(
     h3: {
       fontSize: pxToRem(28),
       lineHeight: 34 / 28,
-      [theme.breakpoints.up("md")]: {
+      [theme.breakpoints.up("sm")]: {
         fontSize: pxToRem(33),
         lineHeight: 40 / 33,
       },
@@ -223,7 +209,7 @@ deepmerge(
     h4: {
       fontSize: pxToRem(23),
       lineHeight: 28 / 23,
-      [theme.breakpoints.up("md")]: {
+      [theme.breakpoints.up("sm")]: {
         fontSize: pxToRem(28),
         lineHeight: 34 / 28,
       },
