@@ -22,26 +22,24 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   },
 }));
 
-function DialogMenu(props) {
-  const { children, onClose, ...other } = props;
-
-  return (
-    <DialogContent sx={{ m: 0, p: 2 }} {...other}>
-      {children}
-    </DialogContent>
-  );
-}
+const DialogMenu = React.forwardRef(function DialogMenu(props, ref) {
+  return <DialogContent ref={ref} {...props} sx={{ m: 0, p: 2 }} />;
+});
 
 DialogMenu.propTypes = {
   children: PropTypes.node.isRequired,
-  onClose: PropTypes.func.isRequired,
 };
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-function MobileNavigation({ menu }) {
+const MobileNavigation = React.forwardRef(function MobileNavigation(
+  props,
+  ref
+) {
+  const { menu } = props;
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -50,12 +48,14 @@ function MobileNavigation({ menu }) {
   const handleClose = () => {
     setOpen(false);
   };
+
   return (
     <Grid
       container
       justifyContent="space-between"
       alignItems="center"
       direction="row"
+      ref={ref}
     >
       <Grid item xs={4}>
         <Logo src={cfaLogo} alt="Logo" />
@@ -86,7 +86,7 @@ function MobileNavigation({ menu }) {
       </Grid>
     </Grid>
   );
-}
+});
 
 MobileNavigation.propTypes = {
   menu: PropTypes.arrayOf(

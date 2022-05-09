@@ -6,13 +6,19 @@ import cfaLogo from "@/codeforafrica/assets/CfA logo.svg";
 import Logo from "@/codeforafrica/components/Logo";
 import NavigationNavList from "@/codeforafrica/components/NavigationNavList";
 
-function DesktopNavigation({ menu }) {
+const DesktopNavigation = React.forwardRef(function DesktopNavigation(
+  props,
+  ref
+) {
+  const { menu } = props;
+
   return (
     <Grid
       container
       justifyContent="space-between"
       alignItems="center"
       direction="row"
+      ref={ref}
     >
       <Grid item xs={4}>
         <Logo src={cfaLogo} alt="Logo" />
@@ -22,7 +28,7 @@ function DesktopNavigation({ menu }) {
       </Grid>
     </Grid>
   );
-}
+});
 
 DesktopNavigation.propTypes = {
   menu: PropTypes.arrayOf(
