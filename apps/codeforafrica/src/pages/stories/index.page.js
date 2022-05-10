@@ -1,6 +1,6 @@
 import React from "react";
 
-import ArticleGrid from "@/codeforafrica/components/ArticleGrid";
+import Articles from "@/codeforafrica/components/Articles";
 import Page from "@/codeforafrica/components/Page";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
@@ -9,7 +9,7 @@ function Index({ sections, ...props }) {
     <Page {...props}>
       {sections?.map((section) =>
         section.slug === "articles" ? (
-          <ArticleGrid {...section} key={section.slug} />
+          <Articles {...section} key={section.slug} />
         ) : null
       )}
     </Page>
