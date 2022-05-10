@@ -11,7 +11,8 @@ module.exports = {
 
     // Handle image imports
     // https://jestjs.io/docs/webpack#handling-static-assets
-    "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i": `jest-config-commons-ui/__mocks__/fileMock.js`,
+    "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$":
+      "jest-config-commons-ui/__mocks__/fileMock.js",
   },
   roots: ["<rootDir>"],
   // Add more setup options before each test is run
