@@ -10,9 +10,6 @@ exports[`<ChoiceChip /> renders unchanged 1`] = `
     <span
       class="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
     />
-    <span
-      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-    />
   </div>
 </div>
 `;
