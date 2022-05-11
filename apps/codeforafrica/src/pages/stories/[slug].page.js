@@ -1,25 +1,68 @@
+import { Section } from "@commons-ui/core";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import React from "react";
 
 import Page from "@/codeforafrica/components/Page";
 import RelatedStories from "@/codeforafrica/components/RelatedStories";
+import ShareBar from "@/codeforafrica/components/ShareBar";
+import {
+  FacebookShareBarButton,
+  LinkedinShareBarButton,
+  TwitterShareBarButton,
+} from "@/codeforafrica/components/ShareBarButton";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
-function Index({ sections, ...props }) {
+function Index({ article, sections, ...props }) {
   return (
     <Page {...props}>
-      {sections?.map((section) =>
-        section.slug === "related-stories" ? (
+      {article ? (
+        <Section
+          sx={{
+            px: { xs: "20px", sm: 0 },
+            maxWidth: {
+              sm: "648px",
+              md: "912px",
+            },
+          }}
+        >
           <Box
-            key={section.slug}
             sx={{
-              bgcolor: { xs: "inherit", sm: "background.main" },
+              color: "#B4ABAB",
+              columnGap: 2,
+              display: "flex",
+              alignItems: "center",
             }}
           >
-            <RelatedStories {...section} sx={{ px: { xs: "20px", sm: 0 } }} />
+            <Typography variant="footerCap">Share This Article</Typography>
+            <ShareBar>
+              <FacebookShareBarButton />
+              <LinkedinShareBarButton />
+              <TwitterShareBarButton />
+            </ShareBar>
           </Box>
-        ) : null
-      )}
+        </Section>
+      ) : null}
+      {sections?.map((section) => {
+        switch (section.slug) {
+          case "related-stories":
+            return (
+              <Box
+                key={section.slug}
+                sx={{
+                  bgcolor: { xs: "inherit", sm: "background.main" },
+                }}
+              >
+                <RelatedStories
+                  {...section}
+                  sx={{ px: { xs: "20px", sm: 0 } }}
+                />
+              </Box>
+            );
+          default:
+            return null;
+        }
+      })}
     </Page>
   );
 }
