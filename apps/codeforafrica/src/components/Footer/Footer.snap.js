@@ -18,7 +18,7 @@ exports[`<Footer /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-1w8lujd-MuiGrid-root"
         >
           <nav
-            class="MuiBox-root css-ws8gio"
+            class="MuiBox-root css-l2rxmg"
           >
             <ul
               class="css-18zatd"

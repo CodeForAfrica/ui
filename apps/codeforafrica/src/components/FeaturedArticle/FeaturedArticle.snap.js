@@ -39,14 +39,11 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
               Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. 
             </p>
             <button
-              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-1fsrm9g-MuiButtonBase-root-MuiButton-root"
+              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-1it8s17-MuiButtonBase-root-MuiButton-root"
               tabindex="0"
               type="button"
             >
               READ STORY
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </button>
             <span
               class="MuiTypography-root MuiTypography-caption css-uu8fpb-MuiTypography-root"
@@ -71,23 +68,17 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
               </h1>
             </div>
             <button
-              class="MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButtonBase-root  css-1bbwrvh-MuiButtonBase-root-MuiButton-root"
+              class="MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButtonBase-root  css-umib9w-MuiButtonBase-root-MuiButton-root"
               tabindex="0"
               type="button"
             >
               READ STORY
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </button>
           </div>
         </div>
       </div>
       <span
         class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-      />
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </a>
   </div>

@@ -114,7 +114,6 @@ const theme = createTheme({
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
       fontWeight: 600,
-      letterSpacing: "0.1em",
     },
     caption: {
       fontFamily: FONT_FAMILY_PRIMARY,
@@ -138,6 +137,10 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 0,
+          boxShadow: "none",
+          "&:hover": {
+            boxShadow: "none",
+          },
         },
         containedPrimary: {
           border: `1px solid ${palette.primary.main}`,
@@ -219,7 +222,6 @@ deepmerge(
         lineHeight: 56 / 48,
       },
     },
-
     h2: {
       fontSize: pxToRem(23),
       lineHeight: 28 / 23,
@@ -228,7 +230,6 @@ deepmerge(
         lineHeight: 47 / 39,
       },
     },
-
     h3: {
       fontSize: pxToRem(28),
       lineHeight: 34 / 28,
@@ -237,7 +238,6 @@ deepmerge(
         lineHeight: 40 / 33,
       },
     },
-
     h4: {
       fontSize: pxToRem(23),
       lineHeight: 28 / 23,
@@ -246,7 +246,6 @@ deepmerge(
         lineHeight: 34 / 28,
       },
     },
-
     h5: {
       fontSize: pxToRem(19),
       lineHeight: 23 / 19,
@@ -255,7 +254,6 @@ deepmerge(
         lineHeight: 28 / 23,
       },
     },
-
     h6: {
       fontSize: pxToRem(16),
       lineHeight: 19 / 16,
@@ -264,7 +262,6 @@ deepmerge(
         lineHeight: 23 / 19,
       },
     },
-
     subheading: {
       fontSize: pxToRem(18),
       lineHeight: 28 / 18,
@@ -273,7 +270,6 @@ deepmerge(
         lineHeight: 30 / 20,
       },
     },
-
     subtitle1: {
       fontSize: pxToRem(16),
       lineHeight: 26 / 16,
@@ -282,7 +278,6 @@ deepmerge(
         lineHeight: 28 / 18,
       },
     },
-
     subtitle2: {
       fontSize: pxToRem(14),
       lineHeight: 23 / 14,
@@ -302,6 +297,12 @@ deepmerge(
     body2: {
       fontSize: pxToRem(14),
       lineHeight: 17 / 14,
+    },
+    button: {
+      fontSize: pxToRem(16),
+      lineHeight: 19 / 16,
+      // 10% of 16px = 1.6px
+      letterSpacing: pxToRem(0.16),
     },
     caption: {
       fontSize: pxToRem(14),

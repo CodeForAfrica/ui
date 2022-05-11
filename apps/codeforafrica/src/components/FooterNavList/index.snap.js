@@ -3,7 +3,7 @@
 exports[`<FooterNavList /> renders unchanged 1`] = `
 <div>
   <nav
-    class="MuiBox-root css-ws8gio"
+    class="MuiBox-root css-l2rxmg"
   >
     <ul
       class="css-18zatd"
