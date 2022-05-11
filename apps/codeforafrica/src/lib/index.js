@@ -184,6 +184,7 @@ function getStoryPageStaticProps(params) {
     return {
       props: {
         title: `${article.title} | Stories | Code for Africa`,
+        article,
         sections: [
           {
             slug: "related-stories",
