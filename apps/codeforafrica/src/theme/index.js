@@ -121,6 +121,21 @@ const theme = createTheme({
       fontWeight: 400,
       lineHeight: 14 / 23,
     },
+    footer: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontWeight: 400,
+      lineHeight: 12 / 10,
+      letterSpacing: "0.02rem",
+    },
+    footerCap: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontWeight: 700,
+      lineHeight: 14 / 10,
+      letterSpacing: "0.08rem",
+      textTransform: "uppercase",
+    },
   },
   components: {
     MuiButtonBase: {
