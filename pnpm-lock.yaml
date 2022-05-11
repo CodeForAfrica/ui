@@ -18,6 +18,7 @@ importers:
   apps/codeforafrica:
     specifiers:
       "@babel/core": ^7.17.10
+      "@babel/preset-react": ^7.16.7
       "@commons-ui/core": workspace:*
       "@commons-ui/next": workspace:*
       "@commons-ui/testing-library": workspace:*
@@ -48,7 +49,6 @@ importers:
       react-test-renderer: ^17.0.2
       typescript: ^4.6.4
     dependencies:
-      "@babel/core": 7.17.10
       "@commons-ui/core": link:../../packages/commons-ui-core
       "@commons-ui/next": link:../../packages/commons-ui-next
       "@emotion/cache": 11.7.1
@@ -63,6 +63,8 @@ importers:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     devDependencies:
+      "@babel/core": 7.17.10
+      "@babel/preset-react": 7.16.7_@babel+core@7.17.10
       "@commons-ui/testing-library": link:../../packages/commons-ui-testing-library
       "@playwright/test": 1.21.1
       "@svgr/webpack": 6.2.1
@@ -667,7 +669,7 @@ packages:
       }
     engines: { node: ">=6.9.0" }
     dependencies:
-      "@babel/types": 7.17.0
+      "@babel/types": 7.17.10
 
   /@babel/helper-builder-binary-assignment-operator-visitor/7.16.7:
     resolution:
@@ -952,7 +954,7 @@ packages:
       }
     engines: { node: ">=6.9.0" }
     dependencies:
-      "@babel/types": 7.17.0
+      "@babel/types": 7.17.10
 
   /@babel/helper-module-transforms/7.17.7:
     resolution:
@@ -8635,7 +8637,7 @@ packages:
       }
     dependencies:
       "@babel/parser": 7.17.9
-      "@babel/types": 7.17.0
+      "@babel/types": 7.17.10
       "@types/babel__generator": 7.6.4
       "@types/babel__template": 7.4.1
       "@types/babel__traverse": 7.17.0
@@ -8647,7 +8649,7 @@ packages:
         integrity: sha512-tFkciB9j2K755yrTALxD44McOrk+gfpIpvC3sxHjRawj6PfnQxrse4Clq5y/Rq+G3mrBurMax/lG8Qn2t9mSsg==,
       }
     dependencies:
-      "@babel/types": 7.17.0
+      "@babel/types": 7.17.10
     dev: true
 
   /@types/babel__template/7.4.1:
@@ -8657,7 +8659,7 @@ packages:
       }
     dependencies:
       "@babel/parser": 7.17.9
-      "@babel/types": 7.17.0
+      "@babel/types": 7.17.10
     dev: true
 
   /@types/babel__traverse/7.17.0:
@@ -8666,7 +8668,7 @@ packages:
         integrity: sha512-r8aveDbd+rzGP+ykSdF3oPuTVRWRfbBiHl0rVDM2yNEmSMXfkObQLV46b4RnCv3Lra51OlfnZhkkFaDl2MIRaA==,
       }
     dependencies:
-      "@babel/types": 7.17.0
+      "@babel/types": 7.17.10
     dev: true
 
   /@types/color-convert/2.0.0:
@@ -10300,7 +10302,7 @@ packages:
     engines: { node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0 }
     dependencies:
       "@babel/template": 7.16.7
-      "@babel/types": 7.17.0
+      "@babel/types": 7.17.10
       "@types/babel__core": 7.1.19
       "@types/babel__traverse": 7.17.0
     dev: true
