@@ -53,21 +53,16 @@ const NamedShareBarButton = React.forwardRef(function FacebookShareBarButton(
   props,
   ref
 ) {
-  const {
-    name,
-    tooltipProps: tooltipPropsProp,
-    url: urlProp,
-    ...other
-  } = props;
-  let url = urlProp;
+  const { name, tooltipProps: tooltipPropsProp, url, ...other } = props;
+  let location;
   if (typeof window !== "undefined") {
-    url = window.location;
+    location = window.location;
   }
   const tooltipProps = { title: name, ...tooltipPropsProp };
   return (
     <ShareBarButton
       tooltipProps={tooltipProps}
-      url={url}
+      url={url || location}
       {...other}
       {...NAMED_SHARE_BAR_BUTTONS[name]}
       ref={ref}
