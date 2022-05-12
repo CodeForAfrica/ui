@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import NavList from ".";
+import NavList from "./NavList";
 
 import theme from "@/codeforafrica/theme";
 
