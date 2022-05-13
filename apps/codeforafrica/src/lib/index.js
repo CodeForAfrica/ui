@@ -137,6 +137,99 @@ const articles = [
   },
 ];
 
+const projects = [
+  {
+    slug: "african-drone",
+    name: "africanDRONE",
+    tagLine: "Drones for good",
+    title:
+      'Empowering citizens through <span class="highlight">drone technology</span>',
+    subtitle:
+      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
+    description:
+      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
+    icon: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_africanDRONE_exwdyu.svg",
+    },
+    category: "Projects",
+  },
+  {
+    slug: "wana-data",
+    name: "WanaData",
+    tagLine: "Women in Africa",
+    title:
+      'Uplifting <span class="highlight">women in Africa</span> with a focus on data-driven projects',
+    subtitle:
+      "The WanaData community drives collaborative work and supports members in achieving their professional goals. ",
+    description:
+      "<p>WanaData is a Pan-African network of female data scientists, journalists and technologists working to change the digital landscape by producing and promoting data-driven projects while applying digital technologies in storytelling. It has grown from an initial 6 members in Nigeria to more than 400 women across the continent.</p><p>WanaData members have collaborated on cross-border reporting projects that incorporate data visualisation, artificial intelligence, audience engagement strategies, social videos, drone journalism and other innovative approaches, to enhance news content on the continent.",
+    icon: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_WanaData_neqwtm.svg",
+    },
+    category: "Projects",
+  },
+  {
+    slug: "pesa-check",
+    name: "PesaCheck",
+    tagLine: "Africa fact-checking",
+    title:
+      'Africa’s largest <span class="highlight">indigenous fact-checking</span> organisation',
+    subtitle:
+      "PesaCheck, a pioneering verification initiative, debunks misleading claims with full-time fact-checkers in 15 African countries.",
+    description:
+      "<p>PesaCheck is a pioneering verification initiative that is kickstarting fact-checking across Africa. Initially focused on verifying the financial and other statistical numbers quoted by public figures in Kenya, Tanzania and Uganda, PesaCheck is now Africa’s largest with full-time fact-checkers in 15 countries in both east and west Africa, as well as across the Sahel.</p><p>PesaCheck fact-checks in two international languages (English and French), as well as major African languages such as Kiswahili and Amharic. Our network helps track political promises by politicians (through our Wajibisha/PromiseTracker toolkit), helps unpack budget and census data (through our PesaYetu and TaxClock platforms), and builds machine learning/artificial intelligence tools (such as DebunkBot) to help automate verification.</p>",
+    icon: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_PesaCheck_rmswvg.svg",
+    },
+    category: "Projects",
+  },
+  {
+    slug: "open-africa",
+    name: "openAFRICA",
+    tagLine: "Drones for good",
+    title:
+      'Empowering citizens through <span class="highlight">drone technology</span>',
+    subtitle:
+      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
+    description:
+      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
+    icon: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_openAFRICA_cczpuq.svg",
+    },
+    category: "Projects",
+  },
+  {
+    slug: "civic-signal",
+    name: "CivicSignal",
+    tagLine: "Drones for good",
+    title:
+      'Empowering citizens through <span class="highlight">drone technology</span>',
+    subtitle:
+      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
+    description:
+      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
+    icon: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_CivicSignal_ayzj31.svg",
+    },
+    category: "Projects",
+  },
+  {
+    slug: "source-africa",
+    name: "sourceAfrica",
+    tagLine: "Drones for good",
+    title:
+      'Empowering citizens through <span class="highlight">drone technology</span>',
+    subtitle:
+      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
+    description:
+      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
+    icon: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg",
+    },
+    category: "Projects",
+  },
+];
+
 const DEFAULT_REVALIDATE = 3 * 60; // 3 minutes
 
 function getHomePageStaticProps() {
@@ -144,6 +237,16 @@ function getHomePageStaticProps() {
     props: {
       title: "Code for Africa",
       sections: [
+        {
+          slug: "projects",
+          projects: projects.map(({ slug, name, tagLine, icon, category }) => ({
+            name,
+            tagLine,
+            icon,
+            category,
+            href: `/projects/${slug}`,
+          })),
+        },
         {
           slug: "news-stories",
           title: "News and stories",
