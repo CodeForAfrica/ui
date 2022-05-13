@@ -38,14 +38,19 @@ const ImageRoot = styled("span", {
 }));
 
 const ImageButton = React.forwardRef(function ImageButton(props, ref) {
-  const { src } = props;
-  let image;
+  const { children, src, onClick } = props;
+  let image = children;
   if (src) {
     image = <ImageRoot src={src} />;
   }
   const ownerState = { ...props };
   return (
-    <ImageButtonRoot ownerState={ownerState} ref={ref} {...props}>
+    <ImageButtonRoot
+      ownerState={ownerState}
+      ref={ref}
+      {...props}
+      onClick={onClick}
+    >
       {image}
     </ImageButtonRoot>
   );
@@ -57,11 +62,13 @@ ImageButton.propTypes = {
    * The image URL.
    */
   src: PropTypes.node,
+  onClick: PropTypes.func,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 ImageButton.defaultProps = {
   height: undefined,
+  onClick: undefined,
   src: undefined,
   width: undefined,
 };
