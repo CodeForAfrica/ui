@@ -186,7 +186,7 @@ const projects = [
   {
     slug: "open-africa",
     name: "openAFRICA",
-    tagLine: "Drones for good",
+    tagLine: "Volunteer open data",
     title:
       'Empowering citizens through <span class="highlight">drone technology</span>',
     subtitle:
@@ -201,7 +201,7 @@ const projects = [
   {
     slug: "civic-signal",
     name: "CivicSignal",
-    tagLine: "Drones for good",
+    tagLine: "Africa media ecosystem",
     title:
       'Empowering citizens through <span class="highlight">drone technology</span>',
     subtitle:
@@ -216,7 +216,7 @@ const projects = [
   {
     slug: "source-africa",
     name: "sourceAfrica",
-    tagLine: "Drones for good",
+    tagLine: "Actionable documents",
     title:
       'Empowering citizens through <span class="highlight">drone technology</span>',
     subtitle:
