@@ -53,7 +53,7 @@ const MobileNavigation = React.forwardRef(function MobileNavigation(
       <Grid item xs={4}>
         <Logo src={cfaLogo} alt="Logo" />
       </Grid>
-      <Grid item xs={6} sx={{ display: "flex", justifyContent: "flex-end" }}>
+      <Grid item xs={6} container justifyContent="flex-end">
         <IconButton
           size="large"
           edge="start"
@@ -79,7 +79,7 @@ const MobileNavigation = React.forwardRef(function MobileNavigation(
             sx={{ m: 0, p: 2 }}
             onClose={handleClose}
           >
-            <NavBarNavList menu={menu} />
+            <NavBarNavList menu={menu} direction="column" />
           </DialogContent>
         </DialogContainer>
       </Grid>

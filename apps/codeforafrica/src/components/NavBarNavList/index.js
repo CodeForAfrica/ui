@@ -12,7 +12,7 @@ import twitterMobileIcon from "@/codeforafrica/assets/twitterMobile.svg";
 import NavList from "@/codeforafrica/components/NavList";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
-function NavBarNavList({ menu }) {
+function NavBarNavList({ menu, direction }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -21,10 +21,7 @@ function NavBarNavList({ menu }) {
   }
   return (
     <Box component="nav">
-      <NavList
-        direction={isMobile ? "column" : "row"}
-        sx={{ alignItems: "flex-start" }}
-      >
+      <NavList direction={direction} sx={{ alignItems: "flex-start" }}>
         {menu.map((item) => (
           <NavListItem key={item.label} sx={{ m: "20px" }}>
             <Link
@@ -63,6 +60,7 @@ function NavBarNavList({ menu }) {
 }
 
 NavBarNavList.propTypes = {
+  direction: PropTypes.string,
   menu: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -72,6 +70,7 @@ NavBarNavList.propTypes = {
 };
 
 NavBarNavList.defaultProps = {
+  direction: undefined,
   menu: undefined,
 };
 

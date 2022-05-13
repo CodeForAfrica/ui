@@ -25,7 +25,7 @@ const DesktopNavigation = React.forwardRef(function DesktopNavigation(
       </Grid>
       <Grid item xs={8} container justifyContent="flex-end">
         <Grid item>
-          <NavBarNavList menu={menu} />
+          <NavBarNavList menu={menu} direction="row" />
         </Grid>
       </Grid>
     </Grid>
