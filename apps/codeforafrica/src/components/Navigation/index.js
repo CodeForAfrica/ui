@@ -7,7 +7,7 @@ import React from "react";
 import DesktopNavigation from "@/codeforafrica/components/Navigation/DesktopNavigation";
 import MobileNavigation from "@/codeforafrica/components/Navigation/MobileNavigation";
 
-function Navigation({ menu }) {
+function NavBar({ menu }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
