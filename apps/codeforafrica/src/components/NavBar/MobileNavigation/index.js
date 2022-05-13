@@ -49,11 +49,17 @@ const MobileNavigation = React.forwardRef(function MobileNavigation(
       direction="row"
       ref={ref}
     >
-      <Grid item xs={4} sx={{ ml: 2, py: 2 }}>
-        <ImageIcon src={cfaLogo} alt="Logo" />
+      <Grid item xs={4} sx={{ ml: 2 }}>
+        <ImageIcon src={cfaLogo} alt="Logo" width="116px" height="50px" />
       </Grid>
       <Grid item xs={6} container justifyContent="flex-end" sx={{ mr: 2 }}>
-        <ImageIcon src={menuIcon} alt="menu icon" onClick={handleClickOpen} />
+        <ImageIcon
+          src={menuIcon}
+          alt="menu icon"
+          onClick={handleClickOpen}
+          width="32px"
+          height="32px"
+        />
         <DialogContainer
           fullScreen
           onClose={handleClose}

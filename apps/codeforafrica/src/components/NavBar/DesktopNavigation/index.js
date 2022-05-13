@@ -21,7 +21,7 @@ const DesktopNavigation = React.forwardRef(function DesktopNavigation(
       ref={ref}
     >
       <Grid item xs={4}>
-        <ImageIcon src={cfaLogo} alt="Logo" />
+        <ImageIcon src={cfaLogo} alt="Logo" width="136px" height="61px" />
       </Grid>
       <Grid item xs={8} container justifyContent="flex-end">
         <Grid item>
