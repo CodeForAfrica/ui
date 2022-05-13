@@ -110,6 +110,11 @@ const theme = createTheme({
       fontStyle: "normal",
       fontWeight: 600,
     },
+    body3: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontWeight: 400,
+    },
     button: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
@@ -312,6 +317,15 @@ deepmerge(
     body2: {
       fontSize: pxToRem(14),
       lineHeight: 17 / 14,
+    },
+    body3: {
+      fontSize: pxToRem(18),
+      lineHeight: 28 / 18,
+    },
+    body3SemiBold: {
+      ...theme.typography.body3,
+      fontWeight: 600,
+      lineHeight: 24 / 18,
     },
     button: {
       fontSize: pxToRem(16),
