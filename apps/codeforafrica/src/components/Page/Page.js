@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import Footer from "@/codeforafrica/components/Footer";
-import Navigation from "@/codeforafrica/components/Navigation";
+import NavBar from "@/codeforafrica/components/NavBar";
 
 function Page({ children, footer, title }) {
   return (
@@ -11,7 +11,7 @@ function Page({ children, footer, title }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <Navigation menu={footer?.menu} />
+      <NavBar menu={footer?.menu} />
       {children}
       {footer ? <Footer {...footer} /> : null}
     </>

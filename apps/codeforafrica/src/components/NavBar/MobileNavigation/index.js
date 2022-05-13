@@ -7,7 +7,7 @@ import React from "react";
 import cfaLogo from "@/codeforafrica/assets/CfA logo.svg";
 import menuIcon from "@/codeforafrica/assets/menu-icon.svg";
 import Logo from "@/codeforafrica/components/Logo";
-import NavigationNavList from "@/codeforafrica/components/NavigationNavList";
+import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
 
 const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   "& .MuiDialog-container": {
@@ -18,6 +18,7 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   },
   "& .MuiDialogContent-root": {
     padding: spacing(2),
+    color: palette.text.secondary,
     background: palette.primary.main,
   },
 }));
@@ -80,7 +81,7 @@ const MobileNavigation = React.forwardRef(function MobileNavigation(
           open={open}
         >
           <DialogMenu id="customized-dialog-title" onClose={handleClose}>
-            <NavigationNavList menu={menu} />
+            <NavBarNavList menu={menu} />
           </DialogMenu>
         </DialogContainer>
       </Grid>

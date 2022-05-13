@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import NavigationNavList from ".";
+import NavBarNavList from ".";
 
 import theme from "@/codeforafrica/theme";
 
@@ -33,9 +33,9 @@ const defaultProps = {
   ],
 };
 
-describe("<NavigationNavList />", () => {
+describe("<NavBarNavList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<NavigationNavList {...defaultProps} />);
+    const { container } = render(<NavBarNavList {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

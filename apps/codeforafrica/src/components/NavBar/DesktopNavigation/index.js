@@ -4,7 +4,7 @@ import React from "react";
 
 import cfaLogo from "@/codeforafrica/assets/CfA logo.svg";
 import Logo from "@/codeforafrica/components/Logo";
-import NavigationNavList from "@/codeforafrica/components/NavigationNavList";
+import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
 
 const DesktopNavigation = React.forwardRef(function DesktopNavigation(
   props,
@@ -25,7 +25,7 @@ const DesktopNavigation = React.forwardRef(function DesktopNavigation(
       </Grid>
       <Grid item xs={8} container justifyContent="flex-end">
         <Grid item>
-          <NavigationNavList menu={menu} />
+          <NavBarNavList menu={menu} />
         </Grid>
       </Grid>
     </Grid>
