@@ -44,8 +44,8 @@ function NavBarNavList({ menu, direction }) {
           <Link href="https://twitter.com/?lang=en">
             <SvgIcon
               component={isMobile ? TwitterMobileIcon : TwitterDesktopIcon}
-              viewbox="0 0 20 20"
-              sx={{ color: "white", mt: 0.5 }}
+              viewBox="0 0 32 32"
+              sx={{ color: "white", mt: { xs: 0, md: 1 } }}
             />
           </Link>
         </NavListItem>

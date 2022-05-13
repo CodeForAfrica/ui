@@ -49,7 +49,7 @@ const MobileNavigation = React.forwardRef(function MobileNavigation(
       direction="row"
       ref={ref}
     >
-      <Grid item xs={4} sx={{ ml: 2 }}>
+      <Grid item xs={4} sx={{ ml: 2, py: 1 }}>
         <ImageIcon src={cfaLogo} alt="Logo" width="116px" height="50px" />
       </Grid>
       <Grid item xs={6} container justifyContent="flex-end" sx={{ mr: 2 }}>
