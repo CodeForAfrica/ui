@@ -44,13 +44,12 @@ function NavBarNavList({ menu }) {
             </Link>
           </NavListItem>
         ))}
-        <NavListItem sx={{ m: "20px" }}>
+        <NavListItem sx={{ mr: 0, mt: "20px", mb: "20px", ml: "20px" }}>
           <IconButton
             size={isMobile ? "large" : "small"}
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
           >
             <Image
               src={isMobile ? twitterMobileIcon : twitterDesktopIcon}
