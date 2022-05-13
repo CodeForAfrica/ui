@@ -11,7 +11,7 @@ import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
 
 const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   "& .MuiDialog-container": {
-    height: "50%",
+    height: "100%",
   },
   "& .MuiBackdrop-root": {
     background: "transparent",
@@ -22,14 +22,6 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
     background: palette.primary.main,
   },
 }));
-
-const DialogMenu = React.forwardRef(function DialogMenu(props, ref) {
-  return <DialogContent ref={ref} {...props} sx={{ m: 0, p: 2 }} />;
-});
-
-DialogMenu.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -80,9 +72,15 @@ const MobileNavigation = React.forwardRef(function MobileNavigation(
           aria-labelledby="customized-dialog-title"
           open={open}
         >
-          <DialogMenu id="customized-dialog-title" onClose={handleClose}>
+          <DialogContent
+            id="customized-dialog-title"
+            ref={ref}
+            {...props}
+            sx={{ m: 0, p: 2 }}
+            onClose={handleClose}
+          >
             <NavBarNavList menu={menu} />
-          </DialogMenu>
+          </DialogContent>
         </DialogContainer>
       </Grid>
     </Grid>
