@@ -6,6 +6,7 @@ import Page from "@/codeforafrica/components/Page";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
 function Index({ sections, ...props }) {
+  console.log(props);
   return (
     <Page {...props}>
       {sections?.map((section) =>

@@ -5,13 +5,13 @@ import React from "react";
 import Footer from "@/codeforafrica/components/Footer";
 import NavBar from "@/codeforafrica/components/NavBar";
 
-function Page({ children, footer, title }) {
+function Page({ children, footer, navbar, title }) {
   return (
     <>
       <Head>
         <title>{title}</title>
       </Head>
-      <NavBar menu={footer?.menu} />
+      <NavBar menu={navbar?.menu} />
       {children}
       {footer ? <Footer {...footer} /> : null}
     </>
@@ -22,18 +22,18 @@ Page.propTypes = {
   children: PropTypes.node,
   sections: PropTypes.shape({}),
   footer: PropTypes.shape({}),
-  menu: PropTypes.arrayOf(
-    PropTypes.shape({
+  navbar: PropTypes.shape({
+    menu: PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
-    })
-  ),
+    }),
+  }),
   title: PropTypes.string,
 };
 
 Page.defaultProps = {
   children: undefined,
-  menu: undefined,
+  navbar: undefined,
   sections: undefined,
   footer: undefined,
   title: undefined,
