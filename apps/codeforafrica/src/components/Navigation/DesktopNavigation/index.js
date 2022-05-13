@@ -23,7 +23,7 @@ const DesktopNavigation = React.forwardRef(function DesktopNavigation(
       <Grid item xs={4}>
         <Logo src={cfaLogo} alt="Logo" />
       </Grid>
-      <Grid item xs={8} sx={{ display: "flex", justifyContent: "flex-end" }}>
+      <Grid item xs={8} container justifyContent="flex-end">
         <NavigationNavList menu={menu} />
       </Grid>
     </Grid>
