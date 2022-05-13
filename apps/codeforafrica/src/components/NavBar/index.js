@@ -14,9 +14,9 @@ function NavBar({ menu }) {
     <NavigationBar>
       <Section>
         {isMobile ? (
-          <MobileNavigation menu={menu} />
+          <MobileNavigation menu={menu} direction="column" />
         ) : (
-          <DesktopNavigation menu={menu} />
+          <DesktopNavigation menu={menu} direction="row" />
         )}
       </Section>
     </NavigationBar>

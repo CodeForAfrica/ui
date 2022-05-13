@@ -1,12 +1,11 @@
-import { Grid, IconButton, Dialog, DialogContent, Slide } from "@mui/material";
+import { Grid, Dialog, DialogContent, Slide } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
 import cfaLogo from "@/codeforafrica/assets/CfA logo.svg";
 import menuIcon from "@/codeforafrica/assets/menu-icon.svg";
-import Logo from "@/codeforafrica/components/Logo";
+import ImageIcon from "@/codeforafrica/components/ImageIcon";
 import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
 
 const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
@@ -51,20 +50,10 @@ const MobileNavigation = React.forwardRef(function MobileNavigation(
       ref={ref}
     >
       <Grid item xs={4}>
-        <Logo src={cfaLogo} alt="Logo" />
+        <ImageIcon src={cfaLogo} alt="Logo" />
       </Grid>
       <Grid item xs={6} container justifyContent="flex-end">
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          onClick={handleClickOpen}
-          sx={{ mr: 2 }}
-        >
-          <Image src={menuIcon} alt="menu icon" />
-        </IconButton>
-
+        <ImageIcon src={menuIcon} alt="menu icon" onClick={handleClickOpen} />
         <DialogContainer
           fullScreen
           onClose={handleClose}
@@ -79,7 +68,7 @@ const MobileNavigation = React.forwardRef(function MobileNavigation(
             sx={{ m: 0, p: 2 }}
             onClose={handleClose}
           >
-            <NavBarNavList menu={menu} direction="column" />
+            <NavBarNavList menu={menu} {...props} />
           </DialogContent>
         </DialogContainer>
       </Grid>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import cfaLogo from "@/codeforafrica/assets/CfA logo.svg";
-import Logo from "@/codeforafrica/components/Logo";
+import ImageIcon from "@/codeforafrica/components/ImageIcon";
 import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
 
 const DesktopNavigation = React.forwardRef(function DesktopNavigation(
@@ -21,11 +21,11 @@ const DesktopNavigation = React.forwardRef(function DesktopNavigation(
       ref={ref}
     >
       <Grid item xs={4}>
-        <Logo src={cfaLogo} alt="Logo" />
+        <ImageIcon src={cfaLogo} alt="Logo" />
       </Grid>
       <Grid item xs={8} container justifyContent="flex-end">
         <Grid item>
-          <NavBarNavList menu={menu} direction="row" />
+          <NavBarNavList menu={menu} {...props} />
         </Grid>
       </Grid>
     </Grid>
