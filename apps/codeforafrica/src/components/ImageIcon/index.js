@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const ImageIcon = React.forwardRef(function Logo(props) {
-  const { alt, src } = props;
+  const { alt, src, onClick } = props;
 
   return (
-    <ImageButton>
+    <ImageButton onClick={onClick}>
       <Image src={src} alt={alt} />
     </ImageButton>
   );
@@ -15,11 +15,13 @@ const ImageIcon = React.forwardRef(function Logo(props) {
 
 ImageIcon.propTypes = {
   src: PropTypes.string,
+  onClick: PropTypes.func,
   alt: PropTypes.string,
 };
 
 ImageIcon.defaultProps = {
   src: undefined,
+  onClick: undefined,
   alt: undefined,
 };
 
