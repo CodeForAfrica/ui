@@ -1,5 +1,5 @@
 import { Link } from "@commons-ui/next";
-import { Typography, List, ListItem, Grid } from "@mui/material";
+import { Typography, List, ListItem } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -40,28 +40,19 @@ function FooterLinks({ footerLinks, menu }) {
     return null;
   }
   return (
-    <Grid
-      item
-      xs={12}
-      md={3}
-      sx={{
-        order: { xs: 2, md: 1 },
-      }}
-    >
-      <ListRoot>
-        <FooterNavList menu={menu}>
-          <SecondaryList>
-            {footerLinks.secondary.map((item) => (
-              <ListItemRoot key={item.name}>
-                <LinkRoot href={item.href}>
-                  <Typography variant="p2">{item.name}</Typography>
-                </LinkRoot>
-              </ListItemRoot>
-            ))}
-          </SecondaryList>
-        </FooterNavList>
-      </ListRoot>
-    </Grid>
+    <ListRoot>
+      <FooterNavList menu={menu}>
+        <SecondaryList>
+          {footerLinks.secondary.map((item) => (
+            <ListItemRoot key={item.name}>
+              <LinkRoot href={item.href}>
+                <Typography variant="p2">{item.name}</Typography>
+              </LinkRoot>
+            </ListItemRoot>
+          ))}
+        </SecondaryList>
+      </FooterNavList>
+    </ListRoot>
   );
 }
 
