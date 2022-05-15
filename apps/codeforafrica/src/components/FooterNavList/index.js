@@ -6,7 +6,7 @@ import React from "react";
 import NavList from "@/codeforafrica/components/NavList";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
-function FooterNavList({ menu }) {
+function FooterNavList({ menu, children }) {
   if (!menu?.length) {
     return null;
   }
@@ -41,6 +41,7 @@ function FooterNavList({ menu }) {
             </Link>
           </NavListItem>
         ))}
+        {children}
       </NavList>
     </Box>
   );

@@ -40,27 +40,28 @@ function FooterLinks({ footerLinks, menu }) {
     return null;
   }
   return (
-    <ListRoot>
-      <Grid
-        item
-        xs={12}
-        md={3}
-        sx={{
-          order: { xs: 2, md: 1 },
-        }}
-      >
-        <FooterNavList menu={menu} />
-      </Grid>
-      <SecondaryList>
-        {footerLinks.secondary.map((item) => (
-          <ListItemRoot key={item.name}>
-            <LinkRoot href={item.href}>
-              <Typography variant="p2">{item.name}</Typography>
-            </LinkRoot>
-          </ListItemRoot>
-        ))}
-      </SecondaryList>
-    </ListRoot>
+    <Grid
+      item
+      xs={12}
+      md={3}
+      sx={{
+        order: { xs: 2, md: 1 },
+      }}
+    >
+      <ListRoot>
+        <FooterNavList menu={menu}>
+          <SecondaryList>
+            {footerLinks.secondary.map((item) => (
+              <ListItemRoot key={item.name}>
+                <LinkRoot href={item.href}>
+                  <Typography variant="p2">{item.name}</Typography>
+                </LinkRoot>
+              </ListItemRoot>
+            ))}
+          </SecondaryList>
+        </FooterNavList>
+      </ListRoot>
+    </Grid>
   );
 }
 
