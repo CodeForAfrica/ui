@@ -21,6 +21,9 @@ const ListItemRoot = styled(ListItem)(
 
 const ListRoot = styled(List)(({ theme: { breakpoints, typography } }) => ({
   marginTop: typography.pxToRem(85),
+  "& li:nth-last-child(2)": {
+    marginTop: typography.pxToRem(20),
+  },
   [breakpoints.up("md")]: {
     marginTop: 0,
   },
@@ -30,11 +33,6 @@ const LinkRoot = styled(Link)(({ theme: { palette } }) => ({
   textDecoration: "none",
   color: palette.text.secondary,
 }));
-
-const SecondaryList = styled("div")(({ theme: { typography } }) => ({
-  marginTop: typography.pxToRem(20),
-}));
-
 function FooterLinks({ footerLinks, menu }) {
   if (!footerLinks) {
     return null;
@@ -42,15 +40,13 @@ function FooterLinks({ footerLinks, menu }) {
   return (
     <ListRoot>
       <FooterNavList menu={menu}>
-        <SecondaryList>
-          {footerLinks.secondary.map((item) => (
-            <ListItemRoot key={item.name}>
-              <LinkRoot href={item.href}>
-                <Typography variant="p2">{item.name}</Typography>
-              </LinkRoot>
-            </ListItemRoot>
-          ))}
-        </SecondaryList>
+        {footerLinks.secondary.map((item) => (
+          <ListItemRoot key={item.name}>
+            <LinkRoot href={item.href}>
+              <Typography variant="p2">{item.name}</Typography>
+            </LinkRoot>
+          </ListItemRoot>
+        ))}
       </FooterNavList>
     </ListRoot>
   );
