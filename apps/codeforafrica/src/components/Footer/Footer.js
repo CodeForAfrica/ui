@@ -31,7 +31,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     <FooterRoot component="footer" ref={ref}>
       <Section sx={{ px: { xs: "20px", sm: 0 } }}>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} sx={{ order: { xs: 2, md: 0 } }}>
             <Grid container>
               <Grid
                 sx={{ textAlign: { xs: "center", md: "left" } }}
@@ -45,14 +45,14 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} sx={{ order: { xs: 2, md: 1 } }}>
             <Grid container justifyContent="center">
               <Grid item container justifyContent="center" xs={12}>
                 <FooterLinks footerLinks={footerLinks} menu={menu} />
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} md={4} sx={{ order: { xs: 0, md: 1 } }}>
+          <Grid item xs={12} md={4} sx={{ order: { md: 2 } }}>
             <NewsletterSubscription {...subscription} />
           </Grid>
         </Grid>
