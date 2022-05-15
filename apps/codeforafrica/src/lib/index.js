@@ -11,7 +11,7 @@ const menu = [
   },
   {
     label: "Stories",
-    href: "/about",
+    href: "/stories",
   },
   {
     label: "Opportunity",

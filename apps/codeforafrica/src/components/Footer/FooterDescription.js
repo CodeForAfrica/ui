@@ -12,7 +12,7 @@ function FooterDescription({ description }) {
 
   return (
     <>
-      <Image src={cfaIcon} />
+      <Image src={cfaIcon} alt="" />
       <Typography sx={{ marginTop: "3.125rem" }}>{description}</Typography>
     </>
   );
