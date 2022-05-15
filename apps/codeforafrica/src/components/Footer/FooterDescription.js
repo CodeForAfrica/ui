@@ -13,7 +13,12 @@ function FooterDescription({ description }) {
   return (
     <>
       <Image src={cfaIcon} alt="" />
-      <Typography sx={{ marginTop: "3.125rem" }}>{description}</Typography>
+      <Typography
+        variant="body1"
+        sx={{ marginTop: "3.125rem", fontSize: { md: 12, xs: 12 } }}
+      >
+        {description}
+      </Typography>
     </>
   );
 }
