@@ -1,5 +1,5 @@
 import { Link } from "@commons-ui/next";
-import { Typography, List } from "@mui/material";
+import { List } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -34,12 +34,14 @@ function FooterLinks({ footerLinks, menu }) {
             key={item.name}
           >
             <Link
-              sx={{ textDecoration: "none", color: "text.secondary" }}
+              sx={{
+                textDecoration: "none",
+                color: "text.secondary",
+                fontSize: { md: "16px", xs: "16px" },
+              }}
               href={item.href}
             >
-              <Typography sx={{ fontSize: { md: "16px", xs: "16px" } }}>
-                {item.name}
-              </Typography>
+              {item.name}
             </Link>
           </NavListItem>
         ))}
