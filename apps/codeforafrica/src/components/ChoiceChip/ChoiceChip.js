@@ -7,7 +7,7 @@ const ChoiceChipRoot = styled(Chip, {
   // fullWidth comes when ChoiceChip is used inside ToggleButtonGroup
   shouldForwardProp: (prop) => prop !== "fullWidth",
 })(({ theme }) => ({
-  ...theme.typography.body2,
+  ...theme.typography.body1SemiBold,
 }));
 
 const ChoiceChip = React.forwardRef(function ChoiceChip(props, ref) {

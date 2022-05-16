@@ -8,7 +8,7 @@ import theme from "@/codeforafrica/theme";
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-const subscriptionProps = {
+const defaultProps = {
   embedCode: `
           <!-- Begin Mailchimp Signup Form -->
           <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
@@ -36,9 +36,7 @@ const subscriptionProps = {
 
 describe("<NewsletterSubscription />", () => {
   it("renders unchanged", () => {
-    const { container } = render(
-      <NewsletterSubscription {...subscriptionProps} />
-    );
+    const { container } = render(<NewsletterSubscription {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

@@ -110,6 +110,11 @@ const theme = createTheme({
       fontStyle: "normal",
       fontWeight: 600,
     },
+    body3: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontWeight: 400,
+    },
     button: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
@@ -301,9 +306,43 @@ deepmerge(
         lineHeight: 23 / 14,
       },
     },
-    body2: {
+    body1SemiBold: {
+      ...theme.typography.body1,
       fontSize: pxToRem(14),
+      fontWeight: 600,
       lineHeight: 17 / 14,
+    },
+    body2: {
+      fontSize: pxToRem(16),
+      lineHeight: 26 / 16,
+    },
+    body2SemiBold: {
+      ...theme.typography.body2,
+      fontSize: pxToRem(16),
+      fontWeight: 600,
+      lineHeight: 19 / 16,
+    },
+    body2Underline: {
+      ...theme.typography.body2,
+      fontSize: pxToRem(16),
+      lineHeight: 19 / 16,
+      textDecoration: "underline",
+    },
+    body3: {
+      fontSize: pxToRem(18),
+      lineHeight: 28 / 18,
+    },
+    body3SemiBold: {
+      ...theme.typography.body3,
+      fontSize: pxToRem(18),
+      fontWeight: 600,
+      lineHeight: 24 / 18,
+    },
+    body3Underline: {
+      ...theme.typography.body3,
+      fontSize: pxToRem(18),
+      lineHeight: 24 / 18,
+      textDecoration: "underline",
     },
     button: {
       fontSize: pxToRem(16),
