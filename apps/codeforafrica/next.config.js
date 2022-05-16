@@ -19,7 +19,13 @@ module.exports = withTM({
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
         resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
-        use: ["@svgr/webpack"],
+        use: [
+          "@svgr/webpack",
+          {
+            loader: "svg-url-loader",
+            options: {},
+          },
+        ],
       }
     );
     return config;
