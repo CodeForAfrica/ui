@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import ArticleGrid from "@/codeforafrica/components/ArticleGrid";
 import NextPreviousPagination from "@/codeforafrica/components/NextPreviousPagination";
 
 const ALL_TAG = "All";
+
+const computePagination = (allArtiles, page, pageSize) => {
+  const count = Math.ceil(allArtiles.length / pageSize);
+  const articles = allArtiles.slice((page - 1) * pageSize, page * pageSize);
+  return { count, articles };
+};
 
 function Articles(props) {
   // We use 10 because article 0 will be shown as featured article
@@ -14,43 +20,41 @@ function Articles(props) {
     return uniqueTags;
   });
   const [selectedTag, setSelectedTag] = useState(ALL_TAG);
-  const [filteredArticles, setFilteredArticles] = useState(articles);
   const handleTagChange = (_, value) => {
     const newTag = value || ALL_TAG;
     setSelectedTag(newTag);
   };
-  useEffect(() => {
+  const getFilteredArticles = useCallback(() => {
+    let filteredArticles;
     if (selectedTag !== ALL_TAG) {
-      const found = articles.filter((a) => a.tags?.includes(selectedTag));
-      setFilteredArticles(found);
+      filteredArticles = articles.filter((a) => a.tags?.includes(selectedTag));
     } else {
-      setFilteredArticles(articles);
+      filteredArticles = articles;
     }
+    return filteredArticles;
   }, [articles, selectedTag]);
   const [page, setPage] = useState(pageProp);
-  const [pageArticles, setPageArticles] = useState(
-    filteredArticles.slice(0, pageSize)
-  );
   const handlePageChange = (_, value) => {
     setPage(value);
   };
+  const [pagination, setPagination] = useState(() => {
+    return computePagination(getFilteredArticles(), page, pageSize);
+  });
   useEffect(() => {
-    setPageArticles(
-      filteredArticles.slice((page - 1) * pageSize, page * pageSize)
-    );
-  }, [filteredArticles, page, pageSize]);
+    setPagination(computePagination(getFilteredArticles(), page, pageSize));
+  }, [getFilteredArticles, page, pageSize]);
 
   return (
     <>
       <ArticleGrid
-        articles={pageArticles}
+        articles={pagination.articles}
         onChange={handleTagChange}
         selectedTag={selectedTag}
         tags={tags}
         title={title}
       />
       <NextPreviousPagination
-        count={Math.ceil(filteredArticles.length / pageSize)}
+        count={Math.ceil(pagination.count)}
         onChange={handlePageChange}
       />
     </>

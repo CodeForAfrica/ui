@@ -25,7 +25,7 @@ const RelatedStories = React.forwardRef(function RelatedStories(props, ref) {
         {title}
       </RichTypography>
       <ArticleCardList
-        items={articles.slice(0, 3)}
+        articles={articles.slice(0, 3)}
         sx={{ mb: { xs: 5, lg: "55px" } }}
       />
     </Section>

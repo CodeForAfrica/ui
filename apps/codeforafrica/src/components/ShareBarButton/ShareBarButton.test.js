@@ -1,18 +1,20 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Articles from "./Articles";
+import ShareBarButton from "./ShareBarButton";
 
 import theme from "@/codeforafrica/theme";
 
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
+
 const defaultProps = {
-  articles: [],
+  tooltipProps: { title: "Title" },
 };
-describe("<Articles />", () => {
+
+describe("<ShareBarButton />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Articles {...defaultProps} />);
+    const { container } = render(<ShareBarButton {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

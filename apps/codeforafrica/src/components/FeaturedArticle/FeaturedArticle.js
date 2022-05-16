@@ -9,7 +9,7 @@ import ArticleCard from "@/codeforafrica/components/ArticleCard";
 import ArticleCardContent from "@/codeforafrica/components/ArticleCardContent";
 import ArticleCardMedia from "@/codeforafrica/components/ArticleCardMedia";
 
-const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
+const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
   const {
     alt,
     date,
@@ -160,4 +160,4 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
   );
 });
 
-export default ArticleCardList;
+export default FeaturedArticle;
