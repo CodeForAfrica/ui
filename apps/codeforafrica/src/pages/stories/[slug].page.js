@@ -28,7 +28,7 @@ function Index({ article, sections, ...props }) {
         >
           <Box
             sx={{
-              color: "#B4ABAB",
+              color: "grey.main",
               columnGap: 2,
               display: "flex",
               alignItems: "center",
