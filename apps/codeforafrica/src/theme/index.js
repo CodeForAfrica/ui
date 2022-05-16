@@ -125,16 +125,8 @@ const theme = createTheme({
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
       fontWeight: 400,
-      lineHeight: 12 / 10,
+      lineHeight: 14 / 12,
       letterSpacing: "0.02rem",
-    },
-    footerCap: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 700,
-      lineHeight: 14 / 10,
-      letterSpacing: "0.08rem",
-      textTransform: "uppercase",
     },
   },
   components: {
@@ -321,6 +313,23 @@ deepmerge(
     },
     caption: {
       fontSize: pxToRem(14),
+    },
+    footer: {
+      fontSize: pxToRem(12),
+    },
+    footerSemiBold: {
+      ...theme.typography.footer,
+      fontWeight: 600,
+      fontSize: pxToRem(10),
+      lineHeight: 12 / 10,
+    },
+    footerCap: {
+      ...theme.typography.footer,
+      fontWeight: 700,
+      fontSize: pxToRem(10),
+      lineHeight: 14 / 10,
+      letterSpacing: "0.08rem",
+      textTransform: "uppercase",
     },
   },
   { clone: false }
