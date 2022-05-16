@@ -151,6 +151,9 @@ const projects = [
     icon: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_africanDRONE_exwdyu.svg",
     },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705960/codeforafrica/images/Property_1_africanDRONE_y4surg.jpg",
+    },
     category: "Projects",
   },
   {
@@ -165,6 +168,9 @@ const projects = [
       "<p>WanaData is a Pan-African network of female data scientists, journalists and technologists working to change the digital landscape by producing and promoting data-driven projects while applying digital technologies in storytelling. It has grown from an initial 6 members in Nigeria to more than 400 women across the continent.</p><p>WanaData members have collaborated on cross-border reporting projects that incorporate data visualisation, artificial intelligence, audience engagement strategies, social videos, drone journalism and other innovative approaches, to enhance news content on the continent.",
     icon: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_WanaData_neqwtm.svg",
+    },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_WanaData_t3tbex.jpg",
     },
     category: "Projects",
   },
@@ -181,6 +187,9 @@ const projects = [
     icon: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_PesaCheck_rmswvg.svg",
     },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
+    },
     category: "Projects",
   },
   {
@@ -195,6 +204,9 @@ const projects = [
       "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
     icon: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_openAFRICA_cczpuq.svg",
+    },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
   },
@@ -211,6 +223,9 @@ const projects = [
     icon: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_CivicSignal_ayzj31.svg",
     },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
+    },
     category: "Projects",
   },
   {
@@ -225,6 +240,9 @@ const projects = [
       "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
     icon: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg",
+    },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
   },
@@ -251,6 +269,22 @@ function getHomePageStaticProps() {
           slug: "news-stories",
           title: "News and stories",
           articles: articles.slice(0, 4),
+        },
+      ],
+      footer,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
+function getProjectsPageStaticProps() {
+  return {
+    props: {
+      title: "Our Work | Code for Africa",
+      sections: [
+        {
+          slug: "projects",
+          projects,
         },
       ],
       footer,
@@ -308,6 +342,9 @@ export async function getPageStaticProps(params) {
   switch (params?.slug) {
     case "/": {
       return getHomePageStaticProps(params);
+    }
+    case "/projects": {
+      return getProjectsPageStaticProps(params);
     }
     case "/stories": {
       return getStoriesPageStaticProps(params);
