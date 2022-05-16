@@ -23,10 +23,12 @@ Page.propTypes = {
   sections: PropTypes.shape({}),
   footer: PropTypes.shape({}),
   navbar: PropTypes.shape({
-    menu: PropTypes.shape({
-      label: PropTypes.string,
-      href: PropTypes.string,
-    }),
+    menu: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string,
+        href: PropTypes.string,
+      })
+    ),
   }),
   title: PropTypes.string,
 };

@@ -1,5 +1,4 @@
 import { NavBar as NavigationBar, Section } from "@commons-ui/core";
-import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import PropTypes from "prop-types";
 import React from "react";
@@ -8,8 +7,7 @@ import DesktopNavigation from "@/codeforafrica/components/NavBar/DesktopNavigati
 import MobileNavigation from "@/codeforafrica/components/NavBar/MobileNavigation";
 
 function NavBar({ menu }) {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   return (
     <NavigationBar>
       <Section>
