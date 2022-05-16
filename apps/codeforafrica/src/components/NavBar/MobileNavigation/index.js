@@ -3,8 +3,9 @@ import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import cfaLogo from "@/codeforafrica/assets/CfA logo.svg";
-import menuIcon from "@/codeforafrica/assets/menu-icon.svg";
+/* eslint-disable import/no-unresolved */
+import cfaLogo from "@/codeforafrica/assets/CfA logo.svg?url";
+import menuIcon from "@/codeforafrica/assets/menu-icon.svg?url";
 import ImageIcon from "@/codeforafrica/components/ImageIcon";
 import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
 
