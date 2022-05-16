@@ -27,27 +27,45 @@ const footer = {
   socialMedia: [
     {
       url: "https://twitter.com/Code4Africa",
-      image: { alt: "Twitter", url: "/icons/twitter.svg" },
+      image: {
+        alt: "Twitter",
+        url: "/icons/Type=twitter, Size=32, Color=White.svg",
+      },
     },
     {
       url: "https://cfa.slack.com",
-      image: { alt: "Slack", url: "/icons/slack.png" },
+      image: {
+        alt: "Slack",
+        url: "/icons/Type=slack, Size=32, Color=White.svg",
+      },
     },
     {
       url: "https://ke.linkedin.com/company/code-for-africa",
-      image: { alt: "LinkedIn", url: "/icons/linkedin.png" },
+      image: {
+        alt: "LinkedIn",
+        url: "/icons/Type=linkedin, Size=32, Color=White.svg",
+      },
     },
     {
       url: "https://www.facebook.com/CodeForAfrica/",
-      image: { alt: "Facebook", url: "/icons/facebook.png" },
+      image: {
+        alt: "Facebook",
+        url: "/icons/Type=facebook, Size=32, Color=White.svg",
+      },
     },
     {
       url: "https://www.instagram.com/code4africa__/",
-      image: { alt: "Instagram", url: "/icons/instagram.png" },
+      image: {
+        alt: "Instagram",
+        url: "/icons/Type=instagram, Size=32, Color=White.svg",
+      },
     },
     {
       url: "https://github.com/CodeForAfrica",
-      image: { alt: "Github", url: "/icons/github.png" },
+      image: {
+        alt: "Github",
+        url: "/icons/Type=github, Size=32, Color=White.svg",
+      },
     },
   ],
   footerLinks: {
