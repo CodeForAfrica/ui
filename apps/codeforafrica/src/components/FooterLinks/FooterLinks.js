@@ -1,23 +1,11 @@
 import { Link } from "@commons-ui/next";
-import { Typography, List, ListItem } from "@mui/material";
+import { Typography, List } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
 import FooterNavList from "@/codeforafrica/components/FooterNavList";
-
-const ListItemRoot = styled(ListItem)(
-  ({ theme: { breakpoints, typography } }) => ({
-    padding: 0,
-    paddingBottom: typography.pxToRem(10),
-    display: "flex",
-    justifyContent: "center",
-    [breakpoints.up("md")]: {
-      display: "block",
-      justifyContent: "flex-start",
-    },
-  })
-);
+import NavListItem from "@/codeforafrica/components/NavListItem";
 
 const ListRoot = styled(List)(({ theme: { breakpoints, typography } }) => ({
   marginTop: typography.pxToRem(85),
@@ -28,11 +16,6 @@ const ListRoot = styled(List)(({ theme: { breakpoints, typography } }) => ({
     marginTop: 0,
   },
 }));
-
-const LinkRoot = styled(Link)(({ theme: { palette } }) => ({
-  textDecoration: "none",
-  color: palette.text.secondary,
-}));
 function FooterLinks({ footerLinks, menu }) {
   if (!footerLinks) {
     return null;
@@ -41,11 +24,24 @@ function FooterLinks({ footerLinks, menu }) {
     <ListRoot>
       <FooterNavList menu={menu}>
         {footerLinks.secondary.map((item) => (
-          <ListItemRoot key={item.name}>
-            <LinkRoot href={item.href}>
-              <Typography variant="p2">{item.name}</Typography>
-            </LinkRoot>
-          </ListItemRoot>
+          <NavListItem
+            sx={{
+              padding: 0,
+              paddingBottom: "0.625rem",
+              display: { md: "block", xs: "flex" },
+              justifyContent: { md: "flex-start", xs: "center" },
+            }}
+            key={item.name}
+          >
+            <Link
+              sx={{ textDecoration: "none", color: "text.secondary" }}
+              href={item.href}
+            >
+              <Typography sx={{ fontSize: { md: "16px", xs: "16px" } }}>
+                {item.name}
+              </Typography>
+            </Link>
+          </NavListItem>
         ))}
       </FooterNavList>
     </ListRoot>
