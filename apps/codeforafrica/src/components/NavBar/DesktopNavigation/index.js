@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+// eslint-disable-next-line import/no-unresolved
 import cfaLogo from "@/codeforafrica/assets/CfA logo.svg";
 import ImageIcon from "@/codeforafrica/components/ImageIcon";
 import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
