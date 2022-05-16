@@ -13,7 +13,6 @@ const ChoiceChipRoot = styled(Chip, {
 const ChoiceChip = React.forwardRef(function ChoiceChip(props, ref) {
   const {
     color: colorProp = "default",
-    label,
     onChange,
     onClick,
     selected = false,
@@ -39,7 +38,6 @@ const ChoiceChip = React.forwardRef(function ChoiceChip(props, ref) {
   return (
     <ChoiceChipRoot
       color={color}
-      label={label}
       onClick={handleChange}
       value={value}
       variant={variant}

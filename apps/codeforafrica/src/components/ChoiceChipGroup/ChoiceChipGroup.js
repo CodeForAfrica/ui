@@ -25,8 +25,8 @@ const ChoiceChipGroupRoot = styled(ToggleButtonGroup, {
   },
 }));
 
-const ChoiceChipGroup = React.forwardRef(function ChoiceChip(props, ref) {
-  return <ChoiceChipGroupRoot exclusive ref={ref} {...props} />;
+const ChoiceChipGroup = React.forwardRef(function ChoiceChipGroup(props, ref) {
+  return <ChoiceChipGroupRoot exclusive {...props} ref={ref} />;
 });
 
 export default ChoiceChipGroup;

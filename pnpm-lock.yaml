@@ -47,6 +47,7 @@ importers:
       prop-types: ^15.8.1
       react: ^17.0.2
       react-dom: ^17.0.2
+      react-share: ^4.4.0
       react-test-renderer: ^17.0.2
       svg-url-loader: ^7.1.1
       typescript: ^4.6.4
@@ -66,6 +67,7 @@ importers:
       prop-types: 15.8.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
+      react-share: 4.4.0_react@17.0.2
       webpack: 5.72.1
     devDependencies:
       '@babel/core': 7.17.10
@@ -7534,6 +7536,10 @@ packages:
       static-extend: 0.1.2
     dev: true
 
+  /classnames/2.3.1:
+    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
+    dev: false
+
   /clean-css/4.2.4:
     resolution: {integrity: sha512-EJUDT7nDVFDvaQgAo2G/PJvxmp1o/c6iXLbswsBbUFXi1Nr+AjA2cKmfbKDMjMvzEe75g3P6JkaDDAKk96A85A==}
     engines: {node: '>= 4.0'}
@@ -11333,6 +11339,12 @@ packages:
       graceful-fs: 4.2.10
     dev: true
 
+  /jsonp/0.2.1:
+    resolution: {integrity: sha1-pltPoPEL2nGaBUQep7lMVfPhW64=}
+    dependencies:
+      debug: 2.6.9
+    dev: false
+
   /jsx-ast-utils/3.3.0:
     resolution: {integrity: sha512-XzO9luP6L0xkxwhIJMTJQpZo/eeN60K08jHdexfD569AGxeNug6UketeHXEhROoM8aR7EcUoOQmIhcJQjcuq8Q==}
     engines: {node: '>=4.0'}
@@ -13340,6 +13352,17 @@ packages:
       react: 17.0.2
       react-is: 17.0.2
     dev: true
+
+  /react-share/4.4.0_react@17.0.2:
+    resolution: {integrity: sha512-POe8Ge/JT9Ew9iyW7CiYsCCWCb8uMJWqFl9S7W0fJ/oH5gBJNzukH0bL5vSr17KKG5h15d3GfKaoviI22BKeYA==}
+    engines: {node: '>=6.9.0', npm: '>=5.0.0'}
+    peerDependencies:
+      react: ^16.3.0 || ^17
+    dependencies:
+      classnames: 2.3.1
+      jsonp: 0.2.1
+      react: 17.0.2
+    dev: false
 
   /react-sizeme/3.0.2:
     resolution: {integrity: sha512-xOIAOqqSSmKlKFJLO3inBQBdymzDuXx4iuwkNcJmC96jeiOg5ojByvL+g3MW9LPEsojLbC6pf68zOfobK8IPlw==}
