@@ -27,27 +27,27 @@ const footer = {
   socialMedia: [
     {
       url: "https://twitter.com/Code4Africa",
-      image: { alt: "Twitter", url: "/twitter.png" },
+      image: { alt: "Twitter", url: "/icons/twitter.svg" },
     },
     {
       url: "https://cfa.slack.com",
-      image: { alt: "Slack", url: "/slack.png" },
+      image: { alt: "Slack", url: "/icons/slack.png" },
     },
     {
       url: "https://ke.linkedin.com/company/code-for-africa",
-      image: { alt: "LinkedIn", url: "/linkedin.png" },
+      image: { alt: "LinkedIn", url: "/icons/linkedin.png" },
     },
     {
       url: "https://www.facebook.com/CodeForAfrica/",
-      image: { alt: "Facebook", url: "/facebook.png" },
+      image: { alt: "Facebook", url: "/icons/facebook.png" },
     },
     {
       url: "https://www.instagram.com/code4africa__/",
-      image: { alt: "Instagram", url: "/instagram.png" },
+      image: { alt: "Instagram", url: "/icons/instagram.png" },
     },
     {
       url: "https://github.com/CodeForAfrica",
-      image: { alt: "Github", url: "/github.png" },
+      image: { alt: "Github", url: "/icons/github.png" },
     },
   ],
   footerLinks: {
