@@ -48,6 +48,7 @@ const MobileNavigation = React.forwardRef(function MobileNavigation(
       alignItems="center"
       direction="row"
       ref={ref}
+      sx={{ display: { xs: "flex", md: "none" } }}
     >
       <Grid item xs={4} sx={{ ml: 2, py: 1 }}>
         <ImageIcon src={cfaLogo} alt="Logo" width="116px" height="50px" />

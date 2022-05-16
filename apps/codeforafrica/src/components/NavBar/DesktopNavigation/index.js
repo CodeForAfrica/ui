@@ -19,6 +19,7 @@ const DesktopNavigation = React.forwardRef(function DesktopNavigation(
       alignItems="center"
       direction="row"
       ref={ref}
+      sx={{ display: { xs: "none", md: "flex" } }}
     >
       <Grid item xs={4}>
         <ImageIcon src={cfaLogo} alt="Logo" width="136px" height="61px" />
