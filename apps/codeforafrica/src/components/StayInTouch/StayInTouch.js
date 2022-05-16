@@ -6,20 +6,6 @@ import * as React from "react";
 
 import Title from "./Title";
 
-const LinksRoot = styled(Grid, {
-  slot: "Root",
-  name: "StayInTouchLinks",
-})(({ theme }) => ({
-  "& > a": {
-    display: "inline-block",
-  },
-  justifyContent: "center",
-  [theme.breakpoints.up("md")]: {
-    justifyContent: "flex-start",
-    width: "auto",
-  },
-}));
-
 const IconRoot = styled("img", {
   slot: "Root",
   name: "StayInTouchIcon",
@@ -57,7 +43,16 @@ const StayInTouch = React.forwardRef(function StayInTouch(
           <Title title="Stay in touch:" />
         </Grid>
       )}
-      <LinksRoot item xs={12} md={8} container>
+      <Grid
+        sx={{
+          width: { md: "auto" },
+          justifyContent: { md: "flex-start", xs: "center" },
+        }}
+        item
+        xs={12}
+        md={8}
+        container
+      >
         {socialMedia.map((media) => (
           <Link
             sx={{
@@ -71,7 +66,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
             <IconRoot src={media.image.url} alt={media.image.alt} />
           </Link>
         ))}
-      </LinksRoot>
+      </Grid>
     </Grid>
   );
 });
