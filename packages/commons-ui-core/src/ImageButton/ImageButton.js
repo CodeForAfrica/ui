@@ -57,7 +57,6 @@ ImageButton.propTypes = {
    * The image URL.
    */
   src: PropTypes.node,
-  onClick: PropTypes.func,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
