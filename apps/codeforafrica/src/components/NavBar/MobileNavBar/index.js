@@ -28,7 +28,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
-  const { menu, direction } = props;
+  const { menu, direction, ...other } = props;
 
   const [open, setOpen] = React.useState(false);
 
@@ -45,6 +45,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
       justifyContent="space-between"
       alignItems="center"
       direction="row"
+      {...other}
       ref={ref}
     >
       <Grid item sx={{ ml: 2, py: 1 }}>

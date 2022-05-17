@@ -13,14 +13,14 @@ function NavBar({ menu }) {
           menu={menu}
           direction="column"
           sx={{
-            display: { xs: "none", md: "flex" },
+            display: { xs: "flex", md: "none" },
           }}
         />
         <DesktopNavBar
           menu={menu}
           direction="row"
           sx={{
-            display: { xs: "flex", md: "none" },
+            display: { xs: "none", md: "flex" },
           }}
         />
       </Section>
