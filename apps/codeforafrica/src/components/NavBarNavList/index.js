@@ -3,7 +3,7 @@ import SvgIcon from "@mui/material/SvgIcon";
 import PropTypes from "prop-types";
 import React from "react";
 
-import { ReactComponent as TwitterDesktopIcon } from "@/codeforafrica/assets/twitterDesktop.svg";
+import TwitterIcon from "@/codeforafrica/assets/twitterDesktop.svg";
 import NavList from "@/codeforafrica/components/NavList";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
@@ -38,9 +38,16 @@ function NavBarNavList({ menu, direction }) {
           sx={{ color: { xs: "white" } }}
         >
           <SvgIcon
-            component={TwitterDesktopIcon}
+            component={TwitterIcon}
             viewBox="0 0 32 32"
-            sx={{ color: "inherit", mt: { xs: 0, md: 1 } }}
+            stroke="inherit"
+            sx={{
+              color: "inherit",
+              mt: { xs: 0, md: 1 },
+              "& >path": {
+                stroke: { xs: "inherit", md: "black" },
+              },
+            }}
           />
         </Link>
       </NavListItem>
