@@ -39,7 +39,6 @@ function NavBarNavList({ menu, direction }) {
         >
           <SvgIcon
             component={TwitterIcon}
-            viewBox="0 0 32 32"
             stroke="inherit"
             sx={{
               color: "inherit",
