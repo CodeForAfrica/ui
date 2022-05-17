@@ -8,7 +8,7 @@ import MobileNavBar from "@/codeforafrica/components/NavBar/MobileNavBar";
 function NavBar({ menu }) {
   return (
     <NavigationBar>
-      <Section>
+      <Section sx={{ px: 2 }}>
         <MobileNavBar
           menu={menu}
           direction="column"

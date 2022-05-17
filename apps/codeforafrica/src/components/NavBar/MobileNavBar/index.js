@@ -48,10 +48,10 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
       {...other}
       ref={ref}
     >
-      <Grid item sx={{ ml: 2, py: 1 }}>
+      <Grid item>
         <NextImageButton src={cfaLogo} alt="Logo" width="116px" height="50px" />
       </Grid>
-      <Grid item sx={{ mr: 2 }}>
+      <Grid item>
         <Box sx={{ justifyContent: "flex-end" }}>
           <NextImageButton
             src={menuIcon}
