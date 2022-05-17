@@ -1,4 +1,4 @@
-import { Grid, Dialog, DialogContent, Slide } from "@mui/material";
+import { Grid, Dialog, DialogContent, Slide, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -6,8 +6,8 @@ import React from "react";
 /* eslint-disable import/no-unresolved */
 import cfaLogo from "@/codeforafrica/assets/CfA logo.svg?url";
 import menuIcon from "@/codeforafrica/assets/menu-icon.svg?url";
-import ImageIcon from "@/codeforafrica/components/ImageIcon";
 import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
+import NextImageButton from "@/codeforafrica/components/NextImageButton";
 
 const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   "& .MuiDialog-container": {
@@ -27,11 +27,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-const MobileNavigation = React.forwardRef(function MobileNavigation(
-  props,
-  ref
-) {
-  const { menu } = props;
+const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
+  const { menu, direction } = props;
 
   const [open, setOpen] = React.useState(false);
 
@@ -51,17 +48,19 @@ const MobileNavigation = React.forwardRef(function MobileNavigation(
       ref={ref}
       sx={{ display: { xs: "flex", md: "none" } }}
     >
-      <Grid item xs={4} sx={{ ml: 2, py: 1 }}>
-        <ImageIcon src={cfaLogo} alt="Logo" width="116px" height="50px" />
+      <Grid item sx={{ ml: 2, py: 1 }}>
+        <NextImageButton src={cfaLogo} alt="Logo" width="116px" height="50px" />
       </Grid>
-      <Grid item xs={6} container justifyContent="flex-end" sx={{ mr: 2 }}>
-        <ImageIcon
-          src={menuIcon}
-          alt="menu icon"
-          onClick={handleClickOpen}
-          width="32px"
-          height="32px"
-        />
+      <Grid item sx={{ mr: 2 }}>
+        <Box sx={{ justifyContent: "flex-end" }}>
+          <NextImageButton
+            src={menuIcon}
+            alt="menu icon"
+            onClick={handleClickOpen}
+            width="32px"
+            height="32px"
+          />
+        </Box>
         <DialogContainer
           fullScreen
           onClose={handleClose}
@@ -76,7 +75,7 @@ const MobileNavigation = React.forwardRef(function MobileNavigation(
             sx={{ m: 0, p: 2 }}
             onClose={handleClose}
           >
-            <NavBarNavList menu={menu} {...props} />
+            <NavBarNavList menu={menu} direction={direction} />
           </DialogContent>
         </DialogContainer>
       </Grid>
@@ -84,7 +83,8 @@ const MobileNavigation = React.forwardRef(function MobileNavigation(
   );
 });
 
-MobileNavigation.propTypes = {
+MobileNavBar.propTypes = {
+  direction: PropTypes.string,
   menu: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -93,8 +93,9 @@ MobileNavigation.propTypes = {
   ),
 };
 
-MobileNavigation.defaultProps = {
+MobileNavBar.defaultProps = {
+  direction: undefined,
   menu: undefined,
 };
 
-export default MobileNavigation;
+export default MobileNavBar;

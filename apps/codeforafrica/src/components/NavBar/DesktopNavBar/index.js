@@ -1,17 +1,14 @@
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
 /* eslint-disable import/no-unresolved */
 import cfaLogo from "@/codeforafrica/assets/CfA logo.svg?url";
-import ImageIcon from "@/codeforafrica/components/ImageIcon";
 import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
+import NextImageButton from "@/codeforafrica/components/NextImageButton";
 
-const DesktopNavigation = React.forwardRef(function DesktopNavigation(
-  props,
-  ref
-) {
-  const { menu } = props;
+const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
+  const { menu, direction } = props;
 
   return (
     <Grid
@@ -22,19 +19,20 @@ const DesktopNavigation = React.forwardRef(function DesktopNavigation(
       ref={ref}
       sx={{ display: { xs: "none", md: "flex" } }}
     >
-      <Grid item xs={4}>
-        <ImageIcon src={cfaLogo} alt="Logo" width="136px" height="61px" />
+      <Grid item>
+        <NextImageButton src={cfaLogo} alt="Logo" width="136px" height="61px" />
       </Grid>
-      <Grid item xs={8} container justifyContent="flex-end">
-        <Grid item>
-          <NavBarNavList menu={menu} {...props} />
-        </Grid>
+      <Grid item>
+        <Box sx={{ justifyContent: "flex-end" }}>
+          <NavBarNavList menu={menu} direction={direction} />
+        </Box>
       </Grid>
     </Grid>
   );
 });
 
-DesktopNavigation.propTypes = {
+DesktopNavBar.propTypes = {
+  direction: PropTypes.string,
   menu: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -43,8 +41,9 @@ DesktopNavigation.propTypes = {
   ),
 };
 
-DesktopNavigation.defaultProps = {
+DesktopNavBar.defaultProps = {
+  direction: undefined,
   menu: undefined,
 };
 
-export default DesktopNavigation;
+export default DesktopNavBar;

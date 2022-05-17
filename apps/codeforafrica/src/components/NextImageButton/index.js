@@ -13,7 +13,7 @@ const NextImageButton = React.forwardRef(function Logo(props, ref) {
   );
 });
 
-ImageIcon.propTypes = {
+NextImageButton.propTypes = {
   src: PropTypes.string,
   onClick: PropTypes.func,
   alt: PropTypes.string,
@@ -21,7 +21,7 @@ ImageIcon.propTypes = {
   height: PropTypes.string,
 };
 
-ImageIcon.defaultProps = {
+NextImageButton.defaultProps = {
   src: undefined,
   onClick: undefined,
   alt: undefined,
@@ -29,4 +29,4 @@ ImageIcon.defaultProps = {
   height: undefined,
 };
 
-export default ImageIcon;
+export default NextImageButton;

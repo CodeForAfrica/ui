@@ -2,15 +2,15 @@ import { NavBar as NavigationBar, Section } from "@commons-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
 
-import DesktopNavigation from "@/codeforafrica/components/NavBar/DesktopNavigation";
-import MobileNavigation from "@/codeforafrica/components/NavBar/MobileNavigation";
+import DesktopNavBar from "@/codeforafrica/components/NavBar/DesktopNavBar";
+import MobileNavBar from "@/codeforafrica/components/NavBar/MobileNavBar";
 
 function NavBar({ menu }) {
   return (
     <NavigationBar>
       <Section>
-        <MobileNavigation menu={menu} direction="column" />
-        <DesktopNavigation menu={menu} direction="row" />
+        <MobileNavBar menu={menu} direction="column" />
+        <DesktopNavBar menu={menu} direction="row" />
       </Section>
     </NavigationBar>
   );
