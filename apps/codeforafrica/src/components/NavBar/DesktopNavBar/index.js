@@ -17,7 +17,6 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
       alignItems="center"
       direction="row"
       ref={ref}
-      sx={{ display: { xs: "none", md: "flex" } }}
     >
       <Grid item>
         <NextImageButton src={cfaLogo} alt="Logo" width="136px" height="61px" />

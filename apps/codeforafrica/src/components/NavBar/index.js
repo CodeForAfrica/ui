@@ -9,8 +9,24 @@ function NavBar({ menu }) {
   return (
     <NavigationBar>
       <Section>
-        <MobileNavBar menu={menu} direction="column" />
-        <DesktopNavBar menu={menu} direction="row" />
+        <MobileNavBar
+          menu={menu}
+          direction="column"
+          sx={{
+            "& > MuiGrid-root": {
+              display: { xs: "none", md: "flex" },
+            },
+          }}
+        />
+        <DesktopNavBar
+          menu={menu}
+          direction="row"
+          sx={{
+            "& > MuiGrid-root": {
+              display: { xs: "flex", md: "none" },
+            },
+          }}
+        />
       </Section>
     </NavigationBar>
   );

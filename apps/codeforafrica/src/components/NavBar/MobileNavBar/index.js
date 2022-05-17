@@ -46,7 +46,6 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
       alignItems="center"
       direction="row"
       ref={ref}
-      sx={{ display: { xs: "flex", md: "none" } }}
     >
       <Grid item sx={{ ml: 2, py: 1 }}>
         <NextImageButton src={cfaLogo} alt="Logo" width="116px" height="50px" />
