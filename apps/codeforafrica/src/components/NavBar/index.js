@@ -13,7 +13,7 @@ function NavBar({ menu }) {
           menu={menu}
           direction="column"
           sx={{
-            "& > MuiGrid-root": {
+            "MuiGrid-root": {
               display: { xs: "none", md: "flex" },
             },
           }}
@@ -22,7 +22,7 @@ function NavBar({ menu }) {
           menu={menu}
           direction="row"
           sx={{
-            "& > MuiGrid-root": {
+            "MuiGrid-root": {
               display: { xs: "flex", md: "none" },
             },
           }}
