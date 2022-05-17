@@ -9,7 +9,7 @@ exports[`<ProjectCard /> renders unchanged 1`] = `
       class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-k1vjuk-MuiCardMedia-root"
     />
     <div
-      class="MuiBox-root css-j7qwjs"
+      class="MuiBox-root css-zg1vud"
     >
       <div
         class="MuiCardContent-root css-8kp80x-MuiCardContent-root"

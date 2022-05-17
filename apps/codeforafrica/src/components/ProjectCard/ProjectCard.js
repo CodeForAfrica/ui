@@ -43,7 +43,13 @@ const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
       {...other}
     >
       <ProjectCardMedia {...thumbnail} component="img" />
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <CardContent
           sx={{
             p: 0,
