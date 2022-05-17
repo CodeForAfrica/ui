@@ -1,19 +1,13 @@
 import { Link } from "@commons-ui/next";
-import { useTheme } from "@mui/material/styles";
 import SvgIcon from "@mui/material/SvgIcon";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import PropTypes from "prop-types";
 import React from "react";
 
 import { ReactComponent as TwitterDesktopIcon } from "@/codeforafrica/assets/twitterDesktop.svg";
-import { ReactComponent as TwitterMobileIcon } from "@/codeforafrica/assets/twitterMobile.svg";
 import NavList from "@/codeforafrica/components/NavList";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
 function NavBarNavList({ menu, direction }) {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
   if (!menu?.length) {
     return null;
   }
@@ -39,11 +33,14 @@ function NavBarNavList({ menu, direction }) {
         </NavListItem>
       ))}
       <NavListItem sx={{ mr: 0, mt: "20px", mb: "20px", ml: "20px" }}>
-        <Link href="https://twitter.com/?lang=en">
+        <Link
+          href="https://twitter.com/?lang=en"
+          sx={{ color: { xs: "white" } }}
+        >
           <SvgIcon
-            component={isMobile ? TwitterMobileIcon : TwitterDesktopIcon}
+            component={TwitterDesktopIcon}
             viewBox="0 0 32 32"
-            sx={{ color: "white", mt: { xs: 0, md: 1 } }}
+            sx={{ color: "inherit", mt: { xs: 0, md: 1 } }}
           />
         </Link>
       </NavListItem>
