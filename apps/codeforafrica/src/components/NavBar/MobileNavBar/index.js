@@ -69,7 +69,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
           open={open}
         >
           <DialogContent
-            id="customized-dialog-title"
+            id="mobile-navbar-dialog"
             sx={{ m: 0, p: 2 }}
             onClose={handleClose}
           >
