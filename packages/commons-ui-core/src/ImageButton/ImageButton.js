@@ -38,7 +38,7 @@ const ImageRoot = styled("span", {
 }));
 
 const ImageButton = React.forwardRef(function ImageButton(props, ref) {
-  const { children, src, onClick } = props;
+  const { children, src, ...other } = props;
   let image = children;
   if (src) {
     image = <ImageRoot src={src} />;
