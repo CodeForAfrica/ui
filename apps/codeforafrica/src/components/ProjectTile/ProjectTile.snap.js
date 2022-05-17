@@ -4,7 +4,7 @@ exports[`<ProjectTile /> renders unchanged 1`] = `
 <div>
   <div
     category="Projects"
-    class="MuiPaper-root MuiPaper-outlined MuiCard-root css-1acrqu3-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-outlined MuiCard-root css-ebtd9j-MuiPaper-root-MuiCard-root"
     slug="african-drone"
   >
     <a
@@ -25,12 +25,12 @@ exports[`<ProjectTile /> renders unchanged 1`] = `
         class="css-1v20l1v-MuiStack-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body3SemiBold css-1qe0j70-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body3SemiBold css-dyfp2-MuiTypography-root"
         >
           africanDRONE
         </span>
         <p
-          class="MuiTypography-root MuiTypography-body2 css-1u9aawg-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-1rafkl6-MuiTypography-root"
         >
           Drones for good
         </p>
