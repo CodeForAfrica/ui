@@ -38,7 +38,6 @@ function NavBarNavList({ menu, direction }) {
         >
           <SvgIcon
             component={TwitterIcon}
-            stroke="inherit"
             sx={{
               mt: direction === "column" ? 0 : 1,
             }}
