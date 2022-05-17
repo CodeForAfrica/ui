@@ -13,18 +13,14 @@ function NavBar({ menu }) {
           menu={menu}
           direction="column"
           sx={{
-            "MuiGrid-root": {
-              display: { xs: "none", md: "flex" },
-            },
+            display: { xs: "none", md: "flex" },
           }}
         />
         <DesktopNavBar
           menu={menu}
           direction="row"
           sx={{
-            "MuiGrid-root": {
-              display: { xs: "flex", md: "none" },
-            },
+            display: { xs: "flex", md: "none" },
           }}
         />
       </Section>
