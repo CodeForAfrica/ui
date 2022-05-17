@@ -23,6 +23,9 @@ const menu = [
   },
 ];
 
+const navbar = {
+  menu,
+};
 const footer = {
   menu,
   subscription: {
@@ -254,6 +257,7 @@ function getHomePageStaticProps() {
         },
       ],
       footer,
+      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -271,6 +275,7 @@ function getStoriesPageStaticProps() {
         },
       ],
       footer,
+      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
