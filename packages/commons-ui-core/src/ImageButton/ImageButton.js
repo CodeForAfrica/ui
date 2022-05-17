@@ -41,16 +41,11 @@ const ImageButton = React.forwardRef(function ImageButton(props, ref) {
   const { children, src, onClick } = props;
   let image = children;
   if (src) {
-    image = <ImageRoot src={src} />;
+    image = <ImageRoot src={src} onClick={onClick} />;
   }
   const ownerState = { ...props };
   return (
-    <ImageButtonRoot
-      ownerState={ownerState}
-      ref={ref}
-      {...props}
-      onClick={onClick}
-    >
+    <ImageButtonRoot ownerState={ownerState} ref={ref} {...props}>
       {image}
     </ImageButtonRoot>
   );
