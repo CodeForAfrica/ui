@@ -20,8 +20,7 @@ function NavBarNavList({ menu, direction }) {
             color="inherit"
             underline="none"
             sx={{
-              typography: { xs: "h4", md: "subtitle1" },
-              fontWeight: { xs: 700, md: 400 },
+              typography: { xs: "h4", md: "body3" },
               "&:hover, &:active, &:focus, &:focus-within": {
                 textDecoration: "none",
                 color: { xs: "inherit", md: "primary.main" },
