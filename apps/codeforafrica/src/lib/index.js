@@ -155,6 +155,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705960/codeforafrica/images/Property_1_africanDRONE_y4surg.jpg",
     },
     category: "Projects",
+    href: "/projects/african-drone",
   },
   {
     slug: "wana-data",
@@ -173,6 +174,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_WanaData_t3tbex.jpg",
     },
     category: "Projects",
+    href: "/projects/wana-data",
   },
   {
     slug: "pesa-check",
@@ -191,6 +193,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
+    href: "projects/pesa-check",
   },
   {
     slug: "open-africa",
@@ -209,6 +212,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
+    href: "projects/open-africa",
   },
   {
     slug: "civic-signal",
@@ -227,6 +231,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
+    href: "projects/civic-signal",
   },
   {
     slug: "source-africa",
@@ -245,6 +250,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
+    href: "projects/source-africa",
   },
 ];
 
