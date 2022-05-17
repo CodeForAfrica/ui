@@ -5,6 +5,7 @@ import React from "react";
 
 /* eslint-disable import/no-unresolved */
 import cfaLogo from "@/codeforafrica/assets/CfA logo.svg?url";
+import closebutton from "@/codeforafrica/assets/close-button.svg?url";
 import menuIcon from "@/codeforafrica/assets/menu-icon.svg?url";
 import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
 import NextImageButton from "@/codeforafrica/components/NextImageButton";
@@ -65,15 +66,29 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
           fullScreen
           onClose={handleClose}
           TransitionComponent={Transition}
-          aria-labelledby="customized-dialog-title"
+          aria-labelledby="mobile-navbar-dialog-container"
           open={open}
         >
           <DialogContent
             id="mobile-navbar-dialog"
-            sx={{ m: 0, p: 2 }}
+            sx={{
+              m: 0,
+              p: 2,
+              display: "flex",
+              color: "inherit",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
+            }}
             onClose={handleClose}
           >
             <NavBarNavList menu={menu} direction={direction} />
+            <NextImageButton
+              src={closebutton}
+              alt="Logo"
+              width="40px"
+              height="40px"
+              onClick={handleClose}
+            />
           </DialogContent>
         </DialogContainer>
       </Grid>
