@@ -3,7 +3,7 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-const ImageIcon = React.forwardRef(function Logo(props, ref) {
+const NextImageButton = React.forwardRef(function Logo(props, ref) {
   const { alt, src, onClick, width, height } = props;
 
   return (
