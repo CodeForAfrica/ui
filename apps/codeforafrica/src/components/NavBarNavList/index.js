@@ -31,7 +31,7 @@ function NavBarNavList({ menu, direction }) {
           </Link>
         </NavListItem>
       ))}
-      <NavListItem sx={{ mr: 0, mt: "20px", mb: "20px", ml: "20px" }}>
+      <NavListItem sx={{ mr: 0, my: "20px", ml: "20px" }}>
         <Link
           href="https://twitter.com/?lang=en"
           sx={{ color: { xs: "white" } }}
