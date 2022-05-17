@@ -34,7 +34,7 @@ function NavBarNavList({ menu, direction }) {
       <NavListItem sx={{ mr: 0, my: "20px", ml: "20px" }}>
         <Link
           href="https://twitter.com/?lang=en"
-          sx={{ color: { xs: "white" } }}
+          sx={{ color: { xs: "inherit" } }}
         >
           <SvgIcon
             component={TwitterIcon}
