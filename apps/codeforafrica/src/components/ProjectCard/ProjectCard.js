@@ -1,4 +1,6 @@
 import { RichTypography } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -15,11 +17,11 @@ const ProjectCardRoot = styled(Card, {
   display: "flex",
   flexDirection: "column",
   gap: theme.spacing(2),
-  padding: theme.spacing(2.5),
+  padding: `${theme.spacing(2.5)} 0`,
   [theme.breakpoints.up("md")]: {
     flexDirection: "row",
     gap: 58,
-    padding: `0 ${theme.spacing(5)}`,
+    padding: `${theme.spacing(5)} 0`,
   },
 }));
 
@@ -41,28 +43,37 @@ const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
       {...other}
     >
       <ProjectCardMedia {...thumbnail} component="img" />
-      <CardContent
-        sx={{
-          p: 0,
-          "&:last-child": {
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <CardContent
+          sx={{
             p: 0,
-          },
-        }}
-      >
-        <ProjectTile {...tileProps} />
-        <RichTypography color="primary" variant="h5" sx={{ mt: 2 }}>
-          {title}
-        </RichTypography>
-        <RichTypography
-          variant="body1"
-          sx={{ mt: 2.5, typography: { md: "body2" } }}
+            "&:last-child": {
+              p: 0,
+            },
+          }}
         >
-          {subtitle}
-        </RichTypography>
-      </CardContent>
-      <CardActions sx={{ p: 0 }}>
-        <Button variant="outlined">Learn More</Button>
-      </CardActions>
+          <ProjectTile {...tileProps} />
+          <RichTypography color="primary" variant="h5" sx={{ mt: 2 }}>
+            {title}
+          </RichTypography>
+          <RichTypography
+            variant="body1"
+            sx={{ mt: 2.5, typography: { md: "body2" } }}
+          >
+            {subtitle}
+          </RichTypography>
+        </CardContent>
+        <CardActions sx={{ mt: 2, p: 0 }}>
+          <Button
+            href={href}
+            component={href ? Link : undefined}
+            variant="outlined"
+            sx={{ py: 1 }}
+          >
+            Learn More
+          </Button>
+        </CardActions>
+      </Box>
     </ProjectCardRoot>
   );
 });

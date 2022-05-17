@@ -8,7 +8,7 @@ import theme from "@/codeforafrica/theme";
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-describe("<ArticleCard />", () => {
+describe("<ProjectCard />", () => {
   it("renders unchanged", () => {
     const { container } = render(<ProjectCard />);
     expect(container).toMatchSnapshot();
