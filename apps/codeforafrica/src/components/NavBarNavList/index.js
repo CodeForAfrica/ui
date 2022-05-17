@@ -41,11 +41,7 @@ function NavBarNavList({ menu, direction }) {
             component={TwitterIcon}
             stroke="inherit"
             sx={{
-              color: "inherit",
-              mt: { xs: 0, md: 1 },
-              "& >path": {
-                stroke: { xs: "inherit", md: "black" },
-              },
+              mt: direction === "column" ? 0 : 1,
             }}
           />
         </Link>
