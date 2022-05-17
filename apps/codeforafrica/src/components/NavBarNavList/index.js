@@ -1,5 +1,4 @@
 import { Link } from "@commons-ui/next";
-import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
 import SvgIcon from "@mui/material/SvgIcon";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -19,38 +18,36 @@ function NavBarNavList({ menu, direction }) {
     return null;
   }
   return (
-    <Box component="nav">
-      <NavList direction={direction} sx={{ alignItems: "flex-start" }}>
-        {menu.map((item) => (
-          <NavListItem key={item.label} sx={{ m: "20px" }}>
-            <Link
-              href={item.href}
-              color="inherit"
-              underline="none"
-              sx={{
-                typography: { xs: "h4", md: "body3" },
-                fontWeight: { xs: 700, md: 400 },
-                "&:hover, &:active, &:focus, &:focus-within": {
-                  textDecoration: "none",
-                  color: { xs: "inherit", md: "primary.main" },
-                },
-              }}
-            >
-              {item.label}
-            </Link>
-          </NavListItem>
-        ))}
-        <NavListItem sx={{ mr: 0, mt: "20px", mb: "20px", ml: "20px" }}>
-          <Link href="https://twitter.com/?lang=en">
-            <SvgIcon
-              component={isMobile ? TwitterMobileIcon : TwitterDesktopIcon}
-              viewBox="0 0 32 32"
-              sx={{ color: "white", mt: { xs: 0, md: 1 } }}
-            />
+    <NavList direction={direction} sx={{ alignItems: "flex-start" }}>
+      {menu.map((item) => (
+        <NavListItem key={item.label} sx={{ m: "20px" }}>
+          <Link
+            href={item.href}
+            color="inherit"
+            underline="none"
+            sx={{
+              typography: { xs: "h4", md: "subtitle1" },
+              fontWeight: { xs: 700, md: 400 },
+              "&:hover, &:active, &:focus, &:focus-within": {
+                textDecoration: "none",
+                color: { xs: "inherit", md: "primary.main" },
+              },
+            }}
+          >
+            {item.label}
           </Link>
         </NavListItem>
-      </NavList>
-    </Box>
+      ))}
+      <NavListItem sx={{ mr: 0, mt: "20px", mb: "20px", ml: "20px" }}>
+        <Link href="https://twitter.com/?lang=en">
+          <SvgIcon
+            component={isMobile ? TwitterMobileIcon : TwitterDesktopIcon}
+            viewBox="0 0 32 32"
+            sx={{ color: "white", mt: { xs: 0, md: 1 } }}
+          />
+        </Link>
+      </NavListItem>
+    </NavList>
   );
 }
 
