@@ -252,6 +252,44 @@ const projects = [
     category: "Projects",
     href: "projects/source-africa",
   },
+  {
+    slug: "initiative-africa",
+    name: "initiativeAFRICA",
+    tagLine: "Tag line",
+    title:
+      'Empowering citizens through <span class="highlight">drone technology</span>',
+    subtitle:
+      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
+    description:
+      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
+    icon: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg",
+    },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
+    },
+    category: "Initiatives",
+    href: "projects/initiative-africa",
+  },
+  {
+    slug: "knowledge-africa",
+    name: "knowledgeAFRICA",
+    tagLine: "Tag line",
+    title:
+      'Empowering citizens through <span class="highlight">drone technology</span>',
+    subtitle:
+      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
+    description:
+      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
+    icon: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg",
+    },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
+    },
+    category: "Knowedge",
+    href: "projects/knowledge-africa",
+  },
 ];
 
 const DEFAULT_REVALIDATE = 3 * 60; // 3 minutes
