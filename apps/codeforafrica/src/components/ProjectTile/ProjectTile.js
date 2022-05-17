@@ -16,10 +16,20 @@ const ProjectTileRoot = styled(Card, {
   display: "flex",
   ...(ownerState.variant === "standard" && {
     width: "fit-content",
-    padding: `${theme.typography.pxToRem(25)} ${theme.typography.pxToRem(16)}`,
+    padding: `${theme.typography.pxToRem(8)} ${theme.typography.pxToRem(16)}`,
+    [theme.breakpoints.up("md")]: {
+      padding: `${theme.typography.pxToRem(25)} ${theme.typography.pxToRem(
+        16
+      )}`,
+    },
   }),
   ...(ownerState.variant === "detailed" && {
-    padding: `${theme.typography.pxToRem(25)} ${theme.typography.pxToRem(24)}`,
+    padding: `${theme.typography.pxToRem(8)} ${theme.typography.pxToRem(24)}`,
+    [theme.breakpoints.up("md")]: {
+      padding: `${theme.typography.pxToRem(25)} ${theme.typography.pxToRem(
+        16
+      )}`,
+    },
   }),
   "&:hover": {
     background:
