@@ -27,9 +27,9 @@ function NavBarNavList({ menu, direction }) {
               href={item.href}
               color="inherit"
               underline="none"
-              variant={isMobile ? "h4" : "subtitle1"}
-              fontWeight={isMobile ? 700 : 400}
               sx={{
+                typography: { xs: "h4", md: "body3" },
+                fontWeight: { xs: 700, md: 400 },
                 "&:hover, &:active, &:focus, &:focus-within": {
                   textDecoration: "none",
                   color: { xs: "inherit", md: "primary.main" },
