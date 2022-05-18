@@ -35,7 +35,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
       ))}
       <NavListItem sx={{ m: "20px", mr: 0 }}>
         <Link
-          href="https://twitter.com/?lang=en"
+          href="https://twitter.com/Code4Africa"
           sx={{ color: { xs: "inherit" } }}
         >
           <SvgIcon

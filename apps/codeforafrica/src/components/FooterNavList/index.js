@@ -6,7 +6,7 @@ import React from "react";
 import NavList from "@/codeforafrica/components/NavList";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
-function FooterNavList({ menu }) {
+function FooterNavList({ menu, children }) {
   if (!menu?.length) {
     return null;
   }
@@ -20,7 +20,7 @@ function FooterNavList({ menu }) {
     >
       <NavList
         direction="column"
-        sx={{ alignItems: { xs: "center", md: "flex-start" } }}
+        sx={{ padding: 0, alignItems: { xs: "center", md: "flex-start" } }}
       >
         {menu.map((item) => (
           <NavListItem key={item.label} sx={{ mb: "20px" }}>
@@ -41,6 +41,7 @@ function FooterNavList({ menu }) {
             </Link>
           </NavListItem>
         ))}
+        {children}
       </NavList>
     </Box>
   );
