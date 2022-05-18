@@ -38,7 +38,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
           item
           xs={12}
           md={4}
-          sx={{ textAlign: { xs: "center", md: "left" } }}
+          sx={{ margin: "auto", textAlign: { xs: "center", md: "left" } }}
         >
           <Title>Stay in touch:</Title>
         </Grid>
