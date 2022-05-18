@@ -12,6 +12,12 @@ const defaultProps = {
   subscription: {
     embedCode: "",
   },
+  footerLinks: {
+    secondary: [
+      { name: "Imprint", href: "www.imprint.com" },
+      { name: "Privacy policy", href: "www.policy.com" },
+    ],
+  },
   menu: [
     {
       label: "Our Work",

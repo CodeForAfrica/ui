@@ -6,8 +6,7 @@ exports[`<FooterNavList /> renders unchanged 1`] = `
     class="MuiBox-root css-l2rxmg"
   >
     <ul
-      class="css-18zatd"
-      direction="column"
+      class="css-5h2p8o"
     >
       <li
         class="css-1ujh2ms"

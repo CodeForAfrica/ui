@@ -11,7 +11,7 @@ const menu = [
   },
   {
     label: "Stories",
-    href: "/about",
+    href: "/stories",
   },
   {
     label: "Opportunity",
@@ -27,6 +27,58 @@ const navbar = {
   menu,
 };
 const footer = {
+  socialMedia: [
+    {
+      url: "https://twitter.com/Code4Africa",
+      image: {
+        alt: "Twitter",
+        url: "/icons/Type=twitter, Size=32, Color=White.svg",
+      },
+    },
+    {
+      url: "https://cfa.slack.com",
+      image: {
+        alt: "Slack",
+        url: "/icons/Type=slack, Size=32, Color=White.svg",
+      },
+    },
+    {
+      url: "https://ke.linkedin.com/company/code-for-africa",
+      image: {
+        alt: "LinkedIn",
+        url: "/icons/Type=linkedin, Size=32, Color=White.svg",
+      },
+    },
+    {
+      url: "https://www.facebook.com/CodeForAfrica/",
+      image: {
+        alt: "Facebook",
+        url: "/icons/Type=facebook, Size=32, Color=White.svg",
+      },
+    },
+    {
+      url: "https://www.instagram.com/code4africa__/",
+      image: {
+        alt: "Instagram",
+        url: "/icons/Type=instagram, Size=32, Color=White.svg",
+      },
+    },
+    {
+      url: "https://github.com/CodeForAfrica",
+      image: {
+        alt: "Github",
+        url: "/icons/Type=github, Size=32, Color=White.svg",
+      },
+    },
+  ],
+  additionalLinks: {
+    secondary: [
+      { name: "Imprint", href: "/imprint" },
+      { name: "Privacy policy", href: "/privacy" },
+    ],
+  },
+  description:
+    "This site is a project of Code for Africa, the continent's largest network of civic technology and data journalism labs. All content is released under a Creative Commons 4 Attribution Licence. Reuse it to help empower your own community.",
   menu,
   subscription: {
     embedCode: `
@@ -140,7 +192,7 @@ const articles = [
   },
 ];
 
-const projects = [
+export const projects = [
   {
     slug: "african-drone",
     name: "africanDRONE",
@@ -196,7 +248,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
-    href: "projects/pesa-check",
+    href: "/projects/pesa-check",
   },
   {
     slug: "open-africa",
@@ -215,7 +267,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
-    href: "projects/open-africa",
+    href: "/projects/open-africa",
   },
   {
     slug: "civic-signal",
@@ -234,7 +286,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
-    href: "projects/civic-signal",
+    href: "/projects/civic-signal",
   },
   {
     slug: "source-africa",
@@ -253,12 +305,12 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
-    href: "projects/source-africa",
+    href: "/projects/source-africa",
   },
   {
     slug: "initiative-africa",
     name: "initiativeAFRICA",
-    tagLine: "Tag line",
+    tagLine: "Initiative tag line",
     title:
       'Empowering citizens through <span class="highlight">drone technology</span>',
     subtitle:
@@ -272,12 +324,12 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Initiatives",
-    href: "projects/initiative-africa",
+    href: "/projects/initiative-africa",
   },
   {
     slug: "knowledge-africa",
     name: "knowledgeAFRICA",
-    tagLine: "Tag line",
+    tagLine: "Knowledge tag line",
     title:
       'Empowering citizens through <span class="highlight">drone technology</span>',
     subtitle:
@@ -291,7 +343,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Knowedge",
-    href: "projects/knowledge-africa",
+    href: "/projects/knowledge-africa",
   },
 ];
 
@@ -336,9 +388,39 @@ function getProjectsPageStaticProps() {
         },
       ],
       footer,
+      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
+}
+
+function getProjectPageStaticProps(params) {
+  const project = projects.find(
+    ({ href }) =>
+      href.localeCompare(params?.slug, undefined, {
+        sensitivity: "accent",
+      }) === 0
+  );
+  if (project) {
+    return {
+      props: {
+        title: `${project.name} | Projects | Code for Africa`,
+        project,
+        sections: [
+          {
+            slug: "related-projects",
+            title: "Explore other projects",
+            projects: projects.slice(0, 3),
+          },
+        ],
+        footer,
+        navbar,
+      },
+      revalidate: DEFAULT_REVALIDATE,
+    };
+  }
+
+  return { notFound: true };
 }
 
 function getStoriesPageStaticProps() {
@@ -379,6 +461,7 @@ function getStoryPageStaticProps(params) {
           },
         ],
         footer,
+        navbar,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -399,6 +482,9 @@ export async function getPageStaticProps(params) {
       return getStoriesPageStaticProps(params);
     }
     default:
+      if (params?.slug?.startsWith("/projects/")) {
+        return getProjectPageStaticProps(params);
+      }
       if (params?.slug?.startsWith("/stories/")) {
         return getStoryPageStaticProps(params);
       }

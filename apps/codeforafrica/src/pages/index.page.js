@@ -14,7 +14,7 @@ function Index({ sections, ...props }) {
             return <FeaturedProjects {...section} key={section.slug} />;
           }
           case "news-stories": {
-            return <NewsAndStories key={section.slug} {...section} />;
+            return <NewsAndStories {...section} key={section.slug} />;
           }
           default:
             return null;
