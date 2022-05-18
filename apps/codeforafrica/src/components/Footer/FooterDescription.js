@@ -1,5 +1,7 @@
 import { Typography } from "@mui/material";
 import Image from "next/image";
+import { Link } from "@commons-ui/next";
+
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -12,7 +14,9 @@ function FooterDescription({ description }) {
 
   return (
     <>
-      <Image src={cfaIcon} alt="" />
+      <Link href="/">
+        <Image src={cfaIcon} alt="" />
+      </Link>
       <Typography
         variant="body1"
         sx={{ marginTop: "3.125rem", fontSize: { md: 12, xs: 12 } }}
