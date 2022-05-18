@@ -2,6 +2,10 @@
   "name": "ui",
   "version": "0.0.0",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev storybook --parallel",
@@ -9,6 +13,7 @@
     "prepare": "husky install",
     "release": "changeset version && pnpm install",
     "publish": "-r publish",
+    "jest": "turbo run jest",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'"
@@ -16,9 +21,9 @@
   "devDependencies": {
     "@changesets/cli": "^2.22.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.4.0",
+    "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
-    "turbo": "^1.2.5"
+    "turbo": "^1.2.8"
   },
   "packageManager": "pnpm@6.31.0"
 }

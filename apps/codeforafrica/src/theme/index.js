@@ -105,11 +105,33 @@ const theme = createTheme({
       fontStyle: "normal",
       fontWeight: 400,
     },
+    body2: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontWeight: 400,
+    },
+    body3: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontWeight: 400,
+    },
+    button: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontWeight: 600,
+    },
     caption: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
       fontWeight: 400,
       lineHeight: 14 / 23,
+    },
+    footer: {
+      fontFamily: FONT_FAMILY_PRIMARY,
+      fontStyle: "normal",
+      fontWeight: 400,
+      lineHeight: 14 / 12,
+      letterSpacing: "0.02rem",
     },
   },
   components: {
@@ -117,66 +139,77 @@ const theme = createTheme({
       defaultProps: {
         disableRipple: true,
       },
+      styleOverrides: {
+        root: {
+          borderRadius: 0,
+        },
+      },
     },
     MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 0,
+          boxShadow: "none",
+          "&:hover": {
+            boxShadow: "none",
+          },
+        },
+        containedPrimary: {
+          border: `1px solid ${palette.primary.main}`,
+          "&:hover": {
+            backgroundColor: palette.text.secondary,
+            color: palette.primary.main,
+          },
+        },
+        sizeMedium: {
+          padding: "12px 18px",
+        },
+        sizeLarge: {
+          padding: 24,
+        },
+      },
       variants: [
         {
-          props: { variant: "contained", color: "primary" },
+          props: { variant: "contained-reverse", color: "primary" },
           style: {
-            backgroundColor: palette.primary.main,
-            color: palette.text.secondary.main,
-            transition: "none !important",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
+            backgroundColor: palette.text.secondary,
+            border: `1px solid ${palette.primary.main}`,
+            color: palette.primary.main,
             "&:hover": {
               backgroundColor: palette.primary.main,
-              color: palette.text.secondary.main,
-            },
-          },
-        },
-        {
-          props: { variant: "contained", color: "secondary" },
-          style: {
-            backgroundColor: palette.primary.dark,
-            color: palette.text.secondary.main,
-            transition: "none !important",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            "&:hover": {
-              backgroundColor: palette.primary.dark,
-              color: palette.text.secondary.main,
-            },
-          },
-        },
-        {
-          props: { variant: "outlined", color: "primary" },
-          style: {
-            backgroundColor: palette.text.secondary.main,
-            color: palette.primary.main,
-            transition: "none !important",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            "&:hover": {
-              backgroundColor: palette.text.secondary.main,
-              color: palette.primary.main,
-            },
-          },
-        },
-        {
-          props: { variant: "default", color: "primary" },
-          style: {
-            backgroundColor: palette.grey.light,
-            color: palette.grey.main,
-            transition: "none !important",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            "&:hover": {
-              backgroundColor: palette.grey.light,
-              color: palette.grey.main,
+              border: `1px solid ${palette.text.secondary}`,
+              color: palette.text.secondary,
             },
           },
         },
       ],
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: ({ ownerState }) => ({
+          borderRadius: 3,
+          padding: 8,
+          "&.MuiChip-clickable": {
+            "&:hover": {
+              backgroundColor: palette.background.main,
+              ...(ownerState.variant === "filled" &&
+                ownerState.color === "primary" && {
+                  backgroundColor: "#E0E2FC",
+                }),
+            },
+          },
+        }),
+        filled: ({ ownerState }) => ({
+          border: `1px solid ${palette.background.main}`,
+          backgroundColor: palette.background.main,
+          color: palette.secondary.light,
+          ...(ownerState.color === "primary" && {
+            border: `1px solid ${palette.primary.main}`,
+            backgroundColor: "#E0E2FC",
+            color: palette.primary.main,
+          }),
+        }),
+      },
     },
   },
 });
@@ -201,7 +234,6 @@ deepmerge(
         lineHeight: 56 / 48,
       },
     },
-
     h2: {
       fontSize: pxToRem(23),
       lineHeight: 28 / 23,
@@ -210,25 +242,22 @@ deepmerge(
         lineHeight: 47 / 39,
       },
     },
-
     h3: {
       fontSize: pxToRem(28),
       lineHeight: 34 / 28,
-      [theme.breakpoints.up("md")]: {
+      [theme.breakpoints.up("sm")]: {
         fontSize: pxToRem(33),
         lineHeight: 40 / 33,
       },
     },
-
     h4: {
       fontSize: pxToRem(23),
       lineHeight: 28 / 23,
-      [theme.breakpoints.up("md")]: {
+      [theme.breakpoints.up("sm")]: {
         fontSize: pxToRem(28),
         lineHeight: 34 / 28,
       },
     },
-
     h5: {
       fontSize: pxToRem(19),
       lineHeight: 23 / 19,
@@ -237,7 +266,6 @@ deepmerge(
         lineHeight: 28 / 23,
       },
     },
-
     h6: {
       fontSize: pxToRem(16),
       lineHeight: 19 / 16,
@@ -246,7 +274,6 @@ deepmerge(
         lineHeight: 23 / 19,
       },
     },
-
     subheading: {
       fontSize: pxToRem(18),
       lineHeight: 28 / 18,
@@ -255,7 +282,6 @@ deepmerge(
         lineHeight: 30 / 20,
       },
     },
-
     subtitle1: {
       fontSize: pxToRem(16),
       lineHeight: 26 / 16,
@@ -264,7 +290,6 @@ deepmerge(
         lineHeight: 28 / 18,
       },
     },
-
     subtitle2: {
       fontSize: pxToRem(14),
       lineHeight: 23 / 14,
@@ -273,17 +298,78 @@ deepmerge(
         lineHeight: 26 / 16,
       },
     },
-
     body1: {
-      fontSize: pxToRem(12),
-      lineHeight: 14 / 12,
-      [theme.breakpoints.up("md")]: {
-        fontSize: pxToRem(14),
-        lineHeight: 23 / 14,
-      },
+      fontSize: pxToRem(14),
+      lineHeight: 23 / 14,
+    },
+    body1SemiBold: {
+      ...theme.typography.body1,
+      fontSize: pxToRem(14),
+      fontWeight: 600,
+      lineHeight: 17 / 14,
+    },
+    body1Underline: {
+      ...theme.typography.body1,
+      fontSize: pxToRem(14),
+      lineHeight: 17 / 14,
+    },
+    body2: {
+      fontSize: pxToRem(16),
+      lineHeight: 26 / 16,
+    },
+    body2SemiBold: {
+      ...theme.typography.body2,
+      fontSize: pxToRem(16),
+      fontWeight: 600,
+      lineHeight: 19 / 16,
+    },
+    body2Underline: {
+      ...theme.typography.body2,
+      fontSize: pxToRem(16),
+      lineHeight: 19 / 16,
+      textDecoration: "underline",
+    },
+    body3: {
+      fontSize: pxToRem(18),
+      lineHeight: 28 / 18,
+    },
+    body3SemiBold: {
+      ...theme.typography.body3,
+      fontSize: pxToRem(18),
+      fontWeight: 600,
+      lineHeight: 24 / 18,
+    },
+    body3Underline: {
+      ...theme.typography.body3,
+      fontSize: pxToRem(18),
+      lineHeight: 24 / 18,
+      textDecoration: "underline",
+    },
+    button: {
+      fontSize: pxToRem(16),
+      lineHeight: 19 / 16,
+      // 10% of 16px = 1.6px
+      letterSpacing: pxToRem(0.16),
     },
     caption: {
       fontSize: pxToRem(14),
+    },
+    footer: {
+      fontSize: pxToRem(12),
+    },
+    footerSemiBold: {
+      ...theme.typography.footer,
+      fontWeight: 600,
+      fontSize: pxToRem(10),
+      lineHeight: 12 / 10,
+    },
+    footerCap: {
+      ...theme.typography.footer,
+      fontWeight: 700,
+      fontSize: pxToRem(10),
+      lineHeight: 14 / 10,
+      letterSpacing: "0.08rem",
+      textTransform: "uppercase",
     },
   },
   { clone: false }

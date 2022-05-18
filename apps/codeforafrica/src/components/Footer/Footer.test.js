@@ -12,6 +12,34 @@ const defaultProps = {
   subscription: {
     embedCode: "",
   },
+  footerLinks: {
+    secondary: [
+      { name: "Imprint", href: "www.imprint.com" },
+      { name: "Privacy policy", href: "www.policy.com" },
+    ],
+  },
+  menu: [
+    {
+      label: "Our Work",
+      href: "/our-work",
+    },
+    {
+      label: "About",
+      href: "/about",
+    },
+    {
+      label: "Stories",
+      href: "/about",
+    },
+    {
+      label: "Opportunity",
+      href: "/opportunity",
+    },
+    {
+      label: "Contact",
+      href: "/contact",
+    },
+  ],
 };
 
 describe("<Footer />", () => {

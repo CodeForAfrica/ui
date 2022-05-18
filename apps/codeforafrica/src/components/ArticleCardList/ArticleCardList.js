@@ -8,7 +8,7 @@ import ArticleCardContent from "@/codeforafrica/components/ArticleCardContent";
 import ArticleCardMedia from "@/codeforafrica/components/ArticleCardMedia";
 
 const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
-  const { items: articles, ...other } = props;
+  const { articles, ...other } = props;
 
   if (!articles?.length) {
     return null;
@@ -31,7 +31,10 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
           >
             <CardActionArea href={article.href}>
               <ArticleCardMedia
-                sx={{ display: { xs: "none", sm: "block" } }}
+                sx={{
+                  display: { xs: "none", sm: "block" },
+                  height: "217.64px",
+                }}
                 src={article.src}
               />
               <ArticleCardContent>
