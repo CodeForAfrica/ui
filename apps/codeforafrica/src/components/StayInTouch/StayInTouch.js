@@ -4,7 +4,7 @@ import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-import Title from "./Title";
+import Title from "@/codeforafrica/components/StayInTouchTitle";
 
 const IconRoot = styled("img", {
   slot: "Root",
@@ -40,7 +40,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
           md={4}
           sx={{ textAlign: { xs: "center", md: "left" } }}
         >
-          <Title title="Stay in touch:" />
+          <Title>Stay in touch:</Title>
         </Grid>
       )}
       <Grid

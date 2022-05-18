@@ -1,6 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
 import { styled } from "@mui/material/styles";
-import PropTypes from "prop-types";
 import React from "react";
 
 const TypographyRoot = styled(RichTypography)(
@@ -14,16 +13,8 @@ const TypographyRoot = styled(RichTypography)(
   })
 );
 
-function Title({ title }) {
-  return <TypographyRoot>{title}</TypographyRoot>;
+function Title({ children }) {
+  return <TypographyRoot>{children}</TypographyRoot>;
 }
-
-Title.propTypes = {
-  title: PropTypes.string,
-};
-
-Title.defaultProps = {
-  title: undefined,
-};
 
 export default Title;
