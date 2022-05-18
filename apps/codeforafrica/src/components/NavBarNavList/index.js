@@ -7,12 +7,14 @@ import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Col
 import NavList from "@/codeforafrica/components/NavList";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
-function NavBarNavList({ menu, direction }) {
+const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
+  const { menu, direction, ...other } = props;
+
   if (!menu?.length) {
     return null;
   }
   return (
-    <NavList direction={direction} sx={{ alignItems: "flex-start" }}>
+    <NavList direction={direction} {...other} ref={ref}>
       {menu.map((item) => (
         <NavListItem key={item.label} sx={{ m: "20px" }}>
           <Link
@@ -31,7 +33,7 @@ function NavBarNavList({ menu, direction }) {
           </Link>
         </NavListItem>
       ))}
-      <NavListItem sx={{ mr: 0, my: "20px", ml: "20px" }}>
+      <NavListItem sx={{ m: "20px", mr: 0 }}>
         <Link
           href="https://twitter.com/?lang=en"
           sx={{ color: { xs: "inherit" } }}
@@ -46,7 +48,7 @@ function NavBarNavList({ menu, direction }) {
       </NavListItem>
     </NavList>
   );
-}
+});
 
 NavBarNavList.propTypes = {
   direction: PropTypes.string,

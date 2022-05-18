@@ -20,7 +20,13 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
       ref={ref}
     >
       <Grid item>
-        <NextImageButton src={cfaLogo} alt="Logo" width="136px" height="61px" />
+        <NextImageButton
+          href="/"
+          src={cfaLogo}
+          alt="Logo"
+          width="136px"
+          height="61px"
+        />
       </Grid>
       <Grid item>
         <Box component="nav" sx={{ justifyContent: "flex-end" }}>

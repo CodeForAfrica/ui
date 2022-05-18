@@ -258,7 +258,7 @@ const projects = [
   {
     slug: "initiative-africa",
     name: "initiativeAFRICA",
-    tagLine: "Tag line",
+    tagLine: "Initiative tag line",
     title:
       'Empowering citizens through <span class="highlight">drone technology</span>',
     subtitle:
@@ -277,7 +277,7 @@ const projects = [
   {
     slug: "knowledge-africa",
     name: "knowledgeAFRICA",
-    tagLine: "Tag line",
+    tagLine: "Knowledge tag line",
     title:
       'Empowering citizens through <span class="highlight">drone technology</span>',
     subtitle:
