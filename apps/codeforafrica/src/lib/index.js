@@ -68,7 +68,7 @@ const footer = {
       },
     },
   ],
-  footerLinks: {
+  additionalLinks: {
     secondary: [
       { name: "Imprint", href: "www.imprint.com" },
       { name: "Privacy policy", href: "www.policy.com" },

@@ -1,7 +1,6 @@
+import { Link } from "@commons-ui/next";
 import { Typography } from "@mui/material";
 import Image from "next/image";
-import { Link } from "@commons-ui/next";
-
 import PropTypes from "prop-types";
 import React from "react";
 

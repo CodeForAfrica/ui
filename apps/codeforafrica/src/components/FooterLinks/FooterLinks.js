@@ -15,14 +15,14 @@ const ListRoot = styled("div")(({ theme: { breakpoints, typography } }) => ({
     marginTop: 0,
   },
 }));
-function FooterLinks({ footerLinks, menu }) {
-  if (!footerLinks) {
+function FooterLinks({ additionalLinks, menu }) {
+  if (!additionalLinks) {
     return null;
   }
   return (
     <ListRoot>
       <FooterNavList menu={menu}>
-        {footerLinks.secondary.map((item) => (
+        {additionalLinks.secondary.map((item) => (
           <NavListItem
             sx={{
               padding: 0,
@@ -50,11 +50,11 @@ function FooterLinks({ footerLinks, menu }) {
 }
 
 FooterLinks.propTypes = {
-  footerLinks: PropTypes.shape({}),
+  additionalLinks: PropTypes.shape({}),
 };
 
 FooterLinks.defaultProps = {
-  footerLinks: undefined,
+  additionalLinks: undefined,
 };
 
 export default FooterLinks;
