@@ -73,7 +73,7 @@ const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
           <Button
             href={href}
             component={href ? Link : undefined}
-            variant="outlined"
+            variant="contained-reverse"
             sx={{ py: 1 }}
           >
             Learn More
