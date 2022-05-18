@@ -108,7 +108,7 @@ const theme = createTheme({
     body2: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 600,
+      fontWeight: 400,
     },
     body3: {
       fontFamily: FONT_FAMILY_PRIMARY,
@@ -299,17 +299,18 @@ deepmerge(
       },
     },
     body1: {
-      fontSize: pxToRem(12),
-      lineHeight: 14 / 12,
-      [theme.breakpoints.up("md")]: {
-        fontSize: pxToRem(14),
-        lineHeight: 23 / 14,
-      },
+      fontSize: pxToRem(14),
+      lineHeight: 23 / 14,
     },
     body1SemiBold: {
       ...theme.typography.body1,
       fontSize: pxToRem(14),
       fontWeight: 600,
+      lineHeight: 17 / 14,
+    },
+    body1Underline: {
+      ...theme.typography.body1,
+      fontSize: pxToRem(14),
       lineHeight: 17 / 14,
     },
     body2: {

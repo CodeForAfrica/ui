@@ -6,6 +6,11 @@ const withTM = require("next-transpile-modules")(
 );
 
 module.exports = withTM({
+  images: {
+    domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
+      ?.map((d) => d.trim())
+      ?.filter((d) => d),
+  },
   pageExtensions: ["page.js"],
   reactStrictMode: true,
   webpack(config) {

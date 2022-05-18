@@ -16,7 +16,7 @@ const IconRoot = styled("img", {
 }));
 
 const StayInTouch = React.forwardRef(function StayInTouch(
-  { children, socialMedia, title, ...props },
+  { children, socialMedia, title = "Stay in touch with us @ &nbsp;", ...props },
   ref
 ) {
   if (!socialMedia?.length) {
@@ -76,13 +76,14 @@ StayInTouch.propTypes = {
         url: PropTypes.string.isRequired,
         alt: PropTypes.string.isRequired,
       }).isRequired,
-    }).isRequired
-  ).isRequired,
+    })
+  ),
   title: PropTypes.string,
 };
 
 StayInTouch.defaultProps = {
-  title: "Stay in touch with us @ &nbsp;",
+  socialMedia: undefined,
+  title: undefined,
 };
 
 export default StayInTouch;

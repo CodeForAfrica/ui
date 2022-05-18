@@ -73,8 +73,8 @@ const footer = {
   ],
   additionalLinks: {
     secondary: [
-      { name: "Imprint", href: "www.imprint.com" },
-      { name: "Privacy policy", href: "www.policy.com" },
+      { name: "Imprint", href: "/imprint" },
+      { name: "Privacy policy", href: "/privacy" },
     ],
   },
   description:
@@ -192,7 +192,7 @@ const articles = [
   },
 ];
 
-const projects = [
+export const projects = [
   {
     slug: "african-drone",
     name: "africanDRONE",
@@ -206,7 +206,11 @@ const projects = [
     icon: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_africanDRONE_exwdyu.svg",
     },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705960/codeforafrica/images/Property_1_africanDRONE_y4surg.jpg",
+    },
     category: "Projects",
+    href: "/projects/african-drone",
   },
   {
     slug: "wana-data",
@@ -221,7 +225,11 @@ const projects = [
     icon: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_WanaData_neqwtm.svg",
     },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_WanaData_t3tbex.jpg",
+    },
     category: "Projects",
+    href: "/projects/wana-data",
   },
   {
     slug: "pesa-check",
@@ -236,7 +244,11 @@ const projects = [
     icon: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_PesaCheck_rmswvg.svg",
     },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
+    },
     category: "Projects",
+    href: "/projects/pesa-check",
   },
   {
     slug: "open-africa",
@@ -251,7 +263,11 @@ const projects = [
     icon: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_openAFRICA_cczpuq.svg",
     },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
+    },
     category: "Projects",
+    href: "/projects/open-africa",
   },
   {
     slug: "civic-signal",
@@ -266,7 +282,11 @@ const projects = [
     icon: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_CivicSignal_ayzj31.svg",
     },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
+    },
     category: "Projects",
+    href: "/projects/civic-signal",
   },
   {
     slug: "source-africa",
@@ -281,7 +301,49 @@ const projects = [
     icon: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg",
     },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
+    },
     category: "Projects",
+    href: "/projects/source-africa",
+  },
+  {
+    slug: "initiative-africa",
+    name: "initiativeAFRICA",
+    tagLine: "Initiative tag line",
+    title:
+      'Empowering citizens through <span class="highlight">drone technology</span>',
+    subtitle:
+      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
+    description:
+      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
+    icon: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg",
+    },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
+    },
+    category: "Initiatives",
+    href: "/projects/initiative-africa",
+  },
+  {
+    slug: "knowledge-africa",
+    name: "knowledgeAFRICA",
+    tagLine: "Knowledge tag line",
+    title:
+      'Empowering citizens through <span class="highlight">drone technology</span>',
+    subtitle:
+      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
+    description:
+      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
+    icon: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg",
+    },
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
+    },
+    category: "Knowedge",
+    href: "/projects/knowledge-africa",
   },
 ];
 
@@ -313,6 +375,52 @@ function getHomePageStaticProps() {
     },
     revalidate: DEFAULT_REVALIDATE,
   };
+}
+
+function getProjectsPageStaticProps() {
+  return {
+    props: {
+      title: "Our Work | Code for Africa",
+      sections: [
+        {
+          slug: "projects",
+          projects,
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
+function getProjectPageStaticProps(params) {
+  const project = projects.find(
+    ({ href }) =>
+      href.localeCompare(params?.slug, undefined, {
+        sensitivity: "accent",
+      }) === 0
+  );
+  if (project) {
+    return {
+      props: {
+        title: `${project.name} | Projects | Code for Africa`,
+        project,
+        sections: [
+          {
+            slug: "related-projects",
+            title: "Explore other projects",
+            projects: projects.slice(0, 3),
+          },
+        ],
+        footer,
+        navbar,
+      },
+      revalidate: DEFAULT_REVALIDATE,
+    };
+  }
+
+  return { notFound: true };
 }
 
 function getStoriesPageStaticProps() {
@@ -353,6 +461,7 @@ function getStoryPageStaticProps(params) {
           },
         ],
         footer,
+        navbar,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -366,10 +475,16 @@ export async function getPageStaticProps(params) {
     case "/": {
       return getHomePageStaticProps(params);
     }
+    case "/projects": {
+      return getProjectsPageStaticProps(params);
+    }
     case "/stories": {
       return getStoriesPageStaticProps(params);
     }
     default:
+      if (params?.slug?.startsWith("/projects/")) {
+        return getProjectPageStaticProps(params);
+      }
       if (params?.slug?.startsWith("/stories/")) {
         return getStoryPageStaticProps(params);
       }
