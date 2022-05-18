@@ -7,7 +7,7 @@ import React from "react";
 import FooterNavList from "@/codeforafrica/components/FooterNavList";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
-const ListRoot = styled(List)(({ theme: { breakpoints, typography } }) => ({
+const ListRoot = styled("div")(({ theme: { breakpoints, typography } }) => ({
   marginTop: typography.pxToRem(85),
   "& li:nth-last-child(2)": {
     marginTop: typography.pxToRem(20),
