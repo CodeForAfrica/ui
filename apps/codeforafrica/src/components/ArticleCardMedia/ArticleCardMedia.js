@@ -4,9 +4,6 @@ import React from "react";
 
 const ArticleCardMediaRoot = styled(CardMedia)({
   filter: "grayscale(1)",
-  ":hover": {
-    filter: "none",
-  },
 });
 
 const ArticleCardMedia = React.forwardRef(function ArticleCardMedia(

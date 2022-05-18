@@ -12,7 +12,9 @@ const ArticleCardRoot = styled(Card, {
   "&:hover": {
     ...(ownerState.variant === "outlined" && {
       border: `1px solid ${theme.palette.highlight.main}`,
-      filter: "none",
+      img: {
+        filter: "none",
+      },
     }),
   },
   ...(ownerState.variant === "outlined" && {
