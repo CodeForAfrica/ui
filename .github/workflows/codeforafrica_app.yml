@@ -35,4 +35,4 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           push: false
-          tags: "${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}"
+          tags: "${{ env.IMAGE_NAME }}:latest"
