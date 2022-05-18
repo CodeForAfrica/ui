@@ -13,6 +13,7 @@
     "prepare": "husky install",
     "release": "changeset version && pnpm install",
     "publish": "-r publish",
+    "jest": "turbo run jest",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'"

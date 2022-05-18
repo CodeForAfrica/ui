@@ -1,0 +1,32 @@
+import { ImageButton } from "@commons-ui/core";
+import Image from "next/image";
+import PropTypes from "prop-types";
+import React from "react";
+
+const NextImageButton = React.forwardRef(function Logo(props, ref) {
+  const { alt, src, onClick, width, height } = props;
+
+  return (
+    <ImageButton onClick={onClick} ref={ref}>
+      <Image src={src} alt={alt} width={width} height={height} />
+    </ImageButton>
+  );
+});
+
+NextImageButton.propTypes = {
+  src: PropTypes.string,
+  onClick: PropTypes.func,
+  alt: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+};
+
+NextImageButton.defaultProps = {
+  src: undefined,
+  onClick: undefined,
+  alt: undefined,
+  width: undefined,
+  height: undefined,
+};
+
+export default NextImageButton;

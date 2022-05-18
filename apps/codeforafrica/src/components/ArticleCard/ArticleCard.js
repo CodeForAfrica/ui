@@ -21,11 +21,6 @@ const ArticleCardRoot = styled(Card, {
   }),
 }));
 
-/**
- * Section is a special Container that uses theme.contentWidths to set the
- * max-width of the container instead of using the full breakpoints values.
- * This is only applicable when fixed is true.
- */
 const ArticleCard = React.forwardRef(function ArticleCard(props, ref) {
   const {
     elevation = 0,

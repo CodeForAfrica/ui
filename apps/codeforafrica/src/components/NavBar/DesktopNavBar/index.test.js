@@ -1,18 +1,16 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Articles from "./Articles";
+import DesktopNavigation from ".";
 
 import theme from "@/codeforafrica/theme";
 
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
-const defaultProps = {
-  articles: [],
-};
-describe("<Articles />", () => {
+
+describe("<DesktopNavigation />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Articles {...defaultProps} />);
+    const { container } = render(<DesktopNavigation />);
     expect(container).toMatchSnapshot();
   });
 });
