@@ -32,7 +32,7 @@ const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
   const ownerState = {
     ...other,
   };
-  const tileProps = { href, icon, name, tagLine };
+  const tileProps = { icon, name, tagLine };
 
   return (
     <ProjectCardRoot

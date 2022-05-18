@@ -1,14 +1,14 @@
 import { Link } from "@commons-ui/next";
-import Card from "@mui/material/Card";
-import CardActionArea from "@mui/material/CardActionArea";
-import CardMedia from "@mui/material/CardMedia";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-const ProjectTileRoot = styled(Card, {
+const ProjectTileRoot = styled(Paper, {
   slot: "Root",
 })(({ theme, ownerState }) => ({
   border: `1px solid ${theme.palette.grey.light}`,
@@ -31,26 +31,20 @@ const ProjectTileRoot = styled(Card, {
       )}`,
     },
   }),
-  "&:hover": {
-    background:
-      "linear-gradient(263.93deg, rgba(13, 25, 212, 0) 0%, rgba(13, 25, 212, 0.1) 100.64%), #FFFFFF",
-    border: `1px solid #737FF2`,
-  },
-}));
-
-const ProjectTileActionAreaRoot = styled(CardActionArea, {
-  slot: "Root",
-})(({ theme }) => ({
-  display: "flex",
-  justifyContent: "flex-start",
-  columnGap: theme.typography.pxToRem(26),
-  "&:hover": {},
+  ...(ownerState.href && {
+    "&:hover": {
+      background:
+        "linear-gradient(263.93deg, rgba(13, 25, 212, 0) 0%, rgba(13, 25, 212, 0.1) 100.64%), #FFFFFF",
+      border: `1px solid #737FF2`,
+    },
+  }),
 }));
 
 const ProjectTile = React.forwardRef(function ProjectTile(props, ref) {
   const { href, icon, name, tagLine, variant = "standard", ...other } = props;
 
   const ownerState = {
+    href,
     variant,
   };
 
@@ -63,15 +57,19 @@ const ProjectTile = React.forwardRef(function ProjectTile(props, ref) {
       ownerState={ownerState}
       {...other}
     >
-      <ProjectTileActionAreaRoot
+      <Box
         component={href ? Link : undefined}
         href={href}
+        sx={{
+          color: "text.primary",
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          columnGap: "26px",
+          textDecoration: "none",
+        }}
       >
-        <CardMedia
-          {...icon}
-          component="img"
-          sx={{ height: "70px", width: "70px" }}
-        />
+        <Image {...icon} component="img" height="70px" width="70px" />
         <Typography
           variant="h4"
           sx={{
@@ -96,7 +94,7 @@ const ProjectTile = React.forwardRef(function ProjectTile(props, ref) {
             {tagLine}
           </Typography>
         </Stack>
-      </ProjectTileActionAreaRoot>
+      </Box>
     </ProjectTileRoot>
   );
 });
