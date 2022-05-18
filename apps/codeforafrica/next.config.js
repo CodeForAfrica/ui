@@ -27,7 +27,6 @@ module.exports = withTM({
         use: ["@svgr/webpack"],
       }
     );
-
     return config;
   },
 });

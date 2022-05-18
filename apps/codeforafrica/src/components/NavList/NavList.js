@@ -14,15 +14,15 @@ const NavListRoot = styled("ul", {
   margin: 0,
   ...(ownerState.direction === "row" && {
     justifyContent: "flex-end",
-    alignItem: "center",
+    alignItems: "center",
   }),
 }));
 
 const NavList = React.forwardRef(function NavList(props, ref) {
-  const { direction = "column" } = props;
+  const { direction = "column", ...other } = props;
   const ownerState = { direction };
 
-  return <NavListRoot {...props} ownerState={ownerState} ref={ref} />;
+  return <NavListRoot {...other} ownerState={ownerState} ref={ref} />;
 });
 
 NavList.propTypes = {
