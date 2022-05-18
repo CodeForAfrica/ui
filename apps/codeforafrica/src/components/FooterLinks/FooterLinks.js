@@ -15,6 +15,7 @@ const ListRoot = styled("div")(({ theme: { breakpoints, typography } }) => ({
     marginTop: 0,
   },
 }));
+
 function FooterLinks({ additionalLinks, menu }) {
   if (!additionalLinks) {
     return null;

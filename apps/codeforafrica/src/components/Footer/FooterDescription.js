@@ -10,7 +10,6 @@ function FooterDescription({ description }) {
   if (!description) {
     return null;
   }
-
   return (
     <>
       <Link href="/">

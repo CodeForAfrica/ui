@@ -44,10 +44,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
         </Grid>
       )}
       <Grid
-        sx={{
-          width: { md: "auto" },
-          justifyContent: { md: "flex-start", xs: "center" },
-        }}
+        justifyContent={{ md: "flex-start", xs: "center" }}
         item
         xs={12}
         md={8}
