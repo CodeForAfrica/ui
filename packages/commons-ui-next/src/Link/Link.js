@@ -98,7 +98,15 @@ const Link = React.forwardRef(function Link(props, ref) {
       return <Anchor className={className} href={href} ref={ref} {...other} />;
     }
 
-    return <MuiLink className={className} href={href} ref={ref} {...other} />;
+    return (
+      <MuiLink
+        className={className}
+        href={href}
+        ref={ref}
+        {...other}
+        target="_blank"
+      />
+    );
   }
 
   const linkAs = linkAsProp || as;

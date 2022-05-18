@@ -11,7 +11,7 @@ const menu = [
   },
   {
     label: "Stories",
-    href: "/about",
+    href: "/stories",
   },
   {
     label: "Opportunity",
@@ -27,6 +27,58 @@ const navbar = {
   menu,
 };
 const footer = {
+  socialMedia: [
+    {
+      url: "https://twitter.com/Code4Africa",
+      image: {
+        alt: "Twitter",
+        url: "/icons/Type=twitter, Size=32, Color=White.svg",
+      },
+    },
+    {
+      url: "https://cfa.slack.com",
+      image: {
+        alt: "Slack",
+        url: "/icons/Type=slack, Size=32, Color=White.svg",
+      },
+    },
+    {
+      url: "https://ke.linkedin.com/company/code-for-africa",
+      image: {
+        alt: "LinkedIn",
+        url: "/icons/Type=linkedin, Size=32, Color=White.svg",
+      },
+    },
+    {
+      url: "https://www.facebook.com/CodeForAfrica/",
+      image: {
+        alt: "Facebook",
+        url: "/icons/Type=facebook, Size=32, Color=White.svg",
+      },
+    },
+    {
+      url: "https://www.instagram.com/code4africa__/",
+      image: {
+        alt: "Instagram",
+        url: "/icons/Type=instagram, Size=32, Color=White.svg",
+      },
+    },
+    {
+      url: "https://github.com/CodeForAfrica",
+      image: {
+        alt: "Github",
+        url: "/icons/Type=github, Size=32, Color=White.svg",
+      },
+    },
+  ],
+  additionalLinks: {
+    secondary: [
+      { name: "Imprint", href: "www.imprint.com" },
+      { name: "Privacy policy", href: "www.policy.com" },
+    ],
+  },
+  description:
+    "This site is a project of Code for Africa, the continent's largest network of civic technology and data journalism labs. All content is released under a Creative Commons 4 Attribution Licence. Reuse it to help empower your own community.",
   menu,
   subscription: {
     embedCode: `
