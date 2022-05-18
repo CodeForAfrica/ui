@@ -140,7 +140,7 @@ const articles = [
   },
 ];
 
-const projects = [
+export const projects = [
   {
     slug: "african-drone",
     name: "africanDRONE",
@@ -196,7 +196,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
-    href: "projects/pesa-check",
+    href: "/projects/pesa-check",
   },
   {
     slug: "open-africa",
@@ -215,7 +215,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
-    href: "projects/open-africa",
+    href: "/projects/open-africa",
   },
   {
     slug: "civic-signal",
@@ -234,7 +234,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
-    href: "projects/civic-signal",
+    href: "/projects/civic-signal",
   },
   {
     slug: "source-africa",
@@ -253,7 +253,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Projects",
-    href: "projects/source-africa",
+    href: "/projects/source-africa",
   },
   {
     slug: "initiative-africa",
@@ -272,7 +272,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Initiatives",
-    href: "projects/initiative-africa",
+    href: "/projects/initiative-africa",
   },
   {
     slug: "knowledge-africa",
@@ -291,7 +291,7 @@ const projects = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
     category: "Knowedge",
-    href: "projects/knowledge-africa",
+    href: "/projects/knowledge-africa",
   },
 ];
 
@@ -336,9 +336,39 @@ function getProjectsPageStaticProps() {
         },
       ],
       footer,
+      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
+}
+
+function getProjectPageStaticProps(params) {
+  const project = projects.find(
+    ({ href }) =>
+      href.localeCompare(params?.slug, undefined, {
+        sensitivity: "accent",
+      }) === 0
+  );
+  if (project) {
+    return {
+      props: {
+        title: `${project.name} | Projects | Code for Africa`,
+        project,
+        sections: [
+          {
+            slug: "related-projects",
+            title: "Explore other projects",
+            projects: projects.slice(0, 3),
+          },
+        ],
+        footer,
+        navbar,
+      },
+      revalidate: DEFAULT_REVALIDATE,
+    };
+  }
+
+  return { notFound: true };
 }
 
 function getStoriesPageStaticProps() {
@@ -379,6 +409,7 @@ function getStoryPageStaticProps(params) {
           },
         ],
         footer,
+        navbar,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -399,6 +430,9 @@ export async function getPageStaticProps(params) {
       return getStoriesPageStaticProps(params);
     }
     default:
+      if (params?.slug?.startsWith("/projects/")) {
+        return getProjectPageStaticProps(params);
+      }
       if (params?.slug?.startsWith("/stories/")) {
         return getStoryPageStaticProps(params);
       }
