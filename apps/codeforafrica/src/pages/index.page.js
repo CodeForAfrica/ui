@@ -2,6 +2,7 @@ import React from "react";
 
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
+import OurPartners from "@/codeforafrica/components/OurPartners";
 import Page from "@/codeforafrica/components/Page";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
@@ -15,6 +16,9 @@ function Index({ sections, ...props }) {
           }
           case "news-stories": {
             return <NewsAndStories {...section} key={section.slug} />;
+          }
+          case "our-partners": {
+            return <OurPartners {...section} key={section.slug} />;
           }
           default:
             return null;
