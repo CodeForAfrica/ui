@@ -365,6 +365,9 @@ function getHomePageStaticProps() {
           })),
         },
         {
+          slug: "our-team",
+        },
+        {
           slug: "news-stories",
           title: "News and stories",
           articles: articles.slice(0, 4),
