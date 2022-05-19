@@ -2,10 +2,7 @@ import { Typography, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-const ArticleAuthorCopy = React.forwardRef(function ArticleAuthorCopy(
-  props,
-  ref
-) {
+const Author = React.forwardRef(function Author(props, ref) {
   const { author, authorTitle, ...other } = props;
 
   return (
@@ -47,14 +44,14 @@ const ArticleAuthorCopy = React.forwardRef(function ArticleAuthorCopy(
   );
 });
 
-ArticleAuthorCopy.propTypes = {
+Author.propTypes = {
   author: PropTypes.string,
   authorTitle: PropTypes.string,
 };
 
-ArticleAuthorCopy.defaultProps = {
+Author.defaultProps = {
   author: undefined,
   authorTitle: undefined,
 };
 
-export default ArticleAuthorCopy;
+export default Author;

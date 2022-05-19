@@ -3,8 +3,8 @@ import { Grid, Box, Typography, Divider } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import ArticleAuthorCopy from "@/codeforafrica/components/ArticleAuthorCopy";
 import ArticleHeader from "@/codeforafrica/components/ArticleHeader";
+import Author from "@/codeforafrica/components/Author";
 import ShareBar from "@/codeforafrica/components/ShareBar";
 import {
   FacebookShareBarButton,
@@ -39,7 +39,7 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
             {content}
           </RichTypography>
           <Divider />
-          <ArticleAuthorCopy {...props} />
+          <Author {...props} />
         </Grid>
       </Grid>
     </Section>
