@@ -4,8 +4,9 @@ on:
     branches: [dokku-deployment]
 
 env:
-  IMAGE_NAME: "codeforafrica/cfa-ui"
+  IMAGE_NAME: "codeforafrica/cfa-ui-codeforafrica"
   PACKAGE_PATH: "codeforafrica"
+  FILE_NAME: "./apps/codeforafrica/package.json"
 
 jobs:
   deploy:
@@ -33,7 +34,7 @@ jobs:
           # version in your commit message when you bump versions then you can
           # omit this.
           diff-search: true
-          file-name: ./apps/codeforafrica/package.json
+          file-name: "${{ env.FILE_NAME }}"
 
       - name: Set up Docker Buildx
         if: steps.version-check.outputs.changed == 'true'
@@ -49,4 +50,4 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           push: false
-          tags: "${{ env.IMAGE_NAME }}:latest"
+          tags: "${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}"
