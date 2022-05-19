@@ -192,6 +192,69 @@ const articles = [
   },
 ];
 
+export const partners = [
+  {
+    name: "Meta",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/meta_fkcccg.png",
+    },
+  },
+  {
+    name: "Google News Initiatives",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/google-news-initiatives_wigxyj.png",
+    },
+  },
+  {
+    name: "AFD",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/afd_urdyat.png",
+    },
+  },
+  {
+    name: "Deutsche Welle",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880226/codeforafrica/images/logos/dw_isxfhn.png",
+    },
+  },
+  {
+    name: "GIZ",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/giz_sx5mja.png",
+    },
+  },
+  {
+    name: "The World Bank",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/the-world-bank_lbksih.png",
+    },
+  },
+  {
+    name: "Pulitzer Center",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/pulitzer-center_gkg9s2.png",
+    },
+  },
+  {
+    name: "Unesco",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/unesco_hvtpwf.png",
+    },
+  },
+  {
+    name: "ICJF",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/icjf_o8asj2.png",
+    },
+  },
+  {
+    name: "Code for All",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/code-for-all_l2vmvq.png",
+    },
+  },
+];
+
 export const projects = [
   {
     slug: "african-drone",
@@ -369,6 +432,12 @@ function getHomePageStaticProps() {
           title: "News and stories",
           articles: articles.slice(0, 4),
         },
+        {
+          slug: "our-partners",
+          title:
+            'We’ve partnered with <span class="highlight">100+ organisations</span> including',
+          partners,
+        },
       ],
       footer,
       navbar,
@@ -470,10 +539,31 @@ function getStoryPageStaticProps(params) {
   return { notFound: true };
 }
 
+function getAboutPageStaticProps() {
+  return {
+    props: {
+      title: "About | Code for Africa",
+      sections: [
+        {
+          slug: "our-partners",
+          title: "Our partners",
+          partners,
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
 export async function getPageStaticProps(params) {
   switch (params?.slug) {
     case "/": {
       return getHomePageStaticProps(params);
+    }
+    case "/about": {
+      return getAboutPageStaticProps(params);
     }
     case "/projects": {
       return getProjectsPageStaticProps(params);
