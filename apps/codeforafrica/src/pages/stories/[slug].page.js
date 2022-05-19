@@ -1,5 +1,6 @@
 import { Section } from "@commons-ui/core";
 import Box from "@mui/material/Box";
+import Image from "next/image";
 import React from "react";
 
 import ArticlePage from "@/codeforafrica/components/ArticlePage";
@@ -10,6 +11,20 @@ import { getPageStaticProps } from "@/codeforafrica/lib";
 function Index({ article, sections, ...props }) {
   return (
     <Page {...props}>
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          height: { xs: "163px", md: "600px" },
+        }}
+      >
+        <Image
+          alt="article-featured-image"
+          src={article.src}
+          layout="fill"
+          objectFit="cover"
+        />
+      </Box>
       {article ? (
         <Section
           sx={{

@@ -1,4 +1,3 @@
-import { Section } from "@commons-ui/core";
 import { Grid, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
@@ -10,38 +9,36 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
   const { title, author, date, subheader, tags, ...other } = props;
 
   return (
-    <Section sx={{ px: { xs: "20px", sm: 0 } }} {...other} ref={ref}>
-      <Grid container direction="column">
-        <Grid item xs={12} />
-        {date && (
-          <Typography component="div" variant="subtitle1">
-            {date}
-          </Typography>
-        )}
+    <Grid container direction="column" ref={ref} {...other}>
+      <Grid item xs={12} />
+      {date && (
+        <Typography component="div" variant="subtitle1" sx={{ py: 5 }}>
+          {date}
+        </Typography>
+      )}
 
-        {title && (
-          <Typography component="div" variant="h1" sx={{ my: "40px" }}>
-            {title}
-          </Typography>
-        )}
-        {subheader && (
-          <Typography
-            component="div"
-            variant="subheading"
-            sx={{ color: "#1020E1" }}
-          >
-            {subheader}
-          </Typography>
-        )}
-        {tags?.length > 0 ? (
-          <ChoiceChipGroup color="default" sx={{ my: 5 }}>
-            {tags.map((tag) => (
-              <ChoiceChip label={tag} value={tag} key={tag} />
-            ))}
-          </ChoiceChipGroup>
-        ) : null}
-      </Grid>
-    </Section>
+      {title && (
+        <Typography component="div" variant="h1" sx={{ my: "40px" }}>
+          {title}
+        </Typography>
+      )}
+      {subheader && (
+        <Typography
+          component="div"
+          variant="subheading"
+          sx={{ color: "#1020E1" }}
+        >
+          {subheader}
+        </Typography>
+      )}
+      {tags?.length > 0 ? (
+        <ChoiceChipGroup color="default" sx={{ my: 5 }}>
+          {tags.map((tag) => (
+            <ChoiceChip label={tag} value={tag} key={tag} />
+          ))}
+        </ChoiceChipGroup>
+      ) : null}
+    </Grid>
   );
 });
 
