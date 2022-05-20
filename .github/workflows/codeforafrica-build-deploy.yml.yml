@@ -1,4 +1,4 @@
-name: Code for Africa App
+name: codeforafrica.org | Build and Deploy
 on:
   push:
     branches: [dokku-deployment]
