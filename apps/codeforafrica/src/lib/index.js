@@ -110,7 +110,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-1",
     tags: ["Africa", "Media", "Equality"],
   },
@@ -123,7 +123,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-2",
     tags: ["Kenya", "Water scarcity"],
   },
@@ -135,7 +135,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-3",
   },
   {
@@ -147,7 +147,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-4",
     tags: ["Kenya", "Water scarcity"],
   },
@@ -159,7 +159,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-5",
     tags: ["Kenya"],
   },
@@ -171,7 +171,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-6",
     tags: ["Water scarcity"],
   },
@@ -183,7 +183,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-7",
   },
   {
@@ -194,7 +194,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-8",
   },
   {
@@ -205,7 +205,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-9",
   },
   {
@@ -216,7 +216,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-10",
   },
   {
@@ -227,7 +227,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-11",
   },
   {
@@ -238,7 +238,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-12",
   },
   {
@@ -249,7 +249,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
     },
-    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
+    coverImage: { src: "/header-image.png" },
     href: "/stories/article-13",
     tags: ["Decision-making", "Empowerment citizens"],
   },
