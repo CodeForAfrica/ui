@@ -20,7 +20,7 @@ function Index({ article, sections, ...props }) {
       >
         <Image
           alt="article-featured-image"
-          src={article.src}
+          src={article?.coverImage?.src}
           layout="fill"
           objectFit="cover"
         />
@@ -41,8 +41,8 @@ function Index({ article, sections, ...props }) {
             subheader="Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed"
             content="Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat. Duis maecenas per erat odio quisque accumsan"
             author="Brenda Nyokabi"
-            authorTitle="Technologist"
-            tags={article.tags}
+            profession="Technologist"
+            tags={article?.tags}
           />
         </Section>
       ) : null}

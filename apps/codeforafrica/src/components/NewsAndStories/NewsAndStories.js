@@ -10,7 +10,6 @@ import FeaturedArticle from "@/codeforafrica/components/FeaturedArticle";
 // TODO(kilemensi): Remove hard-coded strings
 const NewsAndStories = React.forwardRef(function NewsAndStories(props, ref) {
   const { articles, title } = props;
-
   if (!articles?.length) {
     return null;
   }

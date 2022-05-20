@@ -107,7 +107,10 @@ const articles = [
     summary:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-1",
     tags: ["Africa", "Media", "Equality"],
   },
@@ -115,78 +118,138 @@ const articles = [
     title:
       "Article title goes in hereArticle title goes in hereArticle title goes in here",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-2",
     tags: ["Kenya", "Water scarcity"],
   },
   {
     title: "Article title goes in here",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-3",
   },
   {
     title:
       "Article title goes in hereArticle title goes in hereArticle title goes in here",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-4",
     tags: ["Kenya", "Water scarcity"],
   },
   {
     title: "Article title goes in here",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-5",
     tags: ["Kenya"],
   },
   {
     title: "Article title goes in here",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-6",
     tags: ["Water scarcity"],
   },
   {
     title: "Article title goes in here",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-7",
   },
   {
     title: "Article title goes in here",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-8",
   },
   {
     title: "Article title goes in here",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-9",
   },
   {
     title: "Article title goes in here",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-10",
   },
   {
     title: "Article title goes in here",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-11",
   },
   {
     title: "Article title goes in here",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-12",
   },
   {
     title: "Article title goes in here",
     date: "2022-01-06",
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
+    },
+    coverImage: { src: "/../apps/codeforafrica/public/header-image.png" },
     href: "/stories/article-13",
     tags: ["Decision-making", "Empowerment citizens"],
   },

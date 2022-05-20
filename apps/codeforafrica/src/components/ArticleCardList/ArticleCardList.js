@@ -35,7 +35,7 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
                   display: { xs: "none", sm: "block" },
                   height: "217.64px",
                 }}
-                src={article.src}
+                src={article?.thumbnail?.src}
               />
               <ArticleCardContent>
                 <Typography variant="subtitle1">{article.title}</Typography>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const Author = React.forwardRef(function Author(props, ref) {
-  const { author, authorTitle, ...other } = props;
+  const { author, profession, ...other } = props;
 
   return (
     <Box
@@ -37,7 +37,7 @@ const Author = React.forwardRef(function Author(props, ref) {
           {author}
         </Typography>
         <Typography component="span" variant="body1" sx={{ mx: 2, my: 0.5 }}>
-          {authorTitle}
+          {profession}
         </Typography>
       </Box>
     </Box>
@@ -46,12 +46,12 @@ const Author = React.forwardRef(function Author(props, ref) {
 
 Author.propTypes = {
   author: PropTypes.string,
-  authorTitle: PropTypes.string,
+  profession: PropTypes.string,
 };
 
 Author.defaultProps = {
   author: undefined,
-  authorTitle: undefined,
+  profession: undefined,
 };
 
 export default Author;
