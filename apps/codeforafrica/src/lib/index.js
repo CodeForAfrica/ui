@@ -120,7 +120,7 @@ const articles = [
 
       <div style="padding: 40px 0px;">
         <img src="/image 12.png" alt="article-image" style="width: 100%;height: auto;"/>
-        <h6 style="font-weight: 400; font-size: 12px; line-height: 14px; text-align: center; color: #1020E1;">The #GMMP2020 team of enumerators from DRC displaying their certificates of participation. (Picture by DRC team © Global Media Monitoring Project)</h6>
+        <h6 style="font-weight: 400; font-size: 12px; line-height: 14px; text-align: center; color: #1020E1;">The #GMMP2020 team of enumerators from DRC displaying their certificates of participation. (Picture by DRC <b/>team © Global Media Monitoring Project)</h6>
       </div>
       
       
