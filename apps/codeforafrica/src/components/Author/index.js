@@ -32,11 +32,11 @@ const Author = React.forwardRef(function Author(props, ref) {
         <Typography
           component="span"
           variant="body1SemiBold"
-          sx={{ mx: 3, my: 0.5 }}
+          sx={{ mx: 1, my: 0.5 }}
         >
           {author}
         </Typography>
-        <Typography component="span" variant="body1" sx={{ mx: 2, my: 0.5 }}>
+        <Typography component="span" variant="body1" sx={{ mx: 1, my: 0.5 }}>
           {profession}
         </Typography>
       </Box>
