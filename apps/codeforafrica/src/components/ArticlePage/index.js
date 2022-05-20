@@ -26,6 +26,7 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
               columnGap: 2,
               display: "flex",
               alignItems: "center",
+              py: "20px",
             }}
           >
             <Typography variant="footerCap">Share This Article</Typography>

@@ -37,11 +37,11 @@ function Index({ article, sections, ...props }) {
         >
           <ArticlePage
             title={article?.title}
-            date="Jan 6, 2022"
-            subheader="Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed"
-            content="Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat. Duis maecenas per erat odio quisque accumsan"
-            author="Brenda Nyokabi"
-            profession="Technologist"
+            date={article.date}
+            subheader={article?.summary}
+            content={article?.content}
+            author={article?.author}
+            profession={article?.profession}
             tags={article?.tags}
           />
         </Section>
