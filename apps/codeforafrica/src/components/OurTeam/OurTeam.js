@@ -22,7 +22,7 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
             <TeamContent {...props} />
             <Button
               sx={{ width: { xs: "100%", sm: "auto" }, margin: "40px 0" }}
-              variant="contained"
+              variant="contained-reverse"
             >
               Meet our Team
             </Button>
