@@ -1,8 +1,10 @@
 import { Section } from "@commons-ui/core";
-import { Typography, Button, Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import Image from "next/image";
 import React from "react";
+
+import TeamContent from "./TeamContent";
 
 import regionIcon from "@/codeforafrica/assets/images/Africa@2400x 1.png";
 
@@ -17,17 +19,7 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
       >
         <Grid container>
           <Grid item sm={6} sx={{ order: { sm: 2 } }}>
-            <Typography variant="h3">
-              A truly pan-African team across the continent
-            </Typography>
-            <Typography sx={{ paddingTop: "40px" }} variant="body2">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit gravida
-              sociosqu, nisl aliquet ullamcorper praesent bibendum volutpat
-              sodales urna, ultrices dui parturient vitae ac netus convallis
-              integer. <br />
-              <br /> Euismod posuere fusce mollis etiam himenaeos non aliquam
-              nulla dis consequat ornare, velit odio condimentum augue felis na.
-            </Typography>
+            <TeamContent {...props} />
             <Button
               sx={{ width: { xs: "100%", sm: "auto" }, margin: "40px 0" }}
               variant="contained"
