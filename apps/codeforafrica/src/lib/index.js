@@ -516,6 +516,7 @@ function getStoryPageStaticProps(params) {
           },
         ],
         footer,
+        navbar,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
