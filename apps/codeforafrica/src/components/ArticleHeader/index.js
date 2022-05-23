@@ -6,10 +6,10 @@ import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
 import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 
 const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
-  const { title, date, subheader, tags } = props;
+  const { title, date, subheader, tags, other } = props;
 
   return (
-    <Grid container ref={ref}>
+    <Grid container ref={ref} {...other}>
       <Grid item xs={12} />
       {date && (
         <Typography component="div" variant="subtitle1" sx={{ py: 5 }}>
