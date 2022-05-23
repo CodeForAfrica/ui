@@ -101,6 +101,16 @@ const footer = {
   },
 };
 
+const team = [
+  {
+    name: "Justin Arenstein",
+    title: "CEO of Code for Africa",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
+    },
+  },
+];
+
 const articles = [
   {
     title: "Battle for gender equality in African media continues",
@@ -476,6 +486,10 @@ function getProjectPageStaticProps(params) {
         title: `${project.name} | Projects | Code for Africa`,
         project,
         sections: [
+          {
+            slug: "team",
+            team: team.slice(0, 3),
+          },
           {
             slug: "related-projects",
             title: "Explore other projects",
