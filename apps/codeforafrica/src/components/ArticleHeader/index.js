@@ -6,7 +6,7 @@ import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
 import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 
 const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
-  const { title, author, date, subheader, tags, ...other } = props;
+  const { title, date, subheader, tags, ...other } = props;
 
   return (
     <Grid container ref={ref} {...other}>
