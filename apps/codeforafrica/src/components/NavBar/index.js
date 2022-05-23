@@ -2,8 +2,8 @@ import { NavBar as NavigationBar, Section } from "@commons-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
 
-import DesktopNavBar from "@/codeforafrica/components/NavBar/DesktopNavBar";
-import MobileNavBar from "@/codeforafrica/components/NavBar/MobileNavBar";
+import DesktopNavBar from "@/codeforafrica/components/DesktopNavBar";
+import MobileNavBar from "@/codeforafrica/components/MobileNavBar";
 
 function NavBar({ menu }) {
   return (
