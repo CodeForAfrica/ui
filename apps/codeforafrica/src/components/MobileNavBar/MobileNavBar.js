@@ -95,7 +95,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
               height="32px"
               sx={{
                 display: "flex",
-                m: "20px",
+                marginTop: "1rem",
               }}
               onClick={handleClose}
             />
