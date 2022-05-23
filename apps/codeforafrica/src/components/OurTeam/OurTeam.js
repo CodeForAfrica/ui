@@ -1,14 +1,18 @@
-import { Section } from "@commons-ui/core";
-import { Button, Grid } from "@mui/material";
+import { Section, RichTypography } from "@commons-ui/core";
+import { Button, Grid, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Image from "next/image";
+import PropTypes from "prop-types";
 import React from "react";
-
-import TeamContent from "./TeamContent";
 
 import regionIcon from "@/codeforafrica/assets/images/Africa@2400x 1.png";
 
 const OurTeam = React.forwardRef(function OurTeam(props, ref) {
+  const { title, description } = props;
+
+  if (!title || !description) {
+    return null;
+  }
   return (
     <Box ref={ref} sx={{ bgcolor: "primary.light" }}>
       <Section
@@ -19,7 +23,10 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
       >
         <Grid container>
           <Grid item sm={6} sx={{ order: { sm: 2 } }}>
-            <TeamContent {...props} />
+            <Typography variant="h2">{title}</Typography>
+            <RichTypography variant="body3" sx={{ paddingTop: "40px" }}>
+              {description}
+            </RichTypography>
             <Button
               sx={{ width: { xs: "100%", sm: "auto" }, margin: "40px 0" }}
               variant="contained-reverse"
@@ -36,5 +43,15 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
     </Box>
   );
 });
+
+OurTeam.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+};
+
+OurTeam.defaultProps = {
+  title: undefined,
+  description: undefined,
+};
 
 export default OurTeam;
