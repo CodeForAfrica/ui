@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Page /> renders unchanged 1`] = `
+exports[`<Pages/Projects /> renders unchanged 1`] = `
 <div>
   <header
     class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-mpiv0b-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"

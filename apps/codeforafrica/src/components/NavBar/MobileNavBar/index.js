@@ -50,7 +50,13 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
       ref={ref}
     >
       <Grid item>
-        <NextImageButton src={cfaLogo} alt="Logo" width="116px" height="50px" />
+        <NextImageButton
+          href="/"
+          src={cfaLogo}
+          alt="Logo"
+          width="116px"
+          height="50px"
+        />
       </Grid>
       <Grid item>
         <Box sx={{ justifyContent: "flex-end" }}>
@@ -66,7 +72,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
           fullScreen
           onClose={handleClose}
           TransitionComponent={Transition}
-          aria-labelledby="mobile-navbar-dialog-container"
+          aria-labelledby="mobile-navbar-dialog"
           open={open}
         >
           <DialogContent
@@ -85,8 +91,12 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
             <NextImageButton
               src={closebutton}
               alt="Logo"
-              width="40px"
-              height="40px"
+              width="32px"
+              height="32px"
+              sx={{
+                display: "flex",
+                m: "20px",
+              }}
               onClick={handleClose}
             />
           </DialogContent>

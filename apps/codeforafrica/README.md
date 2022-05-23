@@ -4,7 +4,15 @@ This is the official cfa site
 
 ## Getting Started
 
-First, run the development server:
+First create `.env` file in the root directory of the project.
+
+```bash
+cp  env.template .env
+```
+
+and modify the `.env` file according to your needs.
+
+Then run the development server:
 
 ```bash
 pnpm  dev

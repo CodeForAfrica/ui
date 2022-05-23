@@ -94,19 +94,16 @@ const Link = React.forwardRef(function Link(props, ref) {
     (href.indexOf("http") === 0 || href.indexOf("mailto:") === 0);
 
   if (isExternal) {
+    const externalLinkProps = {
+      href,
+      rel: "noreferrer noopener",
+      target: "_blank",
+      ...other,
+    };
     if (noLinkStyle) {
-      return <Anchor className={className} href={href} ref={ref} {...other} />;
+      return <Anchor className={className} {...externalLinkProps} ref={ref} />;
     }
-
-    return (
-      <MuiLink
-        className={className}
-        href={href}
-        ref={ref}
-        {...other}
-        target="_blank"
-      />
-    );
+    return <MuiLink className={className} {...externalLinkProps} ref={ref} />;
   }
 
   const linkAs = linkAsProp || as;
