@@ -42,7 +42,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
             component={TwitterIcon}
             sx={{
               mt: direction === "column" ? 0 : 1,
-              fill: { xs: "text.secondary", md: "none !important" },
+              fill: { xs: "none" },
             }}
           />
         </Link>
