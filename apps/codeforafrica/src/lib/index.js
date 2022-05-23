@@ -109,6 +109,20 @@ const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
   },
+  {
+    name: "Tolulope Adeyemo",
+    title: "Senior Programme Manager",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
+    },
+  },
+  {
+    name: "Johnny Miller",
+    title: "Co-Founder of africanDRONE",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
+    },
+  },
 ];
 
 const articles = [
