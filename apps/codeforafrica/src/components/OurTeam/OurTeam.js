@@ -55,11 +55,7 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
           </Grid>
 
           <Grid item sm={6}>
-            <Image
-              src={getRegionIcon()}
-              alt="offices across africa"
-              layout="fill"
-            />
+            <Image src={getRegionIcon()} alt="offices across africa" />
           </Grid>
         </Grid>
       </Section>
