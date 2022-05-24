@@ -1,1 +1,1 @@
-module.exports = require("eslint-config-commons-ui/.lintstagedrc");
+module.exports = require("eslint-config-commons-ui/.lintstagedrc.js");
