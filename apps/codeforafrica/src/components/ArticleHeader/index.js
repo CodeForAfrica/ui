@@ -9,8 +9,7 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
   const { title, date, subheader, tags, other } = props;
 
   return (
-    <Grid container ref={ref} {...other}>
-      <Grid item xs={12} />
+    <Grid container item xs={12} ref={ref} {...other}>
       {date && (
         <Typography
           component="div"
