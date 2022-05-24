@@ -18,17 +18,17 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
       <Section
         sx={{
           px: { xs: 2.5, sm: 0 },
-          py: { xs: 5, md: 8, lg: 10 },
+          py: { xs: 5, sm: 12.5, md: 12.5, lg: 7.75 },
         }}
       >
         <Grid container>
           <Grid item sm={6} sx={{ order: { sm: 2 } }}>
             <Typography variant="h2">{title}</Typography>
-            <RichTypography variant="body3" sx={{ paddingTop: "40px" }}>
+            <RichTypography variant="body3" sx={{ pt: 5 }}>
               {description}
             </RichTypography>
             <Button
-              sx={{ width: { xs: "100%", sm: "auto" }, margin: "40px 0" }}
+              sx={{ width: { xs: "100%", sm: "auto" }, margin: "2.5rem 0" }}
               variant="contained-reverse"
             >
               Meet our Team
