@@ -12,13 +12,21 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
     <Grid container ref={ref} {...other}>
       <Grid item xs={12} />
       {date && (
-        <Typography component="div" variant="subtitle1" sx={{ py: 5 }}>
+        <Typography
+          component="div"
+          variant="subtitle1"
+          sx={{ py: { xs: 2.5, md: 5 } }}
+        >
           {date}
         </Typography>
       )}
 
       {title && (
-        <Typography component="div" variant="h1" sx={{ my: "40px" }}>
+        <Typography
+          component="div"
+          variant="h1"
+          sx={{ my: { xs: "20px", md: "40px" } }}
+        >
           {title}
         </Typography>
       )}
@@ -32,7 +40,7 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
         </Typography>
       )}
       {tags?.length > 0 ? (
-        <ChoiceChipGroup color="default" sx={{ my: 5 }}>
+        <ChoiceChipGroup color="default" sx={{ my: { xs: 2.5, md: 5 } }}>
           {tags.map((tag) => (
             <ChoiceChip label={tag} value={tag} key={tag} />
           ))}

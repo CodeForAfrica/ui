@@ -22,7 +22,7 @@ const Author = React.forwardRef(function Author(props, ref) {
       <Box
         sx={{
           background: "#F6F5F5",
-          mx: 2,
+          mx: { xs: 0, md: 2 },
           my: { xs: 3, md: 0 },
           display: "flex",
           flexDirection: "row",
@@ -32,11 +32,15 @@ const Author = React.forwardRef(function Author(props, ref) {
         <Typography
           component="span"
           variant="body1SemiBold"
-          sx={{ mx: 1, my: 0.5 }}
+          sx={{ mx: { xs: 0.5, md: 1 }, my: 0.5 }}
         >
           {author}
         </Typography>
-        <Typography component="span" variant="body1" sx={{ mx: 1, my: 0.5 }}>
+        <Typography
+          component="span"
+          variant="body1"
+          sx={{ mx: { xs: 0.5, md: 1 }, my: 0.5 }}
+        >
           {profession}
         </Typography>
       </Box>

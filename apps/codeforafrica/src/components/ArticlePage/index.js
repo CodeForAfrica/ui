@@ -62,7 +62,10 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
                 <TwitterShareBarButton />
               </ShareBar>
             </Box>
-            <RichTypography variant="body3" sx={{ my: "40px" }}>
+            <RichTypography
+              variant="body3"
+              sx={{ my: { xs: "20px", md: "40px" } }}
+            >
               {content}
             </RichTypography>
             <Divider />
