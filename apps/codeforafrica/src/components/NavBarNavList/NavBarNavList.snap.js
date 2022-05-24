@@ -3,7 +3,7 @@
 exports[`<NavBarNavList /> renders unchanged 1`] = `
 <div>
   <ul
-    class="css-1gpvlh2"
+    class="css-f15emd"
   >
     <li
       class="css-1n7p56k"
@@ -56,18 +56,6 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       </a>
     </li>
     <li
-      class="css-1kgp67w"
-    >
-      <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1cv723u-MuiTypography-root-MuiLink-root"
-        href="https://twitter.com/?lang=en"
-        target="_blank"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k4yhcq-MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
       class="css-14eadhm"
     >
       <a
@@ -78,7 +66,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       >
         <div
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k4yhcq-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o1xeqk-MuiSvgIcon-root"
           focusable="false"
           viewbox="0 0 24 24"
         />
