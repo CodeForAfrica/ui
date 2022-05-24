@@ -2,8 +2,8 @@ import React from "react";
 
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
-import OurTeam from "@/codeforafrica/components/OurTeam";
 import OurPartners from "@/codeforafrica/components/OurPartners";
+import OurTeam from "@/codeforafrica/components/OurTeam";
 import Page from "@/codeforafrica/components/Page";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
