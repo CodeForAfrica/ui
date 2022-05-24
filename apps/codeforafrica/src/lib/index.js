@@ -101,6 +101,30 @@ const footer = {
   },
 };
 
+const team = [
+  {
+    name: "Justin Arenstein",
+    title: "CEO of Code for Africa",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
+    },
+  },
+  {
+    name: "Tolulope Adeyemo",
+    title: "Senior Programme Manager",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
+    },
+  },
+  {
+    name: "Johnny Miller",
+    title: "Co-Founder of africanDRONE",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
+    },
+  },
+];
+
 const articles = [
   {
     title: "Battle for gender equality in African media continues",
@@ -189,6 +213,69 @@ const articles = [
     src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
     href: "/stories/article-13",
     tags: ["Decision-making", "Empowerment citizens"],
+  },
+];
+
+export const partners = [
+  {
+    name: "Meta",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/meta_fkcccg.png",
+    },
+  },
+  {
+    name: "Google News Initiatives",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/google-news-initiatives_wigxyj.png",
+    },
+  },
+  {
+    name: "AFD",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/afd_urdyat.png",
+    },
+  },
+  {
+    name: "Deutsche Welle",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880226/codeforafrica/images/logos/dw_isxfhn.png",
+    },
+  },
+  {
+    name: "GIZ",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/giz_sx5mja.png",
+    },
+  },
+  {
+    name: "The World Bank",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/the-world-bank_lbksih.png",
+    },
+  },
+  {
+    name: "Pulitzer Center",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/pulitzer-center_gkg9s2.png",
+    },
+  },
+  {
+    name: "Unesco",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/unesco_hvtpwf.png",
+    },
+  },
+  {
+    name: "ICJF",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/icjf_o8asj2.png",
+    },
+  },
+  {
+    name: "Code for All",
+    logo: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/code-for-all_l2vmvq.png",
+    },
   },
 ];
 
@@ -369,6 +456,12 @@ function getHomePageStaticProps() {
           title: "News and stories",
           articles: articles.slice(0, 4),
         },
+        {
+          slug: "our-partners",
+          title:
+            'We’ve partnered with <span class="highlight">100+ organisations</span> including',
+          partners,
+        },
       ],
       footer,
       navbar,
@@ -407,6 +500,10 @@ function getProjectPageStaticProps(params) {
         title: `${project.name} | Projects | Code for Africa`,
         project,
         sections: [
+          {
+            slug: "team",
+            team: team.slice(0, 3),
+          },
           {
             slug: "related-projects",
             title: "Explore other projects",
@@ -470,10 +567,31 @@ function getStoryPageStaticProps(params) {
   return { notFound: true };
 }
 
+function getAboutPageStaticProps() {
+  return {
+    props: {
+      title: "About | Code for Africa",
+      sections: [
+        {
+          slug: "our-partners",
+          title: "Our partners",
+          partners,
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
 export async function getPageStaticProps(params) {
   switch (params?.slug) {
     case "/": {
       return getHomePageStaticProps(params);
+    }
+    case "/about": {
+      return getAboutPageStaticProps(params);
     }
     case "/projects": {
       return getProjectsPageStaticProps(params);

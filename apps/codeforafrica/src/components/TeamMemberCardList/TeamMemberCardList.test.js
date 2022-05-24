@@ -1,18 +1,16 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ProjectCard from "./ProjectCard";
+import TeamMemberCardList from "./TeamMemberCardList";
 
 import theme from "@/codeforafrica/theme";
 
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-const defaultProps = {};
-
-describe("<ProjectCard />", () => {
+describe("<TeamMemberCardList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ProjectCard {...defaultProps} />);
+    const { container } = render(<TeamMemberCardList />);
     expect(container).toMatchSnapshot();
   });
 });
