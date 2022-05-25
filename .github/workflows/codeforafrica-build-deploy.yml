@@ -1,7 +1,7 @@
 name: codeforafrica.org | Build and Deploy
 on:
   push:
-    branches: [dokku-deployment]
+    branches: [main]
 
 env:
   DOKKU_REMOTE_BRANCH: "master"
