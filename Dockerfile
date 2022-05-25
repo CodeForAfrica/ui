@@ -1,15 +1,18 @@
 FROM node:16-alpine as base
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add --no-cache libc6-compat
 
 ARG PNPM_VERSION=7.1.1 \
-    PACKAGE_PATH \
+    APP \
     # Next.js collects completely anonymous telemetry data about general usage.
     # Learn more here: https://nextjs.org/telemetry
     NEXT_TELEMETRY_DISABLED=1
 
-ENV PACKAGE_PATH=${PACKAGE_PATH} \
+ENV APP=${APP} \
     NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED}
 
-RUN npm install -g pnpm@${PNPM_VERSION}
+RUN corepack enable
+RUN corepack prepare pnpm@${PNPM_VERSION} --activate
 
 WORKDIR /workspace/cfa_ui
 
@@ -18,11 +21,11 @@ RUN pnpm fetch
 
 COPY . .
 
-RUN pnpm --filter "${PACKAGE_PATH}" install --frozen-lockfile --unsafe-perm
-RUN pnpm --filter "${PACKAGE_PATH}" build
+RUN pnpm --filter "${APP}" install --frozen-lockfile --unsafe-perm
+RUN pnpm --filter "${APP}" build
 
 
-WORKDIR /workspace/cfa_ui/apps/${PACKAGE_PATH}
+WORKDIR /workspace/cfa_ui/apps/${APP}
 
 EXPOSE 3000
 
