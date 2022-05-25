@@ -13,7 +13,7 @@ module.exports = withTM({
   },
   pageExtensions: ["page.js"],
   reactStrictMode: true,
-  webpack(config) {
+  webpack: (config) => {
     config.module.rules.push(
       {
         test: /\.svg$/i,
@@ -27,6 +27,7 @@ module.exports = withTM({
         use: ["@svgr/webpack"],
       }
     );
+
     return config;
   },
 });
