@@ -462,6 +462,17 @@ function getHomePageStaticProps() {
             'We’ve partnered with <span class="highlight">100+ organisations</span> including',
           partners,
         },
+        {
+          slug: "impact",
+          title: "Initiatives",
+          description:
+            "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+          number: 150,
+          image: {
+            alt: "",
+            url: "/icons/Icon.svg",
+          },
+        },
       ],
       footer,
       navbar,

@@ -227,6 +227,9 @@ deepmerge(
     display2: {
       fontSize: pxToRem(60),
     },
+    display3: {
+      fontSize: pxToRem(23),
+    },
     h1: {
       fontSize: pxToRem(28),
       lineHeight: 34 / 28,

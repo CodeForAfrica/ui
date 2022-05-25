@@ -1,24 +1,88 @@
-import { Card, CardActionArea, Typography } from "@mui/material";
+import { Card, CardActionArea, Typography, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
+import PropTypes from "prop-types";
 import React from "react";
 
 const ImpactCardRoot = styled(Card, {
   slot: "Root",
 })(() => ({}));
 
-const ImpactCard = React.forwardRef(function ImpactCard(ref, props) {
-  const { icon, title, number, description } = props;
+const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
+  const { image, title, number, description } = props;
+
+  if (!image && !title) {
+    return null;
+  }
+
   return (
     <ImpactCardRoot ref={ref}>
       <CardActionArea>
-        <Image src={icon} />
-        <Typography>{title}</Typography>
-        <Typography>{number}</Typography>
-        <Typography>{description}</Typography>
+        <Box
+          sx={{
+            display: "flex",
+            fontWeight: 700,
+            borderBottom: "1px solid #1020E1",
+            paddingBottom: "0.75rem",
+          }}
+        >
+          <Image src={image.url} alt={image.alt} width={30} height={30} />
+          <Typography
+            variant="display3"
+            sx={{
+              display: "inline",
+              color: "primary.main",
+              marginLeft: "0.93rem",
+            }}
+          >
+            {title}
+          </Typography>
+        </Box>
+        {number && (
+          <Typography
+            variant="display1"
+            sx={{
+              color: "primary.main",
+              fontWeight: 300,
+              padding: "1.25rem 0",
+              display: "block",
+            }}
+          >
+            {number}
+          </Typography>
+        )}
+        {description && (
+          <Typography
+            sx={{
+              display: "block",
+              padding: "1.25rem 0",
+              borderTop: "solid 1px #000",
+            }}
+            variant="body3"
+          >
+            {description}
+          </Typography>
+        )}
       </CardActionArea>
     </ImpactCardRoot>
   );
 });
+
+ImpactCard.propTypes = {
+  description: PropTypes.string,
+  title: PropTypes.string,
+  number: PropTypes.number,
+  image: PropTypes.shape({
+    alt: PropTypes.string,
+    url: PropTypes.string,
+  }),
+};
+
+ImpactCard.defaultProps = {
+  description: undefined,
+  title: undefined,
+  number: undefined,
+  image: undefined,
+};
 
 export default ImpactCard;
