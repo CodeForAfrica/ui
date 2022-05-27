@@ -11,10 +11,12 @@ ARG PNPM_VERSION=7.1.1 \
 ENV APP=${APP} \
     NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED}
 
+WORKDIR /workspace/cfa_ui
+
 RUN corepack enable
 RUN corepack prepare pnpm@${PNPM_VERSION} --activate
 
-WORKDIR /workspace/cfa_ui
+FROM base as dev
 
 COPY pnpm-lock.yaml .
 RUN pnpm fetch
@@ -23,7 +25,6 @@ COPY . .
 
 RUN pnpm --filter "${APP}" install --frozen-lockfile --unsafe-perm
 RUN pnpm --filter "${APP}" build
-
 
 WORKDIR /workspace/cfa_ui/apps/${APP}
 
