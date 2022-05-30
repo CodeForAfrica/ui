@@ -22,7 +22,8 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
           sx={{
             display: "flex",
             fontWeight: 700,
-            borderBottom: "1px solid #1020E1",
+            borderBottom: "1px solid",
+            borderColor: "primary.main",
             paddingBottom: "0.75rem",
           }}
         >
