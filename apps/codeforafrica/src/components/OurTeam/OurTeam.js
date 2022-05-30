@@ -1,36 +1,18 @@
 import { Section, RichTypography } from "@commons-ui/core";
-import {
-  Button,
-  Grid,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-import regionIcon from "@/codeforafrica/assets/images/Africa@2400x 1.png";
-import reagionIconlg from "@/codeforafrica/assets/images/Africa@2400x 1lg.png";
-import regionIconMd from "@/codeforafrica/assets/images/Africa@2400x 1md.png";
+import regionIconlg from "@/codeforafrica/assets/images/Africa@2400x 1lg.png";
 
 const OurTeam = React.forwardRef(function OurTeam(props, ref) {
   const { title, description } = props;
 
-  const theme = useTheme();
-  const isMedium = useMediaQuery(theme.breakpoints.up("md"));
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-
   if (!title || !description) {
     return null;
   }
-
-  const getRegionIcon = () => {
-    if (isMedium) return regionIconMd;
-    if (isDesktop) return reagionIconlg;
-    return regionIcon;
-  };
 
   return (
     <Box ref={ref} sx={{ bgcolor: "primary.light" }}>
@@ -55,7 +37,14 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
           </Grid>
 
           <Grid item sm={6}>
-            <Image src={getRegionIcon()} alt="offices across africa" />
+            <Box
+              sx={{
+                maxWidth: { xs: "350px", sm: "372px", lg: "464px" },
+                maxHeight: { xs: "351px", sm: "416px", lg: "518px" },
+              }}
+            >
+              <Image src={regionIconlg} alt="offices across africa" />
+            </Box>
           </Grid>
         </Grid>
       </Section>
