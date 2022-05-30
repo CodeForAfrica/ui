@@ -23,7 +23,7 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
         }}
       >
         <Grid container>
-          <Grid item sm={6} sx={{ order: { sm: 2 } }}>
+          <Grid item sm={6} xs={12} sx={{ order: { sm: 2 } }}>
             <Typography variant="h2">{title}</Typography>
             <RichTypography variant="body3" sx={{ pt: 5 }}>
               {description}
@@ -36,7 +36,13 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
             </Button>
           </Grid>
 
-          <Grid item sm={6}>
+          <Grid
+            item
+            container
+            justifyContent={{ sm: "flex-start", xs: "center" }}
+            sm={6}
+            xs={12}
+          >
             <Box
               sx={{
                 width: { xs: "21.87rem", sm: "20rem", lg: "29rem" },
