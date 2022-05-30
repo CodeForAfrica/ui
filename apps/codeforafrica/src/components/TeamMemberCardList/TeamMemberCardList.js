@@ -21,9 +21,9 @@ const TeamMemberCardList = React.forwardRef(function TeamMemberCardList(
       {...other}
       sx={{
         overflowX: "scroll",
-        scrollbarWidth: "none" /* Firefox */,
-        "-ms-overflow-style": "none" /* Internet Explorer 10+ */,
-        // Chrome, Webkit, etc.
+        scrollbarWidth: "none", // Firefox
+        msOverflowStyle: "none", // Internet Explorer 10+
+        /* Chrome, Webkit, etc. */
         "&::-webkit-scrollbar": {
           height: 0,
           width: 0,
