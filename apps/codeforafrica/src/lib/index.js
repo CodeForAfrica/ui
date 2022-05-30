@@ -26,6 +26,7 @@ const menu = [
 const navbar = {
   menu,
 };
+
 const footer = {
   socialMedia: [
     {
@@ -98,6 +99,16 @@ const footer = {
           </div>
           <!--End mc_embed_signup-->
     `,
+  },
+};
+
+const hero = {
+  title: 'Empowering <span class="highlight">Africa</span> with',
+  message: "civic technologies",
+  subtitle:
+    "We are an impact accelerator, using civic tech and open data to empower citizens.",
+  image: {
+    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653902690/codeforafrica/images/Group_4429_shcof8.png",
   },
 };
 
@@ -441,6 +452,10 @@ function getHomePageStaticProps() {
     props: {
       title: "Code for Africa",
       sections: [
+        {
+          ...hero,
+          slug: "hero",
+        },
         {
           slug: "projects",
           projects: projects.map(({ slug, name, tagLine, icon, category }) => ({
