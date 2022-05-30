@@ -25,5 +25,5 @@
     "prettier": "^2.6.2",
     "turbo": "^1.2.8"
   },
-  "packageManager": "pnpm@6.31.0"
+  "packageManager": "pnpm@7.1.2"
 }
