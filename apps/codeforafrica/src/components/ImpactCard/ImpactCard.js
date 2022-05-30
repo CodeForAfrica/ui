@@ -26,13 +26,13 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
             paddingBottom: "0.75rem",
           }}
         >
-          <Image src={image.url} alt={image.alt} width={30} height={30} />
+          <Image src={image.url} alt={image.alt} width={32} height={32} />
           <Typography
             variant="display3"
             sx={{
               display: "inline",
               color: "primary.main",
-              marginLeft: "0.93rem",
+              ml: "0.93rem",
             }}
           >
             {title}
