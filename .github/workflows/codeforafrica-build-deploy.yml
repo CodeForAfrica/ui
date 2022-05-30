@@ -8,7 +8,7 @@ env:
   DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/codeforafrica-ui"
   IMAGE_NAME: "codeforafrica/codeforafrica-ui"
   PACKAGE_PATH: "codeforafrica"
-  FILE_NAME: "./apps/codeforafrica/package.json"
+  VERSION_FILE_NAME: "./apps/codeforafrica/package.json"
   GIT_PUSH_FLAGS: "--force"
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
           # version in your commit message when you bump versions then you can
           # omit this.
           diff-search: true
-          file-name: "${{ env.FILE_NAME }}"
+          file-name: "${{ env.VERSION_FILE_NAME }}"
 
       - name: Set up Docker Buildx
         if: steps.version-check.outputs.changed == 'true'
