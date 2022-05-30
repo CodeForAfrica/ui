@@ -293,6 +293,7 @@ deepmerge(
       ...theme.typography.subheading,
       fontSize: pxToRem(20),
       lineHeight: 28 / 20,
+      textDecoration: "underline",
     },
     subtitle1: {
       fontSize: pxToRem(16),
