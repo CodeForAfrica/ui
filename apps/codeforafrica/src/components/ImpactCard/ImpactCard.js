@@ -1,4 +1,4 @@
-import { Card, CardActionArea, Typography, Box } from "@mui/material";
+import { Card, CardContent, Typography, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
 import PropTypes from "prop-types";
@@ -17,7 +17,7 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
 
   return (
     <ImpactCardRoot ref={ref}>
-      <CardActionArea>
+      <CardContent>
         <Box
           sx={{
             display: "flex",
@@ -63,7 +63,7 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
             {description}
           </Typography>
         )}
-      </CardActionArea>
+      </CardContent>
     </ImpactCardRoot>
   );
 });
