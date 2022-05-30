@@ -18,8 +18,8 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
     <Box ref={ref} sx={{ bgcolor: "primary.light" }}>
       <Section
         sx={{
-          px: { xs: 2.5, sm: 0 },
-          py: { xs: 5, sm: 12.5, md: 12.5, lg: 7.75 },
+          px: { xs: 2.5, sm: 3.75 },
+          py: { xs: 5, sm: 3.75, lg: 7.75 },
         }}
       >
         <Grid container>
@@ -39,11 +39,17 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
           <Grid item sm={6}>
             <Box
               sx={{
-                maxWidth: { xs: "350px", sm: "372px", lg: "464px" },
-                maxHeight: { xs: "351px", sm: "416px", lg: "518px" },
+                width: { xs: "21.87rem", sm: "20rem", lg: "29rem" },
+                height: { xs: "21.93rem", sm: "26rem", lg: "32.37rem" },
+                position: "relative",
               }}
             >
-              <Image src={regionIconlg} alt="offices across africa" />
+              <Image
+                src={regionIconlg}
+                layout="fill"
+                objectFit="contain"
+                alt="offices across africa"
+              />
             </Box>
           </Grid>
         </Grid>
