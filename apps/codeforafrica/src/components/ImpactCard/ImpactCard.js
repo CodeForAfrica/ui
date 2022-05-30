@@ -43,7 +43,6 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
             variant="display1"
             sx={{
               color: "primary.main",
-              fontWeight: 300,
               padding: "1.25rem 0",
               display: "block",
             }}
