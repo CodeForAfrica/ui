@@ -5,10 +5,8 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-import regionIconlg from "@/codeforafrica/assets/images/Africa@2400x 1lg.png";
-
 const OurTeam = React.forwardRef(function OurTeam(props, ref) {
-  const { title, description } = props;
+  const { title, description, logo } = props;
 
   if (!title || !description) {
     return null;
@@ -51,10 +49,11 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
               }}
             >
               <Image
-                src={regionIconlg}
+                src={logo}
                 layout="fill"
                 objectFit="contain"
                 alt="offices across africa"
+                priority
               />
             </Box>
           </Grid>
@@ -67,11 +66,13 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
 OurTeam.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
+  logo: PropTypes.string,
 };
 
 OurTeam.defaultProps = {
   title: undefined,
   description: undefined,
+  logo: undefined,
 };
 
 export default OurTeam;
