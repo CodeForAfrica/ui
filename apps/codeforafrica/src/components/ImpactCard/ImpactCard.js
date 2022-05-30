@@ -1,4 +1,5 @@
-import { Card, CardContent, Typography, Box } from "@mui/material";
+import { RichTypography } from "@commons-ui/core";
+import { Card, CardContent, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
 import PropTypes from "prop-types";
@@ -27,8 +28,8 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
           }}
         >
           <Image src={image.url} alt={image.alt} width={32} height={32} />
-          <Typography
-            variant="display3"
+          <RichTypography
+            variant="h5"
             sx={{
               display: "inline",
               color: "primary.main",
@@ -36,33 +37,30 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
             }}
           >
             {title}
-          </Typography>
+          </RichTypography>
         </Box>
-        {number && (
-          <Typography
-            variant="display1"
-            sx={{
-              color: "primary.main",
-              padding: "1.25rem 0",
-              display: "block",
-            }}
-          >
-            {number}
-          </Typography>
-        )}
-        {description && (
-          <Typography
-            sx={{
-              display: "block",
-              padding: "1.25rem 0",
-              borderColor: "secondary.main",
-              borderTop: "solid 1px",
-            }}
-            variant="body3"
-          >
-            {description}
-          </Typography>
-        )}
+
+        <RichTypography
+          variant="display1"
+          sx={{
+            color: "primary.main",
+            padding: "1.25rem 0",
+            display: "block",
+          }}
+        >
+          {number}
+        </RichTypography>
+        <RichTypography
+          sx={{
+            display: "block",
+            padding: "1.25rem 0",
+            borderColor: "secondary.main",
+            borderTop: "solid 1px",
+          }}
+          variant="body3"
+        >
+          {description}
+        </RichTypography>
       </CardContent>
     </ImpactCardRoot>
   );
