@@ -7,6 +7,9 @@ import React from "react";
 const NextImageButton = React.forwardRef(function Logo(props, ref) {
   const { alt, src, width, href, height, ...other } = props;
 
+  if (!src) {
+    return null;
+  }
   return (
     <ImageButton
       href={href}
