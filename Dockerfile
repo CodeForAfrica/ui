@@ -3,13 +3,9 @@ FROM node:16-alpine as base
 RUN apk add --no-cache libc6-compat
 
 ARG PNPM_VERSION=7.1.1 \
-    APP \
-    # Next.js collects completely anonymous telemetry data about general usage.
-    # Learn more here: https://nextjs.org/telemetry
-    NEXT_TELEMETRY_DISABLED=1
+    APP
 
-ENV APP=${APP} \
-    NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED}
+ENV APP=${APP}
 
 WORKDIR /workspace
 
@@ -27,17 +23,17 @@ COPY apps/${APP} ./apps/${APP}
 RUN pnpm --filter "${APP}" install --frozen-lockfile
 RUN pnpm --filter "${APP}" build
 
-WORKDIR /workspace/
-
 FROM node:16-alpine as runner
-ARG APP=${APP}
+    # Next.js collects completely anonymous telemetry data about general usage.
+    # Learn more here: https://nextjs.org/telemetry
+ARG NEXT_TELEMETRY_DISABLED=1 \
+    APP
 
-ENV NODE_ENV=production \
-    NEXT_TELEMETRY_DISABLED=1 \
+ENV NEXT_TELEMETRY_DISABLED=1 \
     APP=${APP} \
     APP_HOST=.
 
-WORKDIR /app
+WORKDIR /workspace
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -54,7 +50,10 @@ COPY --from=dev --chown=nextjs:nodejs /workspace/apps/${APP}/.next/static ./.nex
 
 EXPOSE 3000
 
-COPY ${APP_HOST}/contrib/docker/*.sh .
-RUN chmod +x cmd.sh
+FROM runner as prod
 
-ENTRYPOINT [ "sh", "cmd.sh" ]
+ENV NODE_ENV=production
+
+WORKDIR /workspace/apps/${APP}
+
+ENTRYPOINT [ "node", "server.js" ]
