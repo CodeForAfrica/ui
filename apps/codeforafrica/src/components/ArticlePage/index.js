@@ -17,7 +17,7 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
   const { content, coverImage, children, author, ...other } = props;
 
   return (
-    <Box>
+    <Box ref={ref} {...other}>
       <Box
         sx={{
           position: "relative",
