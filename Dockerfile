@@ -11,23 +11,45 @@ ARG PNPM_VERSION=7.1.1 \
 ENV APP=${APP} \
     NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED}
 
-WORKDIR /workspace/cfa_ui
+WORKDIR /workspace
 
 RUN corepack enable
 RUN corepack prepare pnpm@${PNPM_VERSION} --activate
 
-FROM base as dev
-
 COPY pnpm-lock.yaml .
 RUN pnpm fetch
 
+FROM base as dev
+
 COPY . .
 
-RUN pnpm --filter "${APP}" install --frozen-lockfile --unsafe-perm
+RUN pnpm --filter "${APP}" install --frozen-lockfile
 RUN pnpm --filter "${APP}" build
 
-WORKDIR /workspace/cfa_ui/apps/${APP}
+WORKDIR /workspace/apps/${APP}
+
+FROM node:16-alpine as runner
+ARG APP=${APP}
+
+ENV NODE_ENV production \
+    NEXT_TELEMETRY_DISABLED=1 \
+    APP
+
+WORKDIR /app
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# You only need to copy next.config.js if you are NOT using the default configuration
+COPY --from=dev /workspace/apps/${APP}/next.config.js ./
+COPY --from=dev /workspace/apps/${APP}/public ./public
+COPY --from=dev /workspace/apps/${APP}/package.json ./package.json
+
+# Automatically leverage output traces to reduce image size 
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=dev --chown=nextjs:nodejs /workspace/apps/${APP}/.next/standalone ./
+COPY --from=dev --chown=nextjs:nodejs /workspace/apps/${APP}/.next/static ./.next/static
 
 EXPOSE 3000
 
-ENTRYPOINT ["pnpm", "start"]
+ENTRYPOINT ["node", "apps/codeforafrica/server.js"]

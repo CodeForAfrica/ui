@@ -1,3 +1,5 @@
+const path = require('path');
+
 const withTM = require("next-transpile-modules")(
   ["@commons-ui/core", "@commons-ui/next"],
   {
@@ -10,6 +12,10 @@ module.exports = withTM({
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
       ?.map((d) => d.trim())
       ?.filter((d) => d),
+  },
+  experimental: {
+    outputStandalone: true,
+    outputFileTracingRoot: path.resolve(__dirname, '../../'),
   },
   pageExtensions: ["page.js"],
   reactStrictMode: true,
