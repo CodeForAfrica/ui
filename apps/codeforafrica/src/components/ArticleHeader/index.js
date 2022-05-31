@@ -34,8 +34,11 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
       </RichTypography>
       <RichTypography
         component="div"
-        variant="subheading"
-        sx={{ color: "#1020E1" }}
+        variant="body1"
+        sx={{
+          color: "primary.main",
+          typography: { md: "subheading" },
+        }}
       >
         {subheader}
       </RichTypography>
