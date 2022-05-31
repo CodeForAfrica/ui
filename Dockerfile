@@ -20,8 +20,7 @@ RUN pnpm fetch
 
 FROM base as dev
 
-COPY *.yaml .
-COPY *.json .
+COPY *.yaml *.json ./
 COPY packages ./packages
 COPY apps/${APP} ./apps/${APP}
 
@@ -33,9 +32,9 @@ WORKDIR /workspace/
 FROM node:16-alpine as runner
 ARG APP=${APP}
 
-ENV NODE_ENV production \
+ENV NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=1 \
-    APP \
+    APP=${APP} \
     APP_HOST=.
 
 WORKDIR /app
