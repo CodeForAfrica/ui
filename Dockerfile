@@ -21,12 +21,15 @@ RUN pnpm fetch
 
 FROM base as dev
 
-COPY . .
+COPY *.yaml .
+COPY *.json .
+COPY packages ./packages
+COPY apps/${APP} ./apps/${APP}
 
 RUN pnpm --filter "${APP}" install --frozen-lockfile
 RUN pnpm --filter "${APP}" build
 
-WORKDIR /workspace/apps/${APP}
+WORKDIR /workspace/
 
 FROM node:16-alpine as runner
 ARG APP=${APP}
