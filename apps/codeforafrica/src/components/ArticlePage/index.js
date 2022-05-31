@@ -1,5 +1,5 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import { Grid, Box, Typography, Divider } from "@mui/material";
+import { Box, Typography, Divider } from "@mui/material";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
@@ -17,7 +17,7 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
   const { content, coverImage, children, author, ...other } = props;
 
   return (
-    <Grid container>
+    <Box>
       <Box
         sx={{
           position: "relative",
@@ -26,7 +26,7 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
         }}
       >
         <Image
-          alt="article-featured-image"
+          alt="article-title"
           src={coverImage}
           layout="fill"
           objectFit="cover"
@@ -43,37 +43,30 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
         ref={ref}
         {...other}
       >
-        <Grid container>
-          <Grid item xs={12}>
-            <ArticleHeader {...props} />
-            <Box
-              sx={{
-                color: "grey.main",
-                columnGap: 2,
-                display: "flex",
-                alignItems: "center",
-                py: "20px",
-              }}
-            >
-              <Typography variant="footerCap">Share This Article</Typography>
-              <ShareBar>
-                <FacebookShareBarButton />
-                <LinkedinShareBarButton />
-                <TwitterShareBarButton />
-              </ShareBar>
-            </Box>
-            <RichTypography
-              variant="body3"
-              sx={{ my: { xs: "20px", md: "40px" } }}
-            >
-              {content}
-            </RichTypography>
-            <Divider />
-            <Author {...props} />
-          </Grid>
-        </Grid>
+        <ArticleHeader {...props} />
+        <Box
+          sx={{
+            color: "grey.main",
+            columnGap: 2,
+            display: "flex",
+            alignItems: "center",
+            py: "20px",
+          }}
+        >
+          <Typography variant="footerCap">Share This Article</Typography>
+          <ShareBar>
+            <FacebookShareBarButton />
+            <LinkedinShareBarButton />
+            <TwitterShareBarButton />
+          </ShareBar>
+        </Box>
+        <RichTypography variant="body3" sx={{ my: { xs: 2.5, md: 5 } }}>
+          {content}
+        </RichTypography>
+        <Divider />
+        <Author {...props} />
       </Section>
-    </Grid>
+    </Box>
   );
 });
 

@@ -1,4 +1,5 @@
-import { Grid, Typography } from "@mui/material";
+import { RichTypography } from "@commons-ui/core";
+import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -9,35 +10,35 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
   const { title, date, subheader, tags, other } = props;
 
   return (
-    <Grid container item xs={12} ref={ref} {...other}>
-      {date && (
-        <Typography
-          component="div"
-          variant="subtitle1"
-          sx={{ py: { xs: 2.5, md: 5 } }}
-        >
-          {date}
-        </Typography>
-      )}
-
-      {title && (
-        <Typography
-          component="div"
-          variant="h1"
-          sx={{ my: { xs: "20px", md: "40px" } }}
-        >
-          {title}
-        </Typography>
-      )}
-      {subheader && (
-        <Typography
-          component="div"
-          variant="subheading"
-          sx={{ color: "#1020E1" }}
-        >
-          {subheader}
-        </Typography>
-      )}
+    <Box
+      ref={ref}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+      {...other}
+    >
+      <RichTypography
+        component="div"
+        variant="subtitle1"
+        sx={{ py: { xs: 2.5, md: 5 } }}
+      >
+        {date}
+      </RichTypography>
+      <RichTypography
+        component="div"
+        variant="h1"
+        sx={{ my: { xs: 2.5, md: 5 } }}
+      >
+        {title}
+      </RichTypography>
+      <RichTypography
+        component="div"
+        variant="subheading"
+        sx={{ color: "#1020E1" }}
+      >
+        {subheader}
+      </RichTypography>
       {tags?.length > 0 ? (
         <ChoiceChipGroup color="default" sx={{ my: { xs: 2.5, md: 5 } }}>
           {tags.map((tag) => (
@@ -45,7 +46,7 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
           ))}
         </ChoiceChipGroup>
       ) : null}
-    </Grid>
+    </Box>
   );
 });
 

@@ -1,4 +1,5 @@
-import { Typography, Box } from "@mui/material";
+import { RichTypography } from "@commons-ui/core";
+import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -16,12 +17,12 @@ const Author = React.forwardRef(function Author(props, ref) {
       ref={ref}
       {...other}
     >
-      <Typography component="span" variant="body2" sx={{ fontWeight: 400 }}>
+      <RichTypography component="span" variant="body2">
         Article by{" "}
-      </Typography>
+      </RichTypography>
       <Box
         sx={{
-          background: "#F6F5F5",
+          bgcolor: "background.main",
           mx: { xs: 0, md: 2 },
           my: { xs: 3, md: 0 },
           display: "flex",
@@ -29,20 +30,20 @@ const Author = React.forwardRef(function Author(props, ref) {
           alignItems: "center",
         }}
       >
-        <Typography
+        <RichTypography
           component="span"
           variant="body1SemiBold"
           sx={{ mx: { xs: 0.3, md: 1 }, my: 0.5 }}
         >
           {author}
-        </Typography>
-        <Typography
+        </RichTypography>
+        <RichTypography
           component="span"
           variant="body1"
           sx={{ mx: { xs: 0.3, md: 1 }, my: 0.5 }}
         >
           {profession}
-        </Typography>
+        </RichTypography>
       </Box>
     </Box>
   );
