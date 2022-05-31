@@ -33,6 +33,7 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
         sx={{
           position: "relative",
           width: "100%",
+          margin: 0,
           height: { xs: "163px", md: "600px" },
         }}
       >
