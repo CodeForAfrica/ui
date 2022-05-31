@@ -46,7 +46,7 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
       </Box>
       <Section
         sx={{
-          px: { xs: "20px", sm: 0 },
+          px: { xs: 2.5, sm: 0 },
           maxWidth: {
             sm: "648px",
             md: "912px",
