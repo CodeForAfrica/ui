@@ -33,7 +33,8 @@ ARG APP=${APP}
 
 ENV NODE_ENV production \
     NEXT_TELEMETRY_DISABLED=1 \
-    APP
+    APP \
+    APP_HOST=.
 
 WORKDIR /app
 
@@ -52,4 +53,7 @@ COPY --from=dev --chown=nextjs:nodejs /workspace/apps/${APP}/.next/static ./.nex
 
 EXPOSE 3000
 
-ENTRYPOINT ["node", "apps/codeforafrica/server.js"]
+COPY ${APP_HOST}/contrib/docker/*.sh .
+RUN chmod +x cmd.sh
+
+ENTRYPOINT [ "sh", "cmd.sh" ]
