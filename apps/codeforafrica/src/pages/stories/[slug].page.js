@@ -9,18 +9,7 @@ import { getPageStaticProps } from "@/codeforafrica/lib";
 function Index({ article, sections, ...props }) {
   return (
     <Page {...props}>
-      {article ? (
-        <ArticlePage
-          coverImage={article?.coverImage?.src}
-          title={article?.title}
-          date={article.date}
-          subheader={article?.summary}
-          content={article?.content}
-          author={article?.author}
-          profession={article?.profession}
-          tags={article?.tags}
-        />
-      ) : null}
+      {article ? <ArticlePage {...article} /> : null}
       {sections?.map((section) => {
         switch (section.slug) {
           case "related-stories":

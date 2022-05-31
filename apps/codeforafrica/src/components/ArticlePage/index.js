@@ -14,11 +14,22 @@ import {
 } from "@/codeforafrica/components/ShareBarButton";
 
 const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
-  const { content, coverImage, children, author, ...other } = props;
+  const {
+    coverImage,
+    title,
+    date,
+    tags,
+    summary,
+    author,
+    profession,
+    content,
+    ...other
+  } = props;
 
   return (
     <Box ref={ref} {...other}>
       <Box
+        component="figure"
         sx={{
           position: "relative",
           width: "100%",
@@ -27,7 +38,7 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
       >
         <Image
           alt="article-title"
-          src={coverImage}
+          src={coverImage?.src}
           layout="fill"
           objectFit="cover"
         />
@@ -43,7 +54,12 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
         ref={ref}
         {...other}
       >
-        <ArticleHeader {...props} />
+        <ArticleHeader
+          title={title}
+          date={date}
+          tags={tags}
+          summary={summary}
+        />
         <Box
           sx={{
             color: "grey.main",
@@ -64,7 +80,7 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
           {content}
         </RichTypography>
         <Divider />
-        <Author {...props} />
+        <Author author={author} profession={profession} />
       </Section>
     </Box>
   );
@@ -72,14 +88,12 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
 
 ArticlePage.propTypes = {
   content: PropTypes.string,
-  children: PropTypes.string,
-  coverImage: PropTypes.string,
+  article: PropTypes.shape({}),
 };
 
 ArticlePage.defaultProps = {
   content: undefined,
-  children: undefined,
-  coverImage: undefined,
+  article: undefined,
 };
 
 export default ArticlePage;
