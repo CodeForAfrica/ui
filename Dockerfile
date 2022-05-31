@@ -13,8 +13,7 @@ ENV APP=${APP} \
 
 WORKDIR /workspace
 
-RUN corepack enable
-RUN corepack prepare pnpm@${PNPM_VERSION} --activate
+RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 
 COPY pnpm-lock.yaml .
 RUN pnpm fetch
