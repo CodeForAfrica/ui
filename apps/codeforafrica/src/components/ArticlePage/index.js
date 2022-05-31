@@ -38,7 +38,7 @@ const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
         }}
       >
         <Image
-          alt="article-title"
+          alt={title}
           src={coverImage?.src}
           layout="fill"
           objectFit="cover"
