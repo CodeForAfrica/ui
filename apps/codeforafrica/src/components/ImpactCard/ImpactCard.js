@@ -7,7 +7,10 @@ import React from "react";
 
 const ImpactCardRoot = styled(Card, {
   slot: "Root",
-})(() => ({}));
+})(() => ({
+  maxWidth: "350px",
+  boxShadow: "none",
+}));
 
 const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
   const { image, title, number, description } = props;
@@ -18,7 +21,11 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
 
   return (
     <ImpactCardRoot ref={ref}>
-      <CardContent>
+      <CardContent
+        sx={{
+          backgroundColor: "background.main",
+        }}
+      >
         <Box
           sx={{
             display: "flex",

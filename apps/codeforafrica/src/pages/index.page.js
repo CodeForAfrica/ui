@@ -1,3 +1,4 @@
+import { Section } from "@commons-ui/core";
 import React from "react";
 
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
@@ -23,9 +24,13 @@ function Index({ sections, ...props }) {
           }
           case "impact": {
             return (
-              <div>
+              <Section
+                sx={{
+                  backgroundColor: "background.main",
+                }}
+              >
                 <ImpactCard {...section} key={section.slug} />
-              </div>
+              </Section>
             );
           }
           default:
