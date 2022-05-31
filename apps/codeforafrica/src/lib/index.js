@@ -467,7 +467,7 @@ function getHomePageStaticProps() {
           title: "Initiatives",
           description:
             "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
-          number: 150,
+          value: 150,
           image: {
             alt: "",
             url: "/icons/Icon.svg",
