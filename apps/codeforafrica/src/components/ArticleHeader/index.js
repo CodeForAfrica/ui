@@ -57,7 +57,7 @@ ArticleHeader.propTypes = {
   title: PropTypes.string,
   date: PropTypes.string,
   subheader: PropTypes.string,
-  tags: PropTypes.arrayOf(),
+  tags: PropTypes.arrayOf(PropTypes.string),
 };
 
 ArticleHeader.defaultProps = {
