@@ -12,6 +12,7 @@ const defaultProps = {
   slug: "our-team",
   title: "title",
   description: "description",
+  logo: "/images/Africa@2400x 1lg",
 };
 
 describe("<OurTeam />", () => {
