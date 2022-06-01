@@ -12,12 +12,14 @@ import ArticleCardMedia from "@/codeforafrica/components/ArticleCardMedia";
 const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
   const {
     alt,
+    coverImage,
     date,
     href,
     thumbnail,
     summary,
     title,
     variant = "standard",
+    ...other
   } = props;
 
   return (
@@ -26,6 +28,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
         width: "100%",
         height: "100%",
       }}
+      {...other}
       ref={ref}
     >
       <CardActionArea
