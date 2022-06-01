@@ -5,6 +5,7 @@ import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
 import ImpactCard from "@/codeforafrica/components/ImpactCard";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
 import OurPartners from "@/codeforafrica/components/OurPartners";
+import OurTeam from "@/codeforafrica/components/OurTeam";
 import Page from "@/codeforafrica/components/Page";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
@@ -15,6 +16,9 @@ function Index({ sections, ...props }) {
         switch (section.slug) {
           case "projects": {
             return <FeaturedProjects {...section} key={section.slug} />;
+          }
+          case "our-team": {
+            return <OurTeam key={section.slug} {...section} />;
           }
           case "news-stories": {
             return <NewsAndStories {...section} key={section.slug} />;

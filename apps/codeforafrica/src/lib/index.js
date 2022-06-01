@@ -615,6 +615,16 @@ function getHomePageStaticProps() {
           })),
         },
         {
+          slug: "our-team",
+          logo: "/images/Africa@2400x 1lg.png",
+          title: "A truly pan-African team across the continent",
+          description: `Lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu,
+          nisl aliquet ullamcorper praesent bibendum volutpat sodales urna,
+          ultrices dui parturient vitae ac netus convallis integer. <br />
+          <br /> Euismod posuere fusce mollis etiam himenaeos non aliquam nulla
+          dis consequat ornare, velit odio condimentum augue felis na.`,
+        },
+        {
           slug: "news-stories",
           title: "News and stories",
           articles: articles.slice(0, 4),
