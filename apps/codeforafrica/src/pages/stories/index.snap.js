@@ -6,7 +6,7 @@ exports[`<Pages/Stories /> renders unchanged 1`] = `
     class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-vckksl-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
   >
     <div
-      class="MuiToolbar-root MuiToolbar-regular css-1q2abqe-MuiToolbar-root"
+      class="MuiToolbar-root MuiToolbar-regular css-l73zrm-MuiToolbar-root"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-usii6f-MuiContainer-root"
