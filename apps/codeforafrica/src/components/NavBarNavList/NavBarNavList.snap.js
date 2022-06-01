@@ -66,7 +66,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       >
         <div
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k4yhcq-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o1xeqk-MuiSvgIcon-root"
           focusable="false"
           viewbox="0 0 24 24"
         />
