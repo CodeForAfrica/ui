@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ArticleHeader from ".";
+import ArticleHeader from "./ArticleHeader";
 
 import theme from "@/codeforafrica/theme";
 
