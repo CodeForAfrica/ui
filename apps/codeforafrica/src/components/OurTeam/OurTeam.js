@@ -54,7 +54,6 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
                 layout="fill"
                 objectFit="contain"
                 alt="offices across africa"
-                priority
               />
             </Box>
           </Grid>
