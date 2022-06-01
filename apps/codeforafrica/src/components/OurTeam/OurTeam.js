@@ -11,7 +11,6 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
   if (!title || !description) {
     return null;
   }
-
   return (
     <Box ref={ref} sx={{ bgcolor: "primary.light" }}>
       <Section
