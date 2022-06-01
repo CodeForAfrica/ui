@@ -36,8 +36,9 @@ function Index({ sections, ...props }) {
                 sx={{
                   backgroundColor: "background.main",
                 }}
+                key={section.slug}
               >
-                <ImpactCard {...section} key={section.slug} />
+                <ImpactCard {...section} />
               </Section>
             );
           }
