@@ -9,7 +9,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-1n7p56k"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-13a4wsk-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-15q90wg-MuiTypography-root-MuiLink-root"
         href="/our-work"
       >
         Our Work
@@ -19,7 +19,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-1n7p56k"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-13a4wsk-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-15q90wg-MuiTypography-root-MuiLink-root"
         href="/about"
       >
         About
@@ -29,7 +29,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-1n7p56k"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-13a4wsk-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-15q90wg-MuiTypography-root-MuiLink-root"
         href="/about"
       >
         Stories
@@ -39,7 +39,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-1n7p56k"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-13a4wsk-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-15q90wg-MuiTypography-root-MuiLink-root"
         href="/opportunity"
       >
         Opportunity
@@ -49,7 +49,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-1n7p56k"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-13a4wsk-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-15q90wg-MuiTypography-root-MuiLink-root"
         href="/contact"
       >
         Contact
@@ -66,7 +66,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       >
         <div
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k4yhcq-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o1xeqk-MuiSvgIcon-root"
           focusable="false"
           viewbox="0 0 24 24"
         />

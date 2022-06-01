@@ -15,18 +15,13 @@ exports[`<ProjectCard /> renders unchanged 1`] = `
         class="MuiCardContent-root css-8kp80x-MuiCardContent-root"
       >
         <div
-          class="MuiPaper-root MuiPaper-outlined MuiCard-root css-ebtd9j-MuiPaper-root-MuiCard-root"
+          class="MuiPaper-root MuiPaper-outlined css-jogziq-MuiPaper-root"
         >
-          <button
-            class="MuiButtonBase-root MuiCardActionArea-root css-lbp44a-MuiButtonBase-root-MuiCardActionArea-root"
-            tabindex="0"
-            type="button"
+          <div
+            class="MuiBox-root css-uq7i85"
           >
-            <img
-              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1j3tz1p-MuiCardMedia-root"
-            />
             <h4
-              class="MuiTypography-root MuiTypography-h4 css-nrfo2n-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h4 css-yd0a7d-MuiTypography-root"
             />
             <div
               class="css-1v20l1v-MuiStack-root"
@@ -38,17 +33,14 @@ exports[`<ProjectCard /> renders unchanged 1`] = `
                 class="MuiTypography-root MuiTypography-body2 css-1rafkl6-MuiTypography-root"
               />
             </div>
-            <span
-              class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-            />
-          </button>
+          </div>
         </div>
       </div>
       <div
         class="MuiCardActions-root MuiCardActions-spacing css-1jzc3k6-MuiCardActions-root"
       >
         <button
-          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root  css-5uag3o-MuiButtonBase-root-MuiButton-root"
+          class="MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButtonBase-root  css-9lbve9-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >

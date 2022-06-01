@@ -12,9 +12,10 @@ import ArticleCardMedia from "@/codeforafrica/components/ArticleCardMedia";
 const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
   const {
     alt,
+    coverImage,
     date,
     href,
-    src,
+    thumbnail,
     summary,
     title,
     variant = "standard",
@@ -44,7 +45,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
           <Grid item xs={12} md={variant === "cover" ? 12 : "auto"}>
             <ArticleCardMedia
               alt={alt || title}
-              src={src}
+              src={thumbnail?.src}
               sx={{
                 height: {
                   xs: "217px",

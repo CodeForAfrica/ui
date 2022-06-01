@@ -34,7 +34,7 @@ exports[`<ProjectTile /> renders unchanged 1`] = `
         <noscript />
       </span>
       <h4
-        class="MuiTypography-root MuiTypography-h4 css-nrfo2n-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 css-yd0a7d-MuiTypography-root"
       >
         africanDRONE
       </h4>

@@ -11,6 +11,7 @@ import {
   LinkedinShareBarButton,
   TwitterShareBarButton,
 } from "@/codeforafrica/components/ShareBarButton";
+import TeamMemberCardList from "@/codeforafrica/components/TeamMemberCardList";
 import { projects, getPageStaticProps } from "@/codeforafrica/lib";
 
 function Index({ project, sections, ...props }) {
@@ -45,6 +46,21 @@ function Index({ project, sections, ...props }) {
       ) : null}
       {sections?.map((section) => {
         switch (section.slug) {
+          case "team":
+            return (
+              <Section
+                sx={{
+                  borderTop: "1px solid",
+                  borderColor: "grey.main",
+                  pl: { xs: 2.5, sm: 0 },
+                  py: "42px",
+                  overflowX: "visible",
+                }}
+                key={section.slug}
+              >
+                <TeamMemberCardList {...section} />
+              </Section>
+            );
           case "related-projects":
             return <RelatedProjects {...section} key={section.slug} />;
           default:

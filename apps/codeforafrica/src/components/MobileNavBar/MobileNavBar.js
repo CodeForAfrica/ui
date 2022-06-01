@@ -1,4 +1,4 @@
-import { Grid, Dialog, DialogContent, Slide, Box } from "@mui/material";
+import { Dialog, DialogContent, Grid, Slide } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -59,15 +59,13 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
         />
       </Grid>
       <Grid item>
-        <Box sx={{ justifyContent: "flex-end" }}>
-          <NextImageButton
-            src={menuIcon}
-            alt="menu icon"
-            onClick={handleClickOpen}
-            width="32px"
-            height="32px"
-          />
-        </Box>
+        <NextImageButton
+          src={menuIcon}
+          alt="menu icon"
+          onClick={handleClickOpen}
+          width="32px"
+          height="32px"
+        />
         <DialogContainer
           fullScreen
           onClose={handleClose}
@@ -95,7 +93,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
               height="32px"
               sx={{
                 display: "flex",
-                m: "20px",
+                marginTop: "1rem",
               }}
               onClick={handleClose}
             />
