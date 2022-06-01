@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ProjectCard from "./ProjectCard";
+import ImpactCard from "./ImpactCard";
 
 import theme from "@/codeforafrica/theme";
 
@@ -10,9 +10,9 @@ const render = createRender({ theme });
 
 const defaultProps = {};
 
-describe("<ProjectCard />", () => {
+describe("<ImpactCard />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ProjectCard {...defaultProps} />);
+    const { container } = render(<ImpactCard {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

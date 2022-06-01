@@ -69,7 +69,9 @@ const ProjectTile = React.forwardRef(function ProjectTile(props, ref) {
           textDecoration: "none",
         }}
       >
-        <Image {...icon} component="img" height="70px" width="70px" />
+        {icon?.src?.length > 0 ? (
+          <Image {...icon} component="img" height="70px" width="70px" />
+        ) : null}
         <Typography
           variant="h4"
           sx={{

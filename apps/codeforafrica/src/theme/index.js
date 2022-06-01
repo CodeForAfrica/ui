@@ -42,7 +42,7 @@ const theme = createTheme({
     display1: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 700,
+      fontWeight: 300,
       lineHeight: 72 / 72,
     },
     display2: {
@@ -72,6 +72,7 @@ const theme = createTheme({
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
       fontWeight: 700,
+      letterSpacing: "-0.02em",
     },
     h5: {
       fontFamily: FONT_FAMILY_PRIMARY,
@@ -253,7 +254,7 @@ deepmerge(
     h4: {
       fontSize: pxToRem(23),
       lineHeight: 28 / 23,
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(28),
         lineHeight: 34 / 28,
       },
