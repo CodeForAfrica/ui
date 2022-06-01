@@ -12,7 +12,7 @@ const Author = React.forwardRef(function Author(props, ref) {
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         py: "40px",
-        alignItems: { xs: "center", md: "flex-start" },
+        alignItems: "center",
       }}
       ref={ref}
       {...other}
