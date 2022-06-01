@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import SvgIcon from "@mui/material/SvgIcon";
@@ -7,35 +6,7 @@ import React from "react";
 
 import ArrowBackIcon from "@/codeforafrica/assets/icons/Type=arrow-left, Size=32, Color=White.svg";
 import ArrowForwardIcon from "@/codeforafrica/assets/icons/Type=arrow-right, Size=32, Color=White.svg";
-import bg from "@/codeforafrica/assets/images/1920x668px bg - 2 2.png";
-
-const NextPreviousPaginationRoot = styled(Box)(({ theme }) => ({
-  display: "flex",
-  justifyContent: "center",
-  width: "100%",
-  position: "relative",
-  backgroundColor: theme.palette.background.main,
-  backgroundImage: `url('${bg.src}')`,
-  backgroundPosition: "top left",
-  "&:before": {
-    content: '""',
-    top: 0,
-    left: 0,
-    position: "absolute",
-    height: "100%",
-    width: "100%",
-    background: `linear-gradient(to right, ${theme.palette.background.main}, transparent 30%)`,
-    [theme.breakpoints.up("sm")]: {
-      background: `linear-gradient(to right, ${theme.palette.background.main} 20%, transparent 30%)`,
-    },
-    [theme.breakpoints.up("md")]: {
-      background: `linear-gradient(to right, ${theme.palette.background.main} 30%, transparent 40%)`,
-    },
-    [theme.breakpoints.up("xl")]: {
-      background: `linear-gradient(to right, ${theme.palette.background.main} 35%, transparent 45%)`,
-    },
-  },
-}));
+import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const NextPreviousPaginationListRoot = styled("ul")(({ theme }) => ({
   listStyle: "none",
@@ -56,8 +27,8 @@ const NextPreviousPagination = React.forwardRef(function NextPreviousPagination(
     return null;
   }
   return (
-    <NextPreviousPaginationRoot component="nav">
-      <NextPreviousPaginationListRoot {...other} ref={ref}>
+    <TwoToneBackground component="nav" ref={ref}>
+      <NextPreviousPaginationListRoot {...other} sx={{ zIndex: 1 }}>
         {items
           .filter(({ type }) => ["previous", "next"].includes(type))
           .map(({ type, disabled, onClick }) => {
@@ -94,7 +65,7 @@ const NextPreviousPagination = React.forwardRef(function NextPreviousPagination(
             );
           })}
       </NextPreviousPaginationListRoot>
-    </NextPreviousPaginationRoot>
+    </TwoToneBackground>
   );
 });
 

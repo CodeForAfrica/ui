@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import OurTeam from "./OurTeam";
+import ArticlePage from "./ArticlePage";
 
 import theme from "@/codeforafrica/theme";
 
@@ -9,15 +9,12 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  slug: "our-team",
-  title: "title",
-  description: "description",
-  logo: "/images/Africa@2400x 1lg",
+  coverImage: { src: "/images/stories-1.png" },
 };
 
-describe("<OurTeam />", () => {
+describe("<ArticlePage />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<OurTeam {...defaultProps} />);
+    const { container } = render(<ArticlePage {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

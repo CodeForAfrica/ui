@@ -1,23 +1,18 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import OurTeam from "./OurTeam";
+import TwoToneBackground from "./TwoToneBackground";
 
 import theme from "@/codeforafrica/theme";
 
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-const defaultProps = {
-  slug: "our-team",
-  title: "title",
-  description: "description",
-  logo: "/images/Africa@2400x 1lg",
-};
+const defaultProps = {};
 
-describe("<OurTeam />", () => {
+describe("<NextPreviousPagination />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<OurTeam {...defaultProps} />);
+    const { container } = render(<TwoToneBackground {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

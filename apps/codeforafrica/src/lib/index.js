@@ -26,6 +26,7 @@ const menu = [
 const navbar = {
   menu,
 };
+
 const footer = {
   socialMedia: [
     {
@@ -101,6 +102,16 @@ const footer = {
   },
 };
 
+const hero = {
+  title: 'Empowering <span class="highlight">Africa</span> with',
+  message: "civic technologies",
+  subtitle:
+    "We are an impact accelerator, using civic tech and open data to empower citizens.",
+  image: {
+    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653902690/codeforafrica/images/Group_4429_shcof8.png",
+  },
+};
+
 const team = [
   {
     name: "Justin Arenstein",
@@ -158,9 +169,9 @@ const articles = [
       `,
     date: "Jan 6, 2022",
     thumbnail: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png",
+      src: "/images/stories-1.png",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     author: "Brenda Nyokabi",
     profession: " Technologist Code for Africa",
     href: "/stories/article-1",
@@ -604,6 +615,10 @@ function getHomePageStaticProps() {
     props: {
       title: "Code for Africa",
       sections: [
+        {
+          ...hero,
+          slug: "hero",
+        },
         {
           slug: "projects",
           projects: projects.map(({ slug, name, tagLine, icon, category }) => ({
