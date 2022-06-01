@@ -41,10 +41,12 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
             xs={12}
           >
             <Box
+              component="figure"
               sx={{
-                width: { xs: "21.87rem", sm: "20rem", lg: "29rem" },
                 height: { xs: "21.93rem", sm: "26rem", lg: "32.37rem" },
                 position: "relative",
+                margin: 0,
+                width: { xs: "21.87rem", sm: "20rem", lg: "29rem" },
               }}
             >
               <Image
