@@ -42,7 +42,7 @@ const theme = createTheme({
     display1: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 700,
+      fontWeight: 300,
       lineHeight: 72 / 72,
     },
     display2: {
@@ -282,6 +282,18 @@ deepmerge(
         fontSize: pxToRem(20),
         lineHeight: 30 / 20,
       },
+    },
+    subheadingSemiBold: {
+      ...theme.typography.subheading,
+      fontSize: pxToRem(20),
+      fontWeight: 600,
+      lineHeight: 28 / 20,
+    },
+    subheadingUnderline: {
+      ...theme.typography.subheading,
+      fontSize: pxToRem(20),
+      lineHeight: 28 / 20,
+      textDecoration: "underline",
     },
     subtitle1: {
       fontSize: pxToRem(16),

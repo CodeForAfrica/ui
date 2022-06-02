@@ -1,0 +1,42 @@
+import Box from "@mui/material/Box";
+import { styled } from "@mui/material/styles";
+import React from "react";
+
+import bg from "@/codeforafrica/assets/images/1920x668px bg - 2 2.png";
+
+const TwoToneBackgroundRoot = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "center",
+  width: "100%",
+  position: "relative",
+  backgroundColor: theme.palette.background.main,
+  backgroundImage: `url('${bg.src}')`,
+  backgroundPosition: "top left",
+  "&:before": {
+    content: '""',
+    top: 0,
+    left: 0,
+    position: "absolute",
+    height: "100%",
+    width: "100%",
+    background: `linear-gradient(to right, ${theme.palette.background.main}, transparent 30%)`,
+    [theme.breakpoints.up("sm")]: {
+      background: `linear-gradient(to right, ${theme.palette.background.main} 20%, transparent 30%)`,
+    },
+    [theme.breakpoints.up("md")]: {
+      background: `linear-gradient(to right, ${theme.palette.background.main} 30%, transparent 40%)`,
+    },
+    [theme.breakpoints.up("xl")]: {
+      background: `linear-gradient(to right, ${theme.palette.background.main} 35%, transparent 45%)`,
+    },
+  },
+}));
+
+const TwoToneBackground = React.forwardRef(function TwoToneBackground(
+  props,
+  ref
+) {
+  return <TwoToneBackgroundRoot {...props} ref={ref} />;
+});
+
+export default TwoToneBackground;
