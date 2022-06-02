@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 
 const withTM = require("next-transpile-modules")(
   ["@commons-ui/core", "@commons-ui/next"],
@@ -6,6 +6,11 @@ const withTM = require("next-transpile-modules")(
     debug: /(^|\s)+--inspect(\s|$)+/.test(process.env.NODE_OPTIONS),
   }
 );
+
+const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
+const outputFileTracingRoot = PROJECT_ROOT
+  ? path.resolve(__dirname, PROJECT_ROOT)
+  : undefined;
 
 module.exports = withTM({
   images: {
@@ -15,7 +20,7 @@ module.exports = withTM({
   },
   experimental: {
     outputStandalone: true,
-    outputFileTracingRoot: path.resolve(__dirname, '../../'),
+    outputFileTracingRoot,
   },
   pageExtensions: ["page.js"],
   reactStrictMode: true,
