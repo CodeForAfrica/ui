@@ -10,6 +10,8 @@ const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
     <Section
       sx={{
         backgroundColor: "background.main",
+        px: { xs: 2.5, sm: 2.5, md: 0 },
+        py: { xs: 5.25, sm: 5.25, md: 10.25, lg: 4.25, xl: 12.75 },
       }}
       ref={ref}
     >

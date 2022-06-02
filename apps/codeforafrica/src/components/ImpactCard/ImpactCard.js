@@ -31,8 +31,7 @@ const ImpactCard = React.forwardRef(function ImpactCard({ initiative }, ref) {
       <CardContent
         sx={{
           backgroundColor: "background.main",
-          paddingLeft: { lg: 0, md: 0 },
-          paddingRight: { lg: 0, md: 0 },
+          padding: 0,
         }}
       >
         <Box
