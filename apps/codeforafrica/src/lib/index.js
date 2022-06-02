@@ -136,6 +136,39 @@ const team = [
   },
 ];
 
+const initiatives = [
+  {
+    title: "Initiatives",
+    description:
+      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+    value: 150,
+    image: {
+      alt: "",
+      url: "/icons/initiatives.svg",
+    },
+  },
+  {
+    title: "Staff members",
+    description:
+      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+    value: 111,
+    image: {
+      alt: "",
+      url: "/icons/staff.svg",
+    },
+  },
+  {
+    title: "International partners",
+    description:
+      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+    value: 111,
+    image: {
+      alt: "",
+      url: "/icons/international.svg",
+    },
+  },
+];
+
 const articles = [
   {
     title: "Battle for gender equality in African media continues",
@@ -652,14 +685,7 @@ function getHomePageStaticProps() {
         },
         {
           slug: "impact",
-          title: "Initiatives",
-          description:
-            "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
-          value: 150,
-          image: {
-            alt: "",
-            url: "/icons/Icon.svg",
-          },
+          initiatives,
         },
       ],
       footer,

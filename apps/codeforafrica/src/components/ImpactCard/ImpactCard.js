@@ -12,8 +12,8 @@ const ImpactCardRoot = styled(Card, {
   boxShadow: "none",
 }));
 
-const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
-  const { image, title, value, description } = props;
+const ImpactCard = React.forwardRef(function ImpactCard({ initiative }, ref) {
+  const { image, title, value, description } = initiative;
 
   if (!image && !title) {
     return null;

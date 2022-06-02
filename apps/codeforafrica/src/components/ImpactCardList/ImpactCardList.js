@@ -1,7 +1,10 @@
 import { Section } from "@commons-ui/core";
 import React from "react";
 
+import ImpactCard from "../ImpactCard/ImpactCard";
+
 const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
+  const { initiatives } = props;
   return (
     <Section
       sx={{
@@ -9,7 +12,9 @@ const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
       }}
       ref={ref}
     >
-      Impact Card List
+      {initiatives?.map((initiative) => {
+        return <ImpactCard key={initiative.title} initiative={initiative} />;
+      })}
     </Section>
   );
 });

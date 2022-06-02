@@ -31,7 +31,7 @@ function Index({ sections, ...props }) {
             return <OurPartners {...section} key={section.slug} />;
           }
           case "impact": {
-            return <ImpactCardList {...section} />;
+            return <ImpactCardList {...section} key={section.slug} />;
           }
           default:
             return null;
