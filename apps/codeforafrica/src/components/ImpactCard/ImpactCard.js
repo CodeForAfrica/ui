@@ -7,9 +7,16 @@ import React from "react";
 
 const ImpactCardRoot = styled(Card, {
   slot: "Root",
-})(() => ({
-  maxWidth: "350px",
+})(({ theme: { breakpoints } }) => ({
+  width: "100%",
   boxShadow: "none",
+
+  [breakpoints.up("md")]: {
+    width: "326px",
+  },
+  [breakpoints.up("lg")]: {
+    width: "332px",
+  },
 }));
 
 const ImpactCard = React.forwardRef(function ImpactCard({ initiative }, ref) {
@@ -24,6 +31,8 @@ const ImpactCard = React.forwardRef(function ImpactCard({ initiative }, ref) {
       <CardContent
         sx={{
           backgroundColor: "background.main",
+          paddingLeft: { lg: 0, md: 0 },
+          paddingRight: { lg: 0, md: 0 },
         }}
       >
         <Box

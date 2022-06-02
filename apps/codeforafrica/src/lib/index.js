@@ -158,7 +158,7 @@ const initiatives = [
     },
   },
   {
-    title: "International partners",
+    title: "Countries we operate in",
     description:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 111,
