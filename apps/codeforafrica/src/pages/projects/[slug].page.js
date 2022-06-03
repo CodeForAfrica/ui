@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 
 import Page from "@/codeforafrica/components/Page";
+import ProjectPageHeader from "@/codeforafrica/components/ProjectPageHeader";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import ShareBar from "@/codeforafrica/components/ShareBar";
 import {
@@ -17,33 +18,32 @@ import { projects, getPageStaticProps } from "@/codeforafrica/lib";
 function Index({ project, sections, ...props }) {
   return (
     <Page {...props}>
-      {project ? (
-        <Section
+      <ProjectPageHeader {...project} />
+      <Section
+        sx={{
+          px: { xs: 2.5, sm: 0 },
+          maxWidth: {
+            sm: "648px",
+            md: "912px",
+          },
+        }}
+      >
+        <Box
           sx={{
-            px: { xs: "20px", sm: 0 },
-            maxWidth: {
-              sm: "648px",
-              md: "912px",
-            },
+            color: "grey.main",
+            rowGap: 2,
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          <Box
-            sx={{
-              color: "grey.main",
-              columnGap: 2,
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <Typography variant="footerCap">Share This Project</Typography>
-            <ShareBar>
-              <FacebookShareBarButton />
-              <LinkedinShareBarButton />
-              <TwitterShareBarButton />
-            </ShareBar>
-          </Box>
-        </Section>
-      ) : null}
+          <Typography variant="footerCap">Share This Project</Typography>
+          <ShareBar>
+            <FacebookShareBarButton />
+            <LinkedinShareBarButton />
+            <TwitterShareBarButton />
+          </ShareBar>
+        </Box>
+      </Section>
       {sections?.map((section) => {
         switch (section.slug) {
           case "team":
