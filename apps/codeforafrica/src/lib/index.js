@@ -190,7 +190,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     author: "Gertrude Nyenyeshi",
     profession: " Technologist Code for Africa",
     href: "/stories/article-2",
@@ -208,7 +208,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     author: "Isaiah Ngaruiya",
     profession: " Technologist Code for Africa",
     href: "/stories/article-3",
@@ -226,7 +226,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-4",
     author: "Clemence Kyara",
     profession: " CTO Code for Africa",
@@ -244,7 +244,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-5",
     author: "Clemence Kyara",
     profession: " CTO Code for Africa",
@@ -262,7 +262,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-6",
     author: "Isaiah Ngaruiya",
     profession: " Technologist Code for Africa",
@@ -280,7 +280,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-7",
     author: "Gertrude Nyenyeshi",
     profession: " Technologist Code for Africa",
@@ -297,7 +297,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-8",
     author: "Brenda Nyokabi",
     profession: " Technologist Code for Africa",
@@ -314,7 +314,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-9",
     author: "Gertrude Nyenyeshi",
     profession: " Technologist Code for Africa",
@@ -331,7 +331,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-10",
     author: "Clemence Kyara",
     profession: " CTO Code for Africa",
@@ -348,7 +348,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-11",
     author: "Isaiah Ngaruiya",
     profession: " Technologist Code for Africa",
@@ -365,7 +365,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-12",
     author: "Brenda Nyokabi",
     profession: " Technologist Code for Africa",
@@ -382,7 +382,7 @@ const articles = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_2_dkg9uz.jpg",
     },
-    coverImage: { src: "/header-image.png" },
+    coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-13",
     tags: ["Decision-making", "Empowerment citizens"],
     author: "Gertrude Nyenyeshi",
