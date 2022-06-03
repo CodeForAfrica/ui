@@ -18,23 +18,26 @@ const Breadcrumbs = React.forwardRef(function Breadcrumbs(props, ref) {
   }
   return (
     <BreadcrumbsRoot {...other} ref={ref}>
-      {crumbs.map(({ href, label }) =>
-        href ? (
-          <Link
-            key={label}
-            color="text.primary"
-            href={href}
-            underline="always"
-            variant="body1Underline"
-          >
-            {label}
-          </Link>
-        ) : (
+      {crumbs.map(({ href, label }) => {
+        if (href) {
+          return (
+            <Link
+              key={label}
+              color="text.primary"
+              href={href}
+              underline="always"
+              variant="body1Underline"
+            >
+              {label}
+            </Link>
+          );
+        }
+        return (
           <RichTypography key={label} variant="body1">
             {label}
           </RichTypography>
-        )
-      )}
+        );
+      })}
     </BreadcrumbsRoot>
   );
 });

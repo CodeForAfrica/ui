@@ -56,8 +56,8 @@ const ProjectTitle = styled(RichTypography, {
 }));
 
 function getParentHref(href) {
-  const split = href.split("/");
-  return split.slice(0, split.length - 1).join("/");
+  const split = href?.split("/");
+  return split?.slice(0, split.length - 1)?.join("/");
 }
 
 const ProjectPageHeader = React.forwardRef(function ProjectPageHeader(
