@@ -3,7 +3,7 @@
 const menu = [
   {
     label: "Our work",
-    href: "/our-work",
+    href: "/projects",
   },
   {
     label: "About",
@@ -472,6 +472,7 @@ export const projects = [
     },
     category: "Projects",
     href: "/projects/african-drone",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "wana-data",
@@ -491,6 +492,7 @@ export const projects = [
     },
     category: "Projects",
     href: "/projects/wana-data",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "pesa-check",
@@ -510,6 +512,7 @@ export const projects = [
     },
     category: "Projects",
     href: "/projects/pesa-check",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "open-africa",
@@ -529,6 +532,7 @@ export const projects = [
     },
     category: "Projects",
     href: "/projects/open-africa",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "civic-signal",
@@ -548,6 +552,7 @@ export const projects = [
     },
     category: "Projects",
     href: "/projects/civic-signal",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "source-africa",
@@ -567,6 +572,7 @@ export const projects = [
     },
     category: "Projects",
     href: "/projects/source-africa",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "initiative-africa",
@@ -586,6 +592,7 @@ export const projects = [
     },
     category: "Initiatives",
     href: "/projects/initiative-africa",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "knowledge-africa",
@@ -605,6 +612,7 @@ export const projects = [
     },
     category: "Knowedge",
     href: "/projects/knowledge-africa",
+    externalHref: "https://codeforafrica.org",
   },
 ];
 
