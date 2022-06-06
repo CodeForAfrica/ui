@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 
 import Page from "@/codeforafrica/components/Page";
+import ProjectBadges from "@/codeforafrica/components/ProjectBadges";
 import ProjectPageHeader from "@/codeforafrica/components/ProjectPageHeader";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import ShareBar from "@/codeforafrica/components/ShareBar";
@@ -16,9 +17,11 @@ import TeamMemberCardList from "@/codeforafrica/components/TeamMemberCardList";
 import { projects, getPageStaticProps } from "@/codeforafrica/lib";
 
 function Index({ project, sections, ...props }) {
+  const { badges } = project;
   return (
     <Page {...props}>
       <ProjectPageHeader {...project} />
+      <ProjectBadges {...badges} />
       <Section
         sx={{
           px: { xs: 2.5, sm: 0 },
