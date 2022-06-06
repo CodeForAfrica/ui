@@ -41,7 +41,15 @@ const ProjectTileRoot = styled(Paper, {
 }));
 
 const ProjectTile = React.forwardRef(function ProjectTile(props, ref) {
-  const { href, icon, name, tagLine, variant = "standard", ...other } = props;
+  const {
+    externalHref,
+    href,
+    icon,
+    name,
+    tagLine,
+    variant = "standard",
+    ...other
+  } = props;
 
   const ownerState = {
     href,
