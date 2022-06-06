@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import OurTeam from "./OurTeam";
+import Breadcrumbs from "./Breadcrumbs";
 
 import theme from "@/codeforafrica/theme";
 
@@ -9,12 +9,12 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  title: "Our team",
+  crumbs: [{ label: "Our Work", href: "/projects" }, { label: "Initiatives" }],
 };
 
-describe("<OurTeam />", () => {
+describe("<Breadcrumbs />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<OurTeam {...defaultProps} />);
+    const { container } = render(<Breadcrumbs {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

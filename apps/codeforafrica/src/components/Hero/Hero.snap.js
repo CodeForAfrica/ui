@@ -19,7 +19,7 @@ exports[`<Hero /> renders unchanged 1`] = `
             class="css-1xghah2-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h2 css-135hp4q-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 css-p1pmwl-MuiTypography-root"
             >
               Empowering 
               <span

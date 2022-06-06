@@ -6,7 +6,7 @@ exports[`<ProjectCard /> renders unchanged 1`] = `
     class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-2quvxm-MuiPaper-root-MuiCard-root"
   >
     <img
-      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-k1vjuk-MuiCardMedia-root"
+      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-tm1rxb-MuiCardMedia-root"
     />
     <div
       class="MuiBox-root css-zg1vud"

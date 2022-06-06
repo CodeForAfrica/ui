@@ -3,7 +3,7 @@
 const menu = [
   {
     label: "Our work",
-    href: "/our-work",
+    href: "/projects",
   },
   {
     label: "About",
@@ -112,27 +112,168 @@ const hero = {
   },
 };
 
-const team = [
+export const team = [
   {
+    slug: "member-1",
     name: "Justin Arenstein",
     title: "CEO of Code for Africa",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
+    href: "/about/members/member-1",
   },
   {
+    slug: "member-2",
     name: "Tolulope Adeyemo",
     title: "Senior Programme Manager",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
+    href: "/about/members/member-2",
   },
   {
+    slug: "member-3",
     name: "Johnny Miller",
     title: "Co-Founder of africanDRONE",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
+    href: "/about/members/member-3",
+  },
+  {
+    slug: "member-4",
+    name: "Justin Arenstein",
+    title: "CEO of Code for Africa",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
+    },
+    href: "/about/members/member-4",
+  },
+  {
+    slug: "member-5",
+    name: "Tolulope Adeyemo",
+    title: "Senior Programme Manager",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
+    },
+    href: "/about/members/member-5",
+  },
+  {
+    slug: "member-6",
+    name: "Johnny Miller",
+    title: "Co-Founder of africanDRONE",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
+    },
+    href: "/about/members/member-6",
+  },
+  {
+    slug: "member-7",
+    name: "Justin Arenstein",
+    title: "CEO of Code for Africa",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
+    },
+    href: "/about/members/member-7",
+  },
+  {
+    slug: "member-8",
+    name: "Tolulope Adeyemo",
+    title: "Senior Programme Manager",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
+    },
+    href: "/about/members/member-8",
+  },
+  {
+    slug: "member-9",
+    name: "Johnny Miller",
+    title: "Co-Founder of africanDRONE",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
+    },
+    href: "/about/members/member-9",
+  },
+  {
+    slug: "member-10",
+    name: "Justin Arenstein",
+    title: "CEO of Code for Africa",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
+    },
+    href: "/about/members/member-10",
+  },
+  {
+    slug: "member-11",
+    name: "Tolulope Adeyemo",
+    title: "Senior Programme Manager",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
+    },
+    href: "/about/members/member-11",
+  },
+  {
+    slug: "member-12",
+    name: "Johnny Miller",
+    title: "Co-Founder of africanDRONE",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
+    },
+    href: "/about/members/member-12",
+  },
+  {
+    slug: "member-13",
+    name: "Justin Arenstein",
+    title: "CEO of Code for Africa",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
+    },
+    href: "/about/members/member-13",
+  },
+  {
+    slug: "member-14",
+    name: "Tolulope Adeyemo",
+    title: "Senior Programme Manager",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
+    },
+    href: "/about/members/member-14",
+  },
+  {
+    slug: "member-15",
+    name: "Johnny Miller",
+    title: "Co-Founder of africanDRONE",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
+    },
+    href: "/about/members/member-15",
+  },
+  {
+    slug: "member-16",
+    name: "Justin Arenstein",
+    title: "CEO of Code for Africa",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
+    },
+    href: "/about/members/member-16",
+  },
+  {
+    slug: "member-17",
+    name: "Tolulope Adeyemo",
+    title: "Senior Programme Manager",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
+    },
+    href: "/about/members/member-17",
+  },
+  {
+    slug: "member-18",
+    name: "Johnny Miller",
+    title: "Co-Founder of africanDRONE",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
+    },
+    href: "/about/members/member-18",
   },
 ];
 
@@ -472,6 +613,7 @@ export const projects = [
     },
     category: "Projects",
     href: "/projects/african-drone",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "wana-data",
@@ -491,6 +633,7 @@ export const projects = [
     },
     category: "Projects",
     href: "/projects/wana-data",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "pesa-check",
@@ -510,6 +653,7 @@ export const projects = [
     },
     category: "Projects",
     href: "/projects/pesa-check",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "open-africa",
@@ -529,6 +673,7 @@ export const projects = [
     },
     category: "Projects",
     href: "/projects/open-africa",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "civic-signal",
@@ -548,6 +693,7 @@ export const projects = [
     },
     category: "Projects",
     href: "/projects/civic-signal",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "source-africa",
@@ -567,6 +713,7 @@ export const projects = [
     },
     category: "Projects",
     href: "/projects/source-africa",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "initiative-africa",
@@ -586,6 +733,7 @@ export const projects = [
     },
     category: "Initiatives",
     href: "/projects/initiative-africa",
+    externalHref: "https://codeforafrica.org",
   },
   {
     slug: "knowledge-africa",
@@ -605,6 +753,7 @@ export const projects = [
     },
     category: "Knowedge",
     href: "/projects/knowledge-africa",
+    externalHref: "https://codeforafrica.org",
   },
 ];
 
@@ -630,7 +779,7 @@ function getHomePageStaticProps() {
           })),
         },
         {
-          slug: "our-team",
+          slug: "meet-our-team",
           logo: "/images/Africa@2400x 1lg.png",
           title: "A truly pan-African team across the continent",
           description: `Lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu,
@@ -638,6 +787,7 @@ function getHomePageStaticProps() {
           ultrices dui parturient vitae ac netus convallis integer. <br />
           <br /> Euismod posuere fusce mollis etiam himenaeos non aliquam nulla
           dis consequat ornare, velit odio condimentum augue felis na.`,
+          href: "/about#our-team",
         },
         {
           slug: "news-stories",
@@ -772,6 +922,11 @@ function getAboutPageStaticProps() {
       title: "About | Code for Africa",
       sections: [
         {
+          slug: "our-team",
+          title: "Our team",
+          team,
+        },
+        {
           slug: "our-partners",
           title: "Our partners",
           partners,
@@ -782,6 +937,35 @@ function getAboutPageStaticProps() {
     },
     revalidate: DEFAULT_REVALIDATE,
   };
+}
+
+function getTeamMemberPageStaticProps(params) {
+  const member = team.find(
+    ({ href }) =>
+      href.localeCompare(params?.slug, undefined, {
+        sensitivity: "accent",
+      }) === 0
+  );
+  if (member) {
+    return {
+      props: {
+        title: `${member.name} | Members | About | Code for Africa`,
+        member,
+        sections: [
+          {
+            slug: "related-projects",
+            title: "Projects",
+            projects: projects.slice(0, 3),
+          },
+        ],
+        footer,
+        navbar,
+      },
+      revalidate: DEFAULT_REVALIDATE,
+    };
+  }
+
+  return { notFound: true };
 }
 
 export async function getPageStaticProps(params) {
@@ -804,6 +988,9 @@ export async function getPageStaticProps(params) {
       }
       if (params?.slug?.startsWith("/stories/")) {
         return getStoryPageStaticProps(params);
+      }
+      if (params?.slug?.startsWith("/about/members/")) {
+        return getTeamMemberPageStaticProps(params);
       }
       return { notFound: true };
   }
