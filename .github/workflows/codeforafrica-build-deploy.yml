@@ -7,6 +7,7 @@ env:
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/codeforafrica-ui"
   IMAGE_NAME: "codeforafrica/codeforafrica-ui"
+  NEXT_PUBLIC_IMAGE_DOMAINS: "res.cloudinary.com"
   APP: "codeforafrica"
   VERSION_FILE_NAME: "./apps/codeforafrica/package.json"
   GIT_PUSH_FLAGS: "--force"
@@ -65,6 +66,7 @@ jobs:
         with:
           build-args: |
             APP=${{ env.APP }}
+            NEXT_PUBLIC_IMAGE_DOMAINS=${{ env.NEXT_PUBLIC_IMAGE_DOMAINS }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
