@@ -10,7 +10,6 @@ const ImpactCardRoot = styled(Card, {
 })(({ theme: { breakpoints } }) => ({
   width: "100%",
   boxShadow: "none",
-
   [breakpoints.up("md")]: {
     width: "326px",
   },
