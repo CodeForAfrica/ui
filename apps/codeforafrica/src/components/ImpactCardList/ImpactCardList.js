@@ -6,7 +6,7 @@ import React from "react";
 import ImpactCard from "../ImpactCard/ImpactCard";
 
 const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
-  const { initiatives } = props;
+  const { initiatives, action } = props;
   return (
     <Box
       sx={{
@@ -22,18 +22,18 @@ const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
       >
         <Grid container justifyContent="space-around">
           {initiatives?.map((initiative) => {
-            return (
-              <ImpactCard key={initiative.title} initiative={initiative} />
-            );
+            return <ImpactCard key={initiative.title} {...initiative} />;
           })}
-          <Button
-            variant="contained"
-            component={Link}
-            href="/stories"
-            sx={{ width: { xs: "100%", sm: "unset" }, marginTop: 7.25 }}
-          >
-            Get Involved
-          </Button>
+          {action && (
+            <Button
+              variant="contained"
+              component={Link}
+              href="/stories"
+              sx={{ width: { xs: "100%", sm: "unset" }, marginTop: 7.25 }}
+            >
+              {action}
+            </Button>
+          )}
         </Grid>
       </Section>
     </Box>

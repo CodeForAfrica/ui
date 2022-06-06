@@ -1,5 +1,6 @@
 import React from "react";
 
+import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import Page from "@/codeforafrica/components/Page";
 import { getPageStaticProps } from "@/codeforafrica/lib";
@@ -11,6 +12,9 @@ function Index({ sections, ...props }) {
         switch (section.slug) {
           case "our-partners": {
             return <OurPartners {...section} key={section.slug} />;
+          }
+          case "impact": {
+            return <ImpactCardList {...section} key={section.slug} />;
           }
           default:
             return null;

@@ -19,9 +19,10 @@ const ImpactCardRoot = styled(Card, {
   },
 }));
 
-const ImpactCard = React.forwardRef(function ImpactCard({ initiative }, ref) {
-  const { image, title, value, description } = initiative;
-
+const ImpactCard = React.forwardRef(function ImpactCard(
+  { image, title, value, description },
+  ref
+) {
   if (!image && !title) {
     return null;
   }
