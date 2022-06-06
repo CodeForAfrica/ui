@@ -9,10 +9,7 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  slug: "our-team",
-  title: "title",
-  description: "description",
-  logo: "/images/Africa@2400x 1lg",
+  title: "Our team",
 };
 
 describe("<OurTeam />", () => {
