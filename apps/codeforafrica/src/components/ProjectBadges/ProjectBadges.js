@@ -19,16 +19,16 @@ const ProjectBadges = React.forwardRef(function ProjectBadges(props, ref) {
         {...other}
         sx={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: { xs: "column", md: "row" },
           alignItems: "center",
-          padding: "2rem 0rem",
+          padding: "1rem",
         }}
       >
         {badges?.map((item) => (
           <Badge
             name={item.name}
             date={item.date}
-            sx={{ margin: "0px 29px" }}
+            sx={{ margin: { xs: "10px", md: "29px" }, width: { xs: "100%" } }}
           />
         ))}
       </Box>

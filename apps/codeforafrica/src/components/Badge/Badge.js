@@ -12,17 +12,9 @@ const BadgeButtonRoot = styled(Button, {
   background: "#F6F5F5",
   border: 0,
   color: "inherit",
-  padding: "10px",
-  gap: "10px",
-  width: "201px",
-  height: "84px",
   "&:hover": {
     background: "#F6F5F5",
     border: 0,
-    padding: "10px",
-    gap: "10px",
-    width: "201px",
-    height: "84px",
   },
 }));
 
@@ -35,9 +27,14 @@ const Badge = React.forwardRef(function Badge(props, ref) {
         <NextImageButton
           href="/"
           src={badgeIcon}
-          alt="not badge"
+          alt="Badge icon"
           width="64px"
           height="64px"
+          sx={{
+            "& img": {
+              width: { xs: "32px !important", md: "64px !important" },
+            },
+          }}
         />
       }
       ref={ref}
@@ -47,12 +44,20 @@ const Badge = React.forwardRef(function Badge(props, ref) {
         sx={{
           display: "flex",
           flexDirection: { xs: "row", md: "column" },
+          justifyContent: { xs: "flex-start", md: "flex-start" },
           textTransform: "capitalize",
           color: "black",
+          "& span:nth-first-child(1)": {
+            fontSize: { xs: "14px", md: "18px" },
+            padding: { xs: "0rem, 4rem", md: 0 },
+          },
+          "& span:nth-first-child(2)": {
+            fontSize: { xs: "12px", md: "14px" },
+          },
         }}
       >
-        <span sx={{ fontSize: "18px" }}>{name}</span>
-        <span sx={{ fontSize: "14px" }}>{date}</span>
+        <span>{name}</span>
+        <span>{date}</span>
       </Typography>
     </BadgeButtonRoot>
   );
