@@ -21,7 +21,9 @@ function Index({ project, sections, ...props }) {
   return (
     <Page {...props}>
       <ProjectPageHeader {...project} />
-      <ProjectBadges {...badges} />
+
+      <ProjectBadges badges={badges} />
+
       <Section
         sx={{
           px: { xs: 2.5, sm: 0 },

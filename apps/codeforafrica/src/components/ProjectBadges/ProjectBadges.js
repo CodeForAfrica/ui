@@ -1,3 +1,4 @@
+import { Section } from "@commons-ui/core";
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
@@ -12,28 +13,34 @@ const ProjectBadges = React.forwardRef(function ProjectBadges(props, ref) {
   }
 
   return (
-    <Box
-      ref={ref}
-      {...other}
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      {badges?.map((item) => (
-        <Badge name={item.name} date={item.date} />
-      ))}
-    </Box>
+    <Section>
+      <Box
+        ref={ref}
+        {...other}
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          padding: "2rem 0rem",
+        }}
+      >
+        {badges?.map((item) => (
+          <Badge
+            name={item.name}
+            date={item.date}
+            sx={{ margin: "0px 29px" }}
+          />
+        ))}
+      </Box>
+    </Section>
   );
 });
 
 ProjectBadges.propTypes = {
   badges: PropTypes.arrayOf(
     PropTypes.shape({
-      award: PropTypes.string,
-      month: PropTypes.string,
+      name: PropTypes.string,
+      date: PropTypes.string,
     })
   ),
 };
