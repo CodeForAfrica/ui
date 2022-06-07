@@ -1,12 +1,13 @@
 import { Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import { Grid, Box, Button } from "@mui/material";
+import { Grid, Box, Button, Typography } from "@mui/material";
+import PropTypes from "prop-types";
 import React from "react";
 
 import ImpactCard from "../ImpactCard/ImpactCard";
 
 const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
-  const { initiatives, action } = props;
+  const { initiatives, action, title } = props;
   return (
     <Box
       sx={{
@@ -20,24 +21,47 @@ const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
         }}
         ref={ref}
       >
-        <Grid container justifyContent="space-around">
+        {title && (
+          <Typography sx={{ marginBottom: "40px" }} variant="h4">
+            Our impact in numbers
+          </Typography>
+        )}
+        <Grid container justifyContent="space-between">
           {initiatives?.map((initiative) => {
-            return <ImpactCard key={initiative.title} {...initiative} />;
+            return (
+              <Grid item>
+                <ImpactCard key={initiative.title} {...initiative} />
+              </Grid>
+            );
           })}
-          {action && (
+        </Grid>
+        {action?.title && (
+          <Box sx={{ textAlign: "center" }}>
             <Button
               variant="contained"
               component={Link}
-              href="/stories"
+              href={action.href}
               sx={{ width: { xs: "100%", sm: "unset" }, marginTop: 7.25 }}
             >
-              {action}
+              {action.title}
             </Button>
-          )}
-        </Grid>
+          </Box>
+        )}
       </Section>
     </Box>
   );
 });
+
+ImpactCardList.propTypes = {
+  initiatives: PropTypes.arrayOf(PropTypes.shape({})),
+  title: PropTypes.string,
+  action: PropTypes.shape({}),
+};
+
+ImpactCardList.defaultProps = {
+  initiatives: undefined,
+  title: undefined,
+  action: undefined,
+};
 
 export default ImpactCardList;

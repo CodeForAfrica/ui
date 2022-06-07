@@ -748,7 +748,10 @@ function getHomePageStaticProps() {
         },
         {
           slug: "impact",
-          action: "Get Involved",
+          action: {
+            title: "Get Involved",
+            href: "/get-involved",
+          },
           initiatives,
         },
       ],
@@ -868,6 +871,7 @@ function getAboutPageStaticProps() {
         },
         {
           slug: "impact",
+          title: "Our impact in numbers",
           initiatives: initiativesAbout,
         },
       ],
