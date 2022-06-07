@@ -900,7 +900,7 @@ function getHomePageStaticProps() {
           slug: "impact",
           action: {
             title: "Get Involved",
-            href: "/get-involved",
+            href: "/contact",
           },
           initiatives,
         },

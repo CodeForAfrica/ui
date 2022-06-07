@@ -1,6 +1,6 @@
-import { Section } from "@commons-ui/core";
+import { Section, RichTypography } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import { Grid, Box, Button, Typography } from "@mui/material";
+import { Grid, Box, Button } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -8,29 +8,32 @@ import ImpactCard from "../ImpactCard/ImpactCard";
 
 const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
   const { initiatives, action, title } = props;
+  if (!initiatives) {
+    return null;
+  }
   return (
     <Box
       sx={{
         backgroundColor: "background.main",
       }}
+      ref={ref}
     >
       <Section
         sx={{
-          px: { xs: 2.5, sm: 2.5, md: 0 },
-          py: { xs: 5.25, sm: 5.25, md: 4.25, lg: 4.25, xl: 12.75 },
+          px: { xs: 2.5, md: 0 },
+          py: { xs: 5, sm: 10, md: 4, lg: 12.5 },
         }}
-        ref={ref}
       >
         {title && (
-          <Typography
+          <RichTypography
             sx={{
-              marginBottom: "40px",
-              marginTop: { sm: 3.25, md: 3.75, lg: 0 },
+              mb: { xs: 10, md: 5, lg: 7.55 },
+              mt: { xs: 2.25, sm: 0, md: 4, lg: 0 },
             }}
             variant="h4"
           >
             {title}
-          </Typography>
+          </RichTypography>
         )}
         <Grid container justifyContent="space-between">
           {initiatives?.map((initiative) => {
@@ -42,7 +45,7 @@ const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
           })}
         </Grid>
         {action?.title && (
-          <Box sx={{ textAlign: "center" }}>
+          <Grid container justifyContent="center">
             <Button
               variant="contained"
               component={Link}
@@ -51,7 +54,7 @@ const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
             >
               {action.title}
             </Button>
-          </Box>
+          </Grid>
         )}
       </Section>
     </Box>
