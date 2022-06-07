@@ -1,4 +1,3 @@
-import { Section } from "@commons-ui/core";
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
@@ -13,34 +12,32 @@ const ProjectBadges = React.forwardRef(function ProjectBadges(props, ref) {
   }
 
   return (
-    <Section>
-      <Box
-        ref={ref}
-        {...other}
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          alignItems: "center",
-          padding: "1rem",
-        }}
-      >
-        {badges?.map((item) => (
-          <Badge
-            name={item.name}
-            date={item.date}
-            sx={{
-              margin: { xs: "10px", md: "29px" },
-              width: { xs: "100%", md: "201px" },
-              height: { xs: "42px", md: "84px" },
-              justifyContent: { xs: "flex-start", md: "center" },
-              "& span": {
-                margin: { xs: "0rem 0.5rem", md: 0 },
-              },
-            }}
-          />
-        ))}
-      </Box>
-    </Section>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: { xs: "column", md: "row" },
+        alignItems: "center",
+        padding: "1rem",
+      }}
+      ref={ref}
+      {...other}
+    >
+      {badges?.map((item) => (
+        <Badge
+          name={item.name}
+          date={item.date}
+          sx={{
+            margin: { xs: 10, md: 29 },
+            width: { xs: "100%", md: 201 },
+            height: { xs: 42, md: 84 },
+            justifyContent: { xs: "flex-start", md: "center" },
+            "& span": {
+              margin: { xs: "0rem 0.5rem", md: 0 },
+            },
+          }}
+        />
+      ))}
+    </Box>
   );
 });
 

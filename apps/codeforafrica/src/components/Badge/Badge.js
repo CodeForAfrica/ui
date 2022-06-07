@@ -8,12 +8,12 @@ import NextImageButton from "@/codeforafrica/components/NextImageButton";
 
 const BadgeButtonRoot = styled(Button, {
   slot: "Root",
-})(() => ({
-  background: "#F6F5F5",
+})(({ theme }) => ({
+  background: theme.palette.background.main,
   border: 0,
   color: "inherit",
   "&:hover": {
-    background: "#F6F5F5",
+    background: theme.palette.background.main,
     border: 0,
   },
 }));
@@ -23,16 +23,17 @@ const Badge = React.forwardRef(function Badge(props, ref) {
 
   return (
     <BadgeButtonRoot
+      disabled
       startIcon={
         <NextImageButton
-          href="/"
+          href="#"
           src={badgeIcon}
           alt="Badge icon"
           width="64px"
           height="64px"
           sx={{
             "& img": {
-              width: { xs: "32px !important", md: "64px !important" },
+              width: { xs: "32px !important", md: "64px" },
             },
           }}
         />
@@ -48,12 +49,10 @@ const Badge = React.forwardRef(function Badge(props, ref) {
           color: "black",
           textAlign: "start",
           "& span:nth-first-child(1)": {
-            fontSize: { xs: "14px", md: "18px" },
-            margin: "0rem 0.5rem",
+            fontSize: { xs: 14, md: 18 },
           },
           "& span:nth-first-child(2)": {
-            fontSize: { xs: "12px", md: "14px" },
-            margin: "0rem 0.5rem",
+            fontSize: { xs: 12, md: 14 },
           },
         }}
       >
