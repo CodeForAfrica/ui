@@ -64,7 +64,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  console.log("BOOM", slug);
   return getPageStaticProps({ slug: `/about/members/${slug}` });
 }
 

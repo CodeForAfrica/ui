@@ -1,7 +1,8 @@
 import React from "react";
-import ImpactCardList from "../components/ImpactCardList";
+
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
 import Hero from "@/codeforafrica/components/Hero";
+import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
 import OurPartners from "@/codeforafrica/components/OurPartners";
