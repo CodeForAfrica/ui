@@ -44,15 +44,16 @@ const Badge = React.forwardRef(function Badge(props, ref) {
         sx={{
           display: "flex",
           flexDirection: { xs: "row", md: "column" },
-          justifyContent: { xs: "flex-start", md: "flex-start" },
           textTransform: "capitalize",
           color: "black",
+          textAlign: "start",
           "& span:nth-first-child(1)": {
             fontSize: { xs: "14px", md: "18px" },
-            padding: { xs: "0rem, 4rem", md: 0 },
+            margin: "0rem 0.5rem",
           },
           "& span:nth-first-child(2)": {
             fontSize: { xs: "12px", md: "14px" },
+            margin: "0rem 0.5rem",
           },
         }}
       >
