@@ -277,6 +277,102 @@ export const team = [
   },
 ];
 
+const initiativesAbout = [
+  {
+    title: "Initiatives",
+    description:
+      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+    value: 150,
+    image: {
+      alt: "",
+      url: "/icons/initiatives.svg",
+    },
+  },
+  {
+    title: "Beneficiaries trained",
+    description:
+      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+    value: 150,
+    image: {
+      alt: "",
+      url: "/icons/initiatives.svg",
+    },
+  },
+  {
+    title: "Years in Operation",
+    description:
+      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+    value: 150,
+    image: {
+      alt: "",
+      url: "/icons/initiatives.svg",
+    },
+  },
+  {
+    title: "Media partners",
+    description:
+      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+    value: 150,
+    image: {
+      alt: "",
+      url: "/icons/initiatives.svg",
+    },
+  },
+  {
+    title: "Staff members",
+    description:
+      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+    value: 111,
+    image: {
+      alt: "",
+      url: "/icons/staff.svg",
+    },
+  },
+  {
+    title: "Countries we operate in",
+    description:
+      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+    value: 111,
+    image: {
+      alt: "",
+      url: "/icons/international.svg",
+    },
+  },
+];
+
+const initiatives = [
+  {
+    title: "Initiatives",
+    description:
+      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+    value: 150,
+    image: {
+      alt: "",
+      url: "/icons/initiatives.svg",
+    },
+  },
+  {
+    title: "Staff members",
+    description:
+      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+    value: 111,
+    image: {
+      alt: "",
+      url: "/icons/staff.svg",
+    },
+  },
+  {
+    title: "Countries we operate in",
+    description:
+      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
+    value: 111,
+    image: {
+      alt: "",
+      url: "/icons/international.svg",
+    },
+  },
+];
+
 const articles = [
   {
     title: "Battle for gender equality in African media continues",
@@ -802,14 +898,11 @@ function getHomePageStaticProps() {
         },
         {
           slug: "impact",
-          title: "Initiatives",
-          description:
-            "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
-          value: 150,
-          image: {
-            alt: "",
-            url: "/icons/Icon.svg",
+          action: {
+            title: "Get Involved",
+            href: "/contact",
           },
+          initiatives,
         },
       ],
       footer,
@@ -930,6 +1023,11 @@ function getAboutPageStaticProps() {
           slug: "our-partners",
           title: "Our partners",
           partners,
+        },
+        {
+          slug: "impact",
+          title: "Our impact in numbers",
+          initiatives: initiativesAbout,
         },
       ],
       footer,

@@ -7,14 +7,21 @@ import React from "react";
 
 const ImpactCardRoot = styled(Card, {
   slot: "Root",
-})(() => ({
-  maxWidth: "350px",
+})(({ theme: { breakpoints } }) => ({
+  width: "100%",
   boxShadow: "none",
+  [breakpoints.up("md")]: {
+    width: "326px",
+  },
+  [breakpoints.up("lg")]: {
+    width: "332px",
+  },
 }));
 
-const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
-  const { image, title, value, description } = props;
-
+const ImpactCard = React.forwardRef(function ImpactCard(
+  { image, title, value, description },
+  ref
+) {
   if (!image && !title) {
     return null;
   }
@@ -24,6 +31,7 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
       <CardContent
         sx={{
           backgroundColor: "background.main",
+          padding: 0,
         }}
       >
         <Box

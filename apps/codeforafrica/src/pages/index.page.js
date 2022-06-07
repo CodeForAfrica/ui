@@ -1,9 +1,8 @@
-import { Section } from "@commons-ui/core";
 import React from "react";
 
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
 import Hero from "@/codeforafrica/components/Hero";
-import ImpactCard from "@/codeforafrica/components/ImpactCard";
+import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
 import OurPartners from "@/codeforafrica/components/OurPartners";
@@ -31,16 +30,7 @@ function Index({ sections, ...props }) {
             return <OurPartners {...section} key={section.slug} />;
           }
           case "impact": {
-            return (
-              <Section
-                sx={{
-                  backgroundColor: "background.main",
-                }}
-                key={section.slug}
-              >
-                <ImpactCard {...section} />
-              </Section>
-            );
+            return <ImpactCardList {...section} key={section.slug} />;
           }
           default:
             return null;
