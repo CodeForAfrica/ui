@@ -17,13 +17,19 @@ const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
       <Section
         sx={{
           px: { xs: 2.5, sm: 2.5, md: 0 },
-          py: { xs: 5.25, sm: 5.25, md: 10.25, lg: 4.25, xl: 12.75 },
+          py: { xs: 5.25, sm: 5.25, md: 4.25, lg: 4.25, xl: 12.75 },
         }}
         ref={ref}
       >
         {title && (
-          <Typography sx={{ marginBottom: "40px" }} variant="h4">
-            Our impact in numbers
+          <Typography
+            sx={{
+              marginBottom: "40px",
+              marginTop: { sm: 3.25, md: 3.75, lg: 0 },
+            }}
+            variant="h4"
+          >
+            {title}
           </Typography>
         )}
         <Grid container justifyContent="space-between">
