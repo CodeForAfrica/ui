@@ -26,8 +26,17 @@ const ProjectCardRoot = styled(Card, {
 }));
 
 const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
-  const { href, icon, name, subtitle, tagLine, title, thumbnail, ...other } =
-    props;
+  const {
+    externalHref,
+    href,
+    icon,
+    name,
+    subtitle,
+    tagLine,
+    title,
+    thumbnail,
+    ...other
+  } = props;
 
   const ownerState = {
     ...other,

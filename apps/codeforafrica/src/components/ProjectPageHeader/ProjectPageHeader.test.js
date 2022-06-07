@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import OurTeam from "./OurTeam";
+import ProjectPageHeader from "./ProjectPageHeader";
 
 import theme from "@/codeforafrica/theme";
 
@@ -9,12 +9,13 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  title: "Our team",
+  href: "/projects/test-project",
+  category: "Iniatives",
 };
 
-describe("<OurTeam />", () => {
+describe("<ProjectPageHeader />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<OurTeam {...defaultProps} />);
+    const { container } = render(<ProjectPageHeader {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

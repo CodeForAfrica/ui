@@ -4,7 +4,6 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 
 import Page from "@/codeforafrica/components/Page";
-import ProjectPageHeader from "@/codeforafrica/components/ProjectPageHeader";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import ShareBar from "@/codeforafrica/components/ShareBar";
 import {
@@ -12,13 +11,11 @@ import {
   LinkedinShareBarButton,
   TwitterShareBarButton,
 } from "@/codeforafrica/components/ShareBarButton";
-import TeamMemberCardList from "@/codeforafrica/components/TeamMemberCardList";
-import { projects, getPageStaticProps } from "@/codeforafrica/lib";
+import { team, getPageStaticProps } from "@/codeforafrica/lib";
 
 function Index({ project, sections, ...props }) {
   return (
     <Page {...props}>
-      <ProjectPageHeader {...project} />
       <Section
         sx={{
           px: { xs: 2.5, sm: 0 },
@@ -36,7 +33,7 @@ function Index({ project, sections, ...props }) {
             flexDirection: "column",
           }}
         >
-          <Typography variant="footerCap">Share This Project</Typography>
+          <Typography variant="footerCap">Connect</Typography>
           <ShareBar>
             <FacebookShareBarButton />
             <LinkedinShareBarButton />
@@ -46,21 +43,6 @@ function Index({ project, sections, ...props }) {
       </Section>
       {sections?.map((section) => {
         switch (section.slug) {
-          case "team":
-            return (
-              <Section
-                sx={{
-                  borderTop: "1px solid",
-                  borderColor: "grey.main",
-                  pl: { xs: 2.5, sm: 0 },
-                  py: "42px",
-                  overflowX: "visible",
-                }}
-                key={section.slug}
-              >
-                <TeamMemberCardList {...section} />
-              </Section>
-            );
           case "related-projects":
             return <RelatedProjects {...section} key={section.slug} />;
           default:
@@ -72,7 +54,7 @@ function Index({ project, sections, ...props }) {
 }
 
 export async function getStaticPaths() {
-  const paths = projects.map(({ slug }) => ({
+  const paths = team.map(({ slug }) => ({
     params: { slug },
   }));
   return {
@@ -82,7 +64,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  return getPageStaticProps({ slug: `/projects/${slug}` });
+  console.log("BOOM", slug);
+  return getPageStaticProps({ slug: `/about/members/${slug}` });
 }
 
 export default Index;

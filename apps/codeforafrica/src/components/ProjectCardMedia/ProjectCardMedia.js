@@ -6,10 +6,11 @@ const ProjectCardMediaRoot = styled(CardMedia, {
   slot: "Root",
 })(({ theme }) => ({
   display: "flex",
-  width: "100%",
   maxWidth: 351,
+  objectFit: "contain",
+  width: "100%",
   [theme.breakpoints.up("md")]: {
-    maxWidth: "none",
+    maxWidth: "unset",
     width: 487,
   },
 }));

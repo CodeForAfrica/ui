@@ -2,6 +2,7 @@ import React from "react";
 
 import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
 import OurPartners from "@/codeforafrica/components/OurPartners";
+import OurTeam from "@/codeforafrica/components/OurTeam";
 import Page from "@/codeforafrica/components/Page";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
@@ -15,6 +16,9 @@ function Index({ sections, ...props }) {
           }
           case "impact": {
             return <ImpactCardList {...section} key={section.slug} />;
+          }
+          case "our-team": {
+            return <OurTeam {...section} key={section.slug} />;
           }
           default:
             return null;
