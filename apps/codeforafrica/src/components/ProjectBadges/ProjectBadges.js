@@ -27,9 +27,9 @@ const ProjectBadges = React.forwardRef(function ProjectBadges(props, ref) {
           name={item.name}
           date={item.date}
           sx={{
-            margin: { xs: 10, md: 29 },
-            width: { xs: "100%", md: 201 },
-            height: { xs: 42, md: 84 },
+            margin: { xs: "10px", md: "29px" },
+            width: { xs: "100%", md: "201px" },
+            height: { xs: "42px", md: "84px" },
             justifyContent: { xs: "flex-start", md: "center" },
             "& span": {
               margin: { xs: "0rem 0.5rem", md: 0 },

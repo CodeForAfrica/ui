@@ -33,7 +33,7 @@ const Badge = React.forwardRef(function Badge(props, ref) {
           height="64px"
           sx={{
             "& img": {
-              width: { xs: "32px !important", md: "64px" },
+              width: { xs: "32px !important", md: "64px !important" },
             },
           }}
         />
@@ -49,10 +49,10 @@ const Badge = React.forwardRef(function Badge(props, ref) {
           color: "black",
           textAlign: "start",
           "& span:nth-first-child(1)": {
-            fontSize: { xs: 14, md: 18 },
+            fontSize: { xs: "14px", md: "18px" },
           },
           "& span:nth-first-child(2)": {
-            fontSize: { xs: 12, md: 14 },
+            fontSize: { xs: "12px", md: "14px" },
           },
         }}
       >
