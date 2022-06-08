@@ -918,6 +918,11 @@ function getProjectsPageStaticProps() {
       title: "Our Work | Code for Africa",
       sections: [
         {
+          slug: "hero",
+          title: "Contact",
+          description: "Let’s start something together!",
+        },
+        {
           slug: "projects",
           projects,
         },
