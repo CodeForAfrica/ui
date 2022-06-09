@@ -1122,7 +1122,7 @@ function getContactPageStaticProps() {
             },
           ],
           map: {
-            icon: "/icons/Type=map-pin, Size=64, Color=Black.svg",
+            icon: "/icons/Type=map-pin, Size=64, Color=Primary.svg",
             style: { height: "720px", width: "100%" },
             zoom: 20,
           },
