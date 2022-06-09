@@ -1066,6 +1066,75 @@ function getTeamMemberPageStaticProps(params) {
   return { notFound: true };
 }
 
+function getContactPageStaticProps() {
+  return {
+    props: {
+      title: "Contact | Code for Africa",
+      sections: [
+        {
+          slug: "office-addresses",
+          title: "Our Offices",
+          addresses: [
+            {
+              title: "Nairobi Office",
+              address:
+                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
+              map: {
+                center: { lat: 9.058377, lng: 7.5020761 },
+                position: { lat: 9.058377, lng: 7.5020761 },
+              },
+            },
+            {
+              title: "Lagos Office",
+              address:
+                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
+              map: {
+                center: { lat: 9.058377, lng: 7.5020761 },
+                position: { lat: 9.058377, lng: 7.5020761 },
+              },
+            },
+            {
+              title: "Abuja Office",
+              address:
+                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
+              map: {
+                center: { lat: 9.058377, lng: 7.5020761 },
+                position: { lat: 9.058377, lng: 7.5020761 },
+              },
+            },
+            {
+              title: "Dar es Salaam Office",
+              address:
+                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
+              map: {
+                center: { lat: -6.7788438, lng: 39.2526559 },
+                position: { lat: -6.7788438, lng: 39.2526559 },
+              },
+            },
+            {
+              title: "Cape Town Office",
+              address:
+                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
+              map: {
+                center: { lat: 9.058377, lng: 7.5020761 },
+                position: { lat: 9.058377, lng: 7.5020761 },
+              },
+            },
+          ],
+          map: {
+            icon: "/icons/Type=map-pin, Size=64, Color=Black.svg",
+            style: { height: "720px", width: "100%" },
+            zoom: 20,
+          },
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
 export async function getPageStaticProps(params) {
   switch (params?.slug) {
     case "/": {
@@ -1079,6 +1148,9 @@ export async function getPageStaticProps(params) {
     }
     case "/stories": {
       return getStoriesPageStaticProps(params);
+    }
+    case "/contact": {
+      return getContactPageStaticProps(params);
     }
     default:
       if (params?.slug?.startsWith("/projects/")) {
