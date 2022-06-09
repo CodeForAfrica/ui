@@ -3,8 +3,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
+import AccoladeBadgeList from "@/codeforafrica/components/AccoladeBadgeList";
 import Page from "@/codeforafrica/components/Page";
-import ProjectBadges from "@/codeforafrica/components/ProjectBadges";
 import ProjectPageHeader from "@/codeforafrica/components/ProjectPageHeader";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import ShareBar from "@/codeforafrica/components/ShareBar";
@@ -22,7 +22,7 @@ function Index({ project, sections, ...props }) {
     <Page {...props}>
       <ProjectPageHeader {...project} />
       <Section>
-        <ProjectBadges badges={badges} />
+        <AccoladeBadgeList badges={badges} />
       </Section>
       <Section
         sx={{

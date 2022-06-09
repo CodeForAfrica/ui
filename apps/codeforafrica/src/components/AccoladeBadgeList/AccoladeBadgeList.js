@@ -2,9 +2,12 @@ import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Badge from "@/codeforafrica/components/Badge";
+import Badge from "@/codeforafrica/components/AccoladeBadge";
 
-const ProjectBadges = React.forwardRef(function ProjectBadges(props, ref) {
+const AccoladeBadgeList = React.forwardRef(function AccoladeBadgeList(
+  props,
+  ref
+) {
   const { badges, ...other } = props;
 
   if (!badges?.length) {
@@ -40,7 +43,7 @@ const ProjectBadges = React.forwardRef(function ProjectBadges(props, ref) {
   );
 });
 
-ProjectBadges.propTypes = {
+AccoladeBadgeList.propTypes = {
   badges: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
@@ -49,7 +52,7 @@ ProjectBadges.propTypes = {
   ),
 };
 
-ProjectBadges.defaultProps = {
+AccoladeBadgeList.defaultProps = {
   badges: undefined,
 };
-export default ProjectBadges;
+export default AccoladeBadgeList;

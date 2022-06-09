@@ -18,7 +18,7 @@ const BadgeButtonRoot = styled(Button, {
   },
 }));
 
-const Badge = React.forwardRef(function Badge(props, ref) {
+const AccoladeBadge = React.forwardRef(function AccoladeBadge(props, ref) {
   const { name, date, ...other } = props;
 
   return (
@@ -63,14 +63,14 @@ const Badge = React.forwardRef(function Badge(props, ref) {
   );
 });
 
-Badge.propTypes = {
+AccoladeBadge.propTypes = {
   name: PropTypes.string,
   date: PropTypes.string,
 };
 
-Badge.defaultProps = {
+AccoladeBadge.defaultProps = {
   name: undefined,
   date: undefined,
 };
 
-export default Badge;
+export default AccoladeBadge;
