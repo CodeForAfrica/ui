@@ -1,8 +1,8 @@
-import { Box } from "@mui/material";
+import { Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Badge from "@/codeforafrica/components/AccoladeBadge";
+import AccoladeBadge from "@/codeforafrica/components/AccoladeBadge";
 
 const AccoladeBadgeList = React.forwardRef(function AccoladeBadgeList(
   props,
@@ -14,32 +14,24 @@ const AccoladeBadgeList = React.forwardRef(function AccoladeBadgeList(
     return null;
   }
   return (
-    <Box
+    <Grid
+      container
+      spacing="29px"
       sx={{
         display: "flex",
-        flexDirection: { xs: "column", md: "row" },
+        flexDirection: { xs: "column", sm: "row" },
         alignItems: "center",
-        padding: "1rem",
+        width: "100%",
       }}
       ref={ref}
       {...other}
     >
       {badges.map((item) => (
-        <Badge
-          name={item.name}
-          date={item.date}
-          sx={{
-            margin: { xs: "10px", md: "29px" },
-            width: { xs: "100%", md: "359px", lg: "201px" },
-            height: { xs: "42px", md: "84px" },
-            justifyContent: { xs: "flex-start", md: "center" },
-            "& span": {
-              margin: { xs: "0rem 0.5rem", md: 0 },
-            },
-          }}
-        />
+        <Grid item xs={12} sm={6} md={3}>
+          <AccoladeBadge name={item.name} date={item.date} />
+        </Grid>
       ))}
-    </Box>
+    </Grid>
   );
 });
 

@@ -22,7 +22,7 @@ function Index({ project, sections, ...props }) {
     <Page {...props}>
       <ProjectPageHeader {...project} />
       <Section>
-        <AccoladeBadgeList badges={badges} />
+        <AccoladeBadgeList badges={badges} sx={{ width: "100%" }} />
       </Section>
       <Section
         sx={{

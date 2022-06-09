@@ -12,7 +12,7 @@ const NextImageButton = React.forwardRef(function Logo(props, ref) {
   }
   return (
     <ImageButton
-      href={href || null}
+      href={href}
       component={href ? Link : undefined}
       {...other}
       ref={ref}
