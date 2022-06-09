@@ -8,9 +8,16 @@ const PageHeader = React.forwardRef(function PageHeader(props, ref) {
   if (!title && !description) {
     return null;
   }
+
   return (
     <TwoToneBackground ref={ref} sx={{ backgroundColor: "background.main" }}>
-      <Section sx={{ py: 9.6, zIndex: 1, textAlign: "center" }}>
+      <Section
+        sx={{
+          py: { xs: 3.75, sm: 5.5, md: 6.75, lg: 9.6 },
+          zIndex: 1,
+          textAlign: "center",
+        }}
+      >
         <RichTypography
           sx={{
             textTransform: "uppercase",
