@@ -11,7 +11,7 @@ const AccoladeBadgeRoot = styled(Grid, {
 })(({ theme }) => ({
   background: theme.palette.background.main,
   border: 0,
-  margin: "1rem",
+  margin: "16px",
   color: "inherit",
   "&:hover": {
     background: theme.palette.background.main,
@@ -28,7 +28,8 @@ const AccoladeBadge = React.forwardRef(function AccoladeBadge(props, ref) {
       ref={ref}
       {...other}
       sx={{
-        padding: "10px 0px",
+        padding: { xs: " 5px 0px;" },
+        margin: "10px",
       }}
     >
       <Grid item>
@@ -47,16 +48,17 @@ const AccoladeBadge = React.forwardRef(function AccoladeBadge(props, ref) {
           container
           flexDirection={{ xs: "row", md: "column" }}
           alignItems={{ xs: "center", md: "flex-start" }}
+          sx={{ padding: "4.8px" }}
         >
           <Typography
             variant="subtitle1"
-            sx={{ fontSize: { xs: "14px", md: "18px", margin: "0rem 1rem" } }}
+            sx={{ fontSize: { xs: "14px", md: "18px", margin: "0px 16px" } }}
           >
             {name}
           </Typography>
           <Typography
             variant="subtitle1"
-            sx={{ fontSize: { xs: "12px", md: "14px" }, margin: "0rem 1rem" }}
+            sx={{ fontSize: { xs: "12px", md: "14px" }, margin: "0px 16px" }}
           >
             {date}
           </Typography>

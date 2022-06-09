@@ -21,7 +21,12 @@ function Index({ project, sections, ...props }) {
   return (
     <Page {...props}>
       <ProjectPageHeader {...project} />
-      <Section>
+      <Section
+        sx={{
+          marginTop: { xs: "26.6px", sm: "20px", md: "56px" },
+          marginBottom: "42px",
+        }}
+      >
         <AccoladeBadgeList badges={badges} sx={{ width: "100%" }} />
       </Section>
       <Section
