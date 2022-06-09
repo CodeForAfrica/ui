@@ -21,7 +21,7 @@ const ProjectBadges = React.forwardRef(function ProjectBadges(props, ref) {
       ref={ref}
       {...other}
     >
-      {badges?.map((item) => (
+      {badges.map((item) => (
         <Badge
           name={item.name}
           date={item.date}
