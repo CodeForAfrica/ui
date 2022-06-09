@@ -4,8 +4,8 @@ import React from "react";
 import TwoToneBackground from "../TwoToneBackground";
 
 const PageHeader = React.forwardRef(function PageHeader(props, ref) {
-  const { title, description } = props;
-  if (!title && !description) {
+  const { title, subtitle } = props;
+  if (!title && !subtitle) {
     return null;
   }
 
@@ -20,15 +20,14 @@ const PageHeader = React.forwardRef(function PageHeader(props, ref) {
       >
         <RichTypography
           sx={{
-            textTransform: "uppercase",
             color: "primary.main",
             paddingBottom: 2.5,
           }}
-          variant="h5"
+          variant="h5extraBold"
         >
           {title}
         </RichTypography>
-        <RichTypography variant="h2">{description}</RichTypography>
+        <RichTypography variant="h2">{subtitle}</RichTypography>
       </Section>
     </TwoToneBackground>
   );

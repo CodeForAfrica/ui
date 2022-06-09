@@ -920,7 +920,7 @@ function getProjectsPageStaticProps() {
         {
           slug: "hero",
           title: "Our Work",
-          description:
+          subtitle:
             "We launch data-driven initiatives to achieve impactful results",
         },
         {
@@ -943,7 +943,7 @@ function getOpportunitiesPageStaticProps() {
         {
           slug: "hero",
           title: "Opportunities",
-          description: "Come build digital democracies with Code for Africa",
+          subtitle: "Come build digital democracies with Code for Africa",
         },
       ],
       footer,
@@ -961,7 +961,7 @@ function getImprintPageStaticProps() {
         {
           slug: "hero",
           title: "Imprint",
-          description: "Code for Africa organisation structure",
+          subtitle: "Code for Africa organisation structure",
         },
       ],
       footer,
@@ -979,7 +979,7 @@ function getContactPageStaticProps() {
         {
           slug: "hero",
           title: "Contact",
-          description: "Let’s start something together!",
+          subtitle: "Let’s start something together!",
         },
       ],
       footer,
