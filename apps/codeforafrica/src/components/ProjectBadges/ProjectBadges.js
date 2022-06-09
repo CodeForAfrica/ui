@@ -10,7 +10,6 @@ const ProjectBadges = React.forwardRef(function ProjectBadges(props, ref) {
   if (!badges?.length) {
     return null;
   }
-
   return (
     <Box
       sx={{
