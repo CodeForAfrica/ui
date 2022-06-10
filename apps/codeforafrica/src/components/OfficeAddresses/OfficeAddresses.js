@@ -52,6 +52,8 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
       <Section
         sx={{
           bgcolor: "background.default",
+          border: 1,
+          borderColor: "divider",
           mb: { md: 6, lg: "35px" },
           px: { xs: 2.5, sm: 0, md: 5 },
           py: { xs: "29px", md: 5 },
@@ -68,7 +70,8 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
             item
             xs={12}
             container
-            justifyContent="space-between"
+            columns={10}
+            justifyContent={{ md: "space-between" }}
             sx={{ mt: 1.25 }}
           >
             {addresses.map((address) => (
