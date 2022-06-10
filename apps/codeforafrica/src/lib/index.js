@@ -1076,7 +1076,16 @@ function getContactPageStaticProps() {
           title: "Our Offices",
           addresses: [
             {
-              title: "Nairobi Office",
+              title: "Nairobi",
+              address:
+                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
+              map: {
+                center: { lat: -1.2983425, lng: 36.7907414 },
+                position: { lat: -1.2983425, lng: 36.7907414 },
+              },
+            },
+            {
+              title: "Lagos",
               address:
                 "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
               map: {
@@ -1085,7 +1094,7 @@ function getContactPageStaticProps() {
               },
             },
             {
-              title: "Lagos Office",
+              title: "Abuja",
               address:
                 "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
               map: {
@@ -1094,16 +1103,7 @@ function getContactPageStaticProps() {
               },
             },
             {
-              title: "Abuja Office",
-              address:
-                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
-              map: {
-                center: { lat: 9.058377, lng: 7.5020761 },
-                position: { lat: 9.058377, lng: 7.5020761 },
-              },
-            },
-            {
-              title: "Dar es Salaam Office",
+              title: "Dar es Salaam",
               address:
                 "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
               map: {
@@ -1112,19 +1112,26 @@ function getContactPageStaticProps() {
               },
             },
             {
-              title: "Cape Town Office",
+              title: "Cape Town",
               address:
                 "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
               map: {
-                center: { lat: 9.058377, lng: 7.5020761 },
-                position: { lat: 9.058377, lng: 7.5020761 },
+                center: { lat: -33.9225301, lng: 18.2775593 },
+                position: { lat: -33.9225301, lng: 18.2775593 },
+                zoom: 10,
               },
             },
           ],
           map: {
+            apiKey: process.env.GOOGLE_MAPS_API_KEY,
             icon: "/icons/Type=map-pin, Size=64, Color=Primary.svg",
-            style: { height: "720px", width: "100%" },
             zoom: 20,
+            zoomControl: false,
+            mapTypeControl: false,
+            scaleControl: false,
+            streetViewControl: false,
+            rotateControl: false,
+            fullscreenControl: false,
           },
         },
       ],
