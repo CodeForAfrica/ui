@@ -267,6 +267,13 @@ deepmerge(
         lineHeight: 28 / 23,
       },
     },
+    h5ExtraBold: {
+      ...theme.typography.h5,
+      fontSize: pxToRem(23),
+      fontWeight: 700,
+      lineHeight: 28 / 23,
+      textTransform: "uppercase",
+    },
     h6: {
       fontSize: pxToRem(16),
       lineHeight: 19 / 16,

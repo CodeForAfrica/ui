@@ -3,6 +3,7 @@ import React from "react";
 import JoinOurSlack from "@/codeforafrica/components/JoinOurSlack";
 import OfficeAddresses from "@/codeforafrica/components/OfficeAddresses";
 import Page from "@/codeforafrica/components/Page";
+import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
 function Index({ sections, ...props }) {
@@ -10,6 +11,8 @@ function Index({ sections, ...props }) {
     <Page {...props}>
       {sections?.map((section) => {
         switch (section.slug) {
+          case "hero":
+            return <PageHeader {...section} key={section.slug} />;
           case "join-our-slack": {
             return (
               <JoinOurSlack {...section} sx={{ mt: 2.5 }} key={section.slug} />
