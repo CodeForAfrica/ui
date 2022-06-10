@@ -18,7 +18,8 @@ FROM base as builder
 ARG NEXT_TELEMETRY_DISABLED=1 \
     PROJECT_ROOT="../../" \
     # Since some pages are completely rendered during build, we need
-    # IMAGE_DOMAINS defined in builder
+    # GOOGLE_MAPS_API_KEY, IMAGE_DOMAINS defined in builder
+    GOOGLE_MAPS_API_KEY="" \
     NEXT_PUBLIC_IMAGE_DOMAINS="" \
     # APP is build time arg only. Shouldn't be used in the image.
     APP

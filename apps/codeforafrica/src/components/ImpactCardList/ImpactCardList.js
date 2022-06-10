@@ -8,7 +8,8 @@ import ImpactCard from "../ImpactCard/ImpactCard";
 
 const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
   const { initiatives, action, title } = props;
-  if (!initiatives) {
+
+  if (!initiatives?.length) {
     return null;
   }
   return (
@@ -36,13 +37,11 @@ const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
           </RichTypography>
         )}
         <Grid container justifyContent="space-between">
-          {initiatives?.map((initiative) => {
-            return (
-              <Grid item>
-                <ImpactCard key={initiative.title} {...initiative} />
-              </Grid>
-            );
-          })}
+          {initiatives.map((initiative) => (
+            <Grid item key={initiative.title}>
+              <ImpactCard key={initiative.title} {...initiative} />
+            </Grid>
+          ))}
         </Grid>
         {action?.title && (
           <Grid container justifyContent="center">

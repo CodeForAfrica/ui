@@ -971,24 +971,6 @@ function getImprintPageStaticProps() {
   };
 }
 
-function getContactPageStaticProps() {
-  return {
-    props: {
-      title: "Contact us | Code for Africa",
-      sections: [
-        {
-          slug: "hero",
-          title: "Contact",
-          subtitle: "Let’s start something together!",
-        },
-      ],
-      footer,
-      navbar,
-    },
-    revalidate: DEFAULT_REVALIDATE,
-  };
-}
-
 function getProjectPageStaticProps(params) {
   const project = projects.find(
     ({ href }) =>
@@ -1126,6 +1108,96 @@ function getTeamMemberPageStaticProps(params) {
   return { notFound: true };
 }
 
+function getContactPageStaticProps() {
+  return {
+    props: {
+      title: "Contact | Code for Africa",
+      sections: [
+        {
+          slug: "hero",
+          title: "Contact",
+          subtitle: "Let’s start something together!",
+        },
+        {
+          slug: "join-our-slack",
+          title: "We are on Slack!",
+          subtitle: "Join us",
+          action: {
+            label: "Join our Slack",
+            href: "https://docs.google.com/forms/d/e/1FAIpQLSdkfLU2yi2S1_7D27Z0I1TumkWy5brlam809Od9cc6CnXGA-A/viewform",
+          },
+        },
+        {
+          slug: "office-addresses",
+          title: "Our Offices",
+          addresses: [
+            {
+              title: "Nairobi",
+              address:
+                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
+              map: {
+                center: { lat: -1.2983425, lng: 36.7907414 },
+                position: { lat: -1.2983425, lng: 36.7907414 },
+              },
+            },
+            {
+              title: "Lagos",
+              address:
+                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
+              map: {
+                center: { lat: 9.058377, lng: 7.5020761 },
+                position: { lat: 9.058377, lng: 7.5020761 },
+              },
+            },
+            {
+              title: "Abuja",
+              address:
+                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
+              map: {
+                center: { lat: 9.058377, lng: 7.5020761 },
+                position: { lat: 9.058377, lng: 7.5020761 },
+              },
+            },
+            {
+              title: "Dar es Salaam",
+              address:
+                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
+              map: {
+                center: { lat: -6.7788438, lng: 39.2526559 },
+                position: { lat: -6.7788438, lng: 39.2526559 },
+              },
+            },
+            {
+              title: "Cape Town",
+              address:
+                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
+              map: {
+                center: { lat: -33.9225301, lng: 18.2775593 },
+                position: { lat: -33.9225301, lng: 18.2775593 },
+                zoom: 10,
+              },
+            },
+          ],
+          map: {
+            apiKey: process.env.GOOGLE_MAPS_API_KEY,
+            icon: "/icons/Type=map-pin, Size=64, Color=Primary.svg",
+            zoom: 20,
+            zoomControl: false,
+            mapTypeControl: false,
+            scaleControl: false,
+            streetViewControl: false,
+            rotateControl: false,
+            fullscreenControl: false,
+          },
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
 export async function getPageStaticProps(params) {
   switch (params?.slug) {
     case "/": {
@@ -1134,33 +1206,33 @@ export async function getPageStaticProps(params) {
     case "/about": {
       return getAboutPageStaticProps(params);
     }
-    case "/projects": {
-      return getProjectsPageStaticProps(params);
-    }
     case "/contact": {
       return getContactPageStaticProps(params);
-    }
-    case "/stories": {
-      return getStoriesPageStaticProps(params);
-    }
-    case "/opportunities": {
-      return getOpportunitiesPageStaticProps(params);
     }
     case "/imprint": {
       return getImprintPageStaticProps(params);
     }
+    case "/opportunities": {
+      return getOpportunitiesPageStaticProps(params);
+    }
+    case "/projects": {
+      return getProjectsPageStaticProps(params);
+    }
+    case "/stories": {
+      return getStoriesPageStaticProps(params);
+    }
     default:
+      if (params?.slug?.startsWith("/about/members/")) {
+        return getTeamMemberPageStaticProps(params);
+      }
+      if (params?.slug?.startsWith("/opportunities/")) {
+        return getOpportunitiesPageStaticProps(params);
+      }
       if (params?.slug?.startsWith("/projects/")) {
         return getProjectPageStaticProps(params);
       }
       if (params?.slug?.startsWith("/stories/")) {
         return getStoryPageStaticProps(params);
-      }
-      if (params?.slug?.startsWith("/opportunities/")) {
-        return getOpportunitiesPageStaticProps(params);
-      }
-      if (params?.slug?.startsWith("/about/members/")) {
-        return getTeamMemberPageStaticProps(params);
       }
       return { notFound: true };
   }
