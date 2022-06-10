@@ -14,8 +14,8 @@ const menu = [
     href: "/stories",
   },
   {
-    label: "Opportunity",
-    href: "/opportunity",
+    label: "Opportunities",
+    href: "/opportunities",
   },
   {
     label: "Contact",
@@ -918,8 +918,68 @@ function getProjectsPageStaticProps() {
       title: "Our Work | Code for Africa",
       sections: [
         {
+          slug: "hero",
+          title: "Our Work",
+          subtitle:
+            "We launch data-driven initiatives to achieve impactful results",
+        },
+        {
           slug: "projects",
           projects,
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
+function getOpportunitiesPageStaticProps() {
+  return {
+    props: {
+      title: "Opportunities | Code for Africa",
+      sections: [
+        {
+          slug: "hero",
+          title: "Opportunities",
+          subtitle: "Come build digital democracies with Code for Africa",
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
+function getImprintPageStaticProps() {
+  return {
+    props: {
+      title: "Imprint | Code for Africa",
+      sections: [
+        {
+          slug: "hero",
+          title: "Imprint",
+          subtitle: "Code for Africa organisation structure",
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
+function getContactPageStaticProps() {
+  return {
+    props: {
+      title: "Contact us | Code for Africa",
+      sections: [
+        {
+          slug: "hero",
+          title: "Contact",
+          subtitle: "Let’s start something together!",
         },
       ],
       footer,
@@ -1077,8 +1137,17 @@ export async function getPageStaticProps(params) {
     case "/projects": {
       return getProjectsPageStaticProps(params);
     }
+    case "/contact": {
+      return getContactPageStaticProps(params);
+    }
     case "/stories": {
       return getStoriesPageStaticProps(params);
+    }
+    case "/opportunities": {
+      return getOpportunitiesPageStaticProps(params);
+    }
+    case "/imprint": {
+      return getImprintPageStaticProps(params);
     }
     default:
       if (params?.slug?.startsWith("/projects/")) {
@@ -1086,6 +1155,9 @@ export async function getPageStaticProps(params) {
       }
       if (params?.slug?.startsWith("/stories/")) {
         return getStoryPageStaticProps(params);
+      }
+      if (params?.slug?.startsWith("/opportunities/")) {
+        return getOpportunitiesPageStaticProps(params);
       }
       if (params?.slug?.startsWith("/about/members/")) {
         return getTeamMemberPageStaticProps(params);
