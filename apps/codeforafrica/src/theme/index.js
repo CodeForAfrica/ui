@@ -267,7 +267,8 @@ deepmerge(
         lineHeight: 28 / 23,
       },
     },
-    h5extraBold: {
+    h5ExtraBold: {
+      ...theme.typography.h5,
       fontSize: pxToRem(23),
       fontWeight: 700,
       lineHeight: 28 / 23,
