@@ -66,6 +66,7 @@ jobs:
         with:
           build-args: |
             APP=${{ env.APP }}
+            GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }}
             NEXT_PUBLIC_IMAGE_DOMAINS=${{ env.NEXT_PUBLIC_IMAGE_DOMAINS }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
