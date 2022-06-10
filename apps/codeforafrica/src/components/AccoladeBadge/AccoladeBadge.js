@@ -11,7 +11,6 @@ const AccoladeBadgeRoot = styled(Grid, {
 })(({ theme }) => ({
   background: theme.palette.background.main,
   border: 0,
-  margin: "16px",
   color: "inherit",
   "&:hover": {
     background: theme.palette.background.main,
@@ -52,7 +51,7 @@ const AccoladeBadge = React.forwardRef(function AccoladeBadge(props, ref) {
         >
           <Typography
             variant="body1"
-            sx={{ typography: { md: "body3" }, margin: "0px 16px" } }}
+            sx={{ typography: { md: "body3" }, margin: "0px 16px" }}
           >
             {name}
           </Typography>
