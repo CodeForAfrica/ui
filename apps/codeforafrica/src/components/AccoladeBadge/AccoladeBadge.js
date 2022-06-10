@@ -57,8 +57,8 @@ const AccoladeBadge = React.forwardRef(function AccoladeBadge(props, ref) {
             {name}
           </Typography>
           <Typography
-            variant="subtitle1"
-            sx={{ fontSize: { xs: "12px", md: "14px" }, margin: "0px 16px" }}
+            variant="caption"
+            sx={{ typography: { md: "body1" }, margin: "0px 16px" }}
           >
             {date}
           </Typography>
