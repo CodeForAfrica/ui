@@ -23,7 +23,7 @@ const PageHeader = React.forwardRef(function PageHeader(props, ref) {
             color: "primary.main",
             paddingBottom: 2.5,
           }}
-          variant="h5extraBold"
+          variant="h5ExtraBold"
         >
           {title}
         </RichTypography>
