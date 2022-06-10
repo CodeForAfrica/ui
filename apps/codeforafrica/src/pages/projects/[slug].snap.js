@@ -211,7 +211,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
             class="MuiCardContent-root css-nvlyan-MuiCardContent-root"
           >
             <div
-              class="MuiPaper-root MuiPaper-outlined css-jogziq-MuiPaper-root"
+              class="MuiPaper-root MuiPaper-outlined css-1irxcig-MuiPaper-root"
             >
               <div
                 class="MuiBox-root css-uq7i85"
