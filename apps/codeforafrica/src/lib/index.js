@@ -14,7 +14,7 @@ const menu = [
     href: "/stories",
   },
   {
-    label: "Opportunity",
+    label: "Opportunities",
     href: "/opportunities",
   },
   {
