@@ -28,6 +28,7 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
       addresses.find((address) => address.title === addressTitle)
     );
   };
+
   if (!addresses?.length) {
     return null;
   }
