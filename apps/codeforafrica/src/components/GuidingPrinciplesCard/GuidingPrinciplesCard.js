@@ -14,7 +14,7 @@ const GuidingPrinciplesCard = React.forwardRef(function GuidingPrinciplesCard(
       sx={{
         borderRadius: 0,
         boxShadow: "none",
-        marginTop: "40px",
+        marginTop: { lg: "40px", xs: "20px" },
         padding: "24px",
         width: { sm: "354px", md: "354px", lg: "324px", xl: "354px" },
         height: "721px",

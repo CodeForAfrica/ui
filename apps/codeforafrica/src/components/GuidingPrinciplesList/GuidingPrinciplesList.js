@@ -15,7 +15,13 @@ const GuidingPrinciplesList = React.forwardRef(function GuidingPrinciplesList(
   }
 
   return (
-    <Section ref={ref}>
+    <Section
+      sx={{
+        py: { xl: 10, lg: 7.75, md: 6.5, xs: 5 },
+        px: { xs: 2.5, sm: 0, md: 0 },
+      }}
+      ref={ref}
+    >
       <RichTypography variant="h4">{title}</RichTypography>
       <Box
         sx={{
