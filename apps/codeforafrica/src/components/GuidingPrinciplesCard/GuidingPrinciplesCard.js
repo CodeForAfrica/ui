@@ -12,8 +12,11 @@ const GuidingPrinciplesCard = React.forwardRef(function GuidingPrinciplesCard(
   return (
     <Card
       sx={{
+        borderRadius: 0,
+        boxShadow: "none",
+        marginTop: "40px",
         padding: "24px",
-        width: "354px",
+        width: { sm: "354px", md: "354px", lg: "324px", xl: "354px" },
         height: "721px",
         backgroundColor: "primary.light",
       }}
