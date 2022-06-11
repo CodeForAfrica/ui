@@ -4,7 +4,7 @@ exports[`<ProjectTile /> renders unchanged 1`] = `
 <div>
   <div
     category="Projects"
-    class="MuiPaper-root MuiPaper-outlined css-1cshd8t-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-outlined css-rp91d-MuiPaper-root"
     slug="african-drone"
   >
     <a

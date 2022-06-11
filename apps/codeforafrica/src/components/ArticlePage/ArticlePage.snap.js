@@ -79,7 +79,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         </div>
       </div>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth css-18tdphm-MuiDivider-root"
       />
       <div
         class="MuiBox-root css-3vtd9l"
