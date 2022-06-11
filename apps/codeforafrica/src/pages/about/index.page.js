@@ -1,5 +1,7 @@
+import { Section } from "@commons-ui/core";
 import React from "react";
 
+import GuidingPrinciplesCard from "@/codeforafrica/components/GuidingPrinciplesCard";
 import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import OurTeam from "@/codeforafrica/components/OurTeam";
@@ -16,6 +18,13 @@ function Index({ sections, ...props }) {
           }
           case "impact": {
             return <ImpactCardList {...section} key={section.slug} />;
+          }
+          case "guiding-principles": {
+            return (
+              <Section>
+                <GuidingPrinciplesCard {...section} key={section.slug} />
+              </Section>
+            );
           }
           case "our-team": {
             return <OurTeam {...section} key={section.slug} />;

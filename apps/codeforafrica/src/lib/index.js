@@ -1057,6 +1057,13 @@ function getAboutPageStaticProps() {
       title: "About | Code for Africa",
       sections: [
         {
+          slug: "guiding-principles",
+          icon: "/icons/About icon.png",
+          title: "We operate in public",
+          description:
+            "CfA promotes openness in our operations and in the work of our partners. All digital tools utilised are open source, and the organisation’s information is open data. CfA actively encourages documentation, sharing and collaboration, in addition to reuse of our own tools, programmes and processes, as well as those of partners.",
+        },
+        {
           slug: "our-team",
           title: "Our team",
           team,

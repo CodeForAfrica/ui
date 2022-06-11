@@ -1,18 +1,30 @@
 import { RichTypography } from "@commons-ui/core";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 import React from "react";
 
 const GuidingPrinciplesCard = React.forwardRef(function GuidingPrinciplesCard(
   props,
   ref
 ) {
-  const { title } = props;
+  const { title, description, icon } = props;
   return (
-    <Card ref={ref}>
+    <Card
+      sx={{
+        padding: "24px",
+        width: "354px",
+        height: "721px",
+        backgroundColor: "primary.light",
+      }}
+      ref={ref}
+    >
+      <CardMedia component="img" image={icon} alt="" />
       <CardContent>
-        <RichTypography>{title}</RichTypography>
-        <RichTypography>Guiding Principles Card</RichTypography>
+        <RichTypography sx={{ margin: "20px 0" }} variant="h3">
+          {title}
+        </RichTypography>
+        <RichTypography>{description}</RichTypography>
       </CardContent>
     </Card>
   );
