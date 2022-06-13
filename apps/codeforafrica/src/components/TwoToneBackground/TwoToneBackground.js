@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 import React from "react";
 
 import bg from "@/codeforafrica/assets/images/1920x668px bg - 2 2.png";
@@ -24,10 +24,15 @@ const TwoToneBackgroundRoot = styled(Box)(({ theme }) => ({
       background: `linear-gradient(to right, ${theme.palette.background.main} 20%, transparent 30%)`,
     },
     [theme.breakpoints.up("md")]: {
-      background: `linear-gradient(to right, ${theme.palette.background.main} 30%, transparent 40%)`,
+      background: `linear-gradient(to right, ${
+        theme.palette.background.main
+      } 30%, transparent 40%, transparent 95%, ${alpha(
+        theme.palette.background.main,
+        0.1
+      )} 100%)`,
     },
     [theme.breakpoints.up("xl")]: {
-      background: `linear-gradient(to right, ${theme.palette.background.main} 35%, transparent 45%)`,
+      background: `linear-gradient(to right, ${theme.palette.background.main} 35%, transparent 45%, transparent 80%, ${theme.palette.background.main} 90%)`,
     },
   },
 }));
