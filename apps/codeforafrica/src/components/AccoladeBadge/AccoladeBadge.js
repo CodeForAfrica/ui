@@ -22,16 +22,8 @@ const AccoladeBadge = React.forwardRef(function AccoladeBadge(props, ref) {
   const { name, date, ...other } = props;
 
   return (
-    <AccoladeBadgeRoot
-      container
-      ref={ref}
-      {...other}
-      sx={{
-        padding: { xs: " 5px 0px;" },
-        margin: "10px",
-      }}
-    >
-      <Grid item>
+    <AccoladeBadgeRoot container ref={ref} {...other}>
+      <Grid item sx={{ padding: "5px 0px" }}>
         <Box
           sx={{
             width: { xs: "32px", md: "64px" },
@@ -47,7 +39,7 @@ const AccoladeBadge = React.forwardRef(function AccoladeBadge(props, ref) {
           container
           flexDirection={{ xs: "row", md: "column" }}
           alignItems={{ xs: "center", md: "flex-start" }}
-          sx={{ padding: "4.8px" }}
+          sx={{ padding: "9.5px 0px" }}
         >
           <Typography
             variant="body1"
