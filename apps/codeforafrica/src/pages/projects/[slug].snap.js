@@ -126,7 +126,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
     </div>
   </header>
   <div
-    class="MuiBox-root css-u8l56t"
+    class="MuiBox-root css-1d2u34e"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-10ryxkv-MuiContainer-root"
@@ -239,7 +239,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
                   <noscript />
                 </span>
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 css-yd0a7d-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 css-1vqqsaf-MuiTypography-root"
                 >
                   knowledgeAFRICA
                 </h4>
@@ -260,7 +260,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
               </div>
             </div>
             <div
-              class="MuiTypography-root MuiTypography-h4 css-ho8wtr-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h4 css-1klaq6f-MuiTypography-root"
             >
               Empowering citizens through 
               <span

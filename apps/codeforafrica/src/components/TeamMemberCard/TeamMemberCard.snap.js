@@ -11,7 +11,7 @@ exports[`<TeamMemberCard /> renders unchanged 1`] = `
       type="button"
     >
       <img
-        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-j0hlew-MuiCardMedia-root"
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-ys68yq-MuiCardMedia-root"
       />
       <div
         class="MuiCardContent-root css-1bqtlyx-MuiCardContent-root"

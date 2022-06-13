@@ -3,7 +3,7 @@
 exports[`<Hero /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1ge8vex"
+    class="MuiBox-root css-oxa7fl"
     title="Empowering <span class=\\"highlight\\">Africa</span> with"
   >
     <div
@@ -19,7 +19,7 @@ exports[`<Hero /> renders unchanged 1`] = `
             class="css-1xghah2-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h2 css-p1pmwl-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 css-166xc1g-MuiTypography-root"
             >
               Empowering 
               <span

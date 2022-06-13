@@ -19,7 +19,7 @@ const TeamMemberCardRoot = styled(Card, {
 const TeamMemberCardMedia = styled(CardMedia, {
   slot: "Root",
 })({
-  filter: "greyscale(100%)",
+  filter: "grayscale(100%)",
   height: 150,
 });
 
