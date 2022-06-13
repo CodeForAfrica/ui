@@ -34,23 +34,18 @@ const AccoladeBadge = React.forwardRef(function AccoladeBadge(props, ref) {
           <Image src={badgeIcon} alt="accolade-badge-icon" layout="fill" />
         </Box>
       </Grid>
-      <Grid item>
+      <Grid item xs={6} md={0}>
         <Grid
           container
           flexDirection={{ xs: "row", md: "column" }}
           alignItems={{ xs: "center", md: "flex-start" }}
+          justifyContent={{ xs: "space-around", md: "none" }}
           sx={{ padding: "9.5px 0px" }}
         >
-          <Typography
-            variant="body1"
-            sx={{ typography: { md: "body3" }, margin: "0px 16px" }}
-          >
+          <Typography variant="body1" sx={{ typography: { md: "body3" } }}>
             {name}
           </Typography>
-          <Typography
-            variant="caption"
-            sx={{ typography: { md: "body1" }, margin: "0px 16px" }}
-          >
+          <Typography variant="caption" sx={{ typography: { md: "body1" } }}>
             {date}
           </Typography>
         </Grid>
