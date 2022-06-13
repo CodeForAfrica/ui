@@ -16,7 +16,7 @@ const AccoladeBadgeList = React.forwardRef(function AccoladeBadgeList(
   return (
     <Grid
       container
-      spacing={{ xs: "10px", md: "29px" }}
+      spacing={{ xs: "10px", md: "10px", lg: "29px" }}
       sx={{
         display: "flex",
         flexDirection: { xs: "column", sm: "row" },
@@ -27,7 +27,14 @@ const AccoladeBadgeList = React.forwardRef(function AccoladeBadgeList(
       {...other}
     >
       {badges.map((item) => (
-        <Grid item xs={12} sm={6} md={3} key={item.name}>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          md={3}
+          key={item.name}
+          sx={{ padding: { xs: "10px 20px 0px 20px !important", md: 0 } }}
+        >
           <AccoladeBadge {...item} />
         </Grid>
       ))}
