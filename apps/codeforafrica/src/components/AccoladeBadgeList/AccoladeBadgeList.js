@@ -16,7 +16,7 @@ const AccoladeBadgeList = React.forwardRef(function AccoladeBadgeList(
   return (
     <Grid
       container
-      spacing={{ xs: "10px", md: "10px", lg: "29px" }}
+      spacing={{ md: "10px", lg: "29px" }}
       sx={{
         display: "flex",
         flexDirection: { xs: "column", sm: "row" },
