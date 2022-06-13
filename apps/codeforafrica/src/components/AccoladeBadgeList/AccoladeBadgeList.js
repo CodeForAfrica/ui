@@ -28,7 +28,7 @@ const AccoladeBadgeList = React.forwardRef(function AccoladeBadgeList(
     >
       {badges.map((item) => (
         <Grid item xs={12} sm={6} md={3} key={item.name}>
-          <AccoladeBadge name={item.name} date={item.date} />
+          <AccoladeBadge {...item} />
         </Grid>
       ))}
     </Grid>
