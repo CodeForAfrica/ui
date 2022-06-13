@@ -1,5 +1,6 @@
 import React from "react";
 
+import GetInTouch from "@/codeforafrica/components/GetInTouch";
 import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import OurTeam from "@/codeforafrica/components/OurTeam";
@@ -11,11 +12,14 @@ function Index({ sections, ...props }) {
     <Page {...props}>
       {sections?.map((section) => {
         switch (section.slug) {
-          case "our-partners": {
-            return <OurPartners {...section} key={section.slug} />;
+          case "get-in-touch": {
+            return <GetInTouch {...section} key={section.slug} />;
           }
           case "impact": {
             return <ImpactCardList {...section} key={section.slug} />;
+          }
+          case "our-partners": {
+            return <OurPartners {...section} key={section.slug} />;
           }
           case "our-team": {
             return <OurTeam {...section} key={section.slug} />;

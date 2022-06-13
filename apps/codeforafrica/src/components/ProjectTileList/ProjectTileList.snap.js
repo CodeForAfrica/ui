@@ -10,7 +10,7 @@ exports[`<ProjectTileList /> renders unchanged 1`] = `
     >
       <div
         category="Projects"
-        class="MuiPaper-root MuiPaper-outlined css-r8sec7-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-outlined css-m6avhc-MuiPaper-root"
         slug="african-drone"
       >
         <a
