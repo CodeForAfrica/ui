@@ -25,6 +25,8 @@ function Index({ project, sections, ...props }) {
         sx={{
           marginTop: { xs: "26.6px", sm: "20px", md: "56px" },
           marginBottom: "42px",
+          paddingRight: { xs: "20px", md: 0 },
+          paddingLeft: { xs: "20px", md: 0 },
         }}
       >
         <AccoladeBadgeList badges={badges} sx={{ width: "100%" }} />
