@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import React from "react";
 
-import BadgeIcon from "@/codeforafrica/assets/badge.svg";
+import BadgeIcon from "@/codeforafrica/assets/icons/Type=award, Size=64, Color=CurrentColor.svg";
 
 const AccoladeBadgeRoot = styled(Box, {
   slot: "Root",
