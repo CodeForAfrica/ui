@@ -142,10 +142,10 @@ export const team = [
   },
   {
     slug: "member-4",
-    name: "Justin Arenstein",
-    title: "CEO of Code for Africa",
+    name: "Jacobo Ottaviani",
+    title: "Chief Data Officer",
     thumbnail: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655127335/codeforafrica/images/team/image_11_ch6dnb.jpg",
     },
     href: "/about/members/member-4",
   },
@@ -713,15 +713,19 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
-        name: "Award Name 2",
-        date: "Month 01",
+        name: "Award Name",
+        date: "Month 2021",
       },
       {
-        name: "Award Name 3",
-        date: "Month 01",
+        name: "Award Name",
+        date: "Month 2021",
+      },
+      {
+        name: "Award Name",
+        date: "Month 2021",
       },
     ],
   },
@@ -747,15 +751,15 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
         name: "Award Name 2",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
         name: "Award Name 3",
-        date: "Month 01",
+        date: "Month 2021",
       },
     ],
   },
@@ -781,15 +785,15 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
         name: "Award Name 2",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
         name: "Award Name 3",
-        date: "Month 01",
+        date: "Month 2021",
       },
     ],
   },
@@ -815,15 +819,15 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
         name: "Award Name 2",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
         name: "Award Name 3",
-        date: "Month 01",
+        date: "Month 2021",
       },
     ],
   },
@@ -849,11 +853,11 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "Month 2022",
       },
       {
         name: "Award Name 3",
-        date: "Month 01",
+        date: "Month 2021",
       },
     ],
   },
@@ -899,7 +903,27 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "Month 2021",
+      },
+      {
+        name: "Award Name",
+        date: "Month 2021",
+      },
+      {
+        name: "Award Name",
+        date: "Month 2021",
+      },
+      {
+        name: "Award Name",
+        date: "Month 2021",
+      },
+      {
+        name: "Award Name",
+        date: "Month 2021",
+      },
+      {
+        name: "Award Name",
+        date: "Month 2021",
       },
     ],
   },
@@ -925,19 +949,19 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "June 2022",
       },
       {
         name: "Award Name 2",
-        date: "Month 01",
+        date: "June 2021",
       },
       {
         name: "Award Name 3",
-        date: "Month 01",
+        date: "June 2020",
       },
       {
         name: "Award Name 4",
-        date: "Month 01",
+        date: "June 2019",
       },
     ],
   },

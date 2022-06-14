@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
+import AboutMemberPageHeader from "@/codeforafrica/components/AboutMemberPageHeader";
 import Page from "@/codeforafrica/components/Page";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import ShareBar from "@/codeforafrica/components/ShareBar";
@@ -13,9 +14,10 @@ import {
 } from "@/codeforafrica/components/ShareBarButton";
 import { team, getPageStaticProps } from "@/codeforafrica/lib";
 
-function Index({ project, sections, ...props }) {
+function Index({ member, sections, ...props }) {
   return (
     <Page {...props}>
+      <AboutMemberPageHeader {...member} />
       <Section
         sx={{
           px: { xs: 2.5, sm: 0 },

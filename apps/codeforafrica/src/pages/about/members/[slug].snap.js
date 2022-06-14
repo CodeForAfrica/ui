@@ -126,6 +126,39 @@ exports[`<Pages/About/Members/[Slug] /> renders unchanged 1`] = `
     </div>
   </header>
   <div
+    class="MuiBox-root css-19zrvd4"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1r1xzd-MuiContainer-root"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container css-1fyy4z-MuiGrid-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item css-l2rmlj-MuiGrid-root"
+        >
+          <figure
+            class="css-15gmsmg"
+          />
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item css-u2r8gx-MuiGrid-root"
+        >
+          <div
+            class="MuiTypography-root MuiTypography-h1 css-18opb7b-MuiTypography-root"
+          >
+            Justin Arenstein
+          </div>
+          <div
+            class="MuiTypography-root MuiTypography-h3Light css-1hyoq96-MuiTypography-root"
+          >
+            CEO of Code for Africa
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1hx1xv5-MuiContainer-root"
   >
     <div

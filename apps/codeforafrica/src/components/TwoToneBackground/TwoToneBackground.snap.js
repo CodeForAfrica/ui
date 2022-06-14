@@ -3,7 +3,7 @@
 exports[`<NextPreviousPagination /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1o7yoci"
+    class="MuiBox-root css-19zrvd4"
   />
 </div>
 `;

@@ -6,7 +6,7 @@ import TwoToneBackground from "../TwoToneBackground";
 const PageHeader = React.forwardRef(function PageHeader(props, ref) {
   const { title, subtitle } = props;
 
-  if (!title && !subtitle) {
+  if (!(title || subtitle)) {
     return null;
   }
   return (
