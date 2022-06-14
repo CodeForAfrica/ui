@@ -1127,6 +1127,15 @@ function getAboutPageStaticProps() {
           title: "Our impact in numbers",
           initiatives: initiativesAbout,
         },
+        {
+          slug: "get-in-touch",
+          title: "Are you looking to start a new project?",
+          subtitle: "We'd love to hear more.",
+          action: {
+            href: "/contact",
+            label: "Get in touch",
+          },
+        },
       ],
       footer,
       navbar,
