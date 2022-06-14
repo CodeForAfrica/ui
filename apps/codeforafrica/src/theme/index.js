@@ -126,7 +126,7 @@ const theme = createTheme({
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
       fontWeight: 400,
-      lineHeight: 14 / 23,
+      lineHeight: 14 / 12,
     },
     footer: {
       fontFamily: FONT_FAMILY_PRIMARY,
@@ -383,7 +383,7 @@ deepmerge(
       letterSpacing: pxToRem(0.16),
     },
     caption: {
-      fontSize: pxToRem(14),
+      fontSize: pxToRem(12),
     },
     footer: {
       fontSize: pxToRem(12),
