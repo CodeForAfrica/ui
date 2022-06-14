@@ -22,7 +22,7 @@ const GuidingPrinciplesCard = React.forwardRef(function GuidingPrinciplesCard(
       }}
       ref={ref}
     >
-      <CardMedia component="img" image={icon} alt="" />
+      <CardMedia component="img" image={icon.src} alt="" />
       <CardContent>
         <RichTypography sx={{ margin: "20px 0" }} variant="h3">
           {title}

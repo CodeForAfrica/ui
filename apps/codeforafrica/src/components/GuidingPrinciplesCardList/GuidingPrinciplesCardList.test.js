@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import GuidingPrinciplesList from "./GuidingPrinciplesList";
+import GuidingPrinciplesCardList from "./GuidingPrinciplesCardList";
 
 import theme from "@/codeforafrica/theme";
 
@@ -12,7 +12,9 @@ const defaultProps = {};
 
 describe("<GuidingPrinciplesList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<GuidingPrinciplesList {...defaultProps} />);
+    const { container } = render(
+      <GuidingPrinciplesCardList {...defaultProps} />
+    );
     expect(container).toMatchSnapshot();
   });
 });
