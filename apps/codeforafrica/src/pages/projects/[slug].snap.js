@@ -303,7 +303,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
     </div>
   </div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-y8gnqj-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-q0u9e4-MuiContainer-root"
   />
   <div
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1hx1xv5-MuiContainer-root"
