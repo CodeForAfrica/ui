@@ -1,53 +1,78 @@
-import { Typography, Grid, Box } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
-import Image from "next/image";
+import SvgIcon from "@mui/material/SvgIcon";
+import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import React from "react";
 
-import badgeIcon from "@/codeforafrica/assets/badge.svg?url";
+import BadgeIcon from "@/codeforafrica/assets/badge.svg";
 
-const AccoladeBadgeRoot = styled(Grid, {
+const AccoladeBadgeRoot = styled(Box, {
   slot: "Root",
 })(({ theme }) => ({
   background: theme.palette.background.main,
-  border: 0,
-  color: "inherit",
-  "&:hover": {
-    background: theme.palette.background.main,
-    border: 0,
+  padding: 5,
+  [theme.breakpoints.up("md")]: {
+    padding: 10,
   },
 }));
 
 const AccoladeBadge = React.forwardRef(function AccoladeBadge(props, ref) {
-  const { name, date, ...other } = props;
+  const { date, name, sx, ...other } = props;
 
   return (
-    <AccoladeBadgeRoot container ref={ref} {...other}>
-      <Grid item sx={{ padding: "5px 0px" }}>
-        <Box
-          sx={{
-            width: { xs: "32px", md: "64px" },
-            height: { xs: "32px", md: "64px" },
-            position: "relative",
-          }}
-        >
-          <Image src={badgeIcon} alt="accolade-badge-icon" layout="fill" />
-        </Box>
-      </Grid>
-      <Grid item xs={6} md={0}>
-        <Grid
-          container
-          flexDirection={{ xs: "row", md: "column" }}
-          alignItems={{ xs: "center", md: "flex-start" }}
-          justifyContent={{ xs: "space-around", md: "none" }}
-          sx={{ padding: "9.5px 0px" }}
-        >
-          <Typography variant="body1" sx={{ typography: { md: "body3" } }}>
-            {name}
-          </Typography>
-          <Typography variant="caption" sx={{ typography: { md: "body1" } }}>
-            {date}
-          </Typography>
+    <AccoladeBadgeRoot {...other} ref={ref}>
+      <Grid container alignItems="center">
+        <Grid item>
+          <SvgIcon
+            component={BadgeIcon}
+            viewBox="0 0 64 64"
+            sx={{
+              color: "primary.main",
+              display: "flex",
+              fill: "none",
+              fontSize: { xs: "32px", md: "64px" },
+              ...sx,
+            }}
+          />
+        </Grid>
+        <Grid item>
+          <Box
+            sx={{
+              pl: { xs: "10px", md: 0 },
+              pr: { xs: 0, md: "10px" },
+            }}
+          >
+            <Grid
+              container
+              flexDirection={{ xs: "row", md: "column" }}
+              alignItems={{ xs: "center", md: "flex-start" }}
+              spacing={{ xs: 2.5, md: "5px" }}
+              justifyContent={{ xs: "space-around", md: "none" }}
+            >
+              <Grid item>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    typography: { md: "body3" },
+                  }}
+                >
+                  {name}
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography
+                  variant="caption"
+                  sx={{
+                    typography: { md: "body1" },
+                  }}
+                >
+                  {date}
+                </Typography>
+              </Grid>
+            </Grid>
+          </Box>
         </Grid>
       </Grid>
     </AccoladeBadgeRoot>
