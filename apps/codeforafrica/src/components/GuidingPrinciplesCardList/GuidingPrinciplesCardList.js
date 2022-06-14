@@ -22,6 +22,7 @@ const GuidingPrinciplesCardList = React.forwardRef(
         <RichTypography variant="h4">{title}</RichTypography>
         <Box
           sx={{
+            marginTop: { lg: "40px", xs: "20px" },
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-between",

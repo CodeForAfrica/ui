@@ -14,16 +14,19 @@ const GuidingPrinciplesCard = React.forwardRef(function GuidingPrinciplesCard(
       sx={{
         borderRadius: 0,
         boxShadow: "none",
-        marginTop: { lg: "40px", xs: "20px" },
-        padding: "24px",
-        width: { sm: "354px", md: "354px", lg: "324px", xl: "354px" },
-        height: "721px",
+        marginBottom: "40px",
+        width: { sm: "354px", md: "329px", lg: "354px", xl: "354px" },
         backgroundColor: "primary.light",
       }}
       ref={ref}
     >
-      <CardMedia component="img" image={icon.src} alt="" />
-      <CardContent>
+      <CardMedia
+        sx={{ padding: "24px 24px 0 24px" }}
+        component="img"
+        image={icon?.src}
+        alt=""
+      />
+      <CardContent sx={{ padding: "0 24px" }}>
         <RichTypography sx={{ margin: "20px 0" }} variant="h3">
           {title}
         </RichTypography>
