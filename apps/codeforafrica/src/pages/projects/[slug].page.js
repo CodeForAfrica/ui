@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
+import AccoladeBadgeList from "@/codeforafrica/components/AccoladeBadgeList";
 import Page from "@/codeforafrica/components/Page";
 import ProjectPageHeader from "@/codeforafrica/components/ProjectPageHeader";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
@@ -16,9 +17,20 @@ import TeamMemberCardList from "@/codeforafrica/components/TeamMemberCardList";
 import { projects, getPageStaticProps } from "@/codeforafrica/lib";
 
 function Index({ project, sections, ...props }) {
+  const { badges } = project;
   return (
     <Page {...props}>
       <ProjectPageHeader {...project} />
+      <Section
+        sx={{
+          marginTop: { xs: "26.6px", sm: "20px", md: "56px" },
+          marginBottom: "42px",
+          paddingRight: { xs: "20px", md: 0 },
+          paddingLeft: { xs: "20px", md: 0 },
+        }}
+      >
+        <AccoladeBadgeList badges={badges} sx={{ width: "100%" }} />
+      </Section>
       <Section
         sx={{
           px: { xs: 2.5, sm: 0 },

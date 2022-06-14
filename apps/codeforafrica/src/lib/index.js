@@ -710,6 +710,20 @@ export const projects = [
     category: "Projects",
     href: "/projects/african-drone",
     externalHref: "https://codeforafrica.org",
+    badges: [
+      {
+        name: "Award Name",
+        date: "Month 01",
+      },
+      {
+        name: "Award Name 2",
+        date: "Month 01",
+      },
+      {
+        name: "Award Name 3",
+        date: "Month 01",
+      },
+    ],
   },
   {
     slug: "wana-data",
@@ -730,6 +744,20 @@ export const projects = [
     category: "Projects",
     href: "/projects/wana-data",
     externalHref: "https://codeforafrica.org",
+    badges: [
+      {
+        name: "Award Name",
+        date: "Month 01",
+      },
+      {
+        name: "Award Name 2",
+        date: "Month 01",
+      },
+      {
+        name: "Award Name 3",
+        date: "Month 01",
+      },
+    ],
   },
   {
     slug: "pesa-check",
@@ -750,6 +778,20 @@ export const projects = [
     category: "Projects",
     href: "/projects/pesa-check",
     externalHref: "https://codeforafrica.org",
+    badges: [
+      {
+        name: "Award Name",
+        date: "Month 01",
+      },
+      {
+        name: "Award Name 2",
+        date: "Month 01",
+      },
+      {
+        name: "Award Name 3",
+        date: "Month 01",
+      },
+    ],
   },
   {
     slug: "open-africa",
@@ -770,6 +812,20 @@ export const projects = [
     category: "Projects",
     href: "/projects/open-africa",
     externalHref: "https://codeforafrica.org",
+    badges: [
+      {
+        name: "Award Name",
+        date: "Month 01",
+      },
+      {
+        name: "Award Name 2",
+        date: "Month 01",
+      },
+      {
+        name: "Award Name 3",
+        date: "Month 01",
+      },
+    ],
   },
   {
     slug: "civic-signal",
@@ -790,6 +846,16 @@ export const projects = [
     category: "Projects",
     href: "/projects/civic-signal",
     externalHref: "https://codeforafrica.org",
+    badges: [
+      {
+        name: "Award Name",
+        date: "Month 01",
+      },
+      {
+        name: "Award Name 3",
+        date: "Month 01",
+      },
+    ],
   },
   {
     slug: "source-africa",
@@ -830,6 +896,12 @@ export const projects = [
     category: "Initiatives",
     href: "/projects/initiative-africa",
     externalHref: "https://codeforafrica.org",
+    badges: [
+      {
+        name: "Award Name",
+        date: "Month 01",
+      },
+    ],
   },
   {
     slug: "knowledge-africa",
@@ -850,6 +922,24 @@ export const projects = [
     category: "Knowedge",
     href: "/projects/knowledge-africa",
     externalHref: "https://codeforafrica.org",
+    badges: [
+      {
+        name: "Award Name",
+        date: "Month 01",
+      },
+      {
+        name: "Award Name 2",
+        date: "Month 01",
+      },
+      {
+        name: "Award Name 3",
+        date: "Month 01",
+      },
+      {
+        name: "Award Name 4",
+        date: "Month 01",
+      },
+    ],
   },
 ];
 
