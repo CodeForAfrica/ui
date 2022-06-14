@@ -27,7 +27,7 @@ const GuidingPrinciplesCard = React.forwardRef(function GuidingPrinciplesCard(
         alt=""
       />
       <CardContent sx={{ padding: "0 24px" }}>
-        <RichTypography sx={{ margin: "20px 0" }} variant="h3">
+        <RichTypography sx={{ my: 2.5 }} variant="h3">
           {title}
         </RichTypography>
         <RichTypography>{description}</RichTypography>

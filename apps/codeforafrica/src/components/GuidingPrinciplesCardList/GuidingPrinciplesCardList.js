@@ -14,15 +14,15 @@ const GuidingPrinciplesCardList = React.forwardRef(
     return (
       <Section
         sx={{
-          py: { xl: 10, lg: 7.75, md: 6.5, xs: 5 },
-          px: { xs: 2.5, sm: 0, md: 0 },
+          py: { xs: 5, md: 6.5, lg: 7.75, xl: 10 },
+          px: { xs: 2.5, sm: 0 },
         }}
         ref={ref}
       >
         <RichTypography variant="h4">{title}</RichTypography>
         <Box
           sx={{
-            marginTop: { lg: "40px", xs: "20px" },
+            marginTop: { xs: "20px", lg: "40px" },
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-between",
