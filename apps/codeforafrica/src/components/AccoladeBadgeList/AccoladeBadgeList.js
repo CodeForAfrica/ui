@@ -8,7 +8,7 @@ const AccoladeBadgeList = React.forwardRef(function AccoladeBadgeList(
   props,
   ref
 ) {
-  const { badges, ...other } = props;
+  const { badges, sx, ...other } = props;
 
   if (!badges?.length) {
     return null;
@@ -16,18 +16,17 @@ const AccoladeBadgeList = React.forwardRef(function AccoladeBadgeList(
   return (
     <Grid
       container
-      spacing={{ xs: "10px", md: "10px", lg: "29px" }}
+      spacing={{ xs: "10px", md: "29px" }}
+      flexDirection={{ xs: "column", sm: "row" }}
       sx={{
-        display: "flex",
-        flexDirection: { xs: "column", sm: "row" },
-        alignItems: "center",
         width: "100%",
+        ...sx,
       }}
-      ref={ref}
       {...other}
+      ref={ref}
     >
       {badges.map((item) => (
-        <Grid item xs={12} sm={6} md={3} key={item.name}>
+        <Grid item xs={12} sm={6} md="auto" key={item.name}>
           <AccoladeBadge {...item} />
         </Grid>
       ))}

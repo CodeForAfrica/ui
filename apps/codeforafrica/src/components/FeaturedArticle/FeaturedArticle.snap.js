@@ -46,7 +46,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
               READ STORY
             </button>
             <span
-              class="MuiTypography-root MuiTypography-caption css-uu8fpb-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-caption css-13ob0ik-MuiTypography-root"
             >
               Jan 6, 2022
             </span>
