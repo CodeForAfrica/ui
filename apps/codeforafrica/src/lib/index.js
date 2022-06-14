@@ -713,15 +713,19 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
-        name: "Award Name 2",
-        date: "Month 01",
+        name: "Award Name",
+        date: "Month 2021",
       },
       {
-        name: "Award Name 3",
-        date: "Month 01",
+        name: "Award Name",
+        date: "Month 2021",
+      },
+      {
+        name: "Award Name",
+        date: "Month 2021",
       },
     ],
   },
@@ -747,15 +751,15 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
         name: "Award Name 2",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
         name: "Award Name 3",
-        date: "Month 01",
+        date: "Month 2021",
       },
     ],
   },
@@ -781,15 +785,15 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
         name: "Award Name 2",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
         name: "Award Name 3",
-        date: "Month 01",
+        date: "Month 2021",
       },
     ],
   },
@@ -815,15 +819,15 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
         name: "Award Name 2",
-        date: "Month 01",
+        date: "Month 2021",
       },
       {
         name: "Award Name 3",
-        date: "Month 01",
+        date: "Month 2021",
       },
     ],
   },
@@ -849,11 +853,11 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "Month 2022",
       },
       {
         name: "Award Name 3",
-        date: "Month 01",
+        date: "Month 2021",
       },
     ],
   },
@@ -899,7 +903,27 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "Month 2021",
+      },
+      {
+        name: "Award Name",
+        date: "Month 2021",
+      },
+      {
+        name: "Award Name",
+        date: "Month 2021",
+      },
+      {
+        name: "Award Name",
+        date: "Month 2021",
+      },
+      {
+        name: "Award Name",
+        date: "Month 2021",
+      },
+      {
+        name: "Award Name",
+        date: "Month 2021",
       },
     ],
   },
@@ -925,19 +949,19 @@ export const projects = [
     badges: [
       {
         name: "Award Name",
-        date: "Month 01",
+        date: "June 2022",
       },
       {
         name: "Award Name 2",
-        date: "Month 01",
+        date: "June 2021",
       },
       {
         name: "Award Name 3",
-        date: "Month 01",
+        date: "June 2020",
       },
       {
         name: "Award Name 4",
-        date: "Month 01",
+        date: "June 2019",
       },
     ],
   },
