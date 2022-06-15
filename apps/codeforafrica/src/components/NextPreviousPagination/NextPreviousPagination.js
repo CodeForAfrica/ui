@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import SvgIcon from "@mui/material/SvgIcon";
@@ -31,21 +32,28 @@ const NextPreviousPagination = React.forwardRef(function NextPreviousPagination(
       <NextPreviousPaginationListRoot {...other} sx={{ zIndex: 1 }}>
         {items
           .filter(({ type }) => ["previous", "next"].includes(type))
-          .map(({ type, disabled, onClick }) => {
-            const component =
-              type === "previous" ? ArrowBackIcon : ArrowForwardIcon;
-            const viewBox = "0 0 32 32";
-            const icon = (
+          .map(({ disabled, onClick, page, type }) => {
+            // type === previous
+            let component = ArrowBackIcon;
+            let display = page === 0 ? "none" : "initial";
+            let label = type.slice(0, 4);
+            if (type === "next") {
+              // page === 2 means current page === 1
+              component = page === 2 ? undefined : ArrowForwardIcon;
+              display = "initial";
+              label = page === 2 ? "See More" : type.slice(0, 4);
+            }
+            const icon = component ? (
               <SvgIcon
                 component={component}
                 style={{ fontSize: 16 }}
-                viewBox={viewBox}
+                viewBox="0 0 32 32"
               />
-            );
-            const startIcon = type === "previous" ? icon : null;
-            const endIcon = type === "next" ? icon : null;
+            ) : undefined;
+            const startIcon = type === "previous" ? icon : undefined;
+            const endIcon = type === "next" ? icon : undefined;
             return (
-              <li key={type}>
+              <Box component="li" sx={{ display }} key={type}>
                 <Button
                   disabled={disabled}
                   onClick={onClick}
@@ -59,9 +67,9 @@ const NextPreviousPagination = React.forwardRef(function NextPreviousPagination(
                   endIcon={endIcon}
                   variant="contained"
                 >
-                  {type.slice(0, 4)}
+                  {label}
                 </Button>
-              </li>
+              </Box>
             );
           })}
       </NextPreviousPaginationListRoot>
