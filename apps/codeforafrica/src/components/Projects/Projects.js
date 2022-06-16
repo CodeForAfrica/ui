@@ -66,7 +66,9 @@ function Projects(props) {
 
   return (
     <ProjectsRoot ref={ref}>
-      <Section sx={{ px: { xs: 2.5, sm: 0 }, ...sx }}>
+      <Section
+        sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 2.5, md: 8, lg: 9 }, ...sx }}
+      >
         {categories?.length > 0 ? (
           <ChoiceChipGroup
             color="default"
