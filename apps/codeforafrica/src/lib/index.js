@@ -1110,6 +1110,9 @@ function getOpportunitiesPageStaticProps() {
           title: "Opportunities",
           subtitle: "Come build digital democracies with Code for Africa",
         },
+        {
+          slug: "opportunities",
+        },
       ],
       footer,
       navbar,
