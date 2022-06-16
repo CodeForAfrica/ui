@@ -9,23 +9,21 @@ import {
 import React from "react";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
+  const { title, description, image, meta } = props;
+
+  if (!title || !description) {
+    return null;
+  }
   return (
     <Card sx={{ boxShadow: "none", borderRadius: 0 }} ref={ref}>
-      <CardMedia component="img" alt="" src="/images/opportunities-1.png" />
+      <CardMedia component="img" alt="" src={image?.src} />
       <CardContent sx={{ padding: 0 }}>
         <RichTypography sx={{ mt: "40px", mb: "20px" }} variant="h3">
-          DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation
-          and transnational organised crime
+          {title}
         </RichTypography>
-        <RichTypography variant="body2">
-          Jan 27, 2022 | Career, Full-time, Remote | 0 Comments
-        </RichTypography>
+        {meta && <RichTypography variant="body2">{meta}</RichTypography>}
         <RichTypography sx={{ py: "20px" }} variant="body2">
-          Position in: Africa Do you want to help expose the puppet-masters
-          behind disinformation networks, and expose transnational organised
-          criminals? Code for Africa (CfA) has an immediate vacancy for a
-          full-time Deputy Investigative Manager to join our pan-African
-          forensic...
+          {description}
         </RichTypography>
       </CardContent>
       <CardActions sx={{ padding: 0 }}>

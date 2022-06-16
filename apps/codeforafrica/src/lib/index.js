@@ -741,6 +741,49 @@ export const partners = [
   },
 ];
 
+export const opportunities = [
+  {
+    image: {
+      src: "/images/opportunities-1.png",
+    },
+    meta: "Jan 27, 2022 | Career, Full-time, Remote | 0 Comments",
+    title:
+      "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
+    description:
+      "Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...",
+  },
+  {
+    image: {
+      src: "/images/opportunities-2.png",
+    },
+    meta: "Jan 27, 2022 | Career, Full-time, Remote | 0 Comments",
+    title:
+      "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
+    description:
+      "Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...",
+  },
+  {
+    image: {
+      src: "/images/opportunities-1.png",
+    },
+    meta: "Jan 27, 2022 | Career, Full-time, Remote | 0 Comments",
+    title:
+      "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
+    description:
+      "Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...",
+  },
+  {
+    image: {
+      src: "/images/opportunities-2.png",
+    },
+    meta: "Jan 27, 2022 | Career, Full-time, Remote | 0 Comments",
+    title:
+      "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
+    description:
+      "Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...",
+  },
+];
+
 export const projects = [
   {
     slug: "african-drone",
@@ -1112,6 +1155,7 @@ function getOpportunitiesPageStaticProps() {
         },
         {
           slug: "opportunities",
+          opportunities,
         },
       ],
       footer,

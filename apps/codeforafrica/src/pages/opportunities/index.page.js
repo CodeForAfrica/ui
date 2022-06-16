@@ -1,7 +1,6 @@
-import { Section } from "@commons-ui/core";
 import React from "react";
 
-import OpportunityCard from "@/codeforafrica/components/OpportunityCard";
+import OpportunityCardList from "@/codeforafrica/components/OpportunityCardList";
 import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageStaticProps } from "@/codeforafrica/lib";
@@ -14,11 +13,7 @@ function Index({ sections, ...props }) {
           case "hero":
             return <PageHeader {...section} key={section.slug} />;
           case "opportunities":
-            return (
-              <Section>
-                <OpportunityCard />
-              </Section>
-            );
+            return <OpportunityCardList {...section} key={section.slug} />;
           default:
             return null;
         }
