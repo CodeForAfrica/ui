@@ -1,10 +1,11 @@
 import React from "react";
 
+import CMSContent from "@/codeforafrica/components/CMSContent";
 import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
-function Index({ sections, ...props }) {
+function Index({ content, sections, ...props }) {
   return (
     <Page {...props}>
       {sections?.map((section) => {
@@ -15,6 +16,7 @@ function Index({ sections, ...props }) {
             return null;
         }
       })}
+      <CMSContent>{content}</CMSContent>
     </Page>
   );
 }
