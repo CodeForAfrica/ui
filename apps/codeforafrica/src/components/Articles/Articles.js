@@ -54,7 +54,7 @@ function Articles(props) {
         title={title}
       />
       <NextPreviousPagination
-        count={Math.ceil(pagination.count)}
+        count={pagination.count}
         onChange={handlePageChange}
       />
     </>

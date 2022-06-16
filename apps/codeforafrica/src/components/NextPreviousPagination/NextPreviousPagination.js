@@ -1,11 +1,9 @@
-import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
-import SvgIcon from "@mui/material/SvgIcon";
 import usePagination from "@mui/material/usePagination";
 import React from "react";
 
-import ArrowBackIcon from "@/codeforafrica/assets/icons/Type=arrow-left, Size=32, Color=White.svg";
-import ArrowForwardIcon from "@/codeforafrica/assets/icons/Type=arrow-right, Size=32, Color=White.svg";
+import PaginationButton from "./PaginationButton";
+
 import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const NextPreviousPaginationListRoot = styled("ul")(({ theme }) => ({
@@ -31,39 +29,9 @@ const NextPreviousPagination = React.forwardRef(function NextPreviousPagination(
       <NextPreviousPaginationListRoot {...other} sx={{ zIndex: 1 }}>
         {items
           .filter(({ type }) => ["previous", "next"].includes(type))
-          .map(({ type, disabled, onClick }) => {
-            const component =
-              type === "previous" ? ArrowBackIcon : ArrowForwardIcon;
-            const viewBox = "0 0 32 32";
-            const icon = (
-              <SvgIcon
-                component={component}
-                style={{ fontSize: 16 }}
-                viewBox={viewBox}
-              />
-            );
-            const startIcon = type === "previous" ? icon : null;
-            const endIcon = type === "next" ? icon : null;
-            return (
-              <li key={type}>
-                <Button
-                  disabled={disabled}
-                  onClick={onClick}
-                  startIcon={startIcon}
-                  sx={{
-                    "&.Mui-disabled": {
-                      bgcolor: "primary.main",
-                      color: "text.secondary",
-                    },
-                  }}
-                  endIcon={endIcon}
-                  variant="contained"
-                >
-                  {type.slice(0, 4)}
-                </Button>
-              </li>
-            );
-          })}
+          .map((itemProps) => (
+            <PaginationButton {...itemProps} component="li" />
+          ))}
       </NextPreviousPaginationListRoot>
     </TwoToneBackground>
   );
