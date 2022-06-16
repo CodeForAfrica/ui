@@ -406,4 +406,22 @@ deepmerge(
   { clone: false }
 );
 
+deepmerge(
+  theme.components,
+  {
+    MuiCssBaseline: {
+      styleOverrides: `
+      h4 {
+        font-size: ${pxToRem(23)};
+        line-height: ${28 / 23};
+      },
+      hr {
+        border: 1px solid #ECEAEA;
+      }
+    `,
+    },
+  },
+  { clone: false }
+);
+
 export default theme;
