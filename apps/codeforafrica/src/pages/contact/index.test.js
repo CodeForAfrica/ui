@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import About from "./index.page";
+import Contact from "./index.page";
 
 import theme from "@/codeforafrica/theme";
 
@@ -12,9 +12,9 @@ const defaultProps = {
   sections: [],
 };
 
-describe("<Pages/About />", () => {
+describe("<Pages/Contact />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<About {...defaultProps} />);
+    const { container } = render(<Contact {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

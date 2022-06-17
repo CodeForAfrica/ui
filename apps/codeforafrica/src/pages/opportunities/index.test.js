@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import About from "./index.page";
+import Opportunities from "./index.page";
 
 import theme from "@/codeforafrica/theme";
 
@@ -9,12 +9,18 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  sections: [],
+  sections: [
+    {
+      slug: "hero",
+      title: "Opportunities",
+      subtitle: "Come build digital democracies with Code for Africa",
+    },
+  ],
 };
 
-describe("<Pages/About />", () => {
+describe("<Pages/Opportunities />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<About {...defaultProps} />);
+    const { container } = render(<Opportunities {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

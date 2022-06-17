@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import About from "./index.page";
+import Imprint from "./index.page";
 
 import theme from "@/codeforafrica/theme";
 
@@ -9,12 +9,19 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  sections: [],
+  content: "<h1>Hello</h1><p>World</p>",
+  sections: [
+    {
+      slug: "hero",
+      title: "Imprint",
+      subtitle: "Code for Africa organisation structure",
+    },
+  ],
 };
 
-describe("<Pages/About />", () => {
+describe("<Pages/Imprint />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<About {...defaultProps} />);
+    const { container } = render(<Imprint {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

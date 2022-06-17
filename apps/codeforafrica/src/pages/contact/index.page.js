@@ -6,7 +6,7 @@ import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
-function Index({ sections, ...props }) {
+function ContactPage({ sections, ...props }) {
   return (
     <Page {...props}>
       {sections?.map((section) => {
@@ -39,4 +39,4 @@ export async function getStaticProps() {
   return getPageStaticProps({ slug: "/contact" });
 }
 
-export default Index;
+export default ContactPage;

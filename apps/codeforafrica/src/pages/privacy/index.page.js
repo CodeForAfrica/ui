@@ -1,10 +1,11 @@
 import React from "react";
 
+import CMSContent from "@/codeforafrica/components/CMSContent";
 import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
-function OpportunitiesPage({ sections, ...props }) {
+function PrivacyPage({ content, sections, ...props }) {
   return (
     <Page {...props}>
       {sections?.map((section) => {
@@ -15,12 +16,13 @@ function OpportunitiesPage({ sections, ...props }) {
             return null;
         }
       })}
+      <CMSContent>{content}</CMSContent>
     </Page>
   );
 }
 
 export async function getStaticProps() {
-  return getPageStaticProps({ slug: "/opportunities" });
+  return getPageStaticProps({ slug: "/privacy" });
 }
 
-export default OpportunitiesPage;
+export default PrivacyPage;

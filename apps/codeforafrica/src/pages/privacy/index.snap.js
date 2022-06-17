@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Pages/About /> renders unchanged 1`] = `
+exports[`<Pages/Privacy /> renders unchanged 1`] = `
 <div>
   <header
     class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-vckksl-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
@@ -125,5 +125,37 @@ exports[`<Pages/About /> renders unchanged 1`] = `
       </div>
     </div>
   </header>
+  <div
+    class="MuiBox-root css-ize0ey"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-30evwc-MuiContainer-root"
+    >
+      <div
+        class="MuiTypography-root MuiTypography-h5ExtraBold css-18nb7y5-MuiTypography-root"
+      >
+        Privacy
+      </div>
+      <div
+        class="MuiTypography-root MuiTypography-h2 css-b7ai5n-MuiTypography-root"
+      >
+        Code for Africa privacy policy
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-usii6f-MuiContainer-root"
+  >
+    <div
+      class="MuiTypography-root MuiTypography-body1 css-n624xw-MuiTypography-root"
+    >
+      <h1>
+        Hello
+      </h1>
+      <p>
+        World
+      </p>
+    </div>
+  </div>
 </div>
 `;

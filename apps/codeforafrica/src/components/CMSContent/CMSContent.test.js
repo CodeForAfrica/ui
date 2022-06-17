@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import About from "./index.page";
+import CMSContent from "./CMSContent";
 
 import theme from "@/codeforafrica/theme";
 
@@ -9,12 +9,12 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  sections: [],
+  children: "<h1>Hello</h1><p>World</p>",
 };
 
-describe("<Pages/About />", () => {
+describe("<CMSContent />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<About {...defaultProps} />);
+    const { container } = render(<CMSContent {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
