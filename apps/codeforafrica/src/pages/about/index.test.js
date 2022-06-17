@@ -12,7 +12,7 @@ const defaultProps = {
   sections: [],
 };
 
-describe("/about", () => {
+describe("<Pages/About />", () => {
   it("renders unchanged", () => {
     const { container } = render(<About {...defaultProps} />);
     expect(container).toMatchSnapshot();
