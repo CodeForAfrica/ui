@@ -13,7 +13,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
     return null;
   }
   return (
-    <Section ref={ref}>
+    <Section sx={{ pb: "20px" }} ref={ref}>
       {opportunities.map((opportunity) => (
         <OpportunityCard key={opportunity.name} {...opportunity} />
       ))}
