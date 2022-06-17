@@ -26,6 +26,7 @@
     "start": "next start",
     "lint": "eslint --fix './'",
     "jest": "jest",
+    "playwright": "npx playwright test",
     "test": "jest && npx playwright test",
     "clean": "rm -rf .next .turbo node_modules"
   },
