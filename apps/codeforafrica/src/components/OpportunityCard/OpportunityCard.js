@@ -6,11 +6,12 @@ import {
   CardActions,
   CardMedia,
   Button,
+  Box,
 } from "@mui/material";
 import React from "react";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const { title, description, image, meta, href } = props;
+  const { title, description, image, date, tags, comments, href } = props;
 
   if (!title || !description) {
     return null;
@@ -22,7 +23,23 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
         <RichTypography sx={{ mt: "40px", mb: "20px" }} variant="h3">
           {title}
         </RichTypography>
-        {meta && <RichTypography variant="body2">{meta}</RichTypography>}
+        <Box sx={{ display: "flex" }}>
+          {date && (
+            <RichTypography sx={{ pr: "10px", borderRight: "solid 1px" }}>
+              {date}
+            </RichTypography>
+          )}
+          {tags && (
+            <RichTypography sx={{ px: "10px", borderRight: "solid 1px" }}>
+              {tags}
+            </RichTypography>
+          )}
+          {comments && (
+            <RichTypography
+              sx={{ px: "10px" }}
+            >{`${comments} Comments`}</RichTypography>
+          )}
+        </Box>
         <RichTypography sx={{ py: "20px" }} variant="body2">
           {description}
         </RichTypography>

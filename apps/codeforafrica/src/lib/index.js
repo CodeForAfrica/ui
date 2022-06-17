@@ -747,7 +747,9 @@ export const opportunities = [
       src: "/images/opportunities-1.png",
     },
     href: "/opportunities/1",
-    meta: "Jan 27, 2022 | Career, Full-time, Remote | 0 Comments",
+    tags: "Career, Full-time, Remote",
+    date: "Jan 27, 2022",
+    comments: 12,
     title:
       "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
     description:
@@ -758,7 +760,9 @@ export const opportunities = [
       src: "/images/opportunities-2.png",
     },
     href: "/opportunities/2",
-    meta: "Jan 27, 2022 | Career, Full-time, Remote | 0 Comments",
+    tags: "Career, Full-time, Remote",
+    date: "Jan 27, 2022",
+    comments: 12,
     title:
       "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
     description:
@@ -769,7 +773,9 @@ export const opportunities = [
       src: "/images/opportunities-1.png",
     },
     href: "/opportunities/3",
-    meta: "Jan 27, 2022 | Career, Full-time, Remote | 0 Comments",
+    tags: "Career, Full-time, Remote",
+    date: "Jan 27, 2022",
+    comments: 9,
     title:
       "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
     description:
@@ -780,7 +786,9 @@ export const opportunities = [
       src: "/images/opportunities-2.png",
     },
     href: "/opportunities/4",
-    meta: "Jan 27, 2022 | Career, Full-time, Remote | 0 Comments",
+    tags: "Career, Full-time, Remote",
+    date: "Jan 27, 2022",
+    comments: 10,
     title:
       "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
     description:
