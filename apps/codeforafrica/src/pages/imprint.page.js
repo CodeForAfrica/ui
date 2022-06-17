@@ -5,7 +5,7 @@ import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
-function ImprintPage({ content, sections, ...props }) {
+function Index({ content, sections, ...props }) {
   return (
     <Page {...props}>
       {sections?.map((section) => {
@@ -25,4 +25,4 @@ export async function getStaticProps() {
   return getPageStaticProps({ slug: "/imprint" });
 }
 
-export default ImprintPage;
+export default Index;
