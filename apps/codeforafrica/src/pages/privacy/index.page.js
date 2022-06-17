@@ -5,7 +5,7 @@ import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
-function Index({ content, sections, ...props }) {
+function PrivacyPage({ content, sections, ...props }) {
   return (
     <Page {...props}>
       {sections?.map((section) => {
@@ -22,7 +22,7 @@ function Index({ content, sections, ...props }) {
 }
 
 export async function getStaticProps() {
-  return getPageStaticProps({ slug: "/imprint" });
+  return getPageStaticProps({ slug: "/privacy" });
 }
 
-export default Index;
+export default PrivacyPage;
