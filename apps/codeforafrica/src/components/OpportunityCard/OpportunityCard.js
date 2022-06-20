@@ -11,13 +11,14 @@ import {
 import React from "react";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const { title, description, image, date, tags, comments, href } = props;
+  const { title, description, image, date, tags, comments, href, ...other } =
+    props;
 
   if (!title && !description) {
     return null;
   }
   return (
-    <Card sx={{ mt: "80px", boxShadow: "none", borderRadius: 0 }} ref={ref}>
+    <Card sx={{ boxShadow: "none", borderRadius: 0, ...other.sx }} ref={ref}>
       <CardMedia component="img" alt="" src={image?.src} />
       <CardContent sx={{ padding: 0 }}>
         <RichTypography sx={{ mt: "40px", mb: "20px" }} variant="h3">
