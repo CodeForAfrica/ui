@@ -13,7 +13,7 @@ import React from "react";
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
   const { title, description, image, date, tags, comments, href } = props;
 
-  if (!title || !description) {
+  if (!title && !description) {
     return null;
   }
   return (
@@ -24,21 +24,15 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
           {title}
         </RichTypography>
         <Box sx={{ display: "flex" }}>
-          {date && (
-            <RichTypography sx={{ pr: "10px", borderRight: "solid 1px" }}>
-              {date}
-            </RichTypography>
-          )}
-          {tags && (
-            <RichTypography sx={{ px: "10px", borderRight: "solid 1px" }}>
-              {tags}
-            </RichTypography>
-          )}
-          {comments && (
-            <RichTypography
-              sx={{ px: "10px" }}
-            >{`${comments} Comments`}</RichTypography>
-          )}
+          <RichTypography sx={{ pr: "10px", borderRight: "solid 1px" }}>
+            {date}
+          </RichTypography>
+          <RichTypography sx={{ px: "10px", borderRight: "solid 1px" }}>
+            {tags}
+          </RichTypography>
+          <RichTypography
+            sx={{ px: "10px" }}
+          >{`${comments} Comments`}</RichTypography>
         </Box>
         <RichTypography sx={{ py: "20px" }} variant="body2">
           {description}
