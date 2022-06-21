@@ -71,6 +71,7 @@ const ProjectPageHeader = React.forwardRef(function ProjectPageHeader(
     icon,
     name,
     subtitle,
+    sx,
     tagLine,
     title,
     thumbnail,
@@ -83,7 +84,7 @@ const ProjectPageHeader = React.forwardRef(function ProjectPageHeader(
 
   return (
     <Background ref={ref}>
-      <Section sx={{ px: { xs: 2.5, sm: 0 }, zIndex: 1 }}>
+      <Section sx={{ px: { xs: 2.5, sm: 0 }, zIndex: 1, ...sx }}>
         <ProjectPageHeaderRoot elevation={0} square>
           <Breadcrumbs
             crumbs={crumbs}
