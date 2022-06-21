@@ -834,6 +834,49 @@ export const projects = [
         date: "Month 2021",
       },
     ],
+    partners: {
+      title: "Partners",
+      list: [
+        {
+          name: "Uhurulabs",
+        },
+        {
+          name: "Microdrone",
+        },
+        {
+          name: "Unequal Scenes",
+        },
+        {
+          name: "Code for Africa",
+        },
+      ],
+    },
+    donors: {
+      title: "Donors",
+      list: [
+        {
+          name: "innovateAFRICA",
+        },
+        {
+          name: "Drone Deployed",
+        },
+        {
+          name: "World Bank",
+        },
+      ],
+    },
+    links: [
+      {
+        slug: "data",
+        content: "Launch Project",
+        href: "https://codeforafrica.org",
+      },
+      {
+        slug: "github",
+        content: "GitHub",
+        href: "https://github.com/CodeForAfrica",
+      },
+    ],
   },
   {
     slug: "wana-data",
@@ -1030,6 +1073,18 @@ export const projects = [
       {
         name: "Award Name",
         date: "Month 2021",
+      },
+    ],
+    links: [
+      {
+        slug: "data",
+        content: "Launch Project",
+        href: "https://codeforafrica.org",
+      },
+      {
+        slug: "github",
+        content: "GitHub",
+        href: "https://github.com/CodeForAfrica",
       },
     ],
   },
@@ -1249,7 +1304,13 @@ function getProjectPageStaticProps(params) {
         sections: [
           {
             slug: "team",
+            title: "Team",
             team: team.slice(0, 3),
+          },
+          {
+            slug: "related-stories",
+            title: "Related stories",
+            articles: articles.slice(0, 3),
           },
           {
             slug: "related-projects",
