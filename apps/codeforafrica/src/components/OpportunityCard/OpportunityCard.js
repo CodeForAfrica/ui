@@ -14,7 +14,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
   const { title, description, image, date, tags, comments, href, ...other } =
     props;
 
-  if (!title && !description) {
+  if (!(title && description)) {
     return null;
   }
   return (
