@@ -4,12 +4,7 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import React from "react";
 
-import ShareBar from "@/codeforafrica/components/ShareBar";
-import {
-  FacebookShareBarButton,
-  LinkedinShareBarButton,
-  TwitterShareBarButton,
-} from "@/codeforafrica/components/ShareBarButton";
+import ShareThisPage from "@/codeforafrica/components/ShareThisPage";
 
 const Chip = styled(MuiChip, {
   slot: "Root",
@@ -67,19 +62,14 @@ const ProjectStakeholders = React.forwardRef(function ProjectStakeholders(
           </Stack>
         </>
       ) : null}
-      <Stack
-        spacing={2.5}
+      <ShareThisPage
+        direction="column"
+        spacing="17px"
+        title="Share This Project"
         sx={{
-          color: "grey.main",
+          alignItems: "flex-start",
         }}
-      >
-        <RichTypography variant="footerCap">Share This Project</RichTypography>
-        <ShareBar>
-          <FacebookShareBarButton />
-          <LinkedinShareBarButton />
-          <TwitterShareBarButton />
-        </ShareBar>
-      </Stack>
+      />
     </Stack>
   );
 });
