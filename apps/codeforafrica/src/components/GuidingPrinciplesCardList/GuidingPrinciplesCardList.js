@@ -6,19 +6,13 @@ import GuidingPrinciplesCard from "../GuidingPrinciplesCard";
 
 const GuidingPrinciplesCardList = React.forwardRef(
   function GuidingPrinciplesCardList(props, ref) {
-    const { title, principles } = props;
+    const { principles, title, ...other } = props;
 
     if (!principles?.length) {
       return null;
     }
     return (
-      <Section
-        sx={{
-          py: { xs: 5, md: 6.5, lg: 7.75, xl: 10 },
-          px: { xs: 2.5, sm: 0 },
-        }}
-        ref={ref}
-      >
+      <Section {...other} ref={ref}>
         <RichTypography variant="h4">{title}</RichTypography>
         <Box
           sx={{
