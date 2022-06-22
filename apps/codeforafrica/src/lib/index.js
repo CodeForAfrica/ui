@@ -1320,6 +1320,9 @@ function getAboutPageStaticProps() {
       title: "About | Code for Africa",
       sections: [
         {
+          slug: "about-header",
+        },
+        {
           slug: "guiding-principles",
           title: "Guiding Principles",
           principles: guidingPrinciples,

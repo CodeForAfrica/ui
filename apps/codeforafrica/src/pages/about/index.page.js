@@ -1,5 +1,6 @@
 import React from "react";
 
+import AboutPageHeader from "@/codeforafrica/components/AboutPageHeader";
 import GetInTouch from "@/codeforafrica/components/GetInTouch";
 import GuidingPrinciplesCardList from "@/codeforafrica/components/GuidingPrinciplesCardList";
 import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
@@ -13,6 +14,9 @@ function Index({ sections, ...props }) {
     <Page {...props}>
       {sections?.map((section) => {
         switch (section.slug) {
+          case "about-header": {
+            return <AboutPageHeader {...section} key={section.slug} />;
+          }
           case "get-in-touch": {
             return <GetInTouch {...section} key={section.slug} />;
           }
