@@ -112,6 +112,18 @@ const hero = {
   },
 };
 
+export const ourMission = {
+  title: "Our Mission",
+  subtitle:
+    "Code for Africa is the continent’s largest network of civic technology and data journalism labs, with teams in 20 countries.",
+  description:
+    "We build digital democracy solutions that give citizens unfettered access to actionable information that empowers them to make informed decisions, and which strengthens civic engagement for improved public governance and accountability. This includes building infrastructure like the continent’s largest open data portals at openAFRICA and sourceAFRICA, as well as incubating initiatives as diverse as the africanDRONE network, the PesaCheck fact-checking initiative and the sensors.AFRICA air quality sensor network.",
+  action: {
+    href: "/imprint",
+    label: "Read about our company legal structure",
+  },
+};
+
 export const team = [
   {
     slug: "member-1",
@@ -1380,6 +1392,10 @@ function getAboutPageStaticProps() {
     props: {
       title: "About | Code for Africa",
       sections: [
+        {
+          ...ourMission,
+          slug: "our-mission",
+        },
         {
           slug: "guiding-principles",
           title: "Guiding Principles",
