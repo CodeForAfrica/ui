@@ -5,7 +5,7 @@ import ArticleCardList from "@/codeforafrica/components/ArticleCardList";
 
 // TODO(kilemensi): Remove hard-coded strings
 const RelatedStories = React.forwardRef(function RelatedStories(props, ref) {
-  const { articles, title } = props;
+  const { articles, sx, title } = props;
 
   if (!articles?.length) {
     return null;
@@ -15,6 +15,7 @@ const RelatedStories = React.forwardRef(function RelatedStories(props, ref) {
       sx={{
         px: { xs: 2.5, sm: 0 },
         py: { xs: 5, sm: 10, md: 7 },
+        ...sx,
       }}
       ref={ref}
     >

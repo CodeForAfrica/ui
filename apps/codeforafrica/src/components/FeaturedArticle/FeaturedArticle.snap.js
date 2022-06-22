@@ -68,7 +68,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
               </h1>
             </div>
             <button
-              class="MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButtonBase-root  css-umib9w-MuiButtonBase-root-MuiButton-root"
+              class="MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButtonBase-root  css-18nvokw-MuiButtonBase-root-MuiButton-root"
               tabindex="0"
               type="button"
             >
