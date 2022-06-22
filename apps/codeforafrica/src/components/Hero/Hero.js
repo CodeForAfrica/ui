@@ -2,9 +2,9 @@ import { Section } from "@commons-ui/core";
 import Grid from "@mui/material/Grid";
 import React from "react";
 
-import HeroImage from "./HeroImage";
 import HeroText from "./HeroText";
 
+import Figure from "@/codeforafrica/components/Figure";
 import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const Hero = React.forwardRef(function Hero(props, ref) {
@@ -22,7 +22,18 @@ const Hero = React.forwardRef(function Hero(props, ref) {
             <HeroText {...other} />
           </Grid>
           <Grid item>
-            <HeroImage {...image} />
+            <Figure
+              priority
+              {...image}
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: "block",
+                },
+                height: { sm: "258px", md: "370px", lg: "498px" },
+                width: { sm: "258px", md: "370px", lg: "498px" },
+              }}
+            />
           </Grid>
         </Grid>
       </Section>
