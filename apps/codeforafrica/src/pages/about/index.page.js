@@ -3,6 +3,7 @@ import React from "react";
 import GetInTouch from "@/codeforafrica/components/GetInTouch";
 import GuidingPrinciplesCardList from "@/codeforafrica/components/GuidingPrinciplesCardList";
 import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
+import OurMission from "@/codeforafrica/components/OurMission";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import OurTeam from "@/codeforafrica/components/OurTeam";
 import Page from "@/codeforafrica/components/Page";
@@ -16,19 +17,32 @@ function Index({ sections, ...props }) {
           case "get-in-touch": {
             return <GetInTouch {...section} key={section.slug} />;
           }
+          case "guiding-principles": {
+            return (
+              <GuidingPrinciplesCardList
+                {...section}
+                sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 2.5, md: 10 } }}
+                key={section.slug}
+              />
+            );
+          }
           case "impact": {
             return <ImpactCardList {...section} key={section.slug} />;
           }
-          case "guiding-principles": {
+          case "our-partners": {
+            return <OurPartners {...section} key={section.slug} />;
+          }
+          case "our-mission": {
             return (
-              <GuidingPrinciplesCardList {...section} key={section.slug} />
+              <OurMission
+                {...section}
+                sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 2.5, md: 10 } }}
+                key={section.slug}
+              />
             );
           }
           case "our-team": {
             return <OurTeam {...section} key={section.slug} />;
-          }
-          case "our-partners": {
-            return <OurPartners {...section} key={section.slug} />;
           }
           default:
             return null;
