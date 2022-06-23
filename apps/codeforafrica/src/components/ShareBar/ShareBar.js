@@ -1,16 +1,8 @@
-import { styled } from "@mui/material/styles";
+import Stack from "@mui/material/Stack";
 import React from "react";
 
-const ShareBarRoot = styled("div", {
-  name: "ShareBar",
-  slot: "Root",
-})({
-  display: "inline-flex",
-  columnGap: 17,
-});
-
 const ShareBar = React.forwardRef(function ShareBar(props, ref) {
-  return <ShareBarRoot {...props} ref={ref} />;
+  return <Stack direction="row" spacing="17px" {...props} ref={ref} />;
 });
 
 export default ShareBar;
