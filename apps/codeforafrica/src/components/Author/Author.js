@@ -1,61 +1,45 @@
 import { RichTypography } from "@commons-ui/core";
-import { Box } from "@mui/material";
+import Stack from "@mui/material/Stack";
 import PropTypes from "prop-types";
 import React from "react";
 
 const Author = React.forwardRef(function Author(props, ref) {
-  const { author, profession, ...other } = props;
+  const { name, profession, ...other } = props;
 
   return (
-    <Box
+    <Stack
+      direction={{ xs: "column", md: "row" }}
+      spacing={2.5}
       sx={{
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        py: "40px",
         alignItems: "center",
       }}
-      ref={ref}
       {...other}
+      ref={ref}
     >
-      <RichTypography component="span" variant="body2">
-        Article by{" "}
-      </RichTypography>
-      <Box
+      <RichTypography variant="body2">Article by</RichTypography>
+      <Stack
+        direction="row"
+        spacing={1.25}
         sx={{
-          bgcolor: "background.main",
-          mx: { xs: 0, md: 2 },
-          my: { xs: 3, md: 0 },
-          display: "flex",
-          flexDirection: "row",
           alignItems: "center",
+          bgcolor: "background.main",
+          p: 1.25,
         }}
       >
-        <RichTypography
-          component="span"
-          variant="body1SemiBold"
-          sx={{ mx: { xs: 0.3, md: 1 }, my: 0.5 }}
-        >
-          {author}
-        </RichTypography>
-        <RichTypography
-          component="span"
-          variant="body1"
-          sx={{ mx: { xs: 0.3, md: 1 }, my: 0.5 }}
-        >
-          {profession}
-        </RichTypography>
-      </Box>
-    </Box>
+        <RichTypography variant="body1SemiBold">{name}</RichTypography>
+        <RichTypography variant="body1">{profession}</RichTypography>
+      </Stack>
+    </Stack>
   );
 });
 
 Author.propTypes = {
-  author: PropTypes.string,
+  name: PropTypes.string,
   profession: PropTypes.string,
 };
 
 Author.defaultProps = {
-  author: undefined,
+  name: undefined,
   profession: undefined,
 };
 
