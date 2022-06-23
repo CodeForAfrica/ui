@@ -6,7 +6,7 @@ import React from "react";
 const AboutPageHeader = React.forwardRef(function AboutPageHeader(props, ref) {
   const { background } = props;
 
-  if (!background.src) {
+  if (!background?.src) {
     return null;
   }
   return (
