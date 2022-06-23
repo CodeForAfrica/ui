@@ -1,9 +1,14 @@
 import { Box } from "@mui/material";
 import Image from "next/image";
+import PropTypes from "prop-types";
 import React from "react";
 
 const AboutPageHeader = React.forwardRef(function AboutPageHeader(props, ref) {
   const { background } = props;
+
+  if (!background.src) {
+    return null;
+  }
   return (
     <Box
       ref={ref}
@@ -18,5 +23,16 @@ const AboutPageHeader = React.forwardRef(function AboutPageHeader(props, ref) {
     </Box>
   );
 });
+
+AboutPageHeader.propTypes = {
+  background: PropTypes.shape({
+    alt: PropTypes.string,
+    src: PropTypes.string,
+  }),
+};
+
+AboutPageHeader.defaultProps = {
+  background: undefined,
+};
 
 export default AboutPageHeader;
