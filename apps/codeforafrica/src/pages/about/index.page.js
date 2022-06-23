@@ -14,14 +14,14 @@ function Index({ sections, ...props }) {
     <Page {...props}>
       {sections?.map((section) => {
         switch (section.slug) {
-          case "about-header": {
-            return <AboutPageHeader {...section} key={section.slug} />;
-          }
           case "get-in-touch": {
             return <GetInTouch {...section} key={section.slug} />;
           }
           case "impact": {
             return <ImpactCardList {...section} key={section.slug} />;
+          }
+          case "about-header": {
+            return <AboutPageHeader {...section} key={section.slug} />;
           }
           case "guiding-principles": {
             return (

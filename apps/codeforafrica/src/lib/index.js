@@ -1321,12 +1321,17 @@ function getAboutPageStaticProps() {
       sections: [
         {
           slug: "about-header",
+          background: {
+            src: "/images/about.png",
+            alt: "",
+          },
         },
         {
           slug: "guiding-principles",
           title: "Guiding Principles",
           principles: guidingPrinciples,
         },
+
         {
           slug: "our-team",
           title: "Our team",
