@@ -1382,7 +1382,6 @@ function getOpportunitiesPageStaticProps() {
 }
 
 function getOpportunityPageStaticProps(params) {
-  console.log("BOOM", params);
   const opportunity = opportunities.find(
     ({ href }) =>
       href.localeCompare(params?.slug, undefined, {
