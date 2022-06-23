@@ -3,16 +3,15 @@
 exports[`<Author /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-3vtd9l"
+    class="css-1vlza15-MuiStack-root"
   >
-    <span
-      class="MuiTypography-root MuiTypography-body2 css-16etphd-MuiTypography-root"
+    <div
+      class="MuiTypography-root MuiTypography-body2 css-13hulks-MuiTypography-root"
     >
       Article by
-       
-    </span>
+    </div>
     <div
-      class="MuiBox-root css-hjoi4d"
+      class="css-l87b14-MuiStack-root"
     />
   </div>
 </div>

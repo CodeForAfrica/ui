@@ -2,7 +2,7 @@
 
 exports[`<CMSContent /> renders unchanged 1`] = `
 <div>
-  <div
+  <section
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-usii6f-MuiContainer-root"
   >
     <div
@@ -15,6 +15,6 @@ exports[`<CMSContent /> renders unchanged 1`] = `
         World
       </p>
     </div>
-  </div>
+  </section>
 </div>
 `;

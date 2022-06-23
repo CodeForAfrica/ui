@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Pages/Imprint /> renders unchanged 1`] = `
+exports[`<Pages/Opportunites/[Slug] /> renders unchanged 1`] = `
 <div>
   <header
     class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-vckksl-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
@@ -125,37 +125,5 @@ exports[`<Pages/Imprint /> renders unchanged 1`] = `
       </div>
     </div>
   </header>
-  <div
-    class="MuiBox-root css-1mt7k12"
-  >
-    <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-pf379m-MuiContainer-root"
-    >
-      <div
-        class="MuiTypography-root MuiTypography-h5ExtraBold css-18nb7y5-MuiTypography-root"
-      >
-        Imprint
-      </div>
-      <div
-        class="MuiTypography-root MuiTypography-h2 css-b7ai5n-MuiTypography-root"
-      >
-        Code for Africa organisation structure
-      </div>
-    </div>
-  </div>
-  <section
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-usii6f-MuiContainer-root"
-  >
-    <div
-      class="MuiTypography-root MuiTypography-body1 css-n624xw-MuiTypography-root"
-    >
-      <h1>
-        Hello
-      </h1>
-      <p>
-        World
-      </p>
-    </div>
-  </section>
 </div>
 `;

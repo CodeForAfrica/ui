@@ -3,7 +3,7 @@
 exports[`<Hero /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-oxa7fl"
+    class="MuiBox-root css-1jyu2xp"
     title="Empowering <span class=\\"highlight\\">Africa</span> with"
   >
     <div
@@ -40,7 +40,7 @@ exports[`<Hero /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <figure
-            class="css-1lwqzli"
+            class="css-1yvyt09"
           >
             <span
               style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"
@@ -48,10 +48,11 @@ exports[`<Hero /> renders unchanged 1`] = `
               <img
                 data-nimg="fill"
                 decoding="async"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                sizes="100vw"
+                src="/_next/image?url=%2F&w=3840&q=75"
+                srcset="/_next/image?url=%2F&w=640&q=75 640w, /_next/image?url=%2F&w=750&q=75 750w, /_next/image?url=%2F&w=828&q=75 828w, /_next/image?url=%2F&w=1080&q=75 1080w, /_next/image?url=%2F&w=1200&q=75 1200w, /_next/image?url=%2F&w=1920&q=75 1920w, /_next/image?url=%2F&w=2048&q=75 2048w, /_next/image?url=%2F&w=3840&q=75 3840w"
                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
               />
-              <noscript />
             </span>
           </figure>
         </div>

@@ -472,8 +472,10 @@ const articles = [
       src: "/images/stories-1.png",
     },
     coverImage: { src: "/images/stories-1.png" },
-    author: "Brenda Nyokabi",
-    profession: " Technologist Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
     href: "/stories/article-1",
     tags: ["Africa", "Media", "Equality"],
   },
@@ -491,8 +493,10 @@ const articles = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885141/codeforafrica/unsplash_L85a1k-XqH8_1_g6nf2l.jpg",
     },
     coverImage: { src: "/images/stories-1.png" },
-    author: "Gertrude Nyenyeshi",
-    profession: " Technologist Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
     href: "/stories/article-2",
     tags: ["Kenya", "Water scarcity"],
   },
@@ -509,8 +513,10 @@ const articles = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885140/codeforafrica/unsplash_L85a1k-XqH8_jyvr9m.jpg",
     },
     coverImage: { src: "/images/stories-1.png" },
-    author: "Isaiah Ngaruiya",
-    profession: " Technologist Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
     href: "/stories/article-3",
   },
   {
@@ -528,8 +534,10 @@ const articles = [
     },
     coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-4",
-    author: "Clemence Kyara",
-    profession: " CTO Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
     tags: ["Kenya", "Water scarcity"],
   },
   {
@@ -546,8 +554,10 @@ const articles = [
     },
     coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-5",
-    author: "Clemence Kyara",
-    profession: " CTO Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
     tags: ["Kenya"],
   },
   {
@@ -564,8 +574,10 @@ const articles = [
     },
     coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-6",
-    author: "Isaiah Ngaruiya",
-    profession: " Technologist Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
     tags: ["Water scarcity"],
   },
   {
@@ -582,8 +594,10 @@ const articles = [
     },
     coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-7",
-    author: "Gertrude Nyenyeshi",
-    profession: " Technologist Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
   },
   {
     title: "Article title goes in here",
@@ -599,8 +613,10 @@ const articles = [
     },
     coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-8",
-    author: "Brenda Nyokabi",
-    profession: " Technologist Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
   },
   {
     title: "Article title goes in here",
@@ -616,8 +632,10 @@ const articles = [
     },
     coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-9",
-    author: "Gertrude Nyenyeshi",
-    profession: " Technologist Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
   },
   {
     title: "Article title goes in here",
@@ -633,8 +651,10 @@ const articles = [
     },
     coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-10",
-    author: "Clemence Kyara",
-    profession: " CTO Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
   },
   {
     title: "Article title goes in here",
@@ -650,8 +670,10 @@ const articles = [
     },
     coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-11",
-    author: "Isaiah Ngaruiya",
-    profession: " Technologist Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
   },
   {
     title: "Article title goes in here",
@@ -667,8 +689,10 @@ const articles = [
     },
     coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-12",
-    author: "Brenda Nyokabi",
-    profession: " Technologist Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
   },
   {
     title: "Article title goes in here",
@@ -685,8 +709,10 @@ const articles = [
     coverImage: { src: "/images/stories-1.png" },
     href: "/stories/article-13",
     tags: ["Decision-making", "Empowerment citizens"],
-    author: "Gertrude Nyenyeshi",
-    profession: " Technologist Code for Africa",
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
   },
 ];
 
@@ -755,56 +781,148 @@ export const partners = [
 
 export const opportunities = [
   {
+    title: "Security Evangelist: Secure our defences against digital threats",
+    summary: "Position in: Kenya, Sudan",
+    content: `
+      <p><em>Do you want to help human rights defenders in Africa fight back against online attacks?&nbsp;</em></p>
+      <p>Code for Africa (CfA) has an <strong>immediate vacancy</strong> for a full-time Security Evangelist anywhere in Africa to join our civic technology lab to help build digital tools that strengthen our democracies and empower citizens.</p>
+      <p>Candidates must have demonstrable experience in creating momentum and driving product adoption through direct user engagement and awareness-building, good understanding of modern cyber-attack techniques and technical knowledge of existing (open source) tools to prevent or mitigate such attacks. Candidates should be fluent in English and candidates who are fluent in at least one local language from their country of residence will have an advantage.</p>
+      <p>CfA is a non-profit advocate for open source software and open data, and the successful candidate will help champion these principles by adopting best practices and helping document all our technologies to help others reuse them. In keeping with CfA’s values, you will regularly interact with the wider civic tech community, as well as CfA’s grantees and partners, to share insights and offer guidance on how to improve their online security and defences.</p>
+      <p>The successful candidates will work as part of a multinational and multilingual team using digital collaboration tools to create content for a global audience and international media partners.</p>
+      <p><strong>Required</strong>: <em>minimum requirements include</em>:</p>
+      <ul><li>A minimum of 3 years work experience, with 1+ years in a similar role.</li><li>Bachelor’s degree in Computer Science or equivalent Engineering discipline.</li><li>A technical understanding of security controls, including but not limited to; data protection, user access management, and general application security.</li><li>A passion for helping vulnerable or at-risk users in the media or other civic watchdogs, specifically women in journalism and politics&nbsp;</li><li>An ability to translate complex technical ideas to simple, easy to understand language for non-technical users</li><li>Experience developing user-facing content and comfortable presenting to different types of audiences, large and small.</li><li>Amazing verbal and written communication skills, with English as your primary work language</li><li>French and/or Arabic are highly desirable additional languages, alongside major indigenous African languages such as KiSwahili or Hausa</li></ul>
+      <p><strong>Preferred</strong>:<em> candidates who are able to demonstrate the following will have an advantage</em>:</p>
+      <ul><li>Knowledge of modern software development and deployment tools (e.g. Python, Docker, etc.), and public cloud provider technologies (e.g. AWS, GCP, Azure, etc.).</li><li>A technical understanding of <a href="https://en.wikipedia.org/wiki/Content_delivery_network">CDNs</a>, <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack">DDoS</a>, <a href="https://en.wikipedia.org/wiki/Web_cache">web caching</a>, <a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a> and related technologies will be a major advantage.</li><li>Strategic thinking and great problem-solving skills.</li><li>Evidence of experience at successfully building and maintaining a wide array of relationships with both internal colleagues and external partners</li><li>Demonstrated experience of working effectively as part of a geographically distributed multicultural team will be an advantage</li></ul>
+      <p><strong>Language and Location Requirements:</strong></p>
+      <ul><li>Location: CfA has labs located in Kenya, Nigeria, Senegal, South Africa, Tanzania and Uganda. However the role can be performed remotely, and applicants across Africa will therefore be considered.</li><li>Languages: English</li><li>Preferred but not required: Arabic, French, KiSwahili or any other major language spoken in Africa.</li></ul>
+      <p><strong>About the Role</strong>:</p>
+      <p>The successful candidate will join CfA’s technology team. The team is distributed across east/west Africa, and benchmarks itself on similar civic technology initiatives elsewhere in the world that build digital democracy solutions.</p>
+      <p>The Security Evangelist will play a key role in shaping internal technology decisions and mitigating third-party risks. The successful candidate will ensure that CfA deploys new infrastructure, projects and technologies in a safe and secure manner. The candidate will lead the selection and deployment of world-class open-source cyber security tools, and contribute to recruitment and talent management of information security technologists.&nbsp;</p>
+      <p>The Security Evangelist will also have important external-facing responsibilities. The candidate will be a cybersecurity advocate, drive a diverse cybersecurity community and garner awareness, oversee events, contribute to engagement&nbsp; and offer insight to stakeholders.</p>
+      <p>The Tech Lab spearheads CfA’s design, development and maintenance of all digital services for the organisation, and its external human rights defending partner organisations. The team is responsible for digital infrastructure for teams and organisations, through managing and deploying tools/services such as password managers (like <a href="https://bitwarden.com/">BitWarden</a>), digital security (like <a href="https://projectshield.withgoogle.com/">ProjectShield</a>) and VPNs (such as <a href="https://getoutline.org/en-GB/">Outline</a>). The Tech Lab develops and maintains our public-facing web platforms (like <a href="https://africanspending.org/library/index.html">AfricanSpending</a>, <a href="https://afrileaks.org/">Afrileaks</a>, <a href="https://granoproject.org/">Grano</a>, and <a href="https://pesayetu.pesacheck.org">PesaYetu</a>), tools/widgets (such as&nbsp; <a href="https://biscuitindex.codeforkenya.org/">BiscuitIndex</a>, <a href="https://hurumap.org/">HURUmap</a> and <a href="https://taxclock.pesacheck.org/">TaxClock</a>) and bots (such as <a href="https://twitter.com/debunkbotafrica?lang=en">DebunkBot</a>). The team also manages CfA’s machine learning&nbsp; and natural language processing analysis tools (such as <a href="https://civicsignal.africa/#/home">CivicSignal</a>). CfA’s github is available <a href="https://github.com/CodeForAfrica/">here</a>.</p>
+      <p><strong>Responsibilities:</strong> <em>Your core responsibilities will include</em>:</p>
+      <ul><li>Establish a security standard that all technologies and solutions at CfA, managed by your fellow technologists, must be held against to ensure the online safety of both internal and external users.</li><li>Build a dynamic pan-African digital security community for the media and other civic watchdogs, based on peer-learning and peer-support.</li><li>Manage a virtual ‘hotline’ and support service for African newsrooms and/or journalists who need urgent help on digital security and investigative technology issues.</li><li>Develop and deliver a range of technical and non-technical presentations / webinars / classes to help impact digital security skills and investigative technology awareness.</li><li>Manage an onboarding and support service for newsrooms and/or journalists who adopt any CfA-endorsed technologies or digital solutions.</li><li>Identify events, organisations, and other approaches to build awareness of CfA security projects, tools, and technologies and to drive partner activation.</li><li>Develop metrics to measure success in raising awareness and activating partnerships, for progress tracking by the core CfA team and partners.</li><li>Provide ongoing support to regional CfA teams in their own outreach efforts.</li></ul>
+      <p><strong>What We Offer:</strong></p>
+      <ul><li>A competitive salary, subject to experience, with opportunities for performance-based growth, both in terms of career path and public stature.</li><li>A dynamic workplace, with a transnational team, occasional international travel, and generous vacation benefits.</li><li>Ongoing opportunities to learn new cutting-edge skills and techniques/technologies to future-proof yourself in a rapidly evolving industry.</li><li>A chance to shine on a global stage, writing for international audiences and interacting with colleagues around the world.</li></ul>
+      <p><strong>How to apply</strong>:</p>
+      <p>Please fill in <a href="https://docs.google.com/forms/d/1JyRTdQ6pHie5LkU0eXz1v7ddVXDn5sX1TMm8fZpUCAc/viewform?edit_requested=true">this form:</a> by <strong>15 July 2022</strong></p>
+      <hr class="wp-block-separator">
+      <p><strong>About Us</strong>:</p>
+      <p><a href="https://twitter.com/Code4Africa">Code for Africa</a> (CfA) is the continent’s largest network of indigenous African <strong>civic technology</strong> and investigative<strong> data journalism</strong> laboratories, with over 70 staff in 19 countries, who build <strong>digital democracy</strong> solutions that are intended to give citizens unfettered access to <strong>actionable information</strong> that empowers them to make <strong>informed decisions</strong> and that strengthen <strong>civic engagement</strong> for improved public governance and accountability.</p>
+      <p>This includes building infrastructure such as the continent’s largest open data portal, <a href="http://open.africa/">open.AFRICA</a>, and largest open source civic software portal, <a href="https://commons.africa/">commons.AFRICA</a>, as well as the largest repository of investigative document-based evidence, <a href="https://sourceafrica.net/">source.AFRICA</a>, as well as incubating initiatives as diverse as the <a href="https://africandrone.org/">africanDRONE</a> network that gives citizens their own ‘eyes in the sky’, the <a href="https://pesacheck.org/">PesaCheck</a> fact-checking initiative in 12 African countries, and the <a href="https://sensors.africa/">sensors.AFRICA</a> remote-sensing citizen science initiative to combat air/water pollution.</p>
+      <p>CfA also incubates the <a href="https://investigate.africa/">African Network of Centres for Investigative Reporting</a> (ANCIR), as an association of the continent’s best investigative newsrooms, ranging from large traditional mainstream media to smaller specialist units. ANCIR member newsrooms investigate crooked politicians, organised crime and big business. The iLAB is ANCIR’s in-house digital forensic unit, with teams in east, south and west Africa. ANCIR uses its resources to strengthen newsrooms’ own internal capacity, by providing access to the world’s best <a href="https://afrileaks.org/">whistleblower encryption</a> and investigative <a href="https://data.investigate.africa/">semantic analysis</a> technologies, as well as <a href="https://courses.academy.africa/">skills development</a>, and seed grants for cross-border collaboration.</p>
+      <hr class="wp-block-separator">
+      <p><em>At CfA, we don’t just accept differences – we celebrate it, we support it, and we thrive on it for the benefit of our employees, our products and our community. CfA is proud to be an equal opportunity workplace and is an affirmative action employer. If you have a disability or special need that requires accommodation, please let us know.&nbsp;</em></p>
+      <p><strong><em>To all recruitment agencies</em></strong><strong><em>: CfA does not accept agency resumes. Please do not forward resumes to our employment application line, CfA employees or any other CfA contact. CfA is not responsible for any fees related to unsolicited resumes</em></strong><em>.</em></p>
+      <hr class="wp-block-separator">
+      <p>Do you want to help expose the puppet-masters behind disinformation networks and toxic content?
+      <p>Code for Africa (CfA) has an immediate vacancy for an Investigative Data Analyst with extensive forensic research and/or investigative data analytics experience based in Mali, Sudan.
+      <p>The successful candidates will work as part of CfA’s internal iLAB team of forensic data scientists and OSINT researchers, who use digital collaboration tools to create evidence-based dossiers and other actionable content for a global audience and for international watchdog media partners.
+      <p>The iLAB works in support of the African Network of Centres for Investigative Reporting (ANCIR), which is a CfA initiative that brings together the continent’s best muckraking newsrooms to investigate crooked politicians, organised crime and big business. The iLAB spearheads investigations that individual ANCIR newsrooms are unable to tackle on their own. This includes forensic analysis of suspected digital disinformation campaigns or toxic content aimed at misleading citizens or triggering social discord or polarisation using hate speech or radicalisation or other techniques.
+    `,
+    date: "Jan 27, 2022",
     image: {
-      src: "/images/opportunities-1.png",
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655896423/codeforafrica/images/opportunities/image_15_sbjzki.jpg",
+    },
+    coverImage: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655902308/codeforafrica/images/opportunities/unsplash_L85a1k-XqH8_izohae.jpg",
+    },
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
     },
     href: "/opportunities/1",
-    tags: "Career, Full-time, Remote",
-    date: "Jan 27, 2022",
-    comments: 12,
-    title:
-      "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
-    description:
-      "Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...",
+    tags: ["Full-time", "Kenya", "Sudan"],
   },
   {
+    title:
+      "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
+    summary: "Position in: South Africa, Nigeria",
+    content: `
+      <p>Do you want to help expose the puppet-masters behind disinformation networks and toxic content?
+      <p>Code for Africa (CfA) has an immediate vacancy for an Investigative Data Analyst with extensive forensic research and/or investigative data analytics experience based in Mali, Sudan.
+      <p>The successful candidates will work as part of CfA’s internal iLAB team of forensic data scientists and OSINT researchers, who use digital collaboration tools to create evidence-based dossiers and other actionable content for a global audience and for international watchdog media partners.
+      <p>The iLAB works in support of the African Network of Centres for Investigative Reporting (ANCIR), which is a CfA initiative that brings together the continent’s best muckraking newsrooms to investigate crooked politicians, organised crime and big business. The iLAB spearheads investigations that individual ANCIR newsrooms are unable to tackle on their own. This includes forensic analysis of suspected digital disinformation campaigns or toxic content aimed at misleading citizens or triggering social discord or polarisation using hate speech or radicalisation or other techniques.
+    `,
+    date: "Jan 27, 2022",
     image: {
-      src: "/images/opportunities-2.png",
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655896419/codeforafrica/images/opportunities/image_16_z2am26.jpg",
+    },
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
     },
     href: "/opportunities/2",
-    tags: "Career, Full-time, Remote",
-    date: "Jan 27, 2022",
-    comments: 12,
-    title:
-      "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
-    description:
-      "Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...",
+    tags: ["Contract", "South Africa", "Nigeria"],
   },
   {
+    title:
+      "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
+    summary: "Position in: Tanzania",
+    content: `
+      <p>Do you want to help expose the puppet-masters behind disinformation networks and toxic content?
+      <p>Code for Africa (CfA) has an immediate vacancy for an Investigative Data Analyst with extensive forensic research and/or investigative data analytics experience based in Mali, Sudan.
+      <p>The successful candidates will work as part of CfA’s internal iLAB team of forensic data scientists and OSINT researchers, who use digital collaboration tools to create evidence-based dossiers and other actionable content for a global audience and for international watchdog media partners.
+      <p>The iLAB works in support of the African Network of Centres for Investigative Reporting (ANCIR), which is a CfA initiative that brings together the continent’s best muckraking newsrooms to investigate crooked politicians, organised crime and big business. The iLAB spearheads investigations that individual ANCIR newsrooms are unable to tackle on their own. This includes forensic analysis of suspected digital disinformation campaigns or toxic content aimed at misleading citizens or triggering social discord or polarisation using hate speech or radicalisation or other techniques.
+    `,
+    date: "Jan 27, 2022",
     image: {
-      src: "/images/opportunities-1.png",
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655896423/codeforafrica/images/opportunities/image_15_sbjzki.jpg",
+    },
+    coverImage: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655902308/codeforafrica/images/opportunities/unsplash_L85a1k-XqH8_izohae.jpg",
+    },
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
     },
     href: "/opportunities/3",
-    tags: "Career, Full-time, Remote",
-    date: "Jan 27, 2022",
-    comments: 9,
-    title:
-      "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
-    description:
-      "Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...",
+    tags: ["Full-time", "Tanzania"],
   },
   {
-    image: {
-      src: "/images/opportunities-2.png",
-    },
-    href: "/opportunities/4",
-    tags: "Career, Full-time, Remote",
-    date: "Jan 27, 2022",
-    comments: 10,
     title:
       "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
-    description:
-      "Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...",
+    summary: "Positions in: Remote (Africa)",
+    content: `
+      <p>Do you want to help expose the puppet-masters behind disinformation networks and toxic content?
+      <p>Code for Africa (CfA) has an immediate vacancy for an Investigative Data Analyst with extensive forensic research and/or investigative data analytics experience based in Mali, Sudan.
+      <p>The successful candidates will work as part of CfA’s internal iLAB team of forensic data scientists and OSINT researchers, who use digital collaboration tools to create evidence-based dossiers and other actionable content for a global audience and for international watchdog media partners.
+      <p>The iLAB works in support of the African Network of Centres for Investigative Reporting (ANCIR), which is a CfA initiative that brings together the continent’s best muckraking newsrooms to investigate crooked politicians, organised crime and big business. The iLAB spearheads investigations that individual ANCIR newsrooms are unable to tackle on their own. This includes forensic analysis of suspected digital disinformation campaigns or toxic content aimed at misleading citizens or triggering social discord or polarisation using hate speech or radicalisation or other techniques.
+    `,
+    date: "Jan 27, 2022",
+    image: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655896419/codeforafrica/images/opportunities/image_16_z2am26.jpg",
+    },
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
+    href: "/opportunities/4",
+    tags: ["Full-time", "Remote", "Misinformation"],
+  },
+  {
+    title:
+      "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
+    summary: "Position in: Tanzania",
+    content: `
+      <p>Do you want to help expose the puppet-masters behind disinformation networks and toxic content?
+      <p>Code for Africa (CfA) has an immediate vacancy for an Investigative Data Analyst with extensive forensic research and/or investigative data analytics experience based in Mali, Sudan.
+      <p>The successful candidates will work as part of CfA’s internal iLAB team of forensic data scientists and OSINT researchers, who use digital collaboration tools to create evidence-based dossiers and other actionable content for a global audience and for international watchdog media partners.
+      <p>The iLAB works in support of the African Network of Centres for Investigative Reporting (ANCIR), which is a CfA initiative that brings together the continent’s best muckraking newsrooms to investigate crooked politicians, organised crime and big business. The iLAB spearheads investigations that individual ANCIR newsrooms are unable to tackle on their own. This includes forensic analysis of suspected digital disinformation campaigns or toxic content aimed at misleading citizens or triggering social discord or polarisation using hate speech or radicalisation or other techniques.
+    `,
+    date: "Jan 27, 2022",
+    image: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655896423/codeforafrica/images/opportunities/image_15_sbjzki.jpg",
+    },
+    coverImage: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655902308/codeforafrica/images/opportunities/unsplash_L85a1k-XqH8_izohae.jpg",
+    },
+    author: {
+      name: "Justin Arenstein",
+      profession: "CEO of Code for Africa",
+    },
+    href: "/opportunities/5",
+    tags: ["Full-time", "Tanzania"],
   },
 ];
 
@@ -1263,6 +1381,28 @@ function getOpportunitiesPageStaticProps() {
   };
 }
 
+function getOpportunityPageStaticProps(params) {
+  const opportunity = opportunities.find(
+    ({ href }) =>
+      href.localeCompare(params?.slug, undefined, {
+        sensitivity: "accent",
+      }) === 0
+  );
+  if (opportunity) {
+    return {
+      props: {
+        title: `${opportunity.title} | Stories | Code for Africa`,
+        opportunity,
+        footer,
+        navbar,
+      },
+      revalidate: DEFAULT_REVALIDATE,
+    };
+  }
+
+  return { notFound: true };
+}
+
 function getImprintPageStaticProps() {
   return {
     props: {
@@ -1583,7 +1723,7 @@ export async function getPageStaticProps(params) {
         return getTeamMemberPageStaticProps(params);
       }
       if (params?.slug?.startsWith("/opportunities/")) {
-        return getOpportunitiesPageStaticProps(params);
+        return getOpportunityPageStaticProps(params);
       }
       if (params?.slug?.startsWith("/projects/")) {
         return getProjectPageStaticProps(params);

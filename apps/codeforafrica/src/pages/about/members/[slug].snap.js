@@ -126,7 +126,7 @@ exports[`<Pages/About/Members/[Slug] /> renders unchanged 1`] = `
     </div>
   </header>
   <div
-    class="MuiBox-root css-19zrvd4"
+    class="MuiBox-root css-wpqv47"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1r1xzd-MuiContainer-root"
@@ -170,7 +170,7 @@ exports[`<Pages/About/Members/[Slug] /> renders unchanged 1`] = `
         Connect
       </span>
       <div
-        class="css-k5dji9-ShareBar-root"
+        class="css-r7or14-MuiStack-root"
       >
         <button
           aria-label="Facebook"

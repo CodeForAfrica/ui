@@ -427,6 +427,10 @@ deepmerge(
       hr {
         border: 1px solid #ECEAEA;
       }
+      p {
+        fontSize: ${pxToRem(18)},
+        lineHeight: ${28 / 18},
+      }
     `,
     },
     MuiButton: {

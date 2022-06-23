@@ -3,7 +3,7 @@
 exports[`<AboutMemberPageHeader /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-19zrvd4"
+    class="MuiBox-root css-wpqv47"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1r1xzd-MuiContainer-root"
