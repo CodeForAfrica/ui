@@ -13,6 +13,7 @@ const PageHeader = React.forwardRef(function PageHeader(props, ref) {
     <TwoToneBackground ref={ref} sx={{ backgroundColor: "background.main" }}>
       <Section
         sx={{
+          px: { xs: 2.5, sm: 0 },
           py: { xs: 3.75, sm: 5.5, md: 6.75, lg: 9.6 },
           zIndex: 1,
           textAlign: "center",
