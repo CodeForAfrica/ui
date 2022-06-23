@@ -29,7 +29,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="css-1rba627-MuiStack-root"
+      class="css-11d7185-MuiStack-root"
     >
       <div
         class="MuiTypography-root MuiTypography-footerCap css-19iy7wy-MuiTypography-root"
@@ -37,7 +37,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
         Share This Project
       </div>
       <div
-        class="css-k5dji9-ShareBar-root"
+        class="css-r7or14-MuiStack-root"
       >
         <button
           aria-label="Facebook"
