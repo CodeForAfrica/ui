@@ -1,22 +1,26 @@
-import { RichTypography } from "@commons-ui/core";
-import { Box } from "@mui/material";
+import { RichTypography, Section } from "@commons-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
 
 import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
 import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
+import ShareThisPage from "@/codeforafrica/components/ShareThisPage";
 
 const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
-  const { title, date, subheader, tags, ...other } = props;
+  const { date, subheader, sx, tags, title } = props;
 
   return (
-    <Box
-      ref={ref}
+    <Section
+      component="header"
       sx={{
-        display: "flex",
-        flexDirection: "column",
+        px: { xs: 2.5, sm: 0 },
+        maxWidth: {
+          sm: "648px",
+          md: "912px",
+        },
+        ...sx,
       }}
-      {...other}
+      ref={ref}
     >
       <RichTypography
         component="div"
@@ -49,7 +53,8 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
           ))}
         </ChoiceChipGroup>
       ) : null}
-    </Box>
+      <ShareThisPage title="Share This Article" />
+    </Section>
   );
 });
 
