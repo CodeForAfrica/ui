@@ -17,7 +17,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
       {opportunities.map((opportunity) => (
         <OpportunityCard
           sx={{ mt: "80px" }}
-          key={opportunity.name}
+          key={opportunity.href || opportunity.title}
           {...opportunity}
         />
       ))}
