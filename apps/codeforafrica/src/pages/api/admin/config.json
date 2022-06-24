@@ -1,0 +1,45 @@
+{
+  "backend": {
+    "name": "git-gateway",
+    "branch": "main"
+  },
+  "media_folder": "public/images",
+  "public_folder": "/images",
+  "logo_url": "/logo.png",
+  "local_backend": true,
+  "collections": [
+    {
+      "name": "pages",
+      "label": "Pages",
+      "files": [
+        {
+          "label": "Hero",
+          "name": "hero",
+          "file": "content/pages/hero.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "Message",
+              "name": "message",
+              "widget": "string"
+            },
+            {
+              "label": "Subtitle",
+              "name": "subtitle",
+              "widget": "text"
+            },
+            {
+              "label": "Image",
+              "name": "image",
+              "widget": "image"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
