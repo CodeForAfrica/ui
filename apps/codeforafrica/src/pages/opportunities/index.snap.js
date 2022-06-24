@@ -129,18 +129,18 @@ exports[`<Pages/Opportunities /> renders unchanged 1`] = `
     class="MuiBox-root css-ize0ey"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-30evwc-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-pf379m-MuiContainer-root"
     >
-      <div
-        class="MuiTypography-root MuiTypography-h5ExtraBold css-18nb7y5-MuiTypography-root"
+      <h2
+        class="MuiTypography-root MuiTypography-h5ExtraBold css-1xq1eb8-MuiTypography-root"
       >
         Opportunities
-      </div>
-      <div
+      </h2>
+      <h2
         class="MuiTypography-root MuiTypography-h2 css-b7ai5n-MuiTypography-root"
       >
         Come build digital democracies with Code for Africa
-      </div>
+      </h2>
     </div>
   </div>
 </div>

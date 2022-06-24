@@ -17,22 +17,22 @@ function Index({ sections, ...props }) {
           case "get-in-touch": {
             return <GetInTouch {...section} key={section.slug} />;
           }
-          case "impact": {
-            return <ImpactCardList {...section} key={section.slug} />;
-          }
-          case "about-header": {
-            return <AboutPageHeader {...section} key={section.slug} />;
-          }
           case "guiding-principles": {
             return (
               <GuidingPrinciplesCardList {...section} key={section.slug} />
             );
           }
-          case "our-team": {
-            return <OurTeam {...section} key={section.slug} />;
+          case "hero": {
+            return <AboutPageHeader {...section} key={section.slug} />;
+          }
+          case "impact": {
+            return <ImpactCardList {...section} key={section.slug} />;
           }
           case "our-partners": {
             return <OurPartners {...section} key={section.slug} />;
+          }
+          case "our-team": {
+            return <OurTeam {...section} key={section.slug} />;
           }
           default:
             return null;
