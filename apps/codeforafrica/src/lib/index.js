@@ -1320,10 +1320,12 @@ function getAboutPageStaticProps() {
       title: "About | Code for Africa",
       sections: [
         {
-          slug: "about-header",
-          background: {
-            src: "/images/about.png",
-            alt: "",
+          slug: "hero",
+          title: "About Us",
+          subtitle:
+            "We are Africa’s largest network of civic technology and data journalism labs",
+          image: {
+            src: "https://res.cloudinary.com/code-for-africa/image/upload/v1656064173/codeforafrica/images/1_IgrT4_1tGZh1WnpYzvZN1A_1_twneqf.jpg",
           },
         },
         {
