@@ -104,7 +104,7 @@ const footer = {
 
 const hero = {
   title: 'Empowering <span class="highlight">Africa</span> with',
-  message: "civic technologies",
+  messages: ["civic technologies", "text-item 2", "skills development"],
   subtitle:
     "We are an impact accelerator, using civic tech and open data to empower citizens.",
   image: {
