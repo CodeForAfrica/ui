@@ -30,7 +30,11 @@ const NextPreviousPagination = React.forwardRef(function NextPreviousPagination(
         {items
           .filter(({ type }) => ["previous", "next"].includes(type))
           .map((itemProps) => (
-            <PaginationButton {...itemProps} component="li" />
+            <PaginationButton
+              {...itemProps}
+              component="li"
+              key={itemProps.type}
+            />
           ))}
       </NextPreviousPaginationListRoot>
     </TwoToneBackground>

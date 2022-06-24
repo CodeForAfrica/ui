@@ -1,23 +1,19 @@
 import { Section } from "@commons-ui/core";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import React from "react";
 
 import AccoladeBadgeList from "@/codeforafrica/components/AccoladeBadgeList";
 import Page from "@/codeforafrica/components/Page";
+import ProjectDetails from "@/codeforafrica/components/ProjectDetails";
 import ProjectPageHeader from "@/codeforafrica/components/ProjectPageHeader";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
-import ShareBar from "@/codeforafrica/components/ShareBar";
-import {
-  FacebookShareBarButton,
-  LinkedinShareBarButton,
-  TwitterShareBarButton,
-} from "@/codeforafrica/components/ShareBarButton";
-import TeamMemberCardList from "@/codeforafrica/components/TeamMemberCardList";
+import RelatedStories from "@/codeforafrica/components/RelatedStories";
+import SectionDivider from "@/codeforafrica/components/SectionDivider";
+import TeamMembers from "@/codeforafrica/components/TeamMembers";
 import { projects, getPageStaticProps } from "@/codeforafrica/lib";
 
 function Index({ project, sections, ...props }) {
-  const { badges } = project;
+  const { badges, description, donors, links, partners } = project;
+
   return (
     <Page {...props}>
       <ProjectPageHeader {...project} />
@@ -30,47 +26,44 @@ function Index({ project, sections, ...props }) {
       >
         <AccoladeBadgeList badges={badges} />
       </Section>
-      <Section
+      <ProjectDetails
+        description={description}
+        donors={donors}
+        links={links}
+        partners={partners}
         sx={{
+          my: "42px",
           px: { xs: 2.5, sm: 0 },
-          maxWidth: {
-            sm: "648px",
-            md: "912px",
-          },
         }}
-      >
-        <Box
-          sx={{
-            color: "grey.main",
-            rowGap: 2,
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <Typography variant="footerCap">Share This Project</Typography>
-          <ShareBar>
-            <FacebookShareBarButton />
-            <LinkedinShareBarButton />
-            <TwitterShareBarButton />
-          </ShareBar>
-        </Box>
-      </Section>
+      />
       {sections?.map((section) => {
         switch (section.slug) {
           case "team":
             return (
-              <Section
-                sx={{
-                  borderTop: "1px solid",
-                  borderColor: "grey.main",
-                  pl: { xs: 2.5, sm: 0 },
-                  py: "42px",
-                  overflowX: "visible",
-                }}
-                key={section.slug}
-              >
-                <TeamMemberCardList {...section} />
-              </Section>
+              <React.Fragment key={section.slug}>
+                <SectionDivider
+                  sx={{
+                    px: { xs: 2.5, sm: 0 },
+                    py: "42px",
+                  }}
+                />
+                <TeamMembers
+                  {...section}
+                  sx={{ px: { xs: 2.5, sm: 0 }, overflowX: "visible" }}
+                />
+              </React.Fragment>
+            );
+          case "related-stories":
+            return (
+              <React.Fragment key={section.slug}>
+                <SectionDivider
+                  sx={{
+                    px: { xs: 2.5, sm: 0 },
+                    py: "42px",
+                  }}
+                />
+                <RelatedStories {...section} sx={{ py: 0 }} />
+              </React.Fragment>
             );
           case "related-projects":
             return <RelatedProjects {...section} key={section.slug} />;

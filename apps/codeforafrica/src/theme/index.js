@@ -164,6 +164,9 @@ const theme = createTheme({
             color: palette.primary.main,
           },
         },
+        sizeSmall: {
+          padding: "8px 16px",
+        },
         sizeMedium: {
           padding: "12px 18px",
         },
@@ -386,6 +389,12 @@ deepmerge(
     caption: {
       fontSize: pxToRem(12),
     },
+    captionCap: {
+      ...theme.typography.caption,
+      fontSize: pxToRem(12),
+      fontWeight: 600,
+      textTransform: "uppercase",
+    },
     footer: {
       fontSize: pxToRem(12),
     },
@@ -419,7 +428,21 @@ deepmerge(
       hr {
         border: 1px solid #ECEAEA;
       }
+      p {
+        fontSize: ${pxToRem(18)},
+        lineHeight: ${28 / 18},
+      }
     `,
+    },
+    MuiButton: {
+      styleOverrides: {
+        sizeSmall: {
+          ...theme.typography.button,
+        },
+        sizeLarge: {
+          ...theme.typography.button,
+        },
+      },
     },
   },
   { clone: false }

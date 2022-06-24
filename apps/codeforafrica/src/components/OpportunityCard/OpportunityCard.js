@@ -11,35 +11,39 @@ import {
 import React from "react";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const { title, description, image, date, tags, comments, href, ...other } =
-    props;
+  const { comments, date, content, image, href, tags, title, ...other } = props;
 
-  if (!(title && description)) {
+  if (!(title && content)) {
     return null;
   }
   return (
     <Card sx={{ boxShadow: "none", borderRadius: 0, ...other.sx }} ref={ref}>
       <CardMedia component="img" alt="" src={image?.src} />
       <CardContent sx={{ padding: 0 }}>
-        <RichTypography sx={{ mt: "40px", mb: "20px" }} variant="h3">
+        <RichTypography sx={{ mt: 5, mb: 2.5 }} variant="h3">
           {title}
         </RichTypography>
         <Box sx={{ display: "flex" }}>
-          <RichTypography sx={{ pr: "10px", borderRight: "solid 1px" }}>
+          <RichTypography sx={{ borderRight: "solid 1px", mr: 1.25, pr: 1.25 }}>
             {date}
           </RichTypography>
-          <RichTypography sx={{ px: "10px", borderRight: "solid 1px" }}>
-            {tags}
-          </RichTypography>
-          <RichTypography
-            sx={{ px: "10px" }}
-          >{`${comments} Comments`}</RichTypography>
+          <RichTypography>{tags?.join(", ")}</RichTypography>
         </Box>
-        <RichTypography sx={{ py: "20px" }} variant="body2">
-          {description}
+        <RichTypography
+          variant="body2"
+          sx={{
+            py: 2.5,
+            display: "-webkit-box",
+            "-webkit-line-clamp": 3,
+            "-webkit-box-orient": "vertical",
+            overflow: "hidden",
+            maxHeight: 28 * 3,
+          }}
+        >
+          {content}
         </RichTypography>
       </CardContent>
-      <CardActions sx={{ padding: 0 }}>
+      <CardActions sx={{ p: 0, mt: 2.5 }}>
         <Button
           href={href}
           component={href ? Link : undefined}

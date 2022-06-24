@@ -126,7 +126,7 @@ exports[`<Pages/Imprint /> renders unchanged 1`] = `
     </div>
   </header>
   <div
-    class="MuiBox-root css-ize0ey"
+    class="MuiBox-root css-1mt7k12"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-pf379m-MuiContainer-root"
@@ -143,7 +143,7 @@ exports[`<Pages/Imprint /> renders unchanged 1`] = `
       </h2>
     </div>
   </div>
-  <div
+  <section
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-usii6f-MuiContainer-root"
   >
     <div
@@ -156,6 +156,6 @@ exports[`<Pages/Imprint /> renders unchanged 1`] = `
         World
       </p>
     </div>
-  </div>
+  </section>
 </div>
 `;

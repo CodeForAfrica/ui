@@ -4,6 +4,7 @@ import AboutPageHeader from "@/codeforafrica/components/AboutPageHeader";
 import GetInTouch from "@/codeforafrica/components/GetInTouch";
 import GuidingPrinciplesCardList from "@/codeforafrica/components/GuidingPrinciplesCardList";
 import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
+import OurMission from "@/codeforafrica/components/OurMission";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import OurTeam from "@/codeforafrica/components/OurTeam";
 import Page from "@/codeforafrica/components/Page";
@@ -19,7 +20,11 @@ function Index({ sections, ...props }) {
           }
           case "guiding-principles": {
             return (
-              <GuidingPrinciplesCardList {...section} key={section.slug} />
+              <GuidingPrinciplesCardList
+                {...section}
+                sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 2.5, md: 10 } }}
+                key={section.slug}
+              />
             );
           }
           case "hero": {
@@ -27,6 +32,15 @@ function Index({ sections, ...props }) {
           }
           case "impact": {
             return <ImpactCardList {...section} key={section.slug} />;
+          }
+          case "our-mission": {
+            return (
+              <OurMission
+                {...section}
+                sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 2.5, md: 10 } }}
+                key={section.slug}
+              />
+            );
           }
           case "our-partners": {
             return <OurPartners {...section} key={section.slug} />;

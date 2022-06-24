@@ -1,19 +1,15 @@
 import { Section, RichTypography } from "@commons-ui/core";
-import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
-import Image from "next/image";
 import React from "react";
+
+import Figure from "@/codeforafrica/components/Figure";
 
 const Title = styled(RichTypography)(({ theme }) => ({
   "& .highlight": {
     color: theme.palette.primary.main,
   },
 }));
-
-const PartnerLogo = styled(Image)({
-  filter: "grayscale(100%) opacity(50%)",
-});
 
 const OurPartners = React.forwardRef(function OurPartners(props, ref) {
   const { partners, slug, title, ...other } = props;
@@ -33,9 +29,12 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
       <Grid container columns={10} justifyContent="flex-start">
         {partners?.map(({ name, logo }) => (
           <Grid key={name} item xs={5} sm={2}>
-            <Box
-              component="figure"
+            <Figure
+              alt={name}
+              layout="fill"
+              {...logo}
               sx={{
+                filter: "grayscale(100%) opacity(50%)",
                 height: {
                   xs: "75.14px",
                   sm: "73.54px",
@@ -51,9 +50,7 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
                   lg: "200.63px",
                 },
               }}
-            >
-              <PartnerLogo alt={name} layout="fill" {...logo} />
-            </Box>
+            />
           </Grid>
         ))}
       </Grid>

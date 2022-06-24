@@ -28,8 +28,11 @@ const TwoToneBackgroundRoot = styled(Box)(({ theme }) => ({
         theme.palette.background.main
       } 30%, transparent 40%, transparent 95%, ${alpha(
         theme.palette.background.main,
-        0.1
-      )} 100%)`,
+        0.7
+      )} 98%)`,
+    },
+    [theme.breakpoints.up("lg")]: {
+      background: `linear-gradient(to right, ${theme.palette.background.main} 30%, transparent 40%, transparent 95%, ${theme.palette.background.main} 99%)`,
     },
     [theme.breakpoints.up("xl")]: {
       background: `linear-gradient(to right, ${theme.palette.background.main} 35%, transparent 45%, transparent 80%, ${theme.palette.background.main} 90%)`,

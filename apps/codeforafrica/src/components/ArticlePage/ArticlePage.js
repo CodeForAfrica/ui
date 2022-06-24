@@ -1,100 +1,97 @@
-import { RichTypography, Section } from "@commons-ui/core";
-import { Box, Typography, Divider } from "@mui/material";
-import Image from "next/image";
+import { Section } from "@commons-ui/core";
+import Box from "@mui/material/Box";
 import PropTypes from "prop-types";
 import React from "react";
 
 import ArticleHeader from "@/codeforafrica/components/ArticleHeader";
 import Author from "@/codeforafrica/components/Author";
-import ShareBar from "@/codeforafrica/components/ShareBar";
-import {
-  FacebookShareBarButton,
-  LinkedinShareBarButton,
-  TwitterShareBarButton,
-} from "@/codeforafrica/components/ShareBarButton";
+import CMSContent from "@/codeforafrica/components/CMSContent";
+import Figure from "@/codeforafrica/components/Figure";
+import SectionDivider from "@/codeforafrica/components/SectionDivider";
 
-const ArticlePage = React.forwardRef(function ArticlePage(props, ref) {
-  const {
-    coverImage,
-    title,
-    date,
-    tags,
-    summary,
-    author,
-    profession,
-    content,
-    ...other
-  } = props;
+function ArticlePage({
+  author,
+  content,
+  coverImage,
+  date,
+  image: imageProp,
+  summary,
+  tags,
+  title,
+}) {
+  const image = coverImage || imageProp;
 
   return (
-    <Box ref={ref} {...other}>
-      <Box
-        component="figure"
+    <Box component="article">
+      <Figure
         sx={{
-          position: "relative",
           width: "100%",
-          margin: 0,
           height: { xs: "163px", md: "600px" },
         }}
-      >
-        <Image
-          alt={title}
-          src={coverImage?.src}
-          layout="fill"
-          objectFit="cover"
-        />
-      </Box>
-      <Section
+        alt={title}
+        objectFit="cover"
+        priority
+        src={image?.src}
+      />
+      <ArticleHeader
+        title={title}
+        date={date}
+        tags={tags}
+        summary={summary}
         sx={{
-          px: { xs: 2.5, sm: 0 },
           maxWidth: {
             sm: "648px",
             md: "912px",
           },
+          px: { xs: 2.5, sm: 0 },
         }}
-        ref={ref}
-        {...other}
+      />
+      <CMSContent
+        variant="body3"
+        sx={{
+          maxWidth: {
+            sm: "648px",
+            md: "912px",
+          },
+          my: { xs: 2.5, md: 5 },
+          px: { xs: 2.5, sm: 0 },
+        }}
       >
-        <ArticleHeader
-          title={title}
-          date={date}
-          tags={tags}
-          summary={summary}
-        />
-        <Box
-          sx={{
-            color: "grey.main",
-            columnGap: 2,
-            display: "flex",
-            alignItems: "center",
-            py: "20px",
-          }}
-        >
-          <Typography variant="footerCap">Share This Article</Typography>
-          <ShareBar>
-            <FacebookShareBarButton />
-            <LinkedinShareBarButton />
-            <TwitterShareBarButton />
-          </ShareBar>
-        </Box>
-        <RichTypography variant="body3" sx={{ my: { xs: 2.5, md: 5 } }}>
-          {content}
-        </RichTypography>
-        <Divider />
-        <Author author={author} profession={profession} />
+        {content}
+      </CMSContent>
+      <SectionDivider
+        sx={{
+          maxWidth: {
+            sm: "648px",
+            md: "912px",
+          },
+          px: { xs: 2.5, sm: 0 },
+          my: { xs: 2.5, md: 5 },
+        }}
+      />
+      <Section
+        component="address"
+        sx={{
+          maxWidth: {
+            sm: "648px",
+            md: "912px",
+          },
+          mb: { xs: 2.5, md: 7.5 },
+          px: { xs: 2.5, sm: 0 },
+        }}
+      >
+        <Author {...author} />
       </Section>
     </Box>
   );
-});
+}
 
 ArticlePage.propTypes = {
   content: PropTypes.string,
-  article: PropTypes.shape({}),
 };
 
 ArticlePage.defaultProps = {
   content: undefined,
-  article: undefined,
 };
 
 export default ArticlePage;
