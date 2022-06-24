@@ -20,15 +20,19 @@ const PageHeader = React.forwardRef(function PageHeader(props, ref) {
         }}
       >
         <RichTypography
+          component="h2"
           sx={{
             color: "primary.main",
             paddingBottom: 2.5,
+            textTransform: "uppercase",
           }}
           variant="h5ExtraBold"
         >
           {title}
         </RichTypography>
-        <RichTypography variant="h2">{subtitle}</RichTypography>
+        <RichTypography component="h2" variant="h2">
+          {subtitle}
+        </RichTypography>
       </Section>
     </TwoToneBackground>
   );

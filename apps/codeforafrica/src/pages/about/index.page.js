@@ -1,5 +1,6 @@
 import React from "react";
 
+import AboutPageHeader from "@/codeforafrica/components/AboutPageHeader";
 import GetInTouch from "@/codeforafrica/components/GetInTouch";
 import GuidingPrinciplesCardList from "@/codeforafrica/components/GuidingPrinciplesCardList";
 import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
@@ -26,11 +27,11 @@ function Index({ sections, ...props }) {
               />
             );
           }
+          case "hero": {
+            return <AboutPageHeader {...section} key={section.slug} />;
+          }
           case "impact": {
             return <ImpactCardList {...section} key={section.slug} />;
-          }
-          case "our-partners": {
-            return <OurPartners {...section} key={section.slug} />;
           }
           case "our-mission": {
             return (
@@ -40,6 +41,9 @@ function Index({ sections, ...props }) {
                 key={section.slug}
               />
             );
+          }
+          case "our-partners": {
+            return <OurPartners {...section} key={section.slug} />;
           }
           case "our-team": {
             return <OurTeam {...section} key={section.slug} />;

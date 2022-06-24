@@ -9,6 +9,7 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
+  href: "/opportunities/1",
   title:
     "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
   description:
