@@ -250,7 +250,7 @@ deepmerge(
     h3: {
       fontSize: pxToRem(28),
       lineHeight: 34 / 28,
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(33),
         lineHeight: 40 / 33,
       },
