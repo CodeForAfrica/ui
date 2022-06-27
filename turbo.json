@@ -6,11 +6,27 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
+    "codeforafrica#build": {
+      "dependsOn": [
+        "^build",
+        "$NEXT_PUBLIC_APP_URL",
+        "$NEXT_PUBLIC_IMAGE_DOMAINS"
+      ],
+      "outputs": [".next/**"]
+    },
     "jest": {
+      "inputs": ["src/**/*.js"],
+      "outputs": []
+    },
+    "playwright": {
+      "dependsOn": ["build"],
+      "inputs": ["src/**/*.js"],
       "outputs": []
     },
     "test": {
-      "outputs": ["coverage/**"]
+      "dependsOn": ["build"],
+      "inputs": ["src/**/*.js"],
+      "outputs": []
     },
     "lint": {
       "outputs": []
@@ -24,5 +40,6 @@
     "clean": {
       "cache": false
     }
-  }
+  },
+  "globalDependencies": ["$GITHUB_TOKEN"]
 }
