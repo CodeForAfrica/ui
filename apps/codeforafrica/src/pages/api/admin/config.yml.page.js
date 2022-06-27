@@ -4,7 +4,7 @@ import config from "./config.json";
 
 import site from "@/codeforafrica/utils/site";
 
-config.logo_url = site.logo_url;
+config.logoUrl = site.logoUrl;
 
 export default function handler(req, res) {
   if (req.method === "GET") {

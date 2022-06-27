@@ -20,7 +20,7 @@ const site = {
   environmentUrl,
   name,
   url,
-  logo_url: process.env.NEXT_PUBLIC_APP_LOGO_URL,
+  logoUrl: process.env.NEXT_PUBLIC_APP_LOGO_URL,
 };
 
 export default site;
