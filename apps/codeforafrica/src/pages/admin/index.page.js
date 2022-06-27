@@ -1,10 +1,7 @@
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import Script from "next/script";
-import PropTypes from "prop-types";
 import React from "react";
-
-import content from "content/pages/admin.md";
 
 function AdminPage(props) {
   return (
@@ -25,26 +22,6 @@ function AdminPage(props) {
       />
     </>
   );
-}
-
-AdminPage.propTypes = {
-  description: PropTypes.string,
-  title: PropTypes.string,
-};
-
-AdminPage.defaultProps = {
-  description: undefined,
-  title: undefined,
-};
-
-export async function getStaticProps() {
-  const { attributes } = content;
-
-  return {
-    props: {
-      ...attributes,
-    },
-  };
 }
 
 export default AdminPage;
