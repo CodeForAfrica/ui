@@ -18,8 +18,8 @@ function Index() {
           Data to hold your government accountable
         </h1>
 
-        <RichTypography component="p" className={styles.description}>
-          Get started by editing <Link href="/">pages/index.js</Link>
+        <RichTypography component="p">
+          Get <Link href="/">started</Link>
         </RichTypography>
       </main>
     </div>
