@@ -12,29 +12,37 @@
       "label": "Pages",
       "files": [
         {
-          "label": "Hero",
-          "name": "hero",
-          "file": "content/pages/hero.md",
+          "label": "Index",
+          "name": "index",
+          "widget": "object",
+          "file": "content/pages/index.md",
           "fields": [
             {
-              "label": "Title",
-              "name": "title",
-              "widget": "string"
-            },
-            {
-              "label": "Message",
-              "name": "message",
-              "widget": "string"
-            },
-            {
-              "label": "Subtitle",
-              "name": "subtitle",
-              "widget": "text"
-            },
-            {
-              "label": "Image",
-              "name": "image",
-              "widget": "image"
+              "label": "Hero",
+              "name": "hero",
+              "widget": "object",
+              "fields": [
+                {
+                  "label": "Title",
+                  "name": "title",
+                  "widget": "string"
+                },
+                {
+                  "label": "Message",
+                  "name": "message",
+                  "widget": "string"
+                },
+                {
+                  "label": "Subtitle",
+                  "name": "subtitle",
+                  "widget": "text"
+                },
+                {
+                  "label": "Image",
+                  "name": "image",
+                  "widget": "image"
+                }
+              ]
             }
           ]
         }
