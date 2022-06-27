@@ -30,7 +30,7 @@
                 {
                   "label": "Message",
                   "name": "message",
-                  "widget": "string"
+                  "widget": "list"
                 },
                 {
                   "label": "Subtitle",
