@@ -13,11 +13,15 @@ const SectionRoot = styled(Container, {
   ({ ownerState, theme }) =>
     ownerState.fixed &&
     Object.keys(theme.breakpoints.values).reduce((acc, breakpoint) => {
-      const value = theme.contentWidths.values[breakpoint];
-      const maxWidth = value ? `${value}${theme.contentWidths.unit}` : "none";
-      acc[theme.breakpoints.up(breakpoint)] = {
-        maxWidth,
-      };
+      const value = theme.contentWidths?.values?.[breakpoint];
+      if (value) {
+        const unit = theme.contentWidths.unit ?? "px";
+        const maxWidth = `${value}${unit}`;
+        acc[theme.breakpoints.up(breakpoint)] = {
+          maxWidth,
+        };
+      }
+
       return acc;
     }, {})
 );

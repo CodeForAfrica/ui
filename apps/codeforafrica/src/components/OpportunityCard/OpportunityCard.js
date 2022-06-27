@@ -34,8 +34,8 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
           sx={{
             py: 2.5,
             display: "-webkit-box",
-            "-webkit-line-clamp": 3,
-            "-webkit-box-orient": "vertical",
+            WebkitLineClamp: "3",
+            WebkitBoxOrient: "vertical",
             overflow: "hidden",
             maxHeight: 28 * 3,
           }}

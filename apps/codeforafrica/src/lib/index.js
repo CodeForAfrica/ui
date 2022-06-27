@@ -1391,7 +1391,7 @@ function getOpportunityPageStaticProps(params) {
   if (opportunity) {
     return {
       props: {
-        title: `${opportunity.title} | Stories | Code for Africa`,
+        title: `${opportunity.title} | Opportunities | Code for Africa`,
         opportunity,
         footer,
         navbar,

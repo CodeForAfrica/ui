@@ -6,7 +6,7 @@ exports[`NavBar renders unchanged 1`] = `
     class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-1fg40jf-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
   >
     <div
-      class="MuiToolbar-root MuiToolbar-regular css-1cndkqf-MuiToolbar-root"
+      class="MuiToolbar-root MuiToolbar-regular css-r6ewbb-MuiToolbar-root"
     >
       <div
         class="MuiTypography-root MuiTypography-h6 css-1shoboz-MuiTypography-root"

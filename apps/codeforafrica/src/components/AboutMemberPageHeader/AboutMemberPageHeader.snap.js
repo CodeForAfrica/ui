@@ -6,7 +6,7 @@ exports[`<AboutMemberPageHeader /> renders unchanged 1`] = `
     class="MuiBox-root css-wpqv47"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1r1xzd-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-107e3nu-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-1fyy4z-MuiGrid-root"

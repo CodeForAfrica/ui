@@ -9,7 +9,7 @@ exports[`<Pages/About/Members/[Slug] /> renders unchanged 1`] = `
       class="MuiToolbar-root MuiToolbar-regular css-l73zrm-MuiToolbar-root"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-usii6f-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1y3f71u-MuiContainer-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-hs5ptp-MuiGrid-root"
@@ -129,7 +129,7 @@ exports[`<Pages/About/Members/[Slug] /> renders unchanged 1`] = `
     class="MuiBox-root css-wpqv47"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1r1xzd-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-107e3nu-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-1fyy4z-MuiGrid-root"
@@ -159,7 +159,7 @@ exports[`<Pages/About/Members/[Slug] /> renders unchanged 1`] = `
     </div>
   </div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1hx1xv5-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12qr4r4-MuiContainer-root"
   >
     <div
       class="MuiBox-root css-kii0d2"

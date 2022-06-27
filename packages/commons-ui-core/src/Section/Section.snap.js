@@ -4,7 +4,7 @@ exports[`<Section /> prop fixed=true (default) renders unchanged 1`] = `
 <div>
   <section
     aria-label="section"
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-aggo4l-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-cyvr0l-MuiContainer-root"
   >
     <h2>
       Section heading

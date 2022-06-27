@@ -3,7 +3,7 @@
 exports[`<ArticleHeader /> renders unchanged 1`] = `
 <div>
   <header
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1hx1xv5-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12qr4r4-MuiContainer-root"
   >
     <div
       class="css-191ss4-MuiStack-root"
