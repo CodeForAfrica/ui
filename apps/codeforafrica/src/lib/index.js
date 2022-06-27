@@ -1683,7 +1683,7 @@ function getContactPageStaticProps() {
             },
           ],
           map: {
-            apiKey: process.env.GOOGLE_MAPS_API_KEY,
+            apiKey: process.env.GOOGLE_MAPS_API_KEY ?? null,
             icon: "/icons/Type=map-pin, Size=64, Color=Primary.svg",
             zoom: 20,
             zoomControl: false,
