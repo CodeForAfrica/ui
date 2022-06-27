@@ -1,6 +1,4 @@
-import config from "@/codeforafrica/config";
-
-const name = process.env.NEXT_PUBLIC_APP_NAME || config.name;
+const name = process.env.NEXT_PUBLIC_APP_NAME;
 
 // see: https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname
 const ensureTrailingSlash = (string) => {
@@ -10,7 +8,7 @@ const ensureTrailingSlash = (string) => {
   }
   return url.toString();
 };
-const url = ensureTrailingSlash(process.env.NEXT_PUBLIC_APP_URL || config.url);
+const url = ensureTrailingSlash(process.env.NEXT_PUBLIC_APP_URL);
 let environmentUrl = url;
 if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview") {
   environmentUrl = ensureTrailingSlash(
@@ -22,6 +20,7 @@ const site = {
   environmentUrl,
   name,
   url,
+  logo_url: process.env.NEXT_PUBLIC_APP_LOGO_URL,
 };
 
 export default site;
