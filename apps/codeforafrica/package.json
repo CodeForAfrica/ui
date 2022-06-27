@@ -22,6 +22,7 @@
   },
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev --port 3002",
+    "standalone": "rm -rf node_modules/.pnpm/*",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix './'",
