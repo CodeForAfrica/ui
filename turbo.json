@@ -2,13 +2,17 @@
   "$schema": "https://turborepo.org/schema.json",
   "baseBranch": "origin/main",
   "pipeline": {
+    "standalone": {
+      "outputs": []
+    },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "standalone"],
       "outputs": ["dist/**", ".next/**"]
     },
     "codeforafrica#build": {
       "dependsOn": [
         "^build",
+        "standalone",
         "$NEXT_PUBLIC_APP_URL",
         "$NEXT_PUBLIC_IMAGE_DOMAINS"
       ],
