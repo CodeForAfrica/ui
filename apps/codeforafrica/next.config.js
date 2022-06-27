@@ -40,7 +40,6 @@ module.exports = withTM({
       {
         test: /\.md$/,
         loader: "frontmatter-markdown-loader",
-        // options: { mode: ["html"] },
       }
     );
 
