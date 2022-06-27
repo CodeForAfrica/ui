@@ -11,9 +11,9 @@ export default function handler(req, res) {
     if (process.env.NODE_ENV === "production") {
       // Set production configurations
       config.backend.name = "github";
-      config.backend.repo = process.env.ADMIN_BACKEND_REPO;
+      config.backend.repo = process.env.GITHUB_BACKEND_REPO;
       config.backend.base_url = site.url.replace(/\/+$/, "");
-      config.backend.auth_endpoint = process.env.ADMIN_BACKEND_AUTH_ENDPOINT;
+      config.backend.auth_endpoint = process.env.GITHUB_AUTH_ENDPOINT;
       config.publish_mode = "editorial_workflow";
       // Remove dev configurations
       config.local_backend = undefined;
