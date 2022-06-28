@@ -40,5 +40,5 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Test
-        run: pnpm test
+      - name: Jest
+        run: pnpm jest
