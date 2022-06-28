@@ -27,6 +27,7 @@
     "url": "https://github.com/codeforafrica/ui/issues"
   },
   "scripts": {
+    "lint-check": "eslint './'",
     "lint": "eslint --fix './'",
     "clean": "rm -rf .turbo node_modules dist"
   },

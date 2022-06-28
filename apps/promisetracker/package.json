@@ -25,6 +25,7 @@
     "standalone": "rm -rf node_modules/.pnpm/*",
     "build": "next build",
     "start": "next start",
+    "lint-check": "eslint './'",
     "lint": "eslint --fix './'",
     "jest": "jest",
     "playwright": "playwright test",

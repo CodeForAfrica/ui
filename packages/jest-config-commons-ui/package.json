@@ -11,6 +11,7 @@
     "jest.setup.js"
   ],
   "scripts": {
+    "lint-check": "eslint './'",
     "lint": "eslint --fix './'",
     "clean": "rm -rf .turbo node_modules"
   },

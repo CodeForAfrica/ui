@@ -25,6 +25,7 @@
   },
   "scripts": {
     "jest": "jest",
+    "lint-check": "eslint './'",
     "lint": "eslint --fix './'",
     "storybook": "start-storybook --ci -p 6007",
     "build-storybook": "build-storybook --quiet -o dist",
