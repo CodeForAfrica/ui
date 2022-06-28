@@ -33,6 +33,9 @@
       "inputs": ["src/**/*.js"],
       "outputs": []
     },
+    "lint-check": {
+      "outputs": []
+    },
     "lint": {
       "outputs": []
     },
