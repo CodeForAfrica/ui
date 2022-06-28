@@ -1,5 +1,6 @@
 import { NextSeo } from "next-seo";
 import Head from "next/head";
+import Script from "next/script";
 import React from "react";
 
 function AdminPage(props) {
@@ -15,10 +16,7 @@ function AdminPage(props) {
         />
       </Head>
       <NextSeo {...props} />
-      <script
-        src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"
-        strategy="beforeInteractive"
-      />
+      <Script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js" />
     </>
   );
 }
