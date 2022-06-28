@@ -10,6 +10,7 @@
     "standalone": "turbo run standalone",
     "build": "turbo run build",
     "dev": "turbo run dev storybook --parallel",
+    "lint-check": "turbo run lint-check",
     "lint": "turbo run lint",
     "prepare": "husky install",
     "release": "changeset version && pnpm install",
@@ -18,6 +19,7 @@
     "playwright": "turbo run playwright",
     "test": "turbo run jest playwright --parallel",
     "clean": "turbo run clean && rm -rf node_modules",
+    "format-check": "prettier --check --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'",
     "format": "prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'"
   },
   "devDependencies": {
