@@ -14,7 +14,6 @@ const outputFileTracingRoot = PROJECT_ROOT
 
 module.exports = withTM({
   experimental: {
-    outputStandalone: true,
     outputFileTracingRoot,
   },
   images: {
@@ -22,6 +21,7 @@ module.exports = withTM({
       ?.map((d) => d.trim())
       ?.filter((d) => d),
   },
+  output: "standalone",
   pageExtensions: ["page.js"],
   reactStrictMode: true,
 });
