@@ -4,8 +4,6 @@ import config from "./config.json";
 
 import site from "@/codeforafrica/utils/site";
 
-config.logoUrl = site.logoUrl;
-
 export default function handler(req, res) {
   if (req.method === "GET") {
     if (process.env.NODE_ENV === "production") {
@@ -18,6 +16,7 @@ export default function handler(req, res) {
       // Remove dev configurations
       config.local_backend = undefined;
     }
+    config.logo_url = site.logoUrl;
     const configFile = yaml.dump(config);
 
     res.setHeader("Content-Type", "text/yaml");
