@@ -21,14 +21,15 @@
     "url": "https://github.com/codeforafrica/ui/issues"
   },
   "scripts": {
+    "cms": "netlify-cms-proxy-server",
     "dev": "NODE_OPTIONS='--inspect' next dev --port 3002",
     "standalone": "rm -rf node_modules/.pnpm/*",
-    "build": "next build",
-    "start": "next start",
     "lint-check": "eslint './'",
     "lint": "eslint --fix './'",
     "jest": "jest",
     "playwright": "playwright test",
+    "build": "next build",
+    "start": "next start",
     "clean": "rm -rf .next .turbo node_modules"
   },
   "dependencies": {
@@ -42,7 +43,10 @@
     "@mui/material": "^5.8.5",
     "@mui/utils": "^5.8.4",
     "fast-equals": "^4.0.1",
+    "frontmatter-markdown-loader": "^3.7.0",
+    "js-yaml": "^4.1.0",
     "next": "^12.1.6",
+    "next-seo": "^5.4.0",
     "next-transpile-modules": "^9.0.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
@@ -67,6 +71,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.1",
     "jest-config-commons-ui": "workspace:*",
+    "netlify-cms-proxy-server": "^1.3.24",
     "playwright-config-commons-ui": "workspace:*",
     "prettier": "^2.7.1",
     "react-test-renderer": "^17.0.2",

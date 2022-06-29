@@ -36,6 +36,10 @@ module.exports = withTM({
         issuer: /\.[jt]sx?$/,
         resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
         use: ["@svgr/webpack"],
+      },
+      {
+        test: /\.md$/,
+        loader: "frontmatter-markdown-loader",
       }
     );
 

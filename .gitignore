@@ -13,7 +13,6 @@ coverage
 .next/
 out/
 build
-.env
 
 # misc
 .DS_Store
