@@ -4,13 +4,17 @@ This is the official cfa site
 
 ## Getting Started
 
-First create `.env` file in the root directory of the project.
+First create `.env.local` file in the root directory of the project.
 
 ```bash
-cp  env.template .env
+cp  env.template .env.local
 ```
 
-and modify the `.env` file according to your needs.
+and modify the `.env.local` file according to your needs.
+
+#### Note
+
+The default `.env` file is for the 'Publicly' visible environment variables.
 
 Then run the development server:
 
