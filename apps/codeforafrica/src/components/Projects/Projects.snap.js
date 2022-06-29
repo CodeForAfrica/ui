@@ -6,7 +6,7 @@ exports[`<Projects /> renders unchanged 1`] = `
     class="css-1bf5ofc"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-s2sjoi-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1hxthm7-MuiContainer-root"
     >
       <div
         class="MuiToggleButtonGroup-root css-779xh3-MuiToggleButtonGroup-root"

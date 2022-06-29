@@ -9,7 +9,7 @@ exports[`<Pages/Opportunites/[Slug] /> renders unchanged 1`] = `
       class="MuiToolbar-root MuiToolbar-regular css-l73zrm-MuiToolbar-root"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-usii6f-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1y3f71u-MuiContainer-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-hs5ptp-MuiGrid-root"

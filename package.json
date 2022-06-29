@@ -7,23 +7,27 @@
     "packages/*"
   ],
   "scripts": {
+    "standalone": "turbo run standalone",
     "build": "turbo run build",
     "dev": "turbo run dev storybook --parallel",
+    "lint-check": "turbo run lint-check",
     "lint": "turbo run lint",
     "prepare": "husky install",
     "release": "changeset version && pnpm install",
     "publish": "-r publish",
     "jest": "turbo run jest",
-    "test": "turbo run test",
+    "playwright": "turbo run playwright",
+    "test": "turbo run jest playwright --parallel",
     "clean": "turbo run clean && rm -rf node_modules",
+    "format-check": "prettier --check --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'",
     "format": "prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.22.0",
+    "@changesets/cli": "^2.23.0",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.0",
-    "prettier": "^2.6.2",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "turbo": "1.2.14"
   },
-  "packageManager": "pnpm@7.1.2"
+  "packageManager": "pnpm@7.3.0"
 }

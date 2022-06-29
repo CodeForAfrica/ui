@@ -1,6 +1,6 @@
 import { render, screen } from "@commons-ui/testing-library";
 
-import Index from ".";
+import Index from "./index.page";
 
 describe("Homepage", () => {
   it("renders unchanged", () => {

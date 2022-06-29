@@ -12,14 +12,14 @@ exports[`Homepage renders unchanged 1`] = `
         Data to hold your government accountable
       </h1>
       <p
-        class="MuiTypography-root MuiTypography-body1 description css-ahj2mt-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
       >
-        Get started by editing 
+        Get 
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1nrvlnd-MuiTypography-root-MuiLink-root"
           href="/"
         >
-          pages/index.js
+          started
         </a>
       </p>
     </main>

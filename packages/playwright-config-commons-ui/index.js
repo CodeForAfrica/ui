@@ -1,15 +1,16 @@
 const { devices } = require("@playwright/test");
 
+const PORT = 3000;
 const config = {
-  timeout: 30 * 1000,
   testMatch: /.*\.spec.js/,
+  timeout: 2 * 60 * 1000,
   use: {
     trace: "on-first-retry",
+    baseURL: `http://localhost:${PORT}/`,
   },
   webServer: {
-    command: "npm run dev",
-    port: 3000,
-    timeout: 120 * 1000,
+    command: "npm run start",
+    port: PORT,
     reuseExistingServer: !process.env.CI,
   },
   projects: [

@@ -196,7 +196,7 @@ const HeroFigure = React.forwardRef(function HeroFigure(props, ref) {
       >
         <MessageAnimation className="message">
           {messages.map((message) => (
-            <Message>{message}</Message>
+            <Message key={message}>{message}</Message>
           ))}
         </MessageAnimation>
       </MessageHeader>

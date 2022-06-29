@@ -19,9 +19,9 @@ module.exports = withTM({
       ?.filter((d) => d),
   },
   experimental: {
-    outputStandalone: true,
     outputFileTracingRoot,
   },
+  output: "standalone",
   pageExtensions: ["page.js"],
   reactStrictMode: true,
   webpack: (config) => {

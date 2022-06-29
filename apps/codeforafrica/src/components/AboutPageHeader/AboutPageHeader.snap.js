@@ -6,7 +6,7 @@ exports[`<AboutPageHeader /> renders unchanged 1`] = `
     class="MuiBox-root css-1owuob1"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-p6qir5-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-uahurg-MuiContainer-root"
     >
       <h2
         class="MuiTypography-root MuiTypography-h5ExtraBold css-8npfhu-MuiTypography-root"

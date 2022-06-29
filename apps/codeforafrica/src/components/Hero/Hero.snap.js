@@ -7,35 +7,14 @@ exports[`<Hero /> renders unchanged 1`] = `
     title="Empowering <span class=\\"highlight\\">Africa</span> with"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-10ryxkv-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-1oukqxz-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-        >
-          <div
-            class="css-1xghah2-MuiStack-root"
-          >
-            <div
-              class="MuiTypography-root MuiTypography-h2 css-166xc1g-MuiTypography-root"
-            >
-              Empowering 
-              <span
-                class="highlight"
-              >
-                Africa
-              </span>
-               with
-            </div>
-            <h1
-              class="MuiTypography-root MuiTypography-body1 css-gqnfcb-MuiTypography-root"
-            >
-              civic technologies
-            </h1>
-          </div>
-        </div>
+        />
         <div
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >

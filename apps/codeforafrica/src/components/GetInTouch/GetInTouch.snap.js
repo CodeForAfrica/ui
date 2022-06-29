@@ -6,7 +6,7 @@ exports[`<GetInTouch /> renders unchanged 1`] = `
     class="MuiBox-root css-xvn5y9"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-10ryxkv-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"
     >
       <div
         class="css-163ljxj-MuiStack-root"

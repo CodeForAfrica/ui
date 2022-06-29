@@ -22,7 +22,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       </span>
     </figure>
     <header
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1hx1xv5-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12qr4r4-MuiContainer-root"
     >
       <div
         class="css-191ss4-MuiStack-root"
@@ -78,17 +78,17 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       </div>
     </header>
     <section
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-14q141i-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-z5w0rf-MuiContainer-root"
     />
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-n1mqwc-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-13ttudx-MuiContainer-root"
     >
       <hr
         class="MuiDivider-root MuiDivider-fullWidth css-18tdphm-MuiDivider-root"
       />
     </div>
     <address
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-xv9dzi-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fwha7w-MuiContainer-root"
     >
       <div
         class="css-1vlza15-MuiStack-root"

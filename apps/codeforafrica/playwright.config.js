@@ -1,13 +1,18 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const defaultConfig = require("playwright-config-commons-ui");
 
-const { webServer } = defaultConfig;
-
+const { use, webServer } = defaultConfig;
+const PORT = 3002;
 const config = {
   ...defaultConfig,
+  use: {
+    ...use,
+    baseURL: `http://localhost:${PORT}/`,
+  },
   webServer: {
     ...webServer,
-    port: 3002,
+    command: `npm run start -- --port ${PORT}`,
+    port: PORT,
   },
 };
 

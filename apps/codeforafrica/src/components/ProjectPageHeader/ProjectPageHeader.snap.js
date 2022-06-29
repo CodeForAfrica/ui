@@ -6,7 +6,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
     class="MuiBox-root css-oycb0n"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-10ryxkv-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-1rwywmd-MuiPaper-root-MuiCard-root"

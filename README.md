@@ -19,6 +19,10 @@ To build all apps and packages, run the following command:
 pnpm  build
 ```
 
+#### Note
+
+There appears to be a [bug](https://github.com/pnpm/pnpm/issues/4663) when running `pnpm build` a second time if you have `outputStandalone` enabled in `next.config.js`. A temporary workaround for that is to delete files in the `node_modules/.pnpm` folder. A `standalone` task has been added into the turbo pipeline to handle this before a build task is run.
+
 ### Develop
 
 To develop all apps and packages, run the following command:
