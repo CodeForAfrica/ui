@@ -25,7 +25,7 @@
                 {
                   "label": "Title",
                   "name": "title",
-                  "widget": "string"
+                  "widget": "markdown"
                 },
                 {
                   "label": "Messages",
