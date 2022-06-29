@@ -1,8 +1,17 @@
-FROM node:16-alpine as base
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
+FROM node:16-alpine as node-alpine
 
-ARG PNPM_VERSION=7.1.7
+# Always install security updated e.g. https://pythonspeed.com/articles/security-updates-in-docker/
+# Update local cache so that other stages don't need to update cache
+RUN apk update \
+    && apk upgrade
+
+
+FROM node-alpine as base
+
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add libc6-compat
+
+ARG PNPM_VERSION=7.4.0
 
 RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 
@@ -30,7 +39,8 @@ COPY *.yaml *.json ./
 COPY packages ./packages
 COPY apps/${APP} ./apps/${APP}
 
-RUN pnpm --filter "${APP}" install --frozen-lockfile
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm install --recursive --offline --frozen-lockfile
 
 ENV NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
     PROJECT_ROOT=${PROJECT_ROOT} \
@@ -39,7 +49,10 @@ ENV NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
 RUN pnpm --filter "${APP}" build
 
 
-FROM node:16-alpine as runner
+FROM node-alpine as runner
+
+# Remember to remove local cache from runner
+RUN rm -rf /var/cache/apk/*
 
 ARG PROJECT_ROOT \
     APP
