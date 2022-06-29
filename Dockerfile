@@ -39,7 +39,8 @@ COPY *.yaml *.json ./
 COPY packages ./packages
 COPY apps/${APP} ./apps/${APP}
 
-RUN pnpm --filter "${APP}" install --frozen-lockfile
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm install --recursive --offline --frozen-lockfile
 
 ENV NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
     PROJECT_ROOT=${PROJECT_ROOT} \
