@@ -28,8 +28,8 @@
                   "widget": "string"
                 },
                 {
-                  "label": "Message",
-                  "name": "message",
+                  "label": "Messages",
+                  "name": "messages",
                   "widget": "list"
                 },
                 {

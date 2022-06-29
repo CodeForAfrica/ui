@@ -1,7 +1,7 @@
 ---
 hero:
   title: Empowering <span class="highlight">Africa</span> with
-  message:
+  messages:
     - civic technologies
     - text-item 2
     - skills development
