@@ -7,7 +7,6 @@
     "packages/*"
   ],
   "scripts": {
-    "standalone": "turbo run standalone",
     "build": "turbo run build",
     "dev": "turbo run dev storybook --parallel",
     "lint-check": "turbo run lint-check",
@@ -29,5 +28,5 @@
     "prettier": "^2.7.1",
     "turbo": "1.2.14"
   },
-  "packageManager": "pnpm@7.3.0"
+  "packageManager": "pnpm@7.4.0"
 }

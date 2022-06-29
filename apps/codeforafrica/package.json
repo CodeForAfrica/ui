@@ -23,7 +23,6 @@
   "scripts": {
     "cms": "netlify-cms-proxy-server",
     "dev": "NODE_OPTIONS='--inspect' next dev --port 3002",
-    "standalone": "rm -rf node_modules/.pnpm/*",
     "lint-check": "eslint './'",
     "lint": "eslint --fix './'",
     "jest": "jest",
