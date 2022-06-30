@@ -9,14 +9,14 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
       class="css-r7or14-MuiStack-root"
     >
       <button
-        aria-label="Facebook"
+        aria-label="Twitter"
         class="react-share__ShareButton"
         data-mui-internal-clone-element="true"
         style="background-color: transparent; padding: 0px; cursor: pointer;"
       >
         <div
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
           focusable="false"
           viewbox="0 0 24 24"
         />
@@ -29,20 +29,20 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
       >
         <div
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
           focusable="false"
           viewbox="0 0 24 24"
         />
       </button>
       <button
-        aria-label="Twitter"
+        aria-label="Facebook"
         class="react-share__ShareButton"
         data-mui-internal-clone-element="true"
         style="background-color: transparent; padding: 0px; cursor: pointer;"
       >
         <div
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
           focusable="false"
           viewbox="0 0 24 24"
         />

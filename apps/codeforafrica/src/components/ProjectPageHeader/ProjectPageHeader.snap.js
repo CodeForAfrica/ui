@@ -3,7 +3,7 @@
 exports[`<ProjectPageHeader /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-oycb0n"
+    class="MuiBox-root css-h16mw8"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"

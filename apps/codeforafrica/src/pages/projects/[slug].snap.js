@@ -126,7 +126,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
     </div>
   </header>
   <div
-    class="MuiBox-root css-oycb0n"
+    class="MuiBox-root css-h16mw8"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"
@@ -334,14 +334,14 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
               class="css-r7or14-MuiStack-root"
             >
               <button
-                aria-label="Facebook"
+                aria-label="Twitter"
                 class="react-share__ShareButton"
                 data-mui-internal-clone-element="true"
                 style="background-color: transparent; padding: 0px; cursor: pointer;"
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
@@ -354,20 +354,20 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
               </button>
               <button
-                aria-label="Twitter"
+                aria-label="Facebook"
                 class="react-share__ShareButton"
                 data-mui-internal-clone-element="true"
                 style="background-color: transparent; padding: 0px; cursor: pointer;"
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
