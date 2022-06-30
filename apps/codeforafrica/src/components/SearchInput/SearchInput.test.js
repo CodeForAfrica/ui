@@ -1,16 +1,16 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import InputSearch from "./InputSearch";
+import SearchInput from "./SearchInput";
 
 import theme from "@/codeforafrica/theme";
 
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-describe("<InputSearch />", () => {
+describe("<SearchInput />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<InputSearch />);
+    const { container } = render(<SearchInput />);
     expect(container).toMatchSnapshot();
   });
 });
