@@ -1,40 +1,33 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import Box from "@mui/material/Box";
 import React from "react";
 
 import ProjectTileList from "@/codeforafrica/components/ProjectTileList";
 
 const RelatedProjects = React.forwardRef(function RelatedProjects(props, ref) {
-  const { projects, title, ...other } = props;
+  const { projects, sx, tileListProps, title, titleProps } = props;
 
   if (!projects?.length) {
     return null;
   }
   return (
-    <Box
+    <Section
       sx={{
-        bgcolor: { xs: "none", md: "background.main" },
+        px: { xs: 2.5, sm: 0 },
+        ...sx,
       }}
-      {...other}
       ref={ref}
     >
-      <Section
+      <RichTypography
+        variant="h5"
         sx={{
-          px: { xs: 2.5, sm: 0 },
-          py: { xs: 5, md: 8, lg: 10 },
+          mb: { xs: "18px", md: 5 },
         }}
+        {...titleProps}
       >
-        <RichTypography
-          variant="h5"
-          sx={{
-            mb: { xs: "18px", md: 5 },
-          }}
-        >
-          {title}
-        </RichTypography>
-        <ProjectTileList projects={projects.slice(0, 3)} />
-      </Section>
-    </Box>
+        {title}
+      </RichTypography>
+      <ProjectTileList {...tileListProps} projects={projects.slice(0, 3)} />
+    </Section>
   );
 });
 
