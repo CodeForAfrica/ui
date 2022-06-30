@@ -5,9 +5,9 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
 import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
-import InputSearch from "@/codeforafrica/components/InputSearch";
 import NextPreviousPagination from "@/codeforafrica/components/NextPreviousPagination";
 import ProjectCard from "@/codeforafrica/components/ProjectCard";
+import SearchInput from "@/codeforafrica/components/SearchInput";
 
 const ALL_CATEGORIES = "All";
 
@@ -81,8 +81,7 @@ function Projects(props) {
                 <ChoiceChip label={tag} value={tag} key={tag} />
               ))}
             </ChoiceChipGroup>
-            <InputSearch
-              disabled
+            <SearchInput
               label="Name"
               placeholder="Search project"
               size="small"
