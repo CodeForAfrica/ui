@@ -24,9 +24,9 @@ const ShareThisPage = React.forwardRef(function ShareThisPage(props, ref) {
     >
       <RichTypography variant="footerCap">{title}</RichTypography>
       <ShareBar>
-        <FacebookShareBarButton />
-        <LinkedinShareBarButton />
         <TwitterShareBarButton />
+        <LinkedinShareBarButton />
+        <FacebookShareBarButton />
       </ShareBar>
     </Stack>
   );
