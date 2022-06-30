@@ -18,12 +18,6 @@ const InputRoot = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     borderRadius: 0,
     backgroundColor: theme.palette.common.white,
-    "&.Mui-disabled": {
-      // backgroundColor: theme.palette.background.main,
-      "& fieldset": {
-        backgroundColor: theme.palette.background.main,
-      },
-    },
     "&:active fieldset": {
       borderColor: theme.palette.highlight.main,
     },
@@ -31,7 +25,7 @@ const InputRoot = styled(TextField)(({ theme }) => ({
       borderColor: theme.palette.primary.main,
     },
     "&.Mui-disabled fieldset": {
-      borderColor: theme.palette.grey.light,
+      backgroundColor: theme.palette.background.main,
     },
     "&.Mui-focused fieldset": {
       borderWidth: 1,
