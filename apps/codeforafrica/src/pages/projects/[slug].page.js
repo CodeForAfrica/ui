@@ -1,4 +1,5 @@
 import { Section } from "@commons-ui/core";
+import Box from "@mui/material/Box";
 import React from "react";
 
 import AccoladeBadgeList from "@/codeforafrica/components/AccoladeBadgeList";
@@ -66,7 +67,22 @@ function Index({ project, sections, ...props }) {
               </React.Fragment>
             );
           case "related-projects":
-            return <RelatedProjects {...section} key={section.slug} />;
+            return (
+              <Box
+                sx={{
+                  bgcolor: { xs: "none", md: "background.main" },
+                }}
+                key={section.slug}
+              >
+                <RelatedProjects
+                  sx={{
+                    py: { xs: 5, md: 8, lg: 10 },
+                  }}
+                  {...section}
+                />
+                ;
+              </Box>
+            );
           default:
             return null;
         }
