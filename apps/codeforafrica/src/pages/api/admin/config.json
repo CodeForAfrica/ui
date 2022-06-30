@@ -84,6 +84,135 @@
           ]
         }
       ]
+    },
+    {
+      "name": "projects",
+      "label": "Projects",
+      "folder": "content/projects",
+      "create": true,
+      "identifier_field": "name",
+      "fields": [
+        {
+          "label": "Name",
+          "name": "name",
+          "widget": "text"
+        },
+        {
+          "label": "slug",
+          "name": "slug",
+          "widget": "text"
+        },
+        {
+          "label": "Tag Line",
+          "name": "tagLine",
+          "widget": "text"
+        },
+        {
+          "label": "Title",
+          "name": "title",
+          "widget": "markdown"
+        },
+        {
+          "label": "Subtitle",
+          "name": "subtitle",
+          "widget": "markdown"
+        },
+        {
+          "label": "Description",
+          "name": "description",
+          "widget": "markdown"
+        },
+        {
+          "label": "Category",
+          "name": "category",
+          "widget": "text"
+        },
+        {
+          "label": "Icon",
+          "name": "icon",
+          "widget": "object",
+          "fields": [
+            {
+              "label": "Source",
+              "name": "src",
+              "widget": "image"
+            }
+          ]
+        },
+        {
+          "label": "Thumbnail",
+          "name": "thumbnail",
+          "widget": "object",
+          "fields": [
+            {
+              "label": "Source",
+              "name": "src",
+              "widget": "image"
+            }
+          ]
+        },
+        {
+          "label": "URL",
+          "name": "href",
+          "widget": "text"
+        },
+        {
+          "label": "External URL",
+          "name": "externalHref",
+          "widget": "text"
+        },
+        {
+          "label": "Badges",
+          "name": "badges",
+          "widget": "object",
+          "fields": [
+            {
+              "label": "Badge",
+              "name": "badge",
+              "widget": "list",
+              "fields": [
+                {
+                  "label": "Name",
+                  "name": "name",
+                  "widget": "text"
+                },
+                {
+                  "label": "Date",
+                  "name": "date",
+                  "widget": "datetime",
+                  "format": "MMMM Do YYYY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "partners",
+          "label": "Partners",
+          "widget": "list",
+          "label_singular": "Partner",
+          "fields": [
+            {
+              "label": "Name",
+              "name": "name",
+              "widget": "text"
+            }
+          ]
+        },
+        {
+          "name": "donors",
+          "label": "Donors",
+          "widget": "list",
+          "label_singular": "Donor",
+          "fields": [
+            {
+              "label": "Name",
+              "name": "name",
+              "widget": "text"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
