@@ -5,6 +5,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
 import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
+import InputSearch from "@/codeforafrica/components/InputSearch";
 import NextPreviousPagination from "@/codeforafrica/components/NextPreviousPagination";
 import ProjectCard from "@/codeforafrica/components/ProjectCard";
 
@@ -70,15 +71,23 @@ function Projects(props) {
         sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 2.5, md: 8, lg: 9 }, ...sx }}
       >
         {categories?.length > 0 ? (
-          <ChoiceChipGroup
-            color="default"
-            onChange={handleChangeCategory}
-            value={selectedCategory}
-          >
-            {categories.map((tag) => (
-              <ChoiceChip label={tag} value={tag} key={tag} />
-            ))}
-          </ChoiceChipGroup>
+          <Stack direction="row" justifyContent="space-between">
+            <ChoiceChipGroup
+              color="default"
+              onChange={handleChangeCategory}
+              value={selectedCategory}
+            >
+              {categories.map((tag) => (
+                <ChoiceChip label={tag} value={tag} key={tag} />
+              ))}
+            </ChoiceChipGroup>
+            <InputSearch
+              disabled
+              label="Name"
+              placeholder="Search project"
+              size="small"
+            />
+          </Stack>
         ) : null}
         <Stack direction="column" spacing={{ xs: 5, md: 7.5 }}>
           {pagination.projects?.map((project) => (
