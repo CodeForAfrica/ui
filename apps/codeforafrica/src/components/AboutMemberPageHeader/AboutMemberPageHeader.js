@@ -3,7 +3,18 @@ import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import React from "react";
 
-import TwoToneBackground from "../TwoToneBackground";
+import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
+
+const Background = styled(TwoToneBackground, {
+  slot: "Root",
+})(({ theme }) => ({
+  "&:before": {
+    // Override [0, md) down leaving [md, ∞) untouched.
+    [theme.breakpoints.down("md")]: {
+      background: theme.palette.background.main,
+    },
+  },
+}));
 
 const MemberFigureRoot = styled("figure")(({ theme }) => ({
   borderRadius: "50%",
@@ -21,18 +32,23 @@ const AboutMemberPageHeader = React.forwardRef(function AboutMemberPageHeader(
   props,
   ref
 ) {
-  const { name, title, thumbnail } = props;
+  const { name, sx, thumbnail, title } = props;
 
   if (!(name || thumbnail)) {
     return null;
   }
   return (
-    <TwoToneBackground ref={ref}>
+    <Background ref={ref}>
       <Section
         sx={{
-          px: { xs: 5, sm: 0 },
+          maxWidth: {
+            sm: "648px",
+            md: "912px",
+          },
+          px: { xs: 2.5, sm: 0 },
           py: { xs: 5, md: "25px" },
           zIndex: 1,
+          ...sx,
         }}
       >
         <Grid
@@ -64,7 +80,7 @@ const AboutMemberPageHeader = React.forwardRef(function AboutMemberPageHeader(
           </Grid>
         </Grid>
       </Section>
-    </TwoToneBackground>
+    </Background>
   );
 });
 

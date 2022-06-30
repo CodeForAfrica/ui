@@ -20,9 +20,9 @@ const Background = styled(TwoToneBackground, {
   slot: "Root",
 })(({ theme }) => ({
   "&:before": {
-    [theme.breakpoints.down("sm")]: {
+    // Override [0, md) down leaving [md, ∞) untouched.
+    [theme.breakpoints.down("md")]: {
       background: theme.palette.background.main,
-      //   background: "inherit",
     },
   },
 }));
