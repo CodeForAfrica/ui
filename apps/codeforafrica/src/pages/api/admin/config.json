@@ -21,6 +21,7 @@
               "label": "Hero",
               "name": "hero",
               "widget": "object",
+              "collapsed": true,
               "fields": [
                 {
                   "label": "Title",
@@ -43,6 +44,42 @@
                   "widget": "image"
                 }
               ]
+            },
+            {
+              "label": "Partners",
+              "name": "partners",
+              "widget": "relation",
+              "collection": "partners",
+              "search_fields": ["name"],
+              "value_field": "logo.src",
+              "display_fields": ["name"],
+              "multiple": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "partners",
+      "label": "Partners",
+      "folder": "content/partners",
+      "create": true,
+      "identifier_field": "name",
+      "fields": [
+        {
+          "label": "Name",
+          "name": "name",
+          "widget": "text"
+        },
+        {
+          "label": "Logo",
+          "name": "logo",
+          "widget": "object",
+          "fields": [
+            {
+              "label": "Source",
+              "name": "src",
+              "widget": "image"
             }
           ]
         }
