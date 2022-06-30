@@ -81,11 +81,7 @@ function Projects(props) {
                 <ChoiceChip label={tag} value={tag} key={tag} />
               ))}
             </ChoiceChipGroup>
-            <SearchInput
-              label="Name"
-              placeholder="Search project"
-              size="small"
-            />
+            <SearchInput placeholder="Search project" size="small" />
           </Stack>
         ) : null}
         <Stack direction="column" spacing={{ xs: 5, md: 7.5 }}>
