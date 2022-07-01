@@ -64,7 +64,7 @@ function Opportunies(props) {
     setPagination(computePagination(filteredOpportunies, page, pageSize));
   }, [filteredOpportunies, page, pageSize]);
 
-  const hasOpportunities = pagination.opportunities?.length > 0;
+  const hasOpportunities = opportunities?.length > 0;
   return (
     <OpportuniesRoot ref={ref}>
       <Section

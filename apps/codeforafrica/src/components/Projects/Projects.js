@@ -65,7 +65,7 @@ function Projects(props) {
     setPagination(computePagination(filteredProjects, page, pageSize));
   }, [filteredProjects, page, pageSize]);
 
-  const hasProjects = pagination.projects?.length > 0;
+  const hasProjects = projects?.length > 0;
   return (
     <ProjectsRoot ref={ref}>
       <Section
