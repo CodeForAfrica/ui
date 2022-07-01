@@ -30,5 +30,5 @@ partners:
   - AFD
   - Pulitzer Center
 donors:
-  - name: Esir
+  - innovateAFRICA
 ---

@@ -36,7 +36,7 @@ partners:
   - The World Bank
   - Code for All
 donors:
-  - name: innovateAFRICA
-  - name: Drone Deployed
-  - name: World Bank
+  - innovateAFRICA
+  - World Bank
+  - Drone Deployed
 ---

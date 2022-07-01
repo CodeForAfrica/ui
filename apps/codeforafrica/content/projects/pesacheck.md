@@ -34,6 +34,6 @@ partners:
   - Google News Initiatives
   - Meta
 donors:
-  - name: innovateAFRICA
-  - name: World Bank
+  - innovateAFRICA
+  - World Bank
 ---
