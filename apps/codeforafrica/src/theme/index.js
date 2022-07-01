@@ -463,6 +463,7 @@ deepmerge(
           "&::placeholder": {
             color: "#D0CBCB",
             opacity: 1.0,
+            WebkitTextFillColor: "#D0CBCB",
           },
         },
         inputSizeSmall: {
