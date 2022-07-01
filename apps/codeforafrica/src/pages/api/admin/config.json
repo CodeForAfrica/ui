@@ -189,15 +189,13 @@
         {
           "name": "partners",
           "label": "Partners",
-          "widget": "list",
+          "widget": "relation",
           "label_singular": "Partner",
-          "fields": [
-            {
-              "label": "Name",
-              "name": "name",
-              "widget": "text"
-            }
-          ]
+          "collection": "partners",
+          "search_fields": ["name"],
+          "value_field": "name",
+          "display_fields": ["name"],
+          "multiple": true
         },
         {
           "name": "donors",

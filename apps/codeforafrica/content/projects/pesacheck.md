@@ -30,10 +30,9 @@ badges:
     - date: July 1st 2022
       name: Award3
 partners:
-  - name: Uhurulabs
-  - name: Microdrone
-  - name: Unequal Scenes
-  - name: Code for Africa
+  - Code for All
+  - Google News Initiatives
+  - Meta
 donors:
   - name: innovateAFRICA
   - name: World Bank

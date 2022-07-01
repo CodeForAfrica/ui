@@ -27,7 +27,8 @@ badges:
     - date: June 30th 2022
       name: Award Name
 partners:
-  - name: Award Name
+  - AFD
+  - Pulitzer Center
 donors:
   - name: Esir
 ---

@@ -33,9 +33,8 @@ badges:
     - date: June 30th 2022
       name: Pulitzer Prize
 partners:
-  - name: Uhurulabs
-  - name: Microdrone
-  - name: Unequal Scenes
+  - The World Bank
+  - Code for All
 donors:
   - name: innovateAFRICA
   - name: Drone Deployed
