@@ -90,6 +90,7 @@
       "label": "Projects",
       "folder": "content/projects",
       "create": true,
+      "label_singular": "Project",
       "identifier_field": "name",
       "fields": [
         {
