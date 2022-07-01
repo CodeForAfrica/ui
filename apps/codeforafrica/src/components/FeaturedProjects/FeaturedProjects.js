@@ -5,7 +5,7 @@ import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
 import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 import ProjectTileList from "@/codeforafrica/components/ProjectTileList";
 
-const DEFAULT_CATEGORY = "Projects";
+const DEFAULT_CATEGORY = "Products";
 
 const FeaturedProjects = React.forwardRef(function FeaturedProjects(
   props,

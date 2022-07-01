@@ -12,6 +12,14 @@ const ChoiceChipGroupRoot = styled(ToggleButtonGroup, {
   display: "flex",
   flexWrap: "wrap",
   gap: 10,
+  "& .MuiToggleButtonGroup-grouped:not(:first-of-type)": {
+    borderBottomLeftRadius: 3,
+    borderTopLeftRadius: 3,
+  },
+  "& .MuiToggleButtonGroup-grouped:not(:last-of-type)": {
+    borderBottomRightRadius: 3,
+    borderTopRightRadius: 3,
+  },
   "& .MuiChip-filled.MuiToggleButtonGroup-grouped": {
     "&:not(:first-of-type)": {
       margin: 0,

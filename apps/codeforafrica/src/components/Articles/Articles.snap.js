@@ -12,17 +12,17 @@ exports[`<Articles /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-17kpph-MuiGrid-root"
       >
         <div
-          class="MuiToggleButtonGroup-root css-liho8a-MuiToggleButtonGroup-root"
+          class="MuiToggleButtonGroup-root css-lxlk1k-MuiToggleButtonGroup-root"
           role="group"
         >
           <div
-            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-12j4o5v-MuiButtonBase-root-MuiChip-root"
+            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-g678h5-MuiButtonBase-root-MuiChip-root"
             role="button"
             tabindex="0"
             value="All"
           >
             <span
-              class="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
+              class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
             >
               All
             </span>

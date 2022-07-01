@@ -8,12 +8,13 @@ const palette = {
   mode: "light",
   primary: { main: "#1020E1", light: "#EFF0FD", dark: "#08125C" }, // blues
   secondary: { main: "#000000", light: "#7F7272" },
-  highlight: { main: "#ED1C24" },
+  error: { main: "#EF4444" },
   grey: { main: "#B4ABAB", light: "#E3DFDF" },
   text: { primary: "#000000", secondary: "#FFFFFF" },
   divider: "#DAD5D5",
   background: { main: "#F6F5F5" },
   action: { hoverOpacity: 0, focusOpacity: 0 },
+  highlight: { main: "#ED1C24" },
 };
 
 const breakpoints = {
@@ -194,7 +195,7 @@ const theme = createTheme({
       styleOverrides: {
         root: ({ ownerState }) => ({
           borderRadius: 3,
-          padding: 8,
+          padding: 0,
           "&.MuiChip-clickable": {
             "&:hover": {
               backgroundColor: palette.background.main,
@@ -215,6 +216,10 @@ const theme = createTheme({
             color: palette.primary.main,
           }),
         }),
+        label: {
+          paddingLeft: 8,
+          paddingRight: 8,
+        },
       },
     },
   },
@@ -441,6 +446,36 @@ deepmerge(
         },
         sizeLarge: {
           ...theme.typography.button,
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          ...theme.typography.body2,
+        },
+        sizeSmall: {
+          ...theme.typography.body1,
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          ...theme.typography.body2,
+          padding: "12.5px 12px 5.5px 12px",
+          "&::placeholder": {
+            color: "#D0CBCB",
+            opacity: 1.0,
+            WebkitTextFillColor: "#D0CBCB",
+          },
+        },
+        inputSizeSmall: {
+          padding: "9.5px 12px 3.5px 12px",
+          ...theme.typography.body1,
+        },
+        sizeSmall: {
+          paddingRight: 10,
         },
       },
     },

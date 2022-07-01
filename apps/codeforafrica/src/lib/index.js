@@ -953,7 +953,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705960/codeforafrica/images/Property_1_africanDRONE_y4surg.jpg",
     },
-    category: "Projects",
+    category: "Products",
     href: "/projects/african-drone",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1034,7 +1034,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_WanaData_t3tbex.jpg",
     },
-    category: "Projects",
+    category: "Products",
     href: "/projects/wana-data",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1068,7 +1068,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Projects",
+    category: "Products",
     href: "/projects/pesa-check",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1102,7 +1102,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Projects",
+    category: "Products",
     href: "/projects/open-africa",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1136,7 +1136,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Projects",
+    category: "Products",
     href: "/projects/civic-signal",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1166,7 +1166,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Projects",
+    category: "Products",
     href: "/projects/source-africa",
     externalHref: "https://codeforafrica.org",
   },

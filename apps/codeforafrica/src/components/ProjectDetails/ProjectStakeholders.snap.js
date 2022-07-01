@@ -19,10 +19,10 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
       class="css-1y69rbp-MuiStack-root"
     >
       <div
-        class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1hu6bpz-MuiChip-root"
+        class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-19rzirx-MuiChip-root"
       >
         <span
-          class="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
+          class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
         >
           World Bank
         </span>
