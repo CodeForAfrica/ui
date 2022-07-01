@@ -31,4 +31,12 @@ partners:
   - Pulitzer Center
 donors:
   - innovateAFRICA
+links:
+  links:
+    - slug: data
+      content: Launch Project
+      href: https://codeforafrica.org
+    - slug: github
+      content: GitHub
+      href: https://github.com/CodeForAfrica
 ---

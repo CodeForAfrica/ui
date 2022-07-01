@@ -207,6 +207,36 @@
           "value_field": "name",
           "display_fields": ["name"],
           "multiple": true
+        },
+        {
+          "name": "links",
+          "label": "Links",
+          "widget": "object",
+          "fields": [
+            {
+              "label": "Links",
+              "name": "links",
+              "label_singular": "Link",
+              "widget": "list",
+              "fields": [
+                {
+                  "label": "Slug",
+                  "name": "slug",
+                  "widget": "text"
+                },
+                {
+                  "label": "Content",
+                  "name": "content",
+                  "widget": "text"
+                },
+                {
+                  "label": "Href",
+                  "name": "href",
+                  "widget": "text"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
