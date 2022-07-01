@@ -1,4 +1,5 @@
 import { Section } from "@commons-ui/core";
+import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
@@ -6,6 +7,7 @@ import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
 import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 import NextPreviousPagination from "@/codeforafrica/components/NextPreviousPagination";
 import OpportunityCardList from "@/codeforafrica/components/OpportunityCardList";
+import SearchInput from "@/codeforafrica/components/SearchInput";
 
 const ALL_TAGS = "All";
 
@@ -62,6 +64,7 @@ function Opportunies(props) {
     setPagination(computePagination(filteredOpportunies, page, pageSize));
   }, [filteredOpportunies, page, pageSize]);
 
+  const hasOpportunities = pagination.opportunities?.length > 0;
   return (
     <OpportuniesRoot ref={ref}>
       <Section
@@ -74,18 +77,37 @@ function Opportunies(props) {
           py: { xs: 2.5, md: 8, lg: 9 },
         }}
       >
-        {tags?.length > 0 ? (
+        {/* There will always be at least ALL tag */}
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          justifyContent="space-between"
+        >
+          <SearchInput
+            disabled={!hasOpportunities}
+            placeholder="Search opportunities"
+            size="small"
+            sx={{
+              mb: { xs: 2.5, sm: 0 },
+              minWidth: { xs: "auto", sm: "200px" },
+              ml: { xs: 0, sm: 2.5 },
+              order: { xs: 0, sm: 1 },
+              width: { xs: "auto", sm: "200px" },
+            }}
+          />
           <ChoiceChipGroup
             color="default"
             onChange={handleChangeCategory}
             value={selectedTag}
-            sx={{ mb: { xs: 5, md: 10 } }}
+            sx={{
+              mb: { xs: 5, md: 10 },
+              order: { xs: 1, sm: 0 },
+            }}
           >
             {tags.map((tag) => (
               <ChoiceChip label={tag} value={tag} key={tag} />
             ))}
           </ChoiceChipGroup>
-        ) : null}
+        </Stack>
         <OpportunityCardList opportunities={pagination.opportunities} />
       </Section>
       <NextPreviousPagination
