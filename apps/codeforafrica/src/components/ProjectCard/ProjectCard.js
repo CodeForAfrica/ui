@@ -15,6 +15,7 @@ import ProjectTile from "@/codeforafrica/components/ProjectTile";
 const ProjectActionArea = styled(CardActionArea, {
   slot: "Root",
 })(({ theme }) => ({
+  alignItems: "flex-start",
   display: "flex",
   flexDirection: "column",
   gap: theme.spacing(2),
