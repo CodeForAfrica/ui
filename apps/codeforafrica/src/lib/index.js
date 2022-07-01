@@ -1,4 +1,6 @@
-/* eslint-disable import/prefer-default-export */
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
 
 const menu = [
   {
@@ -129,6 +131,8 @@ export const team = [
     slug: "member-1",
     name: "Justin Arenstein",
     title: "CEO of Code for Africa",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
@@ -138,6 +142,8 @@ export const team = [
     slug: "member-2",
     name: "Tolulope Adeyemo",
     title: "Senior Programme Manager",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
@@ -147,6 +153,8 @@ export const team = [
     slug: "member-3",
     name: "Johnny Miller",
     title: "Co-Founder of africanDRONE",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
@@ -156,6 +164,8 @@ export const team = [
     slug: "member-4",
     name: "Jacobo Ottaviani",
     title: "Chief Data Officer",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655127335/codeforafrica/images/team/image_11_ch6dnb.jpg",
     },
@@ -1591,6 +1601,7 @@ function getTeamMemberPageStaticProps(params) {
       }) === 0
   );
   if (member) {
+    const startIndex = getRandomInt(projects.length - 3);
     return {
       props: {
         title: `${member.name} | Members | About | Code for Africa`,
@@ -1599,7 +1610,7 @@ function getTeamMemberPageStaticProps(params) {
           {
             slug: "related-projects",
             title: "Projects",
-            projects: projects.slice(0, 3),
+            projects: projects.slice(startIndex, startIndex + 3),
           },
         ],
         footer,

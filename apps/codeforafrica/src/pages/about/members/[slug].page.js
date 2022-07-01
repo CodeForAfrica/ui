@@ -1,17 +1,11 @@
-import { Section } from "@commons-ui/core";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { RichTypography, Section } from "@commons-ui/core";
 import React from "react";
 
 import AboutMemberPageHeader from "@/codeforafrica/components/AboutMemberPageHeader";
 import Page from "@/codeforafrica/components/Page";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
-import ShareBar from "@/codeforafrica/components/ShareBar";
-import {
-  FacebookShareBarButton,
-  LinkedinShareBarButton,
-  TwitterShareBarButton,
-} from "@/codeforafrica/components/ShareBarButton";
+import SectionDivider from "@/codeforafrica/components/SectionDivider";
+import ShareThisPage from "@/codeforafrica/components/ShareThisPage";
 import { team, getPageStaticProps } from "@/codeforafrica/lib";
 
 function Index({ member, sections, ...props }) {
@@ -21,32 +15,60 @@ function Index({ member, sections, ...props }) {
       <Section
         sx={{
           px: { xs: 2.5, sm: 0 },
+          pt: { xs: 2.5, md: 7 },
           maxWidth: {
             sm: "648px",
             md: "912px",
           },
         }}
       >
-        <Box
+        <RichTypography
+          variant="body1"
           sx={{
-            color: "grey.main",
-            rowGap: 2,
-            display: "flex",
-            flexDirection: "column",
+            mb: 5,
+            typography: "subheading",
           }}
         >
-          <Typography variant="footerCap">Connect</Typography>
-          <ShareBar>
-            <FacebookShareBarButton />
-            <LinkedinShareBarButton />
-            <TwitterShareBarButton />
-          </ShareBar>
-        </Box>
+          {member?.description}
+        </RichTypography>
+        <ShareThisPage
+          spacing="17px"
+          title="Connect"
+          sx={{
+            color: "text.primary",
+          }}
+        />
       </Section>
       {sections?.map((section) => {
         switch (section.slug) {
           case "related-projects":
-            return <RelatedProjects {...section} key={section.slug} />;
+            return (
+              <React.Fragment key={section.slug}>
+                <SectionDivider
+                  sx={{
+                    maxWidth: {
+                      sm: "648px",
+                      md: "912px",
+                    },
+                    px: { xs: 2.5, sm: 0 },
+                    py: { xs: "30px", md: 5 },
+                  }}
+                />
+                <RelatedProjects
+                  sx={{
+                    maxWidth: {
+                      sm: "648px",
+                      md: "912px",
+                    },
+                    pb: { xs: 10, md: 7 },
+                    pt: 0,
+                  }}
+                  tileListProps={{ fixed: true }}
+                  titleProps={{ sx: { mb: { xs: "30px", md: 5 } } }}
+                  {...section}
+                />
+              </React.Fragment>
+            );
           default:
             return null;
         }

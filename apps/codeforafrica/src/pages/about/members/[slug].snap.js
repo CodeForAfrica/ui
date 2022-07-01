@@ -126,10 +126,10 @@ exports[`<Pages/About/Members/[Slug] /> renders unchanged 1`] = `
     </div>
   </header>
   <div
-    class="MuiBox-root css-wpqv47"
+    class="MuiBox-root css-h16mw8"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-107e3nu-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-h42qkr-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-1fyy4z-MuiGrid-root"
@@ -159,28 +159,28 @@ exports[`<Pages/About/Members/[Slug] /> renders unchanged 1`] = `
     </div>
   </div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12qr4r4-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1ilq66o-MuiContainer-root"
   >
     <div
-      class="MuiBox-root css-kii0d2"
+      class="css-x446uu-MuiStack-root"
     >
-      <span
-        class="MuiTypography-root MuiTypography-footerCap css-3358n1-MuiTypography-root"
+      <div
+        class="MuiTypography-root MuiTypography-footerCap css-19iy7wy-MuiTypography-root"
       >
         Connect
-      </span>
+      </div>
       <div
         class="css-r7or14-MuiStack-root"
       >
         <button
-          aria-label="Facebook"
+          aria-label="Twitter"
           class="react-share__ShareButton"
           data-mui-internal-clone-element="true"
           style="background-color: transparent; padding: 0px; cursor: pointer;"
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
             focusable="false"
             viewbox="0 0 24 24"
           />
@@ -193,20 +193,20 @@ exports[`<Pages/About/Members/[Slug] /> renders unchanged 1`] = `
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
             focusable="false"
             viewbox="0 0 24 24"
           />
         </button>
         <button
-          aria-label="Twitter"
+          aria-label="Facebook"
           class="react-share__ShareButton"
           data-mui-internal-clone-element="true"
           style="background-color: transparent; padding: 0px; cursor: pointer;"
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
             focusable="false"
             viewbox="0 0 24 24"
           />

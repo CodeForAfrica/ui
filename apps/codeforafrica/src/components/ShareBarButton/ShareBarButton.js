@@ -37,15 +37,15 @@ ShareBarButton.defaultProps = {
 const NAMED_SHARE_BAR_BUTTONS = {
   Facebook: {
     component: FacebookShareButton,
-    children: <SvgIcon component={FacebookIcon} />,
+    children: <SvgIcon sx={{ fill: "none" }} component={FacebookIcon} />,
   },
   Linkedin: {
     component: LinkedinShareButton,
-    children: <SvgIcon component={LinkedinIcon} />,
+    children: <SvgIcon sx={{ fill: "none" }} component={LinkedinIcon} />,
   },
   Twitter: {
     component: TwitterShareButton,
-    children: <SvgIcon component={TwitterIcon} />,
+    children: <SvgIcon sx={{ fill: "none" }} component={TwitterIcon} />,
   },
 };
 
@@ -80,6 +80,7 @@ NamedShareBarButton.defaultProps = {
   tooltipProps: undefined,
   url: undefined,
 };
+
 const FacebookShareBarButton = React.forwardRef(function FacebookShareBarButton(
   props,
   ref
