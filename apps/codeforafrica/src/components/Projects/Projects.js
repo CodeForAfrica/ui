@@ -65,30 +65,49 @@ function Projects(props) {
     setPagination(computePagination(filteredProjects, page, pageSize));
   }, [filteredProjects, page, pageSize]);
 
+  const hasProjects = pagination.projects?.length > 0;
   return (
     <ProjectsRoot ref={ref}>
       <Section
         sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 2.5, md: 8, lg: 9 }, ...sx }}
       >
-        {categories?.length > 0 ? (
-          <Stack direction="row" justifyContent="space-between">
-            <ChoiceChipGroup
-              color="default"
-              onChange={handleChangeCategory}
-              value={selectedCategory}
-            >
-              {categories.map((tag) => (
-                <ChoiceChip label={tag} value={tag} key={tag} />
-              ))}
-            </ChoiceChipGroup>
-            <SearchInput placeholder="Search project" size="small" />
+        {/* There will always be at least ALL category */}
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          justifyContent="space-between"
+        >
+          <SearchInput
+            disabled={!hasProjects}
+            placeholder="Search project"
+            size="small"
+            sx={{
+              mb: { xs: 2.5, sm: 0 },
+              minWidth: { xs: "auto", sm: "200px" },
+              ml: { xs: 0, sm: 2.5 },
+              order: { xs: 0, sm: 1 },
+              width: { xs: "auto", sm: "200px" },
+            }}
+          />
+          <ChoiceChipGroup
+            color="default"
+            onChange={handleChangeCategory}
+            value={selectedCategory}
+            sx={{
+              order: { xs: 1, sm: 0 },
+            }}
+          >
+            {categories.map((tag) => (
+              <ChoiceChip label={tag} value={tag} key={tag} />
+            ))}
+          </ChoiceChipGroup>
+        </Stack>
+        {hasProjects ? (
+          <Stack direction="column" spacing={{ xs: 5, md: 7.5 }}>
+            {pagination.projects.map((project) => (
+              <ProjectCard {...project} key={project.slug} />
+            ))}
           </Stack>
         ) : null}
-        <Stack direction="column" spacing={{ xs: 5, md: 7.5 }}>
-          {pagination.projects?.map((project) => (
-            <ProjectCard {...project} key={project.slug} />
-          ))}
-        </Stack>
       </Section>
       <NextPreviousPagination
         key={selectedCategory}
