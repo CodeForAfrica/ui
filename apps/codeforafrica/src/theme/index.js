@@ -195,7 +195,7 @@ const theme = createTheme({
       styleOverrides: {
         root: ({ ownerState }) => ({
           borderRadius: 3,
-          padding: 8,
+          padding: 0,
           "&.MuiChip-clickable": {
             "&:hover": {
               backgroundColor: palette.background.main,
@@ -216,6 +216,10 @@ const theme = createTheme({
             color: palette.primary.main,
           }),
         }),
+        label: {
+          paddingLeft: 8,
+          paddingRight: 8,
+        },
       },
     },
   },
