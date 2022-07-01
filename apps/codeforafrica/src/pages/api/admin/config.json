@@ -61,7 +61,7 @@
     },
     {
       "name": "partners",
-      "label": "Partners",
+      "label": "Data | Partners",
       "folder": "content/partners",
       "create": true,
       "identifier_field": "name",
@@ -87,7 +87,7 @@
     },
     {
       "name": "projects",
-      "label": "Projects",
+      "label": "Data | Projects",
       "folder": "content/projects",
       "create": true,
       "label_singular": "Project",
@@ -243,7 +243,7 @@
     },
     {
       "name": "donors",
-      "label": "Donors",
+      "label": "Data | Donors",
       "label_singular": "Donor",
       "folder": "content/donors",
       "create": true,
