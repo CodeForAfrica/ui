@@ -24,8 +24,15 @@ const InputRoot = styled(TextField)(({ theme }) => ({
     "&:hover fieldset": {
       borderColor: theme.palette.primary.main,
     },
-    "&.Mui-disabled fieldset": {
+    "&.Mui-disabled": {
+      color: "#D0CBCB",
       backgroundColor: theme.palette.background.main,
+    },
+    "&.Mui-disabled fieldset": {
+      borderColor: theme.palette.grey.light,
+    },
+    "&.Mui-disabled:hover fieldset": {
+      borderColor: theme.palette.grey.light,
     },
     "&.Mui-focused fieldset": {
       borderWidth: 1,
@@ -36,6 +43,7 @@ const InputRoot = styled(TextField)(({ theme }) => ({
     },
     "& fieldset": {
       borderColor: "#D0CBCB",
+      top: 0,
     },
     "& fieldset legend": {
       display: "none",
