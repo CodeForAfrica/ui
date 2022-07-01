@@ -1,7 +1,7 @@
 import SvgIcon from "@mui/material/SvgIcon";
 import React from "react";
 
-import SearchIcon from "@/codeforafrica/assets/icons/Type=search, Size=16, Color=Black.svg";
+import SearchIcon from "@/codeforafrica/assets/icons/Type=search, Size=16, Color=CurrentColor.svg";
 import Input from "@/codeforafrica/components/Input";
 
 const InputSearch = React.forwardRef(function InputSearch(props, ref) {
