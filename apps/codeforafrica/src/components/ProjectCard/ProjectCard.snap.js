@@ -3,51 +3,60 @@
 exports[`<ProjectCard /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-2quvxm-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-1lxhh98-MuiPaper-root-MuiCard-root"
   >
-    <img
-      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-tm1rxb-MuiCardMedia-root"
-    />
-    <div
-      class="MuiBox-root css-zg1vud"
+    <button
+      class="MuiButtonBase-root MuiCardActionArea-root css-gcn2t8-MuiButtonBase-root-MuiCardActionArea-root"
+      tabindex="0"
+      type="button"
     >
+      <img
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-tm1rxb-MuiCardMedia-root"
+      />
       <div
-        class="MuiCardContent-root css-8kp80x-MuiCardContent-root"
+        class="MuiBox-root css-zg1vud"
       >
         <div
-          class="MuiPaper-root MuiPaper-outlined css-1irxcig-MuiPaper-root"
+          class="MuiCardContent-root css-8kp80x-MuiCardContent-root"
         >
           <div
-            class="MuiBox-root css-uq7i85"
+            class="MuiPaper-root MuiPaper-outlined css-1irxcig-MuiPaper-root"
           >
-            <h4
-              class="MuiTypography-root MuiTypography-h4 css-1vqqsaf-MuiTypography-root"
-            />
             <div
-              class="css-1v20l1v-MuiStack-root"
+              class="MuiBox-root css-uq7i85"
             >
-              <span
-                class="MuiTypography-root MuiTypography-body3SemiBold css-dyfp2-MuiTypography-root"
+              <h4
+                class="MuiTypography-root MuiTypography-h4 css-1vqqsaf-MuiTypography-root"
               />
-              <p
-                class="MuiTypography-root MuiTypography-body2 css-1rafkl6-MuiTypography-root"
-              />
+              <div
+                class="css-1v20l1v-MuiStack-root"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-body3SemiBold css-dyfp2-MuiTypography-root"
+                />
+                <p
+                  class="MuiTypography-root MuiTypography-body2 css-1rafkl6-MuiTypography-root"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiCardActions-root MuiCardActions-spacing css-1jzc3k6-MuiCardActions-root"
-      >
-        <button
-          class="MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButtonBase-root  css-9lbve9-MuiButtonBase-root-MuiButton-root"
-          tabindex="0"
-          type="button"
+        <div
+          class="MuiCardActions-root MuiCardActions-spacing css-1jzc3k6-MuiCardActions-root"
         >
-          Learn More
-        </button>
+          <div
+            class="MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButtonBase-root  css-9lbve9-MuiButtonBase-root-MuiButton-root"
+            role="button"
+            tabindex="0"
+          >
+            Learn More
+          </div>
+        </div>
       </div>
-    </div>
+      <span
+        class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+      />
+    </button>
   </div>
 </div>
 `;
