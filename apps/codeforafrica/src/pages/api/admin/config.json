@@ -67,6 +67,11 @@
       "identifier_field": "name",
       "fields": [
         {
+          "label": "UUID",
+          "name": "uuid",
+          "widget": "uuid"
+        },
+        {
           "label": "Name",
           "name": "name",
           "widget": "text"
@@ -94,13 +99,13 @@
       "identifier_field": "name",
       "fields": [
         {
-          "label": "Name",
-          "name": "name",
-          "widget": "text"
+          "label": "UUID",
+          "name": "uuid",
+          "widget": "uuid"
         },
         {
-          "label": "slug",
-          "name": "slug",
+          "label": "Name",
+          "name": "name",
           "widget": "text"
         },
         {
@@ -173,6 +178,11 @@
               "widget": "list",
               "fields": [
                 {
+                  "label": "UUID",
+                  "name": "uuid",
+                  "widget": "uuid"
+                },
+                {
                   "label": "Name",
                   "name": "name",
                   "widget": "text"
@@ -221,9 +231,9 @@
               "widget": "list",
               "fields": [
                 {
-                  "label": "Slug",
-                  "name": "slug",
-                  "widget": "text"
+                  "label": "UUID",
+                  "name": "uuid",
+                  "widget": "uuid"
                 },
                 {
                   "label": "Content",
@@ -249,6 +259,11 @@
       "create": true,
       "identifier_field": "name",
       "fields": [
+        {
+          "label": "UUID",
+          "name": "uuid",
+          "widget": "uuid"
+        },
         {
           "label": "Name",
           "name": "name",
