@@ -12,7 +12,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
         class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-1rwywmd-MuiPaper-root-MuiCard-root"
       >
         <nav
-          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-lst8zs-MuiTypography-root-MuiBreadcrumbs-root"
+          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-15752dv-MuiTypography-root-MuiBreadcrumbs-root"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -21,7 +21,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
               class="MuiBreadcrumbs-li"
             >
               <a
-                class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-3wj1lz-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-1xj2ue7-MuiTypography-root-MuiLink-root"
                 href="/projects"
               >
                 Our Work
@@ -51,7 +51,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
           class="MuiBox-root css-1ntmuzk"
         >
           <nav
-            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-19rs8ju-MuiTypography-root-MuiBreadcrumbs-root"
+            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-mdodgn-MuiTypography-root-MuiBreadcrumbs-root"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -60,7 +60,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
                 class="MuiBreadcrumbs-li"
               >
                 <a
-                  class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-3wj1lz-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-1xj2ue7-MuiTypography-root-MuiLink-root"
                   href="/projects"
                 >
                   Our Work
