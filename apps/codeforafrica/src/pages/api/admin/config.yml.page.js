@@ -1,6 +1,6 @@
 import yaml from "js-yaml";
 
-import config from "./config.json";
+import config from "./config";
 
 import site from "@/codeforafrica/utils/site";
 
