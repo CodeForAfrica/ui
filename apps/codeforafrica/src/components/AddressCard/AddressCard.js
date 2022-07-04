@@ -21,6 +21,7 @@ const AddressCard = React.forwardRef(function AddressCard(props, ref) {
       onClick(e, title);
     }
   };
+
   if (!(title && address)) {
     return null;
   }
@@ -28,13 +29,12 @@ const AddressCard = React.forwardRef(function AddressCard(props, ref) {
   return (
     <AddressCardRoot
       elevation={0}
-      onClick={handleClick}
       ownerState={ownerState}
       square
       variant="outlined"
       ref={ref}
     >
-      <CardActionArea>
+      <CardActionArea onClick={handleClick}>
         <CardContent sx={{ p: 0 }}>
           <RichTypography sx={{ color: "inherit" }} variant="body3Underline">
             {title}
