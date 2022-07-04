@@ -7,9 +7,11 @@ import React from "react";
 
 const AddressCardRoot = styled(Card)(({ theme, ownerState }) => ({
   border: "none",
-  color: ownerState.active
-    ? theme.palette.primary.main
-    : theme.palette.text.primary,
+  [theme.breakpoints.up("md")]: {
+    color: ownerState.active
+      ? theme.palette.primary.main
+      : theme.palette.text.primary,
+  },
 }));
 
 const AddressCard = React.forwardRef(function AddressCard(props, ref) {
@@ -19,6 +21,7 @@ const AddressCard = React.forwardRef(function AddressCard(props, ref) {
       onClick(e, title);
     }
   };
+
   if (!(title && address)) {
     return null;
   }
@@ -26,14 +29,13 @@ const AddressCard = React.forwardRef(function AddressCard(props, ref) {
   return (
     <AddressCardRoot
       elevation={0}
-      onClick={handleClick}
       ownerState={ownerState}
       square
       variant="outlined"
       ref={ref}
     >
-      <CardActionArea>
-        <CardContent>
+      <CardActionArea onClick={handleClick}>
+        <CardContent sx={{ p: 0 }}>
           <RichTypography sx={{ color: "inherit" }} variant="body3Underline">
             {title}
           </RichTypography>

@@ -52,8 +52,8 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
       <Section
         sx={{
           bgcolor: "background.default",
-          border: 1,
-          borderColor: "divider",
+          border: { xs: "none", md: 1 },
+          borderColor: { md: "divider" },
           mb: { md: 6, lg: "35px" },
           px: { xs: 2.5, sm: 0, md: 5 },
           py: { xs: "29px", md: 5 },
@@ -61,7 +61,11 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
       >
         <Grid container columns={10} justifyContent="space-between">
           <Grid item xs={12}>
-            <RichTypography textAlign="center" variant="h5">
+            <RichTypography
+              textAlign="left"
+              variant="h5"
+              sx={{ textAlign: { md: "center" } }}
+            >
               {title}
             </RichTypography>
             <Divider sx={{ mt: 1.25 }} />
@@ -72,7 +76,8 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
             container
             columns={10}
             justifyContent={{ md: "space-between" }}
-            sx={{ mt: 1.25 }}
+            rowGap={5}
+            sx={{ mt: { xs: 2.5, md: 1.25 } }}
           >
             {addresses.map((address) => (
               <Grid
