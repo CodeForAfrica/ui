@@ -7,9 +7,11 @@ import React from "react";
 
 const AddressCardRoot = styled(Card)(({ theme, ownerState }) => ({
   border: "none",
-  color: ownerState.active
-    ? theme.palette.primary.main
-    : theme.palette.text.primary,
+  [theme.breakpoints.up("md")]: {
+    color: ownerState.active
+      ? theme.palette.primary.main
+      : theme.palette.text.primary,
+  },
 }));
 
 const AddressCard = React.forwardRef(function AddressCard(props, ref) {
