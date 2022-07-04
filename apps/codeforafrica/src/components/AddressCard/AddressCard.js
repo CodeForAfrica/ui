@@ -33,7 +33,7 @@ const AddressCard = React.forwardRef(function AddressCard(props, ref) {
       ref={ref}
     >
       <CardActionArea>
-        <CardContent>
+        <CardContent sx={{ p: 0 }}>
           <RichTypography sx={{ color: "inherit" }} variant="body3Underline">
             {title}
           </RichTypography>
