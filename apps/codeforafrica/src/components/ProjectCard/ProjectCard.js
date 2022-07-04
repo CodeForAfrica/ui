@@ -3,6 +3,7 @@ import { Link } from "@commons-ui/next";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import { styled } from "@mui/material/styles";
@@ -11,9 +12,10 @@ import React from "react";
 import ProjectCardMedia from "@/codeforafrica/components/ProjectCardMedia";
 import ProjectTile from "@/codeforafrica/components/ProjectTile";
 
-const ProjectCardRoot = styled(Card, {
+const ProjectActionArea = styled(CardActionArea, {
   slot: "Root",
 })(({ theme }) => ({
+  alignItems: "flex-start",
   display: "flex",
   flexDirection: "column",
   gap: theme.spacing(2),
@@ -44,52 +46,43 @@ const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
   const tileProps = { icon, name, tagLine };
 
   return (
-    <ProjectCardRoot
-      elevation={0}
-      square
-      ref={ref}
-      ownerState={ownerState}
-      {...other}
-    >
-      <ProjectCardMedia {...thumbnail} component="img" />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
-      >
-        <CardContent
+    <Card elevation={0} square ref={ref} ownerState={ownerState} {...other}>
+      <ProjectActionArea component={href ? Link : undefined} href={href}>
+        <ProjectCardMedia {...thumbnail} component="img" />
+        <Box
           sx={{
-            p: 0,
-            "&:last-child": {
-              p: 0,
-            },
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
           }}
         >
-          <ProjectTile {...tileProps} />
-          <RichTypography color="primary" variant="h5" sx={{ mt: 2 }}>
-            {title}
-          </RichTypography>
-          <RichTypography
-            variant="body1"
-            sx={{ mt: 2.5, typography: { md: "body2" } }}
+          <CardContent
+            sx={{
+              p: 0,
+              "&:last-child": {
+                p: 0,
+              },
+            }}
           >
-            {subtitle}
-          </RichTypography>
-        </CardContent>
-        <CardActions sx={{ mt: 2, p: 0 }}>
-          <Button
-            href={href}
-            component={href ? Link : undefined}
-            variant="contained-reverse"
-            sx={{ py: 1 }}
-          >
-            Learn More
-          </Button>
-        </CardActions>
-      </Box>
-    </ProjectCardRoot>
+            <ProjectTile {...tileProps} />
+            <RichTypography color="primary" variant="h5" sx={{ mt: 2 }}>
+              {title}
+            </RichTypography>
+            <RichTypography
+              variant="body1"
+              sx={{ mt: 2.5, typography: { md: "body2" } }}
+            >
+              {subtitle}
+            </RichTypography>
+          </CardContent>
+          <CardActions sx={{ mt: 2, p: 0 }}>
+            <Button component="div" variant="contained-reverse" sx={{ py: 1 }}>
+              Learn More
+            </Button>
+          </CardActions>
+        </Box>
+      </ProjectActionArea>
+    </Card>
   );
 });
 

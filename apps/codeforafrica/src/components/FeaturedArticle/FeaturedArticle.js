@@ -32,9 +32,9 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
       ref={ref}
     >
       <CardActionArea
-        component={Link}
-        sx={{ position: "relative" }}
+        component={href ? Link : undefined}
         href={href}
+        sx={{ position: "relative" }}
       >
         <Grid
           container

@@ -1,3 +1,4 @@
+import { Link } from "@commons-ui/next";
 import CardActionArea from "@mui/material/CardActionArea";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -29,7 +30,10 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
               height: "100%",
             }}
           >
-            <CardActionArea href={article.href}>
+            <CardActionArea
+              component={article.href ? Link : undefined}
+              href={article.href}
+            >
               <ArticleCardMedia
                 sx={{
                   display: { xs: "none", sm: "block" },

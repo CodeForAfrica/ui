@@ -32,7 +32,7 @@ const TeamMemberCardList = React.forwardRef(function TeamMemberCardList(
       ref={ref}
     >
       {team?.map((member) => (
-        <Grid item key={member.name}>
+        <Grid item key={member.href}>
           <TeamMemberCard {...member} />
         </Grid>
       ))}
