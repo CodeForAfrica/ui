@@ -12,7 +12,7 @@ exports[`<Breadcrumbs /> renders unchanged 1`] = `
         class="MuiBreadcrumbs-li"
       >
         <a
-          class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-3wj1lz-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-1xj2ue7-MuiTypography-root-MuiLink-root"
           href="/projects"
         >
           Our Work
