@@ -181,7 +181,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
     id="our-team"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1sh4m25-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fezb5o-MuiContainer-root"
     >
       <div
         class="MuiTypography-root MuiTypography-h5 css-tsuzph-MuiTypography-root"

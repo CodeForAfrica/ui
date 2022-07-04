@@ -22,6 +22,7 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
     >
       <Section
         sx={{
+          maxWidth: { md: 1028, lg: 1144 },
           px: { xs: 2.5, sm: 0 },
           py: { xs: 2.5, md: "62px", lg: 10 },
         }}
