@@ -1,4 +1,5 @@
 /* eslint-disable */
+// prettier-ignore
 
 const CustomWidget = () => {
     if (typeof window !== "undefined") {
@@ -10,4 +11,4 @@ const CustomWidget = () => {
     return (<></>);
 }
 
-export default CustomWidget
+export default CustomWidget;
