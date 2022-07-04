@@ -53,7 +53,7 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
         sx={{
           bgcolor: "background.default",
           border: { xs: "none", md: 1 },
-          borderColor: "divider",
+          borderColor: { md: "divider" },
           mb: { md: 6, lg: "35px" },
           px: { xs: 2.5, sm: 0, md: 5 },
           py: { xs: "29px", md: 5 },
