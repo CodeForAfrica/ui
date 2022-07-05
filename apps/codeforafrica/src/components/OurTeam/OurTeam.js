@@ -5,7 +5,7 @@ import React from "react";
 import TeamMemberCardList from "@/codeforafrica/components/TeamMemberCardList";
 
 const OurTeam = React.forwardRef(function OurTeam(props, ref) {
-  const { id: idProp, team, title } = props;
+  const { id: idProp, sx, team, title } = props;
 
   if (!team?.length) {
     return null;
@@ -16,12 +16,13 @@ const OurTeam = React.forwardRef(function OurTeam(props, ref) {
       id={id}
       sx={{
         bgcolor: "background.main",
-        scrollMarginTop: { xs: "20px", md: "62px", lg: "80px" },
+        ...sx,
       }}
       ref={ref}
     >
       <Section
         sx={{
+          maxWidth: { md: 1028, lg: 1144 },
           px: { xs: 2.5, sm: 0 },
           py: { xs: 2.5, md: "62px", lg: 10 },
         }}

@@ -9,9 +9,8 @@ import { styled } from "@mui/material/styles";
 import SvgIcon from "@mui/material/SvgIcon";
 import React from "react";
 
-import Breadcrumbs from "./Breadcrumbs";
-
 import ExternalLinkIcon from "@/codeforafrica/assets/icons/Type=external-link, Size=24, Color=White.svg";
+import Breadcrumbs from "@/codeforafrica/components/Breadcrumbs";
 import ProjectCardMedia from "@/codeforafrica/components/ProjectCardMedia";
 import ProjectTile from "@/codeforafrica/components/ProjectTile";
 import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
@@ -55,11 +54,6 @@ const ProjectTitle = styled(RichTypography, {
   },
 }));
 
-function getParentHref(href) {
-  const split = href?.split("/");
-  return split?.slice(0, split.length - 1)?.join("/");
-}
-
 const ProjectPageHeader = React.forwardRef(function ProjectPageHeader(
   props,
   ref
@@ -67,7 +61,6 @@ const ProjectPageHeader = React.forwardRef(function ProjectPageHeader(
   const {
     category,
     externalHref,
-    href,
     icon,
     name,
     subtitle,
@@ -77,7 +70,7 @@ const ProjectPageHeader = React.forwardRef(function ProjectPageHeader(
     thumbnail,
   } = props;
   const crumbs = [
-    { href: getParentHref(href), label: "Our Work" },
+    { href: "/projects", label: "Our Work" },
     { label: category },
   ];
   const tileProps = { icon, name, tagLine };
@@ -89,6 +82,7 @@ const ProjectPageHeader = React.forwardRef(function ProjectPageHeader(
           <Breadcrumbs
             crumbs={crumbs}
             sx={{
+              color: "text.primary",
               display: { xs: "flex", sm: "none", md: "flex" },
               flexBasis: "100%",
               order: { xs: 0 },
@@ -113,6 +107,7 @@ const ProjectPageHeader = React.forwardRef(function ProjectPageHeader(
             <Breadcrumbs
               crumbs={crumbs}
               sx={{
+                color: "text.primary",
                 display: { xs: "none", sm: "flex", md: "none" },
               }}
             />

@@ -1317,7 +1317,7 @@ function getHomePageStaticProps() {
           ultrices dui parturient vitae ac netus convallis integer. <br />
           <br /> Euismod posuere fusce mollis etiam himenaeos non aliquam nulla
           dis consequat ornare, velit odio condimentum augue felis na.`,
-          href: "/about#our-team",
+          href: "/about/members",
         },
         {
           slug: "news-stories",
@@ -1537,6 +1537,42 @@ function getStoryPageStaticProps(params) {
   return { notFound: true };
 }
 
+function getAboutMembersPageStaticProps() {
+  return {
+    props: {
+      title: "Members | About | Code for Africa",
+      sections: [
+        {
+          slug: "hero",
+          title: "About Us",
+          subtitle:
+            "We are Africa’s largest network of civic technology and data journalism labs",
+          image: {
+            src: "https://res.cloudinary.com/code-for-africa/image/upload/v1656064173/codeforafrica/images/1_IgrT4_1tGZh1WnpYzvZN1A_1_twneqf.jpg",
+          },
+        },
+        {
+          slug: "our-team",
+          title: "Our team",
+          team,
+        },
+        {
+          slug: "get-in-touch",
+          title: "Are you looking to start a new project?",
+          subtitle: "We'd love to hear more.",
+          action: {
+            href: "/contact",
+            label: "Get in touch",
+          },
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
 function getAboutPageStaticProps() {
   return {
     props: {
@@ -1720,6 +1756,9 @@ export async function getPageStaticProps(params) {
     }
     case "/about": {
       return getAboutPageStaticProps(params);
+    }
+    case "/about/members": {
+      return getAboutMembersPageStaticProps(params);
     }
     case "/contact": {
       return getContactPageStaticProps(params);

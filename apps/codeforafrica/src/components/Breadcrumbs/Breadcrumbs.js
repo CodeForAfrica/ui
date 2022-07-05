@@ -23,7 +23,7 @@ const Breadcrumbs = React.forwardRef(function Breadcrumbs(props, ref) {
           return (
             <Link
               key={label}
-              color="text.primary"
+              color="inherit"
               href={href}
               underline="always"
               variant="body1Underline"

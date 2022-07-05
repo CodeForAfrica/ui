@@ -2,12 +2,18 @@ import { Section, RichTypography } from "@commons-ui/core";
 import Box from "@mui/material/Box";
 import React from "react";
 
+import Breadcrumbs from "@/codeforafrica/components/Breadcrumbs";
+
 const AboutPageHeader = React.forwardRef(function AboutPageHeader(props, ref) {
-  const { image: imageProp, title, subtitle } = props;
+  const { crumbs: crumbsProp, image: imageProp, title, subtitle } = props;
 
   if (!(title || subtitle)) {
     return null;
   }
+  const crumbs = crumbsProp
+    ? [{ href: "/about", label: "About us" }, { label: "Members" }]
+    : undefined;
+  const crumbsLineHeight = crumbs?.length ? 23 : 0;
   const image = imageProp?.src || imageProp;
   return (
     <Box
@@ -36,11 +42,26 @@ const AboutPageHeader = React.forwardRef(function AboutPageHeader(props, ref) {
         sx={{
           color: "text.secondary",
           position: "relative",
+          pb: { xs: "86px", sm: "75px", md: "96px" },
+          pt: {
+            xs: `${86 - crumbsLineHeight}px`,
+            sm: `${75 - crumbsLineHeight}px`,
+            md: `${96 - crumbsLineHeight}px`,
+          },
           px: { xs: 2.5, sm: 0 },
-          py: { xs: "86px", sm: "75px", md: "96px" },
           textAlign: "center",
         }}
       >
+        <Breadcrumbs
+          crumbs={crumbs}
+          sx={{
+            color: "text.secondary",
+            display: "flex",
+            flexBasis: "100%",
+            order: { xs: 0 },
+            width: "100%",
+          }}
+        />
         <RichTypography
           component="h2"
           variant="h5ExtraBold"
