@@ -66,7 +66,7 @@ module.exports = {
             {
               label: "Title",
               name: "title",
-              widget: "markdown",
+              widget: "text",
             },
             {
               label: "Subtitle",
@@ -86,6 +86,7 @@ module.exports = {
               search_fields: ["name"],
               value_field: "id",
               display_fields: ["name"],
+              multiple: true,
             },
           ],
         },
