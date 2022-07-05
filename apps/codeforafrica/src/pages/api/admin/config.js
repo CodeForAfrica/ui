@@ -65,6 +65,7 @@ module.exports = {
       folder: "content/partners",
       create: true,
       identifier_field: "name",
+      label_singular: "Partner",
       fields: [
         {
           label: "Id",
