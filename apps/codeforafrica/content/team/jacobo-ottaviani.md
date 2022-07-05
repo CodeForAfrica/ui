@@ -9,6 +9,10 @@ description: "**Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare
   curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper
   magna pretium pulvinar, auctor dui pelle.**"
 image: https://res.cloudinary.com/code-for-africa/image/upload/v1655127335/codeforafrica/images/team/image_11_ch6dnb.jpg
+projects:
+  - 14fdf60f-2928-4776-b208-6641e8413f74
+  - afcfdec9-99d7-4f2c-8bdb-964159c0676d
+  - 07f3259e-2379-4850-83b8-85cacde0fcb8
 links:
   twitter: https://twitter.com/jacopoottaviani
   github: https://github.com/JacopoOttaviani

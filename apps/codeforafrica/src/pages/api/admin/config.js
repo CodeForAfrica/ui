@@ -347,6 +347,17 @@ module.exports = {
           widget: "image",
         },
         {
+          label: "Projects",
+          name: "projects",
+          widget: "relation",
+          label_singular: "Project",
+          collection: "projects",
+          search_fields: ["name"],
+          value_field: "id",
+          multiple: true,
+          display_fields: ["name"],
+        },
+        {
           name: "links",
           label: "Links",
           widget: "object",
