@@ -57,6 +57,38 @@ module.exports = {
             },
           ],
         },
+        {
+          label: "About Us",
+          name: "about",
+          widget: "object",
+          file: "content/pages/about.md",
+          fields: [
+            {
+              label: "Title",
+              name: "title",
+              widget: "markdown",
+            },
+            {
+              label: "Subtitle",
+              name: "subtitle",
+              widget: "markdown",
+            },
+            {
+              label: "Background Image",
+              name: "background_image",
+              widget: "image",
+            },
+            {
+              label: "Our Team",
+              name: "team",
+              widget: "relation",
+              collection: "team",
+              search_fields: ["name"],
+              value_field: "id",
+              display_fields: ["name"],
+            },
+          ],
+        },
       ],
     },
     {
@@ -275,6 +307,74 @@ module.exports = {
               label: "Source",
               name: "src",
               widget: "image",
+              required: false,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "team",
+      label: "Data | Team",
+      label_singular: "Team Member",
+      folder: "content/team",
+      create: true,
+      identifier_field: "name",
+      fields: [
+        {
+          label: "Id",
+          name: "id",
+          widget: "uuid",
+        },
+        {
+          label: "Name",
+          name: "name",
+          widget: "text",
+        },
+        {
+          label: "Title",
+          name: "title",
+          widget: "markdown",
+        },
+        {
+          label: "Description",
+          name: "description",
+          widget: "markdown",
+        },
+        {
+          label: "Image",
+          name: "image",
+          widget: "image",
+        },
+        {
+          name: "links",
+          label: "Links",
+          widget: "object",
+          label_singular: "Link",
+          collapsed: true,
+          fields: [
+            {
+              label: "Twitter",
+              name: "twitter",
+              widget: "text",
+              required: false,
+            },
+            {
+              label: "Github",
+              name: "github",
+              widget: "text",
+              required: false,
+            },
+            {
+              label: "LinkedIn",
+              name: "linkedin",
+              widget: "text",
+              required: false,
+            },
+            {
+              label: "Meta",
+              name: "meta",
+              widget: "text",
               required: false,
             },
           ],
