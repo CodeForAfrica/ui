@@ -32,11 +32,12 @@ const AboutMemberPageHeader = React.forwardRef(function AboutMemberPageHeader(
   props,
   ref
 ) {
-  const { name, sx, thumbnail, title } = props;
+  const { FigureProps, name, sx, thumbnail, title } = props;
 
   if (!(name || thumbnail)) {
     return null;
   }
+  const { sx: figureSxProp } = FigureProps || {};
   return (
     <Background ref={ref}>
       <Section
@@ -60,16 +61,19 @@ const AboutMemberPageHeader = React.forwardRef(function AboutMemberPageHeader(
         >
           <Grid item order={{ xs: 0, md: 1 }}>
             <MemberFigureRoot
+              {...FigureProps}
               sx={{
                 background: `url(${thumbnail.src})`,
                 backgroundBlendMode: "luminosity",
                 backgroundSize: "cover",
+                ...figureSxProp,
               }}
             />
           </Grid>
           <Grid item order={{ xs: 1, md: 0 }}>
             <RichTypography
               sx={{
+                maxWidth: { md: 383 },
                 paddingBottom: 2.5,
               }}
               variant="h1"
