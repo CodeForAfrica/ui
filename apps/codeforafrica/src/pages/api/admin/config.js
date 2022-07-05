@@ -98,6 +98,24 @@ module.exports = {
               display_fields: ["name"],
               multiple: true,
             },
+            {
+              label: "Our Mission",
+              name: "mission",
+              widget: "object",
+              file: "content/pages/mission.md",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "text",
+                },
+                {
+                  label: "Description",
+                  name: "description",
+                  widget: "markdown",
+                },
+              ],
+            },
           ],
         },
       ],
