@@ -67,8 +67,8 @@ module.exports = {
       identifier_field: "name",
       fields: [
         {
-          label: "UUID",
-          name: "uuid",
+          label: "Id",
+          name: "id",
           widget: "uuid",
         },
         {
@@ -105,8 +105,8 @@ module.exports = {
       identifier_field: "name",
       fields: [
         {
-          label: "UUID",
-          name: "uuid",
+          label: "Id",
+          name: "id",
           widget: "uuid",
         },
         {
@@ -184,11 +184,6 @@ module.exports = {
               widget: "list",
               fields: [
                 {
-                  label: "UUID",
-                  name: "uuid",
-                  widget: "uuid",
-                },
-                {
                   label: "Name",
                   name: "name",
                   widget: "text",
@@ -237,11 +232,6 @@ module.exports = {
               widget: "list",
               fields: [
                 {
-                  label: "UUID",
-                  name: "uuid",
-                  widget: "uuid",
-                },
-                {
                   label: "Content",
                   name: "content",
                   widget: "text",
@@ -266,8 +256,8 @@ module.exports = {
       identifier_field: "name",
       fields: [
         {
-          label: "UUID",
-          name: "uuid",
+          label: "Id",
+          name: "id",
           widget: "uuid",
         },
         {

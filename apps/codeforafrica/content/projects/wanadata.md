@@ -1,6 +1,6 @@
 ---
+id: 07f3259e-2379-4850-83b8-85cacde0fcb8
 name: WanaData
-slug: wana-data
 tagLine: Women in Africa
 title: Uplifting <span class="highlight">women in Africa</span> with a focus on
   data-driven projects
@@ -22,13 +22,14 @@ thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_WanaData_t3tbex.jpg
 href: /projects/wana-data
 externalHref: https://codeforafrica.org
+partners:
+  - AFD
+  - Pulitzer Center
+slug: wana-data
 badges:
   badge:
     - date: June 30th 2022
       name: Award Name
-partners:
-  - AFD
-  - Pulitzer Center
 donors:
   - innovateAFRICA
 links:

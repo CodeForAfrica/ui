@@ -1,6 +1,6 @@
 ---
+id: 14fdf60f-2928-4776-b208-6641e8413f74
 name: africanDRONE
-slug: african-drone
 tagLine: Drones for good
 title: Empowering citizens through **drone technology**
 subtitle: AfricanDRONE brings together communities of drone operators,
@@ -19,15 +19,16 @@ thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705960/codeforafrica/images/Property_1_africanDRONE_y4surg.jpg
 href: /projects/african-drone
 externalHref: https://codeforafrica.org
+partners:
+  - Code for All
+  - ICJF
+slug: african-drone
 badges:
   badge:
     - date: July 1st 2022
       name: The Press Award
     - date: July 1st 2022
       name: News Award
-partners:
-  - Code for All
-  - ICJF
 donors:
   - innovateAFRICA
   - World Bank

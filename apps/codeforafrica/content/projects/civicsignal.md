@@ -1,6 +1,6 @@
 ---
+id: 7e3a1ef1-576d-4428-824d-a12fa774519d
 name: CivicSignal
-slug: civic-signal
 tagLine: Africa media ecosystem
 title: Empowering citizens through <span class="highlight">drone technology</span>
 subtitle: AfricanDRONE brings together communities of drone operators,
@@ -19,6 +19,11 @@ thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg
 href: /projects/civic-signal
 externalHref: https://codeforafrica.org
+partners:
+  - Deutsche Welle
+  - Pulitzer Center
+  - The World Bank
+slug: civic-signal
 badges:
   badge:
     - date: July 1st 2022
@@ -27,10 +32,6 @@ badges:
       name: Award 2
     - date: July 1st 2022
       name: Award 3
-partners:
-  - Deutsche Welle
-  - Pulitzer Center
-  - The World Bank
 donors:
   - World Bank
   - Drone Deployed

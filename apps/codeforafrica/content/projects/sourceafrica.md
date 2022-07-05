@@ -1,6 +1,6 @@
 ---
+id: afcfdec9-99d7-4f2c-8bdb-964159c0676d
 name: sourceAfrica
-slug: source-africa
 tagLine: Actionable documents
 title: Empowering citizens through <span class="highlight">drone technology</span>
 subtitle: AfricanDRONE brings together communities of drone operators,
@@ -19,6 +19,10 @@ thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg
 href: /projects/source-africa
 externalHref: https://codeforafrica.org
+partners:
+  - Meta
+  - The World Bank
+slug: source-africa
 badges:
   badge:
     - date: July 1st 2022
@@ -27,9 +31,6 @@ badges:
       name: Award 2
     - date: July 1st 2022
       name: Award 3
-partners:
-  - Meta
-  - The World Bank
 donors:
   - World Bank
 links:

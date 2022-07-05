@@ -1,6 +1,6 @@
 ---
+id: 31626677-0bc8-49cb-a2e6-1d7e5504d1fe
 name: PesaCheck
-slug: pesa-check
 tagLine: Africa fact-checking
 title: Africa’s largest **indigenous fact-checking** organisation
 subtitle: PesaCheck, a pioneering verification initiative, debunks misleading
@@ -21,6 +21,11 @@ thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg
 href: /projects/pesa-check
 externalHref: https://codeforafrica.org
+partners:
+  - Code for All
+  - Google News Initiatives
+  - Meta
+slug: pesa-check
 badges:
   badge:
     - date: July 1st 2022
@@ -29,10 +34,6 @@ badges:
       name: Award2
     - date: July 1st 2022
       name: Award3
-partners:
-  - Code for All
-  - Google News Initiatives
-  - Meta
 donors:
   - innovateAFRICA
   - World Bank
