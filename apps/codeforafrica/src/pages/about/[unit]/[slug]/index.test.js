@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Index from "./[slug].page";
+import Index from "./index.page";
 
 import theme from "@/codeforafrica/theme";
 
@@ -21,7 +21,7 @@ const defaultProps = {
   sections: [],
 };
 
-describe("<Pages/About/Members/[Slug] />", () => {
+describe("<Pages/About/[Unit]/[Slug] />", () => {
   it("renders unchanged", () => {
     const { container } = render(<Index {...defaultProps} />);
     expect(container).toMatchSnapshot();

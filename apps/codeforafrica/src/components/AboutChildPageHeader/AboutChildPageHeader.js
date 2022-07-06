@@ -8,6 +8,9 @@ import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 const Background = styled(TwoToneBackground, {
   slot: "Root",
 })(({ theme }) => ({
+  display: "flex",
+  height: 300,
+  alignItems: "center",
   "&:before": {
     // Override [0, md) down leaving [md, ∞) untouched.
     [theme.breakpoints.down("md")]: {
@@ -28,15 +31,16 @@ const MemberFigureRoot = styled("figure")(({ theme }) => ({
   },
 }));
 
-const AboutMemberPageHeader = React.forwardRef(function AboutMemberPageHeader(
+const AboutChildPageHeader = React.forwardRef(function AboutChildPageHeader(
   props,
   ref
 ) {
-  const { FigureProps, name, sx, thumbnail, title } = props;
+  const { FigureProps, image: imageProp, name, sx, thumbnail, title } = props;
 
   if (!(name || thumbnail)) {
     return null;
   }
+  const image = thumbnail || imageProp;
   const { sx: figureSxProp } = FigureProps || {};
   return (
     <Background ref={ref}>
@@ -63,7 +67,7 @@ const AboutMemberPageHeader = React.forwardRef(function AboutMemberPageHeader(
             <MemberFigureRoot
               {...FigureProps}
               sx={{
-                background: `url(${thumbnail.src})`,
+                background: `url(${image.src})`,
                 backgroundBlendMode: "luminosity",
                 backgroundSize: "cover",
                 ...figureSxProp,
@@ -88,4 +92,4 @@ const AboutMemberPageHeader = React.forwardRef(function AboutMemberPageHeader(
   );
 });
 
-export default AboutMemberPageHeader;
+export default AboutChildPageHeader;

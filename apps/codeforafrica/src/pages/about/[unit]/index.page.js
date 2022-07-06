@@ -6,7 +6,7 @@ import OurTeam from "@/codeforafrica/components/OurTeam";
 import Page from "@/codeforafrica/components/Page";
 import { getPageStaticProps } from "@/codeforafrica/lib";
 
-function Index({ sections, ...props }) {
+function Index({ crumbs, sections, ...props }) {
   return (
     <Page {...props}>
       {sections?.map((section) => {
@@ -15,7 +15,13 @@ function Index({ sections, ...props }) {
             return <GetInTouch {...section} key={section.slug} />;
           }
           case "hero": {
-            return <AboutPageHeader {...section} crumbs key={section.slug} />;
+            return (
+              <AboutPageHeader
+                {...section}
+                crumbs={crumbs}
+                key={section.slug}
+              />
+            );
           }
           case "our-team": {
             return (
@@ -37,8 +43,19 @@ function Index({ sections, ...props }) {
   );
 }
 
-export async function getStaticProps() {
-  return getPageStaticProps({ slug: "/about/members" });
+export async function getStaticPaths() {
+  const paths = ["members", "partners"].map((unit) => ({
+    params: { unit },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params: { unit } }) {
+  return getPageStaticProps({ slug: `/about/${unit}` });
 }
 
 export default Index;
