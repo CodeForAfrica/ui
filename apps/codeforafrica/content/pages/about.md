@@ -82,4 +82,23 @@ guiding_principles:
         strengthens the local ecosystem by investing in and working through
         these partnerships.
       image: /icons/About%20icon6.png
+impact:
+  - impact:
+      title: Initiatives
+      description: Code for Africa has lorem ipsum dolor sit amet consectetur
+        adipiscing elit gravida sociosqu, nisl aliquet.
+      count: "15"
+      image: /icons/initiatives.svg
+  - impact:
+      title: Staff members
+      description: Code for Africa has lorem ipsum dolor sit amet consectetur
+        adipiscing elit gravida sociosqu, nisl aliquet.
+      count: "88"
+      image: /icons/staff.svg
+  - impact:
+      title: Countries we operate in
+      description: Code for Africa has lorem ipsum dolor sit amet consectetur
+        adipiscing elit gravida sociosqu, nisl aliquet.
+      count: 18+
+      image: /icons/international.svg
 ---

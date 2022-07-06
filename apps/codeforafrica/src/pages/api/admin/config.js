@@ -147,6 +147,42 @@ module.exports = {
                 },
               ],
             },
+            {
+              label: "Our Impact",
+              name: "impact",
+              label_singular: "Impact",
+              widget: "list",
+              fields: [
+                {
+                  label: "Impact",
+                  name: "impact",
+                  widget: "object",
+                  file: "content/pages/impact.md",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "text",
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "markdown",
+                    },
+                    {
+                      label: "Count",
+                      name: "count",
+                      widget: "text",
+                    },
+                    {
+                      label: "Image",
+                      name: "image",
+                      widget: "image",
+                    },
+                  ],
+                },
+              ],
+            },
           ],
         },
       ],
