@@ -11,7 +11,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
       Our Mission
     </div>
     <div
-      class="MuiTypography-root MuiTypography-h4 css-njvznj-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h4 css-xcefz8-MuiTypography-root"
     >
       Code for Africa is the continent’s largest network of civic technology and data journalism labs, with teams in 20 countries.
     </div>

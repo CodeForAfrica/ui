@@ -14,7 +14,7 @@ exports[`<AboutPageHeader /> renders unchanged 1`] = `
         About Us
       </h2>
       <h2
-        class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-1cn0m2o-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-o0tdgt-MuiTypography-root"
       >
         We are Africa’s largest network of civic technology and data journalism labs
       </h2>

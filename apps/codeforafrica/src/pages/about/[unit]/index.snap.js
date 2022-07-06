@@ -137,7 +137,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
         About Us
       </h2>
       <h2
-        class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-1cn0m2o-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-o0tdgt-MuiTypography-root"
       >
         We are Africa’s largest network of civic technology and data journalism labs
       </h2>
@@ -823,7 +823,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
         class="css-163ljxj-MuiStack-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-h2 css-b7ai5n-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 css-eyv6vo-MuiTypography-root"
         >
           Are you looking to start a new project?
         </div>

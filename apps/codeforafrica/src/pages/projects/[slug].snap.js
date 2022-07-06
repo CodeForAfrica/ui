@@ -260,7 +260,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
               </div>
             </div>
             <div
-              class="MuiTypography-root MuiTypography-h4 css-1klaq6f-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h4 css-1ptgzlo-MuiTypography-root"
             >
               Empowering citizens through 
               <span

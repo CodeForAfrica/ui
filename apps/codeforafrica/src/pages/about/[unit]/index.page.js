@@ -2,6 +2,7 @@ import React from "react";
 
 import AboutPageHeader from "@/codeforafrica/components/AboutPageHeader";
 import GetInTouch from "@/codeforafrica/components/GetInTouch";
+import OurPartners from "@/codeforafrica/components/OurPartners";
 import OurTeam from "@/codeforafrica/components/OurTeam";
 import Page from "@/codeforafrica/components/Page";
 import { getPageStaticProps } from "@/codeforafrica/lib";
@@ -22,6 +23,9 @@ function Index({ crumbs, sections, ...props }) {
                 key={section.slug}
               />
             );
+          }
+          case "our-partners": {
+            return <OurPartners {...section} key={section.slug} />;
           }
           case "our-team": {
             return (

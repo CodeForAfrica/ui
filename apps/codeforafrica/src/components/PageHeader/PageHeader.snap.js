@@ -14,7 +14,7 @@ exports[`<PageHeader /> renders unchanged 1`] = `
         Contact
       </h2>
       <h2
-        class="MuiTypography-root MuiTypography-h2 css-b7ai5n-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2 css-eyv6vo-MuiTypography-root"
       >
         Let’s start something together!
       </h2>

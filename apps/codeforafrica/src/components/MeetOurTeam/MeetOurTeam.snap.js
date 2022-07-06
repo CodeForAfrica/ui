@@ -15,7 +15,7 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-qq6rd1-MuiGrid-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 css-eapopy-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-l3hq4w-MuiTypography-root"
           >
             title
           </h2>

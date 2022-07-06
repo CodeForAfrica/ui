@@ -137,7 +137,7 @@ exports[`<Pages/Imprint /> renders unchanged 1`] = `
         Imprint
       </h2>
       <h2
-        class="MuiTypography-root MuiTypography-h2 css-b7ai5n-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2 css-eyv6vo-MuiTypography-root"
       >
         Code for Africa organisation structure
       </h2>
