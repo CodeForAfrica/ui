@@ -22,9 +22,10 @@ thumbnail:
 href: /projects/pesa-check
 externalHref: https://codeforafrica.org
 partners:
-  - Code for All
-  - Google News Initiatives
-  - Meta
+  - daa2a622-0277-44be-b302-dbc703f89522
+  - 34cbbb42-0124-4973-bce2-b05d6ec84c1b
+  - f26f59e7-444e-4e9f-b0cc-8f75b90165d8
+  - 91f54886-c49c-40f1-bcc1-a1ceef755581
 slug: pesa-check
 badges:
   badge:

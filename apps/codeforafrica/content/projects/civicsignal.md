@@ -20,9 +20,9 @@ thumbnail:
 href: /projects/civic-signal
 externalHref: https://codeforafrica.org
 partners:
-  - Deutsche Welle
-  - Pulitzer Center
-  - The World Bank
+  - daa2a622-0277-44be-b302-dbc703f89522
+  - e90b7786-69b3-4694-9ee9-d9c21dc80287
+  - 1079f9ae-0fbd-472b-bbfb-518145c28b1d
 slug: civic-signal
 badges:
   badge:
@@ -33,8 +33,8 @@ badges:
     - date: July 1st 2022
       name: Award 3
 donors:
-  - World Bank
-  - Drone Deployed
+  - f67426f2-9338-43cc-85c3-0782420eb623
+  - f690fb82-9baa-4e31-a4b2-d57ffad43874
 links:
   links:
     - slug: civicsignal
@@ -45,7 +45,7 @@ links:
         on analysis by human experts, using machine learning tools and ‘big
         data’ resources
 team:
-  - Jacobo Ottaviani
+  - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
 link:
   title: CivicSignal
   href: https://civicsignal.africa/
