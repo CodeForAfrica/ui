@@ -33,7 +33,8 @@ donors:
   - innovateAFRICA
   - World Bank
 team:
-  - Jacobo Ottaviani
+  - 24c487bd-ba84-42df-825e-b11a532786ad
+  - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
 link:
   title: africanDRONE
   href: africanDRONE

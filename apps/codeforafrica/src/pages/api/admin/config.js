@@ -349,7 +349,7 @@ module.exports = {
           label_singular: "Team Member",
           collection: "team",
           search_fields: ["name"],
-          value_field: "name",
+          value_field: "id",
           display_fields: ["name"],
           multiple: true,
         },
@@ -406,8 +406,8 @@ module.exports = {
       ],
     },
     {
-      name: "team",
       label: "Data | Team",
+      name: "team",
       label_singular: "Team Member",
       folder: "content/team",
       create: true,
