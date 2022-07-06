@@ -39,4 +39,9 @@ links:
       href: https://sourceafrica.net/
       content: sourceAFRICA is an investigative tool developed and maintained by
         Africa’s largest association of investigative newsrooms, ANCIR.
+team:
+  - Jacobo Ottaviani
+link:
+  title: sourceAfrica
+  href: sourceAfrica
 ---

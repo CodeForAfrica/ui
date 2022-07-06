@@ -40,4 +40,9 @@ links:
     - slug: github
       content: GitHub
       href: https://github.com/CodeForAfrica
+team:
+  - Jacobo Ottaviani
+link:
+  title: WanaData
+  href: WanaData
 ---

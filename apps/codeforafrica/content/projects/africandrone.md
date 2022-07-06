@@ -32,4 +32,9 @@ badges:
 donors:
   - innovateAFRICA
   - World Bank
+team:
+  - Jacobo Ottaviani
+link:
+  title: africanDRONE
+  href: africanDRONE
 ---

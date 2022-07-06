@@ -44,4 +44,9 @@ links:
         ecosystem and emerging civic technology sector. Our insights are based
         on analysis by human experts, using machine learning tools and ‘big
         data’ resources
+team:
+  - Jacobo Ottaviani
+link:
+  title: CivicSignal
+  href: https://civicsignal.africa/
 ---
