@@ -158,32 +158,12 @@ module.exports = {
               label: "Guiding Principles",
               name: "guiding_principles",
               label_singular: "Guiding Principle",
-              widget: "list",
-              fields: [
-                {
-                  label: "Principle",
-                  name: "principle",
-                  widget: "object",
-                  file: "content/pages/guiding_principles.md",
-                  fields: [
-                    {
-                      label: "Title",
-                      name: "title",
-                      widget: "text",
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "markdown",
-                    },
-                    {
-                      label: "Image",
-                      name: "image",
-                      widget: "image",
-                    },
-                  ],
-                },
-              ],
+              widget: "relation",
+              collection: "guiding_principles",
+              search_fields: ["title"],
+              value_field: "id",
+              display_fields: ["title"],
+              multiple: true,
             },
             {
               label: "Our Impact",
@@ -239,8 +219,8 @@ module.exports = {
       ],
     },
     {
-      name: "projects",
       label: "Data | Projects",
+      name: "projects",
       folder: "content/projects",
       create: true,
       label_singular: "Project",
@@ -510,6 +490,55 @@ module.exports = {
             {
               label: "Meta",
               name: "meta",
+              widget: "text",
+              required: false,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Data | Guiding Principles",
+      name: "guiding_principles",
+      label_singular: "Guiding Principle",
+      folder: "content/guiding_principles",
+      create: true,
+      identifier_field: "title",
+      fields: [
+        {
+          label: "Id",
+          name: "id",
+          widget: "uuid",
+        },
+        {
+          label: "Title",
+          name: "title",
+          widget: "text",
+        },
+        {
+          label: "Description",
+          name: "description",
+          widget: "markdown",
+        },
+        {
+          label: "Image",
+          name: "image",
+          widget: "object",
+          fields: [
+            {
+              label: "Source",
+              name: "src",
+              widget: "image",
+            },
+            {
+              label: "Height",
+              name: "height",
+              widget: "text",
+              required: false,
+            },
+            {
+              label: "Width",
+              name: "width",
               widget: "text",
               required: false,
             },
