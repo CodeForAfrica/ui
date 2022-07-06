@@ -1,8 +1,6 @@
 ---
 id: 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
-name: |-
-
-  Johnny Miller
+name: Johnny Miller
 title: Co-Founder of africanDRONE
 description: Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et
   rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis
