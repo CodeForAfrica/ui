@@ -116,6 +116,37 @@ module.exports = {
                 },
               ],
             },
+            {
+              label: "Guiding Principles",
+              name: "guiding_principles",
+              label_singular: "Guiding Principle",
+              widget: "list",
+              fields: [
+                {
+                  label: "Principle",
+                  name: "principle",
+                  widget: "object",
+                  file: "content/pages/guiding_principles.md",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "text",
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "markdown",
+                    },
+                    {
+                      label: "Image",
+                      name: "image",
+                      widget: "image",
+                    },
+                  ],
+                },
+              ],
+            },
           ],
         },
       ],
