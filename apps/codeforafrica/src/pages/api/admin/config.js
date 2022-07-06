@@ -440,7 +440,31 @@ module.exports = {
         {
           label: "Image",
           name: "image",
-          widget: "image",
+          widget: "object",
+          fields: [
+            {
+              label: "Source",
+              name: "src",
+              widget: "image",
+            },
+            {
+              label: "Height",
+              name: "height",
+              widget: "number",
+              required: false,
+            },
+            {
+              label: "Width",
+              name: "width",
+              widget: "number",
+              required: false,
+            },
+          ],
+        },
+        {
+          label: "Href",
+          name: "href",
+          widget: "text",
         },
         {
           label: "Projects",
