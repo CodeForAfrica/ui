@@ -9,8 +9,11 @@ const Background = styled(TwoToneBackground, {
   slot: "Root",
 })(({ theme }) => ({
   display: "flex",
-  height: 300,
+  minHeight: 350,
   alignItems: "center",
+  [theme.breakpoints.up("md")]: {
+    minHeight: 300,
+  },
   "&:before": {
     // Override [0, md) down leaving [md, ∞) untouched.
     [theme.breakpoints.down("md")]: {
