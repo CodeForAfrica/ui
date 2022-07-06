@@ -21,7 +21,6 @@ module.exports = {
               label: "Hero",
               name: "hero",
               widget: "object",
-              collapsed: true,
               fields: [
                 {
                   label: "Title",
@@ -65,12 +64,22 @@ module.exports = {
               ],
             },
             {
+              label: "Projects",
+              name: "projects",
+              widget: "relation",
+              collection: "projects",
+              search_fields: ["name"],
+              value_field: "id",
+              display_fields: ["name"],
+              multiple: true,
+            },
+            {
               label: "Partners",
               name: "partners",
               widget: "relation",
               collection: "partners",
               search_fields: ["name"],
-              value_field: "logo.src",
+              value_field: "id",
               display_fields: ["name"],
               multiple: true,
             },

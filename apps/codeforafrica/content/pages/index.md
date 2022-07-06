@@ -9,15 +9,21 @@ hero:
     empower citizens.
   image:
     src: http://localhost:3002/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fcode-for-africa%2Fimage%2Fupload%2Fv1653902690%2Fcodeforafrica%2Fimages%2FGroup_4429_shcof8.png&w=1080&q=75
+projects:
+  - 14fdf60f-2928-4776-b208-6641e8413f74
+  - 7e3a1ef1-576d-4428-824d-a12fa774519d
+  - afcfdec9-99d7-4f2c-8bdb-964159c0676d
+  - 07f3259e-2379-4850-83b8-85cacde0fcb8
+  - 31626677-0bc8-49cb-a2e6-1d7e5504d1fe
 partners:
-  - https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/afd_urdyat.png
-  - https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/code-for-all_l2vmvq.png
-  - https://res.cloudinary.com/code-for-africa/image/upload/v1652880226/codeforafrica/images/logos/dw_isxfhn.png
-  - https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/google-news-initiatives_wigxyj.png
-  - https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/giz_sx5mja.png
-  - https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/meta_fkcccg.png
-  - https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/pulitzer-center_gkg9s2.png
-  - https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/the-world-bank_lbksih.png
-  - https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/icjf_o8asj2.png
-  - https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/unesco_hvtpwf.png
+  - 2945aa1b-b0ce-472f-b25e-2da67608b961
+  - 2b3e8830-3a6c-4e2e-9748-646c57208830
+  - daa2a622-0277-44be-b302-dbc703f89522
+  - 72d8a49c-b8e8-440d-8032-fad10b5a708b
+  - 1079f9ae-0fbd-472b-bbfb-518145c28b1d
+  - 91f54886-c49c-40f1-bcc1-a1ceef755581
+  - 34cbbb42-0124-4973-bce2-b05d6ec84c1b
+  - f26f59e7-444e-4e9f-b0cc-8f75b90165d8
+  - e90b7786-69b3-4694-9ee9-d9c21dc80287
+  - aa280d47-ee0c-4cf7-93aa-1fbe1a087439
 ---
