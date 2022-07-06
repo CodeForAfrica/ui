@@ -83,6 +83,16 @@ module.exports = {
               display_fields: ["name"],
               multiple: true,
             },
+            {
+              label: "Our Impact",
+              name: "impact",
+              widget: "relation",
+              collection: "impact",
+              search_fields: ["title"],
+              value_field: "id",
+              display_fields: ["title"],
+              multiple: true,
+            },
           ],
         },
         {

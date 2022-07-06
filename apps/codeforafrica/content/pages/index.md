@@ -26,4 +26,8 @@ partners:
   - f26f59e7-444e-4e9f-b0cc-8f75b90165d8
   - e90b7786-69b3-4694-9ee9-d9c21dc80287
   - aa280d47-ee0c-4cf7-93aa-1fbe1a087439
+impact:
+  - f1538b03-86bf-4933-9b15-3dfe0e087189
+  - 8044304a-265f-4f33-b9b2-8fb59596f38d
+  - 8f429fcb-deea-463f-8605-992ea0fc74a8
 ---
