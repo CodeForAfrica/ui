@@ -151,37 +151,12 @@ module.exports = {
               label: "Our Impact",
               name: "impact",
               label_singular: "Impact",
-              widget: "list",
-              fields: [
-                {
-                  label: "Impact",
-                  name: "impact",
-                  widget: "object",
-                  file: "content/pages/impact.md",
-                  fields: [
-                    {
-                      label: "Title",
-                      name: "title",
-                      widget: "text",
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "markdown",
-                    },
-                    {
-                      label: "Count",
-                      name: "count",
-                      widget: "text",
-                    },
-                    {
-                      label: "Image",
-                      name: "image",
-                      widget: "image",
-                    },
-                  ],
-                },
-              ],
+              widget: "relation",
+              collection: "impact",
+              search_fields: ["title"],
+              value_field: "id",
+              display_fields: ["title"],
+              multiple: true,
             },
           ],
         },
@@ -497,6 +472,60 @@ module.exports = {
             {
               label: "Meta",
               name: "meta",
+              widget: "text",
+              required: false,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Data | Our Impact",
+      name: "impact",
+      label_singular: "Impact",
+      folder: "content/our_impact",
+      create: true,
+      identifier_field: "title",
+      fields: [
+        {
+          label: "Id",
+          name: "id",
+          widget: "uuid",
+        },
+        {
+          label: "Title",
+          name: "title",
+          widget: "text",
+        },
+        {
+          label: "Description",
+          name: "description",
+          widget: "markdown",
+        },
+        {
+          label: "Count",
+          name: "count",
+          widget: "text",
+        },
+        {
+          label: "Image",
+          name: "image",
+          widget: "object",
+          fields: [
+            {
+              label: "Source",
+              name: "src",
+              widget: "image",
+            },
+            {
+              label: "Height",
+              name: "height",
+              widget: "text",
+              required: false,
+            },
+            {
+              label: "Width",
+              name: "width",
               widget: "text",
               required: false,
             },

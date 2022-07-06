@@ -83,22 +83,7 @@ guiding_principles:
         these partnerships.
       image: /icons/About%20icon6.png
 impact:
-  - impact:
-      title: Initiatives
-      description: Code for Africa has lorem ipsum dolor sit amet consectetur
-        adipiscing elit gravida sociosqu, nisl aliquet.
-      count: "15"
-      image: /icons/initiatives.svg
-  - impact:
-      title: Staff members
-      description: Code for Africa has lorem ipsum dolor sit amet consectetur
-        adipiscing elit gravida sociosqu, nisl aliquet.
-      count: "88"
-      image: /icons/staff.svg
-  - impact:
-      title: Countries we operate in
-      description: Code for Africa has lorem ipsum dolor sit amet consectetur
-        adipiscing elit gravida sociosqu, nisl aliquet.
-      count: 18+
-      image: /icons/international.svg
+  - f1538b03-86bf-4933-9b15-3dfe0e087189
+  - 8f429fcb-deea-463f-8605-992ea0fc74a8
+  - 8044304a-265f-4f33-b9b2-8fb59596f38d
 ---
