@@ -41,7 +41,26 @@ module.exports = {
                 {
                   label: "Image",
                   name: "image",
-                  widget: "image",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Src",
+                      name: "src",
+                      widget: "image",
+                    },
+                    {
+                      label: "Height",
+                      name: "height",
+                      widget: "text",
+                      required: false,
+                    },
+                    {
+                      label: "Width",
+                      name: "width",
+                      widget: "text",
+                      required: false,
+                    },
+                  ],
                 },
               ],
             },
@@ -76,7 +95,26 @@ module.exports = {
             {
               label: "Background Image",
               name: "background_image",
-              widget: "image",
+              widget: "object",
+              fields: [
+                {
+                  label: "Src",
+                  name: "src",
+                  widget: "image",
+                },
+                {
+                  label: "Height",
+                  name: "height",
+                  widget: "text",
+                  required: false,
+                },
+                {
+                  label: "Width",
+                  name: "width",
+                  widget: "text",
+                  required: false,
+                },
+              ],
             },
             {
               label: "Our Team",
