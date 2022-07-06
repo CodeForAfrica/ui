@@ -25,13 +25,8 @@ partners:
   - f26f59e7-444e-4e9f-b0cc-8f75b90165d8
 slug: source-africa
 badges:
-  badge:
-    - date: July 1st 2022
-      name: Award 1
-    - date: July 1st 2022
-      name: Award 2
-    - date: July 1st 2022
-      name: Award 3
+  id:
+    - 310e65d3-d608-4033-9284-5826412946bb
 donors:
   - f67426f2-9338-43cc-85c3-0782420eb623
   - f690fb82-9baa-4e31-a4b2-d57ffad43874

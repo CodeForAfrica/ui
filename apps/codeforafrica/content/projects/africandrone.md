@@ -25,11 +25,10 @@ partners:
   - 2945aa1b-b0ce-472f-b25e-2da67608b961
 slug: african-drone
 badges:
-  badge:
-    - date: July 1st 2022
-      name: The Press Award
-    - date: July 1st 2022
-      name: News Award
+  id:
+    - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
+    - 310e65d3-d608-4033-9284-5826412946bb
+    - cce4b68a-ad5e-428e-a9aa-849a8a7afb27
 donors:
   - 6e284474-3e72-46db-a669-ca510201a158
   - f67426f2-9338-43cc-85c3-0782420eb623
@@ -38,5 +37,5 @@ team:
   - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
 link:
   title: africanDRONE
-  href: africanDRONE
+  href: https://africanDRONE
 ---

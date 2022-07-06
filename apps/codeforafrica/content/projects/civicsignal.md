@@ -25,28 +25,15 @@ partners:
   - 1079f9ae-0fbd-472b-bbfb-518145c28b1d
 slug: civic-signal
 badges:
-  badge:
-    - date: July 1st 2022
-      name: Award 1
-    - date: July 1st 2022
-      name: Award 2
-    - date: July 1st 2022
-      name: Award 3
+  id:
+    - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
+    - cce4b68a-ad5e-428e-a9aa-849a8a7afb27
 donors:
   - f67426f2-9338-43cc-85c3-0782420eb623
   - f690fb82-9baa-4e31-a4b2-d57ffad43874
-links:
-  links:
-    - slug: civicsignal
-      href: https://civicsignal.africa/
-      content:
-        We give you actionable insights to help you navigate Africa’s media
-        ecosystem and emerging civic technology sector. Our insights are based
-        on analysis by human experts, using machine learning tools and ‘big
-        data’ resources
 team:
   - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
 link:
   title: CivicSignal
-  href: https://civicsignal.africa/
+  href: https://civicsignal.africa/https://civicsignal.africa/
 ---

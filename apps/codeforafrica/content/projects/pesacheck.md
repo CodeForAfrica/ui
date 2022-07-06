@@ -28,13 +28,9 @@ partners:
   - 91f54886-c49c-40f1-bcc1-a1ceef755581
 slug: pesa-check
 badges:
-  badge:
-    - date: July 1st 2022
-      name: Award1
-    - date: July 1st 2022
-      name: Award2
-    - date: July 1st 2022
-      name: Award3
+  id:
+    - cce4b68a-ad5e-428e-a9aa-849a8a7afb27
+    - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
 donors:
   - innovateAFRICA
   - World Bank

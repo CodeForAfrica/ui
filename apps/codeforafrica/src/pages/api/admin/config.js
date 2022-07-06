@@ -321,21 +321,13 @@ module.exports = {
           fields: [
             {
               label: "Badge",
-              name: "badge",
-              widget: "list",
-              fields: [
-                {
-                  label: "Name",
-                  name: "name",
-                  widget: "text",
-                },
-                {
-                  label: "Date",
-                  name: "date",
-                  widget: "datetime",
-                  format: "MMMM Do YYYY",
-                },
-              ],
+              name: "id",
+              widget: "relation",
+              collection: "badges",
+              search_fields: ["title"],
+              value_field: "id",
+              display_fields: ["title"],
+              multiple: true,
             },
           ],
         },
@@ -616,6 +608,37 @@ module.exports = {
               required: false,
             },
           ],
+        },
+      ],
+    },
+    {
+      label: "Data | Badges",
+      name: "badges",
+      label_singular: "Badge",
+      folder: "content/badges",
+      create: true,
+      identifier_field: "title",
+      fields: [
+        {
+          label: "Id",
+          name: "id",
+          widget: "uuid",
+        },
+        {
+          label: "Title",
+          name: "title",
+          widget: "text",
+        },
+        {
+          label: "Description",
+          name: "description",
+          widget: "markdown",
+        },
+        {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "MMMM Do YYYY",
         },
       ],
     },

@@ -28,9 +28,10 @@ partners:
   - 91f54886-c49c-40f1-bcc1-a1ceef755581
 slug: wana-data
 badges:
-  badge:
-    - date: June 30th 2022
-      name: Award Name
+  id:
+    - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
+    - cce4b68a-ad5e-428e-a9aa-849a8a7afb27
+    - 310e65d3-d608-4033-9284-5826412946bb
 donors:
   - f690fb82-9baa-4e31-a4b2-d57ffad43874
   - f67426f2-9338-43cc-85c3-0782420eb623
