@@ -10,6 +10,6 @@ test.describe("/about/[unit]/[slug]", () => {
   test("[unit]=partners,[slug]=meta", async ({ page }) => {
     await page.goto("/about/partners/meta");
     const title = await page.title();
-    expect(title).toBe("Meta | Members | About | Code for Africa");
+    expect(title).toBe("Meta | Partners | About | Code for Africa");
   });
 });
