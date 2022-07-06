@@ -728,64 +728,83 @@ const articles = [
 
 export const partners = [
   {
+    slug: "meta",
     name: "Meta",
+    description: `<p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat.</p> 
+      <p>Duis maecenas per erat odio quisque accumsan, donec tempus class euismod vulputate fermentum imperdiet, suspendisse blandit lacinia semper cursus. Neque tristique posuere a feugiat convallis tempor cras nunc, leo faucibus cum aptent placerat aenean lobortis, nibh iaculis ac nascetur praesent mus quisque. Nullam leo rutrum augue urna cubilia morbi enim, arcu risus 
+      mus mauris elementum pulvinar, laoreet bibendum convallis senectus ullamcorper malesuada. Sapien congue tristique venenatis cras cum quisque et conubia felis lobortis, velit ullamcorper urna pharetra fermentum class tincidunt turpis placerat, porttitor senectus massa ridiculus semper vivamus at enim inceptos. Senectus cum torquent blandit odio class in, nullam sodales 
+      dapibus eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</p> `,
     logo: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/meta_fkcccg.png",
     },
+    href: "https://codeforafrica.org",
   },
   {
+    slug: "google-news-initiatives",
     name: "Google News Initiatives",
     logo: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/google-news-initiatives_wigxyj.png",
     },
+    href: "https://codeforafrica.org",
   },
   {
+    slug: "afd",
     name: "AFD",
     logo: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/afd_urdyat.png",
     },
+    href: "https://codeforafrica.org",
   },
   {
+    slug: "deutsche-welle",
     name: "Deutsche Welle",
     logo: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880226/codeforafrica/images/logos/dw_isxfhn.png",
     },
   },
   {
+    slug: "giz",
     name: "GIZ",
     logo: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/giz_sx5mja.png",
     },
   },
   {
+    slug: "world-bank",
     name: "The World Bank",
     logo: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/the-world-bank_lbksih.png",
     },
   },
   {
+    slug: "pulitzer-center",
     name: "Pulitzer Center",
     logo: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/pulitzer-center_gkg9s2.png",
     },
   },
   {
+    slug: "unesco",
     name: "Unesco",
     logo: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/unesco_hvtpwf.png",
     },
   },
   {
+    slug: "icjf",
     name: "ICJF",
     logo: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/icjf_o8asj2.png",
     },
+    href: "https://codeforafrica.org",
   },
   {
+    slug: "code-for-all",
     name: "Code for All",
     logo: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/code-for-all_l2vmvq.png",
     },
+    href: "https://codeforafrica.org",
   },
 ];
 
@@ -1327,7 +1346,7 @@ function getHomePageStaticProps() {
         {
           slug: "our-partners",
           title:
-            'We’ve partnered with <span class="highlight">100+ organisations</span> including',
+            'We’ve partnered with <a href="/about/partners">100+ organisations</a> including',
           partners,
         },
         {
@@ -1430,6 +1449,36 @@ function getImprintPageStaticProps() {
     },
     revalidate: DEFAULT_REVALIDATE,
   };
+}
+
+function getPartnerPageStaticProps(params) {
+  const partner = partners.find(
+    ({ slug }) =>
+      `/about/partners/${slug}`.localeCompare(params?.slug, undefined, {
+        sensitivity: "accent",
+      }) === 0
+  );
+  if (partner) {
+    const startIndex = getRandomInt(projects.length - 3);
+    return {
+      props: {
+        title: `${partner.name} | Partners | About | Code for Africa`,
+        partner: { ...partner, image: partner.logo, title: "Partner" },
+        sections: [
+          {
+            slug: "related-projects",
+            title: "Projects",
+            projects: projects.slice(startIndex, startIndex + 3),
+          },
+        ],
+        footer,
+        navbar,
+      },
+      revalidate: DEFAULT_REVALIDATE,
+    };
+  }
+
+  return { notFound: true };
 }
 
 function getPrivacyPageStaticProps() {
@@ -1540,7 +1589,9 @@ function getStoryPageStaticProps(params) {
 function getAboutMembersPageStaticProps() {
   return {
     props: {
+      unit: "members",
       title: "Members | About | Code for Africa",
+      crumbs: [{ href: "/about", label: "About us" }, { label: "Members" }],
       sections: [
         {
           slug: "hero",
@@ -1611,6 +1662,44 @@ function getAboutPageStaticProps() {
           slug: "impact",
           title: "Our impact in numbers",
           initiatives: initiativesAbout,
+        },
+        {
+          slug: "get-in-touch",
+          title: "Are you looking to start a new project?",
+          subtitle: "We'd love to hear more.",
+          action: {
+            href: "/contact",
+            label: "Get in touch",
+          },
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
+function getAboutPartnersPageStaticProps() {
+  return {
+    props: {
+      unit: "partners",
+      title: "Partners | About | Code for Africa",
+      crumbs: [{ href: "/about", label: "About us" }, { label: "Partners" }],
+      sections: [
+        {
+          slug: "hero",
+          title: "About Us",
+          subtitle:
+            "We are Africa’s largest network of civic technology and data journalism labs",
+          image: {
+            src: "https://res.cloudinary.com/code-for-africa/image/upload/v1656064173/codeforafrica/images/1_IgrT4_1tGZh1WnpYzvZN1A_1_twneqf.jpg",
+          },
+        },
+        {
+          slug: "our-partners",
+          title: "Our partners",
+          partners,
         },
         {
           slug: "get-in-touch",
@@ -1760,6 +1849,9 @@ export async function getPageStaticProps(params) {
     case "/about/members": {
       return getAboutMembersPageStaticProps(params);
     }
+    case "/about/partners": {
+      return getAboutPartnersPageStaticProps(params);
+    }
     case "/contact": {
       return getContactPageStaticProps(params);
     }
@@ -1781,6 +1873,9 @@ export async function getPageStaticProps(params) {
     default:
       if (params?.slug?.startsWith("/about/members/")) {
         return getTeamMemberPageStaticProps(params);
+      }
+      if (params?.slug?.startsWith("/about/partners/")) {
+        return getPartnerPageStaticProps(params);
       }
       if (params?.slug?.startsWith("/opportunities/")) {
         return getOpportunityPageStaticProps(params);
