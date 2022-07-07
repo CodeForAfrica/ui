@@ -20,23 +20,26 @@ thumbnail:
 href: /projects/source-africa
 externalHref: https://codeforafrica.org
 partners:
-  - Meta
-  - The World Bank
+  - daa2a622-0277-44be-b302-dbc703f89522
+  - 34cbbb42-0124-4973-bce2-b05d6ec84c1b
+  - f26f59e7-444e-4e9f-b0cc-8f75b90165d8
 slug: source-africa
 badges:
-  badge:
-    - date: July 1st 2022
-      name: Award 1
-    - date: July 1st 2022
-      name: Award 2
-    - date: July 1st 2022
-      name: Award 3
+  id:
+    - 310e65d3-d608-4033-9284-5826412946bb
 donors:
-  - World Bank
+  - f67426f2-9338-43cc-85c3-0782420eb623
+  - f690fb82-9baa-4e31-a4b2-d57ffad43874
 links:
   links:
     - slug: source-africa
       href: https://sourceafrica.net/
       content: sourceAFRICA is an investigative tool developed and maintained by
         Africa’s largest association of investigative newsrooms, ANCIR.
+team:
+  - 24c487bd-ba84-42df-825e-b11a532786ad
+  - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
+link:
+  title: sourceAfrica
+  href: sourceAfrica
 ---

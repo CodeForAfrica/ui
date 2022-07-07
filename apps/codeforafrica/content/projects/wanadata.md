@@ -23,15 +23,18 @@ thumbnail:
 href: /projects/wana-data
 externalHref: https://codeforafrica.org
 partners:
-  - AFD
-  - Pulitzer Center
+  - 2945aa1b-b0ce-472f-b25e-2da67608b961
+  - 2b3e8830-3a6c-4e2e-9748-646c57208830
+  - 91f54886-c49c-40f1-bcc1-a1ceef755581
 slug: wana-data
 badges:
-  badge:
-    - date: June 30th 2022
-      name: Award Name
+  id:
+    - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
+    - cce4b68a-ad5e-428e-a9aa-849a8a7afb27
+    - 310e65d3-d608-4033-9284-5826412946bb
 donors:
-  - innovateAFRICA
+  - f690fb82-9baa-4e31-a4b2-d57ffad43874
+  - f67426f2-9338-43cc-85c3-0782420eb623
 links:
   links:
     - slug: data
@@ -40,4 +43,9 @@ links:
     - slug: github
       content: GitHub
       href: https://github.com/CodeForAfrica
+team:
+  - 24c487bd-ba84-42df-825e-b11a532786ad
+link:
+  title: WanaData
+  href: WanaData
 ---

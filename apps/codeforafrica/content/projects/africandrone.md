@@ -20,16 +20,22 @@ thumbnail:
 href: /projects/african-drone
 externalHref: https://codeforafrica.org
 partners:
-  - Code for All
-  - ICJF
+  - daa2a622-0277-44be-b302-dbc703f89522
+  - 34cbbb42-0124-4973-bce2-b05d6ec84c1b
+  - 2945aa1b-b0ce-472f-b25e-2da67608b961
 slug: african-drone
 badges:
-  badge:
-    - date: July 1st 2022
-      name: The Press Award
-    - date: July 1st 2022
-      name: News Award
+  id:
+    - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
+    - 310e65d3-d608-4033-9284-5826412946bb
+    - cce4b68a-ad5e-428e-a9aa-849a8a7afb27
 donors:
-  - innovateAFRICA
-  - World Bank
+  - 6e284474-3e72-46db-a669-ca510201a158
+  - f67426f2-9338-43cc-85c3-0782420eb623
+team:
+  - 24c487bd-ba84-42df-825e-b11a532786ad
+  - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
+link:
+  title: africanDRONE
+  href: https://africanDRONE
 ---

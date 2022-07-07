@@ -22,19 +22,21 @@ thumbnail:
 href: /projects/pesa-check
 externalHref: https://codeforafrica.org
 partners:
-  - Code for All
-  - Google News Initiatives
-  - Meta
+  - daa2a622-0277-44be-b302-dbc703f89522
+  - 34cbbb42-0124-4973-bce2-b05d6ec84c1b
+  - f26f59e7-444e-4e9f-b0cc-8f75b90165d8
+  - 91f54886-c49c-40f1-bcc1-a1ceef755581
 slug: pesa-check
 badges:
-  badge:
-    - date: July 1st 2022
-      name: Award1
-    - date: July 1st 2022
-      name: Award2
-    - date: July 1st 2022
-      name: Award3
+  id:
+    - cce4b68a-ad5e-428e-a9aa-849a8a7afb27
+    - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
 donors:
   - innovateAFRICA
   - World Bank
+team:
+  - Jacobo Ottaviani
+link:
+  title: PesaCheck
+  href: PesaCheck
 ---
