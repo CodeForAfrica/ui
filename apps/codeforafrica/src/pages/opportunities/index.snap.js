@@ -137,7 +137,7 @@ exports[`<Pages/Opportunities /> renders unchanged 1`] = `
         Opportunities
       </h2>
       <h2
-        class="MuiTypography-root MuiTypography-h2 css-b7ai5n-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2 css-eyv6vo-MuiTypography-root"
       >
         Come build digital democracies with Code for Africa
       </h2>

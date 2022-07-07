@@ -5,14 +5,11 @@ import React from "react";
 import Breadcrumbs from "@/codeforafrica/components/Breadcrumbs";
 
 const AboutPageHeader = React.forwardRef(function AboutPageHeader(props, ref) {
-  const { crumbs: crumbsProp, image: imageProp, title, subtitle } = props;
+  const { crumbs, image: imageProp, title, subtitle } = props;
 
   if (!(title || subtitle)) {
     return null;
   }
-  const crumbs = crumbsProp
-    ? [{ href: "/about", label: "About us" }, { label: "Members" }]
-    : undefined;
   const crumbsLineHeight = crumbs?.length ? 23 : 0;
   const image = imageProp?.src || imageProp;
   return (

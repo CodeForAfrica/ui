@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AboutMemberPageHeader /> renders unchanged 1`] = `
+exports[`<AboutChildPageHeader /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-h16mw8"
+    class="MuiBox-root css-1dmumqp"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-h42qkr-MuiContainer-root"
@@ -22,7 +22,7 @@ exports[`<AboutMemberPageHeader /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item css-u2r8gx-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h1 css-18opb7b-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 css-19766wr-MuiTypography-root"
           >
             Jacobo Ottaviani
           </div>

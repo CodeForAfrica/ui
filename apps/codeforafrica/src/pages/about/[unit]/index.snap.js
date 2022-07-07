@@ -129,48 +129,15 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
     class="MuiBox-root css-1owuob1"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-kj1rau-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-17rh705-MuiContainer-root"
     >
-      <nav
-        class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-xgckuc-MuiTypography-root-MuiBreadcrumbs-root"
-      >
-        <ol
-          class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
-        >
-          <li
-            class="MuiBreadcrumbs-li"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-1xj2ue7-MuiTypography-root-MuiLink-root"
-              href="/about"
-            >
-              About us
-            </a>
-          </li>
-          <li
-            aria-hidden="true"
-            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-          >
-            /
-          </li>
-          <li
-            class="MuiBreadcrumbs-li"
-          >
-            <div
-              class="MuiTypography-root MuiTypography-body1 css-n624xw-MuiTypography-root"
-            >
-              Members
-            </div>
-          </li>
-        </ol>
-      </nav>
       <h2
         class="MuiTypography-root MuiTypography-h5ExtraBold css-8npfhu-MuiTypography-root"
       >
         About Us
       </h2>
       <h2
-        class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-1cn0m2o-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-o0tdgt-MuiTypography-root"
       >
         We are Africa’s largest network of civic technology and data journalism labs
       </h2>
@@ -856,7 +823,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
         class="css-163ljxj-MuiStack-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-h2 css-b7ai5n-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 css-eyv6vo-MuiTypography-root"
         >
           Are you looking to start a new project?
         </div>

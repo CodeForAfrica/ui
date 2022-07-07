@@ -1,17 +1,35 @@
 import { RichTypography, Section } from "@commons-ui/core";
 import React from "react";
 
-import AboutMemberPageHeader from "@/codeforafrica/components/AboutMemberPageHeader";
+import AboutChildPageHeader from "@/codeforafrica/components/AboutChildPageHeader";
 import Page from "@/codeforafrica/components/Page";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
 import ShareThisPage from "@/codeforafrica/components/ShareThisPage";
-import { team, getPageStaticProps } from "@/codeforafrica/lib";
+import { getPageStaticProps, partners, team } from "@/codeforafrica/lib";
 
-function Index({ member, sections, ...props }) {
+function Index({ member, partner, sections, ...props }) {
+  const item = member || partner;
+
   return (
     <Page {...props}>
-      <AboutMemberPageHeader {...member} />
+      <AboutChildPageHeader
+        {...item}
+        FigureProps={{
+          ...(partner && {
+            sx: {
+              backgroundPositionY: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "contain",
+              bgcolor: "background.default",
+              borderRadius: 0,
+              filter: "drop-shadow(0px 8.7px 17.4px rgba(0, 0, 0, 0.1))",
+              height: { xs: 116 },
+              width: { xs: 247 },
+            },
+          }),
+        }}
+      />
       <Section
         sx={{
           px: { xs: 2.5, sm: 0 },
@@ -29,7 +47,7 @@ function Index({ member, sections, ...props }) {
             typography: "subheading",
           }}
         >
-          {member?.description}
+          {item?.description}
         </RichTypography>
         <ShareThisPage
           spacing="17px"
@@ -78,17 +96,21 @@ function Index({ member, sections, ...props }) {
 }
 
 export async function getStaticPaths() {
-  const paths = team.map(({ slug }) => ({
-    params: { slug },
+  const partnersPaths = partners.map(({ slug }) => ({
+    params: { unit: "partners", slug },
   }));
+  const teamPaths = team.map(({ slug }) => ({
+    params: { unit: "members", slug },
+  }));
+
   return {
-    paths,
+    paths: [...partnersPaths, ...teamPaths],
     fallback: false,
   };
 }
 
-export async function getStaticProps({ params: { slug } }) {
-  return getPageStaticProps({ slug: `/about/members/${slug}` });
+export async function getStaticProps({ params: { unit, slug } }) {
+  return getPageStaticProps({ slug: `/about/${unit}/${slug}` });
 }
 
 export default Index;

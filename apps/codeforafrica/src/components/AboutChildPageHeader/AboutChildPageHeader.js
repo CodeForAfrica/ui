@@ -8,6 +8,12 @@ import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 const Background = styled(TwoToneBackground, {
   slot: "Root",
 })(({ theme }) => ({
+  display: "flex",
+  minHeight: 350,
+  alignItems: "center",
+  [theme.breakpoints.up("md")]: {
+    minHeight: 300,
+  },
   "&:before": {
     // Override [0, md) down leaving [md, ∞) untouched.
     [theme.breakpoints.down("md")]: {
@@ -28,15 +34,17 @@ const MemberFigureRoot = styled("figure")(({ theme }) => ({
   },
 }));
 
-const AboutMemberPageHeader = React.forwardRef(function AboutMemberPageHeader(
+const AboutChildPageHeader = React.forwardRef(function AboutChildPageHeader(
   props,
   ref
 ) {
-  const { name, sx, thumbnail, title } = props;
+  const { FigureProps, image: imageProp, name, sx, thumbnail, title } = props;
 
   if (!(name || thumbnail)) {
     return null;
   }
+  const image = thumbnail || imageProp;
+  const { sx: figureSxProp } = FigureProps || {};
   return (
     <Background ref={ref}>
       <Section
@@ -60,16 +68,19 @@ const AboutMemberPageHeader = React.forwardRef(function AboutMemberPageHeader(
         >
           <Grid item order={{ xs: 0, md: 1 }}>
             <MemberFigureRoot
+              {...FigureProps}
               sx={{
-                background: `url(${thumbnail.src})`,
+                background: `url(${image.src})`,
                 backgroundBlendMode: "luminosity",
                 backgroundSize: "cover",
+                ...figureSxProp,
               }}
             />
           </Grid>
           <Grid item order={{ xs: 1, md: 0 }}>
             <RichTypography
               sx={{
+                maxWidth: { md: 383 },
                 paddingBottom: 2.5,
               }}
               variant="h1"
@@ -84,4 +95,4 @@ const AboutMemberPageHeader = React.forwardRef(function AboutMemberPageHeader(
   );
 });
 
-export default AboutMemberPageHeader;
+export default AboutChildPageHeader;

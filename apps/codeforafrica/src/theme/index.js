@@ -51,7 +51,7 @@ const theme = createTheme({
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
       fontWeight: 700,
-      lineHeight: 60 / 72,
+      lineHeight: 72 / 60,
       letterSpacing: "-0.04em",
     },
     h1: {
@@ -246,8 +246,8 @@ deepmerge(
       },
     },
     h2: {
-      fontSize: pxToRem(23),
-      lineHeight: 28 / 23,
+      fontSize: pxToRem(33),
+      lineHeight: 40 / 33,
       [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(39),
         lineHeight: 47 / 39,
