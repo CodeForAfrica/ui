@@ -200,6 +200,173 @@ module.exports = {
       ],
     },
     {
+      label: "Data | Badges",
+      name: "badges",
+      label_singular: "Badge",
+      folder: "content/badges",
+      create: true,
+      identifier_field: "title",
+      fields: [
+        {
+          label: "Id",
+          name: "id",
+          widget: "uuid",
+        },
+        {
+          label: "Title",
+          name: "title",
+          widget: "string",
+        },
+        {
+          label: "Description",
+          name: "description",
+          widget: "markdown",
+        },
+        {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "MMMM Do YYYY",
+        },
+      ],
+    },
+    {
+      name: "donors",
+      label: "Data | Donors",
+      label_singular: "Donor",
+      folder: "content/donors",
+      create: true,
+      identifier_field: "name",
+      fields: [
+        {
+          label: "Id",
+          name: "id",
+          widget: "uuid",
+        },
+        {
+          label: "Name",
+          name: "name",
+          widget: "string",
+        },
+        {
+          label: "Logo",
+          name: "logo",
+          widget: "object",
+          fields: [
+            {
+              label: "Source",
+              name: "src",
+              widget: "image",
+              required: false,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Data | Guiding Principles",
+      name: "guiding_principles",
+      label_singular: "Guiding Principle",
+      folder: "content/guiding_principles",
+      create: true,
+      identifier_field: "title",
+      fields: [
+        {
+          label: "Id",
+          name: "id",
+          widget: "uuid",
+        },
+        {
+          label: "Title",
+          name: "title",
+          widget: "string",
+        },
+        {
+          label: "Description",
+          name: "description",
+          widget: "markdown",
+        },
+        {
+          label: "Image",
+          name: "image",
+          widget: "object",
+          fields: [
+            {
+              label: "Source",
+              name: "src",
+              widget: "image",
+            },
+            {
+              label: "Height",
+              name: "height",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Width",
+              name: "width",
+              widget: "string",
+              required: false,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Data | Our Impact",
+      name: "impact",
+      label_singular: "Impact",
+      folder: "content/our_impact",
+      create: true,
+      identifier_field: "title",
+      fields: [
+        {
+          label: "Id",
+          name: "id",
+          widget: "uuid",
+        },
+        {
+          label: "Title",
+          name: "title",
+          widget: "string",
+        },
+        {
+          label: "Description",
+          name: "description",
+          widget: "markdown",
+        },
+        {
+          label: "Count",
+          name: "count",
+          widget: "string",
+        },
+        {
+          label: "Image",
+          name: "image",
+          widget: "object",
+          fields: [
+            {
+              label: "Source",
+              name: "src",
+              widget: "image",
+            },
+            {
+              label: "Height",
+              name: "height",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Width",
+              name: "width",
+              widget: "string",
+              required: false,
+            },
+          ],
+        },
+      ],
+    },
+    {
       name: "partners",
       label: "Data | Partners",
       folder: "content/partners",
@@ -384,39 +551,6 @@ module.exports = {
       ],
     },
     {
-      name: "donors",
-      label: "Data | Donors",
-      label_singular: "Donor",
-      folder: "content/donors",
-      create: true,
-      identifier_field: "name",
-      fields: [
-        {
-          label: "Id",
-          name: "id",
-          widget: "uuid",
-        },
-        {
-          label: "Name",
-          name: "name",
-          widget: "string",
-        },
-        {
-          label: "Logo",
-          name: "logo",
-          widget: "object",
-          fields: [
-            {
-              label: "Source",
-              name: "src",
-              widget: "image",
-              required: false,
-            },
-          ],
-        },
-      ],
-    },
-    {
       label: "Data | Team",
       name: "team",
       label_singular: "Team Member",
@@ -505,140 +639,6 @@ module.exports = {
               required: false,
             },
           ],
-        },
-      ],
-    },
-    {
-      label: "Data | Guiding Principles",
-      name: "guiding_principles",
-      label_singular: "Guiding Principle",
-      folder: "content/guiding_principles",
-      create: true,
-      identifier_field: "title",
-      fields: [
-        {
-          label: "Id",
-          name: "id",
-          widget: "uuid",
-        },
-        {
-          label: "Title",
-          name: "title",
-          widget: "string",
-        },
-        {
-          label: "Description",
-          name: "description",
-          widget: "markdown",
-        },
-        {
-          label: "Image",
-          name: "image",
-          widget: "object",
-          fields: [
-            {
-              label: "Source",
-              name: "src",
-              widget: "image",
-            },
-            {
-              label: "Height",
-              name: "height",
-              widget: "string",
-              required: false,
-            },
-            {
-              label: "Width",
-              name: "width",
-              widget: "string",
-              required: false,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: "Data | Our Impact",
-      name: "impact",
-      label_singular: "Impact",
-      folder: "content/our_impact",
-      create: true,
-      identifier_field: "title",
-      fields: [
-        {
-          label: "Id",
-          name: "id",
-          widget: "uuid",
-        },
-        {
-          label: "Title",
-          name: "title",
-          widget: "string",
-        },
-        {
-          label: "Description",
-          name: "description",
-          widget: "markdown",
-        },
-        {
-          label: "Count",
-          name: "count",
-          widget: "string",
-        },
-        {
-          label: "Image",
-          name: "image",
-          widget: "object",
-          fields: [
-            {
-              label: "Source",
-              name: "src",
-              widget: "image",
-            },
-            {
-              label: "Height",
-              name: "height",
-              widget: "string",
-              required: false,
-            },
-            {
-              label: "Width",
-              name: "width",
-              widget: "string",
-              required: false,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: "Data | Badges",
-      name: "badges",
-      label_singular: "Badge",
-      folder: "content/badges",
-      create: true,
-      identifier_field: "title",
-      fields: [
-        {
-          label: "Id",
-          name: "id",
-          widget: "uuid",
-        },
-        {
-          label: "Title",
-          name: "title",
-          widget: "string",
-        },
-        {
-          label: "Description",
-          name: "description",
-          widget: "markdown",
-        },
-        {
-          label: "Date",
-          name: "date",
-          widget: "datetime",
-          format: "MMMM Do YYYY",
         },
       ],
     },
