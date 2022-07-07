@@ -35,7 +35,7 @@ module.exports = {
                 {
                   label: "Subtitle",
                   name: "subtitle",
-                  widget: "text",
+                  widget: "string",
                 },
                 {
                   label: "Image",
@@ -50,13 +50,13 @@ module.exports = {
                     {
                       label: "Height",
                       name: "height",
-                      widget: "text",
+                      widget: "string",
                       required: false,
                     },
                     {
                       label: "Width",
                       name: "width",
-                      widget: "text",
+                      widget: "string",
                       required: false,
                     },
                   ],
@@ -104,7 +104,7 @@ module.exports = {
             {
               label: "Title",
               name: "title",
-              widget: "text",
+              widget: "string",
             },
             {
               label: "Subtitle",
@@ -124,13 +124,13 @@ module.exports = {
                 {
                   label: "Height",
                   name: "height",
-                  widget: "text",
+                  widget: "string",
                   required: false,
                 },
                 {
                   label: "Width",
                   name: "width",
-                  widget: "text",
+                  widget: "string",
                   required: false,
                 },
               ],
@@ -215,12 +215,12 @@ module.exports = {
         {
           label: "Name",
           name: "name",
-          widget: "text",
+          widget: "string",
         },
         {
           label: "Href",
           name: "href",
-          widget: "text",
+          widget: "string",
           required: false,
         },
         {
@@ -253,12 +253,12 @@ module.exports = {
         {
           label: "Name",
           name: "name",
-          widget: "text",
+          widget: "string",
         },
         {
           label: "Tag Line",
           name: "tagLine",
-          widget: "text",
+          widget: "string",
         },
         {
           label: "Title",
@@ -278,7 +278,7 @@ module.exports = {
         {
           label: "Category",
           name: "category",
-          widget: "text",
+          widget: "string",
         },
         {
           label: "Icon",
@@ -307,12 +307,12 @@ module.exports = {
         {
           label: "URL",
           name: "href",
-          widget: "text",
+          widget: "string",
         },
         {
           label: "External URL",
           name: "externalHref",
-          widget: "text",
+          widget: "string",
         },
         {
           label: "Badges",
@@ -372,12 +372,12 @@ module.exports = {
             {
               label: "Title",
               name: "title",
-              widget: "text",
+              widget: "string",
             },
             {
               label: "Href",
               name: "href",
-              widget: "text",
+              widget: "string",
             },
           ],
         },
@@ -399,7 +399,7 @@ module.exports = {
         {
           label: "Name",
           name: "name",
-          widget: "text",
+          widget: "string",
         },
         {
           label: "Logo",
@@ -432,12 +432,12 @@ module.exports = {
         {
           label: "Name",
           name: "name",
-          widget: "text",
+          widget: "string",
         },
         {
           label: "Title",
           name: "title",
-          widget: "markdown",
+          widget: "string",
         },
         {
           label: "Description",
@@ -457,13 +457,13 @@ module.exports = {
             {
               label: "Height",
               name: "height",
-              widget: "text",
+              widget: "string",
               required: false,
             },
             {
               label: "Width",
               name: "width",
-              widget: "text",
+              widget: "string",
               required: false,
             },
           ],
@@ -471,7 +471,7 @@ module.exports = {
         {
           label: "Href",
           name: "href",
-          widget: "text",
+          widget: "string",
         },
         {
           name: "links",
@@ -483,25 +483,25 @@ module.exports = {
             {
               label: "Twitter",
               name: "twitter",
-              widget: "text",
+              widget: "string",
               required: false,
             },
             {
               label: "Github",
               name: "github",
-              widget: "text",
+              widget: "string",
               required: false,
             },
             {
               label: "LinkedIn",
               name: "linkedin",
-              widget: "text",
+              widget: "string",
               required: false,
             },
             {
               label: "Meta",
               name: "meta",
-              widget: "text",
+              widget: "string",
               required: false,
             },
           ],
@@ -524,7 +524,7 @@ module.exports = {
         {
           label: "Title",
           name: "title",
-          widget: "text",
+          widget: "string",
         },
         {
           label: "Description",
@@ -544,13 +544,13 @@ module.exports = {
             {
               label: "Height",
               name: "height",
-              widget: "text",
+              widget: "string",
               required: false,
             },
             {
               label: "Width",
               name: "width",
-              widget: "text",
+              widget: "string",
               required: false,
             },
           ],
@@ -573,7 +573,7 @@ module.exports = {
         {
           label: "Title",
           name: "title",
-          widget: "text",
+          widget: "string",
         },
         {
           label: "Description",
@@ -583,7 +583,7 @@ module.exports = {
         {
           label: "Count",
           name: "count",
-          widget: "text",
+          widget: "string",
         },
         {
           label: "Image",
@@ -598,13 +598,13 @@ module.exports = {
             {
               label: "Height",
               name: "height",
-              widget: "text",
+              widget: "string",
               required: false,
             },
             {
               label: "Width",
               name: "width",
-              widget: "text",
+              widget: "string",
               required: false,
             },
           ],
@@ -627,7 +627,7 @@ module.exports = {
         {
           label: "Title",
           name: "title",
-          widget: "text",
+          widget: "string",
         },
         {
           label: "Description",
