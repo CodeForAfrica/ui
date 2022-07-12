@@ -197,6 +197,85 @@ module.exports = {
             },
           ],
         },
+        {
+          label: "Contact Us",
+          name: "contact",
+          widget: "object",
+          file: "content/pages/contact.md",
+          fields: [
+            {
+              label: "Title",
+              name: "title",
+              widget: "string",
+            },
+            {
+              label: "Subtitle",
+              name: "subtitle",
+              widget: "string",
+            },
+            {
+              label: "Join Us",
+              name: "join_us",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "string",
+                },
+                {
+                  label: "Action",
+                  name: "action",
+                  widget: "string",
+                },
+                {
+                  label: "Icon",
+                  name: "icon",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Src",
+                      name: "src",
+                      widget: "image",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                    {
+                      label: "Height",
+                      name: "height",
+                      widget: "string",
+                      required: false,
+                    },
+                    {
+                      label: "Width",
+                      name: "width",
+                      widget: "string",
+                      required: false,
+                    },
+                  ],
+                },
+                {
+                  label: "Our Offices",
+                  name: "offices_addresses",
+                  widget: "relation",
+                  collection: "offices_addresses",
+                  search_fields: ["name"],
+                  value_field: "id",
+                  display_fields: ["name"],
+                  multiple: true,
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
     {
@@ -309,6 +388,31 @@ module.exports = {
               required: false,
             },
           ],
+        },
+      ],
+    },
+    {
+      label: "Data | Offices",
+      name: "offices_addresses",
+      label_singular: "Office",
+      folder: "content/offices",
+      create: true,
+      identifier_field: "name",
+      fields: [
+        {
+          label: "Id",
+          name: "id",
+          widget: "uuid",
+        },
+        {
+          label: "Name",
+          name: "name",
+          widget: "string",
+        },
+        {
+          label: "Address",
+          name: "address",
+          widget: "markdown",
         },
       ],
     },
