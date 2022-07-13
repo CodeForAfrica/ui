@@ -276,6 +276,419 @@ module.exports = {
             },
           ],
         },
+        {
+          label: "Footer",
+          name: "footer",
+          widget: "object",
+          file: "content/pages/footer.md",
+          fields: [
+            {
+              label: "Description",
+              name: "description",
+              widget: "text",
+            },
+            {
+              label: "Logo",
+              name: "logo",
+              widget: "object",
+              fields: [
+                {
+                  label: "Src",
+                  name: "src",
+                  widget: "image",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
+                },
+                {
+                  label: "Height",
+                  name: "height",
+                  widget: "string",
+                  required: false,
+                },
+                {
+                  label: "Width",
+                  name: "width",
+                  widget: "string",
+                  required: false,
+                },
+              ],
+            },
+            {
+              label: "Social Media",
+              name: "social_media",
+              widget: "object",
+              fields: [
+                {
+                  label: "Description",
+                  name: "description",
+                  widget: "string",
+                },
+                {
+                  label: "Twitter",
+                  name: "twitter",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Icon",
+                      name: "icon",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Src",
+                          name: "src",
+                          widget: "image",
+                        },
+                        {
+                          label: "Height",
+                          name: "height",
+                          widget: "string",
+                          required: false,
+                        },
+                        {
+                          label: "Width",
+                          name: "width",
+                          widget: "string",
+                          required: false,
+                        },
+                      ],
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
+                  label: "Facebook",
+                  name: "facebook",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Icon",
+                      name: "icon",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Src",
+                          name: "src",
+                          widget: "image",
+                        },
+                        {
+                          label: "Height",
+                          name: "height",
+                          widget: "string",
+                          required: false,
+                        },
+                        {
+                          label: "Width",
+                          name: "width",
+                          widget: "string",
+                          required: false,
+                        },
+                      ],
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
+                  label: "Instagram",
+                  name: "instagram",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Icon",
+                      name: "icon",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Src",
+                          name: "src",
+                          widget: "image",
+                        },
+                        {
+                          label: "Height",
+                          name: "height",
+                          widget: "string",
+                          required: false,
+                        },
+                        {
+                          label: "Width",
+                          name: "width",
+                          widget: "string",
+                          required: false,
+                        },
+                      ],
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
+                  label: "Github",
+                  name: "github",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Icon",
+                      name: "icon",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Src",
+                          name: "src",
+                          widget: "image",
+                        },
+                        {
+                          label: "Height",
+                          name: "height",
+                          widget: "string",
+                          required: false,
+                        },
+                        {
+                          label: "Width",
+                          name: "width",
+                          widget: "string",
+                          required: false,
+                        },
+                      ],
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
+                  label: "Linkedin",
+                  name: "linkedin",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Icon",
+                      name: "icon",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Src",
+                          name: "src",
+                          widget: "image",
+                        },
+                        {
+                          label: "Height",
+                          name: "height",
+                          widget: "string",
+                          required: false,
+                        },
+                        {
+                          label: "Width",
+                          name: "width",
+                          widget: "string",
+                          required: false,
+                        },
+                      ],
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
+                  label: "Slack",
+                  name: "slack",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Icon",
+                      name: "icon",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Src",
+                          name: "src",
+                          widget: "image",
+                        },
+                        {
+                          label: "Height",
+                          name: "height",
+                          widget: "string",
+                          required: false,
+                        },
+                        {
+                          label: "Width",
+                          name: "width",
+                          widget: "string",
+                          required: false,
+                        },
+                      ],
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: "Page Links",
+              name: "page_links",
+              widget: "object",
+              fields: [
+                {
+                  label: "Our Work",
+                  name: "our_work",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
+                  label: "About",
+                  name: "about",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
+                  label: "Stories",
+                  name: "stories",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
+                  label: "Opportunities",
+                  name: "opportunities",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
+                  label: "Contact",
+                  name: "contact",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
+                  label: "Sign Up",
+                  name: "sign_up",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
+                  label: "Imprint",
+                  name: "imprint",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
+                  label: "Privacy policy",
+                  name: "privacy_policy",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
     {
