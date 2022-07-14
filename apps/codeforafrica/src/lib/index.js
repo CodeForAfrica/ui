@@ -1457,11 +1457,8 @@ function getOpportunitiesPageStaticProps() {
 }
 
 function getOpportunityPageStaticProps(params) {
-  const opportunity = opportunities.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
+  const opportunity = opportunities.find(({ href }) =>
+    equalsIgnoreCase(href, params?.slug)
   );
   if (opportunity) {
     return {
@@ -1498,11 +1495,8 @@ function getImprintPageStaticProps() {
 }
 
 function getPartnerPageStaticProps(params) {
-  const partner = partners.find(
-    ({ slug }) =>
-      `/about/partners/${slug}`.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
+  const partner = partners.find(({ slug }) =>
+    equalsIgnoreCase(`/about/partners/${slug}`, params?.slug)
   );
   if (partner) {
     const startIndex = getRandomInt(projects.length - 3);
@@ -1547,11 +1541,8 @@ function getPrivacyPageStaticProps() {
 }
 
 function getProjectPageStaticProps(params) {
-  const project = projects.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
+  const project = projects.find(({ href }) =>
+    equalsIgnoreCase(href, params?.slug)
   );
   if (project) {
     return {
@@ -1604,11 +1595,8 @@ function getStoriesPageStaticProps() {
 }
 
 function getStoryPageStaticProps(params) {
-  const article = articles.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
+  const article = articles.find(({ href }) =>
+    equalsIgnoreCase(href, params?.slug)
   );
   if (article) {
     return {
@@ -1765,12 +1753,7 @@ function getAboutPartnersPageStaticProps() {
 }
 
 function getTeamMemberPageStaticProps(params) {
-  const member = team.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
-  );
+  const member = team.find(({ href }) => equalsIgnoreCase(href, params?.slug));
   if (member) {
     const startIndex = getRandomInt(projects.length - 3);
     return {
