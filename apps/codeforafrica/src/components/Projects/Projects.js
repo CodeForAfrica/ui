@@ -1,7 +1,10 @@
+/* eslint-env browser */
 import { Section } from "@commons-ui/core";
 import Stack from "@mui/material/Stack";
-import { styled } from "@mui/material/styles";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+
+import useProjects from "./useProjects";
 
 import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
 import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
@@ -11,67 +14,65 @@ import SearchInput from "@/codeforafrica/components/SearchInput";
 
 const ALL_CATEGORIES = "All";
 
-const ProjectsRoot = styled("div")({
-  scrollMarginTop: 32,
-});
-
-const computePagination = (allProjects, page, pageSize) => {
-  const count = Math.ceil(allProjects.length / pageSize);
-  const projects = allProjects.slice((page - 1) * pageSize, page * pageSize);
-  return { count, projects };
-};
-
-function Projects(props) {
-  const { projects = [], page: pageProp = 1, pageSize = 5, sx } = props;
-  const ref = useRef();
-  const [categories] = useState(() => {
-    return [
-      ALL_CATEGORIES,
-      ...new Set(projects?.flatMap((a) => a.category || [])),
-    ];
-  });
-  const [selectedCategory, setSelectedCateory] = useState(ALL_CATEGORIES);
+const Projects = React.forwardRef(function Projects(
+  {
+    categories,
+    projects: {
+      pagination: { count: countProp, page: pageProp = 1 },
+      results: resultsProp,
+    },
+    sx,
+  },
+  ref
+) {
+  const [category, setCategory] = useState(ALL_CATEGORIES);
+  const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);
-  const [pagination, setPagination] = useState(() => {
-    return computePagination(projects, page, pageSize);
-  });
-  const filteredProjects = useMemo(() => {
-    if (selectedCategory === ALL_CATEGORIES) {
-      return projects;
+  const [projects, setProjects] = useState(resultsProp);
+  const { query } = useRouter();
+  useEffect(() => {
+    // if (router.isReady) {
+    // const { query } = router;
+    if (query) {
+      const { page: initialPage, category: initialCategory } = query;
+      if (initialPage) {
+        setPage(Number.parseInt(initialPage, 10));
+      }
+      if (initialCategory) {
+        setCategory(initialPage);
+      }
     }
-    return projects.filter(
-      (p) =>
-        selectedCategory.localeCompare(p.category, undefined, {
-          sensitivity: "accent",
-        }) === 0
-    );
-  }, [projects, selectedCategory]);
-  const handleChangeCategory = (_, value) => {
-    // default to ALL_CATEGORIES if no value is provided e.g. when deselecting
-    // a chip
-    const newCategory = value || ALL_CATEGORIES;
-    setSelectedCateory(newCategory);
-    // Category change should reset page to 1
+    // }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
+
+  const handleChangeChoice = (_, value) => {
+    const newValue = value || ALL_CATEGORIES;
+    setCategory(newValue);
     setPage(1);
   };
-  const handlePageChange = (_, value) => {
+
+  const handleChangePage = (_, value) => {
     setPage(value);
-    if (ref.current) {
-      ref.current.scrollIntoView();
-    }
   };
 
+  const { data } = useProjects({ category, page });
   useEffect(() => {
-    setPagination(computePagination(filteredProjects, page, pageSize));
-  }, [filteredProjects, page, pageSize]);
+    if (data) {
+      const { results, pagination } = data;
+      setCount(pagination.count);
+      setProjects([...results]);
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [data]);
 
   const hasProjects = projects?.length > 0;
   return (
-    <ProjectsRoot ref={ref}>
+    <>
       <Section
         sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 2.5, md: 8, lg: 9 }, ...sx }}
+        ref={ref}
       >
-        {/* There will always be at least ALL category */}
         <Stack
           direction={{ xs: "column", sm: "row" }}
           justifyContent="space-between"
@@ -88,34 +89,36 @@ function Projects(props) {
               width: { xs: "auto", sm: "200px" },
             }}
           />
+          {/* There will always be at least ALL category */}
           <ChoiceChipGroup
             color="default"
-            onChange={handleChangeCategory}
-            value={selectedCategory}
+            onChange={handleChangeChoice}
+            value={category}
             sx={{
               order: { xs: 1, sm: 0 },
             }}
           >
-            {categories.map((tag) => (
+            {categories?.map((tag) => (
               <ChoiceChip label={tag} value={tag} key={tag} />
             ))}
           </ChoiceChipGroup>
         </Stack>
         {hasProjects ? (
           <Stack direction="column" spacing={{ xs: 5, md: 7.5 }}>
-            {pagination.projects.map((project) => (
+            {projects.map((project) => (
               <ProjectCard {...project} key={project.slug} />
             ))}
           </Stack>
         ) : null}
       </Section>
       <NextPreviousPagination
-        key={selectedCategory}
-        count={pagination.count}
-        onChange={handlePageChange}
+        // key={selectedCategory}
+        count={count}
+        onChange={handleChangePage}
+        page={page}
       />
-    </ProjectsRoot>
+    </>
   );
-}
+});
 
 export default Projects;
