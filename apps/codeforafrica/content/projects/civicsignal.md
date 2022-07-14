@@ -2,17 +2,17 @@
 id: 7e3a1ef1-576d-4428-824d-a12fa774519d
 name: CivicSignal
 tagLine: Africa media ecosystem
-title: Empowering citizens through <span class="highlight">drone technology</span>
-subtitle: AfricanDRONE brings together communities of drone operators,
-  enthusiasts, journalists, activists, and entrepreneurs in Africa who use
-  drones for good.
-description: This award-winning initiative works to give citizens a new
-  perspective on their lives. Using drone technology, africanDRONE empowers
-  local pilots through a self-help network that offers seed funding, skills
-  development, resource sharing, advocacy, and networking opportunities for
-  members. The goal is to support the evolution of a vibrant and diverse drone
-  ecosystem across Africa.
-category: Projects
+title: |
+  Understanding <span class="highlight">Africa's Digital </span> Democracies
+subtitle: We give you actionable insights to help you navigate Africa’s media
+  ecosystem and emerging civic technology sector. Our insights are based on
+  analysis by human experts, using machine learning tools and ‘big data’
+  resources.
+description: We give you actionable insights to help you navigate Africa’s media
+  ecosystem and emerging civic technology sector. Our insights are based on
+  analysis by human experts, using machine learning tools and ‘big data’
+  resources.
+category: Products
 icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_CivicSignal_ayzj31.svg
 thumbnail:
@@ -33,7 +33,13 @@ donors:
   - f690fb82-9baa-4e31-a4b2-d57ffad43874
 team:
   - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
-link:
-  title: CivicSignal
-  href: https://civicsignal.africa/https://civicsignal.africa/
+links:
+  - link:
+      content: CivicSignal
+      href: https://civicsignal.africa/
+      slug: data
+  - link:
+      href: https://github.com/CodeForAfrica
+      content: Github
+      slug: github
 ---

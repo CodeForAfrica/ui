@@ -12,7 +12,7 @@ description: This award-winning initiative works to give citizens a new
   development, resource sharing, advocacy, and networking opportunities for
   members. The goal is to support the evolution of a vibrant and diverse drone
   ecosystem across Africa.
-category: Projects
+category: Products
 icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg
 thumbnail:
@@ -30,16 +30,16 @@ badges:
 donors:
   - f67426f2-9338-43cc-85c3-0782420eb623
   - f690fb82-9baa-4e31-a4b2-d57ffad43874
-links:
-  links:
-    - slug: source-africa
-      href: https://sourceafrica.net/
-      content: sourceAFRICA is an investigative tool developed and maintained by
-        Africa’s largest association of investigative newsrooms, ANCIR.
 team:
   - 24c487bd-ba84-42df-825e-b11a532786ad
   - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
-link:
-  title: sourceAfrica
-  href: sourceAfrica
+links:
+  - link:
+      content: Launch Project
+      href: https://sourceafrica.net/
+      slug: data
+  - link:
+      content: GitHub
+      href: https://github.com/CodeForAfrica
+      slug: github
 ---

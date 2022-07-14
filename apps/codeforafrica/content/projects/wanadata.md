@@ -15,7 +15,7 @@ description: <p>WanaData is a Pan-African network of female data scientists,
   visualisation, artificial intelligence, audience engagement strategies, social
   videos, drone journalism and other innovative approaches, to enhance news
   content on the continent.</p>
-category: Projects
+category: Knowledge
 icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_WanaData_neqwtm.svg
 thumbnail:
@@ -23,7 +23,6 @@ thumbnail:
 href: /projects/wana-data
 externalHref: https://codeforafrica.org
 partners:
-  - 2945aa1b-b0ce-472f-b25e-2da67608b961
   - 2b3e8830-3a6c-4e2e-9748-646c57208830
   - 91f54886-c49c-40f1-bcc1-a1ceef755581
 slug: wana-data
@@ -35,17 +34,15 @@ badges:
 donors:
   - f690fb82-9baa-4e31-a4b2-d57ffad43874
   - f67426f2-9338-43cc-85c3-0782420eb623
-links:
-  links:
-    - slug: data
-      content: Launch Project
-      href: https://codeforafrica.org
-    - slug: github
-      content: GitHub
-      href: https://github.com/CodeForAfrica
 team:
   - 24c487bd-ba84-42df-825e-b11a532786ad
-link:
-  title: WanaData
-  href: WanaData
+links:
+  - link:
+      content: WanaData
+      href: https://codeforkenya.org/wanadata/
+      slug: data
+  - link:
+      content: Github
+      href: https://github.com/CodeForAfrica
+      slug: github
 ---

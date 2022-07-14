@@ -2,7 +2,9 @@
 id: 31626677-0bc8-49cb-a2e6-1d7e5504d1fe
 name: PesaCheck
 tagLine: Africa fact-checking
-title: Africa’s largest **indigenous fact-checking** organisation
+title: >
+  Africa’s largest <span class="highlight">indigenous fact-checking</span>
+  organisation
 subtitle: PesaCheck, a pioneering verification initiative, debunks misleading
   claims with full-time fact-checkers in 15 African countries.
 description: >-
@@ -14,7 +16,7 @@ description: >-
 
 
   <p>PesaCheck fact-checks in two international languages (English and French), as well as major African languages such as Kiswahili and Amharic. Our network helps track political promises by politicians (through our Wajibisha/PromiseTracker toolkit), helps unpack budget and census data (through our PesaYetu and TaxClock platforms), and builds machine learning/artificial intelligence tools (such as DebunkBot) to help automate verification.</p>
-category: Projects
+category: Initiatives
 icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_PesaCheck_rmswvg.svg
 thumbnail:
@@ -36,7 +38,13 @@ donors:
   - World Bank
 team:
   - Jacobo Ottaviani
-link:
-  title: PesaCheck
-  href: PesaCheck
+links:
+  - link:
+      content: PesaCheck
+      href: https://pesacheck.org/
+      slug: data
+  - link:
+      href: https://github.com/CodeForAfrica
+      content: Github
+      slug: github
 ---

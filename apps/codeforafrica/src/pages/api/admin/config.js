@@ -284,7 +284,6 @@ module.exports = {
       label_singular: "Badge",
       folder: "content/badges",
       create: true,
-      identifier_field: "title",
       fields: [
         {
           label: "Id",
@@ -292,8 +291,8 @@ module.exports = {
           widget: "uuid",
         },
         {
-          label: "Title",
-          name: "title",
+          label: "Name",
+          name: "name",
           widget: "string",
         },
         {
@@ -595,9 +594,9 @@ module.exports = {
               name: "id",
               widget: "relation",
               collection: "badges",
-              search_fields: ["title"],
+              search_fields: ["name"],
               value_field: "id",
-              display_fields: ["title"],
+              display_fields: ["name"],
               multiple: true,
             },
           ],
@@ -636,19 +635,31 @@ module.exports = {
           multiple: true,
         },
         {
-          name: "link",
-          label: "Link",
-          widget: "object",
+          name: "links",
+          label: "Links",
+          widget: "list",
           fields: [
             {
-              label: "Title",
-              name: "title",
-              widget: "string",
-            },
-            {
-              label: "Href",
-              name: "href",
-              widget: "string",
+              label: "Link",
+              name: "link",
+              widget: "object",
+              fields: [
+                {
+                  label: "slug",
+                  name: "slug",
+                  widget: "string",
+                },
+                {
+                  label: "Content",
+                  name: "content",
+                  widget: "string",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
+                },
+              ],
             },
           ],
         },

@@ -2,7 +2,7 @@
 id: 14fdf60f-2928-4776-b208-6641e8413f74
 name: africanDRONE
 tagLine: Drones for good
-title: Empowering citizens through **drone technology**
+title: Empowering citizens through <span class="highlight">drone technology</span>
 subtitle: AfricanDRONE brings together communities of drone operators,
   enthusiasts, journalists, activists, and entrepreneurs in Africa who use
   drones for good.
@@ -27,7 +27,6 @@ slug: african-drone
 badges:
   id:
     - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
-    - 310e65d3-d608-4033-9284-5826412946bb
     - cce4b68a-ad5e-428e-a9aa-849a8a7afb27
 donors:
   - 6e284474-3e72-46db-a669-ca510201a158
@@ -35,7 +34,13 @@ donors:
 team:
   - 24c487bd-ba84-42df-825e-b11a532786ad
   - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
-link:
-  title: africanDRONE
-  href: https://africanDRONE
+links:
+  - link:
+      content: africanDRONE
+      href: https://africanDRONE
+      slug: data
+  - link:
+      href: https://github.com/CodeForAfrica
+      content: Github
+      slug: github
 ---
