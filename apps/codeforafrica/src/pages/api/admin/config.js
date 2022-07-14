@@ -299,6 +299,29 @@ module.exports = {
             },
           ],
         },
+        {
+          label: "Privacy Policy",
+          name: "privacy_policy",
+          widget: "object",
+          file: "content/pages/privacy_policy.md",
+          fields: [
+            {
+              label: "Title",
+              name: "title",
+              widget: "string",
+            },
+            {
+              label: "Subtitle",
+              name: "subtitle",
+              widget: "string",
+            },
+            {
+              label: "Content",
+              name: "content",
+              widget: "markdown",
+            },
+          ],
+        },
       ],
     },
     {
