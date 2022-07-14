@@ -41,6 +41,7 @@ importers:
       eslint-plugin-import: ^2.26.0
       fast-equals: ^4.0.1
       frontmatter-markdown-loader: ^3.7.0
+      gray-matter: ^4.0.3
       identity-obj-proxy: ^3.0.0
       jest: ^28.1.1
       jest-config-commons-ui: workspace:*
@@ -71,6 +72,7 @@ importers:
       "@mui/utils": 5.8.6_react@17.0.2
       fast-equals: 4.0.1
       frontmatter-markdown-loader: 3.7.0
+      gray-matter: 4.0.3
       js-yaml: 4.1.0
       next: 12.2.0_apvyc6hsquzbx56wwdowrbgkzm
       next-seo: 5.4.0_nsrodebypp3mcf7ihyfjqmpudu
@@ -10869,7 +10871,6 @@ packages:
     engines: { node: ">=0.10.0" }
     dependencies:
       is-extendable: 0.1.1
-    dev: true
 
   /extend-shallow/3.0.2:
     resolution:
@@ -11891,6 +11892,19 @@ packages:
       }
     dev: true
 
+  /gray-matter/4.0.3:
+    resolution:
+      {
+        integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==,
+      }
+    engines: { node: ">=6.0" }
+    dependencies:
+      js-yaml: 3.14.1
+      kind-of: 6.0.3
+      section-matter: 1.0.0
+      strip-bom-string: 1.0.0
+    dev: false
+
   /handlebars/4.7.7:
     resolution:
       {
@@ -12853,7 +12867,6 @@ packages:
         integrity: sha512-5BMULNob1vgFX6EjQw5izWDxrecWK9AM72rugNr0TFldMOi0fj6Jk+zeKIt0xGj4cEfQIJth4w3OKWOJ4f+AFw==,
       }
     engines: { node: ">=0.10.0" }
-    dev: true
 
   /is-extendable/1.0.1:
     resolution:
@@ -14262,7 +14275,6 @@ packages:
         integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==,
       }
     engines: { node: ">=0.10.0" }
-    dev: true
 
   /kleur/3.0.3:
     resolution:
@@ -18138,6 +18150,17 @@ packages:
       ajv-keywords: 3.5.2_ajv@6.12.6
     dev: true
 
+  /section-matter/1.0.0:
+    resolution:
+      {
+        integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==,
+      }
+    engines: { node: ">=4" }
+    dependencies:
+      extend-shallow: 2.0.1
+      kind-of: 6.0.3
+    dev: false
+
   /semver/5.7.1:
     resolution:
       {
@@ -18969,6 +18992,14 @@ packages:
     dependencies:
       ansi-regex: 6.0.1
     dev: true
+
+  /strip-bom-string/1.0.0:
+    resolution:
+      {
+        integrity: sha512-uCC2VHvQRYu+lMh4My/sFNmF2klFymLX1wHJeXnbEJERpV/ZsVuonzerjfrGpIGF7LBVa1O7i9kjiWvJiFck8g==,
+      }
+    engines: { node: ">=0.10.0" }
+    dev: false
 
   /strip-bom/2.0.0:
     resolution:
