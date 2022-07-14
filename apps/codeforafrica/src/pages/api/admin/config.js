@@ -276,6 +276,29 @@ module.exports = {
             },
           ],
         },
+        {
+          label: "Imprint",
+          name: "imprint",
+          widget: "object",
+          file: "content/pages/imprint.md",
+          fields: [
+            {
+              label: "Title",
+              name: "title",
+              widget: "string",
+            },
+            {
+              label: "Subtitle",
+              name: "subtitle",
+              widget: "string",
+            },
+            {
+              label: "Content",
+              name: "content",
+              widget: "markdown",
+            },
+          ],
+        },
       ],
     },
     {
