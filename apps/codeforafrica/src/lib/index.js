@@ -1,3 +1,5 @@
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -1365,6 +1367,49 @@ function getHomePageStaticProps() {
   };
 }
 
+function paginateResults(items, page = 1, pageSize = 6) {
+  let count = null;
+  let results = [];
+  if (items?.length) {
+    count = Math.ceil(items.length / pageSize);
+    results = items.slice((page - 1) * pageSize, page * pageSize);
+  }
+  return {
+    pagination: {
+      count,
+      page,
+      pageSize,
+    },
+    results,
+  };
+}
+
+const ALL_CATEGORIES = "All";
+
+export function getProjects(options) {
+  const {
+    category: originalCategory,
+    page,
+    "page-size": pageSize,
+  } = options || {};
+  const category = originalCategory || ALL_CATEGORIES;
+
+  const foundProjects = projects.filter(
+    (p) =>
+      equalsIgnoreCase(category, ALL_CATEGORIES) ||
+      equalsIgnoreCase(category, p.category)
+  );
+
+  return paginateResults(foundProjects, page, pageSize);
+}
+
+function getProjectCategories() {
+  return [
+    ALL_CATEGORIES,
+    ...new Set(projects?.flatMap((a) => a.category || [])),
+  ];
+}
+
 function getProjectsPageStaticProps() {
   return {
     props: {
@@ -1378,7 +1423,8 @@ function getProjectsPageStaticProps() {
         },
         {
           slug: "projects",
-          projects,
+          categories: getProjectCategories(),
+          projects: getProjects(),
         },
       ],
       footer,
