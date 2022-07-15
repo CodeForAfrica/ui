@@ -21,15 +21,21 @@ export default function getProjects(fields = []) {
     }
     if (fields.includes("partners")) {
       const partners = getPartners();
-      project.partners = partners.filter((partner) =>
-        collection.data.partners.includes(partner.id)
-      );
+      project.partners = {
+        title: "Partners",
+        list: partners.filter((partner) =>
+          collection.data.partners.includes(partner.id)
+        ),
+      };
     }
     if (fields.includes("donors")) {
       const donors = getDonors();
-      project.donors = donors.filter((donor) =>
-        collection.data.donors.includes(donor.id)
-      );
+      project.donors = {
+        title: "Donors",
+        list: donors.filter((donor) =>
+          collection.data.donors.includes(donor.id)
+        ),
+      };
     }
     if (fields.includes("links")) {
       project.links = collection.data.links.map(
