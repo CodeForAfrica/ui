@@ -3,18 +3,31 @@ hero:
   title: Empowering <span class="highlight">Africa</span> with
   messages:
     - civic technologies
-    - text-item 2
+    - research
     - skills development
   subtitle: We are an impact accelerator, using civic tech and open data to
     empower citizens.
   image:
-    src: http://localhost:3002/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fcode-for-africa%2Fimage%2Fupload%2Fv1653902690%2Fcodeforafrica%2Fimages%2FGroup_4429_shcof8.png&w=1080&q=75
+    src: https://res.cloudinary.com/code-for-africa/image/upload/v1653902690/codeforafrica/images/Group_4429_shcof8.png
 projects:
   - 14fdf60f-2928-4776-b208-6641e8413f74
   - 7e3a1ef1-576d-4428-824d-a12fa774519d
   - afcfdec9-99d7-4f2c-8bdb-964159c0676d
   - 07f3259e-2379-4850-83b8-85cacde0fcb8
   - 31626677-0bc8-49cb-a2e6-1d7e5504d1fe
+meet_our_team:
+  title: A truly pan-African team across the continent
+  description: >
+    Lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu,
+    nisl aliquet ullamcorper praesent bibendum volutpat sodales urna, ultrices
+    dui parturient vitae ac netus convallis integer. 
+
+    <br /><br />
+
+    Euismod posuere fusce mollis etiam himenaeos non aliquam nulla dis consequat ornare, velit odio condimentum augue felis na.
+  href: /about/members
+  image:
+    src: /images/Africa@2400x 1lg.png
 partners:
   - 2945aa1b-b0ce-472f-b25e-2da67608b961
   - 2b3e8830-3a6c-4e2e-9748-646c57208830
