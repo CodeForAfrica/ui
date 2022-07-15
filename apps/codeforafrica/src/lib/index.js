@@ -1,7 +1,7 @@
-import getPartners from "./getPartners";
-import getProjects from "./getProjects";
-import getHero from "./sections/getHero";
-import getMeetOurTeam from "./sections/getMeetOurTeam";
+import getPartners from "./netlify_cms/getPartners";
+import getProjects from "./netlify_cms/getProjects";
+import getHero from "./netlify_cms/sections/getHero";
+import getMeetOurTeam from "./netlify_cms/sections/getMeetOurTeam";
 
 export const partners = getPartners();
 
