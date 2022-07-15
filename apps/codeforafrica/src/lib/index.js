@@ -1,4 +1,9 @@
+import getPartners from "./getPartners";
 import getProjects from "./getProjects";
+import getHero from "./sections/getHero";
+import getMeetOurTeam from "./sections/getMeetOurTeam";
+
+export const partners = getPartners();
 
 export const projects = getProjects([
   "category",
@@ -124,15 +129,8 @@ const footer = {
   },
 };
 
-const hero = {
-  title: 'Empowering <span class="highlight">Africa</span> with',
-  messages: ["civic technologies", "text-item 2", "skills development"],
-  subtitle:
-    "We are an impact accelerator, using civic tech and open data to empower citizens.",
-  image: {
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653902690/codeforafrica/images/Group_4429_shcof8.png",
-  },
-};
+const hero = getHero();
+const meetOurTeam = getMeetOurTeam();
 
 export const ourMission = {
   title: "Our Mission",
@@ -746,88 +744,6 @@ const articles = [
   },
 ];
 
-export const partners = [
-  {
-    slug: "meta",
-    name: "Meta",
-    description: `<p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat.</p> 
-      <p>Duis maecenas per erat odio quisque accumsan, donec tempus class euismod vulputate fermentum imperdiet, suspendisse blandit lacinia semper cursus. Neque tristique posuere a feugiat convallis tempor cras nunc, leo faucibus cum aptent placerat aenean lobortis, nibh iaculis ac nascetur praesent mus quisque. Nullam leo rutrum augue urna cubilia morbi enim, arcu risus 
-      mus mauris elementum pulvinar, laoreet bibendum convallis senectus ullamcorper malesuada. Sapien congue tristique venenatis cras cum quisque et conubia felis lobortis, velit ullamcorper urna pharetra fermentum class tincidunt turpis placerat, porttitor senectus massa ridiculus semper vivamus at enim inceptos. Senectus cum torquent blandit odio class in, nullam sodales 
-      dapibus eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</p> `,
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/meta_fkcccg.png",
-    },
-    href: "https://codeforafrica.org",
-  },
-  {
-    slug: "google-news-initiatives",
-    name: "Google News Initiatives",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/google-news-initiatives_wigxyj.png",
-    },
-    href: "https://codeforafrica.org",
-  },
-  {
-    slug: "afd",
-    name: "AFD",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/afd_urdyat.png",
-    },
-    href: "https://codeforafrica.org",
-  },
-  {
-    slug: "deutsche-welle",
-    name: "Deutsche Welle",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880226/codeforafrica/images/logos/dw_isxfhn.png",
-    },
-  },
-  {
-    slug: "giz",
-    name: "GIZ",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/giz_sx5mja.png",
-    },
-  },
-  {
-    slug: "world-bank",
-    name: "The World Bank",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/the-world-bank_lbksih.png",
-    },
-  },
-  {
-    slug: "pulitzer-center",
-    name: "Pulitzer Center",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/pulitzer-center_gkg9s2.png",
-    },
-  },
-  {
-    slug: "unesco",
-    name: "Unesco",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/unesco_hvtpwf.png",
-    },
-  },
-  {
-    slug: "icjf",
-    name: "ICJF",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/icjf_o8asj2.png",
-    },
-    href: "https://codeforafrica.org",
-  },
-  {
-    slug: "code-for-all",
-    name: "Code for All",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/code-for-all_l2vmvq.png",
-    },
-    href: "https://codeforafrica.org",
-  },
-];
-
 export const opportunities = [
   {
     title: "Security Evangelist: Secure our defences against digital threats",
@@ -1015,17 +931,7 @@ function getHomePageStaticProps() {
             href: `/projects/${slug}`,
           })),
         },
-        {
-          slug: "meet-our-team",
-          logo: "/images/Africa@2400x 1lg.png",
-          title: "A truly pan-African team across the continent",
-          description: `Lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu,
-          nisl aliquet ullamcorper praesent bibendum volutpat sodales urna,
-          ultrices dui parturient vitae ac netus convallis integer. <br />
-          <br /> Euismod posuere fusce mollis etiam himenaeos non aliquam nulla
-          dis consequat ornare, velit odio condimentum augue felis na.`,
-          href: "/about/members",
-        },
+        { ...meetOurTeam, slug: "meet-our-team" },
         {
           slug: "news-stories",
           title: "News and stories",

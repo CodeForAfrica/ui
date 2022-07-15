@@ -8,8 +8,8 @@ export default function getPartners(fields = []) {
   const slugs = getCollectionSlugs(partnersDir);
   const partners = [];
   slugs.forEach((slug) => {
-    const badge = getCollectionBySlug(partnersDir, slug, fields);
-    partners.push(badge.data);
+    const partner = getCollectionBySlug(partnersDir, slug, fields);
+    partners.push(partner.data);
   });
   return partners;
 }

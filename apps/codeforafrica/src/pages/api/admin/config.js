@@ -74,6 +74,52 @@ module.exports = {
               multiple: true,
             },
             {
+              label: "Meet Our Team",
+              name: "meet_our_team",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Description",
+                  name: "description",
+                  widget: "markdown",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
+                },
+                {
+                  label: "Image",
+                  name: "image",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Src",
+                      name: "src",
+                      widget: "image",
+                    },
+                    {
+                      label: "Height",
+                      name: "height",
+                      widget: "string",
+                      required: false,
+                    },
+                    {
+                      label: "Width",
+                      name: "width",
+                      widget: "string",
+                      required: false,
+                    },
+                  ],
+                },
+              ],
+            },
+            {
               label: "Partners",
               name: "partners",
               widget: "relation",
@@ -483,9 +529,19 @@ module.exports = {
           widget: "uuid",
         },
         {
+          label: "Slug",
+          name: "slug",
+          widget: "string",
+        },
+        {
           label: "Name",
           name: "name",
           widget: "string",
+        },
+        {
+          label: "Description",
+          name: "description",
+          widget: "markdown",
         },
         {
           label: "Href",
@@ -519,6 +575,11 @@ module.exports = {
           label: "Id",
           name: "id",
           widget: "uuid",
+        },
+        {
+          label: "Slug",
+          name: "slug",
+          widget: "string",
         },
         {
           label: "Name",
