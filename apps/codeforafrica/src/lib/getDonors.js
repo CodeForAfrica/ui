@@ -1,15 +1,10 @@
 import { join } from "path";
 
-import { getCollectionSlugs, getCollectionBySlug } from "./utils";
+import getCollectionData from "./getCollectionData";
 
 const donorsDir = join(process.cwd(), "content/donors");
 
 export default function getDonors(fields = []) {
-  const slugs = getCollectionSlugs(donorsDir);
-  const donors = [];
-  slugs.forEach((slug) => {
-    const donor = getCollectionBySlug(donorsDir, slug, fields);
-    donors.push(donor.data);
-  });
+  const donors = getCollectionData(donorsDir, fields);
   return donors;
 }

@@ -1,15 +1,10 @@
 import { join } from "path";
 
-import { getCollectionSlugs, getCollectionBySlug } from "./utils";
+import getCollectionData from "./getCollectionData";
 
 const badgesDir = join(process.cwd(), "content/badges");
 
 export default function getBadges(fields = []) {
-  const slugs = getCollectionSlugs(badgesDir);
-  const badges = [];
-  slugs.forEach((slug) => {
-    const badge = getCollectionBySlug(badgesDir, slug, fields);
-    badges.push(badge.data);
-  });
+  const badges = getCollectionData(badgesDir, fields);
   return badges;
 }
