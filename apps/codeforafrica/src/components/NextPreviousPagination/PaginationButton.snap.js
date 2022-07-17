@@ -3,10 +3,10 @@
 exports[`<PaginationButton /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1msh118"
+    class="MuiBox-root css-0"
   >
     <button
-      class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-dq9mzi-MuiButtonBase-root-MuiButton-root"
+      class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-1ahypso-MuiButtonBase-root-MuiButton-root"
       tabindex="0"
       type="button"
     >
