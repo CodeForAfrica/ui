@@ -1,14 +1,14 @@
 import { getProjects } from "@/codeforafrica/lib";
 
-const QUERY_PARAM_NAMES = ["category", "page", "page-size", "query"];
+const QUERY_PARAM_NAMES = ["category", "page", "q"];
 
 export default function handler(req, res) {
   if (req.method === "GET") {
     const { query: originalQuery } = req;
-    const query = Object.keys(originalQuery).reduce((acc, k) => {
-      const key = k.toLocaleLowerCase();
+    const query = Object.keys(originalQuery).reduce((acc, key) => {
+      const paramName = key.toLocaleLowerCase();
       if (QUERY_PARAM_NAMES.includes(key)) {
-        acc[key] = originalQuery[k];
+        acc[paramName] = originalQuery[key];
       }
       return acc;
     }, {});
