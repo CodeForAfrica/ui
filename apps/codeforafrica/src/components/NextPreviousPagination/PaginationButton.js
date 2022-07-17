@@ -3,8 +3,8 @@ import Button from "@mui/material/Button";
 import SvgIcon from "@mui/material/SvgIcon";
 import React from "react";
 
-import ArrowBackIcon from "@/codeforafrica/assets/icons/Type=arrow-left, Size=32, Color=White.svg";
-import ArrowForwardIcon from "@/codeforafrica/assets/icons/Type=arrow-right, Size=32, Color=White.svg";
+import ArrowBackIcon from "@/codeforafrica/assets/icons/Type=arrow-left, Size=32, Color=CurrentColor.svg";
+import ArrowForwardIcon from "@/codeforafrica/assets/icons/Type=arrow-right, Size=32, Color=CurrentColor.svg";
 
 const PaginationButton = React.forwardRef(function PaginationButton(
   props,
@@ -35,9 +35,11 @@ const PaginationButton = React.forwardRef(function PaginationButton(
         onClick={onClick}
         startIcon={startIcon}
         sx={{
+          color: "text.secondary",
           "&.Mui-disabled": {
-            bgcolor: "primary.main",
-            color: "text.secondary",
+            bgcolor: "grey.light",
+            borderColor: "grey.light",
+            color: "grey.main",
           },
         }}
         endIcon={endIcon}
