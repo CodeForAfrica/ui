@@ -1,16 +1,24 @@
 import useSWR from "swr";
 
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
+
+const ALL_CATEGORIES = "All";
+
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function useProject(query) {
-  const queryString = Object.keys(query)
-    .reduce((acc, key) => {
-      if (query[key]) {
-        acc.append(key, query[key]);
-      }
-      return acc;
-    }, new URLSearchParams())
-    .toString();
+function useProject(query = {}) {
+  const searchParams = new URLSearchParams();
+  const { category, page, q } = query;
+  if (category && !equalsIgnoreCase(query.category, ALL_CATEGORIES)) {
+    searchParams.append("category", category);
+  }
+  if (page > 1) {
+    searchParams.append("page", page);
+  }
+  if (q) {
+    searchParams.append("q", q);
+  }
+  const queryString = searchParams.toString();
   const queryParams = queryString ? `?${queryString}` : "";
   const { data, error } = useSWR(`/api/projects${queryParams}`, fetcher);
 
@@ -20,5 +28,7 @@ function useProject(query) {
     error,
   };
 }
+
+export { ALL_CATEGORIES };
 
 export default useProject;
