@@ -12,24 +12,31 @@ const PaginationButton = React.forwardRef(function PaginationButton(
 ) {
   const { component, disabled, onClick, page, type } = props;
 
-  // type === previous
-  let Icon = ArrowBackIcon;
-  let display = page === 0 ? "none" : "initial";
-  let label = type.slice(0, 4);
-  if (type === "next") {
-    // page === 2 means current page === 1
-    Icon = page === 2 ? undefined : ArrowForwardIcon;
-    display = "initial";
-    label = page === 2 ? "See More" : type.slice(0, 4);
+  // Don't show PREV on the first page
+  if (page === 0) {
+    return null;
   }
-  const icon = Icon ? (
-    <SvgIcon component={Icon} style={{ fontSize: 16 }} viewBox="0 0 32 32" />
-  ) : undefined;
-  const startIcon = type === "previous" ? icon : undefined;
-  const endIcon = type === "next" ? icon : undefined;
+  let label;
+  let startIcon;
+  let endIcon;
+  // Show "SEE MORE" instead of NEXT on the first page
+  if (type === "next" && page === 2) {
+    label = "SEE MORE";
+  } else {
+    label = type.slice(0, 4);
+    const Icon = type === "next" ? ArrowForwardIcon : ArrowBackIcon;
+    const icon = (
+      <SvgIcon component={Icon} style={{ fontSize: 16 }} viewBox="0 0 32 32" />
+    );
+    if (type === "next") {
+      endIcon = icon;
+    } else {
+      startIcon = icon;
+    }
+  }
 
   return (
-    <Box component={component} sx={{ display }} ref={ref}>
+    <Box component={component} ref={ref}>
       <Button
         disabled={disabled}
         onClick={onClick}
