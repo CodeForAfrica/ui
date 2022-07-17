@@ -1,4 +1,5 @@
 import React from "react";
+import { SWRConfig } from "swr";
 
 import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
@@ -13,7 +14,18 @@ function Index({ sections, ...props }) {
           case "hero":
             return <PageHeader {...section} key={section.slug} />;
           case "projects":
-            return <Projects {...section} key={section.slug} />;
+            return (
+              <SWRConfig
+                value={{
+                  fallback: {
+                    "/api/projects": section.projects,
+                  },
+                }}
+                key={section.slug}
+              >
+                <Projects {...section} />
+              </SWRConfig>
+            );
           default:
             return null;
         }
