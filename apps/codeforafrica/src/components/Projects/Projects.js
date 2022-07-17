@@ -4,15 +4,14 @@ import Stack from "@mui/material/Stack";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-import useProjects from "./useProjects";
+import useProjects, { ALL_CATEGORIES } from "./useProjects";
 
 import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
 import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 import NextPreviousPagination from "@/codeforafrica/components/NextPreviousPagination";
 import ProjectCard from "@/codeforafrica/components/ProjectCard";
 import SearchInput from "@/codeforafrica/components/SearchInput";
-
-const ALL_CATEGORIES = "All";
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 const Projects = React.forwardRef(function Projects(
   {
@@ -29,22 +28,30 @@ const Projects = React.forwardRef(function Projects(
   const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);
   const [projects, setProjects] = useState(resultsProp);
-  const { query } = useRouter();
+  const [q, setQ] = useState();
+  const [search, setSearch] = useState();
+  const router = useRouter();
   useEffect(() => {
-    // if (router.isReady) {
-    // const { query } = router;
-    if (query) {
-      const { page: initialPage, category: initialCategory } = query;
+    if (router.isReady) {
+      const {
+        category: initialCategory,
+        page: initialPage,
+        q: initialQ,
+      } = router.query;
+      if (initialCategory) {
+        setCategory(initialCategory);
+      }
       if (initialPage) {
         setPage(Number.parseInt(initialPage, 10));
       }
-      if (initialCategory) {
-        setCategory(initialPage);
+      if (initialQ) {
+        setQ(initialQ);
       }
     }
-    // }
+    // We're only interested in initial isReady and not any subsequent
+    // router.query changes e.g. due to pagination
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query]);
+  }, [router.isReady]);
 
   const handleChangeChoice = (_, value) => {
     const newValue = value || ALL_CATEGORIES;
@@ -56,22 +63,64 @@ const Projects = React.forwardRef(function Projects(
     setPage(value);
   };
 
-  const { data } = useProjects({ category, page });
+  const handleChangeQ = (_, value) => {
+    setQ(value || undefined);
+  };
+
+  const handleChangeSearch = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handleClickSearch = (e) => {
+    handleChangeQ(e, search);
+  };
+
+  const handleKeyPressSearch = (e) => {
+    if (e.key === "Enter") {
+      handleChangeQ(e, e.target.value);
+    }
+  };
+
+  useEffect(() => {
+    const newQuery = {};
+    if (!equalsIgnoreCase(category, ALL_CATEGORIES)) {
+      newQuery.category = category;
+    }
+    if (page > 1) {
+      newQuery.page = page;
+    }
+    if (q) {
+      newQuery.q = q;
+    }
+    router.push(
+      {
+        query: newQuery,
+      },
+      undefined,
+      {
+        scroll: true,
+        shallow: true,
+      }
+    );
+    // We don't want to listen to router changes here since we're the ones
+    // updating them
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category, page, q]);
+
+  const { data } = useProjects({ category, page, q });
   useEffect(() => {
     if (data) {
       const { results, pagination } = data;
       setCount(pagination.count);
       setProjects([...results]);
     }
-    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [data]);
 
   const hasProjects = projects?.length > 0;
   return (
-    <>
+    <div ref={ref}>
       <Section
         sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 2.5, md: 8, lg: 9 }, ...sx }}
-        ref={ref}
       >
         <Stack
           direction={{ xs: "column", sm: "row" }}
@@ -79,8 +128,12 @@ const Projects = React.forwardRef(function Projects(
         >
           <SearchInput
             disabled={!hasProjects}
+            onChange={handleChangeSearch}
+            onClick={handleClickSearch}
+            onKeyPress={handleKeyPressSearch}
             placeholder="Search project"
             size="small"
+            defaultValue={q}
             sx={{
               mb: { xs: 2.5, sm: 0 },
               minWidth: { xs: "auto", sm: "200px" },
@@ -98,8 +151,8 @@ const Projects = React.forwardRef(function Projects(
               order: { xs: 1, sm: 0 },
             }}
           >
-            {categories?.map((tag) => (
-              <ChoiceChip label={tag} value={tag} key={tag} />
+            {categories?.map((c) => (
+              <ChoiceChip label={c} value={c} key={c} />
             ))}
           </ChoiceChipGroup>
         </Stack>
@@ -112,12 +165,11 @@ const Projects = React.forwardRef(function Projects(
         ) : null}
       </Section>
       <NextPreviousPagination
-        // key={selectedCategory}
         count={count}
         onChange={handleChangePage}
         page={page}
       />
-    </>
+    </div>
   );
 });
 
