@@ -1367,18 +1367,26 @@ function getHomePageStaticProps() {
   };
 }
 
-function paginateResults(items, page = 1, pageSize = 6) {
+function paginateResults(items, page, pageSize) {
   let count = null;
   let results = [];
+  let pageNumber = null;
+  let pageSizeNumber = null;
   if (items?.length) {
-    count = Math.ceil(items.length / pageSize);
-    results = items.slice((page - 1) * pageSize, page * pageSize);
+    // Need to ensure page, pageSize are numbers and not strings
+    pageNumber = Number.parseInt(page, 10) || 1;
+    pageSizeNumber = Number.parseInt(pageSize, 10) || 6;
+    count = Math.ceil(items.length / pageSizeNumber);
+    results = items.slice(
+      (pageNumber - 1) * pageSizeNumber,
+      pageNumber * pageSizeNumber
+    );
   }
   return {
     pagination: {
       count,
-      page,
-      pageSize,
+      page: pageNumber,
+      pageSize: pageSizeNumber,
     },
     results,
   };
