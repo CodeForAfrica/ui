@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Articles from "./Articles";
+import Opportunities from "./Opportunities";
 
 import theme from "@/codeforafrica/theme";
 
@@ -9,7 +9,7 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  articles: [],
+  opportunities: [],
 };
 
 jest.mock("next/router", () => ({
@@ -19,9 +19,9 @@ jest.mock("next/router", () => ({
   })),
 }));
 
-describe("<Articles />", () => {
+describe("<Opportunities />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Articles {...defaultProps} />);
+    const { container } = render(<Opportunities {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

@@ -11,8 +11,8 @@ function Page({ children, footer, navbar, title }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <NavBar {...navbar} />
-      {children}
+      {navbar ? <NavBar {...navbar} /> : null}
+      {children ? <main>{children}</main> : null}
       {footer ? <Footer {...footer} /> : null}
     </>
   );

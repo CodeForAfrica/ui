@@ -1,3 +1,5 @@
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -972,7 +974,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705960/codeforafrica/images/Property_1_africanDRONE_y4surg.jpg",
     },
-    category: "Products",
+    tag: "Products",
     href: "/projects/african-drone",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1053,7 +1055,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_WanaData_t3tbex.jpg",
     },
-    category: "Products",
+    tag: "Products",
     href: "/projects/wana-data",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1087,7 +1089,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Products",
+    tag: "Products",
     href: "/projects/pesa-check",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1121,7 +1123,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Products",
+    tag: "Products",
     href: "/projects/open-africa",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1155,7 +1157,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Products",
+    tag: "Products",
     href: "/projects/civic-signal",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1185,7 +1187,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Products",
+    tag: "Products",
     href: "/projects/source-africa",
     externalHref: "https://codeforafrica.org",
   },
@@ -1205,7 +1207,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Initiatives",
+    tag: "Initiatives",
     href: "/projects/initiative-africa",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1263,7 +1265,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Knowedge",
+    tag: "Knowedge",
     href: "/projects/knowledge-africa",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1308,6 +1310,16 @@ const imprint = `
 
 const DEFAULT_REVALIDATE = 3 * 60; // 3 minutes
 
+const ALL_TAG = "All";
+
+function getProjectTags(options = { includeAll: true }) {
+  const tags = new Set(projects?.flatMap((a) => a.tag || []));
+  if (options?.includeAll) {
+    return [ALL_TAG, ...tags];
+  }
+  return Array.from(tags);
+}
+
 function getHomePageStaticProps() {
   return {
     props: {
@@ -1319,13 +1331,8 @@ function getHomePageStaticProps() {
         },
         {
           slug: "projects",
-          projects: projects.map(({ slug, name, tagLine, icon, category }) => ({
-            name,
-            tagLine,
-            icon,
-            category,
-            href: `/projects/${slug}`,
-          })),
+          projects,
+          tags: getProjectTags({ includeAll: false }),
         },
         {
           slug: "meet-our-team",
@@ -1365,6 +1372,43 @@ function getHomePageStaticProps() {
   };
 }
 
+function paginateResults(items, page, pageSize) {
+  // We need to initialize to null for serialization.
+  let count = null;
+  let results = [];
+  let pageNumber = null;
+  let pageSizeNumber = null;
+  if (items?.length) {
+    // Need to ensure page, pageSize are numbers and not strings
+    pageNumber = Number.parseInt(page, 10) || 1;
+    pageSizeNumber = Number.parseInt(pageSize, 10) || 6;
+    count = Math.ceil(items.length / pageSizeNumber);
+    results = items.slice(
+      (pageNumber - 1) * pageSizeNumber,
+      pageNumber * pageSizeNumber
+    );
+  }
+  return {
+    pagination: {
+      count,
+      page: pageNumber,
+      pageSize: pageSizeNumber,
+    },
+    results,
+  };
+}
+
+export function getProjects(options) {
+  const { tag: originalTag, page, "page-size": pageSize } = options || {};
+  const tag = originalTag || ALL_TAG;
+
+  const foundProjects = projects.filter(
+    (p) => equalsIgnoreCase(tag, ALL_TAG) || equalsIgnoreCase(tag, p.tag)
+  );
+
+  return paginateResults(foundProjects, page, pageSize);
+}
+
 function getProjectsPageStaticProps() {
   return {
     props: {
@@ -1378,7 +1422,8 @@ function getProjectsPageStaticProps() {
         },
         {
           slug: "projects",
-          projects,
+          tags: getProjectTags(),
+          projects: getProjects(),
         },
       ],
       footer,
@@ -1411,11 +1456,8 @@ function getOpportunitiesPageStaticProps() {
 }
 
 function getOpportunityPageStaticProps(params) {
-  const opportunity = opportunities.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
+  const opportunity = opportunities.find(({ href }) =>
+    equalsIgnoreCase(href, params?.slug)
   );
   if (opportunity) {
     return {
@@ -1452,11 +1494,8 @@ function getImprintPageStaticProps() {
 }
 
 function getPartnerPageStaticProps(params) {
-  const partner = partners.find(
-    ({ slug }) =>
-      `/about/partners/${slug}`.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
+  const partner = partners.find(({ slug }) =>
+    equalsIgnoreCase(`/about/partners/${slug}`, params?.slug)
   );
   if (partner) {
     const startIndex = getRandomInt(projects.length - 3);
@@ -1501,11 +1540,8 @@ function getPrivacyPageStaticProps() {
 }
 
 function getProjectPageStaticProps(params) {
-  const project = projects.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
+  const project = projects.find(({ href }) =>
+    equalsIgnoreCase(href, params?.slug)
   );
   if (project) {
     return {
@@ -1558,11 +1594,8 @@ function getStoriesPageStaticProps() {
 }
 
 function getStoryPageStaticProps(params) {
-  const article = articles.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
+  const article = articles.find(({ href }) =>
+    equalsIgnoreCase(href, params?.slug)
   );
   if (article) {
     return {
@@ -1719,12 +1752,7 @@ function getAboutPartnersPageStaticProps() {
 }
 
 function getTeamMemberPageStaticProps(params) {
-  const member = team.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
-  );
+  const member = team.find(({ href }) => equalsIgnoreCase(href, params?.slug));
   if (member) {
     const startIndex = getRandomInt(projects.length - 3);
     return {

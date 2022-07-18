@@ -12,6 +12,12 @@ const defaultProps = {
   count: 1,
 };
 
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    isReady: true,
+  })),
+}));
+
 describe("<NextPreviousPagination />", () => {
   it("renders unchanged", () => {
     const { container } = render(<NextPreviousPagination {...defaultProps} />);
