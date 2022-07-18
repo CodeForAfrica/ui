@@ -3,6 +3,7 @@ import React from "react";
 import ArticlePage from "@/codeforafrica/components/ArticlePage";
 import Page from "@/codeforafrica/components/Page";
 import { getPageStaticProps } from "@/codeforafrica/lib";
+import { getAllPostsWithSlug } from "@/codeforafrica/lib/api";
 
 function Index({ opportunity, sections, ...props }) {
   return (
@@ -13,12 +14,13 @@ function Index({ opportunity, sections, ...props }) {
 }
 
 export async function getStaticPaths() {
-  const paths = [...Array(5).keys()].map((_, i) => ({
-    params: { slug: `${i + 1}` },
+  const allOpportunities = (await getAllPostsWithSlug()) || [];
+  const paths = allOpportunities.map((post) => ({
+    params: { slug: post.slug },
   }));
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
