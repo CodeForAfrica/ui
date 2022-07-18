@@ -1,6 +1,6 @@
 import { getProjects } from "@/codeforafrica/lib";
 
-const QUERY_PARAM_NAMES = ["category", "page", "q"];
+const QUERY_PARAM_NAMES = ["tag", "page", "q"];
 
 export default function handler(req, res) {
   if (req.method === "GET") {
