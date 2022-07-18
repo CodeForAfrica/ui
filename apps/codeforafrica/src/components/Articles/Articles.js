@@ -13,9 +13,16 @@ const computePagination = (allArtiles, page, pageSize) => {
 
 function Articles(props) {
   // We use 10 because article 0 will be shown as featured article
-  const { articles = [], page: pageProp = 1, pageSize = 10, title } = props;
+  const {
+    articles = [],
+    page: pageProp = 1,
+    pageSize = 10,
+    title,
+    allTags,
+  } = props;
+
   const [tags] = useState(() => {
-    const uniqueTags = [...new Set(articles?.flatMap((a) => a.tags || []))];
+    const uniqueTags = [...new Set(allTags)];
     uniqueTags.unshift(ALL_TAG);
     return uniqueTags;
   });
@@ -27,7 +34,9 @@ function Articles(props) {
   const getFilteredArticles = useCallback(() => {
     let filteredArticles;
     if (selectedTag !== ALL_TAG) {
-      filteredArticles = articles.filter((a) => a.tags?.includes(selectedTag));
+      filteredArticles = articles.filter((a) => {
+        return a.tags.some((t) => t.slug === selectedTag);
+      });
     } else {
       filteredArticles = articles;
     }

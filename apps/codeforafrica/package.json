@@ -41,6 +41,7 @@
     "@googlemaps/react-wrapper": "^1.1.35",
     "@mui/material": "^5.8.5",
     "@mui/utils": "^5.8.4",
+    "@tryghost/content-api": "^1.11.0",
     "fast-equals": "^4.0.1",
     "frontmatter-markdown-loader": "^3.7.0",
     "js-yaml": "^4.1.0",

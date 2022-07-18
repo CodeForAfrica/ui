@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { Link } from "@commons-ui/next";
 import Button from "@mui/material/Button";
 import CardActionArea from "@mui/material/CardActionArea";
@@ -11,13 +12,12 @@ import ArticleCardMedia from "@/codeforafrica/components/ArticleCardMedia";
 
 const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
   const {
-    alt,
-    coverImage,
-    date,
-    href,
-    thumbnail,
-    summary,
     title,
+    feature_image,
+    excerpt,
+    custom_excerpt,
+    slug,
+    published_at,
     variant = "standard",
     ...other
   } = props;
@@ -32,8 +32,8 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
       ref={ref}
     >
       <CardActionArea
-        component={href ? Link : undefined}
-        href={href}
+        component={slug ? Link : undefined}
+        href={`/stories/${slug}`}
         sx={{ position: "relative" }}
       >
         <Grid
@@ -44,8 +44,8 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
         >
           <Grid item xs={12} md={variant === "cover" ? 12 : "auto"}>
             <ArticleCardMedia
-              alt={alt || title}
-              src={thumbnail?.src}
+              alt={title}
+              src={feature_image}
               sx={{
                 height: {
                   xs: "217px",
@@ -86,7 +86,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
                   mb: { md: "20px" },
                 }}
               >
-                {summary}
+                {excerpt || custom_excerpt}
               </Typography>
               <Button
                 color="primary"
@@ -107,7 +107,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
                 }}
                 variant="caption"
               >
-                {new Date(date).toLocaleDateString("en", {
+                {new Date(published_at).toLocaleDateString("en", {
                   year: "numeric",
                   month: "short",
                   day: "numeric",

@@ -22,10 +22,17 @@ const computePagination = (all, page, pageSize) => {
 };
 
 function Opportunies(props) {
-  const { opportunities = [], page: pageProp = 1, pageSize = 4 } = props;
+  const {
+    opportunities = [],
+    page: pageProp = 1,
+    pageSize = 4,
+    allTags,
+  } = props;
   const ref = useRef();
   const [tags] = useState(() => {
-    return [ALL_TAGS, ...new Set(opportunities?.flatMap((a) => a.tags || []))];
+    const uniqueTags = [...new Set(allTags)];
+    uniqueTags.unshift(ALL_TAGS);
+    return uniqueTags;
   });
   const [selectedTag, setSelectedTag] = useState(ALL_TAGS);
   const [page, setPage] = useState(pageProp);
@@ -37,12 +44,7 @@ function Opportunies(props) {
       return opportunities;
     }
     return opportunities.filter((p) =>
-      p.tags?.some(
-        (tag) =>
-          tag.localeCompare(selectedTag, undefined, {
-            sensitivity: "accent",
-          }) === 0
-      )
+      p.tags.some((t) => t.slug === selectedTag)
     );
   }, [opportunities, selectedTag]);
   const handleChangeCategory = (_, value) => {

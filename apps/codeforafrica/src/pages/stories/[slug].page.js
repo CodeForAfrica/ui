@@ -5,6 +5,7 @@ import ArticlePage from "@/codeforafrica/components/ArticlePage";
 import Page from "@/codeforafrica/components/Page";
 import RelatedStories from "@/codeforafrica/components/RelatedStories";
 import { getPageStaticProps } from "@/codeforafrica/lib";
+import { getAllPostsWithSlug } from "@/codeforafrica/lib/api";
 
 function Index({ article, sections, ...props }) {
   return (
@@ -35,12 +36,13 @@ function Index({ article, sections, ...props }) {
 }
 
 export async function getStaticPaths() {
-  const paths = [...Array(13).keys()].map((_, i) => ({
-    params: { slug: `article-${i + 1}` },
+  const allPosts = (await getAllPostsWithSlug()) || [];
+  const paths = allPosts.map((post) => ({
+    params: { slug: post.slug },
   }));
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 

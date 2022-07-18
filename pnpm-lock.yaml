@@ -31,6 +31,7 @@ importers:
       "@mui/utils": ^5.8.4
       "@playwright/test": ^1.22.2
       "@svgr/webpack": ^6.2.1
+      "@tryghost/content-api": ^1.11.0
       "@types/node": ^17.0.45
       "@types/react": ^17.0.47
       babel-jest: ^28.1.1
@@ -69,6 +70,7 @@ importers:
       "@googlemaps/react-wrapper": 1.1.35_react@17.0.2
       "@mui/material": 5.8.6_mzmbzck2qunrnxjb6zwxgpnkmu
       "@mui/utils": 5.8.6_react@17.0.2
+      "@tryghost/content-api": 1.11.0
       fast-equals: 4.0.1
       frontmatter-markdown-loader: 3.7.0
       js-yaml: 4.1.0
@@ -5759,6 +5761,17 @@ packages:
     engines: { node: ">= 10" }
     dev: false
 
+  /@tryghost/content-api/1.11.0:
+    resolution:
+      {
+        integrity: sha512-0JTlp5Ln4BfCJzCYuT2X3MC9ZupIkRtzZaHpf9KZw7O8uOsRnO9RwjItN+lwvkoLIesMzfgrZd/tBJ4BAzeBrg==,
+      }
+    dependencies:
+      axios: 0.27.2
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /@trysound/sax/0.2.0:
     resolution:
       {
@@ -7327,6 +7340,18 @@ packages:
         integrity: sha512-LVAaGp/wkkgYJcjmHsoKx4juT1aQvJyPcW09MLCjVTh3V2cc6PnyempiLMNH5iMdfIX/zdbjUx2KDjMLCTdPeA==,
       }
     engines: { node: ">=12" }
+    dev: false
+
+  /axios/0.27.2:
+    resolution:
+      {
+        integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==,
+      }
+    dependencies:
+      follow-redirects: 1.15.1
+      form-data: 4.0.0
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /axobject-query/2.2.0:
@@ -11264,6 +11289,19 @@ packages:
         integrity: sha512-GRnmB5gPyJpAhTQdSZTSp9uaPSvl09KoYcMQtsB9rQoOmzs9dH6ffeccH+Z+cv6P68Hu5bC6JjRh4Ah/mHSNRw==,
       }
     dev: true
+
+  /follow-redirects/1.15.1:
+    resolution:
+      {
+        integrity: sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==,
+      }
+    engines: { node: ">=4.0" }
+    peerDependencies:
+      debug: "*"
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
 
   /for-in/1.0.2:
     resolution:

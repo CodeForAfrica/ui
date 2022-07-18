@@ -1,3 +1,9 @@
+import {
+  getPostsByPrimaryTag,
+  getAllTags,
+  getPost,
+} from "@/codeforafrica/lib/api";
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -1388,7 +1394,11 @@ function getProjectsPageStaticProps() {
   };
 }
 
-function getOpportunitiesPageStaticProps() {
+async function getOpportunitiesPageStaticProps() {
+  const allOpportunities = await getPostsByPrimaryTag("opportunities");
+  const tags = await getAllTags();
+  const allTags = tags.map((tag) => tag.name);
+
   return {
     props: {
       title: "Opportunities | Code for Africa",
@@ -1400,7 +1410,8 @@ function getOpportunitiesPageStaticProps() {
         },
         {
           slug: "opportunities",
-          opportunities,
+          opportunities: allOpportunities,
+          allTags,
         },
       ],
       footer,
@@ -1410,13 +1421,12 @@ function getOpportunitiesPageStaticProps() {
   };
 }
 
-function getOpportunityPageStaticProps(params) {
-  const opportunity = opportunities.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
-  );
+async function getOpportunityPageStaticProps(params) {
+  // TODO: is this the best way to get the article slug?
+  const actualSlug = params.slug.split("/")[2];
+
+  const opportunity = await getPost(actualSlug);
+
   if (opportunity) {
     return {
       props: {
@@ -1539,7 +1549,11 @@ function getProjectPageStaticProps(params) {
   return { notFound: true };
 }
 
-function getStoriesPageStaticProps() {
+async function getStoriesPageStaticProps() {
+  const allArticles = await getPostsByPrimaryTag("stories");
+  const tags = await getAllTags();
+  const allTags = tags.map((tag) => tag.name);
+
   return {
     props: {
       title: "Stories | Code for Africa",
@@ -1547,7 +1561,8 @@ function getStoriesPageStaticProps() {
         {
           slug: "articles",
           title: "Articles",
-          articles,
+          articles: allArticles,
+          allTags,
         },
       ],
       footer,
@@ -1557,13 +1572,11 @@ function getStoriesPageStaticProps() {
   };
 }
 
-function getStoryPageStaticProps(params) {
-  const article = articles.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
-  );
+async function getStoryPageStaticProps(slug) {
+  // TODO: is this the best way to get the article slug?
+  const actualSlug = slug.slug.split("/")[2];
+  const article = await getPost(actualSlug);
+
   if (article) {
     return {
       props: {
@@ -1573,7 +1586,7 @@ function getStoryPageStaticProps(params) {
           {
             slug: "related-stories",
             title: "News and Stories",
-            articles: articles.slice(0, 3),
+            articles: [],
           },
         ],
         footer,

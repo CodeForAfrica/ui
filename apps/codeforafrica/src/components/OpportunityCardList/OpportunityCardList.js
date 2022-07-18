@@ -16,7 +16,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
     <Stack spacing={{ xs: 5, md: 10 }} {...other} ref={ref}>
       {opportunities.map((opportunity) => (
         <OpportunityCard
-          key={opportunity.href || opportunity.title}
+          key={opportunity.slug || opportunity.title}
           {...opportunity}
         />
       ))}
