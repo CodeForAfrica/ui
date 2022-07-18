@@ -17,12 +17,11 @@ projects:
   - 31626677-0bc8-49cb-a2e6-1d7e5504d1fe
 meet_our_team:
   title: A truly pan-African team across the continent
-  description: >
+  description: >-
     Lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu,
     nisl aliquet ullamcorper praesent bibendum volutpat sodales urna, ultrices
     dui parturient vitae ac netus convallis integer. 
 
-    <br /><br />
 
     Euismod posuere fusce mollis etiam himenaeos non aliquam nulla dis consequat ornare, velit odio condimentum augue felis na.
   href: /about/members
