@@ -4,13 +4,14 @@ import Box from "@mui/material/Box";
 import React from "react";
 
 import ArticleHeader from "@/codeforafrica/components/ArticleHeader";
-// import Author from "@/codeforafrica/components/Author";
+import Author from "@/codeforafrica/components/Author";
 import CMSContent from "@/codeforafrica/components/CMSContent";
 import Figure from "@/codeforafrica/components/Figure";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
 
 function ArticlePage({
-  // authors,
+  authors,
+  primary_author,
   excerpt,
   custom_excerpt,
   tags,
@@ -78,18 +79,14 @@ function ArticlePage({
           px: { xs: 2.5, sm: 0 },
         }}
       >
-        {/* <Author {...authors[0].name} /> */}
+        {/* 
+        //TODO: confirm if this is to be shown on opportunities page
+         */}
+
+        <Author {...(primary_author || authors[0])} />
       </Section>
     </Box>
   );
 }
-
-// ArticlePage.propTypes = {
-//   content: PropTypes.string,
-// };
-
-// ArticlePage.defaultProps = {
-//   content: undefined,
-// };
 
 export default ArticlePage;

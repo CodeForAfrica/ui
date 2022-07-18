@@ -15,7 +15,7 @@ export async function getAllPosts(limit = 10, page = 1) {
     limit,
     page,
     fields: "id,title,slug,published_at,feature_image,excerpt",
-    // include: "authors,tags",
+    include: "authors,tags",
   });
   return posts;
 }
@@ -25,7 +25,7 @@ export async function getPost(slug) {
     slug,
     fields:
       "id,title,slug,published_at,feature_image,excerpt,custom_excerpt,excerpt,html",
-    // include: "authors,tags",
+    include: "authors",
   });
   return posts;
 }

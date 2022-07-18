@@ -27,7 +27,7 @@ const Author = React.forwardRef(function Author(props, ref) {
         }}
       >
         <RichTypography variant="body1SemiBold">{name}</RichTypography>
-        <RichTypography variant="body1">{profession}</RichTypography>
+        {/* <RichTypography variant="body1">{profession}</RichTypography> */}
       </Stack>
     </Stack>
   );
