@@ -59,12 +59,13 @@ const FilterBar = React.forwardRef(function FilterBar(props, ref) {
       ref={ref}
     >
       <SearchInput
+        key={q}
+        defaultValue={q}
         size="small"
         {...SearchInputProps}
         onChange={handleChangeSearch}
         onClick={handleClickSearch}
         onKeyPress={handleKeyPressSearch}
-        defaultValue={q}
         sx={{
           mb: { xs: 2.5, sm: 0 },
           minWidth: { xs: "auto", sm: "200px" },

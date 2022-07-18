@@ -11,6 +11,7 @@ import ProjectCard from "@/codeforafrica/components/ProjectCard";
 import useFilterQuery, {
   ALL_TAG,
 } from "@/codeforafrica/components/useFilterQuery";
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 const Projects = React.forwardRef(function Projects(
   {
@@ -40,7 +41,8 @@ const Projects = React.forwardRef(function Projects(
   };
 
   const handleChangeTag = (_, value) => {
-    const newValue = value || ALL_TAG;
+    const newValue =
+      (value && tags.find((t) => equalsIgnoreCase(value, t))) || ALL_TAG;
     setTag(newValue);
     setPage(1);
   };
