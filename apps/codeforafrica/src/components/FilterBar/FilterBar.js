@@ -18,7 +18,7 @@ const FilterBar = React.forwardRef(function FilterBar(props, ref) {
         onChangeTag(undefined, initialTag);
       }
       if (initialQ && onChangeQ) {
-        onChangeQ(initialQ);
+        onChangeQ(undefined, initialQ);
       }
     }
     // We're only interested in initial isReady and not any subsequent
