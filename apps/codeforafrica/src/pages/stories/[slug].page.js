@@ -4,8 +4,10 @@ import React from "react";
 import ArticlePage from "@/codeforafrica/components/ArticlePage";
 import Page from "@/codeforafrica/components/Page";
 import RelatedStories from "@/codeforafrica/components/RelatedStories";
-import { getPageStaticProps } from "@/codeforafrica/lib";
-import { getAllPostsWithSlug } from "@/codeforafrica/lib/api";
+import {
+  getPageStaticProps,
+  getGhostCMSStaticPaths,
+} from "@/codeforafrica/lib";
 
 function Index({ article, sections, ...props }) {
   return (
@@ -36,10 +38,7 @@ function Index({ article, sections, ...props }) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = (await getAllPostsWithSlug()) || [];
-  const paths = allPosts.map((post) => ({
-    params: { slug: post.slug },
-  }));
+  const paths = await getGhostCMSStaticPaths("stories");
   return {
     paths,
     fallback: true,

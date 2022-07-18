@@ -2,8 +2,10 @@ import React from "react";
 
 import ArticlePage from "@/codeforafrica/components/ArticlePage";
 import Page from "@/codeforafrica/components/Page";
-import { getPageStaticProps } from "@/codeforafrica/lib";
-import { getAllPostsWithSlug } from "@/codeforafrica/lib/api";
+import {
+  getPageStaticProps,
+  getGhostCMSStaticPaths,
+} from "@/codeforafrica/lib";
 
 function Index({ opportunity, sections, ...props }) {
   return (
@@ -14,10 +16,8 @@ function Index({ opportunity, sections, ...props }) {
 }
 
 export async function getStaticPaths() {
-  const allOpportunities = (await getAllPostsWithSlug()) || [];
-  const paths = allOpportunities.map((post) => ({
-    params: { slug: post.slug },
-  }));
+  const paths = getGhostCMSStaticPaths("opportunities");
+
   return {
     paths,
     fallback: true,

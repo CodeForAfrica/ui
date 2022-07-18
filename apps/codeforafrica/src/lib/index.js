@@ -2,7 +2,8 @@ import {
   getPostsByPrimaryTag,
   getAllTags,
   getPost,
-} from "@/codeforafrica/lib/api";
+  getAllPostsWithSlug,
+} from "@/codeforafrica/lib/api.ghost";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -1394,8 +1395,8 @@ function getProjectsPageStaticProps() {
   };
 }
 
-async function getOpportunitiesPageStaticProps() {
-  const allOpportunities = await getPostsByPrimaryTag("opportunities");
+async function getOpportunitiesPageStaticProps(options) {
+  const allOpportunities = await getPostsByPrimaryTag("opportunities", options);
   const tags = await getAllTags();
   const allTags = tags.map((tag) => tag.name);
 
@@ -1549,8 +1550,9 @@ function getProjectPageStaticProps(params) {
   return { notFound: true };
 }
 
-async function getStoriesPageStaticProps() {
-  const allArticles = await getPostsByPrimaryTag("stories");
+async function getStoriesPageStaticProps(options) {
+  const allArticles = await getPostsByPrimaryTag("stories", options);
+  // TODO: Does the tags list include opportunities tags? If so, we need to filter them out.
   const tags = await getAllTags();
   const allTags = tags.map((tag) => tag.name);
 
@@ -1901,4 +1903,13 @@ export async function getPageStaticProps(params) {
       }
       return { notFound: true };
   }
+}
+
+export async function getGhostCMSStaticPaths(primaryTag, options) {
+  const posts = await getAllPostsWithSlug(primaryTag, options);
+  const path = posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+
+  return path;
 }
