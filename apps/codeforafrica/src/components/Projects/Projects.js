@@ -14,7 +14,7 @@ import useFilterQuery, {
 
 const Projects = React.forwardRef(function Projects(
   {
-    categories,
+    tags,
     projects: {
       pagination: { count: countProp, page: pageProp = 1 },
       results: resultsProp,
@@ -45,7 +45,7 @@ const Projects = React.forwardRef(function Projects(
     setPage(1);
   };
 
-  const { data } = useProjects({ category: tag, page, q });
+  const { data } = useProjects({ page, q, tag });
   useEffect(() => {
     if (data) {
       const { results, pagination } = data;
@@ -75,7 +75,7 @@ const Projects = React.forwardRef(function Projects(
           onChangeTag={handleChangeTag}
           q={q}
           tag={tag}
-          tags={categories}
+          tags={tags}
           SearchInputProps={{
             placeholder: "Search projects",
           }}
