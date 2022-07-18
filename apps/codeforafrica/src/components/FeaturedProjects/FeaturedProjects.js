@@ -4,30 +4,23 @@ import React, { useMemo, useState } from "react";
 import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
 import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 import ProjectTileList from "@/codeforafrica/components/ProjectTileList";
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
-const DEFAULT_CATEGORY = "Products";
+const DEFAULT_TAG = "Products";
 
 const FeaturedProjects = React.forwardRef(function FeaturedProjects(
   props,
   ref
 ) {
-  const { projects = [], slug, ...other } = props;
-  const [categories] = useState(() => {
-    return [...new Set(projects?.flatMap((a) => a.category || []))];
-  });
-  const [selectedCategory, setSelectedCateory] = useState(DEFAULT_CATEGORY);
+  const { tags = [], projects = [], slug, ...other } = props;
+  const [selectedTag, setSelectedTag] = useState(DEFAULT_TAG);
   const handleChangeCategory = (_, value) => {
-    const newCategory = value || DEFAULT_CATEGORY;
-    setSelectedCateory(newCategory);
+    const newTag = value || DEFAULT_TAG;
+    setSelectedTag(newTag);
   };
   const filteredProjects = useMemo(() => {
-    return projects.filter(
-      (p) =>
-        selectedCategory.localeCompare(p.category, undefined, {
-          sensitivity: "accent",
-        }) === 0
-    );
-  }, [projects, selectedCategory]);
+    return projects.filter((p) => equalsIgnoreCase(selectedTag, p.tag));
+  }, [projects, selectedTag]);
 
   if (!projects?.length) {
     return null;
@@ -44,13 +37,13 @@ const FeaturedProjects = React.forwardRef(function FeaturedProjects(
       {...other}
       ref={ref}
     >
-      {categories?.length > 0 ? (
+      {tags?.length > 0 ? (
         <ChoiceChipGroup
           color="default"
           onChange={handleChangeCategory}
-          value={selectedCategory}
+          value={selectedTag}
         >
-          {categories.map((tag) => (
+          {tags.map((tag) => (
             <ChoiceChip label={tag} value={tag} key={tag} />
           ))}
         </ChoiceChipGroup>
