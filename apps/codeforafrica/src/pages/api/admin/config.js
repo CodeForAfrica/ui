@@ -279,7 +279,6 @@ module.exports = {
         {
           label: "Imprint",
           name: "imprint",
-          widget: "object",
           file: "content/pages/imprint.md",
           fields: [
             {
@@ -293,8 +292,8 @@ module.exports = {
               widget: "string",
             },
             {
-              label: "Content",
-              name: "content",
+              label: "Body",
+              name: "Body",
               widget: "markdown",
             },
           ],
@@ -303,7 +302,7 @@ module.exports = {
           label: "Privacy Policy",
           name: "privacy_policy",
           widget: "object",
-          file: "content/pages/privacy_policy.md",
+          file: "content/pages/privacy-policy.md",
           fields: [
             {
               label: "Title",
