@@ -974,7 +974,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705960/codeforafrica/images/Property_1_africanDRONE_y4surg.jpg",
     },
-    category: "Products",
+    tag: "Products",
     href: "/projects/african-drone",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1055,7 +1055,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_WanaData_t3tbex.jpg",
     },
-    category: "Products",
+    tag: "Products",
     href: "/projects/wana-data",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1089,7 +1089,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Products",
+    tag: "Products",
     href: "/projects/pesa-check",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1123,7 +1123,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Products",
+    tag: "Products",
     href: "/projects/open-africa",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1157,7 +1157,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Products",
+    tag: "Products",
     href: "/projects/civic-signal",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1187,7 +1187,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Products",
+    tag: "Products",
     href: "/projects/source-africa",
     externalHref: "https://codeforafrica.org",
   },
@@ -1207,7 +1207,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Initiatives",
+    tag: "Initiatives",
     href: "/projects/initiative-africa",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1265,7 +1265,7 @@ export const projects = [
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Knowedge",
+    tag: "Knowedge",
     href: "/projects/knowledge-africa",
     externalHref: "https://codeforafrica.org",
     badges: [
@@ -1310,6 +1310,16 @@ const imprint = `
 
 const DEFAULT_REVALIDATE = 3 * 60; // 3 minutes
 
+const ALL_TAG = "All";
+
+function getProjectTags(options = { includeAll: true }) {
+  const tags = new Set(projects?.flatMap((a) => a.tag || []));
+  if (options?.includeAll) {
+    return [ALL_TAG, ...tags];
+  }
+  return Array.from(tags);
+}
+
 function getHomePageStaticProps() {
   return {
     props: {
@@ -1321,13 +1331,8 @@ function getHomePageStaticProps() {
         },
         {
           slug: "projects",
-          projects: projects.map(({ slug, name, tagLine, icon, category }) => ({
-            name,
-            tagLine,
-            icon,
-            category,
-            href: `/projects/${slug}`,
-          })),
+          projects,
+          tags: getProjectTags({ includeAll: false }),
         },
         {
           slug: "meet-our-team",
@@ -1368,6 +1373,7 @@ function getHomePageStaticProps() {
 }
 
 function paginateResults(items, page, pageSize) {
+  // We need to initialize to null for serialization.
   let count = null;
   let results = [];
   let pageNumber = null;
@@ -1392,30 +1398,15 @@ function paginateResults(items, page, pageSize) {
   };
 }
 
-const ALL_CATEGORIES = "All";
-
 export function getProjects(options) {
-  const {
-    category: originalCategory,
-    page,
-    "page-size": pageSize,
-  } = options || {};
-  const category = originalCategory || ALL_CATEGORIES;
+  const { tag: originalTag, page, "page-size": pageSize } = options || {};
+  const tag = originalTag || ALL_TAG;
 
   const foundProjects = projects.filter(
-    (p) =>
-      equalsIgnoreCase(category, ALL_CATEGORIES) ||
-      equalsIgnoreCase(category, p.category)
+    (p) => equalsIgnoreCase(tag, ALL_TAG) || equalsIgnoreCase(tag, p.tag)
   );
 
   return paginateResults(foundProjects, page, pageSize);
-}
-
-function getProjectCategories() {
-  return [
-    ALL_CATEGORIES,
-    ...new Set(projects?.flatMap((a) => a.category || [])),
-  ];
 }
 
 function getProjectsPageStaticProps() {
@@ -1431,7 +1422,7 @@ function getProjectsPageStaticProps() {
         },
         {
           slug: "projects",
-          categories: getProjectCategories(),
+          tags: getProjectTags(),
           projects: getProjects(),
         },
       ],
