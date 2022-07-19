@@ -14,13 +14,20 @@ export default function getProjects(fields = []) {
     const collection = getCollectionBySlug(projectsDir, _slug, fields);
     const project = collection.items;
     if (fields.includes("badges")) {
-      const badges = getBadges();
+      const badges = getBadges(["id", "name", "content", "date"]);
       project.badges = badges.filter((badge) =>
         collection.data.badges.id.includes(badge.id)
       );
     }
     if (fields.includes("partners")) {
-      const partners = getPartners();
+      const partners = getPartners([
+        "id",
+        "slug",
+        "name",
+        "content",
+        "href",
+        "logo",
+      ]);
       project.partners = {
         title: "Partners",
         list: partners.filter((partner) =>

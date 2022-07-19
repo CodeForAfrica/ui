@@ -1,37 +1,7 @@
-const Partners = {
-  title: "Partners",
-  matchBy: "/partners/",
-  fields: ["description"],
-};
-
-const Badges = {
-  title: "Badges",
-  matchBy: "/badges/",
-  fields: ["description"],
-};
-
-const Donors = {
-  title: "Donors",
-  matchBy: "/donors/",
-  fields: [],
-};
-
-const GuidingPrinciples = {
-  title: "Guiding Principles",
-  matchBy: "/guiding_principles/",
-  fields: ["description"],
-};
-
-const Offices = {
-  title: "Offices",
-  matchBy: "/offices/",
-  fields: ["description"],
-};
-
-const OurImpact = {
-  title: "Our Impact",
-  matchBy: "/our_impact/",
-  fields: ["description"],
+const Project = {
+  title: "Projects",
+  matchBy: "/projects/",
+  fields: ["subtitle"],
 };
 
 const IndexPage = {
@@ -49,12 +19,4 @@ const IndexPage = {
   ],
 };
 
-export default [
-  Partners,
-  Badges,
-  Donors,
-  GuidingPrinciples,
-  Offices,
-  OurImpact,
-  IndexPage,
-];
+export default [Project, IndexPage];

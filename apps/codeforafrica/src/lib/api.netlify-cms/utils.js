@@ -19,11 +19,9 @@ export const getCollectionBySlug = (collectionDir, slug, fields = []) => {
 
   fields.forEach((field) => {
     if (field === "content") {
-      items[field] = content;
-    } else if (field === "markdown") {
-      items[field] = marked(data[field]);
+      items.description = marked(content);
     } else {
-      items[field] = data[field];
+      items[field] = data[field] || "";
     }
   });
   mappings.forEach((mapping) => {
@@ -37,6 +35,7 @@ export const getCollectionBySlug = (collectionDir, slug, fields = []) => {
           });
         } else {
           data[field] = marked(data[field]);
+          items[field] = data[field];
         }
       });
     }

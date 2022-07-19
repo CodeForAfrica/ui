@@ -3,7 +3,14 @@ import getProjects from "./api.netlify-cms/getProjects";
 import getHero from "./api.netlify-cms/sections/getHero";
 import getMeetOurTeam from "./api.netlify-cms/sections/getMeetOurTeam";
 
-export const partners = getPartners();
+export const partners = getPartners([
+  "id",
+  "slug",
+  "name",
+  "content",
+  "href",
+  "logo",
+]);
 
 export const projects = getProjects([
   "category",
@@ -13,7 +20,7 @@ export const projects = getProjects([
   "icon",
   "title",
   "subtitle",
-  "description",
+  "content",
   "thumbnail",
   "href",
   "externalHref",

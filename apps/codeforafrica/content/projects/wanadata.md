@@ -6,15 +6,6 @@ title: Uplifting <span class="highlight">women in Africa</span> with a focus on
   data-driven projects
 subtitle: The WanaData community drives collaborative work and supports members
   in achieving their professional goals.
-description: <p>WanaData is a Pan-African network of female data scientists,
-  journalists and technologists working to change the digital landscape by
-  producing and promoting data-driven projects while applying digital
-  technologies in storytelling. It has grown from an initial 6 members in
-  Nigeria to more than 400 women across the continent.</p><p>WanaData members
-  have collaborated on cross-border reporting projects that incorporate data
-  visualisation, artificial intelligence, audience engagement strategies, social
-  videos, drone journalism and other innovative approaches, to enhance news
-  content on the continent.</p>
 category: Knowledge
 icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_WanaData_neqwtm.svg
@@ -46,3 +37,7 @@ links:
       href: https://github.com/CodeForAfrica
       slug: github
 ---
+
+WanaData is a Pan-African network of female data scientists, journalists and technologists working to change the digital landscape by producing and promoting data-driven projects while applying digital technologies in storytelling. It has grown from an initial 6 members in Nigeria to more than 400 women across the continent.
+
+WanaData members have collaborated on cross-border reporting projects that incorporate data visualisation, artificial intelligence, audience engagement strategies, social videos, drone journalism and other innovative approaches, to enhance news content on the continent.

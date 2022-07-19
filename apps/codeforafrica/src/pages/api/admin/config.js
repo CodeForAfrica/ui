@@ -25,7 +25,7 @@ module.exports = {
                 {
                   label: "Title",
                   name: "title",
-                  widget: "markdown",
+                  widget: "text",
                 },
                 {
                   label: "Messages",
@@ -343,7 +343,7 @@ module.exports = {
         },
         {
           label: "Description",
-          name: "description",
+          name: "body",
           widget: "markdown",
         },
         {
@@ -407,7 +407,7 @@ module.exports = {
         },
         {
           label: "Description",
-          name: "description",
+          name: "body",
           widget: "markdown",
         },
         {
@@ -456,7 +456,7 @@ module.exports = {
         },
         {
           label: "Address",
-          name: "address",
+          name: "body",
           widget: "markdown",
         },
       ],
@@ -481,7 +481,7 @@ module.exports = {
         },
         {
           label: "Description",
-          name: "description",
+          name: "body",
           widget: "markdown",
         },
         {
@@ -540,7 +540,7 @@ module.exports = {
         },
         {
           label: "Description",
-          name: "description",
+          name: "body",
           widget: "markdown",
         },
         {
@@ -594,7 +594,7 @@ module.exports = {
         {
           label: "Title",
           name: "title",
-          widget: "markdown",
+          widget: "string",
         },
         {
           label: "Subtitle",
@@ -603,7 +603,7 @@ module.exports = {
         },
         {
           label: "Description",
-          name: "description",
+          name: "body",
           widget: "markdown",
         },
         {
@@ -751,7 +751,7 @@ module.exports = {
         },
         {
           label: "Description",
-          name: "description",
+          name: "body",
           widget: "markdown",
         },
         {
