@@ -42,7 +42,6 @@
     "@mui/material": "^5.8.5",
     "@mui/utils": "^5.8.4",
     "fast-equals": "^4.0.1",
-    "frontmatter-markdown-loader": "^3.7.0",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
     "marked": "^4.0.18",
