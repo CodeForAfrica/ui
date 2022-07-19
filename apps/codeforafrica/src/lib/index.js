@@ -466,7 +466,7 @@ const articles = [
       eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</div>
 
       <div style="padding: 40px 0px;">
-        <img src="/image 12.png" alt="article-image" style="width: 100%;height: auto;"/>
+        <img src="/images/image 12.png" alt="article-image" style="width: 100%;height: auto;"/>
         <h6 style="font-weight: 400; font-size: 12px; line-height: 14px; text-align: center; color: #1020E1;">The #GMMP2020 team of enumerators from DRC displaying their certificates of participation. (Picture by DRC <br/>team © Global Media Monitoring Project)</h6>
       </div>
       
