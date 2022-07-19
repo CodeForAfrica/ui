@@ -683,6 +683,10 @@ module.exports = {
                   ],
                 },
               ],
+            },
+          ],
+        },
+        {
           label: "Imprint",
           name: "imprint",
           file: "content/pages/imprint.md",
