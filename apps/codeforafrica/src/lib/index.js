@@ -1433,6 +1433,27 @@ function getProjectsPageStaticProps() {
   };
 }
 
+export function getOpportunities(options) {
+  const { tag: originalTag, page, "page-size": pageSize } = options || {};
+  const tag = originalTag || ALL_TAG;
+  const found = opportunities.filter(
+    (o) =>
+      equalsIgnoreCase(tag, ALL_TAG) ||
+      o.tags?.some((t) => equalsIgnoreCase(tag, t))
+  );
+
+  return paginateResults(found, page, pageSize);
+}
+
+function getOpportunitiesTags(options = { includeAll: true }) {
+  const tags = new Set(opportunities?.flatMap((o) => o.tags || []));
+
+  if (options?.includeAll) {
+    return [ALL_TAG, ...tags];
+  }
+  return Array.from(tags);
+}
+
 function getOpportunitiesPageStaticProps() {
   return {
     props: {
@@ -1445,7 +1466,8 @@ function getOpportunitiesPageStaticProps() {
         },
         {
           slug: "opportunities",
-          opportunities,
+          opportunities: getOpportunities(),
+          tags: getOpportunitiesTags(),
         },
       ],
       footer,
