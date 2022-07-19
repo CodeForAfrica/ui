@@ -14,7 +14,6 @@ module.exports = {
         {
           label: "Index",
           name: "index",
-          widget: "object",
           file: "content/pages/index.md",
           fields: [
             {
@@ -98,7 +97,6 @@ module.exports = {
         {
           label: "About Us",
           name: "about",
-          widget: "object",
           file: "content/pages/about.md",
           fields: [
             {
@@ -200,7 +198,6 @@ module.exports = {
         {
           label: "Contact Us",
           name: "contact",
-          widget: "object",
           file: "content/pages/contact.md",
           fields: [
             {
@@ -686,6 +683,46 @@ module.exports = {
                   ],
                 },
               ],
+          label: "Imprint",
+          name: "imprint",
+          file: "content/pages/imprint.md",
+          fields: [
+            {
+              label: "Title",
+              name: "title",
+              widget: "string",
+            },
+            {
+              label: "Subtitle",
+              name: "subtitle",
+              widget: "string",
+            },
+            {
+              label: "Body",
+              name: "body",
+              widget: "markdown",
+            },
+          ],
+        },
+        {
+          label: "Privacy Policy",
+          name: "privacy-policy",
+          file: "content/pages/privacy-policy.md",
+          fields: [
+            {
+              label: "Title",
+              name: "title",
+              widget: "string",
+            },
+            {
+              label: "Subtitle",
+              name: "subtitle",
+              widget: "string",
+            },
+            {
+              label: "Body",
+              name: "body",
+              widget: "markdown",
             },
           ],
         },

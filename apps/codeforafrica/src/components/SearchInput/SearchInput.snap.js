@@ -15,12 +15,19 @@ exports[`<SearchInput /> renders unchanged 1`] = `
         type="search"
         value=""
       />
-      <div
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-iusnk6-MuiSvgIcon-root"
-        focusable="false"
-        viewbox="0 0 16 16"
-      />
+      <button
+        aria-label="search"
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-k4oz44-MuiButtonBase-root-MuiIconButton-root"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-iusnk6-MuiSvgIcon-root"
+          focusable="false"
+          viewbox="0 0 16 16"
+        />
+      </button>
       <fieldset
         aria-hidden="true"
         class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"

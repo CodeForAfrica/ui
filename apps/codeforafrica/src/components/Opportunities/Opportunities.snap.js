@@ -1,10 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Projects /> renders unchanged 1`] = `
+exports[`<Opportunities /> renders unchanged 1`] = `
 <div>
-  <div>
+  <div
+    class="css-1bf5ofc"
+  >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1hxthm7-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1an3gwn-MuiContainer-root"
     >
       <div
         class="css-17zapp7-MuiStack-root"
@@ -13,13 +15,14 @@ exports[`<Projects /> renders unchanged 1`] = `
           class="MuiFormControl-root MuiTextField-root css-1p0a819-MuiFormControl-root-MuiTextField-root"
         >
           <div
-            class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1u16ib2-MuiInputBase-root-MuiOutlinedInput-root"
+            class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1u16ib2-MuiInputBase-root-MuiOutlinedInput-root"
           >
             <input
               aria-invalid="false"
-              class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1heb2i2-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiOutlinedInput-input MuiInputBase-input Mui-disabled MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1heb2i2-MuiInputBase-input-MuiOutlinedInput-input"
+              disabled=""
               id="mui-1"
-              placeholder="Search projects"
+              placeholder="Search opportunities"
               type="search"
               value=""
             />
@@ -50,6 +53,23 @@ exports[`<Projects /> renders unchanged 1`] = `
                 </span>
               </legend>
             </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiToggleButtonGroup-root css-ughtug-MuiToggleButtonGroup-root"
+          role="group"
+        >
+          <div
+            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-g678h5-MuiButtonBase-root-MuiChip-root"
+            role="button"
+            tabindex="0"
+            value="All"
+          >
+            <span
+              class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
+            >
+              All
+            </span>
           </div>
         </div>
       </div>

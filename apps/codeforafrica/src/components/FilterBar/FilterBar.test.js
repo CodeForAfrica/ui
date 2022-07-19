@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Articles from "./Articles";
+import FilterBar from "./FilterBar";
 
 import theme from "@/codeforafrica/theme";
 
@@ -9,7 +9,7 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  articles: [],
+  tags: ["All"],
 };
 
 jest.mock("next/router", () => ({
@@ -19,9 +19,9 @@ jest.mock("next/router", () => ({
   })),
 }));
 
-describe("<Articles />", () => {
+describe("<FilterBar />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Articles {...defaultProps} />);
+    const { container } = render(<FilterBar {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

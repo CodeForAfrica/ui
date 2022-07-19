@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -8,11 +8,9 @@ import NavBar from "@/codeforafrica/components/NavBar";
 function Page({ children, footer, navbar, title }) {
   return (
     <>
-      <Head>
-        <title>{title}</title>
-      </Head>
-      <NavBar {...navbar} />
-      {children}
+      <NextSeo title={title} />
+      {navbar ? <NavBar {...navbar} /> : null}
+      {children ? <main>{children}</main> : null}
       {footer ? <Footer {...footer} /> : null}
     </>
   );
