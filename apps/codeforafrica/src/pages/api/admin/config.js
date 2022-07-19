@@ -486,7 +486,7 @@ module.exports = {
         },
         {
           label: "Count",
-          name: "count",
+          name: "value",
           widget: "string",
         },
         {

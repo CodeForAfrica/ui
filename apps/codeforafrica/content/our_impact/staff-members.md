@@ -1,7 +1,7 @@
 ---
 id: 8f429fcb-deea-463f-8605-992ea0fc74a8
 title: Staff members
-count: "88"
+value: "88"
 image:
   src: /icons/staff.svg
 ---

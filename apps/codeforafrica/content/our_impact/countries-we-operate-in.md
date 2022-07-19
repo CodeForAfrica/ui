@@ -1,7 +1,7 @@
 ---
 id: f1538b03-86bf-4933-9b15-3dfe0e087189
 title: Countries we operate in
-count: 18+
+value: 81+
 image:
   src: /icons/international.svg
 ---
