@@ -4,7 +4,10 @@ const ALL_TAG = "All";
 
 function useFilterQuery(query = {}) {
   const searchParams = new URLSearchParams();
-  const { tag, page, q } = query;
+  const { field, page, q, tag } = query;
+  if (field) {
+    searchParams.append("field", field);
+  }
   if (page > 1) {
     searchParams.append("page", page);
   }
