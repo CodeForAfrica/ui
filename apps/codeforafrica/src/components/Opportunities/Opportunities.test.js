@@ -9,12 +9,13 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  opportunities: [],
+  opportunities: { pagination: {}, results: [] },
 };
 
 jest.mock("next/router", () => ({
   useRouter: jest.fn().mockImplementation(() => ({
     isReady: true,
+    push: jest.fn(),
     query: {},
   })),
 }));
