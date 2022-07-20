@@ -14,6 +14,10 @@ const TeamMemberCardRoot = styled(Card, {
   display: "flex",
   flexDirection: "column",
   width: 150,
+  [theme.breakpoints.only("sm")]: {
+    padding: "0 7px",
+    width: 164,
+  },
 }));
 
 const TeamMemberCardMedia = styled(CardMedia, {
