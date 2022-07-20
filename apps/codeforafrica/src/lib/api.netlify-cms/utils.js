@@ -20,8 +20,10 @@ export const getCollectionBySlug = (collectionDir, slug, fields = []) => {
   fields.forEach((field) => {
     if (field === "content") {
       items.description = marked(content);
+    } else if (field === "slug") {
+      items.slug = realSlug;
     } else {
-      items[field] = data[field] || "";
+      items[field] = data[field] || null;
     }
   });
   mappings.forEach((mapping) => {

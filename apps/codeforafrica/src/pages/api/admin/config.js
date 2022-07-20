@@ -529,11 +529,6 @@ module.exports = {
           widget: "uuid",
         },
         {
-          label: "Slug",
-          name: "slug",
-          widget: "string",
-        },
-        {
           label: "Name",
           name: "name",
           widget: "string",
@@ -575,11 +570,6 @@ module.exports = {
           label: "Id",
           name: "id",
           widget: "uuid",
-        },
-        {
-          label: "Slug",
-          name: "slug",
-          widget: "string",
         },
         {
           label: "Name",

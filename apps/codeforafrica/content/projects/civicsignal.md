@@ -1,6 +1,5 @@
 ---
 id: 7e3a1ef1-576d-4428-824d-a12fa774519d
-slug: civic-signal
 name: CivicSignal
 tagLine: Africa media ecosystem
 title: |
@@ -14,7 +13,7 @@ icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_CivicSignal_ayzj31.svg
 thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg
-href: /projects/civic-signal
+href: /projects/civicsignal
 externalHref: https://codeforafrica.org
 badges:
   id:

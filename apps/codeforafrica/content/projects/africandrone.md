@@ -1,6 +1,5 @@
 ---
 id: 14fdf60f-2928-4776-b208-6641e8413f74
-slug: african-drone
 name: africanDRONE
 tagLine: Drones for good
 title: Empowering citizens through <span class="highlight">drone technology</span>
@@ -12,7 +11,7 @@ icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_africanDRONE_exwdyu.svg
 thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705960/codeforafrica/images/Property_1_africanDRONE_y4surg.jpg
-href: /projects/african-drone
+href: /projects/africandrone
 externalHref: https://codeforafrica.org
 badges:
   id:

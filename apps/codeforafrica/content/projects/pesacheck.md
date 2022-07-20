@@ -1,6 +1,5 @@
 ---
 id: 31626677-0bc8-49cb-a2e6-1d7e5504d1fe
-slug: pesa-check
 name: PesaCheck
 tagLine: Africa fact-checking
 title: >
@@ -13,7 +12,7 @@ icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_PesaCheck_rmswvg.svg
 thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg
-href: /projects/pesa-check
+href: /projects/pesacheck
 externalHref: https://codeforafrica.org
 badges:
   id:

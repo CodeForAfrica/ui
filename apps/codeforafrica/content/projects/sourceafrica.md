@@ -11,16 +11,15 @@ icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg
 thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg
-href: /projects/source-africa
+href: /projects/sourceafrica
 externalHref: https://codeforafrica.org
+badges:
+  id:
+    - 310e65d3-d608-4033-9284-5826412946bb
 partners:
   - daa2a622-0277-44be-b302-dbc703f89522
   - 34cbbb42-0124-4973-bce2-b05d6ec84c1b
   - f26f59e7-444e-4e9f-b0cc-8f75b90165d8
-slug: source-africa
-badges:
-  id:
-    - 310e65d3-d608-4033-9284-5826412946bb
 donors:
   - f67426f2-9338-43cc-85c3-0782420eb623
   - f690fb82-9baa-4e31-a4b2-d57ffad43874
