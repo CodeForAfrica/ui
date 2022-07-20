@@ -2,7 +2,7 @@ import { RichTypography, Section } from "@commons-ui/core";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import useMembers from "./useMembers";
 
@@ -26,13 +26,14 @@ const OurTeam = React.forwardRef(function OurTeam(
     sx,
     tags: tagsByFields = [],
     team: {
-      pagination: { count: countProp, page: pageProp = 1 },
+      pagination: { count: countProp, page: pageProp },
       results: resultsProp,
     },
     title,
   },
   ref
 ) {
+  const [action, setAction] = useState();
   const [count, setCount] = useState(countProp);
   const [field, setField] = useState(tagsByFields[0]?.field);
   const [fields] = useState(() => tagsByFields.map((tf) => tf.field));
@@ -42,6 +43,7 @@ const OurTeam = React.forwardRef(function OurTeam(
   const [tag, setTag] = useState(ALL_TAG);
   const [tags, setTags] = useState(() => getTags(tagsByFields, field));
   const queryParams = useFilterQuery({ field, page, q, tag });
+  const sectionRef = useRef();
   const router = useRouter();
 
   const handleChangeField = (_, value) => {
@@ -51,15 +53,18 @@ const OurTeam = React.forwardRef(function OurTeam(
       setTag(ALL_TAG);
       setTags(getTags(tagsByFields, value));
       setPage(1);
+      setAction("field");
     }
   };
 
   const handleChangePage = (_, value) => {
     setPage(value);
+    setAction("page");
   };
 
   const handleChangeQ = (_, value) => {
     setQ(value || undefined);
+    setAction("q");
   };
 
   const handleChangeTag = (_, value) => {
@@ -67,6 +72,7 @@ const OurTeam = React.forwardRef(function OurTeam(
       (value && tags.find((t) => equalsIgnoreCase(value, t))) || ALL_TAG;
     setTag(newValue);
     setPage(1);
+    setAction("tag");
   };
 
   const { data } = useMembers({ field, page, q, tag });
@@ -88,6 +94,12 @@ const OurTeam = React.forwardRef(function OurTeam(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryParams]);
 
+  useEffect(() => {
+    if (action === "page") {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [action, page]);
+
   return (
     <Box
       sx={{
@@ -101,9 +113,12 @@ const OurTeam = React.forwardRef(function OurTeam(
         sx={{
           maxWidth: { md: 1028, lg: 1144 },
           overflowX: "visible",
+          pb: { xs: 2.5, sm: 0 },
           px: { xs: 2.5, sm: 0 },
-          py: { xs: 2.5, md: "62px", lg: 10 },
+          pt: { xs: 2.5, md: "62px", lg: 10 },
+          scrollMarginTop: 80,
         }}
+        ref={sectionRef}
       >
         <RichTypography variant="h5" sx={{ mb: 2.5, typography: { md: "h4" } }}>
           {title}
@@ -174,7 +189,6 @@ const OurTeam = React.forwardRef(function OurTeam(
               width: { sm: "100%", md: "200px" },
             },
           }}
-          allTag={ALL_TAG}
           direction={{ xs: "column", md: "row" }}
           onChangeQ={handleChangeQ}
           onChangeTag={handleChangeTag}
@@ -188,6 +202,10 @@ const OurTeam = React.forwardRef(function OurTeam(
         count={count}
         onChange={handleChangePage}
         page={page}
+        sx={{
+          background: "inherit",
+          display: { xs: "none", sm: "flex" },
+        }}
       />
     </Box>
   );
