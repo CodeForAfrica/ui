@@ -4,9 +4,9 @@ import useFilterQuery from "@/codeforafrica/components/useFilterQuery";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function useProjects(query) {
+function useOpportunities(query) {
   const queryParams = useFilterQuery(query);
-  const { data, error } = useSWR(`/api/projects${queryParams}`, fetcher);
+  const { data, error } = useSWR(`/api/opportunities${queryParams}`, fetcher);
 
   return {
     data,
@@ -15,4 +15,4 @@ function useProjects(query) {
   };
 }
 
-export default useProjects;
+export default useOpportunities;
