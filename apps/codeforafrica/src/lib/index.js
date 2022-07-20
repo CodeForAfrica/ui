@@ -335,6 +335,28 @@ export const team = [
     country: "South Africa",
     team: "africanDRONE",
   },
+  {
+    slug: "member-19",
+    name: "Tolulope Adeyemo",
+    title: "Senior Programme Manager",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
+    },
+    href: "/about/members/member-19",
+    country: "Nigeria",
+    team: "Knowledge",
+  },
+  {
+    slug: "member-20",
+    name: "Johnny Miller",
+    title: "Co-Founder of africanDRONE",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
+    },
+    href: "/about/members/member-20",
+    country: "South Africa",
+    team: "africanDRONE",
+  },
 ];
 
 const guidingPrinciples = [
