@@ -79,7 +79,6 @@ const Opportunies = React.forwardRef(function Opportunies(
         }}
       >
         <FilterBar
-          allTag={ALL_TAG}
           onChangeQ={handleChangeQ}
           onChangeTag={handleChangeTag}
           q={q}
