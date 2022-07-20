@@ -52,6 +52,7 @@ export async function getPostsByPrimaryTag(tag, options) {
     fields:
       "id,title,slug,published_at,feature_image,excerpt,custom_excerpt,html",
     filter: `primary_tag:${tag}`,
+    include: "tags",
   };
 
   const posts = await getAllPosts(optionsWithPrimaryTagFilter);

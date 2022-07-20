@@ -1,6 +1,5 @@
 import {
   getPostsByPrimaryTag,
-  getAllTags,
   getPost,
   getAllPostsWithSlug,
 } from "@/codeforafrica/lib/api.ghost";
@@ -1397,8 +1396,6 @@ function getProjectsPageStaticProps() {
 
 async function getOpportunitiesPageStaticProps(options) {
   const allOpportunities = await getPostsByPrimaryTag("opportunities", options);
-  const tags = await getAllTags();
-  const allTags = tags.map((tag) => tag.name);
 
   return {
     props: {
@@ -1412,7 +1409,6 @@ async function getOpportunitiesPageStaticProps(options) {
         {
           slug: "opportunities",
           opportunities: allOpportunities,
-          allTags,
         },
       ],
       footer,
@@ -1552,9 +1548,6 @@ function getProjectPageStaticProps(params) {
 
 async function getStoriesPageStaticProps(options) {
   const allArticles = await getPostsByPrimaryTag("stories", options);
-  // TODO: Does the tags list include opportunities tags? If so, we need to filter them out.
-  const tags = await getAllTags();
-  const allTags = tags.map((tag) => tag.name);
 
   return {
     props: {
@@ -1564,7 +1557,6 @@ async function getStoriesPageStaticProps(options) {
           slug: "articles",
           title: "Articles",
           articles: allArticles,
-          allTags,
         },
       ],
       footer,

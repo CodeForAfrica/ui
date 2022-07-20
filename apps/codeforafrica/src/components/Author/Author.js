@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const Author = React.forwardRef(function Author(props, ref) {
-  const { name, profession, ...other } = props;
+  const { name, bio, ...other } = props;
 
   return (
     <Stack
@@ -27,7 +27,7 @@ const Author = React.forwardRef(function Author(props, ref) {
         }}
       >
         <RichTypography variant="body1SemiBold">{name}</RichTypography>
-        {/* <RichTypography variant="body1">{profession}</RichTypography> */}
+        <RichTypography variant="body1">{bio}</RichTypography>
       </Stack>
     </Stack>
   );

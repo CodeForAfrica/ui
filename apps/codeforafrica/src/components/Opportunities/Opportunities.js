@@ -21,19 +21,19 @@ const computePagination = (all, page, pageSize) => {
   return { count, opportunities };
 };
 
-function Opportunies(props) {
-  const {
-    opportunities = [],
-    page: pageProp = 1,
-    pageSize = 4,
-    allTags,
-  } = props;
+function Opportunities(props) {
+  const { opportunities = [], page: pageProp = 1, pageSize = 4 } = props;
   const ref = useRef();
+
   const [tags] = useState(() => {
-    const uniqueTags = [...new Set(allTags)];
+    const allTags = opportunities
+      .map((opportunity) => opportunity.tags)
+      .flat(Infinity);
+    const uniqueTags = [...new Set(allTags.map((tag) => tag.name))];
     uniqueTags.unshift(ALL_TAGS);
     return uniqueTags;
   });
+
   const [selectedTag, setSelectedTag] = useState(ALL_TAGS);
   const [page, setPage] = useState(pageProp);
   const [pagination, setPagination] = useState(() => {
@@ -121,4 +121,4 @@ function Opportunies(props) {
   );
 }
 
-export default Opportunies;
+export default Opportunities;

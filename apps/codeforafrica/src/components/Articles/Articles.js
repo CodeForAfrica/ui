@@ -13,16 +13,11 @@ const computePagination = (allArtiles, page, pageSize) => {
 
 function Articles(props) {
   // We use 10 because article 0 will be shown as featured article
-  const {
-    articles = [],
-    page: pageProp = 1,
-    pageSize = 10,
-    title,
-    allTags,
-  } = props;
+  const { articles = [], page: pageProp = 1, pageSize = 10, title } = props;
 
   const [tags] = useState(() => {
-    const uniqueTags = [...new Set(allTags)];
+    const allTags = articles.map((article) => article.tags).flat(Infinity);
+    const uniqueTags = [...new Set(allTags.map((tag) => tag.name))];
     uniqueTags.unshift(ALL_TAG);
     return uniqueTags;
   });
