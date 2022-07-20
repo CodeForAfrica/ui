@@ -16,7 +16,7 @@ export default function getProjects(fields = []) {
     if (fields.includes("badges")) {
       const badges = getBadges(["id", "name", "content", "date"]);
       project.badges = badges.filter((badge) =>
-        collection.data.badges.id.includes(badge.id)
+        project.badges.id.includes(badge.id)
       );
     }
     if (fields.includes("partners")) {
@@ -31,7 +31,7 @@ export default function getProjects(fields = []) {
       project.partners = {
         title: "Partners",
         list: partners.filter((partner) =>
-          collection.data.partners.includes(partner.id)
+          project.partners.includes(partner.id)
         ),
       };
     }
@@ -39,9 +39,7 @@ export default function getProjects(fields = []) {
       const donors = getDonors();
       project.donors = {
         title: "Donors",
-        list: donors.filter((donor) =>
-          collection.data.donors.includes(donor.id)
-        ),
+        list: donors.filter((donor) => project.donors.includes(donor.id)),
       };
     }
     if (fields.includes("links")) {
