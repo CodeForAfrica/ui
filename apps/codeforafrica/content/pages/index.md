@@ -15,7 +15,7 @@ projects:
   - afcfdec9-99d7-4f2c-8bdb-964159c0676d
   - 07f3259e-2379-4850-83b8-85cacde0fcb8
   - 31626677-0bc8-49cb-a2e6-1d7e5504d1fe
-meet_our_team:
+meet-our-team:
   title: A truly pan-African team across the continent
   description: >-
     Lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu,

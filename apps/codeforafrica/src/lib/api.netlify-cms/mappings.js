@@ -12,7 +12,7 @@ const IndexPage = {
       hero: {
         fields: ["title"],
       },
-      meet_our_team: {
+      "meet-our-team": {
         fields: ["description"],
       },
     },

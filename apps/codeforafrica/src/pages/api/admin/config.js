@@ -75,7 +75,7 @@ module.exports = {
             },
             {
               label: "Meet Our Team",
-              name: "meet_our_team",
+              name: "meet-our-team",
               widget: "object",
               fields: [
                 {
@@ -159,7 +159,7 @@ module.exports = {
             },
             {
               label: "Background Image",
-              name: "background_image",
+              name: "background-image",
               widget: "object",
               fields: [
                 {
@@ -221,10 +221,10 @@ module.exports = {
             },
             {
               label: "Guiding Principles",
-              name: "guiding_principles",
+              name: "guiding-principles",
               label_singular: "Guiding Principle",
               widget: "relation",
-              collection: "guiding_principles",
+              collection: "guiding-principles",
               search_fields: ["title"],
               value_field: "id",
               display_fields: ["title"],
@@ -261,7 +261,7 @@ module.exports = {
             },
             {
               label: "Join Us",
-              name: "join_us",
+              name: "join-us",
               widget: "object",
               fields: [
                 {
@@ -310,9 +310,9 @@ module.exports = {
                 },
                 {
                   label: "Our Offices",
-                  name: "offices_addresses",
+                  name: "offices-addresses",
                   widget: "relation",
-                  collection: "offices_addresses",
+                  collection: "offices-addresses",
                   search_fields: ["name"],
                   value_field: "id",
                   display_fields: ["name"],
@@ -389,9 +389,9 @@ module.exports = {
     },
     {
       label: "Data | Guiding Principles",
-      name: "guiding_principles",
+      name: "guiding-principles",
       label_singular: "Guiding Principle",
-      folder: "content/guiding_principles",
+      folder: "content/guiding-principles",
       create: true,
       identifier_field: "title",
       fields: [
@@ -438,7 +438,7 @@ module.exports = {
     },
     {
       label: "Data | Offices",
-      name: "offices_addresses",
+      name: "offices-addresses",
       label_singular: "Office",
       folder: "content/offices",
       create: true,
@@ -465,7 +465,7 @@ module.exports = {
       label: "Data | Our Impact",
       name: "impact",
       label_singular: "Impact",
-      folder: "content/our_impact",
+      folder: "content/our-impact",
       create: true,
       identifier_field: "title",
       fields: [
