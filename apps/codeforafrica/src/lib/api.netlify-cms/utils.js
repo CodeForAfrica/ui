@@ -4,8 +4,6 @@ import { join } from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
 
-import mappings from "./mappings";
-
 export const getCollectionSlugs = (collectionDir) => {
   return fs.readdirSync(collectionDir);
 };
@@ -26,21 +24,6 @@ export const getCollectionBySlug = (collectionDir, slug, fields = []) => {
       items[field] = data[field] || null;
     }
   });
-  mappings.forEach((mapping) => {
-    if (fullPath.includes(mapping.matchBy)) {
-      mapping.fields.forEach((field) => {
-        if (typeof field === "object") {
-          Object.keys(field).forEach((f) => {
-            field[f].fields.forEach((y) => {
-              data[f][y] = marked(data[f][y]);
-            });
-          });
-        } else {
-          data[field] = marked(data[field]);
-          items[field] = data[field];
-        }
-      });
-    }
-  });
+
   return { items, data }; // return data just incase the caller needs to access its contents
 };

@@ -1,5 +1,7 @@
 import { join } from "path";
 
+import { marked } from "marked";
+
 import getBadges from "./getBadges";
 import getDonors from "./getDonors";
 import getPartners from "./getPartners";
@@ -49,6 +51,7 @@ export default function getProjects(fields = []) {
         }
       );
     }
+    project.subtitle = marked(project.subtitle);
     projects.push(project);
   });
   return projects;
