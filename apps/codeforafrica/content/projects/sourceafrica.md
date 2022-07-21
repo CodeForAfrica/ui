@@ -14,8 +14,7 @@ thumbnail:
 href: /projects/sourceafrica
 externalHref: https://codeforafrica.org
 badges:
-  id:
-    - 310e65d3-d608-4033-9284-5826412946bb
+  - 310e65d3-d608-4033-9284-5826412946bb
 partners:
   - daa2a622-0277-44be-b302-dbc703f89522
   - 34cbbb42-0124-4973-bce2-b05d6ec84c1b

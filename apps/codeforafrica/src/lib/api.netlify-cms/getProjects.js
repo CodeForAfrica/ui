@@ -17,7 +17,7 @@ export default function getProjects(fields = []) {
     if (fields.includes("badges")) {
       const badges = getBadges(["id", "name", "content", "date"]);
       project.badges = badges?.filter((badge) =>
-        project.badges.id.includes(badge.id)
+        project.badges.includes(badge.id)
       );
     }
     if (fields.includes("partners")) {

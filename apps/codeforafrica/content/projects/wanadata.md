@@ -14,10 +14,9 @@ thumbnail:
 href: /projects/wanadata
 externalHref: https://codeforafrica.org
 badges:
-  id:
-    - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
-    - cce4b68a-ad5e-428e-a9aa-849a8a7afb27
-    - 310e65d3-d608-4033-9284-5826412946bb
+  - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
+  - cce4b68a-ad5e-428e-a9aa-849a8a7afb27
+  - 310e65d3-d608-4033-9284-5826412946bb
 partners:
   - 2b3e8830-3a6c-4e2e-9748-646c57208830
   - 91f54886-c49c-40f1-bcc1-a1ceef755581

@@ -16,9 +16,8 @@ thumbnail:
 href: /projects/civicsignal
 externalHref: https://codeforafrica.org
 badges:
-  id:
-    - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
-    - cce4b68a-ad5e-428e-a9aa-849a8a7afb27
+  - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
+  - cce4b68a-ad5e-428e-a9aa-849a8a7afb27
 partners:
   - daa2a622-0277-44be-b302-dbc703f89522
   - e90b7786-69b3-4694-9ee9-d9c21dc80287

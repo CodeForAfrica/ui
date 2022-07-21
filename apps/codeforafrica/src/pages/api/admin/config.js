@@ -638,19 +638,13 @@ module.exports = {
         {
           label: "Badges",
           name: "badges",
-          widget: "object",
-          fields: [
-            {
-              label: "Badge",
-              name: "id",
-              widget: "relation",
-              collection: "badges",
-              search_fields: ["name"],
-              value_field: "id",
-              display_fields: ["name"],
-              multiple: true,
-            },
-          ],
+          widget: "relation",
+          label_singular: "Badge",
+          collection: "badges",
+          search_fields: ["name"],
+          value_field: "id",
+          display_fields: ["name"],
+          multiple: true,
         },
         {
           name: "partners",
