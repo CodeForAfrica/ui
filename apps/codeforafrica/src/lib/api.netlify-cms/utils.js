@@ -4,11 +4,11 @@ import { join } from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
 
-export const getCollectionSlugs = (collectionDir) => {
+export function getCollectionSlugs(collectionDir) {
   return fs.readdirSync(collectionDir);
-};
+}
 
-export const getCollectionBySlug = (collectionDir, slug, fields = []) => {
+export function getCollectionBySlug(collectionDir, slug, fields = []) {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(collectionDir, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -26,4 +26,4 @@ export const getCollectionBySlug = (collectionDir, slug, fields = []) => {
   });
 
   return { items, data }; // return data just incase the caller needs to access its contents
-};
+}
