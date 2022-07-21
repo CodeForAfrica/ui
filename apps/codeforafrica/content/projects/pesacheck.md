@@ -26,14 +26,12 @@ donors:
 team:
   - Jacobo Ottaviani
 links:
-  - link:
-      content: PesaCheck
-      href: https://pesacheck.org/
-      slug: data
-  - link:
-      href: https://github.com/CodeForAfrica
-      content: Github
-      slug: github
+  - slug: data
+    content: PesaCheck
+    href: https://pesacheck.org/
+  - slug: github
+    href: https://github.com/CodeForAfrica
+    content: Github
 ---
 
 PesaCheck is a pioneering verification initiative that is kickstarting fact-checking across Africa. Initially focused on verifying the financial and other statistical numbers quoted by public figures in Kenya, Tanzania and Uganda, PesaCheck is now Africa’s largest with full-time fact-checkers in 15 countries in both east and west Africa, as well as across the Sahel.

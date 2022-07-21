@@ -43,11 +43,6 @@ export default function getProjects(fields) {
         list: donors?.filter((donor) => project.donors.includes(donor.id)),
       };
     }
-    if (fields.includes("links")) {
-      project.links = project.links.map(({ link: { slug, content, href } }) => {
-        return { slug, content, href };
-      });
-    }
     project.subtitle = marked(project.subtitle);
     project.href = `/projects/${project.slug}`;
     return project;

@@ -25,14 +25,12 @@ donors:
 team:
   - 24c487bd-ba84-42df-825e-b11a532786ad
 links:
-  - link:
-      content: WanaData
-      href: https://codeforkenya.org/wanadata/
-      slug: data
-  - link:
-      content: Github
-      href: https://github.com/CodeForAfrica
-      slug: github
+  - slug: data
+    content: WanaData
+    href: https://codeforkenya.org/wanadata/
+  - slug: github
+    content: Github
+    href: https://github.com/CodeForAfrica
 ---
 
 WanaData is a Pan-African network of female data scientists, journalists and technologists working to change the digital landscape by producing and promoting data-driven projects while applying digital technologies in storytelling. It has grown from an initial 6 members in Nigeria to more than 400 women across the continent.

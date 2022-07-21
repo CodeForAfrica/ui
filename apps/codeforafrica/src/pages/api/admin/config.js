@@ -667,11 +667,6 @@ module.exports = {
           ],
         },
         {
-          label: "URL",
-          name: "href",
-          widget: "string",
-        },
-        {
           label: "External URL",
           name: "externalHref",
           widget: "string",
@@ -723,27 +718,46 @@ module.exports = {
         {
           name: "links",
           label: "Links",
+          label_singular: "Link",
           widget: "list",
+          summary: "{{content}} - {{href}}",
           fields: [
             {
-              label: "Link",
-              name: "link",
+              label: "slug",
+              name: "slug",
+              widget: "string",
+            },
+            {
+              label: "Content",
+              name: "content",
+              widget: "string",
+            },
+            {
+              label: "Href",
+              name: "href",
+              widget: "string",
+            },
+            {
+              label: "Icon",
+              name: "icon",
               widget: "object",
               fields: [
                 {
-                  label: "slug",
-                  name: "slug",
-                  widget: "string",
+                  label: "Source",
+                  name: "src",
+                  widget: "image",
                 },
                 {
-                  label: "Content",
-                  name: "content",
+                  label: "Height",
+                  name: "height",
                   widget: "string",
+                  required: false,
                 },
                 {
-                  label: "Href",
-                  name: "href",
+                  label: "Width",
+                  name: "width",
                   widget: "string",
+                  required: false,
                 },
               ],
             },

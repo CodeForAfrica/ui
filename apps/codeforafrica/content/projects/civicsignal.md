@@ -26,14 +26,12 @@ donors:
 team:
   - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
 links:
-  - link:
-      content: CivicSignal
-      href: https://civicsignal.africa/
-      slug: data
-  - link:
-      href: https://github.com/CodeForAfrica
-      content: Github
-      slug: github
+  - slug: data
+    content: CivicSignal
+    href: https://civicsignal.africa/
+  - slug: github
+    href: https://github.com/CodeForAfrica
+    content: Github
 ---
 
 We give you actionable insights to help you navigate Africa’s media ecosystem and emerging civic technology sector. Our insights are based on analysis by human experts, using machine learning tools and ‘big data’ resources.

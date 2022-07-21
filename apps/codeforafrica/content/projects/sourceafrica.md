@@ -25,14 +25,12 @@ team:
   - 24c487bd-ba84-42df-825e-b11a532786ad
   - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
 links:
-  - link:
-      content: Launch Project
-      href: https://sourceafrica.net/
-      slug: data
-  - link:
-      content: GitHub
-      href: https://github.com/CodeForAfrica
-      slug: github
+  - slug: data
+    content: Launch Project
+    href: https://sourceafrica.net/
+  - slug: github
+    content: GitHub
+    href: https://github.com/CodeForAfrica
 ---
 
 This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.
