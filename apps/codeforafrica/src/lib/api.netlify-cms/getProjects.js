@@ -49,6 +49,7 @@ export default function getProjects(fields) {
       });
     }
     project.subtitle = marked(project.subtitle);
+    project.href = `/projects/${project.slug}`;
     return project;
   });
 }

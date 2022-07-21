@@ -12,7 +12,6 @@ icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_PesaCheck_rmswvg.svg
 thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg
-href: /projects/pesacheck
 externalHref: https://codeforafrica.org
 badges:
   - cce4b68a-ad5e-428e-a9aa-849a8a7afb27

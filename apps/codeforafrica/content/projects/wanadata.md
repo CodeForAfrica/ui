@@ -11,7 +11,6 @@ icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_WanaData_neqwtm.svg
 thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_WanaData_t3tbex.jpg
-href: /projects/wanadata
 externalHref: https://codeforafrica.org
 badges:
   - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226

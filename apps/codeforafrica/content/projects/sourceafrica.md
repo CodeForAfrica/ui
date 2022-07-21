@@ -11,7 +11,6 @@ icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg
 thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg
-href: /projects/sourceafrica
 externalHref: https://codeforafrica.org
 badges:
   - 310e65d3-d608-4033-9284-5826412946bb

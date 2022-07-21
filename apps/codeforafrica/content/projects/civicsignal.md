@@ -13,7 +13,6 @@ icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_CivicSignal_ayzj31.svg
 thumbnail:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg
-href: /projects/civicsignal
 externalHref: https://codeforafrica.org
 badges:
   - 5e6d2d87-6819-4aee-a08c-e2c6b8ef7226
