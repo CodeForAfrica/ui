@@ -139,6 +139,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
     href: "/about/members/member-1",
+    country: "Georgia",
+    team: "New Initiatives",
   },
   {
     slug: "member-2",
@@ -150,6 +152,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
     href: "/about/members/member-2",
+    country: "Nigeria",
+    team: "Knowledge",
   },
   {
     slug: "member-3",
@@ -161,6 +165,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
     href: "/about/members/member-3",
+    country: "South Africa",
+    team: "africanDRONE",
   },
   {
     slug: "member-4",
@@ -172,6 +178,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655127335/codeforafrica/images/team/image_11_ch6dnb.jpg",
     },
     href: "/about/members/member-4",
+    country: "Italy",
+    team: "Knowledge",
   },
   {
     slug: "member-5",
@@ -181,6 +189,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
     href: "/about/members/member-5",
+    country: "Nigeria",
+    team: "Knowledge",
   },
   {
     slug: "member-6",
@@ -190,6 +200,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
     href: "/about/members/member-6",
+    country: "South Africa",
+    team: "africanDRONE",
   },
   {
     slug: "member-7",
@@ -199,6 +211,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
     href: "/about/members/member-7",
+    country: "Georgia",
+    team: "New Initiatives",
   },
   {
     slug: "member-8",
@@ -208,6 +222,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
     href: "/about/members/member-8",
+    country: "Nigeria",
+    team: "Knowledge",
   },
   {
     slug: "member-9",
@@ -217,6 +233,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
     href: "/about/members/member-9",
+    country: "South Africa",
+    team: "africanDRONE",
   },
   {
     slug: "member-10",
@@ -226,6 +244,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
     href: "/about/members/member-10",
+    country: "Georgia",
+    team: "New Initiatives",
   },
   {
     slug: "member-11",
@@ -235,6 +255,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
     href: "/about/members/member-11",
+    country: "Nigeria",
+    team: "Knowledge",
   },
   {
     slug: "member-12",
@@ -244,6 +266,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
     href: "/about/members/member-12",
+    country: "South Africa",
+    team: "africanDRONE",
   },
   {
     slug: "member-13",
@@ -253,6 +277,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
     href: "/about/members/member-13",
+    country: "Georgia",
+    team: "New Initiatives",
   },
   {
     slug: "member-14",
@@ -262,6 +288,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
     href: "/about/members/member-14",
+    country: "Nigeria",
+    team: "Knowledge",
   },
   {
     slug: "member-15",
@@ -271,6 +299,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
     href: "/about/members/member-15",
+    country: "South Africa",
+    team: "africanDRONE",
   },
   {
     slug: "member-16",
@@ -280,6 +310,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
     href: "/about/members/member-16",
+    country: "Georgia",
+    team: "New Initiatives",
   },
   {
     slug: "member-17",
@@ -289,6 +321,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
     href: "/about/members/member-17",
+    country: "Nigeria",
+    team: "Knowledge",
   },
   {
     slug: "member-18",
@@ -298,6 +332,30 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
     href: "/about/members/member-18",
+    country: "South Africa",
+    team: "africanDRONE",
+  },
+  {
+    slug: "member-19",
+    name: "Tolulope Adeyemo",
+    title: "Senior Programme Manager",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
+    },
+    href: "/about/members/member-19",
+    country: "Nigeria",
+    team: "Knowledge",
+  },
+  {
+    slug: "member-20",
+    name: "Johnny Miller",
+    title: "Co-Founder of africanDRONE",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
+    },
+    href: "/about/members/member-20",
+    country: "South Africa",
+    team: "africanDRONE",
   },
 ];
 
@@ -1641,6 +1699,37 @@ function getStoryPageStaticProps(params) {
   return { notFound: true };
 }
 
+function getMembersFieldTags(options = { includeAll: true }) {
+  let countries = new Set(team?.flatMap((m) => m.country || []));
+  countries = options?.includeAll
+    ? [ALL_TAG, ...countries]
+    : Array.from(countries);
+  let teams = new Set(team?.flatMap((m) => m.team || []));
+  teams = options?.includeAll ? [ALL_TAG, ...teams] : Array.from(teams);
+  return [
+    { field: "Country", tags: countries },
+    { field: "Team", tags: teams },
+  ];
+}
+
+export function getMembers(options) {
+  const {
+    field,
+    page,
+    "page-size": pageSize = 18,
+    tag: originalTag,
+  } = options || {};
+  const tag = originalTag || ALL_TAG;
+
+  const found = team.filter(
+    (m) =>
+      equalsIgnoreCase(tag, ALL_TAG) ||
+      (field && equalsIgnoreCase(tag, m[field]))
+  );
+
+  return paginateResults(found, page, pageSize);
+}
+
 function getAboutMembersPageStaticProps() {
   return {
     props: {
@@ -1660,7 +1749,9 @@ function getAboutMembersPageStaticProps() {
         {
           slug: "our-team",
           title: "Our team",
-          team,
+          tags: getMembersFieldTags(),
+          team: getMembers(),
+          pathname: "/about/members",
         },
         {
           slug: "get-in-touch",
@@ -1706,7 +1797,8 @@ function getAboutPageStaticProps() {
         {
           slug: "our-team",
           title: "Our team",
-          team,
+          tags: getMembersFieldTags(),
+          team: getMembers(),
         },
         {
           slug: "our-partners",
