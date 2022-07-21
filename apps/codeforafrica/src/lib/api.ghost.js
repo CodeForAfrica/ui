@@ -3,14 +3,14 @@ import GhostContentAPI from "@tryghost/content-api";
 const GHOST_API_URL = process.env.GHOST_CMS_URL;
 const GHOST_API_KEY = process.env.GHOST_CMS_API_KEY;
 
-const api = new GhostContentAPI({
-  url: GHOST_API_URL,
-  key: GHOST_API_KEY,
-  version: "v3.0",
-});
-
 export async function getAllPosts(options) {
   const { limit = 10, page = 1, ...other } = options || {};
+
+  const api = new GhostContentAPI({
+    url: GHOST_API_URL,
+    key: GHOST_API_KEY,
+    version: "v3.0",
+  });
 
   const posts = await api.posts.browse({
     limit,
@@ -23,6 +23,12 @@ export async function getAllPosts(options) {
 }
 
 export async function getPost(slug) {
+  const api = new GhostContentAPI({
+    url: GHOST_API_URL,
+    key: GHOST_API_KEY,
+    version: "v3.0",
+  });
+
   const posts = api.posts.read({
     slug,
     fields:
@@ -33,6 +39,12 @@ export async function getPost(slug) {
 }
 
 export async function getAllTags(options) {
+  const api = new GhostContentAPI({
+    url: GHOST_API_URL,
+    key: GHOST_API_KEY,
+    version: "v3.0",
+  });
+
   return api.tags.browse({
     fields: "id,name,slug",
     order: "name desc",
