@@ -33,7 +33,7 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
             tag={selectedTag}
             tags={tags}
             SearchInputProps={{
-              placeholder: "Search opportunities",
+              placeholder: "Search",
             }}
             sx={{
               mb: { xs: 2.5, md: 5 },
