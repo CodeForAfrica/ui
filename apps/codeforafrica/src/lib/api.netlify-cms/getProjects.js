@@ -11,8 +11,7 @@ const projectsDir = join(process.cwd(), "content/projects");
 
 export default function getProjects(fields = []) {
   const slugs = getCollectionSlugs(projectsDir);
-  const projects = [];
-  slugs.forEach((_slug) => {
+  return slugs.map((_slug) => {
     const collection = getCollectionBySlug(projectsDir, _slug, fields);
     const project = collection.items;
     if (fields.includes("badges")) {
@@ -52,7 +51,6 @@ export default function getProjects(fields = []) {
       );
     }
     project.subtitle = marked(project.subtitle);
-    projects.push(project);
+    return project;
   });
-  return projects;
 }
