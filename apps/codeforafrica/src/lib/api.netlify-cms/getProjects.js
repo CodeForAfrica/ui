@@ -9,7 +9,7 @@ import { getCollectionSlugs, getCollectionBySlug } from "./utils";
 
 const projectsDir = join(process.cwd(), "content/projects");
 
-export default function getProjects(fields = []) {
+export default function getProjects(fields) {
   const slugs = getCollectionSlugs(projectsDir);
   return slugs.map((_slug) => {
     const collection = getCollectionBySlug(projectsDir, _slug, fields);
