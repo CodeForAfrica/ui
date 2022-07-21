@@ -156,7 +156,7 @@ export const team = [
     slug: "member-1",
     name: "Justin Arenstein",
     title: "CEO of Code for Africa",
-    description:
+    content:
       "Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
@@ -167,7 +167,7 @@ export const team = [
     slug: "member-2",
     name: "Tolulope Adeyemo",
     title: "Senior Programme Manager",
-    description:
+    content:
       "Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
@@ -178,7 +178,7 @@ export const team = [
     slug: "member-3",
     name: "Johnny Miller",
     title: "Co-Founder of africanDRONE",
-    description:
+    content:
       "Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
@@ -189,7 +189,7 @@ export const team = [
     slug: "member-4",
     name: "Jacobo Ottaviani",
     title: "Chief Data Officer",
-    description:
+    content:
       "Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655127335/codeforafrica/images/team/image_11_ch6dnb.jpg",
@@ -330,7 +330,7 @@ const guidingPrinciples = [
       src: "/icons/About icon.png",
     },
     title: "We show what's possible",
-    description:
+    content:
       "CfA seeks to be a catalyst by lowering the political risk of experimentation through creating successful proofs of concept for liberating civic data, for building enabling technologies and for pioneering sustainable revenue models. The organisation also endeavours to lower the financial costs for technology experimentation by creating and managing ‘shared’ backbone civic technology, and availing resources for rapid innovation.",
   },
   {
@@ -338,7 +338,7 @@ const guidingPrinciples = [
       src: "/icons/About icon2.png",
     },
     title: "We empower citizens",
-    description:
+    content:
       "Empowering citizens is central to CfA’s theory of change. Strong democracies rely on engaged citizens who have actionable information and easy-to-use channels for making their will known. CfA works primarily with citizen organisations and civic watchdogs, including the media and also support government and social enterprises in developing their capacity to respond meaningfully to citizens and to collaborate effectively with them.",
   },
   {
@@ -346,7 +346,7 @@ const guidingPrinciples = [
       src: "/icons/About icon3.png",
     },
     title: "We are action-oriented",
-    description:
+    content:
       "African societies are asymmetric: the balance of power rests with governments and corporate institutions, at the expense of citizens who are treated as passive recipients of consultation or services. CfA seeks to change this by focusing on actionable data and action-orientated tools that give agency to citizens.",
   },
   {
@@ -354,7 +354,7 @@ const guidingPrinciples = [
       src: "/icons/About icon4.png",
     },
     title: "We operate in public",
-    description:
+    content:
       "CfA promotes openness in our operations and in the work of our partners. All digital tools utilised are open source, and the organisation’s information is open data. CfA actively encourages documentation, sharing and collaboration, in addition to reuse of our own tools, programmes and processes, as well as those of partners.",
   },
   {
@@ -362,7 +362,7 @@ const guidingPrinciples = [
       src: "/icons/About icon5.png",
     },
     title: "We help build ecosystems",
-    description:
+    content:
       "CfA actively marshals resources to support the growth of a pan-African ecosystem of civic technologists. Whenever possible, this means reusing existing tools, standards and platforms, encouraging integration and extension. CfA operates as a pan-African federation of organisations who are active members of a global community, leveraging each other’s knowledge and resources.",
   },
   {
@@ -370,7 +370,7 @@ const guidingPrinciples = [
       src: "/icons/About icon6.png",
     },
     title: "Partnering for excellence",
-    description:
+    content:
       "Collaboration is at the heart of what CfA does. To build digital democracies the organisation partners with parties aligned with CfA’s values and works as a catalyst that kickstarts new initiatives and strengthens the local ecosystem by investing in and working through these partnerships.",
   },
 ];
@@ -378,7 +378,7 @@ const guidingPrinciples = [
 const initiativesAbout = [
   {
     title: "Initiatives",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 150,
     image: {
@@ -388,7 +388,7 @@ const initiativesAbout = [
   },
   {
     title: "Beneficiaries trained",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 150,
     image: {
@@ -398,7 +398,7 @@ const initiativesAbout = [
   },
   {
     title: "Years in Operation",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 150,
     image: {
@@ -408,7 +408,7 @@ const initiativesAbout = [
   },
   {
     title: "Media partners",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 150,
     image: {
@@ -418,7 +418,7 @@ const initiativesAbout = [
   },
   {
     title: "Staff members",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 111,
     image: {
@@ -428,7 +428,7 @@ const initiativesAbout = [
   },
   {
     title: "Countries we operate in",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 111,
     image: {
@@ -441,7 +441,7 @@ const initiativesAbout = [
 const initiatives = [
   {
     title: "Initiatives",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 150,
     image: {
@@ -451,7 +451,7 @@ const initiatives = [
   },
   {
     title: "Staff members",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 111,
     image: {
@@ -461,7 +461,7 @@ const initiatives = [
   },
   {
     title: "Countries we operate in",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 111,
     image: {
