@@ -14,9 +14,14 @@ export function getCollectionBySlug(collectionDir, slug, fields) {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
+  const markedContent = marked(content);
+
+  data.slug = realSlug;
+  data.content = markedContent;
+
   const items = fields?.reduce((acc, curr) => {
     if (curr === "content") {
-      acc.content = marked(content);
+      acc.content = markedContent;
     } else if (curr === "slug") {
       acc.slug = realSlug;
     } else {
