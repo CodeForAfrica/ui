@@ -13,17 +13,16 @@ export function getCollectionBySlug(collectionDir, slug, fields = []) {
   const fullPath = join(collectionDir, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
-  const items = {};
 
-  fields.forEach((field) => {
-    if (field === "content") {
-      items.description = marked(content);
-    } else if (field === "slug") {
-      items.slug = realSlug;
+  const items = fields.reduce((acc, curr) => {
+    if (curr === "content") {
+      acc.content = marked(content);
+    } else if (curr === "slug") {
+      acc.slug = realSlug;
     } else {
-      items[field] = data[field] || null;
+      acc[curr] = data[curr] || null;
     }
-  });
-
+    return acc;
+  }, {});
   return { items, data }; // return data which can be used as default incase of no fields
 }
