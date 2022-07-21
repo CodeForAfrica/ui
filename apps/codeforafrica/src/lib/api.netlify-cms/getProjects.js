@@ -44,11 +44,9 @@ export default function getProjects(fields = []) {
       };
     }
     if (fields.includes("links")) {
-      project.links = collection.data.links.map(
-        ({ link: { slug, content, href } }) => {
-          return { slug, content, href };
-        }
-      );
+      project.links = project.links.map(({ link: { slug, content, href } }) => {
+        return { slug, content, href };
+      });
     }
     project.subtitle = marked(project.subtitle);
     return project;
