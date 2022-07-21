@@ -6,7 +6,7 @@ title: Uplifting <span class="highlight">women in Africa</span> with a focus on
   data-driven projects
 subtitle: The WanaData community drives collaborative work and supports members
   in achieving their professional goals.
-category: Knowledge
+tag: Knowledge
 icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_WanaData_neqwtm.svg
 thumbnail:

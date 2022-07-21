@@ -3,7 +3,7 @@ import { NextSeo } from "next-seo";
 import Head from "next/head";
 import React from "react";
 
-function AdminPage(props) {
+function AdminPage() {
   return (
     <>
       <Head>
@@ -15,7 +15,7 @@ function AdminPage(props) {
           rel="cms-config-url"
         />
       </Head>
-      <NextSeo {...props} />
+      <NextSeo noindex />
       <script
         src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"
         async

@@ -7,7 +7,7 @@ title: >
   organisation
 subtitle: PesaCheck, a pioneering verification initiative, debunks misleading
   claims with full-time fact-checkers in 15 African countries.
-category: Initiatives
+tag: Initiatives
 icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_PesaCheck_rmswvg.svg
 thumbnail:

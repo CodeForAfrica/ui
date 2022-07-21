@@ -6,7 +6,7 @@ title: Empowering citizens through <span class="highlight">drone technology</spa
 subtitle: AfricanDRONE brings together communities of drone operators,
   enthusiasts, journalists, activists, and entrepreneurs in Africa who use
   drones for good.
-category: Products
+tag: Products
 icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg
 thumbnail:

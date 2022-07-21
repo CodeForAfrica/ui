@@ -8,7 +8,7 @@ subtitle: We give you actionable insights to help you navigate Africa’s media
   ecosystem and emerging civic technology sector. Our insights are based on
   analysis by human experts, using machine learning tools and ‘big data’
   resources.
-category: Products
+tag: Products
 icon:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_CivicSignal_ayzj31.svg
 thumbnail:

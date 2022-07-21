@@ -1,9 +1,11 @@
 import {
   getPartners,
-  getProjects,
+  getCmsProjects,
   getHero,
   getMeetOurTeam,
 } from "./api.netlify-cms";
+
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 export const partners = getPartners([
   "id",
@@ -14,8 +16,8 @@ export const partners = getPartners([
   "logo",
 ]);
 
-export const projects = getProjects([
-  "category",
+export const projects = getCmsProjects([
+  "tag",
   "name",
   "slug",
   "tagLine",
@@ -164,6 +166,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
     href: "/about/members/member-1",
+    country: "Georgia",
+    team: "New Initiatives",
   },
   {
     slug: "member-2",
@@ -175,6 +179,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
     href: "/about/members/member-2",
+    country: "Nigeria",
+    team: "Knowledge",
   },
   {
     slug: "member-3",
@@ -186,6 +192,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
     href: "/about/members/member-3",
+    country: "South Africa",
+    team: "africanDRONE",
   },
   {
     slug: "member-4",
@@ -197,6 +205,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655127335/codeforafrica/images/team/image_11_ch6dnb.jpg",
     },
     href: "/about/members/member-4",
+    country: "Italy",
+    team: "Knowledge",
   },
   {
     slug: "member-5",
@@ -206,6 +216,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
     href: "/about/members/member-5",
+    country: "Nigeria",
+    team: "Knowledge",
   },
   {
     slug: "member-6",
@@ -215,6 +227,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
     href: "/about/members/member-6",
+    country: "South Africa",
+    team: "africanDRONE",
   },
   {
     slug: "member-7",
@@ -224,6 +238,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
     href: "/about/members/member-7",
+    country: "Georgia",
+    team: "New Initiatives",
   },
   {
     slug: "member-8",
@@ -233,6 +249,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
     href: "/about/members/member-8",
+    country: "Nigeria",
+    team: "Knowledge",
   },
   {
     slug: "member-9",
@@ -242,6 +260,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
     href: "/about/members/member-9",
+    country: "South Africa",
+    team: "africanDRONE",
   },
   {
     slug: "member-10",
@@ -251,6 +271,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
     href: "/about/members/member-10",
+    country: "Georgia",
+    team: "New Initiatives",
   },
   {
     slug: "member-11",
@@ -260,6 +282,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
     href: "/about/members/member-11",
+    country: "Nigeria",
+    team: "Knowledge",
   },
   {
     slug: "member-12",
@@ -269,6 +293,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
     href: "/about/members/member-12",
+    country: "South Africa",
+    team: "africanDRONE",
   },
   {
     slug: "member-13",
@@ -278,6 +304,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
     href: "/about/members/member-13",
+    country: "Georgia",
+    team: "New Initiatives",
   },
   {
     slug: "member-14",
@@ -287,6 +315,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
     href: "/about/members/member-14",
+    country: "Nigeria",
+    team: "Knowledge",
   },
   {
     slug: "member-15",
@@ -296,6 +326,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
     href: "/about/members/member-15",
+    country: "South Africa",
+    team: "africanDRONE",
   },
   {
     slug: "member-16",
@@ -305,6 +337,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
     },
     href: "/about/members/member-16",
+    country: "Georgia",
+    team: "New Initiatives",
   },
   {
     slug: "member-17",
@@ -314,6 +348,8 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
     },
     href: "/about/members/member-17",
+    country: "Nigeria",
+    team: "Knowledge",
   },
   {
     slug: "member-18",
@@ -323,6 +359,30 @@ export const team = [
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
     },
     href: "/about/members/member-18",
+    country: "South Africa",
+    team: "africanDRONE",
+  },
+  {
+    slug: "member-19",
+    name: "Tolulope Adeyemo",
+    title: "Senior Programme Manager",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
+    },
+    href: "/about/members/member-19",
+    country: "Nigeria",
+    team: "Knowledge",
+  },
+  {
+    slug: "member-20",
+    name: "Johnny Miller",
+    title: "Co-Founder of africanDRONE",
+    thumbnail: {
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
+    },
+    href: "/about/members/member-20",
+    country: "South Africa",
+    team: "africanDRONE",
   },
 ];
 
@@ -491,7 +551,7 @@ const articles = [
       eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</div>
 
       <div style="padding: 40px 0px;">
-        <img src="/image 12.png" alt="article-image" style="width: 100%;height: auto;"/>
+        <img src="/images/image 12.png" alt="article-image" style="width: 100%;height: auto;"/>
         <h6 style="font-weight: 400; font-size: 12px; line-height: 14px; text-align: center; color: #1020E1;">The #GMMP2020 team of enumerators from DRC displaying their certificates of participation. (Picture by DRC <br/>team © Global Media Monitoring Project)</h6>
       </div>
       
@@ -921,6 +981,16 @@ const imprint = `
 
 const DEFAULT_REVALIDATE = 3 * 60; // 3 minutes
 
+const ALL_TAG = "All";
+
+function getProjectTags(options = { includeAll: true }) {
+  const tags = new Set(projects?.flatMap((a) => a.tag || []));
+  if (options?.includeAll) {
+    return [ALL_TAG, ...tags];
+  }
+  return Array.from(tags);
+}
+
 function getHomePageStaticProps() {
   return {
     props: {
@@ -932,13 +1002,8 @@ function getHomePageStaticProps() {
         },
         {
           slug: "projects",
-          projects: projects.map(({ slug, name, tagLine, icon, category }) => ({
-            name,
-            tagLine,
-            icon,
-            category,
-            href: `/projects/${slug}`,
-          })),
+          projects,
+          tags: getProjectTags({ includeAll: false }),
         },
         { ...meetOurTeam, slug: "meet-our-team" },
         {
@@ -968,6 +1033,43 @@ function getHomePageStaticProps() {
   };
 }
 
+function paginateResults(items, page, pageSize) {
+  // We need to initialize to null for serialization.
+  let count = null;
+  let results = [];
+  let pageNumber = null;
+  let pageSizeNumber = null;
+  if (items?.length) {
+    // Need to ensure page, pageSize are numbers and not strings
+    pageNumber = Number.parseInt(page, 10) || 1;
+    pageSizeNumber = Number.parseInt(pageSize, 10) || 6;
+    count = Math.ceil(items.length / pageSizeNumber);
+    results = items.slice(
+      (pageNumber - 1) * pageSizeNumber,
+      pageNumber * pageSizeNumber
+    );
+  }
+  return {
+    pagination: {
+      count,
+      page: pageNumber,
+      pageSize: pageSizeNumber,
+    },
+    results,
+  };
+}
+
+export function getProjects(options) {
+  const { tag: originalTag, page, "page-size": pageSize } = options || {};
+  const tag = originalTag || ALL_TAG;
+
+  const foundProjects = projects.filter(
+    (p) => equalsIgnoreCase(tag, ALL_TAG) || equalsIgnoreCase(tag, p.tag)
+  );
+
+  return paginateResults(foundProjects, page, pageSize);
+}
+
 function getProjectsPageStaticProps() {
   return {
     props: {
@@ -981,7 +1083,8 @@ function getProjectsPageStaticProps() {
         },
         {
           slug: "projects",
-          projects,
+          tags: getProjectTags(),
+          projects: getProjects(),
         },
       ],
       footer,
@@ -989,6 +1092,27 @@ function getProjectsPageStaticProps() {
     },
     revalidate: DEFAULT_REVALIDATE,
   };
+}
+
+export function getOpportunities(options) {
+  const { tag: originalTag, page, "page-size": pageSize } = options || {};
+  const tag = originalTag || ALL_TAG;
+  const found = opportunities.filter(
+    (o) =>
+      equalsIgnoreCase(tag, ALL_TAG) ||
+      o.tags?.some((t) => equalsIgnoreCase(tag, t))
+  );
+
+  return paginateResults(found, page, pageSize);
+}
+
+function getOpportunitiesTags(options = { includeAll: true }) {
+  const tags = new Set(opportunities?.flatMap((o) => o.tags || []));
+
+  if (options?.includeAll) {
+    return [ALL_TAG, ...tags];
+  }
+  return Array.from(tags);
 }
 
 function getOpportunitiesPageStaticProps() {
@@ -1003,7 +1127,8 @@ function getOpportunitiesPageStaticProps() {
         },
         {
           slug: "opportunities",
-          opportunities,
+          opportunities: getOpportunities(),
+          tags: getOpportunitiesTags(),
         },
       ],
       footer,
@@ -1014,11 +1139,8 @@ function getOpportunitiesPageStaticProps() {
 }
 
 function getOpportunityPageStaticProps(params) {
-  const opportunity = opportunities.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
+  const opportunity = opportunities.find(({ href }) =>
+    equalsIgnoreCase(href, params?.slug)
   );
   if (opportunity) {
     return {
@@ -1055,11 +1177,8 @@ function getImprintPageStaticProps() {
 }
 
 function getPartnerPageStaticProps(params) {
-  const partner = partners.find(
-    ({ slug }) =>
-      `/about/partners/${slug}`.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
+  const partner = partners.find(({ slug }) =>
+    equalsIgnoreCase(`/about/partners/${slug}`, params?.slug)
   );
   if (partner) {
     const startIndex = getRandomInt(projects.length - 3);
@@ -1104,11 +1223,8 @@ function getPrivacyPageStaticProps() {
 }
 
 function getProjectPageStaticProps(params) {
-  const project = projects.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
+  const project = projects.find(({ href }) =>
+    equalsIgnoreCase(href, params?.slug)
   );
   if (project) {
     return {
@@ -1161,11 +1277,8 @@ function getStoriesPageStaticProps() {
 }
 
 function getStoryPageStaticProps(params) {
-  const article = articles.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
+  const article = articles.find(({ href }) =>
+    equalsIgnoreCase(href, params?.slug)
   );
   if (article) {
     return {
@@ -1189,6 +1302,37 @@ function getStoryPageStaticProps(params) {
   return { notFound: true };
 }
 
+function getMembersFieldTags(options = { includeAll: true }) {
+  let countries = new Set(team?.flatMap((m) => m.country || []));
+  countries = options?.includeAll
+    ? [ALL_TAG, ...countries]
+    : Array.from(countries);
+  let teams = new Set(team?.flatMap((m) => m.team || []));
+  teams = options?.includeAll ? [ALL_TAG, ...teams] : Array.from(teams);
+  return [
+    { field: "Country", tags: countries },
+    { field: "Team", tags: teams },
+  ];
+}
+
+export function getMembers(options) {
+  const {
+    field,
+    page,
+    "page-size": pageSize = 18,
+    tag: originalTag,
+  } = options || {};
+  const tag = originalTag || ALL_TAG;
+
+  const found = team.filter(
+    (m) =>
+      equalsIgnoreCase(tag, ALL_TAG) ||
+      (field && equalsIgnoreCase(tag, m[field]))
+  );
+
+  return paginateResults(found, page, pageSize);
+}
+
 function getAboutMembersPageStaticProps() {
   return {
     props: {
@@ -1208,7 +1352,9 @@ function getAboutMembersPageStaticProps() {
         {
           slug: "our-team",
           title: "Our team",
-          team,
+          tags: getMembersFieldTags(),
+          team: getMembers(),
+          pathname: "/about/members",
         },
         {
           slug: "get-in-touch",
@@ -1254,7 +1400,8 @@ function getAboutPageStaticProps() {
         {
           slug: "our-team",
           title: "Our team",
-          team,
+          tags: getMembersFieldTags(),
+          team: getMembers(),
         },
         {
           slug: "our-partners",
@@ -1322,12 +1469,7 @@ function getAboutPartnersPageStaticProps() {
 }
 
 function getTeamMemberPageStaticProps(params) {
-  const member = team.find(
-    ({ href }) =>
-      href.localeCompare(params?.slug, undefined, {
-        sensitivity: "accent",
-      }) === 0
-  );
+  const member = team.find(({ href }) => equalsIgnoreCase(href, params?.slug));
   if (member) {
     const startIndex = getRandomInt(projects.length - 3);
     return {
