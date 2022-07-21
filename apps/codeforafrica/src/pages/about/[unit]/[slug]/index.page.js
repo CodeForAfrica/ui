@@ -47,7 +47,7 @@ function Index({ member, partner, sections, ...props }) {
             typography: "subheading",
           }}
         >
-          {item?.description}
+          {item?.content}
         </RichTypography>
         <ShareThisPage
           spacing="17px"

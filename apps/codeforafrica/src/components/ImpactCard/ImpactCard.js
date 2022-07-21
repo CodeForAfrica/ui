@@ -19,7 +19,7 @@ const ImpactCardRoot = styled(Card, {
 }));
 
 const ImpactCard = React.forwardRef(function ImpactCard(
-  { image, title, value, description },
+  { image, title, value, content },
   ref
 ) {
   if (!image && !title) {
@@ -74,7 +74,7 @@ const ImpactCard = React.forwardRef(function ImpactCard(
           }}
           variant="body3"
         >
-          {description}
+          {content}
         </RichTypography>
       </CardContent>
     </ImpactCardRoot>
@@ -82,7 +82,7 @@ const ImpactCard = React.forwardRef(function ImpactCard(
 });
 
 ImpactCard.propTypes = {
-  description: PropTypes.string,
+  content: PropTypes.string,
   title: PropTypes.string,
   value: PropTypes.number,
   image: PropTypes.shape({
@@ -92,7 +92,7 @@ ImpactCard.propTypes = {
 };
 
 ImpactCard.defaultProps = {
-  description: undefined,
+  content: undefined,
   title: undefined,
   value: undefined,
   image: undefined,
