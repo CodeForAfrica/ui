@@ -1,4 +1,38 @@
+import {
+  getPartners,
+  getCmsProjects,
+  getHero,
+  getMeetOurTeam,
+} from "./api.netlify-cms";
+
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
+
+export const partners = getPartners([
+  "id",
+  "slug",
+  "name",
+  "content",
+  "href",
+  "logo",
+]);
+
+export const projects = getCmsProjects([
+  "tag",
+  "name",
+  "slug",
+  "tagLine",
+  "icon",
+  "title",
+  "subtitle",
+  "content",
+  "thumbnail",
+  "href",
+  "externalHref",
+  "badges",
+  "partners",
+  "donors",
+  "links",
+]);
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -106,15 +140,8 @@ const footer = {
   },
 };
 
-const hero = {
-  title: 'Empowering <span class="highlight">Africa</span> with',
-  messages: ["civic technologies", "text-item 2", "skills development"],
-  subtitle:
-    "We are an impact accelerator, using civic tech and open data to empower citizens.",
-  image: {
-    src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653902690/codeforafrica/images/Group_4429_shcof8.png",
-  },
-};
+const hero = getHero();
+const meetOurTeam = getMeetOurTeam();
 
 export const ourMission = {
   title: "Our Mission",
@@ -133,7 +160,7 @@ export const team = [
     slug: "member-1",
     name: "Justin Arenstein",
     title: "CEO of Code for Africa",
-    description:
+    content:
       "Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg",
@@ -146,7 +173,7 @@ export const team = [
     slug: "member-2",
     name: "Tolulope Adeyemo",
     title: "Senior Programme Manager",
-    description:
+    content:
       "Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300741/codeforafrica/images/team/image_11_fdwgvv.jpg",
@@ -159,7 +186,7 @@ export const team = [
     slug: "member-3",
     name: "Johnny Miller",
     title: "Co-Founder of africanDRONE",
-    description:
+    content:
       "Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png",
@@ -172,7 +199,7 @@ export const team = [
     slug: "member-4",
     name: "Jacobo Ottaviani",
     title: "Chief Data Officer",
-    description:
+    content:
       "Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.",
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1655127335/codeforafrica/images/team/image_11_ch6dnb.jpg",
@@ -365,7 +392,7 @@ const guidingPrinciples = [
       src: "/icons/About icon.png",
     },
     title: "We show what's possible",
-    description:
+    content:
       "CfA seeks to be a catalyst by lowering the political risk of experimentation through creating successful proofs of concept for liberating civic data, for building enabling technologies and for pioneering sustainable revenue models. The organisation also endeavours to lower the financial costs for technology experimentation by creating and managing ‘shared’ backbone civic technology, and availing resources for rapid innovation.",
   },
   {
@@ -373,7 +400,7 @@ const guidingPrinciples = [
       src: "/icons/About icon2.png",
     },
     title: "We empower citizens",
-    description:
+    content:
       "Empowering citizens is central to CfA’s theory of change. Strong democracies rely on engaged citizens who have actionable information and easy-to-use channels for making their will known. CfA works primarily with citizen organisations and civic watchdogs, including the media and also support government and social enterprises in developing their capacity to respond meaningfully to citizens and to collaborate effectively with them.",
   },
   {
@@ -381,7 +408,7 @@ const guidingPrinciples = [
       src: "/icons/About icon3.png",
     },
     title: "We are action-oriented",
-    description:
+    content:
       "African societies are asymmetric: the balance of power rests with governments and corporate institutions, at the expense of citizens who are treated as passive recipients of consultation or services. CfA seeks to change this by focusing on actionable data and action-orientated tools that give agency to citizens.",
   },
   {
@@ -389,7 +416,7 @@ const guidingPrinciples = [
       src: "/icons/About icon4.png",
     },
     title: "We operate in public",
-    description:
+    content:
       "CfA promotes openness in our operations and in the work of our partners. All digital tools utilised are open source, and the organisation’s information is open data. CfA actively encourages documentation, sharing and collaboration, in addition to reuse of our own tools, programmes and processes, as well as those of partners.",
   },
   {
@@ -397,7 +424,7 @@ const guidingPrinciples = [
       src: "/icons/About icon5.png",
     },
     title: "We help build ecosystems",
-    description:
+    content:
       "CfA actively marshals resources to support the growth of a pan-African ecosystem of civic technologists. Whenever possible, this means reusing existing tools, standards and platforms, encouraging integration and extension. CfA operates as a pan-African federation of organisations who are active members of a global community, leveraging each other’s knowledge and resources.",
   },
   {
@@ -405,7 +432,7 @@ const guidingPrinciples = [
       src: "/icons/About icon6.png",
     },
     title: "Partnering for excellence",
-    description:
+    content:
       "Collaboration is at the heart of what CfA does. To build digital democracies the organisation partners with parties aligned with CfA’s values and works as a catalyst that kickstarts new initiatives and strengthens the local ecosystem by investing in and working through these partnerships.",
   },
 ];
@@ -413,7 +440,7 @@ const guidingPrinciples = [
 const initiativesAbout = [
   {
     title: "Initiatives",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 150,
     image: {
@@ -423,7 +450,7 @@ const initiativesAbout = [
   },
   {
     title: "Beneficiaries trained",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 150,
     image: {
@@ -433,7 +460,7 @@ const initiativesAbout = [
   },
   {
     title: "Years in Operation",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 150,
     image: {
@@ -443,7 +470,7 @@ const initiativesAbout = [
   },
   {
     title: "Media partners",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 150,
     image: {
@@ -453,7 +480,7 @@ const initiativesAbout = [
   },
   {
     title: "Staff members",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 111,
     image: {
@@ -463,7 +490,7 @@ const initiativesAbout = [
   },
   {
     title: "Countries we operate in",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 111,
     image: {
@@ -476,7 +503,7 @@ const initiativesAbout = [
 const initiatives = [
   {
     title: "Initiatives",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 150,
     image: {
@@ -486,7 +513,7 @@ const initiatives = [
   },
   {
     title: "Staff members",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 111,
     image: {
@@ -496,7 +523,7 @@ const initiatives = [
   },
   {
     title: "Countries we operate in",
-    description:
+    content:
       "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
     value: 111,
     image: {
@@ -786,88 +813,6 @@ const articles = [
   },
 ];
 
-export const partners = [
-  {
-    slug: "meta",
-    name: "Meta",
-    description: `<p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat.</p> 
-      <p>Duis maecenas per erat odio quisque accumsan, donec tempus class euismod vulputate fermentum imperdiet, suspendisse blandit lacinia semper cursus. Neque tristique posuere a feugiat convallis tempor cras nunc, leo faucibus cum aptent placerat aenean lobortis, nibh iaculis ac nascetur praesent mus quisque. Nullam leo rutrum augue urna cubilia morbi enim, arcu risus 
-      mus mauris elementum pulvinar, laoreet bibendum convallis senectus ullamcorper malesuada. Sapien congue tristique venenatis cras cum quisque et conubia felis lobortis, velit ullamcorper urna pharetra fermentum class tincidunt turpis placerat, porttitor senectus massa ridiculus semper vivamus at enim inceptos. Senectus cum torquent blandit odio class in, nullam sodales 
-      dapibus eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</p> `,
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/meta_fkcccg.png",
-    },
-    href: "https://codeforafrica.org",
-  },
-  {
-    slug: "google-news-initiatives",
-    name: "Google News Initiatives",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/google-news-initiatives_wigxyj.png",
-    },
-    href: "https://codeforafrica.org",
-  },
-  {
-    slug: "afd",
-    name: "AFD",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/afd_urdyat.png",
-    },
-    href: "https://codeforafrica.org",
-  },
-  {
-    slug: "deutsche-welle",
-    name: "Deutsche Welle",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880226/codeforafrica/images/logos/dw_isxfhn.png",
-    },
-  },
-  {
-    slug: "giz",
-    name: "GIZ",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/giz_sx5mja.png",
-    },
-  },
-  {
-    slug: "world-bank",
-    name: "The World Bank",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/the-world-bank_lbksih.png",
-    },
-  },
-  {
-    slug: "pulitzer-center",
-    name: "Pulitzer Center",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/pulitzer-center_gkg9s2.png",
-    },
-  },
-  {
-    slug: "unesco",
-    name: "Unesco",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/unesco_hvtpwf.png",
-    },
-  },
-  {
-    slug: "icjf",
-    name: "ICJF",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/icjf_o8asj2.png",
-    },
-    href: "https://codeforafrica.org",
-  },
-  {
-    slug: "code-for-all",
-    name: "Code for All",
-    logo: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/code-for-all_l2vmvq.png",
-    },
-    href: "https://codeforafrica.org",
-  },
-];
-
 export const opportunities = [
   {
     title: "Security Evangelist: Secure our defences against digital threats",
@@ -1015,338 +960,6 @@ export const opportunities = [
   },
 ];
 
-export const projects = [
-  {
-    slug: "african-drone",
-    name: "africanDRONE",
-    tagLine: "Drones for good",
-    title:
-      'Empowering citizens through <span class="highlight">drone technology</span>',
-    subtitle:
-      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
-    description:
-      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
-    icon: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_africanDRONE_exwdyu.svg",
-    },
-    thumbnail: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705960/codeforafrica/images/Property_1_africanDRONE_y4surg.jpg",
-    },
-    tag: "Products",
-    href: "/projects/african-drone",
-    externalHref: "https://codeforafrica.org",
-    badges: [
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-    ],
-    partners: {
-      title: "Partners",
-      list: [
-        {
-          name: "Uhurulabs",
-        },
-        {
-          name: "Microdrone",
-        },
-        {
-          name: "Unequal Scenes",
-        },
-        {
-          name: "Code for Africa",
-        },
-      ],
-    },
-    donors: {
-      title: "Donors",
-      list: [
-        {
-          name: "innovateAFRICA",
-        },
-        {
-          name: "Drone Deployed",
-        },
-        {
-          name: "World Bank",
-        },
-      ],
-    },
-    links: [
-      {
-        slug: "data",
-        content: "Launch Project",
-        href: "https://codeforafrica.org",
-      },
-      {
-        slug: "github",
-        content: "GitHub",
-        href: "https://github.com/CodeForAfrica",
-      },
-    ],
-  },
-  {
-    slug: "wana-data",
-    name: "WanaData",
-    tagLine: "Women in Africa",
-    title:
-      'Uplifting <span class="highlight">women in Africa</span> with a focus on data-driven projects',
-    subtitle:
-      "The WanaData community drives collaborative work and supports members in achieving their professional goals. ",
-    description:
-      "<p>WanaData is a Pan-African network of female data scientists, journalists and technologists working to change the digital landscape by producing and promoting data-driven projects while applying digital technologies in storytelling. It has grown from an initial 6 members in Nigeria to more than 400 women across the continent.</p><p>WanaData members have collaborated on cross-border reporting projects that incorporate data visualisation, artificial intelligence, audience engagement strategies, social videos, drone journalism and other innovative approaches, to enhance news content on the continent.",
-    icon: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_WanaData_neqwtm.svg",
-    },
-    thumbnail: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_WanaData_t3tbex.jpg",
-    },
-    tag: "Products",
-    href: "/projects/wana-data",
-    externalHref: "https://codeforafrica.org",
-    badges: [
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name 2",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name 3",
-        date: "Month 2021",
-      },
-    ],
-  },
-  {
-    slug: "pesa-check",
-    name: "PesaCheck",
-    tagLine: "Africa fact-checking",
-    title:
-      'Africa’s largest <span class="highlight">indigenous fact-checking</span> organisation',
-    subtitle:
-      "PesaCheck, a pioneering verification initiative, debunks misleading claims with full-time fact-checkers in 15 African countries.",
-    description:
-      "<p>PesaCheck is a pioneering verification initiative that is kickstarting fact-checking across Africa. Initially focused on verifying the financial and other statistical numbers quoted by public figures in Kenya, Tanzania and Uganda, PesaCheck is now Africa’s largest with full-time fact-checkers in 15 countries in both east and west Africa, as well as across the Sahel.</p><p>PesaCheck fact-checks in two international languages (English and French), as well as major African languages such as Kiswahili and Amharic. Our network helps track political promises by politicians (through our Wajibisha/PromiseTracker toolkit), helps unpack budget and census data (through our PesaYetu and TaxClock platforms), and builds machine learning/artificial intelligence tools (such as DebunkBot) to help automate verification.</p>",
-    icon: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_PesaCheck_rmswvg.svg",
-    },
-    thumbnail: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
-    },
-    tag: "Products",
-    href: "/projects/pesa-check",
-    externalHref: "https://codeforafrica.org",
-    badges: [
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name 2",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name 3",
-        date: "Month 2021",
-      },
-    ],
-  },
-  {
-    slug: "open-africa",
-    name: "openAFRICA",
-    tagLine: "Volunteer open data",
-    title:
-      'Empowering citizens through <span class="highlight">drone technology</span>',
-    subtitle:
-      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
-    description:
-      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
-    icon: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_openAFRICA_cczpuq.svg",
-    },
-    thumbnail: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
-    },
-    tag: "Products",
-    href: "/projects/open-africa",
-    externalHref: "https://codeforafrica.org",
-    badges: [
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name 2",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name 3",
-        date: "Month 2021",
-      },
-    ],
-  },
-  {
-    slug: "civic-signal",
-    name: "CivicSignal",
-    tagLine: "Africa media ecosystem",
-    title:
-      'Empowering citizens through <span class="highlight">drone technology</span>',
-    subtitle:
-      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
-    description:
-      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
-    icon: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_CivicSignal_ayzj31.svg",
-    },
-    thumbnail: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
-    },
-    tag: "Products",
-    href: "/projects/civic-signal",
-    externalHref: "https://codeforafrica.org",
-    badges: [
-      {
-        name: "Award Name",
-        date: "Month 2022",
-      },
-      {
-        name: "Award Name 3",
-        date: "Month 2021",
-      },
-    ],
-  },
-  {
-    slug: "source-africa",
-    name: "sourceAfrica",
-    tagLine: "Actionable documents",
-    title:
-      'Empowering citizens through <span class="highlight">drone technology</span>',
-    subtitle:
-      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
-    description:
-      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
-    icon: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg",
-    },
-    thumbnail: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
-    },
-    tag: "Products",
-    href: "/projects/source-africa",
-    externalHref: "https://codeforafrica.org",
-  },
-  {
-    slug: "initiative-africa",
-    name: "initiativeAFRICA",
-    tagLine: "Initiative tag line",
-    title:
-      'Empowering citizens through <span class="highlight">drone technology</span>',
-    subtitle:
-      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
-    description:
-      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
-    icon: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg",
-    },
-    thumbnail: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
-    },
-    tag: "Initiatives",
-    href: "/projects/initiative-africa",
-    externalHref: "https://codeforafrica.org",
-    badges: [
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-      {
-        name: "Award Name",
-        date: "Month 2021",
-      },
-    ],
-    links: [
-      {
-        slug: "data",
-        content: "Launch Project",
-        href: "https://codeforafrica.org",
-      },
-      {
-        slug: "github",
-        content: "GitHub",
-        href: "https://github.com/CodeForAfrica",
-      },
-    ],
-  },
-  {
-    slug: "knowledge-africa",
-    name: "knowledgeAFRICA",
-    tagLine: "Knowledge tag line",
-    title:
-      'Empowering citizens through <span class="highlight">drone technology</span>',
-    subtitle:
-      "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
-    description:
-      "This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.",
-    icon: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg",
-    },
-    thumbnail: {
-      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
-    },
-    tag: "Knowedge",
-    href: "/projects/knowledge-africa",
-    externalHref: "https://codeforafrica.org",
-    badges: [
-      {
-        name: "Award Name",
-        date: "June 2022",
-      },
-      {
-        name: "Award Name 2",
-        date: "June 2021",
-      },
-      {
-        name: "Award Name 3",
-        date: "June 2020",
-      },
-      {
-        name: "Award Name 4",
-        date: "June 2019",
-      },
-    ],
-  },
-];
-
 const imprint = `
   <h4>Chapter heading</h4>
   <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat.</p>
@@ -1392,17 +1005,7 @@ function getHomePageStaticProps() {
           projects,
           tags: getProjectTags({ includeAll: false }),
         },
-        {
-          slug: "meet-our-team",
-          logo: "/images/Africa@2400x 1lg.png",
-          title: "A truly pan-African team across the continent",
-          description: `Lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu,
-          nisl aliquet ullamcorper praesent bibendum volutpat sodales urna,
-          ultrices dui parturient vitae ac netus convallis integer. <br />
-          <br /> Euismod posuere fusce mollis etiam himenaeos non aliquam nulla
-          dis consequat ornare, velit odio condimentum augue felis na.`,
-          href: "/about/members",
-        },
+        { ...meetOurTeam, slug: "meet-our-team" },
         {
           slug: "news-stories",
           title: "News and stories",

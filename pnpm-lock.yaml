@@ -40,11 +40,12 @@ importers:
       eslint-import-resolver-webpack: ^0.13.2
       eslint-plugin-import: ^2.26.0
       fast-equals: ^4.0.1
-      frontmatter-markdown-loader: ^3.7.0
+      gray-matter: ^4.0.3
       identity-obj-proxy: ^3.0.0
       jest: ^28.1.1
       jest-config-commons-ui: workspace:*
       js-yaml: ^4.1.0
+      marked: ^4.0.18
       netlify-cms-proxy-server: ^1.3.24
       next: ^12.1.6
       next-seo: ^5.4.0
@@ -71,8 +72,9 @@ importers:
       "@mui/material": 5.8.6_mzmbzck2qunrnxjb6zwxgpnkmu
       "@mui/utils": 5.8.6_react@17.0.2
       fast-equals: 4.0.1
-      frontmatter-markdown-loader: 3.7.0
+      gray-matter: 4.0.3
       js-yaml: 4.1.0
+      marked: 4.0.18
       next: 12.2.0_apvyc6hsquzbx56wwdowrbgkzm
       next-seo: 5.4.0_nsrodebypp3mcf7ihyfjqmpudu
       next-transpile-modules: 9.0.0
@@ -7680,6 +7682,7 @@ packages:
       {
         integrity: sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==,
       }
+    dev: true
 
   /binary-extensions/1.13.1:
     resolution:
@@ -9836,6 +9839,7 @@ packages:
         integrity: sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==,
       }
     engines: { node: ">= 4" }
+    dev: true
 
   /enabled/2.0.0:
     resolution:
@@ -9914,13 +9918,6 @@ packages:
     dependencies:
       ansi-colors: 4.1.3
     dev: true
-
-  /entities/2.1.0:
-    resolution:
-      {
-        integrity: sha512-hCx1oky9PFrJ611mf0ifBLBRW8lUUVRlFolb5gWRfIELabBlbp9xZvrqZLZAs+NxFnbfQoeGd8wDkygjg7U85w==,
-      }
-    dev: false
 
   /entities/2.2.0:
     resolution:
@@ -10871,7 +10868,6 @@ packages:
     engines: { node: ">=0.10.0" }
     dependencies:
       is-extendable: 0.1.1
-    dev: true
 
   /extend-shallow/3.0.2:
     resolution:
@@ -11452,26 +11448,6 @@ packages:
       readable-stream: 2.3.7
     dev: true
 
-  /front-matter/4.0.2:
-    resolution:
-      {
-        integrity: sha512-I8ZuJ/qG92NWX8i5x1Y8qyj3vizhXS31OxjKDu3LKP+7/qBgfIKValiZIEwoVoJKUHlhWtYrktkxV1XsX+pPlg==,
-      }
-    dependencies:
-      js-yaml: 3.14.1
-    dev: false
-
-  /frontmatter-markdown-loader/3.7.0:
-    resolution:
-      {
-        integrity: sha512-AApxrNtVTlvvfHcj/7u+bLRozMVOedPMEESPzlVJiRPwidKvPDkbGOmaj7wps/M63fYzlwo6iXQtrjNrtuYh9A==,
-      }
-    dependencies:
-      front-matter: 4.0.2
-      loader-utils: 2.0.2
-      markdown-it: 12.3.2
-    dev: false
-
   /fs-constants/1.0.0:
     resolution:
       {
@@ -11892,6 +11868,19 @@ packages:
         integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==,
       }
     dev: true
+
+  /gray-matter/4.0.3:
+    resolution:
+      {
+        integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==,
+      }
+    engines: { node: ">=6.0" }
+    dependencies:
+      js-yaml: 3.14.1
+      kind-of: 6.0.3
+      section-matter: 1.0.0
+      strip-bom-string: 1.0.0
+    dev: false
 
   /handlebars/4.7.7:
     resolution:
@@ -12855,7 +12844,6 @@ packages:
         integrity: sha512-5BMULNob1vgFX6EjQw5izWDxrecWK9AM72rugNr0TFldMOi0fj6Jk+zeKIt0xGj4cEfQIJth4w3OKWOJ4f+AFw==,
       }
     engines: { node: ">=0.10.0" }
-    dev: true
 
   /is-extendable/1.0.1:
     resolution:
@@ -14264,7 +14252,6 @@ packages:
         integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==,
       }
     engines: { node: ">=0.10.0" }
-    dev: true
 
   /kleur/3.0.3:
     resolution:
@@ -14368,15 +14355,6 @@ packages:
       {
         integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==,
       }
-
-  /linkify-it/3.0.3:
-    resolution:
-      {
-        integrity: sha512-ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==,
-      }
-    dependencies:
-      uc.micro: 1.0.6
-    dev: false
 
   /lint-staged/13.0.3:
     resolution:
@@ -14492,6 +14470,7 @@ packages:
       big.js: 5.2.2
       emojis-list: 3.0.0
       json5: 2.2.1
+    dev: true
 
   /locate-path/2.0.0:
     resolution:
@@ -14754,18 +14733,13 @@ packages:
       }
     dev: true
 
-  /markdown-it/12.3.2:
+  /marked/4.0.18:
     resolution:
       {
-        integrity: sha512-TchMembfxfNVpHkbtriWltGWc+m3xszaRD0CZup7GFFhzIgQqxIfn3eGj1yZpfuflzPvfkt611B2Q/Bsk1YnGg==,
+        integrity: sha512-wbLDJ7Zh0sqA0Vdg6aqlbT+yPxqLblpAZh1mK2+AO2twQkPywvvqQNfEPVwSSRjZ7dZcdeVBIAgiO7MMp3Dszw==,
       }
+    engines: { node: ">= 12" }
     hasBin: true
-    dependencies:
-      argparse: 2.0.1
-      entities: 2.1.0
-      linkify-it: 3.0.3
-      mdurl: 1.0.1
-      uc.micro: 1.0.6
     dev: false
 
   /md5.js/1.3.5:
@@ -14854,6 +14828,7 @@ packages:
       {
         integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==,
       }
+    dev: true
 
   /media-typer/0.3.0:
     resolution: { integrity: sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g= }
@@ -18140,6 +18115,17 @@ packages:
       ajv-keywords: 3.5.2_ajv@6.12.6
     dev: true
 
+  /section-matter/1.0.0:
+    resolution:
+      {
+        integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==,
+      }
+    engines: { node: ">=4" }
+    dependencies:
+      extend-shallow: 2.0.1
+      kind-of: 6.0.3
+    dev: false
+
   /semver/5.7.1:
     resolution:
       {
@@ -18971,6 +18957,14 @@ packages:
     dependencies:
       ansi-regex: 6.0.1
     dev: true
+
+  /strip-bom-string/1.0.0:
+    resolution:
+      {
+        integrity: sha512-uCC2VHvQRYu+lMh4My/sFNmF2klFymLX1wHJeXnbEJERpV/ZsVuonzerjfrGpIGF7LBVa1O7i9kjiWvJiFck8g==,
+      }
+    engines: { node: ">=0.10.0" }
+    dev: false
 
   /strip-bom/2.0.0:
     resolution:
@@ -20018,13 +20012,6 @@ packages:
       }
     engines: { node: ">=4.2.0" }
     hasBin: true
-
-  /uc.micro/1.0.6:
-    resolution:
-      {
-        integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==,
-      }
-    dev: false
 
   /uglify-js/3.16.1:
     resolution:

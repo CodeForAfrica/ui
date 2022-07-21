@@ -268,11 +268,6 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
             >
               Description
             </div>
-            <div
-              class="MuiTypography-root MuiTypography-body1 css-1x2hemx-MuiTypography-root"
-            >
-              This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.
-            </div>
           </div>
         </div>
       </div>

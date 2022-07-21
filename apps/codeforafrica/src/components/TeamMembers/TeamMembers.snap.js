@@ -21,8 +21,8 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
         >
           <div
             class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-m2run-MuiPaper-root-MuiCard-root"
+            content="Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle."
             country="Georgia"
-            description="Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle."
             slug="member-1"
             team="New Initiatives"
           >
@@ -60,8 +60,8 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
         >
           <div
             class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-m2run-MuiPaper-root-MuiCard-root"
+            content="Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle."
             country="Nigeria"
-            description="Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle."
             slug="member-2"
             team="Knowledge"
           >
@@ -99,8 +99,8 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
         >
           <div
             class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-m2run-MuiPaper-root-MuiCard-root"
+            content="Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle."
             country="South Africa"
-            description="Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle."
             slug="member-3"
             team="africanDRONE"
           >
