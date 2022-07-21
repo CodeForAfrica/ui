@@ -41,6 +41,7 @@ importers:
       eslint-plugin-import: ^2.26.0
       fast-equals: ^4.0.1
       frontmatter-markdown-loader: ^3.7.0
+      fuse.js: ^6.6.2
       identity-obj-proxy: ^3.0.0
       jest: ^28.1.1
       jest-config-commons-ui: workspace:*
@@ -72,6 +73,7 @@ importers:
       "@mui/utils": 5.8.6_react@17.0.2
       fast-equals: 4.0.1
       frontmatter-markdown-loader: 3.7.0
+      fuse.js: 6.6.2
       js-yaml: 4.1.0
       next: 12.2.0_apvyc6hsquzbx56wwdowrbgkzm
       next-seo: 5.4.0_nsrodebypp3mcf7ihyfjqmpudu
@@ -11618,6 +11620,14 @@ packages:
       {
         integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==,
       }
+
+  /fuse.js/6.6.2:
+    resolution:
+      {
+        integrity: sha512-cJaJkxCCxC8qIIcPBF9yGxY0W/tVZS3uEISDxhYIdtk8OL93pe+6Zj7LjCqVV4dzbqcriOZ+kQ/NE4RXZHsIGA==,
+      }
+    engines: { node: ">=10" }
+    dev: false
 
   /gauge/3.0.2:
     resolution:
