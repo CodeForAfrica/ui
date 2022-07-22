@@ -5,6 +5,7 @@ import {
   getHero,
   getMeetOurTeam,
   getOurImpact,
+  getOurMission,
   getOurPartners,
 } from "./api.netlify-cms";
 
@@ -143,7 +144,6 @@ const footer = {
   },
 };
 
-const hero = getHero();
 const meetOurTeam = getMeetOurTeam();
 
 export const ourMission = {
@@ -900,7 +900,7 @@ function getHomePageStaticProps() {
       title: "Code for Africa",
       sections: [
         {
-          ...hero,
+          ...getHero,
           slug: "hero",
         },
         {
@@ -1291,13 +1291,8 @@ function getAboutMembersPageStaticProps() {
       crumbs: [{ href: "/about", label: "About us" }, { label: "Members" }],
       sections: [
         {
+          ...getHero("about"),
           slug: "hero",
-          title: "About Us",
-          subtitle:
-            "We are Africa’s largest network of civic technology and data journalism labs",
-          image: {
-            src: "https://res.cloudinary.com/code-for-africa/image/upload/v1656064173/codeforafrica/images/1_IgrT4_1tGZh1WnpYzvZN1A_1_twneqf.jpg",
-          },
         },
         {
           slug: "our-team",
@@ -1329,16 +1324,11 @@ function getAboutPageStaticProps() {
       title: "About | Code for Africa",
       sections: [
         {
+          ...getHero("about"),
           slug: "hero",
-          title: "About Us",
-          subtitle:
-            "We are Africa’s largest network of civic technology and data journalism labs",
-          image: {
-            src: "https://res.cloudinary.com/code-for-africa/image/upload/v1656064173/codeforafrica/images/1_IgrT4_1tGZh1WnpYzvZN1A_1_twneqf.jpg",
-          },
         },
         {
-          ...ourMission,
+          ...getOurMission(),
           slug: "our-mission",
         },
         {
@@ -1386,13 +1376,8 @@ function getAboutPartnersPageStaticProps() {
       crumbs: [{ href: "/about", label: "About us" }, { label: "Partners" }],
       sections: [
         {
+          ...getHero("about"),
           slug: "hero",
-          title: "About Us",
-          subtitle:
-            "We are Africa’s largest network of civic technology and data journalism labs",
-          image: {
-            src: "https://res.cloudinary.com/code-for-africa/image/upload/v1656064173/codeforafrica/images/1_IgrT4_1tGZh1WnpYzvZN1A_1_twneqf.jpg",
-          },
         },
         {
           slug: "our-partners",
