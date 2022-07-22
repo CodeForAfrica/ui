@@ -6,7 +6,7 @@ import React from "react";
 import Figure from "@/codeforafrica/components/Figure";
 
 const OurPartners = React.forwardRef(function OurPartners(props, ref) {
-  const { partners, sx, title } = props;
+  const { partners: { title, list: partners } = {}, sx } = props;
 
   if (!partners?.length) {
     return null;
@@ -24,7 +24,7 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
         {title}
       </RichTypography>
       <Grid container columns={10} justifyContent="flex-start">
-        {partners?.map(({ logo, name, slug }) => {
+        {partners.map(({ logo, name, slug }) => {
           const href = slug ? `/about/partners/${slug}` : undefined;
           const Wrapper = href?.length ? Link : React.Fragment;
           const wrapperProps = href ? { href } : undefined;
