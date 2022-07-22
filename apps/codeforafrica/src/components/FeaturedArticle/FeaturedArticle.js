@@ -10,6 +10,8 @@ import ArticleCard from "@/codeforafrica/components/ArticleCard";
 import ArticleCardContent from "@/codeforafrica/components/ArticleCardContent";
 import ArticleCardMedia from "@/codeforafrica/components/ArticleCardMedia";
 
+// fix bad merge
+
 const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
   const {
     title,
