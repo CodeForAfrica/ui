@@ -7,18 +7,12 @@ hero:
 our-mission:
   title: Our mission
   description: >-
-    [Code for Africa](https://twitter.com/Code4Africa) (CfA) is the continent’s
-    largest network of civic technology and data journalism labs, with teams in
-    more than 20 countries. CfA builds digital democracy solutions that give
-    citizens unfettered access to actionable information that empowers them to
-    make informed decisions, which strengthens civic engagement for improved
-    public governance and accountability. This includes building infrastructures
-    like the continent’s largest open data portals at
-    [openAFRICA](https://openafrica.net/) and
-    [sourceAFRICA](https://sourceafrica.net/). CfA incubates initiatives as
-    diverse as the [africanDRONE](https://africandrone.org/) network, the
-    [PesaCheck](https://pesacheck.org/) fact-checking initiative and the
-    [sensors.AFRICA](https://sensors.africa/) air quality sensor network.
+    ## [Code for Africa](https://twitter.com/Code4Africa) (CfA) is the
+    continent’s largest network of civic technology and data journalism labs,
+    with teams in more than 20 countries.
+
+
+    CfA builds digital democracy solutions that give citizens unfettered access to actionable information that empowers them to make informed decisions, which strengthens civic engagement for improved public governance and accountability. This includes building infrastructures like the continent’s largest open data portals at [openAFRICA](https://openafrica.net/) and [sourceAFRICA](https://sourceafrica.net/). CfA incubates initiatives as diverse as the [africanDRONE](https://africandrone.org/) network, the [PesaCheck](https://pesacheck.org/) fact-checking initiative and the [sensors.AFRICA](https://sensors.africa/) air quality sensor network.
 
 
     CfA manages the [African Network of Centres for Investigative Reporting](https://investigate.africa/) (ANCIR), which gives the continent’s top muckraking newsrooms the best possible [forensic data tools](https://data.investigate.africa/), [digital security](https://getoutline.org/) and [whistleblower encryption](https://afrileaks.org/) to help improve their ability to tackle crooked politicians, organised crime and predatory big business. CfA runs [academy.AFRICA](https://academy.africa/), one of the continent’s largest [skills development](https://courses.academy.africa/) initiatives for digital journalists, and seed funds cross-border collaboration. CfA’s research and analysis programme [CivicSignal](https://civicsignal.africa/#/home) offers actionable insights to help navigate Africa’s media ecosystem and emerging civic technology sector using machine learning tools and ‘big data’ resources.
@@ -30,13 +24,13 @@ our-mission:
     CfA is registered as a non-profit organisation in South Africa, registration number 168–092, and in Kenya with registration number CPR/2016/220101.
 
 
-    #### Partnering for excellence
+    **Partnering for excellence**
 
 
     Collaborations and partnerships are at the heart of our work. To build digital democracies, we partner with organisations aligned with CfA values, acting as a catalyst for new initiatives and strengthening the local ecosystem by investing in and working through these partnerships.
 
 
-    #### Guiding Principles
+    **Guiding Principles**
 
 
     CfA shares a covenant with the rest of the [Code for All](https://codeforall.org/) federation, based on the following guiding principles:
@@ -80,4 +74,10 @@ our-impact:
     - 8044304a-265f-4f33-b9b2-8fb59596f38d
     - 8f429fcb-deea-463f-8605-992ea0fc74a8
     - f1538b03-86bf-4933-9b15-3dfe0e087189
+    - ed20f9bd-6b7e-49d9-8c42-c79abe37e02b
+    - f410a35a-59a0-459a-b20d-cc55dafd9174
+    - 1e370e43-3108-4b1c-89f9-536aa3e5d7e6
+    - 4aa8e6ab-044d-4765-a8ec-ac0691a60f34
+    - 68d049ee-6c49-4fcf-8f06-325e53fa32c0
+    - c74aab50-4925-4a19-bd75-4eed0dc5d962
 ---
