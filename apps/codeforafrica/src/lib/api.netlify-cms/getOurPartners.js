@@ -8,10 +8,10 @@ import { getCollectionBySlug } from "./utils";
 const pageDir = join(process.cwd(), "content/pages");
 
 export default function geOurPartners(page = "index") {
-  const { "our-partners": ourPartners } = getCollectionBySlug(pageDir, page, [
-    "our-partners",
-  ]).items;
-  ourPartners.title = marked.parseInline(ourPartners.title);
+  const {
+    "our-partners": { title: originalTitle, "partners-list": partnersIds },
+  } = getCollectionBySlug(pageDir, page, ["our-partners"]).items;
+  const title = marked.parseInline(originalTitle);
   const allPartners = getPartners([
     "id",
     "slug",
@@ -21,8 +21,8 @@ export default function geOurPartners(page = "index") {
     "logo",
   ]);
   // Need to maintain order of how partners were selected in ourPartners
-  ourPartners.list =
-    ourPartners.list?.map((id) => allPartners.find((p) => p.id === id)) ?? null;
+  const list =
+    partnersIds?.map((id) => allPartners.find((p) => p.id === id)) ?? null;
 
-  return ourPartners;
+  return { title, list };
 }
