@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import React from "react";
 
@@ -7,36 +8,45 @@ const TeamMemberCardList = React.forwardRef(function TeamMemberCardList(
   props,
   ref
 ) {
-  const { team, slug, ...other } = props;
+  const { team, slug, sx, ...other } = props;
 
   if (!team?.length) {
     return null;
   }
   return (
-    <Grid
-      container
-      rowSpacing={{ xs: 3, sm: 2.5, md: 5, lg: "36px" }}
-      columnSpacing={{ xs: 3, sm: "31px", md: "25.6px", lg: 6 }}
-      flexWrap={{ xs: "nowrap", sm: "wrap" }}
-      {...other}
+    <Box
       sx={{
-        overflowX: "scroll",
-        scrollbarWidth: "none", // Firefox
-        msOverflowStyle: "none", // Internet Explorer 10+
-        /* Chrome, Webkit, etc. */
-        "&::-webkit-scrollbar": {
-          height: 0,
-          width: 0,
-        },
+        mr: { xs: -3, sm: 0 },
+        ...sx,
       }}
+      {...other}
       ref={ref}
     >
-      {team?.map((member) => (
-        <Grid item key={member.href}>
-          <TeamMemberCard {...member} />
-        </Grid>
-      ))}
-    </Grid>
+      <Grid
+        container
+        rowSpacing={{ xs: 3, sm: 2.5, md: 5, lg: "36px" }}
+        columnSpacing={{ xs: 3, md: "25.6px", lg: 6 }}
+        flexWrap={{ xs: "nowrap", sm: "wrap" }}
+        sx={{
+          pr: { xs: 3, sm: 0 },
+          overflowX: "scroll",
+          // scrollbar
+          scrollbarWidth: "none", // Firefox
+          msOverflowStyle: "none", // Internet Explorer 10+
+          /* Chrome, Webkit, etc. */
+          "&::-webkit-scrollbar": {
+            height: 0,
+            width: 0,
+          },
+        }}
+      >
+        {team?.map((member) => (
+          <Grid item key={member.href}>
+            <TeamMemberCard {...member} />
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 });
 

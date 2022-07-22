@@ -4,4 +4,3 @@ Dockerfile
 npm-debug.log
 README.md
 .next
-**/.env

@@ -1,3 +1,4 @@
+import IconButton from "@mui/material/IconButton";
 import SvgIcon from "@mui/material/SvgIcon";
 import React from "react";
 
@@ -5,17 +6,27 @@ import SearchIcon from "@/codeforafrica/assets/icons/Type=search, Size=16, Color
 import Input from "@/codeforafrica/components/Input";
 
 const InputSearch = React.forwardRef(function InputSearch(props, ref) {
-  const { InputProps, ...other } = props;
+  const { InputProps, onClick, onMouseDown, ...other } = props;
+  const handleMouseDownSearch = (e) => {
+    e.preventDefault();
+  };
 
   const endAdornment = (
-    <SvgIcon
-      component={SearchIcon}
-      viewBox="0 0 16 16"
-      sx={{
-        fill: "none",
-        fontSize: "16px",
-      }}
-    />
+    <IconButton
+      aria-label="search"
+      onClick={onClick}
+      onMouseDown={onMouseDown || handleMouseDownSearch}
+      edge="end"
+    >
+      <SvgIcon
+        component={SearchIcon}
+        viewBox="0 0 16 16"
+        sx={{
+          fill: "none",
+          fontSize: "16px",
+        }}
+      />
+    </IconButton>
   );
   return (
     <Input

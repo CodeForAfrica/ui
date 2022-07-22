@@ -3,11 +3,18 @@ import React from "react";
 
 import AboutMembers from "./index.page";
 
-import { team } from "@/codeforafrica/lib";
 import theme from "@/codeforafrica/theme";
 
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
+
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    isReady: true,
+    push: jest.fn(),
+    query: {},
+  })),
+}));
 
 const defaultProps = {
   sections: [
@@ -23,7 +30,11 @@ const defaultProps = {
     {
       slug: "our-team",
       title: "Our team",
-      team,
+      team: {
+        pagination: {},
+        results: [],
+      },
+      pathname: "/about/members",
     },
     {
       slug: "get-in-touch",

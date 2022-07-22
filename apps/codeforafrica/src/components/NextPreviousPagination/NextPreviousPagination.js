@@ -1,6 +1,7 @@
 import { styled } from "@mui/material/styles";
 import usePagination from "@mui/material/usePagination";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
 
 import PaginationButton from "./PaginationButton";
 
@@ -18,14 +19,28 @@ const NextPreviousPagination = React.forwardRef(function NextPreviousPagination(
   props,
   ref
 ) {
-  const { count } = props;
+  const { count, onChange, sx } = props;
   const { items, ...other } = usePagination(props);
+  const router = useRouter();
 
-  if (count < 2) {
+  useEffect(() => {
+    if (router.isReady && onChange) {
+      const { page } = router.query;
+      const initialPage = Number.parseInt(page, 10);
+      if (initialPage) {
+        onChange(undefined, initialPage);
+      }
+    }
+    // We're only interested in initial isReady and not any subsequent
+    // router.query changes e.g. due to pagination
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady]);
+
+  if (!count || count < 2) {
     return null;
   }
   return (
-    <TwoToneBackground component="nav" ref={ref}>
+    <TwoToneBackground component="nav" sx={sx} ref={ref}>
       <NextPreviousPaginationListRoot {...other} sx={{ zIndex: 1 }}>
         {items
           .filter(({ type }) => ["previous", "next"].includes(type))

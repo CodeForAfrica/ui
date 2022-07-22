@@ -2,7 +2,7 @@ import { RichTypography, Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import React from "react";
 
-const OurMission = React.forwardRef(function TeamMembers(props, ref) {
+const OurMission = React.forwardRef(function OurMission(props, ref) {
   const { action, description, slug, subtitle, title, ...other } = props;
 
   if (!title?.length) {

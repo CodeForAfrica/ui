@@ -13,7 +13,7 @@ import TeamMembers from "@/codeforafrica/components/TeamMembers";
 import { projects, getPageStaticProps } from "@/codeforafrica/lib";
 
 function Index({ project, sections, ...props }) {
-  const { badges, description, donors, links, partners } = project;
+  const { badges, content, donors, links, partners } = project;
 
   return (
     <Page {...props}>
@@ -28,7 +28,7 @@ function Index({ project, sections, ...props }) {
         <AccoladeBadgeList badges={badges} />
       </Section>
       <ProjectDetails
-        description={description}
+        content={content}
         donors={donors}
         links={links}
         partners={partners}

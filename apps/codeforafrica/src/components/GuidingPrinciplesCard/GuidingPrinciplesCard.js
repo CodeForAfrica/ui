@@ -8,7 +8,7 @@ const GuidingPrinciplesCard = React.forwardRef(function GuidingPrinciplesCard(
   props,
   ref
 ) {
-  const { title, description, icon } = props;
+  const { title, content, icon } = props;
   return (
     <Card
       sx={{
@@ -30,7 +30,7 @@ const GuidingPrinciplesCard = React.forwardRef(function GuidingPrinciplesCard(
         <RichTypography sx={{ my: 2.5 }} variant="h3">
           {title}
         </RichTypography>
-        <RichTypography>{description}</RichTypography>
+        <RichTypography>{content}</RichTypography>
       </CardContent>
     </Card>
   );
