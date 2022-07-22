@@ -560,14 +560,14 @@ module.exports = {
           widget: "string",
         },
         {
+          label: "Value",
+          name: "value",
+          widget: "string",
+        },
+        {
           label: "Description",
           name: "body",
           widget: "markdown",
-        },
-        {
-          label: "Count",
-          name: "value",
-          widget: "string",
         },
         {
           label: "Image",
