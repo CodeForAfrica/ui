@@ -36,7 +36,7 @@ module.exports = {
                 {
                   label: "Subtitle",
                   name: "subtitle",
-                  widget: "string",
+                  widget: "text",
                 },
                 {
                   label: "Image",
