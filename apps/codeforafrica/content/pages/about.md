@@ -7,10 +7,19 @@ background-image:
 team:
   - 24c487bd-ba84-42df-825e-b11a532786ad
   - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
-partners:
-  - daa2a622-0277-44be-b302-dbc703f89522
-  - f26f59e7-444e-4e9f-b0cc-8f75b90165d8
-  - e90b7786-69b3-4694-9ee9-d9c21dc80287
+our-partners:
+  title: Our partners
+  list:
+    - 2945aa1b-b0ce-472f-b25e-2da67608b961
+    - 2b3e8830-3a6c-4e2e-9748-646c57208830
+    - daa2a622-0277-44be-b302-dbc703f89522
+    - 72d8a49c-b8e8-440d-8032-fad10b5a708b
+    - 1079f9ae-0fbd-472b-bbfb-518145c28b1d
+    - 91f54886-c49c-40f1-bcc1-a1ceef755581
+    - 34cbbb42-0124-4973-bce2-b05d6ec84c1b
+    - f26f59e7-444e-4e9f-b0cc-8f75b90165d8
+    - e90b7786-69b3-4694-9ee9-d9c21dc80287
+    - aa280d47-ee0c-4cf7-93aa-1fbe1a087439
 mission:
   title: Code for Africa is the continent’s largest network of civic technology
     and data journalism labs, with teams in 20 countries.
