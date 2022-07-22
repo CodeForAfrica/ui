@@ -38,9 +38,9 @@ function Index({ article, sections, ...props }) {
 }
 
 export async function getStaticPaths() {
-  const paths = await getGhostCMSStaticPaths("stories");
+  const staticPaths = await getGhostCMSStaticPaths("stories");
   return {
-    paths,
+    paths: staticPaths.length > 0 ? staticPaths : [],
     fallback: true,
   };
 }

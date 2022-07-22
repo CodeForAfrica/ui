@@ -16,11 +16,11 @@ function Index({ opportunity, sections, ...props }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getGhostCMSStaticPaths("opportunities");
+  const staticPaths = getGhostCMSStaticPaths("opportunities");
 
   return {
-    paths,
-    fallback: true,
+    paths: staticPaths.length > 0 ? staticPaths : [],
+    fallback: "blocking",
   };
 }
 
