@@ -4,6 +4,7 @@ import {
   getCmsProjects,
   getHero,
   getMeetOurTeam,
+  getOurPartners,
 } from "./api.netlify-cms";
 
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
@@ -1010,9 +1011,7 @@ function getHomePageStaticProps() {
         },
         {
           slug: "our-partners",
-          title:
-            'We’ve partnered with <a href="/about/partners">100+ organisations</a> including',
-          partners,
+          partners: getOurPartners(),
         },
         {
           slug: "impact",
@@ -1455,8 +1454,7 @@ function getAboutPageStaticProps() {
         },
         {
           slug: "our-partners",
-          title: "Our partners",
-          partners,
+          partners: getOurPartners("about"),
         },
         {
           slug: "impact",
