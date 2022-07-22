@@ -13,6 +13,7 @@ import ArticleCardMedia from "@/codeforafrica/components/ArticleCardMedia";
 const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
   const {
     title,
+    href,
     feature_image,
     excerpt,
     custom_excerpt,

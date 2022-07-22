@@ -4,11 +4,10 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiPaper-root MuiPaper-outlined MuiCard-root css-1dxfqf3-MuiPaper-root-MuiCard-root"
-    src="https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png"
   >
     <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-byxw8u-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
-      href="/stories/article-1"
+      class="MuiButtonBase-root MuiCardActionArea-root css-1oqz1lb-MuiButtonBase-root-MuiCardActionArea-root"
+      href="/stories/undefined"
       tabindex="0"
     >
       <div
@@ -20,6 +19,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
           <img
             alt="Battle for gender equality in African media continues"
             class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1eqknb7-MuiCardMedia-root"
+            src="https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png"
           />
         </div>
         <div
