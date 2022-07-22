@@ -223,6 +223,22 @@ module.exports = {
               ],
             },
             {
+              label: "Our Mission",
+              name: "our-mission",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "text",
+                },
+                {
+                  name: "description",
+                  widget: "markdown",
+                },
+              ],
+            },
+            {
               label: "Our Team",
               name: "team",
               widget: "relation",
@@ -251,24 +267,6 @@ module.exports = {
                   value_field: "id",
                   display_fields: ["name"],
                   multiple: true,
-                },
-              ],
-            },
-            {
-              label: "Our Mission",
-              name: "mission",
-              widget: "object",
-              file: "content/pages/mission.md",
-              fields: [
-                {
-                  label: "Title",
-                  name: "title",
-                  widget: "text",
-                },
-                {
-                  label: "Description",
-                  name: "description",
-                  widget: "markdown",
                 },
               ],
             },
