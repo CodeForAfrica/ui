@@ -17,14 +17,13 @@ projects:
   - 07f3259e-2379-4850-83b8-85cacde0fcb8
   - 31626677-0bc8-49cb-a2e6-1d7e5504d1fe
 meet-our-team:
-  title: A truly pan-African team across the continent
+  title: Our pan-African team is spread across the continent
   description: >-
-    Lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu,
-    nisl aliquet ullamcorper praesent bibendum volutpat sodales urna, ultrices
-    dui parturient vitae ac netus convallis integer. 
+    We have teams in all corners of Africa, with our main offices in South
+    Africa, Kenya, Tanzania, Ethiopia, Nigeria and Senegal.
 
 
-    Euismod posuere fusce mollis etiam himenaeos non aliquam nulla dis consequat ornare, velit odio condimentum augue felis na.
+    With staff distributed across 20 countries, we are perfectly positioned to tackle issues facing African citizens.
   href: /about/members
   image:
     src: /images/Africa@2400x 1lg.png
