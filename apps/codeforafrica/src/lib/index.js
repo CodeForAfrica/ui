@@ -1,3 +1,4 @@
+import fuse from "./api.fuse";
 import {
   getPartners,
   getCmsProjects,
@@ -849,10 +850,6 @@ export const opportunities = [
       <p><em>At CfA, we don’t just accept differences – we celebrate it, we support it, and we thrive on it for the benefit of our employees, our products and our community. CfA is proud to be an equal opportunity workplace and is an affirmative action employer. If you have a disability or special need that requires accommodation, please let us know.&nbsp;</em></p>
       <p><strong><em>To all recruitment agencies</em></strong><strong><em>: CfA does not accept agency resumes. Please do not forward resumes to our employment application line, CfA employees or any other CfA contact. CfA is not responsible for any fees related to unsolicited resumes</em></strong><em>.</em></p>
       <hr class="wp-block-separator">
-      <p>Do you want to help expose the puppet-masters behind disinformation networks and toxic content?
-      <p>Code for Africa (CfA) has an immediate vacancy for an Investigative Data Analyst with extensive forensic research and/or investigative data analytics experience based in Mali, Sudan.
-      <p>The successful candidates will work as part of CfA’s internal iLAB team of forensic data scientists and OSINT researchers, who use digital collaboration tools to create evidence-based dossiers and other actionable content for a global audience and for international watchdog media partners.
-      <p>The iLAB works in support of the African Network of Centres for Investigative Reporting (ANCIR), which is a CfA initiative that brings together the continent’s best muckraking newsrooms to investigate crooked politicians, organised crime and big business. The iLAB spearheads investigations that individual ANCIR newsrooms are unable to tackle on their own. This includes forensic analysis of suspected digital disinformation campaigns or toxic content aimed at misleading citizens or triggering social discord or polarisation using hate speech or radicalisation or other techniques.
     `,
     date: "Jan 27, 2022",
     image: {
@@ -1060,14 +1057,20 @@ function paginateResults(items, page, pageSize) {
 }
 
 export function getProjects(options) {
-  const { tag: originalTag, page, "page-size": pageSize } = options || {};
+  const { tag: originalTag, page, "page-size": pageSize, q } = options || {};
   const tag = originalTag || ALL_TAG;
 
-  const foundProjects = projects.filter(
+  let found = projects.filter(
     (p) => equalsIgnoreCase(tag, ALL_TAG) || equalsIgnoreCase(tag, p.tag)
   );
+  if (found.length && q) {
+    found = fuse
+      .projects(found)
+      .search(q)
+      .map((p) => p.item);
+  }
 
-  return paginateResults(foundProjects, page, pageSize);
+  return paginateResults(found, page, pageSize);
 }
 
 function getProjectsPageStaticProps() {
@@ -1095,13 +1098,19 @@ function getProjectsPageStaticProps() {
 }
 
 export function getOpportunities(options) {
-  const { tag: originalTag, page, "page-size": pageSize } = options || {};
+  const { tag: originalTag, page, "page-size": pageSize, q } = options || {};
   const tag = originalTag || ALL_TAG;
-  const found = opportunities.filter(
+  let found = opportunities.filter(
     (o) =>
       equalsIgnoreCase(tag, ALL_TAG) ||
       o.tags?.some((t) => equalsIgnoreCase(tag, t))
   );
+  if (found.length && q) {
+    found = fuse
+      .opportunities(found)
+      .search(q)
+      .map((p) => p.item);
+  }
 
   return paginateResults(found, page, pageSize);
 }
@@ -1258,6 +1267,39 @@ function getProjectPageStaticProps(params) {
   return { notFound: true };
 }
 
+function getStoriesTags(options = { includeAll: true }) {
+  const tags = new Set(articles?.flatMap((s) => s.tags || []));
+
+  if (options?.includeAll) {
+    return [ALL_TAG, ...tags];
+  }
+  return Array.from(tags);
+}
+
+export function getStories(options) {
+  const {
+    tag: originalTag,
+    page,
+    "page-size": pageSize = 10,
+    q,
+  } = options || {};
+  const tag = originalTag || ALL_TAG;
+
+  let found = articles.filter(
+    (s) =>
+      equalsIgnoreCase(tag, ALL_TAG) ||
+      s.tags?.some((t) => equalsIgnoreCase(tag, t))
+  );
+  if (found.length && q) {
+    found = fuse
+      .stories(found)
+      .search(q)
+      .map((p) => p.item);
+  }
+
+  return paginateResults(found, page, pageSize);
+}
+
 function getStoriesPageStaticProps() {
   return {
     props: {
@@ -1266,7 +1308,8 @@ function getStoriesPageStaticProps() {
         {
           slug: "articles",
           title: "Articles",
-          articles,
+          articles: getStories(),
+          tags: getStoriesTags(),
         },
       ],
       footer,
@@ -1320,15 +1363,22 @@ export function getMembers(options) {
     field,
     page,
     "page-size": pageSize = 18,
+    q,
     tag: originalTag,
   } = options || {};
   const tag = originalTag || ALL_TAG;
 
-  const found = team.filter(
+  let found = team.filter(
     (m) =>
       equalsIgnoreCase(tag, ALL_TAG) ||
       (field && equalsIgnoreCase(tag, m[field]))
   );
+  if (found.length && q) {
+    found = fuse
+      .members(found)
+      .search(q)
+      .map((p) => p.item);
+  }
 
   return paginateResults(found, page, pageSize);
 }
