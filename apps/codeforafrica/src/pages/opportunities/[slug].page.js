@@ -2,7 +2,10 @@ import React from "react";
 
 import ArticlePage from "@/codeforafrica/components/ArticlePage";
 import Page from "@/codeforafrica/components/Page";
-import { getPageStaticProps } from "@/codeforafrica/lib";
+import {
+  getPageStaticProps,
+  getGhostCMSStaticPaths,
+} from "@/codeforafrica/lib";
 
 function Index({ opportunity, sections, ...props }) {
   return (
@@ -13,12 +16,11 @@ function Index({ opportunity, sections, ...props }) {
 }
 
 export async function getStaticPaths() {
-  const paths = [...Array(5).keys()].map((_, i) => ({
-    params: { slug: `${i + 1}` },
-  }));
+  const staticPaths = getGhostCMSStaticPaths("opportunities");
+
   return {
-    paths,
-    fallback: false,
+    paths: staticPaths.length > 0 ? staticPaths : [],
+    fallback: "blocking",
   };
 }
 

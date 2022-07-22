@@ -39,6 +39,32 @@ const Opportunies = React.forwardRef(function Opportunies(
     setQ(value || undefined);
   };
 
+function Opportunities(props) {
+  const { opportunities = [], page: pageProp = 1, pageSize = 4 } = props;
+  const ref = useRef();
+
+  const [tags] = useState(() => {
+    const allTags = opportunities
+      .map((opportunity) => opportunity.tags)
+      .flat(Infinity);
+    const uniqueTags = [...new Set(allTags.map((tag) => tag.name))];
+    uniqueTags.unshift(ALL_TAGS);
+    return uniqueTags;
+  });
+
+  const [selectedTag, setSelectedTag] = useState(ALL_TAGS);
+  const [page, setPage] = useState(pageProp);
+  const [pagination, setPagination] = useState(() => {
+    return computePagination(opportunities, page, pageSize);
+  });
+  const filteredOpportunies = useMemo(() => {
+    if (selectedTag === ALL_TAGS) {
+      return opportunities;
+    }
+    return opportunities.filter((p) =>
+      p.tags.some((t) => t.slug === selectedTag)
+    );
+  }, [opportunities, selectedTag]);
   const handleChangeTag = (_, value) => {
     const newValue =
       (value && tags.find((t) => equalsIgnoreCase(value, t))) || ALL_TAG;
@@ -102,4 +128,4 @@ const Opportunies = React.forwardRef(function Opportunies(
   );
 });
 
-export default Opportunies;
+export default Opportunities;

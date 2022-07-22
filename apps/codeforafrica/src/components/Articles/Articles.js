@@ -21,7 +21,34 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     title,
   } = props;
   // We use 10 because article 0 will be shown as featured article
+
+  const { articles = [], page: pageProp = 1, pageSize = 10, title } = props;
+
+  const [tags] = useState(() => {
+    const allTags = articles.map((article) => article.tags).flat(Infinity);
+    const uniqueTags = [...new Set(allTags.map((tag) => tag.name))];
+    uniqueTags.unshift(ALL_TAG);
+    return uniqueTags;
+  });
+  const [selectedTag, setSelectedTag] = useState(ALL_TAG);
+  const handleTagChange = (_, value) => {
+    const newTag = value || ALL_TAG;
+    setSelectedTag(newTag);
+  };
+  const getFilteredArticles = useCallback(() => {
+    let filteredArticles;
+    if (selectedTag !== ALL_TAG) {
+      filteredArticles = articles.filter((a) => {
+        return a.tags.some((t) => t.slug === selectedTag);
+      });
+    } else {
+      filteredArticles = articles;
+    }
+    return filteredArticles;
+  }, [articles, selectedTag]);
+
   const [count, setCount] = useState(countProp);
+
   const [page, setPage] = useState(pageProp);
   const [articles, setArticles] = useState(resultsProp);
   const [q, setQ] = useState();

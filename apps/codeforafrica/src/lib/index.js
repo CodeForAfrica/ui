@@ -1,3 +1,10 @@
+
+import {
+  getPostsByPrimaryTag,
+  getPost,
+  getAllPostsWithSlug,
+} from "@/codeforafrica/lib/api.ghost";
+
 import fuse from "./api.fuse";
 import {
   getPartners,
@@ -34,6 +41,7 @@ export const projects = getCmsProjects([
   "donors",
   "links",
 ]);
+
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -1097,34 +1105,9 @@ function getProjectsPageStaticProps() {
   };
 }
 
-export function getOpportunities(options) {
-  const { tag: originalTag, page, "page-size": pageSize, q } = options || {};
-  const tag = originalTag || ALL_TAG;
-  let found = opportunities.filter(
-    (o) =>
-      equalsIgnoreCase(tag, ALL_TAG) ||
-      o.tags?.some((t) => equalsIgnoreCase(tag, t))
-  );
-  if (found.length && q) {
-    found = fuse
-      .opportunities(found)
-      .search(q)
-      .map((p) => p.item);
-  }
+async function getOpportunitiesPageStaticProps(options) {
+  const allOpportunities = await getPostsByPrimaryTag("opportunities", options);
 
-  return paginateResults(found, page, pageSize);
-}
-
-function getOpportunitiesTags(options = { includeAll: true }) {
-  const tags = new Set(opportunities?.flatMap((o) => o.tags || []));
-
-  if (options?.includeAll) {
-    return [ALL_TAG, ...tags];
-  }
-  return Array.from(tags);
-}
-
-function getOpportunitiesPageStaticProps() {
   return {
     props: {
       title: "Opportunities | Code for Africa",
@@ -1136,8 +1119,7 @@ function getOpportunitiesPageStaticProps() {
         },
         {
           slug: "opportunities",
-          opportunities: getOpportunities(),
-          tags: getOpportunitiesTags(),
+          opportunities: allOpportunities,
         },
       ],
       footer,
@@ -1147,10 +1129,13 @@ function getOpportunitiesPageStaticProps() {
   };
 }
 
-function getOpportunityPageStaticProps(params) {
-  const opportunity = opportunities.find(({ href }) =>
-    equalsIgnoreCase(href, params?.slug)
-  );
+async function getOpportunityPageStaticProps(params) {
+  // TODO: is this the best way to get the article slug?
+  const actualSlug = params.slug.split("/")[2];
+
+  const opportunity = await getPost(actualSlug);
+
+
   if (opportunity) {
     return {
       props: {
@@ -1267,40 +1252,9 @@ function getProjectPageStaticProps(params) {
   return { notFound: true };
 }
 
-function getStoriesTags(options = { includeAll: true }) {
-  const tags = new Set(articles?.flatMap((s) => s.tags || []));
+async function getStoriesPageStaticProps(options) {
+  const allArticles = await getPostsByPrimaryTag("stories", options);
 
-  if (options?.includeAll) {
-    return [ALL_TAG, ...tags];
-  }
-  return Array.from(tags);
-}
-
-export function getStories(options) {
-  const {
-    tag: originalTag,
-    page,
-    "page-size": pageSize = 10,
-    q,
-  } = options || {};
-  const tag = originalTag || ALL_TAG;
-
-  let found = articles.filter(
-    (s) =>
-      equalsIgnoreCase(tag, ALL_TAG) ||
-      s.tags?.some((t) => equalsIgnoreCase(tag, t))
-  );
-  if (found.length && q) {
-    found = fuse
-      .stories(found)
-      .search(q)
-      .map((p) => p.item);
-  }
-
-  return paginateResults(found, page, pageSize);
-}
-
-function getStoriesPageStaticProps() {
   return {
     props: {
       title: "Stories | Code for Africa",
@@ -1308,8 +1262,7 @@ function getStoriesPageStaticProps() {
         {
           slug: "articles",
           title: "Articles",
-          articles: getStories(),
-          tags: getStoriesTags(),
+          articles: allArticles,
         },
       ],
       footer,
@@ -1319,10 +1272,11 @@ function getStoriesPageStaticProps() {
   };
 }
 
-function getStoryPageStaticProps(params) {
-  const article = articles.find(({ href }) =>
-    equalsIgnoreCase(href, params?.slug)
-  );
+async function getStoryPageStaticProps(slug) {
+  // TODO: is this the best way to get the article slug?
+  const actualSlug = slug.slug.split("/")[2];
+  const article = await getPost(actualSlug);
+
   if (article) {
     return {
       props: {
@@ -1332,7 +1286,7 @@ function getStoryPageStaticProps(params) {
           {
             slug: "related-stories",
             title: "News and Stories",
-            articles: articles.slice(0, 3),
+            articles: [],
           },
         ],
         footer,
@@ -1683,4 +1637,13 @@ export async function getPageStaticProps(params) {
       }
       return { notFound: true };
   }
+}
+
+export async function getGhostCMSStaticPaths(primaryTag, options) {
+  const posts = await getAllPostsWithSlug(primaryTag, options);
+  const path = posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+
+  return path;
 }

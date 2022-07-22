@@ -10,6 +10,8 @@ const render = createRender({ theme });
 
 const defaultProps = {
   coverImage: { src: "/images/stories-1.png" },
+  authors: [],
+  feature_image: "/images/stories-1.png",
 };
 
 describe("<ArticlePage />", () => {
