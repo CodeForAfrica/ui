@@ -5,6 +5,7 @@ import {
   getHero,
   getMeetOurTeam,
   getOurImpact,
+  getOurMission,
   getOurPartners,
 } from "./api.netlify-cms";
 
@@ -1327,7 +1328,7 @@ function getAboutPageStaticProps() {
           slug: "hero",
         },
         {
-          ...ourMission,
+          ...getOurMission(),
           slug: "our-mission",
         },
         {
