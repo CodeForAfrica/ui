@@ -18,14 +18,14 @@ const ImpactCardRoot = styled(Card, {
   },
 }));
 
-const ImpactCard = React.forwardRef(function ImpactCard(
-  { image, title, value, content },
-  ref
-) {
+const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
+  const { image, title, value, content } = props;
+
   if (!image && !title) {
     return null;
   }
-
+  const imageSrc = image?.src || image?.url || image;
+  const imageAlt = image?.alt || title;
   return (
     <ImpactCardRoot ref={ref}>
       <CardContent
@@ -42,7 +42,7 @@ const ImpactCard = React.forwardRef(function ImpactCard(
             paddingBottom: "0.75rem",
           }}
         >
-          <Image src={image.url} alt={image.alt} width={32} height={32} />
+          <Image src={imageSrc} alt={imageAlt} width={32} height={32} />
           <RichTypography
             variant="h5"
             sx={{
@@ -84,10 +84,10 @@ const ImpactCard = React.forwardRef(function ImpactCard(
 ImpactCard.propTypes = {
   content: PropTypes.string,
   title: PropTypes.string,
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   image: PropTypes.shape({
     alt: PropTypes.string,
-    url: PropTypes.string,
+    src: PropTypes.string,
   }),
 };
 

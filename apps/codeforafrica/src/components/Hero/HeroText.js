@@ -6,15 +6,15 @@ import React from "react";
 const HeroTextRoot = styled(Stack)(({ theme }) => ({
   width: "100%",
   [theme.breakpoints.up("sm")]: {
-    maxWidth: "311px",
+    maxWidth: 375,
   },
   [theme.breakpoints.up("md")]: {
-    maxWidth: "478.2px",
+    maxWidth: 553.2,
   },
 }));
 
 const Heading = styled(RichTypography)(({ theme }) => ({
-  "& .highlight": {
+  "& .highlight, & em, & strong": {
     color: theme.palette.primary.main,
   },
 }));
@@ -186,7 +186,13 @@ const HeroFigure = React.forwardRef(function HeroFigure(props, ref) {
     <HeroTextRoot ref={ref}>
       <Heading
         variant="h2"
-        sx={{ mt: 2.5, typography: { xs: "h4", md: "h2" } }}
+        sx={{
+          mt: 2.5,
+          typography: { xs: "h4", md: "h2" },
+          "& .hightlight, & em, & strong": {
+            typography: { xs: "h4", md: "h2" },
+          },
+        }}
       >
         {title}
       </Heading>

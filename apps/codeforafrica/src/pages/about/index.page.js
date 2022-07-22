@@ -30,7 +30,7 @@ function Index({ sections, ...props }) {
           case "hero": {
             return <AboutPageHeader {...section} key={section.slug} />;
           }
-          case "impact": {
+          case "our-impact": {
             return <ImpactCardList {...section} key={section.slug} />;
           }
           case "our-mission": {
