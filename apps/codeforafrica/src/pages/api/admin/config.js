@@ -794,8 +794,8 @@ module.exports = {
           widget: "markdown",
         },
         {
-          label: "Image",
-          name: "image",
+          label: "Thumbnail",
+          name: "thumbnail",
           widget: "object",
           fields: [
             {
@@ -816,11 +816,6 @@ module.exports = {
               required: false,
             },
           ],
-        },
-        {
-          label: "Href",
-          name: "href",
-          widget: "string",
         },
         {
           name: "links",
@@ -854,6 +849,16 @@ module.exports = {
               required: false,
             },
           ],
+        },
+        {
+          label: "Country",
+          name: "country",
+          widget: "string",
+        },
+        {
+          label: "Team",
+          name: "team",
+          widget: "string",
         },
       ],
     },
