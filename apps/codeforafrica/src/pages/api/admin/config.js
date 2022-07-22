@@ -182,36 +182,43 @@ module.exports = {
           file: "content/pages/about.md",
           fields: [
             {
-              label: "Title",
-              name: "title",
-              widget: "string",
-            },
-            {
-              label: "Subtitle",
-              name: "subtitle",
-              widget: "markdown",
-            },
-            {
-              label: "Background Image",
-              name: "background-image",
+              label: "Hero",
+              name: "hero",
               widget: "object",
               fields: [
                 {
-                  label: "Src",
-                  name: "src",
-                  widget: "image",
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
                 },
                 {
-                  label: "Height",
-                  name: "height",
-                  widget: "string",
-                  required: false,
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "text",
                 },
                 {
-                  label: "Width",
-                  name: "width",
-                  widget: "string",
-                  required: false,
+                  label: "Background Image",
+                  name: "image",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Source",
+                      name: "src",
+                      widget: "image",
+                    },
+                    {
+                      label: "Height",
+                      name: "height",
+                      widget: "string",
+                      required: false,
+                    },
+                    {
+                      label: "Width",
+                      name: "width",
+                      widget: "string",
+                      required: false,
+                    },
+                  ],
                 },
               ],
             },
