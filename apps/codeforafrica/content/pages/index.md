@@ -1,12 +1,13 @@
 ---
 hero:
-  title: Empowering <span class="highlight">Africa</span> with
+  title: "**Africa's** largest network of civic tech and open data labs"
   messages:
     - civic technologies
-    - research
+    - data-driven initiatives
     - skills development
-  subtitle: We are an impact accelerator, using civic tech and open data to
-    empower citizens.
+  subtitle:
+    We are an impact accelerator with a pan-African approach on a mission
+    to accelerate change through data-driven initiatives.
   image:
     src: https://res.cloudinary.com/code-for-africa/image/upload/v1653902690/codeforafrica/images/Group_4429_shcof8.png
 projects:
