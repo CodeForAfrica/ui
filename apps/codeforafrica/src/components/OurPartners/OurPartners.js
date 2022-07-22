@@ -27,7 +27,7 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
         {partners.map(({ logo, name, slug }) => {
           const href = slug ? `/about/partners/${slug}` : undefined;
           const Wrapper = href?.length ? Link : React.Fragment;
-          const wrapperProps = href ? { href } : undefined;
+          const wrapperProps = href?.length ? { href } : undefined;
           return (
             <Grid item xs={5} sm={2} key={name}>
               <Wrapper {...wrapperProps}>
