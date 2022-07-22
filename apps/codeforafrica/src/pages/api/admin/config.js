@@ -24,12 +24,14 @@ module.exports = {
                 {
                   label: "Title",
                   name: "title",
-                  widget: "text",
+                  widget: "markdown",
                 },
                 {
                   label: "Messages",
                   name: "messages",
                   widget: "list",
+                  min: 3,
+                  max: 3,
                 },
                 {
                   label: "Subtitle",
