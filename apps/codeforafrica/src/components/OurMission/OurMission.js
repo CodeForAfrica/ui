@@ -21,8 +21,15 @@ const OurMission = React.forwardRef(function OurMission(props, ref) {
         {subtitle}
       </RichTypography>
       <RichTypography
-        variant="body1"
-        sx={{ mb: "30px", typography: { md: "subheading" } }}
+        sx={{
+          mb: "30px",
+          "& h2": {
+            typography: { xs: "h4", md: "h2" },
+          },
+          "& p, & li": {
+            typography: { xs: "body1", md: "subheading" },
+          },
+        }}
       >
         {description}
       </RichTypography>
