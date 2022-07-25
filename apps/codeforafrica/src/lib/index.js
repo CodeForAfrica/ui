@@ -659,7 +659,7 @@ function getHomePageStaticProps() {
       title: "Code for Africa",
       sections: [
         {
-          ...getHero,
+          ...getHero(),
           slug: "hero",
         },
         {
