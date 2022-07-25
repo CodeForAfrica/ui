@@ -9,7 +9,7 @@ links:
   github: https://github.com/JacopoOttaviani
   linkedin: https://www.linkedin.com/in/jacopo-ottaviani
 country: South Africa
-team: Data
+team: Knowledge
 ---
 
-Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.
+Jacopo is CfA’s chief data officer (CDO) leading the Knowledge portfolio which includes the Academy, DataLab and StoryLab. He works with a pan-African team of 18 data analysts, designers and data-driven storytellers to give the public actionable information. His digital storytelling has been published globally, from Al Jazeera and Der Spiegel, to El País, De Correspondent and Internazionale.

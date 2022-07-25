@@ -8,4 +8,4 @@ country: Georgia
 team: New Initiatives
 ---
 
-Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.
+Justin is the CEO at Code for Africa (CfA). He is an investigative data journalist and civic technology strategist and works across Africa, and also in the Caucasus region (currently based in Tbilisi). Justin serves on a number of digital democracy and civic data/tech bodies, including the Code for All governing board, and the  World Bank/IMF’s Data to Development advisory board, amongst others.
