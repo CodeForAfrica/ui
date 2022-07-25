@@ -1,6 +1,7 @@
 module.exports = {
   backend: {
-    name: "git-gateway",
+    name: "github",
+    repo: "CodeForAfrica/ui",
     branch: "main",
   },
   media_folder: "public/images",
