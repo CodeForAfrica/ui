@@ -14,6 +14,7 @@ import {
   getPostsByPrimaryTag,
   getPost,
   getAllPostsWithSlug,
+  getPostsByTag,
 } from "@/codeforafrica/lib/api.ghost";
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
@@ -763,14 +764,18 @@ function getProjectsPageStaticProps() {
   };
 }
 
-export function getOpportunities(options) {
+export async function getOpportunities(options) {
   const { tag: originalTag, page, "page-size": pageSize, q } = options || {};
-  const tag = originalTag || ALL_TAG;
-  let found = opportunities.filter(
-    (o) =>
-      equalsIgnoreCase(tag, ALL_TAG) ||
-      o.tags?.some((t) => equalsIgnoreCase(tag, t))
-  );
+  const tag = originalTag || "opportunities";
+
+  // let found = opportunities.filter(
+  //   (o) =>
+  //     equalsIgnoreCase(tag, ALL_TAG) ||
+  //     o.tags?.some((t) => equalsIgnoreCase(tag, t))
+  // );
+
+  let found = await getPostsByTag(tag, options);
+
   if (found.length && q) {
     found = fuse
       .opportunities(found)
@@ -781,19 +786,22 @@ export function getOpportunities(options) {
   return paginateResults(found, page, pageSize);
 }
 
-function getOpportunitiesTags(options = { includeAll: true }) {
-  const tags = Array.from(
-    new Set(opportunities?.flatMap((o) => o.tags || []))
-  ).sort();
+// function getOpportunitiesTags(options = { includeAll: true }) {
+//   const tags = Array.from(
+//     new Set(opportunities?.flatMap((o) => o.tags || []))
+//   ).sort();
 
-  if (options?.includeAll) {
-    return [ALL_TAG, ...tags];
-  }
-  return tags;
-}
+//   if (options?.includeAll) {
+//     return [ALL_TAG, ...tags];
+//   }
+//   return tags;
+// }
 
 async function getOpportunitiesPageStaticProps(options) {
   const allOpportunities = await getPostsByPrimaryTag("opportunities", options);
+  const allTags = allOpportunities.map((o) => o.tags).flat();
+  const uniqueTags = [...new Set(allTags.map((tag) => tag.name))];
+  uniqueTags.unshift(ALL_TAG);
   return {
     props: {
       title: "Opportunities | Code for Africa",
@@ -805,9 +813,9 @@ async function getOpportunitiesPageStaticProps(options) {
         },
         {
           slug: "opportunities",
-          opportunities: allOpportunities,
+          opportunities: paginateResults(allOpportunities),
           //           opportunities: getOpportunities(),
-          tags: getOpportunitiesTags(),
+          tags: uniqueTags,
         },
       ],
       footer,
@@ -939,31 +947,27 @@ function getProjectPageStaticProps(params) {
   return { notFound: true };
 }
 
-function getStoriesTags(options = { includeAll: true }) {
-  const tags = Array.from(
-    new Set(articles?.flatMap((s) => s.tags || []))
-  ).sort();
+// function getStoriesTags(options = { includeAll: true }) {
+//   const tags = Array.from(
+//     new Set(articles?.flatMap((s) => s.tags || []))
+//   ).sort();
 
-  if (options?.includeAll) {
-    return [ALL_TAG, ...tags];
-  }
-  return tags;
-}
+//   if (options?.includeAll) {
+//     return [ALL_TAG, ...tags];
+//   }
+//   return tags;
+// }
 
-export function getStories(options) {
+export async function getStories(options) {
   const {
     tag: originalTag,
     page,
     "page-size": pageSize = 10,
     q,
   } = options || {};
-  const tag = originalTag || ALL_TAG;
+  const tag = originalTag || "stories";
 
-  let found = articles.filter(
-    (s) =>
-      equalsIgnoreCase(tag, ALL_TAG) ||
-      s.tags?.some((t) => equalsIgnoreCase(tag, t))
-  );
+  let found = await getPostsByTag(tag, options);
   if (found.length && q) {
     found = fuse
       .stories(found)
@@ -976,6 +980,10 @@ export function getStories(options) {
 
 async function getStoriesPageStaticProps(options) {
   const allArticles = await getPostsByPrimaryTag("stories", options);
+  const allTags = allArticles.map((article) => article.tags).flat(Infinity);
+  const uniqueTags = [...new Set(allTags.map((tag) => tag.name))];
+  uniqueTags.unshift(ALL_TAG);
+
   return {
     props: {
       title: "Stories | Code for Africa",
@@ -983,9 +991,8 @@ async function getStoriesPageStaticProps(options) {
         {
           slug: "articles",
           title: "Articles",
-          articles: allArticles,
-          //           articles: getStories(),
-          tags: getStoriesTags(),
+          articles: paginateResults(allArticles),
+          tags: uniqueTags,
         },
       ],
       footer,

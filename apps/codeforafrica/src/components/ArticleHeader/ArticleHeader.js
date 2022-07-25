@@ -27,7 +27,11 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
         variant="body2"
         sx={{ mt: { xs: 2.5, md: 7.5 } }}
       >
-        {date}
+        {new Date(date).toLocaleDateString("en", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        })}
       </RichTypography>
       <RichTypography
         component="div"

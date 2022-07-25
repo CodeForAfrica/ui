@@ -52,8 +52,8 @@ export async function getAllTags(options) {
   });
 }
 
-export async function getPostsByTag(slug, options) {
-  const optionsWithSlugFilter = { ...options, filter: `tag:${slug}` };
+export async function getPostsByTag(tag, options) {
+  const optionsWithSlugFilter = { ...options, filter: `tag:${tag}` };
   const posts = await getAllPosts(optionsWithSlugFilter);
   return posts;
 }
