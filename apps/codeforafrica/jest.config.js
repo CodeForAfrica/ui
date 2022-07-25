@@ -1,4 +1,4 @@
-const defaultConfig = require("jest-config-commons-ui");
+const defaultConfig = require("jest-config-commons-ui/next");
 
 const { moduleNameMapper } = defaultConfig;
 

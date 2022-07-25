@@ -1,74 +1,72 @@
 import { Section } from "@commons-ui/core";
-import Stack from "@mui/material/Stack";
-import { styled } from "@mui/material/styles";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
-import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
-import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
+import useOpportunities from "./useOpportunities";
+
+import FilterBar from "@/codeforafrica/components/FilterBar";
 import NextPreviousPagination from "@/codeforafrica/components/NextPreviousPagination";
 import OpportunityCardList from "@/codeforafrica/components/OpportunityCardList";
-import SearchInput from "@/codeforafrica/components/SearchInput";
+import useFilterQuery, {
+  ALL_TAG,
+} from "@/codeforafrica/components/useFilterQuery";
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
-const ALL_TAGS = "All";
-
-const OpportuniesRoot = styled("div")({
-  scrollMarginTop: 32,
-});
-
-const computePagination = (all, page, pageSize) => {
-  const count = Math.ceil(all.length / pageSize);
-  const opportunities = all.slice((page - 1) * pageSize, page * pageSize);
-  return { count, opportunities };
-};
-
-function Opportunities(props) {
-  const { opportunities = [], page: pageProp = 1, pageSize = 4 } = props;
-  const ref = useRef();
-
-  const [tags] = useState(() => {
-    const allTags = opportunities
-      .map((opportunity) => opportunity.tags)
-      .flat(Infinity);
-    const uniqueTags = [...new Set(allTags.map((tag) => tag.name))];
-    uniqueTags.unshift(ALL_TAGS);
-    return uniqueTags;
-  });
-
-  const [selectedTag, setSelectedTag] = useState(ALL_TAGS);
+const Opportunies = React.forwardRef(function Opportunies(
+  {
+    tags,
+    opportunities: {
+      pagination: { count: countProp, page: pageProp = 1 },
+      results: resultsProp,
+    },
+    sx,
+  },
+  ref
+) {
+  const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);
-  const [pagination, setPagination] = useState(() => {
-    return computePagination(opportunities, page, pageSize);
-  });
-  const filteredOpportunies = useMemo(() => {
-    if (selectedTag === ALL_TAGS) {
-      return opportunities;
-    }
-    return opportunities.filter((p) =>
-      p.tags.some((t) => t.slug === selectedTag)
-    );
-  }, [opportunities, selectedTag]);
-  const handleChangeCategory = (_, value) => {
-    // default to ALL_TAGS if no value is provided e.g. when deselecting
-    // a chip
-    const newTag = value || ALL_TAGS;
-    setSelectedTag(newTag);
-    // Category change should reset page to 1
+  const [opportunities, setOpportunities] = useState(resultsProp);
+  const [q, setQ] = useState();
+  const [tag, setTag] = useState(ALL_TAG);
+  const queryParams = useFilterQuery({ page, q, tag });
+  const router = useRouter();
+
+  const handleChangePage = (_, value) => {
+    setPage(value);
+  };
+
+  const handleChangeQ = (_, value) => {
+    setQ(value || undefined);
+  };
+
+  const handleChangeTag = (_, value) => {
+    const newValue =
+      (value && tags.find((t) => equalsIgnoreCase(value, t))) || ALL_TAG;
+    setTag(newValue);
     setPage(1);
   };
-  const handlePageChange = (_, value) => {
-    setPage(value);
-    if (ref.current) {
-      ref.current.scrollIntoView();
+
+  const { data } = useOpportunities({ page, q, tag });
+  useEffect(() => {
+    if (data) {
+      const { results, pagination } = data;
+      setCount(pagination.count);
+      setOpportunities([...results]);
     }
-  };
+  }, [data]);
 
   useEffect(() => {
-    setPagination(computePagination(filteredOpportunies, page, pageSize));
-  }, [filteredOpportunies, page, pageSize]);
+    router.push(queryParams, undefined, {
+      scroll: true,
+      shallow: true,
+    });
+    // We don't want to listen to router changes here since we're the ones
+    // updating them
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryParams]);
 
-  const hasOpportunities = opportunities?.length > 0;
   return (
-    <OpportuniesRoot ref={ref}>
+    <div ref={ref}>
       <Section
         sx={{
           maxWidth: {
@@ -77,48 +75,31 @@ function Opportunities(props) {
           },
           px: { xs: 2.5, sm: 0 },
           py: { xs: 2.5, md: 8, lg: 9 },
+          ...sx,
         }}
       >
-        {/* There will always be at least ALL tag */}
-        <Stack
-          direction={{ xs: "column", sm: "row" }}
-          justifyContent="space-between"
-        >
-          <SearchInput
-            disabled={!hasOpportunities}
-            placeholder="Search opportunities"
-            size="small"
-            sx={{
-              mb: { xs: 2.5, sm: 0 },
-              minWidth: { xs: "auto", sm: "200px" },
-              ml: { xs: 0, sm: 2.5 },
-              order: { xs: 0, sm: 1 },
-              width: { xs: "auto", sm: "200px" },
-            }}
-          />
-          <ChoiceChipGroup
-            color="default"
-            onChange={handleChangeCategory}
-            value={selectedTag}
-            sx={{
-              mb: { xs: 5, md: 10 },
-              order: { xs: 1, sm: 0 },
-            }}
-          >
-            {tags.map((tag) => (
-              <ChoiceChip label={tag} value={tag} key={tag} />
-            ))}
-          </ChoiceChipGroup>
-        </Stack>
-        <OpportunityCardList opportunities={pagination.opportunities} />
+        <FilterBar
+          onChangeQ={handleChangeQ}
+          onChangeTag={handleChangeTag}
+          q={q}
+          tag={tag}
+          tags={tags}
+          SearchInputProps={{
+            placeholder: "Search opportunities",
+          }}
+        />
+        <OpportunityCardList
+          opportunities={opportunities}
+          sx={{ mt: { xs: 5, md: 10 } }}
+        />
       </Section>
       <NextPreviousPagination
-        key={selectedTag}
-        count={pagination.count}
-        onChange={handlePageChange}
+        count={count}
+        onChange={handleChangePage}
+        page={page}
       />
-    </OpportuniesRoot>
+    </div>
   );
-}
+});
 
 export default Opportunities;

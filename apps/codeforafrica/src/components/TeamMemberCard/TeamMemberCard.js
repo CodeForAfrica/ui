@@ -14,6 +14,10 @@ const TeamMemberCardRoot = styled(Card, {
   display: "flex",
   flexDirection: "column",
   width: 150,
+  [theme.breakpoints.only("sm")]: {
+    padding: "0 7px",
+    width: 164,
+  },
 }));
 
 const TeamMemberCardMedia = styled(CardMedia, {
@@ -39,7 +43,10 @@ const TeamMemberCard = React.forwardRef(function TeamMemberCard(props, ref) {
           }}
         >
           <RichTypography variant="body1SemiBold">{name}</RichTypography>
-          <RichTypography variant="body1" sx={{ mt: "5px" }}>
+          <RichTypography
+            variant="body1"
+            sx={{ mt: "5px", textTransform: "capitalize" }}
+          >
             {title}
           </RichTypography>
         </CardContent>

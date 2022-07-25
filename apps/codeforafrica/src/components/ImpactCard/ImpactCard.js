@@ -18,14 +18,14 @@ const ImpactCardRoot = styled(Card, {
   },
 }));
 
-const ImpactCard = React.forwardRef(function ImpactCard(
-  { image, title, value, description },
-  ref
-) {
+const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
+  const { image, title, value, content } = props;
+
   if (!image && !title) {
     return null;
   }
-
+  const imageSrc = image?.src || image?.url || image;
+  const imageAlt = image?.alt || title;
   return (
     <ImpactCardRoot ref={ref}>
       <CardContent
@@ -42,7 +42,7 @@ const ImpactCard = React.forwardRef(function ImpactCard(
             paddingBottom: "0.75rem",
           }}
         >
-          <Image src={image.url} alt={image.alt} width={32} height={32} />
+          <Image src={imageSrc} alt={imageAlt} width={32} height={32} />
           <RichTypography
             variant="h5"
             sx={{
@@ -74,7 +74,7 @@ const ImpactCard = React.forwardRef(function ImpactCard(
           }}
           variant="body3"
         >
-          {description}
+          {content}
         </RichTypography>
       </CardContent>
     </ImpactCardRoot>
@@ -82,17 +82,17 @@ const ImpactCard = React.forwardRef(function ImpactCard(
 });
 
 ImpactCard.propTypes = {
-  description: PropTypes.string,
+  content: PropTypes.string,
   title: PropTypes.string,
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   image: PropTypes.shape({
     alt: PropTypes.string,
-    url: PropTypes.string,
+    src: PropTypes.string,
   }),
 };
 
 ImpactCard.defaultProps = {
-  description: undefined,
+  content: undefined,
   title: undefined,
   value: undefined,
   image: undefined,

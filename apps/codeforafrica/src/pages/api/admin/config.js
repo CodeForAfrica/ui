@@ -14,7 +14,6 @@ module.exports = {
         {
           label: "Index",
           name: "index",
-          widget: "object",
           file: "content/pages/index.md",
           fields: [
             {
@@ -31,11 +30,13 @@ module.exports = {
                   label: "Messages",
                   name: "messages",
                   widget: "list",
+                  min: 3,
+                  max: 3,
                 },
                 {
                   label: "Subtitle",
                   name: "subtitle",
-                  widget: "string",
+                  widget: "text",
                 },
                 {
                   label: "Image",
@@ -74,64 +75,166 @@ module.exports = {
               multiple: true,
             },
             {
-              label: "Partners",
-              name: "partners",
-              widget: "relation",
-              collection: "partners",
-              search_fields: ["name"],
-              value_field: "id",
-              display_fields: ["name"],
-              multiple: true,
+              label: "Meet Our Team",
+              name: "meet-our-team",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Description",
+                  name: "description",
+                  widget: "markdown",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
+                },
+                {
+                  label: "Image",
+                  name: "image",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Src",
+                      name: "src",
+                      widget: "image",
+                    },
+                    {
+                      label: "Height",
+                      name: "height",
+                      widget: "string",
+                      required: false,
+                    },
+                    {
+                      label: "Width",
+                      name: "width",
+                      widget: "string",
+                      required: false,
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: "Our partners",
+              name: "our-partners",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "markdown",
+                },
+                {
+                  label: "Partners",
+                  name: "partners-list",
+                  widget: "relation",
+                  collection: "partners",
+                  search_fields: ["name"],
+                  value_field: "id",
+                  display_fields: ["name"],
+                  multiple: true,
+                },
+              ],
             },
             {
               label: "Our Impact",
-              name: "impact",
-              widget: "relation",
-              collection: "impact",
-              search_fields: ["title"],
-              value_field: "id",
-              display_fields: ["title"],
-              multiple: true,
+              name: "our-impact",
+              widget: "object",
+              fields: [
+                {
+                  label: "Impact",
+                  name: "impact-list",
+                  widget: "relation",
+                  collection: "impact",
+                  search_fields: ["title"],
+                  value_field: "id",
+                  display_fields: ["title"],
+                  multiple: true,
+                },
+                {
+                  label: "Action",
+                  name: "action",
+                  widget: "object",
+                  fields: [
+                    {
+                      name: "title",
+                      widget: "string",
+                    },
+                    {
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+              ],
             },
           ],
         },
         {
           label: "About Us",
           name: "about",
-          widget: "object",
           file: "content/pages/about.md",
           fields: [
             {
-              label: "Title",
-              name: "title",
-              widget: "string",
-            },
-            {
-              label: "Subtitle",
-              name: "subtitle",
-              widget: "markdown",
-            },
-            {
-              label: "Background Image",
-              name: "background_image",
+              label: "Hero",
+              name: "hero",
               widget: "object",
               fields: [
                 {
-                  label: "Src",
-                  name: "src",
-                  widget: "image",
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
                 },
                 {
-                  label: "Height",
-                  name: "height",
-                  widget: "string",
-                  required: false,
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "text",
                 },
                 {
-                  label: "Width",
-                  name: "width",
-                  widget: "string",
-                  required: false,
+                  label: "Background Image",
+                  name: "image",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Source",
+                      name: "src",
+                      widget: "image",
+                    },
+                    {
+                      label: "Height",
+                      name: "height",
+                      widget: "string",
+                      required: false,
+                    },
+                    {
+                      label: "Width",
+                      name: "width",
+                      widget: "string",
+                      required: false,
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: "Our Mission",
+              name: "our-mission",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "text",
+                },
+                {
+                  name: "description",
+                  widget: "markdown",
                 },
               ],
             },
@@ -146,39 +249,33 @@ module.exports = {
               multiple: true,
             },
             {
-              label: "Our Partners",
-              name: "partners",
-              widget: "relation",
-              collection: "partners",
-              search_fields: ["name"],
-              value_field: "id",
-              display_fields: ["name"],
-              multiple: true,
-            },
-            {
-              label: "Our Mission",
-              name: "mission",
+              label: "Our partners",
+              name: "our-partners",
               widget: "object",
-              file: "content/pages/mission.md",
               fields: [
                 {
                   label: "Title",
                   name: "title",
-                  widget: "text",
+                  widget: "markdown",
                 },
                 {
-                  label: "Description",
-                  name: "description",
-                  widget: "markdown",
+                  label: "Partners",
+                  name: "partners-list",
+                  widget: "relation",
+                  collection: "partners",
+                  search_fields: ["name"],
+                  value_field: "id",
+                  display_fields: ["name"],
+                  multiple: true,
                 },
               ],
             },
             {
               label: "Guiding Principles",
-              name: "guiding_principles",
+              name: "guiding-principles",
               label_singular: "Guiding Principle",
               widget: "relation",
-              collection: "guiding_principles",
+              collection: "guiding-principles",
               search_fields: ["title"],
               value_field: "id",
               display_fields: ["title"],
@@ -186,21 +283,31 @@ module.exports = {
             },
             {
               label: "Our Impact",
-              name: "impact",
-              label_singular: "Impact",
-              widget: "relation",
-              collection: "impact",
-              search_fields: ["title"],
-              value_field: "id",
-              display_fields: ["title"],
-              multiple: true,
+              name: "our-impact",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Impact",
+                  name: "impact-list",
+                  widget: "relation",
+                  collection: "impact",
+                  search_fields: ["title"],
+                  value_field: "id",
+                  display_fields: ["title"],
+                  multiple: true,
+                },
+              ],
             },
           ],
         },
         {
           label: "Contact Us",
           name: "contact",
-          widget: "object",
           file: "content/pages/contact.md",
           fields: [
             {
@@ -215,7 +322,7 @@ module.exports = {
             },
             {
               label: "Join Us",
-              name: "join_us",
+              name: "join-us",
               widget: "object",
               fields: [
                 {
@@ -264,15 +371,59 @@ module.exports = {
                 },
                 {
                   label: "Our Offices",
-                  name: "offices_addresses",
+                  name: "offices-addresses",
                   widget: "relation",
-                  collection: "offices_addresses",
+                  collection: "offices-addresses",
                   search_fields: ["name"],
                   value_field: "id",
                   display_fields: ["name"],
                   multiple: true,
                 },
               ],
+            },
+          ],
+        },
+        {
+          label: "Imprint",
+          name: "imprint",
+          file: "content/pages/imprint.md",
+          fields: [
+            {
+              label: "Title",
+              name: "title",
+              widget: "string",
+            },
+            {
+              label: "Subtitle",
+              name: "subtitle",
+              widget: "string",
+            },
+            {
+              label: "Body",
+              name: "body",
+              widget: "markdown",
+            },
+          ],
+        },
+        {
+          label: "Privacy Policy",
+          name: "privacy-policy",
+          file: "content/pages/privacy-policy.md",
+          fields: [
+            {
+              label: "Title",
+              name: "title",
+              widget: "string",
+            },
+            {
+              label: "Subtitle",
+              name: "subtitle",
+              widget: "string",
+            },
+            {
+              label: "Body",
+              name: "body",
+              widget: "markdown",
             },
           ],
         },
@@ -284,7 +435,6 @@ module.exports = {
       label_singular: "Badge",
       folder: "content/badges",
       create: true,
-      identifier_field: "title",
       fields: [
         {
           label: "Id",
@@ -292,13 +442,13 @@ module.exports = {
           widget: "uuid",
         },
         {
-          label: "Title",
-          name: "title",
+          label: "Name",
+          name: "name",
           widget: "string",
         },
         {
           label: "Description",
-          name: "description",
+          name: "body",
           widget: "markdown",
         },
         {
@@ -344,9 +494,9 @@ module.exports = {
     },
     {
       label: "Data | Guiding Principles",
-      name: "guiding_principles",
+      name: "guiding-principles",
       label_singular: "Guiding Principle",
-      folder: "content/guiding_principles",
+      folder: "content/guiding-principles",
       create: true,
       identifier_field: "title",
       fields: [
@@ -362,7 +512,61 @@ module.exports = {
         },
         {
           label: "Description",
-          name: "description",
+          name: "body",
+          widget: "markdown",
+        },
+        {
+          label: "Image",
+          name: "image",
+          widget: "object",
+          fields: [
+            {
+              label: "Source",
+              name: "src",
+              widget: "image",
+            },
+            {
+              label: "Height",
+              name: "height",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Width",
+              name: "width",
+              widget: "string",
+              required: false,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Data | Impact",
+      name: "impact",
+      label_singular: "Impact",
+      folder: "content/impact",
+      create: true,
+      identifier_field: "title",
+      fields: [
+        {
+          label: "Id",
+          name: "id",
+          widget: "uuid",
+        },
+        {
+          label: "Title",
+          name: "title",
+          widget: "string",
+        },
+        {
+          label: "Value",
+          name: "value",
+          widget: "string",
+        },
+        {
+          label: "Description",
+          name: "body",
           widget: "markdown",
         },
         {
@@ -393,7 +597,7 @@ module.exports = {
     },
     {
       label: "Data | Offices",
-      name: "offices_addresses",
+      name: "offices-addresses",
       label_singular: "Office",
       folder: "content/offices",
       create: true,
@@ -411,62 +615,8 @@ module.exports = {
         },
         {
           label: "Address",
-          name: "address",
+          name: "body",
           widget: "markdown",
-        },
-      ],
-    },
-    {
-      label: "Data | Our Impact",
-      name: "impact",
-      label_singular: "Impact",
-      folder: "content/our_impact",
-      create: true,
-      identifier_field: "title",
-      fields: [
-        {
-          label: "Id",
-          name: "id",
-          widget: "uuid",
-        },
-        {
-          label: "Title",
-          name: "title",
-          widget: "string",
-        },
-        {
-          label: "Description",
-          name: "description",
-          widget: "markdown",
-        },
-        {
-          label: "Count",
-          name: "count",
-          widget: "string",
-        },
-        {
-          label: "Image",
-          name: "image",
-          widget: "object",
-          fields: [
-            {
-              label: "Source",
-              name: "src",
-              widget: "image",
-            },
-            {
-              label: "Height",
-              name: "height",
-              widget: "string",
-              required: false,
-            },
-            {
-              label: "Width",
-              name: "width",
-              widget: "string",
-              required: false,
-            },
-          ],
         },
       ],
     },
@@ -487,6 +637,11 @@ module.exports = {
           label: "Name",
           name: "name",
           widget: "string",
+        },
+        {
+          label: "Description",
+          name: "body",
+          widget: "markdown",
         },
         {
           label: "Href",
@@ -534,7 +689,7 @@ module.exports = {
         {
           label: "Title",
           name: "title",
-          widget: "markdown",
+          widget: "string",
         },
         {
           label: "Subtitle",
@@ -543,12 +698,12 @@ module.exports = {
         },
         {
           label: "Description",
-          name: "description",
+          name: "body",
           widget: "markdown",
         },
         {
-          label: "Category",
-          name: "category",
+          label: "Tag",
+          name: "tag",
           widget: "string",
         },
         {
@@ -576,11 +731,6 @@ module.exports = {
           ],
         },
         {
-          label: "URL",
-          name: "href",
-          widget: "string",
-        },
-        {
           label: "External URL",
           name: "externalHref",
           widget: "string",
@@ -588,19 +738,13 @@ module.exports = {
         {
           label: "Badges",
           name: "badges",
-          widget: "object",
-          fields: [
-            {
-              label: "Badge",
-              name: "id",
-              widget: "relation",
-              collection: "badges",
-              search_fields: ["title"],
-              value_field: "id",
-              display_fields: ["title"],
-              multiple: true,
-            },
-          ],
+          widget: "relation",
+          label_singular: "Badge",
+          collection: "badges",
+          search_fields: ["name"],
+          value_field: "id",
+          display_fields: ["name"],
+          multiple: true,
         },
         {
           name: "partners",
@@ -636,19 +780,50 @@ module.exports = {
           multiple: true,
         },
         {
-          name: "link",
-          label: "Link",
-          widget: "object",
+          name: "links",
+          label: "Links",
+          label_singular: "Link",
+          widget: "list",
+          summary: "{{content}} - {{href}}",
           fields: [
             {
-              label: "Title",
-              name: "title",
+              label: "slug",
+              name: "slug",
+              widget: "string",
+            },
+            {
+              label: "Content",
+              name: "content",
               widget: "string",
             },
             {
               label: "Href",
               name: "href",
               widget: "string",
+            },
+            {
+              label: "Icon",
+              name: "icon",
+              widget: "object",
+              fields: [
+                {
+                  label: "Source",
+                  name: "src",
+                  widget: "image",
+                },
+                {
+                  label: "Height",
+                  name: "height",
+                  widget: "string",
+                  required: false,
+                },
+                {
+                  label: "Width",
+                  name: "width",
+                  widget: "string",
+                  required: false,
+                },
+              ],
             },
           ],
         },
@@ -679,12 +854,12 @@ module.exports = {
         },
         {
           label: "Description",
-          name: "description",
+          name: "body",
           widget: "markdown",
         },
         {
-          label: "Image",
-          name: "image",
+          label: "Thumbnail",
+          name: "thumbnail",
           widget: "object",
           fields: [
             {
@@ -705,11 +880,6 @@ module.exports = {
               required: false,
             },
           ],
-        },
-        {
-          label: "Href",
-          name: "href",
-          widget: "string",
         },
         {
           name: "links",
@@ -743,6 +913,16 @@ module.exports = {
               required: false,
             },
           ],
+        },
+        {
+          label: "Country",
+          name: "country",
+          widget: "string",
+        },
+        {
+          label: "Team",
+          name: "team",
+          widget: "string",
         },
       ],
     },
