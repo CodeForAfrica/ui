@@ -21,22 +21,22 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
         >
           <div
             class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-m2run-MuiPaper-root-MuiCard-root"
-            content="<p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.</p>
+            content="<p>Allan is CfA’s senior investigations manager at the iLAB &amp; ANCIR, managing a team of forensic data scientists/analysts and technologists in eight African countries. He also leads the iLAB team which conducts network analysis investigations into disinformation and influence operations, including Coordinated Inauthentic Behaviour (CIB) and organised crime networks.</p>
 "
-            country="South Africa"
-            id="24c487bd-ba84-42df-825e-b11a532786ad"
+            country="Kenya"
+            id="5f6c2114-aab6-4420-8e46-c9d0e06f5f8b"
             links="[object Object]"
-            slug="jacobo-ottaviani"
-            team="Data"
+            slug="allan-cheboi"
+            team="iLAB"
           >
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-k9g9by-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/about/members/jacobo-ottaviani"
+              href="/about/members/allan-cheboi"
               tabindex="0"
             >
               <img
                 class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-ys68yq-MuiCardMedia-root"
-                src="https://res.cloudinary.com/code-for-africa/image/upload/v1655127335/codeforafrica/images/team/image_11_ch6dnb.jpg"
+                src="/images/image16.png"
               />
               <div
                 class="MuiCardContent-root css-1bqtlyx-MuiCardContent-root"
@@ -44,12 +44,12 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
                 <div
                   class="MuiTypography-root MuiTypography-body1SemiBold css-1v4gd4b-MuiTypography-root"
                 >
-                  Jacobo Ottaviani
+                  Allan Cheboi
                 </div>
                 <div
                   class="MuiTypography-root MuiTypography-body1 css-fna42f-MuiTypography-root"
                 >
-                  Chief Data Officer
+                  Senior investigations manager
                 </div>
               </div>
               <span
@@ -63,21 +63,22 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
         >
           <div
             class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-m2run-MuiPaper-root-MuiCard-root"
-            content="<p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.</p>
+            content="<p>Amanda is a senior programme manager at Code for Africa where she manages CivicSignal. CivicSignal uses machine learning and natural language processing to monitor and map media in Africa. Previously, she was managing editor for the African Network of Centres for Investigative Reporting (ANCIR) and night editor for the Mail &amp; Guardian Online.</p>
 "
             country="South Africa"
-            id="8f56e20e-eb6c-44f2-be0a-cf96e75a91fa"
-            slug="johnny-miller"
-            team="Drones"
+            id="0b93271e-3f04-42ce-924a-37ad17e5f9a8"
+            links="[object Object]"
+            slug="amanda-strydom"
+            team="CivicSignal"
           >
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-k9g9by-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/about/members/johnny-miller"
+              href="/about/members/amanda-strydom"
               tabindex="0"
             >
               <img
                 class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-ys68yq-MuiCardMedia-root"
-                src="https://res.cloudinary.com/code-for-africa/image/upload/v1653300752/codeforafrica/images/team/image_11_mauuaw.png"
+                src="/images/amanda.jpg"
               />
               <div
                 class="MuiCardContent-root css-1bqtlyx-MuiCardContent-root"
@@ -85,12 +86,12 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
                 <div
                   class="MuiTypography-root MuiTypography-body1SemiBold css-1v4gd4b-MuiTypography-root"
                 >
-                  Johnny Miller
+                  Amanda Strydom
                 </div>
                 <div
                   class="MuiTypography-root MuiTypography-body1 css-fna42f-MuiTypography-root"
                 >
-                  Co-Founder africanDRONE
+                  Senior programme manager
                 </div>
               </div>
               <span
@@ -104,21 +105,22 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
         >
           <div
             class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-m2run-MuiPaper-root-MuiCard-root"
-            content="<p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ornare et rhoncus sem, laoreet tortor tristique cursus ultrices. Sed urna nec convallis in tempus lacinia velit viverra neque, molestie malesuada fringilla ut vulputate faucibus ad potenti, nisi enim nam montes nostra curae ridiculus curabitur. Elementum phasellus conubia eget ac dignissim hendrerit ullamcorper magna pretium pulvinar, auctor dui pelle.</p>
+            content="<p>Anita Igbine is an investigative data analyst working with the iLAB team at Code for Africa. She has a background in engineering and has contributed to two dossiers tracking coordinated inauthentic behavior across Africa. She has also trained journalists to utilize data and social media for stories. Anita is currently based in Abuja, Nigeria.</p>
 "
-            country="Georgia"
-            id="13b45a06-7b3f-4509-b4dc-ebfa3ac6c6b1"
-            slug="justin-arenstein"
-            team="New Initiatives"
+            country="Nigeria"
+            id="5e279b40-6e51-4d79-bf38-ce9472660050"
+            links="[object Object]"
+            slug="anita-igbine"
+            team="iLAB"
           >
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-k9g9by-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/about/members/justin-arenstein"
+              href="/about/members/anita-igbine"
               tabindex="0"
             >
               <img
                 class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-ys68yq-MuiCardMedia-root"
-                src="https://res.cloudinary.com/code-for-africa/image/upload/v1653298218/codeforafrica/images/team/image_11_jb8a30.jpg"
+                src="/images/image1.jpg"
               />
               <div
                 class="MuiCardContent-root css-1bqtlyx-MuiCardContent-root"
@@ -126,12 +128,12 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
                 <div
                   class="MuiTypography-root MuiTypography-body1SemiBold css-1v4gd4b-MuiTypography-root"
                 >
-                  Justin Arenstein
+                  Anita Igbine
                 </div>
                 <div
                   class="MuiTypography-root MuiTypography-body1 css-fna42f-MuiTypography-root"
                 >
-                  CEO of Code for Africa
+                  Investigative data analyst
                 </div>
               </div>
               <span
