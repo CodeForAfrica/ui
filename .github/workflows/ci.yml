@@ -15,7 +15,7 @@ jobs:
       GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      GHOST_CMS_API_KEY: ${{ secrets.GHOST_CMS_API_KEY }}
+      GHOST_URL: ${{ secrets.GHOST_CMS_API_KEY }}
     strategy:
       matrix:
         os: [ubuntu-latest]
