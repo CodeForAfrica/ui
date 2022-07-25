@@ -5,7 +5,7 @@ title: copywriter
 thumbnail:
   src: /images/image29.jpg
 country: South Africa
-team: content
+team: Engagement
 ---
 
 Megan is a copywriter at Code for Africa. She has worked in content teams, marketing roles and website creation departments for more than eight years.

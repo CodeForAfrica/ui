@@ -8,7 +8,7 @@ links:
   twitter: https://twitter.com/arseneassogba
   linkedin: https://www.linkedin.com/in/dorgel%C3%A8s-arsene-assogba-a419b4168
 country: Guinea
-team: Pesacheck
+team: PesaCheck
 ---
 
 Arsène ASSOGBA est fact-checker à Pesacheck, programme de Code for Africa.Avant de rejoindre Cfa, j'étais Vérificateur de faits et éditeur d'articles à Guineematin.
