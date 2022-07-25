@@ -29,7 +29,7 @@ function Index({ sections, ...props }) {
           case "our-partners": {
             return <OurPartners {...section} key={section.slug} />;
           }
-          case "impact": {
+          case "our-impact": {
             return <ImpactCardList {...section} key={section.slug} />;
           }
           default:
