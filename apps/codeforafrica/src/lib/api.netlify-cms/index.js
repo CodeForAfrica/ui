@@ -1,6 +1,15 @@
+import getOurImpact from "./getOurImpact";
+import getOurPartners from "./getOurPartners";
 import getPartners from "./getPartners";
 import getCmsProjects from "./getProjects";
 import getHero from "./sections/getHero";
 import getMeetOurTeam from "./sections/getMeetOurTeam";
 
-export { getPartners, getCmsProjects, getHero, getMeetOurTeam };
+export {
+  getCmsProjects,
+  getHero,
+  getMeetOurTeam,
+  getOurImpact,
+  getOurPartners,
+  getPartners,
+};
