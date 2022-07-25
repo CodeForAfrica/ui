@@ -29,7 +29,6 @@ ARG NEXT_TELEMETRY_DISABLED=1 \
     # Since some pages are completely rendered during build, we need
     # GOOGLE_MAPS_API_KEY, IMAGE_DOMAINS defined in builder
     GOOGLE_MAPS_API_KEY="" \
-    NEXT_PUBLIC_IMAGE_DOMAINS="" \
     # APP is build time arg only. Shouldn't be used in the image.
     APP
 
@@ -43,8 +42,7 @@ COPY apps/${APP} ./apps/${APP}
 RUN pnpm install --recursive --offline --frozen-lockfile
 
 ENV NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
-    PROJECT_ROOT=${PROJECT_ROOT} \
-    NEXT_PUBLIC_IMAGE_DOMAINS=${NEXT_PUBLIC_IMAGE_DOMAINS}
+    PROJECT_ROOT=${PROJECT_ROOT}
 
 RUN pnpm --filter "${APP}" build
 
