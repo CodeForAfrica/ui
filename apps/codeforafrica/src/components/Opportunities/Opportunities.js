@@ -12,7 +12,7 @@ import useFilterQuery, {
 } from "@/codeforafrica/components/useFilterQuery";
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
-const Opportunies = React.forwardRef(function Opportunies(
+const Opportunities = React.forwardRef(function Opportunities(
   {
     tags,
     opportunities: {

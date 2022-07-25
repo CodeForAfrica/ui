@@ -1,9 +1,3 @@
-import {
-  getPostsByPrimaryTag,
-  getPost,
-  getAllPostsWithSlug,
-} from "@/codeforafrica/lib/api.ghost";
-
 import fuse from "./api.fuse";
 import {
   getPartners,
@@ -16,6 +10,11 @@ import {
   getOurPartners,
 } from "./api.netlify-cms";
 
+import {
+  getPostsByPrimaryTag,
+  getPost,
+  getAllPostsWithSlug,
+} from "@/codeforafrica/lib/api.ghost";
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 export const partners = getPartners([
@@ -764,7 +763,6 @@ function getProjectsPageStaticProps() {
   };
 }
 
-
 export function getOpportunities(options) {
   const { tag: originalTag, page, "page-size": pageSize, q } = options || {};
   const tag = originalTag || ALL_TAG;
@@ -774,7 +772,7 @@ export function getOpportunities(options) {
       o.tags?.some((t) => equalsIgnoreCase(tag, t))
   );
   if (found.length && q) {
-    found = fuse.
+    found = fuse
       .opportunities(found)
       .search(q)
       .map((p) => p.item);
@@ -794,8 +792,7 @@ function getOpportunitiesTags(options = { includeAll: true }) {
   return tags;
 }
 
-function getOpportunitiesPageStaticProps(options) {
-  
+async function getOpportunitiesPageStaticProps(options) {
   const allOpportunities = await getPostsByPrimaryTag("opportunities", options);
   return {
     props: {
@@ -809,7 +806,7 @@ function getOpportunitiesPageStaticProps(options) {
         {
           slug: "opportunities",
           opportunities: allOpportunities,
-//           opportunities: getOpportunities(),
+          //           opportunities: getOpportunities(),
           tags: getOpportunitiesTags(),
         },
       ],
@@ -942,7 +939,6 @@ function getProjectPageStaticProps(params) {
   return { notFound: true };
 }
 
-
 function getStoriesTags(options = { includeAll: true }) {
   const tags = Array.from(
     new Set(articles?.flatMap((s) => s.tags || []))
@@ -978,8 +974,8 @@ export function getStories(options) {
   return paginateResults(found, page, pageSize);
 }
 
-function getStoriesPageStaticProps(options) {
-    const allArticles = await getPostsByPrimaryTag("stories", options);
+async function getStoriesPageStaticProps(options) {
+  const allArticles = await getPostsByPrimaryTag("stories", options);
   return {
     props: {
       title: "Stories | Code for Africa",
@@ -988,7 +984,7 @@ function getStoriesPageStaticProps(options) {
           slug: "articles",
           title: "Articles",
           articles: allArticles,
-//           articles: getStories(),
+          //           articles: getStories(),
           tags: getStoriesTags(),
         },
       ],
@@ -998,7 +994,6 @@ function getStoriesPageStaticProps(options) {
     revalidate: DEFAULT_REVALIDATE,
   };
 }
-
 
 async function getStoryPageStaticProps(slug) {
   // TODO: is this the best way to get the article slug?
