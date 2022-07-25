@@ -6,10 +6,7 @@ const teamDir = join(process.cwd(), "content/team");
 
 export default function getTeam(fields) {
   const teams = getCollectionData(teamDir, fields);
-  teams.map((team) => {
-    const member = team;
-    member.href = `/about/members/${member.slug}`;
-    return member;
-  }, []);
-  return teams;
+  return teams.map((member) => {
+    return { ...member, href: `/about/members/${member.slug}` };
+  });
 }
