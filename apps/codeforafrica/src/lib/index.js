@@ -5,6 +5,8 @@ import {
   getHero,
   getMeetOurTeam,
   getTeam,
+  getOurImpact,
+  getOurPartners,
 } from "./api.netlify-cms";
 
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
@@ -207,102 +209,6 @@ const guidingPrinciples = [
     title: "Partnering for excellence",
     content:
       "Collaboration is at the heart of what CfA does. To build digital democracies the organisation partners with parties aligned with CfA’s values and works as a catalyst that kickstarts new initiatives and strengthens the local ecosystem by investing in and working through these partnerships.",
-  },
-];
-
-const initiativesAbout = [
-  {
-    title: "Initiatives",
-    content:
-      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
-    value: 150,
-    image: {
-      alt: "",
-      url: "/icons/initiatives.svg",
-    },
-  },
-  {
-    title: "Beneficiaries trained",
-    content:
-      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
-    value: 150,
-    image: {
-      alt: "",
-      url: "/icons/initiatives.svg",
-    },
-  },
-  {
-    title: "Years in Operation",
-    content:
-      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
-    value: 150,
-    image: {
-      alt: "",
-      url: "/icons/initiatives.svg",
-    },
-  },
-  {
-    title: "Media partners",
-    content:
-      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
-    value: 150,
-    image: {
-      alt: "",
-      url: "/icons/initiatives.svg",
-    },
-  },
-  {
-    title: "Staff members",
-    content:
-      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
-    value: 111,
-    image: {
-      alt: "",
-      url: "/icons/staff.svg",
-    },
-  },
-  {
-    title: "Countries we operate in",
-    content:
-      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
-    value: 111,
-    image: {
-      alt: "",
-      url: "/icons/international.svg",
-    },
-  },
-];
-
-const initiatives = [
-  {
-    title: "Initiatives",
-    content:
-      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
-    value: 150,
-    image: {
-      alt: "",
-      url: "/icons/initiatives.svg",
-    },
-  },
-  {
-    title: "Staff members",
-    content:
-      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
-    value: 111,
-    image: {
-      alt: "",
-      url: "/icons/staff.svg",
-    },
-  },
-  {
-    title: "Countries we operate in",
-    content:
-      "Code for Africa has lorem ipsum dolor sit amet consectetur adipiscing elit gravida sociosqu, nisl aliquet.",
-    value: 111,
-    image: {
-      alt: "",
-      url: "/icons/international.svg",
-    },
   },
 ];
 
@@ -782,17 +688,11 @@ function getHomePageStaticProps() {
         },
         {
           slug: "our-partners",
-          title:
-            'We’ve partnered with <a href="/about/partners">100+ organisations</a> including',
-          partners,
+          partners: getOurPartners(),
         },
         {
-          slug: "impact",
-          action: {
-            title: "Get Involved",
-            href: "/contact",
-          },
-          initiatives,
+          slug: "our-impact",
+          impact: getOurImpact(),
         },
       ],
       footer,
@@ -1227,13 +1127,11 @@ function getAboutPageStaticProps() {
         },
         {
           slug: "our-partners",
-          title: "Our partners",
-          partners,
+          partners: getOurPartners("about"),
         },
         {
-          slug: "impact",
-          title: "Our impact in numbers",
-          initiatives: initiativesAbout,
+          slug: "our-impact",
+          impact: getOurImpact("about"),
         },
         {
           slug: "get-in-touch",
