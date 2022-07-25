@@ -1,9 +1,50 @@
 ---
-title: About Us
-subtitle: "### We are Africa’s largest network of civic technology and data
-  journalism labs"
-background-image:
-  src: https://res.cloudinary.com/code-for-africa/image/upload/v1656064173/codeforafrica/images/1_IgrT4_1tGZh1WnpYzvZN1A_1_twneqf.jpg
+hero:
+  title: About Us
+  subtitle: Empowering citizens through data-driven initiatives
+  image:
+    src: https://res.cloudinary.com/code-for-africa/image/upload/v1656064173/codeforafrica/images/1_IgrT4_1tGZh1WnpYzvZN1A_1_twneqf.jpg
+our-mission:
+  title: Our mission
+  description: >-
+    ## [Code for Africa](https://twitter.com/Code4Africa) (CfA) is the
+    continent’s largest network of civic technology and data journalism labs,
+    with teams in more than 20 countries.
+
+
+    CfA builds digital democracy solutions that give citizens unfettered access to actionable information that empowers them to make informed decisions, which strengthens civic engagement for improved public governance and accountability. This includes building infrastructures like the continent’s largest open data portals at [openAFRICA](https://openafrica.net/) and [sourceAFRICA](https://sourceafrica.net/). CfA incubates initiatives as diverse as the [africanDRONE](https://africandrone.org/) network, the [PesaCheck](https://pesacheck.org/) fact-checking initiative and the [sensors.AFRICA](https://sensors.africa/) air quality sensor network.
+
+
+    CfA manages the [African Network of Centres for Investigative Reporting](https://investigate.africa/) (ANCIR), which gives the continent’s top muckraking newsrooms the best possible [forensic data tools](https://data.investigate.africa/), [digital security](https://getoutline.org/) and [whistleblower encryption](https://afrileaks.org/) to help improve their ability to tackle crooked politicians, organised crime and predatory big business. CfA runs [academy.AFRICA](https://academy.africa/), one of the continent’s largest [skills development](https://courses.academy.africa/) initiatives for digital journalists, and seed funds cross-border collaboration. CfA’s research and analysis programme [CivicSignal](https://civicsignal.africa/#/home) offers actionable insights to help navigate Africa’s media ecosystem and emerging civic technology sector using machine learning tools and ‘big data’ resources.
+
+
+    CfA is non-partisan and does not support or oppose any political party or candidate. We do not undertake any advocacy work either for ourselves or on behalf of others.
+
+
+    CfA is registered as a non-profit organisation in South Africa, registration number 168–092, and in Kenya with registration number CPR/2016/220101.
+
+
+    **Partnering for excellence**
+
+
+    Collaborations and partnerships are at the heart of our work. To build digital democracies, we partner with organisations aligned with CfA values, acting as a catalyst for new initiatives and strengthening the local ecosystem by investing in and working through these partnerships.
+
+
+    **Guiding Principles**
+
+
+    CfA shares a covenant with the rest of the [Code for All](https://codeforall.org/) federation, based on the following guiding principles:
+
+
+    1. We show what’s possible. CfA seeks to be a catalyst by lowering the political risk of experimentation through creating successful proofs of concept for liberating civic data, for building enabling technologies and for pioneering sustainable revenue models. The organisation also endeavours to lower the financial costs for technology experimentation by creating and managing ‘shared’ backbone civic technology, and availing resources for rapid innovation.
+
+    2. We empower citizens. Empowering citizens is central to CfA’s theory of change. Strong democracies rely on engaged citizens who have actionable information and easy-to-use channels for making their will known. CfA works primarily with citizen organisations and civic watchdogs, including the media and also supports government and social enterprises in developing their capacity to respond meaningfully to citizens and to collaborate effectively with them.
+
+    3. We are action-oriented. African societies are asymmetric: the balance of power rests with governments and corporate institutions, at the expense of citizens who are treated as passive recipients of consultation or services. CfA seeks to change this by focusing on actionable data and action-oriented tools that give agency to citizens.
+
+    4. We operate in public. CfA promotes openness in our operations and in the work of our partners. All digital tools utilised are open source, and the organisation’s information is open data. CfA actively encourages documentation, sharing and collaboration, in addition to reuse of our own tools, programmes and processes, as well as those of our partners.
+
+    5. We help build ecosystems. CfA actively marshals resources to support the growth of a pan-African ecosystem of civic technologists. Whenever possible, this means reusing existing tools, standards and platforms, encouraging integration and extension. CfA operates as a pan-African federation of organisations who are active members of a global community, leveraging each other’s knowledge and resources.
 team:
   - 24c487bd-ba84-42df-825e-b11a532786ad
   - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
@@ -20,19 +61,6 @@ our-partners:
     - aa280d47-ee0c-4cf7-93aa-1fbe1a087439
     - 1079f9ae-0fbd-472b-bbfb-518145c28b1d
     - daa2a622-0277-44be-b302-dbc703f89522
-mission:
-  title: Code for Africa is the continent’s largest network of civic technology
-    and data journalism labs, with teams in 20 countries.
-  description: >-
-    We build digital democracy solutions that give citizens unfettered access to
-    actionable information that empowers them to make informed decisions, and
-    which strengthens civic engagement for improved public governance and
-    accountability. This includes building infrastructure like the continent’s
-    largest open data portals at openAFRICA and sourceAFRICA, as well as
-    incubating initiatives as diverse as the africanDRONE network, the PesaCheck
-    fact-checking initiative and the sensors.AFRICA air quality sensor network.
-
-    [Read about our company legal structure](http://localhost:3002/imprint)
 guiding-principles:
   - 33c4db4a-4f99-4400-b4fd-6b47e02de85d
   - ce72cdab-36a4-49c4-812b-0efbbd8bf20d
@@ -46,4 +74,10 @@ our-impact:
     - 8044304a-265f-4f33-b9b2-8fb59596f38d
     - 8f429fcb-deea-463f-8605-992ea0fc74a8
     - f1538b03-86bf-4933-9b15-3dfe0e087189
+    - ed20f9bd-6b7e-49d9-8c42-c79abe37e02b
+    - f410a35a-59a0-459a-b20d-cc55dafd9174
+    - 1e370e43-3108-4b1c-89f9-536aa3e5d7e6
+    - 4aa8e6ab-044d-4765-a8ec-ac0691a60f34
+    - 68d049ee-6c49-4fcf-8f06-325e53fa32c0
+    - c74aab50-4925-4a19-bd75-4eed0dc5d962
 ---
