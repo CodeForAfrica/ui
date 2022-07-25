@@ -47,7 +47,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
                   Allan Cheboi
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-fna42f-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1q719gd-MuiTypography-root"
                 >
                   Senior investigations manager
                 </div>
@@ -89,7 +89,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
                   Amanda Strydom
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-fna42f-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1q719gd-MuiTypography-root"
                 >
                   Senior programme manager
                 </div>
@@ -131,7 +131,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
                   Anita Igbine
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-fna42f-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1q719gd-MuiTypography-root"
                 >
                   Investigative data analyst
                 </div>
