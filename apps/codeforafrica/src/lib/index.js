@@ -646,11 +646,13 @@ const DEFAULT_REVALIDATE = 3 * 60; // 3 minutes
 const ALL_TAG = "All";
 
 function getProjectTags(options = { includeAll: true }) {
-  const tags = new Set(projects?.flatMap((a) => a.tag || []));
+  const tags = Array.from(
+    new Set(projects?.flatMap((a) => a.tag || []))
+  ).sort();
   if (options?.includeAll) {
     return [ALL_TAG, ...tags];
   }
-  return Array.from(tags);
+  return tags;
 }
 
 function getHomePageStaticProps() {
@@ -775,12 +777,14 @@ export function getOpportunities(options) {
 }
 
 function getOpportunitiesTags(options = { includeAll: true }) {
-  const tags = new Set(opportunities?.flatMap((o) => o.tags || []));
+  const tags = Array.from(
+    new Set(opportunities?.flatMap((o) => o.tags || []))
+  ).sort();
 
   if (options?.includeAll) {
     return [ALL_TAG, ...tags];
   }
-  return Array.from(tags);
+  return tags;
 }
 
 function getOpportunitiesPageStaticProps() {
@@ -927,12 +931,14 @@ function getProjectPageStaticProps(params) {
 }
 
 function getStoriesTags(options = { includeAll: true }) {
-  const tags = new Set(articles?.flatMap((s) => s.tags || []));
+  const tags = Array.from(
+    new Set(articles?.flatMap((s) => s.tags || []))
+  ).sort();
 
   if (options?.includeAll) {
     return [ALL_TAG, ...tags];
   }
-  return Array.from(tags);
+  return tags;
 }
 
 export function getStories(options) {
@@ -1005,12 +1011,14 @@ function getStoryPageStaticProps(params) {
 }
 
 function getMembersFieldTags(options = { includeAll: true }) {
-  let countries = new Set(team?.flatMap((m) => m.country || []));
-  countries = options?.includeAll
-    ? [ALL_TAG, ...countries]
-    : Array.from(countries);
-  let teams = new Set(team?.flatMap((m) => m.team || []));
-  teams = options?.includeAll ? [ALL_TAG, ...teams] : Array.from(teams);
+  let countries = Array.from(
+    new Set(team?.flatMap((m) => m.country || []))
+  ).sort();
+  let teams = Array.from(new Set(team?.flatMap((m) => m.team || []))).sort();
+  if (options?.includeAll) {
+    countries = [ALL_TAG, ...countries];
+    teams = [ALL_TAG, ...teams];
+  }
   return [
     { field: "Country", tags: countries },
     { field: "Team", tags: teams },

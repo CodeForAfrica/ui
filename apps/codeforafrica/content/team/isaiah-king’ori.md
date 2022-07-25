@@ -5,7 +5,7 @@ title: Technologist
 thumbnail:
   src: /images/image5.png
 country: Kenya
-team: Technology
+team: Techlab
 ---
 
 Isaiah King'ori is a technologist for Code for Africa (CfA), using technologies like Python Django, Docker e.t.c to keep CfA products up and running. Prior to joining CfA, Isaiah was a software engineer for CloudBolt, a company specialising in hybrid clouds.

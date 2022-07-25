@@ -5,7 +5,7 @@ title: Data analyst
 thumbnail:
   src: /images/njoki.jpg
 country: Kenya
-team: data
+team: Knowledge
 ---
 
 Stephane Njoki is a data analyst and an experienced researcher with a specialisation in big data analytics. She trains CfA partners and helps to galvanise CfA communities. She is also the co-founder of Faniki Community Based Organisation.

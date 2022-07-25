@@ -5,7 +5,7 @@ title: Data analyst
 thumbnail:
   src: /images/image26.jpg
 country: Nigeria
-team: WanaData
+team: Knowledge
 ---
 
 Freda is a data analyst, academy trainer and the community coordinator for WanaData and HacksHackers. Prior to joining CfA, she was a project manager at Co-Creation Hub. She has experience in innovation consulting, data analysis, research, human-centered design, and stakeholder engagement.
