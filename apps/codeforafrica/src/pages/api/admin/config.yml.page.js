@@ -6,6 +6,8 @@ import site from "@/codeforafrica/utils/site";
 
 export default function handler(req, res) {
   if (req.method === "GET") {
+    console.log("GET /api/admin/config", process.env);
+    console.log("GET1 /api/admin/config", config);
     if (process.env.NODE_ENV === "production") {
       // Set production configurations
       config.backend.name = "github";
@@ -16,6 +18,7 @@ export default function handler(req, res) {
       // Remove dev configurations
       config.local_backend = undefined;
     }
+    console.log("GET2 /api/admin/config", config);
     config.logo_url = site.logoUrl;
     const configFile = yaml.dump(config);
 
