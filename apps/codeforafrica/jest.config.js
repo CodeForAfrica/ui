@@ -8,10 +8,5 @@ module.exports = {
     ...moduleNameMapper,
     // Handle module aliases
     "^@/codeforafrica/(.*)$": "<rootDir>/src/$1",
-    globals: {
-      "babel-jest": {
-        isolatedModules: true,
-      },
-    },
   },
 };

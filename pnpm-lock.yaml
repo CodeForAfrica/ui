@@ -10352,7 +10352,6 @@ packages:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
-    dev: false
 
   /eslint-plugin-import/2.26.0_lykk3aq4bjwcokzx4hz4gaakgm:
     resolution:
