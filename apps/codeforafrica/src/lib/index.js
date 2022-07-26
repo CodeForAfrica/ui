@@ -6,6 +6,7 @@ import {
   getMeetOurTeam,
   getTeam,
   getOurImpact,
+  getOurMission,
   getOurPartners,
 } from "./api.netlify-cms";
 
@@ -144,7 +145,6 @@ const footer = {
   },
 };
 
-const hero = getHero();
 const meetOurTeam = getMeetOurTeam();
 
 export const ourMission = {
@@ -218,30 +218,17 @@ const articles = [
     summary:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
     content: `
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat. </p>
-
-      <p>Duis maecenas per erat odio quisque accumsan, donec tempus class euismod vulputate fermentum imperdiet, suspendisse blandit lacinia semper cursus. Neque tristique posuere a feugiat convallis tempor cras nunc, leo faucibus cum aptent placerat aenean lobortis, nibh iaculis ac nascetur praesent mus quisque. Nullam leo rutrum augue urna cubilia morbi enim, arcu risus 
-      mus mauris elementum pulvinar, laoreet bibendum convallis senectus ullamcorper malesuada. Sapien congue tristique venenatis cras cum quisque et conubia felis lobortis, velit ullamcorper urna pharetra fermentum class tincidunt turpis placerat, porttitor senectus massa ridiculus semper vivamus at enim inceptos. Senectus cum torquent blandit odio class in, nullam sodales 
-      dapibus eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</p> 
-
-      <div style="background: #F6F5F5; padding: 50px; font-weight: 400; font-size: 14px; line-height: 23px;color: #5D5353;">Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat. 
-      Duis maecenas per erat odio quisque accumsan, donec tempus class euismod vulputate fermentum imperdiet, suspendisse blandit lacinia semper cursus. Neque tristique posuere a feugiat convallis tempor cras nunc, leo faucibus cum aptent placerat aenean lobortis, nibh iaculis ac nascetur praesent mus quisque. Nullam leo rutrum augue urna cubilia morbi enim, arcu risus mus 
-      mauris elementum pulvinar, laoreet bibendum convallis senectus ullamcorper malesuada. Sapien congue tristique venenatis cras cum quisque et conubia felis lobortis, velit ullamcorper urna pharetra fermentum class tincidunt turpis placerat, porttitor senectus massa ridiculus semper vivamus at enim inceptos. Senectus cum torquent blandit odio class in, nullam sodales dapibus 
-      eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</div>
-
-      <div style="padding: 40px 0px;">
-        <img src="/images/image 12.png" alt="article-image" style="width: 100%;height: auto;"/>
-        <h6 style="font-weight: 400; font-size: 12px; line-height: 14px; text-align: center; color: #1020E1;">The #GMMP2020 team of enumerators from DRC displaying their certificates of participation. (Picture by DRC <br/>team © Global Media Monitoring Project)</h6>
-      </div>
-      
-      
-      <p>Dictumst fames bibendum venenatis mattis imperdiet viverra auctor suspendisse quam, tristique facilisi mauris ligula sociis phasellus faucibus litora tellus, netus consequat natoque velit scelerisque laoreet diam condimentum. Enim feugiat rhoncus diam ante mi nullam penatibus eros facilisis, arcu sociosqu ridiculus egestas ullamcorper ligula suspendisse potenti. Maecenas
-      fringilla est facilisis potenti dictumst, quis pellentesque nascetur tempor, suspendisse etiam convallis nulla. Faucibus rutrum dui placerat commodo ligula in inceptos nullam rhoncus, vestibulum felis laoreet praesent per dictumst sociis molestie, euismod egestas tempor eleifend aptent posuere ad libero. </p>
-
-      <p>Purus fames sociosqu dictum ultricies cum quis, accumsan tincidunt massa iaculis fringilla, ante mi porttitor turpis odio. Eros ridiculus ullamcorper senectus ad a natoque congue torquent tempus parturient himenaeos, habitant sodales lectus hac bibendum lobortis conubia tellus class suspendisse urna, feugiat phasellus eleifend nullam venenatis faucibus erat mattis posuere 
-      nibh. Quisque at volutpat nostra sed proin, aptent primis hac posuere eget, lobortis penatibus ligula nec. Nostra potenti sociosqu interdum cursus inceptos turpis lacus cubilia, metus malesuada neque scelerisque pellentesque consequat facilisis placerat varius, curae fusce curabitur facilisi habitasse ut accumsan. Montes vehicula suscipit vel quis rhoncus tristique ac hac, magnis 
-      pharetra porttitor aptent convallis libero mauris, luctus dictum quam dis ligula condimentum cum. Egestas est cras venenatis sem suscipit vestibulum cursus habitasse mattis, leo posuere ornare ullamcorper montes condimentum potenti cum, curae dui interdum at pharetra massa a quisque.<p>
-      
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat.</p>
+      <p>Duis maecenas per erat odio quisque accumsan, donec tempus class euismod vulputate fermentum imperdiet, suspendisse blandit lacinia semper cursus. Neque tristique posuere a feugiat convallis tempor cras nunc, leo faucibus cum aptent placerat aenean lobortis, nibh iaculis ac nascetur praesent mus quisque. Nullam leo rutrum augue urna cubilia morbi enim, arcu risus mus mauris elementum pulvinar, laoreet bibendum convallis senectus ullamcorper malesuada. Sapien congue tristique venenatis cras cum quisque et conubia felis lobortis, velit ullamcorper urna pharetra fermentum class tincidunt turpis placerat, porttitor senectus massa ridiculus semper vivamus at enim inceptos. Senectus cum torquent blandit odio class in, nullam sodales dapibus eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</p>
+      <blockquote>Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat. Duis maecenas per erat odio quisque accumsan, donec tempus class euismod vulputate fermentum imperdiet, suspendisse blandit lacinia semper cursus. Neque tristique posuere a feugiat convallis tempor cras nunc, leo faucibus cum aptent placerat aenean lobortis, nibh iaculis ac nascetur praesent mus quisque. Nullam leo rutrum augue urna cubilia morbi enim, arcu risus mus mauris elementum pulvinar, laoreet bibendum convallis senectus ullamcorper malesuada. Sapien congue tristique venenatis cras cum quisque et conubia felis lobortis, velit ullamcorper urna pharetra fermentum class tincidunt turpis placerat, porttitor senectus massa ridiculus semper vivamus at enim inceptos. Senectus cum torquent blandit odio class in, nullam sodales dapibus eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</blockquote>
+      <figure class="kg-card kg-image-card kg-card-hascaption">
+        <img src="https://longform.codeforafrica.org/content/images/2022/07/image-12.png" class="kg-image" alt loading="lazy" width="888" height="443" srcset="https://longform.codeforafrica.org/content/images/size/w600/2022/07/image-12.png 600w, https://longform.codeforafrica.org/content/images/2022/07/image-12.png 888w" sizes="(min-width: 720px) 720px">
+        <figcaption>The #GMMP2020 team of enumerators from DRC displaying their certificates of participation. (Picture by DRC team © Global Media Monitoring Project)</figcaption>
+      </figure>
+      <p>Dictumst fames bibendum venenatis mattis imperdiet viverra auctor suspendisse quam, tristique facilisi mauris ligula sociis phasellus faucibus litora tellus, netus consequat natoque velit scelerisque laoreet diam condimentum. Enim feugiat rhoncus diam ante mi nullam penatibus eros facilisis, arcu sociosqu ridiculus egestas ullamcorper ligula suspendisse potenti. Maecenas fringilla est facilisis potenti dictumst, quis pellentesque nascetur tempor, suspendisse etiam convallis nulla. Faucibus rutrum dui placerat commodo ligula in inceptos nullam rhoncus, vestibulum felis laoreet praesent per dictumst sociis molestie, euismod egestas tempor eleifend aptent posuere ad libero.</p>
+      <p>Purus fames sociosqu dictum ultricies cum quis, accumsan tincidunt massa iaculis fringilla, ante mi porttitor turpis odio. Eros ridiculus ullamcorper senectus ad a natoque congue torquent tempus parturient himenaeos, habitant sodales lectus hac bibendum lobortis conubia tellus class suspendisse urna, feugiat phasellus eleifend nullam venenatis faucibus erat mattis posuere nibh. Quisque at volutpat nostra sed proin, aptent primis hac posuere eget, lobortis penatibus ligula nec. Nostra potenti sociosqu interdum cursus inceptos turpis lacus cubilia, metus malesuada neque scelerisque pellentesque consequat facilisis placerat varius, curae fusce curabitur facilisi habitasse ut accumsan. Montes vehicula suscipit vel quis rhoncus tristique ac hac, magnis pharetra porttitor aptent convallis libero mauris, luctus dictum quam dis ligula condimentum cum. Egestas est cras venenatis sem suscipit vestibulum cursus habitasse mattis, leo posuere ornare ullamcorper montes condimentum potenti cum, curae dui interdum at pharetra massa a quisque.</p>
+      <hr>
+      <p><a href="https://twitter.com/Code4Africa" rel="noopener ugc nofollow">Code for Africa</a> (CfA) is the continent’s largest network of civic technology and data journalism labs, with teams in 21 countries. CfA builds digital democracy solutions that give citizens unfettered access to actionable information that empowers them to make informed decisions, and that strengthens civic engagement for improved public governance and accountability. This includes building infrastructure like the continent’s largest open data portals at <a href="https://openafrica.net/" rel="noopener ugc nofollow">openAFRICA</a> and <a href="https://sourceafrica.net/" rel="noopener ugc nofollow">sourceAFRICA</a>. CfA incubates initiatives as diverse as the <a href="https://africandrone.org/" rel="noopener ugc nofollow">africanDRONE</a> network, the <a href="https://pesacheck.org/" rel="noopener ugc nofollow">PesaCheck</a> fact-checking initiative, the <a href="https://sensors.africa/" rel="noopener ugc nofollow">sensors.AFRICA</a> air quality sensor network and the research and analysis programme <a href="https://civicsignal.africa/#/home" rel="noopener ugc nofollow">CivicSignal</a>.</p><p>CfA also manages the <a href="https://investigate.africa/" rel="noopener ugc nofollow">African Network of Centres for Investigative Reporting</a> (ANCIR), which gives the continent’s best muckraking newsrooms the latest possible <a href="https://data.investigate.africa/" rel="noopener ugc nofollow">forensic data tools</a>,<a href="https://getoutline.org/en/home" rel="noopener ugc nofollow"> digital security</a> and <a href="https://afrileaks.org/" rel="noopener ugc nofollow">whistleblower encryption</a> to help improve their ability to tackle crooked politicians, organised crime and predatory big business. CfA also runs one of Africa’s largest <a href="https://courses.academy.africa/" rel="noopener ugc nofollow">skills development</a> initiatives for digital journalists, and seed funds cross-border collaboration.</p>
       `,
     date: "Jan 6, 2022",
     thumbnail: {
@@ -659,11 +646,13 @@ const DEFAULT_REVALIDATE = 3 * 60; // 3 minutes
 const ALL_TAG = "All";
 
 function getProjectTags(options = { includeAll: true }) {
-  const tags = new Set(projects?.flatMap((a) => a.tag || []));
+  const tags = Array.from(
+    new Set(projects?.flatMap((a) => a.tag || []))
+  ).sort();
   if (options?.includeAll) {
     return [ALL_TAG, ...tags];
   }
-  return Array.from(tags);
+  return tags;
 }
 
 function getHomePageStaticProps() {
@@ -672,7 +661,7 @@ function getHomePageStaticProps() {
       title: "Code for Africa",
       sections: [
         {
-          ...hero,
+          ...getHero(),
           slug: "hero",
         },
         {
@@ -788,12 +777,14 @@ export function getOpportunities(options) {
 }
 
 function getOpportunitiesTags(options = { includeAll: true }) {
-  const tags = new Set(opportunities?.flatMap((o) => o.tags || []));
+  const tags = Array.from(
+    new Set(opportunities?.flatMap((o) => o.tags || []))
+  ).sort();
 
   if (options?.includeAll) {
     return [ALL_TAG, ...tags];
   }
-  return Array.from(tags);
+  return tags;
 }
 
 function getOpportunitiesPageStaticProps() {
@@ -940,12 +931,14 @@ function getProjectPageStaticProps(params) {
 }
 
 function getStoriesTags(options = { includeAll: true }) {
-  const tags = new Set(articles?.flatMap((s) => s.tags || []));
+  const tags = Array.from(
+    new Set(articles?.flatMap((s) => s.tags || []))
+  ).sort();
 
   if (options?.includeAll) {
     return [ALL_TAG, ...tags];
   }
-  return Array.from(tags);
+  return tags;
 }
 
 export function getStories(options) {
@@ -1018,12 +1011,14 @@ function getStoryPageStaticProps(params) {
 }
 
 function getMembersFieldTags(options = { includeAll: true }) {
-  let countries = new Set(team?.flatMap((m) => m.country || []));
-  countries = options?.includeAll
-    ? [ALL_TAG, ...countries]
-    : Array.from(countries);
-  let teams = new Set(team?.flatMap((m) => m.team || []));
-  teams = options?.includeAll ? [ALL_TAG, ...teams] : Array.from(teams);
+  let countries = Array.from(
+    new Set(team?.flatMap((m) => m.country || []))
+  ).sort();
+  let teams = Array.from(new Set(team?.flatMap((m) => m.team || []))).sort();
+  if (options?.includeAll) {
+    countries = [ALL_TAG, ...countries];
+    teams = [ALL_TAG, ...teams];
+  }
   return [
     { field: "Country", tags: countries },
     { field: "Team", tags: teams },
@@ -1063,13 +1058,8 @@ function getAboutMembersPageStaticProps() {
       crumbs: [{ href: "/about", label: "About us" }, { label: "Members" }],
       sections: [
         {
+          ...getHero("about"),
           slug: "hero",
-          title: "About Us",
-          subtitle:
-            "We are Africa’s largest network of civic technology and data journalism labs",
-          image: {
-            src: "https://res.cloudinary.com/code-for-africa/image/upload/v1656064173/codeforafrica/images/1_IgrT4_1tGZh1WnpYzvZN1A_1_twneqf.jpg",
-          },
         },
         {
           slug: "our-team",
@@ -1101,16 +1091,11 @@ function getAboutPageStaticProps() {
       title: "About | Code for Africa",
       sections: [
         {
+          ...getHero("about"),
           slug: "hero",
-          title: "About Us",
-          subtitle:
-            "We are Africa’s largest network of civic technology and data journalism labs",
-          image: {
-            src: "https://res.cloudinary.com/code-for-africa/image/upload/v1656064173/codeforafrica/images/1_IgrT4_1tGZh1WnpYzvZN1A_1_twneqf.jpg",
-          },
         },
         {
-          ...ourMission,
+          ...getOurMission(),
           slug: "our-mission",
         },
         {
@@ -1158,13 +1143,8 @@ function getAboutPartnersPageStaticProps() {
       crumbs: [{ href: "/about", label: "About us" }, { label: "Partners" }],
       sections: [
         {
+          ...getHero("about"),
           slug: "hero",
-          title: "About Us",
-          subtitle:
-            "We are Africa’s largest network of civic technology and data journalism labs",
-          image: {
-            src: "https://res.cloudinary.com/code-for-africa/image/upload/v1656064173/codeforafrica/images/1_IgrT4_1tGZh1WnpYzvZN1A_1_twneqf.jpg",
-          },
         },
         {
           slug: "our-partners",

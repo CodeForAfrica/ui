@@ -27,7 +27,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
             id="5f6c2114-aab6-4420-8e46-c9d0e06f5f8b"
             links="[object Object]"
             slug="allan-cheboi"
-            team="iLAB"
+            team="ANCIR's iLAB"
           >
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-k9g9by-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
@@ -47,7 +47,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
                   Allan Cheboi
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-fna42f-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1q719gd-MuiTypography-root"
                 >
                   Senior investigations manager
                 </div>
@@ -89,7 +89,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
                   Amanda Strydom
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-fna42f-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1q719gd-MuiTypography-root"
                 >
                   Senior programme manager
                 </div>
@@ -111,7 +111,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
             id="5e279b40-6e51-4d79-bf38-ce9472660050"
             links="[object Object]"
             slug="anita-igbine"
-            team="iLAB"
+            team="ANCIR's iLAB"
           >
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-k9g9by-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
@@ -131,7 +131,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
                   Anita Igbine
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-fna42f-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1q719gd-MuiTypography-root"
                 >
                   Investigative data analyst
                 </div>

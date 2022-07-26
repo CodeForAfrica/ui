@@ -43,7 +43,10 @@ const TeamMemberCard = React.forwardRef(function TeamMemberCard(props, ref) {
           }}
         >
           <RichTypography variant="body1SemiBold">{name}</RichTypography>
-          <RichTypography variant="body1" sx={{ mt: "5px" }}>
+          <RichTypography
+            variant="body1"
+            sx={{ mt: "5px", textTransform: "capitalize" }}
+          >
             {title}
           </RichTypography>
         </CardContent>

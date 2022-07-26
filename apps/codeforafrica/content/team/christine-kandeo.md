@@ -7,7 +7,7 @@ thumbnail:
 links:
   twitter: https://twitter.com/CKandeo
 country: Kenya
-team: data
+team: Knowledge
 ---
 
 Christine is a data analyst with CfA and has previously worked with the Kenya National Bureau of Statistics as a junior statistician. She has also had stints with the World Bank as a short term consultant on data cleaning, extraction and analysis. She is skilled in mining, interpreting, analysing and visualizing data with hands on experience in coding using R and Python languages.

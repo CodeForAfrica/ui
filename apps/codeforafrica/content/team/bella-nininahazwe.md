@@ -7,7 +7,7 @@ thumbnail:
 links:
   twitter: https://twitter.com/lucia_bells
 country: Burundi
-team: Pesacheck
+team: PesaCheck
 ---
 
 Bella is a Pesacheck  fact-checker based in Burundi. Prior to joining CfA, Bella was a SRHR project coordinator at Yaga Burundi, a local NGO and also served as a journalist-blogger and community manager from the same institution. Bella is a human rights advocate with over 8 years’ experience in community works and advocacy with a focus on women and youth empowerment.

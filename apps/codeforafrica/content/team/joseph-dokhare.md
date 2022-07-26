@@ -5,7 +5,7 @@ title: Data analyst
 thumbnail:
   src: /images/jose.jpg
 country: Nigeria
-team: academy.AFRICA
+team: Knowledge
 ---
 
 Joseph Dokhare is a data analyst with a background in data literacy training, web development and data analysis. He is very passionate about using data to solve real world problems and currently helps to manage partnerships, training projects, curriculum development and M&E at academy.AFRICA.

@@ -8,7 +8,7 @@ links:
   twitter: https://twitter.com/Allan_cheboi
   linkedin: https://www.linkedin.com/in/allancheboi/
 country: Kenya
-team: iLAB
+team: ANCIR's iLAB
 ---
 
 Allan is CfA’s senior investigations manager at the iLAB & ANCIR, managing a team of forensic data scientists/analysts and technologists in eight African countries. He also leads the iLAB team which conducts network analysis investigations into disinformation and influence operations, including Coordinated Inauthentic Behaviour (CIB) and organised crime networks.

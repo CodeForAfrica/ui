@@ -182,36 +182,59 @@ module.exports = {
           file: "content/pages/about.md",
           fields: [
             {
-              label: "Title",
-              name: "title",
-              widget: "string",
-            },
-            {
-              label: "Subtitle",
-              name: "subtitle",
-              widget: "markdown",
-            },
-            {
-              label: "Background Image",
-              name: "background-image",
+              label: "Hero",
+              name: "hero",
               widget: "object",
               fields: [
                 {
-                  label: "Src",
-                  name: "src",
-                  widget: "image",
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
                 },
                 {
-                  label: "Height",
-                  name: "height",
-                  widget: "string",
-                  required: false,
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "text",
                 },
                 {
-                  label: "Width",
-                  name: "width",
-                  widget: "string",
-                  required: false,
+                  label: "Background Image",
+                  name: "image",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Source",
+                      name: "src",
+                      widget: "image",
+                    },
+                    {
+                      label: "Height",
+                      name: "height",
+                      widget: "string",
+                      required: false,
+                    },
+                    {
+                      label: "Width",
+                      name: "width",
+                      widget: "string",
+                      required: false,
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: "Our Mission",
+              name: "our-mission",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "text",
+                },
+                {
+                  name: "description",
+                  widget: "markdown",
                 },
               ],
             },
@@ -244,24 +267,6 @@ module.exports = {
                   value_field: "id",
                   display_fields: ["name"],
                   multiple: true,
-                },
-              ],
-            },
-            {
-              label: "Our Mission",
-              name: "mission",
-              widget: "object",
-              file: "content/pages/mission.md",
-              fields: [
-                {
-                  label: "Title",
-                  name: "title",
-                  widget: "text",
-                },
-                {
-                  label: "Description",
-                  name: "description",
-                  widget: "markdown",
                 },
               ],
             },
@@ -555,14 +560,14 @@ module.exports = {
           widget: "string",
         },
         {
+          label: "Value",
+          name: "value",
+          widget: "string",
+        },
+        {
           label: "Description",
           name: "body",
           widget: "markdown",
-        },
-        {
-          label: "Count",
-          name: "value",
-          widget: "string",
         },
         {
           label: "Image",

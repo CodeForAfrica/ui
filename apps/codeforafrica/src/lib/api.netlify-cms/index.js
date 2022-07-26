@@ -1,4 +1,5 @@
 import getOurImpact from "./getOurImpact";
+import getOurMission from "./getOurMission";
 import getOurPartners from "./getOurPartners";
 import getPartners from "./getPartners";
 import getCmsProjects from "./getProjects";
@@ -11,6 +12,7 @@ export {
   getHero,
   getMeetOurTeam,
   getOurImpact,
+  getOurMission,
   getOurPartners,
   getPartners,
   getTeam,
