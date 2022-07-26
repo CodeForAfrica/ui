@@ -14,11 +14,11 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
   const {
     title,
     href,
-    feature_image,
+    featureImage,
     excerpt,
-    custom_excerpt,
+    customExcerpt,
     slug,
-    published_at,
+    publishedAt,
     variant = "standard",
     ...other
   } = props;
@@ -46,7 +46,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
           <Grid item xs={12} md={variant === "cover" ? 12 : "auto"}>
             <ArticleCardMedia
               alt={title}
-              src={feature_image}
+              src={featureImage}
               sx={{
                 height: {
                   xs: "217px",
@@ -87,7 +87,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
                   mb: { md: "20px" },
                 }}
               >
-                {excerpt || custom_excerpt}
+                {excerpt || customExcerpt}
               </Typography>
               <Button
                 color="primary"
@@ -108,7 +108,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
                 }}
                 variant="caption"
               >
-                {new Date(published_at).toLocaleDateString("en", {
+                {new Date(publishedAt).toLocaleDateString("en", {
                   year: "numeric",
                   month: "short",
                   day: "numeric",

@@ -697,6 +697,7 @@ export async function getStories(options) {
   const tag = originalTag || "stories";
 
   let found = await getPostsByTag(tag, options);
+
   if (found.length && q) {
     found = fuse
       .stories(found)
@@ -790,12 +791,6 @@ export async function getOpportunities(options) {
   const { tag: originalTag, page, "page-size": pageSize, q } = options || {};
   const tag = originalTag || "opportunities";
 
-  // let found = opportunities.filter(
-  //   (o) =>
-  //     equalsIgnoreCase(tag, ALL_TAG) ||
-  //     o.tags?.some((t) => equalsIgnoreCase(tag, t))
-  // );
-
   let found = await getPostsByTag(tag, options);
 
   if (found.length && q) {
@@ -808,22 +803,15 @@ export async function getOpportunities(options) {
   return paginateResults(found, page, pageSize);
 }
 
-// function getOpportunitiesTags(options = { includeAll: true }) {
-//   const tags = Array.from(
-//     new Set(opportunities?.flatMap((o) => o.tags || []))
-//   ).sort();
-
-//   if (options?.includeAll) {
-//     return [ALL_TAG, ...tags];
-//   }
-//   return tags;
-// }
-
 async function getOpportunitiesPageStaticProps(options) {
   const allOpportunities = await getPostsByPrimaryTag("opportunities", options);
-  const allTags = allOpportunities.map((o) => o.tags).flat();
-  const uniqueTags = [...new Set(allTags.map((tag) => tag.name))];
+
+  const allTags = allOpportunities
+    .map((article) => article.tags)
+    .flat(Infinity);
+  const uniqueTags = [...new Set(allTags.map((tag) => tag?.name || ""))];
   uniqueTags.unshift(ALL_TAG);
+
   return {
     props: {
       title: "Opportunities | Code for Africa",
@@ -969,21 +957,10 @@ function getProjectPageStaticProps(params) {
   return { notFound: true };
 }
 
-// function getStoriesTags(options = { includeAll: true }) {
-//   const tags = Array.from(
-//     new Set(articles?.flatMap((s) => s.tags || []))
-//   ).sort();
-
-//   if (options?.includeAll) {
-//     return [ALL_TAG, ...tags];
-//   }
-//   return tags;
-// }
-
 async function getStoriesPageStaticProps(options) {
   const allArticles = await getPostsByPrimaryTag("stories", options);
   const allTags = allArticles.map((article) => article.tags).flat(Infinity);
-  const uniqueTags = [...new Set(allTags.map((tag) => tag.name))];
+  const uniqueTags = [...new Set(allTags.map((tag) => tag?.name || ""))];
   uniqueTags.unshift(ALL_TAG);
 
   return {
@@ -1009,7 +986,8 @@ async function getStoryPageStaticProps(slug) {
   const actualSlug = slug.slug.split("/")[2];
   const article = await getPost(actualSlug);
 
-  if (article) {
+  // check for empty obj
+  if (article && Object.keys(article).length > 0) {
     return {
       props: {
         title: `${article.title} | Stories | Code for Africa`,
@@ -1358,7 +1336,10 @@ export async function getPageStaticProps(params) {
 
 export async function getGhostCMSStaticPaths(primaryTag, options) {
   const posts = await getAllPostsWithSlug(primaryTag, options);
-  const path = posts.map((post) => ({
+
+  // filter out items with slug to remove pagination
+  const actualPosts = posts.filter((post) => post.slug);
+  const path = actualPosts.map((post) => ({
     params: { slug: post.slug },
   }));
 

@@ -19,9 +19,9 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
     href,
     tags,
     title,
-    feature_image,
+    featureImage,
     html,
-    published_at,
+    publishedAt,
     ...other
   } = props;
 
@@ -31,7 +31,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
   return (
     <Card sx={{ boxShadow: "none", borderRadius: 0, ...other.sx }} ref={ref}>
       <CardActionArea component={href ? Link : undefined} href={href}>
-        <CardMedia component="img" alt="" src={feature_image} />
+        <CardMedia component="img" alt="" src={featureImage} />
         <CardContent sx={{ padding: 0 }}>
           <RichTypography sx={{ mt: 5, mb: 2.5 }} variant="h3">
             {title}
@@ -40,7 +40,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             <RichTypography
               sx={{ borderRight: "solid 1px", mr: 1.25, pr: 1.25 }}
             >
-              {published_at}
+              {publishedAt}
             </RichTypography>
             <RichTypography>{tags?.join(", ")}</RichTypography>
           </Box>

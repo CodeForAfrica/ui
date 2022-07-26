@@ -11,14 +11,14 @@ import SectionDivider from "@/codeforafrica/components/SectionDivider";
 
 function ArticlePage({
   authors,
-  primary_author,
+  primaryAuthor,
   excerpt,
-  custom_excerpt,
+  customExcerpt,
   tags,
   title,
-  feature_image,
+  featureImage,
   html,
-  published_at,
+  publishedAt,
 }) {
   return (
     <Box component="article">
@@ -30,13 +30,13 @@ function ArticlePage({
         alt={title}
         objectFit="cover"
         priority
-        src={feature_image}
+        src={featureImage}
       />
       <ArticleHeader
         title={title}
-        date={published_at}
+        date={publishedAt}
         tags={tags}
-        summary={excerpt || custom_excerpt}
+        summary={excerpt || customExcerpt}
         sx={{
           maxWidth: {
             sm: "648px",
@@ -79,11 +79,7 @@ function ArticlePage({
           px: { xs: 2.5, sm: 0 },
         }}
       >
-        {/* 
-        //TODO: confirm if this is to be shown on opportunities page
-         */}
-
-        <Author {...(primary_author || authors[0])} />
+        <Author {...(primaryAuthor || authors[0])} />
       </Section>
     </Box>
   );

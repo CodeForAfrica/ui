@@ -47,6 +47,7 @@
     "fuse.js": "^6.6.2",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
     "marked": "^4.0.18",
     "next": "^12.1.6",
     "next-seo": "^5.4.0",
@@ -60,6 +61,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
     "@commons-ui/testing-library": "workspace:*",
     "@playwright/test": "^1.22.2",

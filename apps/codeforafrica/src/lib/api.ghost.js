@@ -1,5 +1,6 @@
 import GhostContentAPI from "@tryghost/content-api";
-// import convertToCamelCase from "@/codeforafrica/utils/camelcaseKeys";
+
+import convertToCamelCase from "@/codeforafrica/utils/camelcaseKeys";
 
 const { GHOST_URL } = process.env;
 const { GHOST_API_KEY } = process.env;
@@ -20,7 +21,7 @@ export async function getAllPosts(options) {
     include: "authors,tags",
     ...other,
   });
-  return posts;
+  return convertToCamelCase(posts);
 }
 
 export async function getPost(slug) {
@@ -30,13 +31,13 @@ export async function getPost(slug) {
     version: "v3.0",
   });
 
-  const posts = api.posts.read({
+  const posts = await api.posts.read({
     slug,
     fields:
       "id,title,slug,published_at,feature_image,excerpt,custom_excerpt,excerpt,html",
     include: "authors",
   });
-  return posts;
+  return convertToCamelCase(posts);
 }
 
 export async function getAllTags(options) {
@@ -51,7 +52,7 @@ export async function getAllTags(options) {
     order: "name desc",
     ...options,
   });
-  return tags;
+  return convertToCamelCase(tags);
 }
 
 export async function getPostsByTag(tag, options) {

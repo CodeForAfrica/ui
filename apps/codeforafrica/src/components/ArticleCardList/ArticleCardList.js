@@ -23,7 +23,7 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
       ref={ref}
     >
       {articles?.map((article) => (
-        <Grid item xs={12} sm={4} key={article.slug}>
+        <Grid item xs={12} sm={4} key={article.id}>
           <ArticleCard
             sx={{
               width: "100%",
@@ -39,7 +39,7 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
                   display: { xs: "none", sm: "block" },
                   height: "217.64px",
                 }}
-                src={article.feature_image}
+                src={article.featureImage}
               />
               <ArticleCardContent>
                 <Typography variant="subtitle1">{article.title}</Typography>
@@ -47,7 +47,7 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
                   sx={{ color: "#9F9494", display: "block", mt: 2 }}
                   variant="caption"
                 >
-                  {new Date(article.published_at).toLocaleDateString("en", {
+                  {new Date(article.publishedAt).toLocaleDateString("en", {
                     year: "numeric",
                     month: "short",
                     day: "numeric",

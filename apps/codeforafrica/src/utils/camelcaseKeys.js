@@ -1,10 +1,9 @@
-import camelcaseKeys from "camelcase-keys";
+import { isArray, isObject, transform, camelCase } from "lodash";
 
 export default function convertToCamelCase(obj) {
-  // ensure the object is an object
-  if (typeof obj === "object") {
-    // convert the keys to camelcase
-    return camelcaseKeys(obj, { deep: true });
-  }
-  return obj;
+  return transform(obj, (acc, value, key, target) => {
+    const camelKey = isArray(target) ? key : camelCase(key);
+
+    acc[camelKey] = isObject(value) ? convertToCamelCase(value) : value;
+  });
 }
