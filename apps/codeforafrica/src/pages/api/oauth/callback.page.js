@@ -19,6 +19,7 @@ export default async (req, res) => {
       provider: oauthProvider,
     };
   } catch (error) {
+    console.error("error ", error);
     content = JSON.stringify(error);
   }
 
