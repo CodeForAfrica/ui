@@ -1,8 +1,9 @@
 module.exports = {
   backend: {
     name: "github",
-    repo: "CodeForAfrica/ui",
     branch: "main",
+    repo: "CodeForAfrica/ui",
+    proxy_url: "http://localhost:8081/api/v1", // Set proxy to work on local repo
   },
   media_folder: "public/images",
   public_folder: "/images",
