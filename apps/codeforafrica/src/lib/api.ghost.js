@@ -1,4 +1,5 @@
 import GhostContentAPI from "@tryghost/content-api";
+// import convertToCamelCase from "@/codeforafrica/utils/camelcaseKeys";
 
 const { GHOST_URL } = process.env;
 const { GHOST_API_KEY } = process.env;
@@ -45,11 +46,12 @@ export async function getAllTags(options) {
     version: "v3.0",
   });
 
-  return api.tags.browse({
+  const tags = api.tags.browse({
     fields: "id,name,slug",
     order: "name desc",
     ...options,
   });
+  return tags;
 }
 
 export async function getPostsByTag(tag, options) {

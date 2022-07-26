@@ -661,42 +661,6 @@ function getProjectTags(options = { includeAll: true }) {
   return tags;
 }
 
-function getHomePageStaticProps() {
-  return {
-    props: {
-      title: "Code for Africa",
-      sections: [
-        {
-          ...getHero(),
-          slug: "hero",
-        },
-        {
-          slug: "projects",
-          projects,
-          tags: getProjectTags({ includeAll: false }),
-        },
-        { ...meetOurTeam, slug: "meet-our-team" },
-        {
-          slug: "news-stories",
-          title: "News and stories",
-          articles: articles.slice(0, 4),
-        },
-        {
-          slug: "our-partners",
-          partners: getOurPartners(),
-        },
-        {
-          slug: "our-impact",
-          impact: getOurImpact(),
-        },
-      ],
-      footer,
-      navbar,
-    },
-    revalidate: DEFAULT_REVALIDATE,
-  };
-}
-
 function paginateResults(items, page, pageSize) {
   // We need to initialize to null for serialization.
   let count = null;
@@ -720,6 +684,64 @@ function paginateResults(items, page, pageSize) {
       pageSize: pageSizeNumber,
     },
     results,
+  };
+}
+
+export async function getStories(options) {
+  const {
+    tag: originalTag,
+    page,
+    "page-size": pageSize = 10,
+    q,
+  } = options || {};
+  const tag = originalTag || "stories";
+
+  let found = await getPostsByTag(tag, options);
+  if (found.length && q) {
+    found = fuse
+      .stories(found)
+      .search(q)
+      .map((p) => p.item);
+  }
+
+  return paginateResults(found, page, pageSize);
+}
+
+async function getHomePageStaticProps() {
+  const stories = await getStories();
+
+  return {
+    props: {
+      title: "Code for Africa",
+      sections: [
+        {
+          ...getHero(),
+          slug: "hero",
+        },
+        {
+          slug: "projects",
+          projects,
+          tags: getProjectTags({ includeAll: false }),
+        },
+        { ...meetOurTeam, slug: "meet-our-team" },
+        {
+          slug: "news-stories",
+          title: "News and stories",
+          articles: stories.results,
+        },
+        {
+          slug: "our-partners",
+          partners: getOurPartners(),
+        },
+        {
+          slug: "our-impact",
+          impact: getOurImpact(),
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
   };
 }
 
@@ -957,26 +979,6 @@ function getProjectPageStaticProps(params) {
 //   }
 //   return tags;
 // }
-
-export async function getStories(options) {
-  const {
-    tag: originalTag,
-    page,
-    "page-size": pageSize = 10,
-    q,
-  } = options || {};
-  const tag = originalTag || "stories";
-
-  let found = await getPostsByTag(tag, options);
-  if (found.length && q) {
-    found = fuse
-      .stories(found)
-      .search(q)
-      .map((p) => p.item);
-  }
-
-  return paginateResults(found, page, pageSize);
-}
 
 async function getStoriesPageStaticProps(options) {
   const allArticles = await getPostsByPrimaryTag("stories", options);
