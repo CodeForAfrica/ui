@@ -20,7 +20,7 @@ export default async (req, res) => {
     };
   } catch (error) {
     console.error("error ", error);
-    content = JSON.stringify(error);
+    content = { error };
   }
 
   const script = `
