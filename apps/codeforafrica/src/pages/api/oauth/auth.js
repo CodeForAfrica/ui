@@ -29,7 +29,4 @@ const authorizationUri = client.authorizeURL({
 });
 
 // Initial page redirecting to Github
-export default async (req, res) => {
-  res.writeHead(302, { Location: authorizationUri });
-  res.end();
-};
+export default authorizationUri;
