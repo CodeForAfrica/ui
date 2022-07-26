@@ -6,10 +6,7 @@ import site from "@/codeforafrica/utils/site";
 const config = {
   cms: {
     oauth: {
-      redirectUrl: `${site.environmentUrl.replace(
-        /\/+$/,
-        ""
-      )}/api/oauth/callback`,
+      redirectUrl: `${site.vercelUrl.replace(/\/+$/, "")}/api/oauth/callback`,
       scope: "user, repo",
     },
   },

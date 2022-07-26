@@ -16,10 +16,13 @@ if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview") {
   );
 }
 
+const vercelUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+
 const site = {
   environmentUrl,
   name,
   url,
+  vercelUrl,
   logoUrl: process.env.NEXT_PUBLIC_APP_LOGO_URL,
 };
 
