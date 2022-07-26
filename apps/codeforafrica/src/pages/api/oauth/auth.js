@@ -1,10 +1,15 @@
 import { nanoid } from "nanoid";
 import { AuthorizationCode } from "simple-oauth2";
 
+import site from "@/codeforafrica/utils/site";
+
 const config = {
   cms: {
     oauth: {
-      redirectUrl: "https://cfa.dev.codeforafrica.org/api/oauth/callback",
+      redirectUrl: `${site.environmentUrl.replace(
+        /\/+$/,
+        ""
+      )}/api/oauth/callback`,
       scope: "user, repo",
     },
   },
