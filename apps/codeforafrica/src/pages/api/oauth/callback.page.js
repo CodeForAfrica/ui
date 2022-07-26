@@ -20,7 +20,7 @@ export default async (req, res) => {
     };
   } catch (error) {
     console.error("error ", error);
-    content = { error };
+    content = null;
   }
 
   const script = `
