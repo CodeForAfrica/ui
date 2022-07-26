@@ -7,6 +7,7 @@ module.exports = {
   },
   media_folder: "public/images",
   public_folder: "/images",
+  local_backend: true,
   collections: [
     {
       name: "pages",
