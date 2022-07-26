@@ -2,8 +2,8 @@ import GhostContentAPI from "@tryghost/content-api";
 
 import convertToCamelCase from "@/codeforafrica/utils/camelcaseKeys";
 
-// const { GHOST_URL } = process.env;
-const { GHOST_URL } = "https://longform.codeforafrica.org";
+const { GHOST_URL } = process.env;
+// const { GHOST_URL } = "https://longform.codeforafrica.org";
 const { GHOST_API_KEY } = process.env;
 
 export async function getAllPosts(options) {
