@@ -12,9 +12,9 @@ const outputFileTracingRoot = PROJECT_ROOT
   ? path.resolve(__dirname, PROJECT_ROOT)
   : undefined;
 
-const ghostUrl =
-  process.env.GHOST_ADMIN_URL?.trim() || process.env.GHOST_URL?.trim();
-const ghostAdminUrl = new URL("/ghost", ghostUrl).toString();
+// const ghostUrl =
+//   process.env.GHOST_ADMIN_URL?.trim() || process.env.GHOST_URL?.trim();
+// const ghostAdminUrl = new URL("/ghost", ghostUrl).toString();
 
 module.exports = withTM({
   images: {
@@ -28,16 +28,16 @@ module.exports = withTM({
   output: "standalone",
   pageExtensions: ["page.js"],
   reactStrictMode: true,
-  async redirects() {
-    return [
-      {
-        source: "/longform/:path*",
-        destination: `${ghostAdminUrl}/:path*`,
-        permanent: false,
-        basePath: false,
-      },
-    ];
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/longform/:path*",
+  //       destination: `${ghostAdminUrl}/:path*`,
+  //       permanent: false,
+  //       basePath: false,
+  //     },
+  //   ];
+  // },
   webpack: (config) => {
     config.module.rules.push(
       {
