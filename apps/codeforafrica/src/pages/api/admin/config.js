@@ -3,11 +3,14 @@ module.exports = {
     name: "github",
     branch: "main",
     repo: "CodeForAfrica/ui",
+    base_url: "https://cfa.dev.codeforafrica.org",
+    auth_endpoint: "api/oauth/auth",
     proxy_url: "http://localhost:8081/api/v1", // Set proxy to work on local repo
   },
   media_folder: "public/images",
   public_folder: "/images",
   local_backend: true,
+  publish_mode: "editorial_workflow",
   collections: [
     {
       name: "pages",
