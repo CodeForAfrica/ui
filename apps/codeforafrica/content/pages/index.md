@@ -26,7 +26,7 @@ meet-our-team:
     With staff distributed across 20 countries, we are perfectly positioned to tackle issues facing African citizens.
   href: /about/members
   image:
-    src: /images/Africa@2400x 1lg.png
+    src: /images/Africa@2400x 1.png
 our-partners:
   title: Our partners include
   partners-list:
