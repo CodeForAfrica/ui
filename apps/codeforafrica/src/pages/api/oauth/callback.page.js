@@ -12,18 +12,14 @@ export default async (req, res) => {
   let status = "error";
   let content;
   try {
-    console.log("oauth/callback: code", code);
-    console.log("oauth/callback: state", state);
     const accessToken = await client.getToken(tokenParams);
     status = "success";
     content = {
       token: accessToken.token.access_token,
       provider: oauthProvider,
     };
-    console.log("oauth/callback: accessToken", content);
   } catch (error) {
-    console.error("error ", error);
-    content = null;
+    content = JSON.stringify(error);
   }
 
   const script = `
