@@ -36,7 +36,6 @@ importers:
       "@types/node": ^17.0.45
       "@types/react": ^17.0.47
       babel-jest: ^28.1.1
-      camelcase-keys: ^8.0.1
       config: workspace:*
       eslint: ^8.18.0
       eslint-config-commons-ui: workspace:*
@@ -77,7 +76,6 @@ importers:
       "@mui/material": 5.9.1_mzmbzck2qunrnxjb6zwxgpnkmu
       "@mui/utils": 5.9.1_react@17.0.2
       "@tryghost/content-api": 1.11.0
-      camelcase-keys: 8.0.1
       fast-equals: 4.0.1
       fuse.js: 6.6.2
       gray-matter: 4.0.3
@@ -8219,19 +8217,6 @@ packages:
       quick-lru: 4.0.1
     dev: true
 
-  /camelcase-keys/8.0.1:
-    resolution:
-      {
-        integrity: sha512-QIhTRYtbiDVHYMwNVWdhfJHnKYDpTfjNbU7Jn2X1U3yUSuxmjuFxVOPQMtbuStzIZHT71y4ZYCj7e9XuaGbthg==,
-      }
-    engines: { node: ">=14.16" }
-    dependencies:
-      camelcase: 7.0.0
-      map-obj: 4.3.0
-      quick-lru: 6.1.1
-      type-fest: 2.17.0
-    dev: false
-
   /camelcase/2.1.1:
     resolution:
       {
@@ -8256,14 +8241,6 @@ packages:
       }
     engines: { node: ">=10" }
     dev: true
-
-  /camelcase/7.0.0:
-    resolution:
-      {
-        integrity: sha512-JToIvOmz6nhGsUhAYScbo2d6Py5wojjNfoxoc2mEVLUdJ70gJK2gnd+ABY1Tc3sVMyK7QDPtN0T/XdlCQWITyQ==,
-      }
-    engines: { node: ">=14.16" }
-    dev: false
 
   /caniuse-lite/1.0.30001368:
     resolution:
@@ -14783,6 +14760,7 @@ packages:
         integrity: sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==,
       }
     engines: { node: ">=8" }
+    dev: true
 
   /map-or-similar/1.5.0:
     resolution:
@@ -17204,14 +17182,6 @@ packages:
       }
     engines: { node: ">=8" }
     dev: true
-
-  /quick-lru/6.1.1:
-    resolution:
-      {
-        integrity: sha512-S27GBT+F0NTRiehtbrgaSE1idUAJ5bX8dPAQTdylEyNlrdcH5X4Lz7Edz3DYzecbsCluD5zO8ZNEe04z3D3u6Q==,
-      }
-    engines: { node: ">=12" }
-    dev: false
 
   /ramda/0.28.0:
     resolution:
@@ -20050,14 +20020,6 @@ packages:
       }
     engines: { node: ">=8" }
     dev: true
-
-  /type-fest/2.17.0:
-    resolution:
-      {
-        integrity: sha512-U+g3/JVXnOki1kLSc+xZGPRll3Ah9u2VIG6Sn9iH9YX6UkPERmt6O/0fIyTgsd2/whV0+gAaHAg8fz6sG1QzMA==,
-      }
-    engines: { node: ">=12.20" }
-    dev: false
 
   /type-is/1.6.18:
     resolution:
