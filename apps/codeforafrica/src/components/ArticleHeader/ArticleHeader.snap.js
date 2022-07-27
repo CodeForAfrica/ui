@@ -6,11 +6,6 @@ exports[`<ArticleHeader /> renders unchanged 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12qr4r4-MuiContainer-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-body2 css-4z8v6p-MuiTypography-root"
-    >
-      Invalid Date
-    </div>
-    <div
       class="css-191ss4-MuiStack-root"
     >
       <div
