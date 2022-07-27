@@ -9,7 +9,7 @@ hero:
     We are an impact accelerator with a pan-African approach on a mission
     to accelerate change through data-driven initiatives.
   image:
-    src: https://res.cloudinary.com/code-for-africa/image/upload/v1653902690/codeforafrica/images/Group_4429_shcof8.png
+    src: /images/group-4429.png
 projects:
   - 14fdf60f-2928-4776-b208-6641e8413f74
   - 7e3a1ef1-576d-4428-824d-a12fa774519d
