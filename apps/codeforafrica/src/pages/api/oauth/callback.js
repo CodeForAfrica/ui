@@ -7,7 +7,7 @@ const client = new AuthorizationCode({
   },
   auth: {
     tokenHost: "https://github.com",
-    authorizePath: "/login/oauth/authorize",
+    tokenPath: "/login/oauth/access_token",
   },
 });
 
