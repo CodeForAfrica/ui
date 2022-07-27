@@ -87,7 +87,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
                   mb: { md: "20px" },
                 }}
               >
-                {excerpt || customExcerpt}
+                {excerpt}
               </Typography>
               <Button
                 color="primary"

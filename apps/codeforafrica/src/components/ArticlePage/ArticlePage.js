@@ -12,7 +12,6 @@ import SectionDivider from "@/codeforafrica/components/SectionDivider";
 function ArticlePage({
   authors,
   excerpt,
-  customExcerpt,
   tags,
   title,
   featureImage,
@@ -35,7 +34,7 @@ function ArticlePage({
         title={title}
         date={publishedAt}
         tags={tags}
-        summary={customExcerpt || excerpt}
+        summary={excerpt}
         sx={{
           maxWidth: {
             sm: "648px",
