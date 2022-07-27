@@ -2,10 +2,7 @@ import React from "react";
 
 import ArticlePage from "@/codeforafrica/components/ArticlePage";
 import Page from "@/codeforafrica/components/Page";
-import {
-  getPageStaticProps,
-  getGhostCMSStaticPaths,
-} from "@/codeforafrica/lib";
+import { getPageStaticProps, getPageStaticPaths } from "@/codeforafrica/lib";
 
 function Index({ opportunity, sections, ...props }) {
   return (
@@ -16,7 +13,7 @@ function Index({ opportunity, sections, ...props }) {
 }
 
 export async function getStaticPaths() {
-  const staticPaths = getGhostCMSStaticPaths("opportunities");
+  const staticPaths = getPageStaticPaths("opportunities");
 
   return {
     paths: staticPaths.length > 0 ? staticPaths : [],

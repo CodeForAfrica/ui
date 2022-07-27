@@ -694,9 +694,25 @@ export async function getStories(options) {
     "page-size": pageSize = 10,
     q,
   } = options || {};
-  const tag = originalTag || "stories";
 
-  let found = await getPostsByTag(tag, options);
+  const tag = originalTag || ALL_TAG;
+
+  let found;
+
+  // if tag is not provided or set to ALL, we will return all stories
+  if (tag === ALL_TAG) {
+    // return all stories
+    found = await getPostsByPrimaryTag("stories");
+  } else {
+    found = await getPostsByTag(tag, options);
+  }
+
+  // append /stories/ to the slug && transform published date to ISO format
+  found = found.map((a) => {
+    const { slug: originalSlug, ...other } = a;
+    const slug = `/stories/${originalSlug}`;
+    return { slug, ...other };
+  });
 
   if (found.length && q) {
     found = fuse
@@ -789,9 +805,24 @@ function getProjectsPageStaticProps() {
 
 export async function getOpportunities(options) {
   const { tag: originalTag, page, "page-size": pageSize, q } = options || {};
-  const tag = originalTag || "opportunities";
+  const tag = originalTag || ALL_TAG;
 
-  let found = await getPostsByTag(tag, options);
+  let found;
+
+  // if tag is not provided or set to ALL, we will return all opportunities
+  if (tag === ALL_TAG) {
+    // return all opportunities
+    found = await getPostsByPrimaryTag("opportunities");
+  } else {
+    found = await getPostsByTag(tag, options);
+  }
+
+  // append /opportunities/ to the slug && transform published date to ISO format
+  found = found.map((a) => {
+    const { slug: originalSlug, ...other } = a;
+    const slug = `/opportunities/${originalSlug}`;
+    return { slug, ...other };
+  });
 
   if (found.length && q) {
     found = fuse
@@ -805,6 +836,13 @@ export async function getOpportunities(options) {
 
 async function getOpportunitiesPageStaticProps(options) {
   const allOpportunities = await getPostsByPrimaryTag("opportunities", options);
+
+  // append /opportunities/ to the slug && transform published date to ISO format
+  allOpportunities.map((a) => {
+    const { slug: originalSlug, ...other } = a;
+    const slug = `/opportunities/${originalSlug}`;
+    return { slug, ...other };
+  });
 
   const allTags = allOpportunities
     .map((article) => article.tags)
@@ -959,6 +997,14 @@ function getProjectPageStaticProps(params) {
 
 async function getStoriesPageStaticProps(options) {
   const allArticles = await getPostsByPrimaryTag("stories", options);
+
+  // append /stories/ to the slug && transform published date to ISO format
+  allArticles.map((a) => {
+    const { slug: originalSlug, ...other } = a;
+    const slug = `/stories/${originalSlug}`;
+    return { slug, ...other };
+  });
+
   const allTags = allArticles.map((article) => article.tags).flat(Infinity);
   const uniqueTags = [...new Set(allTags.map((tag) => tag?.name || ""))];
   uniqueTags.unshift(ALL_TAG);
@@ -1334,7 +1380,7 @@ export async function getPageStaticProps(params) {
   }
 }
 
-export async function getGhostCMSStaticPaths(primaryTag, options) {
+export async function getPageStaticPaths(primaryTag, options) {
   const posts = await getAllPostsWithSlug(primaryTag, options);
 
   // filter out items with slug to remove pagination

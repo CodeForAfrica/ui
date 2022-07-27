@@ -32,7 +32,7 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
           >
             <CardActionArea
               component={article.slug ? Link : undefined}
-              href={`/stories/${article.slug}`}
+              href={article.slug}
             >
               <ArticleCardMedia
                 sx={{
@@ -47,11 +47,7 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
                   sx={{ color: "#9F9494", display: "block", mt: 2 }}
                   variant="caption"
                 >
-                  {new Date(article.publishedAt).toLocaleDateString("en", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
+                  {article.publishedAt}
                 </Typography>
               </ArticleCardContent>
             </CardActionArea>

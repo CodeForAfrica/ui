@@ -2,18 +2,37 @@ import GhostContentAPI from "@tryghost/content-api";
 
 import convertToCamelCase from "@/codeforafrica/utils/camelcaseKeys";
 
-const { GHOST_URL } = process.env;
-// const { GHOST_URL } = "https://longform.codeforafrica.org";
-const { GHOST_API_KEY } = process.env;
+function ghostAPI() {
+  return new GhostContentAPI({
+    url: process.env.GHOST_URL,
+    key: process.env.GHOST_API_KEY,
+    version: process.env.GHOST_API_VERSION || "v5",
+  });
+}
+
+function transformGhostPost(post) {
+  const {
+    customExcerpt,
+    publishedAt: publishedAtRaw,
+    excerpt: originalExcerpt,
+    ...other
+  } = convertToCamelCase(post);
+
+  const excerpt = customExcerpt || originalExcerpt || null;
+  const publishedAt = new Date(publishedAtRaw).toLocaleDateString("en", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+  return { ...other, excerpt, publishedAt };
+
+  // return convertToCamelCase(post);
+}
 
 export async function getAllPosts(options) {
   const { limit = 10, page = 1, ...other } = options || {};
 
-  const api = new GhostContentAPI({
-    url: GHOST_URL,
-    key: GHOST_API_KEY,
-    version: "v3.0",
-  });
+  const api = ghostAPI();
 
   const posts = await api.posts.browse({
     limit,
@@ -22,31 +41,25 @@ export async function getAllPosts(options) {
     include: "authors,tags",
     ...other,
   });
-  return convertToCamelCase(posts);
+
+  return posts.map(transformGhostPost);
 }
 
 export async function getPost(slug) {
-  const api = new GhostContentAPI({
-    url: GHOST_URL,
-    key: GHOST_API_KEY,
-    version: "v3.0",
-  });
+  const api = ghostAPI();
 
-  const posts = await api.posts.read({
+  const post = await api.posts.read({
     slug,
     fields:
-      "id,title,slug,published_at,feature_image,excerpt,custom_excerpt,excerpt,html",
+      "id,title,slug,published_at,feature_image,excerpt,custom_excerpt,html",
     include: "authors",
   });
-  return convertToCamelCase(posts);
+
+  return transformGhostPost(post);
 }
 
 export async function getAllTags(options) {
-  const api = new GhostContentAPI({
-    url: GHOST_URL,
-    key: GHOST_API_KEY,
-    version: "v3.0",
-  });
+  const api = ghostAPI();
 
   const tags = api.tags.browse({
     fields: "id,name,slug",

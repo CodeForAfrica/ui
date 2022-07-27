@@ -34,7 +34,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
     >
       <CardActionArea
         component={slug ? Link : undefined}
-        href={`/stories/${slug}`}
+        href={slug}
         sx={{ position: "relative" }}
       >
         <Grid
@@ -108,11 +108,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
                 }}
                 variant="caption"
               >
-                {new Date(publishedAt).toLocaleDateString("en", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
+                {publishedAt}
               </Typography>
             </ArticleCardContent>
           </Grid>

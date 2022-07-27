@@ -5,10 +5,10 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
   <div
     class="MuiPaper-root MuiPaper-outlined MuiCard-root css-1dxfqf3-MuiPaper-root-MuiCard-root"
   >
-    <a
+    <button
       class="MuiButtonBase-root MuiCardActionArea-root css-1oqz1lb-MuiButtonBase-root-MuiCardActionArea-root"
-      href="/stories/undefined"
       tabindex="0"
+      type="button"
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-17x9kv1-MuiGrid-root"
@@ -48,7 +48,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
             <span
               class="MuiTypography-root MuiTypography-caption css-13ob0ik-MuiTypography-root"
             >
-              Jan 6, 2022
+              2022-01-06
             </span>
           </div>
         </div>
@@ -80,7 +80,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
       <span
         class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
       />
-    </a>
+    </button>
   </div>
 </div>
 `;

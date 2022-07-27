@@ -11,7 +11,6 @@ import SectionDivider from "@/codeforafrica/components/SectionDivider";
 
 function ArticlePage({
   authors,
-  primaryAuthor,
   excerpt,
   customExcerpt,
   tags,
@@ -36,7 +35,7 @@ function ArticlePage({
         title={title}
         date={publishedAt}
         tags={tags}
-        summary={excerpt || customExcerpt}
+        summary={customExcerpt || excerpt}
         sx={{
           maxWidth: {
             sm: "648px",
@@ -79,7 +78,7 @@ function ArticlePage({
           px: { xs: 2.5, sm: 0 },
         }}
       >
-        <Author {...(primaryAuthor || authors[0])} />
+        <Author {...authors[0]} />
       </Section>
     </Box>
   );

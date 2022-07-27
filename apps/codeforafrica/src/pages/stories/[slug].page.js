@@ -4,10 +4,7 @@ import React from "react";
 import ArticlePage from "@/codeforafrica/components/ArticlePage";
 import Page from "@/codeforafrica/components/Page";
 import RelatedStories from "@/codeforafrica/components/RelatedStories";
-import {
-  getPageStaticProps,
-  getGhostCMSStaticPaths,
-} from "@/codeforafrica/lib";
+import { getPageStaticProps, getPageStaticPaths } from "@/codeforafrica/lib";
 
 function Index({ article, sections, ...props }) {
   return (
@@ -38,7 +35,7 @@ function Index({ article, sections, ...props }) {
 }
 
 export async function getStaticPaths() {
-  const staticPaths = await getGhostCMSStaticPaths("stories");
+  const staticPaths = await getPageStaticPaths("stories");
   return {
     paths: staticPaths.length > 0 ? staticPaths : [],
     fallback: true,
