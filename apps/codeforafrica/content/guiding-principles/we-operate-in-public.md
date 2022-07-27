@@ -1,7 +1,7 @@
 ---
 id: 92c0d6ac-e9b7-48c8-9126-dccd1f1994ae
 title: We operate in public
-image:
+icon:
   src: /images/property-1-public.svg
 ---
 

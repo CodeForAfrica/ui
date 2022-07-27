@@ -1,7 +1,7 @@
 ---
 id: ce72cdab-36a4-49c4-812b-0efbbd8bf20d
 title: We empower citizens
-image:
+icon:
   src: /images/property-1-empower.svg
 ---
 

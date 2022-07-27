@@ -1,7 +1,7 @@
 ---
 id: be7a2c8c-3a4d-4625-a67e-73c27cdf9f54
 title: We show what’s possible
-image:
+icon:
   src: /images/property-1-show.svg
 ---
 

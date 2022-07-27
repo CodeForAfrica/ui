@@ -1,7 +1,7 @@
 ---
 id: 147839fa-c8c6-44b1-92ae-3f40e12d292b
 title: We help build ecosystems
-image:
+icon:
   src: /images/property-1-ecosystem.svg
 ---
 

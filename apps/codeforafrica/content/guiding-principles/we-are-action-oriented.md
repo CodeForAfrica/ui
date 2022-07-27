@@ -1,7 +1,7 @@
 ---
 id: 7cd9eb88-7748-42fa-94f8-f0bd40c72686
 title: We are action-oriented
-image:
+icon:
   src: /images/property-1-action.svg
 ---
 
