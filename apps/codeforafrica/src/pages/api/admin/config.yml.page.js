@@ -10,9 +10,12 @@ export default function handler(req, res) {
       // Set production configurations
       config.backend.name = "github";
       config.backend.repo = process.env.GITHUB_BACKEND_REPO;
-      config.backend.base_url = site.environmentUrl.replace(/\/+$/, "");
+      config.backend.base_url = site.url.replace(/\/+$/, "");
+      config.backend.auth_endpoint = process.env.GITHUB_AUTH_ENDPOINT;
+      config.publish_mode = "editorial_workflow";
       // Remove dev configurations
       config.local_backend = undefined;
+      config.backend.proxy_url = undefined;
     }
     config.logo_url = site.logoUrl;
     const configFile = yaml.dump(config);
