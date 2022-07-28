@@ -518,8 +518,8 @@ module.exports = {
           widget: "markdown",
         },
         {
-          label: "Image",
-          name: "image",
+          label: "Icon",
+          name: "icon",
           widget: "object",
           fields: [
             {
