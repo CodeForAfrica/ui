@@ -70,6 +70,7 @@ const theme = createTheme({
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
       fontWeight: 700,
+      letterSpacing: "-0.02em",
     },
     h4: {
       fontFamily: FONT_FAMILY_PRIMARY,

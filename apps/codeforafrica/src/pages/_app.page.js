@@ -1,8 +1,10 @@
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
+import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
 
+import SEO from "@/codeforafrica/next-seo.config";
 import "@/codeforafrica/theme/fonts.css";
 import theme from "@/codeforafrica/theme";
 import createEmotionCache from "@/codeforafrica/utils/createEmotionCache";
@@ -13,12 +15,15 @@ function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </CacheProvider>
+    <>
+      <DefaultSeo {...SEO} />
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </CacheProvider>
+    </>
   );
 }
 

@@ -7,9 +7,9 @@ import React from "react";
 import ImpactCard from "../ImpactCard/ImpactCard";
 
 const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
-  const { initiatives, action, title } = props;
+  const { impact: { list, action, title } = {} } = props;
 
-  if (!initiatives?.length) {
+  if (!list?.length) {
     return null;
   }
   return (
@@ -37,13 +37,13 @@ const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
           </RichTypography>
         )}
         <Grid container justifyContent="space-between">
-          {initiatives.map((initiative) => (
-            <Grid item key={initiative.title}>
-              <ImpactCard key={initiative.title} {...initiative} />
+          {list.map((l) => (
+            <Grid item key={l.title}>
+              <ImpactCard {...l} />
             </Grid>
           ))}
         </Grid>
-        {action?.title && (
+        {action?.href?.length > 0 ? (
           <Grid container justifyContent="center">
             <Button
               variant="contained"
@@ -51,10 +51,10 @@ const ImpactCardList = React.forwardRef(function ImpactCardList(props, ref) {
               href={action.href}
               sx={{ width: { xs: "100%", sm: "unset" }, marginTop: 7.25 }}
             >
-              {action.title}
+              {action.title || action.href}
             </Button>
           </Grid>
-        )}
+        ) : null}
       </Section>
     </Box>
   );
