@@ -1,7 +1,7 @@
 import camelcaseKeys from "camelcase-keys";
 
 export default function convertToCamelCase(obj) {
-  if (obj.isArray()) {
+  if (Array.isArray(obj)) {
     return obj.map((item) => convertToCamelCase(item, { deep: true }));
   }
   if (typeof obj === "object" && obj !== null) {

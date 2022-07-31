@@ -529,7 +529,6 @@ async function getProjectPageStaticProps(params) {
   const project = projects.find(({ href }) =>
     equalsIgnoreCase(href, params?.slug)
   );
-  const articles = await getStories();
   if (project) {
     return {
       props: {
@@ -544,7 +543,7 @@ async function getProjectPageStaticProps(params) {
           {
             slug: "related-stories",
             title: "Related stories",
-            articles: articles.slice(0, 3),
+            articles: [],
           },
           {
             slug: "related-projects",
