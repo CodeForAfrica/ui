@@ -38,11 +38,11 @@ export async function getStaticPaths() {
   const staticPaths = await getPageStaticPaths("stories");
   return {
     paths: staticPaths.length > 0 ? staticPaths : [],
-    fallback: true,
+    fallback: "blocking",
   };
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export function getStaticProps({ params: { slug } }) {
   return getPageStaticProps({ slug: `/stories/${slug}` });
 }
 

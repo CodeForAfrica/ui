@@ -10,7 +10,7 @@ import Figure from "@/codeforafrica/components/Figure";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
 
 function ArticlePage({
-  authors,
+  primaryAuthor,
   excerpt,
   tags,
   title,
@@ -77,7 +77,7 @@ function ArticlePage({
           px: { xs: 2.5, sm: 0 },
         }}
       >
-        <Author {...authors[0]} />
+        <Author {...primaryAuthor} />
       </Section>
     </Box>
   );

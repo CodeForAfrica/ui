@@ -31,8 +31,8 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
             }}
           >
             <CardActionArea
-              component={article.slug ? Link : undefined}
-              href={article.slug}
+              component={article.href ? Link : undefined}
+              href={article.href}
             >
               <ArticleCardMedia
                 sx={{
