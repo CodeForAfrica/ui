@@ -62,12 +62,12 @@ our-partners:
     - 1079f9ae-0fbd-472b-bbfb-518145c28b1d
     - daa2a622-0277-44be-b302-dbc703f89522
 guiding-principles:
-  - 33c4db4a-4f99-4400-b4fd-6b47e02de85d
+  - be7a2c8c-3a4d-4625-a67e-73c27cdf9f54
   - ce72cdab-36a4-49c4-812b-0efbbd8bf20d
   - 7cd9eb88-7748-42fa-94f8-f0bd40c72686
-  - 147839fa-c8c6-44b1-92ae-3f40e12d292b
-  - be7a2c8c-3a4d-4625-a67e-73c27cdf9f54
   - 92c0d6ac-e9b7-48c8-9126-dccd1f1994ae
+  - 147839fa-c8c6-44b1-92ae-3f40e12d292b
+  - 33c4db4a-4f99-4400-b4fd-6b47e02de85d
 our-impact:
   title: Our impact in numbers
   impact-list:

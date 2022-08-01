@@ -9,25 +9,34 @@ const GuidingPrinciplesCard = React.forwardRef(function GuidingPrinciplesCard(
   ref
 ) {
   const { title, content, icon } = props;
+
   return (
     <Card
       sx={{
+        alignItems: "center",
         borderRadius: 0,
         boxShadow: "none",
-        marginBottom: { lg: "40px", xs: "20px" },
-        width: { sm: "354px", md: "329px", lg: "354px", xl: "354px" },
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        p: 3,
+        width: { sm: "354px", md: "329.33px", lg: "354px" },
         backgroundColor: "primary.light",
       }}
       ref={ref}
     >
       <CardMedia
-        sx={{ padding: "24px 24px 0 24px" }}
+        sx={{
+          height: "auto",
+          objectFit: "contain",
+          width: "100%",
+        }}
         component="img"
         image={icon?.src}
         alt=""
       />
-      <CardContent sx={{ padding: "0 24px 24px 24px" }}>
-        <RichTypography sx={{ my: 2.5 }} variant="h3">
+      <CardContent sx={{ p: 0, "&:last-child": { p: 0 } }}>
+        <RichTypography variant="h3" sx={{ my: 2.5 }}>
           {title}
         </RichTypography>
         <RichTypography>{content}</RichTypography>

@@ -50,6 +50,7 @@ importers:
       jest-environment-jsdom: 28.1.0
       js-yaml: ^4.1.0
       marked: ^4.0.18
+      nanoid: ^4.0.0
       netlify-cms-proxy-server: ^1.3.24
       next: ^12.1.6
       next-seo: ^5.4.0
@@ -62,6 +63,7 @@ importers:
       react-share: ^4.4.0
       react-test-renderer: ^17.0.2
       sharp: ^0.30.7
+      simple-oauth2: ^4.3.0
       swr: ^1.3.0
       typescript: ^4.7.4
       webpack: ^5.73.0
@@ -82,6 +84,7 @@ importers:
       gray-matter: 4.0.3
       js-yaml: 4.1.0
       marked: 4.0.18
+      nanoid: 4.0.0
       next: 12.2.2_quymggomo7oodk3cofk2m5scyu
       next-seo: 5.5.0_6s32wxz5ps7aqzzuo7qur6i26m
       next-transpile-modules: 9.0.0
@@ -90,6 +93,7 @@ importers:
       react-dom: 17.0.2_react@17.0.2
       react-share: 4.4.0_react@17.0.2
       sharp: 0.30.7
+      simple-oauth2: 4.3.0
       swr: 1.3.0_react@17.0.2
     devDependencies:
       "@babel/core": 7.18.9
@@ -2867,6 +2871,22 @@ packages:
       "@hapi/hoek": 9.3.0
     dev: true
 
+  /@hapi/boom/9.1.4:
+    resolution:
+      {
+        integrity: sha512-Ls1oH8jaN1vNsqcaHVYJrKmgMcKsC1wcp8bujvXrHaAqD2iDYq3HoOwsxwo09Cuda5R5nC0o0IxlrlTuvPuzSw==,
+      }
+    dependencies:
+      "@hapi/hoek": 9.3.0
+    dev: false
+
+  /@hapi/bourne/2.1.0:
+    resolution:
+      {
+        integrity: sha512-i1BpaNDVLJdRBEKeJWkVO6tYX6DMFBuwMhSuWqLsY4ufeTKGVuV5rBsUhxPayXqnnWHgXUAmWK16H/ykO5Wj4Q==,
+      }
+    dev: false
+
   /@hapi/formula/2.0.0:
     resolution:
       {
@@ -2880,7 +2900,6 @@ packages:
       {
         integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==,
       }
-    dev: true
 
   /@hapi/joi/17.1.1:
     resolution:
@@ -2911,7 +2930,17 @@ packages:
       }
     dependencies:
       "@hapi/hoek": 9.3.0
-    dev: true
+
+  /@hapi/wreck/17.2.0:
+    resolution:
+      {
+        integrity: sha512-pJ5kjYoRPYDv+eIuiLQqhGon341fr2bNIYZjuotuPJG/3Ilzr/XtI+JAp0A86E2bYfsS3zBPABuS2ICkaXFT8g==,
+      }
+    dependencies:
+      "@hapi/boom": 9.1.4
+      "@hapi/bourne": 2.1.0
+      "@hapi/hoek": 9.3.0
+    dev: false
 
   /@humanwhocodes/config-array/0.9.5:
     resolution:
@@ -3993,6 +4022,29 @@ packages:
       {
         integrity: sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==,
       }
+
+  /@sideway/address/4.1.4:
+    resolution:
+      {
+        integrity: sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw==,
+      }
+    dependencies:
+      "@hapi/hoek": 9.3.0
+    dev: false
+
+  /@sideway/formula/3.0.0:
+    resolution:
+      {
+        integrity: sha512-vHe7wZ4NOXVfkoRb8T5otiENVlT7a3IAiw7H5M2+GO+9CDgcVUUsX1zalAztCmwyOr2RUTGJdgB+ZvSVqmdHmg==,
+      }
+    dev: false
+
+  /@sideway/pinpoint/2.0.0:
+    resolution:
+      {
+        integrity: sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==,
+      }
+    dev: false
 
   /@sinclair/typebox/0.24.20:
     resolution:
@@ -14079,6 +14131,19 @@ packages:
       - ts-node
     dev: true
 
+  /joi/17.6.0:
+    resolution:
+      {
+        integrity: sha512-OX5dG6DTbcr/kbMFj0KGYxuew69HPcAE3K/sZpEV2nP6e/j/C0HV+HNiBPCASxdx5T7DMoa0s8UeHWMnb6n2zw==,
+      }
+    dependencies:
+      "@hapi/hoek": 9.3.0
+      "@hapi/topo": 5.1.0
+      "@sideway/address": 4.1.4
+      "@sideway/formula": 3.0.0
+      "@sideway/pinpoint": 2.0.0
+    dev: false
+
   /js-string-escape/1.0.1:
     resolution:
       {
@@ -15393,6 +15458,15 @@ packages:
       }
     engines: { node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1 }
     hasBin: true
+
+  /nanoid/4.0.0:
+    resolution:
+      {
+        integrity: sha512-IgBP8piMxe/gf73RTQx7hmnhwz0aaEXYakvqZyE302IXW3HyVNhdNGC+O2MwMAVhLEnvXlvKtGbtJf6wvHihCg==,
+      }
+    engines: { node: ^14 || ^16 || >=18 }
+    hasBin: true
+    dev: false
 
   /nanomatch/1.2.13:
     resolution:
@@ -18450,6 +18524,20 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /simple-oauth2/4.3.0:
+    resolution:
+      {
+        integrity: sha512-gjLIfy7M7WZSf3k5IZCQfEozbQwmW80zR9YMH4ph/WWG6S4U6sGhPujz8X6Hj6sZ8l7acSAxiyM4tF0vIN+E+A==,
+      }
+    dependencies:
+      "@hapi/hoek": 9.3.0
+      "@hapi/wreck": 17.2.0
+      debug: 4.3.4
+      joi: 17.6.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /simple-swizzle/0.2.2:
     resolution:

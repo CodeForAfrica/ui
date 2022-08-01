@@ -1,7 +1,9 @@
 module.exports = {
   backend: {
-    name: "git-gateway",
+    name: "github",
     branch: "main",
+    repo: "CodeForAfrica/ui",
+    proxy_url: "http://localhost:8081/api/v1", // Set proxy to work on local repo
   },
   media_folder: "public/images",
   public_folder: "/images",
@@ -516,8 +518,8 @@ module.exports = {
           widget: "markdown",
         },
         {
-          label: "Image",
-          name: "image",
+          label: "Icon",
+          name: "icon",
           widget: "object",
           fields: [
             {
