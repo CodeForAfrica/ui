@@ -17,7 +17,6 @@ function wp(site) {
       `https://dashboard.hurumap.org/promisetracker/wp-json/wp/v2/media`
     );
     const data = res.ok ? await res.json() : [];
-    console.log("media details:", data.media_details);
     return data;
   }
   getMediaDetails();

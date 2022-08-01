@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import jwtDecode from "jwt-decode";
 
 import serverFn from "@/promisetracker/lib/server";
