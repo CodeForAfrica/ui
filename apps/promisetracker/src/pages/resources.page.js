@@ -1,5 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -31,7 +31,14 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   },
 }));
 
-function Resources({ actNow, description, footer, navigation, ...props }) {
+function Resources({
+  actNow,
+  actNowEnabled,
+  description,
+  footer,
+  navigation,
+  ...props
+}) {
   const classes = useStyles(props);
 
   return (
@@ -51,18 +58,21 @@ function Resources({ actNow, description, footer, navigation, ...props }) {
         ) : null
       }
     >
-      <ActNow
-        {...actNow}
-        classes={{
-          section: classes.section,
-        }}
-      />
+      {actNowEnabled ? (
+        <ActNow
+          {...actNow}
+          classes={{
+            section: classes.section,
+          }}
+        />
+      ) : null}
     </ContentPage>
   );
 }
 
 Resources.propTypes = {
   actNow: PropTypes.shape({}),
+  actNowEnabled: PropTypes.bool,
   description: PropTypes.string,
   footer: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
@@ -70,6 +80,7 @@ Resources.propTypes = {
 
 Resources.defaultProps = {
   actNow: undefined,
+  actNowEnabled: undefined,
   description: undefined,
   footer: undefined,
   navigation: undefined,
@@ -85,14 +96,8 @@ export async function getStaticProps({ locale }) {
 
   const backend = backendFn();
   const site = await backend.sites().current;
-  if (!site.resourcesEnabled) {
-    return {
-      notFound: true,
-    };
-  }
-
   const page = await wp().pages({ slug: "resources", locale }).first;
-  const languageAlternates = _.languageAlternates("/analysis/resources");
+  const languageAlternates = _.languageAlternates("/resources");
 
   return {
     props: {

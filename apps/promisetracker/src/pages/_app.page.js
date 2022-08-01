@@ -1,17 +1,17 @@
-import { CssBaseline } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
+/* eslint-env browser */
+import { CssBaseline } from "@mui/material";
+import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import { SessionProvider } from "next-auth/react";
 import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
 
+import SEO from "@/promisetracker/next-seo.config";
 import theme from "@/promisetracker/theme/index";
-import SEO from "next-seo.config";
 
-import "leaflet/dist/leaflet.css";
 // simplebar-react has a hard dependency on simplebar
 // eslint-disable-next-line import/no-extraneous-dependencies
-import "simplebar/dist/simplebar.css";
+import "simplebar-react/dist/simplebar.min.css";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -27,11 +27,13 @@ export default function MyApp(props) {
     <>
       <DefaultSeo {...SEO} />
       <SessionProvider session={pageProps.session}>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <StyledEngineProvider injectFirst>
+          <ThemeProvider theme={theme}>
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+            <CssBaseline />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </StyledEngineProvider>
       </SessionProvider>
     </>
   );

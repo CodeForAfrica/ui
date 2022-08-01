@@ -1,11 +1,14 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
 import ActNow from "@/promisetracker/components/ActNow";
+import FactCheckCard from "@/promisetracker/components/FactCheckCard";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
-import Promises from "@/promisetracker/components/Promises";
+import PostCardGrid from "@/promisetracker/components/PostCardGrid";
 import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
@@ -21,31 +24,28 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       width: typography.pxToRem(widths.values.lg),
     },
   },
-  actNow: {
-    display: "none",
-    [breakpoints.up("lg")]: {
-      display: "flex",
-    },
-  },
+  sectionTitle: {},
+  actNow: {},
   footer: {
     marginTop: 0,
   },
 }));
 
-function PromisesPage({
-  footer,
-  navigation,
-  promises,
+function FactChecks({
   actNow,
   actNowEnabled,
+  factChecks,
+  footer,
+  navigation,
   subscribe,
   title,
-  projectMeta,
-  promiseStatuses,
-  sortLabels,
   ...props
 }) {
   const classes = useStyles(props);
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const direction = isDesktop ? "column-reverse" : "column";
+
   return (
     <Page
       {...props}
@@ -54,52 +54,54 @@ function PromisesPage({
       title={title}
       classes={{ section: classes.section, footer: classes.footer }}
     >
-      <Promises
-        promiseStatuses={promiseStatuses}
-        sortLabels={sortLabels}
-        items={promises}
-        projectMeta={projectMeta}
+      <PostCardGrid
+        component={FactCheckCard}
+        items={factChecks}
         title={title}
         classes={{
           section: classes.section,
+          sectionTitle: classes.sectionTitle,
         }}
       />
-      {actNowEnabled ? (
-        <ActNow
-          {...actNow}
-          classes={{ section: classes.section, root: classes.actNow }}
-        />
-      ) : null}
-      <Subscribe
-        {...subscribe}
-        classes={{
-          section: classes.section,
-        }}
-      />
+      <Grid container direction={direction}>
+        <Grid item>
+          <Subscribe
+            {...subscribe}
+            classes={{
+              section: classes.section,
+            }}
+          />
+        </Grid>
+        {actNowEnabled ? (
+          <Grid item>
+            <ActNow
+              {...actNow}
+              classes={{
+                section: classes.section,
+                root: classes.actNow,
+              }}
+            />
+          </Grid>
+        ) : null}
+      </Grid>
     </Page>
   );
 }
 
-PromisesPage.propTypes = {
+FactChecks.propTypes = {
   actNow: PropTypes.shape({}),
   actNowEnabled: PropTypes.bool,
+  factChecks: PropTypes.arrayOf(PropTypes.shape({})),
   footer: PropTypes.shape({}),
-  projectMeta: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
-  promises: PropTypes.arrayOf(PropTypes.shape({})),
   subscribe: PropTypes.shape({}),
-  sortLabels: PropTypes.shape({}),
-  promiseStatuses: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,
 };
 
-PromisesPage.defaultProps = {
+FactChecks.defaultProps = {
   actNow: undefined,
   actNowEnabled: undefined,
-  promises: undefined,
-  sortLabels: undefined,
-  promiseStatuses: undefined,
-  projectMeta: undefined,
+  factChecks: undefined,
   footer: undefined,
   navigation: undefined,
   subscribe: undefined,
@@ -114,35 +116,27 @@ export async function getStaticProps({ locale }) {
     };
   }
 
-  const page = await wp().pages({ slug: "promises", locale }).first;
-
   const backend = backendFn();
-  const sitesApi = backend.sites();
-  const {
-    navigation,
-    statuses: promiseStatuses,
-    ...site
-  } = await sitesApi.current;
-  const projectApi = backend.project();
-  const projectMeta = await projectApi.meta;
+  const site = await backend.sites().current;
+  if (!site.factChecksEnabled) {
+    return {
+      notFound: true,
+    };
+  }
 
-  const promisesApi = backend.promises();
-  const promises = await promisesApi.all;
-  projectMeta.tags = await promisesApi.categories;
-  const languageAlternates = _.languageAlternates("/promises");
+  const factChecks = await backend.factChecks().all;
+  const page = await wp().pages({ slug: "analysis-fact-checks", locale }).first;
+  const languageAlternates = _.languageAlternates("/analysis/fact-checks");
 
   return {
     props: {
       ...page,
       ...site,
+      factChecks,
       languageAlternates,
-      navigation,
-      promises,
-      projectMeta,
-      promiseStatuses,
     },
     revalidate: 2 * 60, // seconds
   };
 }
 
-export default PromisesPage;
+export default FactChecks;

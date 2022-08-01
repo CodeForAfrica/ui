@@ -1,13 +1,11 @@
-import { Grid, useMediaQuery } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
 import ActNow from "@/promisetracker/components/ActNow";
-import FactCheckCard from "@/promisetracker/components/FactCheckCard";
 import Subscribe from "@/promisetracker/components/Newsletter";
 import Page from "@/promisetracker/components/Page";
-import PostCardGrid from "@/promisetracker/components/PostCardGrid";
+import Promises from "@/promisetracker/components/Promises";
 import backendFn from "@/promisetracker/lib/backend";
 import i18n from "@/promisetracker/lib/i18n";
 import wp from "@/promisetracker/lib/wp";
@@ -23,28 +21,31 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
       width: typography.pxToRem(widths.values.lg),
     },
   },
-  sectionTitle: {},
-  actNow: {},
+  actNow: {
+    display: "none",
+    [breakpoints.up("lg")]: {
+      display: "flex",
+    },
+  },
   footer: {
     marginTop: 0,
   },
 }));
 
-function FactChecks({
-  actNow,
-  actNowEnabled,
-  factChecks,
+function PromisesPage({
   footer,
   navigation,
+  promises,
+  actNow,
+  actNowEnabled,
   subscribe,
   title,
+  projectMeta,
+  promiseStatuses,
+  sortLabels,
   ...props
 }) {
   const classes = useStyles(props);
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-  const direction = isDesktop ? "column-reverse" : "column";
-
   return (
     <Page
       {...props}
@@ -53,54 +54,52 @@ function FactChecks({
       title={title}
       classes={{ section: classes.section, footer: classes.footer }}
     >
-      <PostCardGrid
-        component={FactCheckCard}
-        items={factChecks}
+      <Promises
+        promiseStatuses={promiseStatuses}
+        sortLabels={sortLabels}
+        items={promises}
+        projectMeta={projectMeta}
         title={title}
         classes={{
           section: classes.section,
-          sectionTitle: classes.sectionTitle,
         }}
       />
-      <Grid container direction={direction}>
-        <Grid item>
-          <Subscribe
-            {...subscribe}
-            classes={{
-              section: classes.section,
-            }}
-          />
-        </Grid>
-        {actNowEnabled ? (
-          <Grid item>
-            <ActNow
-              {...actNow}
-              classes={{
-                section: classes.section,
-                root: classes.actNow,
-              }}
-            />
-          </Grid>
-        ) : null}
-      </Grid>
+      {actNowEnabled ? (
+        <ActNow
+          {...actNow}
+          classes={{ section: classes.section, root: classes.actNow }}
+        />
+      ) : null}
+      <Subscribe
+        {...subscribe}
+        classes={{
+          section: classes.section,
+        }}
+      />
     </Page>
   );
 }
 
-FactChecks.propTypes = {
+PromisesPage.propTypes = {
   actNow: PropTypes.shape({}),
   actNowEnabled: PropTypes.bool,
-  factChecks: PropTypes.arrayOf(PropTypes.shape({})),
   footer: PropTypes.shape({}),
+  projectMeta: PropTypes.shape({}),
   navigation: PropTypes.shape({}),
+  promises: PropTypes.arrayOf(PropTypes.shape({})),
   subscribe: PropTypes.shape({}),
+  sortLabels: PropTypes.shape({}),
+  promiseStatuses: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,
 };
 
-FactChecks.defaultProps = {
+PromisesPage.defaultProps = {
   actNow: undefined,
   actNowEnabled: undefined,
-  factChecks: undefined,
+  promises: undefined,
+  sortLabels: undefined,
+  promiseStatuses: undefined,
+  projectMeta: undefined,
   footer: undefined,
   navigation: undefined,
   subscribe: undefined,
@@ -115,27 +114,35 @@ export async function getStaticProps({ locale }) {
     };
   }
 
-  const backend = backendFn();
-  const site = await backend.sites().current;
-  if (!site.factChecksEnabled) {
-    return {
-      notFound: true,
-    };
-  }
+  const page = await wp().pages({ slug: "promises", locale }).first;
 
-  const factChecks = await backend.factChecks().all;
-  const page = await wp().pages({ slug: "analysis-fact-checks", locale }).first;
-  const languageAlternates = _.languageAlternates("/analysis/fact-checks");
+  const backend = backendFn();
+  const sitesApi = backend.sites();
+  const {
+    navigation,
+    statuses: promiseStatuses,
+    ...site
+  } = await sitesApi.current;
+  const projectApi = backend.project();
+  const projectMeta = await projectApi.meta;
+
+  const promisesApi = backend.promises();
+  const promises = await promisesApi.all;
+  projectMeta.tags = await promisesApi.categories;
+  const languageAlternates = _.languageAlternates("/promises");
 
   return {
     props: {
       ...page,
       ...site,
-      factChecks,
       languageAlternates,
+      navigation,
+      promises,
+      projectMeta,
+      promiseStatuses,
     },
     revalidate: 2 * 60, // seconds
   };
 }
 
-export default FactChecks;
+export default PromisesPage;

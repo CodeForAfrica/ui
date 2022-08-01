@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -207,17 +207,18 @@ export async function getStaticProps({ locale }) {
   const promisesByStatus = groupPromisesByStatus(promises);
   const languageAlternates = _.languageAlternates();
 
+  const props = {
+    ...page,
+    articles,
+    keyPromises,
+    languageAlternates,
+    navigation,
+    promises: promises.slice(0, 6),
+    promisesByStatus,
+    projectMeta,
+  };
   return {
-    props: {
-      ...page,
-      articles,
-      keyPromises,
-      languageAlternates,
-      navigation,
-      promises: promises.slice(0, 6),
-      promisesByStatus,
-      projectMeta,
-    },
+    props,
     revalidate: 2 * 60, // seconds
   };
 }

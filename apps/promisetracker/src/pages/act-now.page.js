@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import { useSession } from "next-auth/react";
 import React, { useEffect } from "react";
 

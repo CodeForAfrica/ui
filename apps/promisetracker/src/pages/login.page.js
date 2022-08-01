@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import { getProviders, useSession } from "next-auth/react";
 import Router from "next/router";
 import PropTypes from "prop-types";
