@@ -48,7 +48,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
             <span
               class="MuiTypography-root MuiTypography-caption css-13ob0ik-MuiTypography-root"
             >
-              2022-01-06
+              Jan 6, 2022
             </span>
           </div>
         </div>

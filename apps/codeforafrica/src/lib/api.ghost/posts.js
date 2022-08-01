@@ -1,13 +1,14 @@
-import fs from "fs";
+import { promises as fs } from "fs";
 import path from "path";
 
 import GhostContentAPI from "@tryghost/content-api";
+import camelcaseKeys from "camelcase-keys";
 
-import convertToCamelCase from "@/codeforafrica/utils/camelcaseKeys";
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 const cacheDir = path.join(process.env.PWD, "public/data");
 
-function ghostAPI() {
+function initializeContentAPI() {
   return new GhostContentAPI({
     url: process.env.GHOST_URL,
     key: process.env.GHOST_API_KEY,
@@ -18,12 +19,13 @@ function ghostAPI() {
 function transformPost(post) {
   const {
     customExcerpt,
-    slug,
+    excerpt: originalExcerpt,
     primaryTag,
     publishedAt: publishedAtRaw,
-    excerpt: originalExcerpt,
+    slug,
+    tags: originalTags,
     ...other
-  } = convertToCamelCase(post);
+  } = camelcaseKeys(post, { deep: true });
 
   const excerpt = customExcerpt || originalExcerpt || null;
   const href = `/${primaryTag.slug}/${slug}`;
@@ -32,13 +34,21 @@ function transformPost(post) {
     month: "short",
     day: "numeric",
   });
+  const tags = originalTags
+    .filter(
+      (t) =>
+        equalsIgnoreCase(t.name, "opportunities") ||
+        equalsIgnoreCase(t.name, "stories")
+    )
+    .map((tag) => tag.name);
   return {
-    ...other,
     excerpt,
-    publishedAt,
     href,
-    slug,
     primaryTag,
+    publishedAt,
+    slug,
+    tags,
+    ...other,
   };
 }
 
@@ -48,13 +58,13 @@ async function cachePosts(posts) {
     date: new Date().toISOString(),
     posts,
   };
-  fs.writeFileSync(cacheFile, JSON.stringify(data));
+  await fs.writeFile(cacheFile, JSON.stringify(data));
 }
 
 async function getCachedPosts() {
   try {
     const cacheFile = path.join(cacheDir, "posts.json");
-    const data = fs.readFileSync(cacheFile);
+    const data = await fs.readFile(cacheFile, "utf8");
     return JSON.parse(data);
   } catch (error) {
     return null;
@@ -76,10 +86,11 @@ export async function getAllPosts() {
 
   // If not, fetch from Ghost
 
-  const api = ghostAPI();
+  const api = initializeContentAPI();
 
   const posts = await api.posts.browse({
     include: "authors,tags",
+    limit: "all",
   });
 
   const allPosts = posts.map(transformPost);
@@ -92,6 +103,5 @@ export async function getAllPosts() {
 
 export async function getPost(slug) {
   const allPost = await getAllPosts();
-  const post = allPost.find((p) => p.slug === slug);
-  return post;
+  return allPost.find((p) => p.slug === slug);
 }

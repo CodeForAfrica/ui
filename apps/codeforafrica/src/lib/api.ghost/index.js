@@ -8,14 +8,6 @@ export async function getAllOpportunities() {
   return opportunities;
 }
 
-export async function getAllOpportunitiesTags() {
-  const opportunities = await getAllOpportunities();
-  const tags = opportunities.flatMap((post) => post.tags);
-  const uniqueTags = [...new Set(tags.map((tag) => tag.name))];
-  uniqueTags.unshift("All");
-  return uniqueTags;
-}
-
 export async function getOpportnity(slug) {
   const post = await getPost(slug);
   return post;
@@ -29,19 +21,6 @@ export async function getAllStories() {
   return stories;
 }
 
-export async function getAllStoriesTags() {
-  const stories = await getAllStories();
-  const tags = stories.flatMap((post) => post.tags);
-  const uniqueTags = [...new Set(tags.map((tag) => tag.name))];
-  uniqueTags.unshift("All");
-  return uniqueTags;
-}
-
 export async function getStory(slug) {
-  let story = await getPost(slug);
-  // remove tags from post
-  // NOTE: For some reason, the single page breaks if the tags are included
-  story = { ...story, tags: [] };
-
-  return story;
+  return getPost(slug);
 }

@@ -42,7 +42,7 @@ export async function getStaticPaths() {
   };
 }
 
-export function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({ params: { slug } }) {
   return getPageStaticProps({ slug: `/stories/${slug}` });
 }
 
