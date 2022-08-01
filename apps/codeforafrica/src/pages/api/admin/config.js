@@ -1,3 +1,5 @@
+const APP_DIRECTORY = process.env.NEXT_PUBLIC_APP_DIRECTORY;
+
 module.exports = {
   backend: {
     name: "github",
@@ -5,7 +7,7 @@ module.exports = {
     repo: "CodeForAfrica/ui",
     proxy_url: "http://localhost:8081/api/v1", // Set proxy to work on local repo
   },
-  media_folder: "apps/codeforafrica/public/images",
+  media_folder: `${APP_DIRECTORY}public/images`,
   public_folder: "/images",
   local_backend: true,
   collections: [
@@ -16,7 +18,7 @@ module.exports = {
         {
           label: "Index",
           name: "index",
-          file: "apps/codeforafrica/content/pages/index.md",
+          file: `${APP_DIRECTORY}content/pages/index.md`,
           fields: [
             {
               label: "Hero",
@@ -181,7 +183,7 @@ module.exports = {
         {
           label: "About Us",
           name: "about",
-          file: "apps/codeforafrica/content/pages/about.md",
+          file: `${APP_DIRECTORY}content/pages/about.md`,
           fields: [
             {
               label: "Hero",
@@ -310,7 +312,7 @@ module.exports = {
         {
           label: "Contact Us",
           name: "contact",
-          file: "apps/codeforafrica/content/pages/contact.md",
+          file: `${APP_DIRECTORY}content/pages/contact.md`,
           fields: [
             {
               label: "Title",
@@ -388,7 +390,7 @@ module.exports = {
         {
           label: "Imprint",
           name: "imprint",
-          file: "apps/codeforafrica/content/pages/imprint.md",
+          file: `${APP_DIRECTORY}content/pages/imprint.md`,
           fields: [
             {
               label: "Title",
@@ -410,7 +412,7 @@ module.exports = {
         {
           label: "Privacy Policy",
           name: "privacy-policy",
-          file: "apps/codeforafrica/content/pages/privacy-policy.md",
+          file: `${APP_DIRECTORY}content/pages/privacy-policy.md`,
           fields: [
             {
               label: "Title",
@@ -435,7 +437,7 @@ module.exports = {
       label: "Data | Badges",
       name: "badges",
       label_singular: "Badge",
-      folder: "apps/codeforafrica/content/badges",
+      folder: `${APP_DIRECTORY}content/badges`,
       create: true,
       fields: [
         {
@@ -465,7 +467,7 @@ module.exports = {
       name: "donors",
       label: "Data | Donors",
       label_singular: "Donor",
-      folder: "apps/codeforafrica/content/donors",
+      folder: `${APP_DIRECTORY}content/donors`,
       create: true,
       identifier_field: "name",
       fields: [
@@ -498,7 +500,7 @@ module.exports = {
       label: "Data | Guiding Principles",
       name: "guiding-principles",
       label_singular: "Guiding Principle",
-      folder: "apps/codeforafrica/content/guiding-principles",
+      folder: `${APP_DIRECTORY}content/guiding-principles`,
       create: true,
       identifier_field: "title",
       fields: [
@@ -547,7 +549,7 @@ module.exports = {
       label: "Data | Impact",
       name: "impact",
       label_singular: "Impact",
-      folder: "apps/codeforafrica/content/impact",
+      folder: `${APP_DIRECTORY}content/impact`,
       create: true,
       identifier_field: "title",
       fields: [
@@ -601,7 +603,7 @@ module.exports = {
       label: "Data | Offices",
       name: "offices-addresses",
       label_singular: "Office",
-      folder: "apps/codeforafrica/content/offices",
+      folder: `${APP_DIRECTORY}content/offices`,
       create: true,
       identifier_field: "name",
       fields: [
@@ -625,7 +627,7 @@ module.exports = {
     {
       name: "partners",
       label: "Data | Partners",
-      folder: "apps/codeforafrica/content/partners",
+      folder: `${APP_DIRECTORY}content/partners`,
       create: true,
       identifier_field: "name",
       label_singular: "Partner",
@@ -668,7 +670,7 @@ module.exports = {
     {
       label: "Data | Projects",
       name: "projects",
-      folder: "apps/codeforafrica/content/projects",
+      folder: `${APP_DIRECTORY}content/projects`,
       create: true,
       label_singular: "Project",
       identifier_field: "name",
@@ -835,7 +837,7 @@ module.exports = {
       label: "Data | Team",
       name: "team",
       label_singular: "Team Member",
-      folder: "apps/codeforafrica/content/team",
+      folder: `${APP_DIRECTORY}content/team`,
       create: true,
       identifier_field: "name",
       fields: [
