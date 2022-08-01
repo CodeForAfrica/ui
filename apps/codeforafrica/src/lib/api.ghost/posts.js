@@ -1,6 +1,11 @@
+import fs from "fs";
+import path from "path";
+
 import GhostContentAPI from "@tryghost/content-api";
 
 import convertToCamelCase from "@/codeforafrica/utils/camelcaseKeys";
+
+const cacheDir = path.join(process.env.PWD, "public/data");
 
 function ghostAPI() {
   return new GhostContentAPI({
@@ -37,14 +42,52 @@ function transformPost(post) {
   };
 }
 
+async function cachePosts(posts) {
+  const cacheFile = path.join(cacheDir, "posts.json");
+  const data = {
+    date: new Date().toISOString(),
+    posts,
+  };
+  fs.writeFileSync(cacheFile, JSON.stringify(data));
+}
+
+async function getCachedPosts() {
+  try {
+    const cacheFile = path.join(cacheDir, "posts.json");
+    const data = fs.readFileSync(cacheFile);
+    return JSON.parse(data);
+  } catch (error) {
+    return null;
+  }
+}
+
 export async function getAllPosts() {
+  // Check if we have a cached version of the posts
+  const cachedPosts = await getCachedPosts();
+  if (cachedPosts) {
+    // check if the cache is older than 5 mins
+    // is 5 mins a good cache age?
+    // TODO: make this configurable
+    const cacheAge = new Date() - new Date(cachedPosts.date);
+    if (cacheAge < 300000) {
+      return cachedPosts.posts;
+    }
+  }
+
+  // If not, fetch from Ghost
+
   const api = ghostAPI();
 
   const posts = await api.posts.browse({
     include: "authors,tags",
   });
 
-  return posts.map(transformPost);
+  const allPosts = posts.map(transformPost);
+
+  // Cache the posts
+  await cachePosts(allPosts);
+
+  return allPosts;
 }
 
 export async function getPost(slug) {
