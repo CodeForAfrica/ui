@@ -1,25 +1,28 @@
-export default {
-  title: "PromiseTracker",
+import site from "@/promisetracker/utils/site";
+
+const config = {
   description:
     "The promise tracker is a platform-based promise tracker where citizens can track various promises and services promised by governors, institutions, political parties in their manifestos during the campaigns leading up to the elections and in the post election period.",
   openGraph: {
     type: "website",
-    locale: "en_IE",
-    site_name: "PromiseTracker",
+    locale: "en_GB",
+    url: site.environmentUrl,
+    site_name: site.name,
     images: [
       {
-        /* eslint-disable global-require */
-        url: require("./src/assets/PT-logo-header-desktop@2x.png"),
+        url: `${site.environmentUrl}image.jpg`,
         width: 800,
         height: 600,
-        alt: "PromiseTracker",
+        alt: site.name,
+        type: "image/jpeg",
       },
     ],
   },
-  additionalMetaTags: [
-    {
-      name: "viewport",
-      content: "minimum-scale=1, initial-scale=1, width=device-width",
-    },
-  ],
+  twitter: {
+    handle: "@Code4Africa",
+    site: "@Code4Africa",
+    cardType: "summary_large_image",
+  },
 };
+
+export default config;

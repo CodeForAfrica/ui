@@ -1,30 +1,55 @@
-const { withSentryConfig } = require("@sentry/nextjs");
+const path = require("path");
 
-const moduleExports = {
+const { withSentryConfig } = require("@sentry/nextjs");
+const withTM = require("next-transpile-modules")(
+  ["@commons-ui/core", "@commons-ui/next"],
+  {
+    debug: /(^|\s)+--inspect(\s|$)+/.test(process.env.NODE_OPTIONS),
+  }
+);
+
+const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
+const outputFileTracingRoot = PROJECT_ROOT
+  ? path.resolve(__dirname, PROJECT_ROOT)
+  : undefined;
+
+const moduleExports = withTM({
   experimental: {
-    outputStandalone: true,
-  },
-  eslint: {
-    dirs: ["src"],
+    outputFileTracingRoot,
   },
   i18n: {
+    domains: process.env.NEXT_PUBLIC_LOCALES?.split(",")
+      ?.map((d) => d.trim())
+      ?.filter((d) => d),
     locales: ["am", "ar", "en", "fr"],
     defaultLocale: "en",
   },
   images: {
-    domains: (process.env.IMAGE_DOMAINS || "dashboard.hurumap.org").split(","),
+    domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
+      ?.map((d) => d.trim())
+      ?.filter((d) => d),
+    unoptimized:
+      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
+      "true",
   },
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: [
-        "@svgr/webpack",
-        {
-          loader: "svg-url-loader",
-          options: {},
-        },
-      ],
-    });
+  output: "standalone",
+  pageExtensions: ["page.js"],
+  reactStrictMode: true,
+  webpack: (config) => {
+    config.module.rules.push(
+      {
+        test: /\.svg$/i,
+        type: "asset",
+        resourceQuery: /url/, // *.svg?url
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+        use: ["@svgr/webpack"],
+      }
+    );
+
     return config;
   },
   async redirects() {
@@ -36,23 +61,31 @@ const moduleExports = {
       },
     ];
   },
+
+  // Optional build-time configuration options
+  sentry: {
+    // See the 'Configure Source Maps' and 'Configure Legacy Browser Support'
+    // sections below for information on the following options:
+    //   - disableServerWebpackPlugin
+    //   - disableClientWebpackPlugin
+    //   - hideSourceMaps
+    //   - widenClientFileUpload
+    //   - transpileClientSDK
+  },
+});
+
+const sentryWebpackPluginOptions = {
+  // Additional config options for the Sentry Webpack plugin. Keep in mind that
+  // the following options are set automatically, and overriding them is not
+  // recommended:
+  //   release, url, org, project, authToken, configFile, stripPrefix,
+  //   urlPrefix, include, ignore
+
+  silent: true, // Suppresses all logs
+  // For all available options, see:
+  // https://github.com/getsentry/sentry-webpack-plugin#options.
 };
 
-const NodeEnv = process.env.ENVIRONMENT || "development";
-if (NodeEnv === "production") {
-  const SentryWebpackPluginOptions = {
-    // Additional config options for the Sentry Webpack plugin. Keep in mind that
-    // the following options are set automatically, and overriding them is not
-    // recommended:
-    //   release, url, org, project, authToken, configFile, stripPrefix,
-    //   urlPrefix, include, ignore
-    // For all available options, see:
-    // https://github.com/getsentry/sentry-webpack-plugin#options.
-  };
-
-  // Make sure adding Sentry options is the last code to run before exporting, to
-  // ensure that your source maps include changes from all other Webpack plugins
-  module.exports = withSentryConfig(moduleExports, SentryWebpackPluginOptions);
-} else {
-  module.exports = moduleExports;
-}
+// Make sure adding Sentry options is the last code to run before exporting, to
+// ensure that your source maps include changes from all other Webpack plugins
+module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions);
