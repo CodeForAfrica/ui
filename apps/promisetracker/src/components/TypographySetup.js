@@ -1,9 +1,14 @@
-import { Grid, Typography, Button } from "@material-ui/core";
+import { Grid, Typography, Button } from "@mui/material";
 import React from "react";
 
 export default function TypographySetup() {
   return (
-    <Grid container direction="column" justify="center" alignItems="center">
+    <Grid
+      container
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+    >
       <Typography variant="h1" align="center" style={{ padding: "1rem 0rem" }}>
         <em style={{ color: "#005DFD" }}>H1: </em> Lorem ipsum dolor sit amet,
         consectetur
@@ -107,7 +112,12 @@ export default function TypographySetup() {
         nibh, onsequat augue velit ac lectus.
       </Typography>
 
-      <Grid container direction="row" justify="space-between" align="center">
+      <Grid
+        container
+        direction="row"
+        justifyContent="space-between"
+        align="center"
+      >
         <Button variant="contained" size="large">
           Example
         </Button>

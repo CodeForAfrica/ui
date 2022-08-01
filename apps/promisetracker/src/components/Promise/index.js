@@ -1,15 +1,14 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import { Grid, Hidden, Typography } from "@material-ui/core";
+import { Link } from "@commons-ui/next";
+import { Grid, Hidden, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Radar from "./Radar";
 import useStyles from "./useStyles";
 
 import ActNowCard from "@/promisetracker/components/ActNowCard";
 import Dataset from "@/promisetracker/components/Dataset";
 import DataSource from "@/promisetracker/components/DataSource";
-import Link from "@/promisetracker/components/Link";
 import AuthorAtribution from "@/promisetracker/components/Promise/AuthorAtribution";
 import NarativeUpdates from "@/promisetracker/components/Promise/Narative";
 import RelatedFactChecks from "@/promisetracker/components/Promise/RelatedFactChecks";
@@ -33,7 +32,6 @@ function Promise({
     status: promise.status,
   });
 
-  const { location } = promise;
   return (
     <Section classes={{ root: classes.section }}>
       <Grid container>
@@ -68,7 +66,7 @@ function Promise({
             <Typography className={classes.label} variant="h5">
               {promiseRadarLabel}
             </Typography>
-            {location?.length ? <Radar location={promise.location} /> : null}
+            {/* if promise.location.length, include Radar here */}
           </Hidden>
           <NarativeUpdates
             {...promise.narrative}
@@ -87,7 +85,7 @@ function Promise({
           <AuthorAtribution {...promise.attribution} />
         </Grid>
         <Grid item md={1} implementation="css" smDown component={Hidden} />
-        <Hidden mdDown>
+        <Hidden lgDown>
           <Grid item xs={12} lg={3}>
             <RichTypography variant="h4" className={classes.statusLabel}>
               Promise rating status:
@@ -96,7 +94,7 @@ function Promise({
             <Typography className={classes.label} variant="h5">
               {promiseRadarLabel}
             </Typography>
-            {location?.length ? <Radar location={promise.location} /> : null}
+            {/* if promise.location.length, include Radar here */}
             <Typography className={classes.label} variant="h5">
               {relatedFactChecksLabel}
             </Typography>

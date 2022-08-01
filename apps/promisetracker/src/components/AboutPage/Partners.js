@@ -1,5 +1,6 @@
-import { A, RichTypography } from "@commons-ui/core";
-import { Grid } from "@material-ui/core";
+import { RichTypography } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
+import { Grid } from "@mui/material";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
@@ -20,12 +21,12 @@ function Partners({ items, ...props }) {
           item
           xs={12}
           container
-          component={A}
+          component={Link}
           href={partner.url}
           underline="none"
           className={classes.partner}
         >
-          <Grid item xs={12} container justify="center">
+          <Grid item xs={12} container justifyContent="center">
             <figure className={classes.partnerFigure}>
               <Image
                 src={partner.image}

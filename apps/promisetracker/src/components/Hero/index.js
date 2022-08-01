@@ -1,6 +1,6 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import { Grid, Hidden } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Hidden } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -42,7 +42,7 @@ function Hero({
   return (
     <div className={classes.root}>
       <Section classes={{ root: classes.section }}>
-        <Grid container direction="row" justify="space-between">
+        <Grid container direction="row" justifyContent="space-between">
           <Hidden lgUp implementation="css">
             <Grid item xs={12}>
               <RichTypography

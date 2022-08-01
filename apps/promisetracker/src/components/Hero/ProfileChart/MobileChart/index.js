@@ -1,5 +1,5 @@
-import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -23,7 +23,7 @@ function MobileChart({ promisesByStatus, ...props }) {
       direction="column"
       item
       xs={12}
-      justify="flex-start"
+      justifyContent="flex-start"
       alignItems="flex-start"
       spacing={3}
       className={classes.root}

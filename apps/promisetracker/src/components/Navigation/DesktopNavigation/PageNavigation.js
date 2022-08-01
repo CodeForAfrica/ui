@@ -1,11 +1,10 @@
 import { Section } from "@commons-ui/core";
-import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "@commons-ui/next";
+import { Button, Grid } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useRef } from "react";
-
-import LinkButton from "@/promisetracker/components/Link/Button";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   section: {},
@@ -66,12 +65,13 @@ function PageNavigation({
         <Grid
           container
           direction="row"
-          justify="space-around"
+          justifyContent="space-around"
           className={classes.navigation}
         >
           {navigation.map((menu) => (
             <Grid item key={menu.href}>
-              <LinkButton
+              <Button
+                component={Link}
                 disableFocusRipple
                 disableRipple
                 href={pathname || menu.href}
@@ -83,7 +83,7 @@ function PageNavigation({
                 })}
               >
                 {menu.title}
-              </LinkButton>
+              </Button>
             </Grid>
           ))}
         </Grid>

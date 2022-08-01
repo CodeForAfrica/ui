@@ -1,9 +1,9 @@
-import { Grid, IconButton } from "@material-ui/core";
-import CodeIcon from "@material-ui/icons/Code";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import LinkIcon from "@material-ui/icons/Link";
-import TwitterIcon from "@material-ui/icons/Twitter";
+import CodeIcon from "@mui/icons-material/Code";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkIcon from "@mui/icons-material/Link";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import { Grid, IconButton } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -23,24 +23,24 @@ function ShareCard({ closeCard, promiseActNow }) {
       title={shareTitle}
       description={shareDescription}
     >
-      <Grid className={classes.flexItem} justify="center">
-        <IconButton className={classes.iconButton} color="primary">
+      <Grid className={classes.flexItem} justifyContent="center">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <LinkIcon />
         </IconButton>
 
-        <IconButton className={classes.iconButton} color="primary">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <CodeIcon />
         </IconButton>
 
-        <IconButton className={classes.iconButton} color="primary">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <InstagramIcon />
         </IconButton>
 
-        <IconButton className={classes.iconButton} color="primary">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <TwitterIcon />
         </IconButton>
 
-        <IconButton className={classes.iconButton} color="primary">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <FacebookIcon />
         </IconButton>
       </Grid>

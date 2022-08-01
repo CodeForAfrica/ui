@@ -1,11 +1,11 @@
-import { Grid, IconButton, Typography } from "@material-ui/core";
-import CodeIcon from "@material-ui/icons/Code";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import MailIcon from "@material-ui/icons/MailOutline";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import WhatsAppIcon from "@material-ui/icons/WhatsApp";
+import CodeIcon from "@mui/icons-material/Code";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import MailIcon from "@mui/icons-material/MailOutline";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { Grid, IconButton, Typography } from "@mui/material";
 import React from "react";
 
 import useStyles from "./useStyles";
@@ -19,31 +19,31 @@ function ShareCard() {
         Share:
       </Typography>
       <Grid className={classes.flexItem}>
-        <IconButton className={classes.iconButton} color="primary">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <WhatsAppIcon />
         </IconButton>
 
-        <IconButton className={classes.iconButton} color="primary">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <FacebookIcon />
         </IconButton>
 
-        <IconButton className={classes.iconButton} color="primary">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <TwitterIcon />
         </IconButton>
 
-        <IconButton className={classes.iconButton} color="primary">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <InstagramIcon />
         </IconButton>
 
-        <IconButton className={classes.iconButton} color="primary">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <LinkedInIcon />
         </IconButton>
 
-        <IconButton className={classes.iconButton} color="primary">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <MailIcon />
         </IconButton>
 
-        <IconButton className={classes.iconButton} color="primary">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <CodeIcon />
         </IconButton>
       </Grid>

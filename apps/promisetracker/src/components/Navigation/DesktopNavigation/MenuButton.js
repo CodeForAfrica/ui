@@ -1,8 +1,8 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "@commons-ui/next";
+import Button from "@mui/material/Button";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React, { useRef } from "react";
-
-import LinkButton from "@/promisetracker/components/Link/Button";
 
 const useStyles = makeStyles(({ typography }) => ({
   root: {
@@ -25,7 +25,8 @@ function MenuButton({ active, size, href, title, ...props }) {
   const buttonRef = useRef();
 
   return (
-    <LinkButton
+    <Button
+      component={Link}
       disableFocusRipple
       disableRipple
       size={size}
@@ -36,7 +37,7 @@ function MenuButton({ active, size, href, title, ...props }) {
       className={classes.root}
     >
       {title}
-    </LinkButton>
+    </Button>
   );
 }
 

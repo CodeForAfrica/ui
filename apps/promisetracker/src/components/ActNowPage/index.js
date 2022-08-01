@@ -1,5 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
-import { Button, Grid, Hidden } from "@material-ui/core";
+import { Button, Grid, Hidden } from "@mui/material";
 import clsx from "clsx";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
@@ -175,7 +175,7 @@ function ActNow({
               </>
             }
             content={
-              <Hidden smDown implementation="css">
+              <Hidden mdDown implementation="css">
                 <Grid container>
                   <Grid item xs={12} className={classes.actNowSummary}>
                     <ActNowSummary

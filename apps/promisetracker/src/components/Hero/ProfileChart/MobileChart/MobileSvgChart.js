@@ -1,5 +1,5 @@
-import { Grid, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -34,9 +34,9 @@ function MobileSvgChart({
   ...props
 }) {
   const classes = useStyles(props);
-  const statusPercentage = totalPromises
-    ? (statusNumber / totalPromises) * 100
-    : 0;
+  // const statusPercentage = totalPromises
+  //   ? (statusNumber / totalPromises) * 100
+  //   : 0;
 
   return (
     <Grid

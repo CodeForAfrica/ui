@@ -1,4 +1,4 @@
-import { A } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -12,7 +12,7 @@ function FactCheckCard({ classes: classesProp, ...props }) {
   return (
     <PostCard
       {...props}
-      component={A}
+      component={Link}
       underline="none"
       classes={{
         root: classes.root,

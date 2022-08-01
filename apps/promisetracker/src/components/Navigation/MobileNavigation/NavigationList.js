@@ -1,9 +1,8 @@
-import { Grid, List, ListItem, Collapse, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "@commons-ui/next";
+import { Grid, List, ListItem, Collapse, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-
-import Link from "@/promisetracker/components/Link";
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   root: {},
@@ -80,7 +79,7 @@ function NavigationList({ onNavigate, open: openProp, navigation, ...props }) {
     <Grid
       container
       direction="column"
-      justify="space-between"
+      justifyContent="space-between"
       className={classes.root}
     >
       <List

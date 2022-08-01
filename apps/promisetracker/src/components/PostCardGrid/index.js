@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";

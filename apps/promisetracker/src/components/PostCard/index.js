@@ -6,7 +6,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
-} from "@material-ui/core";
+} from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -42,7 +42,7 @@ function PostCard({
               {title}
             </RichTypography>
           </Box>
-          <Grid container justify="space-between">
+          <Grid container justifyContent="space-between">
             <Grid item>
               <RichTypography variant="h6" className={classes.date}>
                 {date}

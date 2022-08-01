@@ -7,7 +7,7 @@ import {
   InputLabel,
   FormHelperText,
   Select,
-} from "@material-ui/core";
+} from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 

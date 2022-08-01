@@ -1,9 +1,9 @@
-import { Card, Grid, Button } from "@material-ui/core";
-import AllInclusiveIcon from "@material-ui/icons/AllInclusive";
-import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
-import ControlPointIcon from "@material-ui/icons/ControlPoint";
-import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
-import ShareIcon from "@material-ui/icons/Share";
+import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+import ControlPointIcon from "@mui/icons-material/ControlPoint";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import ShareIcon from "@mui/icons-material/Share";
+import { Card, Grid, Button } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
@@ -80,7 +80,11 @@ function ActNowButtonCard({ promise_act_now: promiseActNow, ...props }) {
         )}
         {selectedCard === Cards.ACT && (
           <BaseContent className={classes.baseContent} title={actNowTitle}>
-            <Grid className={classes.buttonContainer} item justify="center">
+            <Grid
+              className={classes.buttonContainer}
+              item
+              justifyContent="center"
+            >
               <Button
                 onClick={() => selectCard("CONNECT")}
                 className={classes.button}

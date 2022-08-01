@@ -1,5 +1,6 @@
-import { Typography, Hidden, useMediaQuery } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Typography, Hidden, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -65,7 +66,7 @@ function AuthorAtribution({
         <Typography className={classes.title} variant="h4">
           {isDesktop ? title : mobileTitle}
         </Typography>
-        <Hidden mdDown>
+        <Hidden lgDown>
           <Typography className={classes.description} variant="body1">
             {description}
           </Typography>

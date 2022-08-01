@@ -1,5 +1,5 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import { Grid, Hidden } from "@material-ui/core";
+import { Grid, Hidden } from "@mui/material";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
@@ -38,9 +38,9 @@ function ErrorPage({
         <Hidden lgUp>
           <H1 className={classes.title}>{title}</H1>
         </Hidden>
-        <Grid container justify="space-between" className={classes.grid}>
+        <Grid container justifyContent="space-between" className={classes.grid}>
           <Grid item xs={12} lg={5} className={classes.gridContent}>
-            <Hidden mdDown>
+            <Hidden lgDown>
               <H1 className={classes.title}>{title}</H1>
             </Hidden>
             <RichTypography className={classes.description}>

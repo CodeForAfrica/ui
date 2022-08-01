@@ -1,9 +1,9 @@
+import { Link } from "@commons-ui/next";
 import PropTypes from "prop-types";
 import React from "react";
 
 import useStyles from "./useStyles";
 
-import Link from "@/promisetracker/components/Link/Button";
 import PostCard from "@/promisetracker/components/PostCard";
 
 function ArticleCard({ classes: classesProp, href, ...props }) {

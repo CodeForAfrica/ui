@@ -1,10 +1,9 @@
-import { RichTypography } from "@commons-ui/core";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 

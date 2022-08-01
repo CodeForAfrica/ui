@@ -1,5 +1,5 @@
-import { A } from "@commons-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "@commons-ui/next";
+import makeStyles from "@mui/styles/makeStyles";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
@@ -23,9 +23,9 @@ function Logo({ image, url, ...props }) {
   const classes = useStyles(props);
 
   return (
-    <A href={url} className={classes.root}>
+    <Link href={url} className={classes.root}>
       <Image {...image} layout="fill" className={classes.root} />
-    </A>
+    </Link>
   );
 }
 

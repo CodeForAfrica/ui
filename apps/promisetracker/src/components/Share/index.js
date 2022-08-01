@@ -6,7 +6,7 @@ import {
   IconButton,
   SvgIcon,
   ClickAwayListener,
-} from "@material-ui/core";
+} from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 import {
@@ -17,9 +17,9 @@ import {
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as FacebookIcon } from "@/promisetracker/assets/footer-social-fb.svg";
-import { ReactComponent as LinkedInIcon } from "@/promisetracker/assets/footer-social-ln.svg";
-import { ReactComponent as TwitterIcon } from "@/promisetracker/assets/footer-social-tw.svg";
+import FacebookIcon from "@/promisetracker/assets/footer-social-fb.svg";
+import LinkedInIcon from "@/promisetracker/assets/footer-social-ln.svg";
+import TwitterIcon from "@/promisetracker/assets/footer-social-tw.svg";
 
 function Share({ link, title, description, children, ...props }) {
   const classes = useStyles(props);
@@ -45,6 +45,7 @@ function Share({ link, title, description, children, ...props }) {
         className={classes.share}
         disableFocusRipple
         disableRipple
+        size="large"
       >
         {children}
       </IconButton>

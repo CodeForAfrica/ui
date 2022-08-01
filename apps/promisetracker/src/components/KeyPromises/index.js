@@ -1,6 +1,6 @@
 import { Section } from "@commons-ui/core";
-import { IconButton, MobileStepper } from "@material-ui/core";
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@material-ui/icons";
+import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import { IconButton, MobileStepper } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -72,6 +72,7 @@ function KeyPromises({
                   onClick={handleBack}
                   disabled={activeStep === 0}
                   className={classes.stepperButton}
+                  size="large"
                 >
                   <KeyboardArrowLeft fontSize="inherit" />
                 </IconButton>
@@ -83,6 +84,7 @@ function KeyPromises({
                   onClick={handleNext}
                   disabled={activeStep === steps - 1}
                   className={classes.stepperButton}
+                  size="large"
                 >
                   <KeyboardArrowRight fontSize="inherit" />
                 </IconButton>

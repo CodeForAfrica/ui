@@ -1,12 +1,12 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import { Grid, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
 import subscribeImg from "@/promisetracker/assets/illo-subscribe@2400x.png";
-import email from "@/promisetracker/assets/subscribe-email.svg";
+import email from "@/promisetracker/assets/subscribe-email.svg?url";
 import config from "@/promisetracker/config";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
@@ -122,7 +122,7 @@ function Newsletter({
   return (
     <div className={classes.root}>
       <Section classes={{ root: classes.section }}>
-        <Grid container justify="space-between" alignItems="stretch">
+        <Grid container justifyContent="space-between" alignItems="stretch">
           <Grid item>
             <figure className={classes.figure}>
               <Image

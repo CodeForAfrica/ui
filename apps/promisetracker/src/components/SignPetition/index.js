@@ -1,4 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
+import UserIcon from "@mui/icons-material/Person";
 import {
   TextField,
   FormGroup,
@@ -6,8 +7,7 @@ import {
   FormControlLabel,
   Typography,
   IconButton,
-} from "@material-ui/core";
-import UserIcon from "@material-ui/icons/Person";
+} from "@mui/material";
 import { formatDistance } from "date-fns";
 import PropTypes from "prop-types";
 import React from "react";
@@ -41,7 +41,11 @@ function SignPetition({ signatures, session }) {
 
             return (
               <div className={classes.signature} key={time}>
-                <IconButton className={classes.iconButton} color="primary">
+                <IconButton
+                  className={classes.iconButton}
+                  color="primary"
+                  size="large"
+                >
                   <UserIcon />
                 </IconButton>
                 <RichTypography variant="caption" className={classes.text}>
@@ -52,7 +56,7 @@ function SignPetition({ signatures, session }) {
           })}
       </div>
       <div className={classes.sign}>
-        <IconButton className={classes.iconButton} color="primary">
+        <IconButton className={classes.iconButton} color="primary" size="large">
           <UserIcon />
         </IconButton>
         <RichTypography

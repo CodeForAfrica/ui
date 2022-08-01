@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -17,7 +17,7 @@ function PromiseChart({ chartLinks, title, description, ...props }) {
     <>
       {iframeSrcs.map((iframeSrc) => (
         <Grid key={iframeSrc} className={classes.root}>
-          <Grid container justify="flex-end">
+          <Grid container justifyContent="flex-end">
             <Share link={iframeSrc} description={description} title={title} />
           </Grid>
           <iframe

@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import { Formik } from "formik";
 import PropTypes from "prop-types";
 import React, { useState } from "react";

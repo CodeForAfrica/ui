@@ -1,5 +1,5 @@
-import { CardContent, Typography, Grid } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+import CloseIcon from "@mui/icons-material/Close";
+import { CardContent, Typography, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 

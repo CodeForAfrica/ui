@@ -1,3 +1,4 @@
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Dialog,
   IconButton,
@@ -5,8 +6,7 @@ import {
   DialogContent,
   DialogContentText,
   Typography,
-} from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+} from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -45,11 +45,7 @@ function ActionDialog({
       }}
     >
       {title?.length ? (
-        <DialogTitle
-          disableTypography
-          id={`${name}-title`}
-          className={classes.title}
-        >
+        <DialogTitle id={`${name}-title`} className={classes.title}>
           {onClose ? (
             <IconButton
               disableRipple
@@ -57,6 +53,7 @@ function ActionDialog({
               aria-label="close"
               onClick={onClose}
               className={classes.closeButton}
+              size="large"
             >
               <CloseIcon className={classes.closeIcon} />
             </IconButton>

@@ -1,17 +1,17 @@
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Dialog,
   Typography,
   IconButton,
   DialogContent,
   DialogTitle as MuiDialogTitle,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import CloseIcon from "@material-ui/icons/Close";
+} from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
-import info from "@/promisetracker/assets/hero-icon-info.svg";
+import info from "@/promisetracker/assets/hero-icon-info.svg?url";
 import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
@@ -70,6 +70,7 @@ function DialogTitle({ children, onClose, ...other }) {
           aria-label="close"
           className={classes.closeButton}
           onClick={onClose}
+          size="large"
         >
           <CloseIcon />
         </IconButton>

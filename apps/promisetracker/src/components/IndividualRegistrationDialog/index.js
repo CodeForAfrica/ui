@@ -1,11 +1,11 @@
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Dialog,
   IconButton,
   DialogTitle,
   DialogContent,
   Typography,
-} from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+} from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -50,17 +50,14 @@ function IndividualRegistrationDialog({
         paperWidthSm: classes.paperWidthSm,
       }}
     >
-      <DialogTitle
-        disableTypography
-        id={`${name}-title`}
-        classes={{ root: classes.title }}
-      >
+      <DialogTitle id={`${name}-title`} classes={{ root: classes.title }}>
         <Typography variant="h2">{title}</Typography>
         <IconButton
           disableRipple
           disableFocusRipple
           aria-label="close"
           onClick={handleClose}
+          size="large"
         >
           <CloseIcon className={classes.iconRoot} />
         </IconButton>

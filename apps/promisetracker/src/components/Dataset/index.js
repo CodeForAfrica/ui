@@ -1,7 +1,8 @@
-import { A, RichTypography } from "@commons-ui/core";
-import { Avatar, Grid, Tooltip } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { BarChart } from "@material-ui/icons";
+import { RichTypography } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
+import { BarChart } from "@mui/icons-material";
+import { Avatar, Grid, Tooltip } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -100,14 +101,14 @@ function Dataset({ dataset, ...props }) {
   }
   return (
     <Grid container direction="column" className={classes.root}>
-      <A
+      <Link
         href={`${config.CKAN_BACKEND_URL}/dataset/${name}`}
         underline="none"
         variant="body2"
         className={classes.title}
       >
         {title}
-      </A>
+      </Link>
       {organization && (
         <RichTypography variant="body2">{organization.title}</RichTypography>
       )}

@@ -1,13 +1,14 @@
 import {
-  A,
-  AboutOrganization,
-  LegalLinks,
-  QuickLinks,
-  StayInTouch,
+  // A,
+  // AboutOrganization,
+  // LegalLinks,
+  // QuickLinks,
+  // StayInTouch,
   Section,
 } from "@commons-ui/core";
-import { Grid, Hidden, useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
+import { Link } from "@commons-ui/next";
+import { Grid, Hidden, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
@@ -17,8 +18,7 @@ import Logo from "./Logo";
 import useStyles from "./useStyles";
 
 import ptLogo from "@/promisetracker/assets/footer-pt-logo.png";
-import cfaLogo from "@/promisetracker/assets/logo-C4A.svg";
-import Link from "@/promisetracker/components/Link";
+import cfaLogo from "@/promisetracker/assets/logo-C4A.svg?url";
 
 function MainFooter({
   about,
@@ -29,7 +29,7 @@ function MainFooter({
   socialMedia,
   ...otherProps
 }) {
-  const classes = useStyles(props);
+  const classes = useStyles(otherProps);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
@@ -40,38 +40,28 @@ function MainFooter({
     },
     url: organizationLogoProp?.link || "//codeforafrica.org",
   };
-  const legalLinks = {
-    linkComponent: Link,
-    links: legalLinksProp?.map((l) => ({
-      ...l,
-      as: l.href,
-      href: "/legal/[...slug]",
-    })),
-  };
+  // const legalLinks = {
+  //   linkComponent: Link,
+  //   links: legalLinksProp?.map((l) => ({
+  //     ...l,
+  //     as: l.href,
+  //     href: "/legal/[...slug]",
+  //   })),
+  // };
   const quickLinks = quickLinksProp?.map((q) => {
-    const hrefify = (href) => {
-      const path = href.split("/").slice(0, 2).join("/");
-      switch (path) {
-        case "/about":
-          return "/about/[slug]";
-        default:
-          return href;
-      }
-    };
-    const linkify = ({ href: hrefProp = "", ...others }) => {
-      const isRelativeHref =
-        hrefProp.startsWith("/") && !hrefProp.startsWith("//");
-      const component = isRelativeHref
-        ? Link
-        : React.forwardRef((props, ref) => <A ref={ref} {...props} />);
-      const href = isRelativeHref ? hrefify(hrefProp) : hrefProp;
-      const as = href !== hrefProp ? hrefProp : undefined;
-
+    // const hrefify = (href) => {
+    //   const path = href.split("/").slice(0, 2).join("/");
+    //   switch (path) {
+    //     case "/about":
+    //       return "/about/[slug]";
+    //     default:
+    //       return href;
+    //   }
+    // };
+    const linkify = (props) => {
       return {
-        ...others,
-        component,
-        as,
-        href,
+        ...props,
+        component: Link,
       };
     };
     return {
@@ -89,7 +79,7 @@ function MainFooter({
               <Logo {...organizationLogo} classes={{ root: classes.logo }} />
             </Grid>
             <Grid item xs={12} lg={8}>
-              <AboutOrganization
+              {/* <AboutOrganization
                 options={{
                   about: {
                     variant: "body2",
@@ -102,14 +92,14 @@ function MainFooter({
                 initiative={about?.initiative}
               >
                 {about?.about}
-              </AboutOrganization>
+              </AboutOrganization> */}
             </Grid>
             <Grid item lg={1} implementation="css" smDown component={Hidden} />
             {quickLinks?.length && (
               <>
                 <Grid item xs={6} lg={2} className={classes.quickLinksMore}>
                   <div className={classes.links}>
-                    <QuickLinks
+                    {/* <QuickLinks
                       options={{
                         link: {
                           variant: "h6",
@@ -121,12 +111,12 @@ function MainFooter({
                       }}
                       classes={{ root: classes.quickLinks, link: classes.link }}
                       {...quickLinks[0]}
-                    />
+                    /> */}
                   </div>
                 </Grid>
                 <Grid item xs={6} lg={1} className={classes.quickLinksContact}>
                   <div className={classes.links}>
-                    <QuickLinks
+                    {/* <QuickLinks
                       options={{
                         link: {
                           variant: "h6",
@@ -138,7 +128,7 @@ function MainFooter({
                       }}
                       classes={{ root: classes.quickLinks, link: classes.link }}
                       {...quickLinks[1]}
-                    />
+                    /> */}
                   </div>
                 </Grid>
               </>
@@ -159,17 +149,17 @@ function MainFooter({
                 />
               </figure>
               <div className={classes.legalContainer}>
-                {!isDesktop && socialMedia?.length && (
-                  <StayInTouch
-                    socialMedia={socialMedia}
-                    classes={{
-                      root: classes.stayInTouch,
-                      links: classes.stayInTouchLinks,
-                      text: classes.stayInTouchText,
-                      title: classes.stayInTouchTitle,
-                    }}
-                  />
-                )}
+                {/* {!isDesktop && socialMedia?.length && (
+                   <StayInTouch
+                     socialMedia={socialMedia}
+                     classes={{
+                       root: classes.stayInTouch,
+                       links: classes.stayInTouchLinks,
+                       text: classes.stayInTouchText,
+                       title: classes.stayInTouchTitle,
+                     }}
+                   />
+                )} */}
 
                 <Copyright
                   {...copyright}
@@ -178,7 +168,7 @@ function MainFooter({
                     text: classes.copyrightText,
                   }}
                 />
-                {legalLinksProp?.length && (
+                {/* {legalLinksProp?.length && (
                   <LegalLinks
                     variant="button"
                     {...legalLinks}
@@ -188,12 +178,12 @@ function MainFooter({
                       link: classes.legalLink,
                     }}
                   />
-                )}
+                )} */}
               </div>
             </Grid>
             {isDesktop && socialMedia?.length && (
               <Grid item xs={12} lg={6} className={classes.secondaryGridItem}>
-                <StayInTouch
+                {/* <StayInTouch
                   socialMedia={socialMedia}
                   options={{
                     socialMedia: {
@@ -211,7 +201,7 @@ function MainFooter({
                     links: classes.stayInTouchLinks,
                     text: classes.stayInTouchText,
                   }}
-                />
+                /> */}
               </Grid>
             )}
           </Grid>

@@ -1,10 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
-import {
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-} from "@material-ui/core";
+import { List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 

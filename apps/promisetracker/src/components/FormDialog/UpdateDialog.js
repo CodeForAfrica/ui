@@ -1,3 +1,4 @@
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Dialog,
   IconButton,
@@ -6,8 +7,7 @@ import {
   DialogContent,
   DialogContentText,
   Typography,
-} from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+} from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -44,17 +44,14 @@ function FormDialog({
         paperWidthSm: classes.paperWidthSm,
       }}
     >
-      <DialogTitle
-        disableTypography
-        id="form-dialog-title"
-        classes={{ root: classes.title }}
-      >
+      <DialogTitle id="form-dialog-title" classes={{ root: classes.title }}>
         <Typography variant="h2">{updateTitle}</Typography>
         <IconButton
           disableRipple
           disableFocusRipple
           aria-label="close"
           onClick={handleFormClose}
+          size="large"
         >
           <CloseIcon classes={{ root: classes.iconRoot }} />
         </IconButton>

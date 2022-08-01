@@ -1,5 +1,5 @@
-import { A } from "@commons-ui/core";
-import { Typography } from "@material-ui/core";
+import { Link } from "@commons-ui/next";
+import { Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -25,7 +25,7 @@ function DataSource({ classes: classesProp, documents, label, promise }) {
       </div>
       <div className={classes.documentContainer}>
         {documents.map((document) => (
-          <A
+          <Link
             key={document.dataSourceUrl}
             href={document.dataSourceUrl}
             className={classes.document}
@@ -41,7 +41,7 @@ function DataSource({ classes: classesProp, documents, label, promise }) {
             <Typography variant="body2" className={classes.name}>
               {document.title}
             </Typography>
-          </A>
+          </Link>
         ))}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -24,7 +24,7 @@ function ContentSection({
 
   return (
     <Section {...props} classes={{ root: classes.section }}>
-      <Grid container justify="space-between" className={classes.grid}>
+      <Grid container justifyContent="space-between" className={classes.grid}>
         <Grid
           item
           xs={12}

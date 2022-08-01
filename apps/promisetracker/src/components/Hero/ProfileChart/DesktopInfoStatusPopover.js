@@ -1,12 +1,12 @@
 import { RichTypography } from "@commons-ui/core";
-import { Paper, Fade, IconButton } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import CloseIcon from "@material-ui/icons/Close";
+import CloseIcon from "@mui/icons-material/Close";
+import { Paper, Fade, IconButton } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-import info from "@/promisetracker/assets/hero-icon-info.svg";
+import info from "@/promisetracker/assets/hero-icon-info.svg?url";
 import PromiseStatusList from "@/promisetracker/components/PromiseStatusList";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
@@ -62,6 +62,7 @@ function PaperTitle({ children, onClose, ...other }) {
           aria-label="close"
           className={classes.closeButton}
           onClick={onClose}
+          size="large"
         >
           <CloseIcon />
         </IconButton>

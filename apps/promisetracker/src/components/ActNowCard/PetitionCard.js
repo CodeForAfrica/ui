@@ -1,5 +1,5 @@
-import { Grid, Snackbar } from "@material-ui/core";
-import Alert from "@material-ui/lab/Alert";
+import { Grid, Snackbar } from "@mui/material";
+import Alert from "@mui/material/Alert";
 import { useSession } from "next-auth/react";
 import Router from "next/router";
 import PropTypes, { string } from "prop-types";
@@ -54,7 +54,7 @@ function PetitionCard({ closeCard, promiseActNow, ...props }) {
       title={petitionTitle}
       description={petitionDescription}
     >
-      <Grid className={classes.flexItem} justify="center">
+      <Grid className={classes.flexItem} justifyContent="center">
         <CtAButton
           color="secondary"
           onClick={handleFormOpen}

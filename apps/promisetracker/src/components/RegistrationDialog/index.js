@@ -1,4 +1,4 @@
-import { Button, DialogActions, Grid } from "@material-ui/core";
+import { Button, DialogActions, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
@@ -41,7 +41,7 @@ function RegistrationDialog({
         className={classes.root}
       >
         <DialogActions className={classes.actions}>
-          <Grid container justify="space-between">
+          <Grid container justifyContent="space-between">
             <Grid item xs={12} lg="auto">
               <Button
                 variant="outlined"

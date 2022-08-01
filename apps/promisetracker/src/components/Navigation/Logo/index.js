@@ -1,11 +1,12 @@
-import { useMediaQuery } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Link } from "@commons-ui/next";
+import { IconButton, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import Image from "next/image";
 import React from "react";
 
 import desktoplogo from "@/promisetracker/assets/PT-logo-header-desktop@2x.png";
 import logo from "@/promisetracker/assets/PT-logo-header-mob@2x.png";
-import IconButton from "@/promisetracker/components/Link/IconButton";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
   logo: {
@@ -33,10 +34,12 @@ function Logo(props) {
 
   return (
     <IconButton
+      component={Link}
       disableRipple
       disableFocusRipple
       href="/"
       className={classes.logo}
+      size="large"
     >
       <Image
         src={src}

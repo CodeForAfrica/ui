@@ -1,6 +1,6 @@
-import { A } from "@commons-ui/core";
-import { Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "@commons-ui/next";
+import { Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -30,14 +30,14 @@ function RelatedFactChecks({ factChecks, classes: classesProp }) {
   return (
     <div className={classes.root}>
       {factChecks.map(({ title, date, href }) => (
-        <A href={href} key={title} className={classes.titleDateContainer}>
+        <Link href={href} key={title} className={classes.titleDateContainer}>
           <Typography className={classes.name} variant="h4">
             {title}
           </Typography>
           <Typography className={classes.date} variant="h6">
             {date}
           </Typography>
-        </A>
+        </Link>
       ))}
     </div>
   );

@@ -1,5 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 

@@ -1,6 +1,6 @@
-import { A, RichTypography } from "@commons-ui/core";
-import Section from "@commons-ui/core/Section";
-import { Grid, Typography, Hidden } from "@material-ui/core";
+import { RichTypography, Section } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
+import { Grid, Typography, Hidden } from "@mui/material";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
@@ -9,10 +9,9 @@ import PublicationInfo from "./PublicationInfo";
 import Share from "./Share";
 import useStyles from "./useStyles";
 
-import facebook from "@/promisetracker/assets/share-facebook.svg";
-import instagram from "@/promisetracker/assets/share-instagram.svg";
-import twitter from "@/promisetracker/assets/share-twitter.svg";
-import Link from "@/promisetracker/components/Link";
+import facebook from "@/promisetracker/assets/share-facebook.svg?url";
+import instagram from "@/promisetracker/assets/share-instagram.svg?url";
+import twitter from "@/promisetracker/assets/share-twitter.svg?url";
 
 function Article({
   article,
@@ -35,7 +34,7 @@ function Article({
       <div className={classes.featuredImageContainer} />
       <Grid container>
         <Grid item lg={7}>
-          <Hidden mdDown>
+          <Hidden lgDown>
             <Typography className={classes.label} variant="h4">
               <Link href="/analysis/articles" className={classes.link}>
                 {breadcrumb}
@@ -58,7 +57,7 @@ function Article({
             <PublicationInfo {...article} />
             <div className={classes.socialMediaContainer}>
               {socialMedia.map((platform) => (
-                <A
+                <Link
                   href={platform.url}
                   key={platform.url}
                   className={classes.socialMedia}
@@ -69,7 +68,7 @@ function Article({
                     width={20}
                     height={20}
                   />
-                </A>
+                </Link>
               ))}
             </div>
           </div>

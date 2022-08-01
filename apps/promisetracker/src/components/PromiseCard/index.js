@@ -1,9 +1,9 @@
+import { Link } from "@commons-ui/next";
 import PropTypes from "prop-types";
 import React from "react";
 
 import useStyles from "./useStyles";
 
-import Link from "@/promisetracker/components/Link/Button";
 import PostCard from "@/promisetracker/components/PostCard";
 import Status from "@/promisetracker/components/PromiseStatus";
 
@@ -17,9 +17,8 @@ function PromiseCard({ classes: classesProp, status, href, title, ...props }) {
     <PostCard
       {...props}
       title={title}
-      as={href}
-      component={Link}
-      href="/promises/[...slug]"
+      component={href ? Link : undefined}
+      href={href}
       classes={{
         root: classes.root,
         content: classes.content,

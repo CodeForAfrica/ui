@@ -1,6 +1,7 @@
 import { Section } from "@commons-ui/core";
-import { Grid, useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
+import { Link } from "@commons-ui/next";
+import { Grid, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
@@ -8,7 +9,6 @@ import React from "react";
 import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
-import Link from "@/promisetracker/components/Link";
 import PromiseCard from "@/promisetracker/components/PromiseCard";
 
 function LatestPromises({ actionLabel, items, title, ...props }) {
@@ -24,7 +24,7 @@ function LatestPromises({ actionLabel, items, title, ...props }) {
       title={title}
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
-      <Grid container justify="flex-start">
+      <Grid container justifyContent="flex-start">
         {items.map((promise, i) => (
           <Grid
             key={promise.title}

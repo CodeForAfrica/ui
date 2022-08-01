@@ -1,5 +1,5 @@
-import { Grid, Divider } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Divider } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -26,14 +26,15 @@ const useStyles = makeStyles(({ typography }) => ({
   },
 }));
 
-function DesktopChart(props) {
+function DesktopChart({ promisesByStatus, ...props }) {
   const classes = useStyles(props);
+
   return (
     <Grid
       container
       item
       direction="row"
-      justify="flex-start"
+      justifyContent="flex-start"
       className={classes.root}
     >
       <ProgressChart

@@ -6,8 +6,9 @@ import {
   IconButton,
   SvgIcon,
   useMediaQuery,
-} from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -15,9 +16,9 @@ import React, { useState } from "react";
 import DesktopInfoStatusPopover from "./DesktopInfoStatusPopover";
 import MobileInfoStatusPopover from "./MobileInfoStatusPopover";
 
-import { ReactComponent as ShareIcon } from "@/promisetracker/assets/hero-icon-share (1).svg";
-import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg";
-import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg";
+import ShareIcon from "@/promisetracker/assets/hero-icon-share (1).svg";
+import viz1 from "@/promisetracker/assets/hero-icon-viz1-onclick.svg?url";
+import viz2 from "@/promisetracker/assets/hero-icon-viz2.svg?url";
 import DesktopChart from "@/promisetracker/components/Hero/ProfileChart/DesktopChart";
 import MobileChart from "@/promisetracker/components/Hero/ProfileChart/MobileChart";
 import RectChart from "@/promisetracker/components/Hero/ProfileChart/RectChart";
@@ -101,7 +102,7 @@ function ProfileDetails({
     <>
       <Grid container className={classes.root} alignItems="center">
         <Grid item xs={6} lg={8}>
-          <Hidden mdDown implementation="css">
+          <Hidden lgDown implementation="css">
             <RichTypography
               component="h1"
               variant="h1"
@@ -123,10 +124,10 @@ function ProfileDetails({
           xs={6}
           lg={4}
           container
-          justify={isDesktop ? "flex-end" : "flex-start"}
+          justifyContent={isDesktop ? "flex-end" : "flex-start"}
           alignItems="center"
         >
-          <Hidden mdDown implementation="css">
+          <Hidden lgDown implementation="css">
             <Grid item>
               <IconButton
                 disableRipple

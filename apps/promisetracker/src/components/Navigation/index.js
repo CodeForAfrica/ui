@@ -1,5 +1,5 @@
-import { AppBar, Hidden, Toolbar } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { AppBar, Hidden, Toolbar } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import { isEmpty } from "lodash";
 import PropTypes from "prop-types";
 import React from "react";
@@ -33,7 +33,7 @@ function Navigation({ navigation, ...props }) {
   return (
     <AppBar color="primary" position="sticky" className={classes.root}>
       <Toolbar disableGutters className={classes.toolbar}>
-        <Hidden mdDown implementation="css">
+        <Hidden lgDown implementation="css">
           <DesktopNavigation
             navigation={navigation}
             classes={{ section: classes.section }}

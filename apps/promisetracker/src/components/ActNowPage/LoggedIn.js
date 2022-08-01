@@ -1,4 +1,4 @@
-import { Box, Button } from "@material-ui/core";
+import { Box, Button } from "@mui/material";
 import clsx from "clsx";
 import { signOut } from "next-auth/react";
 import Image from "next/image";

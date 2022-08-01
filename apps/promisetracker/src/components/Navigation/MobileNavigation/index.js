@@ -1,5 +1,8 @@
 import { Section } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
+import { Close as CloseIcon } from "@mui/icons-material";
 import {
+  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -7,18 +10,16 @@ import {
   IconButton,
   Slide,
   Typography,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { Close as CloseIcon } from "@material-ui/icons";
+} from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import clsx from "clsx";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
-import hamburgerIcon from "@/promisetracker/assets/hamburger-icon.svg";
-import searchIcon from "@/promisetracker/assets/search-icon.svg";
-import Button from "@/promisetracker/components/Link/Button";
+import hamburgerIcon from "@/promisetracker/assets/hamburger-icon.svg?url";
+import searchIcon from "@/promisetracker/assets/search-icon.svg?url";
 import Logo from "@/promisetracker/components/Navigation/Logo";
 import NavigationList from "@/promisetracker/components/Navigation/MobileNavigation/NavigationList";
 import i18n from "@/promisetracker/lib/i18n";
@@ -111,13 +112,12 @@ function MobileNavigation({ navigation, ...props }) {
   const handleNavigate = () => {
     setOpen(false);
   };
-
   return (
     <div className={classes.root}>
       <Section classes={{ root: classes.section }}>
         <Grid
           container
-          justify="space-between"
+          justifyContent="space-between"
           alignItems="space-between"
           className={classes.navigation}
         >
@@ -130,6 +130,7 @@ function MobileNavigation({ navigation, ...props }) {
               color="secondary"
               edge="start"
               className={classes.searchButton}
+              size="large"
             >
               <Image src={searchIcon} width={21.561} height={21.561} />
             </IconButton>
@@ -138,6 +139,7 @@ function MobileNavigation({ navigation, ...props }) {
               edge="start"
               onClick={handleClickOpen}
               className={classes.menuButton}
+              size="large"
             >
               <Image src={hamburgerIcon} width={25} height={18} />
             </IconButton>
@@ -151,17 +153,18 @@ function MobileNavigation({ navigation, ...props }) {
             classes={{ root: classes.dialog, paper: classes.dialogPaper }}
           >
             <DialogActions className={classes.dialogActions}>
-              <Grid container justify="space-between">
+              <Grid container justifyContent="space-between">
                 <Grid
                   item
                   xs={10}
                   container
-                  justify="flex-start"
+                  justifyContent="flex-start"
                   alignItems="center"
                 >
                   {locales.slice(0, 4).map((locale, i) => (
                     <Grid key={locale} item>
                       <Button
+                        component={Link}
                         href={asPath}
                         locale={locale}
                         variant="text"
@@ -182,12 +185,13 @@ function MobileNavigation({ navigation, ...props }) {
                   ))}
                 </Grid>
 
-                <Grid item xs={2} container justify="flex-end">
+                <Grid item xs={2} container justifyContent="flex-end">
                   <IconButton
                     aria-label="close drawer"
                     edge="start"
                     onClick={handleClose}
                     className={clsx(classes.button, classes.closeButton)}
+                    size="large"
                   >
                     <CloseIcon fontSize="large" />
                   </IconButton>

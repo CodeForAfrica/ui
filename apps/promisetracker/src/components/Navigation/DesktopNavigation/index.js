@@ -1,6 +1,7 @@
 import { Section } from "@commons-ui/core";
-import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "@commons-ui/next";
+import { Button, Grid } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
@@ -10,7 +11,6 @@ import MenuButton from "./MenuButton";
 import NavigationButton from "./NavigationButton";
 import PageNavigation from "./PageNavigation";
 
-import Button from "@/promisetracker/components/Link/Button";
 import Logo from "@/promisetracker/components/Navigation/Logo";
 import Search from "@/promisetracker/components/Search";
 import i18n from "@/promisetracker/lib/i18n";
@@ -77,7 +77,7 @@ function DesktopNavigation({ navigation, ...props }) {
         <Grid item xs={12}>
           <div className={classes.mainNavigation}>
             <Section classes={{ root: classes.section }}>
-              <Grid container justify="flex-start" alignItems="center">
+              <Grid container justifyContent="flex-start" alignItems="center">
                 <Grid item lg={4}>
                   <Logo />
                 </Grid>
@@ -85,7 +85,7 @@ function DesktopNavigation({ navigation, ...props }) {
                   item
                   lg={4}
                   container
-                  justify="flex-end"
+                  justifyContent="flex-end"
                   alignItems="center"
                 >
                   <Grid item>
@@ -134,12 +134,13 @@ function DesktopNavigation({ navigation, ...props }) {
                   lg={1}
                   direction="column"
                   container
-                  justify="flex-start"
+                  justifyContent="flex-start"
                 >
-                  <Grid item container justify="flex-end">
+                  <Grid item container justifyContent="flex-end">
                     {locales.slice(0, 2).map((locale) => (
                       <Button
                         key={locale}
+                        component={Link}
                         href={asPath}
                         locale={locale}
                         variant="text"
@@ -152,10 +153,11 @@ function DesktopNavigation({ navigation, ...props }) {
                     ))}
                   </Grid>
 
-                  <Grid item container justify="flex-end">
+                  <Grid item container justifyContent="flex-end">
                     {locales.slice(2, 4).map((locale, i) => (
                       <Button
                         key={locale}
+                        component={Link}
                         href={asPath}
                         locale={locale}
                         variant="text"

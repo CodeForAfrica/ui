@@ -1,4 +1,4 @@
-import { Grid, Typography, Chip } from "@material-ui/core";
+import { Grid, Typography, Chip } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 
@@ -116,7 +116,11 @@ function Promises({
       }}
     >
       {withFilter && (
-        <Grid className={classes.filterGrid} container justify="space-between">
+        <Grid
+          className={classes.filterGrid}
+          container
+          justifyContent="space-between"
+        >
           <Grid item xs={12} lg={4}>
             <Filter
               label="Filter By"

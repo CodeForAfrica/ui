@@ -1,4 +1,4 @@
-import { useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React, { useState, useRef } from "react";
 

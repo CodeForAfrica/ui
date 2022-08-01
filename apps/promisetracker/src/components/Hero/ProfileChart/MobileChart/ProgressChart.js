@@ -1,5 +1,5 @@
-import { Grid, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -37,7 +37,7 @@ function ProgressChart({ progressStatuses, caption, ...props }) {
       item
       xs={12}
       direction="row"
-      justify="flex-start"
+      justifyContent="flex-start"
       alignItems="flex-start"
     >
       <Grid item xs={4} className={`${classes.border}`}>
@@ -50,7 +50,7 @@ function ProgressChart({ progressStatuses, caption, ...props }) {
         item
         xs={8}
         direction="column"
-        justify="flex-start"
+        justifyContent="flex-start"
         alignItems="flex-start"
       >
         {progressStatuses.map((progressStatus) => (

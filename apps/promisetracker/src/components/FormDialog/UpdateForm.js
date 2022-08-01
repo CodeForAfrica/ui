@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import {
   FormControl,
   InputLabel,
@@ -6,8 +7,8 @@ import {
   Typography,
   FormHelperText,
   useMediaQuery,
-} from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React, { useState, useRef } from "react";
 

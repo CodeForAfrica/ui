@@ -1,5 +1,3 @@
-import { IconButton, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import {
   Timeline,
   TimelineItem,
@@ -7,7 +5,9 @@ import {
   TimelineConnector,
   TimelineContent,
   TimelineDot,
-} from "@material-ui/lab";
+} from "@mui/lab";
+import { IconButton, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -73,7 +73,7 @@ function NarativeUpdates({ description, title, timelines, ...props }) {
         <Typography className={classes.title} variant="h4">
           {title}
         </Typography>
-        <IconButton aria-label="share" className={classes.share}>
+        <IconButton aria-label="share" className={classes.share} size="large">
           <ShareIcon color="primary" fontSize="inherit" />
         </IconButton>
       </div>

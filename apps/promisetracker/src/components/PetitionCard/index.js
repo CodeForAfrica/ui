@@ -1,16 +1,10 @@
 import { RichTypography } from "@commons-ui/core";
-import {
-  Box,
-  Card,
-  CardActionArea,
-  CardContent,
-  Grid,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "@commons-ui/next";
+import { Box, Card, CardActionArea, CardContent, Grid } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Link from "@/promisetracker/components/Link";
 import Status from "@/promisetracker/components/PromiseStatus";
 
 const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
@@ -80,7 +74,6 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
 }));
 
 function PostCard({
-  as,
   children,
   classes: classesProp,
   description,
@@ -94,56 +87,56 @@ function PostCard({
   const classes = useStyles({ classes: classesProp });
 
   return (
-    <Link href={`/analysis/petitions/${id}`} className={classes.link}>
-      <Card square variant="outlined" className={classes.root}>
-        <CardActionArea as={as} {...props} className={classes.contentRoot}>
+    <Card square variant="outlined" className={classes.root}>
+      <CardActionArea
+        component={Link}
+        href={`/analysis/petitions/${id}`}
+        {...props}
+        className={classes.contentRoot}
+      >
+        <CardContent classes={{ root: classes.content }}>
+          <Status
+            title={status || "Pending"}
+            classes={{ root: classes.status }}
+          />
+          <Box
+            display="flex"
+            alignItems="flex-end"
+            className={classes.titleContainer}
+          >
+            <RichTypography variant="h4" className={classes.title}>
+              {title}
+            </RichTypography>
+          </Box>
+          <Grid container justifyContent="flex-start">
+            <Grid item>
+              <RichTypography variant="caption" className={classes.supporters}>
+                {signatures?.length} Supporters
+              </RichTypography>
+            </Grid>
+            <Grid item>
+              <RichTypography variant="caption" className={classes.author}>
+                {owner.username}
+              </RichTypography>
+            </Grid>
+          </Grid>
+        </CardContent>
+        {description && (
           <CardContent classes={{ root: classes.content }}>
-            <Status
-              title={status || "Pending"}
-              classes={{ root: classes.status }}
-            />
-            <Box
-              display="flex"
-              alignItems="flex-end"
-              className={classes.titleContainer}
-            >
-              <RichTypography variant="h4" className={classes.title}>
-                {title}
+            <Box display="flex" className={classes.descriptionContainer}>
+              <RichTypography variant="body2" className={classes.description}>
+                {description}
               </RichTypography>
             </Box>
-            <Grid container justify="flex-start">
-              <Grid item>
-                <RichTypography
-                  variant="caption"
-                  className={classes.supporters}
-                >
-                  {signatures?.length} Supporters
-                </RichTypography>
-              </Grid>
-              <Grid item>
-                <RichTypography variant="caption" className={classes.author}>
-                  {owner.username}
-                </RichTypography>
-              </Grid>
-            </Grid>
           </CardContent>
-          {description && (
-            <CardContent classes={{ root: classes.content }}>
-              <Box display="flex" className={classes.descriptionContainer}>
-                <RichTypography variant="body2" className={classes.description}>
-                  {description}
-                </RichTypography>
-              </Box>
-            </CardContent>
-          )}
-          <CardContent classes={{ root: classes.content }}>
-            <RichTypography variant="caption" className={classes.cta}>
-              Learn More
-            </RichTypography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-    </Link>
+        )}
+        <CardContent classes={{ root: classes.content }}>
+          <RichTypography variant="caption" className={classes.cta}>
+            Learn More
+          </RichTypography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
 }
 

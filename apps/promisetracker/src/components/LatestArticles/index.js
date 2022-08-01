@@ -1,6 +1,7 @@
-import { ScrollBar, Section } from "@commons-ui/core";
-import { useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
+import { Section } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
+// import { useMediaQuery } from "@mui/material";
+// import { useTheme } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -8,12 +9,11 @@ import useStyles from "./useStyles";
 
 import ArticleCard from "@/promisetracker/components/ArticleCard";
 import CtAButton from "@/promisetracker/components/CtAButton";
-import Link from "@/promisetracker/components/Link";
 
 function LatestArticles({ actionLabel, items, title, ...props }) {
   const classes = useStyles(props);
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  // const theme = useTheme();
+  // const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
   if (!items?.length) {
     return null;
@@ -24,17 +24,17 @@ function LatestArticles({ actionLabel, items, title, ...props }) {
       classes={{ root: classes.section, title: classes.sectionTitle }}
     >
       <div className={classes.root}>
-        <ScrollBar
+        {/* <ScrollBar
           autoHide
           classes={{ root: classes.scrollBar }}
           height={isDesktop ? 462 : 500}
-        >
-          <div className={classes.cardContainer}>
-            {items.map((article) => (
-              <ArticleCard key={article.title} {...article} component="div" />
-            ))}
-          </div>
-        </ScrollBar>
+        > */}
+        <div className={classes.cardContainer}>
+          {items.map((article) => (
+            <ArticleCard key={article.title} {...article} component="div" />
+          ))}
+        </div>
+        {/* </ScrollBar> */}
       </div>
       {actionLabel && (
         <Link href="/analysis/articles" className={classes.link}>

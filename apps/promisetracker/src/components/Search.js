@@ -1,5 +1,5 @@
-import { IconButton, InputBase, Paper } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { IconButton, InputBase, Paper } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
@@ -78,6 +78,7 @@ function Search({ ariaLabel, onClick, onChange, placeholder, ...props }) {
         onClick={handleClick}
         className={classes.searchButton}
         aria-label="search"
+        size="large"
       >
         <SearchIcon fontSize="inherit" />
       </IconButton>

@@ -1,13 +1,13 @@
 import { RichTypography } from "@commons-ui/core";
-import { Grid, useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
+import { Link } from "@commons-ui/next";
+import { Grid, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
 import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
-import Button from "@/promisetracker/components/Link/Button";
 import PromiseTimeline from "@/promisetracker/components/PromiseTimeline";
 
 function KeyPromise({
@@ -29,7 +29,7 @@ function KeyPromise({
   return (
     <Grid
       container
-      justify="space-between"
+      justifyContent="space-between"
       alignItems="stretch"
       className={classes.keyPromise}
     >
@@ -44,7 +44,7 @@ function KeyPromise({
         lg={6}
         container
         direction="column"
-        justify="space-between"
+        justifyContent="space-between"
         alignContent="stretch"
         className={classes.keyPromiseDetailsGrid}
       >
@@ -66,9 +66,8 @@ function KeyPromise({
         </Grid>
         {actionLabel && (
           <CtAButton
-            component={Button}
-            as={href}
-            href="/promises/[...slug]"
+            component={Link}
+            href={href}
             classes={{
               root: classes.keyPromiseCta,
               button: classes.keyPromiseCtaButton,
@@ -92,6 +91,7 @@ function KeyPromise({
 
 KeyPromise.propTypes = {
   actionLabel: PropTypes.string,
+  classes: PropTypes.shape({}),
   description: PropTypes.string,
   events: PropTypes.arrayOf(PropTypes.shape({})),
   href: PropTypes.string.isRequired,

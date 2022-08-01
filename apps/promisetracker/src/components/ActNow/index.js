@@ -1,6 +1,7 @@
 import { Section } from "@commons-ui/core";
-import { Box, Grid, Typography, useMediaQuery } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import Head from "next/head";
 import Image from "next/image";
 import PropTypes from "prop-types";

@@ -1,6 +1,8 @@
-import { A, Section } from "@commons-ui/core";
-import { Grid, useMediaQuery } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Section } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
+import { Grid, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import clsx from "clsx";
 import Image from "next/image";
 import PropTypes from "prop-types";
@@ -85,23 +87,23 @@ function Partners({ items, title, ...props }) {
         titleProps={{ variant: "h4" }}
         classes={{ root: classes.section, title: classes.sectionTitle }}
       >
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <Grid item xs={12} lg={10}>
             <Grid
               container
-              justify={isDesktop ? "space-between" : "center"}
+              justifyContent={isDesktop ? "space-between" : "center"}
               className={classes.partners}
             >
               {items.slice(0, 6).map((partner) => (
                 <Grid item xs={12} lg="auto">
-                  <A href={partner.url} className={classes.partner}>
+                  <Link href={partner.url} className={classes.partner}>
                     <Image
                       src={partner.image}
                       layout="fill"
                       alt={partner.name}
                       className={clsx(classes.partnerLogo, classes.partnerRow)}
                     />
-                  </A>
+                  </Link>
                 </Grid>
               ))}
             </Grid>
@@ -111,6 +113,7 @@ function Partners({ items, title, ...props }) {
     </div>
   );
 }
+
 Partners.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,

@@ -1,4 +1,5 @@
 import { Section, RichTypography } from "@commons-ui/core";
+import UserIcon from "@mui/icons-material/Person";
 import {
   Grid,
   Hidden,
@@ -6,9 +7,8 @@ import {
   Typography,
   IconButton,
   Snackbar,
-} from "@material-ui/core";
-import UserIcon from "@material-ui/icons/Person";
-import Alert from "@material-ui/lab/Alert";
+} from "@mui/material";
+import Alert from "@mui/material/Alert";
 import { useSession } from "next-auth/react";
 import Router from "next/router";
 import PropTypes from "prop-types";
@@ -79,7 +79,11 @@ function Petition({ petitionPost = {}, ...props }) {
           )}
           <div className={classes.featuredImageContainer} />
           <div className={classes.ownerSection}>
-            <IconButton className={classes.usericonButton} color="primary">
+            <IconButton
+              className={classes.usericonButton}
+              color="primary"
+              size="large"
+            >
               <UserIcon />
             </IconButton>
             {name && (
@@ -127,12 +131,12 @@ function Petition({ petitionPost = {}, ...props }) {
               sm={6}
               xs={12}
               container
-              justify="center"
+              justifyContent="center"
               alignItems="center"
             >
               <Typography variant="h3">Start a petition of your own</Typography>
             </Grid>
-            <Grid item lg={6} sm={6} xs={12} justify="center">
+            <Grid item lg={6} sm={6} xs={12} justifyContent="center">
               <CtAButton
                 color="secondary"
                 onClick={handleFormOpen}
@@ -159,7 +163,7 @@ function Petition({ petitionPost = {}, ...props }) {
           </Grid>
         </Grid>
         <Grid item md={1} implementation="css" smDown component={Hidden} />
-        <Hidden mdDown>
+        <Hidden lgDown>
           <Grid item xs={12} lg={3}>
             <RichTypography variant="h4" className={classes.statusLabel}>
               Promise rating status:
