@@ -1,5 +1,5 @@
-import createTheme from "@hurumap-ui/charts/styles/createTheme";
-import { deepmerge } from "@material-ui/utils";
+import { createTheme } from "@commons-ui/core";
+import { deepmerge } from "@mui/utils";
 
 const FONT_FAMILY_HEADING = '"Amiri", "serif"';
 const FONT_FAMILY_TEXT_PRIMARY = '"Merriweather", "serif"';
