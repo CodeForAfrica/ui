@@ -1,4 +1,4 @@
-import config from "@/promisetracker/config";
+const name = process.env.NEXT_PUBLIC_APP_NAME;
 
 // see: https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname
 const ensureTrailingSlash = (string) => {
@@ -8,7 +8,7 @@ const ensureTrailingSlash = (string) => {
   }
   return url.toString();
 };
-const url = ensureTrailingSlash(process.env.NEXT_PUBLIC_APP_URL || config.URL);
+const url = ensureTrailingSlash(process.env.NEXT_PUBLIC_APP_URL);
 let environmentUrl = url;
 if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview") {
   environmentUrl = ensureTrailingSlash(
@@ -17,8 +17,9 @@ if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview") {
 }
 
 const site = {
-  url,
+  name,
   environmentUrl,
+  url,
 };
 
 export default site;

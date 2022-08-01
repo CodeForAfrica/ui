@@ -1,13 +1,13 @@
-import cc from "@/promisetracker/assets/cc.svg";
-import facebook from "@/promisetracker/assets/footer-social-fb.svg";
-import github from "@/promisetracker/assets/footer-social-gh.svg";
-import instagram from "@/promisetracker/assets/footer-social-ig.svg";
-import linkedIn from "@/promisetracker/assets/footer-social-ln.svg";
-import twitter from "@/promisetracker/assets/footer-social-tw.svg";
+import cc from "@/promisetracker/assets/cc.svg?url";
+import facebook from "@/promisetracker/assets/footer-social-fb.svg?url";
+import github from "@/promisetracker/assets/footer-social-gh.svg?url";
+import instagram from "@/promisetracker/assets/footer-social-ig.svg?url";
+import linkedIn from "@/promisetracker/assets/footer-social-ln.svg?url";
+import twitter from "@/promisetracker/assets/footer-social-tw.svg?url";
 import aboutProject from "@/promisetracker/assets/illo-aboutTheProject@2400x.png";
 import aboutMethodology from "@/promisetracker/assets/illo-method@2400x.png";
 import aboutPartners from "@/promisetracker/assets/illo-partners@2400x.png";
-import logo from "@/promisetracker/assets/logo-C4A.svg";
+import logo from "@/promisetracker/assets/logo-C4A.svg?url";
 
 const config = {
   MAPIT_URL: "https://mapit.hurumap.org",
