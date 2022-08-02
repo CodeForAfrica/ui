@@ -1041,6 +1041,156 @@ module.exports = {
             },
           ],
         },
+        {
+          label: "Footer Navigation",
+          name: "footer-navigation",
+          file: `${APP_DIRECTORY}content/settings/footer-navigation.md`,
+          fields: [
+            {
+              label: "Description",
+              name: "description",
+              widget: "text",
+            },
+            {
+              label: "Navigation Links",
+              name: "navigation-links",
+              label_singular: "Navigation Link",
+              widget: "list",
+              summary: "{{link.content}}",
+              fields: [
+                {
+                  label: "Link",
+                  name: "link",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Content",
+                      name: "content",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: "Logo",
+              name: "logo",
+              widget: "object",
+              fields: [
+                {
+                  label: "Src",
+                  name: "src",
+                  widget: "image",
+                },
+                {
+                  label: "Height",
+                  name: "height",
+                  widget: "string",
+                  required: false,
+                },
+                {
+                  label: "Width",
+                  name: "width",
+                  widget: "string",
+                  required: false,
+                },
+              ],
+            },
+            {
+              label: "Social",
+              name: "social",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Links",
+                  name: "links",
+                  label_singular: "Link",
+                  widget: "list",
+                  summary: "{{link.content}}",
+                  fields: [
+                    {
+                      label: "Link",
+                      name: "link",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Content",
+                          name: "content",
+                          widget: "string",
+                        },
+                        {
+                          label: "Href",
+                          name: "href",
+                          widget: "string",
+                        },
+                        {
+                          label: "Icon",
+                          name: "icon",
+                          widget: "object",
+                          fields: [
+                            {
+                              label: "Src",
+                              name: "src",
+                              widget: "image",
+                            },
+                            {
+                              label: "Height",
+                              name: "height",
+                              widget: "string",
+                              required: false,
+                            },
+                            {
+                              label: "Width",
+                              name: "width",
+                              widget: "string",
+                              required: false,
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  label: "External Links",
+                  name: "external-links",
+                  label_singular: "External Link",
+                  widget: "list",
+                  summary: "{{link.content}}",
+                  fields: [
+                    {
+                      label: "Link",
+                      name: "link",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Content",
+                          name: "content",
+                          widget: "string",
+                        },
+                        {
+                          label: "Href",
+                          name: "href",
+                          widget: "string",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
   ],
