@@ -72,7 +72,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.1",
     "jest-config-commons-ui": "workspace:*",
-    "netlify-cms-proxy-server": "^1.3.24",
     "playwright-config-commons-ui": "workspace:*",
     "prettier": "^2.7.1",
     "react-test-renderer": "^17.0.2",
