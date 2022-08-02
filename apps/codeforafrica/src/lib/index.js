@@ -13,7 +13,9 @@ import {
 
 import {
   getAllOpportunities,
+  getAllOpportunitiesTags,
   getAllStories,
+  getAllStoriesTags,
   getStory,
 } from "@/codeforafrica/lib/api.ghost";
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
@@ -363,8 +365,7 @@ export async function getOpportunities(options) {
 
 async function getOpportunitiesPageStaticProps() {
   const allOpportunities = await getAllOpportunities();
-  const tags = allOpportunities.flatMap((a) => a.tags);
-  const uniqueTags = ["All", ...new Set(tags)];
+  const tags = await getAllOpportunitiesTags();
 
   return {
     props: {
@@ -378,7 +379,7 @@ async function getOpportunitiesPageStaticProps() {
         {
           slug: "opportunities",
           opportunities: paginateResults(allOpportunities),
-          tags: uniqueTags,
+          tags,
         },
       ],
       footer,
@@ -512,8 +513,7 @@ async function getProjectPageStaticProps(params) {
 
 async function getStoriesPageStaticProps() {
   const articles = await getAllStories();
-  const tags = articles.flatMap((a) => a.tags);
-  const uniqueTags = ["All", ...new Set(tags)];
+  const tags = await getAllStoriesTags();
 
   return {
     props: {
@@ -523,7 +523,7 @@ async function getStoriesPageStaticProps() {
           slug: "articles",
           title: "Articles",
           articles: paginateResults(articles),
-          tags: uniqueTags,
+          tags,
         },
       ],
       footer,

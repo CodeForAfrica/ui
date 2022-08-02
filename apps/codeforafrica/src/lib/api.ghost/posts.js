@@ -37,8 +37,10 @@ function transformPost(post) {
   const tags = originalTags
     .filter(
       (t) =>
-        equalsIgnoreCase(t.name, "opportunities") ||
-        equalsIgnoreCase(t.name, "stories")
+        !(
+          equalsIgnoreCase(t.name, "opportunities") ||
+          equalsIgnoreCase(t.name, "stories")
+        )
     )
     .map((tag) => tag.name);
   return {

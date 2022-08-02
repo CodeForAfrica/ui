@@ -1,5 +1,5 @@
 {
-  "date": "2022-08-01T19:53:28.514Z",
+  "date": "2022-08-02T06:19:06.277Z",
   "posts": [
     {
       "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
@@ -27,7 +27,14 @@
       },
       "publishedAt": "Jul 12, 2022",
       "slug": "battle-for-gender-equality-in-african-media-continues",
-      "tags": ["Stories"],
+      "tags": [
+        "Decision-making",
+        "Empowering citizens",
+        "Kenya",
+        "Nigeria",
+        "Water scarcity",
+        "Misinformation"
+      ],
       "id": "62cd7823dec4840007b1ce75",
       "uuid": "b5576cea-1127-402c-bb01-34c20df7ea40",
       "title": "Battle for gender equality in African media continues",
@@ -116,7 +123,7 @@
       },
       "publishedAt": "Jun 8, 2022",
       "slug": "new-tool-to-aid-storytellers-in-kenya-with-budget-and-census-data",
-      "tags": ["Stories"],
+      "tags": ["Kenya"],
       "id": "62de2f0ddec4840007b1ceda",
       "uuid": "797f372f-36ff-402b-ae9c-d770f5956723",
       "title": "New tool to aid storytellers in Kenya with budget and census data",
@@ -205,7 +212,7 @@
       },
       "publishedAt": "Mar 24, 2022",
       "slug": "misinformation-fuelling-vaccine-hesitancy-in-makoko",
-      "tags": ["Stories"],
+      "tags": ["Nigeria"],
       "id": "62de2e58dec4840007b1cec3",
       "uuid": "f7fe02f8-47ab-47c6-96d3-af7ca0d2c522",
       "title": "Misinformation fuelling vaccine hesitancy in Makoko",
