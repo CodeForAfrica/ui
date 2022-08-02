@@ -1,8 +1,6 @@
-import promisesCache from "../../../public/data/promises.json";
-
 import promisesQL from "@/promisetracker/lib/jsonql/promises";
 
-const client = promisesQL(promisesCache.promises);
+const client = promisesQL([]);
 const allPromises = client.getPromises();
 
 function handleSinglePromise(defaultStatus, promiseStatuses, promise) {
