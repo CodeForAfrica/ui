@@ -1,64 +1,87 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+
+import useArticles from "./useArticles";
 
 import ArticleGrid from "@/codeforafrica/components/ArticleGrid";
 import NextPreviousPagination from "@/codeforafrica/components/NextPreviousPagination";
+import useFilterQuery, {
+  ALL_TAG,
+} from "@/codeforafrica/components/useFilterQuery";
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
-const ALL_TAG = "All";
-
-const computePagination = (allArtiles, page, pageSize) => {
-  const count = Math.ceil(allArtiles.length / pageSize);
-  const articles = allArtiles.slice((page - 1) * pageSize, page * pageSize);
-  return { count, articles };
-};
-
-function Articles(props) {
+const Articles = React.forwardRef(function Articles(props, ref) {
+  const {
+    articles: {
+      pagination: { count: countProp, page: pageProp = 1 },
+      results: resultsProp,
+    },
+    sx,
+    tags,
+    title,
+  } = props;
   // We use 10 because article 0 will be shown as featured article
-  const { articles = [], page: pageProp = 1, pageSize = 10, title } = props;
-  const [tags] = useState(() => {
-    const uniqueTags = [...new Set(articles?.flatMap((a) => a.tags || []))];
-    uniqueTags.unshift(ALL_TAG);
-    return uniqueTags;
-  });
-  const [selectedTag, setSelectedTag] = useState(ALL_TAG);
-  const handleTagChange = (_, value) => {
-    const newTag = value || ALL_TAG;
-    setSelectedTag(newTag);
-  };
-  const getFilteredArticles = useCallback(() => {
-    let filteredArticles;
-    if (selectedTag !== ALL_TAG) {
-      filteredArticles = articles.filter((a) => a.tags?.includes(selectedTag));
-    } else {
-      filteredArticles = articles;
-    }
-    return filteredArticles;
-  }, [articles, selectedTag]);
+  const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);
-  const handlePageChange = (_, value) => {
+  const [articles, setArticles] = useState(resultsProp);
+  const [q, setQ] = useState();
+  const [tag, setTag] = useState(ALL_TAG);
+  const queryParams = useFilterQuery({ page, q, tag });
+  const router = useRouter();
+
+  const handleChangePage = (_, value) => {
     setPage(value);
   };
-  const [pagination, setPagination] = useState(() => {
-    return computePagination(getFilteredArticles(), page, pageSize);
-  });
+
+  const handleChangeQ = (_, value) => {
+    setQ(value || undefined);
+  };
+
+  const handleChangeTag = (_, value) => {
+    const newValue =
+      (value && tags.find((t) => equalsIgnoreCase(value, t))) || ALL_TAG;
+    setTag(newValue);
+    setPage(1);
+  };
+
+  const { data } = useArticles({ page, q, tag });
   useEffect(() => {
-    setPagination(computePagination(getFilteredArticles(), page, pageSize));
-  }, [getFilteredArticles, page, pageSize]);
+    if (data) {
+      const { results, pagination } = data;
+      setCount(pagination.count);
+      setArticles([...results]);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    router.push(queryParams, undefined, {
+      scroll: true,
+      shallow: true,
+    });
+
+    // We don't want to listen to router changes here since we're the ones
+    // updating them
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryParams]);
 
   return (
-    <>
+    <div ref={ref}>
       <ArticleGrid
-        articles={pagination.articles}
-        onChange={handleTagChange}
-        selectedTag={selectedTag}
+        articles={articles}
+        onChangeQ={handleChangeQ}
+        onChangeTag={handleChangeTag}
+        selectedTag={tag}
         tags={tags}
         title={title}
+        sx={sx}
       />
       <NextPreviousPagination
-        count={pagination.count}
-        onChange={handlePageChange}
+        count={count}
+        onChange={handleChangePage}
+        page={page}
       />
-    </>
+    </div>
   );
-}
+});
 
 export default Articles;

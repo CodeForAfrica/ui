@@ -72,7 +72,6 @@ const Projects = React.forwardRef(function Projects(
         sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 2.5, md: 8, lg: 9 }, ...sx }}
       >
         <FilterBar
-          allTag={ALL_TAG}
           onChangeQ={handleChangeQ}
           onChangeTag={handleChangeTag}
           q={q}

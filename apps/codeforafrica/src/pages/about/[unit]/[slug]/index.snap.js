@@ -28,7 +28,7 @@ exports[`<Pages/About/[Unit]/[Slug] /> renders unchanged 1`] = `
               Justin Arenstein
             </div>
             <div
-              class="MuiTypography-root MuiTypography-h3Light css-1hyoq96-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3Light css-1o05aqh-MuiTypography-root"
             >
               CEO of Code for Africa
             </div>

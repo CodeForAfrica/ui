@@ -1,5 +1,5 @@
 import { Section, RichTypography } from "@commons-ui/core";
-import { Box } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import React from "react";
 
 import GuidingPrinciplesCard from "../GuidingPrinciplesCard";
@@ -14,18 +14,21 @@ const GuidingPrinciplesCardList = React.forwardRef(
     return (
       <Section {...other} ref={ref}>
         <RichTypography variant="h4">{title}</RichTypography>
-        <Box
+        <Grid
+          container
+          alignItems="stretch"
+          rowSpacing={{ xs: 1.25, sm: 2.5, lg: 5 }}
           sx={{
             marginTop: { xs: "20px", lg: "40px" },
-            display: "flex",
-            flexWrap: "wrap",
             justifyContent: "space-between",
           }}
         >
           {principles.map((principle) => (
-            <GuidingPrinciplesCard key={principle.title} {...principle} />
+            <Grid item key={principle.title}>
+              <GuidingPrinciplesCard {...principle} />
+            </Grid>
           ))}
-        </Box>
+        </Grid>
       </Section>
     );
   }

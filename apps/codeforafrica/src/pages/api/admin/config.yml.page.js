@@ -15,6 +15,7 @@ export default function handler(req, res) {
       config.publish_mode = "editorial_workflow";
       // Remove dev configurations
       config.local_backend = undefined;
+      config.backend.proxy_url = undefined;
     }
     config.logo_url = site.logoUrl;
     const configFile = yaml.dump(config);

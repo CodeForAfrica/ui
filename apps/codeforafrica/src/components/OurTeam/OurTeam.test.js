@@ -9,8 +9,17 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
+  team: { pagination: {}, results: [] },
   title: "Our team",
 };
+
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    isReady: true,
+    push: jest.fn(),
+    query: {},
+  })),
+}));
 
 describe("<OurTeam />", () => {
   it("renders unchanged", () => {

@@ -27,7 +27,7 @@ exports[`<AboutChildPageHeader /> renders unchanged 1`] = `
             Jacobo Ottaviani
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h3Light css-1hyoq96-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3Light css-1o05aqh-MuiTypography-root"
           >
             Chief Data Officer
           </div>

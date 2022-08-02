@@ -12,7 +12,7 @@ const defaultProps = {
   slug: "our-team",
   title: "title",
   description: "description",
-  logo: "/images/Africa@2400x 1lg",
+  logo: "/images/Africa@2400x 1",
   href: "/about#our-team",
 };
 

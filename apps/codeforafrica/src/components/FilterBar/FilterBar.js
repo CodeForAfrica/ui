@@ -7,7 +7,17 @@ import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 import SearchInput from "@/codeforafrica/components/SearchInput";
 
 const FilterBar = React.forwardRef(function FilterBar(props, ref) {
-  const { SearchInputProps, onChangeQ, onChangeTag, q, tag, tags } = props;
+  const {
+    ChoiceChipGroupProps,
+    ChoiceChipProps,
+    SearchInputProps,
+    onChangeQ,
+    onChangeTag,
+    q,
+    tag,
+    tags,
+    ...other
+  } = props;
   const [search, setSearch] = useState();
   const router = useRouter();
 
@@ -56,6 +66,7 @@ const FilterBar = React.forwardRef(function FilterBar(props, ref) {
     <Stack
       direction={{ xs: "column", sm: "row" }}
       justifyContent="space-between"
+      {...other}
       ref={ref}
     >
       <SearchInput
@@ -78,14 +89,16 @@ const FilterBar = React.forwardRef(function FilterBar(props, ref) {
       {tags?.length > 0 ? (
         <ChoiceChipGroup
           color="default"
+          {...ChoiceChipGroupProps}
           onChange={handleChangeChoice}
           value={tag}
           sx={{
             order: { xs: 1, sm: 0 },
+            ...ChoiceChipGroupProps?.sx,
           }}
         >
           {tags.map((t) => (
-            <ChoiceChip label={t} value={t} key={t} />
+            <ChoiceChip {...ChoiceChipProps} label={t} value={t} key={t} />
           ))}
         </ChoiceChipGroup>
       ) : null}

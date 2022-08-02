@@ -2,7 +2,7 @@ import { RichTypography, Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import React from "react";
 
-const OurMission = React.forwardRef(function TeamMembers(props, ref) {
+const OurMission = React.forwardRef(function OurMission(props, ref) {
   const { action, description, slug, subtitle, title, ...other } = props;
 
   if (!title?.length) {
@@ -21,8 +21,15 @@ const OurMission = React.forwardRef(function TeamMembers(props, ref) {
         {subtitle}
       </RichTypography>
       <RichTypography
-        variant="body1"
-        sx={{ mb: "30px", typography: { md: "subheading" } }}
+        sx={{
+          mb: "30px",
+          "& h2": {
+            typography: { xs: "h4", md: "h2" },
+          },
+          "& p, & li": {
+            typography: { xs: "body1", md: "subheading" },
+          },
+        }}
       >
         {description}
       </RichTypography>

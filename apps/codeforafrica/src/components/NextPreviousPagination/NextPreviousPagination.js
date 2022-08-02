@@ -19,7 +19,7 @@ const NextPreviousPagination = React.forwardRef(function NextPreviousPagination(
   props,
   ref
 ) {
-  const { count, onChange } = props;
+  const { count, onChange, sx } = props;
   const { items, ...other } = usePagination(props);
   const router = useRouter();
 
@@ -40,7 +40,7 @@ const NextPreviousPagination = React.forwardRef(function NextPreviousPagination(
     return null;
   }
   return (
-    <TwoToneBackground component="nav" ref={ref}>
+    <TwoToneBackground component="nav" sx={sx} ref={ref}>
       <NextPreviousPaginationListRoot {...other} sx={{ zIndex: 1 }}>
         {items
           .filter(({ type }) => ["previous", "next"].includes(type))
