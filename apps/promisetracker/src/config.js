@@ -140,7 +140,7 @@ const config = {
     },
     organization_logo: {
       image: logo,
-      link: "//codeforafrica.org",
+      link: "https://codeforafrica.org",
       alt: "CodeforAfrica",
     },
     copyright: {

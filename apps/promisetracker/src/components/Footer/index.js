@@ -38,7 +38,7 @@ function MainFooter({
       src: organizationLogoProp?.image || cfaLogo,
       alt: organizationLogoProp?.alt || "Code for Africa",
     },
-    url: organizationLogoProp?.link || "//codeforafrica.org",
+    url: organizationLogoProp?.link || "https://codeforafrica.org",
   };
   // const legalLinks = {
   //   linkComponent: Link,
