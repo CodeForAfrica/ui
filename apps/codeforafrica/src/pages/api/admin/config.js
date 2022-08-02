@@ -931,128 +931,109 @@ module.exports = {
       ],
     },
     {
-      label: "Settings",
       name: "settings",
-      folder: `${APP_DIRECTORY}content/settings`,
-      create: true,
-      label_singular: "Setting",
-      identifier_field: "name",
-      fields: [
+      label: "Settings",
+      files: [
         {
-          label: "Id",
-          name: "id",
-          widget: "uuid",
-        },
-        {
-          label: "Name",
-          name: "name",
-          widget: "string",
-        },
-        {
-          label: "Description",
-          name: "body",
-          widget: "markdown",
-          required: false,
-        },
-        {
-          label: "Logo",
-          name: "logo",
-          widget: "object",
+          label: "Header Navigation",
+          name: "header-navigation",
+          file: `${APP_DIRECTORY}content/settings/header-navigation.md`,
           fields: [
             {
-              label: "Src",
-              name: "src",
-              widget: "image",
-            },
-            {
-              label: "Height",
-              name: "height",
-              widget: "string",
-              required: false,
-            },
-            {
-              label: "Width",
-              name: "width",
-              widget: "string",
-              required: false,
-            },
-          ],
-        },
-        {
-          label: "Navigation Links",
-          name: "navigation-links",
-          label_singular: "Navigation Link",
-          widget: "list",
-          summary: "{{link.content}}",
-          fields: [
-            {
-              label: "Link",
-              name: "link",
-              widget: "object",
+              label: "Navigation Links",
+              name: "navigation-links",
+              label_singular: "Navigation Link",
+              widget: "list",
+              summary: "{{link.content}}",
               fields: [
                 {
-                  label: "Content",
-                  name: "content",
-                  widget: "string",
-                },
-                {
-                  label: "Href",
-                  name: "href",
-                  widget: "string",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          label: "Title",
-          name: "title",
-          widget: "string",
-          required: false,
-        },
-        {
-          label: "Social Links",
-          name: "social-links",
-          label_singular: "Social Link",
-          widget: "list",
-          summary: "{{link.content}}",
-          fields: [
-            {
-              label: "Link",
-              name: "link",
-              widget: "object",
-              fields: [
-                {
-                  label: "Content",
-                  name: "content",
-                  widget: "string",
-                },
-                {
-                  label: "Href",
-                  name: "href",
-                  widget: "string",
-                },
-                {
-                  label: "Icon",
-                  name: "icon",
+                  label: "Link",
+                  name: "link",
                   widget: "object",
                   fields: [
                     {
-                      label: "Src",
-                      name: "src",
-                      widget: "image",
+                      label: "Content",
+                      name: "content",
+                      widget: "string",
                     },
                     {
-                      label: "Height",
-                      name: "height",
+                      label: "Href",
+                      name: "href",
                       widget: "string",
-                      required: false,
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: "Logo",
+              name: "logo",
+              widget: "object",
+              fields: [
+                {
+                  label: "Src",
+                  name: "src",
+                  widget: "image",
+                },
+                {
+                  label: "Height",
+                  name: "height",
+                  widget: "string",
+                  required: false,
+                },
+                {
+                  label: "Width",
+                  name: "width",
+                  widget: "string",
+                  required: false,
+                },
+              ],
+            },
+            {
+              label: "Social Links",
+              name: "social-links",
+              label_singular: "Social Link",
+              widget: "list",
+              summary: "{{link.content}}",
+              fields: [
+                {
+                  label: "Link",
+                  name: "link",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Content",
+                      name: "content",
+                      widget: "string",
                     },
                     {
-                      label: "Width",
-                      name: "width",
+                      label: "Href",
+                      name: "href",
                       widget: "string",
-                      required: false,
+                    },
+                    {
+                      label: "Icon",
+                      name: "icon",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Src",
+                          name: "src",
+                          widget: "image",
+                        },
+                        {
+                          label: "Height",
+                          name: "height",
+                          widget: "string",
+                          required: false,
+                        },
+                        {
+                          label: "Width",
+                          name: "width",
+                          widget: "string",
+                          required: false,
+                        },
+                      ],
                     },
                   ],
                 },
