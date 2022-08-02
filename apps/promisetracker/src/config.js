@@ -12,8 +12,8 @@ import logo from "@/promisetracker/assets/logo-C4A.svg?url";
 const config = {
   MAPIT_URL: "https://mapit.hurumap.org",
   LANGUAGE_BY_LOCALE: { ar: "عربى" },
-  LOCALES: ["en", "am", "fr", "ar"],
-  DEFAULT_LOCALE: "en",
+  I18N_LOCALES: ["en"],
+  I18N_DEFAULT_LOCALE: "en",
   GRAPHQL_URI: "https://check-api.checkmedia.org/api/graphql",
   CHECK_ASSET_URI: "https://assets.checkmedia.org/uploads/dynamic",
   PROXY_URL: "https://corsanywhere.devops.codeforafrica.org",

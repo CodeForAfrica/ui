@@ -18,11 +18,10 @@ const moduleExports = withTM({
     outputFileTracingRoot,
   },
   i18n: {
-    domains: process.env.NEXT_PUBLIC_LOCALES?.split(",")
+    locales: process.env.NEXT_PUBLIC_I18N_LOCALES?.split(",")
       ?.map((d) => d.trim())
-      ?.filter((d) => d),
-    locales: ["am", "ar", "en", "fr"],
-    defaultLocale: "en",
+      ?.filter((d) => d) || ["en"],
+    defaultLocale: process.env.NEXT_PUBLIC_I18N_DEFAULT_LOCALE?.trim() || "en",
   },
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
