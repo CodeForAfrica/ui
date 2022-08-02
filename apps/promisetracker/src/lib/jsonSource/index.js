@@ -1,4 +1,4 @@
-import promisesCache from "../../../public/promises.json";
+import promisesCache from "../../../public/data/promises.json";
 
 import promisesQL from "@/promisetracker/lib/jsonql/promises";
 

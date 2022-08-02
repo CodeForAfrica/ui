@@ -203,13 +203,13 @@ importers:
       eslint-plugin-import: ^2.26.0
       form-data: ^4.0.0
       formik: ^2.2.9
-      formik-material-ui: ^3.0.1
+      formik-mui: 5.0.0-alpha.0
+      formik-mui-lab: ^1.0.0
       identity-obj-proxy: ^3.0.0
       jest: ^28.1.1
       jest-config-commons-ui: workspace:*
       jwt-decode: ^3.1.2
       lodash: ^4.17.21
-      netlify-cms-proxy-server: ^1.3.24
       next: ^12.1.6
       next-auth: ^4.9.0
       next-seo: ^5.4.0
@@ -246,7 +246,8 @@ importers:
       date-fns: 2.29.1
       form-data: 4.0.0
       formik: 2.2.9_react@17.0.2
-      formik-material-ui: 3.0.1_gucq6mxd6vv4tyaosu7hmx3lny
+      formik-mui: 5.0.0-alpha.0_5rmukdu6uywpbextzvnz3gya3m
+      formik-mui-lab: 1.0.0_liiz5wswzvaxaukld45i2xklv4
       jwt-decode: 3.1.2
       lodash: 4.17.21
       next: 12.2.2_quymggomo7oodk3cofk2m5scyu
@@ -279,7 +280,6 @@ importers:
       identity-obj-proxy: 3.0.0
       jest: 28.1.3_@types+node@17.0.45
       jest-config-commons-ui: link:../../packages/jest-config-commons-ui
-      netlify-cms-proxy-server: 1.3.24
       playwright-config-commons-ui: link:../../packages/playwright-config-commons-ui
       prettier: 2.7.1
       react-test-renderer: 17.0.2_react@17.0.2
@@ -10888,6 +10888,7 @@ packages:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
+    dev: false
 
   /eslint-plugin-import/2.26.0_lykk3aq4bjwcokzx4hz4gaakgm:
     resolution:
@@ -12005,17 +12006,45 @@ packages:
     engines: { node: ">=0.4.x" }
     dev: true
 
-  /formik-material-ui/3.0.1_gucq6mxd6vv4tyaosu7hmx3lny:
+  /formik-mui-lab/1.0.0_liiz5wswzvaxaukld45i2xklv4:
     resolution:
       {
-        integrity: sha512-N8oxZIdhY70npRv86IfF6Zaaps9RL3a37XRdq02WDroB3XZC1mXs6lA/zQ09ZYFWYJp/UjI80SKVpVa/xJOJJA==,
+        integrity: sha512-4YSpaFXJ4fJ+er2Eu/XNcKyrrcUEWQiwxWjnSbki9bxRjjSDiKWCrRlDgM+vdl/HEiO+XrwrxA5I9M+xU4r1tg==,
       }
     peerDependencies:
-      "@material-ui/core": ">=4.0.0"
-      formik: ">=2.0.0"
-      react: ">=16.8.0"
-      tiny-warning: ">=1.0.2"
+      "@emotion/react": ">=11.4.1"
+      "@emotion/styled": ">=11.3.0"
+      "@mui/lab": ^5.0.0-alpha.48
+      "@mui/material": ">=5.0.0"
+      formik: ">=2.2.9"
+      react: ">=17.0.2"
+      tiny-warning: ">=1.0.3"
     dependencies:
+      "@emotion/react": 11.9.3_scignkcflm5jgovmpo2vyoprwy
+      "@emotion/styled": 11.9.3_wbgka6igwxy427csuiznmz3sl4
+      "@mui/lab": 5.0.0-alpha.92_goukdfjqxak7ppfao2pdadvhhq
+      "@mui/material": 5.9.1_mzmbzck2qunrnxjb6zwxgpnkmu
+      formik: 2.2.9_react@17.0.2
+      react: 17.0.2
+      tiny-warning: 1.0.3
+    dev: false
+
+  /formik-mui/5.0.0-alpha.0_5rmukdu6uywpbextzvnz3gya3m:
+    resolution:
+      {
+        integrity: sha512-tcY8B4I3N2UK9ghgVpeBWsXGMDe1y4LVKwI8GiUbLKGB86fI/CN9UMr4FuNo6kzNXvO42LFNmCxdEVzovNCyYQ==,
+      }
+    peerDependencies:
+      "@emotion/react": ">=11.5.0"
+      "@emotion/styled": ">=11.3.0"
+      "@mui/material": ">=5.2.3"
+      formik: ">=2.2.9"
+      react: ">=17.0.2"
+      tiny-warning: ">=1.0.3"
+    dependencies:
+      "@emotion/react": 11.9.3_scignkcflm5jgovmpo2vyoprwy
+      "@emotion/styled": 11.9.3_wbgka6igwxy427csuiznmz3sl4
+      "@mui/material": 5.9.1_mzmbzck2qunrnxjb6zwxgpnkmu
       formik: 2.2.9_react@17.0.2
       react: 17.0.2
       tiny-warning: 1.0.3

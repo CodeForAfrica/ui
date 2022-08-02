@@ -6,7 +6,7 @@ import {
   Typography,
 } from "@mui/material";
 import { ErrorMessage, Form as FForm, Field } from "formik";
-import { Checkbox } from "formik-material-ui";
+import { Checkbox } from "formik-mui";
 import PropTypes from "prop-types";
 import React from "react";
 

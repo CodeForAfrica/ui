@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { Field } from "formik";
-import { InputBase } from "formik-material-ui";
+import { InputBase } from "formik-mui";
 import PropTypes from "prop-types";
 import React from "react";
 
