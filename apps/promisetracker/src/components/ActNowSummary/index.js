@@ -19,11 +19,15 @@ const useStyles = makeStyles(() => ({
 
 function ActNowSummary({ summary, titles, ...props }) {
   const classes = useStyles(props);
+
+  if (!summary) {
+    return null;
+  }
   return (
     <Grid container className={classes.root}>
       <Grid item xs={2}>
         <Typography variant="h4" className={classes.count}>
-          {summary.accounts.count}
+          {summary.accounts?.count}
         </Typography>
       </Grid>
       <Grid item xs={4}>
@@ -33,7 +37,7 @@ function ActNowSummary({ summary, titles, ...props }) {
       </Grid>
       <Grid item xs={1}>
         <Typography variant="h4" className={classes.count}>
-          {summary.petitions.count}
+          {summary.petitions?.count}
         </Typography>
       </Grid>
       <Grid item xs={5}>
