@@ -79,15 +79,17 @@ export async function getStaticProps({ locale }) {
   const languageAlternates = _.languageAlternates("/act-now");
   actNow.url = process.env.ACTNOW_URL ?? null;
 
-  const headers = new Headers({
-    "Content-Type": "application/json",
-    Authorization: `Token ${process.env.ACTNOW_API_KEY}`,
-  });
-  const actnowSummary = await fetch(`${actNow.url}/v1/`, {
-    method: "GET",
-    headers,
-  }).then(async (response) => response.json());
-  actNow.summary = actnowSummary?.summary;
+  if (process.env.ACTNOW_API_KEY) {
+    const headers = new Headers({
+      "Content-Type": "application/json",
+      Authorization: `Token ${process.env.ACTNOW_API_KEY}`,
+    });
+    const actnowSummary = await fetch(`${actNow.url}/v1/`, {
+      method: "GET",
+      headers,
+    }).then(async (response) => response.json());
+    actNow.summary = actnowSummary?.summary ?? null;
+  }
 
   return {
     props: {
