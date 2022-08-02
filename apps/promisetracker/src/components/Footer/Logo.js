@@ -19,6 +19,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
     objectFit: "contain",
   },
 }));
+
 function Logo({ image, url, ...props }) {
   const classes = useStyles(props);
 

@@ -51,7 +51,9 @@ function BasePage({
         classes={{ section: classes.section }}
       />
       {children}
-      <Footer {...footer} classes={{ root: classes.footer }} />
+      {footer ? (
+        <Footer {...footer} classes={{ root: classes.footer }} />
+      ) : null}
     </div>
   );
 }
