@@ -1,5 +1,6 @@
 import gsheetsFn from "@/promisetracker/lib/gsheets";
 import serverFn from "@/promisetracker/lib/server";
+import staticFn from "@/promisetracker/lib/static-backend";
 
 function backend(siteSlug) {
   const server = serverFn(siteSlug);
@@ -8,7 +9,7 @@ function backend(siteSlug) {
     case "GSHEET":
       return gsheetsFn(server);
     default:
-      throw new Error("BACKEND not selected");
+      return staticFn(server);
   }
 }
 
