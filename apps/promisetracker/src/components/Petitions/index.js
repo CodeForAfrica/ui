@@ -23,8 +23,8 @@ function Index({ items, ...props }) {
     <div className={classes.root}>
       {items.map((petition) => (
         <PetitionCard
-          key={petition.id}
           {...petition}
+          key={petition.id}
           classes={{ root: classes.petitionCard }}
         />
       ))}
