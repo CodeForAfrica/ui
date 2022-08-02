@@ -89,9 +89,9 @@ function PostCard({
   return (
     <Card square variant="outlined" className={classes.root}>
       <CardActionArea
-        component={Link}
-        href={`/analysis/petitions/${id}`}
         {...props}
+        component={id ? Link : undefined}
+        href={`/analysis/petitions/${id}`}
         className={classes.contentRoot}
       >
         <CardContent classes={{ root: classes.content }}>
