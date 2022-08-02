@@ -932,8 +932,8 @@ module.exports = {
     },
     {
       label: "Settings",
-      name: "my-settings",
-      folder: "content/my-settings",
+      name: "settings",
+      folder: `${APP_DIRECTORY}content/settings`,
       create: true,
       label_singular: "Setting",
       identifier_field: "name",
