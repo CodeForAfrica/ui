@@ -1,9 +1,10 @@
 import { getAllPosts, getPost } from "@/codeforafrica/lib/api.ghost/posts";
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 export async function getAllOpportunities() {
   const allPosts = await getAllPosts();
-  return allPosts.filter(
-    (post) => post.primaryTag.name.toLowerCase() === "opportunities"
+  return allPosts.filter((post) =>
+    equalsIgnoreCase(post.primaryTag.name, "opportunities")
   );
 }
 
@@ -19,8 +20,8 @@ export async function getOpportnity(slug) {
 
 export async function getAllStories() {
   const allPosts = await getAllPosts();
-  return allPosts.filter(
-    (post) => post.primaryTag?.name.toLowerCase() === "stories"
+  return allPosts.filter((post) =>
+    equalsIgnoreCase(post.primaryTag.name, "stories")
   );
 }
 

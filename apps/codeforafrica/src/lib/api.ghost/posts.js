@@ -35,13 +35,7 @@ function transformPost(post) {
     day: "numeric",
   });
   const tags = originalTags
-    .filter(
-      (t) =>
-        !(
-          equalsIgnoreCase(t.name, "opportunities") ||
-          equalsIgnoreCase(t.name, "stories")
-        )
-    )
+    .filter((t) => !equalsIgnoreCase(t.name, primaryTag.name))
     .map((tag) => tag.name);
   return {
     excerpt,
@@ -85,21 +79,15 @@ export async function getAllPosts() {
       return cachedPosts.posts;
     }
   }
-
   // If not, fetch from Ghost
-
   const api = initializeContentAPI();
-
   const posts = await api.posts.browse({
     include: "authors,tags",
     limit: "all",
   });
-
   const allPosts = posts.map(transformPost);
-
   // Cache the posts
   await cachePosts(allPosts);
-
   return allPosts;
 }
 
