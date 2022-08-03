@@ -1207,19 +1207,9 @@ module.exports = {
             {
               label: "Newsletter subscription",
               name: "newsletter-subscription",
-              widget: "object",
-              fields: [
-                {
-                  label: "Title",
-                  name: "title",
-                  widget: "string",
-                },
-                {
-                  label: "Href",
-                  name: "href",
-                  widget: "string",
-                },
-              ],
+              widget: "code",
+              allow_language_selection: false,
+              default_language: "html",
             },
           ],
         },
