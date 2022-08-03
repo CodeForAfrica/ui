@@ -1,6 +1,6 @@
 ---
 logo:
-  src: http://localhost:3002/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FCfAlogoBW.2d9d4139.png&w=256&q=75
+  src: /images/cfa-logo.png
 navigation-links:
   - link:
       content: Our Work

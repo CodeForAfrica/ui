@@ -1069,37 +1069,6 @@ module.exports = {
           file: `${APP_DIRECTORY}content/settings/footer.md`,
           fields: [
             {
-              label: "Description",
-              name: "description",
-              widget: "text",
-            },
-            {
-              label: "Navigation Links",
-              name: "navigation-links",
-              label_singular: "Navigation Link",
-              widget: "list",
-              summary: "{{link.content}}",
-              fields: [
-                {
-                  label: "Link",
-                  name: "link",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Content",
-                      name: "content",
-                      widget: "string",
-                    },
-                    {
-                      label: "Href",
-                      name: "href",
-                      widget: "string",
-                    },
-                  ],
-                },
-              ],
-            },
-            {
               label: "Logo",
               name: "logo",
               widget: "object",
@@ -1122,6 +1091,11 @@ module.exports = {
                   required: false,
                 },
               ],
+            },
+            {
+              label: "Description",
+              name: "description",
+              widget: "text",
             },
             {
               label: "Social",
@@ -1184,9 +1158,9 @@ module.exports = {
                   ],
                 },
                 {
-                  label: "External Links",
-                  name: "external-links",
-                  label_singular: "External Link",
+                  label: "Main Navigation Links",
+                  name: "main-navigation-links",
+                  label_singular: "Main Navigation Link",
                   widget: "list",
                   summary: "{{link.content}}",
                   fields: [
@@ -1198,6 +1172,56 @@ module.exports = {
                         {
                           label: "Content",
                           name: "content",
+                          widget: "string",
+                        },
+                        {
+                          label: "Href",
+                          name: "href",
+                          widget: "string",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  label: "Secondary Navigation Links",
+                  name: "secondary-navigation-links",
+                  label_singular: "Secondary Navigation Link",
+                  widget: "list",
+                  summary: "{{link.content}}",
+                  fields: [
+                    {
+                      label: "Link",
+                      name: "link",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Content",
+                          name: "content",
+                          widget: "string",
+                        },
+                        {
+                          label: "Href",
+                          name: "href",
+                          widget: "string",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  label: "Subscription Link",
+                  name: "subscription-link",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Link",
+                      name: "link",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Title",
+                          name: "title",
                           widget: "string",
                         },
                         {
