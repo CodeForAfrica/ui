@@ -940,6 +940,30 @@ module.exports = {
           file: `${APP_DIRECTORY}content/settings/header.md`,
           fields: [
             {
+              label: "Logo",
+              name: "logo",
+              widget: "object",
+              fields: [
+                {
+                  label: "Src",
+                  name: "src",
+                  widget: "image",
+                },
+                {
+                  label: "Height",
+                  name: "height",
+                  widget: "string",
+                  required: false,
+                },
+                {
+                  label: "Width",
+                  name: "width",
+                  widget: "string",
+                  required: false,
+                },
+              ],
+            },
+            {
               label: "Navigation Links",
               name: "navigation-links",
               label_singular: "Navigation Link",
@@ -966,35 +990,9 @@ module.exports = {
               ],
             },
             {
-              label: "Logo",
-              name: "logo",
+              label: "Social Media Link",
+              name: "social-link",
               widget: "object",
-              fields: [
-                {
-                  label: "Src",
-                  name: "src",
-                  widget: "image",
-                },
-                {
-                  label: "Height",
-                  name: "height",
-                  widget: "string",
-                  required: false,
-                },
-                {
-                  label: "Width",
-                  name: "width",
-                  widget: "string",
-                  required: false,
-                },
-              ],
-            },
-            {
-              label: "Social Links",
-              name: "social-links",
-              label_singular: "Social Link",
-              widget: "list",
-              summary: "{{link.content}}",
               fields: [
                 {
                   label: "Link",
@@ -1002,8 +1000,8 @@ module.exports = {
                   widget: "object",
                   fields: [
                     {
-                      label: "Content",
-                      name: "content",
+                      label: "Title",
+                      name: "title",
                       widget: "string",
                     },
                     {
@@ -1012,8 +1010,32 @@ module.exports = {
                       widget: "string",
                     },
                     {
-                      label: "Icon",
-                      name: "icon",
+                      label: "Mobile Icon",
+                      name: "mobile-icon",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Src",
+                          name: "src",
+                          widget: "image",
+                        },
+                        {
+                          label: "Height",
+                          name: "height",
+                          widget: "string",
+                          required: false,
+                        },
+                        {
+                          label: "Width",
+                          name: "width",
+                          widget: "string",
+                          required: false,
+                        },
+                      ],
+                    },
+                    {
+                      label: "Desktop Icon",
+                      name: "desktop-icon",
                       widget: "object",
                       fields: [
                         {
