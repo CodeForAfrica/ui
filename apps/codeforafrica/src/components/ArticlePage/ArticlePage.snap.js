@@ -25,7 +25,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12qr4r4-MuiContainer-root"
     >
       <div
-        class="css-191ss4-MuiStack-root"
+        class="css-1rvuxdl-MuiStack-root"
       >
         <div
           class="MuiTypography-root MuiTypography-footerCap css-19iy7wy-MuiTypography-root"
