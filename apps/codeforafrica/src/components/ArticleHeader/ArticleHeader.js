@@ -7,7 +7,7 @@ import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 import ShareThisPage from "@/codeforafrica/components/ShareThisPage";
 
 const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
-  const { date, subheader, sx, tags, title } = props;
+  const { date, excerpt, sx, tags, title } = props;
 
   return (
     <Section
@@ -41,19 +41,23 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
         variant="body1"
         sx={{
           color: "primary.main",
+          mt: { xs: 2.5, md: 5 },
           typography: { md: "subheading" },
         }}
       >
-        {subheader}
+        {excerpt}
       </RichTypography>
       {tags?.length > 0 ? (
-        <ChoiceChipGroup color="default" sx={{ my: { xs: 2.5, md: 5 } }}>
+        <ChoiceChipGroup color="default" sx={{ mt: { xs: 2.5, md: 5 } }}>
           {tags.map((tag) => (
             <ChoiceChip label={tag} value={tag} key={tag} />
           ))}
         </ChoiceChipGroup>
       ) : null}
-      <ShareThisPage title="Share This Article" />
+      <ShareThisPage
+        title="Share This Article"
+        sx={{ mt: { xs: 2.5, md: 5 } }}
+      />
     </Section>
   );
 });
@@ -61,7 +65,7 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
 ArticleHeader.propTypes = {
   title: PropTypes.string,
   date: PropTypes.string,
-  subheader: PropTypes.string,
+  excerpt: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
 };
 
@@ -69,7 +73,7 @@ ArticleHeader.defaultProps = {
   title: undefined,
   date: undefined,
   tags: undefined,
-  subheader: undefined,
+  excerpt: undefined,
 };
 
 export default ArticleHeader;
