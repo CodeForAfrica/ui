@@ -34,7 +34,7 @@ function ArticlePage({
         title={title}
         date={publishedAt}
         tags={tags}
-        summary={excerpt}
+        excerpt={excerpt}
         sx={{
           maxWidth: {
             sm: "648px",

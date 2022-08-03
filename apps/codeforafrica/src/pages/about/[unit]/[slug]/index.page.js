@@ -50,7 +50,6 @@ function Index({ member, partner, sections, ...props }) {
           {item?.content}
         </RichTypography>
         <ShareThisPage
-          spacing="17px"
           title="Connect"
           sx={{
             color: "text.primary",

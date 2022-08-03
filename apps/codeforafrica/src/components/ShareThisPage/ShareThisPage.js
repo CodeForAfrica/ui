@@ -10,10 +10,11 @@ import {
 } from "@/codeforafrica/components/ShareBarButton";
 
 const ShareThisPage = React.forwardRef(function ShareThisPage(props, ref) {
-  const { sx, title, ...other } = props;
+  const { children, sx, title, ...other } = props;
   return (
     <Stack
       direction="row"
+      spacing="17px"
       {...other}
       sx={{
         color: "grey.main",
@@ -22,7 +23,7 @@ const ShareThisPage = React.forwardRef(function ShareThisPage(props, ref) {
       }}
       ref={ref}
     >
-      <RichTypography variant="footerCap">{title}</RichTypography>
+      <RichTypography variant="footerCap">{children || title}</RichTypography>
       <ShareBar>
         <TwitterShareBarButton />
         <LinkedinShareBarButton />

@@ -64,7 +64,6 @@ const ProjectStakeholders = React.forwardRef(function ProjectStakeholders(
       ) : null}
       <ShareThisPage
         direction="column"
-        spacing="17px"
         title="Share This Project"
         sx={{
           alignItems: "flex-start",

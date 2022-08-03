@@ -11,6 +11,7 @@ const render = createRender({ theme });
 const defaultProps = {
   opportunities: [
     {
+      id: 1,
       href: "/opportunities/1",
       title:
         "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
