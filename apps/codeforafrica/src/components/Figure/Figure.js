@@ -9,13 +9,9 @@ const FigureRoot = styled("figure")({
 
 const Figure = React.forwardRef(function Figure(props, ref) {
   const { sx, ...other } = props;
-  const loaderProp = ({ src }) => {
-    return src;
-  };
-
   return (
     <FigureRoot sx={sx} ref={ref}>
-      <Image loader={loaderProp} objectFit="contain" layout="fill" {...other} />
+      <Image objectFit="contain" layout="fill" {...other} />
     </FigureRoot>
   );
 });
