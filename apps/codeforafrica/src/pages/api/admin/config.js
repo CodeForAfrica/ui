@@ -930,5 +930,290 @@ module.exports = {
         },
       ],
     },
+    {
+      name: "settings",
+      label: "Settings",
+      files: [
+        {
+          label: "Header",
+          name: "header",
+          file: `${APP_DIRECTORY}content/settings/header.md`,
+          fields: [
+            {
+              label: "Logo",
+              name: "logo",
+              widget: "object",
+              fields: [
+                {
+                  label: "Src",
+                  name: "src",
+                  widget: "image",
+                },
+                {
+                  label: "Height",
+                  name: "height",
+                  widget: "string",
+                  required: false,
+                },
+                {
+                  label: "Width",
+                  name: "width",
+                  widget: "string",
+                  required: false,
+                },
+              ],
+            },
+            {
+              label: "Main Navigation",
+              name: "main-navigation",
+              label_singular: "Main Navigation",
+              widget: "list",
+              summary: "{{link.content}}",
+              fields: [
+                {
+                  label: "Link",
+                  name: "link",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Content",
+                      name: "content",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: "Social Media Link",
+              name: "social-media-link",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
+                },
+                {
+                  label: "Mobile Icon",
+                  name: "mobile-icon",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Src",
+                      name: "src",
+                      widget: "image",
+                    },
+                    {
+                      label: "Height",
+                      name: "height",
+                      widget: "string",
+                      required: false,
+                    },
+                    {
+                      label: "Width",
+                      name: "width",
+                      widget: "string",
+                      required: false,
+                    },
+                  ],
+                },
+                {
+                  label: "Desktop Icon",
+                  name: "desktop-icon",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Src",
+                      name: "src",
+                      widget: "image",
+                    },
+                    {
+                      label: "Height",
+                      name: "height",
+                      widget: "string",
+                      required: false,
+                    },
+                    {
+                      label: "Width",
+                      name: "width",
+                      widget: "string",
+                      required: false,
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          label: "Footer",
+          name: "footer",
+          file: `${APP_DIRECTORY}content/settings/footer.md`,
+          fields: [
+            {
+              label: "Logo",
+              name: "logo",
+              widget: "object",
+              fields: [
+                {
+                  label: "Src",
+                  name: "src",
+                  widget: "image",
+                },
+                {
+                  label: "Height",
+                  name: "height",
+                  widget: "string",
+                  required: false,
+                },
+                {
+                  label: "Width",
+                  name: "width",
+                  widget: "string",
+                  required: false,
+                },
+              ],
+            },
+            {
+              label: "Description",
+              name: "description",
+              widget: "text",
+            },
+            {
+              label: "Stay in touch",
+              name: "stay-in-touch",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Links",
+                  name: "links",
+                  label_singular: "Link",
+                  widget: "list",
+                  summary: "{{link.content}}",
+                  fields: [
+                    {
+                      label: "Link",
+                      name: "link",
+                      widget: "object",
+                      fields: [
+                        {
+                          label: "Content",
+                          name: "content",
+                          widget: "string",
+                        },
+                        {
+                          label: "Href",
+                          name: "href",
+                          widget: "string",
+                        },
+                        {
+                          label: "Icon",
+                          name: "icon",
+                          widget: "object",
+                          fields: [
+                            {
+                              label: "Src",
+                              name: "src",
+                              widget: "image",
+                            },
+                            {
+                              label: "Height",
+                              name: "height",
+                              widget: "string",
+                              required: false,
+                            },
+                            {
+                              label: "Width",
+                              name: "width",
+                              widget: "string",
+                              required: false,
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: "Main Navigation",
+              name: "main-navigation",
+              label_singular: "Main Navigation",
+              widget: "list",
+              summary: "{{link.content}}",
+              fields: [
+                {
+                  label: "Link",
+                  name: "link",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Content",
+                      name: "content",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: "Secondary Navigation",
+              name: "secondary-navigation",
+              label_singular: "Secondary Navigation",
+              widget: "list",
+              summary: "{{link.content}}",
+              fields: [
+                {
+                  label: "Link",
+                  name: "link",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Content",
+                      name: "content",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: "Newsletter subscription",
+              name: "newsletter-subscription",
+              widget: "code",
+              allow_language_selection: false,
+              default_language: "html",
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
