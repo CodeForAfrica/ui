@@ -9,4 +9,5 @@ module.exports = {
     // Handle module aliases
     "^@/codeforafrica/(.*)$": "<rootDir>/src/$1",
   },
+  transformIgnorePatterns: ["<rootDir>/node_modules/(?!camelcase-keys)"],
 };

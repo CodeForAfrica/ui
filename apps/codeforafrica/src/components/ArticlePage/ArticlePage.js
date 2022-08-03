@@ -1,6 +1,6 @@
+/* eslint-disable camelcase */
 import { Section } from "@commons-ui/core";
 import Box from "@mui/material/Box";
-import PropTypes from "prop-types";
 import React from "react";
 
 import ArticleHeader from "@/codeforafrica/components/ArticleHeader";
@@ -10,17 +10,14 @@ import Figure from "@/codeforafrica/components/Figure";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
 
 function ArticlePage({
-  author,
-  content,
-  coverImage,
-  date,
-  image: imageProp,
-  summary,
+  primaryAuthor,
+  excerpt,
   tags,
   title,
+  featureImage,
+  html,
+  publishedAt,
 }) {
-  const image = coverImage || imageProp;
-
   return (
     <Box component="article">
       <Figure
@@ -31,13 +28,13 @@ function ArticlePage({
         alt={title}
         objectFit="cover"
         priority
-        src={image?.src}
+        src={featureImage}
       />
       <ArticleHeader
         title={title}
-        date={date}
+        date={publishedAt}
         tags={tags}
-        excerpt={summary}
+        excerpt={excerpt}
         sx={{
           maxWidth: {
             sm: "648px",
@@ -57,7 +54,7 @@ function ArticlePage({
           px: { xs: 2.5, sm: 0 },
         }}
       >
-        {content}
+        {html}
       </CMSContent>
       <SectionDivider
         sx={{
@@ -80,18 +77,10 @@ function ArticlePage({
           px: { xs: 2.5, sm: 0 },
         }}
       >
-        <Author {...author} />
+        <Author {...primaryAuthor} />
       </Section>
     </Box>
   );
 }
-
-ArticlePage.propTypes = {
-  content: PropTypes.string,
-};
-
-ArticlePage.defaultProps = {
-  content: undefined,
-};
 
 export default ArticlePage;

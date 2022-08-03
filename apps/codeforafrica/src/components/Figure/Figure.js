@@ -9,7 +9,6 @@ const FigureRoot = styled("figure")({
 
 const Figure = React.forwardRef(function Figure(props, ref) {
   const { sx, ...other } = props;
-
   return (
     <FigureRoot sx={sx} ref={ref}>
       <Image objectFit="contain" layout="fill" {...other} />
