@@ -40,3 +40,4 @@ yarn-error.log*
 .turbo
 test-results/
 playwright-report/
+apps/codeforafrica/public/data/posts.json

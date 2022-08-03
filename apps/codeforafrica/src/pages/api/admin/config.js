@@ -916,6 +916,18 @@ module.exports = {
               widget: "string",
               required: false,
             },
+            {
+              label: "Instagram",
+              name: "instagram",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Slack",
+              name: "slack",
+              widget: "string",
+              required: false,
+            },
           ],
         },
         {
