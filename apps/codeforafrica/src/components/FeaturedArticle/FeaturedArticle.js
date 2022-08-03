@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { Link } from "@commons-ui/next";
 import Button from "@mui/material/Button";
 import CardActionArea from "@mui/material/CardActionArea";
@@ -11,13 +12,13 @@ import ArticleCardMedia from "@/codeforafrica/components/ArticleCardMedia";
 
 const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
   const {
-    alt,
-    coverImage,
-    date,
-    href,
-    thumbnail,
-    summary,
     title,
+    href,
+    featureImage,
+    excerpt,
+    customExcerpt,
+    slug,
+    publishedAt,
     variant = "standard",
     ...other
   } = props;
@@ -44,8 +45,8 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
         >
           <Grid item xs={12} md={variant === "cover" ? 12 : "auto"}>
             <ArticleCardMedia
-              alt={alt || title}
-              src={thumbnail?.src}
+              alt={title}
+              src={featureImage}
               sx={{
                 height: {
                   xs: "217px",
@@ -86,7 +87,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
                   mb: { md: "20px" },
                 }}
               >
-                {summary}
+                {excerpt}
               </Typography>
               <Button
                 color="primary"
@@ -107,11 +108,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
                 }}
                 variant="caption"
               >
-                {new Date(date).toLocaleDateString("en", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
+                {publishedAt}
               </Typography>
             </ArticleCardContent>
           </Grid>

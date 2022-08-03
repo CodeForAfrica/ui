@@ -1,6 +1,6 @@
 {
   "name": "codeforafrica",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "private": true,
   "author": "Code for Africa <tech@codeforafrica.org>",
   "description": "This is the main CFA site.",
@@ -41,6 +41,8 @@
     "@googlemaps/react-wrapper": "^1.1.35",
     "@mui/material": "^5.8.5",
     "@mui/utils": "^5.8.4",
+    "@tryghost/content-api": "^1.11.0",
+    "camelcase-keys": "^8.0.1",
     "fast-equals": "^4.0.1",
     "fuse.js": "^6.6.2",
     "gray-matter": "^4.0.3",

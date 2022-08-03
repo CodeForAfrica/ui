@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { RichTypography } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import Box from "@mui/material/Box";
@@ -10,7 +11,19 @@ import CardMedia from "@mui/material/CardMedia";
 import React from "react";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const { comments, date, content, image, href, tags, title, ...other } = props;
+  const {
+    comments,
+    date,
+    content,
+    image,
+    href,
+    tags,
+    title,
+    featureImage,
+    html,
+    publishedAt,
+    ...other
+  } = props;
 
   if (!(title && content)) {
     return null;
@@ -18,7 +31,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
   return (
     <Card sx={{ boxShadow: "none", borderRadius: 0, ...other.sx }} ref={ref}>
       <CardActionArea component={href ? Link : undefined} href={href}>
-        <CardMedia component="img" alt="" src={image?.src} />
+        <CardMedia component="img" alt="" src={featureImage} />
         <CardContent sx={{ padding: 0 }}>
           <RichTypography sx={{ mt: 5, mb: 2.5 }} variant="h3">
             {title}
@@ -27,7 +40,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             <RichTypography
               sx={{ borderRight: "solid 1px", mr: 1.25, pr: 1.25 }}
             >
-              {date}
+              {publishedAt}
             </RichTypography>
             <RichTypography>{tags?.join(", ")}</RichTypography>
           </Box>
@@ -42,7 +55,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
               maxHeight: 28 * 3,
             }}
           >
-            {content}
+            {html}
           </RichTypography>
         </CardContent>
         <CardActions sx={{ p: 0, mt: 2.5 }}>
