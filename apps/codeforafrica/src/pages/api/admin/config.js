@@ -935,9 +935,9 @@ module.exports = {
       label: "Settings",
       files: [
         {
-          label: "Header Navigation",
-          name: "header-navigation",
-          file: `${APP_DIRECTORY}content/settings/header-navigation.md`,
+          label: "Header",
+          name: "header",
+          file: `${APP_DIRECTORY}content/settings/header.md`,
           fields: [
             {
               label: "Navigation Links",
@@ -1042,9 +1042,9 @@ module.exports = {
           ],
         },
         {
-          label: "Footer Navigation",
-          name: "footer-navigation",
-          file: `${APP_DIRECTORY}content/settings/footer-navigation.md`,
+          label: "Footer",
+          name: "footer",
+          file: `${APP_DIRECTORY}content/settings/footer.md`,
           fields: [
             {
               label: "Description",
