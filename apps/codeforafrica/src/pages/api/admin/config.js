@@ -964,9 +964,9 @@ module.exports = {
               ],
             },
             {
-              label: "Navigation Links",
-              name: "navigation-links",
-              label_singular: "Navigation Link",
+              label: "Main Navigation",
+              name: "main-navigation",
+              label_singular: "Main Navigation",
               widget: "list",
               summary: "{{link.content}}",
               fields: [
@@ -991,71 +991,64 @@ module.exports = {
             },
             {
               label: "Social Media Link",
-              name: "social-link",
+              name: "social-media-link",
               widget: "object",
               fields: [
                 {
-                  label: "Link",
-                  name: "link",
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
+                },
+                {
+                  label: "Mobile Icon",
+                  name: "mobile-icon",
                   widget: "object",
                   fields: [
                     {
-                      label: "Title",
-                      name: "title",
+                      label: "Src",
+                      name: "src",
+                      widget: "image",
+                    },
+                    {
+                      label: "Height",
+                      name: "height",
                       widget: "string",
+                      required: false,
                     },
                     {
-                      label: "Href",
-                      name: "href",
+                      label: "Width",
+                      name: "width",
                       widget: "string",
+                      required: false,
+                    },
+                  ],
+                },
+                {
+                  label: "Desktop Icon",
+                  name: "desktop-icon",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Src",
+                      name: "src",
+                      widget: "image",
                     },
                     {
-                      label: "Mobile Icon",
-                      name: "mobile-icon",
-                      widget: "object",
-                      fields: [
-                        {
-                          label: "Src",
-                          name: "src",
-                          widget: "image",
-                        },
-                        {
-                          label: "Height",
-                          name: "height",
-                          widget: "string",
-                          required: false,
-                        },
-                        {
-                          label: "Width",
-                          name: "width",
-                          widget: "string",
-                          required: false,
-                        },
-                      ],
+                      label: "Height",
+                      name: "height",
+                      widget: "string",
+                      required: false,
                     },
                     {
-                      label: "Desktop Icon",
-                      name: "desktop-icon",
-                      widget: "object",
-                      fields: [
-                        {
-                          label: "Src",
-                          name: "src",
-                          widget: "image",
-                        },
-                        {
-                          label: "Height",
-                          name: "height",
-                          widget: "string",
-                          required: false,
-                        },
-                        {
-                          label: "Width",
-                          name: "width",
-                          widget: "string",
-                          required: false,
-                        },
-                      ],
+                      label: "Width",
+                      name: "width",
+                      widget: "string",
+                      required: false,
                     },
                   ],
                 },
@@ -1098,8 +1091,8 @@ module.exports = {
               widget: "text",
             },
             {
-              label: "Social",
-              name: "social",
+              label: "Stay in touch",
+              name: "stay-in-touch",
               widget: "object",
               fields: [
                 {
@@ -1157,81 +1150,74 @@ module.exports = {
                     },
                   ],
                 },
+              ],
+            },
+            {
+              label: "Main Navigation",
+              name: "main-navigation",
+              label_singular: "Main Navigation",
+              widget: "list",
+              summary: "{{link.content}}",
+              fields: [
                 {
-                  label: "Main Navigation Links",
-                  name: "main-navigation-links",
-                  label_singular: "Main Navigation Link",
-                  widget: "list",
-                  summary: "{{link.content}}",
-                  fields: [
-                    {
-                      label: "Link",
-                      name: "link",
-                      widget: "object",
-                      fields: [
-                        {
-                          label: "Content",
-                          name: "content",
-                          widget: "string",
-                        },
-                        {
-                          label: "Href",
-                          name: "href",
-                          widget: "string",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  label: "Secondary Navigation Links",
-                  name: "secondary-navigation-links",
-                  label_singular: "Secondary Navigation Link",
-                  widget: "list",
-                  summary: "{{link.content}}",
-                  fields: [
-                    {
-                      label: "Link",
-                      name: "link",
-                      widget: "object",
-                      fields: [
-                        {
-                          label: "Content",
-                          name: "content",
-                          widget: "string",
-                        },
-                        {
-                          label: "Href",
-                          name: "href",
-                          widget: "string",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  label: "Subscription Link",
-                  name: "subscription-link",
+                  label: "Link",
+                  name: "link",
                   widget: "object",
                   fields: [
                     {
-                      label: "Link",
-                      name: "link",
-                      widget: "object",
-                      fields: [
-                        {
-                          label: "Title",
-                          name: "title",
-                          widget: "string",
-                        },
-                        {
-                          label: "Href",
-                          name: "href",
-                          widget: "string",
-                        },
-                      ],
+                      label: "Content",
+                      name: "content",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
                     },
                   ],
+                },
+              ],
+            },
+            {
+              label: "Secondary Navigation",
+              name: "secondary-navigation",
+              label_singular: "Secondary Navigation",
+              widget: "list",
+              summary: "{{link.content}}",
+              fields: [
+                {
+                  label: "Link",
+                  name: "link",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Content",
+                      name: "content",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: "Newsletter subscription",
+              name: "newsletter-subscription",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
                 },
               ],
             },

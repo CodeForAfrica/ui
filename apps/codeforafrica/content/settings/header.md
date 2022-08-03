@@ -1,7 +1,7 @@
 ---
 logo:
   src: /images/cfa-logo.png
-navigation-links:
+main-navigation:
   - link:
       content: Our Work
       href: /our_work
@@ -17,12 +17,11 @@ navigation-links:
   - link:
       content: Contact
       href: /contact
-social-link:
-  link:
-    desktop-icon:
-      src: /images/vector.png
-    title: Twitter
-    href: https://twitter.com/Code4Africa
-    mobile-icon:
-      src: /images/type-twitter-size-32-color-white.svg
+social-media-link:
+  title: Twitter
+  href: https://twitter.com/Code4Africa
+  mobile-icon:
+    src: /images/type-twitter-size-32-color-white.svg
+  desktop-icon:
+    src: /images/vector.png
 ---

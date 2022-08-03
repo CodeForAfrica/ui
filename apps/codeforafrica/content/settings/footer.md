@@ -5,7 +5,7 @@ description: This site is a project of Code for Africa, the continent's largest
   network of civic technology and data journalism labs. All content is released
   under a Creative Commons 4 Attribution Licence. Reuse it to help empower your
   own community.
-social:
+stay-in-touch:
   title: STAY IN TOUCH
   links:
     - link:
@@ -38,31 +38,30 @@ social:
         href: https://github.com/CodeForAfrica
         icon:
           src: /images/type-github-size-32-color-white.svg
-  main-navigation-links:
-    - link:
-        content: Our work
-        href: /projects
-    - link:
-        content: About
-        href: /about
-    - link:
-        content: Stories
-        href: stories
-    - link:
-        content: Opportunities
-        href: /opportunities
-    - link:
-        href: /contact
-        content: Contact
-  secondary-navigation-links:
-    - link:
-        content: Imprint
-        href: /imprint
-    - link:
-        content: Privacy policy
-        href: /privacy
-  subscription-link:
-    link:
-      title: Sign Up
-      href: https://twitter.us6.list-manage.com/subscribe/post?u=65e5825507b3cec760f272e79&id=c2ff751541
+main-navigation:
+  - link:
+      content: Our work
+      href: /projects
+  - link:
+      content: About
+      href: /about
+  - link:
+      content: Stories
+      href: stories
+  - link:
+      content: Opportunities
+      href: /opportunities
+  - link:
+      href: /contact
+      content: Contact
+secondary-navigation:
+  - link:
+      content: Imprint
+      href: /imprint
+  - link:
+      content: Privacy policy
+      href: /privacy
+newsletter-subscription:
+  title: Sign Up
+  href: https://twitter.us6.list-manage.com/subscribe/post?u=65e5825507b3cec760f272e79&id=c2ff751541
 ---
