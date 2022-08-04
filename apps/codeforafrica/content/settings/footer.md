@@ -16,7 +16,7 @@ stay-in-touch:
     - label: Slack
       href: https://cfa.slack.com/
       icon:
-        src: /images/type-slack-size-64-color-currentcolor.svg
+        src: /images/type-slack-size-32-color-white.svg
     - label: Linkedin
       href: https://www.linkedin.com/company/code-for-africa/mycompany/
       icon:

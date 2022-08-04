@@ -31,7 +31,7 @@ function FooterLinks({ additionalLinks, menu }) {
               display: { md: "block", xs: "flex" },
               justifyContent: { md: "flex-start", xs: "center" },
             }}
-            key={item.name}
+            key={item.label}
           >
             <Link
               sx={{
@@ -41,7 +41,7 @@ function FooterLinks({ additionalLinks, menu }) {
               }}
               href={item.href}
             >
-              {item.name}
+              {item.label}
             </Link>
           </NavListItem>
         ))}

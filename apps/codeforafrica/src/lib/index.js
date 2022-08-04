@@ -10,6 +10,7 @@ import {
   getOurPartners,
   getOurGuidingPrinciples,
   getHeader,
+  getFooter,
 } from "./api.netlify-cms";
 
 import {
@@ -53,105 +54,29 @@ function getRandomInt(max) {
 }
 const headerMenu = getHeader()["main-navigation"];
 
-const menu = [
-  {
-    label: "Our work",
-    href: "/projects",
-  },
-  {
-    label: "About",
-    href: "/about",
-  },
-  {
-    label: "Stories",
-    href: "/stories",
-  },
-  {
-    label: "Opportunities",
-    href: "/opportunities",
-  },
-  {
-    label: "Contact",
-    href: "/contact",
-  },
-];
+console.log("getFooter", getFooter());
+
+const {
+  "main-navigation": footerMenu,
+  "secondary-navigation": secondary,
+  "stay-in-touch": socialMedia,
+  "newsletter-subscription": { code: embedCode },
+  description,
+} = getFooter();
 
 const navbar = {
   menu: headerMenu,
 };
 
 const footer = {
-  socialMedia: [
-    {
-      url: "https://twitter.com/Code4Africa",
-      image: {
-        alt: "Twitter",
-        url: "/icons/Type=twitter, Size=32, Color=White.svg",
-      },
-    },
-    {
-      url: "https://cfa.slack.com",
-      image: {
-        alt: "Slack",
-        url: "/icons/Type=slack, Size=32, Color=White.svg",
-      },
-    },
-    {
-      url: "https://ke.linkedin.com/company/code-for-africa",
-      image: {
-        alt: "LinkedIn",
-        url: "/icons/Type=linkedin, Size=32, Color=White.svg",
-      },
-    },
-    {
-      url: "https://www.facebook.com/CodeForAfrica/",
-      image: {
-        alt: "Facebook",
-        url: "/icons/Type=facebook, Size=32, Color=White.svg",
-      },
-    },
-    {
-      url: "https://www.instagram.com/code4africa__/",
-      image: {
-        alt: "Instagram",
-        url: "/icons/Type=instagram, Size=32, Color=White.svg",
-      },
-    },
-    {
-      url: "https://github.com/CodeForAfrica",
-      image: {
-        alt: "Github",
-        url: "/icons/Type=github, Size=32, Color=White.svg",
-      },
-    },
-  ],
+  socialMedia,
   additionalLinks: {
-    secondary: [
-      { name: "Imprint", href: "/imprint" },
-      { name: "Privacy policy", href: "/privacy" },
-    ],
+    secondary,
   },
-  description:
-    "This site is a project of Code for Africa, the continent's largest network of civic technology and data journalism labs. All content is released under a Creative Commons 4 Attribution Licence. Reuse it to help empower your own community.",
-  menu,
+  description,
+  menu: footerMenu,
   subscription: {
-    embedCode: `
-          <!-- Begin Mailchimp Signup Form -->
-          <div id="mc_embed_signup">
-            <form action="https://twitter.us6.list-manage.com/subscribe/post?u=65e5825507b3cec760f272e79&amp;id=c2ff751541" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                <div id="mc_embed_signup_scroll">
-              <label for="MERGE1">Name</label>
-              <input type="text" name="MERGE1" id="MERGE1" size="25" value="">
-              <label for="mce-EMAIL">Email</label>
-              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" required>
-             <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_65e5825507b3cec760f272e79_c2ff751541" tabindex="-1" value=""></div>
-                <div class="clear"><input type="submit" value="Sign up"  id="mc-embedded-subscribe" class="button"></div>
-                </div>
-            </form>
-          </div>
-          <!--End mc_embed_signup-->
-    `,
+    embedCode,
   },
 };
 

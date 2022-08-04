@@ -5,6 +5,7 @@ import getOurPartners from "./getOurPartners";
 import getPartners from "./getPartners";
 import getCmsProjects from "./getProjects";
 import getTeam from "./getTeam";
+import getFooter from "./sections/getFooter";
 import getHeader from "./sections/getHeader";
 import getHero from "./sections/getHero";
 import getMeetOurTeam from "./sections/getMeetOurTeam";
@@ -20,4 +21,5 @@ export {
   getPartners,
   getTeam,
   getHeader,
+  getFooter,
 };

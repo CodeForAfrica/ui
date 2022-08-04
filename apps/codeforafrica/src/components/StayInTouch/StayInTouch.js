@@ -19,7 +19,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
   { children, socialMedia, title = "Stay in touch with us @ &nbsp;", ...props },
   ref
 ) {
-  if (!socialMedia?.length) {
+  if (!socialMedia.links?.length) {
     return null;
   }
 
@@ -40,7 +40,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
           md={4}
           sx={{ margin: "auto", textAlign: { xs: "center", md: "left" } }}
         >
-          <Title>Stay in touch:</Title>
+          <Title>{socialMedia.title}:</Title>
         </Grid>
       )}
       <Grid
@@ -50,17 +50,17 @@ const StayInTouch = React.forwardRef(function StayInTouch(
         md={8}
         container
       >
-        {socialMedia.map((media) => (
+        {socialMedia.links.map((media) => (
           <Link
             sx={{
               display: "inline-block",
               padding: 0,
               paddingRight: "0.625rem",
             }}
-            key={media.url}
-            href={media.url}
+            key={media.href}
+            href={media.href}
           >
-            <IconRoot src={media.image.url} alt={media.image.alt} />
+            <IconRoot src={media.icon.src} alt={media.icon.src} />
           </Link>
         ))}
       </Grid>
@@ -71,10 +71,9 @@ const StayInTouch = React.forwardRef(function StayInTouch(
 StayInTouch.propTypes = {
   socialMedia: PropTypes.arrayOf(
     PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      image: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        alt: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
+      icon: PropTypes.shape({
+        src: PropTypes.string.isRequired,
       }).isRequired,
     })
   ),
