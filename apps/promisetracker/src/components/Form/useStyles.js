@@ -1,0 +1,18 @@
+import makeStyles from "@mui/styles/makeStyles";
+
+const useStyles = makeStyles(({ palette, typography }) => ({
+  input: {
+    backgroundColor: palette.secondary.light,
+    border: `1px solid ${palette.secondary.main}`,
+    display: "flex",
+    marginTop: typography.pxToRem(20),
+    height: typography.pxToRem(47),
+  },
+  label: {
+    ...typography.h4,
+    color: palette.text.primary,
+    marginTop: typography.pxToRem(40),
+  },
+}));
+
+export default useStyles;

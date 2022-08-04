@@ -40,3 +40,7 @@ yarn-error.log*
 .turbo
 test-results/
 playwright-report/
+
+# Data cache
+**/public/data
+!**/public/data/.keep
