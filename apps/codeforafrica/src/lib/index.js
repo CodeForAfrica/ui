@@ -88,7 +88,7 @@ const footer = {
       },
     },
     {
-      url: "https://cfa.slack.com",
+      url: "https://code4africa.slack.com",
       image: {
         alt: "Slack",
         url: "/icons/Type=slack, Size=32, Color=White.svg",
