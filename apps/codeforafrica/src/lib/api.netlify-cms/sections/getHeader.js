@@ -1,9 +1,5 @@
-import { join } from "path";
+import getSettings from "./getSettings";
 
-import { getCollectionBySlug } from "../utils";
-
-const settingsPageDir = join(process.cwd(), "content/settings");
-
-export default function getHeader(section = "header") {
-  return getCollectionBySlug(settingsPageDir, section).data;
+export default function getHeader() {
+  return getSettings("header");
 }
