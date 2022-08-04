@@ -60,7 +60,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
             key={media.href}
             href={media.href}
           >
-            <IconRoot src={media.icon.src} alt={media.icon.src} />
+            <IconRoot src={media.icon.src} alt={media.label} />
           </Link>
         ))}
       </Grid>
