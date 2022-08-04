@@ -25,8 +25,19 @@ const GetInTouch = React.forwardRef(function GetInTouch(props, ref) {
     >
       <Section sx={{ px: { xs: 2.5, sm: 0 }, zIndex: 1 }}>
         <Stack alignItems="center">
-          <RichTypography variant="h2">{title}</RichTypography>
-          <RichTypography color="primary" variant="h5" sx={{ mt: "30px" }}>
+          <RichTypography
+            align="center"
+            variant="h2"
+            sx={{ typography: { md: "h1" } }}
+          >
+            {title}
+          </RichTypography>
+          <RichTypography
+            align="center"
+            color="primary"
+            variant="h5"
+            sx={{ mt: "30px" }}
+          >
             {subtitle}
           </RichTypography>
           <Button

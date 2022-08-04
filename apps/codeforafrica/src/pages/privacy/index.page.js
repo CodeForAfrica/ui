@@ -16,7 +16,7 @@ function PrivacyPage({ content, sections, ...props }) {
             return null;
         }
       })}
-      <CMSContent>{content}</CMSContent>
+      <CMSContent sx={{ my: { xs: 7, md: 12.5 } }}>{content}</CMSContent>
     </Page>
   );
 }
