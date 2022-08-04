@@ -4,15 +4,13 @@ import SvgIcon from "@mui/material/SvgIcon";
 import Tooltip from "@mui/material/Tooltip";
 import PropTypes from "prop-types";
 import React from "react";
-import {
-  TwitterShareButton,
-  LinkedinShareButton,
-  FacebookShareButton,
-} from "react-share";
 
 import FacebookIcon from "@/codeforafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
 import LinkedinIcon from "@/codeforafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
 import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
+// import GithubIcon from "@/codeforafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
+// import InstagramIcon from "@/codeforafrica/assets/icons/Type=instagram, Size=24, Color=CurrentColor.svg";
+// import SlackIcon from "@/codeforafrica/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
 
 const ConnectBarButton = React.forwardRef(function ConnectBar(props, ref) {
   const { component, tooltip = true, tooltipProps, ...other } = props;
@@ -36,20 +34,20 @@ ConnectBarButton.defaultProps = {
 
 const NAMED_SHARE_BAR_BUTTONS = {
   Facebook: {
-    component: FacebookShareButton,
+    // component: FacebookShareButton,
     children: <SvgIcon sx={{ fill: "none" }} component={FacebookIcon} />,
   },
   Linkedin: {
-    component: LinkedinShareButton,
+    // component: LinkedinShareButton,
     children: <SvgIcon sx={{ fill: "none" }} component={LinkedinIcon} />,
   },
   Twitter: {
-    component: TwitterShareButton,
+    // component: TwitterShareButton,
     children: <SvgIcon sx={{ fill: "none" }} component={TwitterIcon} />,
   },
 };
 
-const NamedShareBarButton = React.forwardRef(function FacebookShareBarButton(
+const NamedShareBarButton = React.forwardRef(function NamedShareBarButton(
   props,
   ref
 ) {

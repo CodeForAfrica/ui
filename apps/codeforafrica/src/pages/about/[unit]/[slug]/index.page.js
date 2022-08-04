@@ -2,10 +2,10 @@ import { RichTypography, Section } from "@commons-ui/core";
 import React from "react";
 
 import AboutChildPageHeader from "@/codeforafrica/components/AboutChildPageHeader";
+import ConnectWithMember from "@/codeforafrica/components/ConnectWithMember";
 import Page from "@/codeforafrica/components/Page";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
-import ShareThisPage from "@/codeforafrica/components/ShareThisPage";
 import { getPageStaticProps, partners, team } from "@/codeforafrica/lib";
 
 function Index({ member, partner, sections, ...props }) {
@@ -49,12 +49,13 @@ function Index({ member, partner, sections, ...props }) {
         >
           {item?.content}
         </RichTypography>
-        <ShareThisPage
+        <ConnectWithMember
           spacing="17px"
-          title="Connect"
+          title="Connect Member"
           sx={{
             color: "text.primary",
           }}
+          links={item.links}
         />
       </Section>
       {sections?.map((section) => {
