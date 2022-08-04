@@ -54,8 +54,6 @@ function getRandomInt(max) {
 }
 const headerMenu = getHeader()["main-navigation"];
 
-console.log("getFooter", getFooter());
-
 const {
   "main-navigation": footerMenu,
   "secondary-navigation": secondary,
