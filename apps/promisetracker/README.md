@@ -1,34 +1,50 @@
-# PromiseTracker
+<p align="center">
+  <img width="235" src="https://user-images.githubusercontent.com/1779590/121872276-c0550b80-cd0d-11eb-970a-3128cecf1bc1.png" alt="PromiseTracker" />
+</p>
 
-PromiseTracker, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges, using official evidence / data, as well as crowdsourced information, with a transparent and defensible methodology, to help inject accountability and honesty into the often cavalier way that promises are made to citizens to win their support for elections, policies and contracts but are seldom honoured.
+**PromiseTracker**, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges, using official evidence / data, as well as crowdsourced information, with a transparent and defensible methodology, to help inject accountability and honesty into the often cavalier way that promises are made to citizens to win their support for elections, policies, contracts ... but are then seldom honoured.
 
-## Getting Started
+## Installation
 
-First, run the development server:
+PromiseTracker is a SSG [Next](https://nextjs.org/) web app deployable to [Vercel](https://vercel.com). See [package.json](./package.json) for the full list of dependencies and build & deploy scripts.
 
-```bash
-yarn dev
+### Local Development
+
+### Environment Variables & Setup
+
+Run the following to get started locally:
+
+```sh
+  cp .env.template .env
+  # Edit the .env file
+  yarn
+  yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Note:** Reach out to the project champion for directions on how to receive the [Check](https://checkmedia.org) and [Sentry](https://sentry.io) tokens
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Attribution
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+PromiseTracker is modelled on [Rouhani Meter](https://rouhanimeter.com) and made possible thans to the generous support of DW Akademie and Meedan. Built by the Code for Africa Tech team and content courtesy of PesaCheck and ANCIR's iLab teams.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Contributing
 
-## Learn More
+TODO
 
-To learn more about Next.js, take a look at the following resources:
+### License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+PromiseTracker is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges.  
+Copyright (C) 2019 Code for Africa
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-## Deploy on Vercel
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.

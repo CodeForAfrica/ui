@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@/promisetracker/*": ["./src/*"]
+    }
   },
   "exclude": ["node_modules"]
 }
