@@ -7,38 +7,14 @@ exports[`<ConnectWithMember /> renders unchanged 1`] = `
   >
     <div
       class="css-r7or14-MuiStack-root"
+      links="[object Object]"
     >
       <button
-        aria-label="Twitter"
-        class="react-share__ShareButton"
+        aria-label="facebook"
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1amn30s-MuiButtonBase-root-MuiIconButton-root"
         data-mui-internal-clone-element="true"
-        style="background-color: transparent; padding: 0px; cursor: pointer;"
-      >
-        <div
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
-          focusable="false"
-          viewbox="0 0 24 24"
-        />
-      </button>
-      <button
-        aria-label="Linkedin"
-        class="react-share__ShareButton"
-        data-mui-internal-clone-element="true"
-        style="background-color: transparent; padding: 0px; cursor: pointer;"
-      >
-        <div
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
-          focusable="false"
-          viewbox="0 0 24 24"
-        />
-      </button>
-      <button
-        aria-label="Facebook"
-        class="react-share__ShareButton"
-        data-mui-internal-clone-element="true"
-        style="background-color: transparent; padding: 0px; cursor: pointer;"
+        tabindex="0"
+        type="button"
       >
         <div
           aria-hidden="true"

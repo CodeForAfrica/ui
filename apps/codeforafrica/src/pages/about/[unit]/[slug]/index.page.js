@@ -49,14 +49,16 @@ function Index({ member, partner, sections, ...props }) {
         >
           {item?.content}
         </RichTypography>
-        <ConnectWithMember
-          spacing="17px"
-          title="Connect Member"
-          sx={{
-            color: "text.primary",
-          }}
-          links={item.links}
-        />
+        {item?.links ? (
+          <ConnectWithMember
+            spacing="17px"
+            title="Connect"
+            sx={{
+              color: "text.primary",
+            }}
+            links={item.links}
+          />
+        ) : null}
       </Section>
       {sections?.map((section) => {
         switch (section.slug) {

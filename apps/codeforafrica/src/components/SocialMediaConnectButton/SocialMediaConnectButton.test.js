@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ConnectBarButton from "./ConnectBarButton";
+import SocialMediaConnectButton from "./SocialMediaConnectButton";
 
 import theme from "@/codeforafrica/theme";
 
@@ -9,12 +9,15 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  tooltipProps: { title: "Title" },
+  type: "facebook",
+  url: "https://www.facebook.com/",
 };
 
-describe("<ConnectBarButton />", () => {
+describe("<SocialMediaConnectButton />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ConnectBarButton {...defaultProps} />);
+    const { container } = render(
+      <SocialMediaConnectButton {...defaultProps} />
+    );
     expect(container).toMatchSnapshot();
   });
 });
