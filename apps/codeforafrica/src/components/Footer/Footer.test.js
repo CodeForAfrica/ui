@@ -14,8 +14,8 @@ const defaultProps = {
   },
   footerLinks: {
     secondary: [
-      { name: "Imprint", href: "www.imprint.com" },
-      { name: "Privacy policy", href: "www.policy.com" },
+      { label: "Imprint", href: "www.imprint.com" },
+      { label: "Privacy policy", href: "www.policy.com" },
     ],
   },
   menu: [

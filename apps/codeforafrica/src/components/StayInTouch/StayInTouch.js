@@ -19,7 +19,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
   { children, socialMedia, title = "Stay in touch with us @ &nbsp;", ...props },
   ref
 ) {
-  if (!socialMedia.links?.length) {
+  if (!socialMedia?.links?.length) {
     return null;
   }
 
