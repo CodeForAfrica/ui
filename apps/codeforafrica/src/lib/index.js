@@ -9,6 +9,7 @@ import {
   getOurMission,
   getOurPartners,
   getOurGuidingPrinciples,
+  getHeader,
 } from "./api.netlify-cms";
 
 import {
@@ -50,6 +51,7 @@ export const projects = getCmsProjects([
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
+const headerMenu = getHeader()["main-navigation"];
 
 const menu = [
   {
@@ -75,7 +77,7 @@ const menu = [
 ];
 
 const navbar = {
-  menu,
+  menu: headerMenu,
 };
 
 const footer = {
