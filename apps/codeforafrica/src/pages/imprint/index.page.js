@@ -16,7 +16,7 @@ function ImprintPage({ content, sections, ...props }) {
             return null;
         }
       })}
-      <CMSContent>{content}</CMSContent>
+      <CMSContent sx={{ my: { xs: 5, md: 12.5 } }}>{content}</CMSContent>
     </Page>
   );
 }

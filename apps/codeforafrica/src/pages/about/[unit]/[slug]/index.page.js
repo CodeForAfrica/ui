@@ -49,6 +49,7 @@ function Index({ member, partner, sections, ...props }) {
         >
           {item?.content}
         </RichTypography>
+
         {item?.links ? (
           <ConnectWithMember
             spacing="17px"

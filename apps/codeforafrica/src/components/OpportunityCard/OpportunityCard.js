@@ -11,25 +11,13 @@ import CardMedia from "@mui/material/CardMedia";
 import React from "react";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const {
-    comments,
-    date,
-    content,
-    image,
-    href,
-    tags,
-    title,
-    featureImage,
-    html,
-    publishedAt,
-    ...other
-  } = props;
+  const { featureImage, html, href, publishedAt, sx, tags, title } = props;
 
-  if (!(title && content)) {
+  if (!(title && html)) {
     return null;
   }
   return (
-    <Card sx={{ boxShadow: "none", borderRadius: 0, ...other.sx }} ref={ref}>
+    <Card sx={{ boxShadow: "none", borderRadius: 0, ...sx }} ref={ref}>
       <CardActionArea component={href ? Link : undefined} href={href}>
         <CardMedia component="img" alt="" src={featureImage} />
         <CardContent sx={{ padding: 0 }}>
