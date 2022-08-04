@@ -65,7 +65,7 @@ jobs:
         with:
           build-args: |
             APP=${{ env.APP }}
-            GHOST_API_KEY: ${{ secrets.GHOST_API_KEY }}
+            GHOST_API_KEY=${{ secrets.GHOST_API_KEY }}
             GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
