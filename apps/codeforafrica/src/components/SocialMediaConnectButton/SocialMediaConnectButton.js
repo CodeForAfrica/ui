@@ -32,7 +32,7 @@ function getButtonIcon(type) {
     case "slack":
       return SlackIcon;
     default:
-      // TODO: if no icon found, return a generic icon
+      // TODO: if no icon found, return a generic icon ?
       return null;
   }
 }
