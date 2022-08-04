@@ -15,13 +15,12 @@ const defaultProps = {
       href: "/opportunities/1",
       title:
         "DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime",
-      description:
-        "Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...",
+      html: "Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...",
     },
   ],
 };
 
-describe("<OpportunityCard />", () => {
+describe("<OpportunityCardList />", () => {
   it("renders unchanged", () => {
     const { container } = render(<OpportunityCardList {...defaultProps} />);
     expect(container).toMatchSnapshot();

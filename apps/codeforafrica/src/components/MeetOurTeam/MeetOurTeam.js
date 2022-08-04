@@ -1,7 +1,8 @@
 import { Section, RichTypography } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import { Button, Grid, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
@@ -22,7 +23,12 @@ const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
       >
         <Grid container>
           <Grid item sm={6} xs={12} sx={{ order: { sm: 2 } }}>
-            <Typography variant="h2">{title}</Typography>
+            <RichTypography
+              variant="h2"
+              sx={{ typography: { xs: "h3", md: "h2" } }}
+            >
+              {title}
+            </RichTypography>
             <RichTypography variant="body3" sx={{ pt: 5 }}>
               {description}
             </RichTypography>

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const Author = React.forwardRef(function Author(props, ref) {
-  const { name, bio, ...other } = props;
+  const { bio, name, sx } = props;
 
   return (
     <Stack
@@ -12,8 +12,8 @@ const Author = React.forwardRef(function Author(props, ref) {
       spacing={2.5}
       sx={{
         alignItems: "center",
+        ...sx,
       }}
-      {...other}
       ref={ref}
     >
       <RichTypography variant="body2">Article by</RichTypography>
@@ -35,12 +35,12 @@ const Author = React.forwardRef(function Author(props, ref) {
 
 Author.propTypes = {
   name: PropTypes.string,
-  profession: PropTypes.string,
+  bio: PropTypes.string,
 };
 
 Author.defaultProps = {
   name: undefined,
-  profession: undefined,
+  bio: undefined,
 };
 
 export default Author;

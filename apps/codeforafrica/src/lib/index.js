@@ -162,19 +162,14 @@ export async function getStories(options) {
     "page-size": pageSize = 10,
     q,
   } = options || {};
-
   const tag = originalTag || ALL_TAG;
 
   let stories = await getAllStories();
-
-  // if tag is present, filter stories by tag
-  if (tag !== ALL_TAG) {
-    // filter stories by tag
-    stories = stories.filter((story) =>
-      story.tags.some((t) => t.name.toLowerCase() === tag.toLowerCase())
+  if (!equalsIgnoreCase(tag, ALL_TAG)) {
+    stories = stories.filter((s) =>
+      s.tags.some((t) => equalsIgnoreCase(t, tag))
     );
   }
-
   if (stories.length && q) {
     stories = fuse
       .stories(stories)
@@ -269,17 +264,11 @@ export async function getOpportunities(options) {
   const tag = originalTag || ALL_TAG;
 
   let opportunities = await getAllOpportunities();
-
-  // if tag is not provided or set to ALL, we will return all opportunities
-  if (tag !== ALL_TAG) {
-    // return opportunities that have the tag
+  if (!equalsIgnoreCase(tag, ALL_TAG)) {
     opportunities = opportunities.filter((opportunity) => {
-      return opportunity.tags.some(
-        (t) => t.name.toLowerCase() === tag.toLowerCase()
-      );
+      return opportunity.tags.some((t) => equalsIgnoreCase(t, tag));
     });
   }
-
   if (opportunities.length && q) {
     opportunities = fuse
       .opportunities(opportunities)

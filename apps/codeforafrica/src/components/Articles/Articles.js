@@ -20,7 +20,6 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     tags,
     title,
   } = props;
-  // We use 10 because article 0 will be shown as featured article
   const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);
   const [articles, setArticles] = useState(resultsProp);

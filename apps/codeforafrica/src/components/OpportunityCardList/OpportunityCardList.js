@@ -15,7 +15,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   return (
     <Stack spacing={{ xs: 5, md: 10 }} {...other} ref={ref}>
       {opportunities.map((opportunity) => (
-        <OpportunityCard key={opportunity.id} {...opportunity} />
+        <OpportunityCard {...opportunity} key={opportunity.id} />
       ))}
     </Stack>
   );

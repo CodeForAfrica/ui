@@ -23,7 +23,7 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
     <Section sx={{ px: { xs: "20px", sm: 0 }, ...sx }} {...other} ref={ref}>
       <Grid container sx={{ py: { xs: "28px", md: 8, lg: "105.29px" } }}>
         <Grid item xs={12} sx={{ order: { xs: 0, md: 1 } }}>
-          <RichTypography variant="h4" sx={{ mb: "10px" }}>
+          <RichTypography variant="h4" sx={{ mb: "10px", mt: { md: 5 } }}>
             {title}
           </RichTypography>
           <FilterBar
@@ -43,13 +43,13 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
         {articles?.length > 0 ? (
           <>
             <Grid item xs={12} sx={{ order: { xs: 1, md: 0 } }}>
-              <FeaturedArticle
-                sx={{ mb: { xs: "28px", md: "40px" } }}
-                {...articles[0]}
-              />
+              <FeaturedArticle {...articles[0]} />
             </Grid>
             <Grid item xs={12} sx={{ order: { xs: 2 } }}>
-              <ArticleCardList articles={articles.slice(1)} />
+              <ArticleCardList
+                sx={{ pt: { xs: "28px", md: 0 } }}
+                articles={articles.slice(1)}
+              />
             </Grid>
           </>
         ) : null}
