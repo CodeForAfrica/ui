@@ -25,11 +25,13 @@ const membersOptions = {
 
 const opportunitiesOptions = {
   ...options,
+  // Total weight = 10
   keys: [
-    { name: "title", weight: 3 },
-    { name: "summary", weight: 1.5 },
-    { name: "content", weight: 1 },
-    { name: "author.name", weight: 0.5 },
+    { name: "title", weight: 5 },
+    { name: "excerpt", weight: 2 },
+    { name: "html", weight: 2 },
+    { name: "authors.name", weight: 0.5 },
+    { name: "authors.bio", weight: 0.5 },
   ],
 };
 

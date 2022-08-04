@@ -42,5 +42,7 @@ test-results/
 playwright-report/
 
 # Data cache
-**/public/data
-!**/public/data/.keep
+apps/codeforafrica/public/data/**
+!apps/codeforafrica/public/data/README.md
+apps/promisetracker/public/data/**
+!apps/promisetracker/public/data/README.md

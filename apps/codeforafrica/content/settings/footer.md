@@ -15,7 +15,7 @@ stay-in-touch:
           src: /images/type-twitter-size-32-color-white.svg
     - link:
         content: Slack
-        href: https://cfa.slack.com/
+        href: https://code4africa.slack.com/
         icon:
           src: /images/type-slack-size-64-color-currentcolor.svg
     - link:
