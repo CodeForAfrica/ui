@@ -60,8 +60,8 @@ const {
   "stay-in-touch": socialMedia,
   "newsletter-subscription": { code: embedCode },
   description,
+  logo,
 } = getFooter();
-
 const navbar = {
   menu: headerMenu,
 };
@@ -76,6 +76,7 @@ const footer = {
   subscription: {
     embedCode,
   },
+  logo,
 };
 
 const meetOurTeam = getMeetOurTeam();

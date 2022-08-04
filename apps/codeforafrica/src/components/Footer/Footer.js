@@ -26,8 +26,14 @@ const FooterRoot = styled(Box)(
 );
 
 const Footer = React.forwardRef(function Footer(props, ref) {
-  const { subscription, description, additionalLinks, socialMedia, menu } =
-    props;
+  const {
+    subscription,
+    description,
+    additionalLinks,
+    socialMedia,
+    menu,
+    logo,
+  } = props;
 
   return (
     <FooterRoot component="footer" ref={ref}>
@@ -40,7 +46,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 item
                 xs={12}
               >
-                <FooterDescription description={description} />
+                <FooterDescription description={description} logo={logo} />
               </Grid>
               <Grid item xs={12}>
                 <StayInTouch socialMedia={socialMedia} />

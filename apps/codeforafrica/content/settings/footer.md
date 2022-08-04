@@ -1,6 +1,6 @@
 ---
 logo:
-  src: /images/cfa-logo.png
+  src: /images/cfalogobw.png
 description: >
   This site is a project of Code for Africa, the continent's largest network of
   civic technology and data journalism labs. All content is released under a

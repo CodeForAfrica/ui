@@ -1,19 +1,28 @@
 import { Link } from "@commons-ui/next";
 import { Typography } from "@mui/material";
-import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-import cfaIcon from "@/codeforafrica/assets/images/CfAlogoBW.png";
+import Figure from "@/codeforafrica/components/Figure";
 
-function FooterDescription({ description }) {
+function FooterDescription({ description, logo }) {
   if (!description) {
     return null;
   }
   return (
     <>
       <Link href="/">
-        <Image src={cfaIcon} alt="" />
+        <Figure
+          priority
+          {...logo}
+          sx={{
+            display: {
+              sm: "block",
+            },
+            height: { sm: "113px", md: "113px", lg: "113px" },
+            width: { sm: "251px", md: "251px", lg: "251px" },
+          }}
+        />
       </Link>
       <Typography
         variant="body1"
