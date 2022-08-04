@@ -968,24 +968,16 @@ module.exports = {
               name: "main-navigation",
               label_singular: "Main Navigation",
               widget: "list",
-              summary: "{{link.content}}",
               fields: [
                 {
-                  label: "Link",
-                  name: "link",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Content",
-                      name: "content",
-                      widget: "string",
-                    },
-                    {
-                      label: "Href",
-                      name: "href",
-                      widget: "string",
-                    },
-                  ],
+                  label: "Label",
+                  name: "label",
+                  widget: "string",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
                 },
               ],
             },
@@ -1105,46 +1097,38 @@ module.exports = {
                   name: "links",
                   label_singular: "Link",
                   widget: "list",
-                  summary: "{{link.content}}",
                   fields: [
                     {
-                      label: "Link",
-                      name: "link",
+                      label: "Label",
+                      name: "label",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                    {
+                      label: "Icon",
+                      name: "icon",
                       widget: "object",
                       fields: [
                         {
-                          label: "Content",
-                          name: "content",
-                          widget: "string",
+                          label: "Src",
+                          name: "src",
+                          widget: "image",
                         },
                         {
-                          label: "Href",
-                          name: "href",
+                          label: "Height",
+                          name: "height",
                           widget: "string",
+                          required: false,
                         },
                         {
-                          label: "Icon",
-                          name: "icon",
-                          widget: "object",
-                          fields: [
-                            {
-                              label: "Src",
-                              name: "src",
-                              widget: "image",
-                            },
-                            {
-                              label: "Height",
-                              name: "height",
-                              widget: "string",
-                              required: false,
-                            },
-                            {
-                              label: "Width",
-                              name: "width",
-                              widget: "string",
-                              required: false,
-                            },
-                          ],
+                          label: "Width",
+                          name: "width",
+                          widget: "string",
+                          required: false,
                         },
                       ],
                     },
@@ -1157,24 +1141,16 @@ module.exports = {
               name: "main-navigation",
               label_singular: "Main Navigation",
               widget: "list",
-              summary: "{{link.content}}",
               fields: [
                 {
-                  label: "Link",
-                  name: "link",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Content",
-                      name: "content",
-                      widget: "string",
-                    },
-                    {
-                      label: "Href",
-                      name: "href",
-                      widget: "string",
-                    },
-                  ],
+                  label: "Label",
+                  name: "label",
+                  widget: "string",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
                 },
               ],
             },
@@ -1183,24 +1159,16 @@ module.exports = {
               name: "secondary-navigation",
               label_singular: "Secondary Navigation",
               widget: "list",
-              summary: "{{link.content}}",
               fields: [
                 {
-                  label: "Link",
-                  name: "link",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Content",
-                      name: "content",
-                      widget: "string",
-                    },
-                    {
-                      label: "Href",
-                      name: "href",
-                      widget: "string",
-                    },
-                  ],
+                  label: "Label",
+                  name: "label",
+                  widget: "string",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
                 },
               ],
             },
