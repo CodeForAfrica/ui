@@ -52,7 +52,7 @@ export const projects = getCmsProjects([
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
-const headerMenu = getHeader()["main-navigation"];
+const { "main-navigation": headerMenu } = getHeader();
 
 const {
   "main-navigation": footerMenu,
