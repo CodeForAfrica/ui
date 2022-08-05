@@ -16,14 +16,14 @@ const ListRoot = styled("div")(({ theme: { breakpoints, typography } }) => ({
   },
 }));
 
-function FooterLinks({ additionalLinks, menu }) {
-  if (!additionalLinks) {
+function FooterLinks({ menu, secondaryMenu }) {
+  if (!(menu?.length || secondaryMenu?.length)) {
     return null;
   }
   return (
     <ListRoot>
       <FooterNavList menu={menu}>
-        {additionalLinks.secondary.map((item) => (
+        {secondaryMenu?.map((item) => (
           <NavListItem
             sx={{
               padding: 0,
@@ -41,10 +41,10 @@ function FooterLinks({ additionalLinks, menu }) {
               }}
               href={item.href}
             >
-              {item.label}
+              {item.content}
             </Link>
           </NavListItem>
-        ))}
+        )) ?? null}
       </FooterNavList>
     </ListRoot>
   );
