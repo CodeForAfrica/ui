@@ -1,5 +1,7 @@
 import getSettings from "./getSettings";
 
 export default function getHeader() {
-  return getSettings("header");
+  const { logo, "main-navigation": menu } = getSettings("header");
+
+  return { logo, menu };
 }
