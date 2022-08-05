@@ -8,7 +8,7 @@ import NavList from "@/codeforafrica/components/NavList";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
 const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
-  const { menu, direction, ...other } = props;
+  const { direction, menu, ...other } = props;
 
   if (!menu?.length) {
     return null;
