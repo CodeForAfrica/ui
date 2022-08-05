@@ -966,12 +966,12 @@ module.exports = {
             {
               label: "Main Navigation",
               name: "main-navigation",
-              label_singular: "Main Navigation",
+              label_singular: "Navigation item",
               widget: "list",
               fields: [
                 {
                   label: "Label",
-                  name: "label",
+                  name: "content",
                   widget: "string",
                 },
                 {
@@ -1139,12 +1139,12 @@ module.exports = {
             {
               label: "Main Navigation",
               name: "main-navigation",
-              label_singular: "Main Navigation",
+              label_singular: "Navigation item",
               widget: "list",
               fields: [
                 {
                   label: "Label",
-                  name: "label",
+                  name: "content",
                   widget: "string",
                 },
                 {
@@ -1157,12 +1157,12 @@ module.exports = {
             {
               label: "Secondary Navigation",
               name: "secondary-navigation",
-              label_singular: "Secondary Navigation",
+              label_singular: "Navigation item",
               widget: "list",
               fields: [
                 {
                   label: "Label",
-                  name: "label",
+                  name: "content",
                   widget: "string",
                 },
                 {
@@ -1175,9 +1175,21 @@ module.exports = {
             {
               label: "Newsletter subscription",
               name: "newsletter-subscription",
-              widget: "code",
-              allow_language_selection: false,
-              default_language: "html",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Mailchimp code",
+                  name: "embed-code",
+                  widget: "code",
+                  allow_language_selection: false,
+                  default_language: "html",
+                },
+              ],
             },
           ],
         },
