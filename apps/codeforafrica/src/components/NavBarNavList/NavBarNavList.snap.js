@@ -11,9 +11,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-1kexo2-MuiTypography-root-MuiLink-root"
         href="/our-work"
-      >
-        Our Work
-      </a>
+      />
     </li>
     <li
       class="css-1n7p56k"
@@ -21,9 +19,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-1kexo2-MuiTypography-root-MuiLink-root"
         href="/about"
-      >
-        About
-      </a>
+      />
     </li>
     <li
       class="css-1n7p56k"
@@ -31,9 +27,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-1kexo2-MuiTypography-root-MuiLink-root"
         href="/about"
-      >
-        Stories
-      </a>
+      />
     </li>
     <li
       class="css-1n7p56k"
@@ -41,9 +35,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-1kexo2-MuiTypography-root-MuiLink-root"
         href="/opportunity"
-      >
-        Opportunity
-      </a>
+      />
     </li>
     <li
       class="css-1n7p56k"
@@ -51,9 +43,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-1kexo2-MuiTypography-root-MuiLink-root"
         href="/contact"
-      >
-        Contact
-      </a>
+      />
     </li>
     <li
       class="css-14eadhm"

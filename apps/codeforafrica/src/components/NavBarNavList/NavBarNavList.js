@@ -16,7 +16,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
   return (
     <NavList direction={direction} {...other} ref={ref}>
       {menu.map((item) => (
-        <NavListItem key={item.label} sx={{ m: "20px" }}>
+        <NavListItem key={item.content} sx={{ m: "20px" }}>
           <Link
             href={item.href}
             color="inherit"
@@ -29,7 +29,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
               },
             }}
           >
-            {item.label}
+            {item.content}
           </Link>
         </NavListItem>
       ))}

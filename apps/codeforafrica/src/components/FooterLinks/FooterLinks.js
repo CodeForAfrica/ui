@@ -31,7 +31,7 @@ function FooterLinks({ menu, secondaryMenu }) {
               display: { md: "block", xs: "flex" },
               justifyContent: { md: "flex-start", xs: "center" },
             }}
-            key={item.label}
+            key={item.content}
           >
             <Link
               sx={{
