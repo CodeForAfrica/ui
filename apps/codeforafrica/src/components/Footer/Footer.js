@@ -26,30 +26,25 @@ const FooterRoot = styled(Box)(
 );
 
 const Footer = React.forwardRef(function Footer(props, ref) {
-  const {
-    subscription,
-    description,
-    additionalLinks,
-    socialMedia,
-    menu,
-    logo,
-  } = props;
+  const { subscription, description, secondaryMenu, socialMedia, menu, logo } =
+    props;
 
   return (
     <FooterRoot component="footer" ref={ref}>
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={4} sx={{ order: { xs: 2, md: 0 } }}>
+        <Grid container justifyContent="space-between">
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{ order: { xs: 2, md: 0 }, pt: { xs: 10, md: 0 } }}
+          >
             <Grid container>
-              <Grid
-                sx={{ textAlign: { xs: "center", md: "left" } }}
-                item
-                xs={12}
-              >
-                <FooterDescription description={description} logo={logo} />
+              <Grid item xs={12}>
+                <FooterDescription logo={logo}>{description}</FooterDescription>
               </Grid>
               <Grid item xs={12}>
-                <StayInTouch socialMedia={socialMedia} />
+                <StayInTouch {...socialMedia} />
               </Grid>
             </Grid>
           </Grid>
@@ -58,12 +53,12 @@ const Footer = React.forwardRef(function Footer(props, ref) {
             container
             justifyContent="center"
             xs={12}
-            md={4}
+            md="auto"
             sx={{ order: { xs: 2, md: 1 } }}
           >
-            <FooterLinks additionalLinks={additionalLinks} menu={menu} />
+            <FooterLinks menu={menu} secondaryMenu={secondaryMenu} />
           </Grid>
-          <Grid item xs={12} md={4} sx={{ order: { md: 2 } }}>
+          <Grid item xs={12} md="auto" sx={{ order: { md: 2 } }}>
             <NewsletterSubscription {...subscription} />
           </Grid>
         </Grid>
