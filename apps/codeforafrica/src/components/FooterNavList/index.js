@@ -37,7 +37,7 @@ function FooterNavList({ menu, children }) {
                 },
               }}
             >
-              {item.label}
+              {item.content}
             </Link>
           </NavListItem>
         ))}
