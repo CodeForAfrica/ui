@@ -52,32 +52,10 @@ export const projects = getCmsProjects([
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
-const { "main-navigation": headerMenu } = getHeader();
 
-const {
-  "main-navigation": footerMenu,
-  "secondary-navigation": secondary,
-  "stay-in-touch": socialMedia,
-  "newsletter-subscription": { code: embedCode },
-  description,
-  logo,
-} = getFooter();
-const navbar = {
-  menu: headerMenu,
-};
+const navbar = getHeader();
 
-const footer = {
-  socialMedia,
-  additionalLinks: {
-    secondary,
-  },
-  description,
-  menu: footerMenu,
-  subscription: {
-    embedCode,
-  },
-  logo,
-};
+const footer = getFooter();
 
 const meetOurTeam = getMeetOurTeam();
 
