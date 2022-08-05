@@ -1,10 +1,9 @@
+import { RichTypography } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
-import * as React from "react";
-
-import Title from "@/codeforafrica/components/StayInTouchTitle";
+import React from "react";
 
 const IconRoot = styled("img", {
   slot: "Root",
@@ -16,52 +15,57 @@ const IconRoot = styled("img", {
 }));
 
 const StayInTouch = React.forwardRef(function StayInTouch(
-  { children, socialMedia, title = "Stay in touch with us @ &nbsp;", ...props },
+  { links, sx, title },
   ref
 ) {
-  if (!socialMedia?.links?.length) {
+  if (!links?.length) {
     return null;
   }
-
   return (
     <Grid
+      container
+      alignItems="center"
+      justifyContent="center"
       sx={{
         marginTop: "3.125rem",
-        justifyContent: { xs: "center", md: "flex-start" },
+        ...sx,
       }}
-      container
       ref={ref}
-      {...props}
     >
-      {title && (
-        <Grid
-          item
-          xs={12}
-          md={4}
-          sx={{ margin: "auto", textAlign: { xs: "center", md: "left" } }}
-        >
-          <Title>{socialMedia.title}:</Title>
+      {title?.length ? (
+        <Grid item xs={12} md={4}>
+          <RichTypography
+            sx={{
+              mb: { xs: "1.438rem", md: 0 },
+              textAlign: { xs: "center", md: "left" },
+            }}
+            variant="footerCap"
+          >
+            {title}
+          </RichTypography>
         </Grid>
-      )}
+      ) : null}
       <Grid
-        justifyContent={{ md: "flex-start", xs: "center" }}
         item
         xs={12}
         md={8}
         container
+        alignItems={{ xs: "flex-start", md: "center" }}
+        justifyContent={{ xs: "center", md: "flex-start" }}
       >
-        {socialMedia.links.map((media) => (
-          <Link
-            sx={{
-              display: "inline-block",
-              padding: 0,
-              paddingRight: "0.625rem",
-            }}
-            key={media.href}
-            href={media.href}
-          >
-            <IconRoot src={media.icon.src} alt={media.label} />
-          </Link>
+        {links.map((media) => (
+          <Grid item key={media.href}>
+            <Link
+              sx={{
+                display: "inline-block",
+                padding: 0,
+                paddingRight: "0.625rem",
+              }}
+              href={media.href}
+            >
+              <IconRoot src={media.icon.src} alt={media.label} />
+            </Link>
+          </Grid>
         ))}
       </Grid>
     </Grid>
@@ -69,7 +73,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
 });
 
 StayInTouch.propTypes = {
-  socialMedia: PropTypes.arrayOf(
+  links: PropTypes.arrayOf(
     PropTypes.shape({
       href: PropTypes.string.isRequired,
       icon: PropTypes.shape({
@@ -81,7 +85,7 @@ StayInTouch.propTypes = {
 };
 
 StayInTouch.defaultProps = {
-  socialMedia: undefined,
+  links: undefined,
   title: undefined,
 };
 
