@@ -7,7 +7,7 @@ description: >
   Creative Commons 4 Attribution Licence. Reuse it to help empower your own
   community.
 stay-in-touch:
-  title: STAY IN TOUCH
+  title: "STAY IN TOUCH:"
   links:
     - label: Twitter
       href: https://twitter.com/Code4Africa
@@ -34,39 +34,41 @@ stay-in-touch:
       icon:
         src: /images/type-github-size-32-color-white.svg
 main-navigation:
-  - label: Our work
+  - content: Our work
     href: /projects
-  - label: About
+  - content: About
     href: /about
-  - label: Stories
+  - content: Stories
     href: /stories
-  - label: Opportunities
+  - content: Opportunities
     href: /opportunities
-  - label: Contact
+  - content: Contact
     href: /contact
 secondary-navigation:
-  - label: Imprint
+  - content: Imprint
     href: /imprint
-  - label: Privacy policy
+  - content: Privacy policy
     href: /privacy
 newsletter-subscription:
-  lang: html
-  code: >-
-    <!-- Begin Mailchimp Signup Form -->
+  embed-code:
+    lang: html
+    code: >-
+      <!-- Begin Mailchimp Signup Form -->
 
-        <div id="mc_embed_signup">
-          <form action="https://twitter.us6.list-manage.com/subscribe/post?u=65e5825507b3cec760f272e79&amp;id=c2ff751541" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-              <div id="mc_embed_signup_scroll">
-            <label for="MERGE1">Name</label>
-            <input type="text" name="MERGE1" id="MERGE1" size="25" value="">
-            <label for="mce-EMAIL">Email</label>
-            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" required>
-           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_65e5825507b3cec760f272e79_c2ff751541" tabindex="-1" value=""></div>
-              <div class="clear"><input type="submit" value="Sign up"  id="mc-embedded-subscribe" class="button"></div>
-              </div>
-          </form>
-        </div>
+          <div id="mc_embed_signup">
+            <form action="https://twitter.us6.list-manage.com/subscribe/post?u=65e5825507b3cec760f272e79&amp;id=c2ff751541" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+              <label for="MERGE1">Name</label>
+              <input type="text" name="MERGE1" id="MERGE1" size="25" value="">
+              <label for="mce-EMAIL">Email</label>
+              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" required>
+             <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_65e5825507b3cec760f272e79_c2ff751541" tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Sign up"  id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+          </div>
 
-        <!--End mc_embed_signup-->
+          <!--End mc_embed_signup-->
+  title: Subscribe to our newsletter
 ---
