@@ -2,27 +2,24 @@ import { Grid, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-/* eslint-disable import/no-unresolved */
-import cfaLogo from "@/codeforafrica/assets/CfA logo.svg?url";
 import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
 import NextImageButton from "@/codeforafrica/components/NextImageButton";
 
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
-  const { menu, direction, ...other } = props;
+  const { logo, menu, sx } = props;
 
   return (
     <Grid
       container
       justifyContent="space-between"
       alignItems="center"
-      direction="row"
-      {...other}
+      sx={sx}
       ref={ref}
     >
       <Grid item>
         <NextImageButton
+          {...logo}
           href="/"
-          src={cfaLogo}
           alt="Logo"
           width="136px"
           height="61px"
@@ -30,7 +27,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
       </Grid>
       <Grid item>
         <Box component="nav" sx={{ justifyContent: "flex-end" }}>
-          <NavBarNavList menu={menu} direction={direction} />
+          <NavBarNavList menu={menu} direction="row" />
         </Box>
       </Grid>
     </Grid>
