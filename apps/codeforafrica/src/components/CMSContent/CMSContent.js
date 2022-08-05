@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import React, { useEffect, useRef } from "react";
 
 const CMSContent = React.forwardRef(function CMSContent(
-  { sx, TypographyProps },
+  { children, sx, TypographyProps },
   ref
 ) {
   const typographyRef = useRef();
@@ -33,7 +33,9 @@ const CMSContent = React.forwardRef(function CMSContent(
       sx={{ px: { xs: 2.5, sm: 0 }, ...sx }}
       ref={ref}
     >
-      <RichTypography {...TypographyProps} ref={typographyRef} />
+      <RichTypography {...TypographyProps} ref={typographyRef}>
+        {children}
+      </RichTypography>
     </Section>
   );
 });
