@@ -295,6 +295,12 @@ deepmerge(
       lineHeight: 28 / 23,
       textTransform: "uppercase",
     },
+    h5SemiBold: {
+      ...theme.typography.h5,
+      fontSize: pxToRem(23),
+      fontWeight: 300,
+      lineHeight: 28 / 23,
+    },
     h6: {
       fontSize: pxToRem(16),
       lineHeight: 19 / 16,
