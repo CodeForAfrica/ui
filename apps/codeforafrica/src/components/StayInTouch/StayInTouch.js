@@ -30,17 +30,18 @@ const StayInTouch = React.forwardRef(function StayInTouch(
     <Grid
       container
       alignItems="center"
-      justifyContent="center"
+      justifyContent={{ xs: "center", md: "flex-start" }}
       sx={{
         ...sx,
       }}
       ref={ref}
     >
       {title?.length ? (
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md="auto">
           <RichTypography
             sx={{
-              mb: { xs: "1.438rem", md: 0 },
+              mb: { xs: 2.5, md: 0 },
+              mr: { md: 4 },
               textAlign: { xs: "center", md: "left" },
             }}
             variant="footerCap"
@@ -52,9 +53,8 @@ const StayInTouch = React.forwardRef(function StayInTouch(
       <Grid
         item
         xs={12}
-        md={8}
+        md="auto"
         container
-        alignItems={{ xs: "flex-start", md: "center" }}
         justifyContent={{ xs: "center", md: "flex-start" }}
       >
         {links.map((media) => (

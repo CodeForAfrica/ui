@@ -32,34 +32,47 @@ const Footer = React.forwardRef(function Footer(props, ref) {
   return (
     <FooterRoot component="footer" ref={ref}>
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
-        <Grid container justifyContent="space-between">
-          <Grid item xs={12} md={6} sx={{ order: { xs: 2, md: 0 } }}>
-            <Grid container>
-              <Grid item xs={12}>
-                <FooterDescription logo={logo} sx={{ mt: { xs: 10, md: 0 } }}>
-                  {description}
-                </FooterDescription>
+        {/* Increase number of columns to getter columns size */}
+        <Grid container columns={24} justifyContent="space-between">
+          <Grid
+            item
+            xs={24}
+            md={15}
+            lg={16}
+            sx={{
+              order: { xs: 1, md: 0 },
+            }}
+          >
+            <Grid container justifyContent="space-between">
+              <Grid
+                item
+                xs={12}
+                md="auto"
+                container
+                direction="column"
+                sx={{
+                  maxWidth: { xs: "none", md: "337px" },
+                }}
+              >
+                <Grid item>
+                  <FooterDescription logo={logo} sx={{ mt: { xs: 10, md: 0 } }}>
+                    {description}
+                  </FooterDescription>
+                </Grid>
+                <Grid item>
+                  <StayInTouch {...stayInTouch} sx={{ mt: "52px" }} />
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <StayInTouch {...stayInTouch} sx={{ mt: "52px" }} />
+              <Grid item xs={12} md="auto">
+                <FooterLinks
+                  menu={menu}
+                  secondaryMenu={secondaryMenu}
+                  sx={{ mt: { xs: "52px", md: 0 } }}
+                />
               </Grid>
             </Grid>
           </Grid>
-          <Grid
-            item
-            container
-            justifyContent="center"
-            xs={12}
-            md="auto"
-            sx={{ order: { xs: 2, md: 1 } }}
-          >
-            <FooterLinks
-              menu={menu}
-              secondaryMenu={secondaryMenu}
-              sx={{ mt: { xs: "52px", md: 0 } }}
-            />
-          </Grid>
-          <Grid item xs={12} md="auto" sx={{ order: { md: 2 } }}>
+          <Grid item xs={24} md="auto" sx={{ order: { xs: 0, md: 1 } }}>
             <NewsletterSubscription {...subscription} />
           </Grid>
         </Grid>
