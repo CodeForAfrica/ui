@@ -1,24 +1,19 @@
 import { Link } from "@commons-ui/next";
-import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
 import PropTypes from "prop-types";
 import React from "react";
 
 import FooterNavList from "@/codeforafrica/components/FooterNavList";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
-const ListRoot = styled("div")(({ theme: { breakpoints, typography } }) => ({
-  marginTop: typography.pxToRem(85),
-  [breakpoints.up("md")]: {
-    marginTop: 0,
-  },
-}));
+const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
+  const { menu, secondaryMenu, sx } = props;
 
-function FooterLinks({ menu, secondaryMenu }) {
   if (!(menu?.length || secondaryMenu?.length)) {
     return null;
   }
   return (
-    <ListRoot>
+    <Box sx={sx} ref={ref}>
       <FooterNavList menu={menu}>
         {secondaryMenu?.map((item, i) => (
           <NavListItem
@@ -43,9 +38,9 @@ function FooterLinks({ menu, secondaryMenu }) {
           </NavListItem>
         )) ?? null}
       </FooterNavList>
-    </ListRoot>
+    </Box>
   );
-}
+});
 
 FooterLinks.propTypes = {
   additionalLinks: PropTypes.shape({}),
