@@ -20,10 +20,14 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     tags,
     title,
   } = props;
-  const [count, setCount] = useState(countProp);
-  const [page, setPage] = useState(pageProp);
   const [articles, setArticles] = useState(resultsProp);
+  const [count, setCount] = useState(countProp);
+  const [featuredArticle, setFeaturedArticle] = useState(() =>
+    resultsProp?.find((article) => article.featured)
+  );
+  const [page, setPage] = useState(pageProp);
   const [q, setQ] = useState();
+  const [filtering, setFiltering] = useState(false);
   const [tag, setTag] = useState(ALL_TAG);
   const queryParams = useFilterQuery({ page, q, tag });
   const router = useRouter();
@@ -43,14 +47,30 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     setPage(1);
   };
 
+  useEffect(() => {
+    const isFiltering = page !== 1 || q || !equalsIgnoreCase(tag, ALL_TAG);
+    setFiltering(isFiltering);
+  }, [page, q, tag]);
+
   const { data } = useArticles({ page, q, tag });
   useEffect(() => {
     if (data) {
       const { results, pagination } = data;
+      let newFeaturedArticle;
+      let newArticles = results;
+      if (!filtering) {
+        newFeaturedArticle = newArticles.find((article) => article.featured);
+        if (newFeaturedArticle) {
+          newArticles = newArticles.filter(
+            (article) => article.id !== newFeaturedArticle.id
+          );
+        }
+      }
       setCount(pagination.count);
-      setArticles([...results]);
+      setFeaturedArticle(newFeaturedArticle);
+      setArticles([...newArticles]);
     }
-  }, [data]);
+  }, [data, filtering]);
 
   useEffect(() => {
     router.push(queryParams, undefined, {
@@ -67,6 +87,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     <div ref={ref}>
       <ArticleGrid
         articles={articles}
+        featuredArticle={featuredArticle}
         onChangeQ={handleChangeQ}
         onChangeTag={handleChangeTag}
         selectedTag={tag}
