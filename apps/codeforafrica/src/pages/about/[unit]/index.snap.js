@@ -28,7 +28,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1clvkda-MuiContainer-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-h5 css-tsuzph-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5Small css-xd0tk5-MuiTypography-root"
         >
           Our team
         </div>
@@ -96,7 +96,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
             Are you looking to start a new project?
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter css-8rz2im-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter css-1foewam-MuiTypography-root"
           >
             We'd love to hear more.
           </div>

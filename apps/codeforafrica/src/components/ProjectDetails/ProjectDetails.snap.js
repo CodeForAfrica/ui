@@ -16,7 +16,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
           class="css-1ustfsx-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h5 css-1cd67ef-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5Small css-suiten-MuiTypography-root"
           >
             Details
           </div>
@@ -84,7 +84,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
           class="css-yaaila-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h5 css-1cd67ef-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5 css-1sbxx2f-MuiTypography-root"
           >
             Description
           </div>
