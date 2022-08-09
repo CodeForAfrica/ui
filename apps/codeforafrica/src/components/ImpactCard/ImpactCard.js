@@ -8,8 +8,9 @@ import React from "react";
 const ImpactCardRoot = styled(Card, {
   slot: "Root",
 })(({ theme: { breakpoints } }) => ({
-  width: "100%",
+  backgroundColor: "inherit",
   boxShadow: "none",
+  width: "100%",
   [breakpoints.up("md")]: {
     width: "326px",
   },
@@ -30,16 +31,18 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
     <ImpactCardRoot ref={ref}>
       <CardContent
         sx={{
-          backgroundColor: "background.main",
           padding: 0,
+          "&:last-child": {
+            padding: 0,
+          },
         }}
       >
         <Box
           sx={{
-            display: "flex",
             borderBottom: "1px solid",
             borderColor: "primary.main",
-            paddingBottom: "0.75rem",
+            display: "flex",
+            pb: "12px",
           }}
         >
           <Image src={imageSrc} alt={imageAlt} width={32} height={32} />
@@ -58,9 +61,11 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
         <RichTypography
           variant="display1"
           sx={{
+            borderBottom: "solid 1px",
+            borderColor: "secondary.main",
             color: "primary.main",
-            padding: "1.25rem 0",
             display: "block",
+            py: "10px",
           }}
         >
           {value}
@@ -68,9 +73,7 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
         <RichTypography
           sx={{
             display: "block",
-            padding: "1.25rem 0",
-            borderColor: "secondary.main",
-            borderTop: "solid 1px",
+            pt: "10px",
           }}
           variant="body3"
         >
