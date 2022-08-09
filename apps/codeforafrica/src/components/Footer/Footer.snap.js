@@ -29,7 +29,7 @@ exports[`<Footer /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gen7bw-MuiGrid-root"
         >
           <div
-            class="css-mg65nd"
+            class="css-l8ydmc"
           >
             <nav
               class="MuiBox-root css-l2rxmg"
@@ -41,41 +41,71 @@ exports[`<Footer /> renders unchanged 1`] = `
                   class="css-1ujh2ms"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
                     href="/our-work"
-                  />
+                  >
+                    Our Work
+                  </a>
                 </li>
                 <li
                   class="css-1ujh2ms"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
                     href="/about"
-                  />
+                  >
+                    About
+                  </a>
                 </li>
                 <li
                   class="css-1ujh2ms"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
                     href="/about"
-                  />
+                  >
+                    Stories
+                  </a>
                 </li>
                 <li
                   class="css-1ujh2ms"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
                     href="/opportunity"
-                  />
+                  >
+                    Opportunity
+                  </a>
                 </li>
                 <li
                   class="css-1ujh2ms"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
                     href="/contact"
-                  />
+                  >
+                    Contact
+                  </a>
+                </li>
+                <li
+                  class="css-t5n0aj"
+                >
+                  <a
+                    class="MuiTypography-root MuiTypography-body2SemiBold MuiLink-root MuiLink-underlineNone css-1544znr-MuiTypography-root-MuiLink-root"
+                    href="/imprint"
+                  >
+                    Imprint
+                  </a>
+                </li>
+                <li
+                  class="css-1650mli"
+                >
+                  <a
+                    class="MuiTypography-root MuiTypography-body2SemiBold MuiLink-root MuiLink-underlineNone css-1544znr-MuiTypography-root-MuiLink-root"
+                    href="/policy"
+                  >
+                    Privacy policy
+                  </a>
                 </li>
               </ul>
             </nav>
