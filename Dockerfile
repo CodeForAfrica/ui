@@ -44,7 +44,8 @@ COPY apps/${APP} ./apps/${APP}
 RUN pnpm install --recursive --offline --frozen-lockfile
 
 ENV NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
-    PROJECT_ROOT=${PROJECT_ROOT}
+    PROJECT_ROOT=${PROJECT_ROOT} \
+    GHOST_API_KEY=${GHOST_API_KEY}
 
 RUN pnpm --filter "${APP}" build
 

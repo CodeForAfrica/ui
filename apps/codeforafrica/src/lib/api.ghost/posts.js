@@ -1,12 +1,12 @@
 import { promises as fs } from "fs";
-import path from "path";
+import { join } from "path";
 
 import GhostContentAPI from "@tryghost/content-api";
 import camelcaseKeys from "camelcase-keys";
 
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
-const cacheDir = path.join(process.env.PWD, "public/data");
+const cacheDir = join(process.cwd(), "public/data");
 
 function initializeContentAPI() {
   return new GhostContentAPI({
@@ -49,7 +49,7 @@ function transformPost(post) {
 }
 
 async function cachePosts(posts) {
-  const cacheFile = path.join(cacheDir, "posts.json");
+  const cacheFile = join(cacheDir, "posts.json");
   const data = {
     date: new Date().toISOString(),
     posts,
@@ -59,7 +59,7 @@ async function cachePosts(posts) {
 
 async function getCachedPosts() {
   try {
-    const cacheFile = path.join(cacheDir, "posts.json");
+    const cacheFile = join(cacheDir, "posts.json");
     const data = await fs.readFile(cacheFile, "utf8");
     return JSON.parse(data);
   } catch (error) {

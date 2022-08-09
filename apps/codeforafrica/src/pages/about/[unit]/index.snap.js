@@ -91,12 +91,12 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
           class="css-163ljxj-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2 css-eyv6vo-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-17gq2hj-MuiTypography-root"
           >
             Are you looking to start a new project?
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h5 css-4k9de7-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter css-8rz2im-MuiTypography-root"
           >
             We'd love to hear more.
           </div>

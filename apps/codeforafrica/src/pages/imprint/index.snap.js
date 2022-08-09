@@ -22,10 +22,10 @@ exports[`<Pages/Imprint /> renders unchanged 1`] = `
       </div>
     </div>
     <section
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1y3f71u-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-fkrtdf-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-body1 css-1e8572m-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-n624xw-MuiTypography-root"
       >
         <h1>
           Hello

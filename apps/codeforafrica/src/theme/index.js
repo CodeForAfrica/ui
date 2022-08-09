@@ -433,16 +433,58 @@ deepmerge(
   {
     MuiCssBaseline: {
       styleOverrides: `
+      blockquote {
+        background-color: ${palette.background.main};
+        font-size: ${pxToRem(16)};
+        line-height: ${26 / 16};
+        margin: 20px 0;
+        padding: 20px;
+      }
       h4 {
         font-size: ${pxToRem(23)};
         line-height: ${28 / 23};
+        margin: 40px 0;
       },
+      figure {
+        margin: 20px 0;
+      }
+      figcaption {
+        color: ${palette.primary.main};
+        margin-top: 20px;
+        text-align: center;
+        font-size: ${pxToRem(12)};
+      },
+      img {
+        height: auto;
+        object-fit: contain;
+        width: 100%;
+      }
       hr {
-        border: 1px solid #ECEAEA;
+        border-bottom-width: thin;
+        border-color: ${palette.divider};
+        border-style: solid;
+        border-top: 0;
+        margin: 30px 0;
+      }
+      p, li {
+        font-size: ${pxToRem(16)};
+        line-height: ${26 / 16};
       }
       p {
-        fontSize: ${pxToRem(18)},
-        lineHeight: ${28 / 18},
+        margin: 30px 0;
+      }
+      @media (min-width: 1152px) {
+        blockquote {
+          padding: 50px 55.5px;
+          margin: 40px 0;
+        }
+        figure {
+          margin: 40px 0;
+        }
+        p, li {
+          font-size: ${pxToRem(18)};
+          line-height: ${28 / 18};
+        }
       }
     `,
     },
