@@ -8,10 +8,15 @@ import React from "react";
 const IconRoot = styled("img", {
   slot: "Root",
   name: "StayInTouchIcon",
-})(() => ({
-  width: "1.375rem",
-  height: "1.375rem",
+})(({ theme }) => ({
+  display: "block",
+  height: "37px",
+  width: "37px",
   objectFit: "contain",
+  [theme.breakpoints.up("md")]: {
+    height: "24px",
+    width: "24px",
+  },
 }));
 
 const StayInTouch = React.forwardRef(function StayInTouch(
@@ -27,7 +32,6 @@ const StayInTouch = React.forwardRef(function StayInTouch(
       alignItems="center"
       justifyContent="center"
       sx={{
-        marginTop: "3.125rem",
         ...sx,
       }}
       ref={ref}
@@ -54,12 +58,19 @@ const StayInTouch = React.forwardRef(function StayInTouch(
         justifyContent={{ xs: "center", md: "flex-start" }}
       >
         {links.map((media) => (
-          <Grid item key={media.href}>
+          <Grid
+            item
+            key={media.href}
+            sx={{
+              pr: "10px",
+              ":last-of-type": {
+                pr: 0,
+              },
+            }}
+          >
             <Link
               sx={{
-                display: "inline-block",
-                padding: 0,
-                paddingRight: "0.625rem",
+                display: "block",
               }}
               href={media.href}
             >
