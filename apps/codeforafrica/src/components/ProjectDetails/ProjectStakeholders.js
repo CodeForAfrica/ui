@@ -29,7 +29,9 @@ const ProjectStakeholders = React.forwardRef(function ProjectStakeholders(
   }
   return (
     <Stack spacing={{ xs: 2.5, md: 5 }} {...other} ref={ref}>
-      <RichTypography variant="h5">{title}</RichTypography>
+      <RichTypography variant="h5Small" sx={{ typography: { md: "h5" } }}>
+        {title}
+      </RichTypography>
       {partners?.list?.length > 0 ? (
         <>
           <RichTypography variant="captionCap" sx={{ mb: 2.5 }}>
