@@ -18,11 +18,12 @@ const RelatedProjects = React.forwardRef(function RelatedProjects(props, ref) {
       ref={ref}
     >
       <RichTypography
-        variant="h5"
-        sx={{
-          mb: { xs: "18px", md: 5 },
-        }}
+        variant="h5Small"
         {...titleProps}
+        sx={{
+          mb: { xs: "18px", md: 5, typography: { md: "h5" } },
+          ...titleProps?.sx,
+        }}
       >
         {title}
       </RichTypography>
