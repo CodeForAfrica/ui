@@ -8,9 +8,6 @@ import NavListItem from "@/codeforafrica/components/NavListItem";
 
 const ListRoot = styled("div")(({ theme: { breakpoints, typography } }) => ({
   marginTop: typography.pxToRem(85),
-  "& li:nth-last-child(2)": {
-    marginTop: typography.pxToRem(20),
-  },
   [breakpoints.up("md")]: {
     marginTop: 0,
   },
@@ -23,21 +20,21 @@ function FooterLinks({ menu, secondaryMenu }) {
   return (
     <ListRoot>
       <FooterNavList menu={menu}>
-        {secondaryMenu?.map((item) => (
+        {secondaryMenu?.map((item, i) => (
           <NavListItem
             sx={{
-              padding: 0,
-              paddingBottom: "0.625rem",
-              display: { md: "block", xs: "flex" },
-              justifyContent: { md: "flex-start", xs: "center" },
+              display: "flex",
+              justifyContent: { xs: "center", md: "flex-start" },
+              mt: i === 0 ? 5 : undefined,
+              p: "0  0 10px",
             }}
             key={item.content}
           >
             <Link
+              underline="none"
+              variant="body2SemiBold"
               sx={{
-                textDecoration: "none",
                 color: "text.secondary",
-                fontSize: { md: "16px", xs: "16px" },
               }}
               href={item.href}
             >

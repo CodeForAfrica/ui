@@ -29,7 +29,6 @@ function FooterNavList({ menu, children }) {
               color="inherit"
               underline="none"
               variant="h5"
-              fontWeight="700"
               sx={{
                 "&:hover, &:active, &:focus, &:focus-within": {
                   textDecoration: "none",
