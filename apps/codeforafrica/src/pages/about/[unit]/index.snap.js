@@ -28,7 +28,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1clvkda-MuiContainer-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-h5Small css-xd0tk5-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5Small css-1jjh52r-MuiTypography-root"
         >
           Our team
         </div>
