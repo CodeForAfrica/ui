@@ -12,7 +12,7 @@ exports[`<Footer /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-eune3x-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-12leelr-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
@@ -29,7 +29,7 @@ exports[`<Footer /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gen7bw-MuiGrid-root"
         >
           <div
-            class="css-l8ydmc"
+            class="MuiBox-root css-1ae1a1d"
           >
             <nav
               class="MuiBox-root css-l2rxmg"
@@ -41,7 +41,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                   class="css-1ujh2ms"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
                     href="/our-work"
                   >
                     Our Work
@@ -51,7 +51,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                   class="css-1ujh2ms"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
                     href="/about"
                   >
                     About
@@ -61,7 +61,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                   class="css-1ujh2ms"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
                     href="/about"
                   >
                     Stories
@@ -71,17 +71,17 @@ exports[`<Footer /> renders unchanged 1`] = `
                   class="css-1ujh2ms"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
                     href="/opportunity"
                   >
                     Opportunity
                   </a>
                 </li>
                 <li
-                  class="css-1ujh2ms"
+                  class="css-qa4i21"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
                     href="/contact"
                   >
                     Contact

@@ -26,25 +26,22 @@ const FooterRoot = styled(Box)(
 );
 
 const Footer = React.forwardRef(function Footer(props, ref) {
-  const { subscription, description, secondaryMenu, socialMedia, menu, logo } =
+  const { subscription, description, secondaryMenu, stayInTouch, menu, logo } =
     props;
 
   return (
     <FooterRoot component="footer" ref={ref}>
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         <Grid container justifyContent="space-between">
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{ order: { xs: 2, md: 0 }, pt: { xs: 10, md: 0 } }}
-          >
+          <Grid item xs={12} md={6} sx={{ order: { xs: 2, md: 0 } }}>
             <Grid container>
               <Grid item xs={12}>
-                <FooterDescription logo={logo}>{description}</FooterDescription>
+                <FooterDescription logo={logo} sx={{ mt: { xs: 10, md: 0 } }}>
+                  {description}
+                </FooterDescription>
               </Grid>
               <Grid item xs={12}>
-                <StayInTouch {...socialMedia} />
+                <StayInTouch {...stayInTouch} sx={{ mt: "52px" }} />
               </Grid>
             </Grid>
           </Grid>
@@ -56,7 +53,11 @@ const Footer = React.forwardRef(function Footer(props, ref) {
             md="auto"
             sx={{ order: { xs: 2, md: 1 } }}
           >
-            <FooterLinks menu={menu} secondaryMenu={secondaryMenu} />
+            <FooterLinks
+              menu={menu}
+              secondaryMenu={secondaryMenu}
+              sx={{ mt: { xs: "52px", md: 0 } }}
+            />
           </Grid>
           <Grid item xs={12} md="auto" sx={{ order: { md: 2 } }}>
             <NewsletterSubscription {...subscription} />
