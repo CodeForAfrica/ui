@@ -966,26 +966,18 @@ module.exports = {
             {
               label: "Main Navigation",
               name: "main-navigation",
-              label_singular: "Main Navigation",
+              label_singular: "Navigation item",
               widget: "list",
-              summary: "{{link.content}}",
               fields: [
                 {
-                  label: "Link",
-                  name: "link",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Content",
-                      name: "content",
-                      widget: "string",
-                    },
-                    {
-                      label: "Href",
-                      name: "href",
-                      widget: "string",
-                    },
-                  ],
+                  label: "Label",
+                  name: "content",
+                  widget: "string",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
                 },
               ],
             },
@@ -1105,46 +1097,38 @@ module.exports = {
                   name: "links",
                   label_singular: "Link",
                   widget: "list",
-                  summary: "{{link.content}}",
                   fields: [
                     {
-                      label: "Link",
-                      name: "link",
+                      label: "Label",
+                      name: "label",
+                      widget: "string",
+                    },
+                    {
+                      label: "Href",
+                      name: "href",
+                      widget: "string",
+                    },
+                    {
+                      label: "Icon",
+                      name: "icon",
                       widget: "object",
                       fields: [
                         {
-                          label: "Content",
-                          name: "content",
-                          widget: "string",
+                          label: "Src",
+                          name: "src",
+                          widget: "image",
                         },
                         {
-                          label: "Href",
-                          name: "href",
+                          label: "Height",
+                          name: "height",
                           widget: "string",
+                          required: false,
                         },
                         {
-                          label: "Icon",
-                          name: "icon",
-                          widget: "object",
-                          fields: [
-                            {
-                              label: "Src",
-                              name: "src",
-                              widget: "image",
-                            },
-                            {
-                              label: "Height",
-                              name: "height",
-                              widget: "string",
-                              required: false,
-                            },
-                            {
-                              label: "Width",
-                              name: "width",
-                              widget: "string",
-                              required: false,
-                            },
-                          ],
+                          label: "Width",
+                          name: "width",
+                          widget: "string",
+                          required: false,
                         },
                       ],
                     },
@@ -1155,61 +1139,57 @@ module.exports = {
             {
               label: "Main Navigation",
               name: "main-navigation",
-              label_singular: "Main Navigation",
+              label_singular: "Navigation item",
               widget: "list",
-              summary: "{{link.content}}",
               fields: [
                 {
-                  label: "Link",
-                  name: "link",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Content",
-                      name: "content",
-                      widget: "string",
-                    },
-                    {
-                      label: "Href",
-                      name: "href",
-                      widget: "string",
-                    },
-                  ],
+                  label: "Label",
+                  name: "content",
+                  widget: "string",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
                 },
               ],
             },
             {
               label: "Secondary Navigation",
               name: "secondary-navigation",
-              label_singular: "Secondary Navigation",
+              label_singular: "Navigation item",
               widget: "list",
-              summary: "{{link.content}}",
               fields: [
                 {
-                  label: "Link",
-                  name: "link",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Content",
-                      name: "content",
-                      widget: "string",
-                    },
-                    {
-                      label: "Href",
-                      name: "href",
-                      widget: "string",
-                    },
-                  ],
+                  label: "Label",
+                  name: "content",
+                  widget: "string",
+                },
+                {
+                  label: "Href",
+                  name: "href",
+                  widget: "string",
                 },
               ],
             },
             {
               label: "Newsletter subscription",
               name: "newsletter-subscription",
-              widget: "code",
-              allow_language_selection: false,
-              default_language: "html",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Mailchimp code",
+                  name: "embed-code",
+                  widget: "code",
+                  allow_language_selection: false,
+                  default_language: "html",
+                },
+              ],
             },
           ],
         },

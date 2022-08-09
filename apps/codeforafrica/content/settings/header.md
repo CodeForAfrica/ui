@@ -2,30 +2,15 @@
 logo:
   src: /images/cfa-logo.png
 main-navigation:
-  - link:
-      content: Our Work
-      href: /our_work
-    content: Our work
+  - content: Our work
     href: /projects
-  - link:
-      content: About
-      href: /about
-    content: About
+  - content: About
     href: /about
-  - link:
-      content: Stories
-      href: /stories
-    content: Stories
+  - content: Stories
     href: /stories
-  - link:
-      content: Opportunities
-      href: /opportunities
-    content: Opportunities
+  - content: Opportunities
     href: /opportunities
-  - link:
-      content: Contact
-      href: /contact
-    content: Contact
+  - content: Contact
     href: /contact
 social-media-link:
   title: Twitter

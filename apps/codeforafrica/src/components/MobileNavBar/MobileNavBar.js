@@ -3,8 +3,6 @@ import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
-/* eslint-disable import/no-unresolved */
-import cfaLogo from "@/codeforafrica/assets/CfA logo.svg?url";
 import closebutton from "@/codeforafrica/assets/close-button.svg?url";
 import menuIcon from "@/codeforafrica/assets/menu-icon.svg?url";
 import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
@@ -29,8 +27,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
-  const { menu, direction, ...other } = props;
-
+  const { logo, menu, sx } = props;
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -45,14 +42,13 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
       container
       justifyContent="space-between"
       alignItems="center"
-      direction="row"
-      {...other}
+      sx={sx}
       ref={ref}
     >
       <Grid item>
         <NextImageButton
+          {...logo}
           href="/"
-          src={cfaLogo}
           alt="Logo"
           width="116px"
           height="50px"
@@ -85,7 +81,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
             }}
             onClose={handleClose}
           >
-            <NavBarNavList menu={menu} direction={direction} />
+            <NavBarNavList menu={menu} />
             <NextImageButton
               src={closebutton}
               alt="Logo"

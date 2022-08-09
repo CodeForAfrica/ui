@@ -9,16 +9,16 @@ exports[`<Footer /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1y3f71u-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-ws1fq2-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-eune3x-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1178rq7-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
             />
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
@@ -26,10 +26,93 @@ exports[`<Footer /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-vr40p8-MuiGrid-root"
-        />
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gen7bw-MuiGrid-root"
+        >
+          <div
+            class="css-l8ydmc"
+          >
+            <nav
+              class="MuiBox-root css-l2rxmg"
+            >
+              <ul
+                class="css-5h2p8o"
+              >
+                <li
+                  class="css-1ujh2ms"
+                >
+                  <a
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
+                    href="/our-work"
+                  >
+                    Our Work
+                  </a>
+                </li>
+                <li
+                  class="css-1ujh2ms"
+                >
+                  <a
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
+                    href="/about"
+                  >
+                    About
+                  </a>
+                </li>
+                <li
+                  class="css-1ujh2ms"
+                >
+                  <a
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
+                    href="/about"
+                  >
+                    Stories
+                  </a>
+                </li>
+                <li
+                  class="css-1ujh2ms"
+                >
+                  <a
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
+                    href="/opportunity"
+                  >
+                    Opportunity
+                  </a>
+                </li>
+                <li
+                  class="css-1ujh2ms"
+                >
+                  <a
+                    class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1u029zm-MuiTypography-root-MuiLink-root"
+                    href="/contact"
+                  >
+                    Contact
+                  </a>
+                </li>
+                <li
+                  class="css-t5n0aj"
+                >
+                  <a
+                    class="MuiTypography-root MuiTypography-body2SemiBold MuiLink-root MuiLink-underlineNone css-1544znr-MuiTypography-root-MuiLink-root"
+                    href="/imprint"
+                  >
+                    Imprint
+                  </a>
+                </li>
+                <li
+                  class="css-1650mli"
+                >
+                  <a
+                    class="MuiTypography-root MuiTypography-body2SemiBold MuiLink-root MuiLink-underlineNone css-1544znr-MuiTypography-root-MuiLink-root"
+                    href="/policy"
+                  >
+                    Privacy policy
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1np7qb4-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-lwt2r2-MuiGrid-root"
         />
       </div>
     </div>

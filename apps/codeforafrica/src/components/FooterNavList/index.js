@@ -23,13 +23,12 @@ function FooterNavList({ menu, children }) {
         sx={{ padding: 0, alignItems: { xs: "center", md: "flex-start" } }}
       >
         {menu.map((item) => (
-          <NavListItem key={item.label} sx={{ mb: "20px" }}>
+          <NavListItem key={item.content} sx={{ mb: "20px" }}>
             <Link
               href={item.href}
               color="inherit"
               underline="none"
               variant="h5"
-              fontWeight="700"
               sx={{
                 "&:hover, &:active, &:focus, &:focus-within": {
                   textDecoration: "none",
@@ -37,7 +36,7 @@ function FooterNavList({ menu, children }) {
                 },
               }}
             >
-              {item.label}
+              {item.content}
             </Link>
           </NavListItem>
         ))}
