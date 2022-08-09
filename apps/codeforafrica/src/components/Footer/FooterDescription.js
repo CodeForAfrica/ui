@@ -40,7 +40,7 @@ const FooterDescription = React.forwardRef(function FooterDescription(
 
 FooterDescription.propTypes = {
   children: PropTypes.node,
-  logo: PropTypes.string,
+  logo: PropTypes.shape({}),
 };
 
 FooterDescription.defaultProps = {
