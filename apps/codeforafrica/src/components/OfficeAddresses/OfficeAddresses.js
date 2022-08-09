@@ -63,8 +63,8 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
           <Grid item xs={12}>
             <RichTypography
               textAlign="left"
-              variant="h5"
-              sx={{ textAlign: { md: "center" } }}
+              variant="h5Small"
+              sx={{ textAlign: { md: "center" }, typography: { md: "h5" } }}
             >
               {title}
             </RichTypography>
