@@ -22,8 +22,11 @@ function FooterNavList({ menu, children }) {
         direction="column"
         sx={{ padding: 0, alignItems: { xs: "center", md: "flex-start" } }}
       >
-        {menu.map((item) => (
-          <NavListItem key={item.content} sx={{ mb: "20px" }}>
+        {menu.map((item, i) => (
+          <NavListItem
+            key={item.content}
+            sx={{ mb: i < menu.length - 1 ? "20px" : 0 }}
+          >
             <Link
               href={item.href}
               color="inherit"
