@@ -281,12 +281,8 @@ deepmerge(
       },
     },
     h5: {
-      fontSize: pxToRem(19),
-      lineHeight: 23 / 19,
-      [theme.breakpoints.up("md")]: {
-        fontSize: pxToRem(23),
-        lineHeight: 28 / 23,
-      },
+      fontSize: pxToRem(23),
+      lineHeight: 28 / 23,
     },
     h5ExtraBold: {
       ...theme.typography.h5,
@@ -294,6 +290,11 @@ deepmerge(
       fontWeight: 700,
       lineHeight: 28 / 23,
       textTransform: "uppercase",
+    },
+    h5Small: {
+      ...theme.typography.h5,
+      fontSize: pxToRem(19),
+      lineHeight: 23 / 19,
     },
     h5SemiBold: {
       ...theme.typography.h5,
