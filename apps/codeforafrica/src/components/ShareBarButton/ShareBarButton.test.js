@@ -1,7 +1,11 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ShareBarButton from "./ShareBarButton";
+import {
+  FacebookShareBarButton,
+  LinkedinShareBarButton,
+  TwitterShareBarButton,
+} from "./ShareBarButton";
 
 import theme from "@/codeforafrica/theme";
 
@@ -12,9 +16,23 @@ const defaultProps = {
   tooltipProps: { title: "Title" },
 };
 
-describe("<ShareBarButton />", () => {
+describe("<FacebookShareBarButton />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ShareBarButton {...defaultProps} />);
+    const { container } = render(<FacebookShareBarButton {...defaultProps} />);
+    expect(container).toMatchSnapshot();
+  });
+});
+
+describe("<LinkedinShareBarButton />", () => {
+  it("renders unchanged", () => {
+    const { container } = render(<LinkedinShareBarButton {...defaultProps} />);
+    expect(container).toMatchSnapshot();
+  });
+});
+
+describe("<TwitterShareBarButton />", () => {
+  it("renders unchanged", () => {
+    const { container } = render(<TwitterShareBarButton {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

@@ -1,7 +1,5 @@
 /* eslint-env browser */
-import IconButton from "@mui/material/IconButton";
 import SvgIcon from "@mui/material/SvgIcon";
-import Tooltip from "@mui/material/Tooltip";
 import PropTypes from "prop-types";
 import React from "react";
 import {
@@ -13,26 +11,7 @@ import {
 import FacebookIcon from "@/codeforafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
 import LinkedinIcon from "@/codeforafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
 import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
-
-const ShareBarButton = React.forwardRef(function ShareBar(props, ref) {
-  const { component, tooltip = true, tooltipProps, ...other } = props;
-  const Component = component || IconButton;
-  const shareBarButton = <Component {...other} ref={ref} />;
-  if (!tooltip) {
-    return shareBarButton;
-  }
-  return <Tooltip {...tooltipProps}>{shareBarButton}</Tooltip>;
-});
-
-ShareBarButton.propTypes = {
-  tooltipProps: PropTypes.shape({}),
-  tooltip: PropTypes.bool,
-};
-
-ShareBarButton.defaultProps = {
-  tooltipProps: undefined,
-  tooltip: undefined,
-};
+import SocialMediaButton from "@/codeforafrica/components/SocialMediaButton";
 
 const NAMED_SHARE_BAR_BUTTONS = {
   Facebook: {
@@ -60,7 +39,7 @@ const NamedShareBarButton = React.forwardRef(function FacebookShareBarButton(
   }
   const tooltipProps = { title: name, ...tooltipPropsProp };
   return (
-    <ShareBarButton
+    <SocialMediaButton
       tooltipProps={tooltipProps}
       url={url || location}
       {...other}
@@ -107,5 +86,3 @@ export {
   LinkedinShareBarButton,
   TwitterShareBarButton,
 };
-
-export default ShareBarButton;
