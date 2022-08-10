@@ -10,7 +10,7 @@ exports[`<SearchInput /> renders unchanged 1`] = `
     >
       <input
         aria-invalid="false"
-        class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputTypeSearch MuiInputBase-inputAdornedEnd css-1t5tnys-MuiInputBase-input-MuiOutlinedInput-input"
+        class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputTypeSearch MuiInputBase-inputAdornedEnd css-12ielp9-MuiInputBase-input-MuiOutlinedInput-input"
         id="mui-1"
         type="search"
         value=""

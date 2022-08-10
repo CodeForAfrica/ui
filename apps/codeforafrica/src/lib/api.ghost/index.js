@@ -34,3 +34,16 @@ export async function getAllStoriesTags() {
 export async function getStory(slug) {
   return getPost(slug);
 }
+
+export async function getRelatedStories(story) {
+  if (!story?.tags?.length) {
+    return null;
+  }
+
+  const stories = await getAllStories();
+  return stories.filter(
+    (s) =>
+      s.id !== story.id &&
+      s.tags.some((t) => story.tags.find((st) => equalsIgnoreCase(t, st)))
+  );
+}

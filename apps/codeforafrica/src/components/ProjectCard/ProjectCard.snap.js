@@ -26,7 +26,7 @@ exports[`<ProjectCard /> renders unchanged 1`] = `
               class="MuiBox-root css-uq7i85"
             >
               <h4
-                class="MuiTypography-root MuiTypography-h4 css-1vqqsaf-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-yd0a7d-MuiTypography-root"
               />
               <div
                 class="css-1v20l1v-MuiStack-root"

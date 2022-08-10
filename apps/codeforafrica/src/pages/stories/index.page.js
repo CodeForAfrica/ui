@@ -8,7 +8,7 @@ function Index({ sections, ...props }) {
   return (
     <Page {...props}>
       {sections?.map((section) =>
-        section.slug === "articles" ? (
+        section.slug === "stories" ? (
           <Articles {...section} key={section.slug} />
         ) : null
       )}
