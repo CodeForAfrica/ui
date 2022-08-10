@@ -67,7 +67,9 @@ const Articles = React.forwardRef(function Articles(props, ref) {
         }
       }
       setCount(pagination.count);
-      setFeaturedArticle({ ...newFeaturedArticle });
+      setFeaturedArticle(
+        newFeaturedArticle ? { ...newFeaturedArticle } : undefined
+      );
       setArticles([...newArticles]);
     }
   }, [data, filtering]);

@@ -52,12 +52,14 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
         </Grid>
         {articles?.length > 0 ? (
           <>
-            {featuredArticle?.id ? (
-              <Grid item xs={12} sx={{ order: { xs: 1, md: 0 } }}>
-                <FeaturedArticle
-                  {...featuredArticle}
-                  key={featuredArticle.id}
-                />
+            {featuredArticle ? (
+              <Grid
+                item
+                xs={12}
+                sx={{ order: { xs: 1, md: 0 } }}
+                key={featuredArticle.id}
+              >
+                <FeaturedArticle {...featuredArticle} />
               </Grid>
             ) : null}
             <Grid item xs={12} sx={{ order: { xs: 2 } }}>
