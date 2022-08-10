@@ -2,19 +2,19 @@
 
 exports[`<SocialMediaConnectButton /> renders unchanged 1`] = `
 <div>
-  <button
-    aria-label="facebook"
+  <a
     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1amn30s-MuiButtonBase-root-MuiIconButton-root"
     data-mui-internal-clone-element="true"
+    href="https://www.facebook.com/"
     tabindex="0"
-    type="button"
+    target="_blank"
   >
-    <div
+    <svg
       aria-hidden="true"
       class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
       focusable="false"
-      viewbox="0 0 24 24"
+      viewBox="0 0 24 24"
     />
-  </button>
+  </a>
 </div>
 `;

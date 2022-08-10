@@ -11,14 +11,8 @@ import LinkedinIcon from "@/codeforafrica/assets/icons/Type=linkedin, Size=24, C
 import SlackIcon from "@/codeforafrica/assets/icons/Type=slack, Size=64, Color=CurrentColor.svg";
 import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 
-function openConnectUrl(url) {
-  if (typeof window !== "undefined") {
-    window.open(url, "_blank");
-  }
-}
-
-function getButtonIcon(type) {
-  switch (type) {
+function getButtonIcon(name) {
+  switch (name) {
     case "facebook":
       return FacebookIcon;
     case "linkedin":
@@ -39,11 +33,11 @@ function getButtonIcon(type) {
 
 const SocialMediaConnectButton = React.forwardRef(
   function SocialMediaConnectButton(props, ref) {
-    const { type, url } = props;
+    const { name, url } = props;
     return (
-      <Tooltip title={type}>
-        <IconButton onClick={() => openConnectUrl(url)} ref={ref}>
-          <SvgIcon sx={{ fill: "none" }} component={getButtonIcon(type)} />
+      <Tooltip title={name}>
+        <IconButton href={url} target="_blank" ref={ref}>
+          <SvgIcon sx={{ fill: "none" }} component={getButtonIcon(name)} />
         </IconButton>
       </Tooltip>
     );

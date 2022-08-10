@@ -2,7 +2,7 @@ import { RichTypography } from "@commons-ui/core";
 import Stack from "@mui/material/Stack";
 import React from "react";
 
-import ConnectBar from "@/codeforafrica/components/ConnectBar";
+import SocialMediaBar from "@/codeforafrica/components/SocialMediaBar";
 import SocialMediaConnectButton from "@/codeforafrica/components/SocialMediaConnectButton";
 
 const ConnectWithMember = React.forwardRef(function ConnectWithMember(
@@ -22,11 +22,11 @@ const ConnectWithMember = React.forwardRef(function ConnectWithMember(
       ref={ref}
     >
       <RichTypography variant="footerCap">{title}</RichTypography>
-      <ConnectBar links={links}>
+      <SocialMediaBar links={links}>
         {Object.entries(links).map(([key, value]) => {
-          return <SocialMediaConnectButton key={key} type={key} url={value} />;
+          return <SocialMediaConnectButton key={key} name={key} url={value} />;
         })}
-      </ConnectBar>
+      </SocialMediaBar>
     </Stack>
   );
 });

@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ConnectBar from "./ConnectBar";
+import SocialMediaBar from "./SocialMediaBar";
 
 import theme from "@/codeforafrica/theme";
 
@@ -10,9 +10,9 @@ const render = createRender({ theme });
 
 const defaultProps = {};
 
-describe("<ConnectBar />", () => {
+describe("<SocialMediaBar />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ConnectBar {...defaultProps} />);
+    const { container } = render(<SocialMediaBar {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

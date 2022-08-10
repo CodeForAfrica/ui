@@ -9,12 +9,13 @@ exports[`<ConnectWithMember /> renders unchanged 1`] = `
       class="css-r7or14-MuiStack-root"
       links="[object Object]"
     >
-      <button
+      <a
         aria-label="facebook"
         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1amn30s-MuiButtonBase-root-MuiIconButton-root"
         data-mui-internal-clone-element="true"
+        href="https://www.facebook.com/"
         tabindex="0"
-        type="button"
+        target="_blank"
       >
         <div
           aria-hidden="true"
@@ -22,7 +23,7 @@ exports[`<ConnectWithMember /> renders unchanged 1`] = `
           focusable="false"
           viewbox="0 0 24 24"
         />
-      </button>
+      </a>
     </div>
   </div>
 </div>
