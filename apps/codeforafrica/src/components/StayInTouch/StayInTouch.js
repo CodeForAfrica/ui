@@ -8,10 +8,15 @@ import React from "react";
 const IconRoot = styled("img", {
   slot: "Root",
   name: "StayInTouchIcon",
-})(() => ({
-  width: "1.375rem",
-  height: "1.375rem",
+})(({ theme }) => ({
+  display: "block",
+  height: "37px",
+  width: "37px",
   objectFit: "contain",
+  [theme.breakpoints.up("md")]: {
+    height: "24px",
+    width: "24px",
+  },
 }));
 
 const StayInTouch = React.forwardRef(function StayInTouch(
@@ -25,18 +30,18 @@ const StayInTouch = React.forwardRef(function StayInTouch(
     <Grid
       container
       alignItems="center"
-      justifyContent="center"
+      justifyContent={{ xs: "center", md: "flex-start" }}
       sx={{
-        marginTop: "3.125rem",
         ...sx,
       }}
       ref={ref}
     >
       {title?.length ? (
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md="auto">
           <RichTypography
             sx={{
-              mb: { xs: "1.438rem", md: 0 },
+              mb: { xs: 2.5, md: 0 },
+              mr: { md: 4 },
               textAlign: { xs: "center", md: "left" },
             }}
             variant="footerCap"
@@ -48,18 +53,24 @@ const StayInTouch = React.forwardRef(function StayInTouch(
       <Grid
         item
         xs={12}
-        md={8}
+        md="auto"
         container
-        alignItems={{ xs: "flex-start", md: "center" }}
         justifyContent={{ xs: "center", md: "flex-start" }}
       >
         {links.map((media) => (
-          <Grid item key={media.href}>
+          <Grid
+            item
+            key={media.href}
+            sx={{
+              pr: "10px",
+              ":last-of-type": {
+                pr: 0,
+              },
+            }}
+          >
             <Link
               sx={{
-                display: "inline-block",
-                padding: 0,
-                paddingRight: "0.625rem",
+                display: "block",
               }}
               href={media.href}
             >

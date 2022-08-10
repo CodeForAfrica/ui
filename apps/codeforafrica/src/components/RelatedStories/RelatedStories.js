@@ -3,7 +3,6 @@ import React from "react";
 
 import ArticleCardList from "@/codeforafrica/components/ArticleCardList";
 
-// TODO(kilemensi): Remove hard-coded strings
 const RelatedStories = React.forwardRef(function RelatedStories(props, ref) {
   const { articles, sx, title } = props;
 
@@ -20,8 +19,8 @@ const RelatedStories = React.forwardRef(function RelatedStories(props, ref) {
       ref={ref}
     >
       <RichTypography
-        variant="h4"
-        sx={{ mb: { xs: 2.5, md: "55px" }, typography: { xs: "h5", md: "h4" } }}
+        variant="h5Small"
+        sx={{ mb: { xs: 2.5, md: "55px" }, typography: { md: "h5" } }}
       >
         {title}
       </RichTypography>

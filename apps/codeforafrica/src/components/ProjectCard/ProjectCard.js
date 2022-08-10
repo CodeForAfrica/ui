@@ -65,7 +65,11 @@ const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
             }}
           >
             <ProjectTile {...tileProps} />
-            <RichTypography color="primary" variant="h5" sx={{ mt: 2 }}>
+            <RichTypography
+              color="primary"
+              variant="h5Small"
+              sx={{ mt: 2, typography: { md: "h5" } }}
+            >
               {title}
             </RichTypography>
             <RichTypography

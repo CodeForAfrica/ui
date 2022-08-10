@@ -9,7 +9,7 @@ exports[`<OurTeam /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1clvkda-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-h5 css-tsuzph-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h5Small css-1jjh52r-MuiTypography-root"
       >
         Our team
       </div>
@@ -24,7 +24,7 @@ exports[`<OurTeam /> renders unchanged 1`] = `
           >
             <input
               aria-invalid="false"
-              class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1heb2i2-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-h7q3zr-MuiInputBase-input-MuiOutlinedInput-input"
               id="mui-1"
               placeholder="Search"
               type="search"

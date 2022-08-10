@@ -14,11 +14,11 @@ stay-in-touch:
       icon:
         src: /images/type-twitter-size-32-color-white.svg
     - label: Slack
-      href: https://cfa.slack.com/
+      href: https://code4africa.slack.com/
       icon:
         src: /images/type-slack-size-32-color-white.svg
     - label: Linkedin
-      href: https://www.linkedin.com/company/code-for-africa/mycompany/
+      href: https://www.linkedin.com/company/code-for-africa/
       icon:
         src: /images/type-linkedin-size-32-color-white.svg
     - label: Facebook

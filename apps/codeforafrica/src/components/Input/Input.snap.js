@@ -10,7 +10,7 @@ exports[`<Input /> renders unchanged 1`] = `
     >
       <input
         aria-invalid="false"
-        class="MuiOutlinedInput-input MuiInputBase-input css-g52nmx-MuiInputBase-input-MuiOutlinedInput-input"
+        class="MuiOutlinedInput-input MuiInputBase-input css-s9ndwd-MuiInputBase-input-MuiOutlinedInput-input"
         id="mui-1"
         type="text"
         value=""

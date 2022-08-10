@@ -117,7 +117,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
                     <noscript />
                   </span>
                   <h4
-                    class="MuiTypography-root MuiTypography-h4 css-1vqqsaf-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h4 css-yd0a7d-MuiTypography-root"
                   >
                     knowledgeAFRICA
                   </h4>
@@ -138,7 +138,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
                 </div>
               </div>
               <div
-                class="MuiTypography-root MuiTypography-h4 css-1ptgzlo-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-silo7x-MuiTypography-root"
               >
                 Empowering citizens through 
                 <span
@@ -196,7 +196,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
             class="css-1ustfsx-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h5 css-1cd67ef-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5Small css-suiten-MuiTypography-root"
             >
               Details
             </div>
@@ -264,7 +264,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
             class="css-yaaila-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h5 css-1cd67ef-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1sbxx2f-MuiTypography-root"
             >
               Description
             </div>

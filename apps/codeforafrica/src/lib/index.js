@@ -18,6 +18,7 @@ import {
   getAllOpportunitiesTags,
   getAllStories,
   getAllStoriesTags,
+  getRelatedStories,
   getStory,
 } from "@/codeforafrica/lib/api.ghost";
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
@@ -413,8 +414,8 @@ async function getStoriesPageStaticProps() {
       title: "Stories | Code for Africa",
       sections: [
         {
-          slug: "articles",
-          title: "Articles",
+          slug: "stories",
+          title: "Stories",
           articles: paginateResults(articles),
           tags,
         },
@@ -430,8 +431,10 @@ async function getStoryPageStaticProps(slug) {
   // TODO: is this the best way to get the article slug?
   const actualSlug = slug.slug.split("/")[2];
   const article = await getStory(actualSlug);
+  const relatedArticles = await getRelatedStories(article);
+
   // check for empty obj
-  if (article && Object.keys(article).length > 0) {
+  if (article) {
     return {
       props: {
         title: `${article.title} | Stories | Code for Africa`,
@@ -440,7 +443,7 @@ async function getStoryPageStaticProps(slug) {
           {
             slug: "related-stories",
             title: "News and Stories",
-            articles: [],
+            articles: relatedArticles?.slice(0, 3) ?? null,
           },
         ],
         footer,
