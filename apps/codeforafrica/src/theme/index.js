@@ -513,7 +513,8 @@ deepmerge(
       styleOverrides: {
         input: {
           ...theme.typography.body2,
-          padding: "12.5px 12px 5.5px 12px",
+          height: 26,
+          padding: "12px 12px",
           "&::placeholder": {
             color: "#D0CBCB",
             opacity: 1.0,
@@ -521,8 +522,9 @@ deepmerge(
           },
         },
         inputSizeSmall: {
-          padding: "9.5px 12px 3.5px 12px",
           ...theme.typography.body1,
+          height: 23,
+          padding: "6.5px 12px",
         },
         sizeSmall: {
           paddingRight: 10,

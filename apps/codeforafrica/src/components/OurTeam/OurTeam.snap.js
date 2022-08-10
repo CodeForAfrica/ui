@@ -24,7 +24,7 @@ exports[`<OurTeam /> renders unchanged 1`] = `
           >
             <input
               aria-invalid="false"
-              class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1heb2i2-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-h7q3zr-MuiInputBase-input-MuiOutlinedInput-input"
               id="mui-1"
               placeholder="Search"
               type="search"
