@@ -4,9 +4,9 @@ import React from "react";
 
 import FacebookIcon from "@/codeforafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
 import GithubIcon from "@/codeforafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
-import InstagramIcon from "@/codeforafrica/assets/icons/Type=instagram, Size=32, Color=White.svg";
+import InstagramIcon from "@/codeforafrica/assets/icons/Type=instagram, Size=24, Color=CurrentColor.svg";
 import LinkedinIcon from "@/codeforafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
-import SlackIcon from "@/codeforafrica/assets/icons/Type=slack, Size=64, Color=CurrentColor.svg";
+import SlackIcon from "@/codeforafrica/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
 import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 import SocialMediaButton from "@/codeforafrica/components/SocialMediaButton";
 
