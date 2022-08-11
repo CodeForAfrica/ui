@@ -8,6 +8,7 @@ module.exports = {
     "airbnb",
     "airbnb/hooks",
     "plugin:prettier/recommended",
+    "turbo",
   ],
   parser: "@babel/eslint-parser",
   parserOptions: {
