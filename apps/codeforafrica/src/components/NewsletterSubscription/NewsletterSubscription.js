@@ -1,4 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
+import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -39,16 +40,25 @@ const NewsletterSubscription = React.forwardRef(function NewsletterSubscription(
   props,
   ref
 ) {
-  const { children: childrenProp, embedCode } = props;
+  const { children: childrenProp, embedCode, sx, title } = props;
   const children = childrenProp || embedCode;
 
   if (!children) {
     return null;
   }
   return (
-    <NewsletterSubscriptionRoot ref={ref}>
-      {children}
-    </NewsletterSubscriptionRoot>
+    <Stack
+      sx={{
+        maxWidth: { md: "200px" },
+        ...sx,
+      }}
+      ref={ref}
+    >
+      <RichTypography variant="h5SemiBold" sx={{ mb: "30px" }}>
+        {title}
+      </RichTypography>
+      <NewsletterSubscriptionRoot>{children}</NewsletterSubscriptionRoot>
+    </Stack>
   );
 });
 

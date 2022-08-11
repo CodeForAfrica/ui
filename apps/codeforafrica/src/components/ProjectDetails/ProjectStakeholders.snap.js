@@ -6,7 +6,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
     class="css-1ustfsx-MuiStack-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-h5 css-1cd67ef-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5Small css-suiten-MuiTypography-root"
     >
       Details
     </div>

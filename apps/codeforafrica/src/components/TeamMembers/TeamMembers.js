@@ -11,7 +11,10 @@ const TeamMembers = React.forwardRef(function TeamMembers(props, ref) {
   }
   return (
     <Section {...other} ref={ref}>
-      <RichTypography variant="h5" sx={{ mb: 2.5 }}>
+      <RichTypography
+        variant="h5Small"
+        sx={{ mb: 2.5, typography: { md: "h5" } }}
+      >
         {title}
       </RichTypography>
       <TeamMemberCardList team={team} />

@@ -2,21 +2,16 @@
 logo:
   src: /images/cfa-logo.png
 main-navigation:
-  - link:
-      content: Our Work
-      href: /our_work
-  - link:
-      content: About
-      href: /about
-  - link:
-      content: Stories
-      href: /stories
-  - link:
-      content: Opportunities
-      href: /opportunities
-  - link:
-      content: Contact
-      href: /contact
+  - content: Our work
+    href: /projects
+  - content: About
+    href: /about
+  - content: Stories
+    href: /stories
+  - content: Opportunities
+    href: /opportunities
+  - content: Contact
+    href: /contact
 social-media-link:
   title: Twitter
   href: https://twitter.com/Code4Africa

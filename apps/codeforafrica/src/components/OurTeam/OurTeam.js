@@ -120,7 +120,10 @@ const OurTeam = React.forwardRef(function OurTeam(
         }}
         ref={sectionRef}
       >
-        <RichTypography variant="h5" sx={{ mb: 2.5, typography: { md: "h4" } }}>
+        <RichTypography
+          variant="h5Small"
+          sx={{ mb: 2.5, typography: { md: "h4" } }}
+        >
           {title}
         </RichTypography>
         {fields?.length > 0 ? (

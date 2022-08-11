@@ -17,7 +17,7 @@ exports[`<GetInTouch /> renders unchanged 1`] = `
           Are you looking to start a new project?
         </div>
         <div
-          class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter css-8rz2im-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter css-1foewam-MuiTypography-root"
         >
           We'd love to hear more.
         </div>

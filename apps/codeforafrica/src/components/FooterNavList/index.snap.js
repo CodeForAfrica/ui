@@ -12,7 +12,7 @@ exports[`<FooterNavList /> renders unchanged 1`] = `
         class="css-1ujh2ms"
       >
         <a
-          class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
           href="/our-work"
         >
           Our Work
@@ -22,7 +22,7 @@ exports[`<FooterNavList /> renders unchanged 1`] = `
         class="css-1ujh2ms"
       >
         <a
-          class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
           href="/about"
         >
           About
@@ -32,7 +32,7 @@ exports[`<FooterNavList /> renders unchanged 1`] = `
         class="css-1ujh2ms"
       >
         <a
-          class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
           href="/about"
         >
           Stories
@@ -42,17 +42,17 @@ exports[`<FooterNavList /> renders unchanged 1`] = `
         class="css-1ujh2ms"
       >
         <a
-          class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
           href="/opportunity"
         >
           Opportunity
         </a>
       </li>
       <li
-        class="css-1ujh2ms"
+        class="css-qa4i21"
       >
         <a
-          class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-1cmmdl7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
           href="/contact"
         >
           Contact

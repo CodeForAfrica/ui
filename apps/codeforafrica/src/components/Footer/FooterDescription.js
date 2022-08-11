@@ -1,36 +1,51 @@
+import { RichTypography } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import { Typography } from "@mui/material";
-import Image from "next/image";
+import Stack from "@mui/material/Stack";
 import PropTypes from "prop-types";
 import React from "react";
 
-import cfaIcon from "@/codeforafrica/assets/images/CfAlogoBW.png";
+import Figure from "@/codeforafrica/components/Figure";
 
-function FooterDescription({ description }) {
-  if (!description) {
+const FooterDescription = React.forwardRef(function FooterDescription(
+  props,
+  ref
+) {
+  const { children, logo, sx } = props;
+  if (!(logo || children)) {
     return null;
   }
   return (
-    <>
+    <Stack alignItems={{ xs: "center", md: "flex-start" }} sx={sx} ref={ref}>
       <Link href="/">
-        <Image src={cfaIcon} alt="" />
+        <Figure
+          {...logo}
+          sx={{
+            display: {
+              sm: "block",
+            },
+            height: { xs: "113px", md: "113px", lg: "113px" },
+            width: { xs: "251px", md: "251px", lg: "251px" },
+          }}
+        />
       </Link>
-      <Typography
-        variant="body1"
-        sx={{ marginTop: "3.125rem", fontSize: { md: 12, xs: 12 } }}
+      <RichTypography
+        variant="footer"
+        sx={{ mt: "52px", textAlign: { xs: "center", md: "left" } }}
       >
-        {description}
-      </Typography>
-    </>
+        {children}
+      </RichTypography>
+    </Stack>
   );
-}
+});
 
 FooterDescription.propTypes = {
-  description: PropTypes.string,
+  children: PropTypes.node,
+  logo: PropTypes.shape({}),
 };
 
 FooterDescription.defaultProps = {
-  description: undefined,
+  children: undefined,
+  logo: undefined,
 };
 
 export default FooterDescription;
