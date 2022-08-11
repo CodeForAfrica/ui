@@ -26,11 +26,10 @@ FROM base as builder
 
 ARG NEXT_TELEMETRY_DISABLED=1 \
     PROJECT_ROOT="../../" \
-    #Ghost CMS API Key
-    GHOST_API_KEY="" \
     # Since some pages are completely rendered during build, we need
-    # GOOGLE_MAPS_API_KEY, IMAGE_DOMAINS defined in builder
+    # these secret ARGs defined in the builder
     GOOGLE_MAPS_API_KEY="" \
+    GHOST_API_KEY \
     # APP is build time arg only. Shouldn't be used in the image.
     APP
 
@@ -42,10 +41,6 @@ COPY apps/${APP} ./apps/${APP}
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
 RUN pnpm install --recursive --offline --frozen-lockfile
-
-ENV NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
-    PROJECT_ROOT=${PROJECT_ROOT} \
-    GHOST_API_KEY=${GHOST_API_KEY}
 
 RUN pnpm --filter "${APP}" build
 
