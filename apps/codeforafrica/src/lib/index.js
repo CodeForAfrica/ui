@@ -20,6 +20,7 @@ import {
   getAllStoriesTags,
   getRelatedStories,
   getStory,
+  getStoriesRelatedToProject,
 } from "@/codeforafrica/lib/api.ghost";
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
@@ -374,6 +375,8 @@ async function getProjectPageStaticProps(params) {
     equalsIgnoreCase(href, params?.slug)
   );
   if (project) {
+    const relatedStories = await getStoriesRelatedToProject(project.name);
+
     return {
       props: {
         title: `${project.name} | Projects | Code for Africa`,
@@ -387,7 +390,7 @@ async function getProjectPageStaticProps(params) {
           {
             slug: "related-stories",
             title: "Related stories",
-            articles: [],
+            articles: relatedStories.slice(0, 3),
           },
           {
             slug: "related-projects",

@@ -47,3 +47,10 @@ export async function getRelatedStories(story) {
       s.tags.some((t) => story.tags.find((st) => equalsIgnoreCase(t, st)))
   );
 }
+
+export async function getStoriesRelatedToProject(projectName) {
+  const stories = await getAllStories();
+  return stories.filter((s) =>
+    s.tags.some((t) => equalsIgnoreCase(t, projectName))
+  );
+}
