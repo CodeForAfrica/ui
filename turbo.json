@@ -3,14 +3,51 @@
   "baseBranch": "origin/main",
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "$CI", "$NODE_OPTIONS", "$PROJECT_ROOT"],
       "outputs": ["dist/**", ".next/**"]
     },
     "codeforafrica#build": {
       "dependsOn": [
         "^build",
+        "$GHOST_ADMIN_URL",
+        "$GHOST_API_KEY",
+        "$GHOST_API_VERSION",
+        "$GHOST_URL",
+        "$GITHUB_AUTH_ENDPOINT",
+        "$GITHUB_BACKEND_REPO",
+        "$GITHUB_TOKEN",
+        "$GOOGLE_MAPS_API_KEY",
+        "$NEXT_PUBLIC_APP_DIRECTORY",
+        "$NEXT_PUBLIC_APP_LOGO_URL",
         "$NEXT_PUBLIC_APP_URL",
-        "$NEXT_PUBLIC_IMAGE_DOMAINS"
+        "$NEXT_PUBLIC_IMAGE_DOMAINS",
+        "$NODE_ENV",
+        "$OAUTH_CLIENT_ID",
+        "$OAUTH_CLIENT_SECRET"
+      ],
+      "outputs": [".next/**"]
+    },
+    "promisetracker#build": {
+      "dependsOn": [
+        "^build",
+        "$ACTNOW_API_KEY",
+        "$ACTNOW_URL",
+        "$APP_SLUG",
+        "$GOOGLE_ID",
+        "$GOOGLE_SECRET",
+        "$NEXT_PUBLIC_APP_NAME",
+        "$NEXT_PUBLIC_APP_URL",
+        "$NEXT_PUBLIC_GTM_ID",
+        "$NEXT_PUBLIC_I18N_DEFAULT_LOCALE",
+        "$NEXT_PUBLIC_I18N_LOCALES",
+        "$NEXT_PUBLIC_IMAGE_DOMAINS",
+        "$NEXT_PUBLIC_IMAGE_UNOPTIMIZED",
+        "$NEXT_PUBLIC_SENTRY_DSN",
+        "$NEXT_PUBLIC_VERCEL_ENV",
+        "$NEXT_PUBLIC_VERCEL_URL",
+        "$NEXTAUTH_SECRET",
+        "$SENTRY_DSN",
+        "$SOURCE_LIB"
       ],
       "outputs": [".next/**"]
     },
