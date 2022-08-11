@@ -91,7 +91,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fwha7w-MuiContainer-root"
     >
       <div
-        class="css-1vlza15-MuiStack-root"
+        class="css-1rua2vy-MuiStack-root"
       >
         <div
           class="MuiTypography-root MuiTypography-body2 css-13hulks-MuiTypography-root"
