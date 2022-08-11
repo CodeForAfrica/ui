@@ -394,7 +394,9 @@ async function getProjectPageStaticProps(params) {
           {
             slug: "related-projects",
             title: "Explore other projects",
-            projects: projects.slice(0, 3),
+            projects: projects
+              .filter((p) => p.slug !== project.slug)
+              .slice(0, 3),
           },
         ],
         footer,
