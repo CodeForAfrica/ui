@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ConnectWithMember /> renders unchanged 1`] = `
+exports[`<ConnectBar /> renders unchanged 1`] = `
 <div>
   <div
     class="css-191ss4-MuiStack-root"

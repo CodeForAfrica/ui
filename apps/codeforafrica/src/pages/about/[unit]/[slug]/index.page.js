@@ -2,7 +2,7 @@ import { RichTypography, Section } from "@commons-ui/core";
 import React from "react";
 
 import AboutChildPageHeader from "@/codeforafrica/components/AboutChildPageHeader";
-import ConnectWithMember from "@/codeforafrica/components/ConnectWithMember";
+import ConnectBar from "@/codeforafrica/components/ConnectBar";
 import Page from "@/codeforafrica/components/Page";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
@@ -50,7 +50,7 @@ function Index({ member, partner, sections, ...props }) {
           {item?.content}
         </RichTypography>
 
-        <ConnectWithMember
+        <ConnectBar
           spacing="17px"
           title="Connect"
           sx={{

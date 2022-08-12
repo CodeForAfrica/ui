@@ -5,10 +5,7 @@ import React from "react";
 import SocialMediaButton from "@/codeforafrica/components/SocialMediaButton";
 import SocialMediaButtonGroup from "@/codeforafrica/components/SocialMediaButtonGroup";
 
-const ConnectWithMember = React.forwardRef(function ConnectWithMember(
-  props,
-  ref
-) {
+const ConnectBar = React.forwardRef(function ConnectBar(props, ref) {
   const { sx, title, links, ...other } = props;
   return links ? (
     <Stack
@@ -31,4 +28,4 @@ const ConnectWithMember = React.forwardRef(function ConnectWithMember(
   ) : null;
 });
 
-export default ConnectWithMember;
+export default ConnectBar;

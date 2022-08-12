@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ConnectWithMember from "./ConnectWithMember";
+import ConnectBar from "./ConnectBar";
 
 import theme from "@/codeforafrica/theme";
 
@@ -14,9 +14,9 @@ const defaultProps = {
   },
 };
 
-describe("<ConnectWithMember />", () => {
+describe("<ConnectBar />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ConnectWithMember {...defaultProps} />);
+    const { container } = render(<ConnectBar {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
