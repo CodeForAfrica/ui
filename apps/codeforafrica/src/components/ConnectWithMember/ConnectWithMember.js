@@ -10,7 +10,7 @@ const ConnectWithMember = React.forwardRef(function ConnectWithMember(
   ref
 ) {
   const { sx, title, links, ...other } = props;
-  return (
+  return links ? (
     <Stack
       direction="row"
       {...other}
@@ -28,7 +28,7 @@ const ConnectWithMember = React.forwardRef(function ConnectWithMember(
         })}
       </SocialMediaBar>
     </Stack>
-  );
+  ) : null;
 });
 
 export default ConnectWithMember;

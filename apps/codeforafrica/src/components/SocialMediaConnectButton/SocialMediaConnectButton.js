@@ -8,7 +8,7 @@ import InstagramIcon from "@/codeforafrica/assets/icons/Type=instagram, Size=24,
 import LinkedinIcon from "@/codeforafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
 import SlackIcon from "@/codeforafrica/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
 import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
-import SocialMediaButton from "@/codeforafrica/components/SocialMediaButton";
+import TooltipButton from "@/codeforafrica/components/TooltipButton";
 
 function getButtonIcon(name) {
   switch (name) {
@@ -40,14 +40,14 @@ const SocialMediaConnectButton = React.forwardRef(
     const children = getButtonIcon(name.toLowerCase());
 
     return (
-      <SocialMediaButton
+      <TooltipButton
         href={url}
         tooltipProps={tooltipProps}
         ref={ref}
         target="_blank"
       >
         {children}
-      </SocialMediaButton>
+      </TooltipButton>
     );
   }
 );

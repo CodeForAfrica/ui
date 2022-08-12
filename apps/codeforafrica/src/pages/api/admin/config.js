@@ -917,6 +917,12 @@ module.exports = {
               required: false,
             },
             {
+              label: "Facebook",
+              name: "facebook",
+              widget: "string",
+              required: false,
+            },
+            {
               label: "Instagram",
               name: "instagram",
               widget: "string",

@@ -11,7 +11,7 @@ import {
 import FacebookIcon from "@/codeforafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
 import LinkedinIcon from "@/codeforafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
 import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
-import SocialMediaButton from "@/codeforafrica/components/SocialMediaButton";
+import TooltipButton from "@/codeforafrica/components/TooltipButton";
 
 const NAMED_SHARE_BAR_BUTTONS = {
   Facebook: {
@@ -39,7 +39,7 @@ const NamedShareBarButton = React.forwardRef(function FacebookShareBarButton(
   }
   const tooltipProps = { title: name, ...tooltipPropsProp };
   return (
-    <SocialMediaButton
+    <TooltipButton
       tooltipProps={tooltipProps}
       url={url || location}
       {...other}

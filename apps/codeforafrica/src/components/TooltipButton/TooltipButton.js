@@ -3,10 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import React from "react";
 
-const SocialMediaButton = React.forwardRef(function SocialMediaButton(
-  props,
-  ref
-) {
+const TooltipButton = React.forwardRef(function TooltipButton(props, ref) {
   const { component, tooltip = true, tooltipProps, ...other } = props;
   const Component = component || IconButton;
   const shareBarButton = <Component {...other} ref={ref} />;
@@ -16,4 +13,4 @@ const SocialMediaButton = React.forwardRef(function SocialMediaButton(
   return <Tooltip {...tooltipProps}>{shareBarButton}</Tooltip>;
 });
 
-export default SocialMediaButton;
+export default TooltipButton;
