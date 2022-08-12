@@ -46,6 +46,6 @@ our-impact:
     - 8f429fcb-deea-463f-8605-992ea0fc74a8
     - f1538b03-86bf-4933-9b15-3dfe0e087189
   action:
-    title: Get involved
+    content: Get involved
     href: /contact
 ---
