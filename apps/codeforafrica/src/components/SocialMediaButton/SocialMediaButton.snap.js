@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SocialMediaConnectButton /> renders unchanged 1`] = `
+exports[`<SocialMediaButton /> renders unchanged 1`] = `
 <div>
   <a
     aria-label="facebook"

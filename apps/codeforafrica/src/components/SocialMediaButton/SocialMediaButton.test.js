@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import SocialMediaConnectButton from "./SocialMediaConnectButton";
+import SocialMediaButton from "./SocialMediaButton";
 
 import theme from "@/codeforafrica/theme";
 
@@ -13,11 +13,9 @@ const defaultProps = {
   url: "https://www.facebook.com/",
 };
 
-describe("<SocialMediaConnectButton />", () => {
+describe("<SocialMediaButton />", () => {
   it("renders unchanged", () => {
-    const { container } = render(
-      <SocialMediaConnectButton {...defaultProps} />
-    );
+    const { container } = render(<SocialMediaButton {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

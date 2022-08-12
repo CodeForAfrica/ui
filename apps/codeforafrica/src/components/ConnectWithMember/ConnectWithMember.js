@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import React from "react";
 
 import SocialMediaBar from "@/codeforafrica/components/SocialMediaBar";
-import SocialMediaConnectButton from "@/codeforafrica/components/SocialMediaConnectButton";
+import SocialMediaButton from "@/codeforafrica/components/SocialMediaButton";
 
 const ConnectWithMember = React.forwardRef(function ConnectWithMember(
   props,
@@ -24,7 +24,7 @@ const ConnectWithMember = React.forwardRef(function ConnectWithMember(
       <RichTypography variant="footerCap">{title}</RichTypography>
       <SocialMediaBar links={links}>
         {Object.entries(links).map(([key, value]) => {
-          return <SocialMediaConnectButton key={key} name={key} url={value} />;
+          return <SocialMediaButton key={key} name={key} url={value} />;
         })}
       </SocialMediaBar>
     </Stack>
