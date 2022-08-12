@@ -1,3 +1,4 @@
+import getOffices from "./getOffices";
 import getOurGuidingPrinciples from "./getOurGuidingPrinciples";
 import getOurImpact from "./getOurImpact";
 import getOurMission from "./getOurMission";
@@ -22,4 +23,5 @@ export {
   getTeam,
   getHeader,
   getFooter,
+  getOffices,
 };

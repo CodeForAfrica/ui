@@ -11,6 +11,7 @@ import {
   getOurGuidingPrinciples,
   getHeader,
   getFooter,
+  getOffices,
 } from "./api.netlify-cms";
 
 import {
@@ -665,54 +666,7 @@ function getContactPageStaticProps() {
         {
           slug: "office-addresses",
           title: "Our Offices",
-          addresses: [
-            {
-              title: "Nairobi",
-              address:
-                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
-              map: {
-                center: { lat: -1.2983425, lng: 36.7907414 },
-                position: { lat: -1.2983425, lng: 36.7907414 },
-              },
-            },
-            {
-              title: "Lagos",
-              address:
-                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
-              map: {
-                center: { lat: 9.058377, lng: 7.5020761 },
-                position: { lat: 9.058377, lng: 7.5020761 },
-              },
-            },
-            {
-              title: "Abuja",
-              address:
-                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
-              map: {
-                center: { lat: 9.058377, lng: 7.5020761 },
-                position: { lat: 9.058377, lng: 7.5020761 },
-              },
-            },
-            {
-              title: "Dar es Salaam",
-              address:
-                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
-              map: {
-                center: { lat: -6.7788438, lng: 39.2526559 },
-                position: { lat: -6.7788438, lng: 39.2526559 },
-              },
-            },
-            {
-              title: "Cape Town",
-              address:
-                "Address Line 1<br />Address Line 2<br />Zipcode, City<br />Country",
-              map: {
-                center: { lat: -33.9225301, lng: 18.2775593 },
-                position: { lat: -33.9225301, lng: 18.2775593 },
-                zoom: 10,
-              },
-            },
-          ],
+          addresses: getOffices(),
           map: {
             apiKey: process.env.GOOGLE_MAPS_API_KEY ?? null,
             icon: "/icons/Type=map-pin, Size=64, Color=Primary.svg",
