@@ -17,7 +17,7 @@ module.exports = {
     //       svg import should return React.element
     "^.+\\.svg$": "jest-config-commons-ui/__mocks__/elementMock.js",
   },
-  roots: ["<rootDir>"],
+  roots: ["<rootDir>/src"],
   // Add more setup options before each test is run
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   snapshotResolver: "jest-config-commons-ui/snapshotResolver",

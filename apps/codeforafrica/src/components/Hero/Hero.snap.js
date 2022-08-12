@@ -4,6 +4,7 @@ exports[`<Hero /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-1jyu2xp"
+    message="civic technologies"
     title="Empowering <span class=\\"highlight\\">Africa</span> with"
   >
     <div

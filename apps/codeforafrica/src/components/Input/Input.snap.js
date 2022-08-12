@@ -6,11 +6,11 @@ exports[`<Input /> renders unchanged 1`] = `
     class="MuiFormControl-root MuiTextField-root css-1vqv0ht-MuiFormControl-root-MuiTextField-root"
   >
     <div
-      class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1e9tdcl-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1e9tdcl-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
-        class="MuiOutlinedInput-input MuiInputBase-input css-s9ndwd-MuiInputBase-input-MuiOutlinedInput-input"
+        class="MuiInputBase-input MuiOutlinedInput-input css-s9ndwd-MuiInputBase-input-MuiOutlinedInput-input"
         id="mui-1"
         type="text"
         value=""

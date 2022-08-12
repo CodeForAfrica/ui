@@ -14,7 +14,7 @@ exports[`<ProjectTileList /> renders unchanged 1`] = `
         slug="african-drone"
       >
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-w1klfx-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1vcwegk-MuiTypography-root-MuiLink-root"
           href="/projects/acfrican-drone"
         >
           <span

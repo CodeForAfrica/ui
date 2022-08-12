@@ -13,7 +13,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true css-1vcuf8r-MuiGrid-root"
       >
         <div
-          class="css-1ustfsx-MuiStack-root"
+          class="css-bqx4d1-MuiStack-root"
         >
           <div
             class="MuiTypography-root MuiTypography-h5Small css-suiten-MuiTypography-root"
@@ -81,7 +81,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-17q9xai-MuiGrid-root"
       >
         <div
-          class="css-yaaila-MuiStack-root"
+          class="css-hhh1r-MuiStack-root"
         >
           <div
             class="MuiTypography-root MuiTypography-h5 css-1sbxx2f-MuiTypography-root"
@@ -92,7 +92,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
             class="css-78hz5v-MuiStack-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButtonBase-root  css-7cfrc4-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-7cfrc4-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
               href="https://codeforafrica.org"
               rel="noreferrer noopener"
               tabindex="0"
@@ -111,7 +111,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
               </span>
             </a>
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButtonBase-root  css-7cfrc4-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-7cfrc4-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
               href="https://github.com/CodeForAfrica"
               rel="noreferrer noopener"
               tabindex="0"
