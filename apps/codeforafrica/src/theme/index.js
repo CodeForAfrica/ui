@@ -474,6 +474,12 @@ deepmerge(
       p {
         margin: 30px 0;
       }
+      p:first-of-type {
+        margin-top: 0;
+      }
+      p:last-of-type {
+        margin-bottom: 0;
+      }
       @media (min-width: 1152px) {
         blockquote {
           padding: 50px 55.5px;
