@@ -622,6 +622,23 @@ module.exports = {
           name: "body",
           widget: "markdown",
         },
+        {
+          label: "Map",
+          name: "map",
+          widget: "object",
+          fields: [
+            {
+              label: "Latitude",
+              name: "latitude",
+              widget: "string",
+            },
+            {
+              label: "Longitude",
+              name: "longitude",
+              widget: "string",
+            },
+          ],
+        },
       ],
     },
     {
