@@ -4,10 +4,10 @@ exports[`<ConnectBar /> renders unchanged 1`] = `
 <div>
   <div
     class="css-191ss4-MuiStack-root"
+    other="[object Object]"
   >
     <div
       class="css-r7or14-MuiStack-root"
-      links="[object Object]"
     >
       <a
         aria-label="facebook"

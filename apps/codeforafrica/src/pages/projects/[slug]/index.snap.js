@@ -201,7 +201,8 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
               Details
             </div>
             <div
-              class="css-11d7185-MuiStack-root"
+              class="css-1h6wq4x-MuiStack-root"
+              other="[object Object]"
             >
               <div
                 class="MuiTypography-root MuiTypography-footerCap css-19iy7wy-MuiTypography-root"

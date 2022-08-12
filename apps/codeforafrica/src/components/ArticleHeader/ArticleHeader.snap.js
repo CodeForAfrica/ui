@@ -6,7 +6,8 @@ exports[`<ArticleHeader /> renders unchanged 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12qr4r4-MuiContainer-root"
   >
     <div
-      class="css-1rvuxdl-MuiStack-root"
+      class="css-s8hnc6-MuiStack-root"
+      other="[object Object]"
     >
       <div
         class="MuiTypography-root MuiTypography-footerCap css-19iy7wy-MuiTypography-root"
