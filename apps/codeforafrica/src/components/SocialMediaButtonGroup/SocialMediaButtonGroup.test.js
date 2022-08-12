@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import SocialMediaBar from "./SocialMediaBar";
+import SocialMediaButtonGroup from "./SocialMediaButtonGroup";
 
 import theme from "@/codeforafrica/theme";
 
@@ -10,9 +10,9 @@ const render = createRender({ theme });
 
 const defaultProps = {};
 
-describe("<SocialMediaBar />", () => {
+describe("<SocialMediaButtonGroup />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<SocialMediaBar {...defaultProps} />);
+    const { container } = render(<SocialMediaButtonGroup {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

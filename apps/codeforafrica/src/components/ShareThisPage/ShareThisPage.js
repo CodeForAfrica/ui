@@ -7,7 +7,7 @@ import {
   LinkedinShareBarButton,
   TwitterShareBarButton,
 } from "@/codeforafrica/components/ShareButtons";
-import SocialMediaBar from "@/codeforafrica/components/SocialMediaBar";
+import SocialMediaButtonGroup from "@/codeforafrica/components/SocialMediaButtonGroup";
 
 const ShareThisPage = React.forwardRef(function ShareThisPage(props, ref) {
   const { children, sx, title, ...other } = props;
@@ -24,11 +24,11 @@ const ShareThisPage = React.forwardRef(function ShareThisPage(props, ref) {
       ref={ref}
     >
       <RichTypography variant="footerCap">{children || title}</RichTypography>
-      <SocialMediaBar>
+      <SocialMediaButtonGroup>
         <TwitterShareBarButton />
         <LinkedinShareBarButton />
         <FacebookShareBarButton />
-      </SocialMediaBar>
+      </SocialMediaButtonGroup>
     </Stack>
   );
 });
