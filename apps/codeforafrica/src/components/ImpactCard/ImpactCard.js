@@ -22,7 +22,7 @@ const ImpactCardRoot = styled(Card, {
 const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
   const { image, title, value, content } = props;
 
-  if (!image && !title) {
+  if (!(image && title)) {
     return null;
   }
   const imageSrc = image?.src || image?.url || image;
