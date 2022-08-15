@@ -7,15 +7,17 @@ const officesDir = join(process.cwd(), "content/offices");
 export default function getOffices(fields) {
   const offices = getCollectionData(officesDir, fields);
   return offices.map((office) => {
+    const lat = Number.parseFloat(office.location.latitude);
+    const lng = Number.parseFloat(office.location.longitude);
     return {
       map: {
         center: {
-          lat: JSON.parse(office.location.latitude),
-          lng: JSON.parse(office.location.longitude),
+          lat,
+          lng,
         },
         position: {
-          lat: JSON.parse(office.location.latitude),
-          lng: JSON.parse(office.location.longitude),
+          lat,
+          lng,
         },
       },
       address: office.content,
