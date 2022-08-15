@@ -51,7 +51,6 @@ function Index({ member, partner, sections, ...props }) {
         </RichTypography>
 
         <ConnectBar
-          spacing="17px"
           title="Connect"
           sx={{
             color: "text.primary",

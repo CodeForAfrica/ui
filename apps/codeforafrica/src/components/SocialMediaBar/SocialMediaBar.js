@@ -9,6 +9,7 @@ const SocialMediaBar = React.forwardRef(function SocialMediaBar(props, ref) {
   return (
     <Stack
       direction="row"
+      spacing="17px"
       {...other}
       sx={{
         color: "grey.main",

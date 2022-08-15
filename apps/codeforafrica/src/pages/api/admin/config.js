@@ -911,12 +911,6 @@ module.exports = {
               required: false,
             },
             {
-              label: "Meta",
-              name: "meta",
-              widget: "string",
-              required: false,
-            },
-            {
               label: "Facebook",
               name: "facebook",
               widget: "string",

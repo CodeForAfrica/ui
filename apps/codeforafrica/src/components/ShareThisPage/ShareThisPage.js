@@ -4,7 +4,7 @@ import {
   FacebookShareBarButton,
   LinkedinShareBarButton,
   TwitterShareBarButton,
-} from "@/codeforafrica/components/ShareButtons";
+} from "@/codeforafrica/components/ShareButton";
 import SocialMediaBar from "@/codeforafrica/components/SocialMediaBar";
 
 const ShareThisPage = React.forwardRef(function ShareThisPage(props, ref) {

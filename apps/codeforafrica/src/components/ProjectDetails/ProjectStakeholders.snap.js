@@ -29,7 +29,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="css-1h6wq4x-MuiStack-root"
+      class="css-713vji-MuiStack-root"
       other="[object Object]"
     >
       <div

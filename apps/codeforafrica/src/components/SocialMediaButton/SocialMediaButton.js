@@ -28,6 +28,11 @@ const SocialMediaButton = React.forwardRef(function SocialMediaButton(
     title: name,
   };
 
+  const Icon = ICON_BY_NAME[name?.toLowerCase()];
+  if (!Icon) {
+    return null;
+  }
+
   return (
     <TooltipButton
       href={url}
@@ -35,10 +40,7 @@ const SocialMediaButton = React.forwardRef(function SocialMediaButton(
       ref={ref}
       target="_blank"
     >
-      <SvgIcon
-        sx={{ fill: "none" }}
-        component={ICON_BY_NAME[name.toLowerCase()] ?? null}
-      />
+      <SvgIcon sx={{ fill: "none" }} component={Icon} />
     </TooltipButton>
   );
 });

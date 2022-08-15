@@ -5,7 +5,7 @@ import {
   FacebookShareBarButton,
   LinkedinShareBarButton,
   TwitterShareBarButton,
-} from "./ShareButtons";
+} from "./ShareButton";
 
 import theme from "@/codeforafrica/theme";
 

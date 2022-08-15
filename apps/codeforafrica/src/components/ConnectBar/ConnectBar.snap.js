@@ -3,8 +3,7 @@
 exports[`<ConnectBar /> renders unchanged 1`] = `
 <div>
   <div
-    class="css-191ss4-MuiStack-root"
-    other="[object Object]"
+    class="css-mpycnp-MuiStack-root"
   >
     <div
       class="css-r7or14-MuiStack-root"

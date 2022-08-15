@@ -2,20 +2,30 @@ import React from "react";
 
 import SocialMediaBar from "@/codeforafrica/components/SocialMediaBar";
 import SocialMediaButton from "@/codeforafrica/components/SocialMediaButton";
-import sortSocialmediaLinks from "@/codeforafrica/utils/sortSocialMediaLinks";
 
 const ConnectBar = React.forwardRef(function ConnectBar(props, ref) {
-  const { sx, title, links, ...other } = props;
+  const { sx, title, links } = props;
 
-  return links ? (
-    <SocialMediaBar title={title} ref={ref} other={other} sx={sx}>
-      {sortSocialmediaLinks(links).map((link) => {
-        return (
-          <SocialMediaButton key={link.type} name={link.type} url={link.link} />
-        );
-      })}
+  if (!links || !Object.entries(links)?.length) {
+    return null;
+  }
+
+  const socialConnections = [
+    "twitter",
+    "slack",
+    "linkedin",
+    "facebook",
+    "instagram",
+    "github",
+  ].flatMap((name) => (links[name] ? [{ name, url: links[name] }] : []));
+
+  return (
+    <SocialMediaBar title={title} ref={ref} sx={sx}>
+      {socialConnections.map((connection) => (
+        <SocialMediaButton {...connection} key={connection.name} />
+      ))}
     </SocialMediaBar>
-  ) : null;
+  );
 });
 
 export default ConnectBar;
