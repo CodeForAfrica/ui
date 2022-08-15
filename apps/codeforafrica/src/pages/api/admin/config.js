@@ -325,6 +325,21 @@ module.exports = {
               widget: "string",
             },
             {
+              label: "Contact form",
+              name: "contact-form",
+              widget: "object",
+              fields: [
+                {
+                  label: "Mailchimp code",
+                  name: "embed-code",
+                  widget: "code",
+                  allow_language_selection: false,
+                  default_language: "html",
+                  output_code_only: true,
+                },
+              ],
+            },
+            {
               label: "Join Us",
               name: "join-us",
               widget: "object",
@@ -1188,6 +1203,7 @@ module.exports = {
                   widget: "code",
                   allow_language_selection: false,
                   default_language: "html",
+                  output_code_only: true,
                 },
               ],
             },
