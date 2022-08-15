@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ImpactCardList from "./ImpactCardList";
+import GetInvolved from "./GetInvolved";
 
 import theme from "@/codeforafrica/theme";
 
@@ -20,11 +20,15 @@ const defaultProps = {
         "In 10 years, 15 000 trainees have learned new skills and knowledge within the civic tech and media space.",
     },
   ],
+  action: {
+    content: "Get Involved",
+    href: "/contact",
+  },
 };
 
-describe("<ImpactCardList />", () => {
+describe("<GetInvolved />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ImpactCardList {...defaultProps} />);
+    const { container } = render(<GetInvolved {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

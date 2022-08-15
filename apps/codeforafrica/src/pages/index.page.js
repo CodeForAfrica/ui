@@ -1,8 +1,8 @@
 import React from "react";
 
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
+import GetInvolved from "@/codeforafrica/components/GetInvolved";
 import Hero from "@/codeforafrica/components/Hero";
-import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
 import OurPartners from "@/codeforafrica/components/OurPartners";
@@ -17,20 +17,20 @@ function Index({ sections, ...props }) {
           case "hero": {
             return <Hero {...section} key={section.slug} />;
           }
-          case "projects": {
-            return <FeaturedProjects {...section} key={section.slug} />;
-          }
           case "meet-our-team": {
             return <MeetOurTeam {...section} key={section.slug} />;
           }
           case "news-stories": {
             return <NewsAndStories {...section} key={section.slug} />;
           }
+          case "our-impact": {
+            return <GetInvolved {...section} key={section.slug} />;
+          }
           case "our-partners": {
             return <OurPartners {...section} key={section.slug} />;
           }
-          case "our-impact": {
-            return <ImpactCardList {...section} key={section.slug} />;
+          case "projects": {
+            return <FeaturedProjects {...section} key={section.slug} />;
           }
           default:
             return null;

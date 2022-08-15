@@ -167,7 +167,7 @@ module.exports = {
                   widget: "object",
                   fields: [
                     {
-                      name: "title",
+                      name: "content",
                       widget: "string",
                     },
                     {
