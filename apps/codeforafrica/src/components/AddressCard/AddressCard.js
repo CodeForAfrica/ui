@@ -15,14 +15,14 @@ const AddressCardRoot = styled(Card)(({ theme, ownerState }) => ({
 }));
 
 const AddressCard = React.forwardRef(function AddressCard(props, ref) {
-  const { active, address, onClick, title } = props;
+  const { active, content, onClick, title } = props;
   const handleClick = (e) => {
     if (onClick) {
       onClick(e, title);
     }
   };
 
-  if (!(title && address)) {
+  if (!(title && content)) {
     return null;
   }
   const ownerState = { active };
@@ -40,7 +40,7 @@ const AddressCard = React.forwardRef(function AddressCard(props, ref) {
             {title}
           </RichTypography>
           <RichTypography sx={{ color: "inherit", pt: 1.25 }} variant="body3">
-            {address}
+            {content}
           </RichTypography>
         </CardContent>
       </CardActionArea>

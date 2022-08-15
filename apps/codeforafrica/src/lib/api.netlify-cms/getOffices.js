@@ -20,7 +20,7 @@ export default function getOffices(fields) {
           lng,
         },
       },
-      address: office.content,
+      content: office.content,
       title: office.name,
     };
   });
