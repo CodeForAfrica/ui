@@ -10,12 +10,12 @@ export default function getOffices(fields) {
     return {
       map: {
         center: {
-          lat: JSON.parse(office.map.latitude),
-          lng: JSON.parse(office.map.longitude),
+          lat: JSON.parse(office.location.latitude),
+          lng: JSON.parse(office.location.longitude),
         },
         position: {
-          lat: JSON.parse(office.map.latitude),
-          lng: JSON.parse(office.map.longitude),
+          lat: JSON.parse(office.location.latitude),
+          lng: JSON.parse(office.location.longitude),
         },
       },
       address: office.content,

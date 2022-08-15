@@ -623,8 +623,8 @@ module.exports = {
           widget: "markdown",
         },
         {
-          label: "Map",
-          name: "map",
+          label: "Location",
+          name: "location",
           widget: "object",
           fields: [
             {
