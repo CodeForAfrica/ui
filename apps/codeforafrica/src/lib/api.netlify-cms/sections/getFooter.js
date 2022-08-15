@@ -17,7 +17,7 @@ export default function getFooter() {
     secondaryMenu,
     stayInTouch,
     subscription: {
-      embedCode: newsletterSubscription["embed-code"].code,
+      embedCode: newsletterSubscription["embed-code"],
       title: newsletterSubscription.title,
     },
   };

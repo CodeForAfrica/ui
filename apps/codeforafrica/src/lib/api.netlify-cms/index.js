@@ -1,3 +1,4 @@
+import getContactForm from "./getContactForm";
 import getOurGuidingPrinciples from "./getOurGuidingPrinciples";
 import getOurImpact from "./getOurImpact";
 import getOurMission from "./getOurMission";
@@ -11,6 +12,7 @@ import getHero from "./sections/getHero";
 import getMeetOurTeam from "./sections/getMeetOurTeam";
 
 export {
+  getContactForm,
   getCmsProjects,
   getHero,
   getMeetOurTeam,
