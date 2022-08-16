@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ShareBarButton /> renders unchanged 1`] = `
+exports[`<TooltipButton /> renders unchanged 1`] = `
 <div>
   <button
     aria-label="Title"

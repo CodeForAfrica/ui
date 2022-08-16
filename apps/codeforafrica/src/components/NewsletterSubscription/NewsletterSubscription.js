@@ -5,21 +5,36 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const NewsletterSubscriptionRoot = styled(RichTypography)(
-  ({ theme: { typography } }) => ({
+  ({ theme: { palette, typography } }) => ({
     "& #mc_embed_signup": {
       ...typography.body1,
       backgroundColor: "unset",
       color: "inherit",
+      width: "100%",
     },
     "& #mc_embed_signup input[type=text], & #mc_embed_signup input[type=email]":
       {
+        ...typography.body1,
         border: "1px solid #D0CBCB",
+        borderRadius: 0,
         display: "flex",
         height: typography.pxToRem(36),
-        width: "100%",
         marginBottom: typography.pxToRem(30),
+        outline: "none",
         padding: `0 ${typography.pxToRem(12)}`,
+        width: "100%",
       },
+    "& #mc_embed_signup input::placeholder": {
+      color: "#D0CBCB",
+      opacity: 1.0,
+      WebkitTextFillColor: "#D0CBCB",
+    },
+    "& #mc_embed_signup input:focus,  #mc_embed_signup textarea:focus": {
+      border: `1px solid ${palette.primary.main}`,
+    },
+    "& #mc_embed_signup input:active,  #mc_embed_signup textarea:active": {
+      border: `1px solid ${palette.highlight.main}`,
+    },
     "& #mc_embed_signup input[type=submit]": {
       ...typography.subtitle1,
       background: "none",

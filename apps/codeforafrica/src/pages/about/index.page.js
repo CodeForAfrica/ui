@@ -3,7 +3,7 @@ import React from "react";
 import AboutPageHeader from "@/codeforafrica/components/AboutPageHeader";
 import GetInTouch from "@/codeforafrica/components/GetInTouch";
 import GuidingPrinciplesCardList from "@/codeforafrica/components/GuidingPrinciplesCardList";
-import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
+import OurImpact from "@/codeforafrica/components/OurImpact";
 import OurMission from "@/codeforafrica/components/OurMission";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import OurTeam from "@/codeforafrica/components/OurTeam";
@@ -31,7 +31,7 @@ function Index({ sections, ...props }) {
             return <AboutPageHeader {...section} key={section.slug} />;
           }
           case "our-impact": {
-            return <ImpactCardList {...section} key={section.slug} />;
+            return <OurImpact {...section} key={section.slug} />;
           }
           case "our-mission": {
             return (

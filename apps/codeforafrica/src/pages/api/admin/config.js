@@ -167,7 +167,7 @@ module.exports = {
                   widget: "object",
                   fields: [
                     {
-                      name: "title",
+                      name: "content",
                       widget: "string",
                     },
                     {
@@ -383,6 +383,21 @@ module.exports = {
               label: "Subtitle",
               name: "subtitle",
               widget: "string",
+            },
+            {
+              label: "Contact form",
+              name: "contact-form",
+              widget: "object",
+              fields: [
+                {
+                  label: "Mailchimp code",
+                  name: "embed-code",
+                  widget: "code",
+                  allow_language_selection: false,
+                  default_language: "html",
+                  output_code_only: true,
+                },
+              ],
             },
             {
               label: "Join Us",
@@ -682,6 +697,25 @@ module.exports = {
           name: "body",
           widget: "markdown",
         },
+        {
+          label: "Location",
+          name: "location",
+          widget: "object",
+          fields: [
+            {
+              label: "Latitude",
+              name: "latitude",
+              widget: "number",
+              value_type: "float",
+            },
+            {
+              label: "Longitude",
+              name: "longitude",
+              widget: "number",
+              value_type: "float",
+            },
+          ],
+        },
       ],
     },
     {
@@ -971,8 +1005,20 @@ module.exports = {
               required: false,
             },
             {
-              label: "Meta",
-              name: "meta",
+              label: "Facebook",
+              name: "facebook",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Instagram",
+              name: "instagram",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Slack",
+              name: "slack",
               widget: "string",
               required: false,
             },
@@ -1254,6 +1300,7 @@ module.exports = {
                   widget: "code",
                   allow_language_selection: false,
                   default_language: "html",
+                  output_code_only: true,
                 },
               ],
             },
