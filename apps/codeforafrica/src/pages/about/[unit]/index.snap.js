@@ -22,7 +22,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiBox-root css-168cimh"
+      class="MuiBox-root css-1yep4fv"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1clvkda-MuiContainer-root"
@@ -115,7 +115,6 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
                 viewbox="0 0 24 24"
               />
             </span>
-            Get in touch
           </a>
         </div>
       </div>
