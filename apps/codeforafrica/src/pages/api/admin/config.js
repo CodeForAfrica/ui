@@ -630,12 +630,14 @@ module.exports = {
             {
               label: "Latitude",
               name: "latitude",
-              widget: "string",
+              widget: "number",
+              value_type: "float",
             },
             {
               label: "Longitude",
               name: "longitude",
-              widget: "string",
+              widget: "number",
+              value_type: "float",
             },
           ],
         },
