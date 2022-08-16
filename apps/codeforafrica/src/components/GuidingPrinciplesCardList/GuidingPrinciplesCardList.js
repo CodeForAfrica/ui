@@ -6,9 +6,9 @@ import GuidingPrinciplesCard from "../GuidingPrinciplesCard";
 
 const GuidingPrinciplesCardList = React.forwardRef(
   function GuidingPrinciplesCardList(props, ref) {
-    const { principles, title, ...other } = props;
+    const { list, title, ...other } = props;
 
-    if (!principles?.length) {
+    if (!list?.length) {
       return null;
     }
     return (
@@ -23,7 +23,7 @@ const GuidingPrinciplesCardList = React.forwardRef(
             justifyContent: "space-between",
           }}
         >
-          {principles.map((principle) => (
+          {list.map((principle) => (
             <Grid item key={principle.title}>
               <GuidingPrinciplesCard {...principle} />
             </Grid>
