@@ -733,6 +733,29 @@ function getContactPageStaticProps() {
   };
 }
 
+async function getErrorPageStaticProps() {
+  const stories = await getStories();
+
+  return {
+    props: {
+      title: "Not found | Code for Africa",
+      header: "Whoops! This page got lost in conversation!",
+      message:
+        '<p>Don’t worry! You can head back to our <a href="/" >homepage</a>, check out our most recent <a href="/projects">projects</a>, or read below some of the contents produced by our amazing team.</p>',
+      sections: [
+        {
+          slug: "news-stories",
+          title: "Recent Stories",
+          articles: stories.results,
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
 export async function getPageStaticProps(params) {
   switch (params?.slug) {
     case "/": {
@@ -764,6 +787,9 @@ export async function getPageStaticProps(params) {
     }
     case "/stories": {
       return getStoriesPageStaticProps(params);
+    }
+    case "/404": {
+      return getErrorPageStaticProps();
     }
     default:
       if (params?.slug?.startsWith("/about/members/")) {
