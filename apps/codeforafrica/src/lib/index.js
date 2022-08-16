@@ -32,6 +32,7 @@ export const partners = getPartners([
   "content",
   "href",
   "logo",
+  "links",
 ]);
 
 export const projects = getCmsProjects([

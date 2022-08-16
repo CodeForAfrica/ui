@@ -699,6 +699,50 @@ module.exports = {
             },
           ],
         },
+
+        {
+          label: "Links",
+          name: "links",
+          widget: "object",
+          fields: [
+            {
+              label: "Facebook",
+              name: "facebook",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Twitter",
+              name: "twitter",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "LinkedIn",
+              name: "linkedIn",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Instagram",
+              name: "instagram",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Github",
+              name: "github",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Slack",
+              name: "slack",
+              widget: "string",
+              required: false,
+            },
+          ],
+        },
       ],
     },
     {
