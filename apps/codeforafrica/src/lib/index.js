@@ -1,5 +1,6 @@
 import fuse from "./api.fuse";
 import {
+  getContactForm,
   getPartners,
   getCmsProjects,
   getHero,
@@ -653,6 +654,10 @@ function getContactPageStaticProps() {
           slug: "hero",
           title: "Contact",
           subtitle: "Let’s start something together!",
+        },
+        {
+          ...getContactForm(),
+          slug: "contact-form",
         },
         {
           slug: "join-our-slack",
