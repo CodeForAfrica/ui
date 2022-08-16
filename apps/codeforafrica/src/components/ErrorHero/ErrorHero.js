@@ -4,7 +4,7 @@ import React from "react";
 
 import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
-const ErrorCard = React.forwardRef(function ErrorCard(props, ref) {
+const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
   const { header, message, sx, tags, title, ...other } = props;
 
   return (
@@ -62,4 +62,4 @@ const ErrorCard = React.forwardRef(function ErrorCard(props, ref) {
   );
 });
 
-export default ErrorCard;
+export default ErrorHero;

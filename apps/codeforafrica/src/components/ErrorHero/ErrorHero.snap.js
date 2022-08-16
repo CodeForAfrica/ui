@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ErrorCard /> renders unchanged 1`] = `
+exports[`<ErrorHero /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-1jyu2xp"

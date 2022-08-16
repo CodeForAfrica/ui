@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 
-import ErrorCard from "@/codeforafrica/components/ErrorCard";
+import ErrorHero from "@/codeforafrica/components/ErrorHero";
 import Page from "@/codeforafrica/components/Page";
 import RelatedStories from "@/codeforafrica/components/RelatedStories";
 import { getPageStaticProps } from "@/codeforafrica/lib";
@@ -8,7 +8,7 @@ import { getPageStaticProps } from "@/codeforafrica/lib";
 function NotFound({ sections, ...props }) {
   return (
     <Page {...props}>
-      <ErrorCard {...props} />
+      <ErrorHero {...props} />
       {sections?.map((section) => {
         switch (section.slug) {
           case "news-stories":
