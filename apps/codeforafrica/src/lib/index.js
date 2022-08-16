@@ -11,6 +11,7 @@ import {
   getOurGuidingPrinciples,
   getHeader,
   getFooter,
+  getError,
 } from "./api.netlify-cms";
 
 import {
@@ -735,13 +736,35 @@ function getContactPageStaticProps() {
 
 async function getErrorPageStaticProps() {
   const stories = await getStories();
+  const { title, subtitle } = getError("error");
 
   return {
     props: {
-      title: "Not found | Code for Africa",
-      header: "Whoops! This page got lost in conversation!",
-      message:
-        '<p>Don’t worry! You can head back to our <a href="/" >homepage</a>, check out our most recent <a href="/projects">projects</a>, or read below some of the contents produced by our amazing team.</p>',
+      title,
+      subtitle,
+
+      sections: [
+        {
+          slug: "news-stories",
+          title: "Recent Stories",
+          articles: stories.results,
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+async function get404PageStaticProps() {
+  const stories = await getStories();
+  const { title, subtitle } = getError("404");
+
+  return {
+    props: {
+      title,
+      subtitle,
+
       sections: [
         {
           slug: "news-stories",
@@ -789,6 +812,9 @@ export async function getPageStaticProps(params) {
       return getStoriesPageStaticProps(params);
     }
     case "/404": {
+      return get404PageStaticProps();
+    }
+    case "/error": {
       return getErrorPageStaticProps();
     }
     default:

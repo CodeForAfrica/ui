@@ -431,6 +431,40 @@ module.exports = {
             },
           ],
         },
+        {
+          label: "404",
+          name: "404",
+          file: `${APP_DIRECTORY}content/pages/404.md`,
+          fields: [
+            {
+              label: "Title",
+              name: "title",
+              widget: "string",
+            },
+            {
+              label: "Subtitle",
+              name: "subtitle",
+              widget: "string",
+            },
+          ],
+        },
+        {
+          label: "Error",
+          name: "error",
+          file: `${APP_DIRECTORY}content/pages/error.md`,
+          fields: [
+            {
+              label: "Title",
+              name: "title",
+              widget: "string",
+            },
+            {
+              label: "Subtitle",
+              name: "subtitle",
+              widget: "string",
+            },
+          ],
+        },
       ],
     },
     {

@@ -5,7 +5,7 @@ import React from "react";
 import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
-  const { header, message, sx, tags, title, ...other } = props;
+  const { title, subtitle, sx, tags, ...other } = props;
 
   return (
     <TwoToneBackground
@@ -40,7 +40,7 @@ const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
               }}
               variant="h1"
             >
-              {header}
+              {title}
             </RichTypography>
             <RichTypography
               variant="body1"
@@ -53,7 +53,7 @@ const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
                 },
               }}
             >
-              {message}
+              {subtitle}
             </RichTypography>
           </Grid>
         </Grid>

@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import CustomError from "./_error.page";
+import NotFound from "./404.page";
 
 import theme from "@/codeforafrica/theme";
 
@@ -14,7 +14,7 @@ const defaultProps = {
 
 describe("/404", () => {
   it("renders unchanged", () => {
-    const { container } = render(<CustomError {...defaultProps} />);
+    const { container } = render(<NotFound {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
