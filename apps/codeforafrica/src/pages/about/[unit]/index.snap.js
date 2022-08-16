@@ -33,17 +33,17 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
           Our team
         </div>
         <div
-          class="css-mcplfz-MuiStack-root"
+          class="css-1vi1n47-MuiStack-root"
         >
           <div
             class="MuiFormControl-root MuiTextField-root css-112en4k-MuiFormControl-root-MuiTextField-root"
           >
             <div
-              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1u16ib2-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1u16ib2-MuiInputBase-root-MuiOutlinedInput-root"
             >
               <input
                 aria-invalid="false"
-                class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-h7q3zr-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-h7q3zr-MuiInputBase-input-MuiOutlinedInput-input"
                 id="mui-1"
                 placeholder="Search"
                 type="search"
@@ -101,7 +101,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
             We'd love to hear more.
           </div>
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButtonBase-root  css-1uif8c1-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge css-1uif8c1-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
             href="/contact"
             tabindex="0"
           >

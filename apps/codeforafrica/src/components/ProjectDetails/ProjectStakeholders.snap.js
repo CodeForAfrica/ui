@@ -3,7 +3,7 @@
 exports[`<ProjectStakeholders /> renders unchanged 1`] = `
 <div>
   <div
-    class="css-1ustfsx-MuiStack-root"
+    class="css-bqx4d1-MuiStack-root"
   >
     <div
       class="MuiTypography-root MuiTypography-h5Small css-suiten-MuiTypography-root"
@@ -29,8 +29,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="css-713vji-MuiStack-root"
-      other="[object Object]"
+      class="css-11d7185-MuiStack-root"
     >
       <div
         class="MuiTypography-root MuiTypography-footerCap css-19iy7wy-MuiTypography-root"

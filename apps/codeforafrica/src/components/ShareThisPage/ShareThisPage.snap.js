@@ -4,7 +4,6 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
 <div>
   <div
     class="css-mpycnp-MuiStack-root"
-    other="[object Object]"
   >
     <div
       class="css-r7or14-MuiStack-root"

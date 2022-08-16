@@ -7,7 +7,6 @@ exports[`<ArticleHeader /> renders unchanged 1`] = `
   >
     <div
       class="css-1rvuxdl-MuiStack-root"
-      other="[object Object]"
     >
       <div
         class="MuiTypography-root MuiTypography-footerCap css-19iy7wy-MuiTypography-root"

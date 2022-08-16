@@ -112,7 +112,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
             class="MuiCardActions-root MuiCardActions-spacing css-1jzc3k6-MuiCardActions-root"
           >
             <button
-              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-12dqrmj-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-12dqrmj-MuiButtonBase-root-MuiButton-root"
               tabindex="0"
               type="button"
             >
