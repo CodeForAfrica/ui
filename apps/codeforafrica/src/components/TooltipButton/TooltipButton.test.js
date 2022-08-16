@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ShareBarButton from "./ShareBarButton";
+import TooltipButton from "./TooltipButton";
 
 import theme from "@/codeforafrica/theme";
 
@@ -12,9 +12,9 @@ const defaultProps = {
   tooltipProps: { title: "Title" },
 };
 
-describe("<ShareBarButton />", () => {
+describe("<TooltipButton />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ShareBarButton {...defaultProps} />);
+    const { container } = render(<TooltipButton {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

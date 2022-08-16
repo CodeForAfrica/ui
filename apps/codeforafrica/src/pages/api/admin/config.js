@@ -945,8 +945,20 @@ module.exports = {
               required: false,
             },
             {
-              label: "Meta",
-              name: "meta",
+              label: "Facebook",
+              name: "facebook",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Instagram",
+              name: "instagram",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Slack",
+              name: "slack",
               widget: "string",
               required: false,
             },
