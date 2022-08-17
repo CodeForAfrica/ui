@@ -8,7 +8,6 @@ const indexPageDir = join(process.cwd(), "content/pages");
 
 export default function getHero(page = "index", fields = ["hero"]) {
   const { hero } = getCollectionBySlug(indexPageDir, page, fields).items;
-  console.log("hero", hero);
   hero.title = marked.parseInline(hero.title);
 
   return hero;

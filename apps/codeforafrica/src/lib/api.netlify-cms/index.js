@@ -31,7 +31,5 @@ export {
   getOurTeam,
   getPartners,
   getTeam,
-  getHeader,
-  getFooter,
   getError,
 };
