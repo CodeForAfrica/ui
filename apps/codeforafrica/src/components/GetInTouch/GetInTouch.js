@@ -10,17 +10,15 @@ import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const GetInTouch = React.forwardRef(function GetInTouch(props, ref) {
   const {
-    action: { href, label },
+    action: { href, content },
     subtitle,
-    slug,
     title,
-    ...other
+    sx,
   } = props;
 
   return (
     <TwoToneBackground
-      sx={{ py: { xs: "82.5px", sm: "102.5px", md: "94.5" } }}
-      {...other}
+      sx={{ py: { xs: "82.5px", sm: "102.5px", md: "94.5" }, ...sx }}
       ref={ref}
     >
       <Section sx={{ px: { xs: 2.5, sm: 0 }, zIndex: 1 }}>
@@ -63,7 +61,7 @@ const GetInTouch = React.forwardRef(function GetInTouch(props, ref) {
               },
             }}
           >
-            {label}
+            {content}
           </Button>
         </Stack>
       </Section>

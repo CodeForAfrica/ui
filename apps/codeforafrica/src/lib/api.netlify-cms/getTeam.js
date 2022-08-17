@@ -6,7 +6,10 @@ const teamDir = join(process.cwd(), "content/team");
 
 export default function getTeam(fields) {
   const teams = getCollectionData(teamDir, fields);
-  return teams.map((member) => {
-    return { ...member, href: `/about/members/${member.slug}` };
-  });
+  return teams
+    .filter((member) => !member.deactivated)
+    .map(({ slug = null, ...other }) => {
+      const href = slug ? `/about/members/${slug}` : null;
+      return { ...other, slug, href };
+    });
 }

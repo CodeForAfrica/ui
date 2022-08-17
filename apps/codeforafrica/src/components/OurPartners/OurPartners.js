@@ -24,10 +24,10 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
         {title}
       </RichTypography>
       <Grid container columns={10} justifyContent="flex-start">
-        {partners.map(({ logo, name, slug }) => {
-          const href = slug ? `/about/partners/${slug}` : undefined;
+        {partners.map(({ logo, name, href }) => {
           const Wrapper = href?.length ? Link : React.Fragment;
           const wrapperProps = href?.length ? { href } : undefined;
+
           return (
             <Grid item xs={5} sm={2} key={name}>
               <Wrapper {...wrapperProps}>

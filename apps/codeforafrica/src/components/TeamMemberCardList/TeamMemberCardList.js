@@ -26,6 +26,7 @@ const TeamMemberCardList = React.forwardRef(function TeamMemberCardList(
         container
         rowSpacing={{ xs: 3, sm: 2.5, md: 5, lg: "36px" }}
         columnSpacing={{ xs: 3, md: "25.6px", lg: 6 }}
+        alignItems="stretch"
         flexWrap={{ xs: "nowrap", sm: "wrap" }}
         sx={{
           pr: { xs: 3, sm: 0 },

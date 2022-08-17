@@ -13,6 +13,7 @@ const TeamMemberCardRoot = styled(Card, {
   backgroundColor: `${theme.palette.background.main}`,
   display: "flex",
   flexDirection: "column",
+  height: "100%",
   width: 150,
   [theme.breakpoints.only("sm")]: {
     padding: "0 7px",

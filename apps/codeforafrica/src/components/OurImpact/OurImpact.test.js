@@ -1,20 +1,18 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ShareBarButton from "./ShareBarButton";
+import OurImpact from "./OurImpact";
 
 import theme from "@/codeforafrica/theme";
 
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-const defaultProps = {
-  tooltipProps: { title: "Title" },
-};
+const defaultProps = {};
 
-describe("<ShareBarButton />", () => {
+describe("<ImpactCardList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ShareBarButton {...defaultProps} />);
+    const { container } = render(<OurImpact {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

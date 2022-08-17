@@ -167,7 +167,7 @@ module.exports = {
                   widget: "object",
                   fields: [
                     {
-                      name: "title",
+                      name: "content",
                       widget: "string",
                     },
                     {
@@ -189,6 +189,8 @@ module.exports = {
               label: "Hero",
               name: "hero",
               widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
               fields: [
                 {
                   label: "Title",
@@ -230,11 +232,13 @@ module.exports = {
               label: "Our Mission",
               name: "our-mission",
               widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
               fields: [
                 {
                   label: "Title",
                   name: "title",
-                  widget: "text",
+                  widget: "string",
                 },
                 {
                   name: "description",
@@ -243,24 +247,55 @@ module.exports = {
               ],
             },
             {
-              label: "Our Team",
-              name: "team",
-              widget: "relation",
-              collection: "team",
-              search_fields: ["name"],
-              value_field: "id",
-              display_fields: ["name"],
-              multiple: true,
+              label: "Guiding Principles",
+              name: "guiding-principles",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Guiding Principles",
+                  name: "guiding-principle-list",
+                  label_singular: "Guiding Principle",
+                  widget: "relation",
+                  collection: "guiding-principles",
+                  search_fields: ["title"],
+                  value_field: "id",
+                  display_fields: ["title"],
+                  multiple: true,
+                },
+              ],
+            },
+            {
+              label: "Our team",
+              name: "our-team",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
             },
             {
               label: "Our partners",
               name: "our-partners",
               widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
               fields: [
                 {
                   label: "Title",
                   name: "title",
-                  widget: "markdown",
+                  widget: "string",
                 },
                 {
                   label: "Partners",
@@ -275,20 +310,11 @@ module.exports = {
               ],
             },
             {
-              label: "Guiding Principles",
-              name: "guiding-principles",
-              label_singular: "Guiding Principle",
-              widget: "relation",
-              collection: "guiding-principles",
-              search_fields: ["title"],
-              value_field: "id",
-              display_fields: ["title"],
-              multiple: true,
-            },
-            {
               label: "Our Impact",
               name: "our-impact",
               widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
               fields: [
                 {
                   label: "Title",
@@ -304,6 +330,40 @@ module.exports = {
                   value_field: "id",
                   display_fields: ["title"],
                   multiple: true,
+                },
+              ],
+            },
+            {
+              label: "Get in touch",
+              name: "get-in-touch",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "string",
+                },
+                {
+                  label: "Action",
+                  name: "action",
+                  widget: "object",
+                  fields: [
+                    {
+                      name: "content",
+                      widget: "string",
+                    },
+                    {
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
                 },
               ],
             },
@@ -323,6 +383,21 @@ module.exports = {
               label: "Subtitle",
               name: "subtitle",
               widget: "string",
+            },
+            {
+              label: "Contact form",
+              name: "contact-form",
+              widget: "object",
+              fields: [
+                {
+                  label: "Mailchimp code",
+                  name: "embed-code",
+                  widget: "code",
+                  allow_language_selection: false,
+                  default_language: "html",
+                  output_code_only: true,
+                },
+              ],
             },
             {
               label: "Join Us",
@@ -656,6 +731,25 @@ module.exports = {
           name: "body",
           widget: "markdown",
         },
+        {
+          label: "Location",
+          name: "location",
+          widget: "object",
+          fields: [
+            {
+              label: "Latitude",
+              name: "latitude",
+              widget: "number",
+              value_type: "float",
+            },
+            {
+              label: "Longitude",
+              name: "longitude",
+              widget: "number",
+              value_type: "float",
+            },
+          ],
+        },
       ],
     },
     {
@@ -945,8 +1039,20 @@ module.exports = {
               required: false,
             },
             {
-              label: "Meta",
-              name: "meta",
+              label: "Facebook",
+              name: "facebook",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Instagram",
+              name: "instagram",
+              widget: "string",
+              required: false,
+            },
+            {
+              label: "Slack",
+              name: "slack",
               widget: "string",
               required: false,
             },
@@ -961,6 +1067,12 @@ module.exports = {
           label: "Team",
           name: "team",
           widget: "string",
+        },
+        {
+          label: "Deactivated",
+          name: "deactivated",
+          widget: "boolean",
+          default: false,
         },
       ],
     },
@@ -1222,6 +1334,7 @@ module.exports = {
                   widget: "code",
                   allow_language_selection: false,
                   default_language: "html",
+                  output_code_only: true,
                 },
               ],
             },
