@@ -3,6 +3,11 @@ id: f26f59e7-444e-4e9f-b0cc-8f75b90165d8
 name: The World Bank
 logo:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/the-world-bank_lbksih.png
+links:
+  facebook: https://www.facebook.com/worldbank
+  twitter: https://www.twitter.com/worldbank
+  linkedIn: https://www.linkedin.com/company/the-world-bank
+  instagram: https://instagram.com/worldbank/
 ---
 
 Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent
