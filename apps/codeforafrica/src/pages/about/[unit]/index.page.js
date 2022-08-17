@@ -32,7 +32,6 @@ function Index({ crumbs, sections, ...props }) {
               <OurTeam
                 {...section}
                 sx={{
-                  bgcolor: "background.default",
                   py: { xs: 2.5, md: 0 },
                 }}
                 key={section.slug}

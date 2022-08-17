@@ -45,9 +45,17 @@ our-mission:
     4. We operate in public. CfA promotes openness in our operations and in the work of our partners. All digital tools utilised are open source, and the organisation’s information is open data. CfA actively encourages documentation, sharing and collaboration, in addition to reuse of our own tools, programmes and processes, as well as those of our partners.
 
     5. We help build ecosystems. CfA actively marshals resources to support the growth of a pan-African ecosystem of civic technologists. Whenever possible, this means reusing existing tools, standards and platforms, encouraging integration and extension. CfA operates as a pan-African federation of organisations who are active members of a global community, leveraging each other’s knowledge and resources.
-team:
-  - 24c487bd-ba84-42df-825e-b11a532786ad
-  - 8f56e20e-eb6c-44f2-be0a-cf96e75a91fa
+guiding-principles:
+  title: Guiding principles
+  guiding-principle-list:
+    - be7a2c8c-3a4d-4625-a67e-73c27cdf9f54
+    - ce72cdab-36a4-49c4-812b-0efbbd8bf20d
+    - 7cd9eb88-7748-42fa-94f8-f0bd40c72686
+    - 92c0d6ac-e9b7-48c8-9126-dccd1f1994ae
+    - 147839fa-c8c6-44b1-92ae-3f40e12d292b
+    - 33c4db4a-4f99-4400-b4fd-6b47e02de85d
+our-team:
+  title: Our team
 our-partners:
   title: Our partners
   partners-list:
@@ -61,13 +69,6 @@ our-partners:
     - aa280d47-ee0c-4cf7-93aa-1fbe1a087439
     - 1079f9ae-0fbd-472b-bbfb-518145c28b1d
     - daa2a622-0277-44be-b302-dbc703f89522
-guiding-principles:
-  - be7a2c8c-3a4d-4625-a67e-73c27cdf9f54
-  - ce72cdab-36a4-49c4-812b-0efbbd8bf20d
-  - 7cd9eb88-7748-42fa-94f8-f0bd40c72686
-  - 92c0d6ac-e9b7-48c8-9126-dccd1f1994ae
-  - 147839fa-c8c6-44b1-92ae-3f40e12d292b
-  - 33c4db4a-4f99-4400-b4fd-6b47e02de85d
 our-impact:
   title: Our impact in numbers
   impact-list:
@@ -80,4 +81,10 @@ our-impact:
     - 4aa8e6ab-044d-4765-a8ec-ac0691a60f34
     - 68d049ee-6c49-4fcf-8f06-325e53fa32c0
     - c74aab50-4925-4a19-bd75-4eed0dc5d962
+get-in-touch:
+  title: Are you looking to start a new project?
+  subtitle: We'd love to hear more
+  action:
+    content: Get in touch
+    href: /contact
 ---

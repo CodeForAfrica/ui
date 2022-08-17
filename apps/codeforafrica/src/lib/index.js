@@ -1,18 +1,20 @@
 import fuse from "./api.fuse";
 import {
   getContactForm,
-  getPartners,
   getCmsProjects,
+  getFooter,
+  getGetInTouch,
+  getHeader,
   getHero,
   getMeetOurTeam,
-  getTeam,
+  getOffices,
+  getOurGuidingPrinciples,
   getOurImpact,
   getOurMission,
   getOurPartners,
-  getOurGuidingPrinciples,
-  getHeader,
-  getFooter,
-  getOffices,
+  getOurTeam,
+  getPartners,
+  getTeam,
 } from "./api.netlify-cms";
 
 import {
@@ -514,20 +516,15 @@ function getAboutMembersPageStaticProps() {
           slug: "hero",
         },
         {
-          slug: "our-team",
-          title: "Our team",
+          ...getOurTeam(),
+          pathname: "/about/members",
           tags: getMembersFieldTags(),
           team: getMembers(),
-          pathname: "/about/members",
+          slug: "our-team",
         },
         {
+          ...getGetInTouch(),
           slug: "get-in-touch",
-          title: "Are you looking to start a new project?",
-          subtitle: "We'd love to hear more.",
-          action: {
-            href: "/contact",
-            label: "Get in touch",
-          },
         },
       ],
       footer,
@@ -551,16 +548,15 @@ function getAboutPageStaticProps() {
           slug: "our-mission",
         },
         {
+          ...getOurGuidingPrinciples(),
           slug: "guiding-principles",
-          title: "Guiding Principles",
-          principles: getOurGuidingPrinciples(),
         },
 
         {
-          slug: "our-team",
-          title: "Our team",
+          ...getOurTeam(),
           tags: getMembersFieldTags(),
           team: getMembers(),
+          slug: "our-team",
         },
         {
           slug: "our-partners",
@@ -571,13 +567,8 @@ function getAboutPageStaticProps() {
           slug: "our-impact",
         },
         {
+          ...getGetInTouch(),
           slug: "get-in-touch",
-          title: "Are you looking to start a new project?",
-          subtitle: "We'd love to hear more.",
-          action: {
-            href: "/contact",
-            label: "Get in touch",
-          },
         },
       ],
       footer,
@@ -600,17 +591,12 @@ function getAboutPartnersPageStaticProps() {
         },
         {
           slug: "our-partners",
-          title: "Our partners",
-          partners,
+          // reuse title from /about but show *all* partners
+          partners: { ...getOurPartners(), list: partners },
         },
         {
+          ...getGetInTouch(),
           slug: "get-in-touch",
-          title: "Are you looking to start a new project?",
-          subtitle: "We'd love to hear more.",
-          action: {
-            href: "/contact",
-            label: "Get in touch",
-          },
         },
       ],
       footer,
