@@ -25,7 +25,7 @@ exports[`<Pages/Privacy /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-kylj5g-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-body1 css-n624xw-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-13bxwmj-MuiTypography-root"
       >
         <h1>
           Hello

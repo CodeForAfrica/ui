@@ -39,7 +39,7 @@ const CMSContent = React.forwardRef(function CMSContent(
           "& a:visited": {
             color: "primary.main",
           },
-          ...TypographyProps.sx,
+          ...TypographyProps?.sx,
         }}
         ref={typographyRef}
       >

@@ -10,7 +10,7 @@ const render = createRender({ theme });
 
 const defaultProps = {
   href: "/projects/test-project",
-  category: "Iniatives",
+  tag: "Iniatives",
 };
 
 describe("<ProjectPageHeader />", () => {

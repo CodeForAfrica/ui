@@ -9,9 +9,7 @@ exports[`<ProjectTileList /> renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 css-bdfmo7-MuiGrid-root"
     >
       <div
-        category="Projects"
         class="MuiPaper-root MuiPaper-outlined css-m6avhc-MuiPaper-root"
-        slug="african-drone"
       >
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1vcwegk-MuiTypography-root-MuiLink-root"

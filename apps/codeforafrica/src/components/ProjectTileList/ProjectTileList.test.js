@@ -18,7 +18,7 @@ const defaultProps = {
         src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431239/codeforafrica/icons/Type_africanDRONE_exwdyu.svg",
       },
       href: "/projects/acfrican-drone",
-      category: "Projects",
+      tag: "Projects",
     },
   ],
 };
