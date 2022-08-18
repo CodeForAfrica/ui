@@ -30,6 +30,9 @@ const OurMission = React.forwardRef(function OurMission(props, ref) {
             "& p, & li": {
               typography: { xs: "body1", md: "subheading" },
             },
+            "& a:visited": {
+              color: "primary.main",
+            },
           }}
         >
           {description}
