@@ -32,7 +32,7 @@ const MessageHeader = styled(RichTypography)(({ theme }) => ({
 }));
 
 const MessageAnimation = styled("span")(({ theme }) => ({
-  animation: "openclose 5s ease-in-out infinite",
+  animation: "openclose 7s ease-in-out infinite",
   backgroundColor: theme.palette.highlight.main,
   display: "block",
   left: 0,
@@ -40,7 +40,7 @@ const MessageAnimation = styled("span")(({ theme }) => ({
   position: "absolute",
   top: 0,
   [theme.breakpoints.up("md")]: {
-    animation: "opencloseDesktop 5s ease-in-out infinite",
+    animation: "opencloseDesktop 7s ease-in-out infinite",
   },
 
   "@keyframes openclose": {
@@ -68,6 +68,7 @@ const MessageAnimation = styled("span")(({ theme }) => ({
     },
     "38%": {
       top: "-54px",
+      width: 0,
     },
     "48%": {
       top: "-54px",
