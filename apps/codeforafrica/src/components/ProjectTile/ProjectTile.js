@@ -41,15 +41,7 @@ const ProjectTileRoot = styled(Paper, {
 }));
 
 const ProjectTile = React.forwardRef(function ProjectTile(props, ref) {
-  const {
-    externalHref,
-    href,
-    icon,
-    name,
-    tagLine,
-    variant = "standard",
-    ...other
-  } = props;
+  const { href, icon, name, sx, tagLine, variant = "standard" } = props;
 
   const ownerState = {
     href,
@@ -63,7 +55,7 @@ const ProjectTile = React.forwardRef(function ProjectTile(props, ref) {
       variant="outlined"
       ref={ref}
       ownerState={ownerState}
-      {...other}
+      sx={sx}
     >
       <Box
         component={href ? Link : undefined}
