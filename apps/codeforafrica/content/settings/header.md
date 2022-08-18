@@ -1,6 +1,6 @@
 ---
 logo:
-  src: /images/cfa-logo.png
+  src: /images/cfa-logo.svg
 main-navigation:
   - content: Our work
     href: /projects
