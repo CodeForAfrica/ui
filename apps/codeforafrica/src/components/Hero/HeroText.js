@@ -177,13 +177,13 @@ const Message = styled("span")(({ theme }) => ({
 }));
 
 const HeroFigure = React.forwardRef(function HeroFigure(props, ref) {
-  const { title, subtitle, messages } = props;
+  const { messages, subtitle, sx, title } = props;
 
   if (!(title && messages?.length === 3)) {
     return null;
   }
   return (
-    <HeroTextRoot ref={ref}>
+    <HeroTextRoot sx={sx} ref={ref}>
       <Heading
         variant="h2"
         sx={{

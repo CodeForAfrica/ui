@@ -8,12 +8,11 @@ import Figure from "@/codeforafrica/components/Figure";
 import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const Hero = React.forwardRef(function Hero(props, ref) {
-  const { image, slug, ...other } = props;
+  const { image, slug, sx, ...other } = props;
 
   return (
     <TwoToneBackground
-      sx={{ py: { xs: "43px", sm: 0, md: "65px", lg: 0 } }}
-      {...other}
+      sx={{ py: { xs: "43px", sm: 0, md: "65px", lg: 0 }, ...sx }}
       ref={ref}
     >
       <Section sx={{ px: { xs: 2.5, sm: 0 }, zIndex: 1 }}>
