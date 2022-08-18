@@ -1,5 +1,5 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import { useRouter } from "next/router";
+import { Link } from "@commons-ui/next";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -9,13 +9,6 @@ import ShareThisPage from "@/codeforafrica/components/ShareThisPage";
 
 const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
   const { date, excerpt, sx, tags, title, primaryTag } = props;
-
-  const router = useRouter();
-
-  const handleChangeTag = (e, value) => {
-    e.preventDefault();
-    router.push(`/${primaryTag.slug}?tag=${value}`);
-  };
 
   return (
     <Section
@@ -62,7 +55,8 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
               label={tag}
               value={tag}
               key={tag}
-              onClick={handleChangeTag}
+              component={Link}
+              href={`/${primaryTag.slug}?tag=${tag}`}
             />
           ))}
         </ChoiceChipGroup>
