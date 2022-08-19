@@ -19,6 +19,7 @@ export default function geOurPartners(page = "index") {
     "content",
     "href",
     "logo",
+    "links",
   ]);
   // Need to maintain order of how partners were selected in ourPartners
   const list =

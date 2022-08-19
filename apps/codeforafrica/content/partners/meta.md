@@ -3,6 +3,11 @@ id: 34cbbb42-0124-4973-bce2-b05d6ec84c1b
 name: Meta
 logo:
   src: https://res.cloudinary.com/code-for-africa/image/upload/v1652880227/codeforafrica/images/logos/meta_fkcccg.png
+links:
+  facebook: https://www.facebook.com/Meta
+  instagram: https://www.instagram.com/meta/
+  twitter: https://twitter.com/Meta
+  linkedIn: https://www.linkedin.com/company/meta
 ---
 
 Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent
