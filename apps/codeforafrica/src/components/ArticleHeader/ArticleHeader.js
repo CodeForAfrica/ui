@@ -1,4 +1,5 @@
 import { RichTypography, Section } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -7,7 +8,7 @@ import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 import ShareThisPage from "@/codeforafrica/components/ShareThisPage";
 
 const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
-  const { date, excerpt, sx, tags, title } = props;
+  const { date, excerpt, sx, tags, title, primaryTag } = props;
 
   return (
     <Section
@@ -50,7 +51,13 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
       {tags?.length > 0 ? (
         <ChoiceChipGroup color="default" sx={{ mt: { xs: 2.5, md: 5 } }}>
           {tags.map((tag) => (
-            <ChoiceChip label={tag} value={tag} key={tag} />
+            <ChoiceChip
+              label={tag}
+              value={tag}
+              key={tag}
+              component={Link}
+              href={`/${primaryTag.slug}?tag=${tag}`}
+            />
           ))}
         </ChoiceChipGroup>
       ) : null}
