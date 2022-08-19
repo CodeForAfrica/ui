@@ -17,6 +17,7 @@ function ArticlePage({
   featureImage,
   html,
   publishedAt,
+  primaryTag,
 }) {
   return (
     <Box component="article">
@@ -34,6 +35,7 @@ function ArticlePage({
         title={title}
         date={publishedAt}
         tags={tags}
+        primaryTag={primaryTag}
         excerpt={excerpt}
         sx={{
           maxWidth: {
