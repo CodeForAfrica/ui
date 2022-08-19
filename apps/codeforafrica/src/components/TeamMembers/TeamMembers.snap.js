@@ -14,13 +14,13 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
       class="MuiBox-root css-n6p80u"
     >
       <div
-        class="MuiGrid-root MuiGrid-container css-zv50xx-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-1p3emjt-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-m2run-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-wixki0-MuiPaper-root-MuiCard-root"
             content="<p>Allan is CfA’s senior investigations manager at the iLAB &amp; ANCIR, managing a team of forensic data scientists/analysts and technologists in eight African countries. He also leads the iLAB team which conducts network analysis investigations into disinformation and influence operations, including Coordinated Inauthentic Behaviour (CIB) and organised crime networks.</p>
 "
             country="Kenya"
@@ -62,7 +62,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-m2run-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-wixki0-MuiPaper-root-MuiCard-root"
             content="<p>Amanda is a senior programme manager at Code for Africa where she manages CivicSignal. CivicSignal uses machine learning and natural language processing to monitor and map media in Africa. Previously, she was managing editor for the African Network of Centres for Investigative Reporting (ANCIR) and night editor for the Mail &amp; Guardian Online.</p>
 "
             country="South Africa"
@@ -104,7 +104,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-m2run-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-wixki0-MuiPaper-root-MuiCard-root"
             content="<p>Anita Igbine is an investigative data analyst working with the iLAB team at Code for Africa. She has a background in engineering and has contributed to two dossiers tracking coordinated inauthentic behavior across Africa. She has also trained journalists to utilize data and social media for stories. Anita is currently based in Abuja, Nigeria.</p>
 "
             country="Nigeria"

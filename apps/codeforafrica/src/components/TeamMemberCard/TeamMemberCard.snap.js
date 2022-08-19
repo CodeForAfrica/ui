@@ -3,7 +3,7 @@
 exports[`<TeamMemberCard /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-m2run-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-wixki0-MuiPaper-root-MuiCard-root"
   >
     <button
       class="MuiButtonBase-root MuiCardActionArea-root css-sl1uh6-MuiButtonBase-root-MuiCardActionArea-root"

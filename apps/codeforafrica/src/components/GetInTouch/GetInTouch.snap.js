@@ -36,7 +36,6 @@ exports[`<GetInTouch /> renders unchanged 1`] = `
               viewbox="0 0 24 24"
             />
           </span>
-          Get in touch
         </a>
       </div>
     </div>
