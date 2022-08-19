@@ -12,7 +12,6 @@ import {
   getOurImpact,
   getOurMission,
   getOurPartners,
-  getError,
   getOurTeam,
   getPartners,
   getTeam,
@@ -680,7 +679,7 @@ function getContactPageStaticProps() {
 
 async function getErrorPageStaticProps() {
   const stories = await getStories();
-  const { title, subtitle } = getError("error");
+  const { title, subtitle } = getHero("error");
 
   return {
     props: {
@@ -702,7 +701,7 @@ async function getErrorPageStaticProps() {
 }
 async function get404PageStaticProps() {
   const stories = await getStories();
-  const { title, subtitle } = getError("404");
+  const { title, subtitle } = getHero("404");
 
   return {
     props: {
@@ -758,7 +757,7 @@ export async function getPageStaticProps(params) {
     case "/404": {
       return get404PageStaticProps();
     }
-    case "/error": {
+    case "/_error": {
       return getErrorPageStaticProps();
     }
     default:

@@ -512,14 +512,23 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/404.md`,
           fields: [
             {
-              label: "Title",
-              name: "title",
-              widget: "string",
-            },
-            {
-              label: "Subtitle",
-              name: "subtitle",
-              widget: "string",
+              label: "Hero",
+              name: "hero",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "string",
+                },
+              ],
             },
           ],
         },
@@ -529,14 +538,23 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/error.md`,
           fields: [
             {
-              label: "Title",
-              name: "title",
-              widget: "string",
-            },
-            {
-              label: "Subtitle",
-              name: "subtitle",
-              widget: "string",
+              label: "Hero",
+              name: "hero",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "string",
+                },
+              ],
             },
           ],
         },

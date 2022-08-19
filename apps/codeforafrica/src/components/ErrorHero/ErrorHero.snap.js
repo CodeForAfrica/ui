@@ -3,19 +3,11 @@
 exports[`<ErrorHero /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1jyu2xp"
+    class="MuiBox-root css-f0vcxq"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-h42qkr-MuiContainer-root"
-    >
-      <div
-        class="MuiGrid-root MuiGrid-container css-1fyy4z-MuiGrid-root"
-      >
-        <div
-          class="MuiGrid-root MuiGrid-item css-u2r8gx-MuiGrid-root"
-        />
-      </div>
-    </div>
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-x9ncny-MuiContainer-root"
+    />
   </div>
 </div>
 `;

@@ -6,7 +6,7 @@ function CustomError(props) {
 }
 
 export async function getStaticProps() {
-  return getPageStaticProps({ slug: `/error` });
+  return getPageStaticProps({ slug: `/_error` });
 }
 
 export default CustomError;

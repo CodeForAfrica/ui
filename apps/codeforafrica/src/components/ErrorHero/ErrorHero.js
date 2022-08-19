@@ -1,5 +1,4 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import Grid from "@mui/material/Grid";
 import React from "react";
 
 import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
@@ -9,7 +8,7 @@ const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
 
   return (
     <TwoToneBackground
-      sx={{ py: { xs: "43px", sm: 0, md: "65px", lg: 0 } }}
+      sx={{ py: { xs: 7.5, md: 10, lg: 12.5 } }}
       {...other}
       ref={ref}
     >
@@ -20,43 +19,32 @@ const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
             md: "912px",
           },
           px: { xs: 2.5, sm: 0 },
-          py: { xs: 5, md: "25px" },
           zIndex: 1,
           ...sx,
         }}
       >
-        <Grid
-          container
-          flexDirection={{ xs: "column", md: "row" }}
-          alignItems={{ md: "center" }}
-          rowSpacing={2.5}
-          justifyContent={{ md: "space-between" }}
+        <RichTypography
+          sx={{
+            paddingBottom: 2.5,
+            fontSize: "48px",
+          }}
+          variant="h1"
         >
-          <Grid item order={{ xs: 1, md: 0 }}>
-            <RichTypography
-              sx={{
-                paddingBottom: 2.5,
-                fontSize: "48px",
-              }}
-              variant="h1"
-            >
-              {title}
-            </RichTypography>
-            <RichTypography
-              variant="body1"
-              sx={{
-                fontSize: {
-                  xs: "1.5rem",
-                  sm: "1.75rem",
-                  md: "2rem",
-                  lg: "2.25rem",
-                },
-              }}
-            >
-              {subtitle}
-            </RichTypography>
-          </Grid>
-        </Grid>
+          {title}
+        </RichTypography>
+        <RichTypography
+          variant="body1"
+          sx={{
+            fontSize: {
+              xs: "1.5rem",
+              sm: "1.75rem",
+              md: "2rem",
+              lg: "2.25rem",
+            },
+          }}
+        >
+          {subtitle}
+        </RichTypography>
       </Section>
     </TwoToneBackground>
   );

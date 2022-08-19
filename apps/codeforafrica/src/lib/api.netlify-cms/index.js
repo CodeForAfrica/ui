@@ -9,7 +9,6 @@ import getOurTeam from "./getOurTeam";
 import getPartners from "./getPartners";
 import getCmsProjects from "./getProjects";
 import getTeam from "./getTeam";
-import getError from "./sections/getError";
 import getFooter from "./sections/getFooter";
 import getHeader from "./sections/getHeader";
 import getHero from "./sections/getHero";
@@ -31,5 +30,4 @@ export {
   getOurTeam,
   getPartners,
   getTeam,
-  getError,
 };

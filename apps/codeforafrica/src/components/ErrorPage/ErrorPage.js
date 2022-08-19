@@ -15,7 +15,7 @@ function ErrorPage({ sections, ...props }) {
               <Box
                 key={section.slug}
                 sx={{
-                  bgcolor: { xs: "inherit", sm: "background.main" },
+                  bgcolor: { xs: "inherit", sm: "background.default" },
                 }}
               >
                 <RelatedStories
