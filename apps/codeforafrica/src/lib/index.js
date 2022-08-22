@@ -636,8 +636,7 @@ function getContactPageStaticProps() {
       sections: [
         {
           slug: "hero",
-          title: "Contact",
-          subtitle: "Let’s start something together!",
+          ...getHero("contact"),
         },
         {
           ...getContactForm(),

@@ -1,6 +1,7 @@
 ---
-title: CONTACT
-subtitle: Let’s start something together!
+hero:
+  title: CONTACT
+  subtitle: Let’s start something together!
 contact-form:
   embed-code: >-
     <!-- Begin Mailchimp Signup Form -->
