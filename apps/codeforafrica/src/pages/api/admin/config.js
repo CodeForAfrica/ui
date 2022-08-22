@@ -575,6 +575,58 @@ module.exports = {
             },
           ],
         },
+        {
+          label: "404",
+          name: "404",
+          file: `${APP_DIRECTORY}content/pages/404.md`,
+          fields: [
+            {
+              label: "Hero",
+              name: "hero",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "markdown",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          label: "Error",
+          name: "error",
+          file: `${APP_DIRECTORY}content/pages/error.md`,
+          fields: [
+            {
+              label: "Hero",
+              name: "hero",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "markdown",
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
     {
