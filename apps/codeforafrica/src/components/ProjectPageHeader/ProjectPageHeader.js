@@ -59,20 +59,17 @@ const ProjectPageHeader = React.forwardRef(function ProjectPageHeader(
   ref
 ) {
   const {
-    category,
     externalHref,
     icon,
     name,
     subtitle,
     sx,
+    tag,
     tagLine,
     title,
     thumbnail,
   } = props;
-  const crumbs = [
-    { href: "/projects", label: "Our Work" },
-    { label: category },
-  ];
+  const crumbs = [{ href: "/projects", label: "Our Work" }, { label: tag }];
   const tileProps = { icon, name, tagLine };
 
   return (

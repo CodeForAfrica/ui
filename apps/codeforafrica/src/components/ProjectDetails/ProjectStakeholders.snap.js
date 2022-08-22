@@ -37,11 +37,11 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
         Share This Project
       </div>
       <div
-        class="css-r7or14-MuiStack-root"
+        class="css-163j9ep-MuiStack-root"
       >
         <button
           aria-label="Twitter"
-          class="react-share__ShareButton"
+          class="react-share__ShareButton MuiBox-root css-15p9n5u"
           data-mui-internal-clone-element="true"
           style="background-color: transparent; padding: 0px; cursor: pointer;"
         >
@@ -54,7 +54,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
         </button>
         <button
           aria-label="Linkedin"
-          class="react-share__ShareButton"
+          class="react-share__ShareButton MuiBox-root css-15p9n5u"
           data-mui-internal-clone-element="true"
           style="background-color: transparent; padding: 0px; cursor: pointer;"
         >
@@ -67,7 +67,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
         </button>
         <button
           aria-label="Facebook"
-          class="react-share__ShareButton"
+          class="react-share__ShareButton MuiBox-root css-15p9n5u"
           data-mui-internal-clone-element="true"
           style="background-color: transparent; padding: 0px; cursor: pointer;"
         >

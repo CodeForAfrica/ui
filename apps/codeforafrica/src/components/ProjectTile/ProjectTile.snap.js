@@ -3,9 +3,7 @@
 exports[`<ProjectTile /> renders unchanged 1`] = `
 <div>
   <div
-    category="Projects"
     class="MuiPaper-root MuiPaper-outlined css-rp91d-MuiPaper-root"
-    slug="african-drone"
   >
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1vcwegk-MuiTypography-root-MuiLink-root"

@@ -1,4 +1,5 @@
 /* eslint-env browser */
+import { Link } from "@commons-ui/next";
 import SvgIcon from "@mui/material/SvgIcon";
 import React from "react";
 
@@ -23,7 +24,8 @@ const SocialMediaButton = React.forwardRef(function SocialMediaButton(
   props,
   ref
 ) {
-  const { name, url } = props;
+  const { component: componentProp, name, url } = props;
+  const component = componentProp || Link;
   const tooltipProps = {
     title: name,
   };
@@ -32,13 +34,15 @@ const SocialMediaButton = React.forwardRef(function SocialMediaButton(
   if (!Icon) {
     return null;
   }
-
   return (
     <TooltipButton
+      component={component}
       href={url}
       tooltipProps={tooltipProps}
+      sx={{
+        color: "inherit",
+      }}
       ref={ref}
-      target="_blank"
     >
       <SvgIcon sx={{ fill: "none" }} component={Icon} />
     </TooltipButton>

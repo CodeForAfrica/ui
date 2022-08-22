@@ -25,7 +25,7 @@ const defaultProps = {
     thumbnail: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
     },
-    category: "Knowedge",
+    tag: "Knowedge",
     href: "/projects/knowledge-africa",
     externalHref: "https://codeforafrica.org",
   },

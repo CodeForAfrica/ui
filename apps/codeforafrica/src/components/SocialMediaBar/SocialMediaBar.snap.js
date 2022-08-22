@@ -7,7 +7,7 @@ exports[`<SocialMediaBar /> renders unchanged 1`] = `
     links="[object Object]"
   >
     <div
-      class="css-r7or14-MuiStack-root"
+      class="css-163j9ep-MuiStack-root"
     />
   </div>
 </div>

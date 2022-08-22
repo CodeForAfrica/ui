@@ -20,7 +20,14 @@ const ConnectBar = React.forwardRef(function ConnectBar(props, ref) {
   ].flatMap((name) => (links[name] ? [{ name, url: links[name] }] : []));
 
   return (
-    <SocialMediaBar title={title} ref={ref} sx={sx}>
+    <SocialMediaBar
+      title={title}
+      ref={ref}
+      sx={{
+        color: "text.primary",
+        ...sx,
+      }}
+    >
       {socialConnections.map((connection) => (
         <SocialMediaButton {...connection} key={connection.name} />
       ))}

@@ -4,10 +4,10 @@ exports[`<SocialMediaButton /> renders unchanged 1`] = `
 <div>
   <a
     aria-label="facebook"
-    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1amn30s-MuiButtonBase-root-MuiIconButton-root"
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1fqhsaw-MuiTypography-root-MuiLink-root"
     data-mui-internal-clone-element="true"
     href="https://www.facebook.com/"
-    tabindex="0"
+    rel="noreferrer noopener"
     target="_blank"
   >
     <div

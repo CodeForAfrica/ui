@@ -33,7 +33,16 @@ const CMSContent = React.forwardRef(function CMSContent(
       sx={{ px: { xs: 2.5, sm: 0 }, ...sx }}
       ref={ref}
     >
-      <RichTypography {...TypographyProps} ref={typographyRef}>
+      <RichTypography
+        {...TypographyProps}
+        sx={{
+          "& a:visited": {
+            color: "primary.main",
+          },
+          ...TypographyProps?.sx,
+        }}
+        ref={typographyRef}
+      >
         {children}
       </RichTypography>
     </Section>

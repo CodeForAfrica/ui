@@ -19,7 +19,13 @@ const SocialMediaBar = React.forwardRef(function SocialMediaBar(props, ref) {
       ref={ref}
     >
       <RichTypography variant="footerCap">{title}</RichTypography>
-      <SocialMediaButtonGroup>{children}</SocialMediaButtonGroup>
+      <SocialMediaButtonGroup
+        sx={{
+          color: sx?.color ?? "grey.main",
+        }}
+      >
+        {children}
+      </SocialMediaButtonGroup>
     </Stack>
   );
 });
