@@ -672,6 +672,56 @@ function getContactPageStaticProps() {
   };
 }
 
+async function getErrorPageStaticProps() {
+  const stories = await getStories();
+  const { title, subtitle } = getHero("error");
+
+  return {
+    props: {
+      sections: [
+        {
+          slug: "hero",
+          title,
+          subtitle,
+        },
+        {
+          slug: "news-stories",
+          title: "Recent Stories",
+          articles: stories.results,
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
+async function get404PageStaticProps() {
+  const stories = await getStories();
+  const { title, subtitle } = getHero("404");
+
+  return {
+    props: {
+      sections: [
+        {
+          slug: "hero",
+          title,
+          subtitle,
+        },
+        {
+          slug: "news-stories",
+          title: "Recent Stories",
+          articles: stories.results,
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
 function getAboutImpactPageStaticProps() {
   return {
     props: {
@@ -729,6 +779,12 @@ export async function getPageStaticProps(params) {
     }
     case "/stories": {
       return getStoriesPageStaticProps(params);
+    }
+    case "/404": {
+      return get404PageStaticProps();
+    }
+    case "/_error": {
+      return getErrorPageStaticProps();
     }
     default:
       if (params?.slug?.startsWith("/about/members/")) {
