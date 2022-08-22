@@ -1,12 +1,14 @@
 import { Section, RichTypography } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
+import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import React from "react";
 
 import Figure from "@/codeforafrica/components/Figure";
 
 const OurPartners = React.forwardRef(function OurPartners(props, ref) {
-  const { partners: { title, list: partners } = {}, sx } = props;
+  const { partners: { title = null, action = null, list: partners } = {}, sx } =
+    props;
 
   if (!partners?.length) {
     return null;
@@ -61,6 +63,20 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
           );
         })}
       </Grid>
+      <Button
+        variant="contained"
+        component={Link}
+        href={action?.href}
+        sx={{
+          display: "block",
+          mt: 7.25,
+          mx: "auto",
+          textAlign: "center",
+          width: { xs: "100%", sm: "fit-content" },
+        }}
+      >
+        {action?.content || action?.href}
+      </Button>
     </Section>
   );
 });
