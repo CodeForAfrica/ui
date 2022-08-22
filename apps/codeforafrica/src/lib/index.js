@@ -702,6 +702,7 @@ async function getErrorPageStaticProps() {
     revalidate: DEFAULT_REVALIDATE,
   };
 }
+
 async function get404PageStaticProps() {
   const stories = await getStories();
   const { title, subtitle } = getHero("404");

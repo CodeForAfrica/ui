@@ -31,7 +31,7 @@ const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
           {title}
         </RichTypography>
         <RichTypography
-          variant="body1"
+          variant="h3Light"
           sx={{
             fontSize: {
               xs: "1.5rem",
