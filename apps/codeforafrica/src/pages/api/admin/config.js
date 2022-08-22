@@ -375,14 +375,21 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/contact.md`,
           fields: [
             {
-              label: "Title",
-              name: "title",
-              widget: "string",
-            },
-            {
-              label: "Subtitle",
-              name: "subtitle",
-              widget: "string",
+              label: "Hero",
+              name: "hero",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "string",
+                },
+              ],
             },
             {
               label: "Contact form",
@@ -463,19 +470,74 @@ module.exports = {
           ],
         },
         {
+          label: "Our Work",
+          name: "our-work",
+          file: `${APP_DIRECTORY}content/pages/our-work.md`,
+          fields: [
+            {
+              label: "Hero",
+              name: "hero",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "string",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          label: "Opportunities",
+          name: "opportunities",
+          file: `${APP_DIRECTORY}content/pages/opportunities.md`,
+          fields: [
+            {
+              label: "Hero",
+              name: "hero",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "string",
+                },
+              ],
+            },
+          ],
+        },
+        {
           label: "Imprint",
           name: "imprint",
           file: `${APP_DIRECTORY}content/pages/imprint.md`,
           fields: [
             {
-              label: "Title",
-              name: "title",
-              widget: "string",
-            },
-            {
-              label: "Subtitle",
-              name: "subtitle",
-              widget: "string",
+              label: "Hero",
+              name: "hero",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "string",
+                },
+              ],
             },
             {
               label: "Body",
@@ -490,14 +552,21 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/privacy-policy.md`,
           fields: [
             {
-              label: "Title",
-              name: "title",
-              widget: "string",
-            },
-            {
-              label: "Subtitle",
-              name: "subtitle",
-              widget: "string",
+              label: "Hero",
+              name: "hero",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "string",
+                },
+              ],
             },
             {
               label: "Body",

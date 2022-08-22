@@ -171,7 +171,7 @@ async function getHomePageStaticProps() {
       title: "Code for Africa",
       sections: [
         {
-          ...getHero(),
+          ...getHero("index"),
           slug: "hero",
         },
         {
@@ -225,9 +225,7 @@ function getProjectsPageStaticProps() {
       sections: [
         {
           slug: "hero",
-          title: "Our Work",
-          subtitle:
-            "We launch data-driven initiatives to achieve impactful results",
+          ...getHero("our-work"),
         },
         {
           slug: "projects",
@@ -272,8 +270,7 @@ async function getOpportunitiesPageStaticProps() {
       sections: [
         {
           slug: "hero",
-          title: "Opportunities",
-          subtitle: "Come build digital democracies with Code for Africa",
+          ...getHero("opportunities"),
         },
         {
           slug: "opportunities",
@@ -317,8 +314,7 @@ function getImprintPageStaticProps() {
       sections: [
         {
           slug: "hero",
-          title: "Imprint",
-          subtitle: "Code for Africa organisation structure",
+          ...getHero("imprint"),
         },
       ],
       footer,
@@ -363,8 +359,7 @@ function getPrivacyPageStaticProps() {
       sections: [
         {
           slug: "hero",
-          title: "Privacy",
-          subtitle: "Code for Africa privacy policy",
+          ...getHero("privacy-policy"),
         },
       ],
       footer,
@@ -639,8 +634,7 @@ function getContactPageStaticProps() {
       sections: [
         {
           slug: "hero",
-          title: "Contact",
-          subtitle: "Let’s start something together!",
+          ...getHero("contact"),
         },
         {
           ...getContactForm(),
