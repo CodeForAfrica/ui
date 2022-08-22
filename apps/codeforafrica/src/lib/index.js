@@ -359,8 +359,7 @@ function getPrivacyPageStaticProps() {
       sections: [
         {
           slug: "hero",
-          title: "Privacy",
-          subtitle: "Code for Africa privacy policy",
+          ...getHero("privacy-policy"),
         },
       ],
       footer,

@@ -552,14 +552,21 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/privacy-policy.md`,
           fields: [
             {
-              label: "Title",
-              name: "title",
-              widget: "string",
-            },
-            {
-              label: "Subtitle",
-              name: "subtitle",
-              widget: "string",
+              label: "Hero",
+              name: "hero",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "string",
+                },
+              ],
             },
             {
               label: "Body",
