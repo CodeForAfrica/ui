@@ -4,12 +4,11 @@ import React from "react";
 import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
-  const { title, subtitle, sx, tags, ...other } = props;
+  const { title, subtitle, sx, ...other } = props;
 
   return (
     <TwoToneBackground
-      sx={{ py: { xs: 7.5, md: 10, lg: 12.5 } }}
-      {...other}
+      sx={{ py: { xs: 7.5, md: 10, lg: 12.5 }, ...other?.sx }}
       ref={ref}
     >
       <Section
@@ -26,7 +25,6 @@ const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
         <RichTypography
           sx={{
             paddingBottom: 2.5,
-            fontSize: "48px",
           }}
           variant="h1"
         >

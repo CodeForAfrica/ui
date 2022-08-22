@@ -684,10 +684,12 @@ async function getErrorPageStaticProps() {
 
   return {
     props: {
-      title,
-      subtitle,
-
       sections: [
+        {
+          slug: "hero",
+          title,
+          subtitle,
+        },
         {
           slug: "news-stories",
           title: "Recent Stories",
@@ -706,10 +708,12 @@ async function get404PageStaticProps() {
 
   return {
     props: {
-      title,
-      subtitle,
-
       sections: [
+        {
+          slug: "hero",
+          title,
+          subtitle,
+        },
         {
           slug: "news-stories",
           title: "Recent Stories",

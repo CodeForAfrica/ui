@@ -7,9 +7,16 @@ import RelatedStories from "@/codeforafrica/components/RelatedStories";
 function ErrorPage({ sections, ...props }) {
   return (
     <Page {...props}>
-      <ErrorHero {...props} />
       {sections?.map((section) => {
         switch (section.slug) {
+          case "hero":
+            return (
+              <ErrorHero
+                title={section.title}
+                subtitle={section.subtitle}
+                {...props}
+              />
+            );
           case "news-stories":
             return (
               <Box
