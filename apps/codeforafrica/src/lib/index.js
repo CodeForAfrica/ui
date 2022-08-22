@@ -171,7 +171,7 @@ async function getHomePageStaticProps() {
       title: "Code for Africa",
       sections: [
         {
-          ...getHero(),
+          ...getHero("index"),
           slug: "hero",
         },
         {
@@ -225,9 +225,7 @@ function getProjectsPageStaticProps() {
       sections: [
         {
           slug: "hero",
-          title: "Our Work",
-          subtitle:
-            "We launch data-driven initiatives to achieve impactful results",
+          ...getHero("our-work"),
         },
         {
           slug: "projects",
