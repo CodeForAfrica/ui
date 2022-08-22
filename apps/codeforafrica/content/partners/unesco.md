@@ -6,6 +6,8 @@ logo:
 links:
   facebook: https://www.facebook.com/unesco/
   twitter: https://twitter.com/UNESCO
+  linkedIn: https://www.linkedin.com/company/unesco
+  instagram: https://www.instagram.com/unesco/
 ---
 
 Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent
