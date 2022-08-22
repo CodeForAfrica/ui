@@ -270,8 +270,7 @@ async function getOpportunitiesPageStaticProps() {
       sections: [
         {
           slug: "hero",
-          title: "Opportunities",
-          subtitle: "Come build digital democracies with Code for Africa",
+          ...getHero("opportunities"),
         },
         {
           slug: "opportunities",
