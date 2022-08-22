@@ -1,9 +1,7 @@
 ---
-title: PRIVACY
-subtitle: Code for Africa privacy policy
 hero:
-  subtitle: Code for Africa Privacy Policy
   title: Privacy
+  subtitle: Code for Africa Privacy Policy
 ---
 
 #### Chapter heading
