@@ -30,19 +30,7 @@ const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
         >
           {title}
         </RichTypography>
-        <RichTypography
-          variant="h3Light"
-          sx={{
-            fontSize: {
-              xs: "1.5rem",
-              sm: "1.75rem",
-              md: "2rem",
-              lg: "2.25rem",
-            },
-          }}
-        >
-          {subtitle}
-        </RichTypography>
+        <RichTypography variant="h3Light">{subtitle}</RichTypography>
       </Section>
     </TwoToneBackground>
   );
