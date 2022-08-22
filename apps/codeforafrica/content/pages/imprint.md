@@ -1,6 +1,7 @@
 ---
-title: IMPRINT
-subtitle: " Code for Africa organisation structure"
+hero:
+  title: IMPRINT
+  subtitle: Code for Africa organisation structure
 ---
 
 #### Chapter heading

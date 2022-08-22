@@ -314,8 +314,7 @@ function getImprintPageStaticProps() {
       sections: [
         {
           slug: "hero",
-          title: "Imprint",
-          subtitle: "Code for Africa organisation structure",
+          ...getHero("imprint"),
         },
       ],
       footer,
