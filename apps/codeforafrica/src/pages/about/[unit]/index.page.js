@@ -2,6 +2,7 @@ import React from "react";
 
 import AboutPageHeader from "@/codeforafrica/components/AboutPageHeader";
 import GetInTouch from "@/codeforafrica/components/GetInTouch";
+import OurImpact from "@/codeforafrica/components/OurImpact";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import OurTeam from "@/codeforafrica/components/OurTeam";
 import Page from "@/codeforafrica/components/Page";
@@ -38,6 +39,9 @@ function Index({ crumbs, sections, ...props }) {
               />
             );
           }
+          case "our-impact": {
+            return <OurImpact {...section} key={section.slug} />;
+          }
           default:
             return null;
         }
@@ -47,7 +51,7 @@ function Index({ crumbs, sections, ...props }) {
 }
 
 export async function getStaticPaths() {
-  const paths = ["members", "partners"].map((unit) => ({
+  const paths = ["members", "partners", "impact"].map((unit) => ({
     params: { unit },
   }));
 
