@@ -47,5 +47,5 @@ our-impact:
     - f1538b03-86bf-4933-9b15-3dfe0e087189
   action:
     content: Get involved
-    href: /contact
+    href: /about/impact
 ---

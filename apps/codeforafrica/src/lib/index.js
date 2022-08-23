@@ -722,6 +722,29 @@ async function get404PageStaticProps() {
   };
 }
 
+function getAboutImpactPageStaticProps() {
+  return {
+    props: {
+      unit: "impact",
+      title: "Impact | About | Code for Africa",
+      crumbs: [{ href: "/about", label: "About us" }, { label: "Impact" }],
+      sections: [
+        {
+          ...getHero("about"),
+          slug: "hero",
+        },
+        {
+          slug: "our-impact",
+          ...getOurImpact("about"),
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
 export async function getPageStaticProps(params) {
   switch (params?.slug) {
     case "/": {
@@ -735,6 +758,9 @@ export async function getPageStaticProps(params) {
     }
     case "/about/partners": {
       return getAboutPartnersPageStaticProps(params);
+    }
+    case "/about/impact": {
+      return getAboutImpactPageStaticProps();
     }
     case "/contact": {
       return getContactPageStaticProps(params);
