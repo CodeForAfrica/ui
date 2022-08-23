@@ -3,8 +3,6 @@ name: Release
 on:
   push:
     branches: ["chore-use-changeset"]
-  pull_request:
-    types: [opened, synchronize]
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
