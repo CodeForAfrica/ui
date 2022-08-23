@@ -556,7 +556,8 @@ function getAboutPageStaticProps() {
         },
         {
           slug: "our-partners",
-          partners: getOurPartners("about"),
+          // No action button on About Page
+          partners: { ...getOurPartners("about"), action: null },
         },
         {
           ...getOurImpact("about"),
@@ -588,7 +589,7 @@ function getAboutPartnersPageStaticProps() {
         {
           slug: "our-partners",
           // reuse title from /about but show *all* partners
-          partners: { ...getOurPartners(), list: partners },
+          partners: { ...getOurPartners(), list: partners, action: null },
         },
         {
           ...getGetInTouch(),

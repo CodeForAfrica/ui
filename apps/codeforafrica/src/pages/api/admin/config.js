@@ -176,21 +176,6 @@ module.exports = {
                   display_fields: ["title"],
                   multiple: true,
                 },
-                {
-                  label: "Action",
-                  name: "action",
-                  widget: "object",
-                  fields: [
-                    {
-                      name: "content",
-                      widget: "string",
-                    },
-                    {
-                      name: "href",
-                      widget: "string",
-                    },
-                  ],
-                },
               ],
             },
           ],

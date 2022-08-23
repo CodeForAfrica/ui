@@ -63,20 +63,22 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
           );
         })}
       </Grid>
-      <Button
-        variant="contained"
-        component={Link}
-        href={action?.href}
-        sx={{
-          display: "block",
-          mt: 7.25,
-          mx: "auto",
-          textAlign: "center",
-          width: { xs: "100%", sm: "fit-content" },
-        }}
-      >
-        {action?.content || action?.href}
-      </Button>
+      {action && (
+        <Button
+          variant="contained"
+          component={Link}
+          href={action?.href}
+          sx={{
+            display: "block",
+            mt: 7.25,
+            mx: "auto",
+            textAlign: "center",
+            width: { xs: "100%", sm: "fit-content" },
+          }}
+        >
+          {action?.content || action?.href}
+        </Button>
+      )}
     </Section>
   );
 });
