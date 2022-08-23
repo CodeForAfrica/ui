@@ -12,6 +12,7 @@ function getFiles(dir = ".changeset") {
 (async () => {
   const file = getFiles()[0];
   let appContent = fs.readFileSync(file, "utf8");
+  await exec("pnpm changeset", ["version"]);
   appContent = appContent
     .split(":")[0]
     .trim()
@@ -27,5 +28,4 @@ function getFiles(dir = ".changeset") {
   const content = fs.readFileSync(dockerFilePath, "utf8");
   const updatedContent = content.replace(/:[^\s]+/g, `:${releaseLine}`);
   fs.writeFileSync(dockerFilePath, updatedContent);
-  await exec("pnpm changeset", ["version"]);
 })();
