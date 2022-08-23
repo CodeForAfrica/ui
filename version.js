@@ -10,7 +10,7 @@ function getFiles(dir = ".changeset") {
 }
 
 (async () => {
-  await exec("changeset", ["version"]);
+  await exec("pnpm changeset", ["version"]);
   const file = getFiles()[0];
   let appContent = fs.readFileSync(file, "utf8");
   appContent = appContent
