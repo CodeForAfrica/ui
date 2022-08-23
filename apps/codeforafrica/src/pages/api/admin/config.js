@@ -298,21 +298,6 @@ module.exports = {
                   widget: "string",
                 },
                 {
-                  label: "Action",
-                  name: "action",
-                  widget: "object",
-                  fields: [
-                    {
-                      name: "content",
-                      widget: "string",
-                    },
-                    {
-                      name: "href",
-                      widget: "string",
-                    },
-                  ],
-                },
-                {
                   label: "Partners",
                   name: "partners-list",
                   widget: "relation",
