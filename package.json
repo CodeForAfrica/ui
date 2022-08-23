@@ -29,5 +29,8 @@
     "prettier": "^2.7.1",
     "turbo": "^1.4.3"
   },
-  "packageManager": "pnpm@7.4.0"
+  "packageManager": "pnpm@7.4.0",
+  "dependencies": {
+    "@actions/exec": "^1.1.1"
+  }
 }
