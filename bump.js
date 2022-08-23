@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { exec } = require("@actions/exec");
+const { exec } = require('child_process');
 
 function getFiles(dir = ".changeset") {
   return fs.readdirSync(dir).flatMap((item) => {
@@ -10,7 +10,7 @@ function getFiles(dir = ".changeset") {
 }
 
 (async () => {
-  await exec("pnpm changeset", ["bump"]);
+  await exec("pnpm changeset", ["version"]);
   const file = getFiles()[0];
   let appContent = fs.readFileSync(file, "utf8");
   appContent = appContent
