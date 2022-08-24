@@ -48,4 +48,10 @@ our-impact:
   action:
     content: Get involved
     href: /about/impact
+seo:
+  title: Code for Africa
+  description: Thoughts, stories and ideas.
+  openGraph:
+    title: Code for Africa
+    description: Thoughts, stories and ideas.
 ---

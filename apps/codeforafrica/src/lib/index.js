@@ -15,6 +15,7 @@ import {
   getOurTeam,
   getPartners,
   getTeam,
+  getSEO,
 } from "./api.netlify-cms";
 
 import {
@@ -24,7 +25,6 @@ import {
   getAllStoriesTags,
   getStory,
   getRelatedStoriesByTags,
-  getSiteSettings,
 } from "@/codeforafrica/lib/api.ghost";
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
@@ -166,12 +166,11 @@ export async function getStories(options) {
 
 async function getHomePageStaticProps() {
   const stories = await getStories();
-  const siteSettings = await getSiteSettings();
-
+  const seo = getSEO("index");
   return {
     props: {
       title: "Code for Africa",
-      siteSettings,
+      seo,
       sections: [
         {
           ...getHero("index"),
