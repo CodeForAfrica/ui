@@ -5,10 +5,17 @@ import React from "react";
 import Footer from "@/codeforafrica/components/Footer";
 import NavBar from "@/codeforafrica/components/NavBar";
 
-function Page({ children, footer, navbar, title }) {
+function Page({ children, footer, navbar, title, siteSettings = {} }) {
   return (
     <>
-      <NextSeo title={title} />
+      <NextSeo
+        title={siteSettings?.title || title}
+        description={siteSettings?.description || null}
+        images={siteSettings?.coverImage}
+        twitter={{
+          handle: siteSettings?.twitter,
+        }}
+      />
       {navbar ? <NavBar {...navbar} /> : null}
       {children ? <main>{children}</main> : null}
       {footer ? <Footer {...footer} /> : null}

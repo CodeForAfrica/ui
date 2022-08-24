@@ -1,20 +1,12 @@
 import { promises as fs } from "fs";
 import { join } from "path";
 
-import GhostContentAPI from "@tryghost/content-api";
 import camelcaseKeys from "camelcase-keys";
 
+import initializeContentAPI from "@/codeforafrica/lib/api.ghost/ghost";
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 const cacheDir = join(process.cwd(), "public/data");
-
-function initializeContentAPI() {
-  return new GhostContentAPI({
-    url: process.env.GHOST_URL,
-    key: process.env.GHOST_API_KEY,
-    version: process.env.GHOST_API_VERSION || "v5.0",
-  });
-}
 
 function transformPost(post) {
   const {

@@ -24,6 +24,7 @@ import {
   getAllStoriesTags,
   getStory,
   getRelatedStoriesByTags,
+  getSiteSettings,
 } from "@/codeforafrica/lib/api.ghost";
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
@@ -165,10 +166,12 @@ export async function getStories(options) {
 
 async function getHomePageStaticProps() {
   const stories = await getStories();
+  const siteSettings = await getSiteSettings();
 
   return {
     props: {
       title: "Code for Africa",
+      siteSettings,
       sections: [
         {
           ...getHero("index"),

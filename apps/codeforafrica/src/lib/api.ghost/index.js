@@ -1,4 +1,5 @@
 import { getAllPosts, getPost } from "@/codeforafrica/lib/api.ghost/posts";
+import getSettings from "@/codeforafrica/lib/api.ghost/settings";
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 export async function getAllOpportunities() {
@@ -42,4 +43,8 @@ export async function getRelatedStoriesByTags(tags, story = {}) {
       s.id !== story.id &&
       s.tags.some((t) => tags.find((st) => equalsIgnoreCase(t, st)))
   );
+}
+
+export async function getSiteSettings() {
+  return getSettings();
 }
