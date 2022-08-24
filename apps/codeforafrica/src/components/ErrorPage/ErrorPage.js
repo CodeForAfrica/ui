@@ -14,6 +14,7 @@ function ErrorPage({ sections, ...props }) {
               <ErrorHero
                 title={section.title}
                 subtitle={section.subtitle}
+                key={section.slug}
                 {...props}
               />
             );
