@@ -47,3 +47,5 @@ apps/codeforafrica/public/data/**
 apps/promisetracker/public/data/**
 !apps/promisetracker/public/data/README.md
 
+# Changeset
+.changeset/status.json

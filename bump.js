@@ -2,30 +2,20 @@ const fs = require("fs");
 const path = require("path");
 const { exec } = require("@actions/exec");
 
-function getFiles(dir = ".changeset") {
-  return fs.readdirSync(dir).flatMap((item) => {
-    const path = `${dir}/${item}`;
-    return item !== "README.md" && item != "config.json" ? path : [];
-  });
-}
-
 (async () => {
-  const file = getFiles()[0];
-  const appContent = fs.readFileSync(file, "utf8");
+  await exec("pnpm changeset", ["status", "--output=./.changeset/status.json"]);
   await exec("pnpm changeset", ["version"]);
-  const appName = appContent
-    .split(":")[0]
-    .trim()
-    .replace(/---/g, "")
-    .replace(/\s/g, "")
-    .replace(/"/g, "");
-  const releaseLine = `${require(`./apps/${appName}/package.json`).version}`;
-  const dockerFilePath = path.join(
-    __dirname,
-    `apps/${appName}`,
-    "contrib/dokku/Dockerfile"
-  );
-  const content = fs.readFileSync(dockerFilePath, "utf8");
-  const updatedContent = content.replace(/:[^\s]+/g, `:${releaseLine}`);
-  fs.writeFileSync(dockerFilePath, updatedContent);
+  const changesetStatus = require("./.changeset/status.json");
+  changesetStatus?.releases.map((release) => {
+    const { name: appName } = release;
+    const newVersion = `${require(`./apps/${appName}/package.json`).version}`;
+    const dockerFilePath = path.join(
+      __dirname,
+      `apps/${appName}`,
+      "contrib/dokku/Dockerfile"
+    );
+    const content = fs.readFileSync(dockerFilePath, "utf8");
+    const updatedContent = content.replace(/:[^\s]+/g, `:${newVersion}`);
+    fs.writeFileSync(dockerFilePath, updatedContent);  
+  });  
 })();
