@@ -27,7 +27,9 @@ export default function geOurPartners(page = "index") {
   ]);
   // Need to maintain order of how partners were selected in ourPartners
   const list =
-    partnersIds?.map((id) => allPartners.find((p) => p.id === id)) ?? null;
+    page === "index"
+      ? partnersIds?.map((id) => allPartners.find((p) => p.id === id)) ?? null
+      : allPartners;
 
   return { title, list, action };
 }
