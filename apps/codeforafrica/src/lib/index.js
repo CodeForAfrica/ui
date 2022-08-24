@@ -265,9 +265,11 @@ export async function getOpportunities(options) {
 async function getOpportunitiesPageStaticProps() {
   const allOpportunities = await getAllOpportunities();
   const tags = await getAllOpportunitiesTags();
+  const seo = getSEO("opportunities");
 
   return {
     props: {
+      seo,
       title: "Opportunities | Code for Africa",
       sections: [
         {
@@ -309,8 +311,10 @@ async function getOpportunityPageStaticProps(params) {
 }
 
 function getImprintPageStaticProps() {
+  const seo = getSEO("imprint");
   return {
     props: {
+      seo,
       title: "Imprint | Code for Africa",
       content: imprint,
       sections: [
@@ -354,8 +358,10 @@ function getPartnerPageStaticProps(params) {
 }
 
 function getPrivacyPageStaticProps() {
+  const seo = getSEO("privacy-policy");
   return {
     props: {
+      seo,
       title: "Privacy | Code for Africa",
       content: imprint,
       sections: [
@@ -443,6 +449,7 @@ async function getStoryPageStaticProps(slug) {
   if (story) {
     return {
       props: {
+        seo: story.seo,
         title: `${story.title} | Stories | Code for Africa`,
         article: story,
         sections: [
@@ -503,8 +510,10 @@ export function getMembers(options) {
 }
 
 function getAboutMembersPageStaticProps() {
+  const seo = getSEO("about");
   return {
     props: {
+      seo,
       unit: "members",
       title: "Members | About | Code for Africa",
       crumbs: [{ href: "/about", label: "About us" }, { label: "Members" }],
@@ -533,8 +542,10 @@ function getAboutMembersPageStaticProps() {
 }
 
 function getAboutPageStaticProps() {
+  const seo = getSEO("about");
   return {
     props: {
+      seo,
       title: "About | Code for Africa",
       sections: [
         {
@@ -577,8 +588,10 @@ function getAboutPageStaticProps() {
 }
 
 function getAboutPartnersPageStaticProps() {
+  const seo = getSEO("about");
   return {
     props: {
+      seo,
       unit: "partners",
       title: "Partners | About | Code for Africa",
       crumbs: [{ href: "/about", label: "About us" }, { label: "Partners" }],
@@ -630,8 +643,10 @@ function getTeamMemberPageStaticProps(params) {
 }
 
 function getContactPageStaticProps() {
+  const seo = getSEO("contact");
   return {
     props: {
+      seo,
       title: "Contact | Code for Africa",
       sections: [
         {
@@ -725,8 +740,10 @@ async function get404PageStaticProps() {
 }
 
 function getAboutImpactPageStaticProps() {
+  const seo = getSEO("about");
   return {
     props: {
+      seo,
       unit: "impact",
       title: "Impact | About | Code for Africa",
       crumbs: [{ href: "/about", label: "About us" }, { label: "Impact" }],

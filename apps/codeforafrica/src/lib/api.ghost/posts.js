@@ -26,6 +26,13 @@ function transformPost(post) {
     month: "short",
     day: "numeric",
   });
+
+  // create SEO OBJ
+  const seo = {
+    title: post.meta_title || post.title,
+    description: post.meta_description || excerpt,
+  };
+
   const tags = originalTags
     .filter((t) => !equalsIgnoreCase(t.name, primaryTag.name))
     .map((tag) => tag.name);
@@ -36,6 +43,7 @@ function transformPost(post) {
     publishedAt,
     slug,
     tags,
+    seo,
     ...other,
   };
 }
