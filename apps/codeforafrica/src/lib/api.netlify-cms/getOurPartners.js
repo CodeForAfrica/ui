@@ -12,7 +12,7 @@ export default function geOurPartners(page = "index") {
     "our-partners": {
       title: originalTitle,
       "partners-list": partnersIds,
-      action,
+      action = null,
     },
   } = getCollectionBySlug(pageDir, page, ["our-partners"]).items;
   const title = marked.parseInline(originalTitle);
