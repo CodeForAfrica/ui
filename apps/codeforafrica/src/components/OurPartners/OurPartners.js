@@ -7,7 +7,7 @@ import React from "react";
 import Figure from "@/codeforafrica/components/Figure";
 
 const OurPartners = React.forwardRef(function OurPartners(props, ref) {
-  const { partners: { title = null, action, list: partners } = {}, sx } = props;
+  const { partners: { title, action, list: partners } = {}, sx } = props;
 
   if (!partners?.length) {
     return null;
