@@ -20,7 +20,7 @@
     "clean": "turbo run clean && rm -rf node_modules",
     "format-check": "prettier --check --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'",
     "format": "prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'",
-    "bump": "node bump.js"
+    "bump": "node scripts/bump.js"
   },
   "devDependencies": {
     "@changesets/cli": "^2.24.2",
