@@ -556,7 +556,7 @@ function getAboutPageStaticProps() {
         },
         {
           slug: "our-partners",
-          partners: { ...getOurPartners("about") },
+          partners: getOurPartners("about"),
         },
         {
           ...getOurImpact("about"),
@@ -587,7 +587,7 @@ function getAboutPartnersPageStaticProps() {
         },
         {
           slug: "our-partners",
-          partners: { ...getOurPartners("about") },
+          partners: getOurPartners("about"),
         },
         {
           ...getGetInTouch(),
