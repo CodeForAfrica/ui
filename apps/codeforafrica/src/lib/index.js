@@ -587,8 +587,7 @@ function getAboutPartnersPageStaticProps() {
         },
         {
           slug: "our-partners",
-          // reuse title from /about but show *all* partners
-          partners: { ...getOurPartners(), list: partners },
+          partners: getOurPartners("about"),
         },
         {
           ...getGetInTouch(),
