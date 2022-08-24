@@ -16,6 +16,6 @@ const { exec } = require("@actions/exec");
     );
     const content = fs.readFileSync(dockerFilePath, "utf8");
     const updatedContent = content.replace(/:[^\s]+/g, `:${newVersion}`);
-    fs.writeFileSync(dockerFilePath, updatedContent);  
-  });  
+    fs.writeFileSync(dockerFilePath, updatedContent);
+  });
 })();
