@@ -171,7 +171,9 @@ async function getProcessedNewsAndStories() {
   // If we have a featured story and it's not the first story,
   if (index > 0) {
     // we need to "push" the featured story to the top of list.
-    allStories = [allStories[index], ...allStories.splice(index, 1)];
+    const featuredStory = allStories[index];
+    allStories.splice(index, 1);
+    allStories = [featuredStory, ...allStories];
   }
   const articles = allStories.slice(0, count);
 
