@@ -7,6 +7,7 @@ import {
   getHeader,
   getHero,
   getMeetOurTeam,
+  getNewsAndStories,
   getOffices,
   getOurGuidingPrinciples,
   getOurImpact,
@@ -163,9 +164,21 @@ export async function getStories(options) {
   return paginateResults(stories, page, pageSize);
 }
 
-async function getHomePageStaticProps() {
-  const stories = await getStories();
+async function getProcessedNewsAndStories() {
+  const { title, count = 4 } = getNewsAndStories("index");
+  let allStories = await getAllStories();
+  const index = allStories.findIndex((s) => s.featured);
+  // If we have a featured story and it's not the first story,
+  if (index > 0) {
+    // we need to "push" the featured story to the top of list.
+    allStories = [allStories[index], ...allStories.splice(index, 1)];
+  }
+  const articles = allStories.slice(0, count);
 
+  return { title, articles };
+}
+
+async function getHomePageStaticProps() {
   return {
     props: {
       title: "Code for Africa",
@@ -181,9 +194,8 @@ async function getHomePageStaticProps() {
         },
         { ...meetOurTeam, slug: "meet-our-team" },
         {
+          ...(await getProcessedNewsAndStories()),
           slug: "news-stories",
-          title: "News and stories",
-          articles: stories.results,
         },
         {
           slug: "our-partners",
@@ -672,22 +684,24 @@ function getContactPageStaticProps() {
   };
 }
 
-async function getErrorPageStaticProps() {
-  const stories = await getStories();
-  const { title, subtitle } = getHero("error");
+async function getProcessedRecentStories(page) {
+  const allStories = await getAllStories();
+  const { title, count = 3 } = getNewsAndStories(page);
+  const articles = allStories.slice(0, count);
+  return { title, articles };
+}
 
+async function getErrorPageStaticProps() {
   return {
     props: {
       sections: [
         {
+          ...getHero("error"),
           slug: "hero",
-          title,
-          subtitle,
         },
         {
+          ...(await getProcessedRecentStories("error")),
           slug: "news-stories",
-          title: "Recent Stories",
-          articles: stories.results,
         },
       ],
       footer,
@@ -698,21 +712,16 @@ async function getErrorPageStaticProps() {
 }
 
 async function get404PageStaticProps() {
-  const stories = await getStories();
-  const { title, subtitle } = getHero("404");
-
   return {
     props: {
       sections: [
         {
+          ...getHero("404"),
           slug: "hero",
-          title,
-          subtitle,
         },
         {
+          ...(await getProcessedRecentStories("404")),
           slug: "news-stories",
-          title: "Recent Stories",
-          articles: stories.results,
         },
       ],
       footer,
