@@ -135,6 +135,21 @@ module.exports = {
                   widget: "markdown",
                 },
                 {
+                  label: "Action",
+                  name: "action",
+                  widget: "object",
+                  fields: [
+                    {
+                      name: "content",
+                      widget: "string",
+                    },
+                    {
+                      name: "href",
+                      widget: "string",
+                    },
+                  ],
+                },
+                {
                   label: "Partners",
                   name: "partners-list",
                   widget: "relation",
@@ -182,21 +197,6 @@ module.exports = {
                   value_field: "id",
                   display_fields: ["title"],
                   multiple: true,
-                },
-                {
-                  label: "Action",
-                  name: "action",
-                  widget: "object",
-                  fields: [
-                    {
-                      name: "content",
-                      widget: "string",
-                    },
-                    {
-                      name: "href",
-                      widget: "string",
-                    },
-                  ],
                 },
               ],
             },

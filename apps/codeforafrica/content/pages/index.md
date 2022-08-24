@@ -40,6 +40,9 @@ our-partners:
     - aa280d47-ee0c-4cf7-93aa-1fbe1a087439
     - 1079f9ae-0fbd-472b-bbfb-518145c28b1d
     - daa2a622-0277-44be-b302-dbc703f89522
+  action:
+    content: Meet our Partners
+    href: /about/partners
 news-stories:
   title: News and stories
   articles-count: 4
