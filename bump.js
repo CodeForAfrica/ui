@@ -11,18 +11,18 @@ function getFiles(dir = ".changeset") {
 
 (async () => {
   const file = getFiles()[0];
-  let appContent = fs.readFileSync(file, "utf8");
+  const appContent = fs.readFileSync(file, "utf8");
   await exec("pnpm changeset", ["version"]);
-  appContent = appContent
+  const appName = appContent
     .split(":")[0]
     .trim()
     .replace(/---/g, "")
     .replace(/\s/g, "")
     .replace(/"/g, "");
-  const releaseLine = `${require(`./apps/${appContent}/package.json`).version}`;
+  const releaseLine = `${require(`./apps/${appName}/package.json`).version}`;
   const dockerFilePath = path.join(
     __dirname,
-    `apps/${appContent}`,
+    `apps/${appName}`,
     "contrib/dokku/Dockerfile"
   );
   const content = fs.readFileSync(dockerFilePath, "utf8");
