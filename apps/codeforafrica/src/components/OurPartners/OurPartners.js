@@ -62,7 +62,7 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
           );
         })}
       </Grid>
-      {action && (
+      {action?.href && (
         <Button
           variant="contained"
           component={Link}
