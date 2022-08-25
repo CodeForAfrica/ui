@@ -139,26 +139,41 @@ function paginateResults(items, page, pageSize) {
   };
 }
 
+function prioritiseFeaturedStory(stories) {
+  const index = stories.findIndex((s) => s.featured);
+  // If we have a featured story and it's not the first story,
+  if (index > 0) {
+    // we need to "push" the featured story to the top of list.
+    const featuredStory = stories[index];
+    return [featuredStory, ...stories.filter((_, i) => i !== index)];
+  }
+  return stories;
+}
+
 export async function getStories(options) {
   const {
     tag: originalTag,
-    page,
+    page = 1,
     "page-size": pageSize = 10,
     q,
   } = options || {};
   const tag = originalTag || ALL_TAG;
 
   let stories = await getAllStories();
-  if (!equalsIgnoreCase(tag, ALL_TAG)) {
-    stories = stories.filter((s) =>
-      s.tags.some((t) => equalsIgnoreCase(t, tag))
-    );
-  }
-  if (stories.length && q) {
-    stories = fuse
-      .stories(stories)
-      .search(q)
-      .map((p) => p.item);
+  if (equalsIgnoreCase(tag, ALL_TAG) && page === 1 && !q) {
+    stories = prioritiseFeaturedStory(stories);
+  } else {
+    if (!equalsIgnoreCase(tag, ALL_TAG)) {
+      stories = stories.filter((s) =>
+        s.tags.some((t) => equalsIgnoreCase(t, tag))
+      );
+    }
+    if (q && stories.length) {
+      stories = fuse
+        .stories(stories)
+        .search(q)
+        .map((p) => p.item);
+    }
   }
 
   return paginateResults(stories, page, pageSize);
@@ -166,16 +181,8 @@ export async function getStories(options) {
 
 async function getProcessedNewsAndStories() {
   const { title, count = 4 } = getNewsAndStories("index");
-  let allStories = await getAllStories();
-  const index = allStories.findIndex((s) => s.featured);
-  // If we have a featured story and it's not the first story,
-  if (index > 0) {
-    // we need to "push" the featured story to the top of list.
-    const featuredStory = allStories[index];
-    allStories.splice(index, 1);
-    allStories = [featuredStory, ...allStories];
-  }
-  const articles = allStories.slice(0, count);
+  const allStories = await getAllStories();
+  const articles = prioritiseFeaturedStory(allStories).slice(0, count);
 
   return { title, articles };
 }
