@@ -491,6 +491,33 @@ export function getMembers(options) {
   return paginateResults(found, page, pageSize);
 }
 
+function getAboutImpactPageStaticProps() {
+  return {
+    props: {
+      unit: "impact",
+      title: "Impact | About | Code for Africa",
+      crumbs: [{ href: "/about", label: "About us" }, { label: "Impact" }],
+      sections: [
+        {
+          ...getHero("about"),
+          slug: "hero",
+        },
+        {
+          slug: "our-impact",
+          ...getOurImpact("about"),
+        },
+        {
+          ...getGetInTouch(),
+          slug: "get-in-touch",
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
 function getAboutMembersPageStaticProps() {
   return {
     props: {
@@ -700,29 +727,6 @@ async function get404PageStaticProps() {
         {
           ...(await getProcessedRecentStories("404")),
           slug: "news-stories",
-        },
-      ],
-      footer,
-      navbar,
-    },
-    revalidate: DEFAULT_REVALIDATE,
-  };
-}
-
-function getAboutImpactPageStaticProps() {
-  return {
-    props: {
-      unit: "impact",
-      title: "Impact | About | Code for Africa",
-      crumbs: [{ href: "/about", label: "About us" }, { label: "Impact" }],
-      sections: [
-        {
-          ...getHero("about"),
-          slug: "hero",
-        },
-        {
-          slug: "our-impact",
-          ...getOurImpact("about"),
         },
       ],
       footer,
