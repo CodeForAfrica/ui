@@ -5,6 +5,10 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+env:
+  IMAGE_FILE_LOCATION: "./apps/codeforafrica/contrib/dokku/Dockerfile"
+  VERSION_FILE_LOCATION: "./apps/codeforafrica/package.json"
+
 jobs:
   build:
     name: Release
@@ -14,13 +18,13 @@ jobs:
         os: [ubuntu-latest]
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 2
 
       - uses: pnpm/action-setup@v2.0.1
         with:
-          version: 7.3.0
+          version: 7.4.0
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
@@ -34,6 +38,6 @@ jobs:
       - name: Create Release Pull Request
         uses: changesets/action@v1
         with:
-          version: pnpm bump
+          version: pnpm bump ${{ env.VERSION_FILE_LOCATION }} ${{ env.IMAGE_FILE_LOCATION }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
