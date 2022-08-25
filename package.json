@@ -31,6 +31,7 @@
   },
   "packageManager": "pnpm@7.4.0",
   "dependencies": {
-    "@actions/exec": "^1.1.1"
+    "@actions/exec": "^1.1.1",
+    "@changesets/changelog-github": "^0.4.6"
   }
 }
