@@ -43,6 +43,9 @@ our-partners:
   action:
     content: Meet our Partners
     href: /about/partners
+news-stories:
+  title: News and stories
+  articles-count: 4
 our-impact:
   impact-list:
     - 8044304a-265f-4f33-b9b2-8fb59596f38d

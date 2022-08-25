@@ -162,6 +162,28 @@ module.exports = {
               ],
             },
             {
+              label: "News and stories",
+              name: "news-stories",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Number of stories",
+                  name: "articles-count",
+                  hint: "Including the featured story",
+                  widget: "number",
+                  value_type: "int",
+                  min: 3,
+                },
+              ],
+            },
+            {
               label: "Our Impact",
               name: "our-impact",
               widget: "object",
@@ -599,6 +621,27 @@ module.exports = {
                 },
               ],
             },
+            {
+              label: "News and stories",
+              name: "news-stories",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Number of stories",
+                  name: "articles-count",
+                  widget: "number",
+                  value_type: "int",
+                  min: 3,
+                },
+              ],
+            },
           ],
         },
         {
@@ -622,6 +665,27 @@ module.exports = {
                   label: "Subtitle",
                   name: "subtitle",
                   widget: "markdown",
+                },
+              ],
+            },
+            {
+              label: "News and stories",
+              name: "news-stories",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Number of stories",
+                  name: "articles-count",
+                  widget: "number",
+                  value_type: "int",
+                  min: 3,
                 },
               ],
             },

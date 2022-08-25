@@ -1,5 +1,7 @@
+import getBody from "./getBody";
 import getContactForm from "./getContactForm";
 import getGetInTouch from "./getGetInTouch";
+import getNewsAndStories from "./getNewsAndStories";
 import getOffices from "./getOffices";
 import getOurGuidingPrinciples from "./getOurGuidingPrinciples";
 import getOurImpact from "./getOurImpact";
@@ -15,6 +17,7 @@ import getHero from "./sections/getHero";
 import getMeetOurTeam from "./sections/getMeetOurTeam";
 
 export {
+  getBody,
   getContactForm,
   getCmsProjects,
   getFooter,
@@ -22,6 +25,7 @@ export {
   getHero,
   getGetInTouch,
   getMeetOurTeam,
+  getNewsAndStories,
   getOffices,
   getOurGuidingPrinciples,
   getOurImpact,
