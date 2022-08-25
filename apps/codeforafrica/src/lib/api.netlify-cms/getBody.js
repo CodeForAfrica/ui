@@ -2,7 +2,7 @@ import { getCollectionBySlug } from "./utils";
 
 function getBody(page) {
   const { content } = getCollectionBySlug("content/pages", page, [
-    ["content"],
+    "content",
   ]).items;
 
   return { content };
