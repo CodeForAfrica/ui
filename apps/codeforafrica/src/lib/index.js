@@ -15,7 +15,7 @@ import {
   getOurTeam,
   getPartners,
   getTeam,
-  getSEO,
+  getSeo,
 } from "./api.netlify-cms";
 
 import {
@@ -166,7 +166,7 @@ export async function getStories(options) {
 
 async function getHomePageStaticProps() {
   const stories = await getStories();
-  const seo = getSEO("index");
+  const seo = getSeo("index");
   return {
     props: {
       title: "Code for Africa",
@@ -265,7 +265,7 @@ export async function getOpportunities(options) {
 async function getOpportunitiesPageStaticProps() {
   const allOpportunities = await getAllOpportunities();
   const tags = await getAllOpportunitiesTags();
-  const seo = getSEO("opportunities");
+  const seo = getSeo("opportunities");
 
   return {
     props: {
@@ -311,7 +311,7 @@ async function getOpportunityPageStaticProps(params) {
 }
 
 function getImprintPageStaticProps() {
-  const seo = getSEO("imprint");
+  const seo = getSeo("imprint");
   return {
     props: {
       seo,
@@ -358,7 +358,7 @@ function getPartnerPageStaticProps(params) {
 }
 
 function getPrivacyPageStaticProps() {
-  const seo = getSEO("privacy-policy");
+  const seo = getSeo("privacy-policy");
   return {
     props: {
       seo,
@@ -510,7 +510,7 @@ export function getMembers(options) {
 }
 
 function getAboutMembersPageStaticProps() {
-  const seo = getSEO("about");
+  const seo = getSeo("about");
   return {
     props: {
       seo,
@@ -542,7 +542,7 @@ function getAboutMembersPageStaticProps() {
 }
 
 function getAboutPageStaticProps() {
-  const seo = getSEO("about");
+  const seo = getSeo("about");
   return {
     props: {
       seo,
@@ -588,7 +588,7 @@ function getAboutPageStaticProps() {
 }
 
 function getAboutPartnersPageStaticProps() {
-  const seo = getSEO("about");
+  const seo = getSeo("about");
   return {
     props: {
       seo,
@@ -642,7 +642,7 @@ function getTeamMemberPageStaticProps(params) {
 }
 
 function getContactPageStaticProps() {
-  const seo = getSEO("contact");
+  const seo = getSeo("contact");
   return {
     props: {
       seo,
@@ -739,7 +739,7 @@ async function get404PageStaticProps() {
 }
 
 function getAboutImpactPageStaticProps() {
-  const seo = getSEO("about");
+  const seo = getSeo("about");
   return {
     props: {
       seo,
@@ -761,6 +761,11 @@ function getAboutImpactPageStaticProps() {
     },
     revalidate: DEFAULT_REVALIDATE,
   };
+}
+
+export async function getDefaultSeo() {
+  const seo = await getSeo();
+  return seo;
 }
 
 export async function getPageStaticProps(params) {

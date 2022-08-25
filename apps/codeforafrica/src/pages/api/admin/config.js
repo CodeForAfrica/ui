@@ -2308,6 +2308,106 @@ module.exports = {
             },
           ],
         },
+        {
+          name: "general",
+          label: "General",
+          file: `${APP_DIRECTORY}content/settings/general.md`,
+          fields: [
+            {
+              label: "SEO",
+              name: "seo",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                  required: false,
+                },
+                {
+                  label: "Description",
+                  name: "description",
+                  widget: "string",
+                  required: false,
+                },
+                {
+                  label: "Open Graph",
+                  name: "openGraph",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "string",
+                      required: false,
+                    },
+                    {
+                      label: "Images",
+                      name: "images",
+                      widget: "list",
+                      required: false,
+                      fields: [
+                        {
+                          name: "url",
+                          label: "URL",
+                          widget: "string",
+                        },
+                        {
+                          name: "width",
+                          label: "Width",
+                          widget: "string",
+                        },
+                        {
+                          name: "height",
+                          label: "Height",
+                          widget: "string",
+                        },
+                        {
+                          name: "alt",
+                          label: "Alt Text",
+                          widget: "string",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  label: "Twitter",
+                  name: "twitter",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Handle",
+                      name: "handle",
+                      widget: "string",
+                      required: false,
+                      default: "@Code4Africa",
+                    },
+                    {
+                      label: "Site",
+                      name: "site",
+                      widget: "string",
+                      required: false,
+                      default: "@Code4Africa",
+                    },
+                    {
+                      label: "Card Type",
+                      name: "cardType",
+                      widget: "hidden",
+                      default: "summary_large_image",
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
   ],

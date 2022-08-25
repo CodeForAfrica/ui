@@ -16,6 +16,9 @@ function transformPost(post) {
     publishedAt: publishedAtRaw,
     slug,
     tags: originalTags,
+    metaTitle,
+    metaDescription,
+    title,
     ...other
   } = camelcaseKeys(post, { deep: true });
 
@@ -27,10 +30,9 @@ function transformPost(post) {
     day: "numeric",
   });
 
-  // create SEO OBJ
   const seo = {
-    title: post.meta_title || post.title,
-    description: post.meta_description || excerpt,
+    title: metaTitle || title,
+    description: metaDescription || excerpt,
   };
 
   const tags = originalTags
@@ -44,6 +46,9 @@ function transformPost(post) {
     slug,
     tags,
     seo,
+    metaTitle,
+    metaDescription,
+    title,
     ...other,
   };
 }
