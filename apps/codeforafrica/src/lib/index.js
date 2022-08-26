@@ -757,11 +757,6 @@ async function get404PageStaticProps() {
   };
 }
 
-export async function getDefaultSeo() {
-  const seo = await getSeo();
-  return seo;
-}
-
 export async function getPageStaticProps(params) {
   switch (params?.slug) {
     case "/": {
