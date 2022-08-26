@@ -159,7 +159,6 @@ async function getProcessedNewsAndStories() {
 }
 
 async function getHomePageStaticProps() {
-  const stories = await getStories();
   const seo = getSeo("index");
   return {
     props: {
@@ -503,8 +502,10 @@ export function getMembers(options) {
 }
 
 function getAboutImpactPageStaticProps() {
+  const seo = getSeo("about");
   return {
     props: {
+      seo,
       unit: "impact",
       title: "Impact | About | Code for Africa",
       crumbs: [{ href: "/about", label: "About us" }, { label: "Impact" }],
@@ -747,32 +748,6 @@ async function get404PageStaticProps() {
           ...(await getProcessedRecentStories("404")),
           slug: "news-stories",
           title: "Recent Stories",
-          articles: stories.results,
-        },
-      ],
-      footer,
-      navbar,
-    },
-    revalidate: DEFAULT_REVALIDATE,
-  };
-}
-
-function getAboutImpactPageStaticProps() {
-  const seo = getSeo("about");
-  return {
-    props: {
-      seo,
-      unit: "impact",
-      title: "Impact | About | Code for Africa",
-      crumbs: [{ href: "/about", label: "About us" }, { label: "Impact" }],
-      sections: [
-        {
-          ...getHero("about"),
-          slug: "hero",
-        },
-        {
-          slug: "our-impact",
-          ...getOurImpact("about"),
         },
       ],
       footer,

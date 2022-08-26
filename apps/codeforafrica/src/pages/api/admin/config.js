@@ -1372,7 +1372,6 @@ module.exports = {
           name: "error",
           file: `${APP_DIRECTORY}content/pages/error.md`,
           fields: [
-
             {
               label: "SEO",
               name: "seo",
