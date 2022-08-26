@@ -6,12 +6,14 @@ import { getCollectionBySlug } from "./utils";
 const indexPageDir = join(process.cwd(), "content/pages");
 
 export default function getSeo(page, fields = ["seo"]) {
-  if (page === "default") {
-    const { seo } = getSettings("general");
-    return seo;
-  }
+  let seo;
+  const pageData = getCollectionBySlug(indexPageDir, page, fields).items;
+  seo = pageData?.seo;
 
-  const { seo } = getCollectionBySlug(indexPageDir, page, fields).items;
+  if (!seo) {
+    const generalSeo = getSettings("general");
+    seo = generalSeo?.seo;
+  }
 
   return seo;
 }
