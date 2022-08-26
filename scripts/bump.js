@@ -15,4 +15,5 @@ const { exec } = require("@actions/exec");
     );
     fs.writeFileSync(dockerFilePath, updatedImageVersion);
   });
+  await exec("pnpm format");
 })();
