@@ -11,5 +11,5 @@ export default function getSeo(page, fields = ["seo"]) {
 
   const { seo } = getCollectionBySlug(indexPageDir, page, fields).items;
 
-  return seo ? Object.assign(seo, defaultSeo) : defaultSeo;
+  return Object.assign(defaultSeo, seo);
 }
