@@ -1,5 +1,6 @@
 import fuse from "./api.fuse";
 import {
+  getBody,
   getContactForm,
   getCmsProjects,
   getFooter,
@@ -7,6 +8,7 @@ import {
   getHeader,
   getHero,
   getMeetOurTeam,
+  getNewsAndStories,
   getOffices,
   getOurGuidingPrinciples,
   getOurImpact,
@@ -66,38 +68,7 @@ const footer = getFooter();
 
 const meetOurTeam = getMeetOurTeam();
 
-export const ourMission = {
-  title: "Our Mission",
-  subtitle:
-    "Code for Africa is the continent’s largest network of civic technology and data journalism labs, with teams in 20 countries.",
-  description:
-    "We build digital democracy solutions that give citizens unfettered access to actionable information that empowers them to make informed decisions, and which strengthens civic engagement for improved public governance and accountability. This includes building infrastructure like the continent’s largest open data portals at openAFRICA and sourceAFRICA, as well as incubating initiatives as diverse as the africanDRONE network, the PesaCheck fact-checking initiative and the sensors.AFRICA air quality sensor network.",
-  action: {
-    href: "/imprint",
-    label: "Read about our company legal structure",
-  },
-};
-
 export const team = getTeam();
-
-const imprint = `
-  <h4>Chapter heading</h4>
-  <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat.</p>
-  <p>Duis maecenas per erat odio quisque accumsan, donec tempus class euismod vulputate fermentum imperdiet, suspendisse blandit lacinia semper cursus. Neque tristique posuere a feugiat convallis tempor cras nunc, leo faucibus cum aptent placerat aenean lobortis, nibh iaculis ac nascetur praesent mus quisque. Nullam leo rutrum augue urna cubilia morbi enim, arcu risus mus mauris elementum pulvinar, laoreet bibendum convallis senectus ullamcorper malesuada. Sapien congue tristique venenatis cras cum quisque et conubia felis lobortis, velit ullamcorper urna pharetra fermentum class tincidunt turpis placerat, porttitor senectus massa ridiculus semper vivamus at enim inceptos. Senectus cum torquent blandit odio class in, nullam sodales dapibus eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</p>
-  <hr/>
-  <h4>Chapter heading</h4>
-  <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat.</p>
-  <p>Duis maecenas per erat odio quisque accumsan, donec tempus class euismod vulputate fermentum imperdiet, suspendisse blandit lacinia semper cursus. Neque tristique posuere a feugiat convallis tempor cras nunc, leo faucibus cum aptent placerat aenean lobortis, nibh iaculis ac nascetur praesent mus quisque. Nullam leo rutrum augue urna cubilia morbi enim, arcu risus mus mauris elementum pulvinar, laoreet bibendum convallis senectus ullamcorper malesuada. Sapien congue tristique venenatis cras cum quisque et conubia felis lobortis, velit ullamcorper urna pharetra fermentum class tincidunt turpis placerat, porttitor senectus massa ridiculus semper vivamus at enim inceptos. Senectus cum torquent blandit odio class in, nullam sodales dapibus eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</p>
-  <hr/>
-  <h4>Chapter heading</h4>
-  <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat.</p>
-  <p>Duis maecenas per erat odio quisque accumsan, donec tempus class euismod vulputate fermentum imperdiet, suspendisse blandit lacinia semper cursus. Neque tristique posuere a feugiat convallis tempor cras nunc, leo faucibus cum aptent placerat aenean lobortis, nibh iaculis ac nascetur praesent mus quisque. Nullam leo rutrum augue urna cubilia morbi enim, arcu risus mus mauris elementum pulvinar, laoreet bibendum convallis senectus ullamcorper malesuada. Sapien congue tristique venenatis cras cum quisque et conubia felis lobortis, velit ullamcorper urna pharetra fermentum class tincidunt turpis placerat, porttitor senectus massa ridiculus semper vivamus at enim inceptos. Senectus cum torquent blandit odio class in, nullam sodales dapibus eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</p>
-  <hr/>
-  <h4>Chapter heading</h4>
-  <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ac primis praesent tempor luctus libero, curae condimentum ultricies proin leo. Arcu ornare dis fermentum nisi consequat imperdiet porta viverra placerat nullam, dapibus molestie faucibus id mi lacinia orci magnis. Ridiculus aptent phasellus mus nisi porta rutrum tellus, ut venenatis feugiat massa volutpat.</p>
-  <p>Duis maecenas per erat odio quisque accumsan, donec tempus class euismod vulputate fermentum imperdiet, suspendisse blandit lacinia semper cursus. Neque tristique posuere a feugiat convallis tempor cras nunc, leo faucibus cum aptent placerat aenean lobortis, nibh iaculis ac nascetur praesent mus quisque. Nullam leo rutrum augue urna cubilia morbi enim, arcu risus mus mauris elementum pulvinar, laoreet bibendum convallis senectus ullamcorper malesuada. Sapien congue tristique venenatis cras cum quisque et conubia felis lobortis, velit ullamcorper urna pharetra fermentum class tincidunt turpis placerat, porttitor senectus massa ridiculus semper vivamus at enim inceptos. Senectus cum torquent blandit odio class in, nullam sodales dapibus eleifend nec nisl convallis, maecenas rhoncus himenaeos non massa. Justo nulla integer dapibus phasellus felis sem aenean nibh volutpat nullam ullamcorper tempus suscipit ultricies, augue suspendisse ridiculus condimentum dui himenaeos torquent cubilia ut rhoncus taciti malesuada vivamus.</p>
-  <hr/>
-`;
 
 const DEFAULT_REVALIDATE = 3 * 60; // 3 minutes
 
@@ -139,29 +110,52 @@ function paginateResults(items, page, pageSize) {
   };
 }
 
+function prioritiseFeaturedStory(stories) {
+  const index = stories.findIndex((s) => s.featured);
+  // If we have a featured story and it's not the first story,
+  if (index > 0) {
+    // we need to "push" the featured story to the top of list.
+    const featuredStory = stories[index];
+    return [featuredStory, ...stories.filter((_, i) => i !== index)];
+  }
+  return stories;
+}
+
 export async function getStories(options) {
   const {
     tag: originalTag,
-    page,
+    page = 1,
     "page-size": pageSize = 10,
     q,
   } = options || {};
   const tag = originalTag || ALL_TAG;
 
   let stories = await getAllStories();
-  if (!equalsIgnoreCase(tag, ALL_TAG)) {
-    stories = stories.filter((s) =>
-      s.tags.some((t) => equalsIgnoreCase(t, tag))
-    );
-  }
-  if (stories.length && q) {
-    stories = fuse
-      .stories(stories)
-      .search(q)
-      .map((p) => p.item);
+  if (equalsIgnoreCase(tag, ALL_TAG) && page === 1 && !q) {
+    stories = prioritiseFeaturedStory(stories);
+  } else {
+    if (!equalsIgnoreCase(tag, ALL_TAG)) {
+      stories = stories.filter((s) =>
+        s.tags.some((t) => equalsIgnoreCase(t, tag))
+      );
+    }
+    if (q && stories.length) {
+      stories = fuse
+        .stories(stories)
+        .search(q)
+        .map((p) => p.item);
+    }
   }
 
   return paginateResults(stories, page, pageSize);
+}
+
+async function getProcessedNewsAndStories() {
+  const { title, count = 4 } = getNewsAndStories("index");
+  const allStories = await getAllStories();
+  const articles = prioritiseFeaturedStory(allStories).slice(0, count);
+
+  return { title, articles };
 }
 
 async function getHomePageStaticProps() {
@@ -183,9 +177,8 @@ async function getHomePageStaticProps() {
         },
         { ...meetOurTeam, slug: "meet-our-team" },
         {
+          ...(await getProcessedNewsAndStories()),
           slug: "news-stories",
-          title: "News and stories",
-          articles: stories.results,
         },
         {
           slug: "our-partners",
@@ -315,12 +308,12 @@ function getImprintPageStaticProps() {
   return {
     props: {
       seo,
+      ...getBody("imprint"),
       title: "Imprint | Code for Africa",
-      content: imprint,
       sections: [
         {
-          slug: "hero",
           ...getHero("imprint"),
+          slug: "hero",
         },
       ],
       footer,
@@ -362,12 +355,12 @@ function getPrivacyPageStaticProps() {
   return {
     props: {
       seo,
+      ...getBody("privacy-policy"),
       title: "Privacy | Code for Africa",
-      content: imprint,
       sections: [
         {
-          slug: "hero",
           ...getHero("privacy-policy"),
+          slug: "hero",
         },
       ],
       footer,
@@ -507,6 +500,33 @@ export function getMembers(options) {
   }
 
   return paginateResults(found, page, pageSize);
+}
+
+function getAboutImpactPageStaticProps() {
+  return {
+    props: {
+      unit: "impact",
+      title: "Impact | About | Code for Africa",
+      crumbs: [{ href: "/about", label: "About us" }, { label: "Impact" }],
+      sections: [
+        {
+          ...getHero("about"),
+          slug: "hero",
+        },
+        {
+          slug: "our-impact",
+          ...getOurImpact("about"),
+        },
+        {
+          ...getGetInTouch(),
+          slug: "get-in-touch",
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
 }
 
 function getAboutMembersPageStaticProps() {
@@ -688,22 +708,24 @@ function getContactPageStaticProps() {
   };
 }
 
-async function getErrorPageStaticProps() {
-  const stories = await getStories();
-  const { title, subtitle } = getHero("error");
+async function getProcessedRecentStories(page) {
+  const allStories = await getAllStories();
+  const { title, count = 3 } = getNewsAndStories(page);
+  const articles = allStories.slice(0, count);
+  return { title, articles };
+}
 
+async function getErrorPageStaticProps() {
   return {
     props: {
       sections: [
         {
+          ...getHero("error"),
           slug: "hero",
-          title,
-          subtitle,
         },
         {
+          ...(await getProcessedRecentStories("error")),
           slug: "news-stories",
-          title: "Recent Stories",
-          articles: stories.results,
         },
       ],
       footer,
@@ -714,18 +736,15 @@ async function getErrorPageStaticProps() {
 }
 
 async function get404PageStaticProps() {
-  const stories = await getStories();
-  const { title, subtitle } = getHero("404");
-
   return {
     props: {
       sections: [
         {
+          ...getHero("404"),
           slug: "hero",
-          title,
-          subtitle,
         },
         {
+          ...(await getProcessedRecentStories("404")),
           slug: "news-stories",
           title: "Recent Stories",
           articles: stories.results,
