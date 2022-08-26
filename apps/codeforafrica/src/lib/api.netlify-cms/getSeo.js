@@ -1,15 +1,13 @@
-import { join } from "path";
+import { deepmerge } from "@mui/utils";
 
 import getSettings from "./sections/getSettings";
 import { getCollectionBySlug } from "./utils";
 
-const indexPageDir = join(process.cwd(), "content/pages");
-
-export default function getSeo(page, fields = ["seo"]) {
+export default function getSeo(page) {
   const generalSettings = getSettings("general");
   const defaultSeo = generalSettings?.seo;
 
-  const { seo } = getCollectionBySlug(indexPageDir, page, fields).items;
+  const { seo } = getCollectionBySlug("content/pages", page, ["seo"]).items;
 
-  return Object.assign(defaultSeo, seo);
+  return deepmerge(defaultSeo, seo, { clone: true });
 }

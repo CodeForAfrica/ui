@@ -46,8 +46,6 @@ function transformPost(post) {
     slug,
     tags,
     seo,
-    metaTitle,
-    metaDescription,
     title,
     ...other,
   };
