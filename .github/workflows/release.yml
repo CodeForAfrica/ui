@@ -1,13 +1,9 @@
-name: codeforafrica.org | Release
+name: Release
 on:
   push:
     branches: ["main"]
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
-
-env:
-  IMAGE_FILE_LOCATION: "./apps/codeforafrica/contrib/dokku/Dockerfile"
-  VERSION_FILE_LOCATION: "./apps/codeforafrica/package.json"
 
 jobs:
   build:
@@ -38,6 +34,6 @@ jobs:
       - name: Create Release Pull Request
         uses: changesets/action@v1
         with:
-          version: pnpm bump ${{ env.VERSION_FILE_LOCATION }} ${{ env.IMAGE_FILE_LOCATION }}
+          version: pnpm bump
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
