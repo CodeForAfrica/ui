@@ -1,14 +1,13 @@
 ---
 id: 96d3e8eb-a760-44d5-8128-4651ffe3aea1
 name: sensors.AFRICA
-tagLine: We are here to give you actionable information about the quality of
-  your city's air, water, sound and radiation levels.
+tagLine: Your city's air quality
 title: We are here to give you actionable information about the quality of your
   city's air, water, sound and radiation levels.
 subtitle: sensors.AFRICA is a pan-African citizen science initiative that uses
   sensors to monitor air, water and sound pollution to give citizens actionable
   information about their cities.
-tag: Initiative
+tag: Initiatives
 icon:
   src: /images/sensor.africa.svg
 thumbnail:

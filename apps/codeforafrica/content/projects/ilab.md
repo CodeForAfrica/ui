@@ -5,7 +5,7 @@ tagLine: Investigating disinfo
 title: Forensic research and data liberation
 subtitle: iLAB fights disinformation equipped with world-class knowledge on
   forensic investigations, data analysis and visualisations.
-tag: Initiative
+tag: Initiatives
 icon:
   src: /images/ilab.svg
 thumbnail:

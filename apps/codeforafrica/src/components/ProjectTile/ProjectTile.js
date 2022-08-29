@@ -93,7 +93,7 @@ const ProjectTile = React.forwardRef(function ProjectTile(props, ref) {
               color: "#9F9494",
             }}
           >
-            {tagLine}
+            {tagLine?.substring(0, 25)}
           </Typography>
         </Stack>
       </Box>
