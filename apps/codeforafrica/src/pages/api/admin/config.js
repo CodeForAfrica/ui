@@ -1,5 +1,117 @@
 const APP_DIRECTORY = process.env.NEXT_PUBLIC_APP_DIRECTORY;
 
+const seoObject = {
+  label: "SEO",
+  name: "seo",
+  widget: "object",
+  fields: [
+    {
+      label: "Title",
+      name: "title",
+      widget: "string",
+      required: false,
+    },
+    {
+      label: "Description",
+      name: "description",
+      widget: "string",
+      required: false,
+      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+    },
+    {
+      label: "Meta data",
+      name: "meta",
+      widget: "object",
+      hint: "Search engines support",
+      fields: [
+        {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          required: false,
+          hint: "Uses page title if not provided",
+          pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+        },
+        {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: false,
+          hint: "Uses page description if not provided",
+          pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+        },
+      ],
+    },
+    {
+      label: "Open Graph",
+      name: "open-graph",
+      hint: "Facebook, Slack, and other social media platforms",
+      widget: "object",
+      fields: [
+        {
+          label: "Title",
+          hint: "Uses page title if not provided",
+          name: "title",
+          widget: "string",
+          required: false,
+        },
+        {
+          label: "Description",
+          name: "description",
+          widget: "string",
+          hint: "Uses page description if not provided",
+          required: false,
+        },
+        {
+          label: "Images",
+          name: "images",
+          widget: "list",
+          min: 1,
+          max: 1,
+          required: false,
+          fields: [
+            {
+              name: "url",
+              label: "URL",
+              widget: "string",
+            },
+            {
+              name: "width",
+              label: "Width",
+              widget: "string",
+            },
+            {
+              name: "height",
+              label: "Height",
+              widget: "string",
+            },
+            {
+              name: "alt",
+              label: "Alt Text",
+              widget: "string",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Twitter",
+      name: "twitter",
+      widget: "object",
+      fields: [
+        {
+          label: "Handle",
+          name: "handle",
+          hint: "@username of content creator",
+          widget: "string",
+          required: false,
+          default: "@Code4Africa",
+        },
+      ],
+    },
+  ],
+};
+
 module.exports = {
   backend: {
     name: "github",
@@ -201,115 +313,7 @@ module.exports = {
               ],
             },
             {
-              label: "SEO",
-              name: "seo",
-              widget: "object",
-              fields: [
-                {
-                  label: "Title",
-                  name: "title",
-                  widget: "string",
-                  required: false,
-                },
-                {
-                  label: "Description",
-                  name: "description",
-                  widget: "string",
-                  required: false,
-                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                },
-                {
-                  label: "Meta data",
-                  name: "meta",
-                  widget: "object",
-                  hint: "Search engines support",
-                  fields: [
-                    {
-                      label: "Title",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                      hint: "Uses page title if not provided",
-                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "text",
-                      required: false,
-                      hint: "Uses page description if not provided",
-                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                    },
-                  ],
-                },
-                {
-                  label: "Open Graph",
-                  name: "openGraph",
-                  hint: "Facebook, Slack, and other social media platforms",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Title",
-                      hint: "Uses page title if not provided",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "string",
-                      hint: "Uses page description if not provided",
-                      required: false,
-                    },
-                    {
-                      label: "Images",
-                      name: "images",
-                      widget: "list",
-                      min: 1,
-                      max: 1,
-                      required: false,
-                      fields: [
-                        {
-                          name: "url",
-                          label: "URL",
-                          widget: "string",
-                        },
-                        {
-                          name: "width",
-                          label: "Width",
-                          widget: "string",
-                        },
-                        {
-                          name: "height",
-                          label: "Height",
-                          widget: "string",
-                        },
-                        {
-                          name: "alt",
-                          label: "Alt Text",
-                          widget: "string",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  label: "Twitter",
-                  name: "twitter",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Handle",
-                      name: "handle",
-                      hint: "@username of content creator",
-                      widget: "string",
-                      required: false,
-                      default: "@Code4Africa",
-                    },
-                  ],
-                },
-              ],
+              ...seoObject,
             },
           ],
         },
@@ -501,115 +505,7 @@ module.exports = {
               ],
             },
             {
-              label: "SEO",
-              name: "seo",
-              widget: "object",
-              fields: [
-                {
-                  label: "Title",
-                  name: "title",
-                  widget: "string",
-                  required: false,
-                },
-                {
-                  label: "Description",
-                  name: "description",
-                  widget: "string",
-                  required: false,
-                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                },
-                {
-                  label: "Meta data",
-                  name: "meta",
-                  widget: "object",
-                  hint: "Search engines support",
-                  fields: [
-                    {
-                      label: "Title",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                      hint: "Uses page title if not provided",
-                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "text",
-                      required: false,
-                      hint: "Uses page description if not provided",
-                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                    },
-                  ],
-                },
-                {
-                  label: "Open Graph",
-                  name: "openGraph",
-                  hint: "Facebook, Slack, and other social media platforms",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Title",
-                      hint: "Uses page title if not provided",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "string",
-                      hint: "Uses page description if not provided",
-                      required: false,
-                    },
-                    {
-                      label: "Images",
-                      name: "images",
-                      widget: "list",
-                      min: 1,
-                      max: 1,
-                      required: false,
-                      fields: [
-                        {
-                          name: "url",
-                          label: "URL",
-                          widget: "string",
-                        },
-                        {
-                          name: "width",
-                          label: "Width",
-                          widget: "string",
-                        },
-                        {
-                          name: "height",
-                          label: "Height",
-                          widget: "string",
-                        },
-                        {
-                          name: "alt",
-                          label: "Alt Text",
-                          widget: "string",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  label: "Twitter",
-                  name: "twitter",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Handle",
-                      name: "handle",
-                      hint: "@username of content creator",
-                      widget: "string",
-                      required: false,
-                      default: "@Code4Africa",
-                    },
-                  ],
-                },
-              ],
+              ...seoObject,
             },
           ],
         },
@@ -712,115 +608,7 @@ module.exports = {
               ],
             },
             {
-              label: "SEO",
-              name: "seo",
-              widget: "object",
-              fields: [
-                {
-                  label: "Title",
-                  name: "title",
-                  widget: "string",
-                  required: false,
-                },
-                {
-                  label: "Description",
-                  name: "description",
-                  widget: "string",
-                  required: false,
-                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                },
-                {
-                  label: "Meta data",
-                  name: "meta",
-                  widget: "object",
-                  hint: "Search engines support",
-                  fields: [
-                    {
-                      label: "Title",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                      hint: "Uses page title if not provided",
-                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "text",
-                      required: false,
-                      hint: "Uses page description if not provided",
-                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                    },
-                  ],
-                },
-                {
-                  label: "Open Graph",
-                  name: "openGraph",
-                  hint: "Facebook, Slack, and other social media platforms",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Title",
-                      hint: "Uses page title if not provided",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "string",
-                      hint: "Uses page description if not provided",
-                      required: false,
-                    },
-                    {
-                      label: "Images",
-                      name: "images",
-                      widget: "list",
-                      min: 1,
-                      max: 1,
-                      required: false,
-                      fields: [
-                        {
-                          name: "url",
-                          label: "URL",
-                          widget: "string",
-                        },
-                        {
-                          name: "width",
-                          label: "Width",
-                          widget: "string",
-                        },
-                        {
-                          name: "height",
-                          label: "Height",
-                          widget: "string",
-                        },
-                        {
-                          name: "alt",
-                          label: "Alt Text",
-                          widget: "string",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  label: "Twitter",
-                  name: "twitter",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Handle",
-                      name: "handle",
-                      hint: "@username of content creator",
-                      widget: "string",
-                      required: false,
-                      default: "@Code4Africa",
-                    },
-                  ],
-                },
-              ],
+              ...seoObject,
             },
           ],
         },
@@ -847,115 +635,7 @@ module.exports = {
               ],
             },
             {
-              label: "SEO",
-              name: "seo",
-              widget: "object",
-              fields: [
-                {
-                  label: "Title",
-                  name: "title",
-                  widget: "string",
-                  required: false,
-                },
-                {
-                  label: "Description",
-                  name: "description",
-                  widget: "string",
-                  required: false,
-                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                },
-                {
-                  label: "Meta data",
-                  name: "meta",
-                  widget: "object",
-                  hint: "Search engines support",
-                  fields: [
-                    {
-                      label: "Title",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                      hint: "Uses page title if not provided",
-                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "text",
-                      required: false,
-                      hint: "Uses page description if not provided",
-                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                    },
-                  ],
-                },
-                {
-                  label: "Open Graph",
-                  name: "openGraph",
-                  hint: "Facebook, Slack, and other social media platforms",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Title",
-                      hint: "Uses page title if not provided",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "string",
-                      hint: "Uses page description if not provided",
-                      required: false,
-                    },
-                    {
-                      label: "Images",
-                      name: "images",
-                      widget: "list",
-                      min: 1,
-                      max: 1,
-                      required: false,
-                      fields: [
-                        {
-                          name: "url",
-                          label: "URL",
-                          widget: "string",
-                        },
-                        {
-                          name: "width",
-                          label: "Width",
-                          widget: "string",
-                        },
-                        {
-                          name: "height",
-                          label: "Height",
-                          widget: "string",
-                        },
-                        {
-                          name: "alt",
-                          label: "Alt Text",
-                          widget: "string",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  label: "Twitter",
-                  name: "twitter",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Handle",
-                      name: "handle",
-                      hint: "@username of content creator",
-                      widget: "string",
-                      required: false,
-                      default: "@Code4Africa",
-                    },
-                  ],
-                },
-              ],
+              ...seoObject,
             },
           ],
         },
@@ -982,115 +662,27 @@ module.exports = {
               ],
             },
             {
-              label: "SEO",
-              name: "seo",
-              widget: "object",
-              fields: [
-                {
-                  label: "Title",
-                  name: "title",
-                  widget: "string",
-                  required: false,
-                },
-                {
-                  label: "Description",
-                  name: "description",
-                  widget: "string",
-                  required: false,
-                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                },
-                {
-                  label: "Meta data",
-                  name: "meta",
-                  widget: "object",
-                  hint: "Search engines support",
-                  fields: [
-                    {
-                      label: "Title",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                      hint: "Uses page title if not provided",
-                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "text",
-                      required: false,
-                      hint: "Uses page description if not provided",
-                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                    },
-                  ],
-                },
-                {
-                  label: "Open Graph",
-                  name: "openGraph",
-                  hint: "Facebook, Slack, and other social media platforms",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Title",
-                      hint: "Uses page title if not provided",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "string",
-                      hint: "Uses page description if not provided",
-                      required: false,
-                    },
-                    {
-                      label: "Images",
-                      name: "images",
-                      widget: "list",
-                      min: 1,
-                      max: 1,
-                      required: false,
-                      fields: [
-                        {
-                          name: "url",
-                          label: "URL",
-                          widget: "string",
-                        },
-                        {
-                          name: "width",
-                          label: "Width",
-                          widget: "string",
-                        },
-                        {
-                          name: "height",
-                          label: "Height",
-                          widget: "string",
-                        },
-                        {
-                          name: "alt",
-                          label: "Alt Text",
-                          widget: "string",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  label: "Twitter",
-                  name: "twitter",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Handle",
-                      name: "handle",
-                      hint: "@username of content creator",
-                      widget: "string",
-                      required: false,
-                      default: "@Code4Africa",
-                    },
-                  ],
-                },
-              ],
+              ...seoObject,
+            },
+          ],
+        },
+        {
+          label: "Stories",
+          name: "stories",
+          file: `${APP_DIRECTORY}content/pages/stories.md`,
+          fields: [
+            {
+              ...seoObject,
+            },
+          ],
+        },
+        {
+          label: "Projects",
+          name: "projects",
+          file: `${APP_DIRECTORY}content/pages/projects.md`,
+          fields: [
+            {
+              ...seoObject,
             },
           ],
         },
@@ -1122,115 +714,7 @@ module.exports = {
               widget: "markdown",
             },
             {
-              label: "SEO",
-              name: "seo",
-              widget: "object",
-              fields: [
-                {
-                  label: "Title",
-                  name: "title",
-                  widget: "string",
-                  required: false,
-                },
-                {
-                  label: "Description",
-                  name: "description",
-                  widget: "string",
-                  required: false,
-                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                },
-                {
-                  label: "Meta data",
-                  name: "meta",
-                  widget: "object",
-                  hint: "Search engines support",
-                  fields: [
-                    {
-                      label: "Title",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                      hint: "Uses page title if not provided",
-                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "text",
-                      required: false,
-                      hint: "Uses page description if not provided",
-                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                    },
-                  ],
-                },
-                {
-                  label: "Open Graph",
-                  name: "openGraph",
-                  hint: "Facebook, Slack, and other social media platforms",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Title",
-                      hint: "Uses page title if not provided",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "string",
-                      hint: "Uses page description if not provided",
-                      required: false,
-                    },
-                    {
-                      label: "Images",
-                      name: "images",
-                      widget: "list",
-                      min: 1,
-                      max: 1,
-                      required: false,
-                      fields: [
-                        {
-                          name: "url",
-                          label: "URL",
-                          widget: "string",
-                        },
-                        {
-                          name: "width",
-                          label: "Width",
-                          widget: "string",
-                        },
-                        {
-                          name: "height",
-                          label: "Height",
-                          widget: "string",
-                        },
-                        {
-                          name: "alt",
-                          label: "Alt Text",
-                          widget: "string",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  label: "Twitter",
-                  name: "twitter",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Handle",
-                      name: "handle",
-                      hint: "@username of content creator",
-                      widget: "string",
-                      required: false,
-                      default: "@Code4Africa",
-                    },
-                  ],
-                },
-              ],
+              ...seoObject,
             },
           ],
         },
@@ -1262,115 +746,7 @@ module.exports = {
               widget: "markdown",
             },
             {
-              label: "SEO",
-              name: "seo",
-              widget: "object",
-              fields: [
-                {
-                  label: "Title",
-                  name: "title",
-                  widget: "string",
-                  required: false,
-                },
-                {
-                  label: "Description",
-                  name: "description",
-                  widget: "string",
-                  required: false,
-                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                },
-                {
-                  label: "Meta data",
-                  name: "meta",
-                  widget: "object",
-                  hint: "Search engines support",
-                  fields: [
-                    {
-                      label: "Title",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                      hint: "Uses page title if not provided",
-                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "text",
-                      required: false,
-                      hint: "Uses page description if not provided",
-                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                    },
-                  ],
-                },
-                {
-                  label: "Open Graph",
-                  name: "openGraph",
-                  hint: "Facebook, Slack, and other social media platforms",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Title",
-                      hint: "Uses page title if not provided",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "string",
-                      hint: "Uses page description if not provided",
-                      required: false,
-                    },
-                    {
-                      label: "Images",
-                      name: "images",
-                      widget: "list",
-                      min: 1,
-                      max: 1,
-                      required: false,
-                      fields: [
-                        {
-                          name: "url",
-                          label: "URL",
-                          widget: "string",
-                        },
-                        {
-                          name: "width",
-                          label: "Width",
-                          widget: "string",
-                        },
-                        {
-                          name: "height",
-                          label: "Height",
-                          widget: "string",
-                        },
-                        {
-                          name: "alt",
-                          label: "Alt Text",
-                          widget: "string",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  label: "Twitter",
-                  name: "twitter",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Handle",
-                      name: "handle",
-                      hint: "@username of content creator",
-                      widget: "string",
-                      required: false,
-                      default: "@Code4Africa",
-                    },
-                  ],
-                },
-              ],
+              ...seoObject,
             },
           ],
         },
@@ -1399,115 +775,7 @@ module.exports = {
               ],
             },
             {
-              label: "SEO",
-              name: "seo",
-              widget: "object",
-              fields: [
-                {
-                  label: "Title",
-                  name: "title",
-                  widget: "string",
-                  required: false,
-                },
-                {
-                  label: "Description",
-                  name: "description",
-                  widget: "string",
-                  required: false,
-                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                },
-                {
-                  label: "Meta data",
-                  name: "meta",
-                  widget: "object",
-                  hint: "Search engines support",
-                  fields: [
-                    {
-                      label: "Title",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                      hint: "Uses page title if not provided",
-                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "text",
-                      required: false,
-                      hint: "Uses page description if not provided",
-                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                    },
-                  ],
-                },
-                {
-                  label: "Open Graph",
-                  name: "openGraph",
-                  hint: "Facebook, Slack, and other social media platforms",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Title",
-                      hint: "Uses page title if not provided",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "string",
-                      hint: "Uses page description if not provided",
-                      required: false,
-                    },
-                    {
-                      label: "Images",
-                      name: "images",
-                      widget: "list",
-                      min: 1,
-                      max: 1,
-                      required: false,
-                      fields: [
-                        {
-                          name: "url",
-                          label: "URL",
-                          widget: "string",
-                        },
-                        {
-                          name: "width",
-                          label: "Width",
-                          widget: "string",
-                        },
-                        {
-                          name: "height",
-                          label: "Height",
-                          widget: "string",
-                        },
-                        {
-                          name: "alt",
-                          label: "Alt Text",
-                          widget: "string",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  label: "Twitter",
-                  name: "twitter",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Handle",
-                      name: "handle",
-                      hint: "@username of content creator",
-                      widget: "string",
-                      required: false,
-                      default: "@Code4Africa",
-                    },
-                  ],
-                },
-              ],
+              ...seoObject,
             },
           ],
         },
@@ -1517,115 +785,7 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/error.md`,
           fields: [
             {
-              label: "SEO",
-              name: "seo",
-              widget: "object",
-              fields: [
-                {
-                  label: "Title",
-                  name: "title",
-                  widget: "string",
-                  required: false,
-                },
-                {
-                  label: "Description",
-                  name: "description",
-                  widget: "string",
-                  required: false,
-                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                },
-                {
-                  label: "Meta data",
-                  name: "meta",
-                  widget: "object",
-                  hint: "Search engines support",
-                  fields: [
-                    {
-                      label: "Title",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                      hint: "Uses page title if not provided",
-                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "text",
-                      required: false,
-                      hint: "Uses page description if not provided",
-                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
-                    },
-                  ],
-                },
-                {
-                  label: "Open Graph",
-                  name: "openGraph",
-                  hint: "Facebook, Slack, and other social media platforms",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Title",
-                      hint: "Uses page title if not provided",
-                      name: "title",
-                      widget: "string",
-                      required: false,
-                    },
-                    {
-                      label: "Description",
-                      name: "description",
-                      widget: "string",
-                      hint: "Uses page description if not provided",
-                      required: false,
-                    },
-                    {
-                      label: "Images",
-                      name: "images",
-                      widget: "list",
-                      min: 1,
-                      max: 1,
-                      required: false,
-                      fields: [
-                        {
-                          name: "url",
-                          label: "URL",
-                          widget: "string",
-                        },
-                        {
-                          name: "width",
-                          label: "Width",
-                          widget: "string",
-                        },
-                        {
-                          name: "height",
-                          label: "Height",
-                          widget: "string",
-                        },
-                        {
-                          name: "alt",
-                          label: "Alt Text",
-                          widget: "string",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  label: "Twitter",
-                  name: "twitter",
-                  widget: "object",
-                  fields: [
-                    {
-                      label: "Handle",
-                      name: "handle",
-                      hint: "@username of content creator",
-                      widget: "string",
-                      required: false,
-                      default: "@Code4Africa",
-                    },
-                  ],
-                },
-              ],
+              ...seoObject,
             },
             {
               label: "News and stories",
@@ -2240,21 +1400,35 @@ module.exports = {
           file: `${APP_DIRECTORY}content/settings/general.md`,
           fields: [
             {
-              label: "SEO",
-              name: "seo",
+              label: "Site",
+              name: "site",
               widget: "object",
               fields: [
                 {
                   label: "Title",
                   name: "title",
                   widget: "string",
+                  hint: "The name of the site",
                 },
                 {
                   label: "Description",
                   name: "description",
-                  widget: "string",
+                  widget: "text",
                   required: false,
-                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                  hint: "Helps with search results and when shared in social media platforms",
+                },
+              ],
+            },
+            {
+              label: "SEO",
+              name: "seo",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title Template",
+                  name: "title-template",
+                  widget: "string",
+                  hint: '"pre/suffix that should be included with every page. It replaces %s with your title string e.g. "%s | CfA" template will render "About | CfA" in about page with title "About"',
                 },
                 {
                   label: "Meta data",
@@ -2282,7 +1456,7 @@ module.exports = {
                 },
                 {
                   label: "Open Graph",
-                  name: "openGraph",
+                  name: "open-graph",
                   widget: "object",
                   fields: [
                     {
@@ -2342,6 +1516,12 @@ module.exports = {
                       widget: "string",
                       required: false,
                       default: "@Code4Africa",
+                    },
+                    {
+                      label: "Card Type",
+                      name: "cardType",
+                      widget: "hidden",
+                      default: "summary_large_image",
                     },
                   ],
                 },

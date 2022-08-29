@@ -87,4 +87,7 @@ get-in-touch:
   action:
     content: Get in touch
     href: /contact
+seo:
+  title: About | Code for Africa
+  description: About Code for Africa
 ---

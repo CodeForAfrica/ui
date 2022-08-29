@@ -212,9 +212,10 @@ export function getProjects(options) {
 }
 
 function getProjectsPageStaticProps() {
+  const seo = getSeo("projects");
   return {
     props: {
-      title: "Our Work | Code for Africa",
+      seo,
       sections: [
         {
           slug: "hero",
@@ -285,10 +286,13 @@ async function getOpportunityPageStaticProps(params) {
 
   const opportunity = await getStory(actualSlug);
 
+  const seo = getSeo("about");
+
   if (opportunity) {
+    seo.title = `${opportunity.title} | Opportunities | Code for Africa`;
     return {
       props: {
-        title: `${opportunity.title} | Opportunities | Code for Africa`,
+        seo,
         opportunity,
         footer,
         navbar,
@@ -323,11 +327,13 @@ function getPartnerPageStaticProps(params) {
   const partner = partners.find(({ slug }) =>
     equalsIgnoreCase(`/about/partners/${slug}`, params?.slug)
   );
+  const seo = getSeo("about");
   if (partner) {
     const startIndex = getRandomInt(projects.length - 3);
+    seo.title = `${partner.name} | Partners | About | Code for Africa`;
     return {
       props: {
-        title: `${partner.name} | Partners | About | Code for Africa`,
+        seo,
         partner: { ...partner, image: partner.logo, title: "Partner" },
         sections: [
           {
@@ -369,12 +375,16 @@ async function getProjectPageStaticProps(params) {
   const project = projects.find(({ href }) =>
     equalsIgnoreCase(href, params?.slug)
   );
+
+  const seo = getSeo("projects");
+
   if (project) {
     const relatedStories = await getRelatedStoriesByTags([project.name]);
+    seo.title = `${project.name} | Projects | Code for Africa`;
 
     return {
       props: {
-        title: `${project.name} | Projects | Code for Africa`,
+        seo,
         project,
         sections: [
           {
@@ -409,9 +419,11 @@ async function getStoriesPageStaticProps() {
   const articles = await getAllStories();
   const tags = await getAllStoriesTags();
 
+  const seo = getSeo("stories");
+
   return {
     props: {
-      title: "Stories | Code for Africa",
+      seo,
       sections: [
         {
           slug: "stories",
@@ -438,7 +450,6 @@ async function getStoryPageStaticProps(slug) {
     return {
       props: {
         seo: story.seo,
-        title: `${story.title} | Stories | Code for Africa`,
         article: story,
         sections: [
           {
@@ -631,11 +642,13 @@ function getAboutPartnersPageStaticProps() {
 
 function getTeamMemberPageStaticProps(params) {
   const member = team.find(({ href }) => equalsIgnoreCase(href, params?.slug));
+  const seo = getSeo("about");
   if (member) {
+    seo.title = `${member.name} | Members | About | Code for Africa`;
     const startIndex = getRandomInt(projects.length - 3);
     return {
       props: {
-        title: `${member.name} | Members | About | Code for Africa`,
+        seo,
         member,
         sections: [
           {
