@@ -17,8 +17,8 @@ export default function getProjects(fields) {
     const project = collection.items;
     if (fields.includes("badges")) {
       const badges = getBadges(["id", "name", "content", "date"]);
-      project.badges = badges?.filter((badge) =>
-        project.badges.includes(badge.id)
+      project.badges = project.badges.map((id) =>
+        badges.find((badge) => badge.id === id)
       );
     }
     if (fields.includes("partners")) {
@@ -32,8 +32,8 @@ export default function getProjects(fields) {
       ]);
       project.partners = {
         title: "Partners",
-        list: partners?.filter((partner) =>
-          project.partners.includes(partner.id)
+        list: project.partners.map((id) =>
+          partners.find((partner) => partner.id === id)
         ),
       };
     }
@@ -41,7 +41,9 @@ export default function getProjects(fields) {
       const donors = getDonors();
       project.donors = {
         title: "Donors",
-        list: donors?.filter((donor) => project.donors.includes(donor.id)),
+        list: project.donors.map((id) =>
+          donors.find((donor) => donor.id === id)
+        ),
       };
     }
 
@@ -49,7 +51,7 @@ export default function getProjects(fields) {
       const team = getTeam();
       project.team = {
         title: "Team",
-        list: team?.filter((member) => project.team.includes(member.id)),
+        list: project.team.map((id) => team.find((m) => m.id === id)),
       };
     }
 
