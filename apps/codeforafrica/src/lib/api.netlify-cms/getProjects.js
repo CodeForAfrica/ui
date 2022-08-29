@@ -15,13 +15,13 @@ export default function getProjects(fields) {
   return slugs.map((_slug) => {
     const collection = getCollectionBySlug(projectsDir, _slug, fields);
     const project = collection.items;
-    if (fields.includes("badges")) {
+    if (project.badges?.length) {
       const badges = getBadges(["id", "name", "content", "date"]);
       project.badges = project.badges.map((id) =>
         badges.find((badge) => badge.id === id)
       );
     }
-    if (fields.includes("partners")) {
+    if (project.partners?.length) {
       const partners = getPartners([
         "id",
         "slug",
@@ -37,7 +37,7 @@ export default function getProjects(fields) {
         ),
       };
     }
-    if (fields.includes("donors")) {
+    if (project.donors?.length) {
       const donors = getDonors();
       project.donors = {
         title: "Donors",
@@ -47,7 +47,7 @@ export default function getProjects(fields) {
       };
     }
 
-    if (fields.includes("team")) {
+    if (project.team?.length) {
       const team = getTeam();
       project.team = {
         title: "Team",
