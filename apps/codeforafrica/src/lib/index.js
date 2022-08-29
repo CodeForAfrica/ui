@@ -162,7 +162,6 @@ async function getHomePageStaticProps() {
   const seo = getSeo("index");
   return {
     props: {
-      title: "Code for Africa",
       seo,
       sections: [
         {
@@ -262,7 +261,6 @@ async function getOpportunitiesPageStaticProps() {
   return {
     props: {
       seo,
-      title: "Opportunities | Code for Africa",
       sections: [
         {
           slug: "hero",
@@ -308,7 +306,6 @@ function getImprintPageStaticProps() {
     props: {
       seo,
       ...getBody("imprint"),
-      title: "Imprint | Code for Africa",
       sections: [
         {
           ...getHero("imprint"),
@@ -355,7 +352,6 @@ function getPrivacyPageStaticProps() {
     props: {
       seo,
       ...getBody("privacy-policy"),
-      title: "Privacy | Code for Africa",
       sections: [
         {
           ...getHero("privacy-policy"),
@@ -507,7 +503,6 @@ function getAboutImpactPageStaticProps() {
     props: {
       seo,
       unit: "impact",
-      title: "Impact | About | Code for Africa",
       crumbs: [{ href: "/about", label: "About us" }, { label: "Impact" }],
       sections: [
         {
@@ -536,7 +531,6 @@ function getAboutMembersPageStaticProps() {
     props: {
       seo,
       unit: "members",
-      title: "Members | About | Code for Africa",
       crumbs: [{ href: "/about", label: "About us" }, { label: "Members" }],
       sections: [
         {
@@ -567,7 +561,6 @@ function getAboutPageStaticProps() {
   return {
     props: {
       seo,
-      title: "About | Code for Africa",
       sections: [
         {
           ...getHero("about"),
@@ -614,7 +607,6 @@ function getAboutPartnersPageStaticProps() {
     props: {
       seo,
       unit: "partners",
-      title: "Partners | About | Code for Africa",
       crumbs: [{ href: "/about", label: "About us" }, { label: "Partners" }],
       sections: [
         {
@@ -667,7 +659,6 @@ function getContactPageStaticProps() {
   return {
     props: {
       seo,
-      title: "Contact | Code for Africa",
       sections: [
         {
           slug: "hero",
