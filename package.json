@@ -19,14 +19,17 @@
     "test": "turbo run jest playwright --parallel",
     "clean": "turbo run clean && rm -rf node_modules",
     "format-check": "prettier --check --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'",
-    "format": "prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'"
+    "format": "prettier --write --ignore-path './.gitignore' \"**/*.+(json|md|yml)\" './'",
+    "bump": "node scripts/bump.js"
   },
   "devDependencies": {
     "@changesets/cli": "^2.24.2",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "turbo": "^1.4.3"
+    "turbo": "^1.4.3",
+    "@actions/exec": "^1.1.1",
+    "@changesets/changelog-github": "^0.4.6"
   },
   "packageManager": "pnpm@7.4.0"
 }

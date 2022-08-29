@@ -1,6 +1,6 @@
 {
   "name": "promisetracker",
-  "version": "0.2.0-alpha.5-next",
+  "version": "0.3.0-alpha.0",
   "private": true,
   "author": "Code for Africa <tech@codeforafrica.org>",
   "description": "PromiseTracker, is a tool to help journalists and civil society watchdogs more easily track campaign promises and other political / government pledges, using official evidence / data, as well as crowdsourced information, with a transparent and defensible methodology, to help inject accountability and honesty into the often cavalier way that promises are made to citizens to win their support for elections, policies and contracts but are seldom honoured.",
