@@ -216,14 +216,41 @@ module.exports = {
                   name: "description",
                   widget: "string",
                   required: false,
+                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                },
+                {
+                  label: "Meta data",
+                  name: "meta",
+                  widget: "object",
+                  hint: "Search engines support",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page title if not provided",
+                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "text",
+                      required: false,
+                      hint: "Uses page description if not provided",
+                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                    },
+                  ],
                 },
                 {
                   label: "Open Graph",
                   name: "openGraph",
+                  hint: "Facebook, Slack, and other social media platforms",
                   widget: "object",
                   fields: [
                     {
                       label: "Title",
+                      hint: "Uses page title if not provided",
                       name: "title",
                       widget: "string",
                       required: false,
@@ -232,12 +259,15 @@ module.exports = {
                       label: "Description",
                       name: "description",
                       widget: "string",
+                      hint: "Uses page description if not provided",
                       required: false,
                     },
                     {
                       label: "Images",
                       name: "images",
                       widget: "list",
+                      min: 1,
+                      max: 1,
                       required: false,
                       fields: [
                         {
@@ -272,6 +302,7 @@ module.exports = {
                     {
                       label: "Handle",
                       name: "handle",
+                      hint: "@username of content creator",
                       widget: "string",
                       required: false,
                       default: "@Code4Africa",
@@ -485,14 +516,41 @@ module.exports = {
                   name: "description",
                   widget: "string",
                   required: false,
+                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                },
+                {
+                  label: "Meta data",
+                  name: "meta",
+                  widget: "object",
+                  hint: "Search engines support",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page title if not provided",
+                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "text",
+                      required: false,
+                      hint: "Uses page description if not provided",
+                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                    },
+                  ],
                 },
                 {
                   label: "Open Graph",
                   name: "openGraph",
+                  hint: "Facebook, Slack, and other social media platforms",
                   widget: "object",
                   fields: [
                     {
                       label: "Title",
+                      hint: "Uses page title if not provided",
                       name: "title",
                       widget: "string",
                       required: false,
@@ -501,12 +559,15 @@ module.exports = {
                       label: "Description",
                       name: "description",
                       widget: "string",
+                      hint: "Uses page description if not provided",
                       required: false,
                     },
                     {
                       label: "Images",
                       name: "images",
                       widget: "list",
+                      min: 1,
+                      max: 1,
                       required: false,
                       fields: [
                         {
@@ -541,6 +602,7 @@ module.exports = {
                     {
                       label: "Handle",
                       name: "handle",
+                      hint: "@username of content creator",
                       widget: "string",
                       required: false,
                       default: "@Code4Africa",
@@ -665,14 +727,41 @@ module.exports = {
                   name: "description",
                   widget: "string",
                   required: false,
+                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                },
+                {
+                  label: "Meta data",
+                  name: "meta",
+                  widget: "object",
+                  hint: "Search engines support",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page title if not provided",
+                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "text",
+                      required: false,
+                      hint: "Uses page description if not provided",
+                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                    },
+                  ],
                 },
                 {
                   label: "Open Graph",
                   name: "openGraph",
+                  hint: "Facebook, Slack, and other social media platforms",
                   widget: "object",
                   fields: [
                     {
                       label: "Title",
+                      hint: "Uses page title if not provided",
                       name: "title",
                       widget: "string",
                       required: false,
@@ -681,12 +770,15 @@ module.exports = {
                       label: "Description",
                       name: "description",
                       widget: "string",
+                      hint: "Uses page description if not provided",
                       required: false,
                     },
                     {
                       label: "Images",
                       name: "images",
                       widget: "list",
+                      min: 1,
+                      max: 1,
                       required: false,
                       fields: [
                         {
@@ -721,6 +813,7 @@ module.exports = {
                     {
                       label: "Handle",
                       name: "handle",
+                      hint: "@username of content creator",
                       widget: "string",
                       required: false,
                       default: "@Code4Africa",
@@ -769,14 +862,41 @@ module.exports = {
                   name: "description",
                   widget: "string",
                   required: false,
+                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                },
+                {
+                  label: "Meta data",
+                  name: "meta",
+                  widget: "object",
+                  hint: "Search engines support",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page title if not provided",
+                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "text",
+                      required: false,
+                      hint: "Uses page description if not provided",
+                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                    },
+                  ],
                 },
                 {
                   label: "Open Graph",
                   name: "openGraph",
+                  hint: "Facebook, Slack, and other social media platforms",
                   widget: "object",
                   fields: [
                     {
                       label: "Title",
+                      hint: "Uses page title if not provided",
                       name: "title",
                       widget: "string",
                       required: false,
@@ -785,12 +905,15 @@ module.exports = {
                       label: "Description",
                       name: "description",
                       widget: "string",
+                      hint: "Uses page description if not provided",
                       required: false,
                     },
                     {
                       label: "Images",
                       name: "images",
                       widget: "list",
+                      min: 1,
+                      max: 1,
                       required: false,
                       fields: [
                         {
@@ -825,6 +948,7 @@ module.exports = {
                     {
                       label: "Handle",
                       name: "handle",
+                      hint: "@username of content creator",
                       widget: "string",
                       required: false,
                       default: "@Code4Africa",
@@ -873,14 +997,41 @@ module.exports = {
                   name: "description",
                   widget: "string",
                   required: false,
+                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                },
+                {
+                  label: "Meta data",
+                  name: "meta",
+                  widget: "object",
+                  hint: "Search engines support",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page title if not provided",
+                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "text",
+                      required: false,
+                      hint: "Uses page description if not provided",
+                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                    },
+                  ],
                 },
                 {
                   label: "Open Graph",
                   name: "openGraph",
+                  hint: "Facebook, Slack, and other social media platforms",
                   widget: "object",
                   fields: [
                     {
                       label: "Title",
+                      hint: "Uses page title if not provided",
                       name: "title",
                       widget: "string",
                       required: false,
@@ -889,12 +1040,15 @@ module.exports = {
                       label: "Description",
                       name: "description",
                       widget: "string",
+                      hint: "Uses page description if not provided",
                       required: false,
                     },
                     {
                       label: "Images",
                       name: "images",
                       widget: "list",
+                      min: 1,
+                      max: 1,
                       required: false,
                       fields: [
                         {
@@ -929,6 +1083,7 @@ module.exports = {
                     {
                       label: "Handle",
                       name: "handle",
+                      hint: "@username of content creator",
                       widget: "string",
                       required: false,
                       default: "@Code4Africa",
@@ -982,14 +1137,41 @@ module.exports = {
                   name: "description",
                   widget: "string",
                   required: false,
+                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                },
+                {
+                  label: "Meta data",
+                  name: "meta",
+                  widget: "object",
+                  hint: "Search engines support",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page title if not provided",
+                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "text",
+                      required: false,
+                      hint: "Uses page description if not provided",
+                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                    },
+                  ],
                 },
                 {
                   label: "Open Graph",
                   name: "openGraph",
+                  hint: "Facebook, Slack, and other social media platforms",
                   widget: "object",
                   fields: [
                     {
                       label: "Title",
+                      hint: "Uses page title if not provided",
                       name: "title",
                       widget: "string",
                       required: false,
@@ -998,12 +1180,15 @@ module.exports = {
                       label: "Description",
                       name: "description",
                       widget: "string",
+                      hint: "Uses page description if not provided",
                       required: false,
                     },
                     {
                       label: "Images",
                       name: "images",
                       widget: "list",
+                      min: 1,
+                      max: 1,
                       required: false,
                       fields: [
                         {
@@ -1038,6 +1223,7 @@ module.exports = {
                     {
                       label: "Handle",
                       name: "handle",
+                      hint: "@username of content creator",
                       widget: "string",
                       required: false,
                       default: "@Code4Africa",
@@ -1091,14 +1277,41 @@ module.exports = {
                   name: "description",
                   widget: "string",
                   required: false,
+                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                },
+                {
+                  label: "Meta data",
+                  name: "meta",
+                  widget: "object",
+                  hint: "Search engines support",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page title if not provided",
+                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "text",
+                      required: false,
+                      hint: "Uses page description if not provided",
+                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                    },
+                  ],
                 },
                 {
                   label: "Open Graph",
                   name: "openGraph",
+                  hint: "Facebook, Slack, and other social media platforms",
                   widget: "object",
                   fields: [
                     {
                       label: "Title",
+                      hint: "Uses page title if not provided",
                       name: "title",
                       widget: "string",
                       required: false,
@@ -1107,12 +1320,15 @@ module.exports = {
                       label: "Description",
                       name: "description",
                       widget: "string",
+                      hint: "Uses page description if not provided",
                       required: false,
                     },
                     {
                       label: "Images",
                       name: "images",
                       widget: "list",
+                      min: 1,
+                      max: 1,
                       required: false,
                       fields: [
                         {
@@ -1147,6 +1363,7 @@ module.exports = {
                     {
                       label: "Handle",
                       name: "handle",
+                      hint: "@username of content creator",
                       widget: "string",
                       required: false,
                       default: "@Code4Africa",
@@ -1197,14 +1414,41 @@ module.exports = {
                   name: "description",
                   widget: "string",
                   required: false,
+                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                },
+                {
+                  label: "Meta data",
+                  name: "meta",
+                  widget: "object",
+                  hint: "Search engines support",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page title if not provided",
+                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "text",
+                      required: false,
+                      hint: "Uses page description if not provided",
+                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                    },
+                  ],
                 },
                 {
                   label: "Open Graph",
                   name: "openGraph",
+                  hint: "Facebook, Slack, and other social media platforms",
                   widget: "object",
                   fields: [
                     {
                       label: "Title",
+                      hint: "Uses page title if not provided",
                       name: "title",
                       widget: "string",
                       required: false,
@@ -1213,12 +1457,15 @@ module.exports = {
                       label: "Description",
                       name: "description",
                       widget: "string",
+                      hint: "Uses page description if not provided",
                       required: false,
                     },
                     {
                       label: "Images",
                       name: "images",
                       widget: "list",
+                      min: 1,
+                      max: 1,
                       required: false,
                       fields: [
                         {
@@ -1253,6 +1500,7 @@ module.exports = {
                     {
                       label: "Handle",
                       name: "handle",
+                      hint: "@username of content creator",
                       widget: "string",
                       required: false,
                       default: "@Code4Africa",
@@ -1284,14 +1532,41 @@ module.exports = {
                   name: "description",
                   widget: "string",
                   required: false,
+                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                },
+                {
+                  label: "Meta data",
+                  name: "meta",
+                  widget: "object",
+                  hint: "Search engines support",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page title if not provided",
+                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "text",
+                      required: false,
+                      hint: "Uses page description if not provided",
+                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                    },
+                  ],
                 },
                 {
                   label: "Open Graph",
                   name: "openGraph",
+                  hint: "Facebook, Slack, and other social media platforms",
                   widget: "object",
                   fields: [
                     {
                       label: "Title",
+                      hint: "Uses page title if not provided",
                       name: "title",
                       widget: "string",
                       required: false,
@@ -1300,12 +1575,15 @@ module.exports = {
                       label: "Description",
                       name: "description",
                       widget: "string",
+                      hint: "Uses page description if not provided",
                       required: false,
                     },
                     {
                       label: "Images",
                       name: "images",
                       widget: "list",
+                      min: 1,
+                      max: 1,
                       required: false,
                       fields: [
                         {
@@ -1340,6 +1618,7 @@ module.exports = {
                     {
                       label: "Handle",
                       name: "handle",
+                      hint: "@username of content creator",
                       widget: "string",
                       required: false,
                       default: "@Code4Africa",
@@ -1969,13 +2248,37 @@ module.exports = {
                   label: "Title",
                   name: "title",
                   widget: "string",
-                  required: false,
                 },
                 {
                   label: "Description",
                   name: "description",
                   widget: "string",
                   required: false,
+                  pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                },
+                {
+                  label: "Meta data",
+                  name: "meta",
+                  widget: "object",
+                  hint: "Search engines support",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page title if not provided",
+                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "text",
+                      required: false,
+                      hint: "Uses page description if not provided",
+                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                    },
+                  ],
                 },
                 {
                   label: "Open Graph",
@@ -1987,17 +2290,21 @@ module.exports = {
                       name: "title",
                       widget: "string",
                       required: false,
+                      hint: "Uses page title if not provided",
                     },
                     {
                       label: "Description",
                       name: "description",
                       widget: "string",
                       required: false,
+                      hint: "Uses page title if not provided",
                     },
                     {
                       label: "Images",
                       name: "images",
                       widget: "list",
+                      max: 1,
+                      min: 1,
                       required: false,
                       fields: [
                         {
@@ -2030,8 +2337,8 @@ module.exports = {
                   widget: "object",
                   fields: [
                     {
-                      label: "Handle",
-                      name: "handle",
+                      label: "@Site",
+                      name: "site",
                       widget: "string",
                       required: false,
                       default: "@Code4Africa",
