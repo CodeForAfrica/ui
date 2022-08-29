@@ -1,5 +1,5 @@
 ---
-"codeforafrica": major
+"codeforafrica": patch
 ---
 
 Migrate to Using Changeset
