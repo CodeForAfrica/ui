@@ -5,6 +5,7 @@ import { marked } from "marked";
 import getBadges from "./getBadges";
 import getDonors from "./getDonors";
 import getPartners from "./getPartners";
+import getTeam from "./getTeam";
 import { getCollectionSlugs, getCollectionBySlug } from "./utils";
 
 const projectsDir = join(process.cwd(), "content/projects");
@@ -43,6 +44,15 @@ export default function getProjects(fields) {
         list: donors?.filter((donor) => project.donors.includes(donor.id)),
       };
     }
+
+    if (fields.includes("team")) {
+      const team = getTeam();
+      project.team = {
+        title: "Team",
+        list: team?.filter((member) => project.team.includes(member.id)),
+      };
+    }
+
     project.subtitle = marked(project.subtitle);
     project.href = `/projects/${project.slug}`;
     return project;
