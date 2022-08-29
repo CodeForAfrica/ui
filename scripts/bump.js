@@ -9,10 +9,7 @@ const { exec } = require("@actions/exec");
     const stats = fs.statSync(path.join("apps", app));
     if (stats.isDirectory()) {
       const newVersion = `${require(`../apps/${app}/package.json`).version}`;
-      const dockerFilePath = path.join(
-        `apps/${app}/contrib/dokku`,
-        "Dockerfile"
-      );
+      const dockerFilePath = path.join("apps", app, "contrib/dokku/Dockerfile");
       const currentImageVersion = fs.readFileSync(dockerFilePath, "utf8");
       const updatedImageVersion = currentImageVersion.replace(
         /:[^\s]+/g,
