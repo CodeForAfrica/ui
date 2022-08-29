@@ -10,10 +10,9 @@ importers:
       lint-staged: ^13.0.3
       prettier: ^2.7.1
       turbo: ^1.4.3
-    dependencies:
+    devDependencies:
       "@actions/exec": 1.1.1
       "@changesets/changelog-github": 0.4.6
-    devDependencies:
       "@changesets/cli": 2.24.2
       husky: 8.0.1
       lint-staged: 13.0.3
@@ -596,14 +595,14 @@ packages:
       }
     dependencies:
       "@actions/io": 1.1.2
-    dev: false
+    dev: true
 
   /@actions/io/1.1.2:
     resolution:
       {
         integrity: sha512-d+RwPlMp+2qmBfeLYPLXuSRykDIFEwdTA0MMxzS9kh4kvP1ftrc/9fzy6pX6qAjthdXruHQ6/6kjT/DNo5ALuw==,
       }
-    dev: false
+    dev: true
 
   /@adobe/css-tools/4.0.1:
     resolution:
@@ -2442,7 +2441,7 @@ packages:
       dotenv: 8.6.0
     transitivePeerDependencies:
       - encoding
-    dev: false
+    dev: true
 
   /@changesets/cli/2.24.2:
     resolution:
@@ -2533,7 +2532,7 @@ packages:
       node-fetch: 2.6.7
     transitivePeerDependencies:
       - encoding
-    dev: false
+    dev: true
 
   /@changesets/get-release-plan/3.0.13:
     resolution:
@@ -2631,6 +2630,7 @@ packages:
       {
         integrity: sha512-uUByGATZCdaPkaO9JkBsgGDjEvHyY2Sb0e/J23+cwxBi5h0fxpLF/HObggO/Fw8T2nxK6zDfJbPsdQt5RwYFJA==,
       }
+    dev: true
 
   /@changesets/write/0.1.9:
     resolution:
@@ -9874,7 +9874,7 @@ packages:
       {
         integrity: sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==,
       }
-    dev: false
+    dev: true
 
   /date-fns/2.29.1:
     resolution:
@@ -10356,6 +10356,7 @@ packages:
         integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==,
       }
     engines: { node: ">=10" }
+    dev: true
 
   /duplexer2/0.1.4:
     resolution:
