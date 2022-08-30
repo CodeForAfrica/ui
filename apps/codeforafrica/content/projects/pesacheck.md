@@ -2,9 +2,7 @@
 id: 31626677-0bc8-49cb-a2e6-1d7e5504d1fe
 name: PesaCheck
 tagLine: Africa fact-checking
-title: >
-  Africa’s largest <span class="highlight">indigenous fact-checking</span>
-  organisation
+title: Africa’s largest indigenous fact-checking organisation
 subtitle: PesaCheck, a pioneering verification initiative, debunks misleading
   claims with full-time fact-checkers in 15 African countries.
 tag: Initiatives
@@ -24,14 +22,19 @@ partners:
 donors:
   - f690fb82-9baa-4e31-a4b2-d57ffad43874
 team:
-  - Jacobo Ottaviani
+  - 13b45a06-7b3f-4509-b4dc-ebfa3ac6c6b1
+  - c9c91d8a-02f9-4efe-b78e-5e33f1edaf22
 links:
   - slug: data
     content: PesaCheck
     href: https://pesacheck.org/
+    icon:
+      src: /images/Type=globe, Size=32, Color=1020E1.svg
   - slug: github
     href: https://github.com/CodeForAfrica
     content: Github
+    icon:
+      src: /images/type-github-size-32-color-white.svg
 ---
 
 PesaCheck is a pioneering verification initiative that is kickstarting fact-checking across Africa. Initially focused on verifying the financial and other statistical numbers quoted by public figures in Kenya, Tanzania and Uganda, PesaCheck is now Africa’s largest with full-time fact-checkers in 15 countries in both east and west Africa, as well as across the Sahel.
