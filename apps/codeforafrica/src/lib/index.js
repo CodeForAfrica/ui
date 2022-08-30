@@ -55,6 +55,7 @@ export const projects = getCmsProjects([
   "badges",
   "partners",
   "donors",
+  "team",
   "links",
 ]);
 
@@ -390,7 +391,7 @@ async function getProjectPageStaticProps(params) {
           {
             slug: "team",
             title: "Team",
-            team: team.slice(0, 3),
+            team: project?.team?.list,
           },
           {
             slug: "related-stories",
