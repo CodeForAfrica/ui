@@ -10,12 +10,12 @@ import getOurPartners from "./getOurPartners";
 import getOurTeam from "./getOurTeam";
 import getPartners from "./getPartners";
 import getCmsProjects from "./getProjects";
-import getSeo from "./getSeo";
 import getTeam from "./getTeam";
 import getFooter from "./sections/getFooter";
 import getHeader from "./sections/getHeader";
 import getHero from "./sections/getHero";
 import getMeetOurTeam from "./sections/getMeetOurTeam";
+import { getSeo } from "./seo";
 
 export {
   getBody,

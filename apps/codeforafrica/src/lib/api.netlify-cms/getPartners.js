@@ -1,13 +1,17 @@
 import { join } from "path";
 
 import getCollectionData from "./getCollectionData";
+import { setSeo } from "./seo";
 
 const partnersDir = join(process.cwd(), "content/partners");
 
 export default function getPartners(fields) {
   const partners = getCollectionData(partnersDir, fields);
-  return partners.map(({ slug = null, ...other }) => {
+  return partners.map(({ slug = null, name, ...other }) => {
     const href = slug ? `/about/partners/${slug}` : null;
-    return { ...other, slug, href };
+    const seo = setSeo({
+      title: `${name} | Partners | About | Code for Africa`,
+    });
+    return { ...other, slug, href, name, seo };
   });
 }

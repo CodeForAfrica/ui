@@ -26,6 +26,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
             country="Kenya"
             id="5f6c2114-aab6-4420-8e46-c9d0e06f5f8b"
             links="[object Object]"
+            seo="[object Object]"
             slug="allan-cheboi"
             team="ANCIR's iLAB"
           >
@@ -68,6 +69,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
             country="South Africa"
             id="0b93271e-3f04-42ce-924a-37ad17e5f9a8"
             links="[object Object]"
+            seo="[object Object]"
             slug="amanda-strydom"
             team="CivicSignal"
           >
@@ -110,6 +112,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
             country="Nigeria"
             id="5e279b40-6e51-4d79-bf38-ce9472660050"
             links="[object Object]"
+            seo="[object Object]"
             slug="anita-igbine"
             team="ANCIR's iLAB"
           >
