@@ -12,7 +12,7 @@ exports[`Homepage renders unchanged 1`] = `
         Data to hold your government accountable
       </h1>
       <p
-        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-j6tj1k-MuiTypography-root"
       >
         Get 
         <a
