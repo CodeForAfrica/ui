@@ -1,4 +1,5 @@
-import { Section, RichTypography } from "@commons-ui/core";
+import { Section } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/next";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import React from "react";

@@ -1,5 +1,5 @@
-import { RichTypography, Section } from "@commons-ui/core";
-import { Link } from "@commons-ui/next";
+import { Section } from "@commons-ui/core";
+import { Link, RichTypography } from "@commons-ui/next";
 import PropTypes from "prop-types";
 import React from "react";
 

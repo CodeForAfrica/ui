@@ -1,4 +1,5 @@
-import { RichTypography, Section } from "@commons-ui/core";
+import { Section } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/next";
 import React from "react";
 
 import CMSContent from "@/codeforafrica/components/CMSContent";
@@ -29,9 +30,6 @@ const OurMission = React.forwardRef(function OurMission(props, ref) {
             },
             "& p, & li": {
               typography: { xs: "body1", md: "subheading" },
-            },
-            "& a:visited": {
-              color: "primary.main",
             },
           }}
         >

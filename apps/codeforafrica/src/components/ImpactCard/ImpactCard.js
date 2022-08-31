@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/next";
 import { Card, CardContent, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";

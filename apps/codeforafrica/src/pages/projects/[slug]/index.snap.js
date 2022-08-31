@@ -38,7 +38,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
                 class="MuiBreadcrumbs-li"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-n624xw-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
                 >
                   Knowedge
                 </div>
@@ -78,7 +78,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
                   class="MuiBreadcrumbs-li"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-body1 css-n624xw-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
                   >
                     Knowedge
                   </div>
@@ -138,7 +138,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
                 </div>
               </div>
               <div
-                class="MuiTypography-root MuiTypography-h4 css-silo7x-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h4 css-bw2zps-MuiTypography-root"
               >
                 Empowering citizens through 
                 <span
@@ -148,7 +148,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
                 </span>
               </div>
               <div
-                class="MuiTypography-root MuiTypography-body2 css-2s7moc-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body2 css-nydswf-MuiTypography-root"
               >
                 AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.
               </div>
@@ -196,7 +196,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
             class="css-bqx4d1-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h5Small css-suiten-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5Small css-1rq9mfe-MuiTypography-root"
             >
               Details
             </div>
@@ -204,7 +204,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
               class="css-11d7185-MuiStack-root"
             >
               <div
-                class="MuiTypography-root MuiTypography-footerCap css-19iy7wy-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
               >
                 Share This Project
               </div>
@@ -264,7 +264,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
             class="css-hhh1r-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h5 css-1sbxx2f-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1a7nesc-MuiTypography-root"
             >
               Description
             </div>

@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/next";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
@@ -39,7 +39,12 @@ const AddressCard = React.forwardRef(function AddressCard(props, ref) {
           <RichTypography sx={{ color: "inherit" }} variant="body3Underline">
             {title}
           </RichTypography>
-          <RichTypography sx={{ color: "inherit", pt: 1.25 }} variant="body3">
+          <RichTypography
+            component="address"
+            // In address, we treat <p> as a line i.e.no margins.
+            sx={{ color: "inherit", pt: 1.25, "& p": { m: 0 } }}
+            variant="body3"
+          >
             {content}
           </RichTypography>
         </CardContent>

@@ -4,8 +4,15 @@ import getCollectionData from "./getCollectionData";
 
 const impactDir = join(process.cwd(), "content/impact");
 
-function getImpactList(fields) {
-  return getCollectionData(impactDir, fields);
+function getImpactList() {
+  return getCollectionData(impactDir, [
+    "id",
+    "slug",
+    "title",
+    "value",
+    "image",
+    "content",
+  ]);
 }
 
 export default getImpactList;

@@ -22,12 +22,12 @@ exports[`<AboutChildPageHeader /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item css-u2r8gx-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h1 css-19766wr-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 css-z54dvv-MuiTypography-root"
           >
             Jacobo Ottaviani
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h3Light css-1o05aqh-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3Light css-17mbggi-MuiTypography-root"
           >
             Chief Data Officer
           </div>

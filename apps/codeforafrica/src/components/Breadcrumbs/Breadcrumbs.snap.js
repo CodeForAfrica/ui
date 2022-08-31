@@ -28,7 +28,7 @@ exports[`<Breadcrumbs /> renders unchanged 1`] = `
         class="MuiBreadcrumbs-li"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1 css-n624xw-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
         >
           Initiatives
         </div>

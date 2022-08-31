@@ -28,7 +28,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         class="css-1rvuxdl-MuiStack-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-footerCap css-19iy7wy-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
         >
           Share This Article
         </div>
@@ -94,7 +94,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         class="css-1rua2vy-MuiStack-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-body2 css-13hulks-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-tua52g-MuiTypography-root"
         >
           Article by
         </div>

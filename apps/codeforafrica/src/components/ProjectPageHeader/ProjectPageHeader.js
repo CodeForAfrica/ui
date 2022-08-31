@@ -1,5 +1,5 @@
-import { Section, RichTypography } from "@commons-ui/core";
-import { Link } from "@commons-ui/next";
+import { Section } from "@commons-ui/core";
+import { Link, RichTypography } from "@commons-ui/next";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";

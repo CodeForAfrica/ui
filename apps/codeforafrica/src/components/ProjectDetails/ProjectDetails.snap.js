@@ -16,7 +16,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
           class="css-bqx4d1-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h5Small css-suiten-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5Small css-1rq9mfe-MuiTypography-root"
           >
             Details
           </div>
@@ -24,7 +24,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
             class="css-11d7185-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-footerCap css-19iy7wy-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
             >
               Share This Project
             </div>
@@ -84,7 +84,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
           class="css-hhh1r-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h5 css-1sbxx2f-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5 css-1a7nesc-MuiTypography-root"
           >
             Description
           </div>
