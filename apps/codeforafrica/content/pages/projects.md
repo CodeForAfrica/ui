@@ -1,5 +1,6 @@
 ---
 seo:
-  title: Our Work | Code for Africa
+  title: Our Work
   description: Projects by Code for Africa
+  title-template: "%s  | Code for Africa"
 ---

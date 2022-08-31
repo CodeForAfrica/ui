@@ -19,6 +19,9 @@ function transformPost(post) {
     metaTitle,
     metaDescription,
     title,
+    ogImage,
+    ogTitle,
+    primaryAuthor,
     ...other
   } = camelcaseKeys(post, { deep: true });
 
@@ -31,8 +34,22 @@ function transformPost(post) {
   });
 
   const seo = {
-    title: metaTitle || title,
-    description: metaDescription || excerpt,
+    title,
+    description: excerpt,
+    titleTemplate: `%s | ${primaryTag.slug} | CFA`,
+    openGraph: {
+      title: metaTitle || title,
+      description: metaDescription || excerpt,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
+    },
+    twitter: {
+      handle: primaryAuthor.twitter,
+      site: primaryAuthor.twitter,
+    },
   };
 
   const tags = originalTags
@@ -47,6 +64,7 @@ function transformPost(post) {
     tags,
     seo,
     title,
+    primaryAuthor,
     ...other,
   };
 }

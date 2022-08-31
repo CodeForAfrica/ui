@@ -12,8 +12,8 @@ export default function getTeam(fields) {
     .map(({ slug = null, name, title, ...other }) => {
       const href = slug ? `/about/members/${slug}` : null;
       const seo = setSeo({
-        title: `${name} | Members | About | Code for Africa`,
-        description: `${title} | Code for Africa`,
+        title: name,
+        description: title,
       });
       return { ...other, slug, href, name, title, seo };
     });

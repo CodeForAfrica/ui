@@ -1,6 +1,6 @@
 const APP_DIRECTORY = process.env.NEXT_PUBLIC_APP_DIRECTORY;
 
-const seoObject = {
+const seoFields = {
   label: "SEO",
   name: "seo",
   widget: "object",
@@ -17,6 +17,13 @@ const seoObject = {
       widget: "string",
       required: false,
       pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+    },
+    {
+      label: "Title Template",
+      name: "title-template",
+      widget: "string",
+      hint: "Uses title template from Settings | General if not provided",
+      required: false,
     },
     {
       label: "Meta data",
@@ -313,7 +320,7 @@ module.exports = {
               ],
             },
             {
-              ...seoObject,
+              ...seoFields,
             },
           ],
         },
@@ -505,7 +512,7 @@ module.exports = {
               ],
             },
             {
-              ...seoObject,
+              ...seoFields,
             },
           ],
         },
@@ -608,7 +615,7 @@ module.exports = {
               ],
             },
             {
-              ...seoObject,
+              ...seoFields,
             },
           ],
         },
@@ -635,7 +642,7 @@ module.exports = {
               ],
             },
             {
-              ...seoObject,
+              ...seoFields,
             },
           ],
         },
@@ -662,7 +669,7 @@ module.exports = {
               ],
             },
             {
-              ...seoObject,
+              ...seoFields,
             },
           ],
         },
@@ -672,7 +679,7 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/stories.md`,
           fields: [
             {
-              ...seoObject,
+              ...seoFields,
             },
           ],
         },
@@ -682,7 +689,7 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/projects.md`,
           fields: [
             {
-              ...seoObject,
+              ...seoFields,
             },
           ],
         },
@@ -714,7 +721,7 @@ module.exports = {
               widget: "markdown",
             },
             {
-              ...seoObject,
+              ...seoFields,
             },
           ],
         },
@@ -746,7 +753,7 @@ module.exports = {
               widget: "markdown",
             },
             {
-              ...seoObject,
+              ...seoFields,
             },
           ],
         },
@@ -775,7 +782,28 @@ module.exports = {
               ],
             },
             {
-              ...seoObject,
+              label: "News and stories",
+              name: "news-stories",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Number of stories",
+                  name: "articles-count",
+                  widget: "number",
+                  value_type: "int",
+                  min: 3,
+                },
+              ],
+            },
+            {
+              ...seoFields,
             },
           ],
         },
@@ -785,7 +813,23 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/error.md`,
           fields: [
             {
-              ...seoObject,
+              label: "Hero",
+              name: "hero",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Subtitle",
+                  name: "subtitle",
+                  widget: "markdown",
+                },
+              ],
             },
             {
               label: "News and stories",
@@ -807,6 +851,9 @@ module.exports = {
                   min: 3,
                 },
               ],
+            },
+            {
+              ...seoFields,
             },
           ],
         },
@@ -1471,7 +1518,7 @@ module.exports = {
                       name: "description",
                       widget: "string",
                       required: false,
-                      hint: "Uses page title if not provided",
+                      hint: "Uses page description if not provided",
                     },
                     {
                       label: "Images",

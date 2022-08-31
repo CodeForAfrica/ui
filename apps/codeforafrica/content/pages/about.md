@@ -88,6 +88,7 @@ get-in-touch:
     content: Get in touch
     href: /contact
 seo:
-  title: About | Code for Africa
+  title: "About "
   description: About Code for Africa
+  title-template: "%s | Code for Africa"
 ---

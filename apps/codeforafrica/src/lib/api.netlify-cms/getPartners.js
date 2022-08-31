@@ -10,7 +10,7 @@ export default function getPartners(fields) {
   return partners.map(({ slug = null, name, ...other }) => {
     const href = slug ? `/about/partners/${slug}` : null;
     const seo = setSeo({
-      title: `${name} | Partners | About | Code for Africa`,
+      title: name,
     });
     return { ...other, slug, href, name, seo };
   });

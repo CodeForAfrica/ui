@@ -57,8 +57,8 @@ export default function getProjects(fields) {
     }
 
     project.seo = setSeo({
-      title: `${project.name} | Projects | Code for Africa`,
-      description: `${project.title} | Code for Africa`,
+      title: project.name,
+      description: project.title,
     });
 
     project.subtitle = marked(project.subtitle);
