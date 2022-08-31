@@ -16,6 +16,11 @@ const outputFileTracingRoot = PROJECT_ROOT
 const moduleExports = withTM({
   experimental: {
     outputFileTracingRoot,
+    images: {
+      unoptimized:
+        process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
+        "true",
+    },
   },
   i18n: {
     locales: process.env.NEXT_PUBLIC_I18N_LOCALES?.split(",")
@@ -27,9 +32,6 @@ const moduleExports = withTM({
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
       ?.map((d) => d.trim())
       ?.filter((d) => d),
-    unoptimized:
-      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
-      "true",
   },
   output: "standalone",
   pageExtensions: ["page.js"],
