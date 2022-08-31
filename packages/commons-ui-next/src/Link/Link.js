@@ -4,7 +4,9 @@ import clsx from "clsx";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import * as React from "react";
+import React from "react";
+
+import isExternalUrl from "@/commons-ui/next/utils/isExternalUrl";
 
 // Add support for the sx prop for consistency with the other branches.
 const Anchor = styled("a")({});
@@ -89,9 +91,7 @@ const Link = React.forwardRef(function Link(props, ref) {
     [activeClassName]: router?.pathname === pathname && activeClassName,
   });
 
-  const isExternal =
-    typeof href === "string" &&
-    (href.indexOf("http") === 0 || href.indexOf("mailto:") === 0);
+  const isExternal = isExternalUrl(href);
 
   if (isExternal) {
     const externalLinkProps = {
