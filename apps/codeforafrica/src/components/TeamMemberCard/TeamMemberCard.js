@@ -29,10 +29,10 @@ const TeamMemberCardMedia = styled(CardMedia, {
 });
 
 const TeamMemberCard = React.forwardRef(function TeamMemberCard(props, ref) {
-  const { href, name, title, thumbnail, ...other } = props;
+  const { href, name, title, thumbnail } = props;
 
   return (
-    <TeamMemberCardRoot elevation={0} square ref={ref} {...other}>
+    <TeamMemberCardRoot elevation={0} square ref={ref}>
       <CardActionArea component={href ? Link : undefined} href={href}>
         <TeamMemberCardMedia {...thumbnail} component="img" />
         <CardContent

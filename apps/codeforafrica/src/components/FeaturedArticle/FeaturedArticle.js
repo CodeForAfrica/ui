@@ -35,12 +35,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
         href={href}
         sx={{ position: "relative" }}
       >
-        <Grid
-          container
-          direction={{ xs: "column", md: "row" }}
-          justifyContent="space-between"
-          wrap="nowrap"
-        >
+        <Grid container justifyContent="space-between">
           <Grid item xs={12} md={variant === "cover" ? 12 : "auto"}>
             <ArticleCardMedia
               alt={title}

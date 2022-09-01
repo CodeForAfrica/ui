@@ -5,7 +5,7 @@ import getSettings from "./sections/getSettings";
 import { getCollectionBySlug } from "./utils";
 
 // 1. Since getCollectionBySlug creates a new object on every call,
-// we don't need to to clone when deep-merging.
+// we don't need to clone when deep-merging.
 //
 // 2. If we have meta (at site or page seo level), it's title and description
 // should override that level's title and description.
