@@ -697,6 +697,16 @@ module.exports = {
           ],
         },
         {
+          label: "Our Work | Individual work",
+          name: "our-work-individual",
+          file: `${APP_DIRECTORY}content/pages/our-work-individual.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
           label: "Opportunities",
           name: "opportunities",
           file: `${APP_DIRECTORY}content/pages/opportunities.md`,
@@ -747,26 +757,6 @@ module.exports = {
           label: "Stories | Individual story",
           name: "stories-individual",
           file: `${APP_DIRECTORY}content/pages/stories-individual.md`,
-          fields: [
-            {
-              ...seoFields,
-            },
-          ],
-        },
-        {
-          label: "Projects",
-          name: "projects",
-          file: `${APP_DIRECTORY}content/pages/projects.md`,
-          fields: [
-            {
-              ...seoFields,
-            },
-          ],
-        },
-        {
-          label: "Projects | Individual Project",
-          name: "individual-project",
-          file: `${APP_DIRECTORY}content/pages/individual-project.md`,
           fields: [
             {
               ...seoFields,

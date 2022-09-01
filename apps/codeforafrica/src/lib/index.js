@@ -212,29 +212,6 @@ export function getProjects(options) {
   return paginateResults(found, page, pageSize);
 }
 
-function getProjectsPageStaticProps() {
-  const seo = getSeo("projects");
-  return {
-    props: {
-      seo,
-      sections: [
-        {
-          slug: "hero",
-          ...getHero("our-work"),
-        },
-        {
-          slug: "projects",
-          tags: getProjectTags(),
-          projects: getProjects(),
-        },
-      ],
-      footer,
-      navbar,
-    },
-    revalidate: DEFAULT_REVALIDATE,
-  };
-}
-
 export async function getOpportunities(options) {
   const { tag: originalTag, page, "page-size": pageSize, q } = options || {};
   const tag = originalTag || ALL_TAG;
@@ -378,9 +355,11 @@ async function getProjectPageStaticProps(params) {
 
   if (project) {
     const relatedStories = await getRelatedStoriesByTags([project.name]);
-    const seo = getSeo("individual-project", {
+    const seo = getSeo("our-work-individual", {
       title: project.name,
-      description: project.title,
+      description:
+        // subtitle could contain html content
+        project.subtitle.replace(/<[^>]*>/g, "").trim() || project.title,
     });
     return {
       props: {
@@ -413,6 +392,29 @@ async function getProjectPageStaticProps(params) {
   }
 
   return { notFound: true };
+}
+
+function getProjectsPageStaticProps() {
+  const seo = getSeo("our-work");
+  return {
+    props: {
+      seo,
+      sections: [
+        {
+          slug: "hero",
+          ...getHero("our-work"),
+        },
+        {
+          slug: "projects",
+          tags: getProjectTags(),
+          projects: getProjects(),
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
 }
 
 async function getStoriesPageStaticProps() {
