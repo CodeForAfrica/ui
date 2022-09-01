@@ -2,6 +2,9 @@
 hero:
   title: IMPRINT
   subtitle: Code for Africa organisation structure
+seo:
+  title: Imprint
+  description: Code for Africa organisation structure
 ---
 
 #### Chapter heading

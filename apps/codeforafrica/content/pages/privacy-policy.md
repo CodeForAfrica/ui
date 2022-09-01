@@ -2,6 +2,9 @@
 hero:
   title: Privacy
   subtitle: Code for Africa Privacy Policy
+seo:
+  title: Privacy
+  description: Code for Africa Privacy Policy
 ---
 
 #### Chapter heading

@@ -1,4 +1,4 @@
 ---
 seo:
-  title-template: "%s | Opportunity | CFA"
+  title-template: "%s | Opportunities | Code for Africa"
 ---
