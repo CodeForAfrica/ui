@@ -325,7 +325,7 @@ module.exports = {
           ],
         },
         {
-          label: "About Us",
+          label: "About",
           name: "about",
           file: `${APP_DIRECTORY}content/pages/about.md`,
           fields: [
@@ -517,19 +517,9 @@ module.exports = {
           ],
         },
         {
-          label: "About | Partners",
-          name: "about-partners",
-          file: `${APP_DIRECTORY}content/pages/about-partners.md`,
-          fields: [
-            {
-              ...seoFields,
-            },
-          ],
-        },
-        {
-          label: "About | Partners | Individual Partner",
-          name: "individual-partner",
-          file: `${APP_DIRECTORY}content/pages/individual-partner.md`,
+          label: "About | Impact",
+          name: "about-impact",
+          file: `${APP_DIRECTORY}content/pages/about-impact.md`,
           fields: [
             {
               ...seoFields,
@@ -547,9 +537,9 @@ module.exports = {
           ],
         },
         {
-          label: "About | Members | Individual Member",
-          name: "individual-member",
-          file: `${APP_DIRECTORY}content/pages/individual-member.md`,
+          label: "About | Members | Individual member",
+          name: "about-members-individual",
+          file: `${APP_DIRECTORY}content/pages/about-members-individual.md`,
           fields: [
             {
               ...seoFields,
@@ -557,9 +547,19 @@ module.exports = {
           ],
         },
         {
-          label: "About | Impact",
-          name: "about-impact",
-          file: `${APP_DIRECTORY}content/pages/about-impact.md`,
+          label: "About | Partners",
+          name: "about-partners",
+          file: `${APP_DIRECTORY}content/pages/about-partners.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "About | Partners | Individual partner",
+          name: "about-partners-individual",
+          file: `${APP_DIRECTORY}content/pages/about-partners-individual.md`,
           fields: [
             {
               ...seoFields,

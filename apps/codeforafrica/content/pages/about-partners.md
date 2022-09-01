@@ -1,4 +1,6 @@
 ---
 seo:
-  title-template: "%s | Partner | CFA"
+  title-template: "%s | Code for Africa"
+  title: Partners
+  description: Our partners
 ---

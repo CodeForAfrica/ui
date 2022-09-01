@@ -89,4 +89,5 @@ get-in-touch:
     href: /contact
 seo:
   description: Empowering citizens through data-driven initiatives
+  title: About Us
 ---

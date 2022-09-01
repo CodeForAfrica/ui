@@ -297,38 +297,6 @@ function getImprintPageStaticProps() {
   };
 }
 
-function getPartnerPageStaticProps(params) {
-  const partner = partners.find(({ slug }) =>
-    equalsIgnoreCase(`/about/partners/${slug}`, params?.slug)
-  );
-
-  if (partner) {
-    const startIndex = getRandomInt(projects.length - 3);
-    const seo = getSeo("individual-partner", {
-      title: partner.name,
-    });
-
-    return {
-      props: {
-        seo,
-        partner: { ...partner, image: partner.logo, title: "Partner" },
-        sections: [
-          {
-            slug: "related-projects",
-            title: "Projects",
-            projects: projects.slice(startIndex, startIndex + 3),
-          },
-        ],
-        footer,
-        navbar,
-      },
-      revalidate: DEFAULT_REVALIDATE,
-    };
-  }
-
-  return { notFound: true };
-}
-
 function getPrivacyPageStaticProps() {
   const seo = getSeo("privacy-policy");
   return {
@@ -512,6 +480,7 @@ export function getMembers(options) {
 
 function getAboutImpactPageStaticProps() {
   const seo = getSeo("about-impact");
+
   return {
     props: {
       seo,
@@ -538,8 +507,38 @@ function getAboutImpactPageStaticProps() {
   };
 }
 
+function getAboutMemberPageStaticProps(params) {
+  const member = team.find(({ href }) => equalsIgnoreCase(href, params?.slug));
+
+  if (member) {
+    const seo = getSeo("about-members-individual", {
+      title: member.name,
+      description: member.title,
+    });
+    const startIndex = getRandomInt(projects.length - 3);
+    return {
+      props: {
+        seo,
+        member,
+        sections: [
+          {
+            slug: "related-projects",
+            title: "Projects",
+            projects: projects.slice(startIndex, startIndex + 3),
+          },
+        ],
+        footer,
+        navbar,
+      },
+      revalidate: DEFAULT_REVALIDATE,
+    };
+  }
+  return { notFound: true };
+}
+
 function getAboutMembersPageStaticProps() {
   const seo = getSeo("about-members");
+
   return {
     props: {
       seo,
@@ -571,6 +570,7 @@ function getAboutMembersPageStaticProps() {
 
 function getAboutPageStaticProps() {
   const seo = getSeo("about");
+
   return {
     props: {
       seo,
@@ -614,8 +614,41 @@ function getAboutPageStaticProps() {
   };
 }
 
+function getAboutPartnerPageStaticProps(params) {
+  const partner = partners.find(({ slug }) =>
+    equalsIgnoreCase(`/about/partners/${slug}`, params?.slug)
+  );
+
+  if (partner) {
+    const seo = getSeo("about-partners-individual", {
+      title: partner.name,
+      // TODO(kilemens): Add short description to each partner
+    });
+    const startIndex = getRandomInt(projects.length - 3);
+
+    return {
+      props: {
+        seo,
+        partner: { ...partner, image: partner.logo, title: "Partner" },
+        sections: [
+          {
+            slug: "related-projects",
+            title: "Projects",
+            projects: projects.slice(startIndex, startIndex + 3),
+          },
+        ],
+        footer,
+        navbar,
+      },
+      revalidate: DEFAULT_REVALIDATE,
+    };
+  }
+  return { notFound: true };
+}
+
 function getAboutPartnersPageStaticProps() {
   const seo = getSeo("about-partners");
+
   return {
     props: {
       seo,
@@ -640,36 +673,6 @@ function getAboutPartnersPageStaticProps() {
     },
     revalidate: DEFAULT_REVALIDATE,
   };
-}
-
-function getTeamMemberPageStaticProps(params) {
-  const member = team.find(({ href }) => equalsIgnoreCase(href, params?.slug));
-
-  if (member) {
-    const startIndex = getRandomInt(projects.length - 3);
-    const seo = getSeo("individual-member", {
-      title: member.name,
-      description: member.title,
-    });
-    return {
-      props: {
-        seo,
-        member,
-        sections: [
-          {
-            slug: "related-projects",
-            title: "Projects",
-            projects: projects.slice(startIndex, startIndex + 3),
-          },
-        ],
-        footer,
-        navbar,
-      },
-      revalidate: DEFAULT_REVALIDATE,
-    };
-  }
-
-  return { notFound: true };
 }
 
 function getContactPageStaticProps() {
@@ -809,10 +812,10 @@ export async function getPageStaticProps(params) {
     }
     default:
       if (params?.slug?.startsWith("/about/members/")) {
-        return getTeamMemberPageStaticProps(params);
+        return getAboutMemberPageStaticProps(params);
       }
       if (params?.slug?.startsWith("/about/partners/")) {
-        return getPartnerPageStaticProps(params);
+        return getAboutPartnerPageStaticProps(params);
       }
       if (params?.slug?.startsWith("/opportunities/")) {
         return getOpportunityPageStaticProps(params);

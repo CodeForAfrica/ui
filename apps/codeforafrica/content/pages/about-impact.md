@@ -1,5 +1,6 @@
 ---
 seo:
-  title: Empowering citizens through data-driven initiatives
-  title-template: "%s | Impact | CFA"
+  title: Impact
+  title-template: "%s | About | Code for Africa"
+  description: Our impact in numbers
 ---
