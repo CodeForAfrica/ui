@@ -421,7 +421,6 @@ async function getProjectPageStaticProps(params) {
 async function getStoriesPageStaticProps() {
   const articles = await getAllStories();
   const tags = await getAllStoriesTags();
-
   const seo = getSeo("stories");
 
   return {
@@ -450,11 +449,12 @@ async function getStoryPageStaticProps(slug) {
 
   // check for empty obj
   if (story) {
-    const seo = getSeo("individual-story", story.seo);
+    const { seo: pageSeo, ...article } = story;
+    const seo = getSeo("stories-individual", pageSeo);
     return {
       props: {
         seo,
-        article: story,
+        article,
         sections: [
           {
             slug: "related-stories",
@@ -468,7 +468,6 @@ async function getStoryPageStaticProps(slug) {
       revalidate: DEFAULT_REVALIDATE,
     };
   }
-
   return { notFound: true };
 }
 

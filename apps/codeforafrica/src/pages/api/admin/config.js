@@ -745,8 +745,8 @@ module.exports = {
         },
         {
           label: "Stories | Individual story",
-          name: "individual-story",
-          file: `${APP_DIRECTORY}content/pages/individual-story.md`,
+          name: "stories-individual",
+          file: `${APP_DIRECTORY}content/pages/stories-individual.md`,
           fields: [
             {
               ...seoFields,
