@@ -280,6 +280,7 @@ async function getOpportunityPageStaticProps(params) {
 
 function getImprintPageStaticProps() {
   const seo = getSeo("imprint");
+
   return {
     props: {
       seo,
@@ -299,6 +300,7 @@ function getImprintPageStaticProps() {
 
 function getPrivacyPageStaticProps() {
   const seo = getSeo("privacy-policy");
+
   return {
     props: {
       seo,
