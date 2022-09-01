@@ -15,7 +15,7 @@ import getFooter from "./sections/getFooter";
 import getHeader from "./sections/getHeader";
 import getHero from "./sections/getHero";
 import getMeetOurTeam from "./sections/getMeetOurTeam";
-import { getSeo, setSeo } from "./seo";
+import getSeo from "./seo";
 
 export {
   getBody,
@@ -33,7 +33,6 @@ export {
   getOurMission,
   getOurPartners,
   getSeo,
-  setSeo,
   getOurTeam,
   getPartners,
   getTeam,

@@ -288,9 +288,11 @@ async function getOpportunityPageStaticProps(params) {
   const opportunity = await getStory(actualSlug);
 
   if (opportunity) {
+    const seo = getSeo("individual-opportunity", opportunity.seo);
+
     return {
       props: {
-        seo: opportunity.seo,
+        seo,
         opportunity,
         footer,
         navbar,
@@ -328,10 +330,13 @@ function getPartnerPageStaticProps(params) {
 
   if (partner) {
     const startIndex = getRandomInt(projects.length - 3);
+    const seo = getSeo("individual-partner", {
+      title: partner.name,
+    });
 
     return {
       props: {
-        seo: partner.seo,
+        seo,
         partner: { ...partner, image: partner.logo, title: "Partner" },
         sections: [
           {
@@ -376,9 +381,13 @@ async function getProjectPageStaticProps(params) {
 
   if (project) {
     const relatedStories = await getRelatedStoriesByTags([project.name]);
+    const seo = getSeo("individual-project", {
+      title: project.name,
+      description: project.title,
+    });
     return {
       props: {
-        seo: project.seo,
+        seo,
         project,
         sections: [
           {
@@ -441,9 +450,10 @@ async function getStoryPageStaticProps(slug) {
 
   // check for empty obj
   if (story) {
+    const seo = getSeo("individual-story", story.seo);
     return {
       props: {
-        seo: story.seo,
+        seo,
         article: story,
         sections: [
           {
@@ -503,7 +513,7 @@ export function getMembers(options) {
 }
 
 function getAboutImpactPageStaticProps() {
-  const seo = getSeo("about");
+  const seo = getSeo("about-impact");
   return {
     props: {
       seo,
@@ -531,7 +541,7 @@ function getAboutImpactPageStaticProps() {
 }
 
 function getAboutMembersPageStaticProps() {
-  const seo = getSeo("about");
+  const seo = getSeo("about-members");
   return {
     props: {
       seo,
@@ -607,7 +617,7 @@ function getAboutPageStaticProps() {
 }
 
 function getAboutPartnersPageStaticProps() {
-  const seo = getSeo("about");
+  const seo = getSeo("about-partners");
   return {
     props: {
       seo,
@@ -639,9 +649,13 @@ function getTeamMemberPageStaticProps(params) {
 
   if (member) {
     const startIndex = getRandomInt(projects.length - 3);
+    const seo = getSeo("individual-member", {
+      title: member.name,
+      description: member.title,
+    });
     return {
       props: {
-        seo: member.seo,
+        seo,
         member,
         sections: [
           {

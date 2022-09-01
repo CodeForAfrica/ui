@@ -1,6 +1,5 @@
 ---
 seo:
   title: Our Work
-  description: Projects by Code for Africa
-  title-template: "%s  | Code for Africa"
+  description: We launch data-driven initiatives to achieve impactful results.
 ---

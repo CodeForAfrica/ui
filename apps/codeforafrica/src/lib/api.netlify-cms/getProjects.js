@@ -6,7 +6,6 @@ import getBadges from "./getBadges";
 import getDonors from "./getDonors";
 import getPartners from "./getPartners";
 import getTeam from "./getTeam";
-import { setSeo } from "./seo";
 import { getCollectionSlugs, getCollectionBySlug } from "./utils";
 
 const projectsDir = join(process.cwd(), "content/projects");
@@ -55,11 +54,6 @@ export default function getProjects(fields) {
         list: project.team.map((id) => team.find((m) => m.id === id)),
       };
     }
-
-    project.seo = setSeo({
-      title: project.name,
-      description: project.title,
-    });
 
     project.subtitle = marked(project.subtitle);
     project.href = `/projects/${project.slug}`;

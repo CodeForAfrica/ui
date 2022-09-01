@@ -4,22 +4,18 @@ import camelcaseKeys from "camelcase-keys";
 import getSettings from "./sections/getSettings";
 import { getCollectionBySlug } from "./utils";
 
-export function setSeo(seoUpdate) {
-  const newSeo = seoUpdate || {};
-  const { seo, site } = getSettings("general");
+function createSeo(pageSeo) {
+  const { seo: siteSeo, site } = getSettings("general");
   const { title, description } = site;
 
-  if (!newSeo?.title || !newSeo?.description) {
-    newSeo.title = title;
-    newSeo.description = description;
-  }
-
-  const seoData = deepmerge(seo, newSeo, { clone: true });
-  return camelcaseKeys(seoData);
+  const newSeo = { title, description, ...pageSeo };
+  const seo = deepmerge(siteSeo, newSeo, { clone: true });
+  return camelcaseKeys(seo);
 }
 
-export function getSeo(page) {
+export default function getSeo(page, pageSeo) {
   const { seo } = getCollectionBySlug("content/pages", page, ["seo"]).items;
 
-  return setSeo(seo);
+  const newSeo = deepmerge(seo, pageSeo, { clone: true });
+  return createSeo(newSeo);
 }

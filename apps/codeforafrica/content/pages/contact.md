@@ -75,5 +75,5 @@ join-us:
     - 4f079340-a9b1-464a-801a-4edabb67b6e8
 seo:
   title: Contact Us
-  description: Get in touch
+  description: Let’s start something together!
 ---

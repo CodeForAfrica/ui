@@ -36,7 +36,6 @@ function transformPost(post) {
   const seo = {
     title,
     description: excerpt,
-    titleTemplate: `%s | ${primaryTag.slug} | CFA`,
     openGraph: {
       title: metaTitle || title,
       description: metaDescription || excerpt,

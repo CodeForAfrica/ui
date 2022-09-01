@@ -1,15 +1,11 @@
 ---
 site:
   title: Code for Africa
-  description: Thoughts, stories and ideas
+  description: Code for Africa is the continent’s largest network of civic
+    technology and data journalism labs, with teams in more than 20 countries.
 seo:
-  title: Code for Africa
-  description: " Thoughts, stories and ideas."
   twitter:
     handle: "@Code4Africa"
     site: "@Code4Africa"
-  title-template: "%s | CFA"
-  open-graph:
-    title: " Code for Africa"
-    description: Thoughts, stories and ideas
+  title-template: "%s | Code for Africa"
 ---

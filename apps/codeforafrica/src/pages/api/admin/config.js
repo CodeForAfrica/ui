@@ -517,6 +517,56 @@ module.exports = {
           ],
         },
         {
+          label: "About | Partners",
+          name: "about-partners",
+          file: `${APP_DIRECTORY}content/pages/about-partners.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "About | Partners | Individual Partner",
+          name: "individual-partner",
+          file: `${APP_DIRECTORY}content/pages/individual-partner.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "About | Members",
+          name: "about-members",
+          file: `${APP_DIRECTORY}content/pages/about-members.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "About | Members | Individual Member",
+          name: "individual-member",
+          file: `${APP_DIRECTORY}content/pages/individual-member.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "About | Impact",
+          name: "about-impact",
+          file: `${APP_DIRECTORY}content/pages/about-impact.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
           label: "Contact Us",
           name: "contact",
           file: `${APP_DIRECTORY}content/pages/contact.md`,
@@ -674,6 +724,16 @@ module.exports = {
           ],
         },
         {
+          label: "Opportunities | Individual opportunity",
+          name: "individual-opportunity",
+          file: `${APP_DIRECTORY}content/pages/individual-opportunity.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
           label: "Stories",
           name: "stories",
           file: `${APP_DIRECTORY}content/pages/stories.md`,
@@ -684,9 +744,29 @@ module.exports = {
           ],
         },
         {
+          label: "Stories | Individual story",
+          name: "individual-story",
+          file: `${APP_DIRECTORY}content/pages/individual-story.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
           label: "Projects",
           name: "projects",
           file: `${APP_DIRECTORY}content/pages/projects.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "Projects | Individual Project",
+          name: "individual-project",
+          file: `${APP_DIRECTORY}content/pages/individual-project.md`,
           fields: [
             {
               ...seoFields,
