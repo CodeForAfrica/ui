@@ -4,6 +4,6 @@ hero:
   subtitle: Come build digital democracies with Code for Africa
 seo:
   title: Opportunities
-  description: Opportunities at Code for Africa
-  title-template: "%s  | Code for Africa"
+  description: Come build digital democracies with Code for Africa
+  title-template: ""
 ---

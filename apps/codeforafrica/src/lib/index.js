@@ -282,14 +282,12 @@ async function getOpportunitiesPageStaticProps() {
 }
 
 async function getOpportunityPageStaticProps(params) {
-  // TODO: is this the best way to get the article slug?
   const actualSlug = params.slug.split("/")[2];
+  const foundOpportunity = await getStory(actualSlug);
 
-  const opportunity = await getStory(actualSlug);
-
-  if (opportunity) {
-    const seo = getSeo("individual-opportunity", opportunity.seo);
-
+  if (foundOpportunity) {
+    const { seo: pageSeo, ...opportunity } = foundOpportunity;
+    const seo = getSeo("opportunities-individual", pageSeo);
     return {
       props: {
         seo,
@@ -300,7 +298,6 @@ async function getOpportunityPageStaticProps(params) {
       revalidate: DEFAULT_REVALIDATE,
     };
   }
-
   return { notFound: true };
 }
 

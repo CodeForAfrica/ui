@@ -725,8 +725,8 @@ module.exports = {
         },
         {
           label: "Opportunities | Individual opportunity",
-          name: "individual-opportunity",
-          file: `${APP_DIRECTORY}content/pages/individual-opportunity.md`,
+          name: "opportunities-individual",
+          file: `${APP_DIRECTORY}content/pages/opportunities-individual.md`,
           fields: [
             {
               ...seoFields,
