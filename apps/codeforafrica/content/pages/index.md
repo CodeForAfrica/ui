@@ -54,4 +54,8 @@ our-impact:
   action:
     content: Get involved
     href: /about/impact
+seo:
+  title:
+    "Code for Africa: The continent's largest network of civic technology and
+    data journalism labs."
 ---

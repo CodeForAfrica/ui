@@ -1,0 +1,4 @@
+---
+seo:
+  title: "Stories"
+---

@@ -5,10 +5,10 @@ import React from "react";
 import Footer from "@/codeforafrica/components/Footer";
 import NavBar from "@/codeforafrica/components/NavBar";
 
-function Page({ children, footer, navbar, title }) {
+function Page({ children, footer, navbar, seo }) {
   return (
     <>
-      <NextSeo title={title} />
+      <NextSeo {...seo} />
       {navbar ? <NavBar {...navbar} /> : null}
       {children ? <main>{children}</main> : null}
       {footer ? <Footer {...footer} /> : null}

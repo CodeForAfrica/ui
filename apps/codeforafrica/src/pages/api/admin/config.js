@@ -1,5 +1,124 @@
 const APP_DIRECTORY = process.env.NEXT_PUBLIC_APP_DIRECTORY;
 
+const seoFields = {
+  label: "SEO",
+  name: "seo",
+  widget: "object",
+  fields: [
+    {
+      label: "Title",
+      name: "title",
+      widget: "string",
+      required: false,
+    },
+    {
+      label: "Description",
+      name: "description",
+      widget: "string",
+      required: false,
+      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+    },
+    {
+      label: "Title Template",
+      name: "title-template",
+      widget: "string",
+      hint: "Uses title template from Settings | General if not provided",
+      required: false,
+    },
+    {
+      label: "Meta data",
+      name: "meta",
+      widget: "object",
+      hint: "Search engines support",
+      fields: [
+        {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          required: false,
+          hint: "Uses page title if not provided",
+          pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+        },
+        {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: false,
+          hint: "Uses page description if not provided",
+          pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+        },
+      ],
+    },
+    {
+      label: "Open Graph",
+      name: "open-graph",
+      hint: "Facebook, Slack, and other social media platforms",
+      widget: "object",
+      fields: [
+        {
+          label: "Title",
+          hint: "Uses page title if not provided",
+          name: "title",
+          widget: "string",
+          required: false,
+        },
+        {
+          label: "Description",
+          name: "description",
+          widget: "string",
+          hint: "Uses page description if not provided",
+          required: false,
+        },
+        {
+          label: "Images",
+          name: "images",
+          widget: "list",
+          min: 1,
+          max: 1,
+          required: false,
+          fields: [
+            {
+              name: "url",
+              label: "URL",
+              widget: "string",
+            },
+            {
+              name: "width",
+              label: "Width",
+              widget: "string",
+            },
+            {
+              name: "height",
+              label: "Height",
+              widget: "string",
+            },
+            {
+              name: "alt",
+              label: "Alt Text",
+              widget: "string",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Twitter",
+      name: "twitter",
+      widget: "object",
+      fields: [
+        {
+          label: "Handle",
+          name: "handle",
+          hint: "@username of content creator",
+          widget: "string",
+          required: false,
+          default: "@Code4Africa",
+        },
+      ],
+    },
+  ],
+};
+
 module.exports = {
   backend: {
     name: "github",
@@ -200,10 +319,13 @@ module.exports = {
                 },
               ],
             },
+            {
+              ...seoFields,
+            },
           ],
         },
         {
-          label: "About Us",
+          label: "About",
           name: "about",
           file: `${APP_DIRECTORY}content/pages/about.md`,
           fields: [
@@ -389,6 +511,59 @@ module.exports = {
                 },
               ],
             },
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "About | Impact",
+          name: "about-impact",
+          file: `${APP_DIRECTORY}content/pages/about-impact.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "About | Members",
+          name: "about-members",
+          file: `${APP_DIRECTORY}content/pages/about-members.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "About | Members | Individual member",
+          name: "about-members-individual",
+          file: `${APP_DIRECTORY}content/pages/about-members-individual.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "About | Partners",
+          name: "about-partners",
+          file: `${APP_DIRECTORY}content/pages/about-partners.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "About | Partners | Individual partner",
+          name: "about-partners-individual",
+          file: `${APP_DIRECTORY}content/pages/about-partners-individual.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
           ],
         },
         {
@@ -489,6 +664,9 @@ module.exports = {
                 },
               ],
             },
+            {
+              ...seoFields,
+            },
           ],
         },
         {
@@ -513,6 +691,19 @@ module.exports = {
                 },
               ],
             },
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "Our Work | Individual work",
+          name: "our-work-individual",
+          file: `${APP_DIRECTORY}content/pages/our-work-individual.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
           ],
         },
         {
@@ -536,6 +727,39 @@ module.exports = {
                   widget: "string",
                 },
               ],
+            },
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "Opportunities | Individual opportunity",
+          name: "opportunities-individual",
+          file: `${APP_DIRECTORY}content/pages/opportunities-individual.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "Stories",
+          name: "stories",
+          file: `${APP_DIRECTORY}content/pages/stories.md`,
+          fields: [
+            {
+              ...seoFields,
+            },
+          ],
+        },
+        {
+          label: "Stories | Individual story",
+          name: "stories-individual",
+          file: `${APP_DIRECTORY}content/pages/stories-individual.md`,
+          fields: [
+            {
+              ...seoFields,
             },
           ],
         },
@@ -566,6 +790,9 @@ module.exports = {
               name: "body",
               widget: "markdown",
             },
+            {
+              ...seoFields,
+            },
           ],
         },
         {
@@ -594,6 +821,9 @@ module.exports = {
               label: "Body",
               name: "body",
               widget: "markdown",
+            },
+            {
+              ...seoFields,
             },
           ],
         },
@@ -642,6 +872,9 @@ module.exports = {
                 },
               ],
             },
+            {
+              ...seoFields,
+            },
           ],
         },
         {
@@ -688,6 +921,9 @@ module.exports = {
                   min: 3,
                 },
               ],
+            },
+            {
+              ...seoFields,
             },
           ],
         },
@@ -1275,6 +1511,141 @@ module.exports = {
       name: "settings",
       label: "Settings",
       files: [
+        {
+          name: "general",
+          label: "General",
+          file: `${APP_DIRECTORY}content/settings/general.md`,
+          fields: [
+            {
+              label: "Site",
+              name: "site",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                  hint: "The name of the site",
+                },
+                {
+                  label: "Description",
+                  name: "description",
+                  widget: "text",
+                  required: false,
+                  hint: "Helps with search results and when shared in social media platforms",
+                },
+              ],
+            },
+            {
+              label: "SEO",
+              name: "seo",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title Template",
+                  name: "title-template",
+                  widget: "string",
+                  hint: '"pre/suffix that should be included with every page. It replaces %s with your title string e.g. "%s | CfA" template will render "About | CfA" in about page with title "About"',
+                },
+                {
+                  label: "Meta data",
+                  name: "meta",
+                  widget: "object",
+                  hint: "Search engines support",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page title if not provided",
+                      pattern: ["^.{1,70}$", "Must be up to 70 characters"],
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "text",
+                      required: false,
+                      hint: "Uses page description if not provided",
+                      pattern: ["^.{1,150}$", "Must be up to 156 characters"],
+                    },
+                  ],
+                },
+                {
+                  label: "Open Graph",
+                  name: "open-graph",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "Title",
+                      name: "title",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page title if not provided",
+                    },
+                    {
+                      label: "Description",
+                      name: "description",
+                      widget: "string",
+                      required: false,
+                      hint: "Uses page description if not provided",
+                    },
+                    {
+                      label: "Images",
+                      name: "images",
+                      widget: "list",
+                      max: 1,
+                      min: 1,
+                      required: false,
+                      fields: [
+                        {
+                          name: "url",
+                          label: "URL",
+                          widget: "string",
+                        },
+                        {
+                          name: "width",
+                          label: "Width",
+                          widget: "string",
+                        },
+                        {
+                          name: "height",
+                          label: "Height",
+                          widget: "string",
+                        },
+                        {
+                          name: "alt",
+                          label: "Alt Text",
+                          widget: "string",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  label: "Twitter",
+                  name: "twitter",
+                  widget: "object",
+                  fields: [
+                    {
+                      label: "@Site",
+                      name: "site",
+                      widget: "string",
+                      required: false,
+                      default: "@Code4Africa",
+                    },
+                    {
+                      label: "Card Type",
+                      name: "cardType",
+                      widget: "hidden",
+                      default: "summary_large_image",
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
         {
           label: "Header",
           name: "header",

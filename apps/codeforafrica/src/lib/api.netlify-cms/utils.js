@@ -29,5 +29,6 @@ export function getCollectionBySlug(collectionDir, slug, fields) {
     }
     return acc;
   }, {});
+
   return { items, data }; // return data which can be used as default incase of no fields
 }

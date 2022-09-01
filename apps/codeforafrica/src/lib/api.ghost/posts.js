@@ -1,29 +1,35 @@
 import { promises as fs } from "fs";
 import { join } from "path";
 
-import GhostContentAPI from "@tryghost/content-api";
 import camelcaseKeys from "camelcase-keys";
 
+import initializeContentAPI from "@/codeforafrica/lib/api.ghost/ghost";
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 const cacheDir = join(process.cwd(), "public/data");
-
-function initializeContentAPI() {
-  return new GhostContentAPI({
-    url: process.env.GHOST_URL,
-    key: process.env.GHOST_API_KEY,
-    version: process.env.GHOST_API_VERSION || "v5.0",
-  });
-}
 
 function transformPost(post) {
   const {
     customExcerpt,
     excerpt: originalExcerpt,
+    featureImage,
+    featureImageAlt,
+    featureImageCaption,
+    metaDescription,
+    metaTitle,
+    primaryAuthor,
     primaryTag,
     publishedAt: publishedAtRaw,
     slug,
     tags: originalTags,
+    title,
+    twitterDescription,
+    twitterImage,
+    twitterTitle,
+    ogDescription,
+    ogImage,
+    ogTitle,
+    updatedAt,
     ...other
   } = camelcaseKeys(post, { deep: true });
 
@@ -37,13 +43,57 @@ function transformPost(post) {
   const tags = originalTags
     .filter((t) => !equalsIgnoreCase(t.name, primaryTag.name))
     .map((tag) => tag.name);
+
+  const seo = {
+    title: metaTitle || title,
+    description: metaDescription || excerpt,
+    openGraph: {
+      type: "article",
+      article: {
+        publishedTime: publishedAtRaw,
+        modifiedTime: updatedAt,
+        tags,
+      },
+    },
+    twitter: {
+      handle: primaryAuthor.twitter,
+    },
+  };
+  // seo will be merged with individual story page seo. This means "empty"
+  // values should be excluded.
+  const computedOgDescription = ogDescription || twitterDescription;
+  if (computedOgDescription) {
+    seo.openGraph.description = computedOgDescription;
+  }
+  const computedOgTitle = ogTitle || twitterTitle;
+  if (computedOgTitle) {
+    seo.openGraph.title = computedOgTitle;
+  }
+  const computedOgImage = ogImage || twitterImage || featureImage;
+  if (computedOgImage) {
+    seo.openGraph.images = [
+      {
+        url: computedOgImage,
+        alt:
+          featureImageAlt ||
+          featureImageCaption ||
+          computedOgTitle ||
+          seo.title,
+      },
+    ];
+  }
+
   return {
     excerpt,
+    featureImage,
     href,
     primaryTag,
     publishedAt,
     slug,
     tags,
+    seo,
+    title,
+    primaryAuthor,
     ...other,
   };
 }

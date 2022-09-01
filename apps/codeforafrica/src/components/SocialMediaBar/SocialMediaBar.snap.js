@@ -4,8 +4,12 @@ exports[`<SocialMediaBar /> renders unchanged 1`] = `
 <div>
   <div
     class="css-mpycnp-MuiStack-root"
-    links="[object Object]"
   >
+    <div
+      class="MuiTypography-root MuiTypography-footerCap css-19iy7wy-MuiTypography-root"
+    >
+      Connect with: 
+    </div>
     <div
       class="css-163j9ep-MuiStack-root"
     />

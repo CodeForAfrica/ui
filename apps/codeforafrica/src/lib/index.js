@@ -17,6 +17,7 @@ import {
   getOurTeam,
   getPartners,
   getTeam,
+  getSeo,
 } from "./api.netlify-cms";
 
 import {
@@ -159,9 +160,10 @@ async function getProcessedNewsAndStories() {
 }
 
 async function getHomePageStaticProps() {
+  const seo = getSeo("index");
   return {
     props: {
-      title: "Code for Africa",
+      seo,
       sections: [
         {
           ...getHero("index"),
@@ -210,28 +212,6 @@ export function getProjects(options) {
   return paginateResults(found, page, pageSize);
 }
 
-function getProjectsPageStaticProps() {
-  return {
-    props: {
-      title: "Our Work | Code for Africa",
-      sections: [
-        {
-          slug: "hero",
-          ...getHero("our-work"),
-        },
-        {
-          slug: "projects",
-          tags: getProjectTags(),
-          projects: getProjects(),
-        },
-      ],
-      footer,
-      navbar,
-    },
-    revalidate: DEFAULT_REVALIDATE,
-  };
-}
-
 export async function getOpportunities(options) {
   const { tag: originalTag, page, "page-size": pageSize, q } = options || {};
   const tag = originalTag || ALL_TAG;
@@ -255,10 +235,11 @@ export async function getOpportunities(options) {
 async function getOpportunitiesPageStaticProps() {
   const allOpportunities = await getAllOpportunities();
   const tags = await getAllOpportunitiesTags();
+  const seo = getSeo("opportunities");
 
   return {
     props: {
-      title: "Opportunities | Code for Africa",
+      seo,
       sections: [
         {
           slug: "hero",
@@ -278,15 +259,15 @@ async function getOpportunitiesPageStaticProps() {
 }
 
 async function getOpportunityPageStaticProps(params) {
-  // TODO: is this the best way to get the article slug?
   const actualSlug = params.slug.split("/")[2];
+  const foundOpportunity = await getStory(actualSlug);
 
-  const opportunity = await getStory(actualSlug);
-
-  if (opportunity) {
+  if (foundOpportunity) {
+    const { seo: pageSeo, ...opportunity } = foundOpportunity;
+    const seo = getSeo("opportunities-individual", pageSeo);
     return {
       props: {
-        title: `${opportunity.title} | Opportunities | Code for Africa`,
+        seo,
         opportunity,
         footer,
         navbar,
@@ -294,15 +275,16 @@ async function getOpportunityPageStaticProps(params) {
       revalidate: DEFAULT_REVALIDATE,
     };
   }
-
   return { notFound: true };
 }
 
 function getImprintPageStaticProps() {
+  const seo = getSeo("imprint");
+
   return {
     props: {
+      seo,
       ...getBody("imprint"),
-      title: "Imprint | Code for Africa",
       sections: [
         {
           ...getHero("imprint"),
@@ -316,38 +298,13 @@ function getImprintPageStaticProps() {
   };
 }
 
-function getPartnerPageStaticProps(params) {
-  const partner = partners.find(({ slug }) =>
-    equalsIgnoreCase(`/about/partners/${slug}`, params?.slug)
-  );
-  if (partner) {
-    const startIndex = getRandomInt(projects.length - 3);
-    return {
-      props: {
-        title: `${partner.name} | Partners | About | Code for Africa`,
-        partner: { ...partner, image: partner.logo, title: "Partner" },
-        sections: [
-          {
-            slug: "related-projects",
-            title: "Projects",
-            projects: projects.slice(startIndex, startIndex + 3),
-          },
-        ],
-        footer,
-        navbar,
-      },
-      revalidate: DEFAULT_REVALIDATE,
-    };
-  }
-
-  return { notFound: true };
-}
-
 function getPrivacyPageStaticProps() {
+  const seo = getSeo("privacy-policy");
+
   return {
     props: {
+      seo,
       ...getBody("privacy-policy"),
-      title: "Privacy | Code for Africa",
       sections: [
         {
           ...getHero("privacy-policy"),
@@ -365,12 +322,18 @@ async function getProjectPageStaticProps(params) {
   const project = projects.find(({ href }) =>
     equalsIgnoreCase(href, params?.slug)
   );
+
   if (project) {
     const relatedStories = await getRelatedStoriesByTags([project.name]);
-
+    const seo = getSeo("our-work-individual", {
+      title: project.name,
+      description:
+        // subtitle could contain html content
+        project.subtitle.replace(/<[^>]*>/g, "").trim() || project.title,
+    });
     return {
       props: {
-        title: `${project.name} | Projects | Code for Africa`,
+        seo,
         project,
         sections: [
           {
@@ -401,13 +364,37 @@ async function getProjectPageStaticProps(params) {
   return { notFound: true };
 }
 
+function getProjectsPageStaticProps() {
+  const seo = getSeo("our-work");
+  return {
+    props: {
+      seo,
+      sections: [
+        {
+          slug: "hero",
+          ...getHero("our-work"),
+        },
+        {
+          slug: "projects",
+          tags: getProjectTags(),
+          projects: getProjects(),
+        },
+      ],
+      footer,
+      navbar,
+    },
+    revalidate: DEFAULT_REVALIDATE,
+  };
+}
+
 async function getStoriesPageStaticProps() {
   const articles = await getAllStories();
   const tags = await getAllStoriesTags();
+  const seo = getSeo("stories");
 
   return {
     props: {
-      title: "Stories | Code for Africa",
+      seo,
       sections: [
         {
           slug: "stories",
@@ -431,10 +418,12 @@ async function getStoryPageStaticProps(slug) {
 
   // check for empty obj
   if (story) {
+    const { seo: pageSeo, ...article } = story;
+    const seo = getSeo("stories-individual", pageSeo);
     return {
       props: {
-        title: `${story.title} | Stories | Code for Africa`,
-        article: story,
+        seo,
+        article,
         sections: [
           {
             slug: "related-stories",
@@ -448,7 +437,6 @@ async function getStoryPageStaticProps(slug) {
       revalidate: DEFAULT_REVALIDATE,
     };
   }
-
   return { notFound: true };
 }
 
@@ -493,10 +481,12 @@ export function getMembers(options) {
 }
 
 function getAboutImpactPageStaticProps() {
+  const seo = getSeo("about-impact");
+
   return {
     props: {
+      seo,
       unit: "impact",
-      title: "Impact | About | Code for Africa",
       crumbs: [{ href: "/about", label: "About us" }, { label: "Impact" }],
       sections: [
         {
@@ -519,11 +509,42 @@ function getAboutImpactPageStaticProps() {
   };
 }
 
+function getAboutMemberPageStaticProps(params) {
+  const member = team.find(({ href }) => equalsIgnoreCase(href, params?.slug));
+
+  if (member) {
+    const seo = getSeo("about-members-individual", {
+      title: member.name,
+      description: member.title,
+    });
+    const startIndex = getRandomInt(projects.length - 3);
+    return {
+      props: {
+        seo,
+        member,
+        sections: [
+          {
+            slug: "related-projects",
+            title: "Projects",
+            projects: projects.slice(startIndex, startIndex + 3),
+          },
+        ],
+        footer,
+        navbar,
+      },
+      revalidate: DEFAULT_REVALIDATE,
+    };
+  }
+  return { notFound: true };
+}
+
 function getAboutMembersPageStaticProps() {
+  const seo = getSeo("about-members");
+
   return {
     props: {
+      seo,
       unit: "members",
-      title: "Members | About | Code for Africa",
       crumbs: [{ href: "/about", label: "About us" }, { label: "Members" }],
       sections: [
         {
@@ -550,9 +571,11 @@ function getAboutMembersPageStaticProps() {
 }
 
 function getAboutPageStaticProps() {
+  const seo = getSeo("about");
+
   return {
     props: {
-      title: "About | Code for Africa",
+      seo,
       sections: [
         {
           ...getHero("about"),
@@ -593,11 +616,45 @@ function getAboutPageStaticProps() {
   };
 }
 
+function getAboutPartnerPageStaticProps(params) {
+  const partner = partners.find(({ slug }) =>
+    equalsIgnoreCase(`/about/partners/${slug}`, params?.slug)
+  );
+
+  if (partner) {
+    const seo = getSeo("about-partners-individual", {
+      title: partner.name,
+      // TODO(kilemens): Add short description to each partner
+    });
+    const startIndex = getRandomInt(projects.length - 3);
+
+    return {
+      props: {
+        seo,
+        partner: { ...partner, image: partner.logo, title: "Partner" },
+        sections: [
+          {
+            slug: "related-projects",
+            title: "Projects",
+            projects: projects.slice(startIndex, startIndex + 3),
+          },
+        ],
+        footer,
+        navbar,
+      },
+      revalidate: DEFAULT_REVALIDATE,
+    };
+  }
+  return { notFound: true };
+}
+
 function getAboutPartnersPageStaticProps() {
+  const seo = getSeo("about-partners");
+
   return {
     props: {
+      seo,
       unit: "partners",
-      title: "Partners | About | Code for Africa",
       crumbs: [{ href: "/about", label: "About us" }, { label: "Partners" }],
       sections: [
         {
@@ -620,35 +677,12 @@ function getAboutPartnersPageStaticProps() {
   };
 }
 
-function getTeamMemberPageStaticProps(params) {
-  const member = team.find(({ href }) => equalsIgnoreCase(href, params?.slug));
-  if (member) {
-    const startIndex = getRandomInt(projects.length - 3);
-    return {
-      props: {
-        title: `${member.name} | Members | About | Code for Africa`,
-        member,
-        sections: [
-          {
-            slug: "related-projects",
-            title: "Projects",
-            projects: projects.slice(startIndex, startIndex + 3),
-          },
-        ],
-        footer,
-        navbar,
-      },
-      revalidate: DEFAULT_REVALIDATE,
-    };
-  }
-
-  return { notFound: true };
-}
-
 function getContactPageStaticProps() {
+  const seo = getSeo("contact");
+
   return {
     props: {
-      title: "Contact | Code for Africa",
+      seo,
       sections: [
         {
           slug: "hero",
@@ -698,8 +732,11 @@ async function getProcessedRecentStories(page) {
 }
 
 async function getErrorPageStaticProps() {
+  const seo = getSeo("error");
+
   return {
     props: {
+      seo,
       sections: [
         {
           ...getHero("error"),
@@ -718,8 +755,11 @@ async function getErrorPageStaticProps() {
 }
 
 async function get404PageStaticProps() {
+  const seo = getSeo("404");
+
   return {
     props: {
+      seo,
       sections: [
         {
           ...getHero("404"),
@@ -728,6 +768,7 @@ async function get404PageStaticProps() {
         {
           ...(await getProcessedRecentStories("404")),
           slug: "news-stories",
+          title: "Recent Stories",
         },
       ],
       footer,
@@ -780,10 +821,10 @@ export async function getPageStaticProps(params) {
     }
     default:
       if (params?.slug?.startsWith("/about/members/")) {
-        return getTeamMemberPageStaticProps(params);
+        return getAboutMemberPageStaticProps(params);
       }
       if (params?.slug?.startsWith("/about/partners/")) {
-        return getPartnerPageStaticProps(params);
+        return getAboutPartnerPageStaticProps(params);
       }
       if (params?.slug?.startsWith("/opportunities/")) {
         return getOpportunityPageStaticProps(params);

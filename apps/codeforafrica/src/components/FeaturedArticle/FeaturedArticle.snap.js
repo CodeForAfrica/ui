@@ -11,7 +11,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
       tabindex="0"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-17x9kv1-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gjb3vx-MuiGrid-root"

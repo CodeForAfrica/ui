@@ -9,9 +9,7 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  links: {
-    facebook: "https://www.facebook.com/",
-  },
+  title: "Connect with: ",
 };
 
 describe("<SocialMediaBar />", () => {
