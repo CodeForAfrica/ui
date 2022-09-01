@@ -677,6 +677,7 @@ function getAboutPartnersPageStaticProps() {
 
 function getContactPageStaticProps() {
   const seo = getSeo("contact");
+
   return {
     props: {
       seo,
@@ -729,8 +730,11 @@ async function getProcessedRecentStories(page) {
 }
 
 async function getErrorPageStaticProps() {
+  const seo = getSeo("error");
+
   return {
     props: {
+      seo,
       sections: [
         {
           ...getHero("error"),
@@ -749,8 +753,11 @@ async function getErrorPageStaticProps() {
 }
 
 async function get404PageStaticProps() {
+  const seo = getSeo("404");
+
   return {
     props: {
+      seo,
       sections: [
         {
           ...getHero("404"),
