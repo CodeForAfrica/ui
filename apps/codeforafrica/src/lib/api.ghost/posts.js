@@ -12,16 +12,24 @@ function transformPost(post) {
   const {
     customExcerpt,
     excerpt: originalExcerpt,
+    featureImage,
+    featureImageAlt,
+    featureImageCaption,
+    metaDescription,
+    metaTitle,
+    primaryAuthor,
     primaryTag,
     publishedAt: publishedAtRaw,
     slug,
     tags: originalTags,
-    metaTitle,
-    metaDescription,
     title,
+    twitterDescription,
+    twitterImage,
+    twitterTitle,
+    ogDescription,
     ogImage,
     ogTitle,
-    primaryAuthor,
+    updatedAt,
     ...other
   } = camelcaseKeys(post, { deep: true });
 
@@ -32,30 +40,52 @@ function transformPost(post) {
     month: "short",
     day: "numeric",
   });
-
-  const seo = {
-    title,
-    description: excerpt,
-    openGraph: {
-      title: metaTitle || title,
-      description: metaDescription || excerpt,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      handle: primaryAuthor.twitter,
-      site: primaryAuthor.twitter,
-    },
-  };
-
   const tags = originalTags
     .filter((t) => !equalsIgnoreCase(t.name, primaryTag.name))
     .map((tag) => tag.name);
+
+  const seo = {
+    title: metaTitle || title,
+    description: metaDescription || excerpt,
+    openGraph: {
+      type: "article",
+      article: {
+        publishedTime: publishedAtRaw,
+        modifiedTime: updatedAt,
+        tags,
+      },
+    },
+    twitter: {
+      handle: primaryAuthor.twitter,
+    },
+  };
+  // seo will be merged with individual story page seo. This means "empty"
+  // values should be excluded.
+  const computedOgDescription = ogDescription || twitterDescription;
+  if (computedOgDescription) {
+    seo.openGraph.description = computedOgDescription;
+  }
+  const computedOgTitle = ogTitle || twitterTitle;
+  if (computedOgTitle) {
+    seo.openGraph.title = computedOgTitle;
+  }
+  const computedOgImage = ogImage || twitterImage || featureImage;
+  if (computedOgImage) {
+    seo.openGraph.images = [
+      {
+        url: computedOgImage,
+        alt:
+          featureImageAlt ||
+          featureImageCaption ||
+          computedOgTitle ||
+          seo.title,
+      },
+    ];
+  }
+
   return {
     excerpt,
+    featureImage,
     href,
     primaryTag,
     publishedAt,
