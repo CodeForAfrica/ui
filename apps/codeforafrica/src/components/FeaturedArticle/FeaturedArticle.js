@@ -3,6 +3,7 @@ import { Link } from "@commons-ui/next";
 import Button from "@mui/material/Button";
 import CardActionArea from "@mui/material/CardActionArea";
 import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
@@ -108,10 +109,6 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
           <Grid
             item
             xs={12}
-            md={3}
-            container
-            justifyContent="center"
-            alignItems="center"
             sx={{
               display: {
                 xs: "none",
@@ -126,23 +123,47 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
           >
             <Grid
               item
-              md={9}
-              container
-              justifyContent="center"
-              alignItems="center"
+              xs={12}
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: variant === "cover" ? "flex" : "none",
+                },
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+              }}
             >
-              <ArticleCardContent>
-                <Typography
-                  variant="h1"
-                  textAlign="center"
-                  sx={{ color: "text.secondary", textTransform: "uppercase" }}
+              <Stack
+                alignItems="center"
+                justifyContent="center"
+                spacing={4.5}
+                sx={{
+                  width: { sm: "712px", md: "912px" },
+                }}
+              >
+                <ArticleCardContent sx={{ p: 0 }}>
+                  <Typography
+                    variant="h1"
+                    textAlign="center"
+                    sx={{
+                      color: "text.secondary",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {title}
+                  </Typography>
+                </ArticleCardContent>
+                <Button
+                  color="primary"
+                  size="large"
+                  variant="contained-reverse"
                 >
-                  {title}
-                </Typography>
-              </ArticleCardContent>
-              <Button color="primary" size="large" variant="contained-reverse">
-                READ STORY
-              </Button>
+                  READ STORY
+                </Button>
+              </Stack>
             </Grid>
           </Grid>
         </Grid>
