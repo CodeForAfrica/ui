@@ -53,23 +53,19 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-uvxcgo-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 css-1phijti-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-uvxcgo-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <div
-              class="css-c6oxnt-MuiStack-root"
+              class="MuiCardContent-root css-148nlxb-MuiCardContent-root"
             >
-              <div
-                class="MuiCardContent-root css-h6dmcu-MuiCardContent-root"
+              <h1
+                class="MuiTypography-root MuiTypography-h1 css-gklt6i-MuiTypography-root"
               >
-                <h1
-                  class="MuiTypography-root MuiTypography-h1 css-gklt6i-MuiTypography-root"
-                >
-                  Battle for gender equality in African media continues
-                </h1>
-              </div>
+                Battle for gender equality in African media continues
+              </h1>
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge css-18nvokw-MuiButtonBase-root-MuiButton-root"
                 tabindex="0"

@@ -3,7 +3,6 @@ import { Link } from "@commons-ui/next";
 import Button from "@mui/material/Button";
 import CardActionArea from "@mui/material/CardActionArea";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
@@ -109,6 +108,9 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
           <Grid
             item
             xs={12}
+            container
+            alignItems="center"
+            justifyContent="center"
             sx={{
               display: {
                 xs: "none",
@@ -121,41 +123,30 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
               height: "100%",
             }}
           >
-            <Grid
-              item
-              xs={12}
-              sx={{
-                display: {
-                  xs: "none",
-                  sm: variant === "cover" ? "flex" : "none",
-                },
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-              }}
-            >
-              <Stack
-                alignItems="center"
-                justifyContent="center"
-                spacing={4.5}
+            <Grid item>
+              <ArticleCardContent
                 sx={{
+                  alignItems: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  p: 0,
+                  gap: 4.5,
                   width: { sm: "712px", md: "912px" },
+                  "&:last-child": {
+                    p: 0,
+                  },
                 }}
               >
-                <ArticleCardContent sx={{ p: 0 }}>
-                  <Typography
-                    variant="h1"
-                    textAlign="center"
-                    sx={{
-                      color: "text.secondary",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {title}
-                  </Typography>
-                </ArticleCardContent>
+                <Typography
+                  variant="h1"
+                  textAlign="center"
+                  sx={{
+                    color: "text.secondary",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {title}
+                </Typography>
                 <Button
                   color="primary"
                   size="large"
@@ -163,7 +154,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
                 >
                   READ STORY
                 </Button>
-              </Stack>
+              </ArticleCardContent>
             </Grid>
           </Grid>
         </Grid>
