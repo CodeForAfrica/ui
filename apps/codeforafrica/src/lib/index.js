@@ -682,8 +682,6 @@ function getContactPageStaticProps() {
 
   const { embedCode, joinUs } = getContactForm();
 
-  console.log("joinUs", joinUs);
-
   return {
     props: {
       seo,
