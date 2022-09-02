@@ -6,7 +6,7 @@ exports[`<ProjectDescription /> renders unchanged 1`] = `
     class="css-hhh1r-MuiStack-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-h5 css-1sbxx2f-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5 css-1a7nesc-MuiTypography-root"
     >
       Description
     </div>

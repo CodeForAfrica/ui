@@ -6,7 +6,10 @@ module.exports = {
   ...defaultConfig,
   moduleNameMapper: {
     ...moduleNameMapper,
-    // Handle module aliases
+    "^@/commons-ui/core/(.*)$":
+      "<rootDir>/../../packages/commons-ui-core/src/$1",
+    "^@/commons-ui/next/(.*)$":
+      "<rootDir>/../../packages/commons-ui-next/src/$1",
     "^@/promisetracker/(.*)$": "<rootDir>/src/$1",
   },
 };

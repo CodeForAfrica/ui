@@ -1792,7 +1792,7 @@ module.exports = {
             {
               label: "Description",
               name: "description",
-              widget: "text",
+              widget: "markdown",
             },
             {
               label: "Stay in touch",

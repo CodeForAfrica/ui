@@ -6,7 +6,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-eoqn3z-MuiContainer-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-h5Small css-1pho9pe-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5Small css-1qwjj5w-MuiTypography-root"
     >
       Team
     </div>
@@ -35,12 +35,12 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
                 class="MuiCardContent-root css-1bqtlyx-MuiCardContent-root"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-body1SemiBold css-1v4gd4b-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1SemiBold css-1nw8xqn-MuiTypography-root"
                 >
                   Allan Cheboi
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-1q719gd-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-17e24dh-MuiTypography-root"
                 >
                   Senior investigations manager
                 </div>
@@ -70,12 +70,12 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
                 class="MuiCardContent-root css-1bqtlyx-MuiCardContent-root"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-body1SemiBold css-1v4gd4b-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1SemiBold css-1nw8xqn-MuiTypography-root"
                 >
                   Amanda Strydom
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-1q719gd-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-17e24dh-MuiTypography-root"
                 >
                   Senior programme manager
                 </div>
@@ -105,12 +105,12 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
                 class="MuiCardContent-root css-1bqtlyx-MuiCardContent-root"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-body1SemiBold css-1v4gd4b-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1SemiBold css-1nw8xqn-MuiTypography-root"
                 >
                   Anita Igbine
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-1q719gd-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-17e24dh-MuiTypography-root"
                 >
                   Investigative data analyst
                 </div>

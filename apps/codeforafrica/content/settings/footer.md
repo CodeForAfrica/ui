@@ -1,11 +1,13 @@
 ---
 logo:
   src: /images/cfalogobw.svg
-description: >
-  This site is a project of Code for Africa, the continent's largest network of
-  civic technology and data journalism labs. All content is released under a
-  Creative Commons 4 Attribution Licence. Reuse it to help empower your own
-  community.
+description: This site is an [open source
+  code](https://github.com/CodeForAfrica/ui/tree/main/apps/codeforafrica/) built
+  by [Code for Africa](https://github.com/CodeForAfrica/), the continent's
+  largest network of civic technology and data journalism labs. All content is
+  released under a [Creative Commons 4
+  Attribution](https://creativecommons.org/licenses/by/4.0/) License. Reuse it
+  to help empower your own community.
 stay-in-touch:
   title: "STAY IN TOUCH:"
   links:

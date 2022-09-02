@@ -9,12 +9,12 @@ exports[`<PageHeader /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j4752t-MuiContainer-root"
     >
       <h2
-        class="MuiTypography-root MuiTypography-h5ExtraBold css-1xq1eb8-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h5ExtraBold css-1ae0z6l-MuiTypography-root"
       >
         Contact
       </h2>
       <h2
-        class="MuiTypography-root MuiTypography-h2 css-eyv6vo-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2 css-qh1gir-MuiTypography-root"
       >
         Let’s start something together!
       </h2>

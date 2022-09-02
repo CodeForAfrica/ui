@@ -1,5 +1,5 @@
-import { RichTypography } from "@commons-ui/core";
-import { Link } from "@commons-ui/next";
+/* eslint-env browser */
+import { Link, RichTypography } from "@commons-ui/next";
 import Stack from "@mui/material/Stack";
 import PropTypes from "prop-types";
 import React from "react";
@@ -11,6 +11,7 @@ const FooterDescription = React.forwardRef(function FooterDescription(
   ref
 ) {
   const { children, logo, sx } = props;
+
   if (!(logo || children)) {
     return null;
   }
@@ -30,7 +31,14 @@ const FooterDescription = React.forwardRef(function FooterDescription(
       </Link>
       <RichTypography
         variant="footer"
-        sx={{ mt: "52px", textAlign: { xs: "center", md: "left" } }}
+        LinkProps={{
+          color: "text.secondary",
+        }}
+        sx={{
+          mt: "52px",
+          textAlign: { xs: "center", md: "left" },
+        }}
+        ref={ref}
       >
         {children}
       </RichTypography>
