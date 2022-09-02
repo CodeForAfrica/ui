@@ -8,6 +8,8 @@ import getPartners from "./getPartners";
 import getTeam from "./getTeam";
 import { getCollectionSlugs, getCollectionBySlug } from "./utils";
 
+import DOMPurify from "@/codeforafrica/utils/dompurifyMarked";
+
 const projectsDir = join(process.cwd(), "content/projects");
 
 export default function getProjects(fields) {
@@ -55,7 +57,7 @@ export default function getProjects(fields) {
       };
     }
 
-    project.subtitle = marked(project.subtitle);
+    project.subtitle = DOMPurify.sanitize(marked(project.subtitle));
     project.href = `/projects/${project.slug}`;
     return project;
   });

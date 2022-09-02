@@ -5,6 +5,8 @@ import { marked } from "marked";
 import getPartners from "./getPartners";
 import { getCollectionBySlug } from "./utils";
 
+import DOMPurify from "@/codeforafrica/utils/dompurifyMarked";
+
 const pageDir = join(process.cwd(), "content/pages");
 
 export default function geOurPartners(page = "index") {
@@ -15,7 +17,7 @@ export default function geOurPartners(page = "index") {
       action = null,
     },
   } = getCollectionBySlug(pageDir, page, ["our-partners"]).items;
-  const title = marked.parseInline(originalTitle);
+  const title = DOMPurify.sanitize(marked.parseInline(originalTitle));
   const allPartners = getPartners([
     "id",
     "slug",

@@ -4,6 +4,8 @@ import { join } from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
 
+import DOMPurify from "@/codeforafrica/utils/dompurifyMarked";
+
 export function getCollectionSlugs(collectionDir) {
   return fs.readdirSync(collectionDir);
 }
@@ -14,7 +16,7 @@ export function getCollectionBySlug(collectionDir, slug, fields) {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  const markedContent = marked(content);
+  const markedContent = DOMPurify.sanitize(marked(content));
 
   data.slug = realSlug;
   data.content = markedContent;
