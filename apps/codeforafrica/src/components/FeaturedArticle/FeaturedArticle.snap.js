@@ -53,27 +53,31 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-xrunq7-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-uvxcgo-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-md-9 css-sio24f-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-uvxcgo-MuiGrid-root"
           >
             <div
-              class="MuiCardContent-root css-q7lov9-MuiCardContent-root"
+              class="css-c6oxnt-MuiStack-root"
             >
-              <h1
-                class="MuiTypography-root MuiTypography-h1 css-itx6gn-MuiTypography-root"
+              <div
+                class="MuiCardContent-root css-h6dmcu-MuiCardContent-root"
               >
-                Battle for gender equality in African media continues
-              </h1>
+                <h1
+                  class="MuiTypography-root MuiTypography-h1 css-gklt6i-MuiTypography-root"
+                >
+                  Battle for gender equality in African media continues
+                </h1>
+              </div>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge css-18nvokw-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
+              >
+                READ STORY
+              </button>
             </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge css-18nvokw-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              READ STORY
-            </button>
           </div>
         </div>
       </div>
