@@ -680,6 +680,10 @@ function getAboutPartnersPageStaticProps() {
 function getContactPageStaticProps() {
   const seo = getSeo("contact");
 
+  const { embedCode, joinUs } = getContactForm();
+
+  console.log("joinUs", joinUs);
+
   return {
     props: {
       seo,
@@ -689,17 +693,12 @@ function getContactPageStaticProps() {
           ...getHero("contact"),
         },
         {
-          ...getContactForm(),
+          embedCode,
           slug: "contact-form",
         },
         {
           slug: "join-our-slack",
-          title: "We are on Slack!",
-          subtitle: "Join us",
-          action: {
-            label: "Join our Slack",
-            href: "https://docs.google.com/forms/d/e/1FAIpQLSdkfLU2yi2S1_7D27Z0I1TumkWy5brlam809Od9cc6CnXGA-A/viewform",
-          },
+          ...joinUs,
         },
         {
           slug: "office-addresses",

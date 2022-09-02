@@ -1,13 +1,15 @@
 import { getCollectionBySlug } from "./utils";
 
 function getContactForm() {
-  const { "contact-form": contactForm } = getCollectionBySlug(
-    "content/pages",
-    "contact",
-    ["contact-form"]
-  ).items;
+  const { "contact-form": contactForm, "join-us": joinUs } =
+    getCollectionBySlug("content/pages", "contact", [
+      "contact-form",
+      "join-us",
+    ]).items;
+
   const { "embed-code": embedCode } = contactForm || {};
-  return { embedCode };
+
+  return { embedCode, joinUs };
 }
 
 export default getContactForm;
