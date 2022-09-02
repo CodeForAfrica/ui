@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@/commons-ui/next/*": ["./src/*"]
+    }
   },
   "exclude": ["node_modules"]
 }

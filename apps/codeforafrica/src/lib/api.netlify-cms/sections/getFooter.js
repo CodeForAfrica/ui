@@ -1,3 +1,5 @@
+import { marked } from "marked";
+
 import getSettings from "./getSettings";
 
 export default function getFooter() {
@@ -11,7 +13,7 @@ export default function getFooter() {
   } = getSettings("footer");
 
   return {
-    description,
+    description: marked.parseInline(description),
     logo,
     menu,
     secondaryMenu,

@@ -10,12 +10,12 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-17rh705-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h5ExtraBold css-8npfhu-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5ExtraBold css-6bu01k-MuiTypography-root"
         >
           About Us
         </h2>
         <h2
-          class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-o0tdgt-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-jhy0zi-MuiTypography-root"
         >
           We are Africa’s largest network of civic technology and data journalism labs
         </h2>
@@ -28,7 +28,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1clvkda-MuiContainer-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-h5Small css-1jjh52r-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5Small css-1n9czee-MuiTypography-root"
         >
           Our team
         </div>
@@ -91,12 +91,12 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
           class="css-163ljxj-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-17gq2hj-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-kl3gho-MuiTypography-root"
           >
             Are you looking to start a new project?
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter css-1foewam-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter css-kvonk7-MuiTypography-root"
           >
             We'd love to hear more.
           </div>

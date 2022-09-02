@@ -10,12 +10,12 @@ exports[`<Pages/Imprint /> renders unchanged 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j4752t-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h5ExtraBold css-1xq1eb8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5ExtraBold css-1ae0z6l-MuiTypography-root"
         >
           Imprint
         </h2>
         <h2
-          class="MuiTypography-root MuiTypography-h2 css-eyv6vo-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 css-qh1gir-MuiTypography-root"
         >
           Code for Africa organisation structure
         </h2>
@@ -25,7 +25,7 @@ exports[`<Pages/Imprint /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-fkrtdf-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-body1 css-13bxwmj-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
       >
         <h1>
           Hello

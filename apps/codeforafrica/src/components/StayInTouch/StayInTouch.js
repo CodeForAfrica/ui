@@ -1,5 +1,4 @@
-import { RichTypography } from "@commons-ui/core";
-import { Link } from "@commons-ui/next";
+import { Link, RichTypography } from "@commons-ui/next";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";

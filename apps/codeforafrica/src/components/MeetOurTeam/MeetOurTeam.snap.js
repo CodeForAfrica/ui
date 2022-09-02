@@ -15,12 +15,12 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-qq6rd1-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2 css-fty4lj-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-1r036oz-MuiTypography-root"
           >
             title
           </div>
           <div
-            class="MuiTypography-root MuiTypography-body3 css-13nukh0-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body3 css-scexb3-MuiTypography-root"
           >
             description
           </div>

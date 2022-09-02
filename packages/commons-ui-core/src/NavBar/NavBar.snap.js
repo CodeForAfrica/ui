@@ -9,7 +9,7 @@ exports[`NavBar renders unchanged 1`] = `
       class="MuiToolbar-root MuiToolbar-regular css-r6ewbb-MuiToolbar-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-h6 css-1shoboz-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h6 css-1xqzbee-MuiTypography-root"
       >
         LOGO
       </div>

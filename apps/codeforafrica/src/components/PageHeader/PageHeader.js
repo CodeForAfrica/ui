@@ -1,4 +1,5 @@
-import { Section, RichTypography } from "@commons-ui/core";
+import { Section } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/next";
 import React from "react";
 
 import TwoToneBackground from "../TwoToneBackground";

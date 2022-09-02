@@ -40,18 +40,18 @@ exports[`<ImpactCardList /> renders unchanged 1`] = `
               <noscript />
             </span>
             <div
-              class="MuiTypography-root MuiTypography-h5 css-jt4un0-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-wfzfid-MuiTypography-root"
             >
               Beneficiaries trained
             </div>
           </div>
-          <span
-            class="MuiTypography-root MuiTypography-display1 css-mmeabj-MuiTypography-root"
+          <div
+            class="MuiTypography-root MuiTypography-display1 css-s6lk50-MuiTypography-root"
           >
             15000
-          </span>
+          </div>
           <div
-            class="MuiTypography-root MuiTypography-body3 css-14m7taj-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body3 css-51w9j7-MuiTypography-root"
           >
             In 10 years, 15 000 trainees have learned new skills and knowledge within the civic tech and media space.
           </div>
