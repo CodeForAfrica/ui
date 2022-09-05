@@ -1,4 +1,4 @@
 ---
 seo:
-  title-template: "%s | Partners | Code for Africa"
+  title-template: "%s | Partners | About | Code for Africa"
 ---

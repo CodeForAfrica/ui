@@ -1,7 +1,7 @@
 const { test, expect } = require("@playwright/test");
 
 test("/projects/[slug]", async ({ page }) => {
-  await page.goto("/projects/wana-data");
+  await page.goto("/projects/wanadata");
   const title = await page.title();
-  expect(title).toBe("WanaData | Projects | Code for Africa");
+  expect(title).toBe("WanaData | Our Work | Code for Africa");
 });
