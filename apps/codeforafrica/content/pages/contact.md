@@ -60,12 +60,6 @@ contact-form:
 
 
     <!--End mc_embed_signup-->
-join-us:
-  title: We are on Slack!
-  subtitle: Join us
-  action:
-    href: https://docs.google.com/forms/d/e/1FAIpQLSdkfLU2yi2S1_7D27Z0I1TumkWy5brlam809Od9cc6CnXGA-A/viewform
-    label: Join Our Slack
 seo:
   title: Contact Us
   description: Let’s start something together!

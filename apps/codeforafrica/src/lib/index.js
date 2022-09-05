@@ -18,6 +18,7 @@ import {
   getPartners,
   getTeam,
   getSeo,
+  getJoinUs,
 } from "./api.netlify-cms";
 
 import {
@@ -680,8 +681,6 @@ function getAboutPartnersPageStaticProps() {
 function getContactPageStaticProps() {
   const seo = getSeo("contact");
 
-  const { embedCode, joinUs } = getContactForm();
-
   return {
     props: {
       seo,
@@ -691,12 +690,12 @@ function getContactPageStaticProps() {
           ...getHero("contact"),
         },
         {
-          embedCode,
+          ...getContactForm(),
           slug: "contact-form",
         },
         {
           slug: "join-our-slack",
-          ...joinUs,
+          ...getJoinUs(),
         },
         {
           slug: "office-addresses",

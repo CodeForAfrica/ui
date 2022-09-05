@@ -1,6 +1,7 @@
 import getBody from "./getBody";
 import getContactForm from "./getContactForm";
 import getGetInTouch from "./getGetInTouch";
+import getJoinUs from "./getJoinUs";
 import getNewsAndStories from "./getNewsAndStories";
 import getOffices from "./getOffices";
 import getOurGuidingPrinciples from "./getOurGuidingPrinciples";
@@ -36,4 +37,5 @@ export {
   getOurTeam,
   getPartners,
   getTeam,
+  getJoinUs,
 };
