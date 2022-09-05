@@ -1,16 +1,14 @@
 import { join } from "path";
 
-import { marked } from "marked";
-
 import { getCollectionBySlug } from "../utils";
 
-import DOMPurify from "@/codeforafrica/utils/dompurifyMarked";
+import marked from "@/codeforafrica/lib/marked";
 
 const indexPageDir = join(process.cwd(), "content/pages");
 
 export default function getHero(page, fields = ["hero"]) {
   const { hero } = getCollectionBySlug(indexPageDir, page, fields).items;
-  hero.title = DOMPurify.sanitize(marked.parseInline(hero.title));
+  hero.title = marked.parseInline(hero.title);
 
   return hero;
 }

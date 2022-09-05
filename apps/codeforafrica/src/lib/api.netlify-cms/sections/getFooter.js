@@ -1,8 +1,6 @@
-import { marked } from "marked";
-
 import getSettings from "./getSettings";
 
-import DOMPurify from "@/codeforafrica/utils/dompurifyMarked";
+import marked from "@/codeforafrica/lib/marked";
 
 export default function getFooter() {
   const {
@@ -15,7 +13,7 @@ export default function getFooter() {
   } = getSettings("footer");
 
   return {
-    description: DOMPurify.sanitize(marked.parseInline(description)),
+    description: marked.parseInline(description),
     logo,
     menu,
     secondaryMenu,

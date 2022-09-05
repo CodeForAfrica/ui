@@ -1,10 +1,8 @@
 import { join } from "path";
 
-import { marked } from "marked";
-
 import { getCollectionBySlug } from "../utils";
 
-import DOMPurify from "@/codeforafrica/utils/dompurifyMarked";
+import marked from "@/codeforafrica/lib/marked";
 
 const indexPageDir = join(process.cwd(), "content/pages");
 
@@ -16,6 +14,6 @@ export default function getMeetOurTeam(
     "meet-our-team"
   ];
   meetOurTeam.logo = meetOurTeam.image?.src;
-  meetOurTeam.description = DOMPurify.sanitize(marked(meetOurTeam.description));
+  meetOurTeam.description = marked(meetOurTeam.description);
   return meetOurTeam;
 }
