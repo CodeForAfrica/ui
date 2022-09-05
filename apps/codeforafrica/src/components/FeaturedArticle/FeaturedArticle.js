@@ -108,10 +108,9 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
           <Grid
             item
             xs={12}
-            md={3}
             container
-            justifyContent="center"
             alignItems="center"
+            justifyContent="center"
             sx={{
               display: {
                 xs: "none",
@@ -124,25 +123,38 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
               height: "100%",
             }}
           >
-            <Grid
-              item
-              md={9}
-              container
-              justifyContent="center"
-              alignItems="center"
-            >
-              <ArticleCardContent>
+            <Grid item>
+              <ArticleCardContent
+                sx={{
+                  alignItems: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  p: 0,
+                  gap: 4.5,
+                  width: { sm: "712px", md: "912px" },
+                  "&:last-child": {
+                    p: 0,
+                  },
+                }}
+              >
                 <Typography
                   variant="h1"
                   textAlign="center"
-                  sx={{ color: "text.secondary", textTransform: "uppercase" }}
+                  sx={{
+                    color: "text.secondary",
+                    textTransform: "uppercase",
+                  }}
                 >
                   {title}
                 </Typography>
+                <Button
+                  color="primary"
+                  size="large"
+                  variant="contained-reverse"
+                >
+                  READ STORY
+                </Button>
               </ArticleCardContent>
-              <Button color="primary" size="large" variant="contained-reverse">
-                READ STORY
-              </Button>
             </Grid>
           </Grid>
         </Grid>

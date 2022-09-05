@@ -23,7 +23,7 @@ exports[`<Pages/About/[Unit]/[Slug] /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-u2r8gx-MuiGrid-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h1 css-z54dvv-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h1 css-1y9olpn-MuiTypography-root"
             >
               Justin Arenstein
             </div>
