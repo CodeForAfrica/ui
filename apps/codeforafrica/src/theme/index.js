@@ -239,8 +239,8 @@ deepmerge(
       fontSize: pxToRem(60),
     },
     h1: {
-      fontSize: pxToRem(28),
-      lineHeight: 34 / 28,
+      fontSize: pxToRem(34),
+      lineHeight: 40 / 34,
       [theme.breakpoints.up("md")]: {
         fontSize: pxToRem(48),
         lineHeight: 56 / 48,

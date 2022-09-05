@@ -91,7 +91,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
           class="css-163ljxj-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-kl3gho-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-vpgnax-MuiTypography-root"
           >
             Are you looking to start a new project?
           </div>
