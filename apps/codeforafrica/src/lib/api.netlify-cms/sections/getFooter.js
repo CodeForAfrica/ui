@@ -1,6 +1,5 @@
-import getSettings from "./getSettings";
-
 import marked from "@/codeforafrica/lib/marked";
+import getSettings from "./getSettings";
 
 export default function getFooter() {
   const {

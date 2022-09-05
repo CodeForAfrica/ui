@@ -1,8 +1,7 @@
 import { join } from "path";
+import marked from "@/codeforafrica/lib/marked";
 
 import { getCollectionBySlug } from "./utils";
-
-import marked from "@/codeforafrica/lib/marked";
 
 const pagesDir = join(process.cwd(), "content/pages");
 
