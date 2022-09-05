@@ -1,5 +1,11 @@
 # codeforafrica
 
+## 1.0.38
+
+### Patch Changes
+
+- [#245](https://github.com/CodeForAfrica/ui/pull/245) [`050a3b4`](https://github.com/CodeForAfrica/ui/commit/050a3b4a92ffe79b554e34f45c3e4e6bb5a5f9b3) Thanks [@kilemensi](https://github.com/kilemensi)! - Fix News and stories regression
+
 ## 1.0.37
 
 ### Patch Changes
