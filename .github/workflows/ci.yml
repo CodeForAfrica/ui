@@ -54,5 +54,5 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Build
-        run: pnpm playwright-test
+      - name: Playwright
+        run: pnpm playwright
