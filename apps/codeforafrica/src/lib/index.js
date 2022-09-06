@@ -492,7 +492,6 @@ function getAboutImpactPageStaticProps() {
         },
         {
           ...getGetInTouch(),
-          slug: "get-in-touch",
         },
       ],
       footer,
@@ -552,7 +551,6 @@ function getAboutMembersPageStaticProps() {
         },
         {
           ...getGetInTouch(),
-          slug: "get-in-touch",
         },
       ],
       footer,
@@ -596,7 +594,6 @@ function getAboutPageStaticProps() {
         },
         {
           ...getGetInTouch(),
-          slug: "get-in-touch",
         },
       ],
       footer,
@@ -656,7 +653,6 @@ function getAboutPartnersPageStaticProps() {
         },
         {
           ...getGetInTouch(),
-          slug: "get-in-touch",
         },
       ],
       footer,
