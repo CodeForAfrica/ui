@@ -29,6 +29,12 @@ pnpm dev
 
 ### Testing
 
+Before we can run tests, we need to make sure `Playwright` has downloaded the browsers needed to run e2e test.
+
+```
+npx playwright install
+```
+
 To test all apps and packages, run the following command:
 
 ```
