@@ -5,5 +5,5 @@ export default function geOurPartners() {
     "our-team": { title },
   } = getCollectionBySlug("content/pages", "about", ["our-team"]).items;
 
-  return { title };
+  return { title, slug: "our-team" };
 }

@@ -11,6 +11,7 @@ export default function getOurMission() {
     "our-mission",
   ]).items;
   ourMission.description = marked(ourMission.description);
+  ourMission.slug = "our-mission";
 
   return ourMission;
 }

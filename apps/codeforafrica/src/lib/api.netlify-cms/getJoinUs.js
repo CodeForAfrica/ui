@@ -7,7 +7,7 @@ function getJoinUs() {
     ["join-us"]
   ).data;
 
-  return joinUs;
+  return { ...joinUs, slug: "join-our-slack" };
 }
 
 export default getJoinUs;

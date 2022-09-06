@@ -157,7 +157,7 @@ async function getProcessedNewsAndStories() {
   const allStories = await getAllStories();
   const articles = prioritiseFeaturedStory(allStories).slice(0, count);
 
-  return { title, articles };
+  return { title, articles, slug: "news-stories" };
 }
 
 async function getHomePageStaticProps() {
@@ -177,7 +177,6 @@ async function getHomePageStaticProps() {
         { ...meetOurTeam },
         {
           ...(await getProcessedNewsAndStories()),
-          slug: "news-stories",
         },
         {
           slug: "our-partners",
@@ -547,7 +546,6 @@ function getAboutMembersPageStaticProps() {
           pathname: "/about/members",
           tags: getMembersFieldTags(),
           team: getMembers(),
-          slug: "our-team",
         },
         {
           ...getGetInTouch(),
@@ -572,18 +570,15 @@ function getAboutPageStaticProps() {
         },
         {
           ...getOurMission(),
-          slug: "our-mission",
         },
         {
           ...getOurGuidingPrinciples(),
-          slug: "guiding-principles",
         },
 
         {
           ...getOurTeam(),
           tags: getMembersFieldTags(),
           team: getMembers(),
-          slug: "our-team",
         },
         {
           slug: "our-partners",
@@ -677,7 +672,6 @@ function getContactPageStaticProps() {
           slug: "contact-form",
         },
         {
-          slug: "join-our-slack",
           ...getJoinUs(),
         },
         {
@@ -707,7 +701,7 @@ async function getProcessedRecentStories(page) {
   const allStories = await getAllStories();
   const { title, count = 3 } = getNewsAndStories(page);
   const articles = allStories.slice(0, count);
-  return { title, articles };
+  return { title, articles, slug: "news-stories" };
 }
 
 async function getErrorPageStaticProps() {
@@ -722,7 +716,6 @@ async function getErrorPageStaticProps() {
         },
         {
           ...(await getProcessedRecentStories("error")),
-          slug: "news-stories",
         },
       ],
       footer,
@@ -744,7 +737,6 @@ async function get404PageStaticProps() {
         },
         {
           ...(await getProcessedRecentStories("404")),
-          slug: "news-stories",
           title: "Recent Stories",
         },
       ],

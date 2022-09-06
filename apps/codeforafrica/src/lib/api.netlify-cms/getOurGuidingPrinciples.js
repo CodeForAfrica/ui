@@ -20,7 +20,7 @@ function getOurGuidingPrinciples() {
 
   const list =
     principleIds?.map((id) => allPrinciples.find((p) => p.id === id)) ?? null;
-  return { title, list };
+  return { title, list, slug: "guiding-principles" };
 }
 
 export default getOurGuidingPrinciples;
