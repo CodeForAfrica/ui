@@ -174,7 +174,7 @@ async function getHomePageStaticProps() {
           projects,
           tags: getProjectTags({ includeAll: false }),
         },
-        { ...meetOurTeam, slug: "meet-our-team" },
+        { ...meetOurTeam },
         {
           ...(await getProcessedNewsAndStories()),
           slug: "news-stories",

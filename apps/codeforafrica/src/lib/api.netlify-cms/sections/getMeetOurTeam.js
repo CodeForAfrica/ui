@@ -15,5 +15,6 @@ export default function getMeetOurTeam(
   ];
   meetOurTeam.logo = meetOurTeam.image?.src;
   meetOurTeam.description = marked(meetOurTeam.description);
+  meetOurTeam.slug = "meet-our-team";
   return meetOurTeam;
 }
