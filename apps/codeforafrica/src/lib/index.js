@@ -185,7 +185,6 @@ async function getHomePageStaticProps() {
         },
         {
           ...getOurImpact(),
-          slug: "our-impact",
         },
       ],
       footer,
@@ -489,7 +488,6 @@ function getAboutImpactPageStaticProps() {
           ...getHero("about"),
         },
         {
-          slug: "our-impact",
           ...getOurImpact("about"),
         },
         {
@@ -595,7 +593,6 @@ function getAboutPageStaticProps() {
         },
         {
           ...getOurImpact("about"),
-          slug: "our-impact",
         },
         {
           ...getGetInTouch(),

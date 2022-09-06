@@ -13,5 +13,5 @@ export default function geOurImpact(page = "index") {
   // Need to maintain order of how impact were selected in ourImpact
   const list = impactIds?.map((id) => impact.find((i) => i.id === id)) ?? null;
 
-  return { action, list, title };
+  return { action, list, title, slug: "our-impact" };
 }
