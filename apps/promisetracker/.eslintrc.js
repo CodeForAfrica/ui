@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   extends: ["eslint-config-commons-ui/next"],
   settings: {
     "import/resolver": {
