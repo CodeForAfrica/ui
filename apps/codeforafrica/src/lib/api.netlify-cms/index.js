@@ -26,6 +26,7 @@ export {
   getHeader,
   getHero,
   getGetInTouch,
+  getJoinUs,
   getMeetOurTeam,
   getNewsAndStories,
   getOffices,
@@ -37,5 +38,4 @@ export {
   getOurTeam,
   getPartners,
   getTeam,
-  getJoinUs,
 };

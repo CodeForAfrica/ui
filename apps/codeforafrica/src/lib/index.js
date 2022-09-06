@@ -7,6 +7,7 @@ import {
   getGetInTouch,
   getHeader,
   getHero,
+  getJoinUs,
   getMeetOurTeam,
   getNewsAndStories,
   getOffices,
@@ -18,7 +19,6 @@ import {
   getPartners,
   getTeam,
   getSeo,
-  getJoinUs,
 } from "./api.netlify-cms";
 
 import {
@@ -168,7 +168,6 @@ async function getHomePageStaticProps() {
       sections: [
         {
           ...getHero("index"),
-          slug: "hero",
         },
         {
           slug: "projects",
@@ -243,7 +242,6 @@ async function getOpportunitiesPageStaticProps() {
       seo,
       sections: [
         {
-          slug: "hero",
           ...getHero("opportunities"),
         },
         {
@@ -289,7 +287,6 @@ function getImprintPageStaticProps() {
       sections: [
         {
           ...getHero("imprint"),
-          slug: "hero",
         },
       ],
       footer,
@@ -309,7 +306,6 @@ function getPrivacyPageStaticProps() {
       sections: [
         {
           ...getHero("privacy-policy"),
-          slug: "hero",
         },
       ],
       footer,
@@ -372,7 +368,6 @@ function getProjectsPageStaticProps() {
       seo,
       sections: [
         {
-          slug: "hero",
           ...getHero("our-work"),
         },
         {
@@ -492,7 +487,6 @@ function getAboutImpactPageStaticProps() {
       sections: [
         {
           ...getHero("about"),
-          slug: "hero",
         },
         {
           slug: "our-impact",
@@ -550,7 +544,6 @@ function getAboutMembersPageStaticProps() {
       sections: [
         {
           ...getHero("about"),
-          slug: "hero",
         },
         {
           ...getOurTeam(),
@@ -580,7 +573,6 @@ function getAboutPageStaticProps() {
       sections: [
         {
           ...getHero("about"),
-          slug: "hero",
         },
         {
           ...getOurMission(),
@@ -660,7 +652,6 @@ function getAboutPartnersPageStaticProps() {
       sections: [
         {
           ...getHero("about"),
-          slug: "hero",
         },
         {
           slug: "our-partners",
@@ -686,7 +677,6 @@ function getContactPageStaticProps() {
       seo,
       sections: [
         {
-          slug: "hero",
           ...getHero("contact"),
         },
         {
@@ -736,7 +726,6 @@ async function getErrorPageStaticProps() {
       sections: [
         {
           ...getHero("error"),
-          slug: "hero",
         },
         {
           ...(await getProcessedRecentStories("error")),
@@ -759,7 +748,6 @@ async function get404PageStaticProps() {
       sections: [
         {
           ...getHero("404"),
-          slug: "hero",
         },
         {
           ...(await getProcessedRecentStories("404")),
