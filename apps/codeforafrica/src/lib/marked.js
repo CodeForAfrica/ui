@@ -11,7 +11,6 @@ if (typeof window !== "undefined") {
   const { JSDOM } = require("jsdom");
   global = new JSDOM("").window;
 }
-
 const purify = DOMPurify(global);
 function marked(src, opt, callback) {
   return purify.sanitize(realMarked(src, opt, callback));
