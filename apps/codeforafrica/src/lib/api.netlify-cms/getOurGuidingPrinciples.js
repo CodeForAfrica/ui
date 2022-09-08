@@ -6,11 +6,12 @@ import { getCollectionBySlug } from "./utils";
 const pagesDir = join(process.cwd(), "content/pages");
 
 function getOurGuidingPrinciples() {
-  const { title, "guiding-principle-list": principleIds } = getCollectionBySlug(
-    pagesDir,
-    "about",
-    ["guiding-principles"]
-  ).items["guiding-principles"];
+  const {
+    title,
+    "guiding-principle-list": principleIds,
+    slug,
+  } = getCollectionBySlug(pagesDir, "about", ["guiding-principles", "slug"])
+    .items["guiding-principles"];
   const allPrinciples = getGuidingPrinciples([
     "id",
     "title",
@@ -20,7 +21,7 @@ function getOurGuidingPrinciples() {
 
   const list =
     principleIds?.map((id) => allPrinciples.find((p) => p.id === id)) ?? null;
-  return { title, list, slug: "guiding-principles" };
+  return { title, list, slug };
 }
 
 export default getOurGuidingPrinciples;

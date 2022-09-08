@@ -9,9 +9,9 @@ const pagesDir = join(process.cwd(), "content/pages");
 export default function getOurMission() {
   const { "our-mission": ourMission } = getCollectionBySlug(pagesDir, "about", [
     "our-mission",
+    "slug",
   ]).items;
   ourMission.description = marked(ourMission.description);
-  ourMission.slug = "our-mission";
 
   return ourMission;
 }

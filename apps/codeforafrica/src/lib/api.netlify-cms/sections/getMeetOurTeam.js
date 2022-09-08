@@ -8,13 +8,12 @@ const indexPageDir = join(process.cwd(), "content/pages");
 
 export default function getMeetOurTeam(
   page = "index",
-  fields = ["meet-our-team"]
+  fields = ["meet-our-team", "slug"]
 ) {
   const meetOurTeam = getCollectionBySlug(indexPageDir, page, fields).items[
     "meet-our-team"
   ];
   meetOurTeam.logo = meetOurTeam.image?.src;
   meetOurTeam.description = marked(meetOurTeam.description);
-  meetOurTeam.slug = "meet-our-team";
   return meetOurTeam;
 }
