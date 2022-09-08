@@ -153,11 +153,11 @@ export async function getStories(options) {
 }
 
 async function getProcessedNewsAndStories() {
-  const { title, count = 4 } = getNewsAndStories("index");
+  const { title, count = 4, slug } = getNewsAndStories("index");
   const allStories = await getAllStories();
   const articles = prioritiseFeaturedStory(allStories).slice(0, count);
 
-  return { title, articles, slug: "news-stories" };
+  return { title, articles, slug };
 }
 
 async function getHomePageStaticProps() {
@@ -699,9 +699,9 @@ function getContactPageStaticProps() {
 
 async function getProcessedRecentStories(page) {
   const allStories = await getAllStories();
-  const { title, count = 3 } = getNewsAndStories(page);
+  const { title, count = 3, slug } = getNewsAndStories(page);
   const articles = allStories.slice(0, count);
-  return { title, articles, slug: "news-stories" };
+  return { title, articles, slug };
 }
 
 async function getErrorPageStaticProps() {
