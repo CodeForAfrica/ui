@@ -542,6 +542,18 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/about-members-individual.md`,
           fields: [
             {
+              label: "Related Projects",
+              name: "related-projects",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
+            },
+            {
               ...seoFields,
             },
           ],
