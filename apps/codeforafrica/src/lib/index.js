@@ -510,20 +510,22 @@ function getAboutMemberPageStaticProps(params) {
   const member = team.find(({ href }) => equalsIgnoreCase(href, params?.slug));
 
   if (member) {
+    const relatedProjects = getRelatedProjects("about-members-individual");
     const seo = getSeo("about-members-individual", {
       title: member.name,
       description: member.title,
     });
-    const startIndex = getRandomInt(projects.length - 3);
+
     return {
       props: {
         seo,
         member,
         sections: [
           {
-            slug: "related-projects",
-            title: "Projects",
-            projects: projects.slice(startIndex, startIndex + 3),
+            ...relatedProjects,
+            projects: projects.filter((p) =>
+              p.team?.list?.find((m) => m.id === member.id)
+            ),
           },
         ],
         footer,
