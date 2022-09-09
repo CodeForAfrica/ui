@@ -368,6 +368,7 @@ async function getProjectPageStaticProps(params) {
 
 function getProjectsPageStaticProps() {
   const seo = getSeo("our-work");
+
   return {
     props: {
       seo,
@@ -376,7 +377,7 @@ function getProjectsPageStaticProps() {
           ...getHero("our-work"),
         },
         {
-          slug: "projects",
+          ...getOurProjects("our-work"),
           tags: getProjectTags(),
           projects: getProjects(),
         },
