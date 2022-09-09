@@ -7,8 +7,10 @@ import getOffices from "./getOffices";
 import getOurGuidingPrinciples from "./getOurGuidingPrinciples";
 import getOurImpact from "./getOurImpact";
 import getOurMission from "./getOurMission";
+import getOurOpportunities from "./getOurOpportunities";
 import getOurPartners from "./getOurPartners";
 import getOurProjects from "./getOurProjects";
+import getOurStories from "./getOurStories";
 import getOurTeam from "./getOurTeam";
 import getPartners from "./getPartners";
 import getCmsProjects from "./getProjects";
@@ -35,8 +37,10 @@ export {
   getOurGuidingPrinciples,
   getOurImpact,
   getOurMission,
+  getOurOpportunities,
   getOurPartners,
   getOurProjects,
+  getOurStories,
   getSeo,
   getRelatedProjects,
   getOurTeam,

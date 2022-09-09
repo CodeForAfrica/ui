@@ -14,8 +14,10 @@ import {
   getOurGuidingPrinciples,
   getOurImpact,
   getOurMission,
+  getOurOpportunities,
   getOurPartners,
   getOurProjects,
+  getOurStories,
   getOurTeam,
   getPartners,
   getRelatedProjects,
@@ -249,7 +251,7 @@ async function getOpportunitiesPageStaticProps() {
           ...getHero("opportunities"),
         },
         {
-          slug: "opportunities",
+          ...getOurOpportunities(),
           opportunities: paginateResults(allOpportunities),
           tags,
         },
@@ -268,6 +270,7 @@ async function getOpportunityPageStaticProps(params) {
   if (foundOpportunity) {
     const { seo: pageSeo, ...opportunity } = foundOpportunity;
     const seo = getSeo("opportunities-individual", pageSeo);
+
     return {
       props: {
         seo,
@@ -399,8 +402,7 @@ async function getStoriesPageStaticProps() {
       seo,
       sections: [
         {
-          slug: "stories",
-          title: "Stories",
+          ...getOurStories(),
           articles: paginateResults(articles),
           tags,
         },

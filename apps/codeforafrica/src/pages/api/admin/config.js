@@ -762,6 +762,19 @@ module.exports = {
               ],
             },
             {
+              label: "Opportunities",
+              name: "opportunities",
+              widget: "object",
+              collapsed: true,
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
+            },
+            {
               ...seoFields,
             },
           ],
@@ -781,6 +794,19 @@ module.exports = {
           name: "stories",
           file: `${APP_DIRECTORY}content/pages/stories.md`,
           fields: [
+            {
+              label: "Stories",
+              name: "stories",
+              widget: "object",
+              collapsed: true,
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
+            },
             {
               ...seoFields,
             },

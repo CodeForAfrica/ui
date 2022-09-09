@@ -1,4 +1,6 @@
 ---
+stories:
+  title: Stories
 seo:
-  title: "Stories"
+  title: Stories
 ---
