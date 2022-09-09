@@ -11,6 +11,7 @@ import getOurPartners from "./getOurPartners";
 import getOurTeam from "./getOurTeam";
 import getPartners from "./getPartners";
 import getCmsProjects from "./getProjects";
+import getRelatedProjects from "./getRelatedProjects";
 import getTeam from "./getTeam";
 import getFooter from "./sections/getFooter";
 import getHeader from "./sections/getHeader";
@@ -35,6 +36,7 @@ export {
   getOurMission,
   getOurPartners,
   getSeo,
+  getRelatedProjects,
   getOurTeam,
   getPartners,
   getTeam,

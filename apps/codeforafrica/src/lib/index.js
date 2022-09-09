@@ -17,6 +17,7 @@ import {
   getOurPartners,
   getOurTeam,
   getPartners,
+  getRelatedProjects,
   getTeam,
   getSeo,
 } from "./api.netlify-cms";
@@ -602,11 +603,14 @@ function getAboutPartnerPageStaticProps(params) {
   );
 
   if (partner) {
+    const relatedProjects = getRelatedProjects("about-partners-individual");
     const seo = getSeo("about-partners-individual", {
       title: partner.name,
       // TODO(kilemens): Add short description to each partner
     });
-    const startIndex = getRandomInt(projects.length - 3);
+    const partnerProjects = projects.filter((p) =>
+      p.partners?.list?.some((l) => equalsIgnoreCase(l.name, partner.name))
+    );
 
     return {
       props: {
@@ -614,9 +618,8 @@ function getAboutPartnerPageStaticProps(params) {
         partner: { ...partner, image: partner.logo, title: "Partner" },
         sections: [
           {
-            slug: "related-projects",
-            title: "Projects",
-            projects: projects.slice(startIndex, startIndex + 3),
+            ...relatedProjects,
+            projects: partnerProjects,
           },
         ],
         footer,
