@@ -616,9 +616,6 @@ function getAboutPartnerPageStaticProps(params) {
       title: partner.name,
       // TODO(kilemens): Add short description to each partner
     });
-    const partnerProjects = projects.filter((p) =>
-      p.partners?.list?.some((l) => equalsIgnoreCase(l.name, partner.name))
-    );
 
     return {
       props: {
@@ -627,7 +624,9 @@ function getAboutPartnerPageStaticProps(params) {
         sections: [
           {
             ...relatedProjects,
-            projects: partnerProjects,
+            projects: projects.filter((p) =>
+              p.partners?.list?.find((l) => l.id === partner.id)
+            ),
           },
         ],
         footer,
