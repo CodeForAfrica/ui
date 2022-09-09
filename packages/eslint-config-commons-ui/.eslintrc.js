@@ -1,1 +1,4 @@
-module.exports = require(".");
+module.exports = {
+  root: true,
+  extends: [require.resolve(".")],
+};

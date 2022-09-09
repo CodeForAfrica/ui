@@ -1,1 +1,4 @@
-module.exports = require("eslint-config-commons-ui/next");
+module.exports = {
+  root: true,
+  extends: ["eslint-config-commons-ui/next"],
+};

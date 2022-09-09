@@ -39,14 +39,20 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
       - name: Format
         run: pnpm format-check
 
       - name: Lint
         run: pnpm lint-check
 
+      - name: Jest
+        run: pnpm jest
+
       - name: Build
         run: pnpm build
 
-      - name: Jest
-        run: pnpm jest
+      - name: Playwright
+        run: pnpm playwright

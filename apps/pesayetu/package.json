@@ -1,6 +1,6 @@
 {
   "name": "pesayetu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "author": "Code for Africa <tech@codeforafrica.org>",
   "description": "PesaYetu helps journalists, researchers and activists transform their work with in-depth county-specific information. Get started now with datasets from Kenya.",
@@ -25,7 +25,7 @@
     "lint-check": "eslint './'",
     "lint": "eslint --fix './'",
     "jest": "jest",
-    "playwright": "playwright test",
+    "playwright": "npx playwright test",
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf .next .turbo node_modules"
