@@ -631,7 +631,7 @@ module.exports = {
               ],
             },
             {
-              label: "Join Us",
+              label: "Join our Slack",
               name: "join-our-slack",
               widget: "object",
               fields: [
@@ -661,6 +661,18 @@ module.exports = {
                       widget: "string",
                     },
                   ],
+                },
+              ],
+            },
+            {
+              label: "Our offices",
+              name: "our-offices",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
                 },
               ],
             },

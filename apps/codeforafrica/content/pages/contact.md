@@ -66,6 +66,8 @@ join-our-slack:
     label: Join Our Slack
   subtitle: Join us
   title: We are on Slack!
+our-offices:
+  title: Our Offices
 seo:
   title: Contact Us
   description: Let’s start something together!

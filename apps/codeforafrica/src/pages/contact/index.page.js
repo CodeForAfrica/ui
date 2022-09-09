@@ -32,7 +32,7 @@ function ContactPage({ sections, ...props }) {
               />
             );
           }
-          case "office-addresses": {
+          case "our-offices": {
             return (
               <OfficeAddresses
                 {...section}

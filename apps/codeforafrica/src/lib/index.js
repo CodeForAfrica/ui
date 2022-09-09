@@ -14,6 +14,7 @@ import {
   getOurGuidingPrinciples,
   getOurImpact,
   getOurMission,
+  getOurOffices,
   getOurOpportunities,
   getOurPartners,
   getOurProjects,
@@ -690,8 +691,7 @@ function getContactPageStaticProps() {
           ...getJoinUs(),
         },
         {
-          slug: "office-addresses",
-          title: "Our Offices",
+          ...getOurOffices(),
           addresses: getOffices(),
           map: {
             apiKey: process.env.GOOGLE_MAPS_API_KEY ?? null,
