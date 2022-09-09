@@ -15,6 +15,7 @@ import {
   getOurImpact,
   getOurMission,
   getOurPartners,
+  getOurProjects,
   getOurTeam,
   getPartners,
   getRelatedProjects,
@@ -176,7 +177,7 @@ async function getHomePageStaticProps() {
           ...getHero("index"),
         },
         {
-          slug: "projects",
+          ...getOurProjects(),
           projects,
           tags: getProjectTags({ includeAll: false }),
         },
@@ -744,7 +745,6 @@ async function get404PageStaticProps() {
         },
         {
           ...(await getProcessedRecentStories("404")),
-          title: "Recent Stories",
         },
       ],
       footer,
