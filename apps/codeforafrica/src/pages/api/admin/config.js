@@ -188,14 +188,17 @@ module.exports = {
               ],
             },
             {
-              label: "Projects",
-              name: "projects",
-              widget: "relation",
-              collection: "projects",
-              search_fields: ["name"],
-              value_field: "id",
-              display_fields: ["name"],
-              multiple: true,
+              label: "Our Projects",
+              name: "our-projects",
+              widget: "object",
+              collapsed: true,
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
             },
             {
               label: "Meet Our Team",
