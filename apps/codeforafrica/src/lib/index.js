@@ -20,6 +20,7 @@ import {
   getOurStories,
   getOurTeam,
   getPartners,
+  getProjectTeam,
   getRelatedProjects,
   getTeam,
   getSeo,
@@ -345,9 +346,8 @@ async function getProjectPageStaticProps(params) {
         project,
         sections: [
           {
-            slug: "team",
-            title: "Team",
-            team: project?.team?.list,
+            ...getProjectTeam(),
+            team: project?.team?.list || null,
           },
           {
             slug,

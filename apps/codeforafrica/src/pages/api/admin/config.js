@@ -723,6 +723,18 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/our-work-individual.md`,
           fields: [
             {
+              label: "Team",
+              name: "team",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
+            },
+            {
               label: "Related Stories",
               name: "news-stories",
               widget: "object",

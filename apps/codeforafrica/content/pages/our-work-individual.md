@@ -1,4 +1,6 @@
 ---
+team:
+  title: Team
 news-stories:
   title: Related stories
   articles-count: 3

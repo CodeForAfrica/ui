@@ -14,6 +14,7 @@ import getOurStories from "./getOurStories";
 import getOurTeam from "./getOurTeam";
 import getPartners from "./getPartners";
 import getCmsProjects from "./getProjects";
+import getProjectTeam from "./getProjectTeam";
 import getRelatedProjects from "./getRelatedProjects";
 import getTeam from "./getTeam";
 import getFooter from "./sections/getFooter";
@@ -45,5 +46,6 @@ export {
   getRelatedProjects,
   getOurTeam,
   getPartners,
+  getProjectTeam,
   getTeam,
 };
