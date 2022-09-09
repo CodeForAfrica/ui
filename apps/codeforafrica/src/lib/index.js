@@ -328,6 +328,7 @@ async function getProjectPageStaticProps(params) {
   );
 
   if (project) {
+    const { title, count = 3, slug } = getNewsAndStories("our-work-individual");
     const relatedStories = await getRelatedStoriesByTags([project.name]);
     const relatedProjects = getRelatedProjects("our-work-individual");
     const seo = getSeo("our-work-individual", {
@@ -349,9 +350,9 @@ async function getProjectPageStaticProps(params) {
             team: project?.team?.list,
           },
           {
-            slug: "related-stories",
-            title: "Related stories",
-            articles: relatedStories.slice(0, 3),
+            slug,
+            title,
+            articles: relatedStories.slice(0, count),
           },
           {
             ...relatedProjects,
@@ -415,24 +416,28 @@ async function getStoriesPageStaticProps() {
 }
 
 async function getStoryPageStaticProps(slug) {
-  // TODO: is this the best way to get the article slug?
   const actualSlug = slug.slug.split("/")[2];
   const story = await getStory(actualSlug);
   const relatedArticles = await getRelatedStoriesByTags(story.tags, story);
 
-  // check for empty obj
   if (story) {
+    const {
+      title,
+      count = 3,
+      slug: articlesSlug,
+    } = getNewsAndStories("stories-individual");
     const { seo: pageSeo, ...article } = story;
     const seo = getSeo("stories-individual", pageSeo);
+
     return {
       props: {
         seo,
         article,
         sections: [
           {
-            slug: "related-stories",
-            title: "News and Stories",
-            articles: relatedArticles?.slice(0, 3) ?? null,
+            slug: articlesSlug,
+            title,
+            articles: relatedArticles?.slice(0, count) ?? null,
           },
         ],
         footer,

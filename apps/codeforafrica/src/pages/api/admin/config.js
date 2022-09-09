@@ -723,6 +723,27 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/our-work-individual.md`,
           fields: [
             {
+              label: "Related Stories",
+              name: "news-stories",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Number of stories",
+                  name: "articles-count",
+                  widget: "number",
+                  value_type: "int",
+                  min: 3,
+                },
+              ],
+            },
+            {
               label: "Related Projects",
               name: "related-projects",
               widget: "object",
@@ -817,6 +838,27 @@ module.exports = {
           name: "stories-individual",
           file: `${APP_DIRECTORY}content/pages/stories-individual.md`,
           fields: [
+            {
+              label: "Related Stories",
+              name: "news-stories",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Number of stories",
+                  name: "articles-count",
+                  widget: "number",
+                  value_type: "int",
+                  min: 3,
+                },
+              ],
+            },
             {
               ...seoFields,
             },

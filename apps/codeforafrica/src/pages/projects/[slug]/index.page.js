@@ -54,7 +54,7 @@ function Index({ project, sections, ...props }) {
                 />
               </React.Fragment>
             );
-          case "related-stories":
+          case "news-stories":
             return (
               <React.Fragment key={section.slug}>
                 <SectionDivider

@@ -1,4 +1,7 @@
 ---
+news-stories:
+  title: Related stories
+  articles-count: 3
 related-projects:
   title: Explore other projects
 seo:
