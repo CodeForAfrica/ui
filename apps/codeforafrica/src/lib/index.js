@@ -65,6 +65,11 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+function getRandomStartIndex(length, size) {
+  const max = length >= size ? length - size : length;
+  return getRandomInt(max);
+}
+
 const navbar = getHeader();
 
 const footer = getFooter();
@@ -320,12 +325,15 @@ async function getProjectPageStaticProps(params) {
 
   if (project) {
     const relatedStories = await getRelatedStoriesByTags([project.name]);
+    const relatedProjects = getRelatedProjects("our-work-individual");
     const seo = getSeo("our-work-individual", {
       title: project.name,
       description:
         // subtitle could contain html content
         project.subtitle.replace(/<[^>]*>/g, "").trim() || project.title,
     });
+    const startIndex = getRandomStartIndex(projects.length, 3);
+
     return {
       props: {
         seo,
@@ -342,11 +350,10 @@ async function getProjectPageStaticProps(params) {
             articles: relatedStories.slice(0, 3),
           },
           {
-            slug: "related-projects",
-            title: "Explore other projects",
+            ...relatedProjects,
             projects: projects
               .filter((p) => p.slug !== project.slug)
-              .slice(0, 3),
+              .slice(startIndex, startIndex + 3),
           },
         ],
         footer,
@@ -355,7 +362,6 @@ async function getProjectPageStaticProps(params) {
       revalidate: DEFAULT_REVALIDATE,
     };
   }
-
   return { notFound: true };
 }
 
