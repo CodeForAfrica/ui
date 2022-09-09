@@ -604,19 +604,8 @@ module.exports = {
               ],
             },
             {
-              ...seoFields,
-            },
-          ],
-        },
-        {
-          label: "Contact Us | Join Us",
-          name: "contact-us-join-us",
-          file: `${APP_DIRECTORY}content/pages/contact-us-join-us.md`,
-          widget: "object",
-          fields: [
-            {
               label: "Join Us",
-              name: "join-us",
+              name: "join-our-slack",
               widget: "object",
               fields: [
                 {
@@ -647,6 +636,9 @@ module.exports = {
                   ],
                 },
               ],
+            },
+            {
+              ...seoFields,
             },
           ],
         },
