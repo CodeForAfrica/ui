@@ -12,7 +12,7 @@ function Index({ article, sections, ...props }) {
       {article ? <ArticlePage {...article} /> : null}
       {sections?.map((section) => {
         switch (section.slug) {
-          case "related-stories":
+          case "news-stories":
             return (
               <Box
                 key={section.slug}

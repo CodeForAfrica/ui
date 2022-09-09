@@ -25,7 +25,16 @@ export function getCollectionBySlug(collectionDir, slug, fields) {
     } else if (curr === "slug") {
       acc.slug = realSlug;
     } else {
-      acc[curr] = data[curr] || null;
+      // The slug field above works for folder-based collections e.g. impact
+      // but not for file-based collections e.g. get-in-touch in about.
+      // Since field names are guaranteed to be unique (in page) and are set
+      // in config, we can set the slug to be field name in file-based
+      // collections
+      let currData = data[curr] || null;
+      if (currData?.constructor === Object && fields.includes("slug")) {
+        currData = { slug: curr, ...currData };
+      }
+      acc[curr] = currData;
     }
     return acc;
   }, {});

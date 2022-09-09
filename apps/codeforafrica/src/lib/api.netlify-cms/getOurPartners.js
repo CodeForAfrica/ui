@@ -6,15 +6,17 @@ import getPartners from "./getPartners";
 import { getCollectionBySlug } from "./utils";
 
 const pageDir = join(process.cwd(), "content/pages");
+const FIELD_NAME = "our-partners";
 
 export default function geOurPartners(page = "index") {
   const {
     "our-partners": {
+      slug,
       title: originalTitle,
       "partners-list": partnersIds,
       action = null,
     },
-  } = getCollectionBySlug(pageDir, page, ["our-partners"]).items;
+  } = getCollectionBySlug(pageDir, page, [FIELD_NAME, "slug"]).items;
   const title = marked.parseInline(originalTitle);
   const allPartners = getPartners([
     "id",
@@ -31,5 +33,5 @@ export default function geOurPartners(page = "index") {
       ? partnersIds?.map((id) => allPartners.find((p) => p.id === id)) ?? null
       : allPartners;
 
-  return { title, list, action };
+  return { slug, partners: { title, list, action } };
 }

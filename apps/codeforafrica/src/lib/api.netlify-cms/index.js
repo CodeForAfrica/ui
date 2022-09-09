@@ -1,15 +1,22 @@
 import getBody from "./getBody";
 import getContactForm from "./getContactForm";
 import getGetInTouch from "./getGetInTouch";
+import getJoinUs from "./getJoinUs";
 import getNewsAndStories from "./getNewsAndStories";
 import getOffices from "./getOffices";
 import getOurGuidingPrinciples from "./getOurGuidingPrinciples";
 import getOurImpact from "./getOurImpact";
 import getOurMission from "./getOurMission";
+import getOurOffices from "./getOurOffices";
+import getOurOpportunities from "./getOurOpportunities";
 import getOurPartners from "./getOurPartners";
+import getOurProjects from "./getOurProjects";
+import getOurStories from "./getOurStories";
 import getOurTeam from "./getOurTeam";
 import getPartners from "./getPartners";
 import getCmsProjects from "./getProjects";
+import getProjectTeam from "./getProjectTeam";
+import getRelatedProjects from "./getRelatedProjects";
 import getTeam from "./getTeam";
 import getFooter from "./sections/getFooter";
 import getHeader from "./sections/getHeader";
@@ -25,15 +32,22 @@ export {
   getHeader,
   getHero,
   getGetInTouch,
+  getJoinUs,
   getMeetOurTeam,
   getNewsAndStories,
   getOffices,
   getOurGuidingPrinciples,
   getOurImpact,
   getOurMission,
+  getOurOffices,
+  getOurOpportunities,
   getOurPartners,
+  getOurProjects,
+  getOurStories,
   getSeo,
+  getRelatedProjects,
   getOurTeam,
   getPartners,
+  getProjectTeam,
   getTeam,
 };

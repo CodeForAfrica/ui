@@ -7,15 +7,22 @@ import {
   getGetInTouch,
   getHeader,
   getHero,
+  getJoinUs,
   getMeetOurTeam,
   getNewsAndStories,
   getOffices,
   getOurGuidingPrinciples,
   getOurImpact,
   getOurMission,
+  getOurOffices,
+  getOurOpportunities,
   getOurPartners,
+  getOurProjects,
+  getOurStories,
   getOurTeam,
   getPartners,
+  getProjectTeam,
+  getRelatedProjects,
   getTeam,
   getSeo,
 } from "./api.netlify-cms";
@@ -61,6 +68,11 @@ export const projects = getCmsProjects([
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
+}
+
+function getRandomStartIndex(length, size) {
+  const max = length >= size ? length - size : length;
+  return getRandomInt(max);
 }
 
 const navbar = getHeader();
@@ -152,11 +164,11 @@ export async function getStories(options) {
 }
 
 async function getProcessedNewsAndStories() {
-  const { title, count = 4 } = getNewsAndStories("index");
+  const { title, count = 4, slug } = getNewsAndStories("index");
   const allStories = await getAllStories();
   const articles = prioritiseFeaturedStory(allStories).slice(0, count);
 
-  return { title, articles };
+  return { title, articles, slug };
 }
 
 async function getHomePageStaticProps() {
@@ -167,25 +179,21 @@ async function getHomePageStaticProps() {
       sections: [
         {
           ...getHero("index"),
-          slug: "hero",
         },
         {
-          slug: "projects",
+          ...getOurProjects(),
           projects,
           tags: getProjectTags({ includeAll: false }),
         },
-        { ...meetOurTeam, slug: "meet-our-team" },
+        { ...meetOurTeam },
         {
           ...(await getProcessedNewsAndStories()),
-          slug: "news-stories",
         },
         {
-          slug: "our-partners",
-          partners: getOurPartners(),
+          ...getOurPartners(),
         },
         {
           ...getOurImpact(),
-          slug: "our-impact",
         },
       ],
       footer,
@@ -242,11 +250,10 @@ async function getOpportunitiesPageStaticProps() {
       seo,
       sections: [
         {
-          slug: "hero",
           ...getHero("opportunities"),
         },
         {
-          slug: "opportunities",
+          ...getOurOpportunities(),
           opportunities: paginateResults(allOpportunities),
           tags,
         },
@@ -265,6 +272,7 @@ async function getOpportunityPageStaticProps(params) {
   if (foundOpportunity) {
     const { seo: pageSeo, ...opportunity } = foundOpportunity;
     const seo = getSeo("opportunities-individual", pageSeo);
+
     return {
       props: {
         seo,
@@ -288,7 +296,6 @@ function getImprintPageStaticProps() {
       sections: [
         {
           ...getHero("imprint"),
-          slug: "hero",
         },
       ],
       footer,
@@ -308,7 +315,6 @@ function getPrivacyPageStaticProps() {
       sections: [
         {
           ...getHero("privacy-policy"),
-          slug: "hero",
         },
       ],
       footer,
@@ -324,34 +330,36 @@ async function getProjectPageStaticProps(params) {
   );
 
   if (project) {
+    const { title, count = 3, slug } = getNewsAndStories("our-work-individual");
     const relatedStories = await getRelatedStoriesByTags([project.name]);
+    const relatedProjects = getRelatedProjects("our-work-individual");
     const seo = getSeo("our-work-individual", {
       title: project.name,
       description:
         // subtitle could contain html content
         project.subtitle.replace(/<[^>]*>/g, "").trim() || project.title,
     });
+    const startIndex = getRandomStartIndex(projects.length, 3);
+
     return {
       props: {
         seo,
         project,
         sections: [
           {
-            slug: "team",
-            title: "Team",
-            team: project?.team?.list,
+            ...getProjectTeam(),
+            team: project?.team?.list || null,
           },
           {
-            slug: "related-stories",
-            title: "Related stories",
-            articles: relatedStories.slice(0, 3),
+            slug,
+            title,
+            articles: relatedStories.slice(0, count),
           },
           {
-            slug: "related-projects",
-            title: "Explore other projects",
+            ...relatedProjects,
             projects: projects
               .filter((p) => p.slug !== project.slug)
-              .slice(0, 3),
+              .slice(startIndex, startIndex + 3),
           },
         ],
         footer,
@@ -360,22 +368,21 @@ async function getProjectPageStaticProps(params) {
       revalidate: DEFAULT_REVALIDATE,
     };
   }
-
   return { notFound: true };
 }
 
 function getProjectsPageStaticProps() {
   const seo = getSeo("our-work");
+
   return {
     props: {
       seo,
       sections: [
         {
-          slug: "hero",
           ...getHero("our-work"),
         },
         {
-          slug: "projects",
+          ...getOurProjects("our-work"),
           tags: getProjectTags(),
           projects: getProjects(),
         },
@@ -397,8 +404,7 @@ async function getStoriesPageStaticProps() {
       seo,
       sections: [
         {
-          slug: "stories",
-          title: "Stories",
+          ...getOurStories(),
           articles: paginateResults(articles),
           tags,
         },
@@ -411,24 +417,28 @@ async function getStoriesPageStaticProps() {
 }
 
 async function getStoryPageStaticProps(slug) {
-  // TODO: is this the best way to get the article slug?
   const actualSlug = slug.slug.split("/")[2];
   const story = await getStory(actualSlug);
   const relatedArticles = await getRelatedStoriesByTags(story.tags, story);
 
-  // check for empty obj
   if (story) {
+    const {
+      title,
+      count = 3,
+      slug: articlesSlug,
+    } = getNewsAndStories("stories-individual");
     const { seo: pageSeo, ...article } = story;
     const seo = getSeo("stories-individual", pageSeo);
+
     return {
       props: {
         seo,
         article,
         sections: [
           {
-            slug: "related-stories",
-            title: "News and Stories",
-            articles: relatedArticles?.slice(0, 3) ?? null,
+            slug: articlesSlug,
+            title,
+            articles: relatedArticles?.slice(0, count) ?? null,
           },
         ],
         footer,
@@ -491,15 +501,12 @@ function getAboutImpactPageStaticProps() {
       sections: [
         {
           ...getHero("about"),
-          slug: "hero",
         },
         {
-          slug: "our-impact",
           ...getOurImpact("about"),
         },
         {
           ...getGetInTouch(),
-          slug: "get-in-touch",
         },
       ],
       footer,
@@ -513,20 +520,22 @@ function getAboutMemberPageStaticProps(params) {
   const member = team.find(({ href }) => equalsIgnoreCase(href, params?.slug));
 
   if (member) {
+    const relatedProjects = getRelatedProjects("about-members-individual");
     const seo = getSeo("about-members-individual", {
       title: member.name,
       description: member.title,
     });
-    const startIndex = getRandomInt(projects.length - 3);
+
     return {
       props: {
         seo,
         member,
         sections: [
           {
-            slug: "related-projects",
-            title: "Projects",
-            projects: projects.slice(startIndex, startIndex + 3),
+            ...relatedProjects,
+            projects: projects.filter((p) =>
+              p.team?.list?.find((m) => m.id === member.id)
+            ),
           },
         ],
         footer,
@@ -549,18 +558,15 @@ function getAboutMembersPageStaticProps() {
       sections: [
         {
           ...getHero("about"),
-          slug: "hero",
         },
         {
           ...getOurTeam(),
           pathname: "/about/members",
           tags: getMembersFieldTags(),
           team: getMembers(),
-          slug: "our-team",
         },
         {
           ...getGetInTouch(),
-          slug: "get-in-touch",
         },
       ],
       footer,
@@ -579,34 +585,27 @@ function getAboutPageStaticProps() {
       sections: [
         {
           ...getHero("about"),
-          slug: "hero",
         },
         {
           ...getOurMission(),
-          slug: "our-mission",
         },
         {
           ...getOurGuidingPrinciples(),
-          slug: "guiding-principles",
         },
 
         {
           ...getOurTeam(),
           tags: getMembersFieldTags(),
           team: getMembers(),
-          slug: "our-team",
         },
         {
-          slug: "our-partners",
-          partners: getOurPartners("about"),
+          ...getOurPartners("about"),
         },
         {
           ...getOurImpact("about"),
-          slug: "our-impact",
         },
         {
           ...getGetInTouch(),
-          slug: "get-in-touch",
         },
       ],
       footer,
@@ -622,11 +621,11 @@ function getAboutPartnerPageStaticProps(params) {
   );
 
   if (partner) {
+    const relatedProjects = getRelatedProjects("about-partners-individual");
     const seo = getSeo("about-partners-individual", {
       title: partner.name,
       // TODO(kilemens): Add short description to each partner
     });
-    const startIndex = getRandomInt(projects.length - 3);
 
     return {
       props: {
@@ -634,9 +633,10 @@ function getAboutPartnerPageStaticProps(params) {
         partner: { ...partner, image: partner.logo, title: "Partner" },
         sections: [
           {
-            slug: "related-projects",
-            title: "Projects",
-            projects: projects.slice(startIndex, startIndex + 3),
+            ...relatedProjects,
+            projects: projects.filter((p) =>
+              p.partners?.list?.find((l) => l.id === partner.id)
+            ),
           },
         ],
         footer,
@@ -659,15 +659,12 @@ function getAboutPartnersPageStaticProps() {
       sections: [
         {
           ...getHero("about"),
-          slug: "hero",
         },
         {
-          slug: "our-partners",
-          partners: getOurPartners("about"),
+          ...getOurPartners("about"),
         },
         {
           ...getGetInTouch(),
-          slug: "get-in-touch",
         },
       ],
       footer,
@@ -685,25 +682,16 @@ function getContactPageStaticProps() {
       seo,
       sections: [
         {
-          slug: "hero",
           ...getHero("contact"),
         },
         {
           ...getContactForm(),
-          slug: "contact-form",
         },
         {
-          slug: "join-our-slack",
-          title: "We are on Slack!",
-          subtitle: "Join us",
-          action: {
-            label: "Join our Slack",
-            href: "https://docs.google.com/forms/d/e/1FAIpQLSdkfLU2yi2S1_7D27Z0I1TumkWy5brlam809Od9cc6CnXGA-A/viewform",
-          },
+          ...getJoinUs(),
         },
         {
-          slug: "office-addresses",
-          title: "Our Offices",
+          ...getOurOffices(),
           addresses: getOffices(),
           map: {
             apiKey: process.env.GOOGLE_MAPS_API_KEY ?? null,
@@ -726,9 +714,9 @@ function getContactPageStaticProps() {
 
 async function getProcessedRecentStories(page) {
   const allStories = await getAllStories();
-  const { title, count = 3 } = getNewsAndStories(page);
+  const { title, count = 3, slug } = getNewsAndStories(page);
   const articles = allStories.slice(0, count);
-  return { title, articles };
+  return { title, articles, slug };
 }
 
 async function getErrorPageStaticProps() {
@@ -740,11 +728,9 @@ async function getErrorPageStaticProps() {
       sections: [
         {
           ...getHero("error"),
-          slug: "hero",
         },
         {
           ...(await getProcessedRecentStories("error")),
-          slug: "news-stories",
         },
       ],
       footer,
@@ -763,12 +749,9 @@ async function get404PageStaticProps() {
       sections: [
         {
           ...getHero("404"),
-          slug: "hero",
         },
         {
           ...(await getProcessedRecentStories("404")),
-          slug: "news-stories",
-          title: "Recent Stories",
         },
       ],
       footer,

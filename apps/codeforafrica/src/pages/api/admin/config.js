@@ -190,12 +190,15 @@ module.exports = {
             {
               label: "Projects",
               name: "projects",
-              widget: "relation",
-              collection: "projects",
-              search_fields: ["name"],
-              value_field: "id",
-              display_fields: ["name"],
-              multiple: true,
+              widget: "object",
+              collapsed: true,
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
             },
             {
               label: "Meet Our Team",
@@ -542,6 +545,18 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/about-members-individual.md`,
           fields: [
             {
+              label: "Related Projects",
+              name: "related-projects",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
+            },
+            {
               ...seoFields,
             },
           ],
@@ -561,6 +576,18 @@ module.exports = {
           name: "about-partners-individual",
           file: `${APP_DIRECTORY}content/pages/about-partners-individual.md`,
           fields: [
+            {
+              label: "Related Projects",
+              name: "related-projects",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
+            },
             {
               ...seoFields,
             },
@@ -604,8 +631,8 @@ module.exports = {
               ],
             },
             {
-              label: "Join Us",
-              name: "join-us",
+              label: "Join our Slack",
+              name: "join-our-slack",
               widget: "object",
               fields: [
                 {
@@ -621,46 +648,31 @@ module.exports = {
                 {
                   label: "Action",
                   name: "action",
-                  widget: "string",
-                },
-                {
-                  label: "Icon",
-                  name: "icon",
                   widget: "object",
                   fields: [
                     {
-                      label: "Src",
-                      name: "src",
-                      widget: "image",
+                      label: "Label",
+                      name: "label",
+                      widget: "string",
                     },
                     {
-                      label: "Href",
+                      label: "Link",
                       name: "href",
                       widget: "string",
                     },
-                    {
-                      label: "Height",
-                      name: "height",
-                      widget: "string",
-                      required: false,
-                    },
-                    {
-                      label: "Width",
-                      name: "width",
-                      widget: "string",
-                      required: false,
-                    },
                   ],
                 },
+              ],
+            },
+            {
+              label: "Our offices",
+              name: "our-offices",
+              widget: "object",
+              fields: [
                 {
-                  label: "Our Offices",
-                  name: "offices-addresses",
-                  widget: "relation",
-                  collection: "offices-addresses",
-                  search_fields: ["name"],
-                  value_field: "id",
-                  display_fields: ["name"],
-                  multiple: true,
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
                 },
               ],
             },
@@ -692,6 +704,19 @@ module.exports = {
               ],
             },
             {
+              label: "Projects",
+              name: "projects",
+              widget: "object",
+              collapsed: true,
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
+            },
+            {
               ...seoFields,
             },
           ],
@@ -701,6 +726,51 @@ module.exports = {
           name: "our-work-individual",
           file: `${APP_DIRECTORY}content/pages/our-work-individual.md`,
           fields: [
+            {
+              label: "Team",
+              name: "team",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
+            },
+            {
+              label: "Related Stories",
+              name: "news-stories",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Number of stories",
+                  name: "articles-count",
+                  widget: "number",
+                  value_type: "int",
+                  min: 3,
+                },
+              ],
+            },
+            {
+              label: "Related Projects",
+              name: "related-projects",
+              widget: "object",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
+            },
             {
               ...seoFields,
             },
@@ -729,6 +799,19 @@ module.exports = {
               ],
             },
             {
+              label: "Opportunities",
+              name: "opportunities",
+              widget: "object",
+              collapsed: true,
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
+            },
+            {
               ...seoFields,
             },
           ],
@@ -749,6 +832,19 @@ module.exports = {
           file: `${APP_DIRECTORY}content/pages/stories.md`,
           fields: [
             {
+              label: "Stories",
+              name: "stories",
+              widget: "object",
+              collapsed: true,
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+              ],
+            },
+            {
               ...seoFields,
             },
           ],
@@ -758,6 +854,27 @@ module.exports = {
           name: "stories-individual",
           file: `${APP_DIRECTORY}content/pages/stories-individual.md`,
           fields: [
+            {
+              label: "Related Stories",
+              name: "news-stories",
+              widget: "object",
+              collapsed: true,
+              summary: "{{fields.title}}",
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                },
+                {
+                  label: "Number of stories",
+                  name: "articles-count",
+                  widget: "number",
+                  value_type: "int",
+                  min: 3,
+                },
+              ],
+            },
             {
               ...seoFields,
             },
