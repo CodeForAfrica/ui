@@ -10,7 +10,7 @@ hero:
     to accelerate change through data-driven initiatives.
   image:
     src: /images/group-4429.png
-our-projects:
+projects:
   title: Projects
 meet-our-team:
   title: Our pan-African team is spread across the continent

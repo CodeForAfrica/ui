@@ -188,8 +188,8 @@ module.exports = {
               ],
             },
             {
-              label: "Our Projects",
-              name: "our-projects",
+              label: "Projects",
+              name: "projects",
               widget: "object",
               collapsed: true,
               fields: [
@@ -695,6 +695,19 @@ module.exports = {
                 {
                   label: "Subtitle",
                   name: "subtitle",
+                  widget: "string",
+                },
+              ],
+            },
+            {
+              label: "Projects",
+              name: "projects",
+              widget: "object",
+              collapsed: true,
+              fields: [
+                {
+                  label: "Title",
+                  name: "title",
                   widget: "string",
                 },
               ],
