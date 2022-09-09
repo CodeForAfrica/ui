@@ -61,7 +61,7 @@ module.exports = withTM({
         loader: "frontmatter-markdown-loader",
       }
     );
-
+    config.experiments = { ...config.experiments, topLevelAwait: true }; // eslint-disable-line no-param-reassign
     return config;
   },
 });
