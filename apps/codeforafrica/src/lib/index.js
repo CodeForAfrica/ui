@@ -685,7 +685,6 @@ function getContactPageStaticProps() {
         },
         {
           ...getContactForm(),
-          slug: "contact-form",
         },
         {
           ...getJoinUs(),
