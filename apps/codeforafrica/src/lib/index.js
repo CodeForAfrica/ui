@@ -179,8 +179,7 @@ async function getHomePageStaticProps() {
           ...(await getProcessedNewsAndStories()),
         },
         {
-          slug: "our-partners",
-          partners: getOurPartners(),
+          ...getOurPartners(),
         },
         {
           ...getOurImpact(),
@@ -581,8 +580,7 @@ function getAboutPageStaticProps() {
           team: getMembers(),
         },
         {
-          slug: "our-partners",
-          partners: getOurPartners("about"),
+          ...getOurPartners("about"),
         },
         {
           ...getOurImpact("about"),
@@ -643,8 +641,7 @@ function getAboutPartnersPageStaticProps() {
           ...getHero("about"),
         },
         {
-          slug: "our-partners",
-          partners: getOurPartners("about"),
+          ...getOurPartners("about"),
         },
         {
           ...getGetInTouch(),
