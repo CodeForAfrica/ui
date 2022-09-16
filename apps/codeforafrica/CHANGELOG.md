@@ -1,5 +1,11 @@
 # codeforafrica
 
+## 1.0.40
+
+### Patch Changes
+
+- [#244](https://github.com/CodeForAfrica/ui/pull/244) [`5a795da`](https://github.com/CodeForAfrica/ui/commit/5a795dacbe0adc511950a68995d86c72dadae2ad) Thanks [@esirK](https://github.com/esirK)! - Adds dompurify for sanitizing HTML output as recommended by marked
+
 ## 1.0.39
 
 ### Patch Changes
