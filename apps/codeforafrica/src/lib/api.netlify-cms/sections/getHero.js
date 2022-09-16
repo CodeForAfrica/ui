@@ -1,8 +1,8 @@
 import { join } from "path";
 
-import { marked } from "marked";
-
 import { getCollectionBySlug } from "../utils";
+
+import marked from "@/codeforafrica/lib/marked";
 
 const indexPageDir = join(process.cwd(), "content/pages");
 const FIELD_NAME = "hero";

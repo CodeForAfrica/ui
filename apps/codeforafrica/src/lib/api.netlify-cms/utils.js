@@ -2,7 +2,8 @@ import fs from "fs";
 import { join } from "path";
 
 import matter from "gray-matter";
-import { marked } from "marked";
+
+import marked from "@/codeforafrica/lib/marked";
 
 export function getCollectionSlugs(collectionDir) {
   return fs.readdirSync(collectionDir);

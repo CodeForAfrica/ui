@@ -1,9 +1,9 @@
 import { join } from "path";
 
-import { marked } from "marked";
-
 import getPartners from "./getPartners";
 import { getCollectionBySlug } from "./utils";
+
+import marked from "@/codeforafrica/lib/marked";
 
 const pageDir = join(process.cwd(), "content/pages");
 const FIELD_NAME = "our-partners";
