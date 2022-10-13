@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "@commons-ui/core";
 
-export * from "config/storybook/preview";
+export * from "storybook-config-commons-ui/preview";
 
 const theme = createTheme();
 
