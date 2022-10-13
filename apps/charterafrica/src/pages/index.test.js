@@ -8,8 +8,17 @@ import theme from "@/charterafrica/theme";
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    isReady: true,
+    push: jest.fn(),
+    query: {},
+  })),
+}));
+
 const defaultProps = {
-  sections: [],
+  locale: "en-GB",
+  locales: ["en-GB", "fr", "pt"],
 };
 
 describe("/", () => {
