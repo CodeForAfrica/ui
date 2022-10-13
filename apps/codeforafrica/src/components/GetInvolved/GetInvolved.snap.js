@@ -66,7 +66,7 @@ exports[`<GetInvolved /> renders unchanged 1`] = `
         </div>
       </div>
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1t7c1xu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1t7c1xu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
         href="/contact"
         tabindex="0"
       >

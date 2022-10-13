@@ -47,7 +47,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                   class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-hdw1oc"
+                    class="css-ihdtdm"
                   >
                     <span
                       class="notranslate"
