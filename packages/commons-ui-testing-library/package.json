@@ -1,6 +1,6 @@
 {
   "name": "@commons-ui/testing-library",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": false,
   "author": "Code for Africa <tech@codeforafrica.org>",
   "description": "",
@@ -32,15 +32,14 @@
     "clean": "rm -rf .turbo node_modules dist"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.13",
+    "@babel/core": "^7.19.3",
     "@babel/preset-react": "^7.18.6",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@mui/material": "^5.10.3",
-    "@types/react": "^17.0.49",
+    "@mui/material": "^5.10.9",
+    "@types/react": "^17.0.50",
     "babel-loader": "^8.2.5",
-    "config": "workspace:*",
-    "eslint": "^8.23.0",
+    "eslint": "^8.25.0",
     "eslint-config-commons-ui": "workspace:*",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.3",
@@ -49,7 +48,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
-    "typescript": "^4.8.2",
+    "typescript": "^4.8.4",
     "webpack": "^5.74.0"
   },
   "peerDependencies": {
