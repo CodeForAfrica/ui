@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+
 /** MUI Breakpoints
  * https://mui.com/material-ui/customization/breakpoints/#main-content
  */

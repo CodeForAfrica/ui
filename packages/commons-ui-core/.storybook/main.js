@@ -1,5 +1,5 @@
 const path = require("path");
-const defaultConfig = require("config/storybook/main");
+const defaultConfig = require("storybook-config-commons-ui/main");
 
 const { webpackFinal } = defaultConfig;
 

@@ -21,14 +21,12 @@ module.exports = withTM({
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
       ?.map((d) => d.trim())
       ?.filter((d) => d),
+    unoptimized:
+      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
+      "true",
   },
   experimental: {
     outputFileTracingRoot,
-    images: {
-      unoptimized:
-        process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
-        "true",
-    },
   },
   output: "standalone",
   pageExtensions: ["page.js"],
