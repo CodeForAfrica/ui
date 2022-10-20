@@ -22,16 +22,19 @@
     "url": "https://github.com/codeforafrica/ui/issues"
   },
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev --port 3003",
+    "build:next": "next build",
+    "build:payload": "payload build",
+    "build": "NODE_ENV=production pnpm build:payload && NEXT_BUILD=true node server.js",
+    "dev": "NODE_OPTIONS='--inspect' node scripts/dev.js",
+    "start": "NODE_ENV=production node server.js",
     "lint-check": "eslint './'",
     "lint": "eslint --fix './'",
     "jest": "jest",
     "playwright": "npx playwright test",
-    "build": "next build",
-    "start": "next start",
-    "clean": "rm -rf .next .turbo node_modules"
+    "clean": "rm -rf .next .turbo dist node_modules"
   },
   "dependencies": {
+    "@babel/register": "^7.18.9",
     "@commons-ui/core": "workspace:*",
     "@commons-ui/next": "workspace:*",
     "@emotion/cache": "^11.10.3",
@@ -40,14 +43,18 @@
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.9",
     "@mui/utils": "^5.10.9",
+    "@next/env": "^12.3.1",
+    "express": "^4.18.2",
     "nanoid": "^4.0.0",
     "next": "^12.3.1",
     "next-seo": "^5.5.0",
     "next-transpile-modules": "^9.1.0",
+    "payload": "^1.1.15",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-share": "^4.4.0",
+    "scheduler": "^0.23.0",
     "sharp": "^0.31.1",
     "swr": "^1.3.0"
   },
