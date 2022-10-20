@@ -10,13 +10,18 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**"],
       "env": [
-        "PROJECT_ROOT",
+        "MONGO_URL",
+        "NEXT_BUILD",
         "NEXT_PUBLIC_APP_DIRECTORY",
         "NEXT_PUBLIC_APP_LOGO_URL",
         "NEXT_PUBLIC_APP_URL",
         "NEXT_PUBLIC_IMAGE_DOMAINS",
         "NODE_ENV",
-        "NODE_OPTIONS"
+        "NODE_OPTIONS",
+        "PAYLOAD_PUBLIC_APP_URL",
+        "PAYLOAD_SECRET_KEY",
+        "PORT",
+        "PROJECT_ROOT"
       ]
     },
     "codeforafrica#build": {
