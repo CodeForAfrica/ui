@@ -34,7 +34,6 @@
     "clean": "rm -rf .next .turbo dist node_modules"
   },
   "dependencies": {
-    "@babel/register": "^7.18.9",
     "@commons-ui/core": "workspace:*",
     "@commons-ui/next": "workspace:*",
     "@emotion/cache": "^11.10.3",
@@ -61,6 +60,8 @@
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/preset-react": "^7.18.6",
+    "@babel/register": "^7.18.9",
+    "@babel/runtime": "^7.19.4",
     "@commons-ui/testing-library": "workspace:*",
     "@playwright/test": "^1.27.1",
     "@svgr/webpack": "^6.5.0",
