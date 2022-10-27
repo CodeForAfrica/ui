@@ -15,32 +15,9 @@ export const NextLinkComposed = React.forwardRef(function NextLinkComposed(
   props,
   ref
 ) {
-  const {
-    to,
-    linkAs,
-    replace,
-    scroll,
-    shallow,
-    passHref,
-    prefetch,
-    locale,
-    ...other
-  } = props;
+  const { linkAs, ...other } = props;
 
-  return (
-    <NextLink
-      href={to}
-      prefetch={prefetch}
-      as={linkAs}
-      replace={replace}
-      scroll={scroll}
-      shallow={shallow}
-      passHref
-      locale={locale}
-    >
-      <Anchor ref={ref} {...other} />
-    </NextLink>
-  );
+  return <NextLink as={linkAs} {...other} ref={ref} />;
 });
 
 NextLinkComposed.propTypes = {
@@ -52,7 +29,6 @@ NextLinkComposed.propTypes = {
   replace: PropTypes.bool,
   scroll: PropTypes.bool,
   shallow: PropTypes.bool,
-  to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
 };
 
 NextLinkComposed.defaultProps = {
@@ -108,7 +84,7 @@ const Link = React.forwardRef(function Link(props, ref) {
 
   const linkAs = linkAsProp || as;
   const nextjsProps = {
-    to: href,
+    href,
     linkAs,
     replace,
     scroll,
@@ -127,7 +103,6 @@ const Link = React.forwardRef(function Link(props, ref) {
       />
     );
   }
-
   return (
     <MuiLink
       component={NextLinkComposed}
