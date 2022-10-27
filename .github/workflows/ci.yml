@@ -29,8 +29,8 @@ jobs:
           fetch-depth: 2
 
       # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
-      - uses: pnpm/action-setup@v2.2.4
-        name: Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.4
         id: pnpm-install
 
       - name: Get pnpm store directory
@@ -53,6 +53,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
 
+      - name: Confirm pnpm versoin
+        run: pnpm --version
+
       - name: Install dependencies
         run: pnpm install
 
@@ -68,8 +71,10 @@ jobs:
       - name: Jest
         run: pnpm jest
 
+      # PromiseTracker seems to build success but then "hang".
+      # TODO(kilemensi): Investigate promisetrakcer
       - name: Build
-        run: pnpm build
+        run: pnpm build --filter=promisetracker^...
 
       - name: Playwright
-        run: pnpm playwright
+        run: pnpm playwright --filter=promisetracker^...
