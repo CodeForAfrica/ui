@@ -3,6 +3,7 @@
 exports[`<Link /> renders unchanged 1`] = `
 <div>
   <a
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-1nrvlnd-MuiTypography-root-MuiLink-root"
     href="/"
   >
     Home

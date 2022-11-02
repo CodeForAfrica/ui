@@ -31,6 +31,10 @@ const RichTypography = React.forwardRef(function RichTypography(
       }
     }
   }, [LinkProps?.onClick]);
+
+  if (!childrenProp) {
+    return null;
+  }
   let children;
   let dangerouslySetInnerHTML;
   if (typeof childrenProp === "string") {
@@ -39,10 +43,6 @@ const RichTypography = React.forwardRef(function RichTypography(
     };
   } else {
     children = childrenProp;
-  }
-
-  if (!childrenProp) {
-    return null;
   }
   return (
     <RichTypographyRoot
