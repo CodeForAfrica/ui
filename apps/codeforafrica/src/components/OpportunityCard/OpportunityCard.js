@@ -32,6 +32,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             <RichTypography>{tags?.join(", ")}</RichTypography>
           </Box>
           <RichTypography
+            component="section"
             variant="body2"
             sx={{
               py: 2.5,

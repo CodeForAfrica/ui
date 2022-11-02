@@ -25,7 +25,7 @@ function Logo({ image, url, ...props }) {
 
   return (
     <Link href={url} className={classes.root}>
-      <Image {...image} layout="fill" className={classes.root} />
+      <Image alt="Logo" {...image} fill className={classes.root} />
     </Link>
   );
 }

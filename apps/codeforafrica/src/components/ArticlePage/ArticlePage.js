@@ -22,14 +22,16 @@ function ArticlePage({
   return (
     <Box component="article">
       <Figure
+        ImageProps={{
+          alt: title,
+          sx: { objectFit: "cover" },
+          priority: true,
+          src: featureImage,
+        }}
         sx={{
           width: "100%",
           height: { xs: "163px", md: "600px" },
         }}
-        alt={title}
-        objectFit="cover"
-        priority
-        src={featureImage}
       />
       <ArticleHeader
         title={title}

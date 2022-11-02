@@ -25,11 +25,11 @@ exports[`<OpportunityCard /> renders unchanged 1`] = `
         <div
           class="MuiBox-root css-k008qs"
         />
-        <div
+        <section
           class="MuiTypography-root MuiTypography-body2 css-vouzhn-MuiTypography-root"
         >
           Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...
-        </div>
+        </section>
       </div>
       <div
         class="MuiCardActions-root MuiCardActions-spacing css-14r9scr-MuiCardActions-root"

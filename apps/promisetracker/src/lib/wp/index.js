@@ -356,7 +356,6 @@ function wp(site) {
               slug: post.slug,
               title: post.title,
             })) || null;
-          // console.log(posts)
           return posts;
         })();
       },

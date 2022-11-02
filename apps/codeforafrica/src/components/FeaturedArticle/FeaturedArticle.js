@@ -24,8 +24,8 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
   return (
     <ArticleCard
       sx={{
-        width: "100%",
         height: "100%",
+        width: "100%",
         ...sx,
       }}
       ref={ref}

@@ -33,23 +33,25 @@ const TeamMemberCard = React.forwardRef(function TeamMemberCard(props, ref) {
   return (
     <TeamMemberCardRoot elevation={0} square ref={ref}>
       <CardActionArea component={href ? Link : undefined} href={href}>
-        <TeamMemberCardMedia {...thumbnail} component="img" />
-        <CardContent
-          sx={{
-            p: "10px",
-            "&:last-child": {
-              p: 0,
-            },
-          }}
-        >
-          <RichTypography variant="body1SemiBold">{name}</RichTypography>
-          <RichTypography
-            variant="body1"
-            sx={{ mt: "5px", textTransform: "capitalize" }}
+        <>
+          <TeamMemberCardMedia {...thumbnail} component="img" />
+          <CardContent
+            sx={{
+              p: "10px",
+              "&:last-child": {
+                p: 0,
+              },
+            }}
           >
-            {title}
-          </RichTypography>
-        </CardContent>
+            <RichTypography variant="body1SemiBold">{name}</RichTypography>
+            <RichTypography
+              variant="body1"
+              sx={{ mt: "5px", textTransform: "capitalize" }}
+            >
+              {title}
+            </RichTypography>
+          </CardContent>
+        </>
       </CardActionArea>
     </TeamMemberCardRoot>
   );

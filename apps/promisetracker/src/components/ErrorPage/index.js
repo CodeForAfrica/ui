@@ -49,12 +49,7 @@ function ErrorPage({
           </Grid>
           <Grid item xs={12} lg={5} className={classes.gridAside}>
             <figure className={classes.figure}>
-              <Image
-                src={image}
-                layout="fill"
-                alt="404"
-                className={classes.image}
-              />
+              <Image src={image} alt="404" fill className={classes.image} />
             </figure>
           </Grid>
         </Grid>

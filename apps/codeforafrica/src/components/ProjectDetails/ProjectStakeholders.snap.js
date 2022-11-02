@@ -19,7 +19,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
       class="css-1y69rbp-MuiStack-root"
     >
       <div
-        class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-19rzirx-MuiChip-root"
+        class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-16g6el-MuiChip-root"
       >
         <span
           class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"

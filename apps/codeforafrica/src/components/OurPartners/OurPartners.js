@@ -33,9 +33,10 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
             <Grid item xs={5} sm={2} key={name}>
               <Wrapper {...wrapperProps}>
                 <Figure
-                  alt={name}
-                  layout="fill"
-                  {...logo}
+                  ImageProps={{
+                    alt: name,
+                    ...logo,
+                  }}
                   sx={{
                     filter: "grayscale(100%) opacity(50%)",
                     height: {

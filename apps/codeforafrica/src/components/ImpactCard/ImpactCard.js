@@ -1,9 +1,10 @@
 import { RichTypography } from "@commons-ui/next";
 import { Card, CardContent, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
+
+import Figure from "@/codeforafrica/components/Figure";
 
 const ImpactCardRoot = styled(Card, {
   slot: "Root",
@@ -45,7 +46,10 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
             pb: "12px",
           }}
         >
-          <Image src={imageSrc} alt={imageAlt} width={32} height={32} />
+          <Figure
+            ImageProps={{ alt: imageAlt, src: imageSrc }}
+            sx={{ height: "32px", width: "32px" }}
+          />
           <RichTypography
             variant="h5"
             sx={{

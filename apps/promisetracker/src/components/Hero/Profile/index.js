@@ -63,7 +63,7 @@ function Profile({ date, dateLabel, name, photo: photoProp, title, ...props }) {
       className={classes.root}
     >
       <figure className={classes.figure}>
-        <Image src={photo} layout="fill" alt={name} className={classes.img} />
+        <Image src={photo} alt={name} fill className={classes.img} />
       </figure>
       <div className={classes.details}>
         <Typography variant="h5" className={classes.title}>

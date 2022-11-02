@@ -54,7 +54,7 @@ const useStyles = makeStyles(
     },
     featuredImageContainer: {
       background: (props) =>
-        `linear-gradient(to right, ${props.status?.color}, ${props.status?.color}), url(${props.image}) no-repeat center/cover`,
+        `linear-gradient(to right, ${props.status?.color}, ${props.status?.color}), url("${props.image}") no-repeat center/cover`,
       border: (props) => `10px solid ${props.status?.color}`,
       backgroundBlendMode: "soft-light",
       backgroundRepeat: "no-repeat",

@@ -50,8 +50,9 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
           {...logo}
           href="/"
           alt="Logo"
-          width="116px"
-          height="50px"
+          width={116}
+          height={50}
+          priority
         />
       </Grid>
       <Grid item>
@@ -59,8 +60,8 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
           src={menuIcon}
           alt="menu icon"
           onClick={handleClickOpen}
-          width="32px"
-          height="32px"
+          width={32}
+          height={32}
         />
         <DialogContainer
           fullScreen
@@ -85,8 +86,8 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
             <NextImageButton
               src={closebutton}
               alt="Logo"
-              width="32px"
-              height="32px"
+              width={32}
+              height={32}
               sx={{
                 display: "flex",
                 marginTop: "1rem",

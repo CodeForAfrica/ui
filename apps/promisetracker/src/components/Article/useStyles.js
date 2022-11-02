@@ -25,7 +25,7 @@ const useStyles = makeStyles(
       marginBottom: "2rem",
     },
     featuredImageContainer: {
-      backgroundImage: (props) => `url(${props.image})`,
+      backgroundImage: (props) => `url("${props.image}")`,
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       width: "100%",

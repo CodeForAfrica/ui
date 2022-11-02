@@ -59,12 +59,7 @@ function ActNowLoggedInPage({
       title={title}
       content={
         <figure className={classes.logoFigureLoggedIn}>
-          <Image
-            src={actNowLogo}
-            layout="fill"
-            alt="actNOW"
-            className={classes.image}
-          />
+          <Image src={actNowLogo} alt="actNOW" fill className={classes.image} />
         </figure>
       }
       contentProps={{ xs: 5, lg: 4 }}

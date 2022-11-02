@@ -75,12 +75,7 @@ function ActNow({
 
   const aside = (
     <figure className={classes.figure}>
-      <Image
-        src={actNowImg}
-        layout="fill"
-        alt="actNOW"
-        className={classes.image}
-      />
+      <Image src={actNowImg} alt="actNOW" fill className={classes.image} />
     </figure>
   );
   return (
@@ -95,8 +90,8 @@ function ActNow({
             <figure className={classes.logoFigure}>
               <Image
                 src={actNowLogo}
-                layout="fill"
                 alt="actNOW"
+                fill
                 className={classes.image}
               />
             </figure>

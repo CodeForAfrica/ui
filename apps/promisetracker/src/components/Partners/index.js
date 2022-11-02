@@ -99,8 +99,8 @@ function Partners({ items, title, ...props }) {
                   <Link href={partner.url} className={classes.partner}>
                     <Image
                       src={partner.image}
-                      layout="fill"
                       alt={partner.name}
+                      fill
                       className={clsx(classes.partnerLogo, classes.partnerRow)}
                     />
                   </Link>

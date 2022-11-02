@@ -11,7 +11,7 @@ exports[`<Input /> renders unchanged 1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input css-s9ndwd-MuiInputBase-input-MuiOutlinedInput-input"
-        id="mui-1"
+        id=":r0:"
         type="text"
         value=""
       />

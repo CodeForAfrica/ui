@@ -11,6 +11,7 @@ const render = createRender({ theme });
 const defaultProps = {
   authors: [],
   featureImage: "/images/stories-1.png",
+  title: "Article",
 };
 
 describe("<ArticlePage />", () => {

@@ -82,7 +82,7 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
     },
   },
   media: (props) => ({
-    background: `linear-gradient(to right, ${props.status?.color}, ${props.status?.color}), url(${props.image}) no-repeat top center`,
+    background: `linear-gradient(to right, ${props.status?.color}, ${props.status?.color}), url("${props.image}") no-repeat top center`,
     backgroundBlendMode: "soft-light",
     backgroundSize: "100%",
     // NOTE(kilemensi): Since this useStyles is shared between KeyPromises

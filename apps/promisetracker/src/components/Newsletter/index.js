@@ -63,7 +63,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
     "& #mc_embed_signup .button": {
       background: "none",
       outline: "none",
-      backgroundImage: `url(${email.src})`,
+      backgroundImage: `url("${email.src}")`,
       backgroundRepeat: "no-repeat",
       backgroundSize: `${email.width} ${email.height}`,
       border: "none",
@@ -73,7 +73,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       "&:hover": {
         background: "none",
         outline: "none",
-        backgroundImage: `url(${email.src})`,
+        backgroundImage: `url("${email.src}")`,
         backgroundRepeat: "no-repeat",
         backgroundSize: `${email.width} ${email.height}`,
         border: "none",
@@ -81,7 +81,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
       "&:focus": {
         background: "none",
         outline: "none",
-        backgroundImage: `url(${email.src})`,
+        backgroundImage: `url("${email.src}")`,
         backgroundRepeat: "no-repeat",
         backgroundSize: `${email.width} ${email.height}`,
         border: "none",
@@ -127,8 +127,8 @@ function Newsletter({
             <figure className={classes.figure}>
               <Image
                 src={subscribeImg}
-                layout="fill"
                 alt="Subscribe"
+                fill
                 className={classes.image}
               />
             </figure>

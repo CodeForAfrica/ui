@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const NextImageButton = React.forwardRef(function Logo(props, ref) {
-  const { alt, src, width, href, height, ...other } = props;
+  const { alt, height, href, priority, src, width, ...other } = props;
 
   if (!src) {
     return null;
@@ -17,7 +17,13 @@ const NextImageButton = React.forwardRef(function Logo(props, ref) {
       {...other}
       ref={ref}
     >
-      <Image src={src} alt={alt} width={width} height={height} />
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        priority={priority}
+      />
     </ImageButton>
   );
 });
@@ -26,8 +32,9 @@ NextImageButton.propTypes = {
   src: PropTypes.string,
   href: PropTypes.string,
   alt: PropTypes.string,
-  width: PropTypes.string,
-  height: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  priority: PropTypes.bool,
 };
 
 NextImageButton.defaultProps = {
@@ -36,6 +43,7 @@ NextImageButton.defaultProps = {
   alt: undefined,
   width: undefined,
   height: undefined,
+  priority: undefined,
 };
 
 export default NextImageButton;

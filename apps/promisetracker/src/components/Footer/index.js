@@ -142,10 +142,10 @@ function MainFooter({
             <Grid item xs={12} lg={6} className={classes.secondaryGridItem}>
               <figure className={classes.logoFigure}>
                 <Image
-                  className={classes.logoImage}
                   src={ptLogo}
-                  layout="fill"
                   alt="PromiseTracker"
+                  fill
+                  className={classes.logoImage}
                 />
               </figure>
               <div className={classes.legalContainer}>
