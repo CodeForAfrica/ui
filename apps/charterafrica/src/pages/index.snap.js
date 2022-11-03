@@ -11,7 +11,7 @@ exports[`/ renders unchanged 1`] = `
           class="MuiBox-root css-w4pgrz"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-9ep12i-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1yuvfe2-MuiButtonBase-root-MuiButton-root"
             disabled=""
             tabindex="-1"
             type="button"
@@ -23,7 +23,7 @@ exports[`/ renders unchanged 1`] = `
           class="MuiBox-root css-w4pgrz"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-9ep12i-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1yuvfe2-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -34,7 +34,7 @@ exports[`/ renders unchanged 1`] = `
           class="MuiBox-root css-w4pgrz"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-9ep12i-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1yuvfe2-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -44,9 +44,76 @@ exports[`/ renders unchanged 1`] = `
       </ul>
     </nav>
     <header>
-      <h1
-        class="MuiTypography-root MuiTypography-h1 css-73j5p0-MuiTypography-root"
-      />
+      <h2
+        class="MuiTypography-root MuiTypography-display1 css-20zft-MuiTypography-root"
+      >
+        display1: 
+      </h2>
+      <h2
+        class="MuiTypography-root MuiTypography-display2 css-1hfhczy-MuiTypography-root"
+      >
+        display2: 
+      </h2>
+      <h2
+        class="MuiTypography-root MuiTypography-h1 css-fo40q-MuiTypography-root"
+      >
+        h1: 
+      </h2>
+      <h2
+        class="MuiTypography-root MuiTypography-h2 css-9r79ed-MuiTypography-root"
+      >
+        h2: 
+      </h2>
+      <h2
+        class="MuiTypography-root MuiTypography-h3 css-13525cm-MuiTypography-root"
+      >
+        h3: 
+      </h2>
+      <h2
+        class="MuiTypography-root MuiTypography-h4 css-1bkp0mx-MuiTypography-root"
+      >
+        h4: 
+      </h2>
+      <h2
+        class="MuiTypography-root MuiTypography-h5 css-1uaxigf-MuiTypography-root"
+      >
+        h5: 
+      </h2>
+      <h2
+        class="MuiTypography-root MuiTypography-h6 css-rjwdx7-MuiTypography-root"
+      >
+        h6: 
+      </h2>
+      <span
+        class="MuiTypography-root MuiTypography-subheading css-uizynx-MuiTypography-root"
+      >
+        subheading: 
+      </span>
+      <p
+        class="MuiTypography-root MuiTypography-p1 css-1bknwfq-MuiTypography-root"
+      >
+        p1: 
+      </p>
+      <p
+        class="MuiTypography-root MuiTypography-p2 css-15sqrat-MuiTypography-root"
+      >
+        p2: 
+      </p>
+      <p
+        class="MuiTypography-root MuiTypography-p3 css-qxmo6f-MuiTypography-root"
+      >
+        p3: 
+      </p>
+      <span
+        class="MuiTypography-root MuiTypography-caption css-jnr04d-MuiTypography-root"
+      >
+        caption: 
+      </span>
+      <span
+        class="MuiTypography-root MuiTypography-footer css-1uw8me7-MuiTypography-root"
+      >
+        footer: 
+      </span>
     </header>
   </main>
 </div>
