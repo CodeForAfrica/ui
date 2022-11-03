@@ -3,7 +3,7 @@
 exports[`<FeaturedArticle /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-outlined MuiCard-root css-1dxfqf3-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-outlined MuiCard-root css-ern672-MuiPaper-root-MuiCard-root"
   >
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-byxw8u-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"

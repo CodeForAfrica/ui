@@ -70,6 +70,7 @@ const moduleExports = withTM({
     //   - hideSourceMaps
     //   - widenClientFileUpload
     //   - transpileClientSDK
+    hideSourceMaps: false,
   },
 });
 

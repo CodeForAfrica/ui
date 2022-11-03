@@ -18,7 +18,7 @@ exports[`<Projects /> renders unchanged 1`] = `
             <input
               aria-invalid="false"
               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-h7q3zr-MuiInputBase-input-MuiOutlinedInput-input"
-              id="mui-1"
+              id=":r0:"
               placeholder="Search projects"
               type="search"
               value=""

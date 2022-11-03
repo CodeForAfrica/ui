@@ -33,7 +33,7 @@ function AboutPage({
       <figure className={classes.featuredFigure}>
         <Image
           src={featuredImage}
-          layout="fill"
+          fill
           alt="About"
           className={classes.featuredImage}
         />
@@ -71,8 +71,8 @@ function AboutPage({
             <figure className={classes.contentSectionAsideBackground}>
               <Image
                 src={background}
-                layout="fill"
                 alt="Background"
+                fill
                 className={classes.contentSectionAsideBackgroundImage}
               />
             </figure>

@@ -21,8 +21,9 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
           {...logo}
           href="/"
           alt="Logo"
-          width="136px"
-          height="61px"
+          width={136}
+          height={61}
+          priority
         />
       </Grid>
       <Grid item>

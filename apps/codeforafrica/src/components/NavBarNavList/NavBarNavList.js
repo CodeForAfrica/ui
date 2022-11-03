@@ -21,8 +21,9 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
             href={item.href}
             color="inherit"
             underline="none"
+            variant="h4"
             sx={{
-              typography: { xs: "h4", md: "body3" },
+              typography: { md: "body3" },
               "&:hover, &:active, &:focus, &:focus-within": {
                 textDecoration: "none",
                 color: { xs: "inherit", md: "primary.main" },

@@ -50,7 +50,7 @@ const useStyles = makeStyles(
       },
     },
     featuredImageContainer: {
-      backgroundImage: (props) => `url(${props.image})`,
+      backgroundImage: (props) => `url("${props.image}")`,
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       width: "100%",

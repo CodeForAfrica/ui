@@ -10,13 +10,18 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**"],
       "env": [
-        "PROJECT_ROOT",
+        "MONGO_URL",
+        "NEXT_BUILD",
         "NEXT_PUBLIC_APP_DIRECTORY",
         "NEXT_PUBLIC_APP_LOGO_URL",
         "NEXT_PUBLIC_APP_URL",
         "NEXT_PUBLIC_IMAGE_DOMAINS",
         "NODE_ENV",
-        "NODE_OPTIONS"
+        "NODE_OPTIONS",
+        "PAYLOAD_PUBLIC_APP_URL",
+        "PAYLOAD_SECRET_KEY",
+        "PORT",
+        "PROJECT_ROOT"
       ]
     },
     "codeforafrica#build": {
@@ -49,6 +54,8 @@
         "APP_SLUG",
         "GOOGLE_ID",
         "GOOGLE_SECRET",
+        "PROMISE_TRACKER_SENTRY_DSN",
+        "PUBLIC_PROMISE_TRACKER_SENTRY_DSN",
         "NEXT_PUBLIC_APP_NAME",
         "NEXT_PUBLIC_APP_URL",
         "NEXT_PUBLIC_GTM_ID",
@@ -56,11 +63,9 @@
         "NEXT_PUBLIC_I18N_LOCALES",
         "NEXT_PUBLIC_IMAGE_DOMAINS",
         "NEXT_PUBLIC_IMAGE_UNOPTIMIZED",
-        "NEXT_PUBLIC_SENTRY_DSN",
         "NEXT_PUBLIC_VERCEL_ENV",
         "NEXT_PUBLIC_VERCEL_URL",
         "NEXTAUTH_SECRET",
-        "SENTRY_DSN",
         "SOURCE_LIB"
       ]
     },

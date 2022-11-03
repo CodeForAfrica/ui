@@ -10,7 +10,7 @@ import Status from "@/promisetracker/components/PromiseStatus";
 function PromiseCard({ classes: classesProp, status, href, title, ...props }) {
   const classes = useStyles({ classes: classesProp, status });
   const style = {
-    background: `linear-gradient(to right, ${status?.color}, ${status?.color}), url(${props.image}) no-repeat center/cover`,
+    background: `linear-gradient(to right, ${status?.color}, ${status?.color}), url("${props.image}") no-repeat center/cover`,
   };
 
   return (

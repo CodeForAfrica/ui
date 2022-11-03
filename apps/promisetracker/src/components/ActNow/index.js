@@ -118,8 +118,8 @@ function ActNow({ actionLabel, description, title, ...props }) {
               <figure className={classes.logoFigure}>
                 <Image
                   src={actNowLogo}
-                  layout="fill"
                   alt="actNOW"
+                  fill
                   className={classes.image}
                 />
               </figure>
@@ -144,8 +144,8 @@ function ActNow({ actionLabel, description, title, ...props }) {
             <figure className={classes.figure}>
               <Image
                 src={actNowImg}
-                layout="fill"
                 alt={actionLabel}
+                fill
                 className={classes.image}
               />
             </figure>

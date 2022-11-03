@@ -9,7 +9,10 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  src: "/",
+  ImageProps: {
+    src: "/image.jpg",
+    alt: "Image",
+  },
 };
 
 describe("<Figure />", () => {

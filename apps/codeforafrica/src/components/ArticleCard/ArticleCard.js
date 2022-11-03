@@ -43,9 +43,9 @@ const ArticleCard = React.forwardRef(function ArticleCard(props, ref) {
       elevation={elevation}
       square={square}
       variant={variant}
-      ref={ref}
       ownerState={ownerState}
       {...other}
+      ref={ref}
     />
   );
 });

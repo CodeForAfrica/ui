@@ -3,9 +3,10 @@ import { Link, RichTypography } from "@commons-ui/next";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
+
+import Figure from "@/codeforafrica/components/Figure";
 
 const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
   const { title, description, href, logo } = props;
@@ -49,22 +50,16 @@ const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
             sm={6}
             xs={12}
           >
-            <Box
-              component="figure"
+            <Figure
+              ImageProps={{
+                src: logo,
+                alt: "Our offices across africa",
+              }}
               sx={{
                 height: { xs: "21.93rem", sm: "26rem", lg: "32.37rem" },
-                position: "relative",
-                margin: 0,
                 width: { xs: "21.87rem", sm: "20rem", lg: "29rem" },
               }}
-            >
-              <Image
-                src={logo}
-                layout="fill"
-                objectFit="contain"
-                alt="offices across africa"
-              />
-            </Box>
+            />
           </Grid>
         </Grid>
       </Section>

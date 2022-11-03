@@ -16,7 +16,7 @@ exports[`Homepage renders unchanged 1`] = `
       >
         Get 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1nrvlnd-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-1nrvlnd-MuiTypography-root-MuiLink-root"
           href="/"
         >
           started

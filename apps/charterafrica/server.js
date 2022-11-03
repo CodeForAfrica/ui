@@ -1,0 +1,46 @@
+/* eslint-disable no-console */
+const path = require("path");
+
+const env = require("@next/env");
+const express = require("express");
+const next = require("next");
+const nextBuild = require("next/dist/build").default;
+const payload = require("payload");
+
+const projectDir = process.cwd();
+env.loadEnvConfig(projectDir);
+
+const dev = process.env.NODE_ENV !== "production";
+const port = process.env.PORT || 3000;
+const server = express();
+
+payload.init({
+  secret: process.env.PAYLOAD_SECRET_KEY,
+  mongoURL: process.env.MONGO_URL,
+  express: server,
+  onInit: () => {
+    payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
+  },
+});
+
+if (!process.env.NEXT_BUILD) {
+  const nextApp = next({ dev });
+
+  const nextHandler = nextApp.getRequestHandler();
+
+  server.get("*", (req, res) => nextHandler(req, res));
+
+  nextApp.prepare().then(() => {
+    console.log("NextJS started");
+
+    server.listen(port, async () => {
+      console.log(`Server listening on ${port}...`);
+    });
+  });
+} else {
+  server.listen(port, async () => {
+    console.log("NextJS is now building...");
+    await nextBuild(path.resolve(projectDir));
+    process.exit();
+  });
+}

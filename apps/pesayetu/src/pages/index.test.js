@@ -2,6 +2,13 @@ import { render, screen } from "@commons-ui/testing-library";
 
 import Index from "./index.page";
 
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    asPath: "",
+    isReady: true,
+  })),
+}));
+
 describe("Homepage", () => {
   it("renders unchanged", () => {
     const { container } = render(<Index />);

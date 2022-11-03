@@ -39,7 +39,7 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
     alignSelf: "center",
     width: typography.pxToRem(184),
     height: typography.pxToRem(184),
-    background: (props) => (props.image ? `url(${props.image})` : "#fff"),
+    background: (props) => (props.image ? `url("${props.image}")` : "#fff"),
     [breakpoints.up("lg")]: {
       marginLeft: "1rem",
     },

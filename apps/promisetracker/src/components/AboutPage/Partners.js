@@ -30,8 +30,8 @@ function Partners({ items, ...props }) {
             <figure className={classes.partnerFigure}>
               <Image
                 src={partner.image}
-                layout="fill"
                 alt={partner.name}
+                fill
                 className={classes.partnerLogo}
               />
             </figure>

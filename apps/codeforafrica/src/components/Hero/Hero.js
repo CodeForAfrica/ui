@@ -22,8 +22,11 @@ const Hero = React.forwardRef(function Hero(props, ref) {
           </Grid>
           <Grid item>
             <Figure
-              priority
-              {...image}
+              ImageProps={{
+                alt: "Civic tech and open data labs",
+                priority: true,
+                ...image,
+              }}
               sx={{
                 display: {
                   xs: "none",

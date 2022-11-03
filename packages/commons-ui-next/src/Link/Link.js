@@ -1,10 +1,11 @@
+/* eslint-env browser */
 import MuiLink from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
 import clsx from "clsx";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import isExternalUrl from "@/commons-ui/next/utils/isExternalUrl";
 
@@ -15,28 +16,20 @@ export const NextLinkComposed = React.forwardRef(function NextLinkComposed(
   props,
   ref
 ) {
-  const {
-    to,
-    linkAs,
-    replace,
-    scroll,
-    shallow,
-    passHref,
-    prefetch,
-    locale,
-    ...other
-  } = props;
+  const { linkAs, locale, prefetch, replace, scroll, shallow, to, ...other } =
+    props;
 
   return (
     <NextLink
-      href={to}
-      prefetch={prefetch}
       as={linkAs}
+      href={to}
+      legacyBehavior
+      locale={locale}
+      passHref
+      prefetch={prefetch}
       replace={replace}
       scroll={scroll}
       shallow={shallow}
-      passHref
-      locale={locale}
     >
       <Anchor ref={ref} {...other} />
     </NextLink>
@@ -52,7 +45,6 @@ NextLinkComposed.propTypes = {
   replace: PropTypes.bool,
   scroll: PropTypes.bool,
   shallow: PropTypes.bool,
-  to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
 };
 
 NextLinkComposed.defaultProps = {
@@ -72,7 +64,7 @@ const Link = React.forwardRef(function Link(props, ref) {
   const {
     activeClassName = "active",
     as,
-    className: classNameProps,
+    className: classNameProp,
     href,
     linkAs: linkAsProp,
     locale,
@@ -85,11 +77,24 @@ const Link = React.forwardRef(function Link(props, ref) {
     ...other
   } = props;
 
-  const router = useRouter();
-  const pathname = typeof href === "string" ? href : href.pathname;
-  const className = clsx(classNameProps, {
-    [activeClassName]: router?.pathname === pathname && activeClassName,
-  });
+  const { asPath, isReady } = useRouter();
+  const [className, setClassName] = useState(classNameProp);
+  const linkAs = linkAsProp || as;
+
+  useEffect(() => {
+    if (isReady) {
+      const linkPathname = new URL(linkAs || href, window.location.href)
+        .pathname;
+      const activePathname = new URL(asPath, window.location.href).pathname;
+      const newClassName = clsx(classNameProp, {
+        [activeClassName]: linkPathname === activePathname,
+      });
+
+      if (newClassName !== className) {
+        setClassName(newClassName);
+      }
+    }
+  }, [asPath, isReady, linkAs, href, classNameProp, activeClassName, setClassName, className]);
 
   const isExternal = isExternalUrl(href);
 
@@ -106,7 +111,6 @@ const Link = React.forwardRef(function Link(props, ref) {
     return <MuiLink className={className} {...externalLinkProps} ref={ref} />;
   }
 
-  const linkAs = linkAsProp || as;
   const nextjsProps = {
     to: href,
     linkAs,
@@ -120,21 +124,20 @@ const Link = React.forwardRef(function Link(props, ref) {
   if (noLinkStyle) {
     return (
       <NextLinkComposed
-        className={className}
-        ref={ref}
         {...nextjsProps}
         {...other}
+        className={className}
+        ref={ref}
       />
     );
   }
-
   return (
     <MuiLink
+      {...nextjsProps}
+      {...other}
       component={NextLinkComposed}
       className={className}
       ref={ref}
-      {...nextjsProps}
-      {...other}
     />
   );
 });

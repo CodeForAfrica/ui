@@ -17,7 +17,7 @@ const useStyles = makeStyles(({ typography, palette }) => ({
     height: typography.pxToRem(39),
     marginRight: "1rem",
     background: (props) =>
-      props.image ? `url(${props.image})` : palette.secondary.dark,
+      props.image ? `url("${props.image}")` : palette.secondary.dark,
   },
   name: {},
 }));

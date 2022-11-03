@@ -4,9 +4,10 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
+
+import Figure from "@/codeforafrica/components/Figure";
 
 const ProjectTileRoot = styled(Paper, {
   slot: "Root",
@@ -69,33 +70,38 @@ const ProjectTile = React.forwardRef(function ProjectTile(props, ref) {
           textDecoration: "none",
         }}
       >
-        {icon?.src?.length > 0 ? (
-          <Image {...icon} component="img" height="70px" width="70px" />
-        ) : null}
-        <Typography
-          variant="h4"
-          sx={{
-            display: variant === "detailed" ? "none" : "flex",
-          }}
-        >
-          {name}
-        </Typography>
-        <Stack
-          sx={{
-            display: variant === "detailed" ? "flex" : "none",
-            spacing: "6px",
-          }}
-        >
-          <Typography variant="body3SemiBold">{name}</Typography>
+        <>
+          {icon?.src?.length > 0 ? (
+            <Figure
+              ImageProps={{ alt: name, ...icon }}
+              sx={{ height: "70px", width: "70px" }}
+            />
+          ) : null}
           <Typography
-            variant="body2"
+            variant="h4"
             sx={{
-              color: "#9F9494",
+              display: variant === "detailed" ? "none" : "flex",
             }}
           >
-            {tagLine?.substring(0, 25)}
+            {name}
           </Typography>
-        </Stack>
+          <Stack
+            sx={{
+              display: variant === "detailed" ? "flex" : "none",
+              spacing: "6px",
+            }}
+          >
+            <Typography variant="body3SemiBold">{name}</Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                color: "#9F9494",
+              }}
+            >
+              {tagLine?.substring(0, 25)}
+            </Typography>
+          </Stack>
+        </>
       </Box>
     </ProjectTileRoot>
   );

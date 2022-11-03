@@ -14,27 +14,48 @@ jobs:
     env:
       GHOST_API_KEY: ${{ secrets.GHOST_API_KEY }}
       GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+      MONGO_URL: ${{ secrets.MONGO_URL }}
+      PROMISE_TRACKER_SENTRY_DSN: ${{ secrets.PROMISE_TRACKER_SENTRY_DSN }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
     strategy:
       matrix:
         os: [ubuntu-latest]
+        node-version: [16]
     steps:
       - name: Check out code
         uses: actions/checkout@v2
         with:
           fetch-depth: 2
 
-      - uses: pnpm/action-setup@v2.0.1
+      # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.4
+        id: pnpm-install
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
         with:
-          version: 7.3.0
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: ${{ matrix.node-version }}
           cache: "pnpm"
+
+      - name: Confirm pnpm version
+        run: pnpm --version
 
       - name: Install dependencies
         run: pnpm install
@@ -51,8 +72,10 @@ jobs:
       - name: Jest
         run: pnpm jest
 
+      # PromiseTracker seems to build success but then "hang".
+      # TODO(kilemensi): Investigate promisetrakcer
       - name: Build
-        run: pnpm build
+        run: pnpm build --filter=promisetracker^...
 
       - name: Playwright
-        run: pnpm playwright
+        run: pnpm playwright --filter=promisetracker^...

@@ -10,7 +10,7 @@ exports[`<ConnectBar /> renders unchanged 1`] = `
     >
       <a
         aria-label="facebook"
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1fqhsaw-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root active css-1fqhsaw-MuiTypography-root-MuiLink-root"
         data-mui-internal-clone-element="true"
         href="https://www.facebook.com/"
         rel="noreferrer noopener"

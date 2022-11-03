@@ -7,11 +7,16 @@ const FigureRoot = styled("figure")({
   margin: 0,
 });
 
+const ImageRoot = styled(Image)({
+  objectFit: "contain",
+});
+
 const Figure = React.forwardRef(function Figure(props, ref) {
-  const { sx, ...other } = props;
+  const { sx, ImageProps } = props;
+
   return (
     <FigureRoot sx={sx} ref={ref}>
-      <Image objectFit="contain" layout="fill" {...other} />
+      <ImageRoot fill {...ImageProps} />
     </FigureRoot>
   );
 });
