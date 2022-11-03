@@ -50,7 +50,44 @@ function Index({ locale, locales, seo, title }) {
           </Box>
         </nav>
         <header>
-          <Typography variant="h1">{title}</Typography>
+          <Typography variant="display1" component="h2">
+            display1: {title}
+          </Typography>
+          <Typography variant="display2" component="h2">
+            display2: {title}
+          </Typography>
+          <Typography variant="h1" component="h2">
+            h1: {title}
+          </Typography>
+          <Typography variant="h2">h2: {title}</Typography>
+          <Typography variant="h3" component="h2">
+            h3: {title}
+          </Typography>
+          <Typography variant="h4" component="h2">
+            h4: {title}
+          </Typography>
+          <Typography variant="h5" component="h2">
+            h5: {title}
+          </Typography>
+          <Typography variant="h6" component="h2">
+            h6: {title}
+          </Typography>
+          <Typography variant="subheading">subheading: {title}</Typography>
+          <Typography variant="p1" component="p">
+            p1: {title}
+          </Typography>
+          <Typography variant="p2" component="p">
+            p2: {title}
+          </Typography>
+          <Typography variant="p3" component="p">
+            p3: {title}
+          </Typography>
+          <Typography variant="caption" sx={{ display: "block" }}>
+            caption: {title}
+          </Typography>
+          <Typography variant="footer" sx={{ display: "block" }}>
+            footer: {title}
+          </Typography>
         </header>
       </main>
     </>
