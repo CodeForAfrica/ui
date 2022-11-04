@@ -1,6 +1,8 @@
 import { createTheme } from "@commons-ui/core";
 import { deepmerge } from "@mui/utils";
 
+import { neutral } from "@/charterafrica/colors";
+
 const OPEN_SANS_FONT_FAMILY = '"Open Sans", sans-serif';
 const PROMPT_FONT_FAMILY = "Prompt, sans-serif";
 
@@ -8,7 +10,7 @@ const palette = {
   mode: "light",
   primary: { light: "#E2C4EC", main: "#B560D0", dark: "#481D57" },
   secondary: { light: "#FBE7A3", main: "#F7CE46", dark: "#31290E" },
-  neutral: { light: "#CDBDC4", main: "#967684", dark: "#3E202C" },
+  neutral: { light: neutral[200], main: neutral[500], dark: neutral[900] },
   error: { main: "#F29D88" },
   warning: { main: "#F7CE46" },
   success: { main: "#AAD4A9" },
@@ -117,6 +119,15 @@ deepmerge(
       styleOverrides: {
         ...theme.typography.p2SemiBold,
       },
+    },
+    MuiCssBaseline: {
+      styleOverrides: `
+       #__next {
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+       }
+      `,
     },
   },
   { clone: false }
