@@ -1,4 +1,4 @@
-import { Link } from "@commons-ui/next";
+import { Figure, Link } from "@commons-ui/next";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
@@ -6,8 +6,6 @@ import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import React from "react";
-
-import Figure from "@/codeforafrica/components/Figure";
 
 const ProjectTileRoot = styled(Paper, {
   slot: "Root",

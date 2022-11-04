@@ -1,10 +1,10 @@
 import { Section } from "@commons-ui/core";
+import { Figure } from "@commons-ui/next";
 import Grid from "@mui/material/Grid";
 import React from "react";
 
 import HeroText from "./HeroText";
 
-import Figure from "@/codeforafrica/components/Figure";
 import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const Hero = React.forwardRef(function Hero(props, ref) {

@@ -1,10 +1,8 @@
-import { RichTypography } from "@commons-ui/next";
+import { Figure, RichTypography } from "@commons-ui/next";
 import { Card, CardContent, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
-
-import Figure from "@/codeforafrica/components/Figure";
 
 const ImpactCardRoot = styled(Card, {
   slot: "Root",

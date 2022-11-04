@@ -6,7 +6,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
     class="MuiBox-root css-0"
   >
     <figure
-      class="css-1t2i4sw"
+      class="MuiBox-root css-nxzwqu"
     >
       <img
         alt="Article"

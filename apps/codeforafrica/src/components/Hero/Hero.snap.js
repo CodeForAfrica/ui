@@ -18,7 +18,7 @@ exports[`<Hero /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <figure
-            class="css-1yvyt09"
+            class="MuiBox-root css-3zt5io"
           >
             <img
               alt="Civic tech and open data labs"

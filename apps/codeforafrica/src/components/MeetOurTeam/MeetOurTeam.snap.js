@@ -36,7 +36,7 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1912ugn-MuiGrid-root"
         >
           <figure
-            class="css-zpvt2p"
+            class="MuiBox-root css-97qtcq"
           >
             <img
               alt="Our offices across africa"

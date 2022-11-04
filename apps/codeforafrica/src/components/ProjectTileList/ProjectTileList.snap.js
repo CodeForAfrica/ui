@@ -16,7 +16,7 @@ exports[`<ProjectTileList /> renders unchanged 1`] = `
           href="/projects/acfrican-drone"
         >
           <figure
-            class="css-y98ffp"
+            class="MuiBox-root css-f1ltsh"
           >
             <img
               alt="africanDRONE"
