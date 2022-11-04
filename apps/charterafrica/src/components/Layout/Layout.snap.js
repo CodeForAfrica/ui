@@ -45,13 +45,7 @@ exports[`<Layout /> renders unchanged 1`] = `
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-mes6to-MuiContainer-root"
-      >
-        <div
-          class="MuiTypography-root MuiTypography-p2SemiBold css-1spj5no-MuiTypography-root"
-        >
-          © 2022 European Partnership for Democracy (CC BY-NC 2.0)
-        </div>
-      </div>
+      />
     </div>
   </footer>
 </div>
