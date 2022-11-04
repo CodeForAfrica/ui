@@ -5,14 +5,8 @@ const { addons, staticDirs, webpackFinal } = defaultConfig;
 
 module.exports = {
   ...defaultConfig,
-  addons: [
-    ...addons,
-    "storybook-addon-next-router",
-  ],
-  staticDirs: [
-    ...staticDirs,
-    "../../../apps/codeforafrica/public",
-  ],
+  addons: [...addons, "storybook-addon-next-router"],
+  staticDirs: [...staticDirs, "../../../apps/codeforafrica/public"],
   webpackFinal: async (config) => {
     config = await webpackFinal(config);
     config.resolve.alias = {
