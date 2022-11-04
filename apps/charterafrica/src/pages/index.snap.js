@@ -2,7 +2,9 @@
 
 exports[`/ renders unchanged 1`] = `
 <div>
-  <main>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-19oefyb-MuiContainer-root"
+  >
     <nav>
       <ul
         class="MuiBox-root css-1rkpujh"
@@ -115,6 +117,6 @@ exports[`/ renders unchanged 1`] = `
         footer: 
       </span>
     </header>
-  </main>
+  </div>
 </div>
 `;
