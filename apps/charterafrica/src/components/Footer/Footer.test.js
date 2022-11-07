@@ -34,6 +34,7 @@ const defaultProps = {
     },
   ],
   logo: {
+    alt: "EU",
     src: "/images/eu.png",
   },
   projectDescription: "Website designed and built by Code for Africa",

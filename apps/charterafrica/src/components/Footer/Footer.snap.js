@@ -21,6 +21,7 @@ exports[`<Footer /> renders unchanged 1`] = `
               class="MuiBox-root css-1d66hx2"
             >
               <img
+                alt="EU"
                 class="css-6mvbnf"
                 data-nimg="fill"
                 decoding="async"

@@ -102,6 +102,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   <Box display="flex" gap="10px">
                     {links.map((link) => (
                       <Link
+                        key={link.content}
                         color="inherit"
                         href={link.href}
                         underline="always"
@@ -140,7 +141,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
 Footer.propTypes = {
   contact: PropTypes.shape({}),
   copyright: PropTypes.string,
-  links: PropTypes.shape(PropTypes.arrayOf(PropTypes.shape({}))),
+  links: PropTypes.arrayOf(PropTypes.shape({})),
   logo: PropTypes.shape({}),
   projectDescription: PropTypes.string,
   siteDescription: PropTypes.string,

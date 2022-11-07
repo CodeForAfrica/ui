@@ -21,6 +21,7 @@ const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
     >
       {partners.map((partner) => (
         <Grid
+          key={partner.name}
           item
           xs={6}
           sm={4}
