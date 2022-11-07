@@ -34,7 +34,7 @@ const defaultProps = {
     },
   ],
   logo: {
-    src: "/images/auweblogo-en-1.png",
+    src: "/images/eu.png",
   },
   projectDescription: "Website designed and built by Code for Africa",
   siteDescription:
