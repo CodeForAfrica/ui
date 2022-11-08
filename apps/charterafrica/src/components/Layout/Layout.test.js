@@ -9,7 +9,12 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  footer: {},
+  footer: {
+    logo: {
+      alt: "EU",
+      src: "/images/eu.png",
+    },
+  },
 };
 
 describe("<Layout />", () => {
