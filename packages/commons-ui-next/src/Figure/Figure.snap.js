@@ -3,7 +3,7 @@
 exports[`<Figure /> renders unchanged 1`] = `
 <div>
   <figure
-    class="css-x4x53h"
+    class="MuiBox-root css-db5opy"
   >
     <img
       alt="Image"

@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> renders unchanged 1`] = `
+<div>
+  <footer
+    class="MuiBox-root css-j7qwjs"
+  >
+    <div
+      class="MuiBox-root css-16c9a35"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-aiu674-MuiContainer-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container css-1q9v6zv-MuiGrid-root"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-1xzxcnf-MuiGrid-root"
+          >
+            <figure
+              class="MuiBox-root css-1d66hx2"
+            >
+              <img
+                alt="EU"
+                class="css-6mvbnf"
+                data-nimg="fill"
+                decoding="async"
+                loading="lazy"
+                sizes="100vw"
+                src="/_next/image?url=%2Fimages%2Feu.png&w=3840&q=75"
+                srcset="/_next/image?url=%2Fimages%2Feu.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Feu.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Feu.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Feu.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Feu.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Feu.png&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Feu.png&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Feu.png&w=3840&q=75 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+              />
+            </figure>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-ib3mjc-MuiGrid-root"
+          >
+            <div
+              class="MuiBox-root css-utp7eg"
+            >
+              <a
+                class="MuiTypography-root MuiTypography-p2 MuiLink-root MuiLink-underlineNone css-h2nd6m-MuiTypography-root-MuiLink-root"
+                href="mailto:info@charter.africa"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fg9zjp-MuiSvgIcon-root"
+                  focusable="false"
+                  viewbox="0 0 32 32"
+                />
+                info@charter.africa
+              </a>
+              <p
+                class="MuiTypography-root MuiTypography-p2 css-1ue2ml3-MuiTypography-root"
+              >
+                This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-p2SemiBold css-1sj4amz-MuiTypography-root"
+              >
+                Website designed and built by Code for Africa
+              </p>
+              <div
+                class="MuiBox-root css-i5q2k0"
+              >
+                <a
+                  class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"
+                  href="/"
+                >
+                  Privacy Policy
+                </a>
+                <a
+                  class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"
+                  href="/"
+                >
+                  Imprint
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiBox-root css-1nmbj82"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-mes6to-MuiContainer-root"
+      >
+        <div
+          class="MuiTypography-root MuiTypography-p2SemiBold css-1spj5no-MuiTypography-root"
+        >
+          © 2022 European Partnership for Democracy (CC BY-NC 2.0)
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;

@@ -1,12 +1,12 @@
 /* eslint-disable camelcase */
 import { Section } from "@commons-ui/core";
+import { Figure } from "@commons-ui/next";
 import Box from "@mui/material/Box";
 import React from "react";
 
 import ArticleHeader from "@/codeforafrica/components/ArticleHeader";
 import Author from "@/codeforafrica/components/Author";
 import CMSContent from "@/codeforafrica/components/CMSContent";
-import Figure from "@/codeforafrica/components/Figure";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
 
 function ArticlePage({

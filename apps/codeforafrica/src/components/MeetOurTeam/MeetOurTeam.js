@@ -1,12 +1,10 @@
 import { Section } from "@commons-ui/core";
-import { Link, RichTypography } from "@commons-ui/next";
+import { Figure, Link, RichTypography } from "@commons-ui/next";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
 import React from "react";
-
-import Figure from "@/codeforafrica/components/Figure";
 
 const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
   const { title, description, href, logo } = props;

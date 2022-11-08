@@ -12,7 +12,7 @@ exports[`<ImpactCard /> renders unchanged 1`] = `
         class="MuiBox-root css-17pohca"
       >
         <figure
-          class="css-s9dhs1"
+          class="MuiBox-root css-1lb2pcr"
         >
           <img
             alt="Beneficiaries trained"

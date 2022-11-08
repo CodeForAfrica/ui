@@ -1,10 +1,8 @@
 import { Section } from "@commons-ui/core";
-import { Link, RichTypography } from "@commons-ui/next";
+import { Figure, Link, RichTypography } from "@commons-ui/next";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import React from "react";
-
-import Figure from "@/codeforafrica/components/Figure";
 
 const OurPartners = React.forwardRef(function OurPartners(props, ref) {
   const { partners: { title, action, list: partners } = {}, sx } = props;

@@ -1,10 +1,8 @@
 /* eslint-env browser */
-import { Link, RichTypography } from "@commons-ui/next";
+import { Figure, Link, RichTypography } from "@commons-ui/next";
 import Stack from "@mui/material/Stack";
 import PropTypes from "prop-types";
 import React from "react";
-
-import Figure from "@/codeforafrica/components/Figure";
 
 const FooterDescription = React.forwardRef(function FooterDescription(
   props,

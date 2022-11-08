@@ -95,7 +95,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
                   class="MuiBox-root css-uq7i85"
                 >
                   <figure
-                    class="css-y98ffp"
+                    class="MuiBox-root css-f1ltsh"
                   >
                     <img
                       alt="knowledgeAFRICA"
