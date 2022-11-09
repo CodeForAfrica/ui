@@ -49,7 +49,7 @@ const RichTypography = React.forwardRef(function RichTypography(
       LinkProps={LinkProps}
       // We default to `div` to allow other block elements like <p> to be used inside
       // `children`
-      component={component || (html && "div")}
+      component={component || (html ? "div" : undefined)}
       dangerouslySetInnerHTML={dangerouslySetInnerHTML}
       {...props}
       ref={typographyRef}
