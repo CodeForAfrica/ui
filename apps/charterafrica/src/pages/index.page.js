@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 import React from "react";
 
+import Helpdesk from "@/charterafrica/components/Helpdesk";
 import Partners from "@/charterafrica/components/Partners";
 import Resources from "@/charterafrica/components/Resources";
 
@@ -94,10 +95,12 @@ function Index({ blocks, locale, locales, title }) {
       </Section>
       {blocks?.map((block) => {
         switch (block.slug) {
-          case "resources":
-            return <Resources {...block} />;
+          case "helpdesk":
+            return <Helpdesk {...block} key={block.slug} />;
           case "partners":
-            return <Partners {...block} />;
+            return <Partners {...block} key={block.slug} />;
+          case "resources":
+            return <Resources {...block} key={block.slug} />;
           default:
             return null;
         }
@@ -183,6 +186,22 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
               value: "54,000",
             },
           ],
+        },
+        {
+          slug: "helpdesk",
+          description: `
+          <p>
+            Need help connecting with experts?<br />
+            We can help you find specialists or resources to improve the impact of your democracy project.
+          </p>
+          `,
+          image: {
+            src: "/images/helpdesk.svg",
+          },
+          link: {
+            content: "Submit request",
+          },
+          title: "Democracy Support Helpdesk",
         },
         {
           slug: "partners",
