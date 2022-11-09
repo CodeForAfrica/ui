@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import React from "react";
 
 import Partners from "@/charterafrica/components/Partners";
+import Resources from "@/charterafrica/components/Resources";
 
 function Index({ blocks, locale, locales, title }) {
   const router = useRouter();
@@ -93,6 +94,8 @@ function Index({ blocks, locale, locales, title }) {
       </Section>
       {blocks?.map((block) => {
         switch (block.slug) {
+          case "resources":
+            return <Resources {...block} />;
           case "partners":
             return <Partners {...block} />;
           default:
@@ -115,6 +118,72 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   return {
     props: {
       blocks: [
+        {
+          slug: "resources",
+          title: "Our Resources",
+          resources: [
+            {
+              background: {
+                color: "#4D2137",
+                src: "/images/resources-tools.png",
+              },
+              icon: {
+                color: "#F7CE46",
+                src: "/icons/Type=database, Size=64, Color=CurrentColor.svg",
+              },
+              link: {
+                content: "Browse tools",
+              },
+              name: "Tools",
+              value: "54,000",
+            },
+            {
+              background: {
+                color: "#CC6F58",
+                src: "/images/resources-people.png",
+              },
+              icon: {
+                color: "#F29D88",
+                src: "/icons/Type=paperclip, Size=64, Color=CurrentColor.svg",
+              },
+              link: {
+                content: "Browse people",
+              },
+              name: "People",
+              value: "54,000",
+            },
+            {
+              background: {
+                color: "#699968",
+                src: "/images/resources-organisations.png",
+              },
+              icon: {
+                color: "#AAD4A9",
+                src: "/icons/Type=users, Size=64, Color=CurrentColor.svg",
+              },
+              link: {
+                content: "Browse organisations",
+              },
+              name: "Organisations",
+              value: "54,000",
+            },
+            {
+              background: {
+                color: "#6C5B6D",
+                src: "/images/resources-data.png",
+              },
+              icon: {
+                color: "#A790A9",
+                src: "/icons/Type=database, Size=64, Color=CurrentColor.svg",
+              },
+              link: {
+                content: "Browse database",
+              },
+              name: "Data",
+              value: "54,000",
+            },
+          ],
+        },
         {
           slug: "partners",
           title: "Partners",
