@@ -15,13 +15,13 @@ const RichTypographyRoot = styled(Typography, {
 });
 
 const RichTypography = React.forwardRef(function RichTypography(
-  { LinkProps, children: childrenProp, component, ...props },
+  { LinkProps, children: childrenProp, component, html = true, ...props },
   ref
 ) {
   const typographyRef = useRef();
   useImperativeHandle(ref, () => typographyRef.current);
   useEffect(() => {
-    if (LinkProps?.onClick) {
+    if (html && LinkProps?.onClick) {
       const { current: el } = typographyRef;
       if (el) {
         const anchors = el.getElementsByTagName("a");
@@ -30,14 +30,14 @@ const RichTypography = React.forwardRef(function RichTypography(
         }
       }
     }
-  }, [LinkProps?.onClick]);
+  }, [LinkProps?.onClick, html]);
 
   if (!childrenProp) {
     return null;
   }
   let children;
   let dangerouslySetInnerHTML;
-  if (typeof childrenProp === "string") {
+  if (typeof childrenProp === "string" && html) {
     dangerouslySetInnerHTML = {
       __html: childrenProp,
     };
@@ -46,10 +46,10 @@ const RichTypography = React.forwardRef(function RichTypography(
   }
   return (
     <RichTypographyRoot
+      LinkProps={LinkProps}
       // We default to `div` to allow other block elements like <p> to be used inside
       // `children`
-      LinkProps={LinkProps}
-      component={component || "div"}
+      component={component || (html && "div")}
       dangerouslySetInnerHTML={dangerouslySetInnerHTML}
       {...props}
       ref={typographyRef}
@@ -61,11 +61,13 @@ const RichTypography = React.forwardRef(function RichTypography(
 
 RichTypography.propTypes = {
   children: PropTypes.node,
+  html: PropTypes.bool,
   component: PropTypes.elementType,
 };
 
 RichTypography.defaultProps = {
   children: undefined,
+  html: undefined,
   component: undefined,
 };
 
