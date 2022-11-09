@@ -13,12 +13,19 @@ const ImageRoot = styled(Image)({
 });
 
 const Figure = React.forwardRef(function Figure(props, ref) {
-  const { component: componentProp, sx, ImageProps } = props;
+  const { children, component: componentProp, sx, ImageProps } = props;
   const component = componentProp || "figure";
 
+  // Image requires src.
+  if (!ImageProps?.src) {
+    return null;
+  }
   return (
     <FigureRoot component={component} sx={sx} ref={ref}>
       <ImageRoot fill {...ImageProps} />
+
+      {/* Allow addition of other elements e.g. figcaption. */}
+      {children}
     </FigureRoot>
   );
 });
