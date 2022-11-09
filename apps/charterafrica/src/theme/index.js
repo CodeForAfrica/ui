@@ -1,4 +1,5 @@
 import { createTheme } from "@commons-ui/core";
+import { buttonClasses } from "@mui/material";
 import { deepmerge } from "@mui/utils";
 
 import { neutral, secondary } from "@/charterafrica/colors";
@@ -156,6 +157,20 @@ deepmerge(
           padding: "12px 18px",
           "&:hover": {
             boxShadow: "none",
+          },
+          [`&.${buttonClasses.disabled}`]: {
+            backgroundColor: neutral[100],
+            color: neutral[500],
+          },
+        },
+        containedPrimary: {
+          backgroundColor: neutral[900],
+          color: palette.text.secondary,
+          "&:focus": {
+            backgroundColor: neutral[700],
+          },
+          "&:hover": {
+            backgroundColor: neutral[500],
           },
         },
         containedSecondary: {
