@@ -7,9 +7,11 @@ import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
 
-function Helpdesk({ description, image, link, sx, title }) {
+const Helpdesk = React.forwardRef(function Helpdesk(props, ref) {
+  const { description, image, link, sx, title } = props;
+
   return (
-    <Box bgcolor={secondary[200]} sx={sx}>
+    <Box bgcolor={secondary[200]} sx={sx} ref={ref}>
       <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "74.5px" } }}>
         <Box
           alignItems="center"
@@ -53,7 +55,7 @@ function Helpdesk({ description, image, link, sx, title }) {
       </Section>
     </Box>
   );
-}
+});
 
 Helpdesk.propTypes = {
   description: PropTypes.node,

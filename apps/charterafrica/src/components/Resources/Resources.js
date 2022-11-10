@@ -6,12 +6,14 @@ import React from "react";
 
 import Resource from "./Resource";
 
-function Resources({ resources, title, sx }) {
+const Resources = React.forwardRef(function Resources(props, ref) {
+  const { resources, title, sx } = props;
+
   if (!resources?.length) {
     return null;
   }
   return (
-    <Box sx={sx}>
+    <Box sx={sx} ref={ref}>
       <RichTypography
         color="neutral.dark"
         html={false}
@@ -30,7 +32,7 @@ function Resources({ resources, title, sx }) {
       </Grid>
     </Box>
   );
-}
+});
 
 Resources.propTypes = {
   resources: PropTypes.arrayOf(PropTypes.shape({})),
