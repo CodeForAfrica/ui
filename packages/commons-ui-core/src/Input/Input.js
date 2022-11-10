@@ -19,7 +19,7 @@ const InputRoot = styled(TextField)(({ theme }) => ({
     borderRadius: 0,
     backgroundColor: theme.palette.common.white,
     "&:active fieldset": {
-      borderColor: theme.palette.highlight.main,
+      borderColor: theme.palette.highlight?.main,
     },
     "&:hover fieldset": {
       borderColor: theme.palette.primary.main,

@@ -1,9 +1,9 @@
+import Input from "@/commons-ui/core/Input";
 import IconButton from "@mui/material/IconButton";
 import SvgIcon from "@mui/material/SvgIcon";
 import React from "react";
 
 import SearchIcon from "@/codeforafrica/assets/icons/Type=search, Size=16, Color=CurrentColor.svg";
-import Input from "@/codeforafrica/components/Input";
 
 const InputSearch = React.forwardRef(function InputSearch(props, ref) {
   const { InputProps, onClick, onMouseDown, ...other } = props;
