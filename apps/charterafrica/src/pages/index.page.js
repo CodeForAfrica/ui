@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 import React from "react";
 
+import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import Partners from "@/charterafrica/components/Partners";
 import Resources from "@/charterafrica/components/Resources";
@@ -95,6 +96,8 @@ function Index({ blocks, locale, locales, title }) {
       </Section>
       {blocks?.map((block) => {
         switch (block.slug) {
+          case "focal-countries":
+            return <FocalCountries {...block} key={block.slug} />;
           case "helpdesk":
             return <Helpdesk {...block} key={block.slug} />;
           case "partners":
@@ -121,6 +124,18 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   return {
     props: {
       blocks: [
+        {
+          slug: "focal-countries",
+          title: "Focal Countries",
+          description: `
+          <p>The Charter Project is a pan-African initiative by a coalition of watchdog organisations that use civic technologies to strengthen democracy.
+          <p>We do this by helping digital activists and democracy changemakers leverage the African Union’s Charter on Democracy, Elections and Governance (ACDEG).
+          <p>The project currently supports initiatives in 11 countries. Find out more <a href="/">here</a>
+          `,
+          image: {
+            src: "/images/focal-countries.svg",
+          },
+        },
         {
           slug: "resources",
           title: "Our Resources",
