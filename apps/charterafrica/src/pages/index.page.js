@@ -5,7 +5,10 @@ import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 import React from "react";
 
+import FocalCountries from "@/charterafrica/components/FocalCountries";
+import Helpdesk from "@/charterafrica/components/Helpdesk";
 import Partners from "@/charterafrica/components/Partners";
+import Resources from "@/charterafrica/components/Resources";
 
 function Index({ blocks, locale, locales, title }) {
   const router = useRouter();
@@ -93,8 +96,14 @@ function Index({ blocks, locale, locales, title }) {
       </Section>
       {blocks?.map((block) => {
         switch (block.slug) {
+          case "focal-countries":
+            return <FocalCountries {...block} key={block.slug} />;
+          case "helpdesk":
+            return <Helpdesk {...block} key={block.slug} />;
           case "partners":
-            return <Partners {...block} />;
+            return <Partners {...block} key={block.slug} />;
+          case "resources":
+            return <Resources {...block} key={block.slug} />;
           default:
             return null;
         }
@@ -115,6 +124,100 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   return {
     props: {
       blocks: [
+        {
+          slug: "focal-countries",
+          title: "Focal Countries",
+          description: `
+          <p>The Charter Project is a pan-African initiative by a coalition of watchdog organisations that use civic technologies to strengthen democracy.
+          <p>We do this by helping digital activists and democracy changemakers leverage the African Union’s Charter on Democracy, Elections and Governance (ACDEG).
+          <p>The project currently supports initiatives in 11 countries. Find out more <a href="/">here</a>
+          `,
+          image: {
+            src: "/images/focal-countries.svg",
+          },
+        },
+        {
+          slug: "resources",
+          title: "Our Resources",
+          resources: [
+            {
+              background: {
+                color: "#4D2137",
+                src: "/images/resources-tools.png",
+              },
+              icon: {
+                color: "#F7CE46",
+                src: "/icons/Type=database, Size=64, Color=CurrentColor.svg",
+              },
+              link: {
+                content: "Browse tools",
+              },
+              name: "Tools",
+              value: "54,000",
+            },
+            {
+              background: {
+                color: "#CC6F58",
+                src: "/images/resources-people.png",
+              },
+              icon: {
+                color: "#F29D88",
+                src: "/icons/Type=paperclip, Size=64, Color=CurrentColor.svg",
+              },
+              link: {
+                content: "Browse people",
+              },
+              name: "People",
+              value: "54,000",
+            },
+            {
+              background: {
+                color: "#699968",
+                src: "/images/resources-organisations.png",
+              },
+              icon: {
+                color: "#AAD4A9",
+                src: "/icons/Type=users, Size=64, Color=CurrentColor.svg",
+              },
+              link: {
+                content: "Browse organisations",
+              },
+              name: "Organisations",
+              value: "54,000",
+            },
+            {
+              background: {
+                color: "#6C5B6D",
+                src: "/images/resources-data.png",
+              },
+              icon: {
+                color: "#A790A9",
+                src: "/icons/Type=database, Size=64, Color=CurrentColor.svg",
+              },
+              link: {
+                content: "Browse database",
+              },
+              name: "Data",
+              value: "54,000",
+            },
+          ],
+        },
+        {
+          slug: "helpdesk",
+          description: `
+          <p>
+            Need help connecting with experts?<br />
+            We can help you find specialists or resources to improve the impact of your democracy project.
+          </p>
+          `,
+          image: {
+            src: "/images/helpdesk.svg",
+          },
+          link: {
+            content: "Submit request",
+          },
+          title: "Democracy Support Helpdesk",
+        },
         {
           slug: "partners",
           title: "Partners",

@@ -1,7 +1,8 @@
 import { createTheme } from "@commons-ui/core";
+import { buttonClasses } from "@mui/material";
 import { deepmerge } from "@mui/utils";
 
-import { neutral } from "@/charterafrica/colors";
+import { neutral, secondary } from "@/charterafrica/colors";
 
 const OPEN_SANS_FONT_FAMILY = '"Open Sans", sans-serif';
 const PROMPT_FONT_FAMILY = "Prompt, sans-serif";
@@ -9,7 +10,11 @@ const PROMPT_FONT_FAMILY = "Prompt, sans-serif";
 const palette = {
   mode: "light",
   primary: { light: "#E2C4EC", main: "#B560D0", dark: "#481D57" },
-  secondary: { light: "#FBE7A3", main: "#F7CE46", dark: "#31290E" },
+  secondary: {
+    light: secondary[200],
+    main: secondary[500],
+    dark: secondary[900],
+  },
   neutral: { light: neutral[200], main: neutral[500], dark: neutral[900] },
   error: { main: "#F29D88" },
   warning: { main: "#F7CE46" },
@@ -76,14 +81,18 @@ const theme = createTheme({
     subtitle1: undefined,
     subtitle2: undefined,
     p1: initializeTypographyVariant(14, 17),
+    p1SemiBold: initializeTypographyVariant(14, 17, 600),
     p2: initializeTypographyVariant(16, 19),
     p2SemiBold: initializeTypographyVariant(16, 19, 600),
     p3: initializeTypographyVariant(18, 21.6),
+    p3SemiBold: initializeTypographyVariant(18, 21.6, 600),
     body1: undefined,
     body2: undefined,
     caption: initializeTypographyVariant(12, 14),
     footer: initializeTypographyVariant(10, 12),
     overline: undefined,
+    number: initializeTypographyVariant(72, 90, 900, PROMPT_FONT_FAMILY),
+    numberSmall: initializeTypographyVariant(42, 42, 700, PROMPT_FONT_FAMILY),
   },
   components: {
     MuiButtonBase: {
@@ -94,6 +103,31 @@ const theme = createTheme({
     MuiTypography: {
       defaultProps: {
         variant: "p1",
+        variantMapping: {
+          h1: "h1",
+          h1Small: "h1",
+          h2: "h2",
+          h2Small: "h2",
+          h3: "h3",
+          h3Small: "h3",
+          h4: "h4",
+          h4Small: "h4",
+          h5: "h5",
+          h5Small: "h5",
+          h6: "h6",
+          h6Small: "h6",
+          subheading: "h6",
+          p1: "p",
+          p1SemiBold: "p",
+          p2: "p",
+          p2SemiBold: "p",
+          p3: "p",
+          p3SemiBold: "p",
+          caption: "span",
+          footer: "span",
+          number: "span",
+          numberSmall: "span",
+        },
       },
     },
   },
@@ -115,9 +149,45 @@ deepmerge(
 deepmerge(
   theme.components,
   {
-    MuiButtonBase: {
+    MuiButton: {
       styleOverrides: {
-        ...theme.typography.p2SemiBold,
+        root: {
+          ...theme.typography.p2SemiBold,
+          boxShadow: "none",
+          padding: "12px 18px",
+          "&:hover": {
+            boxShadow: "none",
+          },
+          [`&.${buttonClasses.disabled}`]: {
+            backgroundColor: neutral[100],
+            color: neutral[500],
+          },
+        },
+        containedPrimary: {
+          backgroundColor: neutral[900],
+          color: palette.text.secondary,
+          "&:focus": {
+            backgroundColor: neutral[700],
+          },
+          "&:hover": {
+            backgroundColor: neutral[500],
+          },
+        },
+        containedSecondary: {
+          backgroundColor: secondary[500],
+          color: neutral[900],
+          "&:hover": {
+            backgroundColor: secondary[300],
+          },
+        },
+        sizeSmall: {
+          ...theme.typography.p1SemiBold,
+          padding: "8px 16px",
+        },
+        sizeLarge: {
+          ...theme.typography.p3SemiBold,
+          padding: "14px 20px",
+        },
       },
     },
     MuiCssBaseline: {
