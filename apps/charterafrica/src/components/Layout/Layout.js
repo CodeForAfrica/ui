@@ -14,7 +14,16 @@ function Layout({ children, footer, seo }) {
   return (
     <>
       <NextSeo {...seo} />
-      <NavBarDropdown />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <NavBarDropdown />
+      </div>
       {children ? <Main>{children}</Main> : null}
       <Footer {...footer} />
     </>
