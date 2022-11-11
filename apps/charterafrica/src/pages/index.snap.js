@@ -13,7 +13,7 @@ exports[`/ renders unchanged 1`] = `
           class="MuiBox-root css-w4pgrz"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1yuvfe2-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1s65p6f-MuiButtonBase-root-MuiButton-root"
             disabled=""
             tabindex="-1"
             type="button"
@@ -25,7 +25,7 @@ exports[`/ renders unchanged 1`] = `
           class="MuiBox-root css-w4pgrz"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1yuvfe2-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1s65p6f-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -36,7 +36,7 @@ exports[`/ renders unchanged 1`] = `
           class="MuiBox-root css-w4pgrz"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1yuvfe2-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1s65p6f-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -86,11 +86,11 @@ exports[`/ renders unchanged 1`] = `
       >
         h6: 
       </h2>
-      <span
+      <h6
         class="MuiTypography-root MuiTypography-subheading css-uizynx-MuiTypography-root"
       >
         subheading: 
-      </span>
+      </h6>
       <p
         class="MuiTypography-root MuiTypography-p1 css-1bknwfq-MuiTypography-root"
       >
