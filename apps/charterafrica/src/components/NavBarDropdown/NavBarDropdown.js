@@ -78,13 +78,14 @@ export default function NavBarDropdown() {
         role={undefined}
         transition
         disablePortal
-        modifiers={{
-          preventOverflow: {
-            enabled: true,
-            escapeWithReference: true,
-            boundariesElement: "window",
+        modifiers={[
+          {
+            name: "offset",
+            options: {
+              offset: [15, 0],
+            },
           },
-        }}
+        ]}
       >
         {({ TransitionProps, placement }) => (
           <Grow
