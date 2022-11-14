@@ -40,7 +40,7 @@ const Slide = React.forwardRef(function Slide(props, ref) {
       sx={sx}
       ref={ref}
     >
-      <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "86px" } }}>
+      <Section sx={{ px: { xs: 1.25, sm: 0 }, py: { xs: 5, md: "86px" } }}>
         <Box display="flex" flexDirection="column" alignItems="center">
           <LineClampedRichTypography
             component="h1"
@@ -92,6 +92,7 @@ const Slide = React.forwardRef(function Slide(props, ref) {
               flexDirection={{ xs: "column", sm: "row" }}
               gap={2.5}
               mt="30px"
+              width={{ xs: "100%", sm: "auto" }}
             >
               {links.map((link) => (
                 <Button
@@ -99,7 +100,6 @@ const Slide = React.forwardRef(function Slide(props, ref) {
                   color={link?.color}
                   size={isDesktop ? "large" : "small"}
                   variant="contained"
-                  sx={{ width: "fit-content" }}
                   startIcon={
                     <Figure
                       ImageProps={{ alt: link?.content, ...link?.icon }}

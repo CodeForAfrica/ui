@@ -21,7 +21,7 @@ exports[`<Hero /> renders unchanged 1`] = `
             class="MuiBox-root css-4bco8g"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-582wlz-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1rixvdt-MuiContainer-root"
             >
               <div
                 class="MuiBox-root css-dvxtzn"
@@ -42,10 +42,10 @@ exports[`<Hero /> renders unchanged 1`] = `
                   Easy to use resources for democracy activists
                 </div>
                 <div
-                  class="MuiBox-root css-1eyuehs"
+                  class="MuiBox-root css-187jlgp"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-171ruy5-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-po1nsg-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -71,7 +71,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                     Explore software
                   </button>
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-171ruy5-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-po1nsg-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
