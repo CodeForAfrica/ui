@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Layout /> renders unchanged 1`] = `
+exports[`<FocalCountries /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-ow7qj4"

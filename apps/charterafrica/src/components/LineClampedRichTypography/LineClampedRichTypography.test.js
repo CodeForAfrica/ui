@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import FocalCountries from "./FocalCountries";
+import LineClampedRichTypography from "./LineClampedRichTypography";
 
 import theme from "@/charterafrica/theme";
 
@@ -9,17 +9,14 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  footer: {
-    logo: {
-      alt: "EU",
-      src: "/images/eu.png",
-    },
-  },
+  lineClamp: 2,
 };
 
-describe("<FocalCountries />", () => {
+describe("<LineClampedRichTypography />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<FocalCountries {...defaultProps} />);
+    const { container } = render(
+      <LineClampedRichTypography {...defaultProps} />
+    );
     expect(container).toMatchSnapshot();
   });
 });

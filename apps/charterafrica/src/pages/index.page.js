@@ -1,115 +1,31 @@
-import { Section } from "@commons-ui/core";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { useRouter } from "next/router";
 import React from "react";
 
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
+import Hero from "@/charterafrica/components/Hero";
 import Partners from "@/charterafrica/components/Partners";
 import Resources from "@/charterafrica/components/Resources";
+import Spotlight from "@/charterafrica/components/Spotlight";
 
-function Index({ blocks, locale, locales, title }) {
-  const router = useRouter();
-  const { pathname, asPath, query } = router;
-
-  const handleClick = (l) => () => {
-    router.push({ pathname, query }, asPath, { locale: l });
-  };
-
-  return (
-    <>
-      <Section sx={{ px: { xs: 5, sm: 0 } }}>
-        <nav>
-          <Box
-            component="ul"
-            sx={{
-              display: "flex",
-              listStyle: "none",
-              padding: 0,
-            }}
-          >
-            {locales.map((l) => (
-              <Box
-                component="li"
-                sx={{
-                  marginLeft: 1,
-                  "&:first-of-type": {
-                    marginLeft: 0,
-                  },
-                }}
-                key={l}
-              >
-                <Button
-                  size="small"
-                  onClick={handleClick(l)}
-                  disabled={l === locale}
-                  sx={{ minWidth: 0, padding: 0 }}
-                >
-                  {l}
-                </Button>
-              </Box>
-            ))}
-          </Box>
-        </nav>
-        <header>
-          <Typography variant="display1" component="h2">
-            display1: {title}
-          </Typography>
-          <Typography variant="display2" component="h2">
-            display2: {title}
-          </Typography>
-          <Typography variant="h1" component="h2">
-            h1: {title}
-          </Typography>
-          <Typography variant="h2">h2: {title}</Typography>
-          <Typography variant="h3" component="h2">
-            h3: {title}
-          </Typography>
-          <Typography variant="h4" component="h2">
-            h4: {title}
-          </Typography>
-          <Typography variant="h5" component="h2">
-            h5: {title}
-          </Typography>
-          <Typography variant="h6" component="h2">
-            h6: {title}
-          </Typography>
-          <Typography variant="subheading">subheading: {title}</Typography>
-          <Typography variant="p1" component="p">
-            p1: {title}
-          </Typography>
-          <Typography variant="p2" component="p">
-            p2: {title}
-          </Typography>
-          <Typography variant="p3" component="p">
-            p3: {title}
-          </Typography>
-          <Typography variant="caption" sx={{ display: "block" }}>
-            caption: {title}
-          </Typography>
-          <Typography variant="footer" sx={{ display: "block" }}>
-            footer: {title}
-          </Typography>
-        </header>
-      </Section>
-      {blocks?.map((block) => {
-        switch (block.slug) {
-          case "focal-countries":
-            return <FocalCountries {...block} key={block.slug} />;
-          case "helpdesk":
-            return <Helpdesk {...block} key={block.slug} />;
-          case "partners":
-            return <Partners {...block} key={block.slug} />;
-          case "resources":
-            return <Resources {...block} key={block.slug} />;
-          default:
-            return null;
-        }
-      })}
-    </>
-  );
+function Index({ blocks }) {
+  return blocks?.map((block) => {
+    switch (block.slug) {
+      case "focal-countries":
+        return <FocalCountries {...block} key={block.slug} />;
+      case "helpdesk":
+        return <Helpdesk {...block} key={block.slug} />;
+      case "hero":
+        return <Hero {...block} key={block.slug} />;
+      case "partners":
+        return <Partners {...block} key={block.slug} />;
+      case "resources":
+        return <Resources {...block} key={block.slug} />;
+      case "spotlight":
+        return <Spotlight {...block} key={block.slug} />;
+      default:
+        return null;
+    }
+  });
 }
 
 const TITLES = {
@@ -124,6 +40,214 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   return {
     props: {
       blocks: [
+        {
+          slug: "hero",
+          slides: [
+            {
+              id: 1,
+              title: {
+                color: "common.white",
+                content:
+                  "Find Africa's best <br><i>digital democracy</i> tools",
+              },
+              subheading: {
+                color: "#fff",
+                content: "Easy to use resources for democracy activists",
+              },
+              background: {
+                blendMode: "multiply, luminosity",
+                color: "#4E2037",
+                src: "/images/hero-slide-1.jpg",
+              },
+              links: [
+                {
+                  color: "secondary",
+                  content: "Explore software",
+                  icon: {
+                    src: "/icons/Type=folder, Size=16, Color=Neutral900.svg",
+                  },
+                },
+                {
+                  color: "secondary",
+                  content: "Browse database",
+                  icon: {
+                    src: "/icons/Type=database, Size=16, Color=Neutral900.svg",
+                  },
+                },
+              ],
+            },
+            {
+              id: 2,
+              title: {
+                color: "#3E202C",
+                content: "Find African allies to <br>turbocharge your project",
+              },
+              subheading: {
+                color: "#3E202C",
+                content: "Databases of Africa's leading democracy changemakers",
+              },
+              background: {
+                blendMode: "hard-light, normal",
+                color: "#F7CE46",
+                src: "/images/hero-slide-2.jpg",
+              },
+              links: [
+                {
+                  color: "primary",
+                  content: "Find experts",
+                  icon: {
+                    src: "/icons/Type=users, Size=16, Color=White.svg",
+                  },
+                },
+                {
+                  color: "primary",
+                  content: "Explore networks",
+                  icon: {
+                    src: "/icons/Type=globe, Size=16, Color=White.svg",
+                  },
+                },
+              ],
+            },
+            {
+              id: 3,
+              title: {
+                color: "#3E202C",
+                content:
+                  "Get in-depth actionable <br>knowledge to strengthen democracy",
+              },
+              subheading: {
+                color: "#3E202C",
+                content:
+                  "Expert analysis and hands-on training for democratic watchdogs",
+              },
+              background: {
+                blendMode: "overlay, multiply",
+                color: "#AAD4A9",
+                src: "/images/hero-slide-3.jpg",
+              },
+              links: [
+                {
+                  color: "primary",
+                  content: "Access reserach",
+                  icon: {
+                    src: "/icons/Type=file, Size=16, Color=White.svg",
+                  },
+                },
+                {
+                  color: "primary",
+                  content: "Get training",
+                  icon: {
+                    src: "/icons/Type=book-open, Size=16, Color=White.svg",
+                  },
+                },
+              ],
+            },
+            {
+              id: 4,
+              title: {
+                color: "#FFF",
+                content:
+                  "Find resources and support <br>to build your initiative",
+              },
+              subheading: {
+                color: "#FFF",
+                content:
+                  "Register for democracy grants, fellowships and events",
+              },
+              background: {
+                blendMode: "multiply",
+                color: "#F29D88",
+                src: "/images/hero-slide-4.jpg",
+              },
+              links: [
+                {
+                  color: "primary",
+                  content: "Get opportunities",
+                  icon: {
+                    src: "/icons/Type=briefcase, Size=16, Color=White.svg",
+                  },
+                },
+                {
+                  color: "primary",
+                  content: "Join community",
+                  icon: {
+                    src: "/icons/Type=users, Size=16, Color=White.svg",
+                  },
+                },
+              ],
+            },
+          ],
+        },
+        {
+          slug: "spotlight",
+          title: "Spotlight",
+          items: [
+            {
+              category: "Upcoming Event",
+              item: {
+                title: "Event name",
+                image: {
+                  src: "images/events-event-name.jpg",
+                },
+                topic: "Topic name",
+                excerpt:
+                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
+                date: "Date and time",
+                link: {
+                  href: "/",
+                },
+              },
+            },
+            {
+              category: "Upcoming Training",
+              item: {
+                title: "Training name",
+                image: {
+                  src: "images/trainings-training-name.jpg",
+                },
+                topic: "Topic name",
+                excerpt:
+                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
+                date: "Date and time",
+                link: {
+                  href: "/",
+                },
+              },
+            },
+            {
+              category: "Latest Insights",
+              item: {
+                title: "Latest Insight or research title",
+                image: {
+                  src: "images/insights-insight-name.jpg",
+                },
+                topic: "Topic name",
+                excerpt:
+                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
+                date: "Date and time",
+                link: {
+                  href: "/",
+                },
+              },
+            },
+            {
+              category: "Latest Blog",
+              item: {
+                title: "Blog Title",
+                image: {
+                  src: "images/blogs-blog-name.jpg",
+                },
+                topic: "Topic name",
+                excerpt:
+                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
+                date: "Date and time",
+                link: {
+                  href: "/",
+                },
+              },
+            },
+          ],
+        },
         {
           slug: "focal-countries",
           title: "Focal Countries",
