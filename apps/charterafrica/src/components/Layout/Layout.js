@@ -11,11 +11,11 @@ const Main = styled("main")({
   flex: 1,
 });
 
-function Layout({ children, footer, seo }) {
+function Layout({ children, navbar, footer, seo }) {
   return (
     <>
       <NextSeo {...seo} />
-      <MobileNavBar />
+      <MobileNavBar {...navbar} />
       {children ? <Main>{children}</Main> : null}
       <Footer {...footer} />
     </>

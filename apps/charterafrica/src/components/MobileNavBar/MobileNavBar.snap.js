@@ -3,31 +3,37 @@
 exports[`<MobileNavigation /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container css-9cyib4-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-container css-10fo3dy-MuiGrid-root"
   >
     <div
       class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-    />
+    >
+      <img
+        alt="Charter Africa"
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        loading="lazy"
+        src="/images/charter-logo.svg"
+        srcset="/images/charter-logo.svg 1x, /images/charter-logo.svg 2x"
+        style="color: transparent;"
+        width="145"
+      />
+    </div>
     <div
       class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
     >
-      <button
-        class="MuiButtonBase-root css-r1bof9-MuiButtonBase-root"
-        tabindex="0"
-        type="button"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1pg8mhl-MuiSvgIcon-root"
+        data-testid="MenuIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <img
-          alt="menu icon"
-          data-nimg="1"
-          decoding="async"
-          height="32"
-          loading="lazy"
-          src="/_next/image?url=%2Furl&w=64&q=75"
-          srcset="/_next/image?url=%2Furl&w=32&q=75 1x, /_next/image?url=%2Furl&w=64&q=75 2x"
-          style="color: transparent;"
-          width="32"
+        <path
+          d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
         />
-      </button>
+      </svg>
     </div>
   </div>
 </div>

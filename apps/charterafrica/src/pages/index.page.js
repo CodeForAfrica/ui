@@ -366,6 +366,14 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         siteDescription:
           "This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.",
       },
+      navbar: {
+        logo: {
+          alt: "Charter Africa",
+          src: "/images/charter-logo.svg",
+          width: "145",
+          height: "40",
+        },
+      },
       locale,
       locales,
       seo: {

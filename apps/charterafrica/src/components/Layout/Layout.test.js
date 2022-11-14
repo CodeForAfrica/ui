@@ -15,6 +15,14 @@ const defaultProps = {
       src: "/images/eu.png",
     },
   },
+  navbar: {
+    logo: {
+      alt: "Charter Africa",
+      src: "/images/charter-logo.svg",
+      width: "145",
+      height: "40",
+    },
+  },
 };
 
 describe("<Layout />", () => {

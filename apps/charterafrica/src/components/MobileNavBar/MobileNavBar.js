@@ -1,3 +1,4 @@
+import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Grid } from "@mui/material";
 import Image from "next/image";
@@ -6,35 +7,36 @@ import React from "react";
 import { neutral } from "@/charterafrica/colors";
 
 const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
-  const { sx } = props;
-  // const [open, setOpen] = React.useState(false);
+  const { logo } = props;
+  const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
-    // setOpen(true);
+    setOpen(true);
   };
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
 
   return (
     <Grid
       container
       justifyContent="space-between"
       alignItems="center"
-      sx={sx}
+      sx={{ px: { xs: 5, sm: 0 }, py: { xs: 1 } }}
       ref={ref}
       backgroundColor={neutral[900]}
     >
       <Grid item>
         <Image
-          src="images/charter-logo.svg"
-          width="145"
-          height="40"
-          alt="Charter Africa"
+          src={logo.src}
+          width={logo.width}
+          height={logo.height}
+          alt={logo.alt}
         />
       </Grid>
       <Grid item>
-        <MenuIcon onClick={handleClickOpen} sx={{ color: "#FFFFFF" }} />
+        {open ? (
+          <CloseIcon onClick={handleClickOpen} sx={{ color: "#FFFFFF" }} />
+        ) : (
+          <MenuIcon onClick={handleClickOpen} sx={{ color: "#FFFFFF" }} />
+        )}
       </Grid>
     </Grid>
   );
