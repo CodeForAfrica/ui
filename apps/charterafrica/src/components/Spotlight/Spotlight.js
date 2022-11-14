@@ -63,6 +63,13 @@ const Spotlight = React.forwardRef(function Spotlight(props, ref) {
                 <CardActionAction
                   href={item.link?.href}
                   component={item.link?.href ? Link : undefined}
+                  sx={{
+                    "&: hover": {
+                      "& .MuiCardActionArea-focusHighlight": {
+                        opacity: 0,
+                      },
+                    },
+                  }}
                 >
                   <Box
                     display="flex"

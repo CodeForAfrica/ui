@@ -5,20 +5,16 @@ import React from "react";
 import { neutral } from "@/charterafrica/colors";
 
 const SpotlightCardRoot = styled(Card)(({ ownerState }) => ({
+  backgroundColor: "#fff",
   width: "100%",
   "&:hover": {
     ...(ownerState.variant === "outlined" && {
       border: `2px solid ${neutral[700]}`,
       filter: "drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.1))",
-      margin: -2,
-      "& .MuiCardActionArea-focusHighlight": {
-        opacity: 0,
-      },
     }),
   },
   ...(ownerState.variant === "outlined" && {
-    border: 0,
-    // border: `2px solid transparent`,
+    border: `2px solid transparent`,
     borderRadius: 5,
     filter: "drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.1))",
     "& .MuiCardActionArea": {
