@@ -3,6 +3,8 @@ import { NextSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
 
+import MobileNavBar from "../MobileNavBar";
+
 import Footer from "@/charterafrica/components/Footer";
 
 const Main = styled("main")({
@@ -13,6 +15,7 @@ function Layout({ children, footer, seo }) {
   return (
     <>
       <NextSeo {...seo} />
+      <MobileNavBar />
       {children ? <Main>{children}</Main> : null}
       <Footer {...footer} />
     </>
