@@ -64,14 +64,14 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
                   color: "secondary",
                   content: "Explore software",
                   icon: {
-                    src: "/icons/Type=folder, Size=64, Color=CurrentColor.svg",
+                    src: "/icons/Type=folder, Size=16, Color=Neutral900.svg",
                   },
                 },
                 {
                   color: "secondary",
                   content: "Browse database",
                   icon: {
-                    src: "/icons/Type=database, Size=64, Color=CurrentColor.svg",
+                    src: "/icons/Type=database, Size=16, Color=Neutral900.svg",
                   },
                 },
               ],
@@ -84,7 +84,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
               },
               subheading: {
                 color: "#3E202C",
-                content: "Databases of Africa’s leading democracy changemakers",
+                content: "Databases of Africa's leading democracy changemakers",
               },
               background: {
                 blendMode: "hard-light, normal",
@@ -95,10 +95,16 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
                 {
                   color: "primary",
                   content: "Find experts",
+                  icon: {
+                    src: "/icons/Type=users, Size=16, Color=White.svg",
+                  },
                 },
                 {
                   color: "primary",
                   content: "Explore networks",
+                  icon: {
+                    src: "/icons/Type=globe, Size=16, Color=White.svg",
+                  },
                 },
               ],
             },
@@ -123,10 +129,16 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
                 {
                   color: "primary",
                   content: "Access reserach",
+                  icon: {
+                    src: "/icons/Type=file, Size=16, Color=White.svg",
+                  },
                 },
                 {
                   color: "primary",
                   content: "Get training",
+                  icon: {
+                    src: "/icons/Type=book-open, Size=16, Color=White.svg",
+                  },
                 },
               ],
             },
@@ -151,12 +163,15 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
                 {
                   color: "primary",
                   content: "Get opportunities",
+                  icon: {
+                    src: "/icons/Type=briefcase, Size=16, Color=White.svg",
+                  },
                 },
                 {
                   color: "primary",
                   content: "Join community",
                   icon: {
-                    src: "/icons/Type=users, Size=64, Color=CurrentColor.svg",
+                    src: "/icons/Type=users, Size=16, Color=White.svg",
                   },
                 },
               ],
