@@ -1,7 +1,6 @@
-import Box from "@mui/material/Box";
 import React from "react";
 
-import { Pie, Waffle } from "@/charterafrica/components/Charts";
+import Ecosystem from "@/charterafrica/components/Ecosystem";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import Hero from "@/charterafrica/components/Hero";
@@ -12,18 +11,8 @@ import Spotlight from "@/charterafrica/components/Spotlight";
 function Index({ blocks }) {
   return blocks?.map((block) => {
     switch (block.slug) {
-      case "chart":
-        return (
-          <Box height={400}>
-            <Pie {...block} key={block.slug} />
-          </Box>
-        );
-      case "waffle":
-        return (
-          <Box height={400}>
-            <Waffle {...block} key={block.slug} />
-          </Box>
-        );
+      case "ecosystem":
+        return <Ecosystem {...block} key={block.slug} />;
       case "focal-countries":
         return <FocalCountries {...block} key={block.slug} />;
       case "helpdesk":
@@ -54,6 +43,11 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   return {
     props: {
       blocks: [
+        {
+          slug: "switch",
+          startLabel: "People",
+          endLabel: "Organisations",
+        },
         {
           slug: "hero",
           slides: [
@@ -263,60 +257,90 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           ],
         },
         {
-          slug: "chart",
-          data: [
+          slug: "ecosystem",
+          items: [
             {
-              id: "java",
-              label: "java",
-              value: 195,
-              color: "hsl(90, 70%, 50%)",
+              title: "Tools",
+              data: [
+                {
+                  id: "elections",
+                  label: "Elections",
+                  value: 26,
+                  color: "#4E2037",
+                },
+                {
+                  id: "rule-of-law",
+                  label: "Rule of law",
+                  value: 4,
+                  color: "#F7CE46",
+                },
+                {
+                  id: "civic-space",
+                  label: "Civic space",
+                  value: 71,
+                  color: "#F29D88",
+                },
+                { id: "media", label: "Media", value: 53, color: "#AAD4A9" },
+                {
+                  id: "civic-values",
+                  label: "Civic values",
+                  value: 61,
+                  color: "#A88D99",
+                },
+                {
+                  id: "decentralisation",
+                  label: "Decentralisation",
+                  value: 23,
+                  color: "#FBE7A3",
+                },
+                {
+                  id: "multilateralism",
+                  label: "Multilateralism",
+                  value: 10,
+                  color: "#602773",
+                },
+                {
+                  id: "economic-governance",
+                  label: "Economic governance",
+                  value: 99,
+                  color: "#A7F3D0",
+                },
+                {
+                  id: "corporate-governance",
+                  label: "Corporate governance",
+                  value: 17,
+                  color: "#836070",
+                },
+                {
+                  id: "gender-equality",
+                  label: "Gender equality",
+                  value: 40,
+                  color: "#F48E93;",
+                },
+                {
+                  id: "constitutional-changes-government",
+                  label: "Constitutional changes of government",
+                  value: 38,
+                  color: "#947C2A",
+                },
+              ],
             },
             {
-              id: "erlang",
-              label: "erlang",
-              value: 419,
-              color: "hsl(56, 70%, 50%)",
-            },
-            {
-              id: "ruby",
-              label: "ruby",
-              value: 407,
-              color: "hsl(103, 70%, 50%)",
-            },
-            {
-              id: "haskell",
-              label: "haskell",
-              value: 474,
-              color: "hsl(186, 70%, 50%)",
-            },
-            {
-              id: "go",
-              label: "go",
-              value: 71,
-              color: "hsl(104, 70%, 50%)",
-            },
-          ],
-        },
-        {
-          slug: "waffle",
-          data: [
-            {
-              id: "men",
-              label: "men",
-              value: 0.9062428487892106,
-              color: "#468df3",
-            },
-            {
-              id: "women",
-              label: "women",
-              value: 23.003899993540884,
-              color: "#ba72ff",
-            },
-            {
-              id: "children",
-              label: "children",
-              value: 12.420457314486667,
-              color: "#a1cfff",
+              title: "People",
+              data: [
+                {
+                  id: "experts",
+                  label: "Experts",
+                  value: 20,
+                  color: "#F7CE46",
+                },
+                {
+                  id: "organisations",
+                  label: "Organisations",
+                  value: 28,
+                  color: "#A88D99",
+                },
+              ],
             },
           ],
         },
