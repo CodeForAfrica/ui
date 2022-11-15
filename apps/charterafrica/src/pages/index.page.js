@@ -1,5 +1,7 @@
+import Box from "@mui/material/Box";
 import React from "react";
 
+import { Pie, Waffle } from "@/charterafrica/components/Charts";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import Hero from "@/charterafrica/components/Hero";
@@ -10,6 +12,18 @@ import Spotlight from "@/charterafrica/components/Spotlight";
 function Index({ blocks }) {
   return blocks?.map((block) => {
     switch (block.slug) {
+      case "chart":
+        return (
+          <Box height={400}>
+            <Pie {...block} key={block.slug} />
+          </Box>
+        );
+      case "waffle":
+        return (
+          <Box height={400}>
+            <Waffle {...block} key={block.slug} />
+          </Box>
+        );
       case "focal-countries":
         return <FocalCountries {...block} key={block.slug} />;
       case "helpdesk":
@@ -245,6 +259,64 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
                   href: "/",
                 },
               },
+            },
+          ],
+        },
+        {
+          slug: "chart",
+          data: [
+            {
+              id: "java",
+              label: "java",
+              value: 195,
+              color: "hsl(90, 70%, 50%)",
+            },
+            {
+              id: "erlang",
+              label: "erlang",
+              value: 419,
+              color: "hsl(56, 70%, 50%)",
+            },
+            {
+              id: "ruby",
+              label: "ruby",
+              value: 407,
+              color: "hsl(103, 70%, 50%)",
+            },
+            {
+              id: "haskell",
+              label: "haskell",
+              value: 474,
+              color: "hsl(186, 70%, 50%)",
+            },
+            {
+              id: "go",
+              label: "go",
+              value: 71,
+              color: "hsl(104, 70%, 50%)",
+            },
+          ],
+        },
+        {
+          slug: "waffle",
+          data: [
+            {
+              id: "men",
+              label: "men",
+              value: 0.9062428487892106,
+              color: "#468df3",
+            },
+            {
+              id: "women",
+              label: "women",
+              value: 23.003899993540884,
+              color: "#ba72ff",
+            },
+            {
+              id: "children",
+              label: "children",
+              value: 12.420457314486667,
+              color: "#a1cfff",
             },
           ],
         },
