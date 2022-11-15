@@ -1,52 +1,70 @@
 import { ResponsiveWaffle } from "@nivo/waffle";
 import React from "react";
 
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
-function Waffle({ data }) {
+import Tooltip from "./Tooltip";
+
+function WaffleCell({
+  position,
+  size,
+  x,
+  y,
+  color,
+  fill,
+  borderWidth,
+  borderColor,
+  data,
+  onHover,
+  onLeave,
+  onClick,
+}) {
+  return (
+    <rect
+      width={size}
+      height={size}
+      x={x}
+      y={y}
+      fill={fill || color}
+      strokeWidth={borderWidth}
+      stroke={borderColor}
+      opacity={0.7}
+      onMouseEnter={onHover}
+      onMouseMove={onHover}
+      onMouseLeave={onLeave}
+      onClick={(event) => {
+        onClick({ position, color, x, y, data }, event);
+      }}
+    />
+  );
+}
+
+function WaffleTooltip({ id, label, value }) {
+  return <Tooltip label={label || id} value={value} />;
+}
+
+function Waffle({ data, height, total, width }) {
   return (
     <ResponsiveWaffle
       data={data}
-      total={100}
-      rows={18}
-      columns={14}
-      margin={{ top: 10, right: 10, bottom: 10, left: 120 }}
-      colors={{ scheme: "nivo" }}
-      borderColor={{
-        from: "color",
-        modifiers: [["darker", 0.3]],
-      }}
+      total={total}
+      rows={10}
+      columns={10}
+      borderColor="#FFFFFF"
+      borderWidth={5}
       animate
-      motionStiffness={90}
-      motionDamping={11}
-      legends={[
-        {
-          anchor: "top-left",
-          direction: "column",
-          justify: false,
-          translateX: -100,
-          translateY: 0,
-          itemsSpacing: 4,
-          itemWidth: 100,
-          itemHeight: 20,
-          itemDirection: "left-to-right",
-          itemOpacity: 1,
-          itemTextColor: "#777",
-          symbolSize: 20,
-          effects: [
-            {
-              on: "hover",
-              style: {
-                itemTextColor: "#000",
-                itemBackground: "#f7fafb",
-              },
-            },
-          ],
+      colors={{ datum: "color" }}
+      fillDirection="top"
+      height={height}
+      width={width}
+      cellComponent={WaffleCell}
+      tooltip={WaffleTooltip}
+      theme={{
+        tooltip: {
+          container: {
+            background: "none",
+            padding: 0,
+          },
         },
-      ]}
+      }}
     />
   );
 }
