@@ -7,11 +7,11 @@ import React from "react";
 import { neutral } from "@/charterafrica/colors";
 
 const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
-  const { logo } = props;
+  const { logo, sx } = props;
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setOpen(!open);
   };
 
   return (
@@ -19,7 +19,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
       container
       justifyContent="space-between"
       alignItems="center"
-      sx={{ px: { xs: 5, sm: 0 }, py: { xs: 1 } }}
+      sx={{ px: { xs: 5, sm: 0 }, py: { xs: 1 }, ...sx }}
       ref={ref}
       backgroundColor={neutral[900]}
     >

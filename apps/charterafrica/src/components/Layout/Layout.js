@@ -4,15 +4,17 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import Footer from "@/charterafrica/components/Footer";
+import NavBar from "@/charterafrica/components/NavBar";
 
 const Main = styled("main")({
   flex: 1,
 });
 
-function Layout({ children, footer, seo }) {
+function Layout({ children, navbar, footer, seo }) {
   return (
     <>
       <NextSeo {...seo} />
+      <NavBar {...navbar} />
       {children ? <Main>{children}</Main> : null}
       <Footer {...footer} />
     </>
