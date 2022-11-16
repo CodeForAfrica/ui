@@ -23,17 +23,12 @@ exports[`<MobileNavigation /> renders unchanged 1`] = `
     <div
       class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
     >
-      <svg
+      <div
         aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1pg8mhl-MuiSvgIcon-root"
-        data-testid="MenuIcon"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-lujri2-MuiSvgIcon-root"
         focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-        />
-      </svg>
+        viewbox="0 0 32 32"
+      />
     </div>
   </div>
 </div>

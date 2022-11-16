@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import MobileNavigation from ".";
+import MobileNavBar from ".";
 
 import theme from "@/charterafrica/theme";
 
@@ -19,7 +19,7 @@ const defaultProps = {
 
 describe("<MobileNavigation />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<MobileNavigation {...defaultProps} />);
+    const { container } = render(<MobileNavBar {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

@@ -24,11 +24,13 @@ function Layout({ children, navbar, footer, seo }) {
 Layout.propTypes = {
   children: PropTypes.node,
   footer: PropTypes.shape({}),
+  navbar: PropTypes.shape({}),
 };
 
 Layout.defaultProps = {
   children: undefined,
   footer: undefined,
+  navbar: undefined,
 };
 
 export default Layout;

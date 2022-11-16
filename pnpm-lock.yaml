@@ -40,7 +40,6 @@ importers:
       "@emotion/react": ^11.10.5
       "@emotion/server": ^11.10.0
       "@emotion/styled": ^11.10.5
-      "@mui/icons-material": ^5.10.9
       "@mui/material": ^5.10.11
       "@mui/utils": ^5.10.9
       "@next/env": ^13.0.0
@@ -82,7 +81,6 @@ importers:
       "@emotion/react": 11.10.5_5ihuxrpe4zse4p4tf6ubxcyzuu
       "@emotion/server": 11.10.0
       "@emotion/styled": 11.10.5_z7x6wqqd37fzu777gq3gq2bxru
-      "@mui/icons-material": 5.10.9_5n7l3nqogz2ltkpvtlyqobxizm
       "@mui/material": 5.10.12_gs4twfomdgooimayvnfrqgiwam
       "@mui/utils": 5.10.9_react@18.2.0
       "@next/env": 13.0.1
