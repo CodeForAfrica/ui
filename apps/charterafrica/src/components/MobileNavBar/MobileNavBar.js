@@ -1,9 +1,9 @@
 import { Grid } from "@mui/material";
 import SvgIcon from "@mui/material/SvgIcon";
-import Image from "next/image";
 import React from "react";
 
 import MenuIcon from "@/charterafrica/assets/icons/Type=menu, Size=32, Color=White.svg";
+import Logo from "@/charterafrica/components/Logo";
 
 const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
   const { logo, sx } = props;
@@ -16,12 +16,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
       ref={ref}
     >
       <Grid item>
-        <Image
-          src={logo.src}
-          width={logo.width}
-          height={logo.height}
-          alt={logo.alt}
-        />
+        <Logo {...logo} />
       </Grid>
       <Grid item>
         <SvgIcon

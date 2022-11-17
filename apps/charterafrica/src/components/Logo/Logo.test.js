@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import NavBar from "./NavBar";
+import Logo from "./Logo";
 
 import theme from "@/charterafrica/theme";
 
@@ -14,12 +14,14 @@ const defaultProps = {
     src: "/images/charter-logo.svg",
     width: "145",
     height: "40",
+    href: "/",
+    priority: true,
   },
 };
 
-describe("<NavBar />", () => {
+describe("<Logo />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<NavBar {...defaultProps} />);
+    const { container } = render(<Logo {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

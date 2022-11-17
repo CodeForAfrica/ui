@@ -372,6 +372,8 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           src: "/images/charter-logo.svg",
           width: "145",
           height: "40",
+          href: "/",
+          priority: true,
         },
       },
       locale,

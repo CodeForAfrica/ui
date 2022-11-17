@@ -1,8 +1,8 @@
 import { Grid, Button } from "@mui/material";
-import Image from "next/image";
 import React from "react";
 
 import { neutral, secondary } from "@/charterafrica/colors";
+import Logo from "@/charterafrica/components/Logo";
 
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
   const { logo, sx } = props;
@@ -16,12 +16,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
       ref={ref}
     >
       <Grid item>
-        <Image
-          src={logo.src}
-          width={logo.width}
-          height={logo.height}
-          alt={logo.alt}
-        />
+        <Logo {...logo} />
       </Grid>
       <Grid item>
         <Button
