@@ -12,8 +12,8 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
       container
       justifyContent="space-between"
       alignItems="center"
-      sx={{ px: { xs: 5, sm: 0 }, py: { xs: 1 }, ...sx }}
       ref={ref}
+      sx={sx}
     >
       <Grid item>
         <Logo {...logo} />

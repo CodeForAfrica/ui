@@ -13,9 +13,10 @@ function NavBar({ logo }) {
         display: "flex",
         justifyContent: "center",
         py: { sm: 2.5, md: 3.5 },
+        px: { xs: 2, sm: 0 },
       }}
     >
-      <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
+      <Section>
         <MobileNavBar
           logo={logo}
           sx={{
