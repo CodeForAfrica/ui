@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MobileNavigation /> renders unchanged 1`] = `
+exports[`<MobileNavBar /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container css-10fo3dy-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-container css-nescni-MuiGrid-root"
   >
     <div
       class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"

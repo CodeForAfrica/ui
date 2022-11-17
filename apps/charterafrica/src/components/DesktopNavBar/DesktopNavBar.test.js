@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import DesktopNavBar from ".";
+import DesktopNavBar from "./DesktopNavBar";
 
 import theme from "@/charterafrica/theme";
 
@@ -17,7 +17,7 @@ const defaultProps = {
   },
 };
 
-describe("<MobileNavigation />", () => {
+describe("<DesktopNavBar />", () => {
   it("renders unchanged", () => {
     const { container } = render(<DesktopNavBar {...defaultProps} />);
     expect(container).toMatchSnapshot();

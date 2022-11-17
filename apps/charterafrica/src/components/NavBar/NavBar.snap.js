@@ -12,7 +12,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1y3f71u-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container css-5vbzvk-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1bi30fz-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -41,7 +41,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container css-16gs7ns-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-13b72l7-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
