@@ -45,6 +45,7 @@ importers:
       "@next/env": ^13.0.0
       "@nivo/core": ^0.80.0
       "@nivo/pie": ^0.80.0
+      "@nivo/tooltip": ^0.80.0
       "@nivo/waffle": ^0.80.0
       "@playwright/test": ^1.27.1
       "@svgr/webpack": ^6.5.0
@@ -60,6 +61,7 @@ importers:
       identity-obj-proxy: ^3.0.0
       jest: ^29.2.2
       jest-config-commons-ui: workspace:*
+      leaflet: ^1.9.2
       nanoid: ^4.0.0
       next: ^13.0.0
       next-seo: ^5.9.0
@@ -70,6 +72,7 @@ importers:
       prop-types: ^15.8.1
       react: ^18.2.0
       react-dom: ^18.2.0
+      react-leaflet: ^4.1.0
       react-share: ^4.4.1
       react-swipeable-views-react-18-fix: ^0.14.1
       react-test-renderer: ^18.2.0
@@ -88,10 +91,12 @@ importers:
       "@mui/material": 5.10.12_gs4twfomdgooimayvnfrqgiwam
       "@mui/utils": 5.10.9_react@18.2.0
       "@next/env": 13.0.1
-      "@nivo/core": 0.80.0_v2m5e27vhdewzwhryxwfaorcca
+      "@nivo/core": 0.80.0_g5kln477lwx3caqucf3exzf3du
       "@nivo/pie": 0.80.0_6zomopewppbkd5eeu2nbbcio3i
+      "@nivo/tooltip": 0.80.0_wyuiu3ihipn7hpncy62nqhyrji
       "@nivo/waffle": 0.80.0_6zomopewppbkd5eeu2nbbcio3i
       express: 4.18.2
+      leaflet: 1.9.2
       nanoid: 4.0.0
       next: 13.0.1_qtpcxnaaarbm4ws7ughq6oxfve
       next-seo: 5.13.0_cuttyyug54cjzme6dhlgj6veu4
@@ -100,6 +105,7 @@ importers:
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-leaflet: 4.1.0_ck4vhzg7aizutrwygiu3aueify
       react-share: 4.4.1_react@18.2.0
       react-swipeable-views-react-18-fix: 0.14.1_react@18.2.0
       scheduler: 0.23.0
@@ -4851,7 +4857,7 @@ packages:
       react: ">= 16.14.0 < 19.0.0"
     dependencies:
       "@nivo/colors": 0.80.0_lqef3llyjlhcb4sprl3jwpzupa
-      "@nivo/core": 0.80.0_v2m5e27vhdewzwhryxwfaorcca
+      "@nivo/core": 0.80.0_g5kln477lwx3caqucf3exzf3du
       "@react-spring/web": 9.4.5_biqbaboplfbrettd7655fr4n2y
       d3-shape: 1.3.7
       react: 18.2.0
@@ -4870,7 +4876,7 @@ packages:
       prop-types: ">= 15.5.10 < 16.0.0"
       react: ">= 16.14.0 < 19.0.0"
     dependencies:
-      "@nivo/core": 0.80.0_v2m5e27vhdewzwhryxwfaorcca
+      "@nivo/core": 0.80.0_g5kln477lwx3caqucf3exzf3du
       d3-color: 2.0.0
       d3-scale: 3.3.0
       d3-scale-chromatic: 2.0.0
@@ -4879,7 +4885,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@nivo/core/0.80.0_v2m5e27vhdewzwhryxwfaorcca:
+  /@nivo/core/0.80.0_g5kln477lwx3caqucf3exzf3du:
     resolution:
       {
         integrity: sha512-6caih0RavXdWWSfde+rC2pk17WrX9YQlqK26BrxIdXzv3Ydzlh5SkrC7dR2TEvMGBhunzVeLOfiC2DWT1S8CFg==,
@@ -4890,6 +4896,7 @@ packages:
       react: ">= 16.14.0 < 19.0.0"
     dependencies:
       "@nivo/recompose": 0.80.0_react@18.2.0
+      "@nivo/tooltip": 0.80.0_wyuiu3ihipn7hpncy62nqhyrji
       "@react-spring/web": 9.4.5_biqbaboplfbrettd7655fr4n2y
       d3-color: 2.0.0
       d3-format: 1.4.5
@@ -4915,7 +4922,7 @@ packages:
       prop-types: ">= 15.5.10 < 16.0.0"
       react: ">= 16.14.0 < 19.0.0"
     dependencies:
-      "@nivo/core": 0.80.0_v2m5e27vhdewzwhryxwfaorcca
+      "@nivo/core": 0.80.0_g5kln477lwx3caqucf3exzf3du
       prop-types: 15.8.1
       react: 18.2.0
     dev: false
@@ -4931,7 +4938,7 @@ packages:
     dependencies:
       "@nivo/arcs": 0.80.0_6zomopewppbkd5eeu2nbbcio3i
       "@nivo/colors": 0.80.0_lqef3llyjlhcb4sprl3jwpzupa
-      "@nivo/core": 0.80.0_v2m5e27vhdewzwhryxwfaorcca
+      "@nivo/core": 0.80.0_g5kln477lwx3caqucf3exzf3du
       "@nivo/legends": 0.80.0_lqef3llyjlhcb4sprl3jwpzupa
       "@nivo/tooltip": 0.80.0_wyuiu3ihipn7hpncy62nqhyrji
       d3-shape: 1.3.7
@@ -4961,7 +4968,7 @@ packages:
     peerDependencies:
       "@nivo/core": 0.80.0
     dependencies:
-      "@nivo/core": 0.80.0_v2m5e27vhdewzwhryxwfaorcca
+      "@nivo/core": 0.80.0_g5kln477lwx3caqucf3exzf3du
       "@react-spring/web": 9.4.5_biqbaboplfbrettd7655fr4n2y
     transitivePeerDependencies:
       - react
@@ -4979,7 +4986,7 @@ packages:
       react: ">= 16.14.0 < 19.0.0"
     dependencies:
       "@nivo/colors": 0.80.0_lqef3llyjlhcb4sprl3jwpzupa
-      "@nivo/core": 0.80.0_v2m5e27vhdewzwhryxwfaorcca
+      "@nivo/core": 0.80.0_g5kln477lwx3caqucf3exzf3du
       "@nivo/legends": 0.80.0_lqef3llyjlhcb4sprl3jwpzupa
       "@nivo/recompose": 0.80.0_react@18.2.0
       "@nivo/tooltip": 0.80.0_wyuiu3ihipn7hpncy62nqhyrji
@@ -5119,6 +5126,21 @@ packages:
       {
         integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==,
       }
+
+  /@react-leaflet/core/2.1.0_ck4vhzg7aizutrwygiu3aueify:
+    resolution:
+      {
+        integrity: sha512-Qk7Pfu8BSarKGqILj4x7bCSZ1pjuAPZ+qmRwH5S7mDS91VSbVVsJSrW4qA+GPrro8t69gFYVMWb1Zc4yFmPiVg==,
+      }
+    peerDependencies:
+      leaflet: ^1.9.0
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      leaflet: 1.9.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /@react-spring/animated/9.4.5_react@18.2.0:
     resolution:
@@ -18221,6 +18243,13 @@ packages:
       dotenv-expand: 5.1.0
     dev: true
 
+  /leaflet/1.9.2:
+    resolution:
+      {
+        integrity: sha512-Kc77HQvWO+y9y2oIs3dn5h5sy2kr3j41ewdqCMEUA4N89lgfUUfOBy7wnnHEstDpefiGFObq12FdopGRMx4J7g==,
+      }
+    dev: false
+
   /leven/2.1.0:
     resolution:
       {
@@ -22935,6 +22964,22 @@ packages:
       {
         integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==,
       }
+
+  /react-leaflet/4.1.0_ck4vhzg7aizutrwygiu3aueify:
+    resolution:
+      {
+        integrity: sha512-i+V9pX5lywJ48O2+K3USeeTdYLIhxnLMweH+YLd/UPqVIj3uKzE3Q29bzt83PBtViyZmxDlulzC6uoR3JLiE9A==,
+      }
+    peerDependencies:
+      leaflet: ^1.9.0
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      "@react-leaflet/core": 2.1.0_ck4vhzg7aizutrwygiu3aueify
+      leaflet: 1.9.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react-lifecycles-compat/3.0.4:
     resolution:
