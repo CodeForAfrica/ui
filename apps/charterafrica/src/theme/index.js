@@ -124,6 +124,7 @@ const theme = createTheme({
           p3: "p",
           p3SemiBold: "p",
           caption: "span",
+          captionCap: "span",
           footer: "span",
           number: "span",
           numberSmall: "span",
@@ -141,6 +142,10 @@ deepmerge(
     button: {
       ...theme.typography.p2SemiBold,
       textTransform: "title",
+    },
+    captionCap: {
+      ...theme.typography.caption,
+      textTransform: "uppercase",
     },
   },
   { clone: false }
