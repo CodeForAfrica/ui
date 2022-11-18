@@ -1,4 +1,4 @@
-import Input from "@/commons-ui/core/Input";
+import { Input } from "@commons-ui/core";
 import IconButton from "@mui/material/IconButton";
 import SvgIcon from "@mui/material/SvgIcon";
 import React from "react";
