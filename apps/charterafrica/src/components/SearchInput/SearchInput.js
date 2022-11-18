@@ -1,10 +1,10 @@
+import { Input } from "@commons-ui/core";
 import IconButton from "@mui/material/IconButton";
 import SvgIcon from "@mui/material/SvgIcon";
 import React from "react";
 
 import SearchIcon from "@/charterafrica/assets/icons/Type=search, Size=16, Color=Black.svg";
 import { neutral } from "@/charterafrica/colors";
-import Input from "@/charterafrica/components/Input";
 
 const InputSearch = React.forwardRef(function InputSearch(props, ref) {
   const { InputProps, onClick, onMouseDown, ...other } = props;

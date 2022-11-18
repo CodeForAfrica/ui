@@ -3,7 +3,7 @@
 exports[`<SearchInput /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-10hr0on-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-swoirf-MuiFormControl-root-MuiTextField-root"
   >
     <div
       class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-l9o6hu-MuiInputBase-root-MuiOutlinedInput-root"

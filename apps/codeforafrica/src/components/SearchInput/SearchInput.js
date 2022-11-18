@@ -1,9 +1,59 @@
 import { Input } from "@commons-ui/core";
 import IconButton from "@mui/material/IconButton";
+import { styled } from "@mui/material/styles";
 import SvgIcon from "@mui/material/SvgIcon";
 import React from "react";
 
 import SearchIcon from "@/codeforafrica/assets/icons/Type=search, Size=16, Color=CurrentColor.svg";
+
+const StyledInput = styled(Input)(({ theme }) => ({
+  "& .MuiInputLabel-root": {
+    color: theme.palette.text.primary,
+    marginBottom: theme.spacing(0.25),
+    position: "static",
+    transform: "none",
+  },
+  "& .MuiInputLabel-root.Mui-focused": {
+    color: theme.palette.text.primary,
+  },
+  "& .MuiInputLabel-root.Mui-disabled": {
+    color: "#5D5353",
+  },
+  "& .MuiOutlinedInput-root": {
+    borderRadius: 0,
+    backgroundColor: theme.palette.common.white,
+    "&:active fieldset": {
+      borderColor: theme.palette.highlight?.main,
+    },
+    "&:hover fieldset": {
+      borderColor: theme.palette.primary.main,
+    },
+    "&.Mui-disabled": {
+      color: "#D0CBCB",
+      backgroundColor: theme.palette.background.main,
+    },
+    "&.Mui-disabled fieldset": {
+      borderColor: theme.palette.grey.light,
+    },
+    "&.Mui-disabled:hover fieldset": {
+      borderColor: theme.palette.grey.light,
+    },
+    "&.Mui-focused fieldset": {
+      borderWidth: 1,
+      borderColor: theme.palette.primary.main,
+    },
+    "&.Mui-error fieldset": {
+      borderColor: theme.palette.error.main,
+    },
+    "& fieldset": {
+      borderColor: "#D0CBCB",
+      top: 0,
+    },
+    "& fieldset legend": {
+      display: "none",
+    },
+  },
+}));
 
 const InputSearch = React.forwardRef(function InputSearch(props, ref) {
   const { InputProps, onClick, onMouseDown, ...other } = props;
@@ -29,7 +79,7 @@ const InputSearch = React.forwardRef(function InputSearch(props, ref) {
     </IconButton>
   );
   return (
-    <Input
+    <StyledInput
       InputProps={{
         endAdornment,
         ...InputProps,

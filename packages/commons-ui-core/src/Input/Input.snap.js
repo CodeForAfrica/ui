@@ -3,7 +3,7 @@
 exports[`<Input /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-7skgcz-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
   >
     <div
       class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
