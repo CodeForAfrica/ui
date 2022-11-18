@@ -858,69 +858,69 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         menus: [
           {
             title: "Resources",
-            href: "resources",
+            href: "/",
             children: [
               {
                 title: "Tools",
-                href: "resources/tools",
+                href: "/",
               },
               {
                 title: "Data",
-                href: "resources/data",
+                href: "/",
               },
               {
                 title: "People",
-                href: "resources/people",
+                href: "/",
               },
             ],
           },
           {
             title: "Knowledge",
-            href: "knowledge",
+            href: "/",
             children: [
               {
                 title: "Explainers",
-                href: "knowledge/explainers",
+                href: "/",
               },
               {
                 title: "News",
-                href: "knowledge/news",
+                href: "/",
               },
               {
                 title: "Research",
-                href: "knowledge/research",
+                href: "/",
               },
               {
                 title: "Academy",
-                href: "knowledge/academy",
+                href: "/",
               },
             ],
           },
           {
             title: "Oppportunities",
-            href: "opportunities",
+            href: "/",
             children: [
               {
                 title: "Grants and Fellowships",
-                href: "opportunities/grants-and-fellowships",
+                href: "/",
               },
               {
                 title: "Events",
-                href: "opportunities/events",
+                href: "/",
               },
               {
                 title: "Community",
-                href: "opportunities/community",
+                href: "/",
               },
               {
                 title: "Democracy Helpdesk",
-                href: "opportunities/democracy-helpdesk",
+                href: "/",
               },
             ],
           },
           {
             title: "About",
-            href: "about",
+            href: "/",
           },
         ],
       },

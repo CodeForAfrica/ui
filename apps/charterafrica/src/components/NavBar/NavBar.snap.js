@@ -47,7 +47,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container css-1au5hzx-MuiGrid-root"
+          class="MuiGrid-root css-15z5csx-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -71,162 +71,93 @@ exports[`<NavBar /> renders unchanged 1`] = `
             </button>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container css-1o93lmx-MuiGrid-root"
           >
-            <ul
-              class="css-xthg9g"
+            <div
+              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
-              <div>
-                <div
-                  aria-label="Resources"
-                  class="MuiButtonGroup-root MuiButtonGroup-text css-1t5mjka-MuiButtonGroup-root"
-                  role="group"
-                  style="margin-right: 20px;"
+              <ul
+                class="css-9h3004"
+              >
+                <a
+                  class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+                  href="/resources"
                 >
-                  <a
-                    class="MuiTypography-root MuiTypography-h4 MuiLink-root MuiLink-underlineNone css-jefrt3-MuiTypography-root-MuiLink-root"
-                    href="/resources"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary css-18jkoo-MuiButtonBase-root-MuiButton-root"
-                      style="color: rgb(243, 239, 241); padding: 0px; font-weight: 600; font-size: 18px; line-height: 22px;"
-                      tabindex="0"
-                      type="button"
-                    >
-                      Resources
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                  </a>
+                  Resources
                   <button
                     aria-haspopup="menu"
                     aria-label="select merge strategy"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary css-3qxid5-MuiButtonBase-root-MuiButton-root"
-                    style="color: rgb(243, 239, 241); padding: 0px;"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-13fhxna-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
-                    <div />
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    <div
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vc4xze-MuiSvgIcon-root"
+                      focusable="false"
+                      viewbox="0 0 16 16"
                     />
                   </button>
-                </div>
-              </div>
-              <div>
-                <div
-                  aria-label="Knowledge"
-                  class="MuiButtonGroup-root MuiButtonGroup-text css-1t5mjka-MuiButtonGroup-root"
-                  role="group"
-                  style="margin-right: 20px;"
+                </a>
+                <a
+                  class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+                  href="/knowledge"
                 >
-                  <a
-                    class="MuiTypography-root MuiTypography-h4 MuiLink-root MuiLink-underlineNone css-jefrt3-MuiTypography-root-MuiLink-root"
-                    href="/knowledge"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary css-18jkoo-MuiButtonBase-root-MuiButton-root"
-                      style="color: rgb(243, 239, 241); padding: 0px; font-weight: 600; font-size: 18px; line-height: 22px;"
-                      tabindex="0"
-                      type="button"
-                    >
-                      Knowledge
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                  </a>
+                  Knowledge
                   <button
                     aria-haspopup="menu"
                     aria-label="select merge strategy"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary css-3qxid5-MuiButtonBase-root-MuiButton-root"
-                    style="color: rgb(243, 239, 241); padding: 0px;"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-13fhxna-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
-                    <div />
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    <div
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vc4xze-MuiSvgIcon-root"
+                      focusable="false"
+                      viewbox="0 0 16 16"
                     />
                   </button>
-                </div>
-              </div>
-              <div>
-                <div
-                  aria-label="Oppportunities"
-                  class="MuiButtonGroup-root MuiButtonGroup-text css-1t5mjka-MuiButtonGroup-root"
-                  role="group"
-                  style="margin-right: 20px;"
+                </a>
+                <a
+                  class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+                  href="/opportunities"
                 >
-                  <a
-                    class="MuiTypography-root MuiTypography-h4 MuiLink-root MuiLink-underlineNone css-jefrt3-MuiTypography-root-MuiLink-root"
-                    href="/opportunities"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary css-18jkoo-MuiButtonBase-root-MuiButton-root"
-                      style="color: rgb(243, 239, 241); padding: 0px; font-weight: 600; font-size: 18px; line-height: 22px;"
-                      tabindex="0"
-                      type="button"
-                    >
-                      Oppportunities
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                  </a>
+                  Oppportunities
                   <button
                     aria-haspopup="menu"
                     aria-label="select merge strategy"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary css-3qxid5-MuiButtonBase-root-MuiButton-root"
-                    style="color: rgb(243, 239, 241); padding: 0px;"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-13fhxna-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
-                    <div />
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    <div
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vc4xze-MuiSvgIcon-root"
+                      focusable="false"
+                      viewbox="0 0 16 16"
                     />
                   </button>
-                </div>
-              </div>
-              <div>
-                <div
-                  aria-label="About"
-                  class="MuiButtonGroup-root MuiButtonGroup-text css-1t5mjka-MuiButtonGroup-root"
-                  role="group"
-                  style="margin-right: 20px;"
+                </a>
+                <a
+                  class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+                  href="/about"
                 >
-                  <a
-                    class="MuiTypography-root MuiTypography-h4 MuiLink-root MuiLink-underlineNone css-jefrt3-MuiTypography-root-MuiLink-root"
-                    href="/about"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary css-18jkoo-MuiButtonBase-root-MuiButton-root"
-                      style="color: rgb(243, 239, 241); padding: 0px; font-weight: 600; font-size: 18px; line-height: 22px;"
-                      tabindex="0"
-                      type="button"
-                    >
-                      About
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </ul>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-xwcn5u-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
+                  About
+                </a>
+              </ul>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
-              Join
-            </button>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-xwcn5u-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
+              >
+                Join
+              </button>
+            </div>
           </div>
         </div>
       </div>

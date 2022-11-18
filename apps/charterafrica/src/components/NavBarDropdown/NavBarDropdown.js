@@ -1,13 +1,13 @@
 import { Link } from "@commons-ui/next";
-import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
+import IconButton from "@mui/material/Button";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import Grow from "@mui/material/Grow";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import Paper from "@mui/material/Paper";
 import Popper from "@mui/material/Popper";
-import * as React from "react";
+import SvgIcon from "@mui/material/SvgIcon";
+import React from "react";
 
 import ArrowDropDownIcon from "@/charterafrica/assets/icons/Type=chevron-down, Size=16, Color=White.svg";
 import ArrowDropUpIcon from "@/charterafrica/assets/icons/Type=chevron-up, Size=16, Color=White.svg";
@@ -16,78 +16,71 @@ import { neutral } from "@/charterafrica/colors";
 export default function NavBarDropdown({ menu }) {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
-
-  const handleMenuItemClick = (event, index) => {
-    setSelectedIndex(index);
-    setOpen(false);
-  };
-
-  const handleToggle = () => {
+  const handleClickArrow = (e) => {
+    e.preventDefault();
     setOpen((prevOpen) => !prevOpen);
   };
-
+  // TODO(kilemensi): Since we current don't have any of the child pages, we
+  //                  have to manually hide the popup.
+  //                  SHOULD BE REMOVED ONCE CHILD PAGES ARE IMPLEMENTED.
+  const handleClickMenuItem = () => {
+    setOpen(false);
+  };
   const handleClose = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-
     setOpen(false);
   };
-
+  const ArrowIcon = open ? ArrowDropUpIcon : ArrowDropDownIcon;
   return (
-    <div>
-      <ButtonGroup
-        variant="text"
-        ref={anchorRef}
-        aria-label={menu.title}
-        style={{
-          marginRight: "20px",
+    <>
+      <Link
+        href={menu.href || "#"}
+        color="text.secondary"
+        underline="none"
+        variant="p3SemiBold"
+        sx={{
+          display: "flex",
+          gap: 0.625,
+          p: 1.25,
         }}
+        ref={anchorRef}
       >
-        <Link
-          href={menu.href || "#"}
-          color="inherit"
-          underline="none"
-          variant="h4"
-        >
-          <Button
-            style={{
-              border: "none",
-              color: neutral[50],
-              padding: "0",
-              fontWeight: "600",
-              fontSize: "18px",
-              lineHeight: " 22px",
-            }}
-          >
-            {menu.title}
-          </Button>
-        </Link>
+        {menu.title}
         {menu.children ? (
-          <Button
-            size="small"
+          <IconButton
             aria-controls={open ? "split-button-menu" : undefined}
             aria-expanded={open ? "true" : undefined}
             aria-label="select merge strategy"
             aria-haspopup="menu"
-            onClick={handleToggle}
-            style={{
+            onClick={handleClickArrow}
+            sx={{
+              minWidth: 24,
               border: "none",
               color: neutral[50],
-              padding: "0",
+              padding: 0,
             }}
           >
-            {open ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
-          </Button>
+            <SvgIcon
+              component={ArrowIcon}
+              viewBox="0 0 16 16"
+              sx={{
+                color: "text.secondary",
+                display: "inline-flex",
+                fill: "none",
+              }}
+            />
+          </IconButton>
         ) : null}
-      </ButtonGroup>
+      </Link>
       <Popper
         sx={{
           zIndex: 1,
         }}
         open={open}
         anchorEl={anchorRef.current}
+        placement="bottom-start"
         role={undefined}
         transition
         disablePortal
@@ -95,7 +88,7 @@ export default function NavBarDropdown({ menu }) {
           {
             name: "offset",
             options: {
-              offset: [15, 0],
+              offset: [10, 0],
             },
           },
         ]}
@@ -107,51 +100,46 @@ export default function NavBarDropdown({ menu }) {
               transformOrigin:
                 placement === "bottom" ? "center top" : "center bottom",
               width: "200px",
-              marginTop: "5px",
             }}
           >
             <Paper>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList
-                  id="split-button-menu"
                   autoFocusItem
-                  style={{
-                    paddingTop: "0px",
-                    paddingBottom: "0px",
+                  component="nav"
+                  disableGutters
+                  sx={{
+                    border: 1,
+                    borderColor: neutral[800],
+                    background: neutral[50],
+                    p: 0,
                   }}
                 >
                   {menu?.children.map((option, index) => (
-                    <Link
-                      key={option.title}
-                      href={menu.children[index].href || "#"}
+                    <MenuItem
                       color="inherit"
+                      component={Link}
+                      onClick={handleClickMenuItem}
+                      href={menu.children[index].href || "#"}
                       underline="none"
-                      variant="h4"
+                      variant="caption"
                       sx={{
+                        borderBottom: 1,
+                        borderColor: neutral[800],
+                        background: neutral[50],
+                        color: neutral[900],
+                        p: 1.25,
                         "&:hover": {
                           background: neutral[100],
                         },
+                        "&:last-of-type": {
+                          borderBottom: "none",
+                        },
                       }}
+                      key={option.title}
                     >
-                      <MenuItem
-                        key={option.title}
-                        selected={index === selectedIndex}
-                        onClick={(event) => handleMenuItemClick(event, index)}
-                        style={{
-                          border: "1px solid",
-                          borderColor: neutral[800],
-                          background: neutral[50],
-                          color: neutral[900],
-                          borderTop: index === 0 ? "1px solid" : "none",
-                          fontWeight: "400",
-                          fontSize: "12px",
-                          lineHeight: "14px",
-                          height: "34px",
-                        }}
-                      >
-                        {option.title}
-                      </MenuItem>
-                    </Link>
+                      {option.title}
+                    </MenuItem>
                   ))}
                 </MenuList>
               </ClickAwayListener>
@@ -159,6 +147,6 @@ export default function NavBarDropdown({ menu }) {
           </Grow>
         )}
       </Popper>
-    </div>
+    </>
   );
 }
