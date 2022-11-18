@@ -855,6 +855,74 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           href: "/",
           priority: true,
         },
+        menus: [
+          {
+            title: "Resources",
+            href: "resources",
+            children: [
+              {
+                title: "Tools",
+                href: "resources/tools",
+              },
+              {
+                title: "Data",
+                href: "resources/data",
+              },
+              {
+                title: "People",
+                href: "resources/people",
+              },
+            ],
+          },
+          {
+            title: "Knowledge",
+            href: "knowledge",
+            children: [
+              {
+                title: "Explainers",
+                href: "knowledge/explainers",
+              },
+              {
+                title: "News",
+                href: "knowledge/news",
+              },
+              {
+                title: "Research",
+                href: "knowledge/research",
+              },
+              {
+                title: "Academy",
+                href: "knowledge/academy",
+              },
+            ],
+          },
+          {
+            title: "Oppportunities",
+            href: "opportunities",
+            children: [
+              {
+                title: "Grants and Fellowships",
+                href: "opportunities/grants-and-fellowships",
+              },
+              {
+                title: "Events",
+                href: "opportunities/events",
+              },
+              {
+                title: "Community",
+                href: "opportunities/community",
+              },
+              {
+                title: "Democracy Helpdesk",
+                href: "opportunities/democracy-helpdesk",
+              },
+            ],
+          },
+          {
+            title: "About",
+            href: "about",
+          },
+        ],
       },
       locale,
       locales,

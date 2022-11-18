@@ -1,5 +1,3 @@
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
@@ -10,18 +8,14 @@ import Paper from "@mui/material/Paper";
 import Popper from "@mui/material/Popper";
 import * as React from "react";
 
+import ArrowDropDownIcon from "@/charterafrica/assets/icons/Type=chevron-down, Size=16, Color=White.svg";
+import ArrowDropUpIcon from "@/charterafrica/assets/icons/Type=chevron-up, Size=16, Color=White.svg";
 import { neutral } from "@/charterafrica/colors";
 
-const options = ["Tools", "Data", "People"];
-
-export default function NavBarDropdown() {
+export default function NavBarDropdown({ menu }) {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
-
-  const handleClick = () => {
-    console.info(`You clicked ${options[selectedIndex]}`);
-  };
 
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
@@ -43,31 +37,43 @@ export default function NavBarDropdown() {
   return (
     <div>
       <ButtonGroup
-        variant="contained"
+        variant="text"
         ref={anchorRef}
-        aria-label="split button"
+        aria-label={menu.title}
+        style={{
+          marginRight: "20px",
+        }}
       >
         <Button
-          onClick={handleClick}
           style={{
-            borderRight: "none",
+            border: "none",
+            color: neutral[50],
+            padding: "0",
+            fontWeight: "600",
+            fontSize: "18px",
+            lineHeight: " 22px",
           }}
         >
-          Resources
+          {menu.title}
         </Button>
-        <Button
-          size="small"
-          aria-controls={open ? "split-button-menu" : undefined}
-          aria-expanded={open ? "true" : undefined}
-          aria-label="select merge strategy"
-          aria-haspopup="menu"
-          onClick={handleToggle}
-          style={{
-            borderLeft: "none",
-          }}
-        >
-          {open ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
-        </Button>
+
+        {menu.children ? (
+          <Button
+            size="small"
+            aria-controls={open ? "split-button-menu" : undefined}
+            aria-expanded={open ? "true" : undefined}
+            aria-label="select merge strategy"
+            aria-haspopup="menu"
+            onClick={handleToggle}
+            style={{
+              border: "none",
+              color: neutral[50],
+              padding: "0",
+            }}
+          >
+            {open ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+          </Button>
+        ) : null}
       </ButtonGroup>
       <Popper
         sx={{
@@ -107,9 +113,9 @@ export default function NavBarDropdown() {
                     paddingBottom: "0px",
                   }}
                 >
-                  {options.map((option, index) => (
+                  {menu?.children.map((option, index) => (
                     <MenuItem
-                      key={option}
+                      key={option.title}
                       selected={index === selectedIndex}
                       onClick={(event) => handleMenuItemClick(event, index)}
                       style={{
@@ -118,13 +124,16 @@ export default function NavBarDropdown() {
                         background: neutral[50],
                         color: neutral[900],
                         borderTop: index === 0 ? "1px solid" : "none",
-
+                        fontWeight: "400",
+                        fontSize: "12px",
+                        lineHeight: "14px",
+                        height: "34px",
                         "&:hover": {
                           background: "red",
                         },
                       }}
                     >
-                      {option}
+                      {option.title}
                     </MenuItem>
                   ))}
                 </MenuList>

@@ -3,9 +3,10 @@ import React from "react";
 
 import { neutral, secondary } from "@/charterafrica/colors";
 import Logo from "@/charterafrica/components/Logo";
+import NavBarNavList from "@/charterafrica/components/NavBarNavList";
 
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
-  const { logo, sx } = props;
+  const { logo, menus, sx } = props;
 
   return (
     <Grid
@@ -17,6 +18,9 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
     >
       <Grid item>
         <Logo {...logo} width={230} height={58} />
+      </Grid>
+      <Grid item>
+        <NavBarNavList direction="row" menus={menus} />
       </Grid>
       <Grid item>
         <Button

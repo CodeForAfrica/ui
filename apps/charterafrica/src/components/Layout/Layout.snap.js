@@ -72,6 +72,9 @@ exports[`<Layout /> renders unchanged 1`] = `
           </div>
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+          />
+          <div
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-xwcn5u-MuiButtonBase-root-MuiButton-root"

@@ -1,20 +1,21 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import DesktopNavBar from "./DesktopNavBar";
+import NavBarNavList from "./NavBarNavList";
 
 import theme from "@/charterafrica/theme";
 
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    asPath: "",
+    isReady: true,
+  })),
+}));
+
 const defaultProps = {
-  logo: {
-    alt: "Charter Africa",
-    src: "/images/charter-logo.svg",
-    width: "230",
-    height: "60",
-  },
   menus: [
     {
       title: "Resources",
@@ -85,9 +86,9 @@ const defaultProps = {
   ],
 };
 
-describe("<DesktopNavBar />", () => {
+describe("<NavBarNavList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<DesktopNavBar {...defaultProps} />);
+    const { container } = render(<NavBarNavList {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
