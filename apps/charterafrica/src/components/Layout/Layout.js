@@ -4,26 +4,18 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import Footer from "@/charterafrica/components/Footer";
-import NavBarDropdown from "@/charterafrica/components/NavBarDropdown";
+import NavBar from "@/charterafrica/components/NavBar";
+
 
 const Main = styled("main")({
   flex: 1,
 });
 
-function Layout({ children, footer, seo }) {
+function Layout({ children, navbar, footer, seo }) {
   return (
     <>
       <NextSeo {...seo} />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <NavBarDropdown />
-      </div>
+      <NavBar {...navbar} />
       {children ? <Main>{children}</Main> : null}
       <Footer {...footer} />
     </>
@@ -33,11 +25,13 @@ function Layout({ children, footer, seo }) {
 Layout.propTypes = {
   children: PropTypes.node,
   footer: PropTypes.shape({}),
+  navbar: PropTypes.shape({}),
 };
 
 Layout.defaultProps = {
   children: undefined,
   footer: undefined,
+  navbar: undefined,
 };
 
 export default Layout;

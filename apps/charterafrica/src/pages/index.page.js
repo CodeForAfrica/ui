@@ -1,115 +1,34 @@
-import { Section } from "@commons-ui/core";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { useRouter } from "next/router";
 import React from "react";
 
+import Ecosystem from "@/charterafrica/components/Ecosystem";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
+import Hero from "@/charterafrica/components/Hero";
 import Partners from "@/charterafrica/components/Partners";
 import Resources from "@/charterafrica/components/Resources";
+import Spotlight from "@/charterafrica/components/Spotlight";
 
-function Index({ blocks, locale, locales, title }) {
-  const router = useRouter();
-  const { pathname, asPath, query } = router;
-
-  const handleClick = (l) => () => {
-    router.push({ pathname, query }, asPath, { locale: l });
-  };
-
-  return (
-    <>
-      <Section sx={{ px: { xs: 5, sm: 0 } }}>
-        <nav>
-          <Box
-            component="ul"
-            sx={{
-              display: "flex",
-              listStyle: "none",
-              padding: 0,
-            }}
-          >
-            {locales.map((l) => (
-              <Box
-                component="li"
-                sx={{
-                  marginLeft: 1,
-                  "&:first-of-type": {
-                    marginLeft: 0,
-                  },
-                }}
-                key={l}
-              >
-                <Button
-                  size="small"
-                  onClick={handleClick(l)}
-                  disabled={l === locale}
-                  sx={{ minWidth: 0, padding: 0 }}
-                >
-                  {l}
-                </Button>
-              </Box>
-            ))}
-          </Box>
-        </nav>
-        <header>
-          <Typography variant="display1" component="h2">
-            display1: {title}
-          </Typography>
-          <Typography variant="display2" component="h2">
-            display2: {title}
-          </Typography>
-          <Typography variant="h1" component="h2">
-            h1: {title}
-          </Typography>
-          <Typography variant="h2">h2: {title}</Typography>
-          <Typography variant="h3" component="h2">
-            h3: {title}
-          </Typography>
-          <Typography variant="h4" component="h2">
-            h4: {title}
-          </Typography>
-          <Typography variant="h5" component="h2">
-            h5: {title}
-          </Typography>
-          <Typography variant="h6" component="h2">
-            h6: {title}
-          </Typography>
-          <Typography variant="subheading">subheading: {title}</Typography>
-          <Typography variant="p1" component="p">
-            p1: {title}
-          </Typography>
-          <Typography variant="p2" component="p">
-            p2: {title}
-          </Typography>
-          <Typography variant="p3" component="p">
-            p3: {title}
-          </Typography>
-          <Typography variant="caption" sx={{ display: "block" }}>
-            caption: {title}
-          </Typography>
-          <Typography variant="footer" sx={{ display: "block" }}>
-            footer: {title}
-          </Typography>
-        </header>
-      </Section>
-      {blocks?.map((block) => {
-        switch (block.slug) {
-          case "focal-countries":
-            return <FocalCountries {...block} key={block.slug} />;
-          case "helpdesk":
-            return <Helpdesk {...block} key={block.slug} />;
-          case "partners":
-            return <Partners {...block} key={block.slug} />;
-          case "resources":
-            return <Resources {...block} key={block.slug} />;
-          default:
-            return null;
-        }
-      })}
-    </>
-  );
+function Index({ blocks }) {
+  return blocks?.map((block) => {
+    switch (block.slug) {
+      case "ecosystem":
+        return <Ecosystem {...block} key={block.slug} />;
+      case "focal-countries":
+        return <FocalCountries {...block} key={block.slug} />;
+      case "helpdesk":
+        return <Helpdesk {...block} key={block.slug} />;
+      case "hero":
+        return <Hero {...block} key={block.slug} />;
+      case "partners":
+        return <Partners {...block} key={block.slug} />;
+      case "resources":
+        return <Resources {...block} key={block.slug} />;
+      case "spotlight":
+        return <Spotlight {...block} key={block.slug} />;
+      default:
+        return null;
+    }
+  });
 }
 
 const TITLES = {
@@ -125,6 +44,307 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     props: {
       blocks: [
         {
+          slug: "switch",
+          startLabel: "People",
+          endLabel: "Organisations",
+        },
+        {
+          slug: "hero",
+          slides: [
+            {
+              id: 1,
+              title: {
+                color: "common.white",
+                content:
+                  "Find Africa's best <br><i>digital democracy</i> tools",
+              },
+              subheading: {
+                color: "#fff",
+                content: "Easy to use resources for democracy activists",
+              },
+              background: {
+                blendMode: "multiply, luminosity",
+                color: "#4E2037",
+                src: "/images/hero-slide-1.jpg",
+              },
+              links: [
+                {
+                  color: "secondary",
+                  content: "Explore software",
+                  icon: {
+                    src: "/icons/Type=folder, Size=16, Color=Neutral900.svg",
+                  },
+                },
+                {
+                  color: "secondary",
+                  content: "Browse database",
+                  icon: {
+                    src: "/icons/Type=database, Size=16, Color=Neutral900.svg",
+                  },
+                },
+              ],
+            },
+            {
+              id: 2,
+              title: {
+                color: "#3E202C",
+                content: "Find African allies to <br>turbocharge your project",
+              },
+              subheading: {
+                color: "#3E202C",
+                content: "Databases of Africa's leading democracy changemakers",
+              },
+              background: {
+                blendMode: "hard-light, normal",
+                color: "#F7CE46",
+                src: "/images/hero-slide-2.jpg",
+              },
+              links: [
+                {
+                  color: "primary",
+                  content: "Find experts",
+                  icon: {
+                    src: "/icons/Type=users, Size=16, Color=White.svg",
+                  },
+                },
+                {
+                  color: "primary",
+                  content: "Explore networks",
+                  icon: {
+                    src: "/icons/Type=globe, Size=16, Color=White.svg",
+                  },
+                },
+              ],
+            },
+            {
+              id: 3,
+              title: {
+                color: "#3E202C",
+                content:
+                  "Get in-depth actionable <br>knowledge to strengthen democracy",
+              },
+              subheading: {
+                color: "#3E202C",
+                content:
+                  "Expert analysis and hands-on training for democratic watchdogs",
+              },
+              background: {
+                blendMode: "overlay, multiply",
+                color: "#AAD4A9",
+                src: "/images/hero-slide-3.jpg",
+              },
+              links: [
+                {
+                  color: "primary",
+                  content: "Access reserach",
+                  icon: {
+                    src: "/icons/Type=file, Size=16, Color=White.svg",
+                  },
+                },
+                {
+                  color: "primary",
+                  content: "Get training",
+                  icon: {
+                    src: "/icons/Type=book-open, Size=16, Color=White.svg",
+                  },
+                },
+              ],
+            },
+            {
+              id: 4,
+              title: {
+                color: "#FFF",
+                content:
+                  "Find resources and support <br>to build your initiative",
+              },
+              subheading: {
+                color: "#FFF",
+                content:
+                  "Register for democracy grants, fellowships and events",
+              },
+              background: {
+                blendMode: "multiply",
+                color: "#F29D88",
+                src: "/images/hero-slide-4.jpg",
+              },
+              links: [
+                {
+                  color: "primary",
+                  content: "Get opportunities",
+                  icon: {
+                    src: "/icons/Type=briefcase, Size=16, Color=White.svg",
+                  },
+                },
+                {
+                  color: "primary",
+                  content: "Join community",
+                  icon: {
+                    src: "/icons/Type=users, Size=16, Color=White.svg",
+                  },
+                },
+              ],
+            },
+          ],
+        },
+        {
+          slug: "spotlight",
+          title: "Spotlight",
+          items: [
+            {
+              category: "Upcoming Event",
+              item: {
+                title: "Event name",
+                image: {
+                  src: "images/events-event-name.jpg",
+                },
+                topic: "Topic name",
+                excerpt:
+                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
+                date: "Date and time",
+                link: {
+                  href: "/",
+                },
+              },
+            },
+            {
+              category: "Upcoming Training",
+              item: {
+                title: "Training name",
+                image: {
+                  src: "images/trainings-training-name.jpg",
+                },
+                topic: "Topic name",
+                excerpt:
+                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
+                date: "Date and time",
+                link: {
+                  href: "/",
+                },
+              },
+            },
+            {
+              category: "Latest Insights",
+              item: {
+                title: "Latest Insight or research title",
+                image: {
+                  src: "images/insights-insight-name.jpg",
+                },
+                topic: "Topic name",
+                excerpt:
+                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
+                date: "Date and time",
+                link: {
+                  href: "/",
+                },
+              },
+            },
+            {
+              category: "Latest Blog",
+              item: {
+                title: "Blog Title",
+                image: {
+                  src: "images/blogs-blog-name.jpg",
+                },
+                topic: "Topic name",
+                excerpt:
+                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
+                date: "Date and time",
+                link: {
+                  href: "/",
+                },
+              },
+            },
+          ],
+        },
+        {
+          slug: "ecosystem",
+          items: [
+            {
+              title: "Tools",
+              data: [
+                {
+                  id: "elections",
+                  label: "Elections",
+                  value: 26,
+                  color: "#4E2037",
+                },
+                {
+                  id: "rule-of-law",
+                  label: "Rule of law",
+                  value: 4,
+                  color: "#F7CE46",
+                },
+                {
+                  id: "civic-space",
+                  label: "Civic space",
+                  value: 71,
+                  color: "#F29D88",
+                },
+                { id: "media", label: "Media", value: 53, color: "#AAD4A9" },
+                {
+                  id: "civic-values",
+                  label: "Civic values",
+                  value: 61,
+                  color: "#A88D99",
+                },
+                {
+                  id: "decentralisation",
+                  label: "Decentralisation",
+                  value: 23,
+                  color: "#FBE7A3",
+                },
+                {
+                  id: "multilateralism",
+                  label: "Multilateralism",
+                  value: 10,
+                  color: "#602773",
+                },
+                {
+                  id: "economic-governance",
+                  label: "Economic governance",
+                  value: 99,
+                  color: "#A7F3D0",
+                },
+                {
+                  id: "corporate-governance",
+                  label: "Corporate governance",
+                  value: 17,
+                  color: "#836070",
+                },
+                {
+                  id: "gender-equality",
+                  label: "Gender equality",
+                  value: 40,
+                  color: "#F48E93;",
+                },
+                {
+                  id: "constitutional-changes-government",
+                  label: "Constitutional changes of government",
+                  value: 38,
+                  color: "#947C2A",
+                },
+              ],
+            },
+            {
+              title: "People",
+              data: [
+                {
+                  id: "experts",
+                  label: "Experts",
+                  value: 20,
+                  color: "#F7CE46",
+                },
+                {
+                  id: "organisations",
+                  label: "Organisations",
+                  value: 28,
+                  color: "#A88D99",
+                },
+              ],
+            },
+          ],
+        },
+        {
           slug: "focal-countries",
           title: "Focal Countries",
           description: `
@@ -132,6 +352,268 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           <p>We do this by helping digital activists and democracy changemakers leverage the African Union’s Charter on Democracy, Elections and Governance (ACDEG).
           <p>The project currently supports initiatives in 11 countries. Find out more <a href="/">here</a>
           `,
+          countries: [
+            {
+              code: "BEN",
+              name: "Benin",
+              position: [9.3217214, 2.3100051],
+              items: [
+                { color: "#603549", name: "Tools", total: 350, value: 150 },
+                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
+                {
+                  color: "#F7CE46",
+                  name: "Policy docs",
+                  total: 200,
+                  value: 60,
+                },
+                {
+                  color: "#F29D88",
+                  name: "Fellowships",
+                  total: 200,
+                  value: 45,
+                },
+                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
+                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
+              ],
+              link: {
+                content: "Explore",
+              },
+            },
+            {
+              code: "ETH",
+              name: "Ethiopia",
+              position: [9.149175, 40.498867],
+              items: [
+                { color: "#603549", name: "Tools", total: 350, value: 150 },
+                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
+                {
+                  color: "#F7CE46",
+                  name: "Policy docs",
+                  total: 200,
+                  value: 60,
+                },
+                {
+                  color: "#F29D88",
+                  name: "Fellowships",
+                  total: 200,
+                  value: 45,
+                },
+                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
+                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
+              ],
+              link: {
+                content: "Explore",
+              },
+            },
+            {
+              code: "GHA",
+              name: "Ghana",
+              position: [7.9527706, -1.0307118],
+              items: [
+                { color: "#603549", name: "Tools", total: 350, value: 150 },
+                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
+                {
+                  color: "#F7CE46",
+                  name: "Policy docs",
+                  total: 200,
+                  value: 60,
+                },
+                {
+                  color: "#F29D88",
+                  name: "Fellowships",
+                  total: 200,
+                  value: 45,
+                },
+                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
+                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
+              ],
+              link: {
+                content: "Explore",
+              },
+            },
+            {
+              code: "KEN",
+              name: "Kenya",
+              position: [0.1768696, 37.9083264],
+              items: [
+                { color: "#603549", name: "Tools", total: 350, value: 150 },
+                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
+                {
+                  color: "#F7CE46",
+                  name: "Policy docs",
+                  total: 200,
+                  value: 60,
+                },
+                {
+                  color: "#F29D88",
+                  name: "Fellowships",
+                  total: 200,
+                  value: 45,
+                },
+                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
+                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
+              ],
+              link: {
+                content: "Explore",
+              },
+            },
+            {
+              code: "NGA",
+              name: "Nigeria",
+              position: [9.077751, 8.6774567],
+              items: [
+                { color: "#603549", name: "Tools", total: 350, value: 150 },
+                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
+                {
+                  color: "#F7CE46",
+                  name: "Policy docs",
+                  total: 200,
+                  value: 60,
+                },
+                {
+                  color: "#F29D88",
+                  name: "Fellowships",
+                  total: 200,
+                  value: 45,
+                },
+                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
+                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
+              ],
+              link: {
+                content: "Explore",
+              },
+            },
+            {
+              code: "SDN",
+              name: "Sudan",
+              position: [15.7860696, 30.1995791],
+              items: [
+                { color: "#603549", name: "Tools", total: 350, value: 150 },
+                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
+                {
+                  color: "#F7CE46",
+                  name: "Policy docs",
+                  total: 200,
+                  value: 60,
+                },
+                {
+                  color: "#F29D88",
+                  name: "Fellowships",
+                  total: 200,
+                  value: 45,
+                },
+                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
+                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
+              ],
+              link: {
+                content: "Explore",
+              },
+            },
+            {
+              code: "SEN",
+              name: "Senegal",
+              position: [14.5001717, -14.4392276],
+              items: [
+                { color: "#603549", name: "Tools", total: 350, value: 150 },
+                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
+                {
+                  color: "#F7CE46",
+                  name: "Policy docs",
+                  total: 200,
+                  value: 60,
+                },
+                {
+                  color: "#F29D88",
+                  name: "Fellowships",
+                  total: 200,
+                  value: 45,
+                },
+                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
+                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
+              ],
+              link: {
+                content: "Explore",
+              },
+            },
+            {
+              code: "TZA",
+              name: "Tanzania",
+              position: [-6.3728253, 34.8924826],
+              items: [
+                { color: "#603549", name: "Tools", total: 350, value: 150 },
+                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
+                {
+                  color: "#F7CE46",
+                  name: "Policy docs",
+                  total: 200,
+                  value: 60,
+                },
+                {
+                  color: "#F29D88",
+                  name: "Fellowships",
+                  total: 200,
+                  value: 45,
+                },
+                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
+                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
+              ],
+              link: {
+                content: "Explore",
+              },
+            },
+            {
+              code: "ZAF",
+              name: "South Africa",
+              position: [-28.4792625, 24.6727135],
+              items: [
+                { color: "#603549", name: "Tools", total: 350, value: 150 },
+                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
+                {
+                  color: "#F7CE46",
+                  name: "Policy docs",
+                  total: 200,
+                  value: 60,
+                },
+                {
+                  color: "#F29D88",
+                  name: "Fellowships",
+                  total: 200,
+                  value: 45,
+                },
+                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
+                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
+              ],
+              link: {
+                content: "Explore",
+              },
+            },
+            {
+              code: "ZWE",
+              name: "Zimbabwe",
+              position: [-19.0169211, 29.1528018],
+              items: [
+                { color: "#603549", name: "Tools", total: 350, value: 150 },
+                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
+                {
+                  color: "#F7CE46",
+                  name: "Policy docs",
+                  total: 200,
+                  value: 60,
+                },
+                {
+                  color: "#F29D88",
+                  name: "Fellowships",
+                  total: 200,
+                  value: 45,
+                },
+                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
+                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
+              ],
+              link: {
+                content: "Explore",
+              },
+            },
+          ],
           image: {
             src: "/images/focal-countries.svg",
           },
@@ -365,6 +847,14 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         projectDescription: "Website designed and built by Code for Africa",
         siteDescription:
           "This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.",
+      },
+      navbar: {
+        logo: {
+          alt: "Charter Africa",
+          src: "/images/charter-logo.svg",
+          href: "/",
+          priority: true,
+        },
       },
       locale,
       locales,
