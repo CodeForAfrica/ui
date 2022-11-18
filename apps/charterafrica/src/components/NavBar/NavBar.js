@@ -5,7 +5,7 @@ import { neutral } from "@/charterafrica/colors";
 import DesktopNavBar from "@/charterafrica/components/DesktopNavBar";
 import MobileNavBar from "@/charterafrica/components/MobileNavBar";
 
-function NavBar({ logo }) {
+function NavBar({ logo, menus }) {
   return (
     <NavigationBar
       sx={{
@@ -22,6 +22,7 @@ function NavBar({ logo }) {
         />
         <DesktopNavBar
           logo={logo}
+          menus={menus}
           sx={{
             display: { xs: "none", md: "flex" },
           }}
