@@ -9,17 +9,22 @@ exports[`<Layout /> renders unchanged 1`] = `
       role="group"
       style="margin-right: 20px;"
     >
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary css-18jkoo-MuiButtonBase-root-MuiButton-root"
-        style="color: rgb(243, 239, 241); padding: 0px; font-weight: 600; font-size: 18px; line-height: 22px;"
-        tabindex="0"
-        type="button"
+      <a
+        class="MuiTypography-root MuiTypography-h4 MuiLink-root MuiLink-underlineNone css-jefrt3-MuiTypography-root-MuiLink-root"
+        href="/resources"
       >
-        Resources
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedText MuiButtonGroup-groupedTextHorizontal MuiButtonGroup-groupedTextPrimary css-18jkoo-MuiButtonBase-root-MuiButton-root"
+          style="color: rgb(243, 239, 241); padding: 0px; font-weight: 600; font-size: 18px; line-height: 22px;"
+          tabindex="0"
+          type="button"
+        >
+          Resources
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </a>
       <button
         aria-haspopup="menu"
         aria-label="select merge strategy"

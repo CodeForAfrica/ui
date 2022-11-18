@@ -46,7 +46,7 @@ export default function NavBarDropdown({ menu }) {
         }}
       >
         <Link
-          href={menu?.href || "#"}
+          href={menu.href || "#"}
           color="inherit"
           underline="none"
           variant="h4"
@@ -123,7 +123,7 @@ export default function NavBarDropdown({ menu }) {
                   {menu?.children.map((option, index) => (
                     <Link
                       key={option.title}
-                      href={menu.children[index]?.href || "#"}
+                      href={menu.children[index].href || "#"}
                       color="inherit"
                       underline="none"
                       variant="h4"

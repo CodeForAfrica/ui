@@ -6,7 +6,6 @@ import React from "react";
 import Footer from "@/charterafrica/components/Footer";
 import NavBar from "@/charterafrica/components/NavBar";
 
-
 const Main = styled("main")({
   flex: 1,
 });
