@@ -3,10 +3,10 @@ import React from "react";
 
 import NavList from "./NavList";
 
-import theme from "@/codeforafrica/theme";
+import { createTheme } from "@/commons-ui/core/styles";
 
 // eslint-disable-next-line testing-library/render-result-naming-convention
-const render = createRender({ theme });
+const render = createRender({ theme: createTheme() });
 
 describe("<NavList />", () => {
   it("renders unchanged", () => {
