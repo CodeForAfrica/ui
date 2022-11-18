@@ -1,7 +1,7 @@
 name: charterafrica | Build and Deploy
 on:
   push:
-    branches: [feat/test-charterafrica-cd]
+    branches: [feat/charterafrica-workflow]
 
 env:
   DOKKU_REMOTE_BRANCH: "master"
