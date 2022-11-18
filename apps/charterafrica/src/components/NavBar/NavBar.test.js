@@ -12,8 +12,6 @@ const defaultProps = {
   logo: {
     alt: "Charter Africa",
     src: "/images/charter-logo.svg",
-    width: "145",
-    height: "40",
   },
 };
 

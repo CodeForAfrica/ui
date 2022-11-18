@@ -12,7 +12,7 @@ function NavBar({ logo }) {
         backgroundColor: neutral[900],
         display: "flex",
         justifyContent: "center",
-        py: { sm: 2.5, md: 3.5 },
+        py: { md: 3.5 },
         px: { xs: 2, sm: 0 },
       }}
     >
