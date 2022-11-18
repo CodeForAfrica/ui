@@ -1,3 +1,4 @@
+import { Link } from "@commons-ui/next";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
@@ -44,19 +45,25 @@ export default function NavBarDropdown({ menu }) {
           marginRight: "20px",
         }}
       >
-        <Button
-          style={{
-            border: "none",
-            color: neutral[50],
-            padding: "0",
-            fontWeight: "600",
-            fontSize: "18px",
-            lineHeight: " 22px",
-          }}
+        <Link
+          href={menu?.href || "#"}
+          color="inherit"
+          underline="none"
+          variant="h4"
         >
-          {menu.title}
-        </Button>
-
+          <Button
+            style={{
+              border: "none",
+              color: neutral[50],
+              padding: "0",
+              fontWeight: "600",
+              fontSize: "18px",
+              lineHeight: " 22px",
+            }}
+          >
+            {menu.title}
+          </Button>
+        </Link>
         {menu.children ? (
           <Button
             size="small"
@@ -114,27 +121,37 @@ export default function NavBarDropdown({ menu }) {
                   }}
                 >
                   {menu?.children.map((option, index) => (
-                    <MenuItem
+                    <Link
                       key={option.title}
-                      selected={index === selectedIndex}
-                      onClick={(event) => handleMenuItemClick(event, index)}
-                      style={{
-                        border: "1px solid",
-                        borderColor: neutral[800],
-                        background: neutral[50],
-                        color: neutral[900],
-                        borderTop: index === 0 ? "1px solid" : "none",
-                        fontWeight: "400",
-                        fontSize: "12px",
-                        lineHeight: "14px",
-                        height: "34px",
+                      href={menu.children[index]?.href || "#"}
+                      color="inherit"
+                      underline="none"
+                      variant="h4"
+                      sx={{
                         "&:hover": {
-                          background: "red",
+                          background: neutral[100],
                         },
                       }}
                     >
-                      {option.title}
-                    </MenuItem>
+                      <MenuItem
+                        key={option.title}
+                        selected={index === selectedIndex}
+                        onClick={(event) => handleMenuItemClick(event, index)}
+                        style={{
+                          border: "1px solid",
+                          borderColor: neutral[800],
+                          background: neutral[50],
+                          color: neutral[900],
+                          borderTop: index === 0 ? "1px solid" : "none",
+                          fontWeight: "400",
+                          fontSize: "12px",
+                          lineHeight: "14px",
+                          height: "34px",
+                        }}
+                      >
+                        {option.title}
+                      </MenuItem>
+                    </Link>
                   ))}
                 </MenuList>
               </ClickAwayListener>
