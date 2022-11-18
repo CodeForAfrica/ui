@@ -9,7 +9,6 @@ function Logo(props) {
   if (!src) {
     return null;
   }
-
   return (
     <ImageButton href={href} component={href ? Link : undefined}>
       <Image

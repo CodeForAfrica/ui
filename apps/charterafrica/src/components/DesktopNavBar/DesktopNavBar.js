@@ -16,7 +16,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
       sx={sx}
     >
       <Grid item>
-        <Logo {...logo} width="230" height="60" />
+        <Logo {...logo} width={230} height={58} />
       </Grid>
       <Grid item>
         <Button

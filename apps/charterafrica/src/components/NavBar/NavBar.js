@@ -10,13 +10,10 @@ function NavBar({ logo }) {
     <NavigationBar
       sx={{
         backgroundColor: neutral[900],
-        display: "flex",
-        justifyContent: "center",
         py: { md: 3.5 },
-        px: { xs: 2, sm: 0 },
       }}
     >
-      <Section>
+      <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         <MobileNavBar
           logo={logo}
           sx={{

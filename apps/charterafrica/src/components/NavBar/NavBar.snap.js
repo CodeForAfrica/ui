@@ -3,13 +3,13 @@
 exports[`<NavBar /> renders unchanged 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-1ossqwf-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-1aif7ik-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
   >
     <div
       class="MuiToolbar-root MuiToolbar-regular css-l73zrm-MuiToolbar-root"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-eoqn3z-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1y3f71u-MuiContainer-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-hs5ptp-MuiGrid-root"
@@ -26,12 +26,12 @@ exports[`<NavBar /> renders unchanged 1`] = `
                 alt="Charter Africa"
                 data-nimg="1"
                 decoding="async"
-                height="40"
+                height="38"
                 loading="lazy"
                 src="/images/charter-logo.svg"
                 srcset="/images/charter-logo.svg 1x, /images/charter-logo.svg 2x"
                 style="color: transparent;"
-                width="145"
+                width="147.29"
               />
             </button>
           </div>
@@ -61,7 +61,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
                 alt="Charter Africa"
                 data-nimg="1"
                 decoding="async"
-                height="60"
+                height="58"
                 loading="lazy"
                 src="/images/charter-logo.svg"
                 srcset="/images/charter-logo.svg 1x, /images/charter-logo.svg 2x"

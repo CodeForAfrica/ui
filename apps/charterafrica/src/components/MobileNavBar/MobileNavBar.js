@@ -16,7 +16,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
       sx={sx}
     >
       <Grid item>
-        <Logo {...logo} width="145" height="40" />
+        <Logo {...logo} width={147.29} height={38} />
       </Grid>
       <Grid item>
         <SvgIcon

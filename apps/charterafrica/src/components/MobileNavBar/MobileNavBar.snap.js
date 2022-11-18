@@ -17,12 +17,12 @@ exports[`<MobileNavBar /> renders unchanged 1`] = `
           alt="Charter Africa"
           data-nimg="1"
           decoding="async"
-          height="40"
+          height="38"
           loading="lazy"
           src="/images/charter-logo.svg"
           srcset="/images/charter-logo.svg 1x, /images/charter-logo.svg 2x"
           style="color: transparent;"
-          width="145"
+          width="147.29"
         />
       </button>
     </div>
