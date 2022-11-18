@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Layout from "./Layout";
+import NavBar from "./NavBar";
 
 import theme from "@/charterafrica/theme";
 
@@ -9,23 +9,15 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  footer: {
-    logo: {
-      alt: "EU",
-      src: "/images/eu.png",
-    },
-  },
-  navbar: {
-    logo: {
-      alt: "Charter Africa",
-      src: "/images/charter-logo.svg",
-    },
+  logo: {
+    alt: "Charter Africa",
+    src: "/images/charter-logo.svg",
   },
 };
 
-describe("<Layout />", () => {
+describe("<NavBar />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Layout {...defaultProps} />);
+    const { container } = render(<NavBar {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

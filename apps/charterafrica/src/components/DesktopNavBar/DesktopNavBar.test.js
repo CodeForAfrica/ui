@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Layout from "./Layout";
+import DesktopNavBar from "./DesktopNavBar";
 
 import theme from "@/charterafrica/theme";
 
@@ -9,23 +9,17 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  footer: {
-    logo: {
-      alt: "EU",
-      src: "/images/eu.png",
-    },
-  },
-  navbar: {
-    logo: {
-      alt: "Charter Africa",
-      src: "/images/charter-logo.svg",
-    },
+  logo: {
+    alt: "Charter Africa",
+    src: "/images/charter-logo.svg",
+    width: "230",
+    height: "60",
   },
 };
 
-describe("<Layout />", () => {
+describe("<DesktopNavBar />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Layout {...defaultProps} />);
+    const { container } = render(<DesktopNavBar {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
