@@ -1,10 +1,10 @@
+import { NavList } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import SvgIcon from "@mui/material/SvgIcon";
 import PropTypes from "prop-types";
 import React from "react";
 
 import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
-import NavList from "@/codeforafrica/components/NavList";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
 const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
