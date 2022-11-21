@@ -708,21 +708,21 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
               "A consortium of African and European organisations is supporting the implementation of the Fund. Each organisation brings in specific expertise to the initiative, ranging from grassroots digital activism, to civic technology development and data science, policy analysis and democracy support. The consortium can ensure a presence across the African continent and leverage existing networks and partnerships.",
             partners: [
               {
-                name: "Code for Africa",
-                logo: {
-                  src: "/images/codeforafrica.jpg",
-                },
-                link: {
-                  href: "https://codeforafrica.org",
-                },
-              },
-              {
                 name: "Africtivistes",
                 logo: {
-                  src: "/images/africtivistes.jpg",
+                  src: "/images/africtivistes.svg",
                 },
                 link: {
                   href: "https://www.africtivistes.com",
+                },
+              },
+              {
+                name: "Code for Africa",
+                logo: {
+                  src: "/images/codeforafrica.svg",
+                },
+                link: {
+                  href: "https://codeforafrica.org",
                 },
               },
               {
@@ -732,15 +732,6 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
                 },
                 link: {
                   href: "https://www.democracyworks.org.za",
-                },
-              },
-              {
-                name: "Goree Institute",
-                logo: {
-                  src: "/images/goree.jpg",
-                },
-                link: {
-                  href: "https://goreeinstitut.org/",
                 },
               },
               {
@@ -759,6 +750,15 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
                 },
                 link: {
                   href: "https://epd.eu",
+                },
+              },
+              {
+                name: "Goree Institute",
+                logo: {
+                  src: "/images/goree.jpg",
+                },
+                link: {
+                  href: "https://goreeinstitut.org/",
                 },
               },
             ],
