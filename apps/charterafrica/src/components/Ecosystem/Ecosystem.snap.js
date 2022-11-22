@@ -3,7 +3,7 @@
 exports[`<Ecosystem /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-0"
+    class="MuiBox-root css-i6bazn"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-7zbiin-MuiContainer-root"
