@@ -1,12 +1,12 @@
-import { Input } from "@commons-ui/core";
 import IconButton from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 import SvgIcon from "@mui/material/SvgIcon";
+import TextField from "@mui/material/TextField";
 import React from "react";
 
 import SearchIcon from "@/codeforafrica/assets/icons/Type=search, Size=16, Color=CurrentColor.svg";
 
-const StyledInput = styled(Input)(({ theme }) => ({
+const StyledInput = styled(TextField)(({ theme }) => ({
   "& .MuiInputLabel-root": {
     color: theme.palette.text.primary,
     marginBottom: theme.spacing(0.25),
