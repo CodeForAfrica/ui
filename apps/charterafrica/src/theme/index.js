@@ -195,6 +195,43 @@ deepmerge(
         },
       },
     },
+    MuiInput: {
+      styleOverrides: {
+        root: {
+          ...theme.typography.p2,
+          borderRadius: "4px",
+          borderColor: neutral[400],
+        },
+        sizeSmall: {
+          height: "36px",
+        },
+        sizeMedium: {
+          height: "44px",
+        },
+        sizeLarge: {
+          height: "52px",
+        },
+        focused: {
+          borderColor: palette.primary.main,
+        },
+        disabled: {
+          backgroundColor: neutral[50],
+          borderColor: neutral[200],
+        },
+        error: {
+          borderColor: "#EF4444",
+        },
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          border: `1px solid`,
+          borderRadius: "4px",
+          width: "200px",
+        },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: `
        #__next {
