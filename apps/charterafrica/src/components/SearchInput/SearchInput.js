@@ -41,7 +41,6 @@ const InputSearch = React.forwardRef(function InputSearch(props, ref) {
         minWidth: { xs: "auto", sm: "140px" },
         width: { xs: "auto", sm: "140px" },
         backgroundColor: neutral[800],
-        borderColor: neutral[400],
         input: {
           "&::placeholder": {
             color: neutral[400],

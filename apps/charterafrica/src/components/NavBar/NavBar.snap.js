@@ -151,7 +151,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root css-swoirf-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiTextField-root css-86cj57-MuiFormControl-root-MuiTextField-root"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-l9o6hu-MuiInputBase-root-MuiOutlinedInput-root"

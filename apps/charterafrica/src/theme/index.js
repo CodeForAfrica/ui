@@ -198,7 +198,8 @@ deepmerge(
     MuiInput: {
       styleOverrides: {
         root: {
-          ...theme.typography.p2,
+          ...theme.typography.h6Small,
+          border: "1px solid",
           borderRadius: "4px",
           borderColor: neutral[400],
         },
@@ -226,9 +227,10 @@ deepmerge(
     MuiTextField: {
       styleOverrides: {
         root: {
-          border: `1px solid`,
+          border: "1px solid",
           borderRadius: "4px",
           width: "200px",
+          borderColor: neutral[400],
         },
       },
     },
