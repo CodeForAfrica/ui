@@ -4,6 +4,7 @@ const Pages = {
   slug: "pages",
   admin: {
     useAsTitle: "title",
+    defaultColumns: ["title", "updatedAt"],
   },
   access: {
     read: () => true, // Everyone can read Pages
