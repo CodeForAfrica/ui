@@ -2,12 +2,7 @@ import { deepmerge } from "@mui/utils";
 
 const link = ({ disableLabel = false, overrides = {} } = {}) => {
   const linkResult = {
-    name: "link",
-    type: "group",
-    admin: {
-      hideGutter: true,
-      ...(overrides?.admin || {}),
-    },
+    type: "row",
     fields: [
       {
         type: "row",
