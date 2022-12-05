@@ -17,7 +17,7 @@ export const Navigation = {
     {
       name: "navItems",
       type: "array",
-      fields: [linkField],
+      fields: [link()],
     },
   ],
 };
