@@ -5,6 +5,7 @@ import { buildConfig } from "payload/config";
 
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
+import { Navigation } from "./src/payload/globals/Navigation";
 
 const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
 
@@ -25,6 +26,7 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   collections: [Media, Pages],
+  globals: [Navigation],
   localization: {
     locales: ["en", "fr", "pt"],
     defaultLocale: "en",
