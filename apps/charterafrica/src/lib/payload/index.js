@@ -12,7 +12,15 @@ async function findPage(slug, options) {
   });
 }
 
+async function findGlobal(slug, options) {
+  return payload.findGlobal({
+    ...options,
+    slug,
+  });
+}
+
 const api = {
+  findGlobal,
   findPage,
 };
 
