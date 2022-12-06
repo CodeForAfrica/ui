@@ -7,6 +7,10 @@ linkField.fields.push({
     {
       name: "children",
       type: "array",
+      label: {
+        en: "Submenus",
+        fr: "Sous-menus",
+      },
       labels: {
         singular: {
           en: "Submenu",
