@@ -1,28 +1,29 @@
 import link from "../fields/link";
+import linkGroup from "../fields/linkGroup";
 
 const linkField = link();
 linkField.fields.push({
   type: "row",
   fields: [
-    {
-      name: "children",
-      type: "array",
-      label: {
-        en: "Submenus",
-        fr: "Sous-menus",
-      },
-      labels: {
-        singular: {
-          en: "Submenu",
-          fr: "Sous-menu",
-        },
-        plural: {
+    linkGroup({
+      overrides: {
+        name: "children",
+        label: {
           en: "Submenus",
           fr: "Sous-menus",
         },
+        labels: {
+          singular: {
+            en: "Submenu",
+            fr: "Sous-menu",
+          },
+          plural: {
+            en: "Submenus",
+            fr: "Sous-menus",
+          },
+        },
       },
-      fields: [link()],
-    },
+    }),
   ],
 });
 
@@ -37,11 +38,12 @@ const Navigation = {
     read: () => true,
   },
   fields: [
-    {
-      name: "menus",
-      type: "array",
-      fields: [linkField],
-    },
+    linkGroup({
+      overrides: {
+        name: "menus",
+        fields: [linkField],
+      },
+    }),
   ],
 };
 
