@@ -12,11 +12,19 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
             type: "radio",
             options: [
               {
-                label: "Internal link",
+                label: {
+                  en: "Internal link",
+                  fr: "Lien interne",
+                  pt: "Link interno",
+                },
                 value: "reference",
               },
               {
-                label: "Custom URL",
+                label: {
+                  en: "Custom URL",
+                  fr: "URL personnalisée",
+                  pt: "URL personalizado",
+                },
                 value: "custom",
               },
             ],
@@ -28,7 +36,11 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
           },
           {
             name: "newTab",
-            label: "Open in new tab",
+            label: {
+              en: "Open in new tab",
+              fr: "Ouvrir dans un nouvel onglet",
+              pt: "Abrir num novo separador",
+            },
             type: "checkbox",
             admin: {
               width: "50%",
@@ -45,7 +57,11 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
   const linkTypes = [
     {
       name: "reference",
-      label: "Document to link to",
+      label: {
+        en: "Document to link to",
+        fr: "Document pour lien vers",
+        pt: "Documento para link para",
+      },
       type: "relationship",
       relationTo: ["pages"],
       required: true,
@@ -56,7 +72,11 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
     },
     {
       name: "url",
-      label: "Custom URL",
+      label: {
+        en: "Custom URL",
+        fr: "URL personnalisée",
+        pt: "URL personalizado",
+      },
       type: "text",
       required: true,
       admin: {
@@ -75,7 +95,10 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
         ...linkTypes,
         {
           name: "label",
-          label: "Label",
+          label: {
+            en: "Label",
+            pt: "Rótulo",
+          },
           type: "text",
           required: true,
           localized: true,
