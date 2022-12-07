@@ -71,7 +71,7 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
       },
     },
     {
-      name: "url",
+      name: "href",
       label: {
         en: "Custom URL",
         fr: "URL personnalisée",

@@ -1,5 +1,6 @@
 import link from "../fields/link";
 import linkGroup from "../fields/linkGroup";
+import formatPagePath from "../utils/formatPagePath";
 
 const linkField = link();
 linkField.fields.push({
@@ -27,6 +28,36 @@ linkField.fields.push({
   ],
 });
 
+const insertHrefIfReference = (menu) => {
+  if (menu.reference) {
+    const { relationTo: collection, value: doc } = menu.reference;
+    const href = formatPagePath(collection, doc);
+    return { ...menu, href };
+  }
+  return menu;
+};
+
+const insertHref = (menus) => {
+  if (!menus?.length) {
+    return null;
+  }
+  return menus.map((originalMenu) => {
+    const menu = insertHrefIfReference(originalMenu);
+    const children = insertHref(originalMenu.children);
+    return { ...menu, children };
+  });
+};
+
+const afterReadInsertHrefHook = (args) => {
+  const { doc } = args;
+  if (doc.menus) {
+    const { menus: originalMenus } = doc;
+    const menus = insertHref(originalMenus);
+    return { ...doc, menus };
+  }
+  return doc;
+};
+
 const Navigation = {
   slug: "navigation",
   label: {
@@ -45,6 +76,9 @@ const Navigation = {
       },
     }),
   ],
+  hooks: {
+    afterRead: [afterReadInsertHrefHook],
+  },
 };
 
 export default Navigation;

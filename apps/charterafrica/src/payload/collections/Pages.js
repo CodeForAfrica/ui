@@ -1,4 +1,4 @@
-import formatSlug from "../../utils/payload/formatSlug";
+import formatSlug from "../utils/formatSlug";
 
 const Pages = {
   slug: "pages",
