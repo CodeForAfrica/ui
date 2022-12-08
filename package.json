@@ -28,10 +28,10 @@
     "@changesets/cli": "^2.25.2",
     "@playwright/test": "^1.28.1",
     "eslint": "^8.29.0",
-    "eslint-config-commons-ui": "workspace:2.0.1",
+    "eslint-config-commons-ui": "workspace:*",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
-    "playwright-config-commons-ui": "workspace:2.0.1",
+    "playwright-config-commons-ui": "workspace:*",
     "prettier": "^2.8.1",
     "turbo": "^1.6.3"
   },
