@@ -17,8 +17,8 @@ module.exports = withTM({
     outputFileTracingRoot,
   },
   i18n: {
-    locales: ["en-GB", "fr", "pt"],
-    defaultLocale: "en-GB",
+    locales: ["en", "fr", "pt"],
+    defaultLocale: "en",
   },
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
