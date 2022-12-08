@@ -6,6 +6,15 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
   disconnect: jest.fn(),
 }));
 
+global.TextEncoder = jest.fn().mockImplementation(() => ({
+  encode: jest.fn(),
+  encodeInto: jest.fn(),
+}));
+
+global.TextDecoder = jest.fn().mockImplementation(() => ({
+  decode: jest.fn(),
+}));
+
 jest.mock("next/router", () => ({
   useRouter: jest.fn().mockImplementation(() => ({
     asPath: "",
