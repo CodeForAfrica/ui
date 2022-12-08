@@ -1,12 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Layout /> renders unchanged 1`] = `
+exports[`<NavBardropdown /> renders unchanged 1`] = `
 <div>
   <a
     class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-    href="/resources"
+    href="resources"
   >
-    Resources
     <button
       aria-haspopup="menu"
       aria-label="select merge strategy"

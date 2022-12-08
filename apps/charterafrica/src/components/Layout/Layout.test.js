@@ -8,13 +8,6 @@ import theme from "@/charterafrica/theme";
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn().mockImplementation(() => ({
-    asPath: "",
-    isReady: true,
-  })),
-}));
-
 const defaultProps = {
   footer: {
     logo: {
