@@ -1,6 +1,6 @@
 function formatPagePath(collection, doc) {
   const { slug } = doc;
-
+  const pageSlug = slug !== "index" ? slug : "";
   let prefix = "";
   if (collection) {
     switch (collection) {
@@ -12,7 +12,7 @@ function formatPagePath(collection, doc) {
     }
   }
 
-  return `${prefix}/${slug}`;
+  return `${prefix}/${pageSlug}`;
 }
 
 export default formatPagePath;

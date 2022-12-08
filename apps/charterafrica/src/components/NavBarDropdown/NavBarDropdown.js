@@ -14,7 +14,6 @@ import ArrowDropUpIcon from "@/charterafrica/assets/icons/Type=chevron-up, Size=
 import { neutral } from "@/charterafrica/colors";
 
 function NavBarDropdown({ menu }) {
-  console.log("BOOM", menu);
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const handleClickArrow = (e) => {
