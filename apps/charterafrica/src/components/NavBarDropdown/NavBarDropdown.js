@@ -33,6 +33,7 @@ function NavBarDropdown({ menu }) {
     setOpen(false);
   };
   const ArrowIcon = open ? ArrowDropUpIcon : ArrowDropDownIcon;
+
   return (
     <>
       <Link
