@@ -1,17 +1,11 @@
 import { Link } from "@commons-ui/next";
-import IconButton from "@mui/material/Button";
-import ClickAwayListener from "@mui/material/ClickAwayListener";
-import Grow from "@mui/material/Grow";
-import MenuItem from "@mui/material/MenuItem";
-import MenuList from "@mui/material/MenuList";
-import Paper from "@mui/material/Paper";
-import Popper from "@mui/material/Popper";
-import SvgIcon from "@mui/material/SvgIcon";
+import IconButton from "@mui/material/IconButton";
 import React from "react";
 
-import ArrowDropDownIcon from "@/charterafrica/assets/icons/Type=chevron-down, Size=16, Color=White.svg";
-import ArrowDropUpIcon from "@/charterafrica/assets/icons/Type=chevron-up, Size=16, Color=White.svg";
 import { neutral } from "@/charterafrica/colors";
+import DropdownMenu from "@/charterafrica/components/DropdownMenu";
+import OpenCloseIcon from "@/charterafrica/components/OpenCloseIcon";
+import Popper from "@/charterafrica/components/Popper";
 
 function NavBarDropdown({ menu }) {
   const [open, setOpen] = React.useState(false);
@@ -32,7 +26,6 @@ function NavBarDropdown({ menu }) {
     }
     setOpen(false);
   };
-  const ArrowIcon = open ? ArrowDropUpIcon : ArrowDropDownIcon;
 
   return (
     <>
@@ -63,28 +56,15 @@ function NavBarDropdown({ menu }) {
               padding: 0,
             }}
           >
-            <SvgIcon
-              component={ArrowIcon}
-              viewBox="0 0 16 16"
-              sx={{
-                color: "text.secondary",
-                display: "inline-flex",
-                fill: "none",
-              }}
-            />
+            <OpenCloseIcon open={open} sx={{ color: "text.secondary" }} />
           </IconButton>
         ) : null}
       </Link>
       <Popper
-        sx={{
-          zIndex: 1,
-        }}
         open={open}
         anchorEl={anchorRef.current}
         placement="bottom-start"
         role={undefined}
-        transition
-        disablePortal
         modifiers={[
           {
             name: "offset",
@@ -93,60 +73,15 @@ function NavBarDropdown({ menu }) {
             },
           },
         ]}
+        ClickAwayListenerProps={{ onClickAway: handleClose }}
+        TransitionComponentProps={{
+          style: {
+            transformOrigin: "center top",
+            width: "200px",
+          },
+        }}
       >
-        {({ TransitionProps, placement }) => (
-          <Grow
-            {...TransitionProps}
-            style={{
-              transformOrigin:
-                placement === "bottom" ? "center top" : "center bottom",
-              width: "200px",
-            }}
-          >
-            <Paper>
-              <ClickAwayListener onClickAway={handleClose}>
-                <MenuList
-                  autoFocusItem
-                  component="nav"
-                  disableGutters
-                  sx={{
-                    border: 1,
-                    borderColor: neutral[800],
-                    background: neutral[50],
-                    p: 0,
-                  }}
-                >
-                  {menu?.children.map((option, index) => (
-                    <MenuItem
-                      color="inherit"
-                      component={Link}
-                      onClick={handleClickMenuItem}
-                      href={menu.children[index].href || "#"}
-                      underline="none"
-                      variant="caption"
-                      sx={{
-                        borderBottom: 1,
-                        borderColor: neutral[800],
-                        background: neutral[50],
-                        color: neutral[900],
-                        p: 1.25,
-                        "&:hover": {
-                          background: neutral[100],
-                        },
-                        "&:last-of-type": {
-                          borderBottom: "none",
-                        },
-                      }}
-                      key={option.label}
-                    >
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </MenuList>
-              </ClickAwayListener>
-            </Paper>
-          </Grow>
-        )}
+        <DropdownMenu items={menu?.children} onClick={handleClickMenuItem} />
       </Popper>
     </>
   );
