@@ -6,8 +6,14 @@ import { buildConfig } from "payload/config";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Navigation from "./src/payload/globals/Navigation";
+import Site from "./src/payload/globals/Site";
 
 const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
+const locales = process.env.PAYLOAD_PUBLIC_LOCALES?.split(",")
+  ?.map((l) => l.trim())
+  .filter(Boolean);
+const defaultLocale =
+  process.env.PAYLOAD_PUBLIC_DEFAULT_LOCALE?.trim() || locales?.[0];
 
 const adapter = s3Adapter({
   config: {
@@ -26,12 +32,16 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   collections: [Media, Pages],
-  globals: [Navigation],
-  localization: {
-    locales: ["en", "fr", "pt"],
-    defaultLocale: "en",
-    fallback: true,
-  },
+  globals: [Navigation, Site],
+  ...(locales?.length
+    ? {
+        localization: {
+          locales,
+          defaultLocale,
+          fallback: true,
+        },
+      }
+    : undefined),
   admin: {
     webpack: (config) => ({
       ...config,
@@ -55,6 +65,7 @@ export default buildConfig({
     }),
     seo({
       collections: ["pages"],
+      globals: ["site"],
       uploadsCollection: "media",
       generateTitle: ({ doc }) => doc?.title?.value,
       generateURL: ({ doc, locale }) =>
