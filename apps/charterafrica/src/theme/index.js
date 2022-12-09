@@ -202,6 +202,15 @@ deepmerge(
           border: "1px solid",
           borderRadius: "4px",
           borderColor: neutral[400],
+          padding: "0px 12px",
+          borderSizing: "border-box",
+          input: {
+            "&::placeholder": {
+              color: neutral[400],
+              fontWeight: 400,
+            },
+            color: neutral[400],
+          },
         },
         sizeSmall: {
           height: "36px",
@@ -221,16 +230,6 @@ deepmerge(
         },
         error: {
           borderColor: "#EF4444",
-        },
-      },
-    },
-    MuiTextField: {
-      styleOverrides: {
-        root: {
-          border: "1px solid",
-          borderRadius: "4px",
-          width: "200px",
-          borderColor: neutral[400],
         },
       },
     },
