@@ -1,6 +1,6 @@
+import { OutlinedInput } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import SvgIcon from "@mui/material/SvgIcon";
-import TextField from "@mui/material/TextField";
 import React from "react";
 
 import SearchIcon from "@/charterafrica/assets/icons/Type=search, Size=16, Color=Black.svg";
@@ -30,20 +30,19 @@ const InputSearch = React.forwardRef(function InputSearch(props, ref) {
     </IconButton>
   );
   return (
-    <TextField
-      InputProps={{
-        endAdornment,
-        ...InputProps,
-        placeholder: "Search",
-        size: "small",
-      }}
+    <OutlinedInput
+      endAdornment={endAdornment}
+      placeholder="Search"
+      size="small"
       sx={{
         minWidth: { xs: "auto", sm: "140px" },
         width: { xs: "auto", sm: "140px" },
+        height: { xs: "auto", sm: "42px" },
         backgroundColor: neutral[800],
         input: {
           "&::placeholder": {
             color: neutral[400],
+            fontWeight: 400,
           },
           color: neutral[400],
         },

@@ -195,7 +195,7 @@ deepmerge(
         },
       },
     },
-    MuiInput: {
+    MuiOutlinedInput: {
       styleOverrides: {
         root: {
           ...theme.typography.h6Small,
