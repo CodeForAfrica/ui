@@ -4,7 +4,7 @@ exports[`<NavBardropdown /> renders unchanged 1`] = `
 <div>
   <a
     class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-    href="resources"
+    href="/resources"
   >
     <button
       aria-haspopup="menu"

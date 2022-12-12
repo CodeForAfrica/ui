@@ -14,7 +14,12 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
       <Grid item>
         <Logo {...logo} width={230} height={58} />
       </Grid>
-      <Grid container justifyContent="flex-end" columnSpacing={3.75}>
+      <Grid
+        container
+        columnSpacing={3.75}
+        justifyContent="flex-end"
+        wrap="nowrap"
+      >
         <Grid item>
           <NavBarNavList direction="row" menus={menus} sx={{ gap: 2.5 }} />
         </Grid>

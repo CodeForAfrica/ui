@@ -71,7 +71,7 @@ exports[`<Layout /> renders unchanged 1`] = `
             </button>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container css-1o93lmx-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-10cf6dj-MuiGrid-root"
           >
             <div
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -81,7 +81,7 @@ exports[`<Layout /> renders unchanged 1`] = `
               >
                 <a
                   class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-                  href="resources"
+                  href="/resources"
                 >
                   <button
                     aria-haspopup="menu"
@@ -100,7 +100,7 @@ exports[`<Layout /> renders unchanged 1`] = `
                 </a>
                 <a
                   class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-                  href="knowledge"
+                  href="/knowledge"
                 >
                   <button
                     aria-haspopup="menu"
@@ -119,7 +119,7 @@ exports[`<Layout /> renders unchanged 1`] = `
                 </a>
                 <a
                   class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-                  href="opportunities"
+                  href="/opportunities"
                 >
                   <button
                     aria-haspopup="menu"
@@ -138,7 +138,7 @@ exports[`<Layout /> renders unchanged 1`] = `
                 </a>
                 <a
                   class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-                  href="about"
+                  href="/about"
                 />
               </ul>
             </div>
@@ -146,38 +146,36 @@ exports[`<Layout /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-56jcky-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1r8h7yy-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <input
-                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1grzdsv-MuiInputBase-input-MuiOutlinedInput-input"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1u6lhwd-MuiInputBase-input-MuiOutlinedInput-input"
                   placeholder="Search"
                   type="search"
                   value=""
                 />
                 <button
                   aria-label="search"
-                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-av538e-MuiButtonBase-root-MuiIconButton-root"
                   tabindex="0"
                   type="button"
                 >
                   <div
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-iusnk6-MuiSvgIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-scw3l4-MuiSvgIcon-root"
                     focusable="false"
                     viewbox="0 0 16 16"
                   />
                 </button>
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-ihdtdm"
+                    class="css-yjsfm1"
                   >
-                    <span
-                      class="notranslate"
-                    >
-                      ​
+                    <span>
+                      Search
                     </span>
                   </legend>
                 </fieldset>
