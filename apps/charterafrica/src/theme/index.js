@@ -2,14 +2,14 @@ import { createTheme } from "@commons-ui/core";
 import { buttonClasses } from "@mui/material";
 import { deepmerge } from "@mui/utils";
 
-import { neutral, secondary } from "@/charterafrica/colors";
+import { neutral, primary, secondary } from "@/charterafrica/colors";
 
 const OPEN_SANS_FONT_FAMILY = '"Open Sans", sans-serif';
 const PROMPT_FONT_FAMILY = "Prompt, sans-serif";
 
 const palette = {
   mode: "light",
-  primary: { light: "#E2C4EC", main: "#B560D0", dark: "#481D57" },
+  primary: { light: primary[200], main: primary[500], dark: primary[900] },
   secondary: {
     light: secondary[200],
     main: secondary[500],
@@ -197,41 +197,55 @@ deepmerge(
     },
     MuiOutlinedInput: {
       styleOverrides: {
+        // Assume size="medium".
         root: {
-          ...theme.typography.h6Small,
+          ...theme.typography.p2,
           border: "1px solid",
-          borderRadius: "4px",
+          borderRadius: 4,
           borderColor: neutral[400],
-          padding: "0px 12px",
           borderSizing: "border-box",
-          input: {
-            "&::placeholder": {
-              color: neutral[400],
-              fontWeight: 400,
-            },
+          padding: "11.5px 12px", // 12.5 - 1px border
+          // https://mui.com/material-ui/customization/how-to-customize/#state-classes
+          "&:active": {
+            borderColor: secondary[600],
+          },
+          "&:focus": {
+            borderColor: primary[600],
+          },
+          "&.Mui-disabled": {
+            backgroundColor: neutral[50],
+            borderColor: neutral[200],
             color: neutral[400],
+          },
+          "&.Mui-error": {
+            borderColor: "#EF4444",
           },
         },
         sizeSmall: {
-          height: "36px",
+          ...theme.typography.p1,
+          padding: "8.5px 12px", // 9.5 - 1px border
         },
-        sizeMedium: {
-          height: "44px",
+        notchedOutline: {
+          display: "none",
         },
-        sizeLarge: {
-          height: "52px",
-        },
-        focused: {
-          borderColor: palette.primary.main,
-        },
-        disabled: {
-          backgroundColor: neutral[50],
-          borderColor: neutral[200],
-        },
-        error: {
-          borderColor: "#EF4444",
+        input: {
+          height: "auto",
+          padding: 0,
+          "&::placeholder": {
+            color: neutral[400],
+          },
         },
       },
+      // Custom variant to handle size="large".
+      variants: [
+        {
+          props: { size: "large" },
+          style: {
+            ...theme.typography.p3,
+            padding: "14px 12px", // 15 - 1px border
+          },
+        },
+      ],
     },
     MuiCssBaseline: {
       styleOverrides: `
