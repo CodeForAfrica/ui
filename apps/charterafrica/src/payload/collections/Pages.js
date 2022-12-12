@@ -1,9 +1,10 @@
-import formatSlug from "../utils/payload/formatSlug";
+import formatSlug from "../utils/formatSlug";
 
-const Page = {
+const Pages = {
   slug: "pages",
   admin: {
     useAsTitle: "title",
+    defaultColumns: ["title", "updatedAt"],
   },
   access: {
     read: () => true, // Everyone can read Pages
@@ -11,13 +12,12 @@ const Page = {
   fields: [
     {
       name: "title",
-      label: "Page Title",
       type: "text",
+      localized: true,
       required: true,
     },
     {
       name: "slug",
-      label: "Page Slug",
       type: "text",
       admin: {
         position: "sidebar",
@@ -29,4 +29,4 @@ const Page = {
   ],
 };
 
-export default Page;
+export default Pages;

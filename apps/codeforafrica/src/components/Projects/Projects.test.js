@@ -12,14 +12,6 @@ const defaultProps = {
   projects: { pagination: {}, results: [] },
 };
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn().mockImplementation(() => ({
-    isReady: true,
-    push: jest.fn(),
-    query: {},
-  })),
-}));
-
 describe("<Projects />", () => {
   it("renders unchanged", () => {
     const { container } = render(<Projects {...defaultProps} />);

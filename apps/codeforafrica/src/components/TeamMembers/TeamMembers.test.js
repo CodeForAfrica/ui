@@ -9,13 +9,6 @@ import theme from "@/codeforafrica/theme";
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn().mockImplementation(() => ({
-    asPath: "",
-    isReady: true,
-  })),
-}));
-
 const defaultProps = {
   title: "Team",
   team: team.slice(0, 3),
