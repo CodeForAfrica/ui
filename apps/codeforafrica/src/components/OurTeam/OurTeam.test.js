@@ -13,14 +13,6 @@ const defaultProps = {
   title: "Our team",
 };
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn().mockImplementation(() => ({
-    isReady: true,
-    push: jest.fn(),
-    query: {},
-  })),
-}));
-
 describe("<OurTeam />", () => {
   it("renders unchanged", () => {
     const { container } = render(<OurTeam {...defaultProps} />);

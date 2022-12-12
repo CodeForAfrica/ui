@@ -11,8 +11,8 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
   }
   return (
     <NavList direction={direction} {...other} ref={ref}>
-      {menus.map((item) => (
-        <NavBarDropdown key={item.title} menu={item} />
+      {menus.map((menu) => (
+        <NavBarDropdown key={menu.label} menu={menu} />
       ))}
     </NavList>
   );

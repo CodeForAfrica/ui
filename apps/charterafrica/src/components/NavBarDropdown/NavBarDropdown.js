@@ -13,7 +13,7 @@ import ArrowDropDownIcon from "@/charterafrica/assets/icons/Type=chevron-down, S
 import ArrowDropUpIcon from "@/charterafrica/assets/icons/Type=chevron-up, Size=16, Color=White.svg";
 import { neutral } from "@/charterafrica/colors";
 
-export default function NavBarDropdown({ menu }) {
+function NavBarDropdown({ menu }) {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const handleClickArrow = (e) => {
@@ -33,6 +33,7 @@ export default function NavBarDropdown({ menu }) {
     setOpen(false);
   };
   const ArrowIcon = open ? ArrowDropUpIcon : ArrowDropDownIcon;
+
   return (
     <>
       <Link
@@ -47,7 +48,7 @@ export default function NavBarDropdown({ menu }) {
         }}
         ref={anchorRef}
       >
-        {menu.title}
+        {menu.label}
         {menu.children ? (
           <IconButton
             aria-controls={open ? "split-button-menu" : undefined}
@@ -136,9 +137,9 @@ export default function NavBarDropdown({ menu }) {
                           borderBottom: "none",
                         },
                       }}
-                      key={option.title}
+                      key={option.label}
                     >
-                      {option.title}
+                      {option.label}
                     </MenuItem>
                   ))}
                 </MenuList>
@@ -150,3 +151,5 @@ export default function NavBarDropdown({ menu }) {
     </>
   );
 }
+
+export default NavBarDropdown;

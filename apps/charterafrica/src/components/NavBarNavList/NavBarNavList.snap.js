@@ -7,9 +7,8 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
   >
     <a
       class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-      href="/resources"
+      href="resources"
     >
-      Resources
       <button
         aria-haspopup="menu"
         aria-label="select merge strategy"
@@ -27,9 +26,8 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
     </a>
     <a
       class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-      href="/knowledge"
+      href="knowledge"
     >
-      Knowledge
       <button
         aria-haspopup="menu"
         aria-label="select merge strategy"
@@ -47,9 +45,8 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
     </a>
     <a
       class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-      href="/opportunities"
+      href="opportunities"
     >
-      Oppportunities
       <button
         aria-haspopup="menu"
         aria-label="select merge strategy"
@@ -67,10 +64,8 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
     </a>
     <a
       class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-      href="/about"
-    >
-      About
-    </a>
+      href="about"
+    />
   </ul>
 </div>
 `;

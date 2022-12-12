@@ -7,6 +7,7 @@ import Hero from "@/charterafrica/components/Hero";
 import Partners from "@/charterafrica/components/Partners";
 import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
+import { payload } from "@/charterafrica/lib";
 
 function Index({ blocks }) {
   return blocks?.map((block) => {
@@ -31,14 +32,11 @@ function Index({ blocks }) {
   });
 }
 
-const TITLES = {
-  "en-GB": "Hello",
-  fr: "Bonjour",
-  pt: "Olá",
-};
-
 export async function getStaticProps({ defaultLocale, locale, locales }) {
-  const title = TITLES[locale] ?? TITLES[defaultLocale];
+  const { menus } = await payload.findGlobal("navigation", {
+    locale,
+    fallbackLocale: defaultLocale,
+  });
 
   return {
     props: {
@@ -855,81 +853,13 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           href: "/",
           priority: true,
         },
-        menus: [
-          {
-            title: "Resources",
-            href: "/",
-            children: [
-              {
-                title: "Tools",
-                href: "/",
-              },
-              {
-                title: "Data",
-                href: "/",
-              },
-              {
-                title: "People",
-                href: "/",
-              },
-            ],
-          },
-          {
-            title: "Knowledge",
-            href: "/",
-            children: [
-              {
-                title: "Explainers",
-                href: "/",
-              },
-              {
-                title: "News",
-                href: "/",
-              },
-              {
-                title: "Research",
-                href: "/",
-              },
-              {
-                title: "Academy",
-                href: "/",
-              },
-            ],
-          },
-          {
-            title: "Oppportunities",
-            href: "/",
-            children: [
-              {
-                title: "Grants and Fellowships",
-                href: "/",
-              },
-              {
-                title: "Events",
-                href: "/",
-              },
-              {
-                title: "Community",
-                href: "/",
-              },
-              {
-                title: "Democracy Helpdesk",
-                href: "/",
-              },
-            ],
-          },
-          {
-            title: "About",
-            href: "/",
-          },
-        ],
+        menus,
       },
       locale,
       locales,
       seo: {
         title: "charter.AFRICA",
       },
-      title,
     },
   };
 }
