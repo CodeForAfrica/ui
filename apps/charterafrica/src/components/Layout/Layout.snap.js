@@ -52,106 +52,149 @@ exports[`<Layout /> renders unchanged 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
-            <button
-              class="MuiButtonBase-root css-1oubxmo-MuiButtonBase-root"
-              tabindex="0"
-              type="button"
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-of5kr7-MuiGrid-root"
             >
-              <img
-                alt="Charter Africa"
-                data-nimg="1"
-                decoding="async"
-                height="58"
-                loading="lazy"
-                src="/images/charter-logo.svg"
-                srcset="/images/charter-logo.svg 1x, /images/charter-logo.svg 2x"
-                style="color: transparent;"
-                width="230"
-              />
-            </button>
+              <div
+                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              >
+                <button
+                  class="MuiButtonBase-root css-1oubxmo-MuiButtonBase-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  <img
+                    alt="Charter Africa"
+                    data-nimg="1"
+                    decoding="async"
+                    height="58"
+                    loading="lazy"
+                    src="/images/charter-logo.svg"
+                    srcset="/images/charter-logo.svg 1x, /images/charter-logo.svg 2x"
+                    style="color: transparent;"
+                    width="230"
+                  />
+                </button>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              >
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-12ath6l-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1aqxn45-MuiSvgIcon-root"
+                      focusable="false"
+                      viewbox="0 0 24 24"
+                    />
+                  </span>
+                  en
+                  <span
+                    class="MuiButton-endIcon MuiButton-iconSizeMedium css-1gnd1fd-MuiButton-endIcon"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lew53b-MuiSvgIcon-root"
+                      focusable="false"
+                      viewbox="0 0 16 16"
+                    />
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container css-1o93lmx-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-10cf6dj-MuiGrid-root"
             >
-              <ul
-                class="css-9h3004"
+              <div
+                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                <a
-                  class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-                  href="resources"
+                <ul
+                  class="css-1855jbw"
                 >
-                  <button
-                    aria-haspopup="menu"
-                    aria-label="select merge strategy"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-13fhxna-MuiButtonBase-root-MuiButton-root"
-                    tabindex="0"
-                    type="button"
+                  <a
+                    class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+                    href="resources"
                   >
-                    <div
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vc4xze-MuiSvgIcon-root"
-                      focusable="false"
-                      viewbox="0 0 16 16"
-                    />
-                  </button>
-                </a>
-                <a
-                  class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-                  href="knowledge"
-                >
-                  <button
-                    aria-haspopup="menu"
-                    aria-label="select merge strategy"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-13fhxna-MuiButtonBase-root-MuiButton-root"
-                    tabindex="0"
-                    type="button"
+                    <button
+                      aria-haspopup="menu"
+                      aria-label="select merge strategy"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1ac7f14-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <div
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s6992r-MuiSvgIcon-root"
+                        focusable="false"
+                        viewbox="0 0 16 16"
+                      />
+                    </button>
+                  </a>
+                  <a
+                    class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+                    href="knowledge"
                   >
-                    <div
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vc4xze-MuiSvgIcon-root"
-                      focusable="false"
-                      viewbox="0 0 16 16"
-                    />
-                  </button>
-                </a>
-                <a
-                  class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-                  href="opportunities"
-                >
-                  <button
-                    aria-haspopup="menu"
-                    aria-label="select merge strategy"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-13fhxna-MuiButtonBase-root-MuiButton-root"
-                    tabindex="0"
-                    type="button"
+                    <button
+                      aria-haspopup="menu"
+                      aria-label="select merge strategy"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1ac7f14-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <div
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s6992r-MuiSvgIcon-root"
+                        focusable="false"
+                        viewbox="0 0 16 16"
+                      />
+                    </button>
+                  </a>
+                  <a
+                    class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+                    href="opportunities"
                   >
-                    <div
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vc4xze-MuiSvgIcon-root"
-                      focusable="false"
-                      viewbox="0 0 16 16"
-                    />
-                  </button>
-                </a>
-                <a
-                  class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
-                  href="about"
-                />
-              </ul>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-            >
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-xwcn5u-MuiButtonBase-root-MuiButton-root"
-                tabindex="0"
-                type="button"
+                    <button
+                      aria-haspopup="menu"
+                      aria-label="select merge strategy"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1ac7f14-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <div
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s6992r-MuiSvgIcon-root"
+                        focusable="false"
+                        viewbox="0 0 16 16"
+                      />
+                    </button>
+                  </a>
+                  <a
+                    class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+                    href="about"
+                  />
+                </ul>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                Join
-              </button>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-xwcn5u-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  Join
+                </button>
+              </div>
             </div>
           </div>
         </div>

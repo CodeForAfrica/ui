@@ -33,7 +33,8 @@ function LanguageButton() {
     }
     setOpen(false);
   };
-  if (!locales.length) {
+
+  if (!locales?.length) {
     return null;
   }
   const languages = locales.map((l) => ({ label: l }));

@@ -8,28 +8,9 @@ import theme from "@/charterafrica/theme";
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-const defaultProps = {
-  menu: {
-    title: "Resources",
-    href: "resources",
-    children: [
-      {
-        title: "Tools",
-        href: "resources/tools",
-      },
-      {
-        title: "Data",
-        href: "resources/data",
-      },
-      {
-        title: "People",
-        href: "resources/people",
-      },
-    ],
-  },
-};
+const defaultProps = {};
 
-describe("<NavBardropdown />", () => {
+describe("<LanguageButton />", () => {
   it("renders unchanged", () => {
     const { container } = render(<LanguageButton {...defaultProps} />);
     expect(container).toMatchSnapshot();
