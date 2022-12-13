@@ -7,13 +7,9 @@ import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Navigation from "./src/payload/globals/Navigation";
 import Site from "./src/payload/globals/Site";
+import { defaultLocale, locales } from "./src/payload/utils/locales";
 
 const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
-const locales = process.env.PAYLOAD_PUBLIC_LOCALES?.split(",")
-  ?.map((l) => l.trim())
-  .filter(Boolean);
-const defaultLocale =
-  process.env.PAYLOAD_PUBLIC_DEFAULT_LOCALE?.trim() || locales?.[0];
 
 const adapter = s3Adapter({
   config: {
@@ -53,6 +49,27 @@ export default buildConfig({
         },
       },
     }),
+  },
+  i18n: {
+    fallbackLng: "en", // default
+    debug: false, // default
+    resources: {
+      en: {
+        "charterafrica.site": {
+          uniqueLocales: "Locales must be unique",
+        },
+      },
+      fr: {
+        "charterafrica.site": {
+          uniqueLocales: "Les locaux doivent être uniques",
+        },
+      },
+      pt: {
+        "charterafrica.site": {
+          uniqueLocales: "Os locais devem ser únicos",
+        },
+      },
+    },
   },
   plugins: [
     cloudStorage({
