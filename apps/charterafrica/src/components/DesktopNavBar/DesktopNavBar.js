@@ -4,6 +4,7 @@ import React from "react";
 import { neutral, secondary } from "@/charterafrica/colors";
 import Logo from "@/charterafrica/components/Logo";
 import NavBarNavList from "@/charterafrica/components/NavBarNavList";
+import SearchInput from "@/charterafrica/components/SearchInput";
 
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
   const { logo, menus, sx } = props;
@@ -13,9 +14,17 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
       <Grid item>
         <Logo {...logo} width={230} height={58} />
       </Grid>
-      <Grid container justifyContent="flex-end" columnSpacing={3.75}>
+      <Grid
+        container
+        columnSpacing={3.75}
+        justifyContent="flex-end"
+        wrap="nowrap"
+      >
         <Grid item>
           <NavBarNavList direction="row" menus={menus} sx={{ gap: 2.5 }} />
+        </Grid>
+        <Grid item>
+          <SearchInput />
         </Grid>
         <Grid item>
           <Button
