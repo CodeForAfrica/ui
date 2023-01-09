@@ -6,7 +6,7 @@ import { buildConfig } from "payload/config";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Navigation from "./src/payload/globals/Navigation";
-import Site from "./src/payload/globals/Site";
+import Settings from "./src/payload/globals/Settings";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 
 const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
@@ -28,7 +28,7 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   collections: [Media, Pages],
-  globals: [Navigation, Site],
+  globals: [Navigation, Settings],
   ...(locales?.length
     ? {
         localization: {
@@ -82,7 +82,7 @@ export default buildConfig({
     }),
     seo({
       collections: ["pages"],
-      globals: ["site"],
+      globals: ["settings"],
       uploadsCollection: "media",
       generateTitle: ({ doc }) => doc?.title?.value,
       generateURL: ({ doc, locale }) =>
