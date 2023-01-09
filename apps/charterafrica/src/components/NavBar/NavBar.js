@@ -1,17 +1,20 @@
-import { NavBar as NavigationBar, Section } from "@commons-ui/core";
+import { NavBar as CuiNavBar, Section } from "@commons-ui/core";
 import React from "react";
 
 import { neutral } from "@/charterafrica/colors";
 import DesktopNavBar from "@/charterafrica/components/DesktopNavBar";
 import MobileNavBar from "@/charterafrica/components/MobileNavBar";
 
-function NavBar({ logo, menus }) {
+const NavBar = React.forwardRef(function NavBar(props, ref) {
+  const { languages, logo, menus } = props;
+
   return (
-    <NavigationBar
+    <CuiNavBar
       sx={{
         backgroundColor: neutral[900],
         py: { md: 3.5 },
       }}
+      ref={ref}
     >
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         <MobileNavBar
@@ -21,6 +24,7 @@ function NavBar({ logo, menus }) {
           }}
         />
         <DesktopNavBar
+          languages={languages}
           logo={logo}
           menus={menus}
           sx={{
@@ -28,8 +32,8 @@ function NavBar({ logo, menus }) {
           }}
         />
       </Section>
-    </NavigationBar>
+    </CuiNavBar>
   );
-}
+});
 
 export default NavBar;

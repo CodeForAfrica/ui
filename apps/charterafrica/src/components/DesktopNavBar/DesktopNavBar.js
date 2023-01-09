@@ -7,7 +7,7 @@ import Logo from "@/charterafrica/components/Logo";
 import NavBarNavList from "@/charterafrica/components/NavBarNavList";
 
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
-  const { logo, menus, sx } = props;
+  const { languages, logo, menus, sx } = props;
 
   return (
     <Grid justifyContent="space-between" alignItems="center" ref={ref} sx={sx}>
@@ -22,7 +22,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
             <Logo {...logo} width={230} height={58} />
           </Grid>
           <Grid item>
-            <LanguageButton />
+            <LanguageButton languages={languages} />
           </Grid>
         </Grid>
       </Grid>

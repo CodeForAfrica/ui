@@ -6,7 +6,7 @@ import React from "react";
 import { neutral } from "@/charterafrica/colors";
 
 const DropdownMenu = React.forwardRef(function DropdownMenu(props, ref) {
-  const { MenuItemProps, items, onClick, ...other } = props;
+  const { MenuItemProps, items, onClick, selectedIndex, ...other } = props;
 
   if (!items?.length) {
     return null;
@@ -15,7 +15,6 @@ const DropdownMenu = React.forwardRef(function DropdownMenu(props, ref) {
     <MenuList
       autoFocusItem
       component="nav"
-      disableGutters
       {...other}
       sx={{
         border: 1,
@@ -26,7 +25,7 @@ const DropdownMenu = React.forwardRef(function DropdownMenu(props, ref) {
       }}
       ref={ref}
     >
-      {items.map((item) => (
+      {items.map((item, i) => (
         <MenuItem
           color="inherit"
           component={Link}
@@ -34,6 +33,7 @@ const DropdownMenu = React.forwardRef(function DropdownMenu(props, ref) {
           href={item.href || "#"}
           underline="none"
           variant="caption"
+          selected={selectedIndex === i}
           {...MenuItemProps}
           sx={{
             borderBottom: 1,
@@ -41,11 +41,14 @@ const DropdownMenu = React.forwardRef(function DropdownMenu(props, ref) {
             background: neutral[50],
             color: neutral[900],
             p: 1.25,
-            "&.active": {
+            "&.Mui-selected": {
               background: neutral[100],
             },
             "&:hover": {
-              background: neutral[200],
+              backgroundColor: neutral[200],
+            },
+            "&.Mui-selected:hover": {
+              backgroundColor: neutral[200],
             },
             "&:last-of-type": {
               borderBottom: "none",

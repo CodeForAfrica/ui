@@ -8,7 +8,12 @@ import theme from "@/charterafrica/theme";
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-const defaultProps = {};
+const defaultProps = {
+  languages: [
+    { label: "English", locale: "en" },
+    { label: "Francais", locale: "fr" },
+  ],
+};
 
 describe("<LanguageButton />", () => {
   it("renders unchanged", () => {

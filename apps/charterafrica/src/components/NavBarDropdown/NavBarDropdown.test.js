@@ -10,19 +10,19 @@ const render = createRender({ theme });
 
 const defaultProps = {
   menu: {
-    title: "Resources",
+    label: "Resources",
     href: "/resources",
     children: [
       {
-        title: "Tools",
+        label: "Tools",
         href: "/resources/tools",
       },
       {
-        title: "Data",
+        label: "Data",
         href: "/resources/data",
       },
       {
-        title: "People",
+        label: "People",
         href: "/resources/people",
       },
     ],

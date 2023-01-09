@@ -1,19 +1,19 @@
 import Button from "@mui/material/Button";
 import SvgIcon from "@mui/material/SvgIcon";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 
-// import LanguageIcon from "@/charterafrica/assets/icons/Type=translate, Size=48, Color=CurrentColor.svg";
 import LanguageIcon from "@/charterafrica/assets/icons/Type=globe, Size=24, Color=CurrentColor.svg";
 import DropdownMenu from "@/charterafrica/components/DropdownMenu";
 import OpenCloseIcon from "@/charterafrica/components/OpenCloseIcon";
 import Popper from "@/charterafrica/components/Popper";
 
-function LanguageButton() {
-  const [open, setOpen] = React.useState(false);
+const LanguageButton = React.forwardRef(function LanguageButton(props, ref) {
+  const { languages } = props;
+  const [open, setOpen] = useState(false);
   const anchorRef = React.useRef(null);
   const router = useRouter();
-  const { locales, locale } = router;
+  const { locale: currentLocale } = router;
   const handleClick = (e) => {
     e.preventDefault();
 
@@ -21,10 +21,12 @@ function LanguageButton() {
   };
   const handleClickMenuItem = (e) => {
     setOpen(false);
-    const nextLocale = e.target.text;
-    if (nextLocale !== locale) {
-      const { pathname, asPath, query } = router;
-      router.push({ pathname, query }, asPath, { locale: nextLocale });
+    const clickedLabel = e.target.text;
+    const clickedLanguage = languages.find((l) => l.label === clickedLabel);
+    const clickedLocale = clickedLanguage?.locale;
+    if (clickedLocale !== currentLocale) {
+      const { asPath, pathname, query } = router;
+      router.push({ pathname, query }, asPath, { locale: clickedLocale });
     }
   };
   const handleClose = (event) => {
@@ -34,12 +36,11 @@ function LanguageButton() {
     setOpen(false);
   };
 
-  if (!locales?.length) {
+  if (!languages?.length) {
     return null;
   }
-  const languages = locales.map((l) => ({ label: l }));
   return (
-    <>
+    <React.Fragment ref={ref}>
       <Button
         onClick={handleClick}
         endIcon={<OpenCloseIcon open={open} sx={{ color: "secondary.main" }} />}
@@ -56,13 +57,12 @@ function LanguageButton() {
         sx={{
           color: "secondary.main",
           display: "flex",
-          // gap: 0.625,
           p: 1.25,
           textTransform: "uppercase",
         }}
         ref={anchorRef}
       >
-        {locale}
+        {currentLocale}
       </Button>
       <Popper
         open={open}
@@ -85,10 +85,14 @@ function LanguageButton() {
           },
         }}
       >
-        <DropdownMenu items={languages} onClick={handleClickMenuItem} />
+        <DropdownMenu
+          items={languages}
+          onClick={handleClickMenuItem}
+          selectedIndex={languages.findIndex((l) => l.locale === currentLocale)}
+        />
       </Popper>
-    </>
+    </React.Fragment>
   );
-}
+});
 
 export default LanguageButton;

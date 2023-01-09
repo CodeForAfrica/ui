@@ -6,6 +6,7 @@ exports[`<NavBarDropdown /> renders unchanged 1`] = `
     class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
     href="/resources"
   >
+    Resources
     <button
       aria-haspopup="menu"
       aria-label="select merge strategy"
