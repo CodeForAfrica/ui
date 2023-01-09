@@ -6,7 +6,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
     class="css-f15emd"
   >
     <a
-      class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+      class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
       href="/resources"
     >
       Resources
@@ -26,7 +26,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       </button>
     </a>
     <a
-      class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+      class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
       href="/knowledge"
     >
       Knowledge
@@ -46,7 +46,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       </button>
     </a>
     <a
-      class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+      class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
       href="/opportunities"
     >
       Oppportunities
@@ -66,7 +66,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       </button>
     </a>
     <a
-      class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+      class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
       href="/about"
     >
       About

@@ -16,7 +16,20 @@ const NavBar = React.forwardRef(function NavBar(props, ref) {
       }}
       ref={ref}
     >
-      <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
+      <Section
+        sx={[
+          {
+            px: { xs: 2.5, sm: 0 },
+          },
+          (theme) => ({
+            [theme.breakpoints.only("md")]: {
+              maxWidth: `calc(${theme.breakpoints.values.md}${
+                theme.breakpoints.unit ?? "px"
+              } - 20px)`,
+            },
+          }),
+        ]}
+      >
         <MobileNavBar
           logo={logo}
           sx={{

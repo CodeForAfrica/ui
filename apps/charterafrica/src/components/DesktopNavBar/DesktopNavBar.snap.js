@@ -69,16 +69,16 @@ exports[`<DesktopNavBar /> renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-10cf6dj-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-1s57hzs-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <ul
-            class="css-1855jbw"
+            class="css-xthg9g"
           >
             <a
-              class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
               href="/resources"
             >
               Resources
@@ -98,7 +98,7 @@ exports[`<DesktopNavBar /> renders unchanged 1`] = `
               </button>
             </a>
             <a
-              class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
               href="/knowledge"
             >
               Knowledge
@@ -118,7 +118,7 @@ exports[`<DesktopNavBar /> renders unchanged 1`] = `
               </button>
             </a>
             <a
-              class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
               href="/opportunities"
             >
               Oppportunities
@@ -138,7 +138,7 @@ exports[`<DesktopNavBar /> renders unchanged 1`] = `
               </button>
             </a>
             <a
-              class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1e2woej-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
               href="/about"
             >
               About
@@ -148,8 +148,47 @@ exports[`<DesktopNavBar /> renders unchanged 1`] = `
         <div
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-lmqgdx-MuiInputBase-root-MuiOutlinedInput-root"
+          >
+            <input
+              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1u6lhwd-MuiInputBase-input-MuiOutlinedInput-input"
+              placeholder="Search"
+              type="search"
+              value=""
+            />
+            <button
+              aria-label="search"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-av538e-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              type="button"
+            >
+              <div
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-scw3l4-MuiSvgIcon-root"
+                focusable="false"
+                viewbox="0 0 16 16"
+              />
+            </button>
+            <fieldset
+              aria-hidden="true"
+              class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="css-yjsfm1"
+              >
+                <span>
+                  Search
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+        >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-xwcn5u-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium css-wymo1b-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >

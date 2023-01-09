@@ -42,6 +42,7 @@ const NavBarDropdown = React.forwardRef(function NavBarDropdown(props, ref) {
           display: "flex",
           gap: 0.625,
           p: 1.25,
+          whiteSpace: "nowrap",
         }}
         ref={anchorRef}
       >
