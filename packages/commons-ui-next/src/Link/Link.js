@@ -58,6 +58,10 @@ NextLinkComposed.defaultProps = {
   shallow: undefined,
 };
 
+function checkIfPathsMatch(linkPath, currentPath) {
+  return linkPath === currentPath;
+}
+
 // A styled version of the Next.js Link component:
 // https://nextjs.org/docs/api-reference/next/link
 const Link = React.forwardRef(function Link(props, ref) {
@@ -66,6 +70,7 @@ const Link = React.forwardRef(function Link(props, ref) {
     as,
     className: classNameProp,
     href,
+    isActive: isActiveProp,
     linkAs: linkAsProp,
     locale,
     noLinkStyle,
@@ -80,6 +85,7 @@ const Link = React.forwardRef(function Link(props, ref) {
   const { asPath, isReady } = useRouter();
   const [className, setClassName] = useState(classNameProp);
   const linkAs = linkAsProp || as;
+  const isActive = isActiveProp || checkIfPathsMatch;
 
   useEffect(() => {
     if (isReady) {
@@ -87,14 +93,14 @@ const Link = React.forwardRef(function Link(props, ref) {
         .pathname;
       const activePathname = new URL(asPath, window.location.href).pathname;
       const newClassName = clsx(classNameProp, {
-        [activeClassName]: linkPathname === activePathname,
+        [activeClassName]: isActive(linkPathname, activePathname),
       });
 
       if (newClassName !== className) {
         setClassName(newClassName);
       }
     }
-  }, [asPath, isReady, linkAs, href, classNameProp, activeClassName, setClassName, className]);
+  }, [activeClassName, asPath, className, classNameProp, href, isActive, isReady, linkAs]);
 
   const isExternal = isExternalUrl(href);
 
@@ -147,6 +153,7 @@ Link.propTypes = {
   as: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   className: PropTypes.string,
   href: PropTypes.string,
+  isActive: PropTypes.func,
   linkAs: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   locale: PropTypes.string,
   noLinkStyle: PropTypes.bool,
@@ -162,6 +169,7 @@ Link.defaultProps = {
   as: undefined,
   className: undefined,
   href: undefined,
+  isActive: undefined,
   linkAs: undefined,
   locale: undefined,
   noLinkStyle: undefined,
