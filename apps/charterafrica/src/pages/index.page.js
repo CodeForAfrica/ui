@@ -37,6 +37,10 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     locale,
     fallbackLocale: defaultLocale,
   });
+  const { languages } = await payload.findGlobal("settings", {
+    locale,
+    fallbackLocale: defaultLocale,
+  });
 
   return {
     props: {
@@ -847,13 +851,14 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           "This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.",
       },
       navbar: {
+        languages: languages ?? null,
         logo: {
           alt: "Charter Africa",
           src: "/images/charter-logo.svg",
           href: "/",
           priority: true,
         },
-        menus,
+        menus: menus ?? null,
       },
       locale,
       locales,
