@@ -42,6 +42,21 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     fallbackLocale: defaultLocale,
   });
 
+  const footerData = await payload.findGlobal("Footer", {
+    locale,
+    fallbackLocale: defaultLocale,
+  });
+
+  const {
+    siteDescription,
+    projectDescription,
+    contactEmail,
+    copyright,
+    links: rawLinks,
+    logo,
+  } = footerData;
+  const links = rawLinks.map(({ content, link: href }) => ({ content, href }));
+
   return {
     props: {
       blocks: [
@@ -827,28 +842,18 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
       footer: {
         contact: {
           email: {
-            href: "mailto:info@charter.africa",
-            content: "info@charter.africa",
+            href: `mailto:${contactEmail}`,
+            content: contactEmail,
           },
         },
-        copyright: "© 2022 European Partnership for Democracy (CC BY-NC 2.0)",
-        links: [
-          {
-            href: "/",
-            content: "Privacy Policy",
-          },
-          {
-            href: "/",
-            content: "Imprint",
-          },
-        ],
+        copyright,
+        links,
         logo: {
-          alt: "EU",
-          src: "/images/eu.png",
+          alt: logo.alt,
+          src: logo.url,
         },
-        projectDescription: "Website designed and built by Code for Africa",
-        siteDescription:
-          "This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.",
+        projectDescription,
+        siteDescription,
       },
       navbar: {
         languages: languages ?? null,
