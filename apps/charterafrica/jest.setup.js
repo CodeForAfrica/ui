@@ -19,6 +19,8 @@ jest.mock("next/router", () => ({
   useRouter: jest.fn().mockImplementation(() => ({
     asPath: "",
     isReady: true,
+    locale: "en",
+    locales: ["en", "fr", "pt"],
     push: jest.fn(),
     query: {},
   })),

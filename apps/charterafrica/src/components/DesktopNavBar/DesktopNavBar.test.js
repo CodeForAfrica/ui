@@ -9,6 +9,10 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
+  languages: [
+    { label: "English", locale: "en" },
+    { label: "Francais", locale: "fr" },
+  ],
   logo: {
     alt: "Charter Africa",
     src: "/images/charter-logo.svg",
@@ -17,70 +21,70 @@ const defaultProps = {
   },
   menus: [
     {
-      title: "Resources",
-      href: "resources",
+      label: "Resources",
+      href: "/resources",
       children: [
         {
-          title: "Tools",
-          href: "resources/tools",
+          label: "Tools",
+          href: "/resources/tools",
         },
         {
-          title: "Data",
-          href: "resources/data",
+          label: "Data",
+          href: "/resources/data",
         },
         {
-          title: "People",
-          href: "resources/people",
+          label: "People",
+          href: "/resources/people",
         },
       ],
     },
     {
-      title: "Knowledge",
-      href: "knowledge",
+      label: "Knowledge",
+      href: "/knowledge",
       children: [
         {
-          title: "Explainers",
-          href: "knowledge/explainers",
+          label: "Explainers",
+          href: "/knowledge/explainers",
         },
         {
-          title: "News",
-          href: "knowledge/news",
+          label: "News",
+          href: "/knowledge/news",
         },
         {
-          title: "Research",
-          href: "knowledge/research",
+          label: "Research",
+          href: "/knowledge/research",
         },
         {
-          title: "Academy",
-          href: "knowledge/academy",
+          label: "Academy",
+          href: "/knowledge/academy",
         },
       ],
     },
     {
-      title: "Oppportunities",
-      href: "opportunities",
+      label: "Oppportunities",
+      href: "/opportunities",
       children: [
         {
-          title: "Grants and Fellowships",
-          href: "opportunities/grants-and-fellowships",
+          label: "Grants and Fellowships",
+          href: "/opportunities/grants-and-fellowships",
         },
         {
-          title: "Events",
-          href: "opportunities/events",
+          label: "Events",
+          href: "/opportunities/events",
         },
         {
-          title: "Community",
-          href: "opportunities/community",
+          label: "Community",
+          href: "/opportunities/community",
         },
         {
-          title: "Democracy Helpdesk",
-          href: "opportunities/democracy-helpdesk",
+          label: "Democracy Helpdesk",
+          href: "/opportunities/democracy-helpdesk",
         },
       ],
     },
     {
-      title: "About",
-      href: "about",
+      label: "About",
+      href: "/about",
     },
   ],
 };

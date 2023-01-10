@@ -10,26 +10,26 @@ const render = createRender({ theme });
 
 const defaultProps = {
   menu: {
-    title: "Resources",
-    href: "resources",
+    label: "Resources",
+    href: "/resources",
     children: [
       {
-        title: "Tools",
-        href: "resources/tools",
+        label: "Tools",
+        href: "/resources/tools",
       },
       {
-        title: "Data",
-        href: "resources/data",
+        label: "Data",
+        href: "/resources/data",
       },
       {
-        title: "People",
-        href: "resources/people",
+        label: "People",
+        href: "/resources/people",
       },
     ],
   },
 };
 
-describe("<NavBardropdown />", () => {
+describe("<NavBarDropdown />", () => {
   it("renders unchanged", () => {
     const { container } = render(<NavBarDropdown {...defaultProps} />);
     expect(container).toMatchSnapshot();

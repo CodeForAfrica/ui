@@ -1,0 +1,146 @@
+import { array } from "payload/dist/fields/validations";
+
+import link from "../fields/link";
+import linkGroup from "../fields/linkGroup";
+import { locales } from "../utils/locales";
+
+const linkField = link();
+linkField.fields.push({
+  type: "row",
+  fields: [
+    linkGroup({
+      overrides: {
+        name: "children",
+        label: {
+          en: "Submenus",
+          fr: "Sous-menus",
+        },
+        labels: {
+          singular: {
+            en: "Submenu",
+            fr: "Sous-menu",
+          },
+          plural: {
+            en: "Submenus",
+            fr: "Sous-menus",
+          },
+        },
+      },
+    }),
+  ],
+});
+
+const Settings = {
+  slug: "settings",
+  label: {
+    en: "Settings",
+    fr: "Paramètres",
+    pt: "Configurações",
+  },
+  access: {
+    read: () => true,
+  },
+  fields: [
+    {
+      label: {
+        en: "Title & description",
+        fr: "Titre & description",
+        pt: "Titulo & descrição",
+      },
+      type: "collapsible", // required
+      fields: [
+        {
+          name: "title",
+          label: {
+            en: "Title",
+            fr: "Titre",
+            pt: "Título",
+          },
+          type: "text",
+          localized: true,
+          required: true,
+        },
+        {
+          name: "description",
+          label: {
+            en: "Description",
+            pt: "Descrição",
+          },
+          type: "textarea",
+          localized: true,
+          required: true,
+        },
+      ],
+      admin: {
+        initCollapsed: true,
+      },
+    },
+    {
+      label: {
+        en: "Languages",
+        ft: "Langues",
+        pt: "Idiomas",
+      },
+      type: "collapsible", // required
+      fields: [
+        {
+          name: "languages",
+          label: {
+            en: "Languages",
+            ft: "Langues",
+            pt: "Idiomas",
+          },
+          type: "array",
+          fields: [
+            {
+              name: "locale",
+              label: {
+                en: "Locale",
+                pt: "Localidade",
+              },
+              type: "select",
+              options: locales,
+              unique: true,
+              required: true,
+              admin: {
+                isClearable: false,
+                isSortable: true,
+              },
+              validate: (val, options) => {
+                const { data, t } = options || {};
+                if (
+                  data?.languages?.filter((l) => l.locale === val)?.length > 1
+                ) {
+                  return t("charterafrica.site:uniqueLocales");
+                }
+                return array(val, options);
+              },
+            },
+            {
+              name: "label",
+              label: {
+                en: "Label",
+                pt: "Rótulo",
+              },
+              type: "text",
+              required: true,
+            },
+          ],
+          admin: {
+            initCollapsed: true,
+            components: {
+              RowLabel: ({ data }) => {
+                return data?.label || data?.locale || data?.id;
+              },
+            },
+          },
+        },
+      ],
+      admin: {
+        initCollapsed: true,
+      },
+    },
+  ],
+};
+
+export default Settings;
