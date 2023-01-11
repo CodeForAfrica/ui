@@ -5,7 +5,7 @@ const Hero = {
   },
   admin: {
     group: "Blocks",
-    useAsTitle: "title",
+    useAsTitle: "title.content",
     defaultColumns: ["title", "updatedAt"],
   },
   fields: [
