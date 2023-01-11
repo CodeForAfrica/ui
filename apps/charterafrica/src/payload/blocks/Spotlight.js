@@ -78,6 +78,7 @@ const Spotlight = {
             pt: "Encontro",
           },
           required: true,
+          localized: true,
         },
         {
           name: "link",
