@@ -3,6 +3,7 @@ import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import seo from "@payloadcms/plugin-seo";
 import { buildConfig } from "payload/config";
 
+import Hero from "./src/payload/blocks/Hero";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Navigation from "./src/payload/globals/Navigation";
@@ -27,7 +28,7 @@ const adapter = s3Adapter({
 
 export default buildConfig({
   serverURL: appURL,
-  collections: [Media, Pages],
+  collections: [Hero, Media, Pages],
   globals: [Navigation, Settings],
   ...(locales?.length
     ? {
