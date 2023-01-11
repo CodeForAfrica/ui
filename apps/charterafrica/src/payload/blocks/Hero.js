@@ -21,7 +21,7 @@ const Hero = {
         },
         {
           name: "content",
-          type: "text",
+          type: "text", // TODO: use richtext?
           required: true,
         },
       ],
