@@ -19,6 +19,7 @@ const Ecosystem = {
       required: true,
       maxRows: 2,
       fields: [
+        // TODO: Look into how to enforce only the required types. Ecosystem should only allow 2 items, Tools and People
         {
           name: "title",
           type: "text",
