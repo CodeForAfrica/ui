@@ -5,11 +5,8 @@ import React from "react";
 import Partnership from "./Partnership";
 
 const Partners = React.forwardRef(function Partners(props, ref) {
-  const { consortium, fund, project, title } = props;
-  const hasPartners =
-    consortium?.partners?.length ||
-    fund?.partners?.length ||
-    project?.partners?.length;
+  const { partners, title } = props;
+  const hasPartners = !!partners.length;
 
   if (!hasPartners) {
     return null;
@@ -25,28 +22,20 @@ const Partners = React.forwardRef(function Partners(props, ref) {
       >
         {title}
       </RichTypography>
-      <Partnership {...consortium} />
-      <Partnership {...project} GridItemProps={{ sm: 6 }} />
-      <Partnership
-        {...fund}
-        justifyContent="center"
-        DividerProps={{ sx: { display: { sm: "none" } } }}
-      />
+      {partners.map((partner) => (
+        <Partnership {...partner} key={partner.id} />
+      ))}
     </Section>
   );
 });
 
 Partners.propTypes = {
-  consortium: PropTypes.shape({}),
-  fund: PropTypes.shape({}),
-  project: PropTypes.shape({}),
+  partners: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,
 };
 
 Partners.defaultProps = {
-  consortium: undefined,
-  fund: undefined,
-  project: undefined,
+  partners: [],
   title: undefined,
 };
 
