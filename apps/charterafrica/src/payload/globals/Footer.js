@@ -5,9 +5,6 @@ const Footer = {
     fr: "Bas de page",
     pt: "Rodapé",
   },
-  access: {
-    read: () => true,
-  },
   fields: [
     {
       name: "siteDescription",
