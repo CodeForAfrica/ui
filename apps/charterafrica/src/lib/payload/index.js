@@ -19,9 +19,17 @@ async function findGlobal(slug, options) {
   });
 }
 
+async function findCollection(collection, options) {
+  return payload.find({
+    ...options,
+    collection,
+  });
+}
+
 const api = {
   findGlobal,
   findPage,
+  findCollection,
 };
 
 export default api;

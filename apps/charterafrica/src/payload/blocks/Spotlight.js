@@ -24,7 +24,7 @@ const Spotlight = {
           required: true,
         },
         {
-          name: "src",
+          name: "image",
           label: "Image",
           type: "relationship",
           relationTo: "media",

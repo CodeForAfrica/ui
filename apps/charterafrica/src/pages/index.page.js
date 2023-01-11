@@ -42,6 +42,11 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     fallbackLocale: defaultLocale,
   });
 
+  const { docs: spotlight } = await payload.findCollection("spotlight", {
+    locale,
+    fallbackLocale: defaultLocale,
+  });
+
   return {
     props: {
       blocks: [
@@ -191,72 +196,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         {
           slug: "spotlight",
           title: "Spotlight",
-          items: [
-            {
-              category: "Upcoming Event",
-              item: {
-                title: "Event name",
-                image: {
-                  src: "images/events-event-name.jpg",
-                },
-                topic: "Topic name",
-                excerpt:
-                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
-                date: "Date and time",
-                link: {
-                  href: "/",
-                },
-              },
-            },
-            {
-              category: "Upcoming Training",
-              item: {
-                title: "Training name",
-                image: {
-                  src: "images/trainings-training-name.jpg",
-                },
-                topic: "Topic name",
-                excerpt:
-                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
-                date: "Date and time",
-                link: {
-                  href: "/",
-                },
-              },
-            },
-            {
-              category: "Latest Insights",
-              item: {
-                title: "Latest Insight or research title",
-                image: {
-                  src: "images/insights-insight-name.jpg",
-                },
-                topic: "Topic name",
-                excerpt:
-                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
-                date: "Date and time",
-                link: {
-                  href: "/",
-                },
-              },
-            },
-            {
-              category: "Latest Blog",
-              item: {
-                title: "Blog Title",
-                image: {
-                  src: "images/blogs-blog-name.jpg",
-                },
-                topic: "Topic name",
-                excerpt:
-                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
-                date: "Date and time",
-                link: {
-                  href: "/",
-                },
-              },
-            },
-          ],
+          items: spotlight,
         },
         {
           slug: "ecosystem",
