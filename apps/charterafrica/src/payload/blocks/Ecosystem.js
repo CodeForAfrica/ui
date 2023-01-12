@@ -1,11 +1,12 @@
 const Ecosystem = {
   slug: "ecosystem",
+  label: {
+    en: "Ecosystem",
+    fr: "Écosystème",
+    pt: "Ecossistema",
+  },
   access: {
     read: () => true,
-  },
-  admin: {
-    group: "Blocks",
-    useAsTitle: "items.title",
   },
   fields: [
     {

@@ -1,3 +1,4 @@
+import Ecosystem from "../blocks/Ecosystem";
 import formatSlug from "../utils/formatSlug";
 
 const Pages = {
@@ -25,6 +26,12 @@ const Pages = {
       hooks: {
         beforeValidate: [formatSlug("title")],
       },
+    },
+    {
+      name: "content",
+      type: "blocks",
+
+      blocks: [Ecosystem],
     },
   ],
 };
