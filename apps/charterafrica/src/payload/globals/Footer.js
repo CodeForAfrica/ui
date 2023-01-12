@@ -1,5 +1,7 @@
+import richTextEditor from "../fields/richTextEditor";
+
 const Footer = {
-  slug: "Footer",
+  slug: "footer",
   label: {
     en: "Footer",
     fr: "Bas de page",
@@ -8,35 +10,56 @@ const Footer = {
   fields: [
     {
       name: "siteDescription",
-      defaultValue:
-        "This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.",
+      defaultValue: [
+        {
+          children: [
+            {
+              text: "This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.",
+            },
+          ],
+        },
+      ],
       label: {
         en: "Site Description",
+        fr: "Description du site",
         pt: "Descrição do Site",
       },
-      type: "textarea",
+      type: "richText",
       localized: true,
       required: true,
+      ...richTextEditor,
     },
     {
       name: "projectDescription",
-      defaultValue: "Website designed and built by Code for Africa",
       label: {
         en: "Project Description",
         pt: "Descrição do Projeto",
+        fr: "Description du projet",
       },
-      type: "text",
+      type: "richText",
       localized: true,
       required: true,
+      ...richTextEditor,
     },
     {
-      name: "contactEmail",
-      defaultValue: "info@charter.africa",
+      type: "group",
+      name: "contact",
       label: {
-        en: "Contact Email",
-        pt: "Email de contato",
+        en: "Contact",
+        pt: "Contact",
+        fr: "Contact",
       },
-      type: "text",
+      fields: [
+        {
+          name: "email",
+          type: "email",
+          label: {
+            en: "Email",
+            pt: "Email",
+            fr: "Email",
+          },
+        },
+      ],
       localized: true,
       required: true,
     },
@@ -46,6 +69,7 @@ const Footer = {
       label: {
         en: "Copyright",
         pt: "Direito autoral",
+        fr: "Droits d'auteur",
       },
       type: "text",
       localized: true,
@@ -63,6 +87,7 @@ const Footer = {
           label: {
             en: "Content",
             pt: "Contente",
+            fr: "Contenu",
           },
           type: "text",
           localized: true,
@@ -73,6 +98,7 @@ const Footer = {
           label: {
             en: "Link",
             pt: "Ligação",
+            fr: "Lien",
           },
           type: "text",
           localized: true,
@@ -88,9 +114,14 @@ const Footer = {
       localized: true,
       type: "upload",
       relationTo: "media",
+      filterOptions: {
+        mimeType: { contains: "image" },
+        mimeTypes: ["images/*"],
+      },
       label: {
         en: "Footer Logo",
         pt: "Imagem",
+        fr: "Logo de pied de page",
       },
     },
   ],

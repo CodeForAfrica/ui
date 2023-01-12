@@ -6,6 +6,8 @@ import SvgIcon from "@mui/material/SvgIcon";
 import PropTypes from "prop-types";
 import React from "react";
 
+import { serialize } from "../../payload/fields/richTextEditor";
+
 import MailIcon from "@/charterafrica/assets/icons/Type=mail, Size=32, Color=CurrentColor.svg";
 import { neutral } from "@/charterafrica/colors";
 
@@ -18,6 +20,9 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     projectDescription,
     siteDescription,
   } = props;
+  const projectDesc = serialize(projectDescription.children);
+  const siteDesc = serialize(siteDescription.children);
+
   return (
     <Box
       component="footer"
@@ -89,14 +94,14 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   component="p"
                   sx={{ maxWidth: { md: "648px" } }}
                 >
-                  {siteDescription}
+                  {siteDesc}
                 </RichTypography>
                 <RichTypography
                   color="inherit"
                   variant="p2SemiBold"
                   component="p"
                 >
-                  {projectDescription}
+                  {projectDesc}
                 </RichTypography>
                 {links?.length > 0 ? (
                   <Box display="flex" gap="10px">
@@ -143,8 +148,8 @@ Footer.propTypes = {
   copyright: PropTypes.string,
   links: PropTypes.arrayOf(PropTypes.shape({})),
   logo: PropTypes.shape({}),
-  projectDescription: PropTypes.string,
-  siteDescription: PropTypes.string,
+  projectDescription: PropTypes.shape({}),
+  siteDescription: PropTypes.shape({}),
 };
 
 Footer.defaultProps = {
@@ -152,8 +157,8 @@ Footer.defaultProps = {
   copyright: undefined,
   links: undefined,
   logo: undefined,
-  projectDescription: undefined,
-  siteDescription: undefined,
+  projectDescription: [{ children: [{ text: null }] }],
+  siteDescription: [{ children: [{ text: null }] }],
 };
 
 export default Footer;

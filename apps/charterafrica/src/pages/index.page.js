@@ -42,20 +42,20 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     fallbackLocale: defaultLocale,
   });
 
-  const footerData = await payload.findGlobal("Footer", {
+  const {
+    siteDescription = [{ children: [{ text: null }] }],
+    projectDescription = [{ children: [{ text: null }] }],
+    contact = { email: null },
+    copyright = null,
+    links = null,
+    logo = null,
+  } = await payload.findGlobal("footer", {
     locale,
     fallbackLocale: defaultLocale,
   });
 
-  const {
-    siteDescription,
-    projectDescription,
-    contactEmail,
-    copyright,
-    links: rawLinks,
-    logo,
-  } = footerData;
-  const links = rawLinks.map(({ content, link: href }) => ({ content, href }));
+  const [siteDesc] = siteDescription;
+  const [projectDesc] = projectDescription;
 
   return {
     props: {
@@ -842,18 +842,19 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
       footer: {
         contact: {
           email: {
-            href: `mailto:${contactEmail}`,
-            content: contactEmail,
+            href: `mailto:${contact?.email}`,
+            content: contact?.email || null,
           },
         },
         copyright,
-        links,
+        links:
+          links?.map(({ content, link: href }) => ({ content, href })) || null,
         logo: {
-          alt: logo.alt,
-          src: logo.url,
+          alt: logo?.alt ?? null,
+          src: logo?.url ?? null,
         },
-        projectDescription,
-        siteDescription,
+        projectDescription: projectDesc,
+        siteDescription: siteDesc,
       },
       navbar: {
         languages: languages ?? null,
