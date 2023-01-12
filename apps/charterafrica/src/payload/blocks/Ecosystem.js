@@ -1,13 +1,5 @@
 const Ecosystem = {
   slug: "ecosystem",
-  label: {
-    en: "Ecosystem",
-    fr: "Écosystème",
-    pt: "Ecossistema",
-  },
-  access: {
-    read: () => true,
-  },
   fields: [
     {
       name: "items",

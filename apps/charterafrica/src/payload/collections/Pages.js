@@ -28,10 +28,19 @@ const Pages = {
       },
     },
     {
-      name: "content",
-      type: "blocks",
-
-      blocks: [Ecosystem],
+      type: "tabs",
+      tabs: [
+        {
+          label: "Layout",
+          fields: [
+            {
+              name: "content",
+              type: "blocks",
+              blocks: [Ecosystem],
+            },
+          ],
+        },
+      ],
     },
   ],
 };

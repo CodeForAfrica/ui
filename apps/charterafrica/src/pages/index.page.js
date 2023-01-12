@@ -42,10 +42,12 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     fallbackLocale: defaultLocale,
   });
 
-  const { docs: ecosystem } = await payload.findCollection("ecosystem", {
+  const { docs: homePage } = await payload.findPage("home", "pages", {
     locale,
     fallbackLocale: defaultLocale,
   });
+
+  const { content: homPageContent } = homePage[0];
 
   return {
     props: {
@@ -265,7 +267,9 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         },
         {
           slug: "ecosystem",
-          items: ecosystem[0].items,
+          items: homPageContent.filter(
+            (item) => item.blockType === "ecosystem"
+          )[0].items,
         },
         {
           slug: "focal-countries",

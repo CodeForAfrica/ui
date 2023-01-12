@@ -1,9 +1,9 @@
 import payload from "payload";
 
-async function findPage(slug, options) {
+async function findPage(slug, collection, options) {
   return payload.find({
     ...options,
-    collection: "boom",
+    collection,
     where: {
       slug: {
         equals: slug,
