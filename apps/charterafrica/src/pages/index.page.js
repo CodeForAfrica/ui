@@ -47,7 +47,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     fallbackLocale: defaultLocale,
   });
 
-  const { content: homPageContent } = homePage[0];
+  const { content: homePageContent } = homePage[0];
 
   return {
     props: {
@@ -267,9 +267,9 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         },
         {
           slug: "ecosystem",
-          items: homPageContent.filter(
-            (item) => item.blockType === "ecosystem"
-          )[0].items,
+          items:
+            homePageContent.filter((item) => item.blockType === "ecosystem")[0]
+              .items || [],
         },
         {
           slug: "focal-countries",

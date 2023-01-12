@@ -18,15 +18,8 @@ async function findGlobal(slug, options) {
     slug,
   });
 }
-async function findCollection(collection, options) {
-  return payload.find({
-    ...options,
-    collection,
-  });
-}
 
 const api = {
-  findCollection,
   findGlobal,
   findPage,
 };
