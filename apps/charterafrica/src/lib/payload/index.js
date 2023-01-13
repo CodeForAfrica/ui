@@ -1,9 +1,9 @@
 import payload from "payload";
 
-async function findPage(slug, options) {
+async function findPage(slug, collection, options) {
   return payload.find({
     ...options,
-    collection: "boom",
+    collection,
     where: {
       slug: {
         equals: slug,
@@ -19,17 +19,9 @@ async function findGlobal(slug, options) {
   });
 }
 
-async function findCollection(collection, options) {
-  return payload.find({
-    ...options,
-    collection,
-  });
-}
-
 const api = {
   findGlobal,
   findPage,
-  findCollection,
 };
 
 export default api;

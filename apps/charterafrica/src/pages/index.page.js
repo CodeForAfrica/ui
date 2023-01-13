@@ -42,10 +42,34 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     fallbackLocale: defaultLocale,
   });
 
-  const { docs: spotlight } = await payload.findCollection("spotlight", {
+  const { docs: homePage } = await payload.findPage("home", "pages", {
     locale,
     fallbackLocale: defaultLocale,
   });
+
+  const { blocks } = homePage[0] ?? {
+    blocks: [],
+  };
+
+  const spotlightItems = blocks
+    .filter((block) => block.blockType === "spotlight")[0]
+    ?.items.map((spotlight) => {
+      const { item, ...rest } = spotlight;
+      const formattedItem = {
+        ...item,
+        image: {
+          src: item.image.url,
+          alt: item.image.alt,
+        },
+        date: new Date(item.date).toLocaleDateString(),
+      };
+      return {
+        ...rest,
+        item: {
+          ...formattedItem,
+        },
+      };
+    });
 
   return {
     props: {
@@ -196,7 +220,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         {
           slug: "spotlight",
           title: "Spotlight",
-          items: spotlight,
+          items: spotlightItems,
         },
         {
           slug: "ecosystem",

@@ -1,3 +1,4 @@
+import Spotlight from "../blocks/Spotlight";
 import formatSlug from "../utils/formatSlug";
 
 const Pages = {
@@ -25,6 +26,11 @@ const Pages = {
       hooks: {
         beforeValidate: [formatSlug("title")],
       },
+    },
+    {
+      name: "blocks",
+      type: "blocks",
+      blocks: [Spotlight],
     },
   ],
 };
