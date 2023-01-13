@@ -23,30 +23,11 @@ exports[`<FocalCountries /> renders unchanged 1`] = `
               >
                 Focal Countries
               </h1>
-              <div
-                class="MuiTypography-root MuiTypography-p1 css-16b06si-MuiTypography-root"
+              <p
+                class="MuiTypography-root MuiTypography-p1 css-s6qucy-MuiTypography-root"
               >
-                
-          
-                <p>
-                  The Charter Project is a pan-African initiative by a coalition of watchdog organisations that use civic technologies to strengthen democracy.
-          
-                </p>
-                <p>
-                  We do this by helping digital activists and democracy changemakers leverage the African Union’s Charter on Democracy, Elections and Governance (ACDEG).
-          
-                </p>
-                <p>
-                  The project currently supports initiatives in 11 countries. Find out more 
-                  <a
-                    href="/"
-                  >
-                    here
-                  </a>
-                  
-          
-                </p>
-              </div>
+                The Charter Project is a pan-African initiative by a coalition of watchdog organisations that use civic technologies to strengthen democracy.
+              </p>
             </div>
           </div>
           <div

@@ -11,6 +11,7 @@ import React, { useRef, useState } from "react";
 import Popup from "./Popup";
 
 import { neutral, secondary } from "@/charterafrica/colors";
+import RichText from "@/charterafrica/components/RichText";
 
 const Map = dynamic(() => import("./Map"), {
   ssr: false,
@@ -28,7 +29,7 @@ const MAP_PROPS = {
 };
 
 const FocalCountries = React.forwardRef(function FocalCountries(props, ref) {
-  const { countries: countriesProp, description, sx, title } = props;
+  const { countries: countriesProp, description, link, sx, title } = props;
   const theme = useTheme();
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
   const mapRef = useRef();
@@ -73,9 +74,9 @@ const FocalCountries = React.forwardRef(function FocalCountries(props, ref) {
   if (!countriesProp?.length) {
     return null;
   }
-  const markers = countriesProp.map(({ code, position }) => ({
+  const markers = countriesProp.map(({ code, coordinates }) => ({
     code,
-    position,
+    position: coordinates,
   }));
   return (
     <div ref={ref}>
@@ -101,9 +102,10 @@ const FocalCountries = React.forwardRef(function FocalCountries(props, ref) {
                 >
                   {title}
                 </RichTypography>
-                <RichTypography mt={{ xs: "30px", md: 5 }} variant="p1">
+                {/* <RichTypography mt={{ xs: "30px", md: 5 }} variant="p1">
                   {description}
-                </RichTypography>
+                </RichTypography> */}
+                <RichText elements={description} />
               </Box>
             </Grid>
             <Grid item xs={12} sm={6} order={{ xs: 1, sm: 0 }}>
@@ -146,21 +148,19 @@ const FocalCountries = React.forwardRef(function FocalCountries(props, ref) {
           },
         }}
       >
-        <Popup {...countries[selectedCode]} onClose={handleClose} />
+        <Popup {...countries[selectedCode]} link={link} onClose={handleClose} />
       </Popover>
     </div>
   );
 });
 
 FocalCountries.propTypes = {
-  description: PropTypes.node,
-  image: PropTypes.shape({}),
+  description: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.node,
 };
 
 FocalCountries.defaultProps = {
   description: undefined,
-  image: undefined,
   title: undefined,
 };
 
