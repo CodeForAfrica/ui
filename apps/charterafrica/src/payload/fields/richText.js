@@ -1,22 +1,11 @@
 import { deepmerge } from "@mui/utils";
 
-const richText = (
-  overrides,
-  additions = {
-    elements: [],
-    leaves: [],
-  }
-) =>
+const richText = (overrides) =>
   deepmerge(
     {
       name: "richText",
       type: "richText",
       required: true,
-      admin: {
-        elements: [...(additions.elements || [])],
-        leaves: [...(additions.leaves || [])],
-        // TODO: Add upload
-      },
     },
     overrides
   );
