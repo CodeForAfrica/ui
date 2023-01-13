@@ -22,8 +22,14 @@ const Partners = React.forwardRef(function Partners(props, ref) {
       >
         {title}
       </RichTypography>
-      {partners.map((partner) => (
-        <Partnership {...partner} key={partner.id} />
+      {partners.map((partner, i) => (
+        <Partnership
+          {...partner}
+          key={partner.id}
+          DividerProps={
+            i === partners.length - 1 ? { sx: { display: { sm: "none" } } } : {}
+          }
+        />
       ))}
     </Section>
   );

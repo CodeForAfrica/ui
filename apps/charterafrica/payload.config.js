@@ -14,6 +14,7 @@ const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
 
 const adapter = s3Adapter({
   config: {
+    region: process?.env?.S3_REGION,
     credentials: {
       // When payload generates browser bundle, process.env will be undfined,
       // hence the need for ?. This **SHOULDN'T** be an issue for the
