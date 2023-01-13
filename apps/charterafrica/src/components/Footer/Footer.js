@@ -157,8 +157,8 @@ Footer.defaultProps = {
   copyright: undefined,
   links: undefined,
   logo: undefined,
-  projectDescription: [{ children: [{ text: null }] }],
-  siteDescription: [{ children: [{ text: null }] }],
+  projectDescription: { children: [{ text: null }] },
+  siteDescription: { children: [{ text: null }] },
 };
 
 export default Footer;
