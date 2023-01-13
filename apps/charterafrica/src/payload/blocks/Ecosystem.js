@@ -10,6 +10,7 @@ const Ecosystem = {
         pt: "Itens",
       },
       required: true,
+      minRows: 2,
       maxRows: 2,
       fields: [
         // TODO: Look into how to enforce only the required types. Ecosystem should only allow 2 items, Tools and People
@@ -26,6 +27,7 @@ const Ecosystem = {
         {
           name: "data",
           type: "array",
+          minRows: 1,
           fields: [
             {
               name: "id",
@@ -50,6 +52,7 @@ const Ecosystem = {
             {
               name: "value",
               type: "number",
+              required: true,
               min: 0,
               max: 100,
               label: {

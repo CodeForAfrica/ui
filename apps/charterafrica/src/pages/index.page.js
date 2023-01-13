@@ -51,6 +51,10 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     blocks: [],
   };
 
+  const ecosystemItems = blocks.filter(
+    (block) => block.blockType === "ecosystem"
+  )[0]?.items;
+
   return {
     props: {
       blocks: [
@@ -269,9 +273,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         },
         {
           slug: "ecosystem",
-          items:
-            blocks?.filter((item) => item?.blockType === "ecosystem")[0]
-              ?.items || [],
+          items: ecosystemItems || [],
         },
         {
           slug: "focal-countries",
