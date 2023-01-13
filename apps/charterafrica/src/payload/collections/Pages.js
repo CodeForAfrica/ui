@@ -28,19 +28,9 @@ const Pages = {
       },
     },
     {
-      type: "tabs",
-      tabs: [
-        {
-          label: "Layout",
-          fields: [
-            {
-              name: "content",
-              type: "blocks",
-              blocks: [Ecosystem],
-            },
-          ],
-        },
-      ],
+      name: "blocks",
+      type: "blocks",
+      blocks: [Ecosystem],
     },
   ],
 };
