@@ -1,3 +1,5 @@
+import richText from "../fields/richText";
+
 const Hero = {
   slug: "hero",
   fields: [
@@ -11,11 +13,14 @@ const Hero = {
           type: "text",
           required: true,
         },
-        {
+        richText({
           name: "content",
-          type: "text", // TODO: use richtext?
           required: true,
-        },
+          admin: {
+            elements: ["h2", "h3", "h4", "h5", "h6", "link"],
+            leaves: ["bold", "italic", "underline", "code"],
+          },
+        }),
       ],
     },
     {
