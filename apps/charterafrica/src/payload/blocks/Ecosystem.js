@@ -23,6 +23,7 @@ const Ecosystem = {
             pt: "Título",
           },
           required: true,
+          localized: true,
         },
         {
           name: "data",
@@ -38,6 +39,7 @@ const Ecosystem = {
                 pt: "ID",
               },
               required: true,
+              localized: true,
             },
             {
               name: "label",
@@ -48,6 +50,7 @@ const Ecosystem = {
                 pt: "Rótulo",
               },
               required: true,
+              localized: true,
             },
             {
               name: "value",
@@ -60,6 +63,7 @@ const Ecosystem = {
                 fr: "Valeur",
                 pt: "Valor",
               },
+              localized: false, // standardized number values don't need to be localized
             },
             {
               name: "color",
@@ -70,6 +74,7 @@ const Ecosystem = {
                 pt: "Cor",
               },
               required: true,
+              localized: false, // since we're using a color picker, we don't need to localize this
             },
           ],
         },
