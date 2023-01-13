@@ -1,13 +1,5 @@
 const Hero = {
   slug: "hero",
-  access: {
-    read: () => true,
-  },
-  admin: {
-    group: "Blocks",
-    useAsTitle: "title.content",
-    defaultColumns: ["title", "updatedAt"],
-  },
   fields: [
     {
       name: "title",
