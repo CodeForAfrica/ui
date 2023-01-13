@@ -1,12 +1,6 @@
 import link from "../fields/link";
 import richText from "../fields/richText";
 
-const heroLink = link({
-  overrides: {
-    // TODO: find a way to rename link
-  },
-});
-
 const Hero = {
   slug: "hero",
   fields: [
@@ -99,7 +93,7 @@ const Hero = {
               hasMany: false,
               required: true,
             },
-            heroLink,
+            link({}),
           ],
         },
       ],
