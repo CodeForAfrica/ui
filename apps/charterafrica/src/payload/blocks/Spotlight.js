@@ -51,6 +51,9 @@ const Spotlight = {
               type: "relationship",
               relationTo: "media",
               required: true,
+              filterOptions: {
+                mimeType: { contains: "image" },
+              },
             },
             {
               name: "topic",
