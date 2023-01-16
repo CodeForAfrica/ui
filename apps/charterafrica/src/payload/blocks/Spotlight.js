@@ -48,7 +48,7 @@ const Spotlight = {
                 fr: "Image",
                 pt: "Imagem",
               },
-              type: "relationship",
+              type: "upload",
               relationTo: "media",
               required: true,
               filterOptions: {
