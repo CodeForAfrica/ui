@@ -4,7 +4,7 @@ import React from "react";
 
 import LanguageButton from "@/charterafrica/components/LanguageButton";
 import Logo from "@/charterafrica/components/Logo";
-import NavBarNavList from "@/charterafrica/components/NavBarNavList";
+import NavBarNavMenu from "@/charterafrica/components/NavBarNavMenu";
 import SearchInput from "@/charterafrica/components/SearchInput";
 
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
@@ -42,7 +42,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
           wrap="nowrap"
         >
           <Grid item>
-            <NavBarNavList direction="row" menus={menus} />
+            <NavBarNavMenu direction="row" menus={menus} />
           </Grid>
           <Grid item>
             <SearchInput
