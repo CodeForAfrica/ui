@@ -69,9 +69,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
       };
       return {
         ...rest,
-        item: {
-          ...formattedItem,
-        },
+        item: formattedItem,
       };
     });
 
