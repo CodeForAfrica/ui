@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import NavBarNavList from "./NavBarNavList";
+import NavBarNavMenu from "./NavBarNavMenu";
 
 import theme from "@/charterafrica/theme";
 
@@ -79,9 +79,9 @@ const defaultProps = {
   ],
 };
 
-describe("<NavBarNavList />", () => {
+describe("<NavBarNavMenu />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<NavBarNavList {...defaultProps} />);
+    const { container } = render(<NavBarNavMenu {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

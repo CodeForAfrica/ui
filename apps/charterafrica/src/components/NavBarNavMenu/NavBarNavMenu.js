@@ -3,7 +3,7 @@ import React from "react";
 
 import NavBarDropdown from "@/charterafrica/components/NavBarDropdown";
 
-const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
+const NavBarNavMenu = React.forwardRef(function NavBarNavMenu(props, ref) {
   const { direction, menus, ...other } = props;
 
   if (!menus?.length) {
@@ -18,4 +18,4 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
   );
 });
 
-export default NavBarNavList;
+export default NavBarNavMenu;
