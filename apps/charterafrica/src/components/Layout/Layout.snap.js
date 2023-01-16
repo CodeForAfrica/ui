@@ -281,7 +281,18 @@ exports[`<Layout /> renders unchanged 1`] = `
           >
             <div
               class="MuiBox-root css-utp7eg"
-            />
+            >
+              <p
+                class="MuiTypography-root MuiTypography-p2 css-1ue2ml3-MuiTypography-root"
+              >
+                <p />
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-p2SemiBold css-1sj4amz-MuiTypography-root"
+              >
+                <p />
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -56,12 +56,16 @@ exports[`<Footer /> renders unchanged 1`] = `
               <p
                 class="MuiTypography-root MuiTypography-p2 css-1ue2ml3-MuiTypography-root"
               >
-                This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.
+                <span>
+                  This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.
+                </span>
               </p>
               <p
                 class="MuiTypography-root MuiTypography-p2SemiBold css-1sj4amz-MuiTypography-root"
               >
-                Website designed and built by Code for Africa
+                <span>
+                  Website designed and built by Code for Africa
+                </span>
               </p>
               <div
                 class="MuiBox-root css-i5q2k0"
