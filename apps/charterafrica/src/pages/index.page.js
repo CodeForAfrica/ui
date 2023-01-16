@@ -48,7 +48,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     contact = { email: null },
     copyright = null,
     links = null,
-    logo = null,
+    footerLogo = null,
   } = await payload.findGlobal("footer", {
     locale,
     fallbackLocale: defaultLocale,
@@ -850,11 +850,15 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         links:
           links?.map(({ content, link: href }) => ({ content, href })) || null,
         logo: {
-          alt: logo?.alt ?? null,
-          src: logo?.url ?? null,
+          title: footerLogo?.title ?? null,
+          alt: footerLogo?.src?.alt ?? null,
+          src: footerLogo?.src?.url ?? null,
         },
         projectDescription: projectDesc,
         siteDescription: siteDesc,
+        subscription: {
+          title: "Subscribe to the Newsletters",
+        },
       },
       navbar: {
         languages: languages ?? null,

@@ -4,12 +4,14 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import SvgIcon from "@mui/material/SvgIcon";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { serialize } from "../../payload/fields/richTextEditor";
 
 import MailIcon from "@/charterafrica/assets/icons/Type=mail, Size=32, Color=CurrentColor.svg";
 import { neutral } from "@/charterafrica/colors";
+import NewsletterSubscription from "@/charterafrica/components/NewsletterSubscription";
+import subscriptionEmbedCode from "@/charterafrica/utils/subscriptionEmbedCode";
 
 const Footer = React.forwardRef(function Footer(props, ref) {
   const {
@@ -19,9 +21,16 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     logo,
     projectDescription,
     siteDescription,
+    subscription,
   } = props;
   const projectDesc = serialize(projectDescription.children);
   const siteDesc = serialize(siteDescription.children);
+
+  const [toEmbed, setToEmbed] = useState("");
+
+  useEffect(() => {
+    setToEmbed(subscriptionEmbedCode);
+  }, []);
 
   return (
     <Box
@@ -36,7 +45,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: 7.5 } }}>
           <Grid
             container
-            alignItems={{ sm: "center" }}
+            alignItems={{ sm: "flex-end" }}
             justifyContent={{ sm: "space-between" }}
             rowSpacing={2.5}
           >
@@ -44,22 +53,46 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               item
               xs={12}
               sm="auto"
+              alignItems={{ sm: "flex-end" }}
               sx={{
                 order: { xs: 0, sm: 1 },
               }}
             >
-              <Figure
-                sx={{
-                  height: { xs: "118.11px", sm: "103px" },
-                  width: { xs: "172px", sm: "150px" },
-                }}
-                ImageProps={{
-                  ...logo,
-                  sx: { objectPosition: "top" },
-                }}
-              />
+              <Box
+                display="flex"
+                sx={{ display: "flex", gap: 4 }}
+                justifyContent="space-between"
+                alignItems="flex-end"
+              >
+                <NewsletterSubscription embedCode={toEmbed} {...subscription} />
+                <Box
+                  display="flex"
+                  justifyContent="flex-end"
+                  flexDirection="column"
+                  alignItems="flex-end"
+                  style={{ maxWidth: "172px" }}
+                  xs={{ width: { xs: "172px", sm: "150px" } }}
+                >
+                  <Box sx={{ marginBottom: "20px" }}>
+                    <RichTypography fontSize={16} textAlign="right">
+                      {logo?.title}
+                    </RichTypography>
+                  </Box>
+
+                  <Figure
+                    sx={{
+                      height: { xs: "118.11px", sm: "103px" },
+                      width: { xs: "172px", sm: "150px" },
+                    }}
+                    ImageProps={{
+                      ...logo,
+                      sx: { objectPosition: "top" },
+                    }}
+                  />
+                </Box>
+              </Box>
             </Grid>
-            <Grid item xs={12} sm={8} sx={{ order: { xs: 1, sm: 0 } }}>
+            <Grid item xs={12} sm={7} sx={{ order: { xs: 1, sm: 0 } }}>
               <Box
                 sx={{ display: "flex", flexDirection: "column", gap: "13px" }}
               >

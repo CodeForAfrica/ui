@@ -109,20 +109,44 @@ const Footer = {
       required: true,
     },
     {
-      name: "logo",
+      name: "footerLogo",
       required: true,
       localized: true,
-      type: "upload",
-      relationTo: "media",
-      filterOptions: {
-        mimeType: { contains: "image" },
-        mimeTypes: ["images/*"],
-      },
+      type: "group",
       label: {
         en: "Footer Logo",
         pt: "Imagem",
         fr: "Logo de pied de page",
       },
+      fields: [
+        {
+          name: "title",
+          required: true,
+          localized: true,
+          type: "text",
+          label: {
+            en: "Footer Title",
+            fr: "Titre",
+            pt: "título",
+          },
+        },
+        {
+          name: "src",
+          type: "upload",
+          relationTo: "media",
+          required: true,
+          localized: true,
+          filterOptions: {
+            mimeType: { contains: "image" },
+            mimeTypes: ["images/*"],
+          },
+          label: {
+            en: "Footer Logo",
+            pt: "Imagem",
+            fr: "Logo de pied de page",
+          },
+        },
+      ],
     },
   ],
 };
