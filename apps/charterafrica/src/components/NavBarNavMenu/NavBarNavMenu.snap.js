@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<NavBarNavList /> renders unchanged 1`] = `
+exports[`<NavBarNavMenu /> renders unchanged 1`] = `
 <div>
   <ul
     class="css-f15emd"
