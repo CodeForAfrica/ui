@@ -61,7 +61,11 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           src: item.image.url,
           alt: item.image.alt,
         },
-        date: new Date(item.date).toLocaleDateString(),
+        date: new Date(item.date).toLocaleDateString(locale, {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        }),
       };
       return {
         ...rest,
