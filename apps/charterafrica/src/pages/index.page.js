@@ -42,7 +42,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     fallbackLocale: defaultLocale,
   });
 
-  const { docs: homePage } = await payload.findPage("home", "pages", {
+  const { docs: homePage } = await payload.findPage("home", {
     locale,
     fallbackLocale: defaultLocale,
   });
