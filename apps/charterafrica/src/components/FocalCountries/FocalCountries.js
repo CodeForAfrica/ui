@@ -99,12 +99,10 @@ const FocalCountries = React.forwardRef(function FocalCountries(props, ref) {
                   html={false}
                   variant="h1Small"
                   typography={{ md: "h1" }}
+                  mb={{ xs: 3.75, md: 5 }}
                 >
                   {title}
                 </RichTypography>
-                {/* <RichTypography mt={{ xs: "30px", md: 5 }} variant="p1">
-                  {description}
-                </RichTypography> */}
                 <RichText elements={description} />
               </Box>
             </Grid>
