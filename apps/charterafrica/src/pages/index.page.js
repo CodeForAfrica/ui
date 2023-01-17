@@ -51,45 +51,37 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     blocks: [],
   };
 
-  const blocks = pageBlocks.map(({ blockType, ...other }) => ({
-    ...other,
-    slug: blockType,
-  }));
+  const blocks =
+    pageBlocks?.map(({ blockType, ...other }) => ({
+      ...other,
+      slug: blockType,
+    })) || [];
 
-  const spotlightBlock = blocks.find((block) => block.slug === "spotlight");
+  const spotlight = blocks.find((block) => block.slug === "spotlight");
 
-  const spotlight = {
-    title: "Spotlight",
-  };
-
-  Object.keys(spotlightBlock).forEach((key) => {
-    if (key === "items") {
-      spotlight[key] = spotlightBlock[key].map((spotlightItem) => {
-        const { item, ...rest } = spotlightItem;
-        const formattedItem = {
-          ...item,
-          image: {
-            src: item.image.url,
-            alt: item.image.alt,
-          },
-          date: new Date(item.date).toLocaleDateString(locale, {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          }),
-          link: {
-            href: item?.link.href || "#", // TODO: handle reference links
-          },
-        };
-        return {
-          ...rest,
-          item: formattedItem,
-        };
-      });
-    } else {
-      spotlight[key] = spotlightBlock[key];
-    }
+  const items = spotlight?.items?.map((item) => {
+    const { item: itemData, ...rest } = item;
+    return {
+      ...rest,
+      item: {
+        ...itemData,
+        image: {
+          src: itemData.image.url,
+          alt: itemData.image.alt,
+        },
+        date: new Date(itemData.date).toLocaleDateString(locale, {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        }),
+        link: {
+          href: itemData?.link.href || "#", // TODO: handle reference links
+        },
+      },
+    };
   });
+
+  spotlight.items = items;
 
   return {
     props: {

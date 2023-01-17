@@ -4,6 +4,17 @@ const Spotlight = {
   slug: "spotlight",
   fields: [
     {
+      name: "title",
+      type: "text",
+      label: {
+        en: "Title",
+        fr: "Titre",
+        pt: "Título",
+      },
+      required: true,
+      localized: true,
+    },
+    {
       name: "items",
       type: "array",
       minRows: 1,
