@@ -19,7 +19,7 @@ exports[`<FocalCountries /> renders unchanged 1`] = `
               class="MuiBox-root css-1bqr1ke"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1Small css-m4ocxm-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1Small css-1o6n05k-MuiTypography-root"
               >
                 Focal Countries
               </h1>
