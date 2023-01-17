@@ -10,10 +10,18 @@ const NavBar = React.forwardRef(function NavBar(props, ref) {
 
   return (
     <CuiNavBar
-      sx={{
-        backgroundColor: neutral[900],
-        py: { md: 3.5 },
+      ToolbarProps={{
+        sx: {
+          py: { md: 3.5 },
+        },
       }}
+      sx={(theme) => ({
+        backgroundColor: neutral[900],
+        zIndex: theme.zIndex.drawer + 1,
+        [theme.breakpoints.up("md")]: {
+          zIndex: theme.zIndex.appBar,
+        },
+      })}
       ref={ref}
     >
       <Section
@@ -31,7 +39,9 @@ const NavBar = React.forwardRef(function NavBar(props, ref) {
         ]}
       >
         <MobileNavBar
+          languages={languages}
           logo={logo}
+          menus={menus}
           sx={{
             display: { xs: "flex", md: "none" },
           }}

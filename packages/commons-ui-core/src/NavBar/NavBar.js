@@ -12,12 +12,12 @@ const NavBarRoot = styled(AppBar, {
 }));
 
 const NavBar = React.forwardRef(function NavBar(
-  { children, toolbarProps, ...props },
+  { children, ToolbarProps, ...props },
   ref
 ) {
   return (
     <NavBarRoot color="inherit" position="sticky" {...props} ref={ref}>
-      <Toolbar disableGutters {...toolbarProps}>
+      <Toolbar disableGutters {...ToolbarProps}>
         {children}
       </Toolbar>
     </NavBarRoot>
@@ -26,12 +26,12 @@ const NavBar = React.forwardRef(function NavBar(
 
 NavBar.propTypes = {
   children: PropTypes.node,
-  toolbarProps: PropTypes.shape({}),
+  ToolbarProps: PropTypes.shape({}),
 };
 
 NavBar.defaultProps = {
   children: undefined,
-  toolbarProps: undefined,
+  ToolbarProps: undefined,
 };
 
 export default NavBar;
