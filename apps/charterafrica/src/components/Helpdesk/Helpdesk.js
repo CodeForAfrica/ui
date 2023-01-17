@@ -66,7 +66,7 @@ const Helpdesk = React.forwardRef(function Helpdesk(props, ref) {
 });
 
 Helpdesk.propTypes = {
-  description: PropTypes.node,
+  description: PropTypes.arrayOf(PropTypes.shape({})),
   image: PropTypes.shape({}),
   title: PropTypes.node,
 };
