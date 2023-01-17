@@ -47,13 +47,17 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     fallbackLocale: defaultLocale,
   });
 
-  const { blocks } = homePage[0] ?? {
+  const { blocks: pageBlocks } = homePage[0] ?? {
     blocks: [],
   };
 
-  const ecosystemItems = blocks.filter(
-    (block) => block.blockType === "ecosystem"
-  )[0]?.items;
+  const blocks =
+    pageBlocks?.map(({ blockType, ...other }) => ({
+      ...other,
+      slug: blockType,
+    })) || [];
+
+  const ecosystem = blocks.find((block) => block.slug === "ecosystem");
 
   return {
     props: {
@@ -271,10 +275,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
             },
           ],
         },
-        {
-          slug: "ecosystem",
-          items: ecosystemItems || [],
-        },
+        ecosystem,
         {
           slug: "focal-countries",
           title: "Focal Countries",

@@ -13,7 +13,6 @@ const Ecosystem = {
       minRows: 2,
       maxRows: 2,
       fields: [
-        // TODO: Look into how to enforce only the required types. Ecosystem should only allow 2 items, Tools and People
         {
           name: "title",
           type: "text",
@@ -30,17 +29,6 @@ const Ecosystem = {
           type: "array",
           minRows: 1,
           fields: [
-            {
-              name: "id",
-              type: "text",
-              label: {
-                en: "ID",
-                fr: "ID",
-                pt: "ID",
-              },
-              required: true,
-              localized: true,
-            },
             {
               name: "label",
               type: "text",
@@ -63,7 +51,6 @@ const Ecosystem = {
                 fr: "Valeur",
                 pt: "Valor",
               },
-              localized: false, // standardized number values don't need to be localized
             },
             {
               name: "color",
@@ -74,7 +61,6 @@ const Ecosystem = {
                 pt: "Cor",
               },
               required: true,
-              localized: false, // since we're using a color picker, we don't need to localize this
             },
           ],
         },
