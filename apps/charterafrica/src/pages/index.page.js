@@ -59,7 +59,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
 
   const spotlight = blocks.find((block) => block.slug === "spotlight");
 
-  const items = spotlight?.items?.map((item) => {
+  const spotlightItems = spotlight?.items?.map((item) => {
     const { item: itemData, ...rest } = item;
     return {
       ...rest,
@@ -81,7 +81,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     };
   });
 
-  spotlight.items = items;
+  spotlight.items = spotlightItems;
 
   return {
     props: {
