@@ -2,75 +2,126 @@
 
 exports[`<NavBarNavList /> renders unchanged 1`] = `
 <div>
-  <ul
-    class="css-f15emd"
+  <div
+    class="MuiBox-root css-12tykev"
   >
-    <a
-      class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
-      href="/resources"
+    <nav
+      class="MuiList-root MuiList-padding MuiList-subheader css-15o1hun-MuiList-root"
     >
-      Resources
-      <button
-        aria-haspopup="menu"
-        aria-label="select merge strategy"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1ac7f14-MuiButtonBase-root-MuiIconButton-root"
-        tabindex="0"
-        type="button"
+      <a
+        class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone MuiListSubheader-root MuiListSubheader-colorInherit MuiListSubheader-gutters css-8y40qm-MuiTypography-root-MuiLink-root-MuiListSubheader-root"
+        href="/resources"
       >
-        <div
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s6992r-MuiSvgIcon-root"
-          focusable="false"
-          viewbox="0 0 16 16"
-        />
-      </button>
-    </a>
-    <a
-      class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
-      href="/knowledge"
-    >
-      Knowledge
-      <button
-        aria-haspopup="menu"
-        aria-label="select merge strategy"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1ac7f14-MuiButtonBase-root-MuiIconButton-root"
+        Resources
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiListItemButton-root MuiListItemButton-root css-yayf3y-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiListItemButton-root"
+        href="/resources/tools"
         tabindex="0"
-        type="button"
       >
-        <div
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s6992r-MuiSvgIcon-root"
-          focusable="false"
-          viewbox="0 0 16 16"
-        />
-      </button>
-    </a>
-    <a
-      class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
-      href="/opportunities"
-    >
-      Oppportunities
-      <button
-        aria-haspopup="menu"
-        aria-label="select merge strategy"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1ac7f14-MuiButtonBase-root-MuiIconButton-root"
+        Tools
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiListItemButton-root MuiListItemButton-root css-yayf3y-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiListItemButton-root"
+        href="/resources/data"
         tabindex="0"
-        type="button"
       >
-        <div
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s6992r-MuiSvgIcon-root"
-          focusable="false"
-          viewbox="0 0 16 16"
-        />
-      </button>
-    </a>
-    <a
-      class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
-      href="/about"
+        Data
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiListItemButton-root MuiListItemButton-root css-yayf3y-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiListItemButton-root"
+        href="/resources/people"
+        tabindex="0"
+      >
+        People
+      </a>
+    </nav>
+    <nav
+      class="MuiList-root MuiList-padding MuiList-subheader css-15o1hun-MuiList-root"
     >
-      About
-    </a>
-  </ul>
+      <a
+        class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone MuiListSubheader-root MuiListSubheader-colorInherit MuiListSubheader-gutters css-8y40qm-MuiTypography-root-MuiLink-root-MuiListSubheader-root"
+        href="/knowledge"
+      >
+        Knowledge
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiListItemButton-root MuiListItemButton-root css-yayf3y-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiListItemButton-root"
+        href="/knowledge/explainers"
+        tabindex="0"
+      >
+        Explainers
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiListItemButton-root MuiListItemButton-root css-yayf3y-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiListItemButton-root"
+        href="/knowledge/news"
+        tabindex="0"
+      >
+        News
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiListItemButton-root MuiListItemButton-root css-yayf3y-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiListItemButton-root"
+        href="/knowledge/research"
+        tabindex="0"
+      >
+        Research
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiListItemButton-root MuiListItemButton-root css-yayf3y-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiListItemButton-root"
+        href="/knowledge/academy"
+        tabindex="0"
+      >
+        Academy
+      </a>
+    </nav>
+    <nav
+      class="MuiList-root MuiList-padding MuiList-subheader css-15o1hun-MuiList-root"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone MuiListSubheader-root MuiListSubheader-colorInherit MuiListSubheader-gutters css-8y40qm-MuiTypography-root-MuiLink-root-MuiListSubheader-root"
+        href="/opportunities"
+      >
+        Oppportunities
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiListItemButton-root MuiListItemButton-root css-yayf3y-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiListItemButton-root"
+        href="/opportunities/grants-and-fellowships"
+        tabindex="0"
+      >
+        Grants and Fellowships
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiListItemButton-root MuiListItemButton-root css-yayf3y-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiListItemButton-root"
+        href="/opportunities/events"
+        tabindex="0"
+      >
+        Events
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiListItemButton-root MuiListItemButton-root css-yayf3y-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiListItemButton-root"
+        href="/opportunities/community"
+        tabindex="0"
+      >
+        Community
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiListItemButton-root MuiListItemButton-root css-yayf3y-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiListItemButton-root"
+        href="/opportunities/democracy-helpdesk"
+        tabindex="0"
+      >
+        Democracy Helpdesk
+      </a>
+    </nav>
+    <nav
+      class="MuiList-root MuiList-padding MuiList-subheader css-15o1hun-MuiList-root"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone MuiListSubheader-root MuiListSubheader-colorInherit MuiListSubheader-gutters css-8y40qm-MuiTypography-root-MuiLink-root-MuiListSubheader-root"
+        href="/about"
+      >
+        About
+      </a>
+    </nav>
+  </div>
 </div>
 `;

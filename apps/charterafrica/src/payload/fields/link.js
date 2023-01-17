@@ -5,112 +5,105 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
     type: "row",
     fields: [
       {
-        type: "row",
-        fields: [
+        name: "linkType",
+        type: "radio",
+        options: [
           {
-            name: "type",
-            type: "radio",
-            options: [
-              {
-                label: {
-                  en: "Internal link",
-                  fr: "Lien interne",
-                  pt: "Link interno",
-                },
-                value: "reference",
-              },
-              {
-                label: {
-                  en: "Custom URL",
-                  fr: "URL personnalisée",
-                  pt: "URL personalizado",
-                },
-                value: "custom",
-              },
-            ],
-            defaultValue: "reference",
-            admin: {
-              layout: "horizontal",
-              width: "50%",
+            label: {
+              en: "Custom URL",
+              fr: "URL personnalisée",
+              pt: "URL personalizado",
             },
+            value: "custom",
           },
           {
-            name: "newTab",
             label: {
-              en: "Open in new tab",
-              fr: "Ouvrir dans un nouvel onglet",
-              pt: "Abrir num novo separador",
+              en: "Internal link",
+              fr: "Lien interne",
+              pt: "Link interno",
             },
-            type: "checkbox",
-            admin: {
-              width: "50%",
-              style: {
-                alignSelf: "flex-end",
-              },
-            },
+            value: "internal",
           },
         ],
+        defaultValue: "internal",
       },
     ],
   };
 
   const linkTypes = [
     {
-      name: "reference",
-      label: {
-        en: "Document to link to",
-        fr: "Document pour lien vers",
-        pt: "Documento para link para",
-      },
-      type: "relationship",
-      relationTo: ["pages"],
-      required: true,
-      maxDepth: 1,
-      admin: {
-        condition: (_, siblingData) => siblingData?.type === "reference",
-      },
-    },
-    {
-      name: "href",
-      label: {
-        en: "Custom URL",
-        fr: "URL personnalisée",
-        pt: "URL personalizado",
-      },
-      type: "text",
-      required: true,
-      admin: {
-        condition: (_, siblingData) => siblingData?.type === "custom",
-      },
-    },
-  ];
-
-  if (!disableLabel) {
-    linkTypes[0].admin.width = "50%";
-    linkTypes[1].admin.width = "50%";
-
-    linkResult.fields.push({
       type: "row",
       fields: [
-        ...linkTypes,
         {
-          name: "label",
+          name: "doc",
           label: {
-            en: "Label",
-            pt: "Rótulo",
+            en: "Document to link to",
+            fr: "Document pour lien vers",
+            pt: "Documento para link para",
+          },
+          type: "relationship",
+          relationTo: ["pages"],
+          required: true,
+          maxDepth: 1,
+          admin: {
+            condition: (_, siblingData) => siblingData?.linkType === "internal",
+          },
+        },
+        {
+          name: "url",
+          label: {
+            en: "Custom URL",
+            fr: "URL personnalisée",
+            pt: "URL personalizado",
           },
           type: "text",
           required: true,
-          localized: true,
           admin: {
-            width: "50%",
+            condition: (_, siblingData) => siblingData?.linkType === "custom",
           },
         },
       ],
-    });
-  } else {
-    linkResult.fields = [...linkResult.fields, ...linkTypes];
+    },
+  ];
+  let labelFields = [];
+  if (!disableLabel) {
+    labelFields = [
+      {
+        type: "row",
+        fields: [
+          {
+            name: "label",
+            label: {
+              en: "Label",
+              pt: "Rótulo",
+            },
+            type: "text",
+            required: true,
+            localized: true,
+          },
+        ],
+      },
+    ];
   }
+  linkResult.fields = [
+    ...labelFields,
+    ...linkResult.fields,
+    ...linkTypes,
+    {
+      type: "row",
+      fields: [
+        {
+          name: "newTab",
+          label: {
+            en: "Open in new tab",
+            fr: "Ouvrir dans un nouvel onglet",
+            pt: "Abrir num novo separador",
+          },
+          type: "checkbox",
+        },
+      ],
+    },
+  ];
 
   return deepmerge(linkResult, overrides);
 };

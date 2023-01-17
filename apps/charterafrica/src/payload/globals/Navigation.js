@@ -1,6 +1,6 @@
 import link from "../fields/link";
 import linkGroup from "../fields/linkGroup";
-import formatPagePath from "../utils/formatPagePath";
+import mapLinkTypeToHref from "../utils/mapLinkTypeToHref";
 
 const linkField = link();
 linkField.fields.push({
@@ -28,27 +28,19 @@ linkField.fields.push({
   ],
 });
 
-const insertHrefIfReference = (menu) => {
-  if (menu.reference) {
-    const { relationTo: collection, value: doc } = menu.reference;
-    const href = formatPagePath(collection, doc);
-    return { ...menu, href };
-  }
-  return menu;
-};
-
-const insertHref = (menus) => {
+function insertHref(menus) {
   if (!menus?.length) {
+    // return null since undefined is not serializable
     return null;
   }
   return menus.map((originalMenu) => {
-    const menu = insertHrefIfReference(originalMenu);
-    const children = insertHref(originalMenu.children);
-    return { ...menu, children };
+    const menu = mapLinkTypeToHref(originalMenu);
+    menu.children = insertHref(originalMenu.children);
+    return menu;
   });
-};
+}
 
-const afterReadInsertHrefHook = (args) => {
+function afterReadInsertLinkHrefHook(args) {
   const { doc } = args;
   if (doc.menus) {
     const { menus: originalMenus } = doc;
@@ -56,7 +48,7 @@ const afterReadInsertHrefHook = (args) => {
     return { ...doc, menus };
   }
   return doc;
-};
+}
 
 const Navigation = {
   slug: "navigation",
@@ -77,7 +69,7 @@ const Navigation = {
     }),
   ],
   hooks: {
-    afterRead: [afterReadInsertHrefHook],
+    afterRead: [afterReadInsertLinkHrefHook],
   },
 };
 
