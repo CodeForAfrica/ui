@@ -91,35 +91,6 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     }
   });
 
-  // for (const [key, value] of Object.entries(spotlightBlock)) {
-  //   if (key === "items") {
-  //     spotlight[key] = value.map((spotlightItem) => {
-  //       const { item, ...rest } = spotlightItem;
-  //       const formattedItem = {
-  //         ...item,
-  //         image: {
-  //           src: item.image.url,
-  //           alt: item.image.alt,
-  //         },
-  //         date: new Date(item.date).toLocaleDateString(locale, {
-  //           year: "numeric",
-  //           month: "short",
-  //           day: "numeric",
-  //         }),
-  //         link: {
-  //           href: item?.link.href || "#", //TODO: handle reference links
-  //         },
-  //       };
-  //       return {
-  //         ...rest,
-  //         item: formattedItem,
-  //       };
-  //     });
-  //   } else {
-  //     spotlight[key] = value;
-  //   }
-  // }
-
   return {
     props: {
       blocks: [
