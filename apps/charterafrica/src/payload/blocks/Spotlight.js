@@ -18,6 +18,7 @@ const Spotlight = {
       name: "items",
       type: "array",
       minRows: 1,
+      maxRows: 4,
       required: true,
       fields: [
         {
@@ -97,7 +98,6 @@ const Spotlight = {
                 pt: "Encontro",
               },
               required: true,
-              localized: true,
             },
             {
               name: "link",
@@ -108,7 +108,11 @@ const Spotlight = {
                 pt: "Link",
               },
               required: true,
-              fields: [link({})],
+              fields: [
+                link({
+                  disableLabel: true,
+                }),
+              ],
             },
           ],
         },

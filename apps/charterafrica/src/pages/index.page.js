@@ -11,7 +11,7 @@ import { payload } from "@/charterafrica/lib";
 
 function Index({ blocks }) {
   return blocks?.map((block) => {
-    switch (block.slug) {
+    switch (block?.slug) {
       case "ecosystem":
         return <Ecosystem {...block} key={block.slug} />;
       case "focal-countries":
@@ -42,22 +42,22 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     fallbackLocale: defaultLocale,
   });
 
-  const { docs: homePage } = await payload.findPage("home", {
+  const { docs: pages } = await payload.findPage("index", {
     locale,
     fallbackLocale: defaultLocale,
   });
 
-  const { blocks: pageBlocks } = homePage[0] ?? {
-    blocks: [],
-  };
+  if (!pages?.length) {
+    return { notFound: true };
+  }
 
   const blocks =
-    pageBlocks?.map(({ blockType, ...other }) => ({
+    pages[0].blocks?.map(({ blockType, ...other }) => ({
       ...other,
       slug: blockType,
-    })) || [];
+    })) ?? [];
 
-  const spotlight = blocks.find((block) => block.slug === "spotlight");
+  const spotlight = blocks.find((block) => block.slug === "spotlight") || {};
 
   const spotlightItems = spotlight?.items?.map((item) => {
     const { item: itemData, ...rest } = item;
@@ -81,7 +81,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     };
   });
 
-  spotlight.items = spotlightItems;
+  spotlight.items = spotlightItems || null;
 
   return {
     props: {
