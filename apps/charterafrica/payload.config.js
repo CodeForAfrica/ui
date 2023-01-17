@@ -5,6 +5,7 @@ import { buildConfig } from "payload/config";
 
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
+import FocalCountries from "./src/payload/globals/FocalCountries";
 import Footer from "./src/payload/globals/Footer";
 import Navigation from "./src/payload/globals/Navigation";
 import Settings from "./src/payload/globals/Settings";
@@ -31,7 +32,7 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   collections: [Media, Pages],
-  globals: [Navigation, Settings, Footer],
+  globals: [FocalCountries, Navigation, Settings, Footer],
   ...(locales?.length
     ? {
         localization: {
@@ -59,16 +60,19 @@ export default buildConfig({
     resources: {
       en: {
         "charterafrica.site": {
+          uniqueCountries: "Locales must be unique",
           uniqueLocales: "Locales must be unique",
         },
       },
       fr: {
         "charterafrica.site": {
+          uniqueCountries: "Les locaux doivent être uniques",
           uniqueLocales: "Les locaux doivent être uniques",
         },
       },
       pt: {
         "charterafrica.site": {
+          uniqueCountries: "Os locais devem ser únicos",
           uniqueLocales: "Os locais devem ser únicos",
         },
       },

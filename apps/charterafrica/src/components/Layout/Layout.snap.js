@@ -3,10 +3,10 @@
 exports[`<Layout /> renders unchanged 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-1aif7ik-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-bd5mws-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
   >
     <div
-      class="MuiToolbar-root MuiToolbar-regular css-l73zrm-MuiToolbar-root"
+      class="MuiToolbar-root MuiToolbar-regular css-1gcfjze-MuiToolbar-root"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1xkpkdq-MuiContainer-root"
@@ -38,12 +38,19 @@ exports[`<Layout /> renders unchanged 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
-            <div
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-lujri2-MuiSvgIcon-root"
-              focusable="false"
-              viewbox="0 0 32 32"
-            />
+            <button
+              aria-label="navigation"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              type="button"
+            >
+              <div
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-lujri2-MuiSvgIcon-root"
+                focusable="false"
+                viewbox="0 0 32 32"
+              />
+            </button>
           </div>
         </div>
         <div
