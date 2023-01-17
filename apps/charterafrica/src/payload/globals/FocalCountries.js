@@ -5,7 +5,8 @@ import mapLinkTypeToHref from "../utils/mapLinkTypeToHref";
 
 async function insertHref(nodes, req) {
   if (!nodes?.length) {
-    return nodes;
+    // Front-end needs null for serialization
+    return null;
   }
   return Promise.all(
     nodes.map(async (originalNode) => {
