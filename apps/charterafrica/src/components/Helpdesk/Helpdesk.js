@@ -1,11 +1,12 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import { Figure } from "@commons-ui/next";
+import { Figure, Link } from "@commons-ui/next";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import PropTypes from "prop-types";
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
+import RichText from "@/charterafrica/components/RichText";
 
 const Helpdesk = React.forwardRef(function Helpdesk(props, ref) {
   const { description, image, link, sx, title } = props;
@@ -30,26 +31,33 @@ const Helpdesk = React.forwardRef(function Helpdesk(props, ref) {
               html={false}
               textAlign={{ xs: "center", sm: "left" }}
               variant="h1Small"
-              sx={{ typography: { md: "h1" }, width: { md: "max-content" } }}
+              sx={{
+                mb: 5,
+                typography: { md: "h1" },
+                width: { md: "max-content" },
+              }}
             >
               {title}
             </RichTypography>
-            <RichTypography
+            <RichText
+              elements={description}
               color="neutral.dark"
               maxWidth={478}
               variant="p3"
               sx={{ typography: { md: "subheading" } }}
-            >
-              {description}
-            </RichTypography>
-            <Button
-              color="primary"
-              size="small"
-              variant="contained"
-              sx={{ width: "fit-content" }}
-            >
-              {link?.content}
-            </Button>
+            />
+            {link?.label ? (
+              <Button
+                color="primary"
+                component={link?.href ? Link : undefined}
+                href={link?.href}
+                size="small"
+                variant="contained"
+                sx={{ mt: 5, width: "fit-content" }}
+              >
+                {link?.label}
+              </Button>
+            ) : null}
           </Box>
         </Box>
       </Section>
