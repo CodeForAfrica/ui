@@ -47,31 +47,78 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     fallbackLocale: defaultLocale,
   });
 
-  const { blocks } = homePage[0] ?? {
+  const { blocks: pageBlocks } = homePage[0] ?? {
     blocks: [],
   };
 
-  const spotlightItems = blocks
-    .filter((block) => block.blockType === "spotlight")[0]
-    ?.items.map((spotlight) => {
-      const { item, ...rest } = spotlight;
-      const formattedItem = {
-        ...item,
-        image: {
-          src: item.image.url,
-          alt: item.image.alt,
-        },
-        date: new Date(item.date).toLocaleDateString(locale, {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        }),
-      };
-      return {
-        ...rest,
-        item: formattedItem,
-      };
-    });
+  const blocks = pageBlocks.map(({ blockType, ...other }) => ({
+    ...other,
+    slug: blockType,
+  }));
+
+  const spotlightBlock = blocks.find((block) => block.slug === "spotlight");
+
+  const spotlight = {
+    title: "Spotlight",
+  };
+
+  Object.keys(spotlightBlock).forEach((key) => {
+    if (key === "items") {
+      spotlight[key] = spotlightBlock[key].map((spotlightItem) => {
+        const { item, ...rest } = spotlightItem;
+        const formattedItem = {
+          ...item,
+          image: {
+            src: item.image.url,
+            alt: item.image.alt,
+          },
+          date: new Date(item.date).toLocaleDateString(locale, {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          }),
+          link: {
+            href: item?.link.href || "#", // TODO: handle reference links
+          },
+        };
+        return {
+          ...rest,
+          item: formattedItem,
+        };
+      });
+    } else {
+      spotlight[key] = spotlightBlock[key];
+    }
+  });
+
+  // for (const [key, value] of Object.entries(spotlightBlock)) {
+  //   if (key === "items") {
+  //     spotlight[key] = value.map((spotlightItem) => {
+  //       const { item, ...rest } = spotlightItem;
+  //       const formattedItem = {
+  //         ...item,
+  //         image: {
+  //           src: item.image.url,
+  //           alt: item.image.alt,
+  //         },
+  //         date: new Date(item.date).toLocaleDateString(locale, {
+  //           year: "numeric",
+  //           month: "short",
+  //           day: "numeric",
+  //         }),
+  //         link: {
+  //           href: item?.link.href || "#", //TODO: handle reference links
+  //         },
+  //       };
+  //       return {
+  //         ...rest,
+  //         item: formattedItem,
+  //       };
+  //     });
+  //   } else {
+  //     spotlight[key] = value;
+  //   }
+  // }
 
   return {
     props: {
@@ -219,11 +266,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
             },
           ],
         },
-        {
-          slug: "spotlight",
-          title: "Spotlight",
-          items: spotlightItems,
-        },
+        spotlight,
         {
           slug: "ecosystem",
           items: [

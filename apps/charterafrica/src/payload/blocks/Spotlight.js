@@ -88,7 +88,17 @@ const Spotlight = {
               required: true,
               localized: true,
             },
-            link({}),
+            {
+              name: "link",
+              type: "group",
+              label: {
+                en: "Link",
+                fr: "Lien",
+                pt: "Link",
+              },
+              required: true,
+              fields: [link({})],
+            },
           ],
         },
       ],
