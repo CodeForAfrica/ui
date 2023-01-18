@@ -93,29 +93,24 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
 
   const heroSlides = hero?.slides?.map((slide) => {
     const { title, background, links, ...other } = slide;
-    const titleText = title.content[0].children[0].text;
-    const backgroundImageURL = background.src.url;
 
     const formattedLinks = links.map((link) => {
-      const { content, color, icon } = link;
-
-      const formattedLink = {
-        content,
-        color,
+      const { icon, ...rest } = link;
+      return {
+        ...rest,
         icon: { src: icon.url },
       };
-      return formattedLink;
     });
 
     return {
       title: {
         color: title.color,
-        content: titleText,
+        content: title.content[0].children[0].text,
       },
       background: {
-        blendMode: background.blendMode,
+        blendMode: background.blendMode.join(","),
         color: background.color,
-        src: backgroundImageURL,
+        src: background.src.url,
       },
       links: formattedLinks,
       ...other,

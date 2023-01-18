@@ -1,6 +1,93 @@
 import link from "../fields/link";
 import richText from "../fields/richText";
 
+const blendModeOptions = [
+  {
+    label: "Normal",
+    value: "normal",
+  },
+  {
+    label: "Multiply",
+    value: "multiply",
+  },
+  {
+    label: "Screen",
+    value: "screen",
+  },
+  {
+    label: "Overlay",
+    value: "overlay",
+  },
+  {
+    label: "Darken",
+    value: "darken",
+  },
+  {
+    label: "Lighten",
+    value: "lighten",
+  },
+  {
+    label: "Color Dodge",
+    value: "color-dodge",
+  },
+  {
+    label: "Color Burn",
+    value: "color-burn",
+  },
+  {
+    label: "Hard Light",
+    value: "hard-light",
+  },
+  {
+    label: "Soft Light",
+    value: "soft-light",
+  },
+  {
+    label: "Difference",
+    value: "difference",
+  },
+  {
+    label: "Exclusion",
+    value: "exclusion",
+  },
+  {
+    label: "Hue",
+    value: "hue",
+  },
+  {
+    label: "Saturation",
+    value: "saturation",
+  },
+  {
+    label: "Color",
+    value: "color",
+  },
+  {
+    label: "Luminosity",
+    value: "luminosity",
+  },
+  {
+    label: "Initial",
+    value: "initial",
+  },
+  {
+    label: "Inherit",
+    value: "inherit",
+  },
+  {
+    label: "Unset",
+    value: "unset",
+  },
+  {
+    label: "Revert",
+    value: "revert",
+  },
+  {
+    label: "Revert Layer",
+    value: "revert-layer",
+  },
+];
+
 const Hero = {
   slug: "hero",
   fields: [
@@ -67,16 +154,21 @@ const Hero = {
               required: true,
             },
             {
-              name: "blendMode",
-              type: "text", // TODO: can we make this a select? multiple select?
+              name: "color",
+              type: "text",
               required: true,
               localized: false,
             },
             {
-              name: "color",
-              type: "text", // TODO: make this color picker??
+              name: "blendMode",
+              type: "select",
               required: true,
-              localized: false,
+              hasMany: true,
+              options: blendModeOptions,
+              admin: {
+                isClearable: true,
+                isSortable: true,
+              },
             },
           ],
         },
