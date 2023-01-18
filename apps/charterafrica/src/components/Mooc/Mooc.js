@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import MobileStepper from "@mui/material/MobileStepper";
 import React, { useState, useRef } from "react";
 import SwipeableViews from "react-swipeable-views-react-18-fix";
 
@@ -42,14 +41,14 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
         {slides.map((slide) => (
           <MoocSlide
             {...slide}
-            activeStep
-            {...slides.length}
+            activeStep={activeStep}
+            slides={slides.length}
             stepperRef={stepperRef}
             key={slide.title.content}
           />
         ))}
       </SwipeableViews>
-      <MobileStepper
+      {/* <MobileStepper
         variant="dots"
         steps={slides.length}
         position="static"
@@ -77,7 +76,7 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
           },
         }}
         ref={stepperRef}
-      />
+      /> */}
     </Box>
   );
 });
