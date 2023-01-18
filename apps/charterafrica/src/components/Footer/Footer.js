@@ -6,11 +6,10 @@ import SvgIcon from "@mui/material/SvgIcon";
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 
-import { serialize } from "../../payload/fields/richTextEditor";
-
 import MailIcon from "@/charterafrica/assets/icons/Type=mail, Size=32, Color=CurrentColor.svg";
 import { neutral } from "@/charterafrica/colors";
 import NewsletterSubscription from "@/charterafrica/components/NewsletterSubscription";
+import RichText from "@/charterafrica/components/RichText";
 import subscriptionEmbedCode from "@/charterafrica/utils/subscriptionEmbedCode";
 
 const Footer = React.forwardRef(function Footer(props, ref) {
@@ -23,8 +22,8 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     siteDescription,
     subscription,
   } = props;
-  const projectDesc = serialize(projectDescription.children);
-  const siteDesc = serialize(siteDescription.children);
+  // const projectDesc = serialize(projectDescription.children);
+  // const siteDesc = serialize(siteDescription.children);
 
   const [toEmbed, setToEmbed] = useState("");
 
@@ -121,21 +120,15 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                     {contact.email.content || contact.email.href}
                   </Link>
                 ) : null}
-                <RichTypography
-                  color="inherit"
-                  variant="p2"
-                  component="p"
-                  sx={{ maxWidth: { md: "648px" } }}
-                >
-                  {siteDesc}
-                </RichTypography>
-                <RichTypography
+                <RichText elements={siteDescription} />
+                <RichText elements={projectDescription} />
+                {/* <RichTypography
                   color="inherit"
                   variant="p2SemiBold"
                   component="p"
                 >
                   {projectDesc}
-                </RichTypography>
+                </RichTypography> */}
                 {links?.length > 0 ? (
                   <Box display="flex" gap="10px">
                     {links.map((link) => (
