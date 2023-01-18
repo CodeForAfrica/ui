@@ -1,12 +1,12 @@
 import link from "../fields/link";
-import linkGroup from "../fields/linkGroup";
+import linkArray from "../fields/linkArray";
 import mapLinkTypeToHref from "../utils/mapLinkTypeToHref";
 
 const linkField = link();
 linkField.fields.push({
   type: "row",
   fields: [
-    linkGroup({
+    linkArray({
       overrides: {
         name: "children",
         label: {
@@ -61,7 +61,7 @@ const Navigation = {
     read: () => true,
   },
   fields: [
-    linkGroup({
+    linkArray({
       overrides: {
         name: "menus",
         fields: [linkField],
