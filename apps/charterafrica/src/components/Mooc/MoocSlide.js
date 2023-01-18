@@ -88,17 +88,20 @@ const MoocSlide = React.forwardRef(function MoocSlide(props, ref) {
                 gap: "20px",
               },
               "& .MuiMobileStepper-dot": {
-                background: "none",
+                bgcolor: "secondary.main",
                 border: 1,
                 borderColor: "secondary.main",
-                height: 10,
-                width: 10,
+                height: 8,
+                width: 8,
                 "& :hover": {
                   cursor: "pointer",
                 },
               },
               "& .MuiMobileStepper-dotActive": {
-                bgcolor: "secondary.main",
+                bgcolor: "#fff",
+                borderColor: "#fff",
+                height: 10,
+                width: 10,
               },
             }}
             ref={stepperRef}
