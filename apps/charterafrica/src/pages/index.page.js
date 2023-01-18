@@ -101,7 +101,6 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
 
   const ecosystem = blocks.find((block) => block.slug === "ecosystem") || null;
 
-  console.error(links);
   return {
     props: {
       blocks: [
