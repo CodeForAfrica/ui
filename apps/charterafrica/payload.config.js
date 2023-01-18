@@ -15,7 +15,6 @@ const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
 
 const adapter = s3Adapter({
   config: {
-    // eslint-disable-next-line turbo/no-undeclared-env-vars
     region: process?.env?.S3_REGION,
     credentials: {
       // When payload generates browser bundle, process.env will be undfined,
@@ -32,7 +31,7 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   collections: [Media, Pages],
-  globals: [FocalCountries, Navigation, Settings, Footer],
+  globals: [FocalCountries, Footer, Navigation, Settings],
   ...(locales?.length
     ? {
         localization: {

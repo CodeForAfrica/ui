@@ -10,15 +10,6 @@ const Footer = {
   fields: [
     {
       name: "siteDescription",
-      defaultValue: [
-        {
-          children: [
-            {
-              text: "This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.",
-            },
-          ],
-        },
-      ],
       label: {
         en: "Site Description",
         fr: "Description du site",
@@ -65,7 +56,6 @@ const Footer = {
     },
     {
       name: "copyright",
-      defaultValue: "© 2022 European Partnership for Democracy (CC BY-NC 2.0)",
       label: {
         en: "Copyright",
         pt: "Direito autoral",
