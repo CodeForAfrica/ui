@@ -89,40 +89,40 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
 
   const ecosystem = blocks.find((block) => block.slug === "ecosystem") || null;
 
-  // heroSlides
-  const heroSlides = blocks
-    .filter((block) => block.blockType === "hero")
-    .map((block) => {
-      const { title, background, links, ...other } = block;
+  const hero = blocks.find((block) => block.slug === "hero") || {};
 
-      const titleText = title.content[0].children[0].text;
-      const backGroundImageURL = background.src.url;
+  const heroSlides = hero?.slides?.map((slide) => {
+    const { title, background, links, ...other } = slide;
+    const titleText = title.content[0].children[0].text;
+    const backgroundImageURL = background.src.url;
 
-      const formattedLinks = links.map((link) => {
-        const { content, color, icon } = link.button;
-        // TODO: Handle reference Link handling
-        const formattedLink = {
-          content,
-          color,
-          icon: { src: icon.url },
-        };
-        return formattedLink;
-      });
+    const formattedLinks = links.map((link) => {
+      const { content, color, icon } = link;
 
-      return {
-        title: {
-          color: title.color,
-          content: titleText,
-        },
-        background: {
-          blendMode: background.blendMode,
-          color: background.color,
-          src: backGroundImageURL,
-        },
-        links: formattedLinks,
-        ...other,
+      const formattedLink = {
+        content,
+        color,
+        icon: { src: icon.url },
       };
+      return formattedLink;
     });
+
+    return {
+      title: {
+        color: title.color,
+        content: titleText,
+      },
+      background: {
+        blendMode: background.blendMode,
+        color: background.color,
+        src: backgroundImageURL,
+      },
+      links: formattedLinks,
+      ...other,
+    };
+  });
+
+  hero.slides = heroSlides || null;
 
   return {
     props: {
@@ -132,10 +132,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           startLabel: "People",
           endLabel: "Organisations",
         },
-        {
-          slug: "hero",
-          slides: heroSlides,
-        },
+        hero,
         spotlight,
         ecosystem,
         {
