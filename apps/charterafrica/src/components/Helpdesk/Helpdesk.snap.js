@@ -15,7 +15,7 @@ exports[`<Helpdesk /> renders unchanged 1`] = `
           class="MuiBox-root css-1lypdo1"
         >
           <img
-            alt="Democracy Support Helpdesk"
+            alt="Helpdesk"
             class="css-g98gbd"
             data-nimg="fill"
             decoding="async"
@@ -30,28 +30,23 @@ exports[`<Helpdesk /> renders unchanged 1`] = `
           class="MuiBox-root css-j7qwjs"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1Small css-zyjl11-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1Small css-103yha4-MuiTypography-root"
           >
             Democracy Support Helpdesk
           </h1>
-          <div
+          <p
+            class="MuiTypography-root MuiTypography-p3 css-u68wz7-MuiTypography-root"
+          >
+            Need help connecting with experts?
+          </p>
+          <p
             class="MuiTypography-root MuiTypography-p3 css-u68wz7-MuiTypography-root"
           >
             
-          
-            <p>
-              
-            Need help connecting with experts?
-              <br />
-              
-            We can help you find specialists or resources to improve the impact of your democracy project.
-          
-            </p>
-            
-          
-          </div>
+We can help you find specialists or resources to improve the impact of your democracy project.
+          </p>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall css-11eumpf-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall css-2qdsyu-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
