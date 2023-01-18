@@ -2,7 +2,10 @@ import { deepmerge } from "@mui/utils";
 
 import link from "./link";
 
-const linkGroup = ({ linkConfig, overrides = {} } = {}) => {
+/**
+ * array field consisting of link fields .
+ */
+function linkArray({ linkConfig, overrides = {} } = {}) {
   const generatedLinkGroup = {
     name: "links",
     type: "array",
@@ -18,6 +21,6 @@ const linkGroup = ({ linkConfig, overrides = {} } = {}) => {
   };
 
   return deepmerge(generatedLinkGroup, overrides);
-};
+}
 
-export default linkGroup;
+export default linkArray;
