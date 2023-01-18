@@ -3,12 +3,26 @@ import { Section } from "@commons-ui/core";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import MobileStepper from "@mui/material/MobileStepper";
-import React from "react";
+import React, { useRef } from "react";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
 const MoocSlide = React.forwardRef(function MoocSlide(props, ref) {
-  const { title, image, link, activeStep, slides, stepperRef, sx } = props;
+  const { title, image, link, activeStep, setActiveStep, slides, sx } = props;
+
+  const stepperRef = useRef();
+  React.useEffect(() => {
+    if (stepperRef.current) {
+      const dotsEl = stepperRef.current.getElementsByClassName(
+        "MuiMobileStepper-dots"
+      )[0];
+      if (dotsEl) {
+        dotsEl.childNodes.forEach((dotEl, i) => {
+          dotEl.addEventListener("click", () => setActiveStep(i));
+        });
+      }
+    }
+  }, [stepperRef, setActiveStep]);
 
   if (!title || !image || !link) {
     return null;
