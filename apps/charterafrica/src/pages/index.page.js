@@ -313,18 +313,50 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         },
         {
           slug: "mooc",
-          title: {
-            content:
-              "Learn how to use digital tools to <i>strengthen</i> your democracy",
-            color: "common.white",
-          },
-          link: {
-            content: "Learn more",
-            color: "primary",
-          },
-          image: {
-            src: "/images/mooc.png",
-          },
+          slides: [
+            {
+              title: {
+                content:
+                  "Learn how to use digital tools to <i>strengthen</i> your democracy",
+                color: "common.white",
+              },
+              link: {
+                content: "Learn more",
+                color: "primary",
+              },
+              image: {
+                src: "/images/mooc.png",
+              },
+            },
+            {
+              title: {
+                content:
+                  "Learn how to use digital tools to <i>strengthen</i> your democracy",
+                color: "common.white",
+              },
+              link: {
+                content: "Learn more",
+                color: "primary",
+              },
+              image: {
+                src: "/images/mooc.png",
+              },
+            },
+            {
+              title: {
+                content:
+                  "Learn how to use digital tools to <i>strengthen</i> your democracy",
+                color: "common.white",
+              },
+              link: {
+                content: "Learn more",
+                color: "primary",
+              },
+              image: {
+                src: "/images/mooc.png",
+              },
+            },
+          ],
         },
         {
           slug: "helpdesk",
