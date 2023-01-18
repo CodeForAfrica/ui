@@ -47,12 +47,13 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   });
 
   const {
-    siteDescription = [{ children: [{ text: null }] }],
-    projectDescription = [{ children: [{ text: null }] }],
-    contact = { email: null },
-    copyright = null,
-    links = null,
-    footerLogo = null,
+    siteDescription,
+    projectDescription,
+    contact,
+    copyright,
+    links,
+    footerLogo,
+    newsletterSubscriptionEmbedCode,
   } = await payload.findGlobal("footer", {
     locale,
     fallbackLocale: defaultLocale,
@@ -62,8 +63,6 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     fallbackLocale: defaultLocale,
   });
 
-  const [siteDesc] = siteDescription;
-  const [projectDesc] = projectDescription;
   if (!pages?.length) {
     return { notFound: true };
   }
@@ -76,6 +75,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
 
   const ecosystem = blocks.find((block) => block.slug === "ecosystem") || null;
 
+  console.error(links);
   return {
     props: {
       blocks: [
@@ -509,17 +509,17 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           },
         },
         copyright,
-        links:
-          links?.map(({ content, link: href }) => ({ content, href })) || null,
+        links,
         logo: {
           title: footerLogo?.title ?? null,
           alt: footerLogo?.src?.alt ?? null,
           src: footerLogo?.src?.url ?? null,
         },
-        projectDescription: projectDesc,
-        siteDescription: siteDesc,
+        projectDescription,
+        siteDescription,
         subscription: {
           title: "Subscribe to the Newsletters",
+          embedCode: newsletterSubscriptionEmbedCode || null,
         },
       },
       navbar: {

@@ -5,7 +5,7 @@ import React, { Fragment } from "react";
 import { Text } from "slate";
 
 const serialize = (children) =>
-  children.map((node, i) => {
+  children?.map((node, i) => {
     if (Text.isText(node)) {
       let { text } = node;
       if (node.bold) {

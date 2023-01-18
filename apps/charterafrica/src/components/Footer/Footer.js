@@ -10,7 +10,6 @@ import MailIcon from "@/charterafrica/assets/icons/Type=mail, Size=32, Color=Cur
 import { neutral } from "@/charterafrica/colors";
 import NewsletterSubscription from "@/charterafrica/components/NewsletterSubscription";
 import RichText from "@/charterafrica/components/RichText";
-import subscriptionEmbedCode from "@/charterafrica/utils/subscriptionEmbedCode";
 
 const Footer = React.forwardRef(function Footer(props, ref) {
   const {
@@ -27,9 +26,11 @@ const Footer = React.forwardRef(function Footer(props, ref) {
 
   const [toEmbed, setToEmbed] = useState("");
 
+  const embedCode = subscription?.embedCode;
+
   useEffect(() => {
-    setToEmbed(subscriptionEmbedCode);
-  }, []);
+    setToEmbed(embedCode);
+  }, [embedCode]);
 
   return (
     <Box
@@ -63,7 +64,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 justifyContent="space-between"
                 alignItems="flex-end"
               >
-                <NewsletterSubscription embedCode={toEmbed} {...subscription} />
+                <NewsletterSubscription {...subscription} embedCode={toEmbed} />
                 <Box
                   display="flex"
                   justifyContent="flex-end"
@@ -122,24 +123,18 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 ) : null}
                 <RichText elements={siteDescription} />
                 <RichText elements={projectDescription} />
-                {/* <RichTypography
-                  color="inherit"
-                  variant="p2SemiBold"
-                  component="p"
-                >
-                  {projectDesc}
-                </RichTypography> */}
+
                 {links?.length > 0 ? (
                   <Box display="flex" gap="10px">
                     {links.map((link) => (
                       <Link
                         key={link.content}
                         color="inherit"
-                        href={link.href}
+                        href={link.url}
                         underline="always"
                         variant="p1"
                       >
-                        {link.content || link.href}
+                        {link.label || link.href || link.url}
                       </Link>
                     ))}
                   </Box>
@@ -174,8 +169,8 @@ Footer.propTypes = {
   copyright: PropTypes.string,
   links: PropTypes.arrayOf(PropTypes.shape({})),
   logo: PropTypes.shape({}),
-  projectDescription: PropTypes.shape({}),
-  siteDescription: PropTypes.shape({}),
+  projectDescription: PropTypes.arrayOf(PropTypes.shape({})),
+  siteDescription: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 Footer.defaultProps = {
@@ -183,8 +178,8 @@ Footer.defaultProps = {
   copyright: undefined,
   links: undefined,
   logo: undefined,
-  projectDescription: { children: [{ text: null }] },
-  siteDescription: { children: [{ text: null }] },
+  projectDescription: [{ children: [{ text: null }] }],
+  siteDescription: [{ children: [{ text: null }] }],
 };
 
 export default Footer;

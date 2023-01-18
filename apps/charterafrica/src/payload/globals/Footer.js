@@ -1,3 +1,4 @@
+import linkGroup from "../fields/linkGroup";
 import richTextEditor from "../fields/richTextEditor";
 
 const Footer = {
@@ -65,38 +66,18 @@ const Footer = {
       localized: true,
       required: true,
     },
+    linkGroup(),
     {
-      name: "links",
+      name: "newsletterSubscriptionEmbedCode",
+      type: "textarea",
       label: {
-        en: "Links",
+        en: "Newsletter Subscription Embed Code",
+        fr: "Abonnement à la newsletter Code d'intégration",
+        pt: "Código Incorporado de Subscrição de Newsletter",
       },
-      type: "array",
-      fields: [
-        {
-          name: "content",
-          label: {
-            en: "Content",
-            pt: "Contente",
-            fr: "Contenu",
-          },
-          type: "text",
-          localized: true,
-          required: true,
-        },
-        {
-          name: "link",
-          label: {
-            en: "Link",
-            pt: "Ligação",
-            fr: "Lien",
-          },
-          type: "text",
-          localized: true,
-          required: true,
-        },
-      ],
       localized: true,
       required: true,
+      // ...richTextEditor,
     },
     {
       name: "footerLogo",
