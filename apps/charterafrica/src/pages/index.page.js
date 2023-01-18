@@ -1,5 +1,7 @@
 import React from "react";
 
+import Mooc from "../components/Mooc";
+
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
@@ -20,6 +22,8 @@ function Index({ blocks }) {
         return <Helpdesk {...block} key={block.slug} />;
       case "hero":
         return <Hero {...block} key={block.slug} />;
+      case "mooc":
+        return <Mooc {...block} key={block.slug} />;
       case "partners":
         return <Partners {...block} key={block.slug} />;
       case "resources":
