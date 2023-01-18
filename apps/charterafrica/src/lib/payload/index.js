@@ -3,7 +3,7 @@ import payload from "payload";
 async function findPage(slug, options) {
   return payload.find({
     ...options,
-    collection: "boom",
+    collection: "pages",
     where: {
       slug: {
         equals: slug,
