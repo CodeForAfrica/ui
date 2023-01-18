@@ -83,6 +83,7 @@ importers:
       react-test-renderer: ^18.2.0
       scheduler: ^0.23.0
       sharp: ^0.31.2
+      slate: ^0.88.1
       swr: ^1.3.0
       typescript: ^4.9.4
       webpack: ^5.75.0
@@ -120,6 +121,7 @@ importers:
       react-swipeable-views-react-18-fix: 0.14.1_react@18.2.0
       scheduler: 0.23.0
       sharp: 0.31.2
+      slate: 0.88.1
       swr: 1.3.0_react@18.2.0
     devDependencies:
       "@babel/core": 7.20.5
@@ -26372,6 +26374,17 @@ packages:
     resolution:
       {
         integrity: sha512-/nJwTswQgnRurpK+bGJFH1oM7naD5qDmHd89JyiKNT2oOKD8marW0QSBtuFnwEbL5aGCS8AmrhXQgNOsn4osAw==,
+      }
+    dependencies:
+      immer: 9.0.16
+      is-plain-object: 5.0.0
+      tiny-warning: 1.0.3
+    dev: false
+
+  /slate/0.88.1:
+    resolution:
+      {
+        integrity: sha512-DEj9RpkNwPfdh3zbE9eGpeOVGWdS8BYQt754S0Lk6IvJXOkYaxza7WEZLZl/vnp7vloMdTe24zccyxywA3XK8g==,
       }
     dependencies:
       immer: 9.0.16

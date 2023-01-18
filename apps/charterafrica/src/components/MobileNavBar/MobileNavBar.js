@@ -1,34 +1,60 @@
-import { Grid } from "@mui/material";
+import Drawer from "@mui/material/Drawer";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
 import SvgIcon from "@mui/material/SvgIcon";
-import React from "react";
+import Toolbar from "@mui/material/Toolbar";
+import React, { useState } from "react";
+
+import MobileDrawer from "./MobileDrawer";
 
 import MenuIcon from "@/charterafrica/assets/icons/Type=menu, Size=32, Color=White.svg";
+import XIcon from "@/charterafrica/assets/icons/Type=x, Size=32, Color=White.svg";
 import Logo from "@/charterafrica/components/Logo";
 
 const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
-  const { logo, sx } = props;
+  const { languages, logo, menus, sx } = props;
+  const [open, setOpen] = useState(false);
+  const handleClick = () => setOpen((prev) => !prev);
+  const handleClose = () => setOpen(false);
+
+  const Icon = open ? XIcon : MenuIcon;
   return (
-    <Grid
-      container
-      justifyContent="space-between"
-      alignItems="center"
-      ref={ref}
-      sx={sx}
-    >
-      <Grid item>
-        <Logo {...logo} width={147.29} height={38} />
+    <React.Fragment ref={ref}>
+      <Grid
+        container
+        justifyContent="space-between"
+        alignItems="center"
+        sx={sx}
+      >
+        <Grid item>
+          <Logo {...logo} width={147.29} height={38} />
+        </Grid>
+        <Grid item>
+          <IconButton aria-label="navigation" onClick={handleClick}>
+            <SvgIcon
+              component={Icon}
+              viewBox="0 0 32 32"
+              sx={{
+                fill: "none",
+                fontSize: "32px",
+              }}
+            />
+          </IconButton>
+        </Grid>
       </Grid>
-      <Grid item>
-        <SvgIcon
-          component={MenuIcon}
-          viewBox="0 0 32 32"
-          sx={{
-            fill: "none",
-            fontSize: "32px",
-          }}
-        />
-      </Grid>
-    </Grid>
+      <Drawer
+        anchor="top"
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          square: true,
+          sx: { overflowY: { xs: "scroll", sm: "visible" } },
+        }}
+      >
+        <Toolbar />
+        <MobileDrawer languages={languages} menus={menus} />
+      </Drawer>
+    </React.Fragment>
   );
 });
 
