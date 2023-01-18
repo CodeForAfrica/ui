@@ -21,7 +21,7 @@ const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
     >
       {partners.map((partner) => (
         <Grid
-          key={partner.name}
+          key={partner.id}
           item
           xs={6}
           sm={4}
@@ -32,7 +32,7 @@ const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
         >
           <Link
             color="inherit"
-            href={partner.href}
+            href={partner.url}
             underline="always"
             variant="p1"
           >
@@ -50,7 +50,7 @@ const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
                 },
               })}
               ImageProps={{
-                alt: partner.name,
+                alt: partner?.logo?.alt,
                 src: partner?.logo?.url,
                 // ...partner.logo,
                 sx: {

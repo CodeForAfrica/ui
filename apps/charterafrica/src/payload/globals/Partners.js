@@ -1,3 +1,26 @@
+import link from "../fields/link";
+import linkGroup from "../fields/linkGroup";
+
+const partnerGroup = linkGroup();
+
+const linkField = link();
+linkField.fields = [
+  {
+    name: "logo",
+    required: true,
+    localized: true,
+    type: "upload",
+    relationTo: "media",
+    label: {
+      en: "Logo",
+      pt: "Imagem",
+    },
+  },
+  ...linkField.fields,
+];
+
+partnerGroup.fields = [linkField];
+
 const Partners = {
   slug: "Partners",
   label: {
@@ -6,9 +29,9 @@ const Partners = {
   },
   fields: [
     {
-      name: "partners",
+      name: "partnerGroups",
       label: {
-        en: "Partners",
+        en: "Partner Groups",
       },
       type: "array",
       fields: [
@@ -25,54 +48,18 @@ const Partners = {
         },
         {
           name: "description",
-          defaultValue:
-            "A consortium of African and European organisations is supporting the implementation of the Fund. Each organisation brings in specific expertise to the initiative, ranging from grassroots digital activism, to civic technology development and data science, policy analysis and democracy support. The consortium can ensure a presence across the African continent and leverage existing networks and partnerships.",
           label: {
             en: "Description",
             pt: "Descrição",
           },
-          type: "textarea",
+          type: "richText",
+          admin: {
+            elements: ["h2", "h3", "h4", "h5", "h6", "ol", "ul", "link"],
+          },
           localized: true,
           required: true,
         },
-        {
-          name: "partners",
-          label: {
-            en: "Partners",
-          },
-          type: "array",
-          fields: [
-            {
-              name: "name",
-              label: {
-                en: "Name",
-                pt: "Nome",
-                fr: "Nom",
-              },
-              type: "text",
-              localized: true,
-              required: true,
-            },
-            {
-              name: "href",
-              label: { en: "href" },
-              type: "text",
-              localized: true,
-              required: true,
-            },
-            {
-              name: "logo",
-              required: true,
-              localized: true,
-              type: "upload",
-              relationTo: "media",
-              label: {
-                en: "Logo",
-                pt: "Imagem",
-              },
-            },
-          ],
-        },
+        { ...partnerGroup },
       ],
     },
   ],

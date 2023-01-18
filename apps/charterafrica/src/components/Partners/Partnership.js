@@ -1,27 +1,20 @@
-import { RichTypography } from "@commons-ui/core";
 import Divider from "@mui/material/Divider";
 import PropTypes from "prop-types";
 import React from "react";
 
 import PartnerGrid from "./PartnerGrid";
 
+import RichText from "@/charterafrica/components/RichText";
+
 function Partnership({ partners, description, DividerProps, ...other }) {
   if (!partners?.length) {
     return null;
   }
+
   return (
     <>
       <PartnerGrid partners={partners} {...other} />
-      <RichTypography
-        variant="caption"
-        component="p"
-        sx={{
-          pt: { xs: 2.5, md: "30px" },
-          typography: { md: "p3" },
-        }}
-      >
-        {description}
-      </RichTypography>
+      <RichText elements={description} />
       <Divider
         {...DividerProps}
         sx={{
@@ -35,7 +28,7 @@ function Partnership({ partners, description, DividerProps, ...other }) {
 
 Partnership.propTypes = {
   DividerProps: PropTypes.shape({}),
-  description: PropTypes.string,
+  description: PropTypes.arrayOf(PropTypes.shape({})),
   partners: PropTypes.arrayOf(PropTypes.shape({})),
 };
 

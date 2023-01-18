@@ -11,7 +11,7 @@ import { payload } from "@/charterafrica/lib";
 
 function Index({ blocks }) {
   return blocks?.map((block) => {
-    switch (block.slug) {
+    switch (block?.slug) {
       case "ecosystem":
         return <Ecosystem {...block} key={block.slug} />;
       case "focal-countries":
@@ -41,11 +41,63 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     locale,
     fallbackLocale: defaultLocale,
   });
-
-  const { partners } = await payload.findGlobal("Partners", {
+  const fc = await payload.findGlobal("focal-countries", {
     locale,
     fallbackLocale: defaultLocale,
   });
+
+  const { docs: pages } = await payload.findPage("index", {
+    locale,
+    fallbackLocale: defaultLocale,
+  });
+
+  if (!pages?.length) {
+    return { notFound: true };
+  }
+
+  const blocks =
+    pages[0].blocks?.map(({ blockType, ...other }) => ({
+      ...other,
+      slug: blockType,
+    })) ?? [];
+
+  const spotlight = blocks.find((block) => block.slug === "spotlight") || {};
+
+  const spotlightItems = spotlight?.items?.map((item) => {
+    const { item: itemData, ...rest } = item;
+    return {
+      ...rest,
+      item: {
+        ...itemData,
+        image: {
+          src: itemData.image.url,
+          alt: itemData.image.alt,
+        },
+        date: new Date(itemData.date).toLocaleDateString(locale, {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        }),
+        link: {
+          href: itemData?.link.href || "#", // TODO: handle reference links
+        },
+      },
+    };
+  });
+
+  spotlight.items = spotlightItems || null;
+
+  const ecosystem = blocks.find((block) => block.slug === "ecosystem") || null;
+
+  const { partnerGroups } = await payload.findGlobal("Partners", {
+    locale,
+    fallbackLocale: defaultLocale,
+  });
+
+  const partners = partnerGroups.map((partner) => ({
+    partners: partner.links,
+    ...partner,
+  }));
 
   return {
     props: {
@@ -193,437 +245,11 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
             },
           ],
         },
-        {
-          slug: "spotlight",
-          title: "Spotlight",
-          items: [
-            {
-              category: "Upcoming Event",
-              item: {
-                title: "Event name",
-                image: {
-                  src: "images/events-event-name.jpg",
-                },
-                topic: "Topic name",
-                excerpt:
-                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
-                date: "Date and time",
-                link: {
-                  href: "/",
-                },
-              },
-            },
-            {
-              category: "Upcoming Training",
-              item: {
-                title: "Training name",
-                image: {
-                  src: "images/trainings-training-name.jpg",
-                },
-                topic: "Topic name",
-                excerpt:
-                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
-                date: "Date and time",
-                link: {
-                  href: "/",
-                },
-              },
-            },
-            {
-              category: "Latest Insights",
-              item: {
-                title: "Latest Insight or research title",
-                image: {
-                  src: "images/insights-insight-name.jpg",
-                },
-                topic: "Topic name",
-                excerpt:
-                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
-                date: "Date and time",
-                link: {
-                  href: "/",
-                },
-              },
-            },
-            {
-              category: "Latest Blog",
-              item: {
-                title: "Blog Title",
-                image: {
-                  src: "images/blogs-blog-name.jpg",
-                },
-                topic: "Topic name",
-                excerpt:
-                  "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
-                date: "Date and time",
-                link: {
-                  href: "/",
-                },
-              },
-            },
-          ],
-        },
-        {
-          slug: "ecosystem",
-          items: [
-            {
-              title: "Tools",
-              data: [
-                {
-                  id: "elections",
-                  label: "Elections",
-                  value: 26,
-                  color: "#4E2037",
-                },
-                {
-                  id: "rule-of-law",
-                  label: "Rule of law",
-                  value: 4,
-                  color: "#F7CE46",
-                },
-                {
-                  id: "civic-space",
-                  label: "Civic space",
-                  value: 71,
-                  color: "#F29D88",
-                },
-                { id: "media", label: "Media", value: 53, color: "#AAD4A9" },
-                {
-                  id: "civic-values",
-                  label: "Civic values",
-                  value: 61,
-                  color: "#A88D99",
-                },
-                {
-                  id: "decentralisation",
-                  label: "Decentralisation",
-                  value: 23,
-                  color: "#FBE7A3",
-                },
-                {
-                  id: "multilateralism",
-                  label: "Multilateralism",
-                  value: 10,
-                  color: "#602773",
-                },
-                {
-                  id: "economic-governance",
-                  label: "Economic governance",
-                  value: 99,
-                  color: "#A7F3D0",
-                },
-                {
-                  id: "corporate-governance",
-                  label: "Corporate governance",
-                  value: 17,
-                  color: "#836070",
-                },
-                {
-                  id: "gender-equality",
-                  label: "Gender equality",
-                  value: 40,
-                  color: "#F48E93;",
-                },
-                {
-                  id: "constitutional-changes-government",
-                  label: "Constitutional changes of government",
-                  value: 38,
-                  color: "#947C2A",
-                },
-              ],
-            },
-            {
-              title: "People",
-              data: [
-                {
-                  id: "experts",
-                  label: "Experts",
-                  value: 20,
-                  color: "#F7CE46",
-                },
-                {
-                  id: "organisations",
-                  label: "Organisations",
-                  value: 28,
-                  color: "#A88D99",
-                },
-              ],
-            },
-          ],
-        },
+        spotlight,
+        ecosystem,
         {
           slug: "focal-countries",
-          title: "Focal Countries",
-          description: `
-          <p>The Charter Project is a pan-African initiative by a coalition of watchdog organisations that use civic technologies to strengthen democracy.
-          <p>We do this by helping digital activists and democracy changemakers leverage the African Union’s Charter on Democracy, Elections and Governance (ACDEG).
-          <p>The project currently supports initiatives in 11 countries. Find out more <a href="/">here</a>
-          `,
-          countries: [
-            {
-              code: "BEN",
-              name: "Benin",
-              position: [9.3217214, 2.3100051],
-              items: [
-                { color: "#603549", name: "Tools", total: 350, value: 150 },
-                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
-                {
-                  color: "#F7CE46",
-                  name: "Policy docs",
-                  total: 200,
-                  value: 60,
-                },
-                {
-                  color: "#F29D88",
-                  name: "Fellowships",
-                  total: 200,
-                  value: 45,
-                },
-                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
-                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
-              ],
-              link: {
-                content: "Explore",
-              },
-            },
-            {
-              code: "ETH",
-              name: "Ethiopia",
-              position: [9.149175, 40.498867],
-              items: [
-                { color: "#603549", name: "Tools", total: 350, value: 150 },
-                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
-                {
-                  color: "#F7CE46",
-                  name: "Policy docs",
-                  total: 200,
-                  value: 60,
-                },
-                {
-                  color: "#F29D88",
-                  name: "Fellowships",
-                  total: 200,
-                  value: 45,
-                },
-                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
-                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
-              ],
-              link: {
-                content: "Explore",
-              },
-            },
-            {
-              code: "GHA",
-              name: "Ghana",
-              position: [7.9527706, -1.0307118],
-              items: [
-                { color: "#603549", name: "Tools", total: 350, value: 150 },
-                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
-                {
-                  color: "#F7CE46",
-                  name: "Policy docs",
-                  total: 200,
-                  value: 60,
-                },
-                {
-                  color: "#F29D88",
-                  name: "Fellowships",
-                  total: 200,
-                  value: 45,
-                },
-                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
-                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
-              ],
-              link: {
-                content: "Explore",
-              },
-            },
-            {
-              code: "KEN",
-              name: "Kenya",
-              position: [0.1768696, 37.9083264],
-              items: [
-                { color: "#603549", name: "Tools", total: 350, value: 150 },
-                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
-                {
-                  color: "#F7CE46",
-                  name: "Policy docs",
-                  total: 200,
-                  value: 60,
-                },
-                {
-                  color: "#F29D88",
-                  name: "Fellowships",
-                  total: 200,
-                  value: 45,
-                },
-                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
-                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
-              ],
-              link: {
-                content: "Explore",
-              },
-            },
-            {
-              code: "NGA",
-              name: "Nigeria",
-              position: [9.077751, 8.6774567],
-              items: [
-                { color: "#603549", name: "Tools", total: 350, value: 150 },
-                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
-                {
-                  color: "#F7CE46",
-                  name: "Policy docs",
-                  total: 200,
-                  value: 60,
-                },
-                {
-                  color: "#F29D88",
-                  name: "Fellowships",
-                  total: 200,
-                  value: 45,
-                },
-                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
-                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
-              ],
-              link: {
-                content: "Explore",
-              },
-            },
-            {
-              code: "SDN",
-              name: "Sudan",
-              position: [15.7860696, 30.1995791],
-              items: [
-                { color: "#603549", name: "Tools", total: 350, value: 150 },
-                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
-                {
-                  color: "#F7CE46",
-                  name: "Policy docs",
-                  total: 200,
-                  value: 60,
-                },
-                {
-                  color: "#F29D88",
-                  name: "Fellowships",
-                  total: 200,
-                  value: 45,
-                },
-                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
-                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
-              ],
-              link: {
-                content: "Explore",
-              },
-            },
-            {
-              code: "SEN",
-              name: "Senegal",
-              position: [14.5001717, -14.4392276],
-              items: [
-                { color: "#603549", name: "Tools", total: 350, value: 150 },
-                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
-                {
-                  color: "#F7CE46",
-                  name: "Policy docs",
-                  total: 200,
-                  value: 60,
-                },
-                {
-                  color: "#F29D88",
-                  name: "Fellowships",
-                  total: 200,
-                  value: 45,
-                },
-                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
-                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
-              ],
-              link: {
-                content: "Explore",
-              },
-            },
-            {
-              code: "TZA",
-              name: "Tanzania",
-              position: [-6.3728253, 34.8924826],
-              items: [
-                { color: "#603549", name: "Tools", total: 350, value: 150 },
-                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
-                {
-                  color: "#F7CE46",
-                  name: "Policy docs",
-                  total: 200,
-                  value: 60,
-                },
-                {
-                  color: "#F29D88",
-                  name: "Fellowships",
-                  total: 200,
-                  value: 45,
-                },
-                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
-                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
-              ],
-              link: {
-                content: "Explore",
-              },
-            },
-            {
-              code: "ZAF",
-              name: "South Africa",
-              position: [-28.4792625, 24.6727135],
-              items: [
-                { color: "#603549", name: "Tools", total: 350, value: 150 },
-                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
-                {
-                  color: "#F7CE46",
-                  name: "Policy docs",
-                  total: 200,
-                  value: 60,
-                },
-                {
-                  color: "#F29D88",
-                  name: "Fellowships",
-                  total: 200,
-                  value: 45,
-                },
-                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
-                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
-              ],
-              link: {
-                content: "Explore",
-              },
-            },
-            {
-              code: "ZWE",
-              name: "Zimbabwe",
-              position: [-19.0169211, 29.1528018],
-              items: [
-                { color: "#603549", name: "Tools", total: 350, value: 150 },
-                { color: "#AAD4A9", name: "Data docs", total: 300, value: 230 },
-                {
-                  color: "#F7CE46",
-                  name: "Policy docs",
-                  total: 200,
-                  value: 60,
-                },
-                {
-                  color: "#F29D88",
-                  name: "Fellowships",
-                  total: 200,
-                  value: 45,
-                },
-                { color: "#4E2037E5", name: "Grants", total: 200, value: 32 },
-                { color: "#B560D0", name: "Trainings", total: 200, value: 15 },
-              ],
-              link: {
-                content: "Explore",
-              },
-            },
-          ],
-          image: {
-            src: "/images/focal-countries.svg",
-          },
+          ...fc,
         },
         {
           slug: "resources",

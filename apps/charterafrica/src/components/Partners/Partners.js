@@ -11,7 +11,6 @@ const Partners = React.forwardRef(function Partners(props, ref) {
   if (!hasPartners) {
     return null;
   }
-  console.error({ partners });
   return (
     <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: 10 } }} ref={ref}>
       <RichTypography

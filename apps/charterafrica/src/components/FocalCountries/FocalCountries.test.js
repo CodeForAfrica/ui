@@ -11,11 +11,16 @@ const render = createRender({ theme });
 const defaultProps = {
   slug: "focal-countries",
   title: "Focal Countries",
-  description: `
-          <p>The Charter Project is a pan-African initiative by a coalition of watchdog organisations that use civic technologies to strengthen democracy.
-          <p>We do this by helping digital activists and democracy changemakers leverage the African Union’s Charter on Democracy, Elections and Governance (ACDEG).
-          <p>The project currently supports initiatives in 11 countries. Find out more <a href="/">here</a>
-          `,
+  description: [
+    {
+      children: [
+        {
+          text: "The Charter Project is a pan-African initiative by a coalition of watchdog organisations that use civic technologies to strengthen democracy.",
+          children: null,
+        },
+      ],
+    },
+  ],
   countries: [
     {
       code: "ZWE",
