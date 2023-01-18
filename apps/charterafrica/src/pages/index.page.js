@@ -317,7 +317,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
             {
               title: {
                 content:
-                  "Learn how to use digital tools to <i>strengthen</i> your democracy",
+                  "Learn how to use digital tools to <i>strengthen</i> your democracy 1",
                 color: "common.white",
               },
               link: {
@@ -331,7 +331,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
             {
               title: {
                 content:
-                  "Learn how to use digital tools to <i>strengthen</i> your democracy",
+                  "Learn how to use digital tools to <i>strengthen</i> your democracy 2",
                 color: "common.white",
               },
               link: {
@@ -345,7 +345,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
             {
               title: {
                 content:
-                  "Learn how to use digital tools to <i>strengthen</i> your democracy",
+                  "Learn how to use digital tools to <i>strengthen</i> your democracy 3",
                 color: "common.white",
               },
               link: {
