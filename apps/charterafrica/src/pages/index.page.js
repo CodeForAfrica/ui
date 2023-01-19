@@ -46,15 +46,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     fallbackLocale: defaultLocale,
   });
 
-  const {
-    siteDescription,
-    projectDescription,
-    contact,
-    copyright,
-    links,
-    footerLogo,
-    newsletterSubscriptionEmbedCode,
-  } = await payload.findGlobal("footer", {
+  const footer = await payload.findGlobal("footer", {
     locale,
     fallbackLocale: defaultLocale,
   });
@@ -457,27 +449,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           },
         },
       ],
-      footer: {
-        contact: {
-          email: {
-            href: `mailto:${contact?.email}`,
-            content: contact?.email || null,
-          },
-        },
-        copyright,
-        links,
-        logo: {
-          title: footerLogo?.title ?? null,
-          alt: footerLogo?.src?.alt ?? null,
-          src: footerLogo?.src?.url ?? null,
-        },
-        projectDescription,
-        siteDescription,
-        subscription: {
-          title: "Subscribe to the Newsletters",
-          embedCode: newsletterSubscriptionEmbedCode || null,
-        },
-      },
+      footer,
       navbar: {
         languages: languages ?? null,
         logo: {

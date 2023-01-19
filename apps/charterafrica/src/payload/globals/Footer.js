@@ -1,5 +1,4 @@
 import linkGroup from "../fields/linkGroup";
-import richTextEditor from "../fields/richTextEditor";
 
 const Footer = {
   slug: "footer",
@@ -19,7 +18,9 @@ const Footer = {
       type: "richText",
       localized: true,
       required: true,
-      ...richTextEditor,
+      admin: {
+        elements: ["h2", "h3", "h4", "h5", "h6", "ol", "ul", "link"],
+      },
     },
     {
       name: "projectDescription",
@@ -31,56 +32,46 @@ const Footer = {
       type: "richText",
       localized: true,
       required: true,
-      ...richTextEditor,
-    },
-    {
-      type: "group",
-      name: "contact",
-      label: {
-        en: "Contact",
-        pt: "Contact",
-        fr: "Contact",
+      admin: {
+        elements: ["h2", "h3", "h4", "h5", "h6", "ol", "ul", "link"],
       },
-      fields: [
-        {
-          name: "email",
-          type: "email",
-          label: {
-            en: "Email",
-            pt: "Email",
-            fr: "Email",
-          },
-        },
-      ],
-      localized: true,
-      required: true,
-    },
-    {
-      name: "copyright",
-      label: {
-        en: "Copyright",
-        pt: "Direito autoral",
-        fr: "Droits d'auteur",
-      },
-      type: "text",
-      localized: true,
-      required: true,
     },
     linkGroup(),
     {
-      name: "newsletterSubscriptionEmbedCode",
-      type: "textarea",
+      name: "newsletter",
+      type: "group",
       label: {
-        en: "Newsletter Subscription Embed Code",
-        fr: "Abonnement à la newsletter Code d'intégration",
-        pt: "Código Incorporado de Subscrição de Newsletter",
+        en: "Newsletter",
+        fr: "Newsletter",
+        pt: "Boletim de Notícias        ",
       },
-      localized: true,
-      required: true,
-      // ...richTextEditor,
+      fields: [
+        {
+          name: "title",
+          required: true,
+          localized: true,
+          type: "text",
+          label: {
+            en: "Title",
+            fr: "Titre",
+            pt: "título",
+          },
+        },
+        {
+          name: "embedCode",
+          type: "code",
+          label: {
+            en: "Embed Code",
+            fr: "Code d'intégre",
+            pt: "Código Incorporado",
+          },
+          localized: true,
+          required: true,
+        },
+      ],
     },
     {
-      name: "footerLogo",
+      name: "logo",
       required: true,
       localized: true,
       type: "group",
@@ -118,6 +109,117 @@ const Footer = {
           },
         },
       ],
+    },
+    {
+      type: "group",
+      name: "contact",
+      label: {
+        en: "Contact",
+        pt: "Contact",
+        fr: "Contact",
+      },
+      admin: {
+        width: "100%",
+      },
+      fields: [
+        {
+          name: "email",
+          type: "email",
+          label: {
+            en: "Email",
+            pt: "Email",
+            fr: "Email",
+          },
+          admin: {
+            width: "50%",
+          },
+        },
+        {
+          name: "twitter",
+          type: "text",
+          label: {
+            en: "Twitter",
+            pt: "Twitter",
+            fr: "Twitter",
+          },
+          admin: {
+            width: "50%",
+          },
+        },
+        {
+          name: "slack",
+          type: "text",
+          label: {
+            en: "Slack",
+            pt: "Slack",
+            fr: "Slack",
+          },
+          admin: {
+            width: "50%",
+          },
+        },
+        {
+          name: "linkedin",
+          type: "text",
+          label: {
+            en: "LinkedIn",
+            pt: "LinkedIn",
+            fr: "LinkedIn",
+          },
+          admin: {
+            width: "50%",
+          },
+        },
+        {
+          name: "facebook",
+          type: "text",
+          label: {
+            en: "Facebook",
+            pt: "Facebook",
+            fr: "Facebook",
+          },
+          admin: {
+            width: "50%",
+          },
+        },
+        {
+          name: "instagram",
+          type: "text",
+          label: {
+            en: "Instagram",
+            pt: "Instagram",
+            fr: "Instagram",
+          },
+          admin: {
+            width: "50%",
+          },
+        },
+        {
+          name: "github",
+          type: "text",
+          label: {
+            en: "Github",
+            pt: "Github",
+            fr: "Github",
+          },
+          admin: {
+            width: "50%",
+          },
+        },
+      ],
+      localized: true,
+      required: true,
+    },
+    {
+      name: "copyright",
+      label: {
+        en: "Copyright",
+        pt: "Direito autoral",
+        fr: "Droits d'auteur",
+      },
+      type: "text",
+      localized: true,
+      required: true,
     },
   ],
 };

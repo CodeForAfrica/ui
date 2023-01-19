@@ -278,21 +278,6 @@ exports[`<Layout /> renders unchanged 1`] = `
                 <div
                   class="MuiBox-root css-uewl2b"
                 />
-                <figure
-                  class="MuiBox-root css-1d66hx2"
-                >
-                  <img
-                    alt="EU"
-                    class="css-6mvbnf"
-                    data-nimg="fill"
-                    decoding="async"
-                    loading="lazy"
-                    sizes="100vw"
-                    src="/_next/image?url=%2Fimages%2Feu.png&w=3840&q=75"
-                    srcset="/_next/image?url=%2Fimages%2Feu.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Feu.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Feu.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Feu.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Feu.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Feu.png&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Feu.png&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Feu.png&w=3840&q=75 3840w"
-                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
-                  />
-                </figure>
               </div>
             </div>
           </div>
@@ -305,6 +290,18 @@ exports[`<Layout /> renders unchanged 1`] = `
               <p
                 class="MuiTypography-root MuiTypography-p1 css-s6qucy-MuiTypography-root"
               />
+              <div
+                class="MuiBox-root css-1lzc8v9"
+              >
+                <div
+                  class="MuiTypography-root MuiTypography-p1 css-s6qucy-MuiTypography-root"
+                >
+                  STAY IN TOUCH
+                </div>
+                <div
+                  class="MuiBox-root css-iqyuzw"
+                />
+              </div>
               <p
                 class="MuiTypography-root MuiTypography-p1 css-s6qucy-MuiTypography-root"
               />

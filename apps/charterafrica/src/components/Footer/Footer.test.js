@@ -35,7 +35,7 @@ const defaultProps = {
       children: [{ text: "Website designed and built by Code for Africa" }],
     },
   ],
-  subscription: {
+  newsletter: {
     embedCode: "",
   },
   siteDescription: [
