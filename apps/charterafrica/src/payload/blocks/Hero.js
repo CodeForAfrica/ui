@@ -1,92 +1,10 @@
 import link from "../fields/link";
 import richText from "../fields/richText";
-
-const blendModeOptions = [
-  {
-    label: "Normal",
-    value: "normal",
-  },
-  {
-    label: "Multiply",
-    value: "multiply",
-  },
-  {
-    label: "Screen",
-    value: "screen",
-  },
-  {
-    label: "Overlay",
-    value: "overlay",
-  },
-  {
-    label: "Darken",
-    value: "darken",
-  },
-  {
-    label: "Lighten",
-    value: "lighten",
-  },
-  {
-    label: "Color Dodge",
-    value: "color-dodge",
-  },
-  {
-    label: "Color Burn",
-    value: "color-burn",
-  },
-  {
-    label: "Hard Light",
-    value: "hard-light",
-  },
-  {
-    label: "Soft Light",
-    value: "soft-light",
-  },
-  {
-    label: "Difference",
-    value: "difference",
-  },
-  {
-    label: "Exclusion",
-    value: "exclusion",
-  },
-  {
-    label: "Hue",
-    value: "hue",
-  },
-  {
-    label: "Saturation",
-    value: "saturation",
-  },
-  {
-    label: "Color",
-    value: "color",
-  },
-  {
-    label: "Luminosity",
-    value: "luminosity",
-  },
-  {
-    label: "Initial",
-    value: "initial",
-  },
-  {
-    label: "Inherit",
-    value: "inherit",
-  },
-  {
-    label: "Unset",
-    value: "unset",
-  },
-  {
-    label: "Revert",
-    value: "revert",
-  },
-  {
-    label: "Revert Layer",
-    value: "revert-layer",
-  },
-];
+import {
+  validateHexColor,
+  blendModeOptions,
+  MuiButtonColors,
+} from "../utils/colors";
 
 const Hero = {
   slug: "hero",
@@ -104,8 +22,13 @@ const Hero = {
             {
               name: "color",
               type: "text",
+              validate: validateHexColor,
               required: true,
-              localized: false,
+              label: {
+                en: "Title Color",
+                fr: "Couleur du titre",
+                pt: "Cor do título",
+              },
             },
             richText({
               name: "content",
@@ -115,6 +38,11 @@ const Hero = {
                 leaves: ["bold", "italic", "underline", "code"],
               },
               localized: true,
+              label: {
+                en: "Title",
+                fr: "Titre",
+                pt: "Título",
+              },
             }),
           ],
         },
@@ -126,14 +54,24 @@ const Hero = {
             {
               name: "color",
               type: "text",
+              validate: validateHexColor,
               required: true,
-              localized: false,
+              label: {
+                en: "Subheading Color",
+                fr: "Couleur du sous-titre",
+                pt: "Cor do subtítulo",
+              },
             },
             {
               name: "content",
               type: "text",
               required: true,
               localized: true,
+              label: {
+                en: "Subheading",
+                fr: "Sous-titre",
+                pt: "Subtítulo",
+              },
             },
           ],
         },
@@ -155,9 +93,14 @@ const Hero = {
             },
             {
               name: "color",
+              validate: validateHexColor,
               type: "text",
               required: true,
-              localized: false,
+              label: {
+                en: "Background Color",
+                fr: "Couleur de fond",
+                pt: "Cor de fundo",
+              },
             },
             {
               name: "blendMode",
@@ -165,6 +108,11 @@ const Hero = {
               required: true,
               hasMany: true,
               options: blendModeOptions,
+              label: {
+                en: "Blend Mode",
+                fr: "Mode de fusion",
+                pt: "Modo de fusão",
+              },
               admin: {
                 isClearable: true,
                 isSortable: true,
@@ -180,21 +128,40 @@ const Hero = {
           fields: [
             {
               name: "color",
-              type: "text",
+              type: "select",
+              options: MuiButtonColors,
               required: true,
-              localized: false,
+              label: {
+                en: "Button Color",
+                fr: "Couleur du bouton",
+                pt: "Cor do botão",
+              },
+              admin: {
+                isClearable: true,
+                isSortable: true,
+              },
             },
             {
               name: "content",
               type: "text",
               required: true,
               localized: true,
+              label: {
+                en: "Button Text",
+                fr: "Texte du bouton",
+                pt: "Texto do botão",
+              },
             },
             {
               name: "icon",
               type: "upload",
               relationTo: "media",
               required: true,
+              label: {
+                en: "Button Icon",
+                fr: "Icône du bouton",
+                pt: "Ícone do botão",
+              },
             },
             link({
               disableLabel: true,
