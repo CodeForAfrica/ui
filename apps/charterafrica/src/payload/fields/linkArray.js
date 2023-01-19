@@ -6,7 +6,7 @@ import link from "./link";
  * array field consisting of link fields .
  */
 function linkArray({ linkConfig, overrides = {} } = {}) {
-  const generatedLinkGroup = {
+  const generatedLinkArray = {
     name: "links",
     type: "array",
     fields: [link(linkConfig)],
@@ -20,7 +20,7 @@ function linkArray({ linkConfig, overrides = {} } = {}) {
     },
   };
 
-  return deepmerge(generatedLinkGroup, overrides);
+  return deepmerge(generatedLinkArray, overrides);
 }
 
 export default linkArray;
