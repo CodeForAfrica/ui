@@ -45,6 +45,18 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     locale,
     fallbackLocale: defaultLocale,
   });
+  const helpdesk = await payload.findGlobal("helpdesk", {
+    locale,
+    fallbackLocale: defaultLocale,
+  });
+  // TODO(kilemens): Move these to lib/data for any and all page data processing
+  if (helpdesk) {
+    helpdesk.slug = "helpdesk";
+    const { alt: imageAlt, url: imageSrc } = helpdesk.image;
+    helpdesk.image = { alt: imageAlt, src: imageSrc };
+    const { href: linkHref, label: linkLabel } = helpdesk.link;
+    helpdesk.link = { href: linkHref, label: linkLabel };
+  }
 
   const footer = await payload.findGlobal("footer", {
     locale,
@@ -311,22 +323,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
             },
           ],
         },
-        {
-          slug: "helpdesk",
-          description: `
-          <p>
-            Need help connecting with experts?<br />
-            We can help you find specialists or resources to improve the impact of your democracy project.
-          </p>
-          `,
-          image: {
-            src: "/images/helpdesk.svg",
-          },
-          link: {
-            content: "Submit request",
-          },
-          title: "Democracy Support Helpdesk",
-        },
+        helpdesk,
         {
           slug: "partners",
           title: "Partners",

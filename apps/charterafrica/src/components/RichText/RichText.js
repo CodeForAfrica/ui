@@ -4,7 +4,7 @@ import { Link } from "@commons-ui/next";
 import React, { Fragment } from "react";
 import { Text } from "slate";
 
-const serialize = (children) =>
+const serialize = (children, defaultProps) =>
   children?.map((node, i) => {
     if (Text.isText(node)) {
       let { text } = node;
@@ -81,7 +81,7 @@ const serialize = (children) =>
 
       default:
         return (
-          <RichTypography component="p" key={i}>
+          <RichTypography component="p" {...defaultProps} key={i}>
             {serialize(node.children)}
           </RichTypography>
         );
@@ -89,11 +89,13 @@ const serialize = (children) =>
   });
 
 const RichText = React.forwardRef(function RichText(props, ref) {
-  const { elements } = props;
+  const { elements, ...others } = props;
   if (!elements?.length) {
     return null;
   }
-  return <React.Fragment ref={ref}>{serialize(elements)}</React.Fragment>;
+  return (
+    <React.Fragment ref={ref}>{serialize(elements, others)}</React.Fragment>
+  );
 });
 
 export default RichText;
