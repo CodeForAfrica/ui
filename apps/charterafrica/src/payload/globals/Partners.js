@@ -32,6 +32,7 @@ const Partners = {
       name: "partnerGroups",
       label: {
         en: "Partner Groups",
+        fr: "Partner Groups",
       },
       type: "array",
       fields: [
@@ -50,6 +51,7 @@ const Partners = {
           name: "description",
           label: {
             en: "Description",
+            fr: "La description",
             pt: "Descrição",
           },
           type: "richText",
