@@ -1,6 +1,5 @@
 import link from "../fields/link";
 import linkArray from "../fields/linkArray";
-import mapLinkTypeToHref from "../utils/mapLinkTypeToHref";
 
 const linkField = link();
 linkField.fields.push({
@@ -28,28 +27,6 @@ linkField.fields.push({
   ],
 });
 
-function insertHref(menus) {
-  if (!menus?.length) {
-    // return null since undefined is not serializable
-    return null;
-  }
-  return menus.map((originalMenu) => {
-    const menu = mapLinkTypeToHref(originalMenu);
-    menu.children = insertHref(originalMenu.children);
-    return menu;
-  });
-}
-
-function afterReadInsertLinkHrefHook(args) {
-  const { doc } = args;
-  if (doc.menus) {
-    const { menus: originalMenus } = doc;
-    const menus = insertHref(originalMenus);
-    return { ...doc, menus };
-  }
-  return doc;
-}
-
 const Navigation = {
   slug: "navigation",
   label: {
@@ -68,9 +45,6 @@ const Navigation = {
       },
     }),
   ],
-  hooks: {
-    afterRead: [afterReadInsertLinkHrefHook],
-  },
 };
 
 export default Navigation;
