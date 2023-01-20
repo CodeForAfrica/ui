@@ -1,5 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
-import { Figure } from "@commons-ui/next";
+import { Figure, Link } from "@commons-ui/next";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import PropTypes from "prop-types";
@@ -20,7 +20,7 @@ function Resource({ background, icon, link, name, value, sx }) {
       <Figure
         ImageProps={{
           alt: name,
-          src: background.src,
+          src: background.image.src || background.image.url,
           sx: { objectFit: "cover", opacity: 0.3 },
         }}
         sx={{
@@ -51,29 +51,16 @@ function Resource({ background, icon, link, name, value, sx }) {
           transform: "translate(-50%,-50%)",
         }}
       >
-        <Box
-          border={2}
-          borderColor="neutral.dark"
-          borderRadius={64}
-          backgroundColor={icon.color}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          height={124}
-          width={124}
-        >
-          <Figure
-            ImageProps={{
-              alt: name,
-              src: icon.src,
-              sx: { color: "neutral.dark" },
-            }}
-            sx={{
-              height: 64,
-              width: 64,
-            }}
-          />
-        </Box>
+        <Figure
+          ImageProps={{
+            alt: name,
+            src: icon.src || icon.url,
+          }}
+          sx={{
+            height: 124,
+            width: 124,
+          }}
+        />
         <Box display="flex" flexDirection="column" minWidth="180px">
           <RichTypography
             color="textSecondary"
@@ -91,14 +78,18 @@ function Resource({ background, icon, link, name, value, sx }) {
           >
             {name}
           </RichTypography>
-          <Button
-            color="secondary"
-            size="small"
-            variant="contained"
-            sx={{ mt: 2.5, width: "fit-content" }}
-          >
-            {link?.content}
-          </Button>
+          {link?.label ? (
+            <Button
+              color="secondary"
+              component={link.href ? Link : undefined}
+              href={link.href}
+              size="small"
+              variant="contained"
+              sx={{ mt: 2.5, width: "fit-content" }}
+            >
+              {link?.label}
+            </Button>
+          ) : null}
         </Box>
       </Box>
     </Box>

@@ -1,12 +1,11 @@
 import link from "../fields/link";
-import linkGroup from "../fields/linkGroup";
-import mapLinkTypeToHref from "../utils/mapLinkTypeToHref";
+import linkArray from "../fields/linkArray";
 
 const linkField = link();
 linkField.fields.push({
   type: "row",
   fields: [
-    linkGroup({
+    linkArray({
       overrides: {
         name: "children",
         label: {
@@ -28,28 +27,6 @@ linkField.fields.push({
   ],
 });
 
-function insertHref(menus) {
-  if (!menus?.length) {
-    // return null since undefined is not serializable
-    return null;
-  }
-  return menus.map((originalMenu) => {
-    const menu = mapLinkTypeToHref(originalMenu);
-    menu.children = insertHref(originalMenu.children);
-    return menu;
-  });
-}
-
-function afterReadInsertLinkHrefHook(args) {
-  const { doc } = args;
-  if (doc.menus) {
-    const { menus: originalMenus } = doc;
-    const menus = insertHref(originalMenus);
-    return { ...doc, menus };
-  }
-  return doc;
-}
-
 const Navigation = {
   slug: "navigation",
   label: {
@@ -61,16 +38,13 @@ const Navigation = {
     read: () => true,
   },
   fields: [
-    linkGroup({
+    linkArray({
       overrides: {
         name: "menus",
         fields: [linkField],
       },
     }),
   ],
-  hooks: {
-    afterRead: [afterReadInsertLinkHrefHook],
-  },
 };
 
 export default Navigation;

@@ -15,7 +15,9 @@ const defaultProps = {
     {
       background: {
         color: "#4D2137",
-        src: "/images/resources-tools.png",
+        image: {
+          src: "/images/resources-tools.png",
+        },
       },
       icon: {
         color: "#F7CE46",
@@ -30,7 +32,9 @@ const defaultProps = {
     {
       background: {
         color: "#CC6F58",
-        src: "/images/resources-people.png",
+        image: {
+          src: "/images/resources-people.png",
+        },
       },
       icon: {
         color: "#F29D88",
@@ -45,7 +49,9 @@ const defaultProps = {
     {
       background: {
         color: "#699968",
-        src: "/images/resources-organisations.png",
+        image: {
+          src: "/images/resources-organisations.png",
+        },
       },
       icon: {
         color: "#AAD4A9",
@@ -60,7 +66,9 @@ const defaultProps = {
     {
       background: {
         color: "#6C5B6D",
-        src: "/images/resources-data.png",
+        image: {
+          src: "/images/resources-data.png",
+        },
       },
       icon: {
         color: "#A790A9",
