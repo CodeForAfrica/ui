@@ -33,7 +33,7 @@ const MoocSlide = React.forwardRef(function MoocSlide(props, ref) {
       <Box
         display="flex"
         flexDirection={{ xs: "column-reverse", sm: "row" }}
-        // gap={5}
+        gap={5}
         justifyContent="center"
         alignItems="center"
       >
