@@ -157,17 +157,6 @@ const Hero = {
               },
             },
             {
-              name: "content",
-              type: "text",
-              required: true,
-              localized: true,
-              label: {
-                en: "Button Text",
-                fr: "Texte du bouton",
-                pt: "Texto do botão",
-              },
-            },
-            {
               name: "icon",
               type: "upload",
               relationTo: "media",

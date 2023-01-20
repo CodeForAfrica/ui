@@ -107,9 +107,10 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     const { title, background, links, ...other } = slide;
 
     const formattedLinks = links.map((link) => {
-      const { icon, ...rest } = link;
+      const { color, icon, label: content } = link;
       return {
-        ...rest,
+        color,
+        content,
         icon: { src: icon.url },
       };
     });
@@ -122,7 +123,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
       background: {
         blendMode: background.blendMode.join(","),
         color: background.color,
-        src: background.src.url,
+        src: background.image.url,
       },
       links: formattedLinks,
       ...other,
