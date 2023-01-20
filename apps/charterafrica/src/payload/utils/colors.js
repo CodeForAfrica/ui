@@ -1,13 +1,12 @@
-export const validateHexColor = (value = "") => {
+export const validateHexColor = (value, { t }) => {
   return (
     value.match(/^#(?:[0-9a-fA-F]{3,4}){1,2}$/) !== null ||
-    `Please give a valid hex color`
+    t(`Please give a valid hex color`)
   );
 };
 
 export const blendModeOptions = [
   {
-    label: "Color",
     value: "color",
   },
   {
