@@ -44,7 +44,6 @@ const Slide = React.forwardRef(function Slide(props, ref) {
       <Section sx={{ px: { xs: 1.25, sm: 0 }, py: { xs: 5, md: "86px" } }}>
         <Box display="flex" flexDirection="column" alignItems="center">
           <RichText
-            html
             component="h1"
             elements={title.content}
             textAlign="center"
