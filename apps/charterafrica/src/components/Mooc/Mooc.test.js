@@ -9,50 +9,18 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  slides: [
-    {
-      title: {
-        content:
-          "Learn how to use digital tools to <i>strengthen</i> your democracy 1",
-        color: "common.white",
-      },
-      link: {
-        content: "Learn more",
-        color: "primary",
-      },
-      image: {
-        src: "/images/mooc.png",
-      },
-    },
-    {
-      title: {
-        content:
-          "Learn how to use digital tools to <i>strengthen</i> your democracy 2",
-        color: "common.white",
-      },
-      link: {
-        content: "Learn more",
-        color: "primary",
-      },
-      image: {
-        src: "/images/mooc.png",
-      },
-    },
-    {
-      title: {
-        content:
-          "Learn how to use digital tools to <i>strengthen</i> your democracy 3",
-        color: "common.white",
-      },
-      link: {
-        content: "Learn more",
-        color: "primary",
-      },
-      image: {
-        src: "/images/mooc.png",
-      },
-    },
-  ],
+  title: {
+    content:
+      "Learn how to use digital tools to <i>strengthen</i> your democracy 1",
+    color: "common.white",
+  },
+  link: {
+    content: "Learn more",
+    color: "primary",
+  },
+  image: {
+    src: "/images/mooc.png",
+  },
 };
 
 describe("<Mooc/>", () => {
