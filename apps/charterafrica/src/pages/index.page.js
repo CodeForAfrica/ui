@@ -105,7 +105,6 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
 
   const heroSlides = hero?.slides?.map((slide) => {
     const { title, background, links, ...other } = slide;
-
     const formattedLinks = links.map((link) => {
       const { color, icon, label: content } = link;
       return {
@@ -116,10 +115,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     });
 
     return {
-      title: {
-        color: title.color,
-        content: title.content[0].children[0].text,
-      },
+      title,
       background: {
         blendMode: background.blendMode.join(","),
         color: background.color,
