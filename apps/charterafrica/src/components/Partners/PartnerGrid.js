@@ -4,7 +4,14 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
-  const { GridItemProps, FigureProps, partners, ...other } = props;
+  const {
+    GridItemProps,
+    FigureProps,
+    partners,
+    createdAt,
+    updatedAt,
+    ...other
+  } = props;
 
   return (
     <Grid
@@ -32,7 +39,7 @@ const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
         >
           <Link
             color="inherit"
-            href={partner.url}
+            href={partner?.link?.url || partner?.link?.href || ""}
             underline="always"
             variant="p1"
           >
@@ -50,9 +57,9 @@ const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
                 },
               })}
               ImageProps={{
-                alt: partner?.logo?.alt,
-                src: partner?.logo?.url,
-                // ...partner.logo,
+                alt: partner?.link?.logo?.alt,
+                src: partner?.link?.logo?.url,
+                ...partner.logo,
                 sx: {
                   objectPosition: "center",
                   mixBlendMode: "luminosity",

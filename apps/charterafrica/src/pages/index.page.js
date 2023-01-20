@@ -55,7 +55,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     const { alt: imageAlt, url: imageSrc } = helpdesk.image;
     helpdesk.image = { alt: imageAlt, src: imageSrc };
     const { href: linkHref, label: linkLabel } = helpdesk.link;
-    helpdesk.link = { href: linkHref, label: linkLabel };
+    helpdesk.link = { href: linkHref ?? null, label: linkLabel ?? null };
   }
 
   const { docs: pages } = await payload.findPage("index", {
@@ -103,15 +103,9 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   const ourResources =
     blocks.find((block) => block.slug === "our-resources") || null;
 
-  const { partnerGroups } = await payload.findGlobal("Partners", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-
-  const partners = partnerGroups.map((partner) => ({
-    partners: partner.links,
-    ...partner,
-  }));
+  const { partners } = blocks.find(
+    (block) => block.slug === "block-partners"
+  ) || { partners: [] };
 
   return {
     props: {

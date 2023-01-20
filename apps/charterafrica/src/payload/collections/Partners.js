@@ -14,6 +14,7 @@ linkField.fields = [
     label: {
       en: "Logo",
       pt: "Imagem",
+      fr: "Image",
     },
   },
   ...linkField.fields,
@@ -22,31 +23,47 @@ linkField.fields = [
 partnerGroup.fields = [linkField];
 
 const Partners = {
-  slug: "Partners",
-  label: {
-    en: "Partners",
-    fr: "Partenaires",
+  slug: "partners",
+  labels: {
+    singular: {
+      en: "Partner",
+      fr: "Partenaire",
+    },
+    plural: {
+      en: "Partners",
+      fr: "Partenaires",
+    },
+  },
+  admin: {
+    useAsTitle: "name",
+    defaultColumns: ["name", "updatedAt"],
+  },
+  access: {
+    read: () => true,
   },
   fields: [
     {
-      name: "partnerGroups",
-      label: {
-        en: "Partner Groups",
-        fr: "Partner Groups",
-      },
-      type: "array",
+      type: "row",
       fields: [
         {
           name: "name",
           label: {
             en: "Name",
-            pt: "Nome",
             fr: "Nom",
+            pt: "Nome",
           },
           type: "text",
           localized: true,
           required: true,
+          admin: {
+            width: "50%",
+          },
         },
+      ],
+    },
+    {
+      type: "row",
+      fields: [
         {
           name: "description",
           label: {
@@ -61,9 +78,14 @@ const Partners = {
           localized: true,
           required: true,
         },
-        { ...partnerGroup },
       ],
+    },
+    {
+      type: "array",
+      name: "partners",
+      fields: [partnerGroup],
     },
   ],
 };
+
 export default Partners;
