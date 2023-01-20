@@ -1,5 +1,4 @@
 import link from "../fields/link";
-import richText from "../fields/richText";
 import {
   validateHexColor,
   blendModeOptions,
@@ -11,13 +10,22 @@ const Hero = {
   fields: [
     {
       name: "slides",
+      label: {
+        en: "Slides",
+        fr: "Diapositives",
+        pt: "diapositivos",
+      },
       type: "array",
       minRows: 1,
       fields: [
         {
           name: "title",
+          label: {
+            en: "Title",
+            fr: "Titre",
+            pt: "Título",
+          },
           type: "group",
-          required: true,
           fields: [
             {
               name: "color",
@@ -25,29 +33,36 @@ const Hero = {
               validate: validateHexColor,
               required: true,
               label: {
-                en: "Title Color",
-                fr: "Couleur du titre",
-                pt: "Cor do título",
+                en: "Color",
+                fr: "Couleur",
+                pt: "Cor",
               },
             },
-            richText({
+            {
               name: "content",
-              required: true,
-              admin: {
-                elements: ["h2", "h3", "h4", "h5", "h6", "link"],
-                leaves: ["bold", "italic", "underline", "code"],
-              },
-              localized: true,
+              type: "richText",
               label: {
                 en: "Title",
                 fr: "Titre",
                 pt: "Título",
               },
-            }),
+              required: true,
+              localized: true,
+              admin: {
+                elements: ["h1"],
+                leaves: ["bold", "italic", "underline", "code"],
+              },
+            },
           ],
+          required: true,
         },
         {
           name: "subheading",
+          label: {
+            en: "Subheading",
+            fr: "Sous-titre",
+            pt: "Subtítulo",
+          },
           type: "group",
           required: true,
           fields: [
@@ -57,9 +72,9 @@ const Hero = {
               validate: validateHexColor,
               required: true,
               label: {
-                en: "Subheading Color",
-                fr: "Couleur du sous-titre",
-                pt: "Cor do subtítulo",
+                en: "Color",
+                fr: "Couleur",
+                pt: "Cor",
               },
             },
             {
@@ -68,9 +83,9 @@ const Hero = {
               required: true,
               localized: true,
               label: {
-                en: "Subheading",
-                fr: "Sous-titre",
-                pt: "Subtítulo",
+                en: "Content",
+                fr: "Contenu",
+                pt: "Conteúdo",
               },
             },
           ],
