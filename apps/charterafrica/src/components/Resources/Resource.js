@@ -87,7 +87,7 @@ function Resource({ background, icon, link, name, value, sx }) {
               variant="contained"
               sx={{ mt: 2.5, width: "fit-content" }}
             >
-              {link?.label}
+              {link.label}
             </Button>
           ) : null}
         </Box>
