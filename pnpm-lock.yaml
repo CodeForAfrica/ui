@@ -49,6 +49,7 @@ importers:
       "@nivo/tooltip": ^0.80.0
       "@nivo/waffle": ^0.80.0
       "@payloadcms/plugin-cloud-storage": ^1.0.12
+      "@payloadcms/plugin-nested-docs": ^1.0.4
       "@payloadcms/plugin-seo": ^1.0.9
       "@playwright/test": ^1.28.1
       "@svgr/webpack": ^6.5.1
@@ -103,6 +104,7 @@ importers:
       "@nivo/tooltip": 0.80.0_wyuiu3ihipn7hpncy62nqhyrji
       "@nivo/waffle": 0.80.0_6zomopewppbkd5eeu2nbbcio3i
       "@payloadcms/plugin-cloud-storage": 1.0.12_24qdcna5fw7yx55xiuoojdjmn4
+      "@payloadcms/plugin-nested-docs": 1.0.4_payload@1.2.5+react@18.2.0
       "@payloadcms/plugin-seo": 1.0.9_payload@1.2.5+react@18.2.0
       express: 4.18.2
       leaflet: 1.9.3
@@ -6306,6 +6308,19 @@ packages:
     dependencies:
       "@aws-sdk/client-s3": 3.226.0
       payload: 1.2.5_zlpd6cnkwba4kpt7c27okjca2i
+    dev: false
+
+  /@payloadcms/plugin-nested-docs/1.0.4_payload@1.2.5+react@18.2.0:
+    resolution:
+      {
+        integrity: sha512-vjhk3fE/uRkUSNg0UuAv/NIEvDDMRcbEHSgxOo/MbmXOT2LFsh3fPq+Gq4+cL1H9s+FStiIkygigv7J5fgOZwA==,
+      }
+    peerDependencies:
+      payload: ^0.18.5
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      payload: 1.2.5_zlpd6cnkwba4kpt7c27okjca2i
+      react: 18.2.0
     dev: false
 
   /@payloadcms/plugin-seo/1.0.9_payload@1.2.5+react@18.2.0:
