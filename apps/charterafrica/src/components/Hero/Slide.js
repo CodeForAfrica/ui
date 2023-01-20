@@ -46,7 +46,7 @@ const Slide = React.forwardRef(function Slide(props, ref) {
           <RichText
             html
             component="h1"
-            elements={title.content || title}
+            elements={title.content}
             textAlign="center"
             typography={{ md: "display2" }}
             variant="h2Small"
