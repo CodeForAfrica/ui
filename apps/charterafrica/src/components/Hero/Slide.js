@@ -53,7 +53,7 @@ const Slide = React.forwardRef(function Slide(props, ref) {
             sx={() => ({
               color: title?.color,
               minHeight: `calc(${theme.typography.h2Small.fontSize}px*${theme.typography.h2Small.lineHeight}*3)`,
-              "&>i": {
+              "&>em": {
                 color: "secondary.main",
                 fontStyle: "normal",
               },
@@ -66,30 +66,6 @@ const Slide = React.forwardRef(function Slide(props, ref) {
               },
             })}
           />
-          {/* <LineClampedRichTypography
-            component="h1"
-            lineClamp={{ xs: "3", sm: "2" }}
-            textAlign="center"
-            typography={{ md: "display2" }}
-            variant="h2Small"
-            sx={() => ({
-              color: title?.color,
-              minHeight: `calc(${theme.typography.h2Small.fontSize}px*${theme.typography.h2Small.lineHeight}*3)`,
-              "&>i": {
-                color: "secondary.main",
-                fontStyle: "normal",
-              },
-              [theme.breakpoints.up("sm")]: {
-                minHeight: `calc(${theme.typography.h2Small.fontSize}px*${theme.typography.h2Small.lineHeight}*2)`,
-              },
-              [theme.breakpoints.up("md")]: {
-                typography: "display2",
-                minHeight: `calc(${theme.typography.display2.fontSize}px*${theme.typography.display2.lineHeight}*2)`,
-              },
-            })}
-          >
-            {title?.content || title}
-          </LineClampedRichTypography> */}
           <LineClampedRichTypography
             lineClamp={{ xs: "2", sm: "1" }}
             mt="30px"
