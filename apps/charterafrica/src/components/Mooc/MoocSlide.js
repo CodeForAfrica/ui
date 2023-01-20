@@ -1,5 +1,5 @@
-import Figure from "@/commons-ui/next/Figure";
 import { Section } from "@commons-ui/core";
+import { Figure } from "@commons-ui/next";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import MobileStepper from "@mui/material/MobileStepper";
@@ -29,10 +29,7 @@ const MoocSlide = React.forwardRef(function MoocSlide(props, ref) {
   }
 
   return (
-    <Section
-      ref={ref}
-      sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "74.5px" } }}
-    >
+    <Section ref={ref} sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "86px" } }}>
       <Box
         display="flex"
         flexDirection={{ xs: "column-reverse", sm: "row" }}
@@ -50,7 +47,7 @@ const MoocSlide = React.forwardRef(function MoocSlide(props, ref) {
         >
           <LineClampedRichTypography
             component="h1"
-            textAlign="start"
+            textAlign="left"
             typography={{ md: "h1", sm: "h2" }}
             variant="h4"
             sx={() => ({
@@ -79,14 +76,31 @@ const MoocSlide = React.forwardRef(function MoocSlide(props, ref) {
           justifyContent="center"
           flexDirection="column"
         >
-          <Figure
-            ImageProps={{ ...image }}
-            alt={title}
-            sx={{
-              width: { xs: 310, sm: 688, md: 436, lg: 512 },
-              height: { xs: 199, sm: 550, md: 281, lg: 329 },
+          <Box
+            height={{
+              xs: "329px",
             }}
-          />
+          >
+            <Figure
+              ImageProps={{
+                ...image,
+                alt: title.content,
+                objectFit: "cover",
+              }}
+              sx={{
+                height: {
+                  xs: 329,
+                },
+                width: {
+                  xs: "90vw",
+                  sm: "35vw",
+                  md: "25vw",
+                  lg: 512,
+                },
+              }}
+            />
+          </Box>
+
           <MobileStepper
             variant="dots"
             steps={slides}
