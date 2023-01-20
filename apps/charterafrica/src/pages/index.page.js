@@ -22,7 +22,7 @@ function Index({ blocks }) {
         return <Hero {...block} key={block.slug} />;
       case "partners":
         return <Partners {...block} key={block.slug} />;
-      case "resources":
+      case "our-resources":
         return <Resources {...block} key={block.slug} />;
       case "spotlight":
         return <Spotlight {...block} key={block.slug} />;
@@ -106,6 +106,8 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   spotlight.items = spotlightItems || null;
 
   const ecosystem = blocks.find((block) => block.slug === "ecosystem") || null;
+  const ourResources =
+    blocks.find((block) => block.slug === "our-resources") || null;
 
   return {
     props: {
@@ -259,72 +261,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           slug: "focal-countries",
           ...fc,
         },
-        {
-          slug: "resources",
-          title: "Our Resources",
-          resources: [
-            {
-              background: {
-                color: "#4D2137",
-                src: "/images/resources-tools.png",
-              },
-              icon: {
-                color: "#F7CE46",
-                src: "/icons/Type=database, Size=64, Color=CurrentColor.svg",
-              },
-              link: {
-                content: "Browse tools",
-              },
-              name: "Tools",
-              value: "54,000",
-            },
-            {
-              background: {
-                color: "#CC6F58",
-                src: "/images/resources-people.png",
-              },
-              icon: {
-                color: "#F29D88",
-                src: "/icons/Type=paperclip, Size=64, Color=CurrentColor.svg",
-              },
-              link: {
-                content: "Browse people",
-              },
-              name: "People",
-              value: "54,000",
-            },
-            {
-              background: {
-                color: "#699968",
-                src: "/images/resources-organisations.png",
-              },
-              icon: {
-                color: "#AAD4A9",
-                src: "/icons/Type=users, Size=64, Color=CurrentColor.svg",
-              },
-              link: {
-                content: "Browse organisations",
-              },
-              name: "Organisations",
-              value: "54,000",
-            },
-            {
-              background: {
-                color: "#6C5B6D",
-                src: "/images/resources-data.png",
-              },
-              icon: {
-                color: "#A790A9",
-                src: "/icons/Type=database, Size=64, Color=CurrentColor.svg",
-              },
-              link: {
-                content: "Browse database",
-              },
-              name: "Data",
-              value: "54,000",
-            },
-          ],
-        },
+        ourResources,
         helpdesk,
         {
           slug: "partners",

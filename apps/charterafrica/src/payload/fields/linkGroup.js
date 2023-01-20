@@ -2,22 +2,23 @@ import { deepmerge } from "@mui/utils";
 
 import link from "./link";
 
-const linkGroup = ({ linkConfig, overrides = {} } = {}) => {
+/**
+ * group field consisting of a link field.
+ */
+function linkGroup({ linkConfig, overrides = {} } = {}) {
   const generatedLinkGroup = {
-    name: "links",
-    type: "array",
-    fields: [link(linkConfig)],
-    admin: {
-      initCollapsed: true,
-      components: {
-        RowLabel: ({ data }) => {
-          return data?.label || data?.reference?.title || data?.url || data?.id;
-        },
-      },
+    name: "link",
+    label: {
+      en: "Link",
+      fr: "Lien",
+      pt: "Link",
     },
+    type: "group",
+    required: true,
+    fields: [link(linkConfig)],
   };
 
   return deepmerge(generatedLinkGroup, overrides);
-};
+}
 
 export default linkGroup;
