@@ -131,7 +131,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                       <Link
                         key={link.id}
                         color="inherit"
-                        href={link.url}
+                        href={link?.url || `/${link?.doc?.value?.slug || ""}`}
                         underline="always"
                         variant="p1"
                       >

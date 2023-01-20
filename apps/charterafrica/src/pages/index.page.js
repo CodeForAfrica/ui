@@ -79,6 +79,8 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
 
   const spotlight = blocks.find((block) => block.slug === "spotlight") || {};
 
+  console.error({ pages });
+
   const spotlightItems = spotlight?.items?.map((item) => {
     const { item: itemData, ...rest } = item;
     return {
