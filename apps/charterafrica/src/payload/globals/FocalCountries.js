@@ -1,40 +1,6 @@
 import { array } from "payload/dist/fields/validations";
 
-import expandDoc from "../utils/expandDoc";
-import mapLinkTypeToHref from "../utils/mapLinkTypeToHref";
-
-async function insertHref(nodes, req) {
-  if (!nodes?.length) {
-    // Front-end needs null for serialization
-    return null;
-  }
-  return Promise.all(
-    nodes.map(async (originalNode) => {
-      let node = originalNode;
-      // The most important thing is not to change the doc structure
-      // since the admin UI expects it to be in certain why. But of course,
-      // we can add href prop for front-end.
-      if (originalNode.type === "link") {
-        const doc = await expandDoc(originalNode.doc, req);
-        const { href } = mapLinkTypeToHref({ ...originalNode, doc });
-        node = { ...originalNode, href };
-      }
-      node.children = await insertHref(originalNode.children, req);
-      return node;
-    })
-  );
-}
-
-// process richText links
-async function afterReadInsertLinkHrefHook(args) {
-  const { doc, req } = args;
-  if (doc) {
-    const { description: originalDescription } = doc;
-    const description = await insertHref(originalDescription, req);
-    return { ...doc, description };
-  }
-  return doc;
-}
+import linkGroup from "../fields/linkGroup";
 
 const FocalCountries = {
   slug: "focal-countries",
@@ -211,28 +177,8 @@ const FocalCountries = {
         },
       },
     },
-    {
-      name: "link",
-      label: {
-        en: "Link",
-      },
-      type: "group",
-      fields: [
-        {
-          name: "content",
-          label: {
-            en: "Content",
-          },
-          type: "text",
-          required: true,
-          localized: true,
-        },
-      ],
-    },
+    linkGroup(),
   ],
-  hooks: {
-    afterRead: [afterReadInsertLinkHrefHook],
-  },
 };
 
 export default FocalCountries;
