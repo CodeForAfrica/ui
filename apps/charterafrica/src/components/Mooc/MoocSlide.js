@@ -1,8 +1,8 @@
+import Figure from "@/commons-ui/next/Figure";
 import { Section } from "@commons-ui/core";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import MobileStepper from "@mui/material/MobileStepper";
-import Image from "next/image";
 import React, { useRef } from "react";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
@@ -33,19 +33,25 @@ const MoocSlide = React.forwardRef(function MoocSlide(props, ref) {
       ref={ref}
       sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "74.5px" } }}
     >
-      <Box display="flex" justifyContent="center" alignItems="center">
+      <Box
+        display="flex"
+        flexDirection={{ xs: "column-reverse", sm: "row" }}
+        // gap={5}
+        justifyContent="center"
+        alignItems="center"
+      >
         <Box
           flex={1.2}
           display="flex"
           flexDirection="column"
           justifyContent="center"
-          alignItems="start"
+          alignItems={{ xs: "center", md: "flex-start" }}
           sx={{ gap: 5 }}
         >
           <LineClampedRichTypography
             component="h1"
             textAlign="start"
-            typography={{ md: "h1" }}
+            typography={{ md: "h1", sm: "h2" }}
             variant="h4"
             sx={() => ({
               color: title?.color,
@@ -73,14 +79,14 @@ const MoocSlide = React.forwardRef(function MoocSlide(props, ref) {
           justifyContent="center"
           flexDirection="column"
         >
-          <Image
-            {...image}
+          <Figure
+            ImageProps={{ ...image }}
             alt={title}
-            layout="responsive"
-            width={329}
-            height={512}
+            sx={{
+              width: { xs: 310, sm: 688, md: 436, lg: 512 },
+              height: { xs: 199, sm: 550, md: 281, lg: 329 },
+            }}
           />
-
           <MobileStepper
             variant="dots"
             steps={slides}
