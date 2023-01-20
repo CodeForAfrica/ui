@@ -1,4 +1,5 @@
 import { RichTypography } from "@commons-ui/next";
+import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
@@ -14,6 +15,8 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
     },
     "#mc_embed_signup form": {
       margin: 0,
+      display: "flex",
+      textAlign: "right",
     },
     "& #mce-EMAIL-HELPERTEXT": {
       display: "none",
@@ -30,6 +33,17 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
         padding: `0 ${typography.pxToRem(12)}`,
         width: "100%",
       },
+    "& #mc_embed_signup input[type=text]": {
+      display: "none",
+    },
+    "& #mc_embed_signup input[type=email]": {
+      flex: 1,
+      minWidth: "200px",
+      // marginRight: typography.pxToRem(1),
+    },
+    "#mc_embed_signup div#mce-responses": {
+      display: "none",
+    },
     "& #mc_embed_signup input::placeholder": {
       color: "#D0CBCB",
       opacity: 1.0,
@@ -55,13 +69,15 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
       border: "none",
       padding: 0,
       // textDecoration: "underline",
-      width: "100%",
+      minWidth: "98px",
       backgroundColor: "#F7CE46",
       fontFamily: "Open Sans",
       fontStyle: "normal",
       fontWeight: 600,
       fontSize: "14px",
       color: "#3E202C",
+      marginLeft: typography.pxToRem(10),
+      height: typography.pxToRem(36),
     },
   })
 );
@@ -84,20 +100,22 @@ const NewsletterSubscription = React.forwardRef(function NewsletterSubscription(
   return (
     <Stack
       sx={{
-        maxWidth: { md: "170px", textAlign: "left" },
+        width: { md: "310px", textAlign: "left" },
         ...sx,
       }}
       ref={ref}
     >
       <RichTypography
         variant="h5SemiBold"
-        sx={{ mb: "30px", fontFamily: "Open Sans" }}
+        sx={{ mb: "30px", fontFamily: "Open Sans", textAlign: "right" }}
       >
         {title}
       </RichTypography>
-      <NewsletterSubscriptionRoot component="div">
-        {children}
-      </NewsletterSubscriptionRoot>
+      <Box sx={{ width: 310 }}>
+        <NewsletterSubscriptionRoot component="div">
+          {children}
+        </NewsletterSubscriptionRoot>
+      </Box>
     </Stack>
   );
 });

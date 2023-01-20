@@ -63,16 +63,19 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 justifyContent="space-between"
                 alignItems="flex-end"
               >
-                <NewsletterSubscription {...newsletter} embedCode={toEmbed} />
                 <Box
                   display="flex"
                   justifyContent="flex-end"
                   flexDirection="column"
                   alignItems="flex-end"
-                  style={{ maxWidth: "172px" }}
-                  xs={{ width: { xs: "172px", sm: "150px" } }}
                 >
-                  <Box sx={{ marginBottom: "20px" }}>
+                  <NewsletterSubscription {...newsletter} embedCode={toEmbed} />
+                  <Box
+                    sx={{
+                      marginBottom: "20px",
+                      width: { xs: "172px", sm: "150px" },
+                    }}
+                  >
                     <RichTypography fontSize={16} textAlign="right">
                       {logo?.title}
                     </RichTypography>
