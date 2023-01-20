@@ -22,11 +22,9 @@ exports[`<Footer /> renders unchanged 1`] = `
             >
               <div
                 class="MuiBox-root css-vm6a4v"
-                style="max-width: 172px;"
-                xs="[object Object]"
               >
                 <div
-                  class="MuiBox-root css-uewl2b"
+                  class="MuiBox-root css-i0q47s"
                 />
               </div>
             </div>
