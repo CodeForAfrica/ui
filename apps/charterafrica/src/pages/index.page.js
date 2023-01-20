@@ -104,7 +104,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   const hero = blocks.find((block) => block.slug === "hero") || {};
 
   const heroSlides = hero?.slides?.map((slide) => {
-    const { title, background, links, ...other } = slide;
+    const { background, links, ...other } = slide;
     const formattedLinks = links.map((link) => {
       const { color, icon, label: content } = link;
       return {
@@ -115,7 +115,6 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     });
 
     return {
-      title,
       background: {
         blendMode: background.blendMode.join(","),
         color: background.color,
