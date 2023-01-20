@@ -96,7 +96,7 @@ const Hero = {
           required: true,
           fields: [
             {
-              name: "src",
+              name: "image",
               label: {
                 en: "Background Image",
                 fr: "Image de fond",
@@ -178,9 +178,7 @@ const Hero = {
                 pt: "Ícone do botão",
               },
             },
-            link({
-              disableLabel: true,
-            }),
+            link(),
           ],
         },
       ],
