@@ -55,7 +55,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     const { alt: imageAlt, url: imageSrc } = helpdesk.image;
     helpdesk.image = { alt: imageAlt, src: imageSrc };
     const { href: linkHref, label: linkLabel } = helpdesk.link;
-    helpdesk.link = { href: linkHref, label: linkLabel };
+    helpdesk.link = { href: linkHref ?? null, label: linkLabel ?? null };
   }
 
   const footer = await payload.findGlobal("footer", {
@@ -78,8 +78,6 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     })) ?? [];
 
   const spotlight = blocks.find((block) => block.slug === "spotlight") || {};
-
-  console.error({ pages });
 
   const spotlightItems = spotlight?.items?.map((item) => {
     const { item: itemData, ...rest } = item;

@@ -13,6 +13,13 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
       color: "inherit",
       width: "100%",
     },
+    "& #mc_embed_signup .mc-field-group label, #mc_embed_signup .brandingLogo, #mc_embed_signup .indicates-required, #mc_embed_signup h2":
+      {
+        display: "none",
+      },
+    "& #mc_embed_signup_scroll": {
+      display: "flex",
+    },
     "#mc_embed_signup form": {
       margin: 0,
       display: "flex",

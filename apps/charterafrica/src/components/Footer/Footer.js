@@ -138,7 +138,10 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                         underline="always"
                         variant="p1"
                       >
-                        {link.label || link?.href || link?.url}
+                        {link.label?.en ||
+                          link.label ||
+                          link?.href ||
+                          link?.url}
                       </Link>
                     ))}
                   </Box>
