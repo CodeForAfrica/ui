@@ -1,5 +1,26 @@
 import { deepmerge } from "@mui/utils";
 
+import mapLinkTypeToHref from "../utils/mapLinkTypeToHref";
+
+async function mapLinkToHrefBeforeValidate({ siblingData, req: { payload } }) {
+  // Don't modify original doc.
+  const doc = { ...siblingData.doc };
+  if (typeof doc.value === "string") {
+    const { relationTo: collection, value: id } = doc;
+    doc.value = await payload.findByID({
+      collection,
+      id,
+      // We only need slug from the collection don't expand the whole
+      // relationship. We may end up getting stuck on infinite recursion if
+      // collection contain other links.
+      depth: 0,
+    });
+  }
+  const href = mapLinkTypeToHref({ ...siblingData, doc });
+
+  return href;
+}
+
 const link = ({ disableLabel = false, overrides = {} } = {}) => {
   const linkResult = {
     type: "row",
@@ -60,6 +81,17 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
           required: true,
           admin: {
             condition: (_, siblingData) => siblingData?.linkType === "custom",
+          },
+        },
+        {
+          name: "href",
+          type: "text",
+          required: true,
+          admin: {
+            hidden: true,
+          },
+          hooks: {
+            beforeValidate: [mapLinkToHrefBeforeValidate],
           },
         },
       ],

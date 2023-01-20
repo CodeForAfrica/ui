@@ -1,14 +1,14 @@
 import { array } from "payload/dist/fields/validations";
 
 import link from "../fields/link";
-import linkGroup from "../fields/linkGroup";
+import linkArray from "../fields/linkArray";
 import { locales } from "../utils/locales";
 
 const linkField = link();
 linkField.fields.push({
   type: "row",
   fields: [
-    linkGroup({
+    linkArray({
       overrides: {
         name: "children",
         label: {

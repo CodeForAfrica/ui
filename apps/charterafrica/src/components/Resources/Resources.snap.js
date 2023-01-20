@@ -38,25 +38,21 @@ exports[`<Resources /> renders unchanged 1`] = `
             class="MuiBox-root css-jglt73"
             wrap="nowrap"
           >
-            <div
-              class="MuiBox-root css-506ucf"
+            <figure
+              class="MuiBox-root css-1upx2vz"
             >
-              <figure
-                class="MuiBox-root css-uf656"
-              >
-                <img
-                  alt="Tools"
-                  class="css-lk4r14"
-                  data-nimg="fill"
-                  decoding="async"
-                  loading="lazy"
-                  sizes="100vw"
-                  src="/icons/Type=database, Size=64, Color=CurrentColor.svg"
-                  srcset="/icons/Type=database, Size=64, Color=CurrentColor.svg 640w, /icons/Type=database, Size=64, Color=CurrentColor.svg 750w, /icons/Type=database, Size=64, Color=CurrentColor.svg 828w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1080w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1200w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1920w, /icons/Type=database, Size=64, Color=CurrentColor.svg 2048w, /icons/Type=database, Size=64, Color=CurrentColor.svg 3840w"
-                  style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
-                />
-              </figure>
-            </div>
+              <img
+                alt="Tools"
+                class="css-g98gbd"
+                data-nimg="fill"
+                decoding="async"
+                loading="lazy"
+                sizes="100vw"
+                src="/icons/Type=database, Size=64, Color=CurrentColor.svg"
+                srcset="/icons/Type=database, Size=64, Color=CurrentColor.svg 640w, /icons/Type=database, Size=64, Color=CurrentColor.svg 750w, /icons/Type=database, Size=64, Color=CurrentColor.svg 828w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1080w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1200w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1920w, /icons/Type=database, Size=64, Color=CurrentColor.svg 2048w, /icons/Type=database, Size=64, Color=CurrentColor.svg 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+              />
+            </figure>
             <div
               class="MuiBox-root css-y0apaj"
             >
@@ -70,13 +66,6 @@ exports[`<Resources /> renders unchanged 1`] = `
               >
                 Tools
               </h6>
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-p96gsc-MuiButtonBase-root-MuiButton-root"
-                tabindex="0"
-                type="button"
-              >
-                Browse tools
-              </button>
             </div>
           </div>
         </div>
@@ -106,25 +95,21 @@ exports[`<Resources /> renders unchanged 1`] = `
             class="MuiBox-root css-jglt73"
             wrap="nowrap"
           >
-            <div
-              class="MuiBox-root css-xen063"
+            <figure
+              class="MuiBox-root css-1upx2vz"
             >
-              <figure
-                class="MuiBox-root css-uf656"
-              >
-                <img
-                  alt="People"
-                  class="css-lk4r14"
-                  data-nimg="fill"
-                  decoding="async"
-                  loading="lazy"
-                  sizes="100vw"
-                  src="/icons/Type=paperclip, Size=64, Color=CurrentColor.svg"
-                  srcset="/icons/Type=paperclip, Size=64, Color=CurrentColor.svg 640w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 750w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 828w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 1080w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 1200w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 1920w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 2048w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 3840w"
-                  style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
-                />
-              </figure>
-            </div>
+              <img
+                alt="People"
+                class="css-g98gbd"
+                data-nimg="fill"
+                decoding="async"
+                loading="lazy"
+                sizes="100vw"
+                src="/icons/Type=paperclip, Size=64, Color=CurrentColor.svg"
+                srcset="/icons/Type=paperclip, Size=64, Color=CurrentColor.svg 640w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 750w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 828w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 1080w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 1200w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 1920w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 2048w, /icons/Type=paperclip, Size=64, Color=CurrentColor.svg 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+              />
+            </figure>
             <div
               class="MuiBox-root css-y0apaj"
             >
@@ -138,13 +123,6 @@ exports[`<Resources /> renders unchanged 1`] = `
               >
                 People
               </h6>
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-p96gsc-MuiButtonBase-root-MuiButton-root"
-                tabindex="0"
-                type="button"
-              >
-                Browse people
-              </button>
             </div>
           </div>
         </div>
@@ -174,25 +152,21 @@ exports[`<Resources /> renders unchanged 1`] = `
             class="MuiBox-root css-jglt73"
             wrap="nowrap"
           >
-            <div
-              class="MuiBox-root css-7tctw3"
+            <figure
+              class="MuiBox-root css-1upx2vz"
             >
-              <figure
-                class="MuiBox-root css-uf656"
-              >
-                <img
-                  alt="Organisations"
-                  class="css-lk4r14"
-                  data-nimg="fill"
-                  decoding="async"
-                  loading="lazy"
-                  sizes="100vw"
-                  src="/icons/Type=users, Size=64, Color=CurrentColor.svg"
-                  srcset="/icons/Type=users, Size=64, Color=CurrentColor.svg 640w, /icons/Type=users, Size=64, Color=CurrentColor.svg 750w, /icons/Type=users, Size=64, Color=CurrentColor.svg 828w, /icons/Type=users, Size=64, Color=CurrentColor.svg 1080w, /icons/Type=users, Size=64, Color=CurrentColor.svg 1200w, /icons/Type=users, Size=64, Color=CurrentColor.svg 1920w, /icons/Type=users, Size=64, Color=CurrentColor.svg 2048w, /icons/Type=users, Size=64, Color=CurrentColor.svg 3840w"
-                  style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
-                />
-              </figure>
-            </div>
+              <img
+                alt="Organisations"
+                class="css-g98gbd"
+                data-nimg="fill"
+                decoding="async"
+                loading="lazy"
+                sizes="100vw"
+                src="/icons/Type=users, Size=64, Color=CurrentColor.svg"
+                srcset="/icons/Type=users, Size=64, Color=CurrentColor.svg 640w, /icons/Type=users, Size=64, Color=CurrentColor.svg 750w, /icons/Type=users, Size=64, Color=CurrentColor.svg 828w, /icons/Type=users, Size=64, Color=CurrentColor.svg 1080w, /icons/Type=users, Size=64, Color=CurrentColor.svg 1200w, /icons/Type=users, Size=64, Color=CurrentColor.svg 1920w, /icons/Type=users, Size=64, Color=CurrentColor.svg 2048w, /icons/Type=users, Size=64, Color=CurrentColor.svg 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+              />
+            </figure>
             <div
               class="MuiBox-root css-y0apaj"
             >
@@ -206,13 +180,6 @@ exports[`<Resources /> renders unchanged 1`] = `
               >
                 Organisations
               </h6>
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-p96gsc-MuiButtonBase-root-MuiButton-root"
-                tabindex="0"
-                type="button"
-              >
-                Browse organisations
-              </button>
             </div>
           </div>
         </div>
@@ -242,25 +209,21 @@ exports[`<Resources /> renders unchanged 1`] = `
             class="MuiBox-root css-jglt73"
             wrap="nowrap"
           >
-            <div
-              class="MuiBox-root css-11x9rnm"
+            <figure
+              class="MuiBox-root css-1upx2vz"
             >
-              <figure
-                class="MuiBox-root css-uf656"
-              >
-                <img
-                  alt="Data"
-                  class="css-lk4r14"
-                  data-nimg="fill"
-                  decoding="async"
-                  loading="lazy"
-                  sizes="100vw"
-                  src="/icons/Type=database, Size=64, Color=CurrentColor.svg"
-                  srcset="/icons/Type=database, Size=64, Color=CurrentColor.svg 640w, /icons/Type=database, Size=64, Color=CurrentColor.svg 750w, /icons/Type=database, Size=64, Color=CurrentColor.svg 828w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1080w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1200w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1920w, /icons/Type=database, Size=64, Color=CurrentColor.svg 2048w, /icons/Type=database, Size=64, Color=CurrentColor.svg 3840w"
-                  style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
-                />
-              </figure>
-            </div>
+              <img
+                alt="Data"
+                class="css-g98gbd"
+                data-nimg="fill"
+                decoding="async"
+                loading="lazy"
+                sizes="100vw"
+                src="/icons/Type=database, Size=64, Color=CurrentColor.svg"
+                srcset="/icons/Type=database, Size=64, Color=CurrentColor.svg 640w, /icons/Type=database, Size=64, Color=CurrentColor.svg 750w, /icons/Type=database, Size=64, Color=CurrentColor.svg 828w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1080w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1200w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1920w, /icons/Type=database, Size=64, Color=CurrentColor.svg 2048w, /icons/Type=database, Size=64, Color=CurrentColor.svg 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+              />
+            </figure>
             <div
               class="MuiBox-root css-y0apaj"
             >
@@ -274,13 +237,6 @@ exports[`<Resources /> renders unchanged 1`] = `
               >
                 Data
               </h6>
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-p96gsc-MuiButtonBase-root-MuiButton-root"
-                tabindex="0"
-                type="button"
-              >
-                Browse database
-              </button>
             </div>
           </div>
         </div>
