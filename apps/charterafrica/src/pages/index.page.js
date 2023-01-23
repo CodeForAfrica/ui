@@ -93,6 +93,23 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
 
   const ecosystem = blocks.find((block) => block.slug === "ecosystem") || null;
 
+  const mooc = blocks.find((block) => block.slug === "mooc") || null;
+
+  if (mooc) {
+    const { alt: imageAlt, url: imageSrc } = mooc.image;
+    const { color: linkColor, label: linkLabel, url: linkUrl } = mooc.link;
+
+    mooc.image = {
+      alt: imageAlt,
+      src: imageSrc,
+    };
+    mooc.link = {
+      color: linkColor,
+      content: linkLabel,
+      href: linkUrl,
+    };
+  }
+
   return {
     props: {
       blocks: [
@@ -311,35 +328,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
             },
           ],
         },
-        {
-          slug: "mooc",
-          title: {
-            content: [
-              {
-                children: [
-                  {
-                    text: "Learn how to use digital tools to ",
-                  },
-                  {
-                    text: "strengthen",
-                    italic: true,
-                  },
-                  {
-                    text: " your democracy",
-                  },
-                ],
-              },
-            ],
-            color: "common.white",
-          },
-          link: {
-            content: "Learn more",
-            color: "secondary",
-          },
-          image: {
-            src: "/images/mooc.png",
-          },
-        },
+        mooc,
         {
           slug: "helpdesk",
           description: `
