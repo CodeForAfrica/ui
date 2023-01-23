@@ -59,12 +59,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     const { alt: imageAlt, url: imageSrc } = helpdesk.image;
     helpdesk.image = { alt: imageAlt, src: imageSrc };
     const { href: linkHref, label: linkLabel } = helpdesk.link;
-    // TODO: helpdesk links not saving in db, and returning null
-    // TODO: Fix this issue
-    helpdesk.link = {
-      href: linkHref || "#",
-      label: linkLabel || "Submit Request",
-    };
+    helpdesk.link = { href: linkHref, label: linkLabel };
   }
 
   const { docs: pages } = await payload.findPage("index", {
