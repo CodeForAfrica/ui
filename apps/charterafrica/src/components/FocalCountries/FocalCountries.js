@@ -103,7 +103,15 @@ const FocalCountries = React.forwardRef(function FocalCountries(props, ref) {
                 >
                   {title}
                 </RichTypography>
-                <RichText elements={description} />
+                <RichText
+                  elements={description}
+                  sx={{
+                    mb: 2.5,
+                    "&:last-of-type": {
+                      mb: 0,
+                    },
+                  }}
+                />
               </Box>
             </Grid>
             <Grid item xs={12} sm={6} order={{ xs: 1, sm: 0 }}>
