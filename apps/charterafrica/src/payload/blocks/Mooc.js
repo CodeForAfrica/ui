@@ -1,3 +1,5 @@
+import { validateHexColor, MuiButtonColors } from "../utils/colors";
+
 const { default: link } = require("../fields/link");
 
 const Mooc = {
@@ -22,6 +24,7 @@ const Mooc = {
             fr: "Couleur",
             pt: "Cor",
           },
+          validate: validateHexColor,
           required: true,
         },
         {
@@ -42,13 +45,18 @@ const Mooc = {
       fields: [
         {
           name: "color",
-          type: "text",
-          label: {
-            en: "Color",
-            fr: "Couleur",
-            pt: "Cor",
-          },
+          type: "select",
+          options: MuiButtonColors,
           required: true,
+          label: {
+            en: "Button Color",
+            fr: "Couleur du bouton",
+            pt: "Cor do botão",
+          },
+          admin: {
+            isClearable: true,
+            isSortable: true,
+          },
         },
         link({}),
       ],
