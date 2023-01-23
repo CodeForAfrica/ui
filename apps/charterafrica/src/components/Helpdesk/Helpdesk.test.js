@@ -10,17 +10,22 @@ const render = createRender({ theme });
 
 const defaultProps = {
   slug: "helpdesk",
-  description: `
-          <p>
-            Need help connecting with experts?<br />
-            We can help you find specialists or resources to improve the impact of your democracy project.
-          </p>
-          `,
+  description: [
+    { children: [{ text: "Need help connecting with experts?" }] },
+    {
+      children: [
+        {
+          text: "\nWe can help you find specialists or resources to improve the impact of your democracy project.",
+        },
+      ],
+    },
+  ],
   image: {
+    alt: "Helpdesk",
     src: "/images/helpdesk.svg",
   },
   link: {
-    content: "Submit request",
+    label: "Submit request",
   },
   title: "Democracy Support Helpdesk",
 };

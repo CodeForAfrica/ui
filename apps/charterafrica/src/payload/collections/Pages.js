@@ -1,5 +1,7 @@
 import Ecosystem from "../blocks/Ecosystem";
+import Hero from "../blocks/Hero";
 import Mooc from "../blocks/Mooc";
+import Resources from "../blocks/Resources";
 import Spotlight from "../blocks/Spotlight";
 import formatSlug from "../utils/formatSlug";
 
@@ -32,7 +34,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [Ecosystem, Mooc, Spotlight],
+      blocks: [Hero, Ecosystem, Mooc, Spotlight, Resources],
     },
   ],
 };

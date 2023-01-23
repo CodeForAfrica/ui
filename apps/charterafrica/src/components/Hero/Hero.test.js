@@ -15,7 +15,22 @@ const defaultProps = {
       id: 1,
       title: {
         color: "common.white",
-        content: "Find Africa's best <br><i>digital democracy</i> tools",
+        content: [
+          {
+            children: [
+              {
+                text: "Find Africa's best ",
+              },
+              {
+                text: "digital democracy",
+                italic: true,
+              },
+              {
+                text: " tools",
+              },
+            ],
+          },
+        ],
       },
       subheading: {
         color: "#fff",
