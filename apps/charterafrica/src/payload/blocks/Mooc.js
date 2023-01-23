@@ -1,43 +1,18 @@
-import { validateHexColor, MuiButtonColors } from "../utils/colors";
-
-const { default: link } = require("../fields/link");
+import linkGroup from "../fields/linkGroup";
+import { MuiButtonColors } from "../utils/colors";
 
 const Mooc = {
   slug: "mooc",
   fields: [
     {
       name: "title",
-      type: "group",
-      label: {
-        en: "Title",
-        fr: "Titre",
-        pt: "Título",
-      },
+      type: "richText",
       required: true,
       localized: true,
-      fields: [
-        {
-          name: "color",
-          type: "text",
-          label: {
-            en: "Color",
-            fr: "Couleur",
-            pt: "Cor",
-          },
-          validate: validateHexColor,
-          required: true,
-        },
-        {
-          name: "content",
-          type: "richText",
-          required: true,
-          localized: true,
-          admin: {
-            elements: ["h1"],
-            leaves: ["bold", "italic", "underline", "code"],
-          },
-        },
-      ],
+      admin: {
+        elements: ["h1"],
+        leaves: ["bold", "italic", "underline", "code"],
+      },
     },
     {
       name: "link",
@@ -58,7 +33,7 @@ const Mooc = {
             isSortable: true,
           },
         },
-        link({}),
+        linkGroup({}),
       ],
     },
     {

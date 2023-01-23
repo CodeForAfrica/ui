@@ -34,7 +34,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [Hero, Ecosystem, Mooc, Spotlight, Resources],
+      blocks: [Hero, Ecosystem, Mooc, Resources, Spotlight],
     },
   ],
 };

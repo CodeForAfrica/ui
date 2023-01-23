@@ -43,12 +43,12 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
             >
               <RichText
                 component="h1"
-                elements={title.content}
+                elements={title}
                 textAlign="left"
                 typography={{ md: "h1", sm: "h2" }}
                 variant="h4"
                 sx={() => ({
-                  color: title?.color,
+                  color: "secondary",
                   "&>em": {
                     color: "secondary.main",
                     fontStyle: "normal",
@@ -62,7 +62,7 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
                 variant="contained"
                 sx={{ width: "fit-content" }}
               >
-                {link?.content}
+                {link?.label}
               </Button>
             </Box>
           </Grid>
