@@ -45,7 +45,6 @@ const Ecosystem = {
               type: "number",
               required: true,
               min: 0,
-              max: 100,
               label: {
                 en: "Value",
                 fr: "Valeur",
