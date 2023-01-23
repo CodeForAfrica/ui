@@ -268,10 +268,10 @@ exports[`<Layout /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-2468k6-MuiGrid-root"
           >
             <div
-              class="MuiBox-root css-ujagtv"
+              class="MuiBox-root css-b1fkow"
             >
               <div
-                class="MuiBox-root css-vm6a4v"
+                class="MuiBox-root css-1kt34ug"
               >
                 <div
                   class="MuiBox-root css-i0q47s"
@@ -286,22 +286,17 @@ exports[`<Layout /> renders unchanged 1`] = `
               class="MuiBox-root css-utp7eg"
             >
               <p
-                class="MuiTypography-root MuiTypography-p1 css-s6qucy-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p2 css-15ikgt3-MuiTypography-root"
               />
               <div
                 class="MuiBox-root css-1lzc8v9"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-s6qucy-MuiTypography-root"
-                >
-                  STAY IN TOUCH
-                </div>
-                <div
                   class="MuiBox-root css-iqyuzw"
                 />
               </div>
               <p
-                class="MuiTypography-root MuiTypography-p1 css-s6qucy-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p2SemiBold css-g7x15e-MuiTypography-root"
               />
             </div>
           </div>

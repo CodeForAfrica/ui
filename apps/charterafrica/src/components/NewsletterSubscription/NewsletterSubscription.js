@@ -23,7 +23,6 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
     "#mc_embed_signup form": {
       margin: 0,
       display: "flex",
-      textAlign: "right",
     },
     "& #mce-EMAIL-HELPERTEXT": {
       display: "none",
@@ -111,7 +110,8 @@ const NewsletterSubscription = React.forwardRef(function NewsletterSubscription(
     >
       <RichTypography
         variant="h5SemiBold"
-        sx={{ mb: "30px", fontFamily: "Open Sans", textAlign: "right" }}
+        textAlign={{ xs: "center", sm: "right" }}
+        sx={{ mb: "30px", fontFamily: "Open Sans" }}
       >
         {title}
       </RichTypography>

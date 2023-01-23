@@ -11,12 +11,14 @@ import LinkedInIcon from "@/charterafrica/assets/icons/linkedin.svg";
 import SlackIcon from "@/charterafrica/assets/icons/slack.svg";
 import TwitterIcon from "@/charterafrica/assets/icons/twitter.svg";
 
-function StayInTouch(props) {
+function StayInTouch(props, ref) {
   const { title, twitter, slack, linkedin, facebook, instagram, github } =
     props;
   return (
-    <Box alignItems="flex-start" sx={{ marginTop: 2 }} display="flex">
-      <RichTypography>{title || "STAY IN TOUCH"}</RichTypography>
+    <Box ref={ref} alignItems="flex-start" sx={{ marginTop: 2 }} display="flex">
+      <RichTypography sx={{ textTransform: "uppercase" }} variant="p2SemiBold">
+        {title}
+      </RichTypography>
       <Box sx={{ marginLeft: 2 }} display="flex">
         {twitter && (
           <Link href={twitter}>

@@ -23,14 +23,6 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     newsletter,
   } = props;
 
-  // const [toEmbed, setToEmbed] = useState("");
-
-  // const embedCode = newsletter?.embedCode;
-
-  // useEffect(() => {
-  //   setToEmbed(embedCode);
-  // }, [embedCode]);
-
   return (
     <Box
       component="footer"
@@ -59,15 +51,28 @@ const Footer = React.forwardRef(function Footer(props, ref) {
             >
               <Box
                 display="flex"
-                sx={{ display: "flex", gap: 4 }}
+                sx={{
+                  display: "flex",
+                  gap: 4,
+                  alignItems: { md: "flex-end", xs: "flex-start" },
+                }}
                 justifyContent="space-between"
-                alignItems="flex-end"
+                // alignItems="flex-end"
               >
                 <Box
                   display="flex"
-                  justifyContent="flex-end"
                   flexDirection="column"
-                  alignItems="flex-end"
+                  alignItems="center"
+                  sx={{
+                    display: "flex",
+                    gap: 4,
+                    alignItems: { md: "flex-end", sm: "center", xs: "center" },
+                    justifyContent: {
+                      md: "flex-end",
+                      sm: "center",
+                      xs: "center",
+                    },
+                  }}
                 >
                   <NewsletterSubscription {...newsletter} />
                   <Box
@@ -76,7 +81,10 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                       width: { xs: "172px", sm: "150px" },
                     }}
                   >
-                    <RichTypography fontSize={16} textAlign="right">
+                    <RichTypography
+                      fontSize={16}
+                      textAlign={{ xs: "center", sm: "right" }}
+                    >
                       {logo?.title}
                     </RichTypography>
                   </Box>
@@ -125,7 +133,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   </Link>
                 ) : null}
                 <RichText variant="p2" elements={siteDescription} />
-                <StayInTouch {...contact} />
+                <StayInTouch title={contact?.stayInTouch} {...contact} />
                 <RichText variant="p2SemiBold" elements={projectDescription} />
 
                 {links?.length > 0 ? (

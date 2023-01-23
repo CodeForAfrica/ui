@@ -104,9 +104,9 @@ const Footer = {
             mimeType: { contains: "image" },
           },
           label: {
-            en: "Footer Logo",
+            en: "Logo",
             pt: "Imagem",
-            fr: "Logo de pied de page",
+            fr: "Logo",
           },
         },
       ],
@@ -123,6 +123,21 @@ const Footer = {
         width: "100%",
       },
       fields: [
+        {
+          name: "stayInTouch",
+          type: "text",
+          label: {
+            en: "Title",
+            fr: "Titre",
+            pt: "Título",
+          },
+          admin: {
+            description: () =>
+              "Text that appears on contact links e.g Stay in Touch",
+          },
+          localized: true,
+          required: true,
+        },
         {
           name: "email",
           type: "email",
