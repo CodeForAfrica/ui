@@ -49,19 +49,20 @@ const Slide = React.forwardRef(function Slide(props, ref) {
             textAlign="center"
             typography={{ md: "display2" }}
             variant="h2Small"
-            sx={() => ({
+            sx={(t) => ({
               color: title?.color,
-              minHeight: `calc(${theme.typography.h2Small.fontSize}px*${theme.typography.h2Small.lineHeight}*3)`,
-              "&>em": {
+              minHeight: `calc(${t.typography.h2Small.fontSize}px*${t.typography.h2Small.lineHeight}*3)`,
+              whiteSpace: "pre-line",
+              "& > em, & > strong": {
                 color: "secondary.main",
                 fontStyle: "normal",
               },
-              [theme.breakpoints.up("sm")]: {
-                minHeight: `calc(${theme.typography.h2Small.fontSize}px*${theme.typography.h2Small.lineHeight}*2)`,
+              [t.breakpoints.up("sm")]: {
+                minHeight: `calc(${t.typography.h2Small.fontSize}px*${t.typography.h2Small.lineHeight}*2)`,
               },
-              [theme.breakpoints.up("md")]: {
+              [t.breakpoints.up("md")]: {
                 typography: "display2",
-                minHeight: `calc(${theme.typography.display2.fontSize}px*${theme.typography.display2.lineHeight}*2)`,
+                minHeight: `calc(${t.typography.display2.fontSize}px*${t.typography.display2.lineHeight}*2)`,
               },
             })}
           />
@@ -71,15 +72,15 @@ const Slide = React.forwardRef(function Slide(props, ref) {
             textAlign="center"
             variant="p1"
             lineHeight
-            sx={() => ({
+            sx={(t) => ({
               color: subheading?.color,
-              minHeight: `calc(${theme.typography.p1.fontSize}px*${theme.typography.p1.lineHeight}*2)`,
-              [theme.breakpoints.up("sm")]: {
-                minHeight: `calc(${theme.typography.p1.fontSize}px*${theme.typography.p1.lineHeight})`,
+              minHeight: `calc(${t.typography.p1.fontSize}px*${t.typography.p1.lineHeight}*2)`,
+              [t.breakpoints.up("sm")]: {
+                minHeight: `calc(${t.typography.p1.fontSize}px*${t.typography.p1.lineHeight})`,
               },
-              [theme.breakpoints.up("md")]: {
+              [t.breakpoints.up("md")]: {
                 typography: "subheading",
-                minHeight: `calc(${theme.typography.subheading.fontSize}px*${theme.typography.subheading.lineHeight}*2)`,
+                minHeight: `calc(${t.typography.subheading.fontSize}px*${t.typography.subheading.lineHeight}*2)`,
               },
             })}
           >

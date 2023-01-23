@@ -28,6 +28,21 @@ const Hero = {
           type: "group",
           fields: [
             {
+              name: "content",
+              type: "richText",
+              label: {
+                en: "Content",
+                fr: "Contenu",
+                pt: "Conteúdo",
+              },
+              required: true,
+              localized: true,
+              admin: {
+                elements: [],
+                leaves: ["bold", "italic", "underline", "code"],
+              },
+            },
+            {
               name: "color",
               type: "text",
               validate: validateHexColor,
@@ -36,21 +51,6 @@ const Hero = {
                 en: "Color",
                 fr: "Couleur",
                 pt: "Cor",
-              },
-            },
-            {
-              name: "content",
-              type: "richText",
-              label: {
-                en: "Title",
-                fr: "Titre",
-                pt: "Título",
-              },
-              required: true,
-              localized: true,
-              admin: {
-                elements: ["h1"],
-                leaves: ["bold", "italic", "underline", "code"],
               },
             },
           ],
@@ -67,17 +67,6 @@ const Hero = {
           required: true,
           fields: [
             {
-              name: "color",
-              type: "text",
-              validate: validateHexColor,
-              required: true,
-              label: {
-                en: "Color",
-                fr: "Couleur",
-                pt: "Cor",
-              },
-            },
-            {
               name: "content",
               type: "text",
               required: true,
@@ -86,6 +75,17 @@ const Hero = {
                 en: "Content",
                 fr: "Contenu",
                 pt: "Conteúdo",
+              },
+            },
+            {
+              name: "color",
+              type: "text",
+              validate: validateHexColor,
+              required: true,
+              label: {
+                en: "Color",
+                fr: "Couleur",
+                pt: "Cor",
               },
             },
           ],

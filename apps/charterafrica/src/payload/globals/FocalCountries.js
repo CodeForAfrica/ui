@@ -1,6 +1,7 @@
 import { array } from "payload/dist/fields/validations";
 
 import linkGroup from "../fields/linkGroup";
+import richText from "../fields/richText";
 
 const FocalCountries = {
   slug: "focal-countries",
@@ -24,19 +25,18 @@ const FocalCountries = {
       localized: true,
       required: true,
     },
-    {
+    richText({
       name: "description",
       label: {
         en: "Description",
         pt: "Descrição",
       },
-      type: "richText",
       localized: true,
       required: true,
       admin: {
         elements: ["h2", "h3", "h4", "h5", "h6", "ol", "ul", "link"],
       },
-    },
+    }),
     {
       name: "countries",
       label: {
