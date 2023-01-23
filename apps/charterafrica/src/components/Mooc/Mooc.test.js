@@ -10,9 +10,23 @@ const render = createRender({ theme });
 
 const defaultProps = {
   title: {
-    content:
-      "Learn how to use digital tools to <i>strengthen</i> your democracy 1",
-    color: "common.white",
+    color: "secondary",
+    content: [
+      {
+        children: [
+          {
+            text: "Learn how to use digital tools to ",
+          },
+          {
+            text: "strengthen",
+            italic: true,
+          },
+          {
+            text: " your democracy",
+          },
+        ],
+      },
+    ],
   },
   link: {
     content: "Learn more",
@@ -20,6 +34,7 @@ const defaultProps = {
   },
   image: {
     src: "/images/mooc.png",
+    alt: "MOOC",
   },
 };
 
