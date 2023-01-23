@@ -17,22 +17,11 @@ exports[`<Mooc/> renders unchanged 1`] = `
           <div
             class="MuiBox-root css-5qc1qw"
           >
-            <h1
-              class="MuiTypography-root MuiTypography-h4 css-19mh8tt-MuiTypography-root"
-            >
-              Learn how to use digital tools to 
-              <em>
-                strengthen
-              </em>
-               your democracy
-            </h1>
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-f7mktd-MuiButtonBase-root-MuiButton-root"
               tabindex="0"
               type="button"
-            >
-              Learn more
-            </button>
+            />
           </div>
         </div>
         <div
