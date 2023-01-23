@@ -109,10 +109,15 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
 
   if (mooc) {
     const { alt: imageAlt, url: imageSrc } = mooc.image;
+    const { label } = mooc.link.link;
 
     mooc.image = {
       alt: imageAlt,
       src: imageSrc,
+    };
+    mooc.link = {
+      label,
+      color: mooc.link.color,
     };
   }
   const ourResources =
