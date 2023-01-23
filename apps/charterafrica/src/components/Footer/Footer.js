@@ -84,6 +84,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                     <RichTypography
                       fontSize={16}
                       textAlign={{ xs: "center", sm: "right" }}
+                      variant="p2SemiBold"
                     >
                       {funder?.title}
                     </RichTypography>
