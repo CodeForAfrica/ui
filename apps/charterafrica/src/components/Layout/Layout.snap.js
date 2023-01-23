@@ -289,7 +289,7 @@ exports[`<Layout /> renders unchanged 1`] = `
                 class="MuiTypography-root MuiTypography-p2 css-15ikgt3-MuiTypography-root"
               />
               <div
-                class="MuiBox-root css-1lzc8v9"
+                class="MuiBox-root css-1vwirlt"
               >
                 <div
                   class="MuiBox-root css-iqyuzw"

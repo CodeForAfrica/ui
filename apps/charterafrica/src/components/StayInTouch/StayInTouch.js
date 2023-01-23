@@ -15,7 +15,7 @@ function StayInTouch(props, ref) {
   const { title, twitter, slack, linkedin, facebook, instagram, github } =
     props;
   return (
-    <Box ref={ref} alignItems="flex-start" sx={{ marginTop: 2 }} display="flex">
+    <Box ref={ref} alignItems="center" sx={{ marginTop: 2 }} display="flex">
       <RichTypography sx={{ textTransform: "uppercase" }} variant="p2SemiBold">
         {title}
       </RichTypography>
@@ -24,12 +24,11 @@ function StayInTouch(props, ref) {
           <Link href={twitter}>
             <SvgIcon
               component={TwitterIcon}
-              viewBox="0 0 32 32"
               sx={{
                 color: "text.secondary",
                 display: "inline-flex",
                 fill: "none",
-                fontSize: "32px",
+                marginLeft: "20px",
               }}
             />
           </Link>
@@ -38,12 +37,11 @@ function StayInTouch(props, ref) {
           <Link href={slack}>
             <SvgIcon
               component={SlackIcon}
-              viewBox="0 0 32 32"
               sx={{
                 color: "text.secondary",
                 display: "inline-flex",
                 fill: "none",
-                fontSize: "32px",
+                marginLeft: "20px",
               }}
             />
           </Link>
@@ -52,12 +50,11 @@ function StayInTouch(props, ref) {
           <Link href={linkedin}>
             <SvgIcon
               component={LinkedInIcon}
-              viewBox="0 0 32 32"
               sx={{
                 color: "text.secondary",
                 display: "inline-flex",
                 fill: "none",
-                fontSize: "32px",
+                marginLeft: "20px",
               }}
             />
           </Link>
@@ -66,12 +63,11 @@ function StayInTouch(props, ref) {
           <Link href={facebook}>
             <SvgIcon
               component={FacebookIcon}
-              viewBox="0 0 32 32"
               sx={{
                 color: "text.secondary",
                 display: "inline-flex",
                 fill: "none",
-                fontSize: "32px",
+                marginLeft: "20px",
               }}
             />
           </Link>
@@ -80,12 +76,11 @@ function StayInTouch(props, ref) {
           <Link href={instagram}>
             <SvgIcon
               component={InstagramIcon}
-              viewBox="0 0 32 32"
               sx={{
                 color: "text.secondary",
                 display: "inline-flex",
                 fill: "none",
-                fontSize: "32px",
+                marginLeft: "20px",
               }}
             />
           </Link>
@@ -94,12 +89,11 @@ function StayInTouch(props, ref) {
           <Link href={github}>
             <SvgIcon
               component={GithubIcon}
-              viewBox="0 0 32 32"
               sx={{
                 color: "text.secondary",
                 display: "inline-flex",
                 fill: "none",
-                fontSize: "32px",
+                marginLeft: "20px",
               }}
             />
           </Link>
