@@ -17,7 +17,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     contact,
     copyright,
     links,
-    logo,
+    funder,
     projectDescription,
     siteDescription,
     newsletter,
@@ -85,7 +85,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                       fontSize={16}
                       textAlign={{ xs: "center", sm: "right" }}
                     >
-                      {logo?.title}
+                      {funder?.title}
                     </RichTypography>
                   </Box>
 
@@ -95,8 +95,8 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                       width: { xs: "172px", sm: "150px" },
                     }}
                     ImageProps={{
-                      alt: logo?.src?.alt,
-                      src: logo?.src?.url,
+                      alt: funder?.logo?.alt,
+                      src: funder?.logo?.url,
                       sx: { objectPosition: "top" },
                     }}
                   />

@@ -1,6 +1,6 @@
 import { text } from "payload/dist/fields/validations";
 
-import linkGroup from "../fields/linkGroup";
+import linkArray from "../fields/linkArray";
 
 const Footer = {
   slug: "footer",
@@ -38,7 +38,7 @@ const Footer = {
         elements: ["h2", "h3", "h4", "h5", "h6", "ol", "ul", "link"],
       },
     },
-    linkGroup(),
+    linkArray(),
     {
       name: "newsletter",
       type: "group",
@@ -73,14 +73,13 @@ const Footer = {
       ],
     },
     {
-      name: "logo",
+      name: "funder",
       required: true,
-      localized: true,
       type: "group",
       label: {
-        en: "Logo",
-        pt: "Imagem",
-        fr: "Logo",
+        en: "Funder",
+        pt: "Financiador",
+        fr: "Bailleur de fonds",
       },
       fields: [
         {
@@ -95,7 +94,7 @@ const Footer = {
           },
         },
         {
-          name: "src",
+          name: "logo",
           type: "upload",
           relationTo: "media",
           required: true,

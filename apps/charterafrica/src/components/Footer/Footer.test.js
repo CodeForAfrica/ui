@@ -26,9 +26,11 @@ const defaultProps = {
       label: "Imprint",
     },
   ],
-  logo: {
-    alt: "EU",
-    src: "/images/eu.png",
+  funder: {
+    logo: {
+      alt: "EU",
+      url: "/images/eu.png",
+    },
   },
   projectDescription: [
     {
