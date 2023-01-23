@@ -39,7 +39,7 @@ const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
         >
           <Link
             color="inherit"
-            href={partner?.link?.url || partner?.link?.href || ""}
+            href={partner.link?.href}
             underline="always"
             variant="p1"
           >
