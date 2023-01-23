@@ -73,12 +73,14 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
             sx={{
               overflow: "hidden",
             }}
+            container
+            justifyContent="flex-end"
           >
             <Figure
               ImageProps={{
                 ...image,
                 alt: title.content,
-                objectFit: "contain",
+                objectFit: "cover",
               }}
               sx={{
                 height: {
