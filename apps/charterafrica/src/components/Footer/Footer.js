@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import SvgIcon from "@mui/material/SvgIcon";
 import PropTypes from "prop-types";
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import MailIcon from "@/charterafrica/assets/icons/Type=mail, Size=32, Color=CurrentColor.svg";
 import { neutral } from "@/charterafrica/colors";
@@ -23,13 +23,13 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     newsletter,
   } = props;
 
-  const [toEmbed, setToEmbed] = useState("");
+  // const [toEmbed, setToEmbed] = useState("");
 
-  const embedCode = newsletter?.embedCode;
+  // const embedCode = newsletter?.embedCode;
 
-  useEffect(() => {
-    setToEmbed(embedCode);
-  }, [embedCode]);
+  // useEffect(() => {
+  //   setToEmbed(embedCode);
+  // }, [embedCode]);
 
   return (
     <Box
@@ -69,7 +69,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   flexDirection="column"
                   alignItems="flex-end"
                 >
-                  <NewsletterSubscription {...newsletter} embedCode={toEmbed} />
+                  <NewsletterSubscription {...newsletter} />
                   <Box
                     sx={{
                       marginBottom: "20px",
@@ -124,9 +124,9 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                     {contact.email || contact.email}
                   </Link>
                 ) : null}
-                <RichText elements={siteDescription} />
+                <RichText variant="p2" elements={siteDescription} />
                 <StayInTouch {...contact} />
-                <RichText elements={projectDescription} />
+                <RichText variant="p2SemiBold" elements={projectDescription} />
 
                 {links?.length > 0 ? (
                   <Box display="flex" gap="10px">

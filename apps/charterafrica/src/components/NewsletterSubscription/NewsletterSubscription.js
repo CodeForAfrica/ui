@@ -46,7 +46,6 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
     "& #mc_embed_signup input[type=email]": {
       flex: 1,
       minWidth: "200px",
-      // marginRight: typography.pxToRem(1),
     },
     "#mc_embed_signup div#mce-responses": {
       display: "none",
@@ -67,9 +66,7 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
     "& #mc_embed_signup input:focus,  #mc_embed_signup textarea:focus": {
       border: `1px solid ${palette.primary.main}`,
     },
-    "& #mc_embed_signup input:active,  #mc_embed_signup textarea:active": {
-      // border: `1px solid ${palette.highlight?.main}`,
-    },
+    "& #mc_embed_signup input:active,  #mc_embed_signup textarea:active": {},
     "& #mc_embed_signup input[type=submit]": {
       ...typography.subtitle1,
       background: "none",

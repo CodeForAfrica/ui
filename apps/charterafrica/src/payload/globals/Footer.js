@@ -1,3 +1,5 @@
+import { text } from "payload/dist/fields/validations";
+
 import linkGroup from "../fields/linkGroup";
 
 const Footer = {
@@ -43,7 +45,7 @@ const Footer = {
       label: {
         en: "Newsletter",
         fr: "Newsletter",
-        pt: "Boletim de Notícias        ",
+        pt: "Boletim de Notícias",
       },
       fields: [
         {
@@ -76,9 +78,9 @@ const Footer = {
       localized: true,
       type: "group",
       label: {
-        en: "Footer Logo",
+        en: "Logo",
         pt: "Imagem",
-        fr: "Logo de pied de page",
+        fr: "Logo",
       },
       fields: [
         {
@@ -100,7 +102,6 @@ const Footer = {
           localized: true,
           filterOptions: {
             mimeType: { contains: "image" },
-            mimeTypes: ["images/*"],
           },
           label: {
             en: "Footer Logo",
@@ -130,8 +131,17 @@ const Footer = {
             pt: "Email",
             fr: "Email",
           },
+          validate: (val, args) => {
+            const regex =
+              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+            if (!regex.test(val)) {
+              return "Enter a valid address";
+            }
+            return text(val, args);
+          },
           admin: {
-            width: "50%",
+            description: () => "Enter an email address",
           },
         },
         {
@@ -142,8 +152,18 @@ const Footer = {
             pt: "Twitter",
             fr: "Twitter",
           },
+          validate: (val, args) => {
+            const regex =
+              /http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)/;
+
+            if (!regex.test(val)) {
+              return "Enter a valid address";
+            }
+            return text(val, args);
+          },
           admin: {
-            width: "50%",
+            description: () =>
+              "Twitter profile address e.g https://twitter.com/profile",
           },
         },
         {
@@ -155,7 +175,8 @@ const Footer = {
             fr: "Slack",
           },
           admin: {
-            width: "50%",
+            description: () =>
+              "Slack workspace address e.g https://workspace.slack.com",
           },
         },
         {
@@ -166,8 +187,17 @@ const Footer = {
             pt: "LinkedIn",
             fr: "LinkedIn",
           },
+          validate: (val, args) => {
+            const regex =
+              /^(https:\/\/www\.linkedin\.com\/(in|company)\/[a-zA-Z0-9-]+)\/*$/;
+            if (!regex.test(val)) {
+              return "Enter a valid address";
+            }
+            return text(val, args);
+          },
           admin: {
-            width: "50%",
+            description: () =>
+              "Linked profile address e.g https://www.linkedin.com/in/profile/",
           },
         },
         {
@@ -178,8 +208,17 @@ const Footer = {
             pt: "Facebook",
             fr: "Facebook",
           },
+          validate: (val, args) => {
+            const regex =
+              /^(https:\/\/(www\.)?facebook\.com\/[a-zA-Z0-9/.\-_]+)$/;
+            if (!regex.test(val)) {
+              return "Enter a valid address";
+            }
+            return text(val, args);
+          },
           admin: {
-            width: "50%",
+            description: () =>
+              "Facebook profile address e.g https://facebook.com/profile",
           },
         },
         {
@@ -190,8 +229,17 @@ const Footer = {
             pt: "Instagram",
             fr: "Instagram",
           },
+          validate: (val, args) => {
+            const regex =
+              /http(?:s)?:\/\/(?:www\.)?instagram\.com\/([a-zA-Z0-9_]+)/;
+            if (!regex.test(val)) {
+              return "Enter a valid address";
+            }
+            return text(val, args);
+          },
           admin: {
-            width: "50%",
+            description: () =>
+              "Facebook profile address e.g https://www.instagram.com/username/",
           },
         },
         {
@@ -202,8 +250,17 @@ const Footer = {
             pt: "Github",
             fr: "Github",
           },
+          validate: (val, args) => {
+            const regex =
+              /http(?:s)?:\/\/(?:www\.)?github\.com\/([a-zA-Z0-9_]+)/;
+            if (!regex.test(val)) {
+              return "Enter a valid address";
+            }
+            return text(val, args);
+          },
           admin: {
-            width: "50%",
+            description: () =>
+              "Github profile address e.g https://github.com/username",
           },
         },
       ],
