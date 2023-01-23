@@ -24,9 +24,9 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
         <Grid
           container
           spacing={2}
-          direction={{ xs: "column-reverse", md: "row" }}
+          direction={{ xs: "column-reverse", sm: "row" }}
         >
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} sm={6}>
             <Box
               display="flex"
               flexDirection="column"
@@ -52,7 +52,7 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
               />
 
               <Button
-                color="secondary"
+                color={link.color}
                 size="medium"
                 variant="contained"
                 sx={{ width: "fit-content" }}
@@ -61,7 +61,7 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
               </Button>
             </Box>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} sm={6}>
             <Figure
               ImageProps={{
                 ...image,

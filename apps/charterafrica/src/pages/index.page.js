@@ -334,7 +334,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           },
           link: {
             content: "Learn more",
-            color: "primary",
+            color: "secondary",
           },
           image: {
             src: "/images/mooc.png",
