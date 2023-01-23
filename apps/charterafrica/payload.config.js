@@ -32,7 +32,7 @@ const adapter = s3Adapter({
 
 export default buildConfig({
   serverURL: appURL,
-  collections: [Media, Pages, Resources, Partners],
+  collections: [Media, Pages, Partners, Resources],
   globals: [FocalCountries, Helpdesk, Navigation, Settings],
   ...(locales?.length
     ? {
