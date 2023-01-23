@@ -25,15 +25,20 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
           container
           spacing={2}
           direction={{ xs: "column-reverse", sm: "row" }}
+          wrap="nowrap"
         >
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} container>
             <Box
               display="flex"
               flexDirection="column"
               justifyContent="center"
-              alignItems={{ xs: "center", md: "flex-start" }}
+              alignItems={{
+                xs: "center",
+                sm: "flex-start",
+              }}
               sx={{
                 gap: 5,
+                width: "100%",
               }}
             >
               <RichText
@@ -61,22 +66,30 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
               </Button>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            sx={{
+              overflow: "hidden",
+            }}
+          >
             <Figure
               ImageProps={{
                 ...image,
                 alt: title.content,
-                objectFit: "cover",
+                objectFit: "contain",
               }}
               sx={{
                 height: {
-                  xs: 329,
+                  xs: 550,
+                  sm: 281,
+                  md: 329,
                 },
                 width: {
-                  xs: "90vw",
-                  sm: "35vw",
-                  md: "25vw",
-                  lg: 512,
+                  xs: 688,
+                  sm: 436,
+                  md: 512,
                 },
               }}
             />
