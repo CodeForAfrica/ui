@@ -1,14 +1,4 @@
-import link from "../fields/link";
-import mapLinkTypeToHref from "../utils/mapLinkTypeToHref";
-
-function afterReadInsertLinkHrefHook(args) {
-  const { doc } = args;
-  if (doc.link) {
-    const { link: originalLink } = doc;
-    return { ...doc, link: mapLinkTypeToHref(originalLink) };
-  }
-  return doc;
-}
+import linkGroup from "../fields/linkGroup";
 
 const Helpdesk = {
   slug: "helpdesk",
@@ -53,16 +43,7 @@ const Helpdesk = {
             elements: ["ol", "ul", "link"],
           },
         },
-        {
-          name: "link",
-          label: {
-            en: "Link",
-            fr: "Lien",
-          },
-          type: "group",
-          fields: [link()],
-          required: true,
-        },
+        linkGroup(),
       ],
       admin: {
         initCollapsed: true,
@@ -96,11 +77,6 @@ const Helpdesk = {
       },
     },
   ],
-  hooks: {
-    // TODO(kilemensi): Check why if we add a hook to add src to image,
-    //                  admin UI fails.
-    afterRead: [afterReadInsertLinkHrefHook],
-  },
 };
 
 export default Helpdesk;
