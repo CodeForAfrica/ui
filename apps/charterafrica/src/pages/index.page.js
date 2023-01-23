@@ -106,6 +106,31 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   const { partners } = blocks.find(
     (block) => block.slug === "block-partners"
   ) || { partners: [] };
+  const hero = blocks.find((block) => block.slug === "hero") || {};
+
+  const heroSlides = hero?.slides?.map((slide) => {
+    const { background, links, ...other } = slide;
+    const formattedLinks = links.map((link) => {
+      const { color, icon, label: content } = link;
+      return {
+        color,
+        content,
+        icon: { src: icon.url },
+      };
+    });
+
+    return {
+      background: {
+        blendMode: background.blendMode.join(","),
+        color: background.color,
+        src: background.image.url,
+      },
+      links: formattedLinks,
+      ...other,
+    };
+  });
+
+  hero.slides = heroSlides || null;
 
   return {
     props: {
@@ -115,144 +140,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           startLabel: "People",
           endLabel: "Organisations",
         },
-        {
-          slug: "hero",
-          slides: [
-            {
-              id: 1,
-              title: {
-                color: "common.white",
-                content:
-                  "Find Africa's best <br><i>digital democracy</i> tools",
-              },
-              subheading: {
-                color: "#fff",
-                content: "Easy to use resources for democracy activists",
-              },
-              background: {
-                blendMode: "multiply, luminosity",
-                color: "#4E2037",
-                src: "/images/hero-slide-1.jpg",
-              },
-              links: [
-                {
-                  color: "secondary",
-                  content: "Explore software",
-                  icon: {
-                    src: "/icons/Type=folder, Size=16, Color=Neutral900.svg",
-                  },
-                },
-                {
-                  color: "secondary",
-                  content: "Browse database",
-                  icon: {
-                    src: "/icons/Type=database, Size=16, Color=Neutral900.svg",
-                  },
-                },
-              ],
-            },
-            {
-              id: 2,
-              title: {
-                color: "#3E202C",
-                content: "Find African allies to <br>turbocharge your project",
-              },
-              subheading: {
-                color: "#3E202C",
-                content: "Databases of Africa's leading democracy changemakers",
-              },
-              background: {
-                blendMode: "hard-light, normal",
-                color: "#F7CE46",
-                src: "/images/hero-slide-2.jpg",
-              },
-              links: [
-                {
-                  color: "primary",
-                  content: "Find experts",
-                  icon: {
-                    src: "/icons/Type=users, Size=16, Color=White.svg",
-                  },
-                },
-                {
-                  color: "primary",
-                  content: "Explore networks",
-                  icon: {
-                    src: "/icons/Type=globe, Size=16, Color=White.svg",
-                  },
-                },
-              ],
-            },
-            {
-              id: 3,
-              title: {
-                color: "#3E202C",
-                content:
-                  "Get in-depth actionable <br>knowledge to strengthen democracy",
-              },
-              subheading: {
-                color: "#3E202C",
-                content:
-                  "Expert analysis and hands-on training for democratic watchdogs",
-              },
-              background: {
-                blendMode: "overlay, multiply",
-                color: "#AAD4A9",
-                src: "/images/hero-slide-3.jpg",
-              },
-              links: [
-                {
-                  color: "primary",
-                  content: "Access reserach",
-                  icon: {
-                    src: "/icons/Type=file, Size=16, Color=White.svg",
-                  },
-                },
-                {
-                  color: "primary",
-                  content: "Get training",
-                  icon: {
-                    src: "/icons/Type=book-open, Size=16, Color=White.svg",
-                  },
-                },
-              ],
-            },
-            {
-              id: 4,
-              title: {
-                color: "#FFF",
-                content:
-                  "Find resources and support <br>to build your initiative",
-              },
-              subheading: {
-                color: "#FFF",
-                content:
-                  "Register for democracy grants, fellowships and events",
-              },
-              background: {
-                blendMode: "multiply",
-                color: "#F29D88",
-                src: "/images/hero-slide-4.jpg",
-              },
-              links: [
-                {
-                  color: "primary",
-                  content: "Get opportunities",
-                  icon: {
-                    src: "/icons/Type=briefcase, Size=16, Color=White.svg",
-                  },
-                },
-                {
-                  color: "primary",
-                  content: "Join community",
-                  icon: {
-                    src: "/icons/Type=users, Size=16, Color=White.svg",
-                  },
-                },
-              ],
-            },
-          ],
-        },
+        hero,
         spotlight,
         ecosystem,
         {
