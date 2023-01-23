@@ -31,7 +31,7 @@ const Key = React.forwardRef(function Key(props, ref) {
             display="flex"
             flexWrap="nowrap"
             gap={1.25}
-            key={datum.label}
+            key={datum.id || datum.label}
           >
             <Box
               borderRadius={7}
