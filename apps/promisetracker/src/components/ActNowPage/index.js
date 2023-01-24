@@ -1,8 +1,8 @@
 import { RichTypography } from "@commons-ui/core";
 import { Button, Grid, Hidden } from "@mui/material";
 import clsx from "clsx";
-import { signIn } from "next-auth/react";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 

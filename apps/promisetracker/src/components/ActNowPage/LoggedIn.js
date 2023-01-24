@@ -1,7 +1,7 @@
 import { Box, Button } from "@mui/material";
 import clsx from "clsx";
-import { signOut } from "next-auth/react";
 import Image from "next/image";
+import { signOut } from "next-auth/react";
 import PropTypes from "prop-types";
 import React from "react";
 
