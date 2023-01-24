@@ -9,13 +9,16 @@ exports[`<Mooc/> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-582wlz-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-t8qi6e-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-7yylxy-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-28w4zw-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-rm5v4n-MuiGrid-root"
         >
           <div
-            class="MuiBox-root css-177f3cz"
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+          />
+          <div
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1mp03qe-MuiButtonBase-root-MuiButton-root"
@@ -25,10 +28,10 @@ exports[`<Mooc/> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1xvdtbe-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-15gjm0g-MuiGrid-root"
         >
           <figure
-            class="MuiBox-root css-17o7zh3"
+            class="MuiBox-root css-vovnhj"
           >
             <img
               alt="MOOC"
