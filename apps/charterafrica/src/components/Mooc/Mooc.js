@@ -57,7 +57,7 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
               />
 
               <Button
-                color={link.color}
+                color="secondary"
                 size="medium"
                 variant="contained"
                 sx={{ width: "fit-content" }}

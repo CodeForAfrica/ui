@@ -1,5 +1,4 @@
 import linkGroup from "../fields/linkGroup";
-import { MuiButtonColors } from "../utils/colors";
 
 const Mooc = {
   slug: "mooc",
@@ -14,28 +13,7 @@ const Mooc = {
         leaves: ["bold", "italic", "underline", "code"],
       },
     },
-    {
-      name: "link",
-      type: "group",
-      fields: [
-        {
-          name: "color",
-          type: "select",
-          options: MuiButtonColors,
-          required: true,
-          label: {
-            en: "Button Color",
-            fr: "Couleur du bouton",
-            pt: "Cor do botão",
-          },
-          admin: {
-            isClearable: true,
-            isSortable: true,
-          },
-        },
-        linkGroup({}),
-      ],
-    },
+    linkGroup({}),
     {
       name: "image",
       label: {
