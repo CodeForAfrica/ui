@@ -20,7 +20,7 @@ function Index({ blocks }) {
         return <Helpdesk {...block} key={block.slug} />;
       case "hero":
         return <Hero {...block} key={block.slug} />;
-      case "partners":
+      case "our-partners":
         return <Partners {...block} key={block.slug} />;
       case "our-resources":
         return <Resources {...block} key={block.slug} />;
@@ -103,13 +103,10 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   const ourResources =
     blocks.find((block) => block.slug === "our-resources") || null;
 
-  const {
-    partners,
-    title: partnerTitle,
-    description: partnerDescription,
-  } = blocks.find((block) => block.slug === "our-partners") || {
-    partners: [],
-  };
+  const partners =
+    blocks.find((block) => block.slug === "our-partners") || null;
+
+  console.error(partners);
   const hero = blocks.find((block) => block.slug === "hero") || {};
 
   const heroSlides = hero?.slides?.map((slide) => {
@@ -153,12 +150,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         },
         ourResources,
         helpdesk,
-        {
-          slug: "partners",
-          title: partnerTitle ?? null,
-          description: partnerDescription ?? null,
-          partners,
-        },
+        partners,
       ],
       footer: {
         contact: {
