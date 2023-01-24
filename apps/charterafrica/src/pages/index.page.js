@@ -106,15 +106,13 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   const ecosystem = blocks.find((block) => block.slug === "ecosystem") || null;
 
   const mooc = blocks.find((block) => block.slug === "mooc") || null;
-
   if (mooc) {
-    const { alt: imageAlt, url: imageSrc } = mooc.image;
-
     mooc.image = {
-      alt: imageAlt,
-      src: imageSrc,
+      alt: mooc.image.alt,
+      src: mooc.image.url,
     };
   }
+
   const ourResources =
     blocks.find((block) => block.slug === "our-resources") || null;
 
