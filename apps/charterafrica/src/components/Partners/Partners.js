@@ -2,10 +2,12 @@ import { RichTypography, Section } from "@commons-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
 
+import RichText from "../RichText";
+
 import Partnership from "./Partnership";
 
 const Partners = React.forwardRef(function Partners(props, ref) {
-  const { partners, title } = props;
+  const { partners, title, description } = props;
   const hasPartners = !!partners.length;
 
   if (!hasPartners) {
@@ -19,10 +21,17 @@ const Partners = React.forwardRef(function Partners(props, ref) {
         variant="h3Small"
         component="h3"
         textAlign="center"
-        sx={{ typography: { md: "h3" } }}
+        sx={{ typography: { md: "h3" }, marginBottom: 3.5 }}
       >
         {title}
       </RichTypography>
+
+      <RichText
+        variant="p2"
+        sx={{ fontSize: 18 }}
+        textAlign="center"
+        elements={description}
+      />
       {partners.map((partner, i) => (
         <Partnership
           {...partner}

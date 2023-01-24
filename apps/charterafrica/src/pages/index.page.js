@@ -103,9 +103,13 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   const ourResources =
     blocks.find((block) => block.slug === "our-resources") || null;
 
-  const { partners } = blocks.find(
-    (block) => block.slug === "block-partners"
-  ) || { partners: [] };
+  const {
+    partners,
+    title: partnerTitle,
+    description: partnerDescription,
+  } = blocks.find((block) => block.slug === "block-partners") || {
+    partners: [],
+  };
   const hero = blocks.find((block) => block.slug === "hero") || {};
 
   const heroSlides = hero?.slides?.map((slide) => {
@@ -151,7 +155,8 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         helpdesk,
         {
           slug: "partners",
-          title: "Partners",
+          title: partnerTitle,
+          description: partnerDescription,
           partners,
         },
       ],

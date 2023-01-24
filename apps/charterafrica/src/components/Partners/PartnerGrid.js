@@ -57,9 +57,8 @@ const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
                 },
               })}
               ImageProps={{
-                alt: partner?.link?.logo?.alt,
-                src: partner?.link?.logo?.url,
-                ...partner.logo,
+                alt: partner?.logo?.alt,
+                src: partner?.logo?.url,
                 sx: {
                   objectPosition: "center",
                   mixBlendMode: "luminosity",

@@ -14,6 +14,30 @@ const Resources = {
   },
   fields: [
     {
+      name: "title",
+      label: {
+        en: "Title",
+        fr: "Titre",
+        pt: "Título",
+      },
+      type: "text",
+      localized: true,
+      required: true,
+    },
+    {
+      name: "description",
+      label: {
+        en: "Description",
+        fr: "La description",
+        pt: "Descrição",
+      },
+      type: "richText",
+      admin: {
+        elements: [],
+      },
+      localized: true,
+    },
+    {
       name: "partners",
       label: {
         en: "Partners",

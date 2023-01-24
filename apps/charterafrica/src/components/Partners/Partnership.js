@@ -14,7 +14,12 @@ function Partnership({ partners, description, DividerProps, ...other }) {
   return (
     <>
       <PartnerGrid partners={partners} sx={{ marginBottom: 4 }} {...other} />
-      <RichText elements={description} />
+      <RichText
+        textAlign="center"
+        sx={{ fontSize: "18px" }}
+        variant="p2"
+        elements={description}
+      />
       <Divider
         {...DividerProps}
         sx={{

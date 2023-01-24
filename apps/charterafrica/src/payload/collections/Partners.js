@@ -1,26 +1,4 @@
-import link from "../fields/link";
 import linkGroup from "../fields/linkGroup";
-
-const partnerGroup = linkGroup();
-
-const linkField = link();
-linkField.fields = [
-  {
-    name: "logo",
-    required: true,
-    localized: true,
-    type: "upload",
-    relationTo: "media",
-    label: {
-      en: "Logo",
-      pt: "Imagem",
-      fr: "Image",
-    },
-  },
-  ...linkField.fields,
-];
-
-partnerGroup.fields = [linkField];
 
 const Partners = {
   slug: "partners",
@@ -28,14 +6,16 @@ const Partners = {
     singular: {
       en: "Partner",
       fr: "Partenaire",
+      pt: "Parceiro",
     },
     plural: {
       en: "Partners",
       fr: "Partenaires",
+      pt: "Parceiros",
     },
   },
   admin: {
-    useAsTitle: "name",
+    useAsTitle: "title",
     defaultColumns: ["name", "updatedAt"],
   },
   access: {
@@ -43,7 +23,19 @@ const Partners = {
   },
   fields: [
     {
-      type: "row",
+      name: "title",
+      label: {
+        en: "Title",
+        fr: "Titre",
+        pt: "Título",
+      },
+      type: "text",
+      localized: true,
+      required: true,
+    },
+    {
+      name: "partners",
+      type: "array",
       fields: [
         {
           name: "name",
@@ -53,39 +45,38 @@ const Partners = {
             pt: "Nome",
           },
           type: "text",
-          localized: true,
           required: true,
-          admin: {
-            width: "50%",
-          },
+          localized: true,
         },
-      ],
-    },
-    {
-      type: "row",
-      fields: [
         {
-          name: "description",
-          label: {
-            en: "Description",
-            fr: "La description",
-            pt: "Descrição",
-          },
-          type: "richText",
-          admin: {
-            elements: ["h2", "h3", "h4", "h5", "h6", "ol", "ul", "link"],
-          },
-          localized: true,
+          name: "logo",
           required: true,
+          type: "upload",
+          relationTo: "media",
+          label: {
+            en: "Logo",
+            pt: "Imagem",
+            fr: "Image",
+          },
         },
+        linkGroup(),
       ],
+      required: true,
     },
     {
-      type: "array",
-      name: "partners",
-      fields: [partnerGroup],
+      name: "description",
+      label: {
+        en: "Description",
+        fr: "La description",
+        pt: "Descrição",
+      },
+      type: "richText",
+      admin: {
+        elements: [],
+      },
+      localized: true,
+      required: true,
     },
   ],
 };
-
 export default Partners;
