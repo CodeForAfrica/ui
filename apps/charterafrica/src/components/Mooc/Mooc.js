@@ -21,7 +21,7 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
       ref={ref}
       sx={{
         backgroundImage: {
-          sm: `url(/images/mooc-background.png)`,
+          md: `url(/images/mooc-background.png)`,
         },
         backgroundPosition: "left",
         backgroundRepeat: "no-repeat",
@@ -36,7 +36,7 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
         <Grid
           container
           spacing={2}
-          direction={{ xs: "column-reverse", sm: "row" }}
+          direction={{ xs: "column-reverse", md: "row" }}
           wrap="nowrap"
         >
           <Grid item xs={12} sm={6} container>
@@ -46,7 +46,7 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
               justifyContent="center"
               alignItems={{
                 xs: "center",
-                sm: "flex-start",
+                md: "flex-start",
               }}
               sx={{
                 gap: 5,
@@ -86,24 +86,28 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
               overflow: "hidden",
             }}
             container
-            justifyContent="flex-end"
+            justifyContent={{
+              xs: "center",
+              md: "flex-end",
+            }}
           >
             <Figure
               ImageProps={{
                 ...image,
-                alt: title.content,
                 objectFit: "cover",
               }}
               sx={{
-                height: {
-                  xs: 550,
-                  sm: 281,
-                  md: 329,
-                },
                 width: {
-                  xs: 688,
-                  sm: 436,
-                  md: 512,
+                  xs: 310,
+                  sm: 688,
+                  md: 436,
+                  lg: 512,
+                },
+                height: {
+                  xs: 199.2,
+                  sm: 550,
+                  md: 281,
+                  lg: 329,
                 },
               }}
             />
