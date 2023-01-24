@@ -1,3 +1,4 @@
+import { Link } from "@commons-ui/next";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -86,14 +87,18 @@ const Popup = React.forwardRef(function Popup(props, ref) {
           ))}
         </Box>
       ) : null}
-      <Button
-        color="primary"
-        onClick={onClose}
-        size="small"
-        variant="contained"
-      >
-        {link?.content}
-      </Button>
+      {link?.label ? (
+        <Button
+          color="primary"
+          component={link.href ? Link : undefined}
+          href={link.href}
+          onClick={onClose}
+          size="small"
+          variant="contained"
+        >
+          {link.label}
+        </Button>
+      ) : null}
     </Box>
   );
 });
