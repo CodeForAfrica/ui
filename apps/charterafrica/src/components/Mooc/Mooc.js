@@ -16,7 +16,19 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
   }
 
   return (
-    <Box bgcolor={neutral[900]} ref={ref} sx={sx}>
+    <Box
+      bgcolor={neutral[900]}
+      ref={ref}
+      sx={{
+        backgroundImage: {
+          sm: `url(/images/mooc-background.png)`,
+        },
+        backgroundPosition: "left",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
+        ...sx,
+      }}
+    >
       <Section
         ref={ref}
         sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "86px" } }}

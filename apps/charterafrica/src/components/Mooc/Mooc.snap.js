@@ -3,7 +3,7 @@
 exports[`<Mooc/> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-8aljdm"
+    class="MuiBox-root css-1dn1h9h"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-582wlz-MuiContainer-root"
