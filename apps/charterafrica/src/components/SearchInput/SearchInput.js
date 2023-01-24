@@ -1,6 +1,4 @@
-import IconButton from "@mui/material/IconButton";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import SvgIcon from "@mui/material/SvgIcon";
+import { IconButton, OutlinedInput, SvgIcon } from "@mui/material";
 import React from "react";
 
 import SearchIcon from "@/charterafrica/assets/icons/Type=search, Size=16, Color=CurrentColor.svg";

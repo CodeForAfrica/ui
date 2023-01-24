@@ -1,5 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
-import Divider from "@mui/material/Divider";
+import { Divider } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 

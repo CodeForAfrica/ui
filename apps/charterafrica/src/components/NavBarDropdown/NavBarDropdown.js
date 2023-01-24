@@ -1,5 +1,5 @@
 import { Link } from "@commons-ui/next";
-import IconButton from "@mui/material/IconButton";
+import { IconButton } from "@mui/material";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -47,7 +47,7 @@ const NavBarDropdown = React.forwardRef(function NavBarDropdown(props, ref) {
         ref={anchorRef}
       >
         {menu.label}
-        {menu.children ? (
+        {menu.children?.length ? (
           <IconButton
             aria-controls={open ? "split-button-menu" : undefined}
             aria-expanded={open ? "true" : undefined}
@@ -65,7 +65,7 @@ const NavBarDropdown = React.forwardRef(function NavBarDropdown(props, ref) {
           </IconButton>
         ) : null}
       </Link>
-      {menu?.children ? (
+      {menu?.children?.length ? (
         <Popper
           open={open}
           anchorEl={anchorRef.current}

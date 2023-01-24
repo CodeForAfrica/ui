@@ -1,4 +1,4 @@
-import SvgIcon from "@mui/material/SvgIcon";
+import { SvgIcon } from "@mui/material";
 import React from "react";
 
 import ArrowDropDownIcon from "@/charterafrica/assets/icons/Type=chevron-down, Size=16, Color=CurrentColor.svg";

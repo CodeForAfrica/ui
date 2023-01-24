@@ -1,5 +1,5 @@
 import { Link, Figure } from "@commons-ui/next";
-import Grid from "@mui/material/Grid";
+import { Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 

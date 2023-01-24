@@ -1,10 +1,12 @@
 import { Link } from "@commons-ui/next";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import LinearProgress from "@mui/material/LinearProgress";
-import { styled } from "@mui/material/styles";
-import SvgIcon from "@mui/material/SvgIcon";
+import {
+  Box,
+  Button,
+  IconButton,
+  LinearProgress,
+  styled,
+  SvgIcon,
+} from "@mui/material";
 import React from "react";
 
 import XIcon from "@/charterafrica/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";

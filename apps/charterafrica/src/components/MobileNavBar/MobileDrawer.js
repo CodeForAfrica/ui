@@ -1,7 +1,5 @@
 import { Section } from "@commons-ui/core";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
+import { Box, Button, Grid } from "@mui/material";
 import React from "react";
 
 import LanguageButton from "@/charterafrica/components/LanguageButton";

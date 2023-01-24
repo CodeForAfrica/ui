@@ -1,10 +1,12 @@
 import { Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import Box from "@mui/material/Box";
-import CardActionAction from "@mui/material/CardActionArea";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Grid from "@mui/material/Grid";
+import {
+  Box,
+  CardActionArea as CardActionAction,
+  CardContent,
+  CardMedia,
+  Grid,
+} from "@mui/material";
 import React from "react";
 
 import { neutral, secondary } from "@/charterafrica/colors";
