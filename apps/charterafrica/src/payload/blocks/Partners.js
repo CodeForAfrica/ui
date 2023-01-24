@@ -1,16 +1,16 @@
 import richText from "../fields/richText";
 
 const Resources = {
-  slug: "block-partners",
+  slug: "our-partners",
   labels: {
     singular: {
       en: "Partner",
-      fr: "Associé",
+      fr: "Partenaire",
       pt: "Parceiro",
     },
     plural: {
       en: "Partners",
-      fr: "Les partenaires",
+      fr: "Partenaires",
       pt: "Parceiros",
     },
   },

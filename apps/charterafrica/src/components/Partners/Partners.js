@@ -27,18 +27,16 @@ const Partners = React.forwardRef(function Partners(props, ref) {
       </RichTypography>
 
       <RichText
-        variant="p2"
-        sx={{ fontSize: 18 }}
         textAlign="center"
+        variant="caption"
+        typography={{ md: "p2" }}
         elements={description}
       />
       {partners.map((partner, i) => (
         <Partnership
           {...partner}
           key={partner.id}
-          DividerProps={
-            i === partners.length - 1 ? { sx: { display: { sm: "none" } } } : {}
-          }
+          showDivider={i < partners.length - 1}
         />
       ))}
     </Section>

@@ -64,8 +64,11 @@ const Partners = {
             pt: "Imagem",
             fr: "Image",
           },
+          filterOptions: {
+            mimeType: { contains: "image" },
+          },
         },
-        linkGroup(),
+        linkGroup({ linkConfig: { disableLabel: true } }),
       ],
       required: true,
     },

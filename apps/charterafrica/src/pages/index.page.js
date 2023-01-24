@@ -107,7 +107,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     partners,
     title: partnerTitle,
     description: partnerDescription,
-  } = blocks.find((block) => block.slug === "block-partners") || {
+  } = blocks.find((block) => block.slug === "our-partners") || {
     partners: [],
   };
   const hero = blocks.find((block) => block.slug === "hero") || {};
@@ -155,8 +155,8 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         helpdesk,
         {
           slug: "partners",
-          title: partnerTitle,
-          description: partnerDescription,
+          title: partnerTitle ?? null,
+          description: partnerDescription ?? null,
           partners,
         },
       ],

@@ -6,7 +6,7 @@ import PartnerGrid from "./PartnerGrid";
 
 import RichText from "@/charterafrica/components/RichText";
 
-function Partnership({ partners, description, DividerProps, ...other }) {
+function Partnership({ partners, description, showDivider, ...other }) {
   if (!partners?.length) {
     return null;
   }
@@ -20,25 +20,25 @@ function Partnership({ partners, description, DividerProps, ...other }) {
         variant="p2"
         elements={description}
       />
-      <Divider
-        {...DividerProps}
-        sx={{
-          pt: { xs: 2.5, md: "30px" },
-          ...DividerProps?.sx,
-        }}
-      />
+      {showDivider && (
+        <Divider
+          sx={{
+            pt: { xs: 2.5, md: "30px" },
+          }}
+        />
+      )}
     </>
   );
 }
 
 Partnership.propTypes = {
-  DividerProps: PropTypes.shape({}),
+  showDivider: PropTypes.bool,
   description: PropTypes.arrayOf(PropTypes.shape({})),
   partners: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 Partnership.defaultProps = {
-  DividerProps: undefined,
+  showDivider: true,
   description: undefined,
   partners: undefined,
 };
