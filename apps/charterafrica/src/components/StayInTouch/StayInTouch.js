@@ -1,8 +1,7 @@
 import { RichTypography } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import { Grid } from "@mui/material";
-import SvgIcon from "@mui/material/SvgIcon";
-import React, { forwardRef } from "react";
+import { Grid, SvgIcon } from "@mui/material";
+import React from "react";
 
 import FacebookIcon from "@/charterafrica/assets/icons/facebook.svg";
 import GithubIcon from "@/charterafrica/assets/icons/github.svg";
@@ -11,17 +10,27 @@ import LinkedInIcon from "@/charterafrica/assets/icons/linkedin.svg";
 import SlackIcon from "@/charterafrica/assets/icons/slack.svg";
 import TwitterIcon from "@/charterafrica/assets/icons/twitter.svg";
 
-function StayInTouch(props, ref) {
-  const { title, twitter, slack, linkedin, facebook, instagram, github } =
-    props;
+const mediaToIcon = {
+  facebook: FacebookIcon,
+  github: GithubIcon,
+  instagram: InstagramIcon,
+  linkedin: LinkedInIcon,
+  slack: SlackIcon,
+  twitter: TwitterIcon,
+};
+
+const StayInTouch = React.forwardRef(function StayInTouch(props, ref) {
+  const { title, links } = props;
+
+  if (!links?.length) {
+    return null;
+  }
   return (
-    <Grid container ref={ref} alignItems="center" display="flex" spacing={2}>
-      <Grid item xs={12} sm={3}>
+    <Grid container columnSpacing={4} rowSpacing={2} ref={ref}>
+      <Grid item xs={12} md="auto">
         <RichTypography
-          sx={{
-            textTransform: "uppercase",
-            textAlign: { xs: "center", sm: "left" },
-          }}
+          textAlign={{ xs: "center", md: "left" }}
+          textTransform="uppercase"
           variant="p2SemiBold"
         >
           {title}
@@ -30,91 +39,28 @@ function StayInTouch(props, ref) {
       <Grid
         item
         xs={12}
-        sm={6}
-        flex={1}
-        sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
-        display="flex"
+        md="auto"
+        container
+        justifyContent={{ xs: "center", md: "flex-start" }}
+        columnSpacing={2}
       >
-        {twitter && (
-          <Link href={twitter}>
-            <SvgIcon
-              component={TwitterIcon}
-              sx={{
-                color: "text.secondary",
-                display: "inline-flex",
-                fill: "none",
-              }}
-            />
-          </Link>
-        )}
-        {slack && (
-          <Link href={slack}>
-            <SvgIcon
-              component={SlackIcon}
-              sx={{
-                color: "text.secondary",
-                display: "inline-flex",
-                fill: "none",
-                marginLeft: "20px",
-              }}
-            />
-          </Link>
-        )}
-        {linkedin && (
-          <Link href={linkedin}>
-            <SvgIcon
-              component={LinkedInIcon}
-              sx={{
-                color: "text.secondary",
-                display: "inline-flex",
-                fill: "none",
-                marginLeft: "20px",
-              }}
-            />
-          </Link>
-        )}
-        {facebook && (
-          <Link href={facebook}>
-            <SvgIcon
-              component={FacebookIcon}
-              sx={{
-                color: "text.secondary",
-                display: "inline-flex",
-                fill: "none",
-                marginLeft: "20px",
-              }}
-            />
-          </Link>
-        )}
-        {instagram && (
-          <Link href={instagram}>
-            <SvgIcon
-              component={InstagramIcon}
-              sx={{
-                color: "text.secondary",
-                display: "inline-flex",
-                fill: "none",
-                marginLeft: "20px",
-              }}
-            />
-          </Link>
-        )}
-        {github && (
-          <Link href={github}>
-            <SvgIcon
-              component={GithubIcon}
-              sx={{
-                color: "text.secondary",
-                display: "inline-flex",
-                fill: "none",
-                marginLeft: "20px",
-              }}
-            />
-          </Link>
-        )}
+        {links?.map((link) => (
+          <Grid item key={link.id}>
+            <Link href={link.url}>
+              <SvgIcon
+                component={mediaToIcon[link.media]}
+                sx={{
+                  color: "text.secondary",
+                  display: "inline-flex",
+                  fill: "none",
+                }}
+              />
+            </Link>
+          </Grid>
+        ))}
       </Grid>
     </Grid>
   );
-}
+});
 
-export default forwardRef(StayInTouch);
+export default StayInTouch;
