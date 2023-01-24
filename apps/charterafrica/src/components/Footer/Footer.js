@@ -21,6 +21,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     projectDescription,
     siteDescription,
     newsletter,
+    connect,
   } = props;
 
   return (
@@ -38,124 +39,138 @@ const Footer = React.forwardRef(function Footer(props, ref) {
             container
             alignItems={{ sm: "flex-end" }}
             justifyContent={{ sm: "space-between" }}
-            rowSpacing={2.5}
+            gap={4}
           >
             <Grid
               item
               xs={12}
               sm="auto"
               alignItems={{ sm: "flex-end" }}
+              display="flex"
+              justifyContent="center"
               sx={{
                 order: { xs: 0, sm: 1 },
+                justifyContent: { xs: "center", sm: "flex-start" },
               }}
             >
-              <Box
+              <Grid
                 display="flex"
+                flexDirection="column"
+                alignItems="center"
                 sx={{
                   display: "flex",
                   gap: 4,
-                  alignItems: { md: "flex-end", xs: "flex-start" },
+                  alignItems: { md: "flex-end", sm: "center", xs: "center" },
+                  justifyContent: {
+                    md: "flex-end",
+                    sm: "center",
+                    xs: "center",
+                  },
                 }}
-                justifyContent="space-between"
-                // alignItems="flex-end"
               >
+                <NewsletterSubscription {...newsletter} />
                 <Box
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="center"
                   sx={{
-                    display: "flex",
-                    gap: 4,
-                    alignItems: { md: "flex-end", sm: "center", xs: "center" },
-                    justifyContent: {
-                      md: "flex-end",
-                      sm: "center",
-                      xs: "center",
-                    },
+                    marginBottom: "20px",
+                    width: { xs: "172px", sm: "150px" },
                   }}
                 >
-                  <NewsletterSubscription {...newsletter} />
-                  <Box
-                    sx={{
-                      marginBottom: "20px",
-                      width: { xs: "172px", sm: "150px" },
-                    }}
+                  <RichTypography
+                    fontSize={16}
+                    textAlign={{ xs: "center", sm: "right" }}
+                    variant="p2SemiBold"
                   >
-                    <RichTypography
-                      fontSize={16}
-                      textAlign={{ xs: "center", sm: "right" }}
-                      variant="p2SemiBold"
-                    >
-                      {funder?.title}
-                    </RichTypography>
-                  </Box>
-
-                  <Figure
-                    sx={{
-                      height: { xs: "118.11px", sm: "103px" },
-                      width: { xs: "172px", sm: "150px" },
-                    }}
-                    ImageProps={{
-                      alt: funder?.logo?.alt,
-                      src: funder?.logo?.url,
-                      sx: { objectPosition: "top" },
-                    }}
-                  />
+                    {funder?.title}
+                  </RichTypography>
                 </Box>
-              </Box>
+
+                <Figure
+                  sx={{
+                    height: { xs: "118.11px", sm: "103px" },
+                    width: { xs: "172px", sm: "150px" },
+                  }}
+                  ImageProps={{
+                    alt: funder?.logo?.alt,
+                    src: funder?.logo?.url,
+                    sx: { objectPosition: "top" },
+                  }}
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={12} sm={7} sx={{ order: { xs: 1, sm: 0 } }}>
-              <Box
+            <Grid container xs={12} sm={7} sx={{ order: { xs: 1, sm: 0 } }}>
+              <Grid
                 sx={{ display: "flex", flexDirection: "column", gap: "13px" }}
               >
-                {contact?.email?.length > 0 ? (
-                  <Link
-                    href={`mailto:${contact.email}`}
-                    color="inherit"
-                    variant="p2"
-                    underline="none"
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "17px",
-                    }}
-                  >
-                    <SvgIcon
-                      component={MailIcon}
-                      viewBox="0 0 32 32"
+                <Grid
+                  item
+                  display="flex"
+                  sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
+                >
+                  {contact?.email?.length > 0 ? (
+                    <Link
+                      href={`mailto:${contact.email}`}
+                      color="inherit"
+                      variant="p2"
+                      underline="none"
                       sx={{
-                        color: "text.secondary",
-                        display: "inline-flex",
-                        fill: "none",
-                        fontSize: "32px",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "17px",
                       }}
-                    />
-                    {contact.email || contact.email}
-                  </Link>
-                ) : null}
-                <RichText variant="p2" elements={siteDescription} />
-                <StayInTouch title={contact?.stayInTouch} {...contact} />
-                <RichText variant="p2SemiBold" elements={projectDescription} />
+                    >
+                      <SvgIcon
+                        component={MailIcon}
+                        viewBox="0 0 32 32"
+                        sx={{
+                          color: "text.secondary",
+                          display: "inline-flex",
+                          fill: "none",
+                          fontSize: "32px",
+                        }}
+                      />
+                      <RichTypography variant="p2">
+                        {contact.email}
+                      </RichTypography>
+                    </Link>
+                  ) : null}
+                </Grid>
+                <RichText
+                  sx={{
+                    textAlign: { xs: "center", sm: "left" },
+                  }}
+                  variant="p2"
+                  elements={siteDescription}
+                />
+                <StayInTouch title={connect?.stayInTouch} {...connect} />
+                <RichText
+                  variant="p2SemiBold"
+                  sx={{
+                    textAlign: { xs: "center", sm: "left" },
+                  }}
+                  elements={projectDescription}
+                />
 
                 {links?.length > 0 ? (
-                  <Box display="flex" gap="10px">
+                  <Grid
+                    sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
+                    item
+                    display="flex"
+                    gap="10px"
+                  >
                     {links.map((link) => (
                       <Link
                         key={link.id}
                         color="inherit"
-                        href={link?.url || `/${link?.doc?.value?.slug || ""}`}
+                        href={link?.href}
                         underline="always"
                         variant="p1"
                       >
-                        {link.label?.en ||
-                          link.label ||
-                          link?.href ||
-                          link?.url}
+                        {link.label}
                       </Link>
                     ))}
-                  </Box>
+                  </Grid>
                 ) : null}
-              </Box>
+              </Grid>
             </Grid>
           </Grid>
         </Section>
@@ -188,10 +203,12 @@ Footer.propTypes = {
   projectDescription: PropTypes.arrayOf(PropTypes.shape({})),
   siteDescription: PropTypes.arrayOf(PropTypes.shape({})),
   newsletter: PropTypes.shape({}),
+  connect: PropTypes.shape({}),
 };
 
 Footer.defaultProps = {
   contact: undefined,
+  connect: {},
   copyright: undefined,
   links: undefined,
   logo: undefined,

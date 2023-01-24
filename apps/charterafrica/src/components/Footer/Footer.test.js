@@ -15,14 +15,15 @@ const defaultProps = {
       content: "info@charter.africa",
     },
   },
+  connect: {},
   copyright: "© 2022 European Partnership for Democracy (CC BY-NC 2.0)",
   links: [
     {
-      url: "/",
+      href: "/",
       label: "Privacy Policy",
     },
     {
-      url: "/",
+      href: "/",
       label: "Imprint",
     },
   ],

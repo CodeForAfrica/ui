@@ -1,6 +1,6 @@
 import { RichTypography } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import Box from "@mui/material/Box";
+import { Grid } from "@mui/material";
 import SvgIcon from "@mui/material/SvgIcon";
 import React, { forwardRef } from "react";
 
@@ -15,11 +15,26 @@ function StayInTouch(props, ref) {
   const { title, twitter, slack, linkedin, facebook, instagram, github } =
     props;
   return (
-    <Box ref={ref} alignItems="center" sx={{ marginTop: 2 }} display="flex">
-      <RichTypography sx={{ textTransform: "uppercase" }} variant="p2SemiBold">
-        {title}
-      </RichTypography>
-      <Box sx={{ marginLeft: 2 }} display="flex">
+    <Grid container ref={ref} alignItems="center" display="flex" spacing={2}>
+      <Grid item xs={12} sm={3}>
+        <RichTypography
+          sx={{
+            textTransform: "uppercase",
+            textAlign: { xs: "center", sm: "left" },
+          }}
+          variant="p2SemiBold"
+        >
+          {title}
+        </RichTypography>
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        sm={6}
+        flex={1}
+        sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
+        display="flex"
+      >
         {twitter && (
           <Link href={twitter}>
             <SvgIcon
@@ -28,7 +43,6 @@ function StayInTouch(props, ref) {
                 color: "text.secondary",
                 display: "inline-flex",
                 fill: "none",
-                marginLeft: "20px",
               }}
             />
           </Link>
@@ -98,8 +112,8 @@ function StayInTouch(props, ref) {
             />
           </Link>
         )}
-      </Box>
-    </Box>
+      </Grid>
+    </Grid>
   );
 }
 

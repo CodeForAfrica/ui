@@ -262,41 +262,43 @@ exports[`<Layout /> renders unchanged 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-aiu674-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container css-1y4l1km-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1auxfqf-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-2468k6-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-1g236pt-MuiGrid-root"
           >
             <div
-              class="MuiBox-root css-b1fkow"
+              class="MuiGrid-root css-1rifwvd-MuiGrid-root"
             >
               <div
-                class="MuiBox-root css-1kt34ug"
-              >
-                <div
-                  class="MuiBox-root css-i0q47s"
-                />
-              </div>
+                class="MuiBox-root css-i0q47s"
+              />
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-7 css-dd70lw-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-grid-xs-12 MuiGrid-grid-sm-7 css-1ghnu0-MuiGrid-root"
           >
             <div
-              class="MuiBox-root css-utp7eg"
+              class="MuiGrid-root css-kpalpf-MuiGrid-root"
             >
+              <div
+                class="MuiGrid-root MuiGrid-item css-19jp8yb-MuiGrid-root"
+              />
               <p
-                class="MuiTypography-root MuiTypography-p2 css-15ikgt3-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p2 css-1esl545-MuiTypography-root"
               />
               <div
-                class="MuiBox-root css-1vwirlt"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-2fcctu-MuiGrid-root"
               >
                 <div
-                  class="MuiBox-root css-iqyuzw"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-3 css-1g8bevc-MuiGrid-root"
+                />
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1nzfn2f-MuiGrid-root"
                 />
               </div>
               <p
-                class="MuiTypography-root MuiTypography-p2SemiBold css-g7x15e-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p2SemiBold css-1n9dy5c-MuiTypography-root"
               />
             </div>
           </div>

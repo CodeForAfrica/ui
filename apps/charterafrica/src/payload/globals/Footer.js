@@ -1,6 +1,7 @@
 import { text } from "payload/dist/fields/validations";
 
 import linkArray from "../fields/linkArray";
+import richText from "../fields/richText";
 
 const Footer = {
   slug: "footer",
@@ -10,21 +11,20 @@ const Footer = {
     pt: "Rodapé",
   },
   fields: [
-    {
+    richText({
       name: "siteDescription",
       label: {
         en: "Site Description",
         fr: "Description du site",
         pt: "Descrição do Site",
       },
-      type: "richText",
       localized: true,
       required: true,
       admin: {
         elements: ["h2", "h3", "h4", "h5", "h6", "ol", "ul", "link"],
       },
-    },
-    {
+    }),
+    richText({
       name: "projectDescription",
       label: {
         en: "Project Description",
@@ -37,7 +37,7 @@ const Footer = {
       admin: {
         elements: ["h2", "h3", "h4", "h5", "h6", "ol", "ul", "link"],
       },
-    },
+    }),
     linkArray(),
     {
       name: "newsletter",
@@ -88,7 +88,7 @@ const Footer = {
           localized: true,
           type: "text",
           label: {
-            en: "Footer Title",
+            en: "Title",
             fr: "Titre",
             pt: "título",
           },
@@ -110,32 +110,14 @@ const Footer = {
       ],
     },
     {
-      type: "group",
       name: "contact",
       label: {
         en: "Contact",
         pt: "Contact",
         fr: "Contact",
       },
-      admin: {
-        width: "100%",
-      },
+      type: "group",
       fields: [
-        {
-          name: "stayInTouch",
-          type: "text",
-          label: {
-            en: "Title",
-            fr: "Titre",
-            pt: "Título",
-          },
-          admin: {
-            description: () =>
-              "Text that appears on contact links e.g Stay in Touch",
-          },
-          localized: true,
-          required: true,
-        },
         {
           name: "email",
           type: "email",
@@ -157,6 +139,32 @@ const Footer = {
             description: () => "Enter an email address",
           },
         },
+      ],
+    },
+    {
+      type: "group",
+      name: "connect",
+      label: {
+        en: "Social Links",
+        pt: "Links de mídia social",
+        fr: "Liens de médias sociaux",
+      },
+      fields: [
+        {
+          name: "stayInTouch",
+          type: "text",
+          label: {
+            en: "Title",
+            fr: "Titre",
+            pt: "Título",
+          },
+          admin: {
+            description: () =>
+              "Text that appears on contact links e.g Stay in Touch",
+          },
+          localized: true,
+          required: true,
+        },
         {
           name: "twitter",
           type: "text",
@@ -169,7 +177,7 @@ const Footer = {
             const regex =
               /http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)/;
 
-            if (!regex.test(val)) {
+            if (val && !regex.test(val)) {
               return "Enter a valid address";
             }
             return text(val, args);
@@ -178,6 +186,7 @@ const Footer = {
             description: () =>
               "Twitter profile address e.g https://twitter.com/profile",
           },
+          localized: true,
         },
         {
           name: "slack",
@@ -203,14 +212,14 @@ const Footer = {
           validate: (val, args) => {
             const regex =
               /^(https:\/\/www\.linkedin\.com\/(in|company)\/[a-zA-Z0-9-]+)\/*$/;
-            if (!regex.test(val)) {
+            if (val && !regex.test(val)) {
               return "Enter a valid address";
             }
             return text(val, args);
           },
           admin: {
             description: () =>
-              "Linked profile address e.g https://www.linkedin.com/in/profile/",
+              "LinkedIn profile address e.g https://www.linkedin.com/in/profile/",
           },
         },
         {
@@ -224,7 +233,7 @@ const Footer = {
           validate: (val, args) => {
             const regex =
               /^(https:\/\/(www\.)?facebook\.com\/[a-zA-Z0-9/.\-_]+)$/;
-            if (!regex.test(val)) {
+            if (val && !regex.test(val)) {
               return "Enter a valid address";
             }
             return text(val, args);
@@ -245,7 +254,7 @@ const Footer = {
           validate: (val, args) => {
             const regex =
               /http(?:s)?:\/\/(?:www\.)?instagram\.com\/([a-zA-Z0-9_]+)/;
-            if (!regex.test(val)) {
+            if (val && !regex.test(val)) {
               return "Enter a valid address";
             }
             return text(val, args);
@@ -266,7 +275,7 @@ const Footer = {
           validate: (val, args) => {
             const regex =
               /http(?:s)?:\/\/(?:www\.)?github\.com\/([a-zA-Z0-9_]+)/;
-            if (!regex.test(val)) {
+            if (val && !regex.test(val)) {
               return "Enter a valid address";
             }
             return text(val, args);
@@ -278,7 +287,6 @@ const Footer = {
         },
       ],
       localized: true,
-      required: true,
     },
     {
       name: "copyright",
