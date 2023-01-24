@@ -16,8 +16,8 @@ function Partnership({ partners, description, showDivider, ...other }) {
       <PartnerGrid partners={partners} sx={{ marginBottom: 4 }} {...other} />
       <RichText
         textAlign="center"
-        sx={{ fontSize: "18px" }}
-        variant="p2"
+        variant="caption"
+        typography={{ md: "p2" }}
         elements={description}
       />
       {showDivider && (

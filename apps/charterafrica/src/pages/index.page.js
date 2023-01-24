@@ -55,7 +55,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     const { alt: imageAlt, url: imageSrc } = helpdesk.image;
     helpdesk.image = { alt: imageAlt, src: imageSrc };
     const { href: linkHref, label: linkLabel } = helpdesk.link;
-    helpdesk.link = { href: linkHref ?? null, label: linkLabel ?? null };
+    helpdesk.link = { href: linkHref, label: linkLabel };
   }
 
   const { docs: pages } = await payload.findPage("index", {
