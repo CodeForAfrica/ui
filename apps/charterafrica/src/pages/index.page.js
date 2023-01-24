@@ -55,9 +55,13 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     const { alt: imageAlt, url: imageSrc } = helpdesk.image;
     helpdesk.image = { alt: imageAlt, src: imageSrc };
     const { href: linkHref, label: linkLabel } = helpdesk.link;
-    helpdesk.link = { href: linkHref, label: linkLabel };
+    helpdesk.link = { href: linkHref ?? null, label: linkLabel ?? null };
   }
 
+  const footer = await payload.findGlobal("footer", {
+    locale,
+    fallbackLocale: defaultLocale,
+  });
   const { docs: pages } = await payload.findPage("index", {
     locale,
     fallbackLocale: defaultLocale,
@@ -106,7 +110,6 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   const partners =
     blocks.find((block) => block.slug === "our-partners") || null;
 
-  console.error(partners);
   const hero = blocks.find((block) => block.slug === "hero") || {};
 
   const heroSlides = hero?.slides?.map((slide) => {
@@ -152,32 +155,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         helpdesk,
         partners,
       ],
-      footer: {
-        contact: {
-          email: {
-            href: "mailto:info@charter.africa",
-            content: "info@charter.africa",
-          },
-        },
-        copyright: "© 2022 European Partnership for Democracy (CC BY-NC 2.0)",
-        links: [
-          {
-            href: "/",
-            content: "Privacy Policy",
-          },
-          {
-            href: "/",
-            content: "Imprint",
-          },
-        ],
-        logo: {
-          alt: "EU",
-          src: "/images/eu.png",
-        },
-        projectDescription: "Website designed and built by Code for Africa",
-        siteDescription:
-          "This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.",
-      },
+      footer,
       navbar: {
         languages: languages ?? null,
         logo: {
