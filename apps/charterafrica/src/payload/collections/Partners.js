@@ -1,4 +1,5 @@
 import linkGroup from "../fields/linkGroup";
+import richText from "../fields/richText";
 
 const Partners = {
   slug: "partners",
@@ -63,20 +64,19 @@ const Partners = {
       ],
       required: true,
     },
-    {
+    richText({
       name: "description",
       label: {
         en: "Description",
         fr: "La description",
         pt: "Descrição",
       },
-      type: "richText",
       admin: {
         elements: [],
       },
       localized: true,
       required: true,
-    },
+    }),
   ],
 };
 export default Partners;

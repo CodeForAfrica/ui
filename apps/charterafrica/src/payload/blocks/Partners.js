@@ -1,3 +1,5 @@
+import richText from "../fields/richText";
+
 const Resources = {
   slug: "block-partners",
   labels: {
@@ -24,19 +26,18 @@ const Resources = {
       localized: true,
       required: true,
     },
-    {
+    richText({
       name: "description",
       label: {
         en: "Description",
         fr: "La description",
         pt: "Descrição",
       },
-      type: "richText",
       admin: {
         elements: [],
       },
       localized: true,
-    },
+    }),
     {
       name: "partners",
       label: {
