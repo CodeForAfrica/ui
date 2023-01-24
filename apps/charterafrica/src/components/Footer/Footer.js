@@ -33,61 +33,38 @@ const Footer = React.forwardRef(function Footer(props, ref) {
       }}
       ref={ref}
     >
-      <Box sx={{ backgroundColor: neutral[800], color: "text.secondary" }}>
+      <Box color="text.secondary" sx={{ backgroundColor: neutral[800] }}>
         <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: 7.5 } }}>
-          <Grid
-            container
-            alignItems={{ sm: "flex-end" }}
-            justifyContent={{ sm: "space-between" }}
-            gap={4}
-          >
+          <Grid container justifyContent={{ md: "space-between" }}>
             <Grid
               item
               xs={12}
-              sm="auto"
-              alignItems={{ sm: "flex-end" }}
-              display="flex"
-              justifyContent="center"
-              sx={{
-                order: { xs: 0, sm: 1 },
-                justifyContent: { xs: "center", sm: "flex-start" },
-              }}
+              md={4}
+              order={{ xs: 0, md: 1 }}
+              container
+              flexDirection="column"
+              alignItems={{ xs: "center", md: "flex-end" }}
             >
-              <Grid
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-                sx={{
-                  display: "flex",
-                  gap: 4,
-                  alignItems: { md: "flex-end", sm: "center", xs: "center" },
-                  justifyContent: {
-                    md: "flex-end",
-                    sm: "center",
-                    xs: "center",
-                  },
-                }}
-              >
+              <Grid item>
                 <NewsletterSubscription {...newsletter} />
-                <Box
-                  sx={{
-                    marginBottom: "20px",
-                    width: { xs: "172px", sm: "150px" },
-                  }}
+              </Grid>
+              <Grid item>
+                <RichTypography
+                  fontSize={16}
+                  textAlign={{ xs: "center", sm: "right" }}
+                  variant="p2SemiBold"
+                  mt={{ xs: 3, md: 5 }}
+                  width={{ xs: "100%", md: "170px" }}
                 >
-                  <RichTypography
-                    fontSize={16}
-                    textAlign={{ xs: "center", sm: "right" }}
-                    variant="p2SemiBold"
-                  >
-                    {funder?.title}
-                  </RichTypography>
-                </Box>
-
+                  {funder?.title}
+                </RichTypography>
+              </Grid>
+              <Grid item>
                 <Figure
                   sx={{
-                    height: { xs: "118.11px", sm: "103px" },
-                    width: { xs: "172px", sm: "150px" },
+                    height: { xs: "118.11px", md: "103px" },
+                    mt: 2,
+                    width: { xs: "172px", md: "150px" },
                   }}
                   ImageProps={{
                     alt: funder?.logo?.alt,
@@ -97,23 +74,27 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 />
               </Grid>
             </Grid>
-            <Grid container xs={12} sm={7} sx={{ order: { xs: 1, sm: 0 } }}>
+            <Grid
+              item
+              xs={12}
+              md={7}
+              sx={{ mt: { xs: 5, md: 0 }, order: { xs: 1, md: 0 } }}
+            >
               <Grid
-                sx={{ display: "flex", flexDirection: "column", gap: "13px" }}
+                container
+                flexDirection="column"
+                rowSpacing={3}
+                alignItems={{ xs: "center", md: "flex-start" }}
               >
-                <Grid
-                  item
-                  display="flex"
-                  sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
-                >
-                  {contact?.email?.length > 0 ? (
+                {contact?.email?.length > 0 ? (
+                  <Grid item>
                     <Link
                       href={`mailto:${contact.email}`}
                       color="inherit"
                       variant="p2"
                       underline="none"
                       sx={{
-                        display: "flex",
+                        display: "inline-flex",
                         alignItems: "center",
                         gap: "17px",
                       }}
@@ -128,45 +109,51 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                           fontSize: "32px",
                         }}
                       />
-                      <RichTypography variant="p2">
-                        {contact.email}
-                      </RichTypography>
+                      {contact.email}
                     </Link>
-                  ) : null}
+                  </Grid>
+                ) : null}
+                <Grid item>
+                  <RichText
+                    sx={{
+                      textAlign: { xs: "center", sm: "left" },
+                    }}
+                    variant="p2"
+                    elements={siteDescription}
+                  />
                 </Grid>
-                <RichText
-                  sx={{
-                    textAlign: { xs: "center", sm: "left" },
-                  }}
-                  variant="p2"
-                  elements={siteDescription}
-                />
-                <StayInTouch title={connect?.stayInTouch} {...connect} />
-                <RichText
-                  variant="p2SemiBold"
-                  sx={{
-                    textAlign: { xs: "center", sm: "left" },
-                  }}
-                  elements={projectDescription}
-                />
+                <Grid item>
+                  <StayInTouch {...connect} />
+                </Grid>
+                <Grid item>
+                  <RichText
+                    variant="p2SemiBold"
+                    sx={{
+                      textAlign: { xs: "center", sm: "left" },
+                    }}
+                    elements={projectDescription}
+                  />
+                </Grid>
 
                 {links?.length > 0 ? (
                   <Grid
-                    sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
                     item
-                    display="flex"
-                    gap="10px"
+                    container
+                    flexDirection={{ xs: "column", md: "row" }}
+                    alignItems={{ xs: "center", md: "flex-start" }}
+                    gap={1.25}
                   >
                     {links.map((link) => (
-                      <Link
-                        key={link.id}
-                        color="inherit"
-                        href={link?.href}
-                        underline="always"
-                        variant="p1"
-                      >
-                        {link.label}
-                      </Link>
+                      <Grid item xs={12} md="auto" key={link.id}>
+                        <Link
+                          color="inherit"
+                          href={link?.href}
+                          underline="always"
+                          variant="p1"
+                        >
+                          {link.label}
+                        </Link>
+                      </Grid>
                     ))}
                   </Grid>
                 ) : null}
@@ -176,9 +163,9 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         </Section>
       </Box>
       <Box
+        color="text.secondary"
         sx={{
           backgroundColor: neutral[900],
-          color: "text.secondary",
         }}
       >
         <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 3.75, md: 1.25 } }}>

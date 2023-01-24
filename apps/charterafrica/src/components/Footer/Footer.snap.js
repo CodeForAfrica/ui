@@ -6,25 +6,28 @@ exports[`<Footer /> renders unchanged 1`] = `
     class="MuiBox-root css-j7qwjs"
   >
     <div
-      class="MuiBox-root css-16c9a35"
+      class="MuiBox-root css-1idzjj5"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-aiu674-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container css-1auxfqf-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-93fe3t-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-1g236pt-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-wj0mtg-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root css-1rifwvd-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            />
+            <div
+              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            />
+            <div
+              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
-              <div
-                class="MuiBox-root css-i0q47s"
-              />
               <figure
-                class="MuiBox-root css-1d66hx2"
+                class="MuiBox-root css-102aivi"
               >
                 <img
                   alt="EU"
@@ -41,49 +44,55 @@ exports[`<Footer /> renders unchanged 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-grid-xs-12 MuiGrid-grid-sm-7 css-1ghnu0-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-1pemd0m-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root css-kpalpf-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container css-uomglc-MuiGrid-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-item css-19jp8yb-MuiGrid-root"
-              />
-              <p
-                class="MuiTypography-root MuiTypography-p2 css-1esl545-MuiTypography-root"
+                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.
-              </p>
-              <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-2fcctu-MuiGrid-root"
-              >
-                <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-3 css-1g8bevc-MuiGrid-root"
-                />
-                <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1nzfn2f-MuiGrid-root"
-                />
+                <p
+                  class="MuiTypography-root MuiTypography-p2 css-1esl545-MuiTypography-root"
+                >
+                  This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.
+                </p>
               </div>
-              <p
-                class="MuiTypography-root MuiTypography-p2SemiBold css-1n9dy5c-MuiTypography-root"
-              >
-                Website designed and built by Code for Africa
-              </p>
               <div
-                class="MuiGrid-root MuiGrid-item css-1xygleg-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              />
+              <div
+                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                <a
-                  class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"
-                  href="/"
+                <p
+                  class="MuiTypography-root MuiTypography-p2SemiBold css-1n9dy5c-MuiTypography-root"
                 >
-                  Privacy Policy
-                </a>
-                <a
-                  class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"
-                  href="/"
+                  Website designed and built by Code for Africa
+                </p>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-item css-f5pcvu-MuiGrid-root"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gjb3vx-MuiGrid-root"
                 >
-                  Imprint
-                </a>
+                  <a
+                    class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"
+                    href="/"
+                  >
+                    Privacy Policy
+                  </a>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gjb3vx-MuiGrid-root"
+                >
+                  <a
+                    class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"
+                    href="/"
+                  >
+                    Imprint
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -91,7 +100,7 @@ exports[`<Footer /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiBox-root css-1nmbj82"
+      class="MuiBox-root css-onpmix"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-mes6to-MuiContainer-root"
