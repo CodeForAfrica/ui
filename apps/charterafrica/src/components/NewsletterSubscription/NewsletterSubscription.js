@@ -71,7 +71,6 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
       background: "none",
       border: "none",
       padding: 0,
-      // textDecoration: "underline",
       minWidth: "98px",
       backgroundColor: "#F7CE46",
       fontFamily: "Open Sans",
@@ -103,15 +102,15 @@ const NewsletterSubscription = React.forwardRef(function NewsletterSubscription(
   return (
     <Stack
       sx={{
-        width: { md: "310px", textAlign: "left" },
+        width: { md: "310px" },
         ...sx,
       }}
       ref={ref}
     >
       <RichTypography
+        mb={2.5}
         variant="p2SemiBold"
-        textAlign={{ xs: "center", sm: "right" }}
-        sx={{ mb: "30px", fontFamily: "Open Sans" }}
+        textAlign={{ xs: "center", md: "right" }}
       >
         {title}
       </RichTypography>
