@@ -1,4 +1,4 @@
-import { text } from "payload/dist/fields/validations";
+import { text, array } from "payload/dist/fields/validations";
 
 import linkArray from "../fields/linkArray";
 import richText from "../fields/richText";
@@ -11,6 +11,38 @@ const Footer = {
     pt: "Rodapé",
   },
   fields: [
+    {
+      name: "contact",
+      label: {
+        en: "Contact",
+        pt: "Contact",
+        fr: "Contact",
+      },
+      type: "group",
+      fields: [
+        {
+          name: "email",
+          type: "email",
+          label: {
+            en: "Email",
+            pt: "Email",
+            fr: "Email",
+          },
+          validate: (val, args) => {
+            const regex =
+              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+            if (!regex.test(val)) {
+              return "Enter a valid address";
+            }
+            return text(val, args);
+          },
+          admin: {
+            description: () => "Enter an email address",
+          },
+        },
+      ],
+    },
     richText({
       name: "siteDescription",
       label: {
@@ -21,9 +53,120 @@ const Footer = {
       localized: true,
       required: true,
       admin: {
-        elements: ["h2", "h3", "h4", "h5", "h6", "ol", "ul", "link"],
+        elements: ["ol", "ul", "link"],
+        leaves: ["bold", "italic", "underline", "code"],
       },
     }),
+    {
+      type: "group",
+      name: "connect",
+      label: {
+        en: "Social Links",
+        pt: "Links de mídia social",
+        fr: "Liens de médias sociaux",
+      },
+      fields: [
+        {
+          name: "title",
+          type: "text",
+          label: {
+            en: "Title",
+            fr: "Titre",
+            pt: "Título",
+          },
+          admin: {
+            description: () =>
+              "Text that appears on contact links e.g Stay in Touch",
+          },
+          localized: true,
+          required: true,
+        },
+        {
+          name: "links",
+          label: {
+            en: "Links",
+            ft: "Liens",
+            pt: "Links",
+          },
+          type: "array",
+          fields: [
+            {
+              name: "media",
+              label: {
+                en: "Media",
+                pt: "Media",
+              },
+              type: "select",
+              options: [
+                {
+                  value: "twitter",
+                  label: "Twitter",
+                },
+                {
+                  value: "slack",
+                  label: "Slack",
+                },
+                {
+                  value: "linkedin",
+                  label: "LinkedIn",
+                },
+                {
+                  value: "facebook",
+                  label: "Facebook",
+                },
+                {
+                  value: "instagram",
+                  label: "Instagram",
+                },
+                {
+                  value: "github",
+                  label: "Github",
+                },
+              ],
+              unique: true,
+              required: true,
+              admin: {
+                isClearable: false,
+                isSortable: true,
+              },
+              validate: (val, options) => {
+                const { data, t } = options || {};
+                if (
+                  data?.connect?.links?.filter((l) => l.media === val)?.length >
+                  1
+                ) {
+                  return t("charterafrica.site:uniqueMedia");
+                }
+                return array(val, options);
+              },
+            },
+            {
+              name: "url",
+              label: {
+                en: "URL",
+                fr: "URL",
+                pt: "URl",
+              },
+              type: "text",
+              required: true,
+              admin: {
+                description: () => "Full URL",
+              },
+            },
+          ],
+          admin: {
+            initCollapsed: true,
+            components: {
+              RowLabel: ({ data }) => {
+                return data?.media || data?.url || data?.id;
+              },
+            },
+          },
+          required: true,
+        },
+      ],
+      localized: true,
+    },
     richText({
       name: "projectDescription",
       label: {
@@ -35,10 +178,22 @@ const Footer = {
       localized: true,
       required: true,
       admin: {
-        elements: ["h2", "h3", "h4", "h5", "h6", "ol", "ul", "link"],
+        elements: ["ol", "ul", "link"],
+        leaves: ["bold", "italic", "underline", "code"],
       },
     }),
     linkArray(),
+    {
+      name: "copyright",
+      label: {
+        en: "Copyright",
+        pt: "Direito autoral",
+        fr: "Droits d'auteur",
+      },
+      type: "text",
+      localized: true,
+      required: true,
+    },
     {
       name: "newsletter",
       type: "group",
@@ -108,196 +263,6 @@ const Footer = {
           },
         },
       ],
-    },
-    {
-      name: "contact",
-      label: {
-        en: "Contact",
-        pt: "Contact",
-        fr: "Contact",
-      },
-      type: "group",
-      fields: [
-        {
-          name: "email",
-          type: "email",
-          label: {
-            en: "Email",
-            pt: "Email",
-            fr: "Email",
-          },
-          validate: (val, args) => {
-            const regex =
-              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-            if (!regex.test(val)) {
-              return "Enter a valid address";
-            }
-            return text(val, args);
-          },
-          admin: {
-            description: () => "Enter an email address",
-          },
-        },
-      ],
-    },
-    {
-      type: "group",
-      name: "connect",
-      label: {
-        en: "Social Links",
-        pt: "Links de mídia social",
-        fr: "Liens de médias sociaux",
-      },
-      fields: [
-        {
-          name: "stayInTouch",
-          type: "text",
-          label: {
-            en: "Title",
-            fr: "Titre",
-            pt: "Título",
-          },
-          admin: {
-            description: () =>
-              "Text that appears on contact links e.g Stay in Touch",
-          },
-          localized: true,
-          required: true,
-        },
-        {
-          name: "twitter",
-          type: "text",
-          label: {
-            en: "Twitter",
-            pt: "Twitter",
-            fr: "Twitter",
-          },
-          validate: (val, args) => {
-            const regex =
-              /http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)/;
-
-            if (val && !regex.test(val)) {
-              return "Enter a valid address";
-            }
-            return text(val, args);
-          },
-          admin: {
-            description: () =>
-              "Twitter profile address e.g https://twitter.com/profile",
-          },
-          localized: true,
-        },
-        {
-          name: "slack",
-          type: "text",
-          label: {
-            en: "Slack",
-            pt: "Slack",
-            fr: "Slack",
-          },
-          admin: {
-            description: () =>
-              "Slack workspace address e.g https://workspace.slack.com",
-          },
-        },
-        {
-          name: "linkedin",
-          type: "text",
-          label: {
-            en: "LinkedIn",
-            pt: "LinkedIn",
-            fr: "LinkedIn",
-          },
-          validate: (val, args) => {
-            const regex =
-              /^(https:\/\/www\.linkedin\.com\/(in|company)\/[a-zA-Z0-9-]+)\/*$/;
-            if (val && !regex.test(val)) {
-              return "Enter a valid address";
-            }
-            return text(val, args);
-          },
-          admin: {
-            description: () =>
-              "LinkedIn profile address e.g https://www.linkedin.com/in/profile/",
-          },
-        },
-        {
-          name: "facebook",
-          type: "text",
-          label: {
-            en: "Facebook",
-            pt: "Facebook",
-            fr: "Facebook",
-          },
-          validate: (val, args) => {
-            const regex =
-              /^(https:\/\/(www\.)?facebook\.com\/[a-zA-Z0-9/.\-_]+)$/;
-            if (val && !regex.test(val)) {
-              return "Enter a valid address";
-            }
-            return text(val, args);
-          },
-          admin: {
-            description: () =>
-              "Facebook profile address e.g https://facebook.com/profile",
-          },
-        },
-        {
-          name: "instagram",
-          type: "text",
-          label: {
-            en: "Instagram",
-            pt: "Instagram",
-            fr: "Instagram",
-          },
-          validate: (val, args) => {
-            const regex =
-              /http(?:s)?:\/\/(?:www\.)?instagram\.com\/([a-zA-Z0-9_]+)/;
-            if (val && !regex.test(val)) {
-              return "Enter a valid address";
-            }
-            return text(val, args);
-          },
-          admin: {
-            description: () =>
-              "Facebook profile address e.g https://www.instagram.com/username/",
-          },
-        },
-        {
-          name: "github",
-          type: "text",
-          label: {
-            en: "Github",
-            pt: "Github",
-            fr: "Github",
-          },
-          validate: (val, args) => {
-            const regex =
-              /http(?:s)?:\/\/(?:www\.)?github\.com\/([a-zA-Z0-9_]+)/;
-            if (val && !regex.test(val)) {
-              return "Enter a valid address";
-            }
-            return text(val, args);
-          },
-          admin: {
-            description: () =>
-              "Github profile address e.g https://github.com/username",
-          },
-        },
-      ],
-      localized: true,
-    },
-    {
-      name: "copyright",
-      label: {
-        en: "Copyright",
-        pt: "Direito autoral",
-        fr: "Droits d'auteur",
-      },
-      type: "text",
-      localized: true,
-      required: true,
     },
   ],
 };
