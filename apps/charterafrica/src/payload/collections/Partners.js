@@ -37,6 +37,11 @@ const Partners = {
     {
       name: "partners",
       type: "array",
+      label: {
+        en: "Partners",
+        fr: "Partenaires",
+        pt: "Parceiros",
+      },
       fields: [
         {
           name: "name",
