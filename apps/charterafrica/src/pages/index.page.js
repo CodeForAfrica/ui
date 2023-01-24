@@ -110,7 +110,6 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   const partners =
     blocks.find((block) => block.slug === "our-partners") || null;
 
-  console.error(partners);
   const hero = blocks.find((block) => block.slug === "hero") || {};
 
   const heroSlides = hero?.slides?.map((slide) => {
