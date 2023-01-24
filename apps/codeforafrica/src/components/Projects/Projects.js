@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import Stack from "@mui/material/Stack";
+import { Stack } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 

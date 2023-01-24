@@ -1,12 +1,14 @@
 import { Section } from "@commons-ui/core";
 import { Link, RichTypography } from "@commons-ui/next";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  SvgIcon,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
-import SvgIcon from "@mui/material/SvgIcon";
 import React from "react";
 
 import ExternalLinkIcon from "@/codeforafrica/assets/icons/Type=external-link, Size=24, Color=White.svg";

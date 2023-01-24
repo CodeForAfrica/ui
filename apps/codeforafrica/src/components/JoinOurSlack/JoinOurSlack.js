@@ -1,9 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { Link, RichTypography } from "@commons-ui/next";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import SvgIcon from "@mui/material/SvgIcon";
+import { Button, Grid, Paper, SvgIcon } from "@mui/material";
 import React from "react";
 
 import SlackIcon from "@/codeforafrica/assets/icons/Type=slack, Size=64, Color=CurrentColor.svg";

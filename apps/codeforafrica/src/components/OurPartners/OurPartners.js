@@ -1,7 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { Figure, Link, RichTypography } from "@commons-ui/next";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
+import { Button, Grid } from "@mui/material";
 import React from "react";
 
 const OurPartners = React.forwardRef(function OurPartners(props, ref) {

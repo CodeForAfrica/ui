@@ -1,7 +1,5 @@
 import { Link } from "@commons-ui/next";
-import CardActionArea from "@mui/material/CardActionArea";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+import { CardActionArea, Grid, Typography } from "@mui/material";
 import React from "react";
 
 import ArticleCard from "@/codeforafrica/components/ArticleCard";

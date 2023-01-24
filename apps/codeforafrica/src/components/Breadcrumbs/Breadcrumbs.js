@@ -1,5 +1,5 @@
 import { Link, RichTypography } from "@commons-ui/next";
-import MuiBreadcrumbs from "@mui/material/Breadcrumbs";
+import { Breadcrumbs as MuiBreadcrumbs } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
 

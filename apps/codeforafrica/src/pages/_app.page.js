@@ -1,7 +1,7 @@
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import { DefaultSeo } from "next-seo";
 import Head from "next/head";
+import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
 

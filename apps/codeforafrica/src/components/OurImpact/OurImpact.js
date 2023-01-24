@@ -1,6 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
