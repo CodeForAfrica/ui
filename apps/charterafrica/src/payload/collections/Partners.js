@@ -17,7 +17,7 @@ const Partners = {
   },
   admin: {
     useAsTitle: "title",
-    defaultColumns: ["name", "updatedAt"],
+    defaultColumns: ["title", "updatedAt"],
   },
   access: {
     read: () => true,
