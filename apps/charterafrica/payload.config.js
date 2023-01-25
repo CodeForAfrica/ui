@@ -5,8 +5,10 @@ import { buildConfig } from "payload/config";
 
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
+import Partners from "./src/payload/collections/Partners";
 import Resources from "./src/payload/collections/Resources";
 import FocalCountries from "./src/payload/globals/FocalCountries";
+import Footer from "./src/payload/globals/Footer";
 import Helpdesk from "./src/payload/globals/Helpdesk";
 import Navigation from "./src/payload/globals/Navigation";
 import Settings from "./src/payload/globals/Settings";
@@ -31,8 +33,8 @@ const adapter = s3Adapter({
 
 export default buildConfig({
   serverURL: appURL,
-  collections: [Media, Pages, Resources],
-  globals: [FocalCountries, Helpdesk, Navigation, Settings],
+  collections: [Media, Pages, Partners, Resources],
+  globals: [FocalCountries, Footer, Helpdesk, Navigation, Settings],
   ...(locales?.length
     ? {
         localization: {
