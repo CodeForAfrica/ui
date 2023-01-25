@@ -14,11 +14,9 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
   if (!title) {
     return null;
   }
-
   return (
     <Box
       bgcolor={neutral[900]}
-      ref={ref}
       sx={{
         backgroundImage: {
           md: `url(/images/mooc-background.png)`,
@@ -28,6 +26,7 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
         backgroundSize: "contain",
         ...sx,
       }}
+      ref={ref}
     >
       <Section
         ref={ref}
@@ -35,39 +34,36 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
       >
         <Grid
           container
-          spacing={2}
+          rowSpacing={2.5}
           direction={{ xs: "column-reverse", md: "row" }}
           wrap="nowrap"
         >
-          <Grid item xs={12} sm={6} container>
-            <Box
-              display="flex"
-              flexDirection="column"
-              justifyContent="center"
-              alignItems={{
-                xs: "center",
-                md: "flex-start",
-              }}
-              sx={{
-                gap: 5,
-                width: "100%",
-              }}
-            >
+          <Grid
+            item
+            xs={12}
+            md={6}
+            container
+            direction="column"
+            alignItems={{ xs: "flex-start", sm: "center", md: "flex-start" }}
+            rowSpacing={5}
+          >
+            <Grid item>
               <RichText
                 component="h1"
+                color="text.secondary"
                 elements={title}
-                textAlign="left"
-                typography={{ md: "h1", sm: "h2" }}
-                variant="h4"
+                textAlign={{ xs: "left", sm: "center", md: "left" }}
+                typography={{ md: "h1" }}
+                variant="h3Small"
                 sx={() => ({
-                  color: "secondary",
-                  "&>em": {
+                  "& > em, & > strong": {
                     color: "secondary.main",
                     fontStyle: "normal",
                   },
                 })}
               />
-
+            </Grid>
+            <Grid item>
               <Button
                 color="secondary"
                 size="medium"
@@ -76,15 +72,12 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
               >
                 {link?.label}
               </Button>
-            </Box>
+            </Grid>
           </Grid>
           <Grid
             item
             xs={12}
-            sm={6}
-            sx={{
-              overflow: "hidden",
-            }}
+            md={6}
             container
             justifyContent={{
               xs: "center",
@@ -97,17 +90,19 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
                 objectFit: "cover",
               }}
               sx={{
-                width: {
-                  xs: 310,
-                  sm: 688,
-                  md: 436,
-                  lg: 512,
-                },
+                border: 2,
+                borderColor: "common.white",
                 height: {
-                  xs: 199.2,
+                  xs: "calc((100vw/390)*199.2)", // 199.2px at 390 scren-size
                   sm: 550,
                   md: 281,
                   lg: 329,
+                },
+                width: {
+                  xs: "calc(100vw - 80px)", // 310px at 390 screen-size
+                  sm: 688,
+                  md: 436,
+                  lg: 512,
                 },
               }}
             />
