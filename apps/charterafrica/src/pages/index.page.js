@@ -1,5 +1,7 @@
 import React from "react";
 
+import Mooc from "../components/Mooc";
+
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
@@ -20,6 +22,8 @@ function Index({ blocks }) {
         return <Helpdesk {...block} key={block.slug} />;
       case "hero":
         return <Hero {...block} key={block.slug} />;
+      case "mooc":
+        return <Mooc {...block} key={block.slug} />;
       case "our-partners":
         return <Partners {...block} key={block.slug} />;
       case "our-resources":
@@ -104,6 +108,15 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   spotlight.items = spotlightItems || null;
 
   const ecosystem = blocks.find((block) => block.slug === "ecosystem") || null;
+
+  const mooc = blocks.find((block) => block.slug === "mooc") || null;
+  if (mooc) {
+    mooc.image = {
+      alt: mooc.image.alt,
+      src: mooc.image.url,
+    };
+  }
+
   const ourResources =
     blocks.find((block) => block.slug === "our-resources") || null;
 
@@ -152,6 +165,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
           ...fc,
         },
         ourResources,
+        mooc,
         helpdesk,
         partners,
       ],
