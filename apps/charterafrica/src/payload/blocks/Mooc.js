@@ -8,12 +8,17 @@ const Mooc = {
       type: "richText",
       required: true,
       localized: true,
+      label: {
+        en: "Title",
+        fr: "Titre",
+        pt: "Título",
+      },
       admin: {
-        elements: ["h1"],
+        elements: [],
         leaves: ["bold", "italic", "underline", "code"],
       },
     },
-    linkGroup({}),
+    linkGroup(),
     {
       name: "image",
       label: {
