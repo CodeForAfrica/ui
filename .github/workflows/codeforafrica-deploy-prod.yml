@@ -1,7 +1,13 @@
-name: codeforafrica.org | Build & Deploy
+name: Code for Africa | Deploy | PROD
+
 on:
   push:
     branches: [main]
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.ref }}'
+  cancel-in-progress: true
 
 env:
   DOKKU_REMOTE_BRANCH: "master"
@@ -85,7 +91,7 @@ jobs:
 
       - name: Push to Dokku
         if: steps.version-check.outputs.changed == 'true'
-        uses: dokku/github-action@v1.0.2
+        uses: dokku/github-action@v1.4.0
         with:
           branch: ${{ env.DOKKU_REMOTE_BRANCH }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}

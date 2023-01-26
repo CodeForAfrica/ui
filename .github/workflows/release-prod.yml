@@ -1,9 +1,13 @@
-name: Release
+name: Release | PROD
+
 on:
   push:
     branches: ["main"]
 
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   build:
