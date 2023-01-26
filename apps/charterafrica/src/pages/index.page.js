@@ -10,6 +10,7 @@ import Partners from "@/charterafrica/components/Partners";
 import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
 import { payload } from "@/charterafrica/lib";
+import getGlobalProps from "@/charterafrica/utils/getGlobalProps";
 
 function Index({ blocks }) {
   return blocks?.map((block) => {
@@ -37,14 +38,6 @@ function Index({ blocks }) {
 }
 
 export async function getStaticProps({ defaultLocale, locale, locales }) {
-  const { menus } = await payload.findGlobal("navigation", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-  const { languages } = await payload.findGlobal("settings", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
   const fc = await payload.findGlobal("focal-countries", {
     locale,
     fallbackLocale: defaultLocale,
@@ -62,10 +55,6 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     helpdesk.link = { href: linkHref ?? null, label: linkLabel ?? null };
   }
 
-  const footer = await payload.findGlobal("footer", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
   const { docs: pages } = await payload.findPage("index", {
     locale,
     fallbackLocale: defaultLocale,
@@ -149,6 +138,12 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
 
   hero.slides = heroSlides || null;
 
+  const { footer, navbar } = await getGlobalProps({
+    defaultLocale,
+    locale,
+    locales,
+  });
+
   return {
     props: {
       blocks: [
@@ -170,16 +165,7 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
         partners,
       ],
       footer,
-      navbar: {
-        languages: languages ?? null,
-        logo: {
-          alt: "Charter Africa",
-          src: "/images/charter-logo.svg",
-          href: "/",
-          priority: true,
-        },
-        menus: menus ?? null,
-      },
+      navbar,
       locale,
       locales,
       seo: {

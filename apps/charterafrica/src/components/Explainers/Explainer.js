@@ -4,15 +4,19 @@ import { Grid, Divider } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import RichText from "../RichText";
+
 function Explainer({ image, description, title }) {
   return (
     <>
-      <Grid display="flex" justifyContent="center" container>
+      <Grid display="flex" justifyContent="center" sx={{ p: 8 }} container>
         <Grid container spacing={4}>
           <Grid xs={12} item>
             <Figure
               ImageProps={{
-                ...image,
+                // ...image,
+                src: image.url,
+                alt: image.name,
               }}
               sx={(theme) => {
                 return {
@@ -46,25 +50,25 @@ function Explainer({ image, description, title }) {
             </RichTypography>
           </Grid>
           <Grid xs={12} item>
-            <RichTypography color="#3E202C" variant="p3">
+            <RichText color="#3E202C" variant="p3" elements={description}>
               {description}
-            </RichTypography>
+            </RichText>
           </Grid>
         </Grid>
       </Grid>
-      <Divider sx={{ margin: 8 }} />
+      <Divider sx={{ p: 2, ml: 8 }} />
     </>
   );
 }
 
 Explainer.propTypes = {
   image: PropTypes.shape({}),
-  description: PropTypes.string,
+  description: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,
 };
 Explainer.defaultProps = {
   image: {},
-  description: "d",
+  description: [],
   title: "",
 };
 export default Explainer;
