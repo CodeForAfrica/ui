@@ -3,6 +3,8 @@ name: charterAFRICA | Deploy | DEV
 on:
   push:
     branches: [main]
+    paths:
+      - 'apps/charterafrica/**'
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
