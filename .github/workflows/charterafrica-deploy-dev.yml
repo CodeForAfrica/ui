@@ -15,7 +15,6 @@ env:
   DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/charterafrica"
   IMAGE_NAME: "codeforafrica/charterafrica-ui"
   PAYLOAD_PUBLIC_APP_URL: "https://charter.dev.codeforafrica.org"
-  VERSION_FILE_NAME: "./apps/charterafrica/package.json"
 
 jobs:
   deploy:
@@ -70,7 +69,6 @@ jobs:
       # https://github.com/docker/build-push-action/issues/252
       # https://github.com/moby/buildkit/issues/1896
       - name: Move cache
-        if: steps.version-check.outputs.changed == 'true'
         run: |
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
