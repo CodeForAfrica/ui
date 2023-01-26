@@ -37,7 +37,7 @@ function Index({ blocks }) {
   });
 }
 
-export async function getStaticProps({ defaultLocale, locale, locales }) {
+export async function getServerSideProps({ defaultLocale, locale, locales }) {
   const fc = await payload.findGlobal("focal-countries", {
     locale,
     fallbackLocale: defaultLocale,

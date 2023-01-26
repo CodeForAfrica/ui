@@ -1,34 +1,6 @@
 import { array } from "payload/dist/fields/validations";
 
-import link from "../fields/link";
-import linkArray from "../fields/linkArray";
 import { locales } from "../utils/locales";
-
-const linkField = link();
-linkField.fields.push({
-  type: "row",
-  fields: [
-    linkArray({
-      overrides: {
-        name: "children",
-        label: {
-          en: "Submenus",
-          fr: "Sous-menus",
-        },
-        labels: {
-          singular: {
-            en: "Submenu",
-            fr: "Sous-menu",
-          },
-          plural: {
-            en: "Submenus",
-            fr: "Sous-menus",
-          },
-        },
-      },
-    }),
-  ],
-});
 
 const Settings = {
   slug: "settings",
@@ -47,7 +19,7 @@ const Settings = {
         fr: "Titre & description",
         pt: "Titulo & descrição",
       },
-      type: "collapsible", // required
+      type: "collapsible",
       fields: [
         {
           name: "title",
@@ -81,7 +53,7 @@ const Settings = {
         ft: "Langues",
         pt: "Idiomas",
       },
-      type: "collapsible", // required
+      type: "collapsible",
       fields: [
         {
           name: "languages",
