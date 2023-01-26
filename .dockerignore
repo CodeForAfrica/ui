@@ -1,6 +1,12 @@
-Dockerfile
+# Include application-specific Dockerfiles e.g. Dockerfile.charterafrica
+Dockerfile*
 .dockerignore
 **/node_modules
 npm-debug.log
+.pnpm-debug.log
 README.md
-.next
+**/.env.local
+**/.next
+**/.turbo
+**/.vscode
+**/build
