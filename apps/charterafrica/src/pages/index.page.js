@@ -36,7 +36,7 @@ function Index({ blocks }) {
   });
 }
 
-export async function getStaticProps({ defaultLocale, locale, locales }) {
+export async function getServerSideProps({ defaultLocale, locale, locales }) {
   const { menus } = await payload.findGlobal("navigation", {
     locale,
     fallbackLocale: defaultLocale,

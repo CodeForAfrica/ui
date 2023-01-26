@@ -1,6 +1,9 @@
+import path from "path";
+
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import seo from "@payloadcms/plugin-seo";
+import dotenv from "dotenv";
 import { buildConfig } from "payload/config";
 
 import Media from "./src/payload/collections/Media";
@@ -13,6 +16,16 @@ import Helpdesk from "./src/payload/globals/Helpdesk";
 import Navigation from "./src/payload/globals/Navigation";
 import Settings from "./src/payload/globals/Settings";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
+
+// We can't use @next/env to load env vars here (unlike in server.js) because
+// this config is used on admin UI i.e. browser, and things like process.cwd
+// are not available on browser. We can manually [mock](https://payloadcms.com/docs/admin/webpack#aliasing-server-only-modules)
+// them but it's faster to just use dotenv since Payload has already done the
+// mocking for us.
+// Load .env
+dotenv.config();
+// Load .env.local
+dotenv.config({ path: path.resolve(__dirname, "./.env.local") });
 
 const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
 
@@ -51,6 +64,8 @@ export default buildConfig({
         ...config.resolve,
         fallback: {
           ...config.resolve.fallback,
+          fs: false,
+          os: false,
           "process/browser": false,
         },
       },
