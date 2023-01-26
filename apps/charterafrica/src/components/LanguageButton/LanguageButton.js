@@ -1,5 +1,4 @@
-import Button from "@mui/material/Button";
-import SvgIcon from "@mui/material/SvgIcon";
+import { Button, SvgIcon } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 

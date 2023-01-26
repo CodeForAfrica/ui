@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import { Link } from "@commons-ui/next";
-import SvgIcon from "@mui/material/SvgIcon";
+import { SvgIcon } from "@mui/material";
 import React from "react";
 
 import FacebookIcon from "@/codeforafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";

@@ -1,7 +1,5 @@
 import { RichTypography } from "@commons-ui/next";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import { Card, CardContent, CardMedia } from "@mui/material";
 import React from "react";
 
 const GuidingPrinciplesCard = React.forwardRef(function GuidingPrinciplesCard(

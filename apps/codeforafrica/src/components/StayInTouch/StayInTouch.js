@@ -1,5 +1,5 @@
 import { Link, RichTypography } from "@commons-ui/next";
-import Grid from "@mui/material/Grid";
+import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";

@@ -1,4 +1,4 @@
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 import React from "react";
 
 import ArticlePage from "@/codeforafrica/components/ArticlePage";

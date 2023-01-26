@@ -1,4 +1,4 @@
-import CardMedia from "@mui/material/CardMedia";
+import { CardMedia } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
 

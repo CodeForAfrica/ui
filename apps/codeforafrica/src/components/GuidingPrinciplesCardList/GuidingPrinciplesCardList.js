@@ -1,6 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
-import Grid from "@mui/material/Grid";
+import { Grid } from "@mui/material";
 import React from "react";
 
 import GuidingPrinciplesCard from "../GuidingPrinciplesCard";

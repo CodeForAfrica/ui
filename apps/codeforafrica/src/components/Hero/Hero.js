@@ -1,6 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { Figure } from "@commons-ui/next";
-import Grid from "@mui/material/Grid";
+import { Grid } from "@mui/material";
 import React from "react";
 
 import HeroText from "./HeroText";

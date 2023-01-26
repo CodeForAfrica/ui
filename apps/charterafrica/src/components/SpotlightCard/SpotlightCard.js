@@ -1,5 +1,4 @@
-import Card from "@mui/material/Card";
-import { styled } from "@mui/material/styles";
+import { Card, styled } from "@mui/material";
 import React from "react";
 
 import { neutral } from "@/charterafrica/colors";

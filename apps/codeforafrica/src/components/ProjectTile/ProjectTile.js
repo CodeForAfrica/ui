@@ -1,9 +1,6 @@
 import { Figure, Link } from "@commons-ui/next";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Stack from "@mui/material/Stack";
+import { Box, Paper, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import React from "react";
 

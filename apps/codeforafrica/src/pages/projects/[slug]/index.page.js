@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 import React from "react";
 
 import AccoladeBadgeList from "@/codeforafrica/components/AccoladeBadgeList";

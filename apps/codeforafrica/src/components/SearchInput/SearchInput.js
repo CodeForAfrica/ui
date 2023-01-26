@@ -1,5 +1,4 @@
-import IconButton from "@mui/material/IconButton";
-import SvgIcon from "@mui/material/SvgIcon";
+import { IconButton, SvgIcon } from "@mui/material";
 import React from "react";
 
 import SearchIcon from "@/codeforafrica/assets/icons/Type=search, Size=16, Color=CurrentColor.svg";

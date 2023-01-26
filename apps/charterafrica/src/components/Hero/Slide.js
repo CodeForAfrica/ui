@@ -1,9 +1,7 @@
 import Figure from "@/commons-ui/next/Figure";
 import { Section } from "@commons-ui/core";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import { styled, useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { Box, Button, styled, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import React from "react";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";

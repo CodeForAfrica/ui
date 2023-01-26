@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import { Figure, Link, RichTypography } from "@commons-ui/next";
-import Stack from "@mui/material/Stack";
+import { Stack } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 

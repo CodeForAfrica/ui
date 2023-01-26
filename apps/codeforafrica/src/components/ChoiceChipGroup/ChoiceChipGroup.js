@@ -1,5 +1,5 @@
+import { ToggleButtonGroup } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import React from "react";
 
 const ChoiceChipGroupRoot = styled(ToggleButtonGroup, {

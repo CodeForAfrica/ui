@@ -20,9 +20,7 @@ exports[`<ImpactCard /> renders unchanged 1`] = `
             data-nimg="fill"
             decoding="async"
             loading="lazy"
-            sizes="100vw"
             src="/images/Type=layout,%20Size=32,%20Color=1020E1.svg"
-            srcset="/images/Type=layout,%20Size=32,%20Color=1020E1.svg 640w, /images/Type=layout,%20Size=32,%20Color=1020E1.svg 750w, /images/Type=layout,%20Size=32,%20Color=1020E1.svg 828w, /images/Type=layout,%20Size=32,%20Color=1020E1.svg 1080w, /images/Type=layout,%20Size=32,%20Color=1020E1.svg 1200w, /images/Type=layout,%20Size=32,%20Color=1020E1.svg 1920w, /images/Type=layout,%20Size=32,%20Color=1020E1.svg 2048w, /images/Type=layout,%20Size=32,%20Color=1020E1.svg 3840w"
             style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
           />
         </figure>
