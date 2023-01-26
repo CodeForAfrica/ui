@@ -1,4 +1,4 @@
-name: charterafrica | Build and Deploy
+name: charterAFRICA | Build & Deploy
 on:
   push:
     branches: [main]
@@ -7,13 +7,16 @@ env:
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/charterafrica"
   IMAGE_NAME: "codeforafrica/charterafrica-ui"
-  APP: "charterafrica"
   VERSION_FILE_NAME: "./apps/charterafrica/package.json"
   GIT_PUSH_FLAGS: "--force"
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [16]
+        os: [ubuntu-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -25,7 +28,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "16"
+          node-version: ${{ matrix.node-version }}
 
       - name: Check if version is bumped
         id: version-check
@@ -38,6 +41,12 @@ jobs:
           # omit this.
           diff-search: true
           file-name: "${{ env.VERSION_FILE_NAME }}"
+
+      # Add support for more platforms with QEMU (optional)
+      # https://github.com/docker/setup-qemu-action
+      - name: Setup up QEMU
+        if: steps.version-check.outputs.changed == 'true'
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         if: steps.version-check.outputs.changed == 'true'
@@ -63,14 +72,16 @@ jobs:
         if: steps.version-check.outputs.changed == 'true'
         uses: docker/build-push-action@v3
         with:
-          build-args: |
-            APP=${{ env.APP }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
+          file: ./Dockerfile.charterafrica
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}"
 
+      # Temp fix
+      # https://github.com/docker/build-push-action/issues/252
+      # https://github.com/moby/buildkit/issues/1896
       - name: Move cache
         if: steps.version-check.outputs.changed == 'true'
         run: |
