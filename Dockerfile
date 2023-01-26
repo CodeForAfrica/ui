@@ -68,7 +68,7 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/${APP}/.next/standalone ./
 
 # Because of PROJECT_ROOT in builder, standalone output of ${APP} will be in
-# in /workspace/apps/${APP} after the above COPY
+# in /workspace/apps/${APP} after the above COPY.
 WORKDIR /workspace/apps/${APP}
 
 COPY --from=builder /workspace/apps/${APP}/next.config.js /workspace/apps/${APP}/package.json ./
