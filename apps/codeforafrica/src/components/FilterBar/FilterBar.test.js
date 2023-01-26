@@ -12,13 +12,6 @@ const defaultProps = {
   tags: ["All"],
 };
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn().mockImplementation(() => ({
-    isReady: true,
-    query: {},
-  })),
-}));
-
 describe("<FilterBar />", () => {
   it("renders unchanged", () => {
     const { container } = render(<FilterBar {...defaultProps} />);

@@ -1,0 +1,61 @@
+FROM node:16-alpine as node-alpine
+
+# Always install security updated e.g. https://pythonspeed.com/articles/security-updates-in-docker/
+# Update local cache so that other stages don't need to update cache
+RUN apk update \
+    && apk upgrade
+
+
+FROM node-alpine as base
+
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add libc6-compat
+
+ARG PNPM_VERSION=7.4.0
+
+RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
+
+WORKDIR /workspace
+
+COPY pnpm-lock.yaml .
+
+RUN pnpm fetch
+
+
+FROM base as builder
+
+ARG NEXT_TELEMETRY_DISABLED=1
+
+WORKDIR /workspace
+
+COPY *.yaml *.json ./
+COPY packages ./packages
+COPY apps/charterafrica ./apps/charterafrica
+
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm install --recursive --offline --frozen-lockfile
+
+RUN pnpm build --filter=charterafrica
+
+# TODO(kilemensi): Optimize and improve this default runner
+#                    i) Start with node-alpine or base and only copy/install
+#                       what's needed in prod
+#                   ii) Add user:group for security (nextjs:node)
+#                  iii) ?
+FROM builder as runner
+
+# Remember to remove local cache from runner
+RUN rm -rf /var/cache/apk/*
+
+ARG NEXT_TELEMETRY_DISABLED=1 \
+    PORT=3000
+
+ENV NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
+    PORT=${PORT}
+
+WORKDIR /workspace/apps/charterafrica
+
+EXPOSE ${PORT}
+
+ENTRYPOINT [ "node", "server" ]

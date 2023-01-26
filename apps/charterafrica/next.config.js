@@ -12,14 +12,30 @@ const outputFileTracingRoot = PROJECT_ROOT
   ? path.resolve(__dirname, PROJECT_ROOT)
   : undefined;
 
+const locales = (
+  process.env.NEXT_PUBLIC_LOCALES || process.env.PAYLOAD_PUBLIC_LOCALES
+)
+  ?.split(",")
+  ?.map((l) => l.trim())
+  .filter(Boolean);
+const defaultLocale =
+  (
+    process.env.NEXT_PUBLIC_DEFAULT_LOCALE ||
+    process.env.PAYLOAD_PUBLIC_DEFAULT_LOCALE
+  )?.trim() || locales?.[0];
+
 module.exports = withTM({
   experimental: {
     outputFileTracingRoot,
   },
-  i18n: {
-    locales: ["en-GB", "fr", "pt"],
-    defaultLocale: "en-GB",
-  },
+  ...(locales?.length
+    ? {
+        i18n: {
+          locales,
+          defaultLocale,
+        },
+      }
+    : undefined),
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
       ?.map((d) => d.trim())

@@ -8,13 +8,6 @@ import theme from "@/charterafrica/theme";
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn().mockImplementation(() => ({
-    asPath: "",
-    isReady: true,
-  })),
-}));
-
 const defaultProps = {
   contact: {
     email: {
@@ -22,24 +15,41 @@ const defaultProps = {
       content: "info@charter.africa",
     },
   },
+  connect: {},
   copyright: "© 2022 European Partnership for Democracy (CC BY-NC 2.0)",
   links: [
     {
       href: "/",
-      content: "Privacy Policy",
+      label: "Privacy Policy",
     },
     {
       href: "/",
-      content: "Imprint",
+      label: "Imprint",
     },
   ],
-  logo: {
-    alt: "EU",
-    src: "/images/eu.png",
+  funder: {
+    logo: {
+      alt: "EU",
+      url: "/images/eu.png",
+    },
   },
-  projectDescription: "Website designed and built by Code for Africa",
-  siteDescription:
-    "This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.",
+  projectDescription: [
+    {
+      children: [{ text: "Website designed and built by Code for Africa" }],
+    },
+  ],
+  newsletter: {
+    embedCode: "",
+  },
+  siteDescription: [
+    {
+      children: [
+        {
+          text: "This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.",
+        },
+      ],
+    },
+  ],
 };
 
 describe("<Footer />", () => {

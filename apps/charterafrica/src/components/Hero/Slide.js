@@ -7,6 +7,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+import RichText from "@/charterafrica/components/RichText";
 
 const SlideRoot = styled(Box, {
   shouldForwardProp: (prop) => !["background"].includes(prop),
@@ -42,45 +43,44 @@ const Slide = React.forwardRef(function Slide(props, ref) {
     >
       <Section sx={{ px: { xs: 1.25, sm: 0 }, py: { xs: 5, md: "86px" } }}>
         <Box display="flex" flexDirection="column" alignItems="center">
-          <LineClampedRichTypography
+          <RichText
             component="h1"
-            lineClamp={{ xs: "3", sm: "2" }}
+            elements={title.content}
             textAlign="center"
             typography={{ md: "display2" }}
             variant="h2Small"
-            sx={() => ({
+            sx={(t) => ({
               color: title?.color,
-              minHeight: `calc(${theme.typography.h2Small.fontSize}px*${theme.typography.h2Small.lineHeight}*3)`,
-              "&>i": {
+              minHeight: `calc(${t.typography.h2Small.fontSize}px*${t.typography.h2Small.lineHeight}*3)`,
+              whiteSpace: "pre-line",
+              "& > em, & > strong": {
                 color: "secondary.main",
                 fontStyle: "normal",
               },
-              [theme.breakpoints.up("sm")]: {
-                minHeight: `calc(${theme.typography.h2Small.fontSize}px*${theme.typography.h2Small.lineHeight}*2)`,
+              [t.breakpoints.up("sm")]: {
+                minHeight: `calc(${t.typography.h2Small.fontSize}px*${t.typography.h2Small.lineHeight}*2)`,
               },
-              [theme.breakpoints.up("md")]: {
+              [t.breakpoints.up("md")]: {
                 typography: "display2",
-                minHeight: `calc(${theme.typography.display2.fontSize}px*${theme.typography.display2.lineHeight}*2)`,
+                minHeight: `calc(${t.typography.display2.fontSize}px*${t.typography.display2.lineHeight}*2)`,
               },
             })}
-          >
-            {title?.content || title}
-          </LineClampedRichTypography>
+          />
           <LineClampedRichTypography
             lineClamp={{ xs: "2", sm: "1" }}
             mt="30px"
             textAlign="center"
             variant="p1"
             lineHeight
-            sx={() => ({
+            sx={(t) => ({
               color: subheading?.color,
-              minHeight: `calc(${theme.typography.p1.fontSize}px*${theme.typography.p1.lineHeight}*2)`,
-              [theme.breakpoints.up("sm")]: {
-                minHeight: `calc(${theme.typography.p1.fontSize}px*${theme.typography.p1.lineHeight})`,
+              minHeight: `calc(${t.typography.p1.fontSize}px*${t.typography.p1.lineHeight}*2)`,
+              [t.breakpoints.up("sm")]: {
+                minHeight: `calc(${t.typography.p1.fontSize}px*${t.typography.p1.lineHeight})`,
               },
-              [theme.breakpoints.up("md")]: {
+              [t.breakpoints.up("md")]: {
                 typography: "subheading",
-                minHeight: `calc(${theme.typography.subheading.fontSize}px*${theme.typography.subheading.lineHeight}*2)`,
+                minHeight: `calc(${t.typography.subheading.fontSize}px*${t.typography.subheading.lineHeight}*2)`,
               },
             })}
           >
