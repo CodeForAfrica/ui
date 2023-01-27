@@ -1,5 +1,5 @@
 import { RichTypography } from "@commons-ui/next";
-import Stack from "@mui/material/Stack";
+import { Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
 

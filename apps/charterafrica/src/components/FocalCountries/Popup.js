@@ -1,9 +1,12 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import LinearProgress from "@mui/material/LinearProgress";
-import { styled } from "@mui/material/styles";
-import SvgIcon from "@mui/material/SvgIcon";
+import { Link } from "@commons-ui/next";
+import {
+  Box,
+  Button,
+  IconButton,
+  LinearProgress,
+  styled,
+  SvgIcon,
+} from "@mui/material";
 import React from "react";
 
 import XIcon from "@/charterafrica/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
@@ -86,14 +89,18 @@ const Popup = React.forwardRef(function Popup(props, ref) {
           ))}
         </Box>
       ) : null}
-      <Button
-        color="primary"
-        onClick={onClose}
-        size="small"
-        variant="contained"
-      >
-        {link?.content}
-      </Button>
+      {link?.label ? (
+        <Button
+          color="primary"
+          component={link.href ? Link : undefined}
+          href={link.href}
+          onClick={onClose}
+          size="small"
+          variant="contained"
+        >
+          {link.label}
+        </Button>
+      ) : null}
     </Box>
   );
 });

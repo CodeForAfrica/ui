@@ -1,6 +1,6 @@
 import makeStyles from "@mui/styles/makeStyles";
-import { getProviders, useSession } from "next-auth/react";
 import Router from "next/router";
+import { getProviders, useSession } from "next-auth/react";
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 

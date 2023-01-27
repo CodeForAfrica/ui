@@ -1,10 +1,17 @@
 import { Link, Figure } from "@commons-ui/next";
-import Grid from "@mui/material/Grid";
+import { Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
 const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
-  const { GridItemProps, FigureProps, partners, ...other } = props;
+  const {
+    GridItemProps,
+    FigureProps,
+    partners,
+    createdAt,
+    updatedAt,
+    ...other
+  } = props;
 
   return (
     <Grid
@@ -21,7 +28,7 @@ const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
     >
       {partners.map((partner) => (
         <Grid
-          key={partner.name}
+          key={partner.id}
           item
           xs={6}
           sm={4}
@@ -51,7 +58,7 @@ const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
               })}
               ImageProps={{
                 alt: partner.name,
-                ...partner.logo,
+                src: partner.logo.url,
                 sx: {
                   objectPosition: "center",
                   mixBlendMode: "luminosity",

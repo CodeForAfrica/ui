@@ -1,19 +1,13 @@
 const path = require("path");
 
 const { withSentryConfig } = require("@sentry/nextjs");
-const withTM = require("next-transpile-modules")(
-  ["@commons-ui/core", "@commons-ui/next"],
-  {
-    debug: /(^|\s)+--inspect(\s|$)+/.test(process.env.NODE_OPTIONS),
-  }
-);
 
 const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
 const outputFileTracingRoot = PROJECT_ROOT
   ? path.resolve(__dirname, PROJECT_ROOT)
   : undefined;
 
-const moduleExports = withTM({
+const moduleExports = {
   experimental: {
     outputFileTracingRoot,
   },
@@ -34,6 +28,7 @@ const moduleExports = withTM({
   output: "standalone",
   pageExtensions: ["page.js"],
   reactStrictMode: true,
+  transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
   webpack: (config) => {
     config.module.rules.push(
       {
@@ -72,7 +67,7 @@ const moduleExports = withTM({
     //   - transpileClientSDK
     hideSourceMaps: false,
   },
-});
+};
 
 const sentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that

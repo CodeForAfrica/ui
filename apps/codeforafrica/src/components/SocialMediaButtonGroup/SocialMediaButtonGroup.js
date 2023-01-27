@@ -1,4 +1,4 @@
-import Stack from "@mui/material/Stack";
+import { Stack } from "@mui/material";
 import React from "react";
 
 const SocialMediaButtonGroup = React.forwardRef(function SocialMediaButtonGroup(

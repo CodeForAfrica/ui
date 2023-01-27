@@ -1,4 +1,4 @@
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 import React from "react";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
@@ -31,7 +31,7 @@ const Key = React.forwardRef(function Key(props, ref) {
             display="flex"
             flexWrap="nowrap"
             gap={1.25}
-            key={datum.label}
+            key={datum.id || datum.label}
           >
             <Box
               borderRadius={7}

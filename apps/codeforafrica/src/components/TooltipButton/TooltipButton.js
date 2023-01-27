@@ -1,7 +1,4 @@
-/* eslint-env browser */
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
+import { Box, IconButton, Tooltip } from "@mui/material";
 import React from "react";
 
 const TooltipButton = React.forwardRef(function TooltipButton(props, ref) {

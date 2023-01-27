@@ -1,9 +1,5 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Popover from "@mui/material/Popover";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { Box, Grid, Popover, useTheme, useMediaQuery } from "@mui/material";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 import React, { useRef, useState } from "react";
@@ -103,7 +99,15 @@ const FocalCountries = React.forwardRef(function FocalCountries(props, ref) {
                 >
                   {title}
                 </RichTypography>
-                <RichText elements={description} />
+                <RichText
+                  elements={description}
+                  sx={{
+                    mb: 2.5,
+                    "&:last-of-type": {
+                      mb: 0,
+                    },
+                  }}
+                />
               </Box>
             </Grid>
             <Grid item xs={12} sm={6} order={{ xs: 1, sm: 0 }}>

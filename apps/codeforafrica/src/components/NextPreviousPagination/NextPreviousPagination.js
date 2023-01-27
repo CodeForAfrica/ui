@@ -1,5 +1,5 @@
+import { usePagination } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import usePagination from "@mui/material/usePagination";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 

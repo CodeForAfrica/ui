@@ -1,12 +1,14 @@
 /* eslint-disable camelcase */
 import { Link, RichTypography } from "@commons-ui/next";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
-import CardActionArea from "@mui/material/CardActionArea";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import {
+  Box,
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+} from "@mui/material";
 import React from "react";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {

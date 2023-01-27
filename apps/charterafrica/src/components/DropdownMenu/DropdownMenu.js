@@ -1,6 +1,5 @@
 import { Link } from "@commons-ui/next";
-import MenuItem from "@mui/material/MenuItem";
-import MenuList from "@mui/material/MenuList";
+import { MenuItem, MenuList } from "@mui/material";
 import React from "react";
 
 import { neutral } from "@/charterafrica/colors";

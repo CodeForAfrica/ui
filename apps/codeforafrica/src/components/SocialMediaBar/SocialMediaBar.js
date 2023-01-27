@@ -1,5 +1,5 @@
 import { RichTypography } from "@commons-ui/next";
-import Stack from "@mui/material/Stack";
+import { Stack } from "@mui/material";
 import React from "react";
 
 import SocialMediaButtonGroup from "@/codeforafrica/components/SocialMediaButtonGroup";

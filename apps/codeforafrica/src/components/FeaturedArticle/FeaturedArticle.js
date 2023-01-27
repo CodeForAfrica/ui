@@ -1,9 +1,6 @@
 /* eslint-disable camelcase */
 import { Link } from "@commons-ui/next";
-import Button from "@mui/material/Button";
-import CardActionArea from "@mui/material/CardActionArea";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+import { Button, CardActionArea, Grid, Typography } from "@mui/material";
 import React from "react";
 
 import ArticleCard from "@/codeforafrica/components/ArticleCard";

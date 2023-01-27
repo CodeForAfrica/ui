@@ -1,8 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { Figure, Link, RichTypography } from "@commons-ui/next";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
+import { Box, Button, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
