@@ -60,9 +60,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                           data-nimg="fill"
                           decoding="async"
                           loading="lazy"
-                          sizes="100vw"
                           src="/icons/Type=folder, Size=64, Color=CurrentColor.svg"
-                          srcset="/icons/Type=folder, Size=64, Color=CurrentColor.svg 640w, /icons/Type=folder, Size=64, Color=CurrentColor.svg 750w, /icons/Type=folder, Size=64, Color=CurrentColor.svg 828w, /icons/Type=folder, Size=64, Color=CurrentColor.svg 1080w, /icons/Type=folder, Size=64, Color=CurrentColor.svg 1200w, /icons/Type=folder, Size=64, Color=CurrentColor.svg 1920w, /icons/Type=folder, Size=64, Color=CurrentColor.svg 2048w, /icons/Type=folder, Size=64, Color=CurrentColor.svg 3840w"
                           style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
                         />
                       </figure>
@@ -86,9 +84,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                           data-nimg="fill"
                           decoding="async"
                           loading="lazy"
-                          sizes="100vw"
                           src="/icons/Type=database, Size=64, Color=CurrentColor.svg"
-                          srcset="/icons/Type=database, Size=64, Color=CurrentColor.svg 640w, /icons/Type=database, Size=64, Color=CurrentColor.svg 750w, /icons/Type=database, Size=64, Color=CurrentColor.svg 828w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1080w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1200w, /icons/Type=database, Size=64, Color=CurrentColor.svg 1920w, /icons/Type=database, Size=64, Color=CurrentColor.svg 2048w, /icons/Type=database, Size=64, Color=CurrentColor.svg 3840w"
                           style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
                         />
                       </figure>
