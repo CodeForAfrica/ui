@@ -16,7 +16,7 @@ function Explainer({ image, description, title }) {
               ImageProps={{
                 // ...image,
                 src: image.url,
-                alt: image.name,
+                alt: image.name || image.alt,
               }}
               sx={(theme) => {
                 return {
