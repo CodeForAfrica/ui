@@ -1,7 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { useMediaQuery } from "@mui/material";
-import Divider from "@mui/material/Divider";
-import Grid from "@mui/material/Grid";
+import { useMediaQuery, Divider, Grid } from "@mui/material";
 import React from "react";
 
 import ProjectDescription from "./ProjectDescription";

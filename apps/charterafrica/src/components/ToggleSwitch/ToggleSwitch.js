@@ -1,4 +1,4 @@
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 import React, { useState } from "react";
 
 import { neutral } from "@/charterafrica/colors";

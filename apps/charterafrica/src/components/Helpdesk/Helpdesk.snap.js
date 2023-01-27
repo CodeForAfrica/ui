@@ -20,9 +20,7 @@ exports[`<Helpdesk /> renders unchanged 1`] = `
             data-nimg="fill"
             decoding="async"
             loading="lazy"
-            sizes="100vw"
             src="/images/helpdesk.svg"
-            srcset="/images/helpdesk.svg 640w, /images/helpdesk.svg 750w, /images/helpdesk.svg 828w, /images/helpdesk.svg 1080w, /images/helpdesk.svg 1200w, /images/helpdesk.svg 1920w, /images/helpdesk.svg 2048w, /images/helpdesk.svg 3840w"
             style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
           />
         </figure>

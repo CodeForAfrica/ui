@@ -1,8 +1,4 @@
-import Drawer from "@mui/material/Drawer";
-import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
-import SvgIcon from "@mui/material/SvgIcon";
-import Toolbar from "@mui/material/Toolbar";
+import { Drawer, Grid, IconButton, SvgIcon, Toolbar } from "@mui/material";
 import React, { useState } from "react";
 
 import MobileDrawer from "./MobileDrawer";

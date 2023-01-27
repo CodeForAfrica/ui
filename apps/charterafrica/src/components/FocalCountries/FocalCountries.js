@@ -1,9 +1,5 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Popover from "@mui/material/Popover";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { Box, Grid, Popover, useTheme, useMediaQuery } from "@mui/material";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 import React, { useRef, useState } from "react";

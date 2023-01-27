@@ -1,8 +1,5 @@
 import { Link, RichTypography } from "@commons-ui/next";
-import Card from "@mui/material/Card";
-import CardActionArea from "@mui/material/CardActionArea";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
 

@@ -1,5 +1,4 @@
-import { styled } from "@mui/material/styles";
-import MuiSwitch from "@mui/material/Switch";
+import { styled, Switch as MuiSwitch } from "@mui/material";
 import React from "react";
 
 import { neutral } from "@/charterafrica/colors";

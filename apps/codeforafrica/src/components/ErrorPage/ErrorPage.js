@@ -1,4 +1,4 @@
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 
 import ErrorHero from "@/codeforafrica/components/ErrorHero";
 import Page from "@/codeforafrica/components/Page";

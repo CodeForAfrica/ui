@@ -1,5 +1,4 @@
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
+import { Button, Grid } from "@mui/material";
 import React from "react";
 
 import LanguageButton from "@/charterafrica/components/LanguageButton";

@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import Divider from "@mui/material/Divider";
+import { Divider } from "@mui/material";
 import React from "react";
 
 const SectionDivider = React.forwardRef(function SectionDivider(props, ref) {

@@ -1,8 +1,5 @@
 import { Link } from "@commons-ui/next";
-import Box from "@mui/material/Box";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListSubheader from "@mui/material/ListSubheader";
+import { Box, List, ListItemButton, ListSubheader } from "@mui/material";
 import { useRouter } from "next/router";
 import React from "react";
 

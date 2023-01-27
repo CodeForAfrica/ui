@@ -1,8 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { Link, RichTypography } from "@commons-ui/next";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import SvgIcon from "@mui/material/SvgIcon";
+import { Button, Stack, SvgIcon } from "@mui/material";
 import React from "react";
 
 import MailIcon from "@/codeforafrica/assets/icons/Type=mail, Size=24, Color=CurrentColor.svg";

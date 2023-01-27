@@ -19,10 +19,12 @@ const defaultProps = {
   copyright: "© 2022 European Partnership for Democracy (CC BY-NC 2.0)",
   links: [
     {
+      id: 1,
       href: "/",
       label: "Privacy Policy",
     },
     {
+      id: 2,
       href: "/",
       label: "Imprint",
     },

@@ -1,12 +1,5 @@
 const path = require("path");
 
-const withTM = require("next-transpile-modules")(
-  ["@commons-ui/core", "@commons-ui/next"],
-  {
-    debug: /(^|\s)+--inspect(\s|$)+/.test(process.env.NODE_OPTIONS),
-  }
-);
-
 const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
 const outputFileTracingRoot = PROJECT_ROOT
   ? path.resolve(__dirname, PROJECT_ROOT)
@@ -16,7 +9,7 @@ const ghostUrl =
   process.env.GHOST_ADMIN_URL?.trim() || process.env.GHOST_URL?.trim();
 const ghostAdminUrl = new URL("/ghost", ghostUrl).toString();
 
-module.exports = withTM({
+module.exports = {
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
       ?.map((d) => d.trim())
@@ -27,6 +20,12 @@ module.exports = withTM({
   },
   experimental: {
     outputFileTracingRoot,
+  },
+  modularizeImports: {
+    // NOTE: only transform @mui/material and not any of sub-modules e.g. @mui/material/styles.
+    "@mui/material^": {
+      transform: "@mui/material/{{member}}",
+    },
   },
   output: "standalone",
   pageExtensions: ["page.js"],
@@ -41,6 +40,7 @@ module.exports = withTM({
       },
     ];
   },
+  transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
   webpack: (config) => {
     config.module.rules.push(
       {
@@ -62,4 +62,4 @@ module.exports = withTM({
     config.experiments = { ...config.experiments, topLevelAwait: true }; // eslint-disable-line no-param-reassign
     return config;
   },
-});
+};

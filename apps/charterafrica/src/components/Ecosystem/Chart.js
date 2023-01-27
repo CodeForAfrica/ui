@@ -1,7 +1,5 @@
 /* eslint-env browser */
-import Box from "@mui/material/Box";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { Box, useTheme, useMediaQuery } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
 import { Pie, Waffle } from "@/charterafrica/components/Charts";

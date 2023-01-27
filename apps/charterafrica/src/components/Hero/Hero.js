@@ -1,5 +1,4 @@
-import Box from "@mui/material/Box";
-import MobileStepper from "@mui/material/MobileStepper";
+import { Box, MobileStepper } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useRef, useState } from "react";
 import SwipeableViews from "react-swipeable-views-react-18-fix";

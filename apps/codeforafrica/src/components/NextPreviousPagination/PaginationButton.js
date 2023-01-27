@@ -1,6 +1,4 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import SvgIcon from "@mui/material/SvgIcon";
+import { Box, Button, SvgIcon } from "@mui/material";
 import React from "react";
 
 import ArrowBackIcon from "@/codeforafrica/assets/icons/Type=arrow-left, Size=32, Color=CurrentColor.svg";

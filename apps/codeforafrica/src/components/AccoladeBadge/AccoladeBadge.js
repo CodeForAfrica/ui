@@ -1,8 +1,5 @@
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import { Box, Grid, SvgIcon, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import SvgIcon from "@mui/material/SvgIcon";
-import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import React from "react";
 

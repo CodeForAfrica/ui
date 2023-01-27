@@ -1,5 +1,5 @@
 import { Link } from "@commons-ui/next";
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 

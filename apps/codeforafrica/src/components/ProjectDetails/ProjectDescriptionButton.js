@@ -1,6 +1,5 @@
 import { Link } from "@commons-ui/next";
-import Button from "@mui/material/Button";
-import SvgIcon from "@mui/material/SvgIcon";
+import { Button, SvgIcon } from "@mui/material";
 import React from "react";
 
 import DatabaseIcon from "@/codeforafrica/assets/icons/Type=database, Size=24, Color=CurrentColor.svg";
