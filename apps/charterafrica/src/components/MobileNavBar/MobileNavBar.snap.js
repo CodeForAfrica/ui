@@ -20,7 +20,6 @@ exports[`<MobileNavBar /> renders unchanged 1`] = `
           height="38"
           loading="lazy"
           src="/images/charter-logo.svg"
-          srcset="/images/charter-logo.svg 1x, /images/charter-logo.svg 2x"
           style="color: transparent;"
           width="147.29"
         />

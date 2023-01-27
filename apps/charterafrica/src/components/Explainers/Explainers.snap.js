@@ -12,6 +12,11 @@ exports[`<Explainers /> renders unchanged 1`] = `
         class="MuiBox-root css-tihu8v"
       >
         <div
+          class="MuiTypography-root MuiTypography-h3 css-1t7l9ax-MuiTypography-root"
+        >
+          Explainers
+        </div>
+        <div
           class="MuiGrid-root MuiGrid-container css-1276prp-MuiGrid-root"
         >
           <div
