@@ -11,7 +11,7 @@ function Explainer({ image, description, title }) {
     <>
       <Grid display="flex" justifyContent="center" sx={{ p: 8 }} container>
         <Grid container spacing={4}>
-          <Grid xs={12} item>
+          <Grid item xs={12}>
             <Figure
               ImageProps={{
                 // ...image,
