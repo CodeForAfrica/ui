@@ -1,5 +1,5 @@
 import Ecosystem from "../blocks/Ecosystem";
-import Explainer from "../blocks/Explainer";
+import Explainers from "../blocks/Explainer";
 import Hero from "../blocks/Hero";
 import Mooc from "../blocks/Mooc";
 import Partners from "../blocks/Partners";
@@ -38,7 +38,7 @@ const Pages = {
       type: "blocks",
       blocks: [
         Ecosystem,
-        Explainer,
+        Explainers,
         Hero,
         Mooc,
         Partners,

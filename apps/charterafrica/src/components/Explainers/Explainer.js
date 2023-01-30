@@ -16,7 +16,7 @@ function Explainer({ image, description, title }) {
               ImageProps={{
                 // ...image,
                 src: image.url,
-                alt: image.name || image.alt,
+                alt: image.filename || image.alt,
               }}
               sx={(theme) => {
                 return {
@@ -29,13 +29,8 @@ function Explainer({ image, description, title }) {
                     md: theme.contentWidths.values.md / 1.8,
                     lg: theme.contentWidths.values.lg / 1.8,
                   },
-                  width: {
-                    xs: theme.contentWidths.values.sm / 2.5,
-                    sm: theme.contentWidths.values.sm,
-                    md: theme.contentWidths.values.md,
-                    lg: theme.contentWidths.values.lg,
-                    xl: theme.contentWidths.values.xl,
-                  },
+
+                  maxWidth: "100%",
                 };
               }}
             />
@@ -43,8 +38,9 @@ function Explainer({ image, description, title }) {
           <Grid xs={12} item>
             <RichTypography
               color="#3E202C"
-              variant="h2"
-              sx={{ fontWeight: 400 }}
+              sx={{ fontWeight: { xs: 400 } }}
+              typography={{ md: "h2", xs: "h3" }}
+              variant="h2SemiBold"
             >
               {title}
             </RichTypography>

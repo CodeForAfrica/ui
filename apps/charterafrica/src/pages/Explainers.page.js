@@ -10,7 +10,7 @@ function Explainer({ blocks, title }) {
   return <Explainers title={title} explainers={explainers} />;
 }
 export async function getStaticProps({ defaultLocale, locale, locales }) {
-  const explainer = await payload.findPage("explainer", {
+  const explainer = await payload.findPage("explainers", {
     locale,
     fallbackLocale: defaultLocale,
   });

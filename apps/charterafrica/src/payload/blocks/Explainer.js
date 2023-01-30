@@ -1,7 +1,7 @@
 import richText from "../fields/richText";
 
-const Explainer = {
-  slug: "explainer",
+const Explainers = {
+  slug: "explainers",
   fields: [
     {
       name: "title",
@@ -44,4 +44,4 @@ const Explainer = {
   ],
 };
 
-export default Explainer;
+export default Explainers;
