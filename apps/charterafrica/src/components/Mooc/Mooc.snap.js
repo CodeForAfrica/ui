@@ -3,7 +3,7 @@
 exports[`<Mooc/> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-hjkk0x"
+    class="MuiBox-root css-l3bbx9"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-582wlz-MuiContainer-root"
@@ -17,21 +17,12 @@ exports[`<Mooc/> renders unchanged 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           />
-          <div
-            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1mp03qe-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            />
-          </div>
         </div>
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-15gjm0g-MuiGrid-root"
         >
           <figure
-            class="MuiBox-root css-vovnhj"
+            class="MuiBox-root css-jitnt0"
           >
             <img
               alt="MOOC"
