@@ -8,9 +8,18 @@ import Explainer from "./Explainer";
 
 import { secondary } from "@/charterafrica/colors";
 
-function Explainers({ explainers, title }) {
+function Explainers({ explainers, title, bannerTitle }) {
   return (
     <Box bgcolor={secondary[50]}>
+      <Box sx={{ height: 56 }} bgcolor={secondary[200]}>
+        <RichTypography
+          color="#3E202C"
+          sx={{ lineHeight: "56px" }}
+          textAlign="center"
+        >
+          {bannerTitle}
+        </RichTypography>
+      </Box>
       <Section>
         <Box sx={{ gap: "24px" }}>
           <RichTypography sx={{ pl: 8, pt: 8 }} variant="h3" color="#3E202C">
@@ -29,10 +38,12 @@ function Explainers({ explainers, title }) {
 Explainers.propTypes = {
   explainers: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,
+  bannerTitle: PropTypes.string,
 };
 
 Explainers.defaultProps = {
   explainers: [],
   title: "",
+  bannerTitle: "",
 };
 export default Explainers;

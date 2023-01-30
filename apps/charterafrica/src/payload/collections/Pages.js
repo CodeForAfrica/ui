@@ -1,5 +1,5 @@
 import Ecosystem from "../blocks/Ecosystem";
-import Explainers from "../blocks/Explainer";
+import Explainers from "../blocks/Explainers";
 import Hero from "../blocks/Hero";
 import Mooc from "../blocks/Mooc";
 import Partners from "../blocks/Partners";

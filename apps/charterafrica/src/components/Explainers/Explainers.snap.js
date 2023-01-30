@@ -6,6 +6,9 @@ exports[`<Explainers /> renders unchanged 1`] = `
     class="MuiBox-root css-156ejva"
   >
     <div
+      class="MuiBox-root css-1lh7ks"
+    />
+    <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-eoqn3z-MuiContainer-root"
     >
       <div

@@ -1,6 +1,6 @@
 import richText from "../fields/richText";
 
-const Resources = {
+const Partners = {
   slug: "our-partners",
   labels: {
     singular: {
@@ -56,4 +56,4 @@ const Resources = {
   ],
 };
 
-export default Resources;
+export default Partners;

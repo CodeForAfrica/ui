@@ -3,11 +3,11 @@ import Explainers from "../components/Explainers";
 import { payload } from "@/charterafrica/lib";
 import getGlobalProps from "@/charterafrica/utils/getGlobalProps";
 
-function Explainer({ blocks, title }) {
-  const explainers = blocks?.map((block) => ({
-    ...block,
-  }));
-  return <Explainers title={title} explainers={explainers} />;
+function Explainer({ blocks }) {
+  const explainer = blocks?.find(
+    (block) => block.blockType === "our-explainers"
+  );
+  return <Explainers {...explainer} />;
 }
 export async function getStaticProps({ defaultLocale, locale, locales }) {
   const explainer = await payload.findPage("explainers", {

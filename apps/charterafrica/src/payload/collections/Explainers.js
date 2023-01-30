@@ -1,7 +1,13 @@
 import richText from "../fields/richText";
 
-const Explainers = {
+const Explainer = {
   slug: "explainers",
+  admin: {
+    useAsTitle: "title",
+  },
+  access: {
+    read: () => true, // Everyone can read Media
+  },
   fields: [
     {
       name: "title",
@@ -44,4 +50,4 @@ const Explainers = {
   ],
 };
 
-export default Explainers;
+export default Explainer;
