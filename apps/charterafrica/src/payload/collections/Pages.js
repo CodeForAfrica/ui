@@ -1,10 +1,14 @@
+import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
+import DemocracyHelpdeskHeader from "../blocks/DemocracyHelpdeskPageHeader";
 import Ecosystem from "../blocks/Ecosystem";
 import Hero from "../blocks/Hero";
 import Mooc from "../blocks/Mooc";
+import PageInfo from "../blocks/PageInfo";
 import Partners from "../blocks/Partners";
 import Resources from "../blocks/Resources";
 import Spotlight from "../blocks/Spotlight";
-import formatSlug from "../utils/formatSlug";
+import fullTitle from "../fields/fullTitle";
+import slug from "../fields/slug";
 
 const Pages = {
   slug: "pages",
@@ -22,20 +26,22 @@ const Pages = {
       localized: true,
       required: true,
     },
-    {
-      name: "slug",
-      type: "text",
-      admin: {
-        position: "sidebar",
-      },
-      hooks: {
-        beforeValidate: [formatSlug("title")],
-      },
-    },
+    fullTitle(),
+    slug(),
     {
       name: "blocks",
       type: "blocks",
-      blocks: [Hero, Ecosystem, Mooc, Partners, Resources, Spotlight],
+      blocks: [
+        Hero,
+        DemocracyHelpdeskContent,
+        DemocracyHelpdeskHeader,
+        Ecosystem,
+        Mooc,
+        PageInfo,
+        Partners,
+        Resources,
+        Spotlight,
+      ],
     },
   ],
 };

@@ -1,30 +1,29 @@
-import linkGroup from "../fields/linkGroup";
 import richText from "../fields/richText";
 
-const Mooc = {
-  slug: "mooc",
+const HelpdeskPageHeader = {
+  slug: "helpdesk-page-header",
   fields: [
     richText({
       name: "title",
+      type: "richText",
+      required: true,
+      localized: true,
       label: {
         en: "Title",
         fr: "Titre",
         pt: "Título",
       },
-      required: true,
-      localized: true,
       admin: {
         elements: [],
-        leaves: ["bold", "italic", "underline", "code"],
+        leaves: ["bold", "italic"],
       },
     }),
-    linkGroup(),
     {
-      name: "image",
+      name: "logo",
       label: {
-        en: "Image",
-        fr: "Image",
+        en: "Logo",
         pt: "Imagem",
+        fr: "Logo",
       },
       type: "upload",
       relationTo: "media",
@@ -36,4 +35,4 @@ const Mooc = {
   ],
 };
 
-export default Mooc;
+export default HelpdeskPageHeader;
