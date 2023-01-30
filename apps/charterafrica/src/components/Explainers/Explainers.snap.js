@@ -24,7 +24,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
             >
               <div
-                class="MuiTypography-root MuiTypography-h2 css-1gjgq70-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
               >
                 Event title going on two or even three lines
               </div>
@@ -56,7 +56,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
             >
               <div
-                class="MuiTypography-root MuiTypography-h2 css-1gjgq70-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
               >
                 Event title going on two or even three lines
               </div>
@@ -88,7 +88,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
             >
               <div
-                class="MuiTypography-root MuiTypography-h2 css-1gjgq70-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
               >
                 Event title going on two or even three lines
               </div>
@@ -120,7 +120,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
             >
               <div
-                class="MuiTypography-root MuiTypography-h2 css-1gjgq70-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
               >
                 Event title going on two or even three lines
               </div>
@@ -152,7 +152,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
             >
               <div
-                class="MuiTypography-root MuiTypography-h2 css-1gjgq70-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
               >
                 Event title going on two or even three lines
               </div>
