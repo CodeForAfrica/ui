@@ -37,6 +37,7 @@ const Map = React.forwardRef(function Map(props, ref) {
   }
   return (
     <MapContainer
+      attributionControl={false}
       center={center}
       boxZoom={false}
       doubleClickZoom={false}
