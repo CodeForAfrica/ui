@@ -1,18 +1,13 @@
 import richText from "../fields/richText";
 
-const Partners = {
-  slug: "our-partners",
-  labels: {
-    singular: {
-      en: "Partner",
-      fr: "Partenaire",
-      pt: "Parceiro",
-    },
-    plural: {
-      en: "Partners",
-      fr: "Partenaires",
-      pt: "Parceiros",
-    },
+const Explainers = {
+  slug: "explainers",
+  admin: {
+    useAsTitle: "title",
+    defaultColumns: ["title", "updatedAt"],
+  },
+  access: {
+    read: () => true, // Everyone can read Media
   },
   fields: [
     {
@@ -33,27 +28,28 @@ const Partners = {
         fr: "La description",
         pt: "Descrição",
       },
+      localized: true,
+      required: true,
       admin: {
         elements: [],
       },
-      localized: true,
     }),
     {
-      name: "partners",
+      name: "image",
       label: {
-        en: "Partners",
-        fr: "Les partenaires",
-        pt: "Parceiros",
+        en: "Image",
+        pt: "Imagem",
+        fr: "Image",
       },
-      type: "relationship",
-      relationTo: "partners",
-      hasMany: true,
+      type: "upload",
+      relationTo: "media",
+      localized: true,
       required: true,
-      admin: {
-        isSortable: true,
+      filterOptions: {
+        mimeType: { contains: "image" },
       },
     },
   ],
 };
 
-export default Partners;
+export default Explainers;

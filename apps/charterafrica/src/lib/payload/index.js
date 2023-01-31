@@ -12,6 +12,14 @@ async function findPage(slug, options) {
   });
 }
 
+async function getCollection(collection, options) {
+  return payload.find({
+    ...options,
+    collection,
+    where: {},
+  });
+}
+
 async function findGlobal(slug, options) {
   return payload.findGlobal({
     ...options,
@@ -22,6 +30,7 @@ async function findGlobal(slug, options) {
 const api = {
   findGlobal,
   findPage,
+  getCollection,
 };
 
 export default api;
