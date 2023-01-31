@@ -29,8 +29,11 @@ const Spotlight = {
             fr: "Catégorie",
             pt: "Categoria",
           },
-          required: true,
+          required: false,
           localized: true,
+          admin: {
+            disabled: true,
+          },
         },
         {
           name: "item",
@@ -97,7 +100,10 @@ const Spotlight = {
                 fr: "Date",
                 pt: "Encontro",
               },
-              required: true,
+              required: false,
+              admin: {
+                disabled: true,
+              },
             },
             {
               name: "link",
