@@ -1,7 +1,13 @@
-name: codeforafrica.org | Build and Deploy
+name: Code for Africa | Deploy | PROD
+
 on:
   push:
     branches: [main]
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
 
 env:
   DOKKU_REMOTE_BRANCH: "master"
@@ -13,7 +19,11 @@ env:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [16]
+        os: [ubuntu-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -25,7 +35,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "16"
+          node-version: ${{ matrix.node-version }}
 
       - name: Check if version is bumped
         id: version-check
@@ -81,7 +91,7 @@ jobs:
 
       - name: Push to Dokku
         if: steps.version-check.outputs.changed == 'true'
-        uses: dokku/github-action@v1.0.2
+        uses: dokku/github-action@v1.4.0
         with:
           branch: ${{ env.DOKKU_REMOTE_BRANCH }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}

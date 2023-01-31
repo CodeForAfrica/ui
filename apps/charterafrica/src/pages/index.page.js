@@ -49,7 +49,10 @@ export async function getServerSideProps({ defaultLocale, locale, locales }) {
   // TODO(kilemens): Move these to lib/data for any and all page data processing
   if (helpdesk) {
     helpdesk.slug = "helpdesk";
-    const { alt: imageAlt, url: imageSrc } = helpdesk.image;
+    const { alt: imageAlt, url: imageSrc } = helpdesk.image || {
+      alt: null,
+      url: null,
+    };
     helpdesk.image = { alt: imageAlt, src: imageSrc };
     const { href: linkHref, label: linkLabel } = helpdesk.link;
     helpdesk.link = { href: linkHref ?? null, label: linkLabel ?? null };
@@ -99,7 +102,7 @@ export async function getServerSideProps({ defaultLocale, locale, locales }) {
   const ecosystem = blocks.find((block) => block.slug === "ecosystem") || null;
 
   const mooc = blocks.find((block) => block.slug === "mooc") || null;
-  if (mooc) {
+  if (mooc?.image?.url) {
     mooc.image = {
       alt: mooc.image.alt,
       src: mooc.image.url,
