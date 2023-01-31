@@ -8,26 +8,38 @@ import Explainer from "./Explainer";
 
 import { secondary } from "@/charterafrica/colors";
 
-function Explainers({ explainers, title }) {
-  return (
-    <Box bgcolor={secondary[50]}>
-      <Section>
-        <Box sx={{ gap: "24px" }}>
-          <RichTypography sx={{ pt: 8 }} variant="h3" color="#3E202C">
-            {title}
-          </RichTypography>
+const Explainers = React.forwardRef(function Explainers(props, ref) {
+  const { explainers, sx, title } = props;
 
-          {explainers.map((e, i) => (
-            <Fragment key={e.id}>
-              <Explainer {...e} key={e.id} />
-              {i < explainers.length - 1 && <Divider sx={{ p: 2, ml: 8 }} />}
-            </Fragment>
-          ))}
-        </Box>
+  if (!explainers?.length) {
+    return null;
+  }
+  return (
+    <Box bgcolor={secondary[50]} sx={sx} ref={ref}>
+      <Section
+        sx={{
+          px: { xs: 5, sm: 0 },
+          py: { xs: 5, md: 5.75 },
+          // Hide last Divider
+          "& hr:last-child": {
+            display: "none",
+          },
+        }}
+      >
+        <RichTypography variant="h3" color="neutral.dark" sx={{ mb: 5 }}>
+          {title}
+        </RichTypography>
+
+        {explainers.map((e) => (
+          <Fragment key={e.id}>
+            <Explainer {...e} key={e.id} />
+            <Divider sx={{ my: 5 }} />
+          </Fragment>
+        ))}
       </Section>
     </Box>
   );
-}
+});
 
 Explainers.propTypes = {
   explainers: PropTypes.arrayOf(PropTypes.shape({})),
@@ -35,7 +47,8 @@ Explainers.propTypes = {
 };
 
 Explainers.defaultProps = {
-  explainers: [],
-  title: "",
+  explainers: undefined,
+  title: undefined,
 };
+
 export default Explainers;
