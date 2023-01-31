@@ -6,7 +6,7 @@ import DesktopNavBar from "@/charterafrica/components/DesktopNavBar";
 import MobileNavBar from "@/charterafrica/components/MobileNavBar";
 
 const NavBar = React.forwardRef(function NavBar(props, ref) {
-  const { languages, logo, menus } = props;
+  const { actions, languages, logo, menus } = props;
 
   return (
     <CuiNavBar
@@ -39,6 +39,7 @@ const NavBar = React.forwardRef(function NavBar(props, ref) {
         ]}
       >
         <MobileNavBar
+          actions={actions}
           languages={languages}
           logo={logo}
           menus={menus}
@@ -47,6 +48,7 @@ const NavBar = React.forwardRef(function NavBar(props, ref) {
           }}
         />
         <DesktopNavBar
+          actions={actions}
           languages={languages}
           logo={logo}
           menus={menus}

@@ -8,7 +8,7 @@ import XIcon from "@/charterafrica/assets/icons/Type=x, Size=32, Color=White.svg
 import Logo from "@/charterafrica/components/Logo";
 
 const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
-  const { languages, logo, menus, sx } = props;
+  const { actions, languages, logo, menus, sx } = props;
   const [open, setOpen] = useState(false);
   const handleClick = () => setOpen((prev) => !prev);
   const handleClose = () => setOpen(false);
@@ -48,7 +48,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
         }}
       >
         <Toolbar />
-        <MobileDrawer languages={languages} menus={menus} />
+        <MobileDrawer actions={actions} languages={languages} menus={menus} />
       </Drawer>
     </React.Fragment>
   );

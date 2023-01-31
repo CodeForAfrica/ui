@@ -37,7 +37,7 @@ function Index({ blocks }) {
 }
 
 export async function getServerSideProps({ defaultLocale, locale, locales }) {
-  const { menus } = await payload.findGlobal("navigation", {
+  const { actions, menus } = await payload.findGlobal("navigation", {
     locale,
     fallbackLocale: defaultLocale,
   });
@@ -174,6 +174,7 @@ export async function getServerSideProps({ defaultLocale, locale, locales }) {
       ],
       footer,
       navbar: {
+        actions,
         languages: languages ?? null,
         logo: {
           alt: "Charter Africa",

@@ -58,33 +58,22 @@ exports[`<NavBar /> renders unchanged 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
-            <div
-              class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-of5kr7-MuiGrid-root"
+            <button
+              class="MuiButtonBase-root css-1oubxmo-MuiButtonBase-root"
+              tabindex="0"
+              type="button"
             >
-              <div
-                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-              >
-                <button
-                  class="MuiButtonBase-root css-1oubxmo-MuiButtonBase-root"
-                  tabindex="0"
-                  type="button"
-                >
-                  <img
-                    alt="Charter Africa"
-                    data-nimg="1"
-                    decoding="async"
-                    height="58"
-                    loading="lazy"
-                    src="/images/charter-logo.svg"
-                    style="color: transparent;"
-                    width="230"
-                  />
-                </button>
-              </div>
-              <div
-                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              <img
+                alt="Charter Africa"
+                data-nimg="1"
+                decoding="async"
+                height="58"
+                loading="lazy"
+                src="/images/charter-logo.svg"
+                style="color: transparent;"
+                width="230"
               />
-            </div>
+            </button>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -168,54 +157,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-              >
-                <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-lmqgdx-MuiInputBase-root-MuiOutlinedInput-root"
-                >
-                  <input
-                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1u6lhwd-MuiInputBase-input-MuiOutlinedInput-input"
-                    placeholder="Search"
-                    type="search"
-                    value=""
-                  />
-                  <button
-                    aria-label="search"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-av538e-MuiButtonBase-root-MuiIconButton-root"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <div
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-scw3l4-MuiSvgIcon-root"
-                      focusable="false"
-                      viewbox="0 0 16 16"
-                    />
-                  </button>
-                  <fieldset
-                    aria-hidden="true"
-                    class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
-                  >
-                    <legend
-                      class="css-yjsfm1"
-                    >
-                      <span>
-                        Search
-                      </span>
-                    </legend>
-                  </fieldset>
-                </div>
-              </div>
-              <div
-                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium css-wymo1b-MuiButtonBase-root-MuiButton-root"
-                  tabindex="0"
-                  type="button"
-                >
-                  Join
-                </button>
-              </div>
+              />
             </div>
           </div>
         </div>
