@@ -7,7 +7,7 @@ import NavBarNavMenu from "@/charterafrica/components/NavBarNavMenu";
 import SearchInput from "@/charterafrica/components/SearchInput";
 
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
-  const { languages, logo, menus, sx } = props;
+  const { actions, languages, logo, menus, sx } = props;
 
   return (
     <Grid
@@ -18,19 +18,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
       sx={sx}
     >
       <Grid item>
-        <Grid
-          container
-          alignItems="center"
-          justifyContent="flex-start"
-          wrap="nowrap"
-        >
-          <Grid item>
-            <Logo {...logo} width={230} height={58} />
-          </Grid>
-          <Grid item>
-            <LanguageButton languages={languages} />
-          </Grid>
-        </Grid>
+        <Logo {...logo} width={230} height={58} />
       </Grid>
       <Grid item>
         <Grid
@@ -43,17 +31,25 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
           <Grid item>
             <NavBarNavMenu direction="row" menus={menus} />
           </Grid>
+          {actions?.search?.enabled ? (
+            <Grid item>
+              <SearchInput
+                placeholder={actions.search.placeholder}
+                sx={{
+                  py: 1.4375, // 12.5px - 1
+                }}
+              />
+            </Grid>
+          ) : null}
+          {actions?.join?.enabled ? (
+            <Grid item>
+              <Button color="secondary" variant="contained">
+                {actions.join.label}
+              </Button>
+            </Grid>
+          ) : null}
           <Grid item>
-            <SearchInput
-              sx={{
-                py: 1.4375, // 12.5px - 1
-              }}
-            />
-          </Grid>
-          <Grid item>
-            <Button color="secondary" variant="contained">
-              Join
-            </Button>
+            <LanguageButton languages={languages} />
           </Grid>
         </Grid>
       </Grid>

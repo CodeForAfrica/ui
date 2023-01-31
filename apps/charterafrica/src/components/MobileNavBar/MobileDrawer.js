@@ -8,7 +8,7 @@ import NavBarNavMenu from "@/charterafrica/components/NavBarNavMenu";
 import SearchInput from "@/charterafrica/components/SearchInput";
 
 const MobileDrawer = React.forwardRef(function MobileDrawer(props, ref) {
-  const { languages, menus, sx } = props;
+  const { actions, languages, menus, sx } = props;
 
   return (
     <Box
@@ -36,20 +36,25 @@ const MobileDrawer = React.forwardRef(function MobileDrawer(props, ref) {
               <Grid item>
                 <LanguageButton languages={languages} />
               </Grid>
-              <Grid item xs sm="auto">
-                <SearchInput
-                  sx={{
-                    py: 1.4375, // 12.5px - 1
-                    width: { xs: "100%", sm: "525px" },
-                    ml: { xs: -1.25, sm: 0 },
-                  }}
-                />
-              </Grid>
-              <Grid item>
-                <Button color="secondary" variant="contained">
-                  Join
-                </Button>
-              </Grid>
+              {actions?.search?.enabled ? (
+                <Grid item xs sm="auto">
+                  <SearchInput
+                    placeholder={actions.search.placeholder}
+                    sx={{
+                      py: 1.4375, // 12.5px - 1
+                      width: { xs: "100%", sm: "525px" },
+                      ml: { xs: -1.25, sm: 0 },
+                    }}
+                  />
+                </Grid>
+              ) : null}
+              {actions?.join?.enabled ? (
+                <Grid item>
+                  <Button color="secondary" variant="contained">
+                    {actions.join.label}
+                  </Button>
+                </Grid>
+              ) : null}
             </Grid>
           </Grid>
           <Grid item sx={{ display: { xs: "flex", sm: "none" } }}>
