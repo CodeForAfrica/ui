@@ -24,7 +24,8 @@ RUN pnpm fetch
 
 FROM base as builder
 
-ARG NEXT_TELEMETRY_DISABLED=1
+ARG NEXT_TELEMETRY_DISABLED=1 \
+    PAYLOAD_PUBLIC_APP_URL="http://localhost:3000"
 
 WORKDIR /workspace
 
@@ -48,10 +49,12 @@ FROM builder as runner
 RUN rm -rf /var/cache/apk/*
 
 ARG NEXT_TELEMETRY_DISABLED=1 \
+    PAYLOAD_PUBLIC_APP_URL="http://localhost:3000" \
     PORT=3000
 
 ENV NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
+    PAYLOAD_PUBLIC_APP_URL={PAYLOAD_PUBLIC_APP_URL} \
     PORT=${PORT}
 
 WORKDIR /workspace/apps/charterafrica
