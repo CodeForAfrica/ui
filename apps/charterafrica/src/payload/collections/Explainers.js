@@ -38,6 +38,7 @@ const Explainer = {
       type: "upload",
       relationTo: "media",
       required: true,
+      localized: true,
       filterOptions: {
         mimeType: { contains: "image" },
       },

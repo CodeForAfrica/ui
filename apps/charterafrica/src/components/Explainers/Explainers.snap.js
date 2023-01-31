@@ -15,160 +15,160 @@ exports[`<Explainers /> renders unchanged 1`] = `
         class="MuiBox-root css-tihu8v"
       >
         <div
-          class="MuiGrid-root MuiGrid-container css-1276prp-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1lym95h-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-480o17-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiBox-root css-0"
             />
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
             >
-              <div
-                class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
-              >
-                Event title going on two or even three lines
-              </div>
+              Event title going on two or even three lines
             </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-p2 css-129tb7k-MuiTypography-root"
             >
-              <p
-                class="MuiTypography-root MuiTypography-p3 css-1lspiuz-MuiTypography-root"
-              >
-                Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
-              </p>
-            </div>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
+            </p>
           </div>
         </div>
         <hr
           class="MuiDivider-root MuiDivider-fullWidth css-1jwvt6f-MuiDivider-root"
         />
         <div
-          class="MuiGrid-root MuiGrid-container css-1276prp-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1lym95h-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-480o17-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiBox-root css-0"
             />
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
             >
-              <div
-                class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
-              >
-                Event title going on two or even three lines
-              </div>
+              Event title going on two or even three lines
             </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-p2 css-129tb7k-MuiTypography-root"
             >
-              <p
-                class="MuiTypography-root MuiTypography-p3 css-1lspiuz-MuiTypography-root"
-              >
-                Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
-              </p>
-            </div>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
+            </p>
           </div>
         </div>
         <hr
           class="MuiDivider-root MuiDivider-fullWidth css-1jwvt6f-MuiDivider-root"
         />
         <div
-          class="MuiGrid-root MuiGrid-container css-1276prp-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1lym95h-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-480o17-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiBox-root css-0"
             />
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
             >
-              <div
-                class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
-              >
-                Event title going on two or even three lines
-              </div>
+              Event title going on two or even three lines
             </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-p2 css-129tb7k-MuiTypography-root"
             >
-              <p
-                class="MuiTypography-root MuiTypography-p3 css-1lspiuz-MuiTypography-root"
-              >
-                Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
-              </p>
-            </div>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
+            </p>
           </div>
         </div>
         <hr
           class="MuiDivider-root MuiDivider-fullWidth css-1jwvt6f-MuiDivider-root"
         />
         <div
-          class="MuiGrid-root MuiGrid-container css-1276prp-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1lym95h-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-480o17-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiBox-root css-0"
             />
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
             >
-              <div
-                class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
-              >
-                Event title going on two or even three lines
-              </div>
+              Event title going on two or even three lines
             </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-p2 css-129tb7k-MuiTypography-root"
             >
-              <p
-                class="MuiTypography-root MuiTypography-p3 css-1lspiuz-MuiTypography-root"
-              >
-                Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
-              </p>
-            </div>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
+            </p>
           </div>
         </div>
         <hr
           class="MuiDivider-root MuiDivider-fullWidth css-1jwvt6f-MuiDivider-root"
         />
         <div
-          class="MuiGrid-root MuiGrid-container css-1276prp-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1lym95h-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-480o17-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiBox-root css-0"
             />
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
             >
-              <div
-                class="MuiTypography-root MuiTypography-h2SemiBold css-1tsci2z-MuiTypography-root"
-              >
-                Event title going on two or even three lines
-              </div>
+              Event title going on two or even three lines
             </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-p2 css-129tb7k-MuiTypography-root"
             >
-              <p
-                class="MuiTypography-root MuiTypography-p3 css-1lspiuz-MuiTypography-root"
-              >
-                Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
-              </p>
-            </div>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
+            </p>
           </div>
         </div>
         <hr
