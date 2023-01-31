@@ -47,7 +47,7 @@ const NavBarDropdown = React.forwardRef(function NavBarDropdown(props, ref) {
         ref={anchorRef}
       >
         {menu.label}
-        {menu.children?.length ? (
+        {menu.children?.length > 0 ? (
           <IconButton
             aria-controls={open ? "split-button-menu" : undefined}
             aria-expanded={open ? "true" : undefined}
@@ -65,7 +65,7 @@ const NavBarDropdown = React.forwardRef(function NavBarDropdown(props, ref) {
           </IconButton>
         ) : null}
       </Link>
-      {menu?.children?.length ? (
+      {menu?.children?.length > 0 ? (
         <Popper
           open={open}
           anchorEl={anchorRef.current}

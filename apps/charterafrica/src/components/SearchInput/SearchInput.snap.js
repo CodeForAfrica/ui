@@ -7,7 +7,6 @@ exports[`<SearchInput /> renders unchanged 1`] = `
   >
     <input
       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1u6lhwd-MuiInputBase-input-MuiOutlinedInput-input"
-      placeholder="Search"
       type="search"
       value=""
     />
@@ -29,10 +28,12 @@ exports[`<SearchInput /> renders unchanged 1`] = `
       class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
     >
       <legend
-        class="css-yjsfm1"
+        class="css-ihdtdm"
       >
-        <span>
-          Search
+        <span
+          class="notranslate"
+        >
+          ​
         </span>
       </legend>
     </fieldset>

@@ -5,7 +5,8 @@ import SearchIcon from "@/charterafrica/assets/icons/Type=search, Size=16, Color
 import { neutral } from "@/charterafrica/colors";
 
 const InputSearch = React.forwardRef(function InputSearch(props, ref) {
-  const { InputProps, onClick, onMouseDown, ...other } = props;
+  const { InputProps, label, onClick, onMouseDown, placeholder, ...other } =
+    props;
   const handleMouseDownSearch = (e) => {
     e.preventDefault();
   };
@@ -33,8 +34,8 @@ const InputSearch = React.forwardRef(function InputSearch(props, ref) {
   return (
     <OutlinedInput
       endAdornment={endAdornment}
-      label="Search"
-      placeholder="Search"
+      label={label || placeholder}
+      placeholder={placeholder}
       size="small"
       type="search"
       {...other}

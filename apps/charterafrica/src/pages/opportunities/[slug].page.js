@@ -41,7 +41,7 @@ export async function getServerSideProps({
       ...other,
       slug: blockType,
     })) ?? [];
-  const { menus } = await payload.findGlobal("navigation", {
+  const { actions, menus } = await payload.findGlobal("navigation", {
     locale,
     fallbackLocale: defaultLocale,
   });
@@ -58,6 +58,7 @@ export async function getServerSideProps({
       blocks,
       footer,
       navbar: {
+        actions,
         languages: languages ?? null,
         logo: {
           alt: "The CHARTER PROJECT Africa",
