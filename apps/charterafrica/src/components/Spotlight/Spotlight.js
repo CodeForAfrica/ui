@@ -38,29 +38,8 @@ const Spotlight = React.forwardRef(function Spotlight(props, ref) {
           {title}
         </LineClampedRichTypography>
         <Grid container spacing={{ xs: 1.25, md: 2.5 }}>
-          {items.map(({ category, item }) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={3}
-              container
-              direction="column"
-              alignItems="center"
-              key={item.title}
-            >
-              <LineClampedRichTypography
-                color="neutral.dark"
-                html={false}
-                textTransform="uppercase"
-                textAlign="center"
-                typography={{ md: "h5" }}
-                variant="h5Small"
-                fontWeight={{ xs: 400, md: 400 }}
-                mb={{ xs: 1.25, sm: 2.5 }}
-              >
-                {category}
-              </LineClampedRichTypography>
+          {items.map(({ item }) => (
+            <Grid item xs={12} sm={6} md={3} key={item.title}>
               <SpotlightCard sx={{ borderColor: secondary[50] }}>
                 <CardActionAction
                   href={item.link?.href}
@@ -75,7 +54,7 @@ const Spotlight = React.forwardRef(function Spotlight(props, ref) {
                 >
                   <Box
                     display="flex"
-                    flexDirection={{ xs: "row", sm: "column" }}
+                    flexDirection={{ xs: "row", md: "column" }}
                     gap={{ xs: 2.5, sm: 0 }}
                     p={{ xs: 1.25, sm: 0 }}
                   >
@@ -85,11 +64,12 @@ const Spotlight = React.forwardRef(function Spotlight(props, ref) {
                       src={item.image.src}
                       sx={{
                         height: {
-                          xs: "132px",
+                          xs: "auto",
                           md: "147px",
                         },
                         width: {
-                          xs: "100%",
+                          xs: "122px",
+                          md: "100%",
                         },
                       }}
                     />
@@ -109,9 +89,9 @@ const Spotlight = React.forwardRef(function Spotlight(props, ref) {
                         variant="h5Small"
                         sx={(theme) => ({
                           fontWeight: 400,
-                          minHeight: `calc(${theme.typography.h5Small.fontSize}px*${theme.typography.h2Small.lineHeight})`,
+                          minHeight: `calc(${theme.typography.h5Small.fontSize}px*${theme.typography.h5Small.lineHeight})`,
                           [theme.breakpoints.up("sm")]: {
-                            minHeight: `calc(${theme.typography.h5Small.fontSize}px*${theme.typography.h2Small.lineHeight}*2)`,
+                            minHeight: `calc(${theme.typography.h5Small.fontSize}px*${theme.typography.h5Small.lineHeight}*2)`,
                           },
                           [theme.breakpoints.up("md")]: {
                             typography: "h5",
@@ -123,26 +103,27 @@ const Spotlight = React.forwardRef(function Spotlight(props, ref) {
                         {item.title}
                       </LineClampedRichTypography>
                       <LineClampedRichTypography
-                        color={neutral[900]}
-                        lineClamp={1}
-                        textTransform="uppercase"
-                        variant="caption"
-                      >
-                        {item.topic}
-                      </LineClampedRichTypography>
-                      <LineClampedRichTypography
                         color={neutral[500]}
-                        lineClamp={3}
+                        lineClamp={5}
                         variant="p1"
+                        sx={(theme) => ({
+                          minHeight: `calc(${theme.typography.p1.fontSize}px*${theme.typography.p1.lineHeight}*5)`,
+                        })}
                       >
                         {item.excerpt}
                       </LineClampedRichTypography>
                       <LineClampedRichTypography
+                        alignItems="flex-end"
                         color={neutral[900]}
-                        lineClamp={1}
+                        display="flex"
+                        lineClamp={2}
+                        textTransform="uppercase"
                         variant="caption"
+                        sx={(theme) => ({
+                          minHeight: `calc(${theme.typography.caption.fontSize}px*${theme.typography.caption.lineHeight}*2)`,
+                        })}
                       >
-                        {item.date}
+                        {item.topic}
                       </LineClampedRichTypography>
                     </CardContent>
                   </Box>

@@ -17,9 +17,15 @@ const LineClampedRichTypographyRoot = styled(RichTypography, {
         accBreakpoint = {};
         acc[theme.breakpoints.up(cur)] = accBreakpoint;
       }
-      if (lineClamp?.[cur]) {
-        accBreakpoint.WebkitLineClamp = lineClamp?.[cur];
-        accBreakpoint.lineClamp = lineClamp?.[cur];
+      let lineClampValue;
+      if (typeof lineClamp !== "object") {
+        lineClampValue = lineClamp;
+      } else if (typeof lineClamp?.[cur] !== "object") {
+        lineClampValue = lineClamp[cur];
+      }
+      if (lineClampValue) {
+        accBreakpoint.WebkitLineClamp = lineClampValue;
+        accBreakpoint.lineClamp = lineClampValue;
       }
 
       return acc;
