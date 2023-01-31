@@ -5,7 +5,7 @@ async function getGlobalProps({ locale, defaultLocale }) {
     locale,
     fallbackLocale: defaultLocale,
   });
-  const { menus } = await payload.findGlobal("navigation", {
+  const { actions, menus } = await payload.findGlobal("navigation", {
     locale,
     fallbackLocale: defaultLocale,
   });
@@ -15,6 +15,7 @@ async function getGlobalProps({ locale, defaultLocale }) {
   });
 
   const navbar = {
+    actions,
     languages: languages ?? null,
     logo: {
       alt: "Charter Africa",
