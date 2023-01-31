@@ -1,14 +1,12 @@
-import Explainers from "../../components/Explainers";
-
+import Explainers from "@/charterafrica/components/Explainers";
 import { payload } from "@/charterafrica/lib";
 import getGlobalProps from "@/charterafrica/utils/getGlobalProps";
 
 function Explainer(props) {
   return <Explainers {...props} />;
 }
-export async function getStaticProps({ defaultLocale, locale, locales }) {
-  const explainers = await payload.getExplainers();
 
+export async function getServerSideProps({ defaultLocale, locale, locales }) {
   const explainer = await payload.findPage("explainers", {
     locale,
     fallbackLocale: defaultLocale,
@@ -17,8 +15,9 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   if (!pages?.length) {
     return { notFound: true };
   }
-  const [page] = pages;
 
+  const [page] = pages;
+  const explainers = await payload.getExplainers();
   const globalProps = await getGlobalProps({
     defaultLocale,
     locale,

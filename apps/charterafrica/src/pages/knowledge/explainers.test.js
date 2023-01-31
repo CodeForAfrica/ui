@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Index from "./index.page";
+import Page from "./explainers";
 
 import theme from "@/charterafrica/theme";
 
@@ -9,13 +9,13 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  locale: "en-GB",
-  locales: ["en-GB", "fr", "pt"],
+  locale: "en",
+  locales: ["en", "fr", "pt"],
 };
 
-describe("/", () => {
+describe("/knowledge/explainers", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Index {...defaultProps} />);
+    const { container } = render(<Page {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
