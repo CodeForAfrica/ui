@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Page from "./explainers";
+import Page from "./explainers.page";
 
 import theme from "@/charterafrica/theme";
 
