@@ -4,6 +4,7 @@ import Mooc from "../blocks/Mooc";
 import Partners from "../blocks/Partners";
 import Resources from "../blocks/Resources";
 import Spotlight from "../blocks/Spotlight";
+import richText from "../fields/richText";
 import formatSlug from "../utils/formatSlug";
 
 const Pages = {
@@ -22,6 +23,18 @@ const Pages = {
       localized: true,
       required: true,
     },
+    richText({
+      name: "pageSummary",
+      label: {
+        en: "Page Summary",
+        fr: "Sommaire des pages",
+        pt: "Resumo da página",
+      },
+      admin: {
+        elements: [],
+      },
+      localized: true,
+    }),
     {
       name: "slug",
       type: "text",

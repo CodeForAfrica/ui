@@ -1,10 +1,10 @@
-import Explainers from "../components/Explainers";
+import Explainers from "../../components/Explainers";
 
 import { payload } from "@/charterafrica/lib";
 import getGlobalProps from "@/charterafrica/utils/getGlobalProps";
 
-function Explainer({ explainers, title }) {
-  return <Explainers title={title} explainers={explainers} />;
+function Explainer(props) {
+  return <Explainers {...props} />;
 }
 export async function getStaticProps({ defaultLocale, locale, locales }) {
   const explainers = await payload.getExplainers();
@@ -25,7 +25,11 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
     locales,
   });
   return {
-    props: { ...globalProps, ...page, explainers: explainers.docs ?? null },
+    props: {
+      ...globalProps,
+      ...page,
+      explainers: explainers.docs ?? null,
+    },
   };
 }
 

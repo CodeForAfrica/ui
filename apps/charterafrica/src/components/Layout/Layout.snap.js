@@ -250,6 +250,9 @@ exports[`<Layout /> renders unchanged 1`] = `
       </div>
     </div>
   </header>
+  <div
+    class="MuiBox-root css-1rx7abn"
+  />
   <footer
     class="MuiBox-root css-j7qwjs"
   >

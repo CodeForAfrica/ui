@@ -5,16 +5,18 @@ import React from "react";
 
 import Footer from "@/charterafrica/components/Footer";
 import NavBar from "@/charterafrica/components/NavBar";
+import PageSummary from "@/charterafrica/components/PageSummary";
 
 const Main = styled("main")({
   flex: 1,
 });
 
-function Layout({ children, navbar, footer, seo }) {
+function Layout({ children, navbar, footer, seo, pageSummary }) {
   return (
     <>
       <NextSeo {...seo} />
       <NavBar {...navbar} />
+      <PageSummary summary={pageSummary} />
       {children ? <Main>{children}</Main> : null}
       <Footer {...footer} />
     </>
