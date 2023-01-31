@@ -1,11 +1,9 @@
 import { Section } from "@commons-ui/core";
-import { Figure } from "@commons-ui/next";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
+import { Figure, Link } from "@commons-ui/next";
+import { Button, Grid } from "@mui/material";
 import React from "react";
 
-import { neutral } from "@/charterafrica/colors";
+import BackgroundBox from "@/charterafrica/components/BackgroundBox";
 import RichText from "@/charterafrica/components/RichText";
 
 const Mooc = React.forwardRef(function Mooc(props, ref) {
@@ -15,19 +13,7 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
     return null;
   }
   return (
-    <Box
-      bgcolor={neutral[900]}
-      sx={{
-        backgroundImage: {
-          md: `url(/images/mooc-background.png)`,
-        },
-        backgroundPosition: "left",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "contain",
-        ...sx,
-      }}
-      ref={ref}
-    >
+    <BackgroundBox sx={sx} ref={ref}>
       <Section
         ref={ref}
         sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "86px" } }}
@@ -63,16 +49,20 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
                 })}
               />
             </Grid>
-            <Grid item>
-              <Button
-                color="secondary"
-                size="medium"
-                variant="contained"
-                sx={{ width: "fit-content" }}
-              >
-                {link?.label}
-              </Button>
-            </Grid>
+            {link?.label ? (
+              <Grid item>
+                <Button
+                  color="secondary"
+                  component={link.href ? Link : undefined}
+                  href={link.href}
+                  size="medium"
+                  variant="contained"
+                  sx={{ width: "fit-content" }}
+                >
+                  {link.label}
+                </Button>
+              </Grid>
+            ) : null}
           </Grid>
           <Grid
             item
@@ -93,7 +83,7 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
                 border: 2,
                 borderColor: "common.white",
                 height: {
-                  xs: "calc((100vw/390)*199.2)", // 199.2px at 390 scren-size
+                  xs: "calc((100vw / 390) * 199.2)", // 199.2px at 390 scren-size
                   sm: 550,
                   md: 281,
                   lg: 329,
@@ -109,7 +99,7 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
           </Grid>
         </Grid>
       </Section>
-    </Box>
+    </BackgroundBox>
   );
 });
 
