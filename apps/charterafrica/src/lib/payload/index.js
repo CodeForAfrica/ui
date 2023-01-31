@@ -12,10 +12,10 @@ async function findPage(slug, options) {
   });
 }
 
-async function getExplainers(options) {
+async function getCollection(collection, options) {
   return payload.find({
     ...options,
-    collection: "explainers",
+    collection,
     where: {},
   });
 }
@@ -30,7 +30,7 @@ async function findGlobal(slug, options) {
 const api = {
   findGlobal,
   findPage,
-  getExplainers,
+  getCollection,
 };
 
 export default api;
