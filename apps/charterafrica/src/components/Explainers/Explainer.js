@@ -46,7 +46,7 @@ function Explainer({ image, description, title }) {
             </RichTypography>
           </Grid>
           <Grid xs={12} item>
-            <RichText color="#3E202C" variant="p3" elements={description}>
+            <RichText color="#3E202C" elements={description} typography={{ md: "subheading" }} variant="p2" />
               {description}
             </RichText>
           </Grid>
