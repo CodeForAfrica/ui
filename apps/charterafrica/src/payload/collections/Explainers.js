@@ -1,6 +1,6 @@
 import richText from "../fields/richText";
 
-const Explainer = {
+const Explainers = {
   slug: "explainers",
   admin: {
     useAsTitle: "title",
@@ -37,8 +37,8 @@ const Explainer = {
       name: "image",
       type: "upload",
       relationTo: "media",
-      required: true,
       localized: true,
+      required: true,
       filterOptions: {
         mimeType: { contains: "image" },
       },
@@ -51,4 +51,4 @@ const Explainer = {
   ],
 };
 
-export default Explainer;
+export default Explainers;

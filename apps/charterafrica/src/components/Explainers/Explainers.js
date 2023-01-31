@@ -22,7 +22,7 @@ function Explainers({ explainers, title, bannerTitle }) {
       </Box>
       <Section>
         <Box sx={{ gap: "24px" }}>
-          <RichTypography sx={{ pl: 8, pt: 8 }} variant="h3" color="#3E202C">
+          <RichTypography sx={{ pt: 8 }} variant="h3" color="#3E202C">
             {title}
           </RichTypography>
 
