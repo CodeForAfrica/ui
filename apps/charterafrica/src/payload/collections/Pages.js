@@ -8,14 +8,13 @@ import Partners from "../blocks/Partners";
 import Resources from "../blocks/Resources";
 import Spotlight from "../blocks/Spotlight";
 import fullTitle from "../fields/fullTitle";
-import richText from "../fields/richText";
 import slug from "../fields/slug";
 
 const Pages = {
   slug: "pages",
   admin: {
     useAsTitle: "title",
-    defaultColumns: ["title", "updatedAt"],
+    defaultColumns: ["fullTitle", "updatedAt"],
   },
   access: {
     read: () => true, // Everyone can read Pages
@@ -27,18 +26,6 @@ const Pages = {
       localized: true,
       required: true,
     },
-    richText({
-      name: "pageSummary",
-      label: {
-        en: "Page Summary",
-        fr: "Sommaire des pages",
-        pt: "Resumo da página",
-      },
-      admin: {
-        elements: [],
-      },
-      localized: true,
-    }),
     fullTitle(),
     slug(),
     {

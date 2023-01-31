@@ -4,6 +4,7 @@ const Explainers = {
   slug: "explainers",
   admin: {
     useAsTitle: "title",
+    defaultColumns: ["title", "updatedAt"],
   },
   access: {
     read: () => true, // Everyone can read Media
@@ -27,25 +28,25 @@ const Explainers = {
         fr: "La description",
         pt: "Descrição",
       },
+      localized: true,
+      required: true,
       admin: {
         elements: [],
       },
-      localized: true,
-      required: true,
     }),
     {
       name: "image",
+      label: {
+        en: "Image",
+        pt: "Imagem",
+        fr: "Image",
+      },
       type: "upload",
       relationTo: "media",
       localized: true,
       required: true,
       filterOptions: {
         mimeType: { contains: "image" },
-      },
-      label: {
-        en: "Image",
-        pt: "Imagem",
-        fr: "Image",
       },
     },
   ],
