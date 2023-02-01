@@ -86,7 +86,7 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           file: ./Dockerfile.charterafrica
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/arm64
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}"
 
