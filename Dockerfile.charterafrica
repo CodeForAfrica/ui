@@ -30,6 +30,7 @@ ARG NEXT_TELEMETRY_DISABLED=1 \
     # Needed by Payload at build time
     PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
     # Needed by server.js at build time
+    MONGO_URL \
     PAYLOAD_SECRET_KEY \
     PORT=3000
 
