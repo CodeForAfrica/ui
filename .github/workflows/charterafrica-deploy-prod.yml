@@ -11,9 +11,9 @@ concurrency:
 
 env:
   DOKKU_REMOTE_BRANCH: "master"
-  DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/charterafrica"
+  DOKKU_REMOTE_URL: "ssh://dokku@charter.prod.codeforafrica.org/charterafrica"
   IMAGE_NAME: "codeforafrica/charterafrica-ui"
-  PAYLOAD_PUBLIC_APP_URL: "https://charterafrica.prod.codeforafrica.org"
+  NEXT_PUBLIC_APP_URL: "https://charterafrica.prod.codeforafrica.org"
   VERSION_FILE_NAME: "./apps/charterafrica/package.json"
 
 jobs:
@@ -79,7 +79,8 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           build-args: |
-            PAYLOAD_PUBLIC_APP_URL=${{env.PAYLOAD_PUBLIC_APP_URL}}
+            NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            PAYLOAD_SECRET_KEY=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .

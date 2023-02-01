@@ -57,7 +57,6 @@ RUN rm -rf /var/cache/apk/*
 ARG NEXT_TELEMETRY_DISABLED=1 \
     NEXT_PUBLIC_APP_URL="http://localhost:3000" \
     PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
-    PAYLOAD_SECRET_KEY \
     PORT=3000
 
 ENV NODE_ENV=production \
