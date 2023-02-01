@@ -24,11 +24,15 @@ RUN pnpm fetch
 
 FROM base as builder
 
+# NOTE: ARG values are only available **after** ARG statement & hence we need
+#       to separate NEXT_PUBLIC_APP_URL and PAYLOAD_PUBLIC_APP_URL into
+#       multiple ARG statements so that PAYLOAD can use the value defined
+#       in NEXT.
 ARG NEXT_TELEMETRY_DISABLED=1 \
     # Needed by Next.js at build time
-    NEXT_PUBLIC_APP_URL="http://localhost:3000" \
+    NEXT_PUBLIC_APP_URL=http://localhost:3000
     # Needed by Payload at build time
-    PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
+ARG PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
     # Needed by server.js at build time
     MONGO_URL \
     PAYLOAD_SECRET_KEY \
@@ -55,10 +59,11 @@ FROM builder as runner
 # Remember to remove local cache from runner
 RUN rm -rf /var/cache/apk/*
 
-ARG NEXT_TELEMETRY_DISABLED=1 \
-    NEXT_PUBLIC_APP_URL="http://localhost:3000" \
-    PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
-    PORT=3000
+# We've already set defaults values for most of these ARGs; don't repeat
+ARG NEXT_TELEMETRY_DISABLED \
+    NEXT_PUBLIC_APP_URL \
+    PAYLOAD_PUBLIC_APP_URL \
+    PORT
 
 ENV NODE_ENV=production \
     NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
