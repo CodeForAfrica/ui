@@ -25,7 +25,13 @@ RUN pnpm fetch
 FROM base as builder
 
 ARG NEXT_TELEMETRY_DISABLED=1 \
-    PAYLOAD_PUBLIC_APP_URL="http://localhost:3000"
+    # Needed by Next.js at build time
+    NEXT_PUBLIC_APP_URL="http://localhost:3000" \
+    # Needed by Payload at build time
+    PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
+    # Needed by server.js at build time
+    PAYLOAD_SECRET_KEY \
+    PORT=3000
 
 WORKDIR /workspace
 
@@ -49,16 +55,19 @@ FROM builder as runner
 RUN rm -rf /var/cache/apk/*
 
 ARG NEXT_TELEMETRY_DISABLED=1 \
-    PAYLOAD_PUBLIC_APP_URL="http://localhost:3000" \
+    NEXT_PUBLIC_APP_URL="http://localhost:3000" \
+    PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
+    PAYLOAD_SECRET_KEY \
     PORT=3000
 
 ENV NODE_ENV=production \
+    NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
     NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
-    PAYLOAD_PUBLIC_APP_URL={PAYLOAD_PUBLIC_APP_URL} \
+    PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
     PORT=${PORT}
 
 WORKDIR /workspace/apps/charterafrica
 
 EXPOSE ${PORT}
 
-ENTRYPOINT [ "node", "server" ]
+ENTRYPOINT [ "node", "server.js" ]
