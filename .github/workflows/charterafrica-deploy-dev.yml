@@ -50,6 +50,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           build-args: |
+            MONGO_URL=${{ secrets.CHARTERAFRICA_MONGO_URL }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             PAYLOAD_SECRET_KEY=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
           cache-from: type=local,src=/tmp/.buildx-cache
