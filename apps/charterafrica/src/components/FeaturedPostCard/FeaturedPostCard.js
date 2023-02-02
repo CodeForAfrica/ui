@@ -13,11 +13,18 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
   const { title, date, excerpt, image, sx } = props;
 
   return (
-    <Box sx={{ backgroundColor: secondary[50], ...sx }} ref={ref}>
+    <Box
+      sx={{
+        backgroundColor: secondary[50],
+        display: { xs: "none", md: "block" },
+        ...sx,
+      }}
+      ref={ref}
+    >
       <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "74.5px" } }}>
         <Card
           sx={{
-            display: { xs: "none", md: "flex" },
+            display: "flex",
             boxShadow: "none",
             backgroundColor: secondary[50],
           }}

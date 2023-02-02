@@ -3,36 +3,44 @@
 exports[`FeaturedPostCard should render 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-sjv5a2-MuiPaper-root-MuiCard-root"
+    class="MuiBox-root css-1oxl3vq"
   >
-    <img
-      alt="Featured Post"
-      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1baaqnk-MuiCardMedia-root"
-      src="/images/featured_post.png"
-    />
     <div
-      class="MuiCardContent-root css-wsecsz-MuiCardContent-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-qb38zz-MuiContainer-root"
     >
-      <p
-        class="MuiTypography-root MuiTypography-p1 css-1jsdfjp-MuiTypography-root"
+      <div
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-k1f511-MuiPaper-root-MuiCard-root"
       >
-        News Story title goes here and spans over second line
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-p1 css-hazbah-MuiTypography-root"
-      >
-        2020-10-10 10:10:10
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-p1 css-1juxwko-MuiTypography-root"
-      >
-        Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-p1 css-15efwg4-MuiTypography-root"
-      >
-        Read More
-      </p>
+        <img
+          alt="Featured Post"
+          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1baaqnk-MuiCardMedia-root"
+          src="/images/featured_post.png"
+        />
+        <div
+          class="MuiCardContent-root css-wsecsz-MuiCardContent-root"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-p1 css-g39x1j-MuiTypography-root"
+          >
+            News Story title goes here and spans over second line
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-p1 css-1euz2oy-MuiTypography-root"
+          >
+            Oct 10, 2020
+          </p>
+          <h1
+            class="MuiTypography-root MuiTypography-p1 css-1eglp57-MuiTypography-root"
+          >
+            Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur
+          </h1>
+          <p
+            class="MuiTypography-root MuiTypography-p1 css-15efwg4-MuiTypography-root"
+          >
+            Read More
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
