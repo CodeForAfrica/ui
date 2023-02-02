@@ -12,12 +12,13 @@ exports[`<PostCard /> renders unchanged 1`] = `
       class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-h5SemiBold css-rrvc0f-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-rrvc0f-MuiTypography-root"
+        typograpy="[object Object]"
       >
         Some title
       </div>
       <div
-        class="MuiTypography-root MuiTypography-p1 css-m0rejx-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p1 css-zvazz2-MuiTypography-root"
       >
         Sakwa
       </div>

@@ -20,7 +20,7 @@ const PostCard = forwardRef((props, ref) => {
           color="neutral.dark"
           typograpy={{ md: "h5SemiBold" }}
           variant="h5SmallSemiBold"
-          sx={{ mb: 5 m}}
+          sx={{ mb: 5 }}
         >
           {title}
         </RichTypography>

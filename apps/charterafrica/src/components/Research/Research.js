@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Box, Divider, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { forwardRef } from "react";
 
 import PostCard from "../Postcard";
@@ -12,11 +12,8 @@ const Research = forwardRef((props, ref) => {
     <Box bgcolor={secondary[50]} sx={sx} ref={ref}>
       <Section sx={{ px: { xs: "57.5px", sm: 0 } }}>
         <Grid container rowSpacing={5} columnSpacing={{ xs: 5, md: 2.5 }}>
-          <Grid xs={12} item>
-            <Divider sx={{ p: 4 }} />
-          </Grid>
           {research.map((item) => (
-            <Grid key={Math.random()} item xs={12} sm={6} md={4}>
+            <Grid key={item.id} item xs={12} sm={6} md={4}>
               <PostCard {...item} />
             </Grid>
           ))}
