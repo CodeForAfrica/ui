@@ -10,7 +10,7 @@ const Research = forwardRef((props, ref) => {
   const { sx, research } = props;
   return (
     <Box bgcolor={secondary[50]} sx={sx} ref={ref}>
-      <Section sx={{ pl: { xs: 4, sm: 0 }, pr: { xs: 4, sm: 0 } }} ref={ref}>
+      <Section sx={{ px: { xs: "57.5px", sm: 0 } }}>
         <Grid container rowSpacing={5} columnSpacing={{ xs: 5, md: 2.5 }}>
           <Grid xs={12} item>
             <Divider sx={{ p: 4 }} />
