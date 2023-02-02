@@ -38,11 +38,12 @@ PostCard.propTypes = {
   author: PropTypes.string,
   image: PropTypes.shape({}),
 };
+
 PostCard.defaultProps = {
-  title: "",
-  date: "",
-  author: "",
-  image: {},
+  title: undefined,
+  date: undefined,
+  author: undefined,
+  image: undefined,
 };
 
 export default PostCard;
