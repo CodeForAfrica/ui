@@ -16,9 +16,10 @@ const PostCard = forwardRef((props, ref) => {
       />
       <CardContent>
         <RichTypography
-          variant="h5SemiBold"
           color="neutral.dark"
-          sx={{ mb: 5 }}
+          typograpy={{ md: "h5SemiBold" }}
+          variant="h5SmallSemiBold"
+          sx={{ mb: 5 m}}
         >
           {title}
         </RichTypography>
