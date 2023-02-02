@@ -1,17 +1,14 @@
-import RichTypography from "@/commons-ui/core/RichTypography";
 import { Card, CardContent, CardMedia } from "@mui/material";
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
 
 import LineClampedRichTypography from "../LineClampedRichTypography";
 
-import { neutral } from "@/charterafrica/colors";
-
 const PostCard = forwardRef((props, ref) => {
   const { author, date, image, title, sx } = props;
 
   return (
-    <Card sx={sx} ref={ref}>
+    <Card elevation={1} sx={sx} ref={ref}>
       <CardMedia
         image={image.url}
         title={image.filename}
@@ -23,17 +20,27 @@ const PostCard = forwardRef((props, ref) => {
           typograpy={{ md: "h5SemiBold" }}
           variant="h5SmallSemiBold"
           textAlign="left"
-          sx={{ mb: 5 }}
+          sx={{ mb: 2.5 }}
           html={false}
+          lineClamp={3}
         >
           {title}
         </LineClampedRichTypography>
-        <RichTypography variant="p1" color="neutral.main" sx={{ mb: 2.5 }}>
+        <LineClampedRichTypography
+          variant="p1"
+          color="neutral.main"
+          sx={{ mb: 2.5 }}
+          lineClamp={1}
+        >
           {author}
-        </RichTypography>
-        <RichTypography variant="p1" color={neutral[500]}>
+        </LineClampedRichTypography>
+        <LineClampedRichTypography
+          lineClamp={1}
+          variant="p1"
+          color="neutral.main"
+        >
           {date}
-        </RichTypography>
+        </LineClampedRichTypography>
       </CardContent>
     </Card>
   );

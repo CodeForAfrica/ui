@@ -11,19 +11,19 @@ exports[`<PostCard /> renders unchanged 1`] = `
     <div
       class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
     >
-      <div
-        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-rrvc0f-MuiTypography-root"
+      <span
+        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1vjbmt5-MuiTypography-root"
         typograpy="[object Object]"
       >
         Some title
-      </div>
+      </span>
       <div
-        class="MuiTypography-root MuiTypography-p1 css-zvazz2-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p1 css-k3fpa9-MuiTypography-root"
       >
         Sakwa
       </div>
       <div
-        class="MuiTypography-root MuiTypography-p1 css-1x6jy03-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p1 css-1rrrgnd-MuiTypography-root"
       >
         2023-09-01
       </div>
