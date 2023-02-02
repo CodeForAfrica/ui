@@ -22,7 +22,7 @@ const PostCard = forwardRef((props, ref) => {
         >
           {title}
         </RichTypography>
-        <RichTypography variant="p1" color={neutral[500]} sx={{ mb: 5 }}>
+        <RichTypography variant="p1" color="neutral.main" sx={{ mb: 2.5 }}>
           {author}
         </RichTypography>
         <RichTypography variant="p1" color={neutral[500]}>
