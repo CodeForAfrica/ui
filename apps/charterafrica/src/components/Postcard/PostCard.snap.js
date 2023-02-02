@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Popper /> renders unchanged 1`] = `
+exports[`<PostCard /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
