@@ -1,5 +1,6 @@
 import React from "react";
 
+import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
@@ -8,6 +9,8 @@ import { payload } from "@/charterafrica/lib";
 function Index({ blocks }) {
   return blocks?.map((block) => {
     switch (block?.slug) {
+      case "featured-post":
+        return <FeaturedPostCard {...block} key={block.slug} />;
       case "helpdesk-page-content":
         return <HelpdeskPageContent {...block} key={block.slug} />;
       case "helpdesk-page-header":
@@ -27,6 +30,7 @@ export async function getServerSideProps({
   query,
 }) {
   const { slug } = query;
+
   const { docs: pages } = await payload.findPage(slug, {
     locale,
     fallbackLocale: defaultLocale,
