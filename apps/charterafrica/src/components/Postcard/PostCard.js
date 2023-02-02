@@ -6,9 +6,10 @@ import { forwardRef } from "react";
 import { neutral } from "@/charterafrica/colors";
 
 const PostCard = forwardRef((props, ref) => {
-  const { author, date, title, image } = props;
+  const { author, date, image, title, sx } = props;
+
   return (
-    <Card ref={ref}>
+    <Card sx={sx} ref={ref}>
       <CardMedia
         image={image.url}
         title={image.filename}
