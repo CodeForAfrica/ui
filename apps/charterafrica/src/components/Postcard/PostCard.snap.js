@@ -2,8 +2,11 @@
 
 exports[`<PostCard /> renders unchanged 1`] = `
 <div>
-  <div
-    class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1ozlovb-MuiPaper-root-MuiCard-root"
+  <button
+    class="MuiButtonBase-root MuiCardActionArea-root css-16ruhoj-MuiButtonBase-root-MuiCardActionArea-root"
+    tabindex="0"
+    type="button"
+    variant="outlined"
   >
     <div
       class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
@@ -28,6 +31,9 @@ exports[`<PostCard /> renders unchanged 1`] = `
         2023-09-01
       </div>
     </div>
-  </div>
+    <span
+      class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+    />
+  </button>
 </div>
 `;

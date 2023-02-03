@@ -1,16 +1,21 @@
-import { Card as MuiCard, CardContent, CardMedia, styled } from "@mui/material";
+import { Link } from "@commons-ui/next";
+import { CardActionArea, CardContent, CardMedia, styled } from "@mui/material";
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
 
 import LineClampedRichTypography from "../LineClampedRichTypography";
 
-const Card = styled(MuiCard)(({ ownerState, theme }) => ({
+import { neutral } from "@/charterafrica/colors";
+
+const Card = styled(CardActionArea)(({ ownerState, theme }) => ({
   backgroundColor: "#fff",
-  transition: theme.transitions.create(["border-color", "filter"]),
+  transition: theme.transitions.create(["filter", "border-color"]),
   width: "100%",
   "&:hover": {
     ...(ownerState.variant === "outlined" && {
+      borderColor: ownerState.href ? neutral[700] : "transparent",
       filter: "drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.1))",
+      backgroundColor: "#fff",
     }),
   },
   ...(ownerState.variant === "outlined" && {
@@ -33,6 +38,7 @@ const PostCard = forwardRef((props, ref) => {
     square,
     variant = "outlined",
     elevation,
+    href,
     ...restProps
   } = props;
   const ownerState = {
@@ -40,6 +46,7 @@ const PostCard = forwardRef((props, ref) => {
     elevation,
     square,
     variant,
+    href,
   };
   return (
     <Card
@@ -48,6 +55,8 @@ const PostCard = forwardRef((props, ref) => {
       ref={ref}
       ownerState={ownerState}
       variant={variant}
+      component={href ? Link : undefined}
+      href={href}
     >
       <CardMedia
         image={image.url}

@@ -31,6 +31,7 @@ Articles.propTypes = {
       date: PropTypes.string,
       author: PropTypes.string,
       image: PropTypes.shape({}),
+      href: PropTypes.string,
     })
   ),
 };
