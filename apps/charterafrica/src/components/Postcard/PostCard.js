@@ -96,6 +96,7 @@ const PostCard = forwardRef((props, ref) => {
   );
 });
 
+
 PostCard.propTypes = {
   title: PropTypes.string,
   date: PropTypes.string,
