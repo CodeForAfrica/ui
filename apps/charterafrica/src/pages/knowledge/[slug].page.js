@@ -25,12 +25,11 @@ export async function getServerSideProps({
   locales,
   params: { slug },
 }) {
-  const lowerCasedSlug = slug?.toLowerCase();
-  const explainer = await payload.findPage(lowerCasedSlug, {
+  const knowledge = await payload.findPage(slug, {
     locale,
     fallbackLocale: defaultLocale,
   });
-  const pages = explainer.docs;
+  const pages = knowledge.docs;
   if (!pages?.length) {
     return { notFound: true };
   }
@@ -75,12 +74,21 @@ export async function getServerSideProps({
     explainers,
   };
 
-  switch (lowerCasedSlug) {
+  const newsBlock = {
+    slug: "news",
+    title: "News",
+    explainers,
+  };
+
+  switch (slug) {
     case "explainers":
       blocks.push(explainerBlock);
       break;
     case "research":
       blocks.push(researchBlock);
+      break;
+    case "news":
+      blocks.push(newsBlock);
       break;
     default:
       return { notFound: true };
