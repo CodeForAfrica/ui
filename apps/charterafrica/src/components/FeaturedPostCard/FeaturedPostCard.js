@@ -1,5 +1,13 @@
 import { Section } from "@commons-ui/core";
-import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
+import { Link } from "@commons-ui/next";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Box,
+  CardActions,
+} from "@mui/material";
 import React from "react";
 
 import { neutral, secondary } from "@/charterafrica/colors";
@@ -10,7 +18,7 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
   props,
   ref
 ) {
-  const { title, date, excerpt, image, sx } = props;
+  const { title, date, excerpt, image, sx, link } = props;
 
   return (
     <Box
@@ -33,20 +41,27 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             component="img"
             image={image.url}
             alt={image.alt}
-            sx={{ width: "820px", height: "487px" }}
+            sx={{
+              width: "820px",
+              height: "487px",
+              borderRadius: "5px",
+              filter: "drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.1))",
+            }}
           />
           <CardContent
             sx={{
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
+              paddingTop: "0px",
+              paddingBottom: "0px",
             }}
           >
             <LineClampedRichTypography
               color={neutral[900]}
               html={false}
               textAlign="left"
-              typography="h2SemiBold"
+              variant="h2SemiBold"
             >
               {title}
             </LineClampedRichTypography>
@@ -64,22 +79,26 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             </LineClampedRichTypography>
 
             <RichText
-              component="h1"
-              color={neutral[900]}
-              typography="subheading"
-              textAlign="left"
               elements={excerpt}
-            />
-            <Typography
               color={neutral[900]}
-              typography="p3"
-              sx={{
-                cursor: "pointer",
-                textDecoration: "underline",
-              }}
+              textAlign="left"
+              variant="subheading"
+            />
+            <CardActions
+              href={link?.href}
+              component={link?.href ? Link : undefined}
             >
-              Read More
-            </Typography>
+              <Typography
+                color={neutral[900]}
+                typography="p3"
+                sx={{
+                  cursor: "pointer",
+                  textDecoration: "underline",
+                }}
+              >
+                Read More
+              </Typography>
+            </CardActions>
           </CardContent>
         </Card>
       </Section>
