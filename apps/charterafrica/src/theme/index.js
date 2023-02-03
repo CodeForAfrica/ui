@@ -82,6 +82,12 @@ const theme = createTheme({
     h4Small: initializeTypographyVariant(23, 28, 700, PROMPT_FONT_FAMILY),
     h5: initializeTypographyVariant(23, 28, 700, PROMPT_FONT_FAMILY),
     h5Small: initializeTypographyVariant(19, 23, 700, PROMPT_FONT_FAMILY),
+    h5SmallSemiBold: initializeTypographyVariant(
+      23,
+      28,
+      400,
+      PROMPT_FONT_FAMILY
+    ),
     h6: initializeTypographyVariant(19, 23, 700, PROMPT_FONT_FAMILY),
     h6Small: initializeTypographyVariant(16, 19, 700, PROMPT_FONT_FAMILY),
     subheading: initializeTypographyVariant(20, 24),
@@ -123,6 +129,7 @@ const theme = createTheme({
           h4Small: "h4",
           h5: "h5",
           h5Small: "h5",
+          h5SmallSemiBold: "h5",
           h6: "h6",
           h6Small: "h6",
           subheading: "h6",
