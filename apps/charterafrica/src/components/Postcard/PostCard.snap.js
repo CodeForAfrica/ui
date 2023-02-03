@@ -2,38 +2,41 @@
 
 exports[`<PostCard /> renders unchanged 1`] = `
 <div>
-  <button
-    class="MuiButtonBase-root MuiCardActionArea-root css-16ruhoj-MuiButtonBase-root-MuiCardActionArea-root"
-    tabindex="0"
-    type="button"
-    variant="outlined"
+  <div
+    class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-vnxqjh-MuiPaper-root-MuiCard-root"
   >
-    <div
-      class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
-    />
-    <div
-      class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+    <button
+      class="MuiButtonBase-root MuiCardActionArea-root css-lo7e99-MuiButtonBase-root-MuiCardActionArea-root"
+      tabindex="0"
+      type="button"
     >
-      <h5
-        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1tfn6q1-MuiTypography-root"
-        typograpy="[object Object]"
-      >
-        Some title
-      </h5>
       <div
-        class="MuiTypography-root MuiTypography-p1 css-jq1de4-MuiTypography-root"
-      >
-        Sakwa
-      </div>
+        class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+      />
       <div
-        class="MuiTypography-root MuiTypography-p1 css-jq1de4-MuiTypography-root"
+        class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
       >
-        2023-09-01
+        <h5
+          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1tfn6q1-MuiTypography-root"
+          typograpy="[object Object]"
+        >
+          Some title
+        </h5>
+        <div
+          class="MuiTypography-root MuiTypography-p1 css-jq1de4-MuiTypography-root"
+        >
+          Sakwa
+        </div>
+        <div
+          class="MuiTypography-root MuiTypography-p1 css-jq1de4-MuiTypography-root"
+        >
+          2023-09-01
+        </div>
       </div>
-    </div>
-    <span
-      class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-    />
-  </button>
+      <span
+        class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+      />
+    </button>
+  </div>
 </div>
 `;

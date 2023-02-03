@@ -1,5 +1,11 @@
 import { Link } from "@commons-ui/next";
-import { CardActionArea, CardContent, CardMedia, styled } from "@mui/material";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  styled,
+} from "@mui/material";
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
 
@@ -7,13 +13,13 @@ import LineClampedRichTypography from "../LineClampedRichTypography";
 
 import { neutral } from "@/charterafrica/colors";
 
-const Card = styled(CardActionArea)(({ ownerState, theme }) => ({
+const StyledCard = styled(Card)(({ ownerState, theme }) => ({
   backgroundColor: "#fff",
   transition: theme.transitions.create(["filter", "border-color"]),
   width: "100%",
   "&:hover": {
     ...(ownerState.variant === "outlined" && {
-      borderColor: ownerState.href ? neutral[700] : "transparent",
+      borderColor: neutral[700],
       filter: "drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.1))",
       backgroundColor: "#fff",
     }),
@@ -27,6 +33,14 @@ const Card = styled(CardActionArea)(({ ownerState, theme }) => ({
     },
   }),
 }));
+
+const StyledActionArea = styled(CardActionArea)(
+  () => `
+.MuiCardActionArea-focusHighlight {
+    background: transparent;
+}
+`
+);
 
 const PostCard = forwardRef((props, ref) => {
   const {
@@ -49,7 +63,7 @@ const PostCard = forwardRef((props, ref) => {
     href,
   };
   return (
-    <Card
+    <StyledCard
       elevation={elevation}
       sx={sx}
       ref={ref}
@@ -58,41 +72,43 @@ const PostCard = forwardRef((props, ref) => {
       component={href ? Link : undefined}
       href={href}
     >
-      <CardMedia
-        image={image.url}
-        title={image.filename}
-        sx={{ height: 200 }}
-      />
-      <CardContent>
-        <LineClampedRichTypography
-          color="neutral.dark"
-          typograpy={{ md: "h5SemiBold" }}
-          variant="h5SmallSemiBold"
-          textAlign="left"
-          sx={{ mb: 2.5, height: 84 }}
-          html={false}
-          lineClamp={3}
-        >
-          {title}
-        </LineClampedRichTypography>
-        <LineClampedRichTypography
-          variant="p1"
-          color="neutral.main"
-          sx={{ mb: 2.5, height: 18 }}
-          lineClamp={1}
-        >
-          {author}
-        </LineClampedRichTypography>
-        <LineClampedRichTypography
-          color="neutral.main"
-          lineClamp={1}
-          variant="p1"
-          sx={{ mb: 2.5, height: 18 }}
-        >
-          {date}
-        </LineClampedRichTypography>
-      </CardContent>
-    </Card>
+      <StyledActionArea>
+        <CardMedia
+          image={image.url}
+          title={image.filename}
+          sx={{ height: 200 }}
+        />
+        <CardContent>
+          <LineClampedRichTypography
+            color="neutral.dark"
+            typograpy={{ md: "h5SemiBold" }}
+            variant="h5SmallSemiBold"
+            textAlign="left"
+            sx={{ mb: 2.5, height: 84 }}
+            html={false}
+            lineClamp={3}
+          >
+            {title}
+          </LineClampedRichTypography>
+          <LineClampedRichTypography
+            variant="p1"
+            color="neutral.main"
+            sx={{ mb: 2.5, height: 18 }}
+            lineClamp={1}
+          >
+            {author}
+          </LineClampedRichTypography>
+          <LineClampedRichTypography
+            color="neutral.main"
+            lineClamp={1}
+            variant="p1"
+            sx={{ mb: 2.5, height: 18 }}
+          >
+            {date}
+          </LineClampedRichTypography>
+        </CardContent>
+      </StyledActionArea>
+    </StyledCard>
   );
 });
 
