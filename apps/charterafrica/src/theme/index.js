@@ -129,6 +129,7 @@ const theme = createTheme({
           h4Small: "h4",
           h5: "h5",
           h5Small: "h5",
+          h5SmallSemiBold: "h5",
           h6: "h6",
           h6Small: "h6",
           subheading: "h6",
