@@ -1,6 +1,6 @@
+import Articles from "@/charterafrica/components/Articles";
 import Explainers from "@/charterafrica/components/Explainers";
 import PageInfo from "@/charterafrica/components/PageInfo";
-import ResearchComponent from "@/charterafrica/components/Research";
 import { payload } from "@/charterafrica/lib";
 import getGlobalProps from "@/charterafrica/utils/getGlobalProps";
 
@@ -12,7 +12,7 @@ function Explainer({ blocks }) {
       case "explainers":
         return <Explainers {...block} key={block.slug} />;
       case "research":
-        return <ResearchComponent {...block} key={block.slug} />;
+        return <Articles {...block} key={block.slug} />;
       default:
         return null;
     }
@@ -43,7 +43,7 @@ export async function getServerSideProps({
   const researchBlock = {
     slug: "research",
     title: "Research",
-    research: Array(30)
+    articles: Array(30)
       .fill()
       .map(() => ({
         title: "Research title goes here and spans over second line",

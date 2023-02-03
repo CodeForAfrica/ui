@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Page from "./[slug].page";
+import Articles from "./Articles";
 
 import theme from "@/charterafrica/theme";
 
@@ -9,13 +9,12 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  locale: "en",
-  locales: ["en", "fr", "pt"],
+  articles: [],
 };
 
-describe("/knowledge/[slug]", () => {
+describe("<Articles />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Page {...defaultProps} />);
+    const { container } = render(<Articles {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
