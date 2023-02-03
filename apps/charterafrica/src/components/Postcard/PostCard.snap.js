@@ -14,12 +14,12 @@ exports[`<PostCard /> renders unchanged 1`] = `
     <div
       class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
     >
-      <span
+      <h5
         class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1tfn6q1-MuiTypography-root"
         typograpy="[object Object]"
       >
         Some title
-      </span>
+      </h5>
       <div
         class="MuiTypography-root MuiTypography-p1 css-jq1de4-MuiTypography-root"
       >
