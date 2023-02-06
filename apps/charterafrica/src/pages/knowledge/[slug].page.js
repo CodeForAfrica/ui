@@ -6,10 +6,12 @@ import { getPageServerSideProps } from "@/charterafrica/lib/data";
 function Knowledge({ blocks }) {
   return blocks?.map((block) => {
     switch (block?.slug) {
-      case "page-info":
-        return <PageInfo {...block} key={block.slug} />;
       case "explainers":
         return <Explainers {...block} key={block.slug} />;
+      case "news":
+        return <Articles {...block} key={block.slug} />;
+      case "page-info":
+        return <PageInfo {...block} key={block.slug} />;
       case "research":
         return <Articles {...block} key={block.slug} />;
       default:
