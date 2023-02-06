@@ -10,7 +10,8 @@ const render = createRender({ theme });
 
 const defaultProps = {
   title: "Explainers",
-  explainers: Array(5).fill({
+  explainers: Array.from({ length: 5 }, (_, i) => ({
+    id: i,
     title: "Event title going on two or even three lines",
     description: [
       {
@@ -24,7 +25,7 @@ const defaultProps = {
     image: {
       url: "https://user-images.githubusercontent.com/39160236/214778112-7aefbe8f-11f2-423f-b6c9-a284feaf9b33.png",
     },
-  }),
+  })),
 };
 describe("<Explainers />", () => {
   it("renders unchanged", () => {
