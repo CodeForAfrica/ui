@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Page from "./explainers.page";
+import PostCard from "./PostCard";
 
 import theme from "@/charterafrica/theme";
 
@@ -9,13 +9,15 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  locale: "en",
-  locales: ["en", "fr", "pt"],
+  title: "Some title",
+  author: "Sakwa",
+  date: "2023-09-01",
+  image: { url: "" },
 };
 
-describe("/knowledge/explainers", () => {
+describe("<PostCard />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Page {...defaultProps} />);
+    const { container } = render(<PostCard {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
