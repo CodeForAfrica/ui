@@ -1,4 +1,4 @@
-import pageSeoFromMeta from "./seoFromMeta";
+import { getPageSeoFromMeta } from "./seo";
 
 import { payload } from "@/charterafrica/lib";
 
@@ -31,7 +31,7 @@ export async function getGlobalProps({ locale, defaultLocale }) {
   return { footer, navbar, settings };
 }
 
-async function processExplainersPageBlocks({ title, blocks }) {
+async function processPageExplainers({ title, blocks }) {
   const collection = await payload.getCollection("explainers");
   const explainers = collection.docs || null;
 
@@ -44,10 +44,74 @@ async function processExplainersPageBlocks({ title, blocks }) {
   }
 }
 
+async function processPageNews({ blocks }) {
+  // TODO(kilemensi): Pull data from CMS
+  blocks.push({
+    slug: "news",
+    title: "News",
+    articles: Array(30)
+      .fill()
+      .map(() => ({
+        title: "News story title goes here and spans over second line",
+        author: "Sakwa G",
+        date: "2023-02-11",
+        id: Math.random(),
+        image: {
+          id: "63d2622aafe25f6469605eae",
+          alt: "European Union",
+          prefix: "media",
+          filename: "image 9.png",
+          mimeType: "image/png",
+          filesize: 257010,
+          width: 1236,
+          height: 696,
+          createdAt: "2023-01-26T11:21:14.868Z",
+          updatedAt: "2023-01-26T11:21:14.868Z",
+          url: "http://localhost:3000/media/Rectangle 113.png",
+        },
+      })),
+  });
+}
+
+async function processPageResearch({ blocks }) {
+  // TODO(kilemensi): Pull data from CMS
+  blocks.push({
+    slug: "research",
+    title: "Research",
+    articles: Array(30)
+      .fill()
+      .map(() => ({
+        title: "Research title goes here and spans over second line",
+        author: "Sakwa G",
+        date: "2023-02-11",
+        id: Math.random(),
+        image: {
+          id: "63d2622aafe25f6469605eae",
+          alt: "European Union",
+          prefix: "media",
+          filename: "image 9.png",
+          mimeType: "image/png",
+          filesize: 257010,
+          width: 1236,
+          height: 696,
+          createdAt: "2023-01-26T11:21:14.868Z",
+          updatedAt: "2023-01-26T11:21:14.868Z",
+          url: "http://localhost:3000/media/Rectangle 113.png",
+        },
+      })),
+  });
+}
+
 async function processPageSpecificBlocks(page) {
   switch (page.slug) {
     case "explainers":
-      processExplainersPageBlocks(page);
+      processPageExplainers(page);
+      break;
+    case "news":
+      processPageNews(page);
+      break;
+    case "research":
+      processPageResearch(page);
       break;
     default:
       break;
@@ -82,7 +146,7 @@ export async function getPageServerSideProps({
     locale,
     locales,
   });
-  const seo = pageSeoFromMeta(page, settings, {
+  const seo = getPageSeoFromMeta(page, settings, {
     locale,
     locales,
     pathname: resolvedUrl,

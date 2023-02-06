@@ -11,7 +11,7 @@ function localeToLanguageAlternative(locale, pathname) {
   return { hrefLang, href };
 }
 
-function pageSeoFromMeta(page, settings, options = {}) {
+export function getPageSeoFromMeta(page, settings, options = {}) {
   const { locale, locales, pathname } = options;
   let canonical = null;
   if (pathname) {
@@ -31,6 +31,7 @@ function pageSeoFromMeta(page, settings, options = {}) {
   } = settings;
   const name = settingsTitle || site.name;
   const titleTemplate = name ? `%s | ${name}` : null;
+  const defaultTitle = name;
   const additionalMeta = [settingsMeta, { title: pageTitle }, pageMeta];
   const meta = additionalMeta.reduce(
     (acc, curr) => deepmerge(acc, curr, { clone: false }),
@@ -57,6 +58,7 @@ function pageSeoFromMeta(page, settings, options = {}) {
   return {
     title,
     titleTemplate,
+    defaultTitle,
     description,
     canonical,
     languageAlternates,
@@ -64,4 +66,6 @@ function pageSeoFromMeta(page, settings, options = {}) {
   };
 }
 
-export default pageSeoFromMeta;
+export default {
+  getPageSeoFromMeta,
+};
