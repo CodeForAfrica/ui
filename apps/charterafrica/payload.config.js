@@ -73,6 +73,7 @@ export default buildConfig({
       },
     }),
   },
+  cors: [process.env.PAYLOAD_ALLOWED_DOMAINS.split(",")],
   i18n: {
     fallbackLng: "en", // default
     debug: false, // default
