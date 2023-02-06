@@ -17,18 +17,17 @@ exports[`<PostCard /> renders unchanged 1`] = `
         class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1tfn6q1-MuiTypography-root"
-          typograpy="[object Object]"
+          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1c008vo-MuiTypography-root"
         >
           Some title
         </h5>
         <div
-          class="MuiTypography-root MuiTypography-p1 css-jq1de4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p1 css-12auwkh-MuiTypography-root"
         >
           Sakwa
         </div>
         <div
-          class="MuiTypography-root MuiTypography-p1 css-jq1de4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p1 css-12auwkh-MuiTypography-root"
         >
           2023-09-01
         </div>
