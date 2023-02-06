@@ -49,27 +49,27 @@ async function processPageNews({ blocks }) {
   blocks.push({
     slug: "news",
     title: "News",
-    articles: Array(30)
-      .fill()
-      .map(() => ({
-        title: "News story title goes here and spans over second line",
-        author: "Sakwa G",
-        date: "2023-02-11",
-        id: Math.random(),
-        image: {
-          id: "63d2622aafe25f6469605eae",
-          alt: "European Union",
-          prefix: "media",
-          filename: "image 9.png",
-          mimeType: "image/png",
-          filesize: 257010,
-          width: 1236,
-          height: 696,
-          createdAt: "2023-01-26T11:21:14.868Z",
-          updatedAt: "2023-01-26T11:21:14.868Z",
-          url: "http://localhost:3000/media/Rectangle 113.png",
-        },
-      })),
+    articles: Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      title: "News story title goes here and spans over second line. "
+        .repeat((i % 2) + 1)
+        .trim(),
+      author: "Sakwa G",
+      date: "2023-02-11",
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `News Story ${i}`,
+        prefix: "media",
+        filename: "Rectangle 113.jpg",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "http://localhost:3000/images/Rectangle 113.jpg",
+      },
+    })),
   });
 }
 
@@ -78,27 +78,27 @@ async function processPageResearch({ blocks }) {
   blocks.push({
     slug: "research",
     title: "Research",
-    articles: Array(30)
-      .fill()
-      .map(() => ({
-        title: "Research title goes here and spans over second line",
-        author: "Sakwa G",
-        date: "2023-02-11",
-        id: Math.random(),
-        image: {
-          id: "63d2622aafe25f6469605eae",
-          alt: "European Union",
-          prefix: "media",
-          filename: "image 9.png",
-          mimeType: "image/png",
-          filesize: 257010,
-          width: 1236,
-          height: 696,
-          createdAt: "2023-01-26T11:21:14.868Z",
-          updatedAt: "2023-01-26T11:21:14.868Z",
-          url: "http://localhost:3000/media/Rectangle 113.png",
-        },
-      })),
+    articles: Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      title: "Research title goes here and spans over second line. "
+        .repeat((i % 2) + 1)
+        .trim(),
+      author: "Sakwa G",
+      date: "2023-02-11",
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `Research ${i}`,
+        prefix: "media",
+        filename: "Rectangle 113.jpg",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "http://localhost:3000/images/Rectangle 113.jpg",
+      },
+    })),
   });
 }
 
