@@ -57,13 +57,28 @@ const Footer = {
         leaves: ["bold", "italic", "underline", "code"],
       },
     }),
+    richText({
+      name: "projectDescription",
+      label: {
+        en: "Project Description",
+        pt: "Descrição do Projeto",
+        fr: "Description du projet",
+      },
+      type: "richText",
+      localized: true,
+      required: true,
+      admin: {
+        elements: ["ol", "ul", "link"],
+        leaves: ["bold", "italic", "underline", "code"],
+      },
+    }),
     {
       type: "group",
       name: "connect",
       label: {
-        en: "Social Links",
-        pt: "Links de mídia social",
-        fr: "Liens de médias sociaux",
+        en: "Social Accounts",
+        fr: "Compte social",
+        pt: "Conta social",
       },
       fields: [
         {
@@ -84,9 +99,9 @@ const Footer = {
         {
           name: "links",
           label: {
-            en: "Links",
-            ft: "Liens",
-            pt: "Links",
+            en: "Links to social media",
+            fr: "Liens de médias sociaux",
+            pt: "Links de mídia social",
           },
           type: "array",
           fields: [
@@ -99,28 +114,28 @@ const Footer = {
               type: "select",
               options: [
                 {
-                  value: "twitter",
-                  label: "Twitter",
-                },
-                {
-                  value: "slack",
-                  label: "Slack",
-                },
-                {
-                  value: "linkedin",
-                  label: "LinkedIn",
-                },
-                {
                   value: "facebook",
                   label: "Facebook",
+                },
+                {
+                  value: "github",
+                  label: "Github",
                 },
                 {
                   value: "instagram",
                   label: "Instagram",
                 },
                 {
-                  value: "github",
-                  label: "Github",
+                  value: "linkedin",
+                  label: "LinkedIn",
+                },
+                {
+                  value: "slack",
+                  label: "Slack",
+                },
+                {
+                  value: "twitter",
+                  label: "Twitter",
                 },
               ],
               unique: true,
@@ -167,33 +182,15 @@ const Footer = {
       ],
       localized: true,
     },
-    richText({
-      name: "projectDescription",
-      label: {
-        en: "Project Description",
-        pt: "Descrição do Projeto",
-        fr: "Description du projet",
-      },
-      type: "richText",
-      localized: true,
-      required: true,
-      admin: {
-        elements: ["ol", "ul", "link"],
-        leaves: ["bold", "italic", "underline", "code"],
+    linkArray({
+      overrides: {
+        label: {
+          en: "Secondary navigation",
+          fr: "Navigation secondaire",
+          pt: "Navegação secundária",
+        },
       },
     }),
-    linkArray(),
-    {
-      name: "copyright",
-      label: {
-        en: "Copyright",
-        pt: "Direito autoral",
-        fr: "Droits d'auteur",
-      },
-      type: "text",
-      localized: true,
-      required: true,
-    },
     {
       name: "newsletter",
       type: "group",
@@ -263,6 +260,17 @@ const Footer = {
           },
         },
       ],
+    },
+    {
+      name: "copyright",
+      label: {
+        en: "Copyright",
+        pt: "Direito autoral",
+        fr: "Droits d'auteur",
+      },
+      type: "text",
+      localized: true,
+      required: true,
     },
   ],
 };
