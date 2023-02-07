@@ -19,7 +19,6 @@ const PartnerGrid = React.forwardRef(function PartnerGrid(props, ref) {
       alignItems={{ sm: "center" }}
       justifyContent={{ sm: "center" }}
       rowSpacing={2.5}
-      {...other}
       sx={{
         pt: { xs: 2.5, md: 7.5 },
         ...other?.sx,
