@@ -20,6 +20,9 @@ const palette = {
   warning: { main: "#F7CE46" },
   success: { main: "#AAD4A9" },
   text: { primary: "#000000", secondary: "#FFFFFF" },
+  background: {
+    default: neutral[900],
+  },
   action: { focusOpacity: 0 },
 };
 
