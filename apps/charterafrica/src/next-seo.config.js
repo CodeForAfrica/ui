@@ -1,12 +1,14 @@
 import site from "@/charterafrica/utils/site";
 
+const isSeoDisabled =
+  process.env.NEXT_PUBLIC_SEO_DISABLED?.trim()?.toLowerCase() === "true";
 const config = {
   // Disable indexing while in development
-  dangerouslySetAllPagesToNoFollow: true,
-  dangerouslySetAllPagesToNoIndex: true,
+  dangerouslySetAllPagesToNoFollow: isSeoDisabled,
+  dangerouslySetAllPagesToNoIndex: isSeoDisabled,
   openGraph: {
     type: "website",
-    locale: "en_GB",
+    locale: "en",
     url: site.environmentUrl,
     site_name: site.name,
     images: [
@@ -20,8 +22,8 @@ const config = {
     ],
   },
   twitter: {
-    handle: "@Code4Africa",
-    site: "@Code4Africa",
+    handle: "@charter_africa",
+    site: "@charter_africa",
     cardType: "summary_large_image",
   },
 };

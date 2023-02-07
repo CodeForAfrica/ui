@@ -9,12 +9,12 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-7zbiin-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-h2Small css-v490ig-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2Small css-96wwks-MuiTypography-root"
       >
         Tools
       </div>
       <div
-        class="MuiTypography-root MuiTypography-h2Small css-p25v4a-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2Small css-v2x6y7-MuiTypography-root"
       >
         People
       </div>
@@ -46,12 +46,12 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
             class="MuiBox-root css-13wj3xb"
           >
             <div
-              class="MuiTypography-root MuiTypography-h2Small css-vl7f7r-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2Small css-yls6qg-MuiTypography-root"
             >
               Tools
             </div>
             <div
-              class="MuiTypography-root MuiTypography-h2Small css-1x7iqeu-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2Small css-w2j6ee-MuiTypography-root"
             >
               People
             </div>
@@ -59,7 +59,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
               class="MuiBox-root css-tjt9jc"
             >
               <div
-                class="MuiTypography-root MuiTypography-p3SemiBold css-f3oxkg-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p3SemiBold css-17y5fsj-MuiTypography-root"
               >
                 Tools
               </div>
@@ -82,7 +82,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                 />
               </span>
               <div
-                class="MuiTypography-root MuiTypography-p3SemiBold css-26lvjk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p3SemiBold css-1n5mmig-MuiTypography-root"
               >
                 People
               </div>
@@ -91,7 +91,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
               class="MuiBox-root css-5i7ax1"
             >
               <div
-                class="MuiTypography-root MuiTypography-p1SemiBold css-16k0mhn-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1SemiBold css-1fomdk6-MuiTypography-root"
               >
                 Key
               </div>
@@ -105,7 +105,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-uzt8lc"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Elections
                   </div>
@@ -117,7 +117,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-bhlonb"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Rule of law
                   </div>
@@ -129,7 +129,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-1e9tm9b"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Civic space
                   </div>
@@ -141,7 +141,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-ga3poe"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Media
                   </div>
@@ -153,7 +153,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-1098gr8"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Civic values
                   </div>
@@ -165,7 +165,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-1l9yb90"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Decentralisation
                   </div>
@@ -177,7 +177,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-1gl40r4"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Multilateralism
                   </div>
@@ -189,7 +189,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-1epexq2"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Economic governance
                   </div>
@@ -201,7 +201,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-1tv8i5c"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Corporate governance
                   </div>
@@ -213,7 +213,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-m9kyz2"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Gender equality
                   </div>
@@ -225,7 +225,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-10gsdz3"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Constitutional changes of government
                   </div>
@@ -236,7 +236,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
               class="MuiBox-root css-174du92"
             >
               <div
-                class="MuiTypography-root MuiTypography-p1SemiBold css-16k0mhn-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1SemiBold css-1fomdk6-MuiTypography-root"
               >
                 Key
               </div>
@@ -250,7 +250,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-uzt8lc"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Elections
                   </div>
@@ -262,7 +262,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-bhlonb"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Rule of law
                   </div>
@@ -274,7 +274,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-1e9tm9b"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Civic space
                   </div>
@@ -286,7 +286,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-ga3poe"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Media
                   </div>
@@ -298,7 +298,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-1098gr8"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Civic values
                   </div>
@@ -310,7 +310,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-1l9yb90"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Decentralisation
                   </div>
@@ -322,7 +322,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-1gl40r4"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Multilateralism
                   </div>
@@ -334,7 +334,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-1epexq2"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Economic governance
                   </div>
@@ -346,7 +346,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-1tv8i5c"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Corporate governance
                   </div>
@@ -358,7 +358,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-m9kyz2"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Gender equality
                   </div>
@@ -370,7 +370,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                     class="MuiBox-root css-10gsdz3"
                   />
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-j6i3q7-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-19ukebf-MuiTypography-root"
                   >
                     Constitutional changes of government
                   </div>

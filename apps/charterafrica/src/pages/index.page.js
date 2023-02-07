@@ -10,7 +10,7 @@ import Partners from "@/charterafrica/components/Partners";
 import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
 import { payload } from "@/charterafrica/lib";
-import getGlobalProps from "@/charterafrica/utils/getGlobalProps";
+import { getGlobalProps } from "@/charterafrica/lib/data";
 
 function Index({ blocks }) {
   return blocks?.map((block) => {
