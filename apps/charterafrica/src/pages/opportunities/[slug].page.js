@@ -4,9 +4,9 @@ import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
-import { payload } from "@/charterafrica/lib";
+import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
-function Index({ blocks }) {
+function Opportunities({ blocks }) {
   return blocks?.map((block) => {
     switch (block?.slug) {
       case "featured-post":
@@ -23,62 +23,8 @@ function Index({ blocks }) {
   });
 }
 
-export async function getServerSideProps({
-  defaultLocale,
-  locale,
-  locales,
-  query,
-}) {
-  const { slug } = query;
-
-  const { docs: pages } = await payload.findPage(slug, {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-
-  if (!pages?.length) {
-    return { notFound: true };
-  }
-
-  const blocks =
-    pages[0].blocks?.map(({ blockType, ...other }) => ({
-      ...other,
-      slug: blockType,
-    })) ?? [];
-  const { actions, menus } = await payload.findGlobal("navigation", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-  const { languages } = await payload.findGlobal("settings", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-  const footer = await payload.findGlobal("footer", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-  return {
-    props: {
-      blocks,
-      footer,
-      navbar: {
-        actions,
-        languages: languages ?? null,
-        logo: {
-          alt: "The CHARTER PROJECT Africa",
-          src: "/images/charter-logo.svg",
-          href: "/",
-          priority: true,
-        },
-        menus: menus ?? null,
-      },
-      locale,
-      locales,
-      seo: {
-        title: "charter.AFRICA",
-      },
-    },
-  };
+export async function getServerSideProps(context) {
+  return getPageServerSideProps(context);
 }
 
-export default Index;
+export default Opportunities;
