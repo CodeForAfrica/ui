@@ -43,6 +43,15 @@ const Post = {
       },
     },
     {
+      name: "author",
+      type: "text",
+      label: {
+        en: "Author",
+        fr: "Auteur",
+        pt: "Autor",
+      },
+    },
+    {
       name: "date",
       type: "date",
       label: {
