@@ -1,6 +1,6 @@
 import ErrorPage from "@/charterafrica/components/ErrorPage";
 import { payload } from "@/charterafrica/lib";
-import getGlobalProps from "@/charterafrica/utils/getGlobalProps";
+import { getGlobalProps } from "@/charterafrica/lib/data";
 
 export default function CustomError({ blocks }) {
   return blocks?.map((block) => {
