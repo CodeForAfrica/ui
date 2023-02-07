@@ -20,6 +20,7 @@ const defaultProps = {
     },
   ],
   date: "2020-10-10 10:10:10",
+  author: "Author Name",
   image: {
     url: "/images/featured_post.png",
     alt: "Featured Post",

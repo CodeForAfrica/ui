@@ -17,13 +17,18 @@ exports[`FeaturedPostCard should render 1`] = `
           src="/images/featured_post.png"
         />
         <div
-          class="MuiCardContent-root css-1xqh41x-MuiCardContent-root"
+          class="MuiCardContent-root css-cnb62q-MuiCardContent-root"
         >
           <h2
             class="MuiTypography-root MuiTypography-h2SemiBold css-1geltqj-MuiTypography-root"
           >
             News Story title goes here and spans over second line
           </h2>
+          <p
+            class="MuiTypography-root MuiTypography-p1 css-1o4p8ck-MuiTypography-root"
+          >
+            Author Name
+          </p>
           <p
             class="MuiTypography-root MuiTypography-p1 css-1euz2oy-MuiTypography-root"
           >

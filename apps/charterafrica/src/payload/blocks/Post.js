@@ -28,6 +28,21 @@ const Post = {
       },
     },
     {
+      name: "content",
+      type: "richText",
+      label: {
+        en: "Content",
+        fr: "Contenu",
+        pt: "Conteúdo",
+      },
+      required: true,
+      localized: true,
+      admin: {
+        elements: [],
+        leaves: ["bold", "italic", "underline", "code"],
+      },
+    },
+    {
       name: "date",
       type: "date",
       label: {
@@ -47,6 +62,34 @@ const Post = {
         pt: "Imagem",
       },
       required: true,
+    },
+    {
+      name: "featured",
+      type: "radio",
+      label: {
+        en: "Is Featured",
+        fr: "Est-ce que c'est en vedette?",
+        pt: "É destaque?",
+      },
+      options: [
+        {
+          label: {
+            en: "Yes",
+            fr: "Oui",
+            pt: "Sim",
+          },
+          value: "True",
+        },
+        {
+          label: {
+            en: "No",
+            fr: "Non",
+            pt: "Não",
+          },
+          value: "False",
+        },
+      ],
+      defaultValue: "False",
     },
   ],
 };

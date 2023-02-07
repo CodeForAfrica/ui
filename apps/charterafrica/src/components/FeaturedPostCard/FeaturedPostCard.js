@@ -18,7 +18,7 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
   props,
   ref
 ) {
-  const { title, date, excerpt, image, sx, link } = props;
+  const { title, date, excerpt, image, sx, link, author } = props;
 
   return (
     <Box
@@ -53,8 +53,10 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              paddingTop: "0px",
-              paddingBottom: "0px",
+              padding: "0 0 0 12px",
+              "&:last-child": {
+                paddingBottom: 0,
+              },
             }}
           >
             <LineClampedRichTypography
@@ -64,6 +66,17 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
               variant="h2SemiBold"
             >
               {title}
+            </LineClampedRichTypography>
+            <LineClampedRichTypography
+              color={neutral[500]}
+              html={false}
+              textAlign="left"
+              typography="p1"
+              sx={{
+                display: author ? "block" : "none",
+              }}
+            >
+              {author}
             </LineClampedRichTypography>
             <LineClampedRichTypography
               color={neutral[500]}
