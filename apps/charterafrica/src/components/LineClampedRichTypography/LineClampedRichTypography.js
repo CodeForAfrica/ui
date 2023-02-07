@@ -19,9 +19,9 @@ const LineClampedRichTypographyRoot = styled(RichTypography, {
       }
       let lineClampValue;
       if (typeof lineClamp !== "object") {
-        lineClampValue = lineClamp;
+        lineClampValue = lineClamp?.toString();
       } else if (typeof lineClamp?.[cur] !== "object") {
-        lineClampValue = lineClamp[cur];
+        lineClampValue = lineClamp[cur]?.toString();
       }
       if (lineClampValue) {
         accBreakpoint.WebkitLineClamp = lineClampValue;

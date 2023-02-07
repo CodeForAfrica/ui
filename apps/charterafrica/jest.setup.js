@@ -15,6 +15,11 @@ global.TextDecoder = jest.fn().mockImplementation(() => ({
   decode: jest.fn(),
 }));
 
+// NOTE: Since we use Jest for component testing i.e. unit testing, it's not
+//       recommended to load external env vars (since outcome will not be
+//       predictable)
+process.env.NEXT_PUBLIC_APP_URL = "http://localhost:3000";
+
 jest.mock("next/router", () => ({
   useRouter: jest.fn().mockImplementation(() => ({
     asPath: "",

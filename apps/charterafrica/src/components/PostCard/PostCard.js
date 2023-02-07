@@ -7,7 +7,7 @@ import {
   styled,
 } from "@mui/material";
 import PropTypes from "prop-types";
-import { forwardRef } from "react";
+import React from "react";
 
 import LineClampedRichTypography from "../LineClampedRichTypography";
 
@@ -42,7 +42,7 @@ const StyledActionArea = styled(CardActionArea)(
 `
 );
 
-const PostCard = forwardRef((props, ref) => {
+const PostCard = React.forwardRef(function PostCard(props, ref) {
   const {
     author,
     date,
@@ -53,15 +53,13 @@ const PostCard = forwardRef((props, ref) => {
     variant = "outlined",
     elevation,
     href,
-    ...restProps
   } = props;
   const ownerState = {
-    ...restProps,
     elevation,
     square,
     variant,
-    href,
   };
+
   return (
     <StyledCard
       elevation={elevation}
@@ -69,10 +67,8 @@ const PostCard = forwardRef((props, ref) => {
       ref={ref}
       ownerState={ownerState}
       variant={variant}
-      component={href ? Link : undefined}
-      href={href}
     >
-      <StyledActionArea>
+      <StyledActionArea component={href ? Link : undefined} href={href}>
         <CardMedia
           image={image.url}
           title={image.filename}
@@ -81,12 +77,18 @@ const PostCard = forwardRef((props, ref) => {
         <CardContent>
           <LineClampedRichTypography
             color="neutral.dark"
-            typograpy={{ md: "h5SemiBold" }}
-            variant="h5SmallSemiBold"
-            textAlign="left"
-            sx={{ mb: 2.5, height: 84 }}
             html={false}
             lineClamp={3}
+            textAlign="left"
+            variant="h5SmallSemiBold"
+            sx={(theme) => ({
+              mb: 2.5,
+              minHeight: `calc(${theme.typography.h5SmallSemiBold.fontSize}px * ${theme.typography.h5SmallSemiBold.lineHeight} * 3)`,
+              [theme.breakpoints.up("md")]: {
+                minHeight: `calc(${theme.typography.h5SemiBold.fontSize}px * ${theme.typography.h5SemiBold.lineHeight} * 3)`,
+                typography: "h5SemiBold",
+              },
+            })}
           >
             {title}
           </LineClampedRichTypography>
