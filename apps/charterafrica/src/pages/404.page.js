@@ -41,5 +41,6 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   };
 
   const blocks = [notFoundBlock];
+
   return { props: { blocks, footer, navbar } };
 }
