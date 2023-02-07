@@ -1,11 +1,17 @@
 import { Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import { Card, CardContent, CardMedia, Box, CardActions } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Box,
+  CardActions,
+} from "@mui/material";
 import React from "react";
 
 import { neutral, secondary } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
-import RichText from "@/charterafrica/components/RichText";
 
 const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
   props,
@@ -52,15 +58,15 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
               },
             }}
           >
-            <LineClampedRichTypography
+            <Typography
               color={neutral[900]}
               html={false}
               textAlign="left"
               variant="h2SemiBold"
             >
               {title}
-            </LineClampedRichTypography>
-            <LineClampedRichTypography
+            </Typography>
+            <Typography
               color={neutral[500]}
               html={false}
               textAlign="left"
@@ -70,8 +76,8 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
               }}
             >
               {author}
-            </LineClampedRichTypography>
-            <LineClampedRichTypography
+            </Typography>
+            <Typography
               color={neutral[500]}
               html={false}
               textAlign="left"
@@ -82,14 +88,16 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
                 month: "short",
                 day: "numeric",
               })}
-            </LineClampedRichTypography>
+            </Typography>
 
-            <RichText
-              elements={excerpt}
+            <LineClampedRichTypography
               color={neutral[900]}
               textAlign="left"
               variant="subheading"
-            />
+              lineClamp={6}
+            >
+              {excerpt}
+            </LineClampedRichTypography>
             <CardActions
               href={link?.href}
               component={link?.href ? Link : undefined}

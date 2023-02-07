@@ -14,7 +14,7 @@ const Post = {
     },
     {
       name: "excerpt",
-      type: "richText",
+      type: "textarea",
       label: {
         en: "Excerpt",
         fr: "Extrait",
@@ -22,10 +22,6 @@ const Post = {
       },
       required: true,
       localized: true,
-      admin: {
-        elements: [],
-        leaves: ["bold", "italic", "underline", "code"],
-      },
     },
     {
       name: "content",
