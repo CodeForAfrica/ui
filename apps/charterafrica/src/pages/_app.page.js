@@ -17,16 +17,20 @@ function getDefaultLayout(page, pageProps) {
 }
 
 function MyApp(props) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const {
+    Component,
+    emotionCache = clientSideEmotionCache,
+    pageProps,
+    res,
+  } = props;
   const getLayout = Component.getLayout || getDefaultLayout;
-
   return (
     <>
       <DefaultSeo {...SEO} />
       <CacheProvider value={emotionCache}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          {getLayout(<Component {...pageProps} />, pageProps)}
+          {getLayout(<Component {...pageProps} res={res} />, pageProps)}
         </ThemeProvider>
       </CacheProvider>
     </>
