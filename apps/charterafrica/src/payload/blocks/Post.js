@@ -1,4 +1,4 @@
-const FeaturedPost = {
+const Post = {
   slug: "featured-post",
   fields: [
     {
@@ -51,4 +51,4 @@ const FeaturedPost = {
   ],
 };
 
-export default FeaturedPost;
+export default Post;

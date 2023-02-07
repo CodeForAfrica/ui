@@ -1,11 +1,11 @@
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import DemocracyHelpdeskHeader from "../blocks/DemocracyHelpdeskPageHeader";
 import Ecosystem from "../blocks/Ecosystem";
-import FeaturedPost from "../blocks/FeaturedPost";
 import Hero from "../blocks/Hero";
 import Mooc from "../blocks/Mooc";
 import PageInfo from "../blocks/PageInfo";
 import Partners from "../blocks/Partners";
+import Post from "../blocks/Post";
 import Resources from "../blocks/Resources";
 import Spotlight from "../blocks/Spotlight";
 import fullTitle from "../fields/fullTitle";
@@ -37,7 +37,7 @@ const Pages = {
         DemocracyHelpdeskContent,
         DemocracyHelpdeskHeader,
         Ecosystem,
-        FeaturedPost,
+        Post,
         Mooc,
         PageInfo,
         Partners,
