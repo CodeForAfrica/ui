@@ -19,6 +19,7 @@
         "NEXT_PUBLIC_LOCALES",
         "NODE_ENV",
         "NODE_OPTIONS",
+        "PAYLOAD_CORS",
         "PAYLOAD_PUBLIC_APP_NAME",
         "PAYLOAD_PUBLIC_APP_URL",
         "PAYLOAD_PUBLIC_DEFAULT_LOCALE",

@@ -31,6 +31,10 @@ dotenv.config({ path: path.resolve(__dirname, "./.env.local") });
 
 const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
 
+const cors = process?.env?.PAYLOAD_CORS?.split(",")
+  ?.map((d) => d.trim())
+  ?.filter(Boolean);
+
 const adapter = s3Adapter({
   config: {
     region: process?.env?.S3_REGION,
@@ -73,6 +77,7 @@ export default buildConfig({
       },
     }),
   },
+  cors,
   i18n: {
     fallbackLng: "en", // default
     debug: false, // default
