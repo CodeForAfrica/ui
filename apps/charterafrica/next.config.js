@@ -46,6 +46,20 @@ module.exports = {
   output: "standalone",
   pageExtensions: ["page.js"],
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: "/knowledge",
+        destination: "/knowledge/explainers",
+        permanent: true,
+      },
+      {
+        source: "/opportunities",
+        destination: "/opportunities/helpdesk",
+        permanent: true,
+      },
+    ];
+  },
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
   webpack: (config) => {
     config.module.rules.push(
