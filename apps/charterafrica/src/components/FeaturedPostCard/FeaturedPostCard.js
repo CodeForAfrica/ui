@@ -1,13 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Box,
-  CardActions,
-} from "@mui/material";
+import { Card, CardContent, CardMedia, Box, CardActions } from "@mui/material";
 import React from "react";
 
 import { neutral, secondary } from "@/charterafrica/colors";
@@ -42,8 +35,8 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             image={image.url}
             alt={image.alt}
             sx={{
-              width: "820px",
-              height: "487px",
+              width: { md: "532px", lg: "820px" },
+              height: { md: "487px", lg: "487px" },
               borderRadius: "5px",
               filter: "drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.1))",
             }}
@@ -100,17 +93,14 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             <CardActions
               href={link?.href}
               component={link?.href ? Link : undefined}
+              sx={{
+                cursor: "pointer",
+                textDecoration: "underline",
+                color: neutral[900],
+                typography: "p3",
+              }}
             >
-              <Typography
-                color={neutral[900]}
-                typography="p3"
-                sx={{
-                  cursor: "pointer",
-                  textDecoration: "underline",
-                }}
-              >
-                Read More
-              </Typography>
+              Read More
             </CardActions>
           </CardContent>
         </Card>

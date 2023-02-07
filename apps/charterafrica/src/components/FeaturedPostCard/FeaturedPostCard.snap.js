@@ -13,7 +13,7 @@ exports[`FeaturedPostCard should render 1`] = `
       >
         <img
           alt="Featured Post"
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1mfohn3-MuiCardMedia-root"
+          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1mzr6lk-MuiCardMedia-root"
           src="/images/featured_post.png"
         />
         <div
@@ -40,13 +40,9 @@ exports[`FeaturedPostCard should render 1`] = `
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur
           </p>
           <div
-            class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
+            class="MuiCardActions-root MuiCardActions-spacing css-1ug7ag5-MuiCardActions-root"
           >
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-15efwg4-MuiTypography-root"
-            >
-              Read More
-            </p>
+            Read More
           </div>
         </div>
       </div>
