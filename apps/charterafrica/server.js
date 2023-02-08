@@ -24,44 +24,48 @@ if (!process.env.NEXT_MANUAL_SIG_HANDLE) {
 
 const server = express();
 
-payload.init({
-  ...(sendGridAPIKey
-    ? {
-        email: {
-          transportOptions: nodemailerSendgrid({
-            apiKey: sendGridAPIKey,
-          }),
-          fromName: "Admin",
-          fromAddress: "admin@example.com",
-        },
-      }
-    : undefined),
-  secret: process.env.PAYLOAD_SECRET_KEY,
-  mongoURL: process.env.MONGO_URL,
-  express: server,
-  onInit: () => {
-    payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
-  },
-});
+const start = async () => {
+  await payload.init({
+    ...(sendGridAPIKey
+      ? {
+          email: {
+            transportOptions: nodemailerSendgrid({
+              apiKey: sendGridAPIKey,
+            }),
+            fromName: "Admin",
+            fromAddress: "admin@example.com",
+          },
+        }
+      : undefined),
+    secret: process.env.PAYLOAD_SECRET_KEY,
+    mongoURL: process.env.MONGO_URL,
+    express: server,
+    onInit: () => {
+      payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
+    },
+  });
 
-if (!process.env.NEXT_BUILD) {
-  const nextApp = next({ dev });
+  if (!process.env.NEXT_BUILD) {
+    const nextApp = next({ dev });
 
-  const nextHandler = nextApp.getRequestHandler();
+    const nextHandler = nextApp.getRequestHandler();
 
-  server.get("*", (req, res) => nextHandler(req, res));
+    server.get("*", (req, res) => nextHandler(req, res));
 
-  nextApp.prepare().then(() => {
-    console.log("NextJS started");
+    nextApp.prepare().then(() => {
+      console.log("NextJS started");
 
-    server.listen(port, async () => {
-      console.log(`Server listening on ${port}...`);
+      server.listen(port, async () => {
+        console.log(`Server listening on ${port}...`);
+      });
     });
-  });
-} else {
-  server.listen(port, async () => {
-    console.log("NextJS is now building...");
-    await nextBuild(path.resolve(projectDir));
-    process.exit();
-  });
-}
+  } else {
+    server.listen(port, async () => {
+      console.log("NextJS is now building...");
+      await nextBuild(path.resolve(projectDir));
+      process.exit();
+    });
+  }
+};
+
+start();
