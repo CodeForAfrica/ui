@@ -12,6 +12,8 @@ exports[`<PostCard /> renders unchanged 1`] = `
     >
       <div
         class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+        role="img"
+        style="background-image: url(/image.jpg);"
       />
       <div
         class="MuiCardContent-root css-46bh2p-MuiCardContent-root"

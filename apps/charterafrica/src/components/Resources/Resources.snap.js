@@ -3,7 +3,7 @@
 exports[`<Resources /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-0"
+    class="MuiBox-root css-1k9ek97"
   >
     <h1
       class="MuiTypography-root MuiTypography-h1Small css-5jsrba-MuiTypography-root"

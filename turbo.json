@@ -8,13 +8,14 @@
     },
     "charterafrica#build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**"],
+      "outputs": ["build", ".next/**"],
       "env": [
         "MONGO_URL",
         "NEXT_BUILD",
         "NEXT_MANUAL_SIG_HANDLE",
         "NEXT_PUBLIC_APP_URL",
         "NEXT_PUBLIC_DEFAULT_LOCALE",
+        "NEXT_PUBLIC_GA_MEASUREMENT_ID",
         "NEXT_PUBLIC_IMAGE_DOMAINS",
         "NEXT_PUBLIC_LOCALES",
         "NEXT_PUBLIC_SEO_DISABLED",
@@ -27,7 +28,6 @@
         "PAYLOAD_PUBLIC_LOCALES",
         "PAYLOAD_SECRET_KEY",
         "PORT",
-        "PROJECT_ROOT",
         "S3_ACCESS_KEY_ID",
         "S3_BUCKET",
         "S3_SECRET_ACCESS_KEY",

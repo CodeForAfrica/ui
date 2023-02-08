@@ -99,7 +99,7 @@ exports[`<Hero /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiMobileStepper-root MuiMobileStepper-positionStatic css-kxnhdf-MuiPaper-root-MuiMobileStepper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiMobileStepper-root MuiMobileStepper-positionStatic css-rddy23-MuiPaper-root-MuiMobileStepper-root"
     >
       <div
         class="MuiMobileStepper-dots css-1384nzf-MuiMobileStepper-dots"

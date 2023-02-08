@@ -35,7 +35,7 @@
     "@commons-ui/next": "workspace:*",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.11.6",
+    "@mui/material": "^5.11.8",
     "next": "^13.1.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -46,7 +46,7 @@
     "@babel/preset-react": "^7.18.6",
     "@commons-ui/testing-library": "workspace:*",
     "@playwright/test": "^1.30.0",
-    "@types/node": "^16.18.11",
+    "@types/node": "^16.18.12",
     "@types/react": "^18.0.27",
     "babel-jest": "^29.4.1",
     "eslint": "^8.33.0",
@@ -57,6 +57,6 @@
     "playwright-config-commons-ui": "workspace:*",
     "prettier": "^2.8.3",
     "react-test-renderer": "^18.2.0",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.5"
   }
 }
