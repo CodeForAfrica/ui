@@ -5,7 +5,6 @@ import Hero from "../blocks/Hero";
 import Mooc from "../blocks/Mooc";
 import PageInfo from "../blocks/PageInfo";
 import Partners from "../blocks/Partners";
-import Post from "../blocks/Post";
 import Resources from "../blocks/Resources";
 import Spotlight from "../blocks/Spotlight";
 import fullTitle from "../fields/fullTitle";
@@ -40,7 +39,6 @@ const Pages = {
         Mooc,
         PageInfo,
         Partners,
-        Post,
         Resources,
         Spotlight,
       ],
