@@ -89,12 +89,13 @@ const serialize = (children, defaultProps) =>
   });
 
 const RichText = React.forwardRef(function RichText(props, ref) {
-  const { elements, ...others } = props;
+  const { elements, ...other } = props;
+
   if (!elements?.length) {
     return null;
   }
   return (
-    <React.Fragment ref={ref}>{serialize(elements, others)}</React.Fragment>
+    <React.Fragment ref={ref}>{serialize(elements, other)}</React.Fragment>
   );
 });
 

@@ -15,7 +15,7 @@ async function insertHref(nodes, payload) {
       // we can add href prop for front-end.
       if (node.type === "link") {
         let { doc } = node;
-        if (typeof doc.value === "string") {
+        if (typeof doc?.value === "string") {
           const { relationTo: collection, value: id } = doc;
           const value = await payload.findByID({
             collection,

@@ -12,7 +12,7 @@ const defaultProps = {
   title: "Some title",
   author: "Sakwa",
   date: "2023-09-01",
-  image: { url: "" },
+  image: { url: "/image.jpg" },
 };
 
 describe("<PostCard />", () => {

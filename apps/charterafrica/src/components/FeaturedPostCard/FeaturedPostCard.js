@@ -60,7 +60,6 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
           >
             <Typography
               color={neutral[900]}
-              html={false}
               textAlign="left"
               variant="h2SemiBold"
             >
@@ -68,7 +67,6 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             </Typography>
             <Typography
               color={neutral[500]}
-              html={false}
               textAlign="left"
               typography="p1"
               sx={{
@@ -77,12 +75,7 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             >
               {author}
             </Typography>
-            <Typography
-              color={neutral[500]}
-              html={false}
-              textAlign="left"
-              typography="p1"
-            >
+            <Typography color={neutral[500]} textAlign="left" typography="p1">
               {new Date(date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "short",

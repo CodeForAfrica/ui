@@ -12,7 +12,7 @@ const Resources = React.forwardRef(function Resources(props, ref) {
     return null;
   }
   return (
-    <Box sx={sx} ref={ref}>
+    <Box bgcolor="common.white" sx={sx} ref={ref}>
       <RichTypography
         color="neutral.dark"
         html={false}

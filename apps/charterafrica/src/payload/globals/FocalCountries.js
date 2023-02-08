@@ -164,6 +164,14 @@ const FocalCountries = {
                   ],
                 },
               ],
+              admin: {
+                initCollapsed: true,
+                components: {
+                  RowLabel: ({ data }) => {
+                    return data?.name || data?.id;
+                  },
+                },
+              },
             },
           ],
         },
