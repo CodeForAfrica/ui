@@ -74,7 +74,12 @@ async function processPageNews({ blocks }) {
 }
 
 async function processPageResearch({ blocks }) {
-  const { docs: articles } = await payload.getCollection("research");
+  const { docs: allArticles } = await payload.getCollection("research");
+
+  const articles = allArticles.map((a) => {
+    const { id, article } = a;
+    return { id, ...article };
+  });
 
   const featuredArticle = articles.find(
     (article) => article.featured === "True"
