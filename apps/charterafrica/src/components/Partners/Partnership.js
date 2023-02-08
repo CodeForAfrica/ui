@@ -10,7 +10,6 @@ function Partnership({ partners, description, showDivider, ...other }) {
   if (!partners?.length) {
     return null;
   }
-
   return (
     <>
       <PartnerGrid partners={partners} sx={{ marginBottom: 4 }} {...other} />

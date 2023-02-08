@@ -35,7 +35,6 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
           >
             <Grid item>
               <RichText
-                component="h1"
                 color="text.secondary"
                 elements={title}
                 textAlign={{ xs: "left", sm: "center", md: "left" }}
@@ -77,7 +76,10 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
             <Figure
               ImageProps={{
                 ...image,
-                objectFit: "cover",
+                style: {
+                  objectFit: "cover",
+                  ...image?.style,
+                },
               }}
               sx={{
                 border: 2,

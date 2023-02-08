@@ -71,6 +71,14 @@ const Partners = {
         linkGroup({ linkConfig: { disableLabel: true } }),
       ],
       required: true,
+      admin: {
+        initCollapsed: true,
+        components: {
+          RowLabel: ({ data }) => {
+            return data?.name || data?.id;
+          },
+        },
+      },
     },
     richText({
       name: "description",

@@ -35,8 +35,8 @@
     "@commons-ui/testing-library": "workspace:*",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.11.6",
-    "@mui/utils": "^5.11.2",
+    "@mui/material": "^5.11.8",
+    "@mui/utils": "^5.11.7",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
@@ -59,7 +59,7 @@
     "react-test-renderer": "^18.2.0",
     "require-from-string": "^2.0.2",
     "storybook-config-commons-ui": "workspace:*",
-    "typescript": "^4.9.4",
+    "typescript": "^4.9.5",
     "webpack": "^5.75.0"
   },
   "peerDependencies": {
