@@ -5,30 +5,30 @@ import { getGlobalProps } from "@/charterafrica/lib/data";
 export default function CustomError({ blocks }) {
   return blocks?.map((block) => {
     switch (block?.slug) {
-      case "internal-server-error":
+      case "page-not-found":
         return <ErrorPage key={block.slug} {...block} />;
       default:
         return null;
     }
   });
 }
-
-export async function getStaticProps({ defaultLocale, locale, locales }) {
+// TODO find a way to deal with other status codes
+// Status code is only accessible on getStaticProps but does not work with payload
+export async function getServerSideProps({ defaultLocale, locale, locales }) {
   const { footer, navbar } = await getGlobalProps({
     defaultLocale,
     locale,
     locales,
   });
-  const statusCode = 503;
   const { docs } = await payload.getCollection("errors", {
-    where: { statusCode },
+    where: { statusCode: 404 },
   });
 
-  const setData = docs.find((doc) => doc.statusCode === statusCode);
+  const setData = docs.find(({ statusCode }) => statusCode === 404);
   const notFoundBlock = {
-    slug: "internal-server-error",
-    title: "SERVER TOO BUSY",
-    statusCode,
+    slug: "page-not-found",
+    title: "PAGE NOT FOUND",
+    statusCode: 404,
     description: [
       {
         children: [
@@ -42,6 +42,5 @@ export async function getStaticProps({ defaultLocale, locale, locales }) {
   };
 
   const blocks = [notFoundBlock];
-
   return { props: { blocks, footer, navbar } };
 }

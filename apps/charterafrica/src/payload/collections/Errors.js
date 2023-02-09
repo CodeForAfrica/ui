@@ -1,5 +1,16 @@
+import { mapLinkToHrefBeforeValidate } from "../fields/link";
 import richText from "../fields/richText";
 
+const mapDocToHref = ({ siblingData, req }) => {
+  return mapLinkToHrefBeforeValidate({
+    siblingData: {
+      ...siblingData,
+      doc: { ...siblingData.doc, relationTo: "pages" },
+      linkType: "internal",
+    },
+    req,
+  });
+};
 const Errors = {
   slug: "errors",
   admin: {
@@ -82,6 +93,17 @@ const Errors = {
           maxDepth: 1,
           admin: {
             description: () => "If left blank, defaults to page reload",
+          },
+        },
+        {
+          name: "href",
+          type: "text",
+          required: true,
+          admin: {
+            hidden: true,
+          },
+          hooks: {
+            beforeValidate: [mapDocToHref],
           },
         },
       ],

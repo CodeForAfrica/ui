@@ -8,7 +8,6 @@ import React from "react";
 import { secondary, neutral } from "@/charterafrica/colors";
 import BackgroundBox from "@/charterafrica/components/BackgroundBox";
 import RichText from "@/charterafrica/components/RichText";
-import mapLinkTypeToHref from "@/charterafrica/payload/utils/mapLinkTypeToHref";
 
 const ErrorPage = React.forwardRef(function Error(props, ref) {
   const {
@@ -20,14 +19,6 @@ const ErrorPage = React.forwardRef(function Error(props, ref) {
     action,
     ...other
   } = props;
-
-  const link =
-    action &&
-    mapLinkTypeToHref({
-      doc: { ...action?.doc, relationTo: "pages" },
-      linkType: "internal",
-    });
-
   return (
     <BackgroundBox
       {...other}
@@ -66,7 +57,7 @@ const ErrorPage = React.forwardRef(function Error(props, ref) {
           elements={description}
         />
         <RichTypography component="div" textAlign="center">
-          <Link underline="none" href={link || ""}>
+          <Link underline="none" href={action.href || ""}>
             <Button sx={{ mt: 5 }} color="secondary" variant="contained">
               {action?.title}
             </Button>
