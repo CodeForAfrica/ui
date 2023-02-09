@@ -1,5 +1,6 @@
 import React from "react";
 
+import Fellowships from "@/charterafrica/components/Fellowships";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
@@ -14,6 +15,8 @@ function Opportunities({ blocks }) {
         return <HelpdeskPageHeader {...block} key={block.slug} />;
       case "page-info":
         return <PageInfo {...block} key={block.slug} />;
+      case "fellowships":
+        return <Fellowships {...block} key={block.slug} />;
       default:
         return null;
     }
