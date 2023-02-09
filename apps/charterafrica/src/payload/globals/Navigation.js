@@ -45,15 +45,15 @@ const Navigation = {
       },
     }),
     {
+      name: "actions",
       label: {
         en: "Actions",
         pt: "Acções",
       },
-      type: "collapsible",
+      type: "group",
       fields: [
         {
-          name: "actions",
-          type: "group",
+          type: "collapsible",
           label: {
             en: "Search & Join",
             fr: "Recherches & Rejoignez",

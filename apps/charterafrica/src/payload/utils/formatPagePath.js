@@ -1,6 +1,17 @@
+/**
+ * Use breadcrumbs for nested pages.
+ */
+function fullSlugFromBreadcrumbs({ breadcrumbs }) {
+  const fullSlug = breadcrumbs[breadcrumbs.length - 1]?.url?.slice(1);
+  return fullSlug;
+}
+
 function formatPagePath(collection, doc) {
   const { slug } = doc;
-  const pageSlug = slug !== "index" ? slug : "";
+  let pageSlug = fullSlugFromBreadcrumbs(doc);
+  if (!pageSlug) {
+    pageSlug = slug !== "index" ? slug : "";
+  }
   let prefix = "";
   if (collection) {
     switch (collection) {
