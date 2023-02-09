@@ -18,6 +18,9 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
   ref
 ) {
   const { article } = props;
+
+  if (!article) return null;
+
   const { title, date, excerpt, image, sx, link, author } = article;
 
   return (
