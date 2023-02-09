@@ -1,4 +1,4 @@
-import RichTypography from "@/commons-ui/core/RichTypography";
+import { RichTypography } from "@commons-ui/core";
 import { Figure } from "@commons-ui/next";
 import { Stack } from "@mui/material";
 import PropTypes from "prop-types";
