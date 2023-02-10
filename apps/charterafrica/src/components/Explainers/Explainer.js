@@ -7,7 +7,7 @@ import React from "react";
 import RichText from "../RichText";
 
 const Explainer = React.forwardRef(function Explainer(props, ref) {
-  const { image, description, sx, title } = props;
+  const { ImageProps, description, image, sx, title } = props;
 
   return (
     <Stack sx={sx} ref={ref}>
@@ -19,7 +19,8 @@ const Explainer = React.forwardRef(function Explainer(props, ref) {
           fill: false,
           height: 0,
           width: 0,
-          style: { width: "100%", height: "auto" },
+          ...ImageProps,
+          style: { width: "100%", height: "auto", ...ImageProps?.style },
         }}
       />
       <RichTypography
