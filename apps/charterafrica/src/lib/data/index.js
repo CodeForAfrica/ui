@@ -159,3 +159,91 @@ export async function getPageServerSideProps({
     },
   };
 }
+
+export const loginToPayload = async () => {
+  const email = process.env.NEXT_PUBLIC_APP_AUTH_EMAIL;
+  const password = process.env.NEXT_PUBLIC_APP_AUTH_PASSWORD;
+  const data = { email, password };
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/users/login`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }
+  );
+  const response = await res.json();
+  return response;
+};
+
+export const fetchGlobals = async (collection, { defaultLocale, locale }) => {
+  const { token } = await loginToPayload();
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/globals/${collection}?locale=${locale}&fallback-locale=${defaultLocale}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: `payload-token=${token}`,
+      },
+    }
+  );
+  const response = await res.json();
+  return response;
+};
+
+export const fetchCollection = async (
+  collection,
+  { defaultLocale, locale }
+) => {
+  const { token } = await loginToPayload();
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/${collection}?locale=${locale}&fallback-locale=${defaultLocale}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: `payload-token=${token}`,
+      },
+    }
+  );
+  const response = await res.json();
+  return response;
+};
+
+export const fetchFooter = async (args) => {
+  return fetchGlobals("footer", args);
+};
+
+export const fetchNavigation = async (args) => {
+  return fetchGlobals("navigation", args);
+};
+
+export const fetchSettings = async (args) => {
+  return fetchGlobals("settings", args);
+};
+
+export const fetchErrorPages = async (args) => {
+  return fetchCollection("errors", args);
+};
+
+export const fetchGlobalProps = async (args) => {
+  const settings = await fetchSettings(args);
+  const footer = await fetchFooter(args);
+  const { languages } = settings;
+  const { actions, menus } = await fetchNavigation(args);
+  const navbar = {
+    actions,
+    languages: languages ?? null,
+    logo: {
+      alt: "Charter Africa",
+      src: "/images/charter-logo.svg",
+      href: "/",
+      priority: true,
+    },
+    menus: menus ?? null,
+  };
+  return { settings, footer, navbar };
+};

@@ -12,6 +12,7 @@ export default function CustomError({ blocks }) {
     }
   });
 }
+
 // TODO find a way to deal with other status codes
 // Status code is only accessible on getStaticProps but does not work with payload
 export async function getServerSideProps({ defaultLocale, locale, locales }) {
@@ -21,14 +22,14 @@ export async function getServerSideProps({ defaultLocale, locale, locales }) {
     locales,
   });
   const { docs } = await payload.getCollection("errors", {
-    where: { statusCode: 404 },
+    where: { statusCode: 500 },
   });
 
-  const setData = docs.find(({ statusCode }) => statusCode === 404);
+  const setData = docs.find(({ statusCode }) => statusCode === 500);
   const notFoundBlock = {
     slug: "page-not-found",
-    title: "PAGE NOT FOUND",
-    statusCode: 404,
+    title: "INTERNAL SERVER ERROR",
+    statusCode: 500,
     description: [
       {
         children: [
