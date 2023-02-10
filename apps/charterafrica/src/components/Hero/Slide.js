@@ -20,6 +20,7 @@ const SlideRoot = styled(Box, {
   return {
     background,
     backgroundBlendMode,
+    height: "100%",
   };
 });
 
