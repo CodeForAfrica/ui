@@ -30,7 +30,7 @@ exports[`FeaturedPostCard should render 1`] = `
             Author Name
           </p>
           <p
-            class="MuiTypography-root MuiTypography-p1 css-73s5wc-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-zisg9a-MuiTypography-root"
           >
             Oct 10, 2020
           </p>
@@ -40,9 +40,14 @@ exports[`FeaturedPostCard should render 1`] = `
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur
           </div>
           <div
-            class="MuiCardActions-root MuiCardActions-spacing css-1ug7ag5-MuiCardActions-root"
+            class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
           >
-            Read More
+            <a
+              class="MuiTypography-root MuiTypography-p3 MuiLink-root MuiLink-underlineAlways css-c45nw1-MuiTypography-root-MuiLink-root"
+              href="/research/1"
+            >
+              Read More
+            </a>
           </div>
         </div>
       </div>

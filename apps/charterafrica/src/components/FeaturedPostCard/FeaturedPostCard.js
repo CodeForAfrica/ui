@@ -17,11 +17,8 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
   props,
   ref
 ) {
-  const { article } = props;
-
-  if (!article) return null;
-
-  const { title, date, excerpt, image, sx, link, author } = article;
+  const { title, date, excerpt, image, sx, link, author } = props;
+  if (!title?.length) return null;
 
   return (
     <Box
@@ -69,17 +66,20 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             >
               {title}
             </Typography>
-            <Typography
-              color={neutral[500]}
-              textAlign="left"
-              typography="p1"
-              sx={{
-                display: author ? "block" : "none",
-              }}
-            >
-              {author}
-            </Typography>
-            <Typography color={neutral[500]} textAlign="left" typography="p1">
+            {author?.length ? (
+              <Typography
+                color={neutral[500]}
+                textAlign="left"
+                typography="p1"
+                sx={{
+                  display: author ? "block" : "none",
+                }}
+              >
+                {author}
+              </Typography>
+            ) : null}
+
+            <Typography color={neutral[500]} textAlign="left" variant="p1">
               {new Date(date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "short",
@@ -95,17 +95,15 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             >
               {excerpt}
             </LineClampedRichTypography>
-            <CardActions
-              href={link?.href}
-              component={link?.href ? Link : undefined}
-              sx={{
-                cursor: "pointer",
-                textDecoration: "underline",
-                color: neutral[900],
-                typography: "p3",
-              }}
-            >
-              Read More
+            <CardActions>
+              <Link
+                color={neutral[900]}
+                href={link?.href}
+                underline="always"
+                variant="p3"
+              >
+                Read More
+              </Link>
             </CardActions>
           </CardContent>
         </Card>
