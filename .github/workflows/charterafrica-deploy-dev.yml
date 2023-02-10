@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "apps/charterafrica/**"
+      - "Dockerfile.charterafrica"
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
@@ -14,7 +15,7 @@ concurrency:
 env:
   DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/charterafrica"
   IMAGE_NAME: "codeforafrica/charterafrica-ui"
-  NEXT_PUBLIC_APP_URL: "https://charter.dev.codeforafrica.org"
+  NEXT_PUBLIC_APP_URL: "https://charterafrica.dev.codeforafrica.org"
 
 jobs:
   deploy:
