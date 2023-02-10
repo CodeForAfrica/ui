@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import React from "react";
 
-import { neutral, secondary } from "@/charterafrica/colors";
+import { secondary } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
 const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
@@ -18,7 +18,10 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
   ref
 ) {
   const { title, date, excerpt, image, sx, link, author } = props;
-  if (!title?.length) return null;
+
+  if (!title?.length) {
+    return null;
+  }
 
   return (
     <Box
@@ -60,7 +63,7 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             }}
           >
             <Typography
-              color={neutral[900]}
+              color="neutral.dark"
               textAlign="left"
               variant="h2SemiBold"
             >
@@ -68,7 +71,7 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             </Typography>
             {author?.length ? (
               <Typography
-                color={neutral[500]}
+                color="neutral.main"
                 textAlign="left"
                 typography="p1"
                 sx={{
@@ -79,7 +82,7 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
               </Typography>
             ) : null}
 
-            <Typography color={neutral[500]} textAlign="left" variant="p1">
+            <Typography color="neutral.main" textAlign="left" variant="p1">
               {new Date(date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "short",
@@ -88,7 +91,7 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             </Typography>
 
             <LineClampedRichTypography
-              color={neutral[900]}
+              color="neutral.dark"
               textAlign="left"
               variant="subheading"
               lineClamp={6}
@@ -97,7 +100,7 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             </LineClampedRichTypography>
             <CardActions>
               <Link
-                color={neutral[900]}
+                color="neutral.dark"
                 href={link?.href}
                 underline="always"
                 variant="p3"

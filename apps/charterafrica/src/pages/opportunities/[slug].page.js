@@ -1,6 +1,5 @@
 import React from "react";
 
-import Articles from "@/charterafrica/components/Articles";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
@@ -18,8 +17,6 @@ function Opportunities({ blocks }) {
         return <HelpdeskPageHeader {...block} key={block.slug} />;
       case "page-info":
         return <PageInfo {...block} key={block.slug} />;
-      case "community":
-        return <Articles {...block} key={block.slug} />;
       default:
         return null;
     }
