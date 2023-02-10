@@ -1,5 +1,5 @@
-import Figure from "@/commons-ui/next/Figure";
 import { Section } from "@commons-ui/core";
+import { Figure } from "@commons-ui/next";
 import { Box, Button, styled, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import React from "react";

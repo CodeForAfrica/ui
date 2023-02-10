@@ -32,7 +32,9 @@
         "S3_BUCKET",
         "S3_SECRET_ACCESS_KEY",
         "S3_REGION",
-        "SENDGRID_API_KEY"
+        "SENDGRID_API_KEY",
+        "SENDGRID_FROM_EMAIL",
+        "SENDGRID_FROM_NAME"
       ]
     },
     "codeforafrica#build": {
