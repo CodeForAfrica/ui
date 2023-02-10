@@ -18,6 +18,7 @@ import Helpdesk from "./src/payload/globals/Helpdesk";
 import Navigation from "./src/payload/globals/Navigation";
 import Settings from "./src/payload/globals/Settings";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
+import { CollectionConfig, GlobalConfig } from "payload/types";
 
 // We can't use @next/env to load env vars here (unlike in server.js) because
 // this config is used on admin UI i.e. browser, and things like process.cwd
@@ -52,8 +53,20 @@ const adapter = s3Adapter({
 
 export default buildConfig({
   serverURL: appURL,
-  collections: [Explainers, Media, Pages, Partners, Resources],
-  globals: [FocalCountries, Footer, Helpdesk, Navigation, Settings],
+  collections: [
+    Explainers as CollectionConfig,
+    Media as CollectionConfig,
+    Pages as CollectionConfig,
+    Partners as CollectionConfig,
+    Resources as CollectionConfig,
+  ],
+  globals: [
+    FocalCountries as GlobalConfig,
+    Footer as GlobalConfig,
+    Helpdesk as GlobalConfig,
+    Navigation as GlobalConfig,
+    Settings as GlobalConfig,
+  ],
   ...(locales?.length
     ? {
         localization: {
@@ -84,19 +97,18 @@ export default buildConfig({
     resources: {
       en: {
         "charterafrica.site": {
-          uniqueCountries: "Locales must be unique",
+          uniqueCountries: "Countries must be unique",
           uniqueLocales: "Locales must be unique",
+          validHexColor: "Please enter a valid color value (in hex format)",
         },
       },
       fr: {
         "charterafrica.site": {
-          uniqueCountries: "Les locaux doivent être uniques",
           uniqueLocales: "Les locaux doivent être uniques",
         },
       },
       pt: {
         "charterafrica.site": {
-          uniqueCountries: "Os locais devem ser únicos",
           uniqueLocales: "Os locais devem ser únicos",
         },
       },
@@ -115,13 +127,13 @@ export default buildConfig({
       collections: ["pages"],
       globals: ["settings"],
       uploadsCollection: "media",
-      generateTitle: ({ doc }) => doc?.title?.value,
-      generateURL: ({ doc, locale }) =>
+      generateTitle: ({ doc }: any) => doc?.title?.value as string,
+      generateURL: ({ doc, locale }: any) =>
         doc?.slug?.value ? `${appURL}/${locale}/${doc.slug.value}` : undefined,
     }),
     nestedDocs({
       collections: ["pages"],
-      generateLabel: (_, doc) => doc.title,
+      generateLabel: (_, doc) => doc.title as string,
       generateURL: (docs) =>
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
