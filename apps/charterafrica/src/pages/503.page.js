@@ -7,7 +7,7 @@ import {
 export default function CustomError({ blocks }) {
   return blocks?.map((block) => {
     switch (block?.slug) {
-      case "404":
+      case "503":
         return <ErrorPage key={block.slug} {...block} />;
       default:
         return null;
@@ -19,9 +19,12 @@ export default function CustomError({ blocks }) {
 export async function getStaticProps(args) {
   const { footer, navbar } = await fetchGlobalProps(args);
 
-  const { docs } = await fetchPage("404");
+  const { docs } = await fetchPage("503");
+  if (!docs.length) {
+    return { notFound: true };
+  }
   const [{ blocks: pages, slug }] = docs;
-  const setData = pages.find(({ statusCode }) => statusCode === 404);
+  const setData = pages.find(({ statusCode }) => statusCode === 503);
   const notFoundBlock = {
     slug,
     action: {},

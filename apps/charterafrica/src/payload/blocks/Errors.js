@@ -5,7 +5,11 @@ const mapDocToHref = ({ siblingData, req }) => {
   return mapLinkToHrefBeforeValidate({
     siblingData: {
       ...siblingData,
-      doc: { ...siblingData.doc, relationTo: "pages" },
+      doc: {
+        ...siblingData.doc,
+        relationTo: "pages",
+        breadcrumbs: siblingData.doc.breadcrumbs || [],
+      },
       linkType: "internal",
     },
     req,
@@ -13,13 +17,6 @@ const mapDocToHref = ({ siblingData, req }) => {
 };
 const Errors = {
   slug: "errors",
-  admin: {
-    useAsTitle: "title",
-    defaultColumns: ["statusCode", "title", "updatedAt"],
-  },
-  access: {
-    read: () => true, // Everyone can read Media
-  },
   fields: [
     {
       name: "statusCode",

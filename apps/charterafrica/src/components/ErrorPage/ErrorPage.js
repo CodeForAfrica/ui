@@ -16,6 +16,7 @@ const ErrorPage = React.forwardRef(function Error(props, ref) {
     title = "",
     createdAt,
     updatedAt,
+    blockType,
     action,
     ...other
   } = props;

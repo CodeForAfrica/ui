@@ -1,6 +1,7 @@
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import DemocracyHelpdeskHeader from "../blocks/DemocracyHelpdeskPageHeader";
 import Ecosystem from "../blocks/Ecosystem";
+import Errors from "../blocks/Errors";
 import Hero from "../blocks/Hero";
 import Mooc from "../blocks/Mooc";
 import PageInfo from "../blocks/PageInfo";
@@ -36,6 +37,7 @@ const Pages = {
         DemocracyHelpdeskContent,
         DemocracyHelpdeskHeader,
         Ecosystem,
+        Errors,
         Mooc,
         PageInfo,
         Partners,
