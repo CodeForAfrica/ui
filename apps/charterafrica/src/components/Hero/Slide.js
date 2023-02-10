@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Figure } from "@commons-ui/next";
+import { Figure, Link } from "@commons-ui/next";
 import { Box, Button, styled, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import React from "react";
@@ -20,6 +20,7 @@ const SlideRoot = styled(Box, {
   return {
     background,
     backgroundBlendMode,
+    height: "100%",
   };
 });
 
@@ -94,18 +95,20 @@ const Slide = React.forwardRef(function Slide(props, ref) {
             >
               {links.map((link) => (
                 <Button
-                  key={link?.content}
-                  color={link?.color}
+                  key={link.label}
+                  color={link.color}
+                  component={link.href ? Link : undefined}
+                  href={link.href}
                   size={isDesktop ? "large" : "small"}
                   variant="contained"
                   startIcon={
                     <Figure
-                      ImageProps={{ alt: link?.content, ...link?.icon }}
+                      ImageProps={link.icon}
                       sx={{ height: 16, width: 16 }}
                     />
                   }
                 >
-                  {link?.content}
+                  {link.label}
                 </Button>
               ))}
             </Box>

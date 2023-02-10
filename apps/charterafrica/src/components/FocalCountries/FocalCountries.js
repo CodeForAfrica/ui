@@ -77,19 +77,14 @@ const FocalCountries = React.forwardRef(function FocalCountries(props, ref) {
   return (
     <div ref={ref}>
       <Box backgroundColor={secondary[100]} sx={sx}>
-        <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 2, sm: 0 } }}>
+        <Section sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 2, sm: 0 } }}>
           <Grid
             container
             alignItems="center"
             justifyContent={{ xs: "center", sm: "space-between" }}
           >
             <Grid item xs={12} sm={6} order={{ xs: 0, sm: 1 }}>
-              <Box
-                bgcolor="common.white"
-                maxWidth={524}
-                p={{ xs: 2.5, md: "50px" }}
-                mx="auto"
-              >
+              <Box bgcolor="common.white" p={{ xs: 2.5, md: "50px" }} mx="auto">
                 <RichTypography
                   color={neutral[800]}
                   html={false}

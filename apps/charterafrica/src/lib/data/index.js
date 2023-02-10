@@ -93,7 +93,7 @@ async function processPageNews({ blocks }) {
         height: 696,
         createdAt: "2023-01-26T11:21:14.868Z",
         updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "http://localhost:3000/images/Rectangle 113.jpg",
+        url: "/images/Rectangle 113.jpg",
       },
     })),
   });
@@ -149,7 +149,7 @@ async function processPageResearch({ blocks }) {
         height: 696,
         createdAt: "2023-01-26T11:21:14.868Z",
         updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "http://localhost:3000/images/Rectangle 113.jpg",
+        url: "/images/Rectangle 113.jpg",
       },
     })),
   });
