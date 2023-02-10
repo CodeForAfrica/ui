@@ -7,11 +7,11 @@ import { Pie, Waffle } from "@/charterafrica/components/Charts";
 const Chart = React.forwardRef(function Chart(props, ref) {
   const { data, ...other } = props;
   const [windowSize, setWindowSize] = useState({
-    innerHeight: 390,
-    innerWidth: 390,
+    innerHeight: 350,
+    innerWidth: 350,
   });
   const theme = useTheme();
-  const isSmUp = useMediaQuery(theme.breakpoints.up("sm"));
+  const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
   useEffect(() => {
     function handleWindowResize() {
@@ -34,8 +34,8 @@ const Chart = React.forwardRef(function Chart(props, ref) {
     ChartRoot = Waffle;
     total = data.reduce((acc, curr) => acc + curr.value, 0);
   }
-  let chartHeight = Math.min(windowSize.innerWidth - 20, 445);
-  if (isSmUp) {
+  let chartHeight = Math.min(windowSize.innerWidth - 20, 350);
+  if (isMdUp) {
     chartHeight = 445;
   }
   return (
