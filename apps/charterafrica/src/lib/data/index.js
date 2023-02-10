@@ -1,3 +1,4 @@
+import fetchApi from "./fetchApi";
 import { getPageSeoFromMeta } from "./seo";
 
 import { payload } from "@/charterafrica/lib";
@@ -160,57 +161,38 @@ export async function getPageServerSideProps({
   };
 }
 
-export const loginToPayload = async () => {
-  const email = process.env.NEXT_PUBLIC_APP_AUTH_EMAIL;
-  const password = process.env.NEXT_PUBLIC_APP_AUTH_PASSWORD;
-  const data = { email, password };
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/users/login`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }
-  );
-  const response = await res.json();
-  return response;
-};
-
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL;
 export const fetchGlobals = async (collection, { defaultLocale, locale }) => {
-  const { token } = await loginToPayload();
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/globals/${collection}?locale=${locale}&fallback-locale=${defaultLocale}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Cookie: `payload-token=${token}`,
-      },
-    }
-  );
-  const response = await res.json();
-  return response;
+  const params = { locale, "fallback-locale": defaultLocale };
+  const res = await fetchApi.get(`${BASE_URL}/api/globals/${collection}`, {
+    params,
+  });
+  return res;
 };
 
 export const fetchCollection = async (
   collection,
-  { defaultLocale, locale }
+  { defaultLocale, locale, ...rest }
 ) => {
-  const { token } = await loginToPayload();
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/${collection}?locale=${locale}&fallback-locale=${defaultLocale}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Cookie: `payload-token=${token}`,
-      },
-    }
+  const params = { locale, "fallback-locale": defaultLocale, ...rest };
+  const res = await fetchApi.get(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/${collection}`,
+    { params }
   );
-  const response = await res.json();
-  return response;
+  return res;
+};
+
+export const fetchPage = async (slug, args) => {
+  const params = {
+    ...args,
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  };
+  const res = await fetchCollection("pages", params);
+  return res;
 };
 
 export const fetchFooter = async (args) => {
