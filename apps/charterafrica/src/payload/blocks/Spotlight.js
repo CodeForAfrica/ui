@@ -123,6 +123,14 @@ const Spotlight = {
           ],
         },
       ],
+      admin: {
+        initCollapsed: true,
+        components: {
+          RowLabel: ({ data }) => {
+            return data?.item?.title || data?.id;
+          },
+        },
+      },
     },
   ],
 };
