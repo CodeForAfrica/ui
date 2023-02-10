@@ -18,7 +18,7 @@ exports[`<Hero /> renders unchanged 1`] = `
           style="width: 100%; flex-shrink: 0; overflow: auto;"
         >
           <div
-            class="MuiBox-root css-4bco8g"
+            class="MuiBox-root css-1lerasb"
           >
             <div
               class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1rixvdt-MuiContainer-root"
