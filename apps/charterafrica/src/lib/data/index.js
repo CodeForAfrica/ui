@@ -175,8 +175,9 @@ async function processPageFellowships({ blocks }) {
         height: 696,
         createdAt: "2023-01-26T11:21:14.868Z",
         updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "http://localhost:3000/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg",
+        url: "/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg",
       },
+      deadline: "2023-02-11",
       status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
     })),
   });
