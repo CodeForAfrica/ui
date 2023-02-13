@@ -39,14 +39,14 @@ const Grants = React.forwardRef(function Grants(props, ref) {
 
       {grants.map((grant) => {
         return (
-          <Box key={grant.title}>
+          <>
             <CardList
               title={grant.title}
               grants={grant.grants}
               key={grant.title}
             />
             <StyledDivider key={grant.title} />
-          </Box>
+          </>
         );
       })}
     </Box>
