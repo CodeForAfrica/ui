@@ -8,7 +8,7 @@ exports[`<OpportunityCard /> renders unchanged 1`] = `
   >
     <img
       alt="Grant 1"
-      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-15muzzl-MuiCardMedia-root"
+      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
       height="187.26"
       src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
       width="270"

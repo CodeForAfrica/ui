@@ -2,9 +2,11 @@
 
 exports[`<GrantsList /> renders unchanged 1`] = `
 <div>
-  <div>
+  <div
+    class="MuiBox-root css-0"
+  >
     <div
-      style="display: flex; justify-content: space-between;"
+      class="MuiBox-root css-59759x"
     >
       <h5
         class="MuiTypography-root MuiTypography-h5SemiBold css-a5o6k0-MuiTypography-root"
@@ -12,14 +14,14 @@ exports[`<GrantsList /> renders unchanged 1`] = `
         Grants
       </h5>
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ye2hvo-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
         href="/grants"
       >
         View All
       </a>
     </div>
     <div
-      style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between;"
+      class="MuiBox-root css-1gts8n"
     >
       <div>
         <div
@@ -28,7 +30,7 @@ exports[`<GrantsList /> renders unchanged 1`] = `
         >
           <img
             alt="Grant 1"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-15muzzl-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
             height="187.26"
             src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
             width="270"
@@ -62,7 +64,7 @@ exports[`<GrantsList /> renders unchanged 1`] = `
         >
           <img
             alt="Grant 2"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-15muzzl-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
             height="187.26"
             src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
             width="270"
@@ -96,7 +98,7 @@ exports[`<GrantsList /> renders unchanged 1`] = `
         >
           <img
             alt="Grant 3"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-15muzzl-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
             height="187.26"
             src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
             width="270"
