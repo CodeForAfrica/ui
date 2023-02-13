@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Typography, Box, Container } from "@mui/material";
+import { Typography, Box, Container, Divider } from "@mui/material";
 import React from "react";
 
 import Grants from "../Grants";
@@ -28,22 +28,18 @@ const Fellowships = React.forwardRef(function Fellowships(props, ref) {
         </Typography>
       </Container>
       <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "74.5px" } }}>
-        <Typography
-          variant="h3"
-          color={neutral[900]}
-          sx={{
-            paddingBottom: "40px",
-          }}
-        >
+        <Typography variant="h3" color={neutral[900]}>
           Grants and Fellowships
         </Typography>
-        <hr
-          style={{
+        <Divider
+          sx={{
             width: "100%",
             height: "0px",
             color: neutral[200],
             border: "1px solid",
             borderColor: neutral[200],
+            marginTop: "40px",
+            marginBottom: "40px",
           }}
         />
         <Grants grants={grants} />

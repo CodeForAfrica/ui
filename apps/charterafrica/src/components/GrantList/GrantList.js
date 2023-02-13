@@ -1,20 +1,21 @@
 import Link from "@/commons-ui/next/Link";
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import React from "react";
 
 import OpportunityCard from "../OpportunityCard";
 
 import { neutral } from "@/charterafrica/colors";
 
-const GrantsList = React.forwardRef(function GrantsList(props) {
+const GrantsList = React.forwardRef(function GrantsList(props, ref) {
   const { title, grants } = props;
 
   return (
-    <div>
-      <div
-        style={{
+    <Box ref={ref}>
+      <Box
+        sx={{
           display: "flex",
           justifyContent: "space-between",
+          marginBottom: "40px",
         }}
       >
         <Typography variant="h5SemiBold" color={neutral[900]}>
@@ -23,16 +24,16 @@ const GrantsList = React.forwardRef(function GrantsList(props) {
         <Link
           href="/grants"
           underline="always"
+          color={neutral[900]}
           sx={{
-            color: neutral[900],
             variant: "p3SemiBold",
           }}
         >
           View All
         </Link>
-      </div>
-      <div
-        style={{
+      </Box>
+      <Box
+        sx={{
           display: "flex",
           flexDirection: "row",
           flexWrap: "nowrap",
@@ -46,8 +47,8 @@ const GrantsList = React.forwardRef(function GrantsList(props) {
             </div>
           );
         })}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 });
 

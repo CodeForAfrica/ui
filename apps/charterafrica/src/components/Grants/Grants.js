@@ -1,9 +1,19 @@
-import { Typography } from "@mui/material";
+import { Typography, Box, Divider, styled } from "@mui/material";
 import React from "react";
 
 import GrantsList from "../GrantList";
 
 import { neutral } from "@/charterafrica/colors";
+
+const StyledDivider = styled(Divider)(() => ({
+  width: "100%",
+  height: "0px",
+  color: neutral[200],
+  border: "1px solid",
+  borderColor: neutral[200],
+  marginTop: "40px",
+  marginBottom: "40px",
+}));
 
 const Grants = React.forwardRef(function Grants(props, ref) {
   const { grants } = props;
@@ -13,49 +23,25 @@ const Grants = React.forwardRef(function Grants(props, ref) {
   const upcomingGrants = grants.filter((grant) => grant.status === "upcoming");
 
   return (
-    <div ref={ref}>
+    <Box ref={ref}>
       <Typography
         variant="h3Small"
         color={neutral[900]}
         sx={{
           paddingBottom: "40px",
-          paddingTop: "40px",
         }}
       >
         Grants
       </Typography>
 
-      <GrantsList title="Open Grants" grants={openGrants} />
-      <hr
-        style={{
-          width: "100%",
-          height: "0px",
-          color: neutral[200],
-          border: "1px solid",
-          borderColor: neutral[200],
-        }}
-      />
-      <GrantsList title="Closed Grants" grants={closedGrants} />
-      <hr
-        style={{
-          width: "100%",
-          height: "0px",
-          color: neutral[200],
-          border: "1px solid",
-          borderColor: neutral[200],
-        }}
-      />
-      <GrantsList title="Upcoming Grants" grants={upcomingGrants} />
-      <hr
-        style={{
-          width: "100%",
-          height: "0px",
-          color: neutral[200],
-          border: "1px solid",
-          borderColor: neutral[200],
-        }}
-      />
-    </div>
+      <GrantsList title="Open Calls" grants={openGrants} />
+      <StyledDivider />
+      <GrantsList title="Closed Calls" grants={closedGrants} />
+      <StyledDivider />
+
+      <GrantsList title="Upcoming Calls" grants={upcomingGrants} />
+      <StyledDivider />
+    </Box>
   );
 });
 
