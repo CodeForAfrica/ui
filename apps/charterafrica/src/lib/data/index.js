@@ -180,6 +180,27 @@ async function processPageFellowships({ blocks }) {
       deadline: "2023-02-11",
       status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
     })),
+    fellowships: Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      title: "Democratic Governance in Zambia",
+      description:
+        "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `Grant ${i}`,
+        prefix: "media",
+        filename: "Rectangle 113.jpg",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "/images/fellowships.png",
+      },
+      deadline: "2023-02-11",
+      category: ["technologies", "other"][Math.floor(Math.random() * 2)],
+    })),
   });
 }
 

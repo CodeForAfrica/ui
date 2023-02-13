@@ -13,14 +13,17 @@ const StyledDivider = styled(Divider)(() => ({
   borderColor: neutral[200],
   marginTop: "40px",
   marginBottom: "40px",
+  "&:last-child": {
+    display: "none",
+  },
 }));
 
 const Grants = React.forwardRef(function Grants(props, ref) {
-  const { grants } = props;
+  const { grants, title } = props;
 
-  const openGrants = grants.filter((grant) => grant.status === "open");
-  const closedGrants = grants.filter((grant) => grant.status === "closed");
-  const upcomingGrants = grants.filter((grant) => grant.status === "upcoming");
+  if (!grants) {
+    return null;
+  }
 
   return (
     <Box ref={ref}>
@@ -31,16 +34,17 @@ const Grants = React.forwardRef(function Grants(props, ref) {
           paddingBottom: "40px",
         }}
       >
-        Grants
+        {title}
       </Typography>
 
-      <CardList title="Open Calls" grants={openGrants} />
-      <StyledDivider />
-      <CardList title="Closed Calls" grants={closedGrants} />
-      <StyledDivider />
-
-      <CardList title="Upcoming Calls" grants={upcomingGrants} />
-      <StyledDivider />
+      {grants.map((grant) => {
+        return (
+          <>
+            <CardList title={grant.title} grants={grant.grants} />
+            <StyledDivider />
+          </>
+        );
+      })}
     </Box>
   );
 });

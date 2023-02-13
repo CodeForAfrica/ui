@@ -18,7 +18,13 @@ const CardList = React.forwardRef(function CardList(props, ref) {
           marginBottom: "40px",
         }}
       >
-        <Typography variant="h5SemiBold" color={neutral[900]}>
+        <Typography
+          variant="h5SemiBold"
+          color={neutral[900]}
+          sx={{
+            textTransform: "capitalize",
+          }}
+        >
           {title}
         </Typography>
         <Link
