@@ -22,7 +22,7 @@ export class FetchApi {
   async authenticate() {
     const data = { email: this.email, password: this.password };
     const res = await this.post(
-      `${process.env.NEXT_PUBLIC_APP_URL}/api/users/login`,
+      `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/users/login`,
       { data },
       false
     );

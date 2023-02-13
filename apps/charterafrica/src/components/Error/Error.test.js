@@ -9,7 +9,7 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  title: "Explainers",
+  title: "NOT FOUND",
   statusCode: 404,
   description: [{ children: [{ text: "Description Text" }] }],
   action: { title: "NOT FOUND" },

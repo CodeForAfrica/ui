@@ -10,19 +10,9 @@ import BackgroundBox from "@/charterafrica/components/BackgroundBox";
 import RichText from "@/charterafrica/components/RichText";
 
 const Error = React.forwardRef(function Error(props, ref) {
-  const {
-    statusCode,
-    description = [],
-    title = "",
-    createdAt,
-    updatedAt,
-    blockType,
-    action,
-    ...other
-  } = props;
+  const { statusCode, description = [], title = "", link } = props;
   return (
     <BackgroundBox
-      {...other}
       bgcolor={secondary[50]}
       display="flex"
       alignItems="center"
@@ -38,14 +28,15 @@ const Error = React.forwardRef(function Error(props, ref) {
       }}
       ref={ref}
     >
-      <Section sx={{ p: 10 }}>
+      <Section sx={{ p: 10, textAlign: "center" }}>
         <RichTypography color="neutral.dark" textAlign="center" variant="h1">
           {statusCode}
         </RichTypography>
         <RichTypography
-          sx={{ mt: 2.5, textTransform: "uppercase" }}
           color="neutral.dark"
+          mt={2.5}
           textAlign="center"
+          textTransform="uppercase"
           variant="h3"
         >
           {title}
@@ -57,13 +48,16 @@ const Error = React.forwardRef(function Error(props, ref) {
           variant="p3"
           elements={description}
         />
-        <RichTypography component="div" textAlign="center">
-          <Link underline="none" href={action.href || ""}>
-            <Button sx={{ mt: 5 }} color="secondary" variant="contained">
-              {action?.title}
-            </Button>
-          </Link>
-        </RichTypography>
+
+        <Button
+          component={Link}
+          href={link.href || ""}
+          sx={{ mt: 5 }}
+          color="secondary"
+          variant="contained"
+        >
+          {link?.label}
+        </Button>
       </Section>
     </BackgroundBox>
   );

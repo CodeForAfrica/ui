@@ -1,20 +1,6 @@
-import { mapLinkToHrefBeforeValidate } from "../fields/link";
+import linkGroup from "../fields/linkGroup";
 import richText from "../fields/richText";
 
-const mapDocToHref = ({ siblingData, req }) => {
-  return mapLinkToHrefBeforeValidate({
-    siblingData: {
-      ...siblingData,
-      doc: {
-        ...siblingData.doc,
-        relationTo: "pages",
-        breadcrumbs: siblingData.doc.breadcrumbs || [],
-      },
-      linkType: "internal",
-    },
-    req,
-  });
-};
 const Errors = {
   slug: "errors",
   fields: [
@@ -54,57 +40,7 @@ const Errors = {
         elements: [],
       },
     }),
-    {
-      name: "action",
-      localized: true,
-      required: true,
-      label: {
-        en: "Action",
-        fr: "Action",
-        pt: "Ação",
-      },
-      type: "group",
-      fields: [
-        {
-          name: "title",
-          maxLength: 50,
-          label: {
-            en: "Title",
-            fr: "Titre",
-            pt: "Título",
-          },
-          type: "text",
-          localized: true,
-          required: true,
-        },
-        {
-          name: "doc",
-          label: {
-            en: "Document to link to",
-            fr: "Document pour lien vers",
-            pt: "Documento para link para",
-          },
-          type: "relationship",
-          relationTo: ["pages"],
-          required: false,
-          maxDepth: 1,
-          admin: {
-            description: () => "If left blank, defaults to page reload",
-          },
-        },
-        {
-          name: "href",
-          type: "text",
-          required: true,
-          admin: {
-            hidden: true,
-          },
-          hooks: {
-            beforeValidate: [mapDocToHref],
-          },
-        },
-      ],
-    },
+    linkGroup(),
   ],
 };
 
