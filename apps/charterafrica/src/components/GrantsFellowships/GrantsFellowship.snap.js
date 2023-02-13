@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GrantsFellowships /> renders unchanged 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-156ejva"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg css-y402kr-MuiContainer-root"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-p1SemiBold css-12dxyvz-MuiTypography-root"
+      >
+        A list of all Chart Africa grants, fellowships and events.
+      </p>
+    </div>
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-qb38zz-MuiContainer-root"
+    >
+      <h3
+        class="MuiTypography-root MuiTypography-h3 css-c1id4g-MuiTypography-root"
+      >
+        Grants and Fellowships
+      </h3>
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-1petljr-MuiDivider-root"
+      />
+      <div
+        class="MuiBox-root css-0"
+      >
+        <h3
+          class="MuiTypography-root MuiTypography-h3Small css-17s1jjl-MuiTypography-root"
+        >
+          Grants
+        </h3>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <div
+            class="MuiBox-root css-59759x"
+          >
+            <h5
+              class="MuiTypography-root MuiTypography-h5SemiBold css-a5o6k0-MuiTypography-root"
+            >
+              Open Calls
+            </h5>
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
+              href="/grants"
+            >
+              View All
+            </a>
+          </div>
+          <div
+            class="MuiBox-root css-1gts8n"
+          >
+            <div>
+              <div
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
+                style="width: 270px; box-shadow: none; background-color: rgb(254, 250, 237);"
+              >
+                <img
+                  alt="Grant 1"
+                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
+                  height="187.26"
+                  src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
+                  width="270"
+                />
+                <div
+                  class="MuiCardContent-root css-1hoqlal-MuiCardContent-root"
+                >
+                  <h6
+                    class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+                  >
+                    Democratic Governance in Zambia
+                  </h6>
+                  <p
+                    class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
+                  >
+                    This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
+                  </p>
+                  <span
+                    class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                  >
+                    Deadline: 
+                    2023-02-11
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-pdvg27-MuiDivider-root"
+        />
+        <div
+          class="MuiBox-root css-0"
+        >
+          <div
+            class="MuiBox-root css-59759x"
+          >
+            <h5
+              class="MuiTypography-root MuiTypography-h5SemiBold css-a5o6k0-MuiTypography-root"
+            >
+              Closed Calls
+            </h5>
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
+              href="/grants"
+            >
+              View All
+            </a>
+          </div>
+          <div
+            class="MuiBox-root css-1gts8n"
+          >
+            <div>
+              <div
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
+                style="width: 270px; box-shadow: none; background-color: rgb(254, 250, 237);"
+              >
+                <img
+                  alt="Grant 2"
+                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
+                  height="187.26"
+                  src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
+                  width="270"
+                />
+                <div
+                  class="MuiCardContent-root css-1hoqlal-MuiCardContent-root"
+                >
+                  <h6
+                    class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+                  >
+                    Democratic Governance in Zambia
+                  </h6>
+                  <p
+                    class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
+                  >
+                    This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
+                  </p>
+                  <span
+                    class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                  >
+                    Deadline: 
+                    2023-02-11
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-pdvg27-MuiDivider-root"
+        />
+        <div
+          class="MuiBox-root css-0"
+        >
+          <div
+            class="MuiBox-root css-59759x"
+          >
+            <h5
+              class="MuiTypography-root MuiTypography-h5SemiBold css-a5o6k0-MuiTypography-root"
+            >
+              Upcoming Calls
+            </h5>
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
+              href="/grants"
+            >
+              View All
+            </a>
+          </div>
+          <div
+            class="MuiBox-root css-1gts8n"
+          >
+            <div>
+              <div
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
+                style="width: 270px; box-shadow: none; background-color: rgb(254, 250, 237);"
+              >
+                <img
+                  alt="Grant 3"
+                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
+                  height="187.26"
+                  src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
+                  width="270"
+                />
+                <div
+                  class="MuiCardContent-root css-1hoqlal-MuiCardContent-root"
+                >
+                  <h6
+                    class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+                  >
+                    Democratic Governance in Zambia
+                  </h6>
+                  <p
+                    class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
+                  >
+                    This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
+                  </p>
+                  <span
+                    class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                  >
+                    Deadline: 
+                    2023-02-11
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-pdvg27-MuiDivider-root"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

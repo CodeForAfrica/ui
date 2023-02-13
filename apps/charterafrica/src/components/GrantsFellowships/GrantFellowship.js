@@ -6,7 +6,10 @@ import Grants from "../Grants";
 
 import { neutral, secondary } from "@/charterafrica/colors";
 
-const Fellowships = React.forwardRef(function Fellowships(props, ref) {
+const GrantsFellowships = React.forwardRef(function GrantsFellowships(
+  props,
+  ref
+) {
   const { sx, grants } = props;
   return (
     <Box
@@ -48,4 +51,4 @@ const Fellowships = React.forwardRef(function Fellowships(props, ref) {
   );
 });
 
-export default Fellowships;
+export default GrantsFellowships;
