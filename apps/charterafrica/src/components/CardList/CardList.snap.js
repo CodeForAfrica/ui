@@ -9,7 +9,7 @@ exports[`<CardList /> renders unchanged 1`] = `
       class="MuiBox-root css-59759x"
     >
       <h5
-        class="MuiTypography-root MuiTypography-h5SemiBold css-a5o6k0-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h5SemiBold css-1i8y2l6-MuiTypography-root"
       >
         Grants
       </h5>

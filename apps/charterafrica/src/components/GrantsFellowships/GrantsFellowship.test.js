@@ -74,6 +74,71 @@ const defaultProps = {
       status: "upcoming",
     },
   ],
+  fellowships: [
+    {
+      id: 1,
+      title: "Democratic Governance in Zambia",
+      description:
+        "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `Grant 1`,
+        prefix: "media",
+        filename: "Rectangle 113.jpg",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "/images/fellowships.pg",
+      },
+      deadline: "2023-02-11",
+      category: "technologies",
+    },
+    {
+      id: 2,
+      title: "Democratic Governance in Zambia",
+      description:
+        "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `Grant 2`,
+        prefix: "media",
+        filename: "Rectangle 113.jpg",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "/images/fellowships.pg",
+      },
+      deadline: "2023-02-11",
+      category: "other",
+    },
+    {
+      id: 3,
+      title: "Democratic Governance in Zambia",
+      description:
+        "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `Grant 3`,
+        prefix: "media",
+        filename: "Rectangle 113.jpg",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "/images/fellowships.pg",
+      },
+      deadline: "2023-02-11",
+      category: "other",
+    },
+  ],
 };
 
 describe("<GrantsFellowships />", () => {
