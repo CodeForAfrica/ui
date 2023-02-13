@@ -47,11 +47,7 @@ const CardList = React.forwardRef(function CardList(props, ref) {
         }}
       >
         {grants.slice(0, 4).map((grant) => {
-          return (
-            <div>
-              <OpportunityCard opportunity={grant} key={grant.id} />
-            </div>
-          );
+          return <OpportunityCard opportunity={grant} key={grant.id} />;
         })}
       </Box>
     </Box>
