@@ -1,7 +1,7 @@
 import { Typography, Box, Divider, styled } from "@mui/material";
 import React from "react";
 
-import GrantsList from "../GrantList";
+import CardList from "../CardList";
 
 import { neutral } from "@/charterafrica/colors";
 
@@ -34,12 +34,12 @@ const Grants = React.forwardRef(function Grants(props, ref) {
         Grants
       </Typography>
 
-      <GrantsList title="Open Calls" grants={openGrants} />
+      <CardList title="Open Calls" grants={openGrants} />
       <StyledDivider />
-      <GrantsList title="Closed Calls" grants={closedGrants} />
+      <CardList title="Closed Calls" grants={closedGrants} />
       <StyledDivider />
 
-      <GrantsList title="Upcoming Calls" grants={upcomingGrants} />
+      <CardList title="Upcoming Calls" grants={upcomingGrants} />
       <StyledDivider />
     </Box>
   );

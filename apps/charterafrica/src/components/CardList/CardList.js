@@ -6,7 +6,7 @@ import OpportunityCard from "../OpportunityCard";
 
 import { neutral } from "@/charterafrica/colors";
 
-const GrantsList = React.forwardRef(function GrantsList(props, ref) {
+const CardList = React.forwardRef(function CardList(props, ref) {
   const { title, grants } = props;
 
   return (
@@ -52,4 +52,4 @@ const GrantsList = React.forwardRef(function GrantsList(props, ref) {
   );
 });
 
-export default GrantsList;
+export default CardList;

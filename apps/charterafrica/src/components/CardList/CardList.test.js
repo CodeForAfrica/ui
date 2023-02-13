@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import GrantsList from "./GrantList";
+import CardList from "./CardList";
 
 import theme from "@/charterafrica/theme";
 
@@ -77,9 +77,9 @@ const defaultProps = {
   ],
 };
 
-describe("<GrantsList />", () => {
+describe("<CardList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<GrantsList {...defaultProps} />);
+    const { container } = render(<CardList {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

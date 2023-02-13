@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<GrantsList /> renders unchanged 1`] = `
+exports[`<CardList /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-0"
