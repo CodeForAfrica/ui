@@ -8,7 +8,6 @@ import NavBar from "@/charterafrica/components/NavBar";
 
 const Main = styled("main")({
   flex: 1,
-  position: "relative",
 });
 
 function Layout({ children, navbar, footer, seo }) {

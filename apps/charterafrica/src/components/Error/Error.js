@@ -22,13 +22,13 @@ const Error = React.forwardRef(function Error(props, ref) {
         },
         height: "100%",
         width: "100%",
-        position: { md: "absolute", xs: "relative" },
+        minHeight: 516,
         backgroundSize: "50% 100%",
         ...props?.sx,
       }}
       ref={ref}
     >
-      <Section sx={{ p: 10, textAlign: "center" }}>
+      <Section sx={{ p: 12, textAlign: "center" }}>
         <RichTypography color="neutral.dark" textAlign="center" variant="h1">
           {statusCode}
         </RichTypography>
