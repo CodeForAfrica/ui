@@ -3,18 +3,18 @@
 exports[`<Ecosystem /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-i6bazn"
+    class="MuiBox-root css-1tqge2o"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-7zbiin-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-8gzjef-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-h2Small css-96wwks-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2Small css-1em2cag-MuiTypography-root"
       >
         Tools
       </div>
       <div
-        class="MuiTypography-root MuiTypography-h2Small css-v2x6y7-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2Small css-872sbx-MuiTypography-root"
       >
         People
       </div>
@@ -22,41 +22,73 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3.75 css-1mmhzy4-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item css-l2rmlj-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1f7q5k1-MuiGrid-root"
         >
           <div
-            class="MuiBox-root css-1fibrp8"
+            class="MuiBox-root css-ii4xwr"
           >
             <div
               style="width: 100%; height: 100%;"
             />
           </div>
           <div
-            class="MuiBox-root css-1leit3l"
+            class="MuiBox-root css-qrdm0d"
           >
             <div
               style="width: 100%; height: 100%;"
             />
+          </div>
+          <div
+            class="MuiBox-root css-kx5zyc"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-17y5fsj-MuiTypography-root"
+            >
+              Tools
+            </div>
+            <span
+              class="MuiSwitch-root MuiSwitch-sizeMedium css-b208sr-MuiSwitch-root"
+            >
+              <span
+                class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1sd4tst-MuiButtonBase-root-MuiSwitch-switchBase"
+              >
+                <input
+                  class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+                  type="checkbox"
+                />
+                <span
+                  class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+                />
+              </span>
+              <span
+                class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+              />
+            </span>
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1n5mmig-MuiTypography-root"
+            >
+              People
+            </div>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1jxk7an-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-je341k-MuiGrid-root"
         >
           <div
             class="MuiBox-root css-13wj3xb"
           >
             <div
-              class="MuiTypography-root MuiTypography-h2Small css-yls6qg-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2Small css-1g6h79t-MuiTypography-root"
             >
               Tools
             </div>
             <div
-              class="MuiTypography-root MuiTypography-h2Small css-w2j6ee-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2Small css-xnhqlr-MuiTypography-root"
             >
               People
             </div>
             <div
-              class="MuiBox-root css-tjt9jc"
+              class="MuiBox-root css-1k5ue6b"
             >
               <div
                 class="MuiTypography-root MuiTypography-p3SemiBold css-17y5fsj-MuiTypography-root"
@@ -96,7 +128,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                 Key
               </div>
               <div
-                class="MuiBox-root css-10fle11"
+                class="MuiBox-root css-zuj819"
               >
                 <div
                   class="MuiBox-root css-kst8rm"
@@ -241,7 +273,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                 Key
               </div>
               <div
-                class="MuiBox-root css-10fle11"
+                class="MuiBox-root css-zuj819"
               >
                 <div
                   class="MuiBox-root css-kst8rm"

@@ -36,10 +36,11 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
   // To ensure faster/smoother rendering, we'll rander all items and only
   // display the selected one.
   return (
-    <Box sx={sx} overflow="hidden" ref={ref}>
-      <Section sx={{ px: { xs: "5px", sm: 0 }, py: { xs: 5, md: "50px" } }}>
+    <Box bgcolor="common.white" sx={sx} overflow="hidden" ref={ref}>
+      <Section sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: "50px" } }}>
         {items.map((datum, i) => (
           <LineClampedRichTypography
+            color="neutral.dark"
             display={{
               xs:
                 (checked && i === 1) || (!checked && i === 0) ? "flex" : "none",
@@ -59,7 +60,8 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
           justifyContent="space-between"
           spacing={{ xs: 3.75, md: 0 }}
         >
-          <Grid item order={{ xs: 0, md: 1 }}>
+          {/* Chart column  */}
+          <Grid item xs={12} sm={6} order={{ xs: 0, md: 1 }}>
             {items.map((datum, i) => (
               <Chart
                 data={datum.data}
@@ -72,11 +74,18 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
                 key={datum.title}
               />
             ))}
+            <ToggleSwitch
+              {...ToggleSwitchProps}
+              order={{ xs: 3, md: 2 }}
+              sx={{ display: { xs: "none", sm: "flex", md: "none" }, mt: 4 }}
+            />
           </Grid>
-          <Grid item xs={12} md={6} order={{ xs: 1, md: 0 }}>
+          {/* Key column */}
+          <Grid item xs={12} sm={6} order={{ xs: 1, md: 0 }}>
             <Box display="flex" gap={3.75} flexDirection="column">
               {items.map((datum, i) => (
                 <LineClampedRichTypography
+                  color="neutral.dark"
                   display={{
                     xs: "none",
                     md:
@@ -93,7 +102,11 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
                   {datum.title}
                 </LineClampedRichTypography>
               ))}
-              <ToggleSwitch {...ToggleSwitchProps} order={{ xs: 3, md: 2 }} />
+              <ToggleSwitch
+                {...ToggleSwitchProps}
+                order={{ xs: 3, md: 2 }}
+                sx={{ display: { xs: "flex", sm: "none", md: "flex" } }}
+              />
               {items.map((datum, i) => (
                 <Key
                   data={data.data}

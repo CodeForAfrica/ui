@@ -62,8 +62,24 @@ const Ecosystem = {
               required: true,
             },
           ],
+          admin: {
+            initCollapsed: true,
+            components: {
+              RowLabel: ({ data }) => {
+                return data?.label || data?.id;
+              },
+            },
+          },
         },
       ],
+      admin: {
+        initCollapsed: true,
+        components: {
+          RowLabel: ({ data }) => {
+            return data?.title || data?.id;
+          },
+        },
+      },
     },
   ],
 };

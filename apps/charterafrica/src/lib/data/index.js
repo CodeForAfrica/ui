@@ -46,6 +46,32 @@ async function processPageExplainers({ title, blocks }) {
 
 async function processPageNews({ blocks }) {
   // TODO(kilemensi): Pull data from CMS
+
+  blocks.push({
+    slug: "featured-post",
+    id: 1,
+    title: "News story title goes here and spans over second line. ",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur  ",
+    date: "2023-02-11",
+    image: {
+      id: "63d2622aafe25f6469605eae",
+      alt: `Featured News`,
+      prefix: "media",
+      filename: "Rectangle 113.jpg",
+      mimeType: "image/jpg",
+      filesize: 257010,
+      width: 1236,
+      height: 696,
+      createdAt: "2023-01-26T11:21:14.868Z",
+      updatedAt: "2023-01-26T11:21:14.868Z",
+      url: "/images/featured_post.jpeg",
+    },
+    link: {
+      href: "/research/1",
+    },
+  });
+
   blocks.push({
     slug: "news",
     title: "News",
@@ -67,7 +93,7 @@ async function processPageNews({ blocks }) {
         height: 696,
         createdAt: "2023-01-26T11:21:14.868Z",
         updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "http://localhost:3000/images/Rectangle 113.jpg",
+        url: "/images/Rectangle 113.jpg",
       },
     })),
   });
@@ -75,6 +101,33 @@ async function processPageNews({ blocks }) {
 
 async function processPageResearch({ blocks }) {
   // TODO(kilemensi): Pull data from CMS
+
+  blocks.push({
+    slug: "featured-post",
+    id: 1,
+    title: "Featured Post title goes here and spans over second line. ",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur  ",
+    author: "Sakwa G",
+    date: "2023-02-11",
+    image: {
+      id: "63d2622aafe25f6469605eae",
+      alt: `Featured Post`,
+      prefix: "media",
+      filename: "Rectangle 113.jpg",
+      mimeType: "image/jpg",
+      filesize: 257010,
+      width: 1236,
+      height: 696,
+      createdAt: "2023-01-26T11:21:14.868Z",
+      updatedAt: "2023-01-26T11:21:14.868Z",
+      url: "/images/featured_post.jpeg",
+    },
+    link: {
+      href: "/research/1",
+    },
+  });
+
   blocks.push({
     slug: "research",
     title: "Research",
@@ -96,7 +149,7 @@ async function processPageResearch({ blocks }) {
         height: 696,
         createdAt: "2023-01-26T11:21:14.868Z",
         updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "http://localhost:3000/images/Rectangle 113.jpg",
+        url: "/images/Rectangle 113.jpg",
       },
     })),
   });

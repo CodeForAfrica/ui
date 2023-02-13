@@ -1,5 +1,6 @@
 import React from "react";
 
+import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
 import Fellowships from "@/charterafrica/components/Fellowships";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
@@ -9,6 +10,8 @@ import { getPageServerSideProps } from "@/charterafrica/lib/data";
 function Opportunities({ blocks }) {
   return blocks?.map((block) => {
     switch (block?.slug) {
+      case "featured-post":
+        return <FeaturedPostCard {...block} key={block.slug} />;
       case "helpdesk-page-content":
         return <HelpdeskPageContent {...block} key={block.slug} />;
       case "helpdesk-page-header":
