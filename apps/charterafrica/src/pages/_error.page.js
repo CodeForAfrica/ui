@@ -1,4 +1,4 @@
-import ErrorPage from "@/charterafrica/components/ErrorPage";
+import Error from "@/charterafrica/components/Error";
 import {
   fetchGlobalProps,
   fetchPage,
@@ -8,7 +8,7 @@ export default function CustomError({ blocks }) {
   return blocks?.map((block) => {
     switch (block?.slug) {
       case "500":
-        return <ErrorPage key={block.slug} {...block} />;
+        return <Error key={block.slug} {...block} />;
       default:
         return null;
     }

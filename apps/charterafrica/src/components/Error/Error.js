@@ -5,11 +5,11 @@ import { Button } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import { secondary, neutral } from "@/charterafrica/colors";
+import { secondary } from "@/charterafrica/colors";
 import BackgroundBox from "@/charterafrica/components/BackgroundBox";
 import RichText from "@/charterafrica/components/RichText";
 
-const ErrorPage = React.forwardRef(function Error(props, ref) {
+const Error = React.forwardRef(function Error(props, ref) {
   const {
     statusCode,
     description = [],
@@ -39,12 +39,12 @@ const ErrorPage = React.forwardRef(function Error(props, ref) {
       ref={ref}
     >
       <Section sx={{ p: 10 }}>
-        <RichTypography color={neutral[900]} textAlign="center" variant="h1">
+        <RichTypography color="neutral.dark" textAlign="center" variant="h1">
           {statusCode}
         </RichTypography>
         <RichTypography
           sx={{ mt: 2.5, textTransform: "uppercase" }}
-          color={neutral[900]}
+          color="neutral.dark"
           textAlign="center"
           variant="h3"
         >
@@ -52,7 +52,7 @@ const ErrorPage = React.forwardRef(function Error(props, ref) {
         </RichTypography>
         <RichText
           sx={{ mt: 2.5 }}
-          color={neutral[900]}
+          color="neutral.dark"
           textAlign="center"
           variant="p3"
           elements={description}
@@ -69,16 +69,16 @@ const ErrorPage = React.forwardRef(function Error(props, ref) {
   );
 });
 
-ErrorPage.propTypes = {
+Error.propTypes = {
   statusCode: PropTypes.number,
   title: PropTypes.string,
   link: PropTypes.shape({}),
   description: PropTypes.arrayOf(PropTypes.shape({})),
 };
-ErrorPage.defaultProps = {
+Error.defaultProps = {
   statusCode: undefined,
   title: undefined,
   link: undefined,
   description: undefined,
 };
-export default ErrorPage;
+export default Error;

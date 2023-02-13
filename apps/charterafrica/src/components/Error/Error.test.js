@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ErrorPage from "./ErrorPage";
+import Error from "./Error";
 
 import theme from "@/charterafrica/theme";
 
@@ -16,7 +16,7 @@ const defaultProps = {
 };
 describe("<ErrorPage />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ErrorPage {...defaultProps} />);
+    const { container } = render(<Error {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
