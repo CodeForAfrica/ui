@@ -12,7 +12,7 @@ const defaultProps = {
   title: "NOT FOUND",
   statusCode: 404,
   description: [{ children: [{ text: "Description Text" }] }],
-  action: { title: "NOT FOUND" },
+  link: { label: "NOT FOUND", href: "/" },
 };
 describe("<ErrorPage />", () => {
   it("renders unchanged", () => {
