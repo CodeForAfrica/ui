@@ -12,8 +12,6 @@
       "env": [
         "MONGO_URL",
         "NEXT_BUILD",
-        "NEXT_PUBLIC_APP_AUTH_EMAIL",
-        "NEXT_PUBLIC_APP_AUTH_PASSWORD",
         "NEXT_MANUAL_SIG_HANDLE",
         "NEXT_PUBLIC_APP_URL",
         "NEXT_PUBLIC_DEFAULT_LOCALE",

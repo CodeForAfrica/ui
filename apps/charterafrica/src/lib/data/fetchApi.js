@@ -7,10 +7,6 @@ export class FetchApi {
 
   token = "";
 
-  email = process.env.NEXT_PUBLIC_APP_AUTH_EMAIL;
-
-  password = process.env.NEXT_PUBLIC_APP_AUTH_PASSWORD;
-
   constructor(headers) {
     if (headers) {
       this.headers = headers;
@@ -20,16 +16,8 @@ export class FetchApi {
   }
 
   async authenticate() {
-    const data = { email: this.email, password: this.password };
-    const res = await this.post(
-      `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/users/login`,
-      { data },
-      false
-    );
-    this.token = res.token;
     this.headers = {
       "Content-Type": "application/json",
-      Cookie: `payload-token=${res.token}`,
     };
   }
 
@@ -48,17 +36,11 @@ export class FetchApi {
     return response;
   };
 
-  async post(url, args, authenticate = true) {
-    if (authenticate && !this.token) {
-      await this.authenticate();
-    }
+  async post(url, args) {
     return this.fetchFunc(url, { ...args, method: "POST" });
   }
 
   async get(url, args) {
-    if (!this.token) {
-      await this.authenticate();
-    }
     return this.fetchFunc(url, { ...args, method: "GET" });
   }
 }
