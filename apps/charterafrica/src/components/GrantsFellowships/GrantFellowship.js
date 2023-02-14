@@ -78,7 +78,13 @@ const GrantsFellowships = React.forwardRef(function GrantsFellowships(
         </Typography>
       </Container>
       <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "74.5px" } }}>
-        <Typography variant="h3" color={neutral[900]}>
+        <Typography
+          variant="h3"
+          color={neutral[900]}
+          sx={{
+            textAlign: { xs: "center", sm: "left" },
+          }}
+        >
           Grants and Fellowships
         </Typography>
         <StyledDivider />

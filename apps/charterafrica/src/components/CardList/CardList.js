@@ -1,5 +1,7 @@
 import Link from "@/commons-ui/next/Link";
 import { Typography, Box } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 
 import OpportunityCard from "../OpportunityCard";
@@ -8,13 +10,17 @@ import { neutral } from "@/charterafrica/colors";
 
 const CardList = React.forwardRef(function CardList(props, ref) {
   const { title, grants } = props;
-
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Box ref={ref}>
       <Box
         sx={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: {
+            xs: "center",
+            sm: "space-between",
+          },
           marginBottom: "40px",
         }}
       >
@@ -33,6 +39,10 @@ const CardList = React.forwardRef(function CardList(props, ref) {
           color={neutral[900]}
           sx={{
             variant: "p3SemiBold",
+            display: {
+              xs: "none",
+              sm: "block",
+            },
           }}
         >
           View All
@@ -41,15 +51,44 @@ const CardList = React.forwardRef(function CardList(props, ref) {
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: {
+            xs: "column",
+            sm: "row",
+          },
           flexWrap: "nowrap",
           justifyContent: "space-between",
+          alignItems: "center",
+          gap: {
+            xs: "40px",
+            sm: "0px",
+          },
+          overflow: "hidden",
         }}
       >
-        {grants.slice(0, 4).map((grant) => {
-          return <OpportunityCard opportunity={grant} key={grant.id} />;
-        })}
+        {isMobile
+          ? grants.slice(0, 3).map((grant) => {
+              return <OpportunityCard opportunity={grant} key={grant.id} />;
+            })
+          : grants.slice(0, 4).map((grant) => {
+              return <OpportunityCard opportunity={grant} key={grant.id} />;
+            })}
       </Box>
+      <Link
+        href="/grants"
+        underline="always"
+        color={neutral[900]}
+        sx={{
+          variant: "p3SemiBold",
+          display: {
+            xs: "block",
+            sm: "none",
+          },
+          textAlign: "center",
+          marginTop: "40px",
+        }}
+      >
+        View All
+      </Link>
     </Box>
   );
 });

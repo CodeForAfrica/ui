@@ -18,7 +18,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-qb38zz-MuiContainer-root"
     >
       <h3
-        class="MuiTypography-root MuiTypography-h3 css-c1id4g-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3 css-ihsij7-MuiTypography-root"
       >
         Grants and Fellowships
       </h3>
@@ -29,7 +29,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
         class="MuiBox-root css-0"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3Small css-17s1jjl-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3Small css-yo7jji-MuiTypography-root"
         >
           Grants
         </h3>
@@ -37,7 +37,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiBox-root css-59759x"
+            class="MuiBox-root css-29ld7q"
           >
             <h5
               class="MuiTypography-root MuiTypography-h5SemiBold css-1i8y2l6-MuiTypography-root"
@@ -45,14 +45,14 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
               open calls
             </h5>
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-pix7mr-MuiTypography-root-MuiLink-root"
               href="/grants"
             >
               View All
             </a>
           </div>
           <div
-            class="MuiBox-root css-1gts8n"
+            class="MuiBox-root css-w9jfo3"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -87,6 +87,12 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
               </div>
             </div>
           </div>
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qx07ew-MuiTypography-root-MuiLink-root"
+            href="/grants"
+          >
+            View All
+          </a>
         </div>
         <hr
           class="MuiDivider-root MuiDivider-fullWidth css-arfqse-MuiDivider-root"
@@ -95,7 +101,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiBox-root css-59759x"
+            class="MuiBox-root css-29ld7q"
           >
             <h5
               class="MuiTypography-root MuiTypography-h5SemiBold css-1i8y2l6-MuiTypography-root"
@@ -103,14 +109,14 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
               closed calls
             </h5>
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-pix7mr-MuiTypography-root-MuiLink-root"
               href="/grants"
             >
               View All
             </a>
           </div>
           <div
-            class="MuiBox-root css-1gts8n"
+            class="MuiBox-root css-w9jfo3"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -145,6 +151,12 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
               </div>
             </div>
           </div>
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qx07ew-MuiTypography-root-MuiLink-root"
+            href="/grants"
+          >
+            View All
+          </a>
         </div>
         <hr
           class="MuiDivider-root MuiDivider-fullWidth css-arfqse-MuiDivider-root"
@@ -153,7 +165,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiBox-root css-59759x"
+            class="MuiBox-root css-29ld7q"
           >
             <h5
               class="MuiTypography-root MuiTypography-h5SemiBold css-1i8y2l6-MuiTypography-root"
@@ -161,14 +173,14 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
               upcoming calls
             </h5>
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-pix7mr-MuiTypography-root-MuiLink-root"
               href="/grants"
             >
               View All
             </a>
           </div>
           <div
-            class="MuiBox-root css-1gts8n"
+            class="MuiBox-root css-w9jfo3"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -203,6 +215,12 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
               </div>
             </div>
           </div>
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qx07ew-MuiTypography-root-MuiLink-root"
+            href="/grants"
+          >
+            View All
+          </a>
         </div>
         <hr
           class="MuiDivider-root MuiDivider-fullWidth css-arfqse-MuiDivider-root"
@@ -215,7 +233,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
         class="MuiBox-root css-0"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3Small css-17s1jjl-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3Small css-yo7jji-MuiTypography-root"
         >
           Fellowships
         </h3>
@@ -223,7 +241,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiBox-root css-59759x"
+            class="MuiBox-root css-29ld7q"
           >
             <h5
               class="MuiTypography-root MuiTypography-h5SemiBold css-1i8y2l6-MuiTypography-root"
@@ -231,14 +249,14 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
               technologies
             </h5>
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-pix7mr-MuiTypography-root-MuiLink-root"
               href="/grants"
             >
               View All
             </a>
           </div>
           <div
-            class="MuiBox-root css-1gts8n"
+            class="MuiBox-root css-w9jfo3"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -273,6 +291,12 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
               </div>
             </div>
           </div>
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qx07ew-MuiTypography-root-MuiLink-root"
+            href="/grants"
+          >
+            View All
+          </a>
         </div>
         <hr
           class="MuiDivider-root MuiDivider-fullWidth css-arfqse-MuiDivider-root"
@@ -281,7 +305,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiBox-root css-59759x"
+            class="MuiBox-root css-29ld7q"
           >
             <h5
               class="MuiTypography-root MuiTypography-h5SemiBold css-1i8y2l6-MuiTypography-root"
@@ -289,14 +313,14 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
               other
             </h5>
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-pix7mr-MuiTypography-root-MuiLink-root"
               href="/grants"
             >
               View All
             </a>
           </div>
           <div
-            class="MuiBox-root css-1gts8n"
+            class="MuiBox-root css-w9jfo3"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -363,6 +387,12 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
               </div>
             </div>
           </div>
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qx07ew-MuiTypography-root-MuiLink-root"
+            href="/grants"
+          >
+            View All
+          </a>
         </div>
         <hr
           class="MuiDivider-root MuiDivider-fullWidth css-arfqse-MuiDivider-root"

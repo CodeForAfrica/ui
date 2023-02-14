@@ -1,4 +1,6 @@
 import { Typography, Box, Divider, styled } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 
 import CardList from "../CardList";
@@ -20,6 +22,8 @@ const StyledDivider = styled(Divider)(() => ({
 
 const Grants = React.forwardRef(function Grants(props, ref) {
   const { grants, title } = props;
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   if (!grants) {
     return null;
@@ -32,23 +36,38 @@ const Grants = React.forwardRef(function Grants(props, ref) {
         color={neutral[900]}
         sx={{
           paddingBottom: "40px",
+          textAlign: {
+            xs: "center",
+            sm: "left",
+          },
         }}
       >
         {title}
       </Typography>
 
-      {grants.map((grant) => {
-        return (
-          <>
-            <CardList
-              title={grant.title}
-              grants={grant.grants}
-              key={grant.title}
-            />
-            <StyledDivider key={grant.title} />
-          </>
-        );
-      })}
+      {isMobile ? (
+        <>
+          <CardList
+            title={grants[0].title}
+            grants={grants[0].grants}
+            key={grants[0].title}
+          />
+          <StyledDivider key={grants[0].title} />
+        </>
+      ) : (
+        grants.map((grant) => {
+          return (
+            <>
+              <CardList
+                title={grant.title}
+                grants={grant.grants}
+                key={grant.title}
+              />
+              <StyledDivider key={grant.title} />
+            </>
+          );
+        })
+      )}
     </Box>
   );
 });
