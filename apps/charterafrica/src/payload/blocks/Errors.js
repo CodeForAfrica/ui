@@ -1,8 +1,20 @@
 import linkGroup from "../fields/linkGroup";
 import richText from "../fields/richText";
 
-const Errors = {
-  slug: "errors",
+const Error = {
+  slug: "error",
+  labels: {
+    singular: {
+      en: "Error",
+      fr: "Erreur",
+      pt: "Erro",
+    },
+    plural: {
+      en: "Errors",
+      fr: "Les Erreurs",
+      pt: "Erros",
+    },
+  },
   fields: [
     {
       name: "statusCode",
@@ -12,7 +24,6 @@ const Errors = {
         pt: "Código de estado",
       },
       type: "number",
-      localized: true,
       required: true,
       unique: true,
     },
@@ -44,4 +55,4 @@ const Errors = {
   ],
 };
 
-export default Errors;
+export default Error;

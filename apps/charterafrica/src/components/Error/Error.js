@@ -10,7 +10,10 @@ import BackgroundBox from "@/charterafrica/components/BackgroundBox";
 import RichText from "@/charterafrica/components/RichText";
 
 const Error = React.forwardRef(function Error(props, ref) {
-  const { statusCode, description = [], title = "", link } = props;
+  const { statusCode, description, title, link } = props;
+  if (!title?.length) {
+    return null;
+  }
   return (
     <BackgroundBox
       bgcolor={secondary[50]}
@@ -49,15 +52,17 @@ const Error = React.forwardRef(function Error(props, ref) {
           elements={description}
         />
 
-        <Button
-          component={Link}
-          href={link.href || ""}
-          sx={{ mt: 5 }}
-          color="secondary"
-          variant="contained"
-        >
-          {link?.label}
-        </Button>
+        {link?.label?.length ? (
+          <Button
+            component={link.href ? Link : undefined}
+            href={link.href}
+            sx={{ mt: 5 }}
+            color="secondary"
+            variant="contained"
+          >
+            {link.label}
+          </Button>
+        ) : null}
       </Section>
     </BackgroundBox>
   );
