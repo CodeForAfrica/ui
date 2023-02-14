@@ -9,12 +9,19 @@ exports[`<ErrorPage /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1noulqg-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-h1 css-1o8nli7-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3 css-uqgjyw-MuiTypography-root"
+      >
+        404
+         - 
+        NOT FOUND
+      </div>
+      <div
+        class="MuiTypography-root MuiTypography-h1 css-14tggjp-MuiTypography-root"
       >
         404
       </div>
       <div
-        class="MuiTypography-root MuiTypography-h3 css-kdih6a-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3 css-bl890w-MuiTypography-root"
       >
         NOT FOUND
       </div>

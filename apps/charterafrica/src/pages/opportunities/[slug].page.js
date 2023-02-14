@@ -3,7 +3,7 @@ import React from "react";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
-import { getPageServerSideProps } from "@/charterafrica/lib/data";
+import { getPageServerSideProps } from "@/charterafrica/lib/data/local";
 
 function Opportunities({ blocks }) {
   return blocks?.map((block) => {

@@ -68,6 +68,17 @@ function MyApp(props) {
   );
 }
 
+MyApp.getInitialProps = async ({ Component, router, ctx }) => {
+  let pageProps = {};
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
+  return {
+    pageProps,
+    ...router,
+  };
+};
+
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
   emotionCache: PropTypes.shape({}),

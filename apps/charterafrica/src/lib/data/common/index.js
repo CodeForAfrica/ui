@@ -1,37 +1,6 @@
-import { getPageSeoFromMeta } from "./seo";
-
 import { payload } from "@/charterafrica/lib";
 
-export async function getGlobalProps({ locale, defaultLocale }) {
-  const settings = await payload.findGlobal("settings", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-  const { languages } = settings;
-  const { actions, menus } = await payload.findGlobal("navigation", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-  const navbar = {
-    actions,
-    languages: languages ?? null,
-    logo: {
-      alt: "Charter Africa",
-      src: "/images/charter-logo.svg",
-      href: "/",
-      priority: true,
-    },
-    menus: menus ?? null,
-  };
-  const footer = await payload.findGlobal("footer", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-
-  return { footer, navbar, settings };
-}
-
-async function processPageExplainers({ title, blocks }) {
+export async function processPageExplainers({ title, blocks }) {
   const collection = await payload.getCollection("explainers");
   const explainers = collection.docs || null;
 
@@ -44,7 +13,7 @@ async function processPageExplainers({ title, blocks }) {
   }
 }
 
-async function processPageNews({ blocks }) {
+export async function processPageNews({ blocks }) {
   // TODO(kilemensi): Pull data from CMS
   blocks.push({
     slug: "news",
@@ -73,7 +42,7 @@ async function processPageNews({ blocks }) {
   });
 }
 
-async function processPageResearch({ blocks }) {
+export async function processPageResearch({ blocks }) {
   // TODO(kilemensi): Pull data from CMS
   blocks.push({
     slug: "research",
@@ -102,7 +71,7 @@ async function processPageResearch({ blocks }) {
   });
 }
 
-async function processPageSpecificBlocks(page) {
+export async function processPageSpecificBlocks(page) {
   switch (page.slug) {
     case "explainers":
       processPageExplainers(page);
@@ -116,46 +85,4 @@ async function processPageSpecificBlocks(page) {
     default:
       break;
   }
-}
-
-export async function getPageServerSideProps({
-  defaultLocale,
-  query,
-  resolvedUrl,
-  locale,
-  locales,
-}) {
-  const { slug } = query;
-  const { docs: pages } = await payload.findPage(slug, {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-  if (!pages?.length) {
-    return { notFound: true };
-  }
-
-  const [page] = pages;
-  page.blocks =
-    page.blocks?.map(({ blockType, ...other }) => ({
-      ...other,
-      slug: blockType,
-    })) ?? [];
-  processPageSpecificBlocks(page);
-  const { settings, ...globalProps } = await getGlobalProps({
-    defaultLocale,
-    locale,
-    locales,
-  });
-  const seo = getPageSeoFromMeta(page, settings, {
-    locale,
-    locales,
-    pathname: resolvedUrl,
-  });
-  return {
-    props: {
-      ...globalProps,
-      ...page,
-      seo,
-    },
-  };
 }

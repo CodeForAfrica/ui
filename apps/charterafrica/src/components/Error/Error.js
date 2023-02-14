@@ -32,12 +32,28 @@ const Error = React.forwardRef(function Error(props, ref) {
       ref={ref}
     >
       <Section sx={{ p: 12, textAlign: "center" }}>
-        <RichTypography color="neutral.dark" textAlign="center" variant="h1">
+        <RichTypography
+          color="neutral.dark"
+          sx={{ mt: { xs: 0, sm: 2.5 } }}
+          textAlign="center"
+          textTransform="uppercase"
+          display={{ sm: "none", xs: "block" }}
+          variant="h3"
+        >
+          {statusCode} - {title}
+        </RichTypography>
+        <RichTypography
+          display={{ xs: "none", sm: "block" }}
+          color="neutral.dark"
+          textAlign="center"
+          variant="h1"
+        >
           {statusCode}
         </RichTypography>
         <RichTypography
           color="neutral.dark"
-          mt={2.5}
+          sx={{ mt: { xs: 0, sm: 2.5 } }}
+          display={{ xs: "none", sm: "block" }}
           textAlign="center"
           textTransform="uppercase"
           variant="h3"
@@ -74,10 +90,12 @@ Error.propTypes = {
   link: PropTypes.shape({}),
   description: PropTypes.arrayOf(PropTypes.shape({})),
 };
+
 Error.defaultProps = {
   statusCode: undefined,
   title: undefined,
   link: undefined,
   description: undefined,
 };
+
 export default Error;

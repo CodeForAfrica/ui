@@ -14,9 +14,9 @@ async function findPage(slug, options) {
 
 async function getCollection(collection, options) {
   return payload.find({
+    ...options,
     collection,
     where: {},
-    ...options,
   });
 }
 
