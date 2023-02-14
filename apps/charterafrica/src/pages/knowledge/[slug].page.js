@@ -1,7 +1,7 @@
 import Articles from "@/charterafrica/components/Articles";
 import Explainers from "@/charterafrica/components/Explainers";
 import PageInfo from "@/charterafrica/components/PageInfo";
-import { getPageServerSideProps } from "@/charterafrica/lib/data/local";
+import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 function Knowledge({ blocks }) {
   return blocks?.map((block) => {

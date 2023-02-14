@@ -1,5 +1,5 @@
 import Error from "@/charterafrica/components/Error";
-import { getPageStaticProps } from "@/charterafrica/lib/data/rest";
+import { getPageStaticProps } from "@/charterafrica/lib/data";
 
 export default function CustomError({ blocks }) {
   return blocks?.map((block) => {
