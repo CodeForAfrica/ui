@@ -19,7 +19,7 @@ const CardList = React.forwardRef(function CardList(props, ref) {
           display: "flex",
           justifyContent: {
             xs: "center",
-            sm: "space-between",
+            md: "space-between",
           },
           marginBottom: "40px",
         }}
@@ -41,7 +41,7 @@ const CardList = React.forwardRef(function CardList(props, ref) {
             variant: "p3SemiBold",
             display: {
               xs: "none",
-              sm: "block",
+              md: "block",
             },
           }}
         >
@@ -55,14 +55,17 @@ const CardList = React.forwardRef(function CardList(props, ref) {
             xs: "column",
             sm: "row",
           },
-          flexWrap: "nowrap",
-          justifyContent: "space-between",
-          alignItems: "center",
-          gap: {
-            xs: "40px",
-            sm: "0px",
+          justifyContent: {
+            xs: "center",
+            md: "space-between",
           },
+          alignItems: "center",
+          gap: "40px",
           overflow: "hidden",
+          flexWrap: {
+            xs: "wrap",
+            md: "nowrap",
+          },
         }}
       >
         {isMobile
@@ -81,7 +84,7 @@ const CardList = React.forwardRef(function CardList(props, ref) {
           variant: "p3SemiBold",
           display: {
             xs: "block",
-            sm: "none",
+            md: "none",
           },
           textAlign: "center",
           marginTop: "40px",

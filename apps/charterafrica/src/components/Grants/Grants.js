@@ -23,7 +23,7 @@ const StyledDivider = styled(Divider)(() => ({
 const Grants = React.forwardRef(function Grants(props, ref) {
   const { grants, title } = props;
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.down("md"));
 
   if (!grants) {
     return null;
@@ -45,7 +45,7 @@ const Grants = React.forwardRef(function Grants(props, ref) {
         {title}
       </Typography>
 
-      {isMobile ? (
+      {isTablet ? (
         <>
           <CardList
             title={grants[0].title}
