@@ -52,7 +52,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
             </a>
           </div>
           <div
-            class="MuiBox-root css-p93wwc"
+            class="MuiBox-root css-sar3r"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -116,7 +116,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
             </a>
           </div>
           <div
-            class="MuiBox-root css-p93wwc"
+            class="MuiBox-root css-sar3r"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -180,7 +180,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
             </a>
           </div>
           <div
-            class="MuiBox-root css-p93wwc"
+            class="MuiBox-root css-sar3r"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -256,7 +256,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
             </a>
           </div>
           <div
-            class="MuiBox-root css-p93wwc"
+            class="MuiBox-root css-sar3r"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -320,7 +320,7 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
             </a>
           </div>
           <div
-            class="MuiBox-root css-p93wwc"
+            class="MuiBox-root css-sar3r"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
