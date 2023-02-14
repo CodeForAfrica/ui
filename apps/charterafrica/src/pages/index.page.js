@@ -120,11 +120,12 @@ export async function getServerSideProps({ defaultLocale, locale, locales }) {
   const heroSlides = hero?.slides?.map((slide) => {
     const { background, links, ...other } = slide;
     const formattedLinks = links.map((link) => {
-      const { color, icon, label: content } = link;
+      const { color, icon, href, label } = link;
       return {
         color,
-        content,
-        icon: { src: icon.url },
+        label,
+        icon: { alt: icon.alt, src: icon.url },
+        href,
       };
     });
 

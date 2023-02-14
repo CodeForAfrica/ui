@@ -20,7 +20,7 @@ const Key = React.forwardRef(function Key(props, ref) {
       </LineClampedRichTypography>
       <Box
         display="flex"
-        flexDirection={{ xs: "row", md: "column" }}
+        flexDirection="column"
         flexWrap="wrap"
         gap={1.25}
         maxHeight={{ md: 180 }}
