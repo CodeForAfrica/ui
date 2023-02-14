@@ -8,7 +8,10 @@ import OpportunityCard from "../OpportunityCard";
 
 import { neutral } from "@/charterafrica/colors";
 
-const CardList = React.forwardRef(function CardList(props, ref) {
+const OpportunityCardList = React.forwardRef(function OpportunityCardList(
+  props,
+  ref
+) {
   const { title, grants } = props;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -96,4 +99,4 @@ const CardList = React.forwardRef(function CardList(props, ref) {
   );
 });
 
-export default CardList;
+export default OpportunityCardList;

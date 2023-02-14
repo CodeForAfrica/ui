@@ -3,7 +3,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 
-import CardList from "../CardList";
+import OpportunityCardList from "../OpportunityCardList";
 
 import { neutral } from "@/charterafrica/colors";
 
@@ -47,7 +47,7 @@ const Grants = React.forwardRef(function Grants(props, ref) {
 
       {isTablet ? (
         <>
-          <CardList
+          <OpportunityCardList
             title={grants[0].title}
             grants={grants[0].grants}
             key={grants[0].title}
@@ -58,7 +58,7 @@ const Grants = React.forwardRef(function Grants(props, ref) {
         grants.map((grant) => {
           return (
             <>
-              <CardList
+              <OpportunityCardList
                 title={grant.title}
                 grants={grant.grants}
                 key={grant.title}
