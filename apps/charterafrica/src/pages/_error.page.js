@@ -7,7 +7,7 @@ import {
 export default function CustomError({ blocks }) {
   return blocks?.map((block) => {
     switch (block?.slug) {
-      case "500":
+      case "error":
         return <Error key={block.slug} {...block} />;
       default:
         return null;
@@ -17,7 +17,7 @@ export default function CustomError({ blocks }) {
 // TODO find a way to deal with other status codes
 // Status code is only accessible on getStaticProps but does not work with payload
 export async function getStaticProps(args) {
-  const { docs } = await fetchPage("500", args);
+  const { docs } = await fetchPage("error", args);
   if (!docs.length) {
     return { notFound: true };
   }
