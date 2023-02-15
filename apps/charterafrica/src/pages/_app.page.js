@@ -1,5 +1,7 @@
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
+import { deepmerge } from "@mui/utils";
+import App from "next/app";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import { DefaultSeo } from "next-seo";
@@ -68,15 +70,20 @@ function MyApp(props) {
   );
 }
 
-MyApp.getInitialProps = async ({ Component, router, ctx }) => {
+MyApp.getInitialProps = async (appContext) => {
+  // https://nextjs.org/docs/advanced-features/custom-app#caveats
+  const appProps = await App.getInitialProps(appContext);
+  const {
+    Component,
+    router: { defaultLocale, locale, locales },
+    ctx: appCtx,
+  } = appContext;
   let pageProps = {};
   if (Component.getInitialProps) {
+    const ctx = { ...appCtx, defaultLocale, locale, locales };
     pageProps = await Component.getInitialProps(ctx);
   }
-  return {
-    pageProps,
-    ...router,
-  };
+  return deepmerge(appProps, { pageProps }, { clone: false });
 };
 
 MyApp.propTypes = {
