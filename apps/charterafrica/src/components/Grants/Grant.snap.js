@@ -29,102 +29,114 @@ exports[`<Grants /> renders unchanged 1`] = `
         </a>
       </div>
       <div
-        class="MuiBox-root css-sar3r"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1j8f29c-MuiGrid-root"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
-          style="width: 270px; box-shadow: none; background-color: rgb(254, 250, 237);"
+          class="MuiGrid-root MuiGrid-item css-muuvl7-MuiGrid-root"
         >
-          <img
-            alt="Grant 1"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
-            height="187.26"
-            src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
-            width="270"
-          />
           <div
-            class="MuiCardContent-root css-1hoqlal-MuiCardContent-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
+            style="width: 270px; box-shadow: none; background-color: rgb(254, 250, 237);"
           >
-            <h6
-              class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+            <img
+              alt="Grant 1"
+              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
+              height="187.26"
+              src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
+              width="270"
+            />
+            <div
+              class="MuiCardContent-root css-1hoqlal-MuiCardContent-root"
             >
-              Democratic Governance in Zambia
-            </h6>
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
-            >
-              This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
-            </p>
-            <span
-              class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
-            >
-              Deadline: 
-              2023-02-11
-            </span>
+              <h6
+                class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+              >
+                Democratic Governance in Zambia
+              </h6>
+              <p
+                class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
+              >
+                This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
+              </p>
+              <span
+                class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+              >
+                Deadline: 
+                2023-02-11
+              </span>
+            </div>
           </div>
         </div>
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
-          style="width: 270px; box-shadow: none; background-color: rgb(254, 250, 237);"
+          class="MuiGrid-root MuiGrid-item css-muuvl7-MuiGrid-root"
         >
-          <img
-            alt="Grant 2"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
-            height="187.26"
-            src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
-            width="270"
-          />
           <div
-            class="MuiCardContent-root css-1hoqlal-MuiCardContent-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
+            style="width: 270px; box-shadow: none; background-color: rgb(254, 250, 237);"
           >
-            <h6
-              class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+            <img
+              alt="Grant 2"
+              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
+              height="187.26"
+              src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
+              width="270"
+            />
+            <div
+              class="MuiCardContent-root css-1hoqlal-MuiCardContent-root"
             >
-              Democratic Governance in Zambia
-            </h6>
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
-            >
-              This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
-            </p>
-            <span
-              class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
-            >
-              Deadline: 
-              2023-02-11
-            </span>
+              <h6
+                class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+              >
+                Democratic Governance in Zambia
+              </h6>
+              <p
+                class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
+              >
+                This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
+              </p>
+              <span
+                class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+              >
+                Deadline: 
+                2023-02-11
+              </span>
+            </div>
           </div>
         </div>
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
-          style="width: 270px; box-shadow: none; background-color: rgb(254, 250, 237);"
+          class="MuiGrid-root MuiGrid-item css-muuvl7-MuiGrid-root"
         >
-          <img
-            alt="Grant 3"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
-            height="187.26"
-            src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
-            width="270"
-          />
           <div
-            class="MuiCardContent-root css-1hoqlal-MuiCardContent-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
+            style="width: 270px; box-shadow: none; background-color: rgb(254, 250, 237);"
           >
-            <h6
-              class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+            <img
+              alt="Grant 3"
+              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1wcqjo0-MuiCardMedia-root"
+              height="187.26"
+              src="/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg"
+              width="270"
+            />
+            <div
+              class="MuiCardContent-root css-1hoqlal-MuiCardContent-root"
             >
-              Democratic Governance in Zambia
-            </h6>
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
-            >
-              This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
-            </p>
-            <span
-              class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
-            >
-              Deadline: 
-              2023-02-11
-            </span>
+              <h6
+                class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+              >
+                Democratic Governance in Zambia
+              </h6>
+              <p
+                class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
+              >
+                This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
+              </p>
+              <span
+                class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+              >
+                Deadline: 
+                2023-02-11
+              </span>
+            </div>
           </div>
         </div>
       </div>

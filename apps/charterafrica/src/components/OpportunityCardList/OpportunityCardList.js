@@ -1,5 +1,5 @@
 import Link from "@/commons-ui/next/Link";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
@@ -15,6 +15,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   const { title, grants } = props;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isSmallDesktop = useMediaQuery(theme.breakpoints.only("md"));
   return (
     <Box ref={ref}>
       <Box
@@ -51,34 +52,45 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
           View All
         </Link>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: {
-            xs: "column",
-            sm: "row",
-          },
-          justifyContent: {
-            xs: "center",
-            md: "space-between",
-          },
-          alignItems: "center",
-          gap: "40px",
-          overflow: "hidden",
-          flexWrap: {
-            xs: "wrap",
-            md: "nowrap",
-          },
+      <Grid
+        container
+        spacing={2}
+        direction={isMobile ? "column" : "row"}
+        justifyContent={{
+          xs: "center",
+          md: "space-between",
         }}
+        alignItems="center"
       >
-        {isMobile
+        {isMobile || isSmallDesktop
           ? grants.slice(0, 3).map((grant) => {
-              return <OpportunityCard opportunity={grant} key={grant.id} />;
+              return (
+                <Grid
+                  item
+                  sx={{
+                    marginBottom: "40px",
+                  }}
+                >
+                  <OpportunityCard opportunity={grant} key={grant.id} />
+                </Grid>
+              );
             })
           : grants.slice(0, 4).map((grant) => {
-              return <OpportunityCard opportunity={grant} key={grant.id} />;
+              return (
+                <Grid
+                  item
+                  sx={{
+                    marginBottom: {
+                      xs: "40px",
+                      md: "0px",
+                    },
+                  }}
+                >
+                  <OpportunityCard opportunity={grant} key={grant.id} />
+                </Grid>
+              );
             })}
-      </Box>
+      </Grid>
       <Link
         href="/grants"
         underline="always"
