@@ -157,9 +157,24 @@ async function processPageResearch({ blocks }) {
 
 async function processPageFellowships({ blocks }) {
   blocks.push({
-    slug: "fellowships",
+    slug: "page-info",
+    description: [
+      {
+        children: [
+          {
+            text: "A list of all Charter Africa grants, fellowships and events",
+          },
+        ],
+      },
+    ],
+  });
+  blocks.push({
+    slug: "fellowships-and-grants-header",
     title: "Grants and Fellowships",
-    bannerText: "A list of all Charter Africa grants, fellowships and events",
+  });
+  blocks.push({
+    slug: "grants",
+    title: "Grants",
     grants: Array.from({ length: 30 }, (_, i) => ({
       id: i,
       title: "Democratic Governance in Zambia",
@@ -181,7 +196,11 @@ async function processPageFellowships({ blocks }) {
       deadline: "2023-02-11",
       status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
     })),
-    fellowships: Array.from({ length: 30 }, (_, i) => ({
+  });
+  blocks.push({
+    slug: "fellowships",
+    title: "Fellowships",
+    grants: Array.from({ length: 30 }, (_, i) => ({
       id: i,
       title: "Democratic Governance in Zambia",
       description:
@@ -200,7 +219,7 @@ async function processPageFellowships({ blocks }) {
         url: "/images/fellowships.png",
       },
       deadline: "2023-02-11",
-      category: ["technologies", "other"][Math.floor(Math.random() * 2)],
+      status: ["technologies", "other"][Math.floor(Math.random() * 2)],
     })),
   });
 }

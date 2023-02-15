@@ -1,11 +1,10 @@
+import { Section } from "@commons-ui/core";
 import { Typography, Box, Divider, styled } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 
 import OpportunityCardList from "../OpportunityCardList";
 
-import { neutral } from "@/charterafrica/colors";
+import { neutral, secondary } from "@/charterafrica/colors";
 
 const StyledDivider = styled(Divider)(() => ({
   width: "100%",
@@ -15,47 +14,61 @@ const StyledDivider = styled(Divider)(() => ({
   borderColor: neutral[200],
   marginTop: "40px",
   marginBottom: "40px",
-  "&:last-child": {
-    display: "none",
-  },
 }));
 
 const Grants = React.forwardRef(function Grants(props, ref) {
-  const { grants, title } = props;
-  const theme = useTheme();
-  const isTablet = useMediaQuery(theme.breakpoints.down("md"));
+  const { grants, title, sx } = props;
 
   if (!grants) {
     return null;
   }
 
+  // group grants by status
+  const grantsByStatus = grants.reduce((acc, grant) => {
+    const { status } = grant;
+    if (acc[status]) {
+      acc[status].push(grant);
+    } else {
+      acc[status] = [grant];
+    }
+    return acc;
+  }, {});
+
+  const grantsByStatusArray = Object.keys(grantsByStatus).map((key) => {
+    return {
+      title: `${key} calls`,
+      grants: grantsByStatus[key],
+    };
+  });
+
   return (
-    <Box ref={ref}>
-      <Typography
-        variant="h3Small"
-        color={neutral[900]}
+    <Box
+      sx={{
+        backgroundColor: secondary[50],
+        ...sx,
+      }}
+      ref={ref}
+    >
+      <Section
         sx={{
-          paddingBottom: "40px",
-          textAlign: {
-            xs: "center",
-            sm: "left",
-          },
+          px: { xs: 5, sm: 0 },
+          paddingBottom: { xs: 5, md: "40px" },
         }}
       >
-        {title}
-      </Typography>
-
-      {isTablet ? (
-        <>
-          <OpportunityCardList
-            title={grants[0].title}
-            grants={grants[0].grants}
-            key={grants[0].title}
-          />
-          <StyledDivider key={`${grants[0].title}div`} />
-        </>
-      ) : (
-        grants.map((grant) => {
+        <Typography
+          variant="h3Small"
+          color={neutral[900]}
+          sx={{
+            paddingBottom: "40px",
+            textAlign: {
+              xs: "center",
+              sm: "left",
+            },
+          }}
+        >
+          {title}
+        </Typography>
+        {grantsByStatusArray.map((grant) => {
           return (
             <>
               <OpportunityCardList
@@ -63,11 +76,11 @@ const Grants = React.forwardRef(function Grants(props, ref) {
                 grants={grant.grants}
                 key={grant.title}
               />
-              <StyledDivider key={`${grant.title}div`} />
+              <StyledDivider />
             </>
           );
-        })
-      )}
+        })}
+      </Section>
     </Box>
   );
 });
