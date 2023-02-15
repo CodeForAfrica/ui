@@ -158,7 +158,8 @@ async function processPageResearch({ blocks }) {
 async function processPageFellowships({ blocks }) {
   blocks.push({
     slug: "fellowships",
-    title: "Fellowship",
+    title: "Grants and Fellowships",
+    bannerText: "A list of all Charter Africa grants, fellowships and events",
     grants: Array.from({ length: 30 }, (_, i) => ({
       id: i,
       title: "Democratic Governance in Zambia",

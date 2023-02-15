@@ -20,7 +20,7 @@ const GrantsFellowships = React.forwardRef(function GrantsFellowships(
   props,
   ref
 ) {
-  const { sx, grants, fellowships } = props;
+  const { sx, grants, fellowships, bannerText, title } = props;
 
   const grantsByStatus = grants.reduce((acc, grant) => {
     const { status } = grant;
@@ -75,7 +75,7 @@ const GrantsFellowships = React.forwardRef(function GrantsFellowships(
         }}
       >
         <Typography variant="p1SemiBold" color="#000000">
-          A list of all Chart Africa grants, fellowships and events.
+          {bannerText}
         </Typography>
       </Container>
       <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "74.5px" } }}>
@@ -84,9 +84,10 @@ const GrantsFellowships = React.forwardRef(function GrantsFellowships(
           color={neutral[900]}
           sx={{
             textAlign: { xs: "center", sm: "left" },
+            textTransform: "capitalize",
           }}
         >
-          Grants and Fellowships
+          {title}
         </Typography>
         <StyledDivider />
         <Grants grants={grantsByStatusArray} title="Grants" />

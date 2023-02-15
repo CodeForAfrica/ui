@@ -9,6 +9,8 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
+  title: "Grants and Fellowships",
+  bannerText: "A list of all Charter Africa grants, fellowships and events",
   grants: [
     {
       id: 1,

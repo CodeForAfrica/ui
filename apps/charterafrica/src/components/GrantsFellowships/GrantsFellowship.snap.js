@@ -11,14 +11,14 @@ exports[`<GrantsFellowships /> renders unchanged 1`] = `
       <p
         class="MuiTypography-root MuiTypography-p1SemiBold css-12dxyvz-MuiTypography-root"
       >
-        A list of all Chart Africa grants, fellowships and events.
+        A list of all Charter Africa grants, fellowships and events
       </p>
     </div>
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-qb38zz-MuiContainer-root"
     >
       <h3
-        class="MuiTypography-root MuiTypography-h3 css-ihsij7-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3 css-lj04n5-MuiTypography-root"
       >
         Grants and Fellowships
       </h3>
