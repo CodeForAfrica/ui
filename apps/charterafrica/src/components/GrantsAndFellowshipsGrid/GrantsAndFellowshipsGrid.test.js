@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Grants from "./Grants";
+import GrantsAndFellowshipsGrid from "./GrantsAndFellowshipsGrid";
 
 import theme from "@/charterafrica/theme";
 
@@ -77,9 +77,11 @@ const defaultProps = {
   ],
 };
 
-describe("<Grants />", () => {
+describe("<GrantsAndFellowshipsGrid />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Grants {...defaultProps} />);
+    const { container } = render(
+      <GrantsAndFellowshipsGrid {...defaultProps} />
+    );
     expect(container).toMatchSnapshot();
   });
 });

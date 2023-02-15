@@ -1,9 +1,9 @@
 import React from "react";
 
+import GrantsAndFellowshipsGrid from "../../components/GrantsAndFellowshipsGrid";
 import GrantsFellowshipsHeader from "../../components/GrantsFellowshipsHeader";
 
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
-import Grants from "@/charterafrica/components/Grants";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
@@ -23,9 +23,9 @@ function Opportunities({ blocks }) {
       case "fellowships-and-grants-header":
         return <GrantsFellowshipsHeader {...block} key={block.slug} />;
       case "grants":
-        return <Grants {...block} key={block.slug} />;
+        return <GrantsAndFellowshipsGrid {...block} key={block.slug} />;
       case "fellowships":
-        return <Grants {...block} key={block.slug} />;
+        return <GrantsAndFellowshipsGrid {...block} key={block.slug} />;
       default:
         return null;
     }
