@@ -11,6 +11,7 @@ import RichText from "@/charterafrica/components/RichText";
 
 const Error = React.forwardRef(function Error(props, ref) {
   const { statusCode, description, title, link } = props;
+
   if (!title?.length) {
     return null;
   }
@@ -34,17 +35,17 @@ const Error = React.forwardRef(function Error(props, ref) {
       <Section sx={{ p: 12, textAlign: "center" }}>
         <RichTypography
           color="neutral.dark"
-          sx={{ mt: { xs: 0, sm: 2.5 } }}
+          display={{ xs: "block", sm: "none" }}
           textAlign="center"
           textTransform="uppercase"
-          display={{ sm: "none", xs: "block" }}
           variant="h3"
+          sx={{ mt: { xs: 0, sm: 2.5 } }}
         >
           {statusCode} - {title}
         </RichTypography>
         <RichTypography
-          display={{ xs: "none", sm: "block" }}
           color="neutral.dark"
+          display={{ xs: "none", sm: "block" }}
           textAlign="center"
           variant="h1"
         >
@@ -52,29 +53,29 @@ const Error = React.forwardRef(function Error(props, ref) {
         </RichTypography>
         <RichTypography
           color="neutral.dark"
-          sx={{ mt: { xs: 0, sm: 2.5 } }}
           display={{ xs: "none", sm: "block" }}
           textAlign="center"
           textTransform="uppercase"
           variant="h3"
+          sx={{ mt: { xs: 0, sm: 2.5 } }}
         >
           {title}
         </RichTypography>
         <RichText
-          sx={{ mt: 2.5 }}
           color="neutral.dark"
+          elements={description}
           textAlign="center"
           variant="p3"
-          elements={description}
+          sx={{ mt: 2.5 }}
         />
 
         {link?.label?.length ? (
           <Button
+            color="secondary"
             component={link.href ? Link : undefined}
             href={link.href}
-            sx={{ mt: 5 }}
-            color="secondary"
             variant="contained"
+            sx={{ mt: 5 }}
           >
             {link.label}
           </Button>

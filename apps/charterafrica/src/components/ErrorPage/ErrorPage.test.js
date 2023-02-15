@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Error from "./Error";
+import ErrorPage from "./ErrorPage";
 
 import theme from "@/charterafrica/theme";
 
@@ -9,14 +9,20 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  title: "NOT FOUND",
-  statusCode: 404,
-  description: [{ children: [{ text: "Description Text" }] }],
-  link: { label: "NOT FOUND", href: "/" },
+  blocks: [
+    {
+      slug: "error",
+      title: "NOT FOUND",
+      statusCode: 404,
+      description: [{ children: [{ text: "Description Text" }] }],
+      link: { label: "NOT FOUND", href: "/" },
+    },
+  ],
 };
-describe("<Error />", () => {
+
+describe("<ErrorPage />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Error {...defaultProps} />);
+    const { container } = render(<ErrorPage {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
