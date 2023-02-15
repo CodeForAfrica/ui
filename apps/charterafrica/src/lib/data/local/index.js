@@ -1,7 +1,5 @@
-import { getPageSeoFromMeta } from "../seo";
-
 import { payload } from "@/charterafrica/lib";
-import { processPageSpecificBlocks } from "@/charterafrica/lib/data/common";
+import { getPageProps } from "@/charterafrica/lib/data/common";
 
 export async function getGlobalProps({ locale, defaultLocale }) {
   const settings = await payload.findGlobal("settings", {
@@ -32,6 +30,8 @@ export async function getGlobalProps({ locale, defaultLocale }) {
   return { footer, navbar, settings };
 }
 
+export const api = payload;
+
 export async function getPageServerSideProps({
   defaultLocale,
   query,
@@ -40,36 +40,17 @@ export async function getPageServerSideProps({
   locales,
 }) {
   const { slug } = query;
-  const { docs: pages } = await payload.findPage(slug, {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-  if (!pages?.length) {
-    return { notFound: true };
-  }
-
-  const [page] = pages;
-  page.blocks =
-    page.blocks?.map(({ blockType, ...other }) => ({
-      ...other,
-      slug: blockType,
-    })) ?? [];
-  processPageSpecificBlocks(page);
-  const { settings, ...globalProps } = await getGlobalProps({
+  const props = await getPageProps(slug, payload, {
     defaultLocale,
-    locale,
-    locales,
-  });
-  const seo = getPageSeoFromMeta(page, settings, {
     locale,
     locales,
     pathname: resolvedUrl,
   });
+
+  if (!props) {
+    return { notFound: true };
+  }
   return {
-    props: {
-      ...globalProps,
-      ...page,
-      seo,
-    },
+    props,
   };
 }
