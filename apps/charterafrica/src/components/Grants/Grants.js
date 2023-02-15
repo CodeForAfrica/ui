@@ -52,7 +52,7 @@ const Grants = React.forwardRef(function Grants(props, ref) {
             grants={grants[0].grants}
             key={grants[0].title}
           />
-          <StyledDivider key={grants[0].title} />
+          <StyledDivider key={`${grants[0].title}div`} />
         </>
       ) : (
         grants.map((grant) => {
@@ -63,7 +63,7 @@ const Grants = React.forwardRef(function Grants(props, ref) {
                 grants={grant.grants}
                 key={grant.title}
               />
-              <StyledDivider key={grant.title} />
+              <StyledDivider key={`${grant.title}div`} />
             </>
           );
         })
