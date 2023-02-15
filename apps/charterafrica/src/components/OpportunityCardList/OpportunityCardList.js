@@ -18,40 +18,41 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   const isSmallDesktop = useMediaQuery(theme.breakpoints.only("md"));
   return (
     <Box ref={ref}>
-      <Box
+      <Grid
+        container
+        justifyContent="space-between"
         sx={{
-          display: "flex",
-          justifyContent: {
-            xs: "center",
-            md: "space-between",
-          },
           marginBottom: "40px",
         }}
       >
-        <Typography
-          variant="h5SemiBold"
-          color={neutral[900]}
-          sx={{
-            textTransform: "capitalize",
-          }}
-        >
-          {title}
-        </Typography>
-        <Link
-          href="/grants"
-          underline="always"
-          color={neutral[900]}
-          sx={{
-            variant: "p3SemiBold",
-            display: {
-              xs: "none",
-              md: "block",
-            },
-          }}
-        >
-          View All
-        </Link>
-      </Box>
+        <Grid item>
+          <Typography
+            variant="h5SemiBold"
+            color={neutral[900]}
+            sx={{
+              textTransform: "capitalize",
+            }}
+          >
+            {title}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Link
+            href="/grants"
+            underline="always"
+            color={neutral[900]}
+            sx={{
+              variant: "p3SemiBold",
+              display: {
+                xs: "none",
+                md: "block",
+              },
+            }}
+          >
+            View All
+          </Link>
+        </Grid>
+      </Grid>
       <Grid
         container
         spacing={2}

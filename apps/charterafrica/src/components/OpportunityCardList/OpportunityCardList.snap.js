@@ -6,19 +6,27 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiBox-root css-1xad7ud"
+      class="MuiGrid-root MuiGrid-container css-4cmwq4-MuiGrid-root"
     >
-      <h5
-        class="MuiTypography-root MuiTypography-h5SemiBold css-1i8y2l6-MuiTypography-root"
+      <div
+        class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
       >
-        Grants
-      </h5>
-      <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ge11hp-MuiTypography-root-MuiLink-root"
-        href="/grants"
+        <h5
+          class="MuiTypography-root MuiTypography-h5SemiBold css-1i8y2l6-MuiTypography-root"
+        >
+          Grants
+        </h5>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
       >
-        View All
-      </a>
+        <a
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ge11hp-MuiTypography-root-MuiLink-root"
+          href="/grants"
+        >
+          View All
+        </a>
+      </div>
     </div>
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1j8f29c-MuiGrid-root"
