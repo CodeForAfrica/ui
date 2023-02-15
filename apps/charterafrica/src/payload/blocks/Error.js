@@ -25,7 +25,6 @@ const Error = {
       },
       type: "number",
       required: true,
-      unique: true,
     },
     {
       name: "title",

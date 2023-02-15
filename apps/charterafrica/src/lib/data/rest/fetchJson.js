@@ -4,7 +4,7 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-async function fetchFunc(url, { method, data, params, ...args }) {
+async function fetchJson(url, { method, data, params, ...args }) {
   const stringifiedQuery = stringify(params || {}, {
     addQueryPrefix: true,
   });
@@ -19,15 +19,15 @@ async function fetchFunc(url, { method, data, params, ...args }) {
   return response;
 }
 
-async function postApi(url, args) {
-  return fetchFunc(url, { ...args, method: "POST" });
+async function postJson(url, args) {
+  return fetchJson(url, { ...args, method: "POST" });
 }
 
-async function getApi(url, args) {
-  return fetchFunc(url, { ...args, method: "GET" });
+async function getJson(url, args) {
+  return fetchJson(url, { ...args, method: "GET" });
 }
 
 export default {
-  get: getApi,
-  post: postApi,
+  get: getJson,
+  post: postJson,
 };
