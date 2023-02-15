@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Error /> renders unchanged 1`] = `
+exports[`<ErrorPage /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-lfupbe"
