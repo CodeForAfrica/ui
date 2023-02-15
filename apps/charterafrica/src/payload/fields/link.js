@@ -2,7 +2,10 @@ import { deepmerge } from "@mui/utils";
 
 import mapLinkTypeToHref from "../utils/mapLinkTypeToHref";
 
-async function mapLinkToHrefBeforeValidate({ siblingData, req: { payload } }) {
+export async function mapLinkToHrefBeforeValidate({
+  siblingData,
+  req: { payload },
+}) {
   // Don't modify original doc.
   const doc = { ...siblingData.doc };
   if (typeof doc.value === "string") {

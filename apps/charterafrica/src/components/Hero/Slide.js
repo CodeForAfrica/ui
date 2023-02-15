@@ -92,6 +92,7 @@ const Slide = React.forwardRef(function Slide(props, ref) {
               gap={2.5}
               mt="30px"
               width={{ xs: "100%", sm: "auto" }}
+              key={links.length}
             >
               {links.map((link) => (
                 <Button

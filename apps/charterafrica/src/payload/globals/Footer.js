@@ -5,6 +5,9 @@ import richText from "../fields/richText";
 
 const Footer = {
   slug: "footer",
+  access: {
+    read: () => true,
+  },
   label: {
     en: "Footer",
     fr: "Bas de page",

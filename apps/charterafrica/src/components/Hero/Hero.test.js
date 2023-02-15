@@ -44,17 +44,19 @@ const defaultProps = {
       links: [
         {
           color: "secondary",
-          content: "Explore software",
           icon: {
+            alt: "Software",
             src: "/icons/Type=folder, Size=64, Color=CurrentColor.svg",
           },
+          label: "Explore software",
         },
         {
           color: "secondary",
-          content: "Browse database",
           icon: {
+            alt: "Database",
             src: "/icons/Type=database, Size=64, Color=CurrentColor.svg",
           },
+          label: "Browse database",
         },
       ],
     },

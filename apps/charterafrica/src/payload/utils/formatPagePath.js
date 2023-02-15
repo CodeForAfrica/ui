@@ -1,8 +1,8 @@
 /**
  * Use breadcrumbs for nested pages.
  */
-function fullSlugFromBreadcrumbs({ breadcrumbs }) {
-  const fullSlug = breadcrumbs[breadcrumbs.length - 1]?.url?.slice(1);
+function fullSlugFromBreadcrumbs({ breadcrumbs } = {}) {
+  const fullSlug = breadcrumbs?.[breadcrumbs.length - 1]?.url?.slice(1);
   return fullSlug;
 }
 
