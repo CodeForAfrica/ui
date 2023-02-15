@@ -1,24 +1,35 @@
-import Error from "@/charterafrica/components/Error";
-import { getPageStaticProps } from "@/charterafrica/lib/data";
+import React from "react";
 
-export default function CustomError({ blocks }) {
-  return blocks?.map((block) => {
-    switch (block?.slug) {
-      case "error":
-        return <Error key={block.slug} {...block} />;
-      default:
-        return null;
-    }
-  });
+import ErrorPage from "@/charterafrica/components/ErrorPage";
+import { getPageStaticProps } from "@/charterafrica/lib/data/rest";
+
+function CustomError(props) {
+  return <ErrorPage {...props} />;
 }
 
-CustomError.getInitialProps = async ({ res = {}, locale, defaultLocale }) => {
-  const { statusCode } = res;
-  const data = await getPageStaticProps({
-    locale,
+CustomError.getInitialProps = async ({
+  defaultLocale,
+  err,
+  locale,
+  locales,
+  res,
+}) => {
+  const statusCode = res?.statusCode ?? err?.statusCode;
+  // If we don't have a specific error page for the given status code,
+  // show generic 500,
+  const slug = (
+    [404, 500, 503].includes(statusCode) ? statusCode : 500
+  ).toString();
+
+  const { props } = await getPageStaticProps({
     defaultLocale,
-    query: { slug: "error", statusCode },
+    locale,
+    locales,
+    resolvedUrl: `/${slug}`,
+    slug,
   });
 
-  return data.props;
+  return props;
 };
+
+export default CustomError;
