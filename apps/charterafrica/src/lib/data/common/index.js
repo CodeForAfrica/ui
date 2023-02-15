@@ -1,7 +1,36 @@
-import { payload } from "@/charterafrica/lib";
+import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
-export async function processPageExplainers({ title, blocks }) {
-  const collection = await payload.getCollection("explainers");
+async function getGlobalProps(api, { locale, defaultLocale }) {
+  const settings = await api.findGlobal("settings", {
+    locale,
+    fallbackLocale: defaultLocale,
+  });
+  const { languages } = settings;
+  const { actions, menus } = await api.findGlobal("navigation", {
+    locale,
+    fallbackLocale: defaultLocale,
+  });
+  const navbar = {
+    actions,
+    languages: languages ?? null,
+    logo: {
+      alt: "Charter Africa",
+      src: "/images/charter-logo.svg",
+      href: "/",
+      priority: true,
+    },
+    menus: menus ?? null,
+  };
+  const footer = await api.findGlobal("footer", {
+    locale,
+    fallbackLocale: defaultLocale,
+  });
+
+  return { footer, navbar, settings };
+}
+
+export async function processPageExplainers({ title, blocks }, api) {
+  const collection = await api.getCollection("explainers");
   const explainers = collection.docs || null;
 
   if (explainers?.length) {
@@ -85,4 +114,40 @@ export async function processPageSpecificBlocks(page) {
     default:
       break;
   }
+}
+
+export async function getPageProps(
+  slug,
+  api,
+  { defaultLocale, locale, locales, pathname } = {}
+) {
+  const { docs: pages } = await api.findPage(slug, {
+    locale,
+    fallbackLocale: defaultLocale,
+  });
+  if (!pages?.length) {
+    return null;
+  }
+
+  const [page] = pages;
+  page.blocks =
+    page.blocks?.map(({ blockType, ...other }) => ({
+      ...other,
+      slug: blockType,
+    })) ?? null;
+  processPageSpecificBlocks(page);
+  const { settings, ...globalProps } = await getGlobalProps(api, {
+    defaultLocale,
+    locale,
+  });
+  const seo = getPageSeoFromMeta(page, settings, {
+    locale,
+    locales,
+    pathname,
+  });
+  return {
+    ...globalProps,
+    ...page,
+    seo,
+  };
 }
