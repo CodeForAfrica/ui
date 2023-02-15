@@ -67,6 +67,7 @@ const GrantsFellowships = React.forwardRef(function GrantsFellowships(
       ref={ref}
     >
       <Container
+        maxWidth="false"
         sx={{
           textAlign: "center",
           backgroundColor: secondary[200],
