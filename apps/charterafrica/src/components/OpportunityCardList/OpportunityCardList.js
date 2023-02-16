@@ -1,6 +1,6 @@
 import Link from "@/commons-ui/next/Link";
-import { Typography, Box, Grid } from "@mui/material";
-import React from "react";
+import { Typography, Box, Grid, Button } from "@mui/material";
+import React, { useState } from "react";
 
 import OpportunityCard from "../OpportunityCard";
 
@@ -11,6 +11,12 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   ref
 ) {
   const { title, grants, url } = props;
+
+  const [showAll, setShowAll] = useState(false);
+
+  if (!grants) {
+    return null;
+  }
   return (
     <Box ref={ref}>
       <Grid container justifyContent="space-between" rowSpacing={5}>
@@ -36,46 +42,41 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
             },
           }}
         >
-          <Link
-            href={url}
-            underline="always"
-            color={neutral[900]}
-            sx={{
-              variant: "p3SemiBold",
+          <Button
+            variant="text"
+            color="primary"
+            onClick={() => {
+              setShowAll(!showAll);
             }}
           >
-            View All
-          </Link>
+            {showAll ? "Show Less" : "Show All"}
+          </Button>
         </Grid>
       </Grid>
       <Grid
         container
         spacing={5}
-        direction={{
-          xs: "column",
-          sm: "row",
-        }}
-        justifyContent={{
-          xs: "center",
-          md: "space-between",
-        }}
-        flexWrap={{
-          xs: "nowrap",
-          sm: "wrap",
-          md: "nowrap",
+        wrap="wrap"
+        sx={{
+          // hide from 5th child
+          "& > :nth-of-type(n+5)": {
+            display: showAll ? "block" : "none",
+          },
+
+          // hide from 4th child on only sm and md
+          "& > :nth-of-type(4)": {
+            display: {
+              xs: showAll ? "block" : "none",
+              sm: "block",
+              md: showAll ? "block" : "none",
+              lg: "block",
+            },
+          },
         }}
       >
-        {grants.slice(0, 4).map((grant) => {
+        {grants.map((grant) => {
           return (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
-              xl={3}
-              justifyContent="space-between"
-            >
+            <Grid item xs={12} sm={6} md={4} lg={3} key={grant.id}>
               <OpportunityCard opportunity={grant} key={grant.id} />
             </Grid>
           );

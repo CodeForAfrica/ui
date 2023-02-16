@@ -31,19 +31,20 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 css-hj0fj-MuiGrid-root"
           >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
-              href="/opportunities?status=open"
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-18jkoo-MuiButtonBase-root-MuiButton-root"
+              tabindex="0"
+              type="button"
             >
-              View All
-            </a>
+              Show All
+            </button>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 MuiGrid-direction-xs-[object Object] css-183rgb9-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 css-1yf9gve-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 MuiGrid-grid-xl-3 css-1ozk5mo-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -107,19 +108,20 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 css-hj0fj-MuiGrid-root"
           >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
-              href="/opportunities?status=closed"
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-18jkoo-MuiButtonBase-root-MuiButton-root"
+              tabindex="0"
+              type="button"
             >
-              View All
-            </a>
+              Show All
+            </button>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 MuiGrid-direction-xs-[object Object] css-183rgb9-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 css-1yf9gve-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 MuiGrid-grid-xl-3 css-1ozk5mo-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -183,19 +185,20 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 css-hj0fj-MuiGrid-root"
           >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
-              href="/opportunities?status=upcoming"
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-18jkoo-MuiButtonBase-root-MuiButton-root"
+              tabindex="0"
+              type="button"
             >
-              View All
-            </a>
+              Show All
+            </button>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 MuiGrid-direction-xs-[object Object] css-183rgb9-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 css-1yf9gve-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 MuiGrid-grid-xl-3 css-1ozk5mo-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"

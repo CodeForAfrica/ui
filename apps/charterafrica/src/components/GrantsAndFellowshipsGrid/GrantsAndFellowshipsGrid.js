@@ -72,7 +72,7 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
           </Typography>
           {grantsByStatusArray.map((grant) => {
             return (
-              <>
+              <React.Fragment key={grant.title}>
                 <OpportunityCardList
                   title={grant.title}
                   grants={grant.grants}
@@ -80,7 +80,7 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
                   url={grant.url}
                 />
                 <StyledDivider />
-              </>
+              </React.Fragment>
             );
           })}
         </Section>
