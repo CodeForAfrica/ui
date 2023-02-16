@@ -29,9 +29,8 @@ export function getPageSeoFromMeta(page, settings, options = {}) {
     title: settingsTitle,
     description: settingsDescription,
   } = settings;
-  const name = settingsTitle || site.name;
-  const titleTemplate = name ? `%s | ${name}` : null;
-  const defaultTitle = name;
+  const defaultTitle = settingsTitle || site.name || null;
+  const titleTemplate = defaultTitle ? `%s | ${defaultTitle}` : null;
   const additionalMeta = [settingsMeta, { title: pageTitle }, pageMeta];
   const meta = additionalMeta.reduce(
     (acc, curr) => deepmerge(acc, curr, { clone: false }),
@@ -40,13 +39,13 @@ export function getPageSeoFromMeta(page, settings, options = {}) {
   const { title = null, description = null, image } = meta;
   const openGraph = {
     locale: locale || null,
-    site_name: name,
+    site_name: defaultTitle,
   };
   if (image?.url) {
     const { alt, height, mimeType: type, url, width } = image;
     openGraph.images = [
       {
-        alt: alt || name,
+        alt: alt || title || defaultTitle,
         height,
         type,
         url,

@@ -55,6 +55,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                         class="MuiBox-root css-zmiex6"
                       >
                         <img
+                          alt="Software"
                           class="css-g98gbd"
                           data-nimg="fill"
                           decoding="async"
@@ -64,6 +65,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                         />
                       </figure>
                     </span>
+                    Explore software
                   </button>
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-po1nsg-MuiButtonBase-root-MuiButton-root"
@@ -77,6 +79,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                         class="MuiBox-root css-zmiex6"
                       >
                         <img
+                          alt="Database"
                           class="css-g98gbd"
                           data-nimg="fill"
                           decoding="async"
@@ -86,6 +89,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                         />
                       </figure>
                     </span>
+                    Browse database
                   </button>
                 </div>
               </div>
