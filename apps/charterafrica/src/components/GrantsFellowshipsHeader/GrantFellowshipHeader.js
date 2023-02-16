@@ -10,13 +10,15 @@ const StyledDivider = styled(Divider)(() => ({
   color: neutral[200],
   border: "1px solid",
   borderColor: neutral[200],
-  marginTop: "40px",
 }));
 
 const GrantsFellowshipsHeader = React.forwardRef(
   function GrantsFellowshipsHeader(props, ref) {
     const { sx, title } = props;
 
+    if (!title) {
+      return null;
+    }
     return (
       <Box
         sx={{
@@ -25,14 +27,18 @@ const GrantsFellowshipsHeader = React.forwardRef(
         }}
         ref={ref}
       >
-        <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "40px" } }}>
+        <Section
+          sx={{
+            px: { xs: 5, sm: 0 },
+            paddingTop: 5,
+          }}
+        >
           <Typography
             variant="h3"
             color={neutral[900]}
-            sx={{
-              textAlign: { xs: "center", sm: "left" },
-              textTransform: "capitalize",
-            }}
+            textAlign={{ xs: "center", sm: "left" }}
+            textTransform="capitalize"
+            mb={5}
           >
             {title}
           </Typography>

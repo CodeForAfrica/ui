@@ -6,13 +6,13 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiGrid-root MuiGrid-container css-1i1hrqh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container css-4cmwq4-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1atob12-MuiGrid-root"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5SemiBold css-1i8y2l6-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5SemiBold css-19vbq4o-MuiTypography-root"
         >
           Grants
         </h5>
@@ -146,7 +146,7 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-nzsncw-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-fullWidth MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-fullWidth css-13dmejm-MuiButtonBase-root-MuiButton-root"
       tabindex="0"
       type="button"
     >

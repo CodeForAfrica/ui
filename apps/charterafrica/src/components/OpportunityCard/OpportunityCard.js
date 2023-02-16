@@ -4,12 +4,11 @@ import React from "react";
 import { neutral, secondary } from "@/charterafrica/colors";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const { opportunity } = props;
+  const { image, deadline, description, title } = props;
 
-  if (!opportunity) {
+  if (!title) {
     return null;
   }
-
   return (
     <Card
       ref={ref}
@@ -23,8 +22,8 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
         component="img"
         height={187.26}
         width={270}
-        image={opportunity.image.url}
-        alt={opportunity.image.alt}
+        image={image.url}
+        alt={image.alt}
         sx={{
           boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.1)",
           borderRadius: "5px",
@@ -50,10 +49,10 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             textTransform: "uppercase",
           }}
         >
-          {opportunity.title}
+          {title}
         </Typography>
         <Typography variant="p1" color={neutral[900]}>
-          {opportunity.description}
+          {description}
         </Typography>
         <Typography
           variant="caption"
@@ -62,7 +61,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             textTransform: "uppercase",
           }}
         >
-          Deadline: {opportunity.deadline}
+          Deadline: {deadline}
         </Typography>
       </CardContent>
     </Card>

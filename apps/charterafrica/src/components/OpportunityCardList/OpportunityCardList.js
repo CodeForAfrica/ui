@@ -18,14 +18,13 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   }
   return (
     <Box ref={ref}>
-      <Grid container justifyContent="space-between" rowSpacing={5}>
+      <Grid container justifyContent="space-between" mb={5}>
         <Grid item xs={12} md={6}>
           <Typography
             variant="h5SemiBold"
             color={neutral[900]}
-            sx={{
-              textTransform: "capitalize",
-            }}
+            textAlign={{ xs: "center", sm: "left" }}
+            textTransform="capitalize"
           >
             {title}
           </Typography>
@@ -34,11 +33,9 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
           item
           md={6}
           textAlign="end"
-          sx={{
-            display: {
-              xs: "none",
-              md: "block",
-            },
+          display={{
+            xs: "none",
+            md: "block",
           }}
         >
           <Button
@@ -48,8 +45,8 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
           >
             <Typography
               variant="p3SemiBold"
+              color={neutral[900]}
               sx={{
-                color: neutral[900],
                 textDecoration: "underline",
               }}
             >
@@ -82,7 +79,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
         {grants.map((grant) => {
           return (
             <Grid item xs={12} sm={6} md={4} lg={3} key={grant.id}>
-              <OpportunityCard opportunity={grant} key={grant.id} />
+              <OpportunityCard {...grant} key={grant.id} />
             </Grid>
           );
         })}
@@ -91,20 +88,20 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
         onClick={() => {
           setShowAll(!showAll);
         }}
+        fullWidth
         sx={{
           display: {
             xs: "block",
             md: "none",
           },
           marginTop: "40px",
-          width: "100%",
           textAlign: "center",
         }}
       >
         <Typography
           variant="p3SemiBold"
+          color={neutral[900]}
           sx={{
-            color: neutral[900],
             textDecoration: "underline",
           }}
         >

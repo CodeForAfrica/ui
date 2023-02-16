@@ -53,18 +53,16 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
         <Section
           sx={{
             px: { xs: 5, sm: 0 },
-            paddingBottom: { xs: 5, md: "40px" },
+            py: 5,
           }}
         >
           <Typography
             variant="h3Small"
             color={neutral[900]}
-            sx={{
-              paddingBottom: "40px",
-              textAlign: {
-                xs: "center",
-                sm: "left",
-              },
+            pb={5}
+            textAlign={{
+              xs: "center",
+              sm: "left",
             }}
           >
             {title}
