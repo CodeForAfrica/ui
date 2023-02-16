@@ -25,7 +25,11 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
           tabindex="0"
           type="button"
         >
-          Show All
+          <p
+            class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
+          >
+            Show All
+          </p>
         </button>
       </div>
     </div>
@@ -141,12 +145,17 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
         </div>
       </div>
     </div>
-    <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qpzgla-MuiTypography-root-MuiLink-root"
-      href="/grants/1"
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-nzsncw-MuiButtonBase-root-MuiButton-root"
+      tabindex="0"
+      type="button"
     >
-      View All
-    </a>
+      <p
+        class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
+      >
+        Show All
+      </p>
+    </button>
   </div>
 </div>
 `;

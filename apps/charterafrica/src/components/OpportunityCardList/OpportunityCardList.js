@@ -1,4 +1,3 @@
-import Link from "@/commons-ui/next/Link";
 import { Typography, Box, Grid, Button } from "@mui/material";
 import React, { useState } from "react";
 
@@ -10,7 +9,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   props,
   ref
 ) {
-  const { title, grants, url } = props;
+  const { title, grants } = props;
 
   const [showAll, setShowAll] = useState(false);
 
@@ -43,13 +42,19 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
           }}
         >
           <Button
-            variant="text"
-            color="primary"
             onClick={() => {
               setShowAll(!showAll);
             }}
           >
-            {showAll ? "Show Less" : "Show All"}
+            <Typography
+              variant="p3SemiBold"
+              sx={{
+                color: neutral[900],
+                textDecoration: "underline",
+              }}
+            >
+              {showAll ? "Show Less" : "Show All"}
+            </Typography>
           </Button>
         </Grid>
       </Grid>
@@ -82,22 +87,30 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
           );
         })}
       </Grid>
-      <Link
-        href={url}
-        underline="always"
-        color={neutral[900]}
+      <Button
+        onClick={() => {
+          setShowAll(!showAll);
+        }}
         sx={{
-          variant: "p3SemiBold",
           display: {
             xs: "block",
             md: "none",
           },
-          textAlign: "center",
           marginTop: "40px",
+          width: "100%",
+          textAlign: "center",
         }}
       >
-        View All
-      </Link>
+        <Typography
+          variant="p3SemiBold"
+          sx={{
+            color: neutral[900],
+            textDecoration: "underline",
+          }}
+        >
+          {showAll ? "Show Less" : "Show All"}
+        </Typography>
+      </Button>
     </Box>
   );
 });

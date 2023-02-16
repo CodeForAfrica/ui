@@ -39,7 +39,6 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
       return {
         title: `${key} calls`,
         grants: grantsByStatus[key],
-        url: `/opportunities?status=${key}`,
       };
     });
 
@@ -77,7 +76,6 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
                   title={grant.title}
                   grants={grant.grants}
                   key={grant.title}
-                  url={grant.url}
                 />
                 <StyledDivider />
               </React.Fragment>
