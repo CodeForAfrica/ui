@@ -4,6 +4,17 @@ import { Link } from "@commons-ui/next";
 import React, { Fragment } from "react";
 import { Text } from "slate";
 
+import LineClampedRichTypography from "../LineClampedRichTypography";
+
+function LineClampedRichTextTypography(props) {
+  const { lineClamp } = props;
+  return lineClamp ? (
+    <LineClampedRichTypography {...props} />
+  ) : (
+    <RichTypography {...props} />
+  );
+}
+
 const serialize = (children, defaultProps) =>
   children?.map((node, i) => {
     if (Text.isText(node)) {
@@ -81,9 +92,13 @@ const serialize = (children, defaultProps) =>
 
       default:
         return (
-          <RichTypography component="p" {...defaultProps} key={i}>
+          <LineClampedRichTextTypography
+            component="p"
+            {...defaultProps}
+            key={i}
+          >
             {serialize(node.children)}
-          </RichTypography>
+          </LineClampedRichTextTypography>
         );
     }
   });
