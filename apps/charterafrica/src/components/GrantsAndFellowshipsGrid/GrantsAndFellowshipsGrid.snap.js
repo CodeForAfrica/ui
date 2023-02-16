@@ -17,10 +17,10 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
         class="MuiBox-root css-0"
       >
         <div
-          class="MuiGrid-root MuiGrid-container css-4cmwq4-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1i1hrqh-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1atob12-MuiGrid-root"
           >
             <h5
               class="MuiTypography-root MuiTypography-h5SemiBold css-1i8y2l6-MuiTypography-root"
@@ -29,21 +29,21 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
             </h5>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 css-hj0fj-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ge11hp-MuiTypography-root-MuiLink-root"
-              href="/grants"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
+              href="/opportunities?status=open"
             >
               View All
             </a>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1j8f29c-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 MuiGrid-direction-xs-[object Object] css-183rgb9-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item css-muuvl7-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 MuiGrid-grid-xl-3 css-1ozk5mo-MuiGrid-root"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -81,7 +81,7 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
         </div>
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qpzgla-MuiTypography-root-MuiLink-root"
-          href="/grants"
+          href="/opportunities?status=open"
         >
           View All
         </a>
@@ -93,10 +93,10 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
         class="MuiBox-root css-0"
       >
         <div
-          class="MuiGrid-root MuiGrid-container css-4cmwq4-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1i1hrqh-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1atob12-MuiGrid-root"
           >
             <h5
               class="MuiTypography-root MuiTypography-h5SemiBold css-1i8y2l6-MuiTypography-root"
@@ -105,21 +105,21 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
             </h5>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 css-hj0fj-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ge11hp-MuiTypography-root-MuiLink-root"
-              href="/grants"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
+              href="/opportunities?status=closed"
             >
               View All
             </a>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1j8f29c-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 MuiGrid-direction-xs-[object Object] css-183rgb9-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item css-muuvl7-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 MuiGrid-grid-xl-3 css-1ozk5mo-MuiGrid-root"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -157,7 +157,7 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
         </div>
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qpzgla-MuiTypography-root-MuiLink-root"
-          href="/grants"
+          href="/opportunities?status=closed"
         >
           View All
         </a>
@@ -169,10 +169,10 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
         class="MuiBox-root css-0"
       >
         <div
-          class="MuiGrid-root MuiGrid-container css-4cmwq4-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1i1hrqh-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1atob12-MuiGrid-root"
           >
             <h5
               class="MuiTypography-root MuiTypography-h5SemiBold css-1i8y2l6-MuiTypography-root"
@@ -181,21 +181,21 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
             </h5>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 css-hj0fj-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ge11hp-MuiTypography-root-MuiLink-root"
-              href="/grants"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-9pxtj9-MuiTypography-root-MuiLink-root"
+              href="/opportunities?status=upcoming"
             >
               View All
             </a>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1j8f29c-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 MuiGrid-direction-xs-[object Object] css-183rgb9-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item css-muuvl7-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 MuiGrid-grid-xl-3 css-1ozk5mo-MuiGrid-root"
           >
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-uuhpmr-MuiPaper-root-MuiCard-root"
@@ -233,7 +233,7 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
         </div>
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qpzgla-MuiTypography-root-MuiLink-root"
-          href="/grants"
+          href="/opportunities?status=upcoming"
         >
           View All
         </a>

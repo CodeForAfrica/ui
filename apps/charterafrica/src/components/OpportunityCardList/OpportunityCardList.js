@@ -1,7 +1,5 @@
 import Link from "@/commons-ui/next/Link";
 import { Typography, Box, Grid } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 
 import OpportunityCard from "../OpportunityCard";
@@ -12,20 +10,11 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   props,
   ref
 ) {
-  const { title, grants } = props;
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isSmallDesktop = useMediaQuery(theme.breakpoints.only("md"));
+  const { title, grants, url } = props;
   return (
     <Box ref={ref}>
-      <Grid
-        container
-        justifyContent="space-between"
-        sx={{
-          marginBottom: "40px",
-        }}
-      >
-        <Grid item>
+      <Grid container justifyContent="space-between" rowSpacing={5}>
+        <Grid item xs={12} md={6}>
           <Typography
             variant="h5SemiBold"
             color={neutral[900]}
@@ -36,17 +25,23 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
             {title}
           </Typography>
         </Grid>
-        <Grid item>
+        <Grid
+          item
+          md={6}
+          textAlign="end"
+          sx={{
+            display: {
+              xs: "none",
+              md: "block",
+            },
+          }}
+        >
           <Link
-            href="/grants"
+            href={url}
             underline="always"
             color={neutral[900]}
             sx={{
               variant: "p3SemiBold",
-              display: {
-                xs: "none",
-                md: "block",
-              },
             }}
           >
             View All
@@ -55,45 +50,39 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
       </Grid>
       <Grid
         container
-        spacing={2}
-        direction={isMobile ? "column" : "row"}
+        spacing={5}
+        direction={{
+          xs: "column",
+          sm: "row",
+        }}
         justifyContent={{
           xs: "center",
           md: "space-between",
         }}
-        alignItems="center"
+        flexWrap={{
+          xs: "nowrap",
+          sm: "wrap",
+          md: "nowrap",
+        }}
       >
-        {isMobile || isSmallDesktop
-          ? grants.slice(0, 3).map((grant) => {
-              return (
-                <Grid
-                  item
-                  sx={{
-                    marginBottom: "40px",
-                  }}
-                >
-                  <OpportunityCard opportunity={grant} key={grant.id} />
-                </Grid>
-              );
-            })
-          : grants.slice(0, 4).map((grant) => {
-              return (
-                <Grid
-                  item
-                  sx={{
-                    marginBottom: {
-                      xs: "40px",
-                      md: "0px",
-                    },
-                  }}
-                >
-                  <OpportunityCard opportunity={grant} key={grant.id} />
-                </Grid>
-              );
-            })}
+        {grants.slice(0, 4).map((grant) => {
+          return (
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              xl={3}
+              justifyContent="space-between"
+            >
+              <OpportunityCard opportunity={grant} key={grant.id} />
+            </Grid>
+          );
+        })}
       </Grid>
       <Link
-        href="/grants"
+        href={url}
         underline="always"
         color={neutral[900]}
         sx={{

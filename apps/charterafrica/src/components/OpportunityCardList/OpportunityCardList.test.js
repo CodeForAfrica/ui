@@ -75,6 +75,7 @@ const defaultProps = {
       status: "upcoming",
     },
   ],
+  url: "/grants/1",
 };
 
 describe("<OpportunityCardList />", () => {
