@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Page from "./[slug].page";
+import Page from "./[...slug].page";
 
 import theme from "@/charterafrica/theme";
 
@@ -13,7 +13,7 @@ const defaultProps = {
   locales: ["en", "fr", "pt"],
 };
 
-describe("/opportunities/[slug]", () => {
+describe("/knowledge/[slug]", () => {
   it("renders unchanged", () => {
     const { container } = render(<Page {...defaultProps} />);
     expect(container).toMatchSnapshot();
