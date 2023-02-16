@@ -1,4 +1,4 @@
-const Hero = {
+const Global = {
   slug: "global",
   fields: [
     {
@@ -27,4 +27,4 @@ const Hero = {
   ],
 };
 
-export default Hero;
+export default Global;

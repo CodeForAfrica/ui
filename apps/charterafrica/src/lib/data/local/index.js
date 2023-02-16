@@ -34,12 +34,15 @@ export const api = payload;
 
 export async function getPageServerSideProps({
   defaultLocale,
-  query,
+  params,
+  // query,
   resolvedUrl,
   locale,
   locales,
 }) {
-  const { slug } = query;
+  const slugLength = params.slug?.length;
+  const slug = slugLength ? params.slug[slugLength - 1] : "index";
+  // const { slug } = query;
   const props = await getPageProps(slug, payload, {
     defaultLocale,
     locale,

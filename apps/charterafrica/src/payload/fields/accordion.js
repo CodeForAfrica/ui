@@ -2,9 +2,6 @@ import { deepmerge } from "@mui/utils";
 
 import richText from "./richText";
 
-/**
- * array field consisting of link fields .
- */
 function accordion({ richTextConfig, overrides = {} } = {}) {
   const generatedAccordion = {
     name: "items",
