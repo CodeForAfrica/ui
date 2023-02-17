@@ -1,4 +1,10 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import React from "react";
 
 import { neutral, secondary } from "@/charterafrica/colors";
@@ -18,52 +24,54 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
         backgroundColor: secondary[50],
       }}
     >
-      <CardMedia
-        component="img"
-        height={187.26}
-        width={270}
-        image={image.url}
-        alt={image.alt}
-        sx={{
-          boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.1)",
-          borderRadius: "5px",
-          objectFit: "fill",
-        }}
-      />
-      <CardContent
-        sx={{
-          padding: "0",
-          marginTop: "20px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "20px",
-          "&:last-child": {
-            paddingBottom: "0",
-          },
-        }}
-      >
-        <Typography
-          variant="h6"
-          color={neutral[900]}
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height={187.26}
+          width={270}
+          image={image.url}
+          alt={image.alt}
           sx={{
-            textTransform: "uppercase",
+            boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.1)",
+            borderRadius: "5px",
+            objectFit: "fill",
+          }}
+        />
+        <CardContent
+          sx={{
+            padding: "0",
+            marginTop: "20px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+            "&:last-child": {
+              paddingBottom: "0",
+            },
           }}
         >
-          {title}
-        </Typography>
-        <Typography variant="p1" color={neutral[900]}>
-          {description}
-        </Typography>
-        <Typography
-          variant="caption"
-          color={neutral[900]}
-          sx={{
-            textTransform: "uppercase",
-          }}
-        >
-          Deadline: {deadline}
-        </Typography>
-      </CardContent>
+          <Typography
+            variant="h6"
+            color={neutral[900]}
+            sx={{
+              textTransform: "uppercase",
+            }}
+          >
+            {title}
+          </Typography>
+          <Typography variant="p1" color={neutral[900]}>
+            {description}
+          </Typography>
+          <Typography
+            variant="caption"
+            color={neutral[900]}
+            sx={{
+              textTransform: "uppercase",
+            }}
+          >
+            Deadline: {deadline}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 });

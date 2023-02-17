@@ -62,7 +62,6 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
       </Grid>
       <Grid
         container
-        spacing={5}
         wrap="wrap"
         sx={{
           // hide from 5th child
@@ -83,7 +82,19 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
       >
         {grants.map((grant) => {
           return (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={grant.id}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              key={grant.id}
+              display="flex"
+              justifyContent={{
+                xs: "center",
+                md: "end",
+              }}
+            >
               <OpportunityCard {...grant} key={grant.id} />
             </Grid>
           );
