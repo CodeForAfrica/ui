@@ -54,13 +54,13 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
           }}
         >
           <Typography
-            variant="h3Small"
             color={neutral[900]}
             pb={5}
             textAlign={{
               xs: "center",
               sm: "left",
             }}
+            variant="h3Small"
           >
             {title}
           </Typography>
@@ -69,19 +69,19 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
             return (
               <React.Fragment key={grant.title}>
                 <OpportunityCardList
-                  title={grant.title}
                   grants={grant.grants}
+                  title={grant.title}
                   key={grant.title}
                 />
                 <Divider
                   sx={{
-                    width: "100%",
-                    height: "0px",
-                    color: neutral[200],
                     border: "1px solid",
                     borderColor: neutral[200],
+                    color: neutral[200],
+                    height: "0px",
                     marginTop: "40px",
                     marginBottom: "40px",
+                    width: "100%",
                   }}
                 />
               </React.Fragment>

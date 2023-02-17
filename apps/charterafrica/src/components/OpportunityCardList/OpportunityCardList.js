@@ -21,10 +21,10 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
       <Grid container justifyContent="space-between" mb={5}>
         <Grid item xs={12} md={6}>
           <Typography
-            variant="h5SemiBold"
             color={neutral[900]}
             textAlign={{ xs: "center", sm: "left" }}
             textTransform="capitalize"
+            variant="h5SemiBold"
           >
             {title}
           </Typography>
@@ -49,8 +49,8 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
             }}
           >
             <Typography
-              variant="p3SemiBold"
               color={neutral[900]}
+              variant="p3SemiBold"
               sx={{
                 textDecoration: "underline",
               }}
@@ -116,8 +116,8 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
         }}
       >
         <Typography
-          variant="p3SemiBold"
           color={neutral[900]}
+          variant="p3SemiBold"
           sx={{
             textDecoration: "underline",
           }}

@@ -18,13 +18,19 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
   return (
     <Card
       ref={ref}
-      style={{
-        width: "270px",
+      sx={{
         boxShadow: "none",
         backgroundColor: secondary[50],
+        width: "270px",
       }}
     >
-      <CardActionArea>
+      <CardActionArea
+        sx={{
+          "&:hover": {
+            backgroundColor: "transparent",
+          },
+        }}
+      >
         <CardMedia
           component="img"
           height={187.26}
@@ -39,31 +45,31 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
         />
         <CardContent
           sx={{
-            padding: "0",
-            marginTop: "20px",
             display: "flex",
             flexDirection: "column",
             gap: "20px",
+            padding: "0",
+            marginTop: "20px",
             "&:last-child": {
               paddingBottom: "0",
             },
           }}
         >
           <Typography
-            variant="h6"
             color={neutral[900]}
+            variant="h6"
             sx={{
               textTransform: "uppercase",
             }}
           >
             {title}
           </Typography>
-          <Typography variant="p1" color={neutral[900]}>
+          <Typography color={neutral[900]} variant="p1">
             {description}
           </Typography>
           <Typography
-            variant="caption"
             color={neutral[900]}
+            variant="caption"
             sx={{
               textTransform: "uppercase",
             }}

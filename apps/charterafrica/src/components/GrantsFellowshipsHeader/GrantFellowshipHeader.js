@@ -13,11 +13,11 @@ const GrantsFellowshipsHeader = React.forwardRef(
     }
     return (
       <Box
+        ref={ref}
         sx={{
           backgroundColor: secondary[50],
           ...sx,
         }}
-        ref={ref}
       >
         <Section
           sx={{
@@ -26,21 +26,21 @@ const GrantsFellowshipsHeader = React.forwardRef(
           }}
         >
           <Typography
-            variant="h3"
             color={neutral[900]}
+            mb={5}
             textAlign={{ xs: "center", sm: "left" }}
             textTransform="capitalize"
-            mb={5}
+            variant="h3"
           >
             {title}
           </Typography>
           <Divider
             sx={{
-              width: "100%",
-              height: "0px",
-              color: neutral[200],
               border: "1px solid",
               borderColor: neutral[200],
+              color: neutral[200],
+              height: "0px",
+              width: "100%",
             }}
           />
         </Section>

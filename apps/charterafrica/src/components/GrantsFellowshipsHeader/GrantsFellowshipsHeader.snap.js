@@ -9,12 +9,12 @@ exports[`<GrantsFellowshipsHeader /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-63j1t6-MuiContainer-root"
     >
       <h3
-        class="MuiTypography-root MuiTypography-h3 css-19t1rnk-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3 css-1qdoznw-MuiTypography-root"
       >
         Grants and Fellowships
       </h3>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1yefcbc-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth css-f8pbns-MuiDivider-root"
       />
     </div>
   </div>
