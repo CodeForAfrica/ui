@@ -141,13 +141,13 @@ export async function processPageAbout({ blocks }) {
   });
 }
 
-export async function processPageSpecificBlocks(page) {
+export async function processPageSpecificBlocks(page, api) {
   switch (page.slug) {
     case "about":
       processPageAbout(page);
       break;
     case "explainers":
-      processPageExplainers(page);
+      processPageExplainers(page, api);
       break;
     case "news":
       processPageNews(page);
@@ -179,7 +179,7 @@ export async function getPageProps(
       ...other,
       slug: blockType,
     })) ?? null;
-  processPageSpecificBlocks(page);
+  processPageSpecificBlocks(page, api);
   const { settings, ...globalProps } = await getGlobalProps(api, {
     defaultLocale,
     locale,
