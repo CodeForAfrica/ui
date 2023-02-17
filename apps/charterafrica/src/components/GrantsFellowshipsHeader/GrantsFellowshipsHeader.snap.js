@@ -14,7 +14,7 @@ exports[`<GrantsFellowshipsHeader /> renders unchanged 1`] = `
         Grants and Fellowships
       </h3>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-phrmz2-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth css-1yefcbc-MuiDivider-root"
       />
     </div>
   </div>

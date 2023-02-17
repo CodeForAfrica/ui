@@ -1,16 +1,8 @@
 import { Section } from "@commons-ui/core";
-import { Typography, Box, Divider, styled } from "@mui/material";
+import { Typography, Box, Divider } from "@mui/material";
 import React from "react";
 
 import { neutral, secondary } from "@/charterafrica/colors";
-
-const StyledDivider = styled(Divider)(() => ({
-  width: "100%",
-  height: "0px",
-  color: neutral[200],
-  border: "1px solid",
-  borderColor: neutral[200],
-}));
 
 const GrantsFellowshipsHeader = React.forwardRef(
   function GrantsFellowshipsHeader(props, ref) {
@@ -42,7 +34,15 @@ const GrantsFellowshipsHeader = React.forwardRef(
           >
             {title}
           </Typography>
-          <StyledDivider />
+          <Divider
+            sx={{
+              width: "100%",
+              height: "0px",
+              color: neutral[200],
+              border: "1px solid",
+              borderColor: neutral[200],
+            }}
+          />
         </Section>
       </Box>
     );

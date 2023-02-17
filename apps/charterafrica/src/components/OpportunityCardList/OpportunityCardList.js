@@ -39,6 +39,11 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
           }}
         >
           <Button
+            sx={{
+              "&:hover": {
+                backgroundColor: "transparent",
+              },
+            }}
             onClick={() => {
               setShowAll(!showAll);
             }}
@@ -96,6 +101,9 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
           },
           marginTop: "40px",
           textAlign: "center",
+          "&:hover": {
+            backgroundColor: "transparent",
+          },
         }}
       >
         <Typography

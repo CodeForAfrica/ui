@@ -1,20 +1,10 @@
 import { Section } from "@commons-ui/core";
-import { Typography, Box, Divider, styled } from "@mui/material";
+import { Typography, Box, Divider } from "@mui/material";
 import React from "react";
 
 import OpportunityCardList from "../OpportunityCardList";
 
 import { neutral, secondary } from "@/charterafrica/colors";
-
-const StyledDivider = styled(Divider)(() => ({
-  width: "100%",
-  height: "0px",
-  color: neutral[200],
-  border: "1px solid",
-  borderColor: neutral[200],
-  marginTop: "40px",
-  marginBottom: "40px",
-}));
 
 const GrantsAndFellowshipsGrid = React.forwardRef(
   function GrantsAndFellowshipsGrid(props, ref) {
@@ -75,7 +65,17 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
                   grants={grant.grants}
                   key={grant.title}
                 />
-                <StyledDivider />
+                <Divider
+                  sx={{
+                    width: "100%",
+                    height: "0px",
+                    color: neutral[200],
+                    border: "1px solid",
+                    borderColor: neutral[200],
+                    marginTop: "40px",
+                    marginBottom: "40px",
+                  }}
+                />
               </React.Fragment>
             );
           })}
