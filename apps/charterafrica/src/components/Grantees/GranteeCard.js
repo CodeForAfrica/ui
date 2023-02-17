@@ -9,9 +9,8 @@ import {
 import PropTypes from "prop-types";
 import React from "react";
 
-import LineClampedRichTypography from "../LineClampedRichTypography";
-import RichText from "../RichText";
-
+import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+import RichText from "@/charterafrica/components/RichText";
 import Card from "@/charterafrica/components/StyledCard";
 
 const StyledActionArea = styled(CardActionArea)(
@@ -62,11 +61,6 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
               mb: 2.5,
               fontWeight: 400,
               minHeight: `calc(${theme.typography.h5.fontSize}px * ${theme.typography.h5.lineHeight} * 2)`,
-              [theme.breakpoints.up("md")]: {
-                minHeight: `calc(${theme.typography.h5.fontSize}px * ${theme.typography.h5.lineHeight} * 2)`,
-                typography: "h5",
-                fontWeight: 400,
-              },
             })}
           >
             {name}

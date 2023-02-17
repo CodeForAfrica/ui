@@ -6,14 +6,18 @@ import GranteeCard from "./GranteeCard";
 
 const Grantees = React.forwardRef(function Grantees(props, ref) {
   const { sx, grantees, title } = props;
+
+  if (!grantees?.length) {
+    return null;
+  }
   return (
     <Box bgcolor="common.white" sx={sx} ref={ref}>
-      <Section sx={{ p: 4 }}>
+      <Section sx={{ p: { xs: 2.5, sm: 4 } }}>
         <RichTypography
           color="primary.dark"
           variant="h3Small"
           component="h3"
-          sx={{ typography: { md: "h3" }, marginBottom: 3.5 }}
+          mb={3.5}
         >
           {title}
         </RichTypography>
