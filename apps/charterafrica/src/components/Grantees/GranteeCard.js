@@ -49,7 +49,7 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
       variant={variant}
     >
       <StyledActionArea component={href ? Link : undefined} href={href}>
-        <CardMedia image={image.url} sx={{ height: 200 }} />
+        <CardMedia image={image.url} sx={{ height: 264 }} />
         <CardContent>
           <LineClampedRichTypography
             color="neutral.dark"

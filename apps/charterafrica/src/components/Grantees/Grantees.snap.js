@@ -28,7 +28,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -78,7 +78,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -128,7 +128,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -178,7 +178,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -228,7 +228,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -278,7 +278,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -328,7 +328,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -378,7 +378,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -428,7 +428,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -478,7 +478,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -528,7 +528,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -578,7 +578,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -628,7 +628,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -678,7 +678,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -728,7 +728,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -778,7 +778,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -828,7 +828,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -878,7 +878,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -928,7 +928,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -978,7 +978,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -1028,7 +1028,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -1078,7 +1078,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -1128,7 +1128,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -1178,7 +1178,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -1228,7 +1228,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -1278,7 +1278,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -1328,7 +1328,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -1378,7 +1378,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -1428,7 +1428,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
@@ -1478,7 +1478,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
               type="button"
             >
               <div
-                class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+                class="MuiCardMedia-root css-ii8qym-MuiCardMedia-root"
                 role="img"
               />
               <div
