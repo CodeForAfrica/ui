@@ -44,6 +44,13 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
           sx={{
             px: { xs: 5, sm: 0 },
             py: 5,
+            // hide from 2nd onwards on mobile and tablet
+            "& > *:nth-of-type(n+2)": {
+              display: {
+                xs: "none",
+                md: "block",
+              },
+            },
           }}
         >
           <Typography
@@ -57,6 +64,7 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
           >
             {title}
           </Typography>
+
           {grantsByStatusArray.map((grant) => {
             return (
               <React.Fragment key={grant.title}>

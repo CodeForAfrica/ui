@@ -6,7 +6,7 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
     class="MuiBox-root css-156ejva"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1cqam28-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1c8qva3-MuiContainer-root"
     >
       <h3
         class="MuiTypography-root MuiTypography-h3Small css-yo7jji-MuiTypography-root"
