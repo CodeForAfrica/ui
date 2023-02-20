@@ -220,11 +220,11 @@ const globalBlocksProcessFunctionMap = {
 export async function getPageProps(context, api) {
   const { defaultLocale, locale, locales, params } = context;
   const fallbackLocale = defaultLocale;
-  const slugLength = params.slug?.length;
-  const slug = slugLength ? params.slug[slugLength - 1] : "index";
+  const slugsLength = params.slugs?.length;
+  const slug = slugsLength ? params.slugs[slugsLength - 1] : "index";
   // NOTE: we don't use .join because it doesn't put separator first
-  const pathname = slugLength
-    ? params.slug.reduce((acc, curr) => `${acc}/${curr}`, "")
+  const pathname = slugsLength
+    ? params.slugs.reduce((acc, curr) => `${acc}/${curr}`, "")
     : "/";
 
   const { docs: pages } = await api.findPage(slug, {

@@ -4,7 +4,7 @@ import { getPageStaticProps } from "@/charterafrica/lib/data/rest";
 export async function getStaticProps(context) {
   const data = await getPageStaticProps({
     ...context,
-    params: { slug: ["404"] },
+    params: { slugs: ["404"] },
   });
 
   return data;
