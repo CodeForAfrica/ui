@@ -45,6 +45,22 @@ export async function processPageExplainers({ title, blocks }, api) {
 export async function processPageNews({ blocks }) {
   // TODO(kilemensi): Pull data from CMS
   blocks.push({
+    slug: "featured-post",
+    category: "News",
+    title: "News Story title goes here and spans over second line",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur",
+    date: "2020-10-10 10:10:10",
+    author: "Author Name",
+    image: {
+      url: "/images/featured_post.jpg",
+      alt: "Featured Post",
+    },
+    link: {
+      href: "/knowledge/news",
+    },
+  });
+  blocks.push({
     slug: "news",
     title: "News",
     articles: Array.from({ length: 30 }, (_, i) => ({
@@ -52,20 +68,19 @@ export async function processPageNews({ blocks }) {
       title: "News story title goes here and spans over second line. "
         .repeat((i % 2) + 1)
         .trim(),
-      author: "Sakwa G",
       date: "2023-02-11",
       image: {
         id: "63d2622aafe25f6469605eae",
         alt: `News Story ${i}`,
         prefix: "media",
-        filename: "Rectangle 113.jpg",
+        filename: `knowledge_${(i % 3) + 1}.jpg`,
         mimeType: "image/jpg",
         filesize: 257010,
         width: 1236,
         height: 696,
         createdAt: "2023-01-26T11:21:14.868Z",
         updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "http://localhost:3000/images/Rectangle 113.jpg",
+        url: `/images/knowledge_${(i % 3) + 1}.jpg`,
       },
     })),
   });
@@ -74,6 +89,22 @@ export async function processPageNews({ blocks }) {
 export async function processPageResearch({ blocks }) {
   // TODO(kilemensi): Pull data from CMS
   blocks.push({
+    slug: "featured-post",
+    category: "Research",
+    title: "Research Story title goes here and spans over second line",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur",
+    date: "2020-10-10 10:10:10",
+    author: "Author",
+    image: {
+      url: "/images/featured_post.jpg",
+      alt: "Featured Post",
+    },
+    link: {
+      href: "/knowledge/news",
+    },
+  });
+  blocks.push({
     slug: "research",
     title: "Research",
     articles: Array.from({ length: 30 }, (_, i) => ({
@@ -81,20 +112,20 @@ export async function processPageResearch({ blocks }) {
       title: "Research title goes here and spans over second line. "
         .repeat((i % 2) + 1)
         .trim(),
-      author: "Sakwa G",
+      author: "Author",
       date: "2023-02-11",
       image: {
         id: "63d2622aafe25f6469605eae",
         alt: `Research ${i}`,
         prefix: "media",
-        filename: "Rectangle 113.jpg",
+        filename: `knowledge_${(i % 3) + 1}.jpg`,
         mimeType: "image/jpg",
         filesize: 257010,
         width: 1236,
         height: 696,
         createdAt: "2023-01-26T11:21:14.868Z",
         updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "http://localhost:3000/images/Rectangle 113.jpg",
+        url: `/images/knowledge_${(i % 3) + 1}.jpg`,
       },
     })),
   });
