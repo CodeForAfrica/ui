@@ -73,7 +73,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
             display: showAll ? "flex" : "none",
           },
 
-          // hide from 4th child on only sm and md
+          // hide from 4th child on only xs and md
           "& > :nth-of-type(4)": {
             display: {
               xs: showAll ? "flex" : "none",
