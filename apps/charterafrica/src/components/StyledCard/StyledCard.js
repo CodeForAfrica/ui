@@ -1,6 +1,12 @@
-import { Card, styled } from "@mui/material";
+import { Card, CardActionArea, styled } from "@mui/material";
 
 import { neutral } from "@/charterafrica/colors";
+
+export const StyledActionArea = styled(CardActionArea)`
+  .MuiCardActionArea-focusHighlight {
+    background: transparent;
+  }
+`;
 
 const StyledCard = styled(Card)(({ ownerState, theme }) => ({
   backgroundColor: "#fff",

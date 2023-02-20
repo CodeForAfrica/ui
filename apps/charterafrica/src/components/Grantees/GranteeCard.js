@@ -1,23 +1,11 @@
 import { Link } from "@commons-ui/next";
-import {
-  Button,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  styled,
-} from "@mui/material";
+import { Button, CardContent, CardMedia } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import RichText from "@/charterafrica/components/RichText";
-import Card from "@/charterafrica/components/StyledCard";
-
-const StyledActionArea = styled(CardActionArea)`
-  .MuiCardActionArea-focusHighlight {
-    background: transparent;
-  }
-`;
+import Card, { StyledActionArea } from "@/charterafrica/components/StyledCard";
 
 const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
   const {

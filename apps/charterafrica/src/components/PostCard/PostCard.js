@@ -1,19 +1,11 @@
 import { Link } from "@commons-ui/next";
-import { CardActionArea, CardContent, CardMedia, styled } from "@mui/material";
+import { CardContent, CardMedia } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
 import LineClampedRichTypography from "../LineClampedRichTypography";
 
-import Card from "@/charterafrica/components/StyledCard";
-
-const StyledActionArea = styled(CardActionArea)(
-  () => `
-.MuiCardActionArea-focusHighlight {
-    background: transparent;
-}
-`
-);
+import Card, { StyledActionArea } from "@/charterafrica/components/StyledCard";
 
 const PostCard = React.forwardRef(function PostCard(props, ref) {
   const {
