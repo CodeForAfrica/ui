@@ -10,20 +10,20 @@ import { getPageServerSideProps } from "@/charterafrica/lib/data";
 function About({ blocks }) {
   return blocks?.map((block) => {
     switch (block?.slug) {
+      case "explainers":
+        return <Explainers {...block} key={block.slug} />;
       case "featured-post":
         return <FeaturedPostCard {...block} key={block.slug} />;
+      case "grantees":
+        return <Grantees {...block} key={block.slug} />;
       case "helpdesk-page-content":
         return <HelpdeskPageContent {...block} key={block.slug} />;
       case "helpdesk-page-header":
         return <HelpdeskPageHeader {...block} key={block.slug} />;
-      case "page-info":
-        return <PageInfo {...block} key={block.slug} />;
-      case "grantees":
-        return <Grantees {...block} key={block.slug} />;
-      case "explainers":
-        return <Explainers {...block} key={block.slug} />;
       case "news":
         return <Articles {...block} key={block.slug} />;
+      case "page-info":
+        return <PageInfo {...block} key={block.slug} />;
       case "research":
         return <Articles {...block} key={block.slug} />;
       default:

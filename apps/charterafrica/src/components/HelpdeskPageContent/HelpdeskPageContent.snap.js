@@ -12,12 +12,12 @@ exports[`<HelpdeskPageContent /> renders unchanged 1`] = `
         class="MuiBox-root css-j7qwjs"
       >
         <p
-          class="MuiTypography-root MuiTypography-p3 css-2fjak5-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p3 css-1bv69o6-MuiTypography-root"
         >
           Need help connecting with experts?
         </p>
         <p
-          class="MuiTypography-root MuiTypography-p3 css-2fjak5-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p3 css-1bv69o6-MuiTypography-root"
         >
           
 We can help you find specialists or resources to improve the impact of your democracy project.

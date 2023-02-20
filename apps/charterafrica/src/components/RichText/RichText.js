@@ -1,19 +1,9 @@
 /* eslint-disable react/no-array-index-key */
-import { RichTypography } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import React, { Fragment } from "react";
 import { Text } from "slate";
 
 import LineClampedRichTypography from "../LineClampedRichTypography";
-
-function LineClampedRichTextTypography(props) {
-  const { lineClamp } = props;
-  return lineClamp ? (
-    <LineClampedRichTypography {...props} />
-  ) : (
-    <RichTypography {...props} />
-  );
-}
 
 const serialize = (children, defaultProps) =>
   children?.map((node, i) => {
@@ -41,39 +31,39 @@ const serialize = (children, defaultProps) =>
     switch (node.type) {
       case "h1":
         return (
-          <RichTypography variant="h1" key={i}>
+          <LineClampedRichTypography variant="h1" key={i}>
             {serialize(node.children)}
-          </RichTypography>
+          </LineClampedRichTypography>
         );
       case "h2":
         return (
-          <RichTypography variant="h2" key={i}>
+          <LineClampedRichTypography variant="h2" key={i}>
             {serialize(node.children)}
-          </RichTypography>
+          </LineClampedRichTypography>
         );
       case "h3":
         return (
-          <RichTypography variant="h3" key={i}>
+          <LineClampedRichTypography variant="h3" key={i}>
             {serialize(node.children)}
-          </RichTypography>
+          </LineClampedRichTypography>
         );
       case "h4":
         return (
-          <RichTypography variant="h4" key={i}>
+          <LineClampedRichTypography variant="h4" key={i}>
             {serialize(node.children)}
-          </RichTypography>
+          </LineClampedRichTypography>
         );
       case "h5":
         return (
-          <RichTypography variant="h5" key={i}>
+          <LineClampedRichTypography variant="h5" key={i}>
             {serialize(node.children)}
-          </RichTypography>
+          </LineClampedRichTypography>
         );
       case "h6":
         return (
-          <RichTypography variant="h6" key={i}>
+          <LineClampedRichTypography variant="h6" key={i}>
             {serialize(node.children)}
-          </RichTypography>
+          </LineClampedRichTypography>
         );
       case "quote":
         return <blockquote key={i}>{serialize(node.children)}</blockquote>;
@@ -92,13 +82,9 @@ const serialize = (children, defaultProps) =>
 
       default:
         return (
-          <LineClampedRichTextTypography
-            component="p"
-            {...defaultProps}
-            key={i}
-          >
+          <LineClampedRichTypography component="p" {...defaultProps} key={i}>
             {serialize(node.children)}
-          </LineClampedRichTextTypography>
+          </LineClampedRichTypography>
         );
     }
   });

@@ -3,7 +3,7 @@
 exports[`<PostCard /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-vnxqjh-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1kskzdz-MuiPaper-root-MuiCard-root"
   >
     <button
       class="MuiButtonBase-root MuiCardActionArea-root css-lo7e99-MuiButtonBase-root-MuiCardActionArea-root"

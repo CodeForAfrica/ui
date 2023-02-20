@@ -13,13 +13,11 @@ import LineClampedRichTypography from "@/charterafrica/components/LineClampedRic
 import RichText from "@/charterafrica/components/RichText";
 import Card from "@/charterafrica/components/StyledCard";
 
-const StyledActionArea = styled(CardActionArea)(
-  () => `
-.MuiCardActionArea-focusHighlight {
+const StyledActionArea = styled(CardActionArea)`
+  .MuiCardActionArea-focusHighlight {
     background: transparent;
-}
-`
-);
+  }
+`;
 
 const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
   const {
