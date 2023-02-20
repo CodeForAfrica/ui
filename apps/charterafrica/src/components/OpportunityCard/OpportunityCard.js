@@ -4,10 +4,19 @@ import {
   CardContent,
   CardMedia,
   Typography,
+  styled,
 } from "@mui/material";
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
+
+const StyledCardActionArea = styled(CardActionArea)(
+  () => `
+    .MuiCardActionArea-focusHighlight {
+        background: transparent;
+    }
+`
+);
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
   const { image, deadline, description, title, config } = props;
@@ -24,7 +33,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
         width: "270px",
       }}
     >
-      <CardActionArea>
+      <StyledCardActionArea component="a">
         <CardMedia
           component="img"
           height={187.26}
@@ -71,7 +80,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             {config.deadlineText}: {deadline}
           </Typography>
         </CardContent>
-      </CardActionArea>
+      </StyledCardActionArea>
     </Card>
   );
 });

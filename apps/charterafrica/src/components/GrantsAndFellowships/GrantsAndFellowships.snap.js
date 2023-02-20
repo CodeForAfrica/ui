@@ -55,10 +55,10 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
             >
-              <button
-                class="MuiButtonBase-root MuiCardActionArea-root css-1g50ihv-MuiButtonBase-root-MuiCardActionArea-root"
+              <a
+                class="MuiButtonBase-root MuiCardActionArea-root css-1mmyqw5-MuiButtonBase-root-MuiCardActionArea-root"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <img
                   alt="Grant 1"
@@ -91,7 +91,7 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
                 <span
                   class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
                 />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -152,10 +152,10 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
             >
-              <button
-                class="MuiButtonBase-root MuiCardActionArea-root css-1g50ihv-MuiButtonBase-root-MuiCardActionArea-root"
+              <a
+                class="MuiButtonBase-root MuiCardActionArea-root css-1mmyqw5-MuiButtonBase-root-MuiCardActionArea-root"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <img
                   alt="Grant 2"
@@ -188,7 +188,7 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
                 <span
                   class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
                 />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -249,10 +249,10 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
             >
-              <button
-                class="MuiButtonBase-root MuiCardActionArea-root css-1g50ihv-MuiButtonBase-root-MuiCardActionArea-root"
+              <a
+                class="MuiButtonBase-root MuiCardActionArea-root css-1mmyqw5-MuiButtonBase-root-MuiCardActionArea-root"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <img
                   alt="Grant 3"
@@ -285,7 +285,7 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
                 <span
                   class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
                 />
-              </button>
+              </a>
             </div>
           </div>
         </div>
