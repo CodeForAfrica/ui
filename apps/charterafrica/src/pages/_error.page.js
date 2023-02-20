@@ -26,7 +26,7 @@ CustomError.getInitialProps = async ({
     locale,
     locales,
     resolvedUrl: `/${slug}`,
-    slug,
+    params: { slug: [slug] },
   });
 
   return props;

@@ -29,6 +29,47 @@ async function getGlobalProps({ locale, defaultLocale }, api) {
   return { footer, navbar, settings };
 }
 
+export async function processPageAbout({ blocks }) {
+  blocks.push({
+    slug: "grantees",
+    title: "Grantees",
+    grantees: Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      name: "Grantee Name ".repeat((i % 2) + 1).trim(),
+      description: [
+        {
+          children: [
+            {
+              text: "Lorem ipsum dolor sit amet con sectetur adipiscing elit mi, interdum blandit fring illa fus. adipiscing elit mi, adipiscing.",
+            },
+          ],
+        },
+      ],
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `About ${i}`,
+        prefix: "media",
+        filename: "Rectangle 117.png",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "/images/Rectangle 117.png",
+      },
+      primaryLink: {
+        label: "Constitutional changes of government",
+        href: "/",
+      },
+      secondaryLink: {
+        label: "Networks",
+        href: "/",
+      },
+    })),
+  });
+}
+
 export async function processPageExplainers({ title, blocks }, api) {
   const collection = await api.getCollection("explainers");
   const explainers = collection.docs || null;
@@ -45,6 +86,22 @@ export async function processPageExplainers({ title, blocks }, api) {
 export async function processPageNews({ blocks }) {
   // TODO(kilemensi): Pull data from CMS
   blocks.push({
+    slug: "featured-post",
+    category: "News",
+    title: "News Story title goes here and spans over second line",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur",
+    date: "2020-10-10 10:10:10",
+    author: "Author Name",
+    image: {
+      url: "/images/featured_post.jpg",
+      alt: "Featured Post",
+    },
+    link: {
+      href: "/knowledge/news",
+    },
+  });
+  blocks.push({
     slug: "news",
     title: "News",
     articles: Array.from({ length: 30 }, (_, i) => ({
@@ -52,20 +109,19 @@ export async function processPageNews({ blocks }) {
       title: "News story title goes here and spans over second line. "
         .repeat((i % 2) + 1)
         .trim(),
-      author: "Sakwa G",
       date: "2023-02-11",
       image: {
         id: "63d2622aafe25f6469605eae",
         alt: `News Story ${i}`,
         prefix: "media",
-        filename: "Rectangle 113.jpg",
+        filename: `knowledge_${(i % 3) + 1}.jpg`,
         mimeType: "image/jpg",
         filesize: 257010,
         width: 1236,
         height: 696,
         createdAt: "2023-01-26T11:21:14.868Z",
         updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "http://localhost:3000/images/Rectangle 113.jpg",
+        url: `/images/knowledge_${(i % 3) + 1}.jpg`,
       },
     })),
   });
@@ -74,6 +130,22 @@ export async function processPageNews({ blocks }) {
 export async function processPageResearch({ blocks }) {
   // TODO(kilemensi): Pull data from CMS
   blocks.push({
+    slug: "featured-post",
+    category: "Research",
+    title: "Research Story title goes here and spans over second line",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur",
+    date: "2020-10-10 10:10:10",
+    author: "Author",
+    image: {
+      url: "/images/featured_post.jpg",
+      alt: "Featured Post",
+    },
+    link: {
+      href: "/knowledge/news",
+    },
+  });
+  blocks.push({
     slug: "research",
     title: "Research",
     articles: Array.from({ length: 30 }, (_, i) => ({
@@ -81,26 +153,27 @@ export async function processPageResearch({ blocks }) {
       title: "Research title goes here and spans over second line. "
         .repeat((i % 2) + 1)
         .trim(),
-      author: "Sakwa G",
+      author: "Author",
       date: "2023-02-11",
       image: {
         id: "63d2622aafe25f6469605eae",
         alt: `Research ${i}`,
         prefix: "media",
-        filename: "Rectangle 113.jpg",
+        filename: `knowledge_${(i % 3) + 1}.jpg`,
         mimeType: "image/jpg",
         filesize: 257010,
         width: 1236,
         height: 696,
         createdAt: "2023-01-26T11:21:14.868Z",
         updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "http://localhost:3000/images/Rectangle 113.jpg",
+        url: `/images/knowledge_${(i % 3) + 1}.jpg`,
       },
     })),
   });
 }
 
 const pageBlocksProcessFunctionMap = {
+  about: processPageAbout,
   explainers: processPageExplainers,
   news: processPageNews,
   research: processPageResearch,
@@ -111,14 +184,31 @@ async function processGlobalBlockFocalCountries(block) {
 }
 
 async function processGlobalBlockHelpdesk(block) {
-  const helpdesk = { ...block };
-  const { alt: imageAlt, url: imageSrc } = block.image || {
-    alt: null,
-    url: null,
-  };
-  helpdesk.image = { alt: imageAlt, src: imageSrc };
-  const { href: linkHref, label: linkLabel } = helpdesk.link;
-  helpdesk.link = { href: linkHref ?? null, label: linkLabel ?? null };
+  const { description, image, link, title } = block || {};
+  if (!title?.length) {
+    return null;
+  }
+
+  const helpdesk = { title };
+  if (description?.length) {
+    helpdesk.description = description;
+  }
+  if (image?.url?.length) {
+    helpdesk.image = {
+      url: image.url,
+    };
+    if (image.alt?.length) {
+      helpdesk.image.alt = image.alt;
+    }
+  }
+  if (link?.label?.length) {
+    helpdesk.link = {
+      label: link.label,
+    };
+    if (link.href?.length) {
+      helpdesk.link.href = link.href;
+    }
+  }
   return helpdesk;
 }
 

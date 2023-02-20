@@ -1,46 +1,11 @@
 import { Link } from "@commons-ui/next";
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  styled,
-} from "@mui/material";
+import { CardContent, CardMedia } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
 import LineClampedRichTypography from "../LineClampedRichTypography";
 
-import { neutral } from "@/charterafrica/colors";
-
-const StyledCard = styled(Card)(({ ownerState, theme }) => ({
-  backgroundColor: "#fff",
-  transition: theme.transitions.create(["filter", "border-color"]),
-  width: "100%",
-  "&:hover": {
-    ...(ownerState.variant === "outlined" && {
-      borderColor: neutral[700],
-      filter: "drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.1))",
-      backgroundColor: "#fff",
-    }),
-  },
-  ...(ownerState.variant === "outlined" && {
-    border: `2px solid transparent`,
-    borderRadius: 5,
-    filter: "drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.1))",
-    "& .MuiCardActionArea": {
-      border: `2px solid transparent`,
-    },
-  }),
-}));
-
-const StyledActionArea = styled(CardActionArea)(
-  () => `
-.MuiCardActionArea-focusHighlight {
-    background: transparent;
-}
-`
-);
+import Card, { StyledActionArea } from "@/charterafrica/components/StyledCard";
 
 const PostCard = React.forwardRef(function PostCard(props, ref) {
   const {
@@ -61,7 +26,7 @@ const PostCard = React.forwardRef(function PostCard(props, ref) {
   };
 
   return (
-    <StyledCard
+    <Card
       elevation={elevation}
       sx={sx}
       ref={ref}
@@ -106,7 +71,7 @@ const PostCard = React.forwardRef(function PostCard(props, ref) {
           </LineClampedRichTypography>
         </CardContent>
       </StyledActionArea>
-    </StyledCard>
+    </Card>
   );
 });
 

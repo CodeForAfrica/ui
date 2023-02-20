@@ -3,6 +3,7 @@ import Ecosystem from "@/charterafrica/components/Ecosystem";
 import Explainers from "@/charterafrica/components/Explainers";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
+import Grantees from "@/charterafrica/components/Grantees";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
@@ -27,6 +28,8 @@ function Page({ blocks }) {
         return <FeaturedPostCard {...block} key={block.slug} />;
       case "focal-countries":
         return <FocalCountries {...block} key={block.slug} />;
+      case "grantees":
+        return <Grantees {...block} key={block.slug} />;
       case "helpdesk":
         return <Helpdesk {...block} key={block.slug} />;
       case "helpdesk-page-content":

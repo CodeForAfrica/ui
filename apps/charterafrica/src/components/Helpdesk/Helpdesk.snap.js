@@ -33,12 +33,12 @@ exports[`<Helpdesk /> renders unchanged 1`] = `
             Democracy Support Helpdesk
           </h1>
           <p
-            class="MuiTypography-root MuiTypography-p3 css-u68wz7-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p3 css-29xakm-MuiTypography-root"
           >
             Need help connecting with experts?
           </p>
           <p
-            class="MuiTypography-root MuiTypography-p3 css-u68wz7-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p3 css-29xakm-MuiTypography-root"
           >
             
 We can help you find specialists or resources to improve the impact of your democracy project.
