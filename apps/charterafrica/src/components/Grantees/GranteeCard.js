@@ -3,6 +3,7 @@ import { Button, CardContent, CardMedia } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import RichText from "@/charterafrica/components/RichText";
 import Card, { StyledActionArea } from "@/charterafrica/components/StyledCard";
@@ -51,7 +52,14 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
           >
             {name}
           </LineClampedRichTypography>
-          <RichText color="neutral.dark" elements={description} lineClamp={2} />
+          <RichText
+            color={neutral[500]}
+            elements={description}
+            sx={(theme) => ({
+              minHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 2)`,
+            })}
+            lineClamp={2}
+          />
           <Button
             component={Link}
             sx={{
