@@ -54,11 +54,11 @@ const PageHeader = {
           type: "select",
           options: [
             {
-              value: "0",
+              value: "start",
               label: "Start",
             },
             {
-              value: "1",
+              value: "end",
               label: "End",
             },
           ],
