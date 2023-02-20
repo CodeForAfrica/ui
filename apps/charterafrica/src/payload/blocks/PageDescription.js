@@ -1,13 +1,13 @@
 import richText from "../fields/richText";
 
-const About = {
-  slug: "about",
+const PageDescription = {
+  slug: "page-description",
   labels: {
     singular: {
-      en: "About",
+      en: "Page Description",
     },
     plural: {
-      en: "About",
+      en: "Page Description",
     },
   },
   fields: [
@@ -39,4 +39,4 @@ const About = {
   ],
 };
 
-export default About;
+export default PageDescription;
