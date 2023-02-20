@@ -34,7 +34,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
           sx={{
             boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.1)",
             borderRadius: "5px",
-            objectFit: "fill",
+            objectFit: "cover",
           }}
         />
         <CardContent
