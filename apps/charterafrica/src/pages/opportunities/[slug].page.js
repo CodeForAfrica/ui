@@ -1,6 +1,6 @@
 import React from "react";
 
-import GrantsAndFellowshipsGrid from "../../components/GrantsAndFellowshipsGrid";
+import GrantsAndFellowships from "../../components/GrantsAndFellowships";
 import GrantsFellowshipsHeader from "../../components/GrantsFellowshipsHeader";
 
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
@@ -23,9 +23,9 @@ function Opportunities({ blocks }) {
       case "fellowships-and-grants-header":
         return <GrantsFellowshipsHeader {...block} key={block.slug} />;
       case "grants":
-        return <GrantsAndFellowshipsGrid {...block} key={block.slug} />;
+        return <GrantsAndFellowships {...block} key={block.slug} />;
       case "fellowships":
-        return <GrantsAndFellowshipsGrid {...block} key={block.slug} />;
+        return <GrantsAndFellowships {...block} key={block.slug} />;
       default:
         return null;
     }
