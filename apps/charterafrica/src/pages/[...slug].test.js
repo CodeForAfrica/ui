@@ -8,12 +8,9 @@ import theme from "@/charterafrica/theme";
 // eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
-const defaultProps = {
-  locale: "en",
-  locales: ["en", "fr", "pt"],
-};
+const defaultProps = {};
 
-describe("/knowledge/[slug]", () => {
+describe("/[...slug]", () => {
   it("renders unchanged", () => {
     const { container } = render(<Page {...defaultProps} />);
     expect(container).toMatchSnapshot();

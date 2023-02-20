@@ -8,6 +8,8 @@ import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent"
 import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
 import Hero from "@/charterafrica/components/Hero";
 import Mooc from "@/charterafrica/components/Mooc";
+import PageDescription from "@/charterafrica/components/PageDescription";
+import PageHeader from "@/charterafrica/components/PageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
 import Partners from "@/charterafrica/components/Partners";
 import Resources from "@/charterafrica/components/Resources";
@@ -41,6 +43,10 @@ function Page({ blocks }) {
         return <Partners {...block} key={block.slug} />;
       case "our-resources":
         return <Resources {...block} key={block.slug} />;
+      case "page-description":
+        return <PageDescription {...block} key={block.slug} />;
+      case "page-header":
+        return <PageHeader {...block} key={block.slug} />;
       case "page-info":
         return <PageInfo {...block} key={block.slug} />;
       case "research":
