@@ -100,10 +100,54 @@ export async function processPageResearch({ blocks }) {
   });
 }
 
-export async function processPageSpecificBlocks(page) {
+export async function processPageAbout({ blocks }) {
+  blocks.push({
+    slug: "grantees",
+    title: "Grantees",
+    grantees: Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      name: "Grantee Name ".repeat((i % 2) + 1).trim(),
+      description: [
+        {
+          children: [
+            {
+              text: "Lorem ipsum dolor sit amet con sectetur adipiscing elit mi, interdum blandit fring illa fus. adipiscing elit mi, adipiscing.",
+            },
+          ],
+        },
+      ],
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `About ${i}`,
+        prefix: "media",
+        filename: "Rectangle 117.png",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "/images/Rectangle 117.png",
+      },
+      primaryLink: {
+        label: "Constitutional changes of government",
+        href: "/",
+      },
+      secondaryLink: {
+        label: "Networks",
+        href: "/",
+      },
+    })),
+  });
+}
+
+export async function processPageSpecificBlocks(page, api) {
   switch (page.slug) {
+    case "about":
+      processPageAbout(page);
+      break;
     case "explainers":
-      processPageExplainers(page);
+      processPageExplainers(page, api);
       break;
     case "news":
       processPageNews(page);
@@ -135,7 +179,7 @@ export async function getPageProps(
       ...other,
       slug: blockType,
     })) ?? null;
-  processPageSpecificBlocks(page);
+  processPageSpecificBlocks(page, api);
   const { settings, ...globalProps } = await getGlobalProps(api, {
     defaultLocale,
     locale,

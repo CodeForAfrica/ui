@@ -39,7 +39,19 @@ export async function getPageServerSideProps({
   locale,
   locales,
 }) {
-  const { slug } = query;
+  const { slugs } = query;
+
+  // Handle paths outside [/knowledge/*, /opportunities/*]
+  const allowedPaths = ["knowledge", "opportunities"];
+
+  if (slugs.length > 1) {
+    if (!allowedPaths.includes(slugs[0])) {
+      return { notFound: true };
+    }
+  }
+
+  const slug = slugs[slugs.length - 1];
+
   const props = await getPageProps(slug, payload, {
     defaultLocale,
     locale,
