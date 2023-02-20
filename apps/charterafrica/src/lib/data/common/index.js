@@ -29,7 +29,7 @@ async function getGlobalProps(api, { locale, defaultLocale }) {
   return { footer, navbar, settings };
 }
 
-export async function processPageExplainers({ title, blocks }, api) {
+export async function processPageExplainers({ title, blocks, api }) {
   const collection = await api.getCollection("explainers");
   const explainers = collection.docs || null;
 
@@ -42,32 +42,14 @@ export async function processPageExplainers({ title, blocks }, api) {
   }
 }
 
-export async function processPageNews({ blocks }) {
-  // TODO(kilemensi): Pull data from CMS
+export async function processPageNews({ blocks, api }) {
+  const { docs } = await api.getCollection("news");
+
+  const articles = docs?.map((data) => ({ ...data, date: data.createdAt }));
   blocks.push({
     slug: "news",
     title: "News",
-    articles: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "News story title goes here and spans over second line. "
-        .repeat((i % 2) + 1)
-        .trim(),
-      author: "Sakwa G",
-      date: "2023-02-11",
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `News Story ${i}`,
-        prefix: "media",
-        filename: "Rectangle 113.jpg",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "http://localhost:3000/images/Rectangle 113.jpg",
-      },
-    })),
+    articles,
   });
 }
 
@@ -147,10 +129,10 @@ export async function processPageSpecificBlocks(page, api) {
       processPageAbout(page);
       break;
     case "explainers":
-      processPageExplainers(page, api);
+      processPageExplainers({ ...page, api });
       break;
     case "news":
-      processPageNews(page);
+      processPageNews({ ...page, api });
       break;
     case "research":
       processPageResearch(page);

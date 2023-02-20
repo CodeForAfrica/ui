@@ -19,7 +19,7 @@ exports[`<PostCard /> renders unchanged 1`] = `
         class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1c008vo-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-19ezz39-MuiTypography-root"
         >
           Some title
         </h5>

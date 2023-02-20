@@ -44,10 +44,12 @@ const PostCard = React.forwardRef(function PostCard(props, ref) {
             variant="h5SmallSemiBold"
             sx={(theme) => ({
               mb: 2.5,
+              fontWeight: 400,
               minHeight: `calc(${theme.typography.h5SmallSemiBold.fontSize}px * ${theme.typography.h5SmallSemiBold.lineHeight} * 3)`,
               [theme.breakpoints.up("md")]: {
                 minHeight: `calc(${theme.typography.h5SemiBold.fontSize}px * ${theme.typography.h5SemiBold.lineHeight} * 3)`,
                 typography: "h5SemiBold",
+                fontWeight: 400,
               },
             })}
           >
