@@ -80,10 +80,16 @@ export async function processPageFellowships({ blocks }) {
         updatedAt: "2023-01-26T11:21:14.868Z",
         url: "/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg",
       },
-      deadlineText: "Deadline",
       deadline: "2023-02-11",
       status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
     })),
+    config: {
+      showAllText: "Show All",
+      showLessText: "Show Less",
+      deadlineText: "Deadline",
+      showOnMobile: ["open", "closed"],
+      statusGroupTitleSuffix: "Calls",
+    },
   });
   blocks.push({
     slug: "fellowships",
@@ -106,10 +112,16 @@ export async function processPageFellowships({ blocks }) {
         updatedAt: "2023-01-26T11:21:14.868Z",
         url: "/images/fellowships.png",
       },
-      deadlineText: "Deadline",
       deadline: "2023-02-11",
       status: ["technologies", "other"][Math.floor(Math.random() * 2)],
     })),
+    config: {
+      showAllText: "Show All",
+      showLessText: "Show Less",
+      deadlineText: "Deadline",
+      showOnMobile: ["technologies"],
+      statusGroupTitleSuffix: "",
+    },
   });
 }
 

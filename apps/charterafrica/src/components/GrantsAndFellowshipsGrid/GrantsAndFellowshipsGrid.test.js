@@ -78,6 +78,13 @@ const defaultProps = {
       status: "upcoming",
     },
   ],
+  config: {
+    showAllText: "Show All",
+    showLessText: "Show Less",
+    deadlineText: "Deadline",
+    showOnMobile: ["open", "closed"],
+    statusGroupTitleSuffix: "Calls",
+  },
 };
 
 describe("<GrantsAndFellowshipsGrid />", () => {

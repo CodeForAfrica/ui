@@ -8,7 +8,7 @@ import { secondary } from "@/charterafrica/colors";
 
 const GrantsAndFellowshipsGrid = React.forwardRef(
   function GrantsAndFellowshipsGrid(props, ref) {
-    const { items, title, sx } = props;
+    const { config, items, title, sx } = props;
 
     if (!items?.length) {
       return null;
@@ -23,7 +23,7 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
 
     const itemsByStatusArray = Object.keys(itemsByStatus).map((key) => {
       return {
-        title: `${key} calls`,
+        title: `${key}`,
         items: itemsByStatus[key],
       };
     });
@@ -40,12 +40,8 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
           sx={{
             px: { xs: 2.5, sm: 0 },
             py: 5,
-            // hide from 2nd onwards on mobile and tablet
-            "& > *:nth-of-type(n+2)": {
-              display: {
-                xs: "none",
-                md: "block",
-              },
+            "&:last-child": {
+              pb: 0,
             },
           }}
         >
@@ -68,6 +64,15 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
                   items={item.items}
                   title={item.title}
                   key={item.title}
+                  config={config}
+                  sx={{
+                    display: {
+                      xs: config?.showOnMobile?.includes(item.title)
+                        ? "block"
+                        : "none",
+                      md: "block",
+                    },
+                  }}
                 />
                 <Divider
                   sx={{
@@ -77,6 +82,15 @@ const GrantsAndFellowshipsGrid = React.forwardRef(
                     height: "0px",
                     my: 5,
                     width: "100%",
+                    display: {
+                      xs: config?.showOnMobile?.includes(item.title)
+                        ? "block"
+                        : "none",
+                      md: "block",
+                    },
+                    "&:last-child": {
+                      mb: 0,
+                    },
                   }}
                 />
               </React.Fragment>

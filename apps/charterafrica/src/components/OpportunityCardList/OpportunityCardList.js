@@ -9,7 +9,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   props,
   ref
 ) {
-  const { title, items } = props;
+  const { config, items, title, sx } = props;
 
   const [showAll, setShowAll] = useState(false);
 
@@ -17,7 +17,12 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
     return null;
   }
   return (
-    <Box ref={ref}>
+    <Box
+      ref={ref}
+      sx={{
+        ...sx,
+      }}
+    >
       <Grid container justifyContent="space-between" mb={5}>
         <Grid item xs={12} md={6}>
           <Typography
@@ -26,7 +31,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
             textTransform="capitalize"
             variant="h5SemiBold"
           >
-            {title}
+            {title} {config?.statusGroupTitleSuffix}
           </Typography>
         </Grid>
         <Grid
@@ -55,7 +60,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
                 textDecoration: "underline",
               }}
             >
-              {showAll ? "Show Less" : "Show All"}
+              {showAll ? config?.showLessText : config?.showAllText}
             </Typography>
           </Button>
         </Grid>
@@ -93,7 +98,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
               display="flex"
               justifyContent="center"
             >
-              <OpportunityCard {...item} key={item.id} />
+              <OpportunityCard {...item} key={item.id} config={config} />
             </Grid>
           );
         })}
@@ -122,7 +127,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
             textDecoration: "underline",
           }}
         >
-          {showAll ? "Show Less" : "Show All"}
+          {showAll ? config?.showLessText : config?.showAllText}
         </Typography>
       </Button>
     </Box>

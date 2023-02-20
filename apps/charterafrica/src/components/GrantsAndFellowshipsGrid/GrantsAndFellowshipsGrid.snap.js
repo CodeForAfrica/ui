@@ -6,7 +6,7 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
     class="MuiBox-root css-156ejva"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-3sv7gk-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-g8ts05-MuiContainer-root"
     >
       <h3
         class="MuiTypography-root MuiTypography-h3Small css-yo7jji-MuiTypography-root"
@@ -14,7 +14,7 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
         Fellowships
       </h3>
       <div
-        class="MuiBox-root css-0"
+        class="MuiBox-root css-oum1ou"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-4cmwq4-MuiGrid-root"
@@ -25,7 +25,9 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
             <h5
               class="MuiTypography-root MuiTypography-h5SemiBold css-19vbq4o-MuiTypography-root"
             >
-              open calls
+              open
+               
+              Calls
             </h5>
           </div>
           <div
@@ -81,7 +83,7 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
                   <span
                     class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
                   >
-                    Deadline: 
+                    Deadline
                     : 
                     2023-02-11
                   </span>
@@ -106,10 +108,10 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
         </button>
       </div>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-15kbw6h-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth css-216fob-MuiDivider-root"
       />
       <div
-        class="MuiBox-root css-0"
+        class="MuiBox-root css-oum1ou"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-4cmwq4-MuiGrid-root"
@@ -120,7 +122,9 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
             <h5
               class="MuiTypography-root MuiTypography-h5SemiBold css-19vbq4o-MuiTypography-root"
             >
-              closed calls
+              closed
+               
+              Calls
             </h5>
           </div>
           <div
@@ -176,7 +180,7 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
                   <span
                     class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
                   >
-                    Deadline: 
+                    Deadline
                     : 
                     2023-02-11
                   </span>
@@ -201,10 +205,10 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
         </button>
       </div>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-15kbw6h-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth css-216fob-MuiDivider-root"
       />
       <div
-        class="MuiBox-root css-0"
+        class="MuiBox-root css-1bsmwc1"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-4cmwq4-MuiGrid-root"
@@ -215,7 +219,9 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
             <h5
               class="MuiTypography-root MuiTypography-h5SemiBold css-19vbq4o-MuiTypography-root"
             >
-              upcoming calls
+              upcoming
+               
+              Calls
             </h5>
           </div>
           <div
@@ -271,7 +277,7 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
                   <span
                     class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
                   >
-                    Deadline: 
+                    Deadline
                     : 
                     2023-02-11
                   </span>
@@ -296,7 +302,7 @@ exports[`<GrantsAndFellowshipsGrid /> renders unchanged 1`] = `
         </button>
       </div>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-15kbw6h-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth css-1tnj24n-MuiDivider-root"
       />
     </div>
   </div>

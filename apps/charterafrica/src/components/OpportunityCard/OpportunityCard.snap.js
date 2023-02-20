@@ -33,7 +33,7 @@ exports[`<OpportunityCard /> renders unchanged 1`] = `
         <span
           class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
         >
-          Deadline: 
+          Deadline
           : 
           2023-02-11
         </span>

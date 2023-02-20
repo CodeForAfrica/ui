@@ -15,6 +15,8 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
           class="MuiTypography-root MuiTypography-h5SemiBold css-19vbq4o-MuiTypography-root"
         >
           Grants
+           
+          Calls
         </h5>
       </div>
       <div
@@ -70,7 +72,7 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
               <span
                 class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
               >
-                Deadline: 
+                Deadline
                 : 
                 2023-02-11
               </span>
@@ -115,7 +117,7 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
               <span
                 class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
               >
-                Deadline: 
+                Deadline
                 : 
                 2023-02-11
               </span>
@@ -160,7 +162,7 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
               <span
                 class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
               >
-                Deadline: 
+                Deadline
                 : 
                 2023-02-11
               </span>

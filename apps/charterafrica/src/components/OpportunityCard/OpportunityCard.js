@@ -10,7 +10,7 @@ import React from "react";
 import { neutral, secondary } from "@/charterafrica/colors";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const { image, deadline, description, title, deadlineText } = props;
+  const { image, deadline, description, title, config } = props;
 
   if (!title) {
     return null;
@@ -68,7 +68,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
               textTransform: "uppercase",
             }}
           >
-            {deadlineText}: {deadline}
+            {config.deadlineText}: {deadline}
           </Typography>
         </CardContent>
       </CardActionArea>
