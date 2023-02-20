@@ -26,6 +26,7 @@ const defaultProps = {
     updatedAt: "2023-01-26T11:21:14.868Z",
     url: "/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg",
   },
+  deadlineText: "Deadline: ",
   deadline: "2023-02-11",
   status: "open",
 };

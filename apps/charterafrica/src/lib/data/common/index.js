@@ -62,7 +62,7 @@ export async function processPageFellowships({ blocks }) {
   blocks.push({
     slug: "grants",
     title: "Grants",
-    grants: Array.from({ length: 30 }, (_, i) => ({
+    items: Array.from({ length: 30 }, (_, i) => ({
       id: i,
       title: "Democratic Governance in Zambia",
       description:
@@ -80,6 +80,7 @@ export async function processPageFellowships({ blocks }) {
         updatedAt: "2023-01-26T11:21:14.868Z",
         url: "/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg",
       },
+      deadlineText: "Deadline",
       deadline: "2023-02-11",
       status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
     })),
@@ -87,7 +88,7 @@ export async function processPageFellowships({ blocks }) {
   blocks.push({
     slug: "fellowships",
     title: "Fellowships",
-    grants: Array.from({ length: 30 }, (_, i) => ({
+    items: Array.from({ length: 30 }, (_, i) => ({
       id: i,
       title: "Democratic Governance in Zambia",
       description:
@@ -105,6 +106,7 @@ export async function processPageFellowships({ blocks }) {
         updatedAt: "2023-01-26T11:21:14.868Z",
         url: "/images/fellowships.png",
       },
+      deadlineText: "Deadline",
       deadline: "2023-02-11",
       status: ["technologies", "other"][Math.floor(Math.random() * 2)],
     })),

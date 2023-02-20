@@ -9,11 +9,11 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   props,
   ref
 ) {
-  const { title, grants } = props;
+  const { title, items } = props;
 
   const [showAll, setShowAll] = useState(false);
 
-  if (!grants) {
+  if (!items?.length) {
     return null;
   }
   return (
@@ -21,7 +21,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
       <Grid container justifyContent="space-between" mb={5}>
         <Grid item xs={12} md={6}>
           <Typography
-            color={neutral[900]}
+            color="neutral.dark"
             textAlign={{ xs: "center", sm: "left" }}
             textTransform="capitalize"
             variant="h5SemiBold"
@@ -67,21 +67,21 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
         sx={{
           // hide from 5th child
           "& > :nth-of-type(n+5)": {
-            display: showAll ? "block" : "none",
+            display: showAll ? "flex" : "none",
           },
 
           // hide from 4th child on only sm and md
           "& > :nth-of-type(4)": {
             display: {
-              xs: showAll ? "block" : "none",
-              sm: "block",
-              md: showAll ? "block" : "none",
-              lg: "block",
+              xs: showAll ? "flex" : "none",
+              sm: "flex",
+              md: showAll ? "flex" : "none",
+              lg: "flex",
             },
           },
         }}
       >
-        {grants.map((grant) => {
+        {items.map((item) => {
           return (
             <Grid
               item
@@ -89,11 +89,11 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
               sm={6}
               md={4}
               lg={3}
-              key={grant.id}
+              key={item.id}
               display="flex"
               justifyContent="center"
             >
-              <OpportunityCard {...grant} key={grant.id} />
+              <OpportunityCard {...item} key={item.id} />
             </Grid>
           );
         })}

@@ -10,7 +10,7 @@ import React from "react";
 import { neutral, secondary } from "@/charterafrica/colors";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const { image, deadline, description, title } = props;
+  const { image, deadline, description, title, deadlineText } = props;
 
   if (!title) {
     return null;
@@ -24,13 +24,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
         width: "270px",
       }}
     >
-      <CardActionArea
-        sx={{
-          "&:hover": {
-            backgroundColor: "transparent",
-          },
-        }}
-      >
+      <CardActionArea>
         <CardMedia
           component="img"
           height={187.26}
@@ -74,7 +68,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
               textTransform: "uppercase",
             }}
           >
-            Deadline: {deadline}
+            {deadlineText}: {deadline}
           </Typography>
         </CardContent>
       </CardActionArea>
