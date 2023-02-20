@@ -53,7 +53,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-p2 css-1esl545-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p2 css-e55002-MuiTypography-root"
                 >
                   This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.
                 </p>
@@ -65,7 +65,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-p2SemiBold css-1n9dy5c-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p2SemiBold css-1jvfk9c-MuiTypography-root"
                 >
                   Website designed and built by Code for Africa
                 </p>

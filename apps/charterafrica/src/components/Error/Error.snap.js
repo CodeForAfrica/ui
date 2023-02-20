@@ -26,7 +26,7 @@ exports[`<Error /> renders unchanged 1`] = `
         NOT FOUND
       </div>
       <p
-        class="MuiTypography-root MuiTypography-p3 css-pnto23-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p3 css-1u0aknl-MuiTypography-root"
       >
         Description Text
       </p>

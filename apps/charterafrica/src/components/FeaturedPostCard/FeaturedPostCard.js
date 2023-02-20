@@ -17,25 +17,32 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
   props,
   ref
 ) {
-  const { title, date, excerpt, image, sx, link, author } = props;
+  const { author, category, date, excerpt, image, link, sx, title } = props;
 
   if (!title?.length) {
     return null;
   }
-
   return (
     <Box
       sx={{
         backgroundColor: secondary[50],
-        display: { xs: "none", md: "block" },
         ...sx,
       }}
       ref={ref}
     >
       <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "74.5px" } }}>
+        <LineClampedRichTypography
+          color="neutral.dark"
+          display={{ xs: "flex", md: "none" }}
+          justifyContent="center"
+          variant="h3"
+          lineClamp={1}
+        >
+          {category}
+        </LineClampedRichTypography>
         <Card
           sx={{
-            display: "flex",
+            display: { xs: "none", md: "flex" },
             boxShadow: "none",
             backgroundColor: secondary[50],
           }}

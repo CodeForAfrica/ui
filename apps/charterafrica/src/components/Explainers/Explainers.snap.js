@@ -37,7 +37,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
           Event title going on two or even three lines
         </div>
         <p
-          class="MuiTypography-root MuiTypography-p2 css-u3xhf5-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
         >
           Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
         </p>
@@ -70,7 +70,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
           Event title going on two or even three lines
         </div>
         <p
-          class="MuiTypography-root MuiTypography-p2 css-u3xhf5-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
         >
           Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
         </p>
@@ -103,7 +103,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
           Event title going on two or even three lines
         </div>
         <p
-          class="MuiTypography-root MuiTypography-p2 css-u3xhf5-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
         >
           Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
         </p>
@@ -136,7 +136,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
           Event title going on two or even three lines
         </div>
         <p
-          class="MuiTypography-root MuiTypography-p2 css-u3xhf5-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
         >
           Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
         </p>
@@ -169,7 +169,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
           Event title going on two or even three lines
         </div>
         <p
-          class="MuiTypography-root MuiTypography-p2 css-u3xhf5-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
         >
           Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
         </p>

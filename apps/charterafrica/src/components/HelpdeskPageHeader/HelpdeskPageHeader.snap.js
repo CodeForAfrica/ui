@@ -27,7 +27,7 @@ exports[`<HelpdeskPageHeader/> renders unchanged 1`] = `
           />
         </figure>
         <h1
-          class="MuiTypography-root MuiTypography-h1Small css-10g1o2v-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1Small css-bltri2-MuiTypography-root"
         >
           Democracy 
           <strong>

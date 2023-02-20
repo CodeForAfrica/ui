@@ -3,13 +3,13 @@
 exports[`FeaturedPostCard should render 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1oxl3vq"
+    class="MuiBox-root css-156ejva"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-qb38zz-MuiContainer-root"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-k1f511-MuiPaper-root-MuiCard-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-aezxtm-MuiPaper-root-MuiCard-root"
       >
         <img
           alt="Featured Post"
