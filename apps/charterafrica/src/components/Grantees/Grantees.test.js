@@ -27,7 +27,7 @@ const defaultProps = {
       id: "63d2622aafe25f6469605eae",
       alt: `Research ${i}`,
       prefix: "media",
-      filename: "Rectangle 113.jpg",
+      filename: "Rectangle 117.jpg",
       mimeType: "image/jpg",
       filesize: 257010,
       width: 1236,
