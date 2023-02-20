@@ -1,6 +1,6 @@
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
-async function getGlobalProps(api, { locale, defaultLocale }) {
+async function getGlobalProps({ locale, defaultLocale }, api) {
   const settings = await api.findGlobal("settings", {
     locale,
     fallbackLocale: defaultLocale,
@@ -100,30 +100,46 @@ export async function processPageResearch({ blocks }) {
   });
 }
 
-export async function processPageSpecificBlocks(page) {
-  switch (page.slug) {
-    case "explainers":
-      processPageExplainers(page);
-      break;
-    case "news":
-      processPageNews(page);
-      break;
-    case "research":
-      processPageResearch(page);
-      break;
-    default:
-      break;
-  }
+const pageBlocksProcessFunctionMap = {
+  explainers: processPageExplainers,
+  news: processPageNews,
+  research: processPageResearch,
+};
+
+async function processGlobalBlockFocalCountries(block) {
+  return block;
 }
 
-export async function getPageProps(
-  slug,
-  api,
-  { defaultLocale, locale, locales, pathname } = {}
-) {
+async function processGlobalBlockHelpdesk(block) {
+  const helpdesk = { ...block };
+  const { alt: imageAlt, url: imageSrc } = block.image || {
+    alt: null,
+    url: null,
+  };
+  helpdesk.image = { alt: imageAlt, src: imageSrc };
+  const { href: linkHref, label: linkLabel } = helpdesk.link;
+  helpdesk.link = { href: linkHref ?? null, label: linkLabel ?? null };
+  return helpdesk;
+}
+
+const globalBlocksProcessFunctionMap = {
+  "focal-countries": processGlobalBlockFocalCountries,
+  helpdesk: processGlobalBlockHelpdesk,
+};
+
+export async function getPageProps(context, api) {
+  const { defaultLocale, locale, locales, params } = context;
+  const fallbackLocale = defaultLocale;
+  const slugLength = params.slug?.length;
+  const slug = slugLength ? params.slug[slugLength - 1] : "index";
+  // NOTE: we don't use .join because it doesn't put separator first
+  const pathname = slugLength
+    ? params.slug.reduce((acc, curr) => `${acc}/${curr}`, "")
+    : "/";
+
   const { docs: pages } = await api.findPage(slug, {
     locale,
-    fallbackLocale: defaultLocale,
+    fallbackLocale,
   });
   if (!pages?.length) {
     return null;
@@ -131,15 +147,36 @@ export async function getPageProps(
 
   const [page] = pages;
   page.blocks =
-    page.blocks?.map(({ blockType, ...other }) => ({
-      ...other,
-      slug: blockType,
-    })) ?? null;
-  processPageSpecificBlocks(page);
-  const { settings, ...globalProps } = await getGlobalProps(api, {
-    defaultLocale,
-    locale,
-  });
+    (await Promise.all(
+      page.blocks?.map(async ({ block, blockType, ...other }) => {
+        if (blockType !== "global") {
+          return {
+            ...other,
+            slug: blockType,
+          };
+        }
+        if (block) {
+          const foundBlock = await api.findGlobal(block, {
+            locale,
+            fallbackLocale,
+          });
+          if (foundBlock) {
+            foundBlock.slug = block;
+            const processGlobalBlock = globalBlocksProcessFunctionMap[block];
+            return processGlobalBlock?.(foundBlock) ?? null;
+          }
+        }
+        return null;
+      })
+    )) || [];
+  const processPage = pageBlocksProcessFunctionMap[page.slug];
+  if (processPage) {
+    processPage(page, api);
+  }
+  const { settings, ...globalProps } = await getGlobalProps(
+    { defaultLocale, locale },
+    api
+  );
   const seo = getPageSeoFromMeta(page, settings, {
     locale,
     locales,
