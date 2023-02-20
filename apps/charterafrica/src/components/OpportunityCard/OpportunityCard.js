@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import React from "react";
 
-import { neutral, secondary } from "@/charterafrica/colors";
+import { secondary } from "@/charterafrica/colors";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
   const { image, deadline, description, title, config } = props;
@@ -50,7 +50,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
           }}
         >
           <Typography
-            color={neutral[900]}
+            color="neutral.dark"
             variant="h6"
             sx={{
               textTransform: "uppercase",
@@ -58,11 +58,11 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
           >
             {title}
           </Typography>
-          <Typography color={neutral[900]} variant="p1">
+          <Typography color="neutral.dark" variant="p1">
             {description}
           </Typography>
           <Typography
-            color={neutral[900]}
+            color="neutral.dark"
             variant="caption"
             sx={{
               textTransform: "uppercase",

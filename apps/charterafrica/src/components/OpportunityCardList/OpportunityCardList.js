@@ -3,8 +3,6 @@ import React, { useState } from "react";
 
 import OpportunityCard from "../OpportunityCard";
 
-import { neutral } from "@/charterafrica/colors";
-
 const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   props,
   ref
@@ -54,7 +52,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
             }}
           >
             <Typography
-              color={neutral[900]}
+              color="neutral.dark"
               variant="p3SemiBold"
               sx={{
                 textDecoration: "underline",
@@ -121,7 +119,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
         }}
       >
         <Typography
-          color={neutral[900]}
+          color="neutral.dark"
           variant="p3SemiBold"
           sx={{
             textDecoration: "underline",

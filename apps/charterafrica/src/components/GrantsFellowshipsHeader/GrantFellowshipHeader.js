@@ -2,7 +2,7 @@ import { Section } from "@commons-ui/core";
 import { Typography, Box, Divider } from "@mui/material";
 import React from "react";
 
-import { neutral, secondary } from "@/charterafrica/colors";
+import { secondary } from "@/charterafrica/colors";
 
 const GrantsFellowshipsHeader = React.forwardRef(
   function GrantsFellowshipsHeader(props, ref) {
@@ -26,7 +26,7 @@ const GrantsFellowshipsHeader = React.forwardRef(
           }}
         >
           <Typography
-            color={neutral[900]}
+            color="neutral.dark"
             mb={5}
             textAlign={{ xs: "center", sm: "left" }}
             textTransform="capitalize"
@@ -37,8 +37,8 @@ const GrantsFellowshipsHeader = React.forwardRef(
           <Divider
             sx={{
               border: "1px solid",
-              borderColor: neutral[200],
-              color: neutral[200],
+              borderColor: "neutral.light",
+              color: "neutral.light",
               height: "0px",
               width: "100%",
             }}
