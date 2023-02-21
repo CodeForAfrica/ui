@@ -3,9 +3,13 @@ import { Link } from "@commons-ui/next";
 import React, { Fragment } from "react";
 import { Text } from "slate";
 
-import LineClampedRichTypography from "../LineClampedRichTypography";
+import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
-const serialize = (children, defaultProps) =>
+const DEFAULT_PROPS = {
+  html: false,
+};
+
+const serialize = (children, props) =>
   children?.map((node, i) => {
     if (Text.isText(node)) {
       let { text } = node;
@@ -31,37 +35,37 @@ const serialize = (children, defaultProps) =>
     switch (node.type) {
       case "h1":
         return (
-          <LineClampedRichTypography variant="h1" key={i}>
+          <LineClampedRichTypography {...DEFAULT_PROPS} variant="h1" key={i}>
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
       case "h2":
         return (
-          <LineClampedRichTypography variant="h2" key={i}>
+          <LineClampedRichTypography {...DEFAULT_PROPS} variant="h2" key={i}>
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
       case "h3":
         return (
-          <LineClampedRichTypography variant="h3" key={i}>
+          <LineClampedRichTypography {...DEFAULT_PROPS} variant="h3" key={i}>
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
       case "h4":
         return (
-          <LineClampedRichTypography variant="h4" key={i}>
+          <LineClampedRichTypography {...DEFAULT_PROPS} variant="h4" key={i}>
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
       case "h5":
         return (
-          <LineClampedRichTypography variant="h5" key={i}>
+          <LineClampedRichTypography {...DEFAULT_PROPS} variant="h5" key={i}>
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
       case "h6":
         return (
-          <LineClampedRichTypography variant="h6" key={i}>
+          <LineClampedRichTypography {...DEFAULT_PROPS} variant="h6" key={i}>
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
@@ -82,7 +86,7 @@ const serialize = (children, defaultProps) =>
 
       default:
         return (
-          <LineClampedRichTypography component="p" {...defaultProps} key={i}>
+          <LineClampedRichTypography {...DEFAULT_PROPS} {...props} key={i}>
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
