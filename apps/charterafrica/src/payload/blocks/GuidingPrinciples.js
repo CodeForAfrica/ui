@@ -1,15 +1,15 @@
 import accordion from "../fields/accordion";
 
 const GuidingPrincipals = {
-  slug: "guiding-principals",
+  slug: "guiding-principles",
   labels: {
     singular: {
-      en: "Guiding Principals",
+      en: "Guiding Principles",
       fr: "Principes Directeurs",
       pt: "Princípios Orientadores",
     },
     plural: {
-      en: "Guiding Principals",
+      en: "Guiding Principles",
       fr: "Principes Directeurs",
       pt: "Princípios Orientadores",
     },
