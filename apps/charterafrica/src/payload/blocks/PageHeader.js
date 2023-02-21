@@ -18,6 +18,19 @@ const PageHeader = {
         leaves: ["bold", "italic", "strikethrough", "underline"],
       },
     }),
+    richText({
+      name: "description",
+      label: {
+        en: "Description",
+        fr: "La description",
+        pt: "Descrição",
+      },
+      localized: true,
+      admin: {
+        elements: [],
+        leaves: ["bold", "italic", "strikethrough", "underline"],
+      },
+    }),
     linkGroup({
       linkConfig: { required: false },
       overrides: { required: false },
