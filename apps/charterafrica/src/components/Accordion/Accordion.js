@@ -17,8 +17,7 @@ import RichText from "@/charterafrica/components/RichText";
 const AccordionSummaryContentExpandIconWrapper = styled("div", {
   shouldForwardProp: (prop) => !["expanded"].includes(prop),
 })(({ expanded, theme }) => ({
-  display: "flex",
-  // minHeight: `calc(${theme.typography.h5.fontSize}px*${theme.typography.h5.lineHeight}*2)`,
+  display: "inline-flex",
   transform: "rotate(0deg)",
   transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest,
@@ -74,9 +73,13 @@ const Accordion = React.forwardRef(function Accordion(props, ref) {
             aria-controls={`panel-${id}-content`}
             id={`panel-${id}-header`}
             sx={{
+              alignItems: "flex-start",
               padding: 0,
               "&.Mui-expanded": {
                 color: neutral[300],
+              },
+              "& .MuiAccordionSummary-expandIconWrapper": {
+                my: 1.5,
               },
               "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
                 transform: "rotate(45deg)",
@@ -98,8 +101,8 @@ const Accordion = React.forwardRef(function Accordion(props, ref) {
                   />
                 </AccordionSummaryContentExpandIconWrapper>
               </Grid>
-              <Grid item xs="auto" container alignContent="flex-start">
-                <Grid item xs={12}>
+              <Grid item xs={10} container direction="column">
+                <Grid item xs="auto">
                   <RichTypography
                     color="inherit"
                     variant="h5"
@@ -112,7 +115,7 @@ const Accordion = React.forwardRef(function Accordion(props, ref) {
                   </RichTypography>
                 </Grid>
                 {summary.excerpt ? (
-                  <Grid item xs={12}>
+                  <Grid item>
                     <RichTypography color="inherit" variant="p2">
                       {summary.excerpt}
                     </RichTypography>
@@ -121,7 +124,12 @@ const Accordion = React.forwardRef(function Accordion(props, ref) {
               </Grid>
             </Grid>
           </AccordionSummary>
-          <AccordionDetails id={`panel-${id}-content`}>
+          <AccordionDetails
+            id={`panel-${id}-content`}
+            sx={{
+              pl: "34px", // icons size (24px) + spacing (10px)
+            }}
+          >
             <RichText elements={details} variant="p2" />
           </AccordionDetails>
         </MuiAccordion>

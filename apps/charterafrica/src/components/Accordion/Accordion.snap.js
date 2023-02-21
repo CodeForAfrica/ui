@@ -8,7 +8,7 @@ exports[`<Accordion /> renders unchanged 1`] = `
     <div
       aria-controls="panel-63f388c3ebe92a85650e8051-content"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root css-11hub8g-MuiButtonBase-root-MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root css-vess51-MuiButtonBase-root-MuiAccordionSummary-root"
       id="panel-63f388c3ebe92a85650e8051-header"
       role="button"
       tabindex="0"
@@ -23,7 +23,7 @@ exports[`<Accordion /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
           >
             <div
-              class="css-pfmeyn"
+              class="css-jijv3e"
             >
               <div
                 aria-hidden="true"
@@ -34,10 +34,10 @@ exports[`<Accordion /> renders unchanged 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-auto css-1igngym-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-10 css-fj2vzh-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
             >
               <div
                 class="MuiTypography-root MuiTypography-h5 css-1xbc5qt-MuiTypography-root"
@@ -76,7 +76,7 @@ exports[`<Accordion /> renders unchanged 1`] = `
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root css-ohput3-MuiAccordionDetails-root"
               id="panel-63f388c3ebe92a85650e8051-content"
             >
               <p
@@ -97,7 +97,7 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
     <div
       aria-controls="panel-63f388e0ebe92a85650e8052-content"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root css-11hub8g-MuiButtonBase-root-MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root css-vess51-MuiButtonBase-root-MuiAccordionSummary-root"
       id="panel-63f388e0ebe92a85650e8052-header"
       role="button"
       tabindex="0"
@@ -112,7 +112,7 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
           >
             <div
-              class="css-pfmeyn"
+              class="css-jijv3e"
             >
               <div
                 aria-hidden="true"
@@ -123,10 +123,10 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-auto css-1igngym-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-10 css-fj2vzh-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
             >
               <div
                 class="MuiTypography-root MuiTypography-h5 css-1xbc5qt-MuiTypography-root"
@@ -165,7 +165,7 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root css-ohput3-MuiAccordionDetails-root"
               id="panel-63f388e0ebe92a85650e8052-content"
             >
               <p
@@ -186,7 +186,7 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
     <div
       aria-controls="panel-63f388f9ebe92a85650e8053-content"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root css-11hub8g-MuiButtonBase-root-MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root css-vess51-MuiButtonBase-root-MuiAccordionSummary-root"
       id="panel-63f388f9ebe92a85650e8053-header"
       role="button"
       tabindex="0"
@@ -201,7 +201,7 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
           >
             <div
-              class="css-pfmeyn"
+              class="css-jijv3e"
             >
               <div
                 aria-hidden="true"
@@ -212,10 +212,10 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-auto css-1igngym-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-10 css-fj2vzh-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
             >
               <div
                 class="MuiTypography-root MuiTypography-h5 css-1xbc5qt-MuiTypography-root"
@@ -254,7 +254,7 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root css-ohput3-MuiAccordionDetails-root"
               id="panel-63f388f9ebe92a85650e8053-content"
             >
               <p
@@ -275,7 +275,7 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
     <div
       aria-controls="panel-63f38902ebe92a85650e8054-content"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root css-11hub8g-MuiButtonBase-root-MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root css-vess51-MuiButtonBase-root-MuiAccordionSummary-root"
       id="panel-63f38902ebe92a85650e8054-header"
       role="button"
       tabindex="0"
@@ -290,7 +290,7 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
           >
             <div
-              class="css-pfmeyn"
+              class="css-jijv3e"
             >
               <div
                 aria-hidden="true"
@@ -301,10 +301,10 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-auto css-1igngym-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-10 css-fj2vzh-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
             >
               <div
                 class="MuiTypography-root MuiTypography-h5 css-1xbc5qt-MuiTypography-root"
@@ -343,7 +343,7 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root css-ohput3-MuiAccordionDetails-root"
               id="panel-63f38902ebe92a85650e8054-content"
             >
               <p
