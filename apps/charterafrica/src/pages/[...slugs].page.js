@@ -1,9 +1,11 @@
 import Articles from "@/charterafrica/components/Articles";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import Explainers from "@/charterafrica/components/Explainers";
+import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Grantees from "@/charterafrica/components/Grantees";
+import GuidingPrinciples from "@/charterafrica/components/GuidingPrinciples";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
@@ -24,12 +26,16 @@ function Page({ blocks }) {
         return <Ecosystem {...block} key={block.slug} />;
       case "explainers":
         return <Explainers {...block} key={block.slug} />;
+      case "faq":
+        return <FAQ {...block} key={block.slug} />;
       case "featured-post":
         return <FeaturedPostCard {...block} key={block.slug} />;
       case "focal-countries":
         return <FocalCountries {...block} key={block.slug} />;
       case "grantees":
         return <Grantees {...block} key={block.slug} />;
+      case "guiding-principles":
+        return <GuidingPrinciples {...block} key={block.slug} />;
       case "helpdesk":
         return <Helpdesk {...block} key={block.slug} />;
       case "helpdesk-page-content":

@@ -220,10 +220,10 @@ const globalBlocksProcessFunctionMap = {
 export async function getPageProps(context, api) {
   const { defaultLocale, locale, locales, params } = context;
   const fallbackLocale = defaultLocale;
-  const slugsLength = params.slugs?.length;
-  const slug = slugsLength ? params.slugs[slugsLength - 1] : "index";
+  const slugsCount = params.slugs?.length;
+  const slug = slugsCount ? params.slugs[slugsCount - 1] : "index";
   // NOTE: we don't use .join because it doesn't put separator first
-  const pathname = slugsLength
+  const pathname = slugsCount
     ? params.slugs.reduce((acc, curr) => `${acc}/${curr}`, "")
     : "/";
 
