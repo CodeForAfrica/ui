@@ -20,14 +20,14 @@ const PageDescription = React.forwardRef(function PageDescription(props, ref) {
               ...theme.typography.h1Small,
               mb: 3.75,
               [theme.breakpoints.up("md")]: {
-                ...theme.typography.h1Small,
+                ...theme.typography.h1,
               },
             },
             "& h2": {
               mb: 2.5,
               ...theme.typography.h2Small,
               [theme.breakpoints.up("md")]: {
-                ...theme.typography.h2Small,
+                ...theme.typography.h2,
               },
             },
             "& p": {
