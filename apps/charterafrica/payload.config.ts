@@ -7,6 +7,7 @@ import seo from "@payloadcms/plugin-seo";
 import dotenv from "dotenv";
 import { buildConfig } from "payload/config";
 
+import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
 import Explainers from "./src/payload/collections/Explainers";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
@@ -54,6 +55,7 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   collections: [
+    CommunityPlatforms as CollectionConfig,
     Explainers as CollectionConfig,
     Media as CollectionConfig,
     Pages as CollectionConfig,
