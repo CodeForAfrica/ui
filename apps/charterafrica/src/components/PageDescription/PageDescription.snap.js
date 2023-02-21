@@ -8,15 +8,19 @@ exports[`<PageDescription/> renders unchanged 1`] = `
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1o7b6xw-MuiContainer-root"
     >
-      <p
-        class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+      <div
+        class="MuiBox-root css-1odkdlu"
       >
-        The largest digital database for 
-        <strong>
-          African
-        </strong>
-         communites
-      </p>
+        <p
+          class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+        >
+          The largest digital database for 
+          <strong>
+            African
+          </strong>
+           communites
+        </p>
+      </div>
     </div>
   </div>
 </div>
