@@ -3,6 +3,8 @@ import { Box, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import NextPrevPagination from "../NextPrevPagination";
+
 import { secondary } from "@/charterafrica/colors";
 import PostCard from "@/charterafrica/components/PostCard";
 
@@ -27,6 +29,13 @@ const Articles = React.forwardRef((props, ref) => {
             </Grid>
           ))}
         </Grid>
+        <NextPrevPagination
+          count={articles?.length}
+          onPageChange={() => {}}
+          sx={{
+            py: 5,
+          }}
+        />
       </Section>
     </Box>
   );
