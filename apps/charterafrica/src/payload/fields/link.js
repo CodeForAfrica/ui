@@ -24,7 +24,12 @@ export async function mapLinkToHrefBeforeValidate({
   return href;
 }
 
-const link = ({ disableLabel = false, overrides = {} } = {}) => {
+const link = ({
+  defaultValue = "internal",
+  disableLabel = false,
+  overrides = {},
+  required = true,
+} = {}) => {
   const linkResult = {
     type: "row",
     fields: [
@@ -49,7 +54,7 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
             value: "internal",
           },
         ],
-        defaultValue: "internal",
+        defaultValue,
       },
     ],
   };
@@ -67,7 +72,7 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
           },
           type: "relationship",
           relationTo: ["pages"],
-          required: true,
+          required,
           maxDepth: 1,
           admin: {
             condition: (_, siblingData) => siblingData?.linkType === "internal",
@@ -81,7 +86,7 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
             pt: "URL personalizado",
           },
           type: "text",
-          required: true,
+          required,
           admin: {
             condition: (_, siblingData) => siblingData?.linkType === "custom",
           },
@@ -89,7 +94,7 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
         {
           name: "href",
           type: "text",
-          required: true,
+          required,
           admin: {
             hidden: true,
           },
@@ -113,7 +118,7 @@ const link = ({ disableLabel = false, overrides = {} } = {}) => {
               pt: "Rótulo",
             },
             type: "text",
-            required: true,
+            required,
             localized: true,
           },
         ],

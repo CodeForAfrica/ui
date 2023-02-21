@@ -9,6 +9,9 @@ import RichText from "@/charterafrica/components/RichText";
 const Helpdesk = React.forwardRef(function Helpdesk(props, ref) {
   const { description, image, link, sx, title } = props;
 
+  if (!title?.length) {
+    return null;
+  }
   return (
     <Box bgcolor="secondary.light" sx={sx} ref={ref}>
       <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "74.5px" } }}>

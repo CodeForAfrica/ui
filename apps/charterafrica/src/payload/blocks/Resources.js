@@ -4,9 +4,9 @@ const Resources = {
   slug: "our-resources",
   labels: {
     singular: {
-      en: "Resource",
-      fr: "Ressource",
-      pt: "Recurso",
+      en: "Resources",
+      fr: "Ressources",
+      pt: "Recursos",
     },
     plural: {
       en: "Resources",

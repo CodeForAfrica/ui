@@ -54,20 +54,8 @@ export const api = {
   findPage,
 };
 
-export async function getPageStaticProps({
-  defaultLocale,
-  slug,
-  resolvedUrl,
-  locale,
-  locales,
-}) {
-  const props = await getPageProps(slug, api, {
-    defaultLocale,
-    locale,
-    locales,
-    pathname: resolvedUrl,
-  });
-
+export async function getPageStaticProps(context) {
+  const props = await getPageProps(context, api);
   if (!props) {
     return { notFound: true };
   }

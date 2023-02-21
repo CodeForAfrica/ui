@@ -1,6 +1,6 @@
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
-async function getGlobalProps(api, { locale, defaultLocale }) {
+async function getGlobalProps({ locale, defaultLocale }, api) {
   const settings = await api.findGlobal("settings", {
     locale,
     fallbackLocale: defaultLocale,
@@ -27,6 +27,47 @@ async function getGlobalProps(api, { locale, defaultLocale }) {
   });
 
   return { footer, navbar, settings };
+}
+
+export async function processPageAbout({ blocks }) {
+  blocks.push({
+    slug: "grantees",
+    title: "Grantees",
+    grantees: Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      name: "Grantee Name ".repeat((i % 2) + 1).trim(),
+      description: [
+        {
+          children: [
+            {
+              text: "Lorem ipsum dolor sit amet con sectetur adipiscing elit mi, interdum blandit fring illa fus. adipiscing elit mi, adipiscing.",
+            },
+          ],
+        },
+      ],
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `About ${i}`,
+        prefix: "media",
+        filename: "Rectangle 117.png",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "/images/Rectangle 117.png",
+      },
+      primaryLink: {
+        label: "Constitutional changes of government",
+        href: "/",
+      },
+      secondaryLink: {
+        label: "Networks",
+        href: "/",
+      },
+    })),
+  });
 }
 
 export async function processPageExplainers({ title, blocks }, api) {
@@ -131,74 +172,64 @@ export async function processPageResearch({ blocks }) {
   });
 }
 
-export async function processPageAbout({ blocks }) {
-  blocks.push({
-    slug: "grantees",
-    title: "Grantees",
-    grantees: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      name: "Grantee Name ".repeat((i % 2) + 1).trim(),
-      description: [
-        {
-          children: [
-            {
-              text: "Lorem ipsum dolor sit amet con sectetur adipiscing elit mi, interdum blandit fring illa fus. adipiscing elit mi, adipiscing.",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `About ${i}`,
-        prefix: "media",
-        filename: "Rectangle 117.png",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/Rectangle 117.png",
-      },
-      primaryLink: {
-        label: "Constitutional changes of government",
-        href: "/",
-      },
-      secondaryLink: {
-        label: "Networks",
-        href: "/",
-      },
-    })),
-  });
+const processPageFunctionsMap = {
+  about: processPageAbout,
+  explainers: processPageExplainers,
+  news: processPageNews,
+  research: processPageResearch,
+};
+
+async function processGlobalBlockFocalCountries(block) {
+  return block;
 }
 
-export async function processPageSpecificBlocks(page, api) {
-  switch (page.slug) {
-    case "about":
-      processPageAbout(page);
-      break;
-    case "explainers":
-      processPageExplainers(page, api);
-      break;
-    case "news":
-      processPageNews(page);
-      break;
-    case "research":
-      processPageResearch(page);
-      break;
-    default:
-      break;
+async function processGlobalBlockHelpdesk(block) {
+  const { description, image, link, title } = block || {};
+  if (!title?.length) {
+    return null;
   }
+
+  const helpdesk = { title };
+  if (description?.length) {
+    helpdesk.description = description;
+  }
+  if (image?.url?.length) {
+    helpdesk.image = {
+      url: image.url,
+    };
+    if (image.alt?.length) {
+      helpdesk.image.alt = image.alt;
+    }
+  }
+  if (link?.label?.length) {
+    helpdesk.link = {
+      label: link.label,
+    };
+    if (link.href?.length) {
+      helpdesk.link.href = link.href;
+    }
+  }
+  return helpdesk;
 }
 
-export async function getPageProps(
-  slug,
-  api,
-  { defaultLocale, locale, locales, pathname } = {}
-) {
+const processGlobalBlockFunctionsMap = {
+  "focal-countries": processGlobalBlockFocalCountries,
+  helpdesk: processGlobalBlockHelpdesk,
+};
+
+export async function getPageProps(context, api) {
+  const { defaultLocale, locale, locales, params } = context;
+  const fallbackLocale = defaultLocale;
+  const slugsCount = params.slugs?.length;
+  const slug = slugsCount ? params.slugs[slugsCount - 1] : "index";
+  // NOTE: we don't use .join because it doesn't put separator first
+  const pathname = slugsCount
+    ? params.slugs.reduce((acc, curr) => `${acc}/${curr}`, "")
+    : "/";
+
   const { docs: pages } = await api.findPage(slug, {
     locale,
-    fallbackLocale: defaultLocale,
+    fallbackLocale,
   });
   if (!pages?.length) {
     return null;
@@ -206,15 +237,36 @@ export async function getPageProps(
 
   const [page] = pages;
   page.blocks =
-    page.blocks?.map(({ blockType, ...other }) => ({
-      ...other,
-      slug: blockType,
-    })) ?? null;
-  processPageSpecificBlocks(page, api);
-  const { settings, ...globalProps } = await getGlobalProps(api, {
-    defaultLocale,
-    locale,
-  });
+    (await Promise.all(
+      page.blocks?.map(async ({ block, blockType, ...other }) => {
+        if (blockType !== "global") {
+          return {
+            ...other,
+            slug: blockType,
+          };
+        }
+        if (block) {
+          const foundBlock = await api.findGlobal(block, {
+            locale,
+            fallbackLocale,
+          });
+          if (foundBlock) {
+            foundBlock.slug = block;
+            const processGlobalBlock = processGlobalBlockFunctionsMap[block];
+            return processGlobalBlock?.(foundBlock) ?? null;
+          }
+        }
+        return null;
+      })
+    )) || [];
+  const processPage = processPageFunctionsMap[page.slug];
+  if (processPage) {
+    await processPage(page, api);
+  }
+  const { settings, ...globalProps } = await getGlobalProps(
+    { defaultLocale, locale },
+    api
+  );
   const seo = getPageSeoFromMeta(page, settings, {
     locale,
     locales,
