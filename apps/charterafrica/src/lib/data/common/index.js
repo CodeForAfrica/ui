@@ -172,7 +172,7 @@ export async function processPageResearch({ blocks }) {
   });
 }
 
-const pageBlocksProcessFunctionMap = {
+const processPageFunctionsMap = {
   about: processPageAbout,
   explainers: processPageExplainers,
   news: processPageNews,
@@ -212,7 +212,7 @@ async function processGlobalBlockHelpdesk(block) {
   return helpdesk;
 }
 
-const globalBlocksProcessFunctionMap = {
+const processGlobalBlockFunctionsMap = {
   "focal-countries": processGlobalBlockFocalCountries,
   helpdesk: processGlobalBlockHelpdesk,
 };
@@ -252,16 +252,16 @@ export async function getPageProps(context, api) {
           });
           if (foundBlock) {
             foundBlock.slug = block;
-            const processGlobalBlock = globalBlocksProcessFunctionMap[block];
+            const processGlobalBlock = processGlobalBlockFunctionsMap[block];
             return processGlobalBlock?.(foundBlock) ?? null;
           }
         }
         return null;
       })
     )) || [];
-  const processPage = pageBlocksProcessFunctionMap[page.slug];
+  const processPage = processPageFunctionsMap[page.slug];
   if (processPage) {
-    processPage(page, api);
+    await processPage(page, api);
   }
   const { settings, ...globalProps } = await getGlobalProps(
     { defaultLocale, locale },
