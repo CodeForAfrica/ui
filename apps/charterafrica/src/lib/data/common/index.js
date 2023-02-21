@@ -45,7 +45,10 @@ export async function processPageExplainers({ title, blocks, api }) {
 export async function processPageNews({ blocks, api }) {
   const { docs } = await api.getCollection("news");
 
-  const articles = docs?.map((data) => ({ ...data, date: data.createdAt }));
+  const articles = docs?.map((data) => ({
+    ...data,
+    date: data.publishedOn || data.createdAt,
+  }));
   const featuredPost = {
     slug: "featured-post",
     category: "News",
