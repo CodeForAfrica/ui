@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
 
+import { equalsIgnoringCase } from "@/charterafrica/utils/strings";
+
 export function middleware(req) {
+  const slugsPathname = new URLSearchParams(req.nextUrl.search)
+    .getAll("slugs")
+    .join("/");
   if (
-    ["slug=knowledge", "slug=opportunities"].some((param) =>
-      req.nextUrl.search.includes(param)
+    ["knowledge", "opportunities"].some((param) =>
+      equalsIgnoringCase(param, slugsPathname)
     )
   ) {
     return NextResponse.redirect(new URL(req.nextUrl.pathname, req.url));
