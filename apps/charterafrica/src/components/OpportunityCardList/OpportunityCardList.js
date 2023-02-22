@@ -1,7 +1,8 @@
 import { Typography, Box, Grid, Button } from "@mui/material";
 import React, { useState } from "react";
 
-import OpportunityCard from "../OpportunityCard";
+import FeaturedEventCard from "@/charterafrica/components/FeaturedEventCard/FeaturedEventCard";
+import OpportunityCard from "@/charterafrica/components/OpportunityCard";
 
 const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   props,
@@ -10,6 +11,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   const { config, items, title, sx } = props;
 
   const [showAll, setShowAll] = useState(false);
+  const featuredEvent = items?.find((item) => item.featured);
 
   if (!items?.length) {
     return null;
@@ -84,6 +86,9 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
           },
         }}
       >
+        {/* if featured card */}
+        {featuredEvent ? <FeaturedEventCard {...featuredEvent} /> : null}
+
         {items.map((item) => {
           return (
             <Grid

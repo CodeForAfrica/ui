@@ -1,16 +1,30 @@
 import { Section } from "@commons-ui/core";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Divider } from "@mui/material";
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
-import FeaturedEventCard from "@/charterafrica/components/FeaturedEventCard/FeaturedEventCard";
+import OpportunityCardList from "@/charterafrica/components/OpportunityCardList";
 
 const Events = React.forwardRef(function Events(props, ref) {
-  const { items, title, sx } = props;
+  const { config, items, title, sx } = props;
 
-  const featuredEvent = items?.find((item) => item.featured);
-  console.log("featuredEvent", featuredEvent);
+  // const featuredEvent = items?.find((item) => item.featured);
+  // console.log("featuredEvent", featuredEvent);
   // const otherEvents = items?.splice(items.indexOf(featuredEvent), 1);
+
+  const itemsByStatus = items.reduce((acc, item) => {
+    const { status } = item;
+    acc[status] = acc[status] || [];
+    acc[status].push(item);
+    return acc;
+  }, {});
+
+  const itemsByStatusArray = Object.keys(itemsByStatus).map((key) => {
+    return {
+      title: `${key}`,
+      items: itemsByStatus[key],
+    };
+  });
 
   if (!items?.length) {
     return null;
@@ -44,50 +58,45 @@ const Events = React.forwardRef(function Events(props, ref) {
           {title}
         </Typography>
 
-        {/* if featured event, show featured event card */}
-        {featuredEvent ? <FeaturedEventCard {...featuredEvent} /> : null}
-
-        {/* <FeaturedEventCard {...featuredEvent} /> */}
-
-        {/* {itemsByStatusArray.map((item) => {
-        return (
-          <React.Fragment key={item.title}>
-            <OpportunityCardList
-              items={item.items}
-              title={item.title}
-              key={item.title}
-              config={config}
-              sx={{
-                display: {
-                  xs: config?.showOnMobile?.includes(item.title)
-                    ? "block"
-                    : "none",
-                  md: "block",
-                },
-              }}
-            />
-            <Divider
-              sx={{
-                border: "1px solid",
-                borderColor: "neutral.light",
-                color: "neutral.light",
-                height: "0px",
-                my: 5,
-                width: "100%",
-                display: {
-                  xs: config?.showOnMobile?.includes(item.title)
-                    ? "block"
-                    : "none",
-                  md: "block",
-                },
-                "&:last-child": {
-                  mb: 0,
-                },
-              }}
-            />
-          </React.Fragment>
-        );
-      })} */}
+        {itemsByStatusArray.map((item) => {
+          return (
+            <React.Fragment key={item.title}>
+              <OpportunityCardList
+                items={item.items}
+                title={item.title}
+                key={item.title}
+                config={config}
+                sx={{
+                  display: {
+                    xs: config?.showOnMobile?.includes(item.title)
+                      ? "block"
+                      : "none",
+                    md: "block",
+                  },
+                }}
+              />
+              <Divider
+                sx={{
+                  border: "1px solid",
+                  borderColor: "neutral.light",
+                  color: "neutral.light",
+                  height: "0px",
+                  my: 5,
+                  width: "100%",
+                  display: {
+                    xs: config?.showOnMobile?.includes(item.title)
+                      ? "block"
+                      : "none",
+                    md: "block",
+                  },
+                  "&:last-child": {
+                    mb: 0,
+                  },
+                }}
+              />
+            </React.Fragment>
+          );
+        })}
       </Section>
     </Box>
   );

@@ -196,6 +196,7 @@ export async function processPageFellowships({ blocks }) {
         updatedAt: "2023-01-26T11:21:14.868Z",
         url: "/images/featured-event.svg",
       },
+      status: ["upcoming", "past"][Math.floor(Math.random() * 2)],
     })),
   });
 }

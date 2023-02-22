@@ -77,7 +77,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
               textTransform: "uppercase",
             }}
           >
-            {config.deadlineText}: {deadline}
+            {config?.deadlineText}: {deadline}
           </Typography>
         </CardContent>
       </StyledCardActionArea>
