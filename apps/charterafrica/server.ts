@@ -64,7 +64,6 @@ const start = async () => {
 
     const nextHandler = nextApp.getRequestHandler();
 
-
     nextApp.prepare().then(() => {
       console.info("NextJS started");
 
