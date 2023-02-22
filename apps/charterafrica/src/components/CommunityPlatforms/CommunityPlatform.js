@@ -9,7 +9,7 @@ const CommunityPlatform = React.forwardRef(function CommunityPlatform(
   props,
   ref
 ) {
-  const { background, icon, link, name, description, sx } = props;
+  const { background, description, icon, link, name, sx } = props;
 
   return (
     <Box
@@ -17,6 +17,7 @@ const CommunityPlatform = React.forwardRef(function CommunityPlatform(
       height={{ xs: "474px", md: "500px" }}
       justifyContent="center"
       position="relative"
+      sx={sx}
       ref={ref}
     >
       {/* Background */}
@@ -35,11 +36,7 @@ const CommunityPlatform = React.forwardRef(function CommunityPlatform(
             xs: "474px",
             md: "500px",
           },
-          width: {
-            xs: "100%",
-            sm: `calc(100vw / 2)`,
-          },
-          ...sx,
+          width: "100%",
         }}
       />
       <Box
@@ -56,8 +53,8 @@ const CommunityPlatform = React.forwardRef(function CommunityPlatform(
           xs: "290px",
           sm: "668px",
           md: "284px",
-          lg: "380",
-          xl: "540",
+          lg: "380px",
+          xl: "540px",
         }}
         wrap="nowrap"
         sx={{

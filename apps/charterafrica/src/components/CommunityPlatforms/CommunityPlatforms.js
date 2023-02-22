@@ -13,11 +13,16 @@ const CommunityPlatforms = React.forwardRef(function CommunityPlatforms(
   if (!items?.length) {
     return null;
   }
+  const count = items.length;
+  // Design supports a maximum of 3 cards per row in sm and above
+  const mdItemsPerRow = Math.min(count, 3);
+  // Grid columns per item
+  const md = Math.floor(12 / mdItemsPerRow);
   return (
     <Box bgcolor="common.white" sx={sx} ref={ref}>
       <Grid container>
         {items.map((platform) => (
-          <Grid key={platform.name} item xs={12} sm={12 / items.length}>
+          <Grid key={platform.name} item xs={12} md={md}>
             <CommunityPlatform {...platform} />
           </Grid>
         ))}

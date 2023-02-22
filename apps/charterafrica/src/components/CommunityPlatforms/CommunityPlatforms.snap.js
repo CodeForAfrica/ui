@@ -9,13 +9,13 @@ exports[`<CommunityPlatforms /> renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 css-18qart5-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 css-18qart5-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-7ehmit"
         >
           <figure
-            class="MuiBox-root css-lwakd7"
+            class="MuiBox-root css-p826pz"
           >
             <img
               alt="Newsletter"
@@ -30,7 +30,7 @@ exports[`<CommunityPlatforms /> renders unchanged 1`] = `
             />
           </figure>
           <div
-            class="MuiBox-root css-9jbtyi"
+            class="MuiBox-root css-18nkf27"
             wrap="nowrap"
           >
             <figure
