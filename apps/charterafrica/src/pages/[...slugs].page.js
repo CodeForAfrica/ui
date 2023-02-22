@@ -1,4 +1,5 @@
 import Articles from "@/charterafrica/components/Articles";
+import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
@@ -50,6 +51,8 @@ function Page({ blocks }) {
         return <Mooc {...block} key={block.slug} />;
       case "news":
         return <Articles {...block} key={block.slug} />;
+      case "our-community-platforms":
+        return <CommunityPlatforms {...block} key={block.slug} />;
       case "our-partners":
         return <Partners {...block} key={block.slug} />;
       case "our-resources":

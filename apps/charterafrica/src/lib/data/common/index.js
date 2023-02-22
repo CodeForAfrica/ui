@@ -273,12 +273,12 @@ async function processGlobalBlockFocalCountries(block) {
 }
 
 async function processGlobalBlockHelpdesk(block) {
-  const { description, image, link, title } = block || {};
+  const { description, image, link, slug, title } = block || {};
   if (!title?.length) {
     return null;
   }
 
-  const helpdesk = { title };
+  const helpdesk = { slug, title };
   if (description?.length) {
     helpdesk.description = description;
   }
