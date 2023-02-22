@@ -144,6 +144,9 @@ const Navigation = {
               ],
             },
           ],
+          admin: {
+            initCollapsed: true,
+          },
         },
       ],
       admin: {
