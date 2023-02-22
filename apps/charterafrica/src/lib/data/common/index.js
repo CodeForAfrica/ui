@@ -169,6 +169,35 @@ export async function processPageFellowships({ blocks }) {
       statusGroupTitleSuffix: "",
     },
   });
+  blocks.push({
+    slug: "events",
+    title: "Events",
+    items: Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      eventName: "Event Name",
+      topicName: "Topic Name",
+      excerpt:
+        "Lorem ipsum dolor sit amet con sectetur adipiscing elit mi, interdum blandit fring illa fus. adipiscing elit mi, adipiscing.",
+      featured: [true, false][Math.floor(Math.random() * 2)],
+      date: "2023-02-11",
+      link: {
+        url: "/",
+      },
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `Grant ${i}`,
+        prefix: "media",
+        filename: "Rectangle 113.jpg",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "/images/Rectangle 113.jpg",
+      },
+    })),
+  });
 }
 
 export async function processPageNews({ blocks }) {

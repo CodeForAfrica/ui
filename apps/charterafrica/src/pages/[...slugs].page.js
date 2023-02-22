@@ -1,5 +1,6 @@
 import Articles from "@/charterafrica/components/Articles";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
+import Events from "@/charterafrica/components/Events";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
@@ -28,6 +29,8 @@ function Page({ blocks }) {
         return <Ecosystem {...block} key={block.slug} />;
       case "explainers":
         return <Explainers {...block} key={block.slug} />;
+      case "events":
+        return <Events {...block} key={block.slug} />;
       case "faq":
         return <FAQ {...block} key={block.slug} />;
       case "featured-post":
