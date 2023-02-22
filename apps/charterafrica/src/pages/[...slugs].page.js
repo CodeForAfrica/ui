@@ -19,52 +19,36 @@ import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
+const componentMap = {
+  ecosystem: Ecosystem,
+  explainers: Explainers,
+  faq: FAQ,
+  "featured-post": FeaturedPostCard,
+  "focal-countries": FocalCountries,
+  grantees: Grantees,
+  "guiding-principles": GuidingPrinciples,
+  helpdesk: Helpdesk,
+  "helpdesk-page-content": HelpdeskPageContent,
+  "helpdesk-page-header": HelpdeskPageHeader,
+  hero: Hero,
+  mooc: Mooc,
+  news: Articles,
+  "our-partners": Partners,
+  "our-resources": Resources,
+  "page-description": PageDescription,
+  "page-header": PageHeader,
+  "page-info": PageInfo,
+  research: Articles,
+  spotlight: Spotlight,
+};
+
 function Page({ blocks }) {
   return blocks?.map((block) => {
-    switch (block?.slug) {
-      case "ecosystem":
-        return <Ecosystem {...block} key={block.slug} />;
-      case "explainers":
-        return <Explainers {...block} key={block.slug} />;
-      case "faq":
-        return <FAQ {...block} key={block.slug} />;
-      case "featured-post":
-        return <FeaturedPostCard {...block} key={block.slug} />;
-      case "focal-countries":
-        return <FocalCountries {...block} key={block.slug} />;
-      case "grantees":
-        return <Grantees {...block} key={block.slug} />;
-      case "guiding-principles":
-        return <GuidingPrinciples {...block} key={block.slug} />;
-      case "helpdesk":
-        return <Helpdesk {...block} key={block.slug} />;
-      case "helpdesk-page-content":
-        return <HelpdeskPageContent {...block} key={block.slug} />;
-      case "helpdesk-page-header":
-        return <HelpdeskPageHeader {...block} key={block.slug} />;
-      case "hero":
-        return <Hero {...block} key={block.slug} />;
-      case "mooc":
-        return <Mooc {...block} key={block.slug} />;
-      case "news":
-        return <Articles {...block} key={block.slug} />;
-      case "our-partners":
-        return <Partners {...block} key={block.slug} />;
-      case "our-resources":
-        return <Resources {...block} key={block.slug} />;
-      case "page-description":
-        return <PageDescription {...block} key={block.slug} />;
-      case "page-header":
-        return <PageHeader {...block} key={block.slug} />;
-      case "page-info":
-        return <PageInfo {...block} key={block.slug} />;
-      case "research":
-        return <Articles {...block} key={block.slug} />;
-      case "spotlight":
-        return <Spotlight {...block} key={block.slug} />;
-      default:
-        return null;
+    const Component = componentMap[block.slug];
+    if (!Component) {
+      return null;
     }
+    return <Component key={block.slug} {...block} />;
   });
 }
 
