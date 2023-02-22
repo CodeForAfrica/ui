@@ -88,7 +88,7 @@ export async function processPageNews({ blocks }, api) {
 
   const articles = docs?.map((data) => ({
     ...data,
-    date: data.publishedOn || data.createdAt,
+    date: new Date(data.publishedOn || data.createdAt).toUTCString(),
   }));
   const featuredPost = {
     slug: "featured-post",
