@@ -83,6 +83,94 @@ export async function processPageExplainers({ title, blocks }, api) {
   }
 }
 
+export async function processPageFellowships({ blocks }) {
+  blocks.push({
+    slug: "page-info",
+    description: [
+      {
+        children: [
+          {
+            text: "A list of all Charter Africa grants, fellowships and events",
+          },
+        ],
+      },
+    ],
+  });
+  blocks.push({
+    slug: "fellowships-and-grants-header",
+    title: "Grants and Fellowships",
+  });
+  blocks.push({
+    slug: "grants",
+    title: "Grants",
+    items: Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      title: "Democratic Governance in Zambia",
+      description:
+        "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `Grant ${i}`,
+        prefix: "media",
+        filename: "Rectangle 113.jpg",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "/images/charter-africa-brand.svg",
+      },
+      deadline: "2023-02-11",
+      status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
+    })),
+    config: {
+      showAllText: "Show All",
+      showLessText: "Show Less",
+      deadlineText: "Deadline",
+      showOnMobile: ["open", "closed"],
+      statusGroupTitleSuffix: "Calls",
+    },
+  });
+  blocks.push({
+    slug: "fellowships",
+    title: "Fellowships",
+    items: Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      title: "Democratic Governance in Zambia",
+      description:
+        "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `Grant ${i}`,
+        prefix: "media",
+        filename: "Rectangle 113.jpg",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: [
+          "/images/fellowships.png",
+          "/images/fellowships1.png",
+          "/images/fellowships2.png",
+          "/images/fellowships3.png",
+        ][Math.floor(Math.random() * 4)],
+      },
+      deadline: "2023-02-11",
+      status: ["technologies", "other"][Math.floor(Math.random() * 2)],
+    })),
+    config: {
+      showAllText: "Show All",
+      showLessText: "Show Less",
+      deadlineText: "Deadline",
+      showOnMobile: ["technologies"],
+      statusGroupTitleSuffix: "",
+    },
+  });
+}
+
 export async function processPageNews({ blocks }, api) {
   const { docs } = await api.getCollection("news");
 
@@ -163,6 +251,7 @@ const processPageFunctionsMap = {
   explainers: processPageExplainers,
   news: processPageNews,
   research: processPageResearch,
+  fellowships: processPageFellowships,
 };
 
 async function processGlobalBlockFocalCountries(block) {
@@ -170,12 +259,12 @@ async function processGlobalBlockFocalCountries(block) {
 }
 
 async function processGlobalBlockHelpdesk(block) {
-  const { description, image, link, title } = block || {};
+  const { description, image, link, slug, title } = block || {};
   if (!title?.length) {
     return null;
   }
 
-  const helpdesk = { title };
+  const helpdesk = { slug, title };
   if (description?.length) {
     helpdesk.description = description;
   }

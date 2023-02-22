@@ -1,10 +1,13 @@
 import Articles from "@/charterafrica/components/Articles";
+import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Grantees from "@/charterafrica/components/Grantees";
+import GrantsAndFellowships from "@/charterafrica/components/GrantsAndFellowships";
+import GrantsFellowshipsHeader from "@/charterafrica/components/GrantsFellowshipsHeader";
 import GuidingPrinciples from "@/charterafrica/components/GuidingPrinciples";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
@@ -20,12 +23,16 @@ import Spotlight from "@/charterafrica/components/Spotlight";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 const componentMap = {
+  "our-community-platforms": CommunityPlatforms,
   ecosystem: Ecosystem,
   explainers: Explainers,
   faq: FAQ,
   "featured-post": FeaturedPostCard,
+  fellowships: GrantsAndFellowships,
+  "fellowships-and-grants-header": GrantsFellowshipsHeader,
   "focal-countries": FocalCountries,
   grantees: Grantees,
+  grants: GrantsAndFellowships,
   "guiding-principles": GuidingPrinciples,
   helpdesk: Helpdesk,
   "helpdesk-page-content": HelpdeskPageContent,

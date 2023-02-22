@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 import { buildConfig } from "payload/config";
 
 import Authors from "./src/payload/collections/Authors";
+import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
 import Explainers from "./src/payload/collections/Explainers";
 import Media from "./src/payload/collections/Media";
 import News from "./src/payload/collections/News";
@@ -57,6 +58,7 @@ export default buildConfig({
   serverURL: appURL,
   collections: [
     Authors,
+    CommunityPlatforms,
     Explainers,
     Media,
     News,
@@ -101,6 +103,8 @@ export default buildConfig({
     resources: {
       en: {
         "charterafrica.site": {
+          platformsMultipleOf3:
+            "Number of selected platforms must less than 3 or multiples of 3",
           uniqueCountries: "Countries must be unique",
           uniqueLocales: "Locales must be unique",
           validHexColor: "Please enter a valid color value (in hex format)",
