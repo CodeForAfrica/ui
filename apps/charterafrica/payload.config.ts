@@ -99,6 +99,8 @@ export default buildConfig({
     resources: {
       en: {
         "charterafrica.site": {
+          platformsMultipleOf3:
+            "Number of selected platforms must less than 3 or multiples of 3",
           uniqueCountries: "Countries must be unique",
           uniqueLocales: "Locales must be unique",
           validHexColor: "Please enter a valid color value (in hex format)",
