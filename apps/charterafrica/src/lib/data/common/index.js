@@ -174,14 +174,14 @@ export async function processPageFellowships({ blocks }) {
     title: "Events",
     items: Array.from({ length: 30 }, (_, i) => ({
       id: i,
-      eventName: "Event Name",
-      topicName: "Topic Name",
+      title: "Event Name",
+      category: "Topic Name",
       excerpt:
         "Lorem ipsum dolor sit amet con sectetur adipiscing elit mi, interdum blandit fring illa fus. adipiscing elit mi, adipiscing.",
       featured: [true, false][Math.floor(Math.random() * 2)],
       date: "2023-02-11",
       link: {
-        url: "/",
+        href: "/",
       },
       image: {
         id: "63d2622aafe25f6469605eae",
@@ -194,7 +194,7 @@ export async function processPageFellowships({ blocks }) {
         height: 696,
         createdAt: "2023-01-26T11:21:14.868Z",
         updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/Rectangle 113.jpg",
+        url: "/images/featured-event.svg",
       },
     })),
   });

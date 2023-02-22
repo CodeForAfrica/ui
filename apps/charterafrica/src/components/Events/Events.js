@@ -3,12 +3,14 @@ import { Typography, Box } from "@mui/material";
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
+import FeaturedEventCard from "@/charterafrica/components/FeaturedEventCard/FeaturedEventCard";
 
 const Events = React.forwardRef(function Events(props, ref) {
   const { items, title, sx } = props;
 
-  //   const featuredEvent = items?.find((item) => item.featured);
-  //   const otherEvents  = items?.splice(items.indexOf(featuredEvent), 1);
+  const featuredEvent = items?.find((item) => item.featured);
+  console.log("featuredEvent", featuredEvent);
+  // const otherEvents = items?.splice(items.indexOf(featuredEvent), 1);
 
   if (!items?.length) {
     return null;
@@ -41,6 +43,11 @@ const Events = React.forwardRef(function Events(props, ref) {
         >
           {title}
         </Typography>
+
+        {/* if featured event, show featured event card */}
+        {featuredEvent ? <FeaturedEventCard {...featuredEvent} /> : null}
+
+        {/* <FeaturedEventCard {...featuredEvent} /> */}
 
         {/* {itemsByStatusArray.map((item) => {
         return (
