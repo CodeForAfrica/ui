@@ -5,6 +5,8 @@ import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Grantees from "@/charterafrica/components/Grantees";
+import GrantsAndFellowships from "@/charterafrica/components/GrantsAndFellowships";
+import GrantsFellowshipsHeader from "@/charterafrica/components/GrantsFellowshipsHeader";
 import GuidingPrinciples from "@/charterafrica/components/GuidingPrinciples";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
@@ -60,6 +62,12 @@ function Page({ blocks }) {
         return <PageInfo {...block} key={block.slug} />;
       case "research":
         return <Articles {...block} key={block.slug} />;
+      case "fellowships-and-grants-header":
+        return <GrantsFellowshipsHeader {...block} key={block.slug} />;
+      case "grants":
+        return <GrantsAndFellowships {...block} key={block.slug} />;
+      case "fellowships":
+        return <GrantsAndFellowships {...block} key={block.slug} />;
       case "spotlight":
         return <Spotlight {...block} key={block.slug} />;
       default:
