@@ -6,22 +6,6 @@ import React from "react";
 
 import { neutral } from "@/charterafrica/colors";
 
-function NextNavButton() {
-  return (
-    <Typography color="neutral.dark" variant="p3SemiBold">
-      Next
-    </Typography>
-  );
-}
-
-function PrevNavButton() {
-  return (
-    <Typography color="neutral.light" variant="p3SemiBold">
-      Prev
-    </Typography>
-  );
-}
-
 const StyledPagination = styled(Pagination)(() => ({
   variant: "outlined",
   shape: "rounded",
@@ -36,11 +20,19 @@ const StyledPagination = styled(Pagination)(() => ({
   },
 }));
 
+function NavigationLabel(color, variant, text) {
+  return (
+    <Typography color={color} variant={variant}>
+      {text}
+    </Typography>
+  );
+}
+
 const NextPrevPagination = React.forwardRef(function NextPrevPagination(
   props,
   ref
 ) {
-  const { count, onPageChange, sx } = props;
+  const { count, onPageChange, hideDisabledButtons = false, sx } = props;
 
   return (
     <Box
@@ -58,12 +50,28 @@ const NextPrevPagination = React.forwardRef(function NextPrevPagination(
           if (item.type !== "next" && item.type !== "previous") {
             return null;
           }
+          if (
+            item.type === "previous" &&
+            item.page === 0 &&
+            hideDisabledButtons
+          ) {
+            return null;
+          }
+          if (
+            item.type === "next" &&
+            item.page === count - 1 &&
+            hideDisabledButtons
+          ) {
+            return null;
+          }
           return (
             <PaginationItem
               {...item}
               slots={{
-                next: NextNavButton,
-                previous: PrevNavButton,
+                next: () =>
+                  NavigationLabel("neutral.dark", "p3SemiBold", "Next"),
+                previous: () =>
+                  NavigationLabel("neutral.light", "p3SemiBold", "Prev"),
               }}
               sx={{
                 backgroundColor:
