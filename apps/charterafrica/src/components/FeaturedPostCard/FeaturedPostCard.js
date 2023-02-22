@@ -12,6 +12,7 @@ import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+import RichText from "@/charterafrica/components/RichText";
 
 const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
   props,
@@ -97,14 +98,14 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
               })}
             </Typography>
 
-            <LineClampedRichTypography
+            <RichText
               color="neutral.dark"
               textAlign="left"
               variant="subheading"
               lineClamp={6}
-            >
-              {excerpt}
-            </LineClampedRichTypography>
+              elements={excerpt}
+            />
+
             <CardActions>
               <Link
                 color="neutral.dark"

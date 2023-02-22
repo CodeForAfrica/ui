@@ -86,26 +86,25 @@ export async function processPageExplainers({ title, blocks }, api) {
 export async function processPageNews({ blocks }, api) {
   const { docs } = await api.getCollection("news");
 
-  const articles = docs?.map((data) => ({
+  const processArticle = (data) => ({
     ...data,
-    date: new Date(data.publishedOn || data.createdAt).toUTCString(),
-  }));
+    author: data?.authors?.map(({ name }) => name).join(", ") ?? null,
+    date: new Date(data?.publishedOn || data?.createdAt).toUTCString(),
+  });
+
+  const articles = docs?.map(processArticle);
+
+  const featuredNewsPost = processArticle(
+    blocks.find(({ slug }) => slug === "featured-news-post")?.featuredPost ??
+      null
+  );
+
   const featuredPost = {
-    slug: "featured-post",
     category: "News",
-    title: "News Story title goes here and spans over second line",
-    excerpt:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur",
-    date: "2020-10-10 10:10:10",
-    author: "Author Name",
-    image: {
-      url: "/images/featured_post.jpg",
-      alt: "Featured Post",
-    },
-    link: {
-      href: "/knowledge/news",
-    },
+    ...featuredNewsPost,
+    slug: "featured-post",
   };
+
   const news = {
     slug: "news",
     title: "News",

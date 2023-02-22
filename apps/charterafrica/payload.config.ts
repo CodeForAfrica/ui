@@ -7,6 +7,7 @@ import seo from "@payloadcms/plugin-seo";
 import dotenv from "dotenv";
 import { buildConfig } from "payload/config";
 
+import Authors from "./src/payload/collections/Authors";
 import Explainers from "./src/payload/collections/Explainers";
 import Media from "./src/payload/collections/Media";
 import News from "./src/payload/collections/News";
@@ -55,6 +56,7 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   collections: [
+    Authors,
     Explainers,
     Media,
     News,

@@ -1,3 +1,4 @@
+import linkGroup from "./linkGroup";
 import richText from "./richText";
 import slug from "./slug";
 
@@ -8,16 +9,22 @@ const setPublishedOn = ({ value }) => {
 const postFields = [
   {
     name: "title",
+    label: {
+      en: "Title",
+      fr: "Titre",
+      pt: "Título",
+    },
     type: "textarea",
     localized: true,
     required: true,
   },
   slug(),
   {
-    name: "author",
-    type: "text",
-    localized: false,
+    name: "authors",
     required: true,
+    type: "relationship",
+    relationTo: "author",
+    hasMany: true,
   },
   {
     name: "image",
@@ -39,6 +46,7 @@ const postFields = [
     },
     localized: true,
   }),
+  linkGroup(),
   {
     name: "publishedOn",
     type: "date",

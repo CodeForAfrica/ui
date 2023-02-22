@@ -34,11 +34,11 @@ exports[`FeaturedPostCard should render 1`] = `
           >
             Oct 10, 2020
           </p>
-          <div
+          <h6
             class="MuiTypography-root MuiTypography-subheading css-1ea3c8k-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur
-          </div>
+          </h6>
           <div
             class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
           >

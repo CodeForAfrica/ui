@@ -6,6 +6,9 @@ const News = {
     useAsTitle: "title",
     defaultColumns: ["title", "author"],
   },
+  access: {
+    read: () => true,
+  },
   versions: {
     drafts: true,
   },
