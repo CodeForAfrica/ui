@@ -2,8 +2,13 @@ import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import DemocracyHelpdeskHeader from "../blocks/DemocracyHelpdeskPageHeader";
 import Ecosystem from "../blocks/Ecosystem";
 import Error from "../blocks/Error";
+import FAQ from "../blocks/FAQ";
+import Global from "../blocks/Global";
+import GuidingPrincipals from "../blocks/GuidingPrinciples";
 import Hero from "../blocks/Hero";
 import Mooc from "../blocks/Mooc";
+import PageDescription from "../blocks/PageDescription";
+import PageHeader from "../blocks/PageHeader";
 import PageInfo from "../blocks/PageInfo";
 import Partners from "../blocks/Partners";
 import Resources from "../blocks/Resources";
@@ -33,12 +38,17 @@ const Pages = {
       name: "blocks",
       type: "blocks",
       blocks: [
-        Hero,
         DemocracyHelpdeskContent,
         DemocracyHelpdeskHeader,
         Ecosystem,
         Error,
+        FAQ,
+        Hero,
+        Global,
+        GuidingPrincipals,
         Mooc,
+        PageDescription,
+        PageHeader,
         PageInfo,
         Partners,
         Resources,

@@ -4,9 +4,9 @@ const Partners = {
   slug: "our-partners",
   labels: {
     singular: {
-      en: "Partner",
-      fr: "Partenaire",
-      pt: "Parceiro",
+      en: "Partners",
+      fr: "Partenaires",
+      pt: "Parceiros",
     },
     plural: {
       en: "Partners",

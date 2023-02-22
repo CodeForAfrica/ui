@@ -1,4 +1,5 @@
 import link from "../fields/link";
+import richText from "../fields/richText";
 import {
   validateHexColor,
   blendModeOptions,
@@ -27,9 +28,8 @@ const Hero = {
           },
           type: "group",
           fields: [
-            {
+            richText({
               name: "content",
-              type: "richText",
               label: {
                 en: "Content",
                 fr: "Contenu",
@@ -39,9 +39,9 @@ const Hero = {
               localized: true,
               admin: {
                 elements: [],
-                leaves: ["bold", "italic", "underline", "code"],
+                leaves: ["bold", "italic", "underline"],
               },
-            },
+            }),
             {
               name: "color",
               type: "text",
