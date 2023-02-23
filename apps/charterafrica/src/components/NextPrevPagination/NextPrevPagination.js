@@ -10,6 +10,8 @@ const NextPreviousPaginationListRoot = styled("ul")({
   display: "flex",
   columnGap: "20px",
   justifyContent: "center",
+  marginBottom: 0,
+  paddingBottom: "20px",
 });
 
 const NextPrevPagination = React.forwardRef(function NextPrevPagination(
