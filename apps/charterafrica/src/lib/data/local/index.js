@@ -32,32 +32,8 @@ export async function getGlobalProps({ locale, defaultLocale }) {
 
 export const api = payload;
 
-export async function getPageServerSideProps({
-  defaultLocale,
-  query,
-  resolvedUrl,
-  locale,
-  locales,
-}) {
-  const { slugs } = query;
-
-  // Handle paths outside [/knowledge/*, /opportunities/*]
-  const allowedPaths = ["knowledge", "opportunities"];
-
-  if (slugs.length > 1) {
-    if (!allowedPaths.includes(slugs[0])) {
-      return { notFound: true };
-    }
-  }
-
-  const slug = slugs[slugs.length - 1];
-
-  const props = await getPageProps(slug, payload, {
-    defaultLocale,
-    locale,
-    locales,
-    pathname: resolvedUrl,
-  });
+export async function getPageServerSideProps(context) {
+  const props = await getPageProps(context, api);
 
   if (!props) {
     return { notFound: true };

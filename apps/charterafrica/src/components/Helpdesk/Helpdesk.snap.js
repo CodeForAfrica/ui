@@ -9,13 +9,13 @@ exports[`<Helpdesk /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-qb38zz-MuiContainer-root"
     >
       <div
-        class="MuiBox-root css-7vqd40"
+        class="MuiBox-root css-9m637t"
       >
         <figure
           class="MuiBox-root css-1lypdo1"
         >
           <img
-            alt="Helpdesk"
+            alt="Democracy Support Helpdesk"
             class="css-g98gbd"
             data-nimg="fill"
             decoding="async"
@@ -28,23 +28,23 @@ exports[`<Helpdesk /> renders unchanged 1`] = `
           class="MuiBox-root css-j7qwjs"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1Small css-103yha4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1Small css-1uum2qd-MuiTypography-root"
           >
             Democracy Support Helpdesk
           </h1>
           <p
-            class="MuiTypography-root MuiTypography-p3 css-29xakm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p3 css-78zmqp-MuiTypography-root"
           >
             Need help connecting with experts?
           </p>
           <p
-            class="MuiTypography-root MuiTypography-p3 css-29xakm-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p3 css-78zmqp-MuiTypography-root"
           >
             
 We can help you find specialists or resources to improve the impact of your democracy project.
           </p>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall css-2qdsyu-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall css-nfs84b-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >

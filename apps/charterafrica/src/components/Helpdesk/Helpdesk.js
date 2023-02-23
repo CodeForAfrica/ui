@@ -9,25 +9,28 @@ import RichText from "@/charterafrica/components/RichText";
 const Helpdesk = React.forwardRef(function Helpdesk(props, ref) {
   const { description, image, link, sx, title } = props;
 
+  if (!title?.length) {
+    return null;
+  }
   return (
     <Box bgcolor="secondary.light" sx={sx} ref={ref}>
       <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "74.5px" } }}>
         <Box
           alignItems="center"
           display="flex"
-          flexDirection={{ xs: "column", sm: "row" }}
+          flexDirection={{ xs: "column", md: "row" }}
           gap={7.5}
           justifyContent="center"
         >
           <Figure
             sx={{ height: 173.5, width: 173.5 }}
-            ImageProps={{ alt: title, ...image }}
+            ImageProps={{ alt: title, src: image.src || image.url }}
           />
           <Box display="flex" flexDirection="column">
             <RichTypography
               color="neutral.dark"
               html={false}
-              textAlign={{ xs: "center", sm: "left" }}
+              textAlign={{ xs: "center", md: "left" }}
               variant="h1Small"
               sx={{
                 mb: 5,
@@ -38,9 +41,10 @@ const Helpdesk = React.forwardRef(function Helpdesk(props, ref) {
               {title}
             </RichTypography>
             <RichText
-              elements={description}
               color="neutral.dark"
+              elements={description}
               maxWidth={478}
+              textAlign={{ xs: "center", md: "left" }}
               variant="p3"
               sx={{ typography: { md: "subheading" } }}
             />
@@ -51,7 +55,11 @@ const Helpdesk = React.forwardRef(function Helpdesk(props, ref) {
                 href={link?.href}
                 size="small"
                 variant="contained"
-                sx={{ mt: 5, width: "fit-content" }}
+                sx={{
+                  mt: 5,
+                  mx: { xs: "auto", md: 0 },
+                  width: "fit-content",
+                }}
               >
                 {link?.label}
               </Button>
