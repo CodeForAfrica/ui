@@ -1,5 +1,6 @@
 import BlogContent from "../blocks/BlogContent";
 import MediaBlock from "../blocks/MediaBlock";
+import VideoEmbed from "../blocks/VideoEmbed";
 
 import richText from "./richText";
 import slug from "./slug";
@@ -54,7 +55,7 @@ const postFields = [
   {
     name: "content",
     type: "blocks",
-    blocks: [BlogContent, MediaBlock],
+    blocks: [BlogContent, MediaBlock, VideoEmbed],
     required: true,
   },
   {
