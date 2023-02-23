@@ -29,13 +29,7 @@ const Articles = React.forwardRef((props, ref) => {
             </Grid>
           ))}
         </Grid>
-        <NextPrevPagination
-          count={articles?.length}
-          onPageChange={() => {}}
-          sx={{
-            py: 5,
-          }}
-        />
+        <NextPrevPagination count={articles?.length} onPageChange={() => {}} />
       </Section>
     </Box>
   );

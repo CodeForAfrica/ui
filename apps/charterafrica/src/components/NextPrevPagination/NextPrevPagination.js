@@ -1,92 +1,54 @@
-import { Typography, PaginationItem } from "@mui/material";
-import Box from "@mui/material/Box";
-import Pagination from "@mui/material/Pagination";
-import { styled } from "@mui/material/styles";
-import React from "react";
+import { usePagination, styled } from "@mui/material";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
 
-import { neutral } from "@/charterafrica/colors";
+import PaginationButton from "./PaginationButton";
 
-const StyledPagination = styled(Pagination)(() => ({
-  variant: "outlined",
-  shape: "rounded",
-  "& button": {
-    padding: "8px 16px",
-    borderRadius: "4px",
-    height: "33px",
-    border: "none",
-  },
-  "& .MuiPagination-ul": {
-    justifyContent: "center",
-  },
-}));
-
-function NavigationLabel(color, variant, text) {
-  return (
-    <Typography color={color} variant={variant}>
-      {text}
-    </Typography>
-  );
-}
+const NextPreviousPaginationListRoot = styled("ul")({
+  listStyle: "none",
+  padding: 0,
+  display: "flex",
+  columnGap: "20px",
+  justifyContent: "center",
+});
 
 const NextPrevPagination = React.forwardRef(function NextPrevPagination(
   props,
   ref
 ) {
-  const { count, onPageChange, hideDisabledButtons = false, sx } = props;
+  const { count, onChange } = props;
+  const { items, ...other } = usePagination(props);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.isReady && onChange) {
+      const { page } = router.query;
+      const initialPage = Number.parseInt(page, 10);
+      if (initialPage) {
+        onChange(undefined, initialPage);
+      }
+    }
+    // We're only interested in initial isReady and not any subsequent
+    // router.query changes e.g. due to pagination
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady]);
+
+  if (!count || count < 2) {
+    return null;
+  }
 
   return (
-    <Box
-      ref={ref}
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        ...sx,
-      }}
-    >
-      <StyledPagination
-        onChange={onPageChange}
-        count={count}
-        renderItem={(item) => {
-          if (item.type !== "next" && item.type !== "previous") {
-            return null;
-          }
-          if (
-            item.type === "previous" &&
-            item.page === 0 &&
-            hideDisabledButtons
-          ) {
-            return null;
-          }
-          if (
-            item.type === "next" &&
-            item.page === count - 1 &&
-            hideDisabledButtons
-          ) {
-            return null;
-          }
-          return (
-            <PaginationItem
-              {...item}
-              slots={{
-                next: () =>
-                  NavigationLabel("neutral.dark", "p3SemiBold", "Next"),
-                previous: () =>
-                  NavigationLabel("neutral.light", "p3SemiBold", "Prev"),
-              }}
-              sx={{
-                backgroundColor:
-                  item.type === "next" ? "secondary.main" : neutral[100],
-
-                "&:hover": {
-                  backgroundColor:
-                    item.type === "next" ? "secondary.main" : neutral[100],
-                },
-              }}
-            />
-          );
-        }}
-      />
-    </Box>
+    <NextPreviousPaginationListRoot ref={ref} {...other} sx={{ zIndex: 1 }}>
+      {items
+        .filter(({ type }) => ["previous", "next"].includes(type))
+        .map((itemProps) => (
+          <PaginationButton
+            {...itemProps}
+            component="li"
+            key={itemProps.type}
+          />
+        ))}
+    </NextPreviousPaginationListRoot>
   );
 });
 
