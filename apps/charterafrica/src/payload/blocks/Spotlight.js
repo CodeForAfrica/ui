@@ -31,9 +31,6 @@ const Spotlight = {
           },
           required: false,
           localized: true,
-          admin: {
-            disabled: true,
-          },
         },
         {
           name: "item",
