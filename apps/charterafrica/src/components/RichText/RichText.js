@@ -100,7 +100,9 @@ const RichText = React.forwardRef(function RichText(props, ref) {
     return null;
   }
   return (
-    <React.Fragment ref={ref}>{serialize(elements, other)}</React.Fragment>
+    <LineClampedRichTypography ref={ref} {...other}>
+      {serialize(elements, other)}
+    </LineClampedRichTypography>
   );
 });
 

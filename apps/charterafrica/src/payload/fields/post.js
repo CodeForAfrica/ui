@@ -1,4 +1,3 @@
-import linkGroup from "./linkGroup";
 import richText from "./richText";
 import slug from "./slug";
 
@@ -46,7 +45,6 @@ const postFields = [
     },
     localized: true,
   }),
-  linkGroup(),
   {
     name: "publishedOn",
     type: "date",

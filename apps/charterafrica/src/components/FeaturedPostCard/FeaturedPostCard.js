@@ -103,6 +103,7 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
               textAlign="left"
               variant="subheading"
               lineClamp={6}
+              sx={{ maxHeight: 400 }}
               elements={excerpt}
             />
 

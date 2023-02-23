@@ -11,15 +11,19 @@ exports[`<PageDescription/> renders unchanged 1`] = `
       <div
         class="MuiBox-root css-yp83e5"
       >
-        <p
+        <div
           class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
         >
-          The largest digital database for 
-          <strong>
-            African
-          </strong>
-           communites
-        </p>
+          <p
+            class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+          >
+            The largest digital database for 
+            <strong>
+              African
+            </strong>
+             communites
+          </p>
+        </div>
       </div>
     </div>
   </div>

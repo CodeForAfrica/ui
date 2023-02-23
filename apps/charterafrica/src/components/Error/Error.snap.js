@@ -25,11 +25,15 @@ exports[`<Error /> renders unchanged 1`] = `
       >
         NOT FOUND
       </div>
-      <p
+      <div
         class="MuiTypography-root MuiTypography-p3 css-1u0aknl-MuiTypography-root"
       >
-        Description Text
-      </p>
+        <p
+          class="MuiTypography-root MuiTypography-p3 css-1u0aknl-MuiTypography-root"
+        >
+          Description Text
+        </p>
+      </div>
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium active css-1r68rtr-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
         href="/"

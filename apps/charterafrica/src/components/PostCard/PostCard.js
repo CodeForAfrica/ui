@@ -17,7 +17,7 @@ const PostCard = React.forwardRef(function PostCard(props, ref) {
     square,
     variant = "outlined",
     elevation,
-    href,
+    link,
   } = props;
   const ownerState = {
     elevation,
@@ -33,7 +33,10 @@ const PostCard = React.forwardRef(function PostCard(props, ref) {
       ownerState={ownerState}
       variant={variant}
     >
-      <StyledActionArea component={href ? Link : undefined} href={href}>
+      <StyledActionArea
+        component={link?.href ? Link : undefined}
+        href={link?.href}
+      >
         <CardMedia image={image.url} sx={{ height: 200 }} />
         <CardContent>
           <LineClampedRichTypography
