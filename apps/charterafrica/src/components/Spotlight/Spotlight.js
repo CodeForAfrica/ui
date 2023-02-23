@@ -38,8 +38,20 @@ const Spotlight = React.forwardRef(function Spotlight(props, ref) {
           {title}
         </LineClampedRichTypography>
         <Grid container spacing={{ xs: 1.25, md: 2.5 }}>
-          {items.map(({ item }) => (
+          {items.map(({ category, item }) => (
             <Grid item xs={12} sm={6} md={3} key={item.title}>
+              <LineClampedRichTypography
+                color="neutral.dark"
+                html={false}
+                textTransform="uppercase"
+                textAlign="center"
+                typography={{ md: "h5" }}
+                variant="h5Small"
+                fontWeight={{ xs: 400, md: 400 }}
+                mb={{ xs: 1.25, sm: 2.5 }}
+              >
+                {category}
+              </LineClampedRichTypography>
               <SpotlightCard sx={{ borderColor: secondary[50] }}>
                 <CardActionAction
                   href={item.link?.href}
