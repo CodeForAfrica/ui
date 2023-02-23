@@ -1,3 +1,6 @@
+import BlogContent from "../blocks/BlogContent";
+import MediaBlock from "../blocks/MediaBlock";
+
 import richText from "./richText";
 import slug from "./slug";
 
@@ -26,15 +29,18 @@ const postFields = [
     hasMany: true,
   },
   {
-    name: "image",
+    name: "coverImage",
     label: {
-      en: "Image",
-      pt: "Imagem",
-      fr: "Image",
+      en: "Cover Image",
+      pt: "Imagem de capa",
+      fr: "Image de couverture",
     },
     type: "upload",
     relationTo: "media",
     required: true,
+    filterOptions: {
+      mimeType: { contains: "image" },
+    },
   },
   richText({
     name: "excerpt",
@@ -45,6 +51,12 @@ const postFields = [
     },
     localized: true,
   }),
+  {
+    name: "content",
+    type: "blocks",
+    blocks: [BlogContent, MediaBlock],
+    required: true,
+  },
   {
     name: "publishedOn",
     type: "date",

@@ -180,6 +180,7 @@ export async function processPageNews(page, api) {
   const processArticle = (data) => ({
     ...data,
     author: data?.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
+    image: data?.coverImage || data?.image || null,
     date: new Date(data?.publishedOn).toUTCString(),
     link: {
       href: `/knowledge/news/${data?.id}`,
