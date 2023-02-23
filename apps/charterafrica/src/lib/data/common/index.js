@@ -177,7 +177,7 @@ export async function processPageNews({ blocks }, api) {
   const processArticle = (data) => ({
     ...data,
     author: data?.authors?.map(({ name }) => name).join(", ") ?? null,
-    date: new Date(data?.publishedOn || data?.createdAt).toUTCString(),
+    date: new Date(data?.publishedOn).toUTCString(),
   });
 
   const articles = docs?.map(processArticle);

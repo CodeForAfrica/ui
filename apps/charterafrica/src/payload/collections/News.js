@@ -4,7 +4,7 @@ const News = {
   slug: "news",
   admin: {
     useAsTitle: "title",
-    defaultColumns: ["title", "author"],
+    defaultColumns: ["title", "author", "publishedOn"],
   },
   access: {
     read: () => true,

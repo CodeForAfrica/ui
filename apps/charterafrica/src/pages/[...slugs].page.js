@@ -22,7 +22,7 @@ import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
-const componentMap = {
+const componentsBySlugs = {
   "our-community-platforms": CommunityPlatforms,
   ecosystem: Ecosystem,
   explainers: Explainers,
@@ -51,7 +51,7 @@ const componentMap = {
 
 function Page({ blocks }) {
   return blocks?.map((block) => {
-    const Component = componentMap[block.slug];
+    const Component = componentsBySlugs[block.slug];
     if (!Component) {
       return null;
     }

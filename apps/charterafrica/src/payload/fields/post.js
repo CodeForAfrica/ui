@@ -14,7 +14,7 @@ const postFields = [
       fr: "Titre",
       pt: "Título",
     },
-    type: "textarea",
+    type: "text",
     localized: true,
     required: true,
   },

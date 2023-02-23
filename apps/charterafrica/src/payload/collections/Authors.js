@@ -4,16 +4,16 @@ const Authors = {
     read: () => true,
   },
   admin: {
-    useAsTitle: "name",
+    useAsTitle: "fullName",
   },
   fields: [
     {
-      name: "name",
+      name: "fullName",
       type: "text",
       label: {
-        en: "Name",
-        fr: "Nom",
-        pt: "Nome",
+        en: "Full Name",
+        fr: "Nom et prénom",
+        pt: "Nome completo",
       },
       localized: false,
       required: true,
