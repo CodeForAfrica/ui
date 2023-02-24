@@ -172,7 +172,7 @@ export async function processPageFellowships({ blocks }) {
 }
 
 export async function processPageNews(page, api) {
-  const { blocks } = page;
+  const { blocks, breadcrumbs = [] } = page;
   const { docs } = await api.getCollection("news", {
     where: { _status: { equals: "published" } },
   });
@@ -183,16 +183,20 @@ export async function processPageNews(page, api) {
     image: data?.coverImage || data?.image || null,
     date: new Date(data?.publishedOn).toUTCString(),
     link: {
-      href: `/knowledge/news/${data?.id}`,
+      href: `${breadcrumbs[breadcrumbs.length - 1]?.url}/${data?.id}`,
     },
   });
 
   const articles = docs?.map(processArticle);
-
-  const featuredNewsPost = processArticle(
+  const rawArticle =
     blocks.find(({ slug }) => slug === "featured-post")?.featuredPost?.value ??
-      null
-  );
+    null;
+
+  if (!rawArticle) {
+    return { notFound: true };
+  }
+
+  const featuredNewsPost = processArticle(rawArticle);
 
   const featuredPost = {
     category: "News",
@@ -205,6 +209,7 @@ export async function processPageNews(page, api) {
     title: "News",
     articles,
   };
+
   return { ...page, blocks: [featuredPost, news] };
 }
 

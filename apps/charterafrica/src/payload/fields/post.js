@@ -1,6 +1,6 @@
-import BlogContent from "../blocks/BlogContent";
+import ExternalEmbed from "../blocks/ExternalEmbed";
 import MediaBlock from "../blocks/MediaBlock";
-import VideoEmbed from "../blocks/VideoEmbed";
+import RichText from "../blocks/RichText";
 
 import richText from "./richText";
 import slug from "./slug";
@@ -28,6 +28,9 @@ const postFields = [
     type: "relationship",
     relationTo: "author",
     hasMany: true,
+    admin: {
+      position: "sidebar",
+    },
   },
   {
     name: "coverImage",
@@ -51,16 +54,20 @@ const postFields = [
       pt: "Excerto",
     },
     localized: true,
+    admin: {
+      elements: ["leaves"],
+    },
   }),
   {
     name: "content",
     type: "blocks",
-    blocks: [BlogContent, MediaBlock, VideoEmbed],
+    blocks: [RichText, MediaBlock, ExternalEmbed],
     required: true,
   },
   {
     name: "publishedOn",
     type: "date",
+    required: true,
     hooks: {
       beforeValidate: [setPublishedOn],
     },

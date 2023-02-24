@@ -1,10 +1,10 @@
 import blockFields from "../fields/blockFields";
 
-const VideoEmbed = {
-  slug: "videoEmbed",
+const ExternalEmbed = {
+  slug: "embed",
   fields: [
     blockFields({
-      name: "videoEmbedField",
+      name: "embedField",
       fields: [
         {
           type: "row",
@@ -37,9 +37,9 @@ const VideoEmbed = {
         {
           name: "url",
           label: {
-            en: "Video URL",
-            fr: "URL de la vidéo",
-            pt: "URL do vídeo",
+            en: "URL",
+            fr: "URL",
+            pt: "URL",
           },
           type: "text",
           required: true,
@@ -78,4 +78,4 @@ const VideoEmbed = {
   ],
 };
 
-export default VideoEmbed;
+export default ExternalEmbed;
