@@ -6,7 +6,7 @@ exports[`FeaturedEventCard should render 1`] = `
     class="MuiBox-root css-156ejva"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-qb38zz-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-vqqof0-MuiContainer-root"
     >
       <div
         class="MuiTypography-root MuiTypography-h3 css-fz1fer-MuiTypography-root"

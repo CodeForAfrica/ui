@@ -1,8 +1,10 @@
-import { Typography, Box, Grid, Button } from "@mui/material";
+import { Typography, Box, Button } from "@mui/material";
 import React, { useState } from "react";
 
+import OpportunityCardListGrid from "./OpportunityCardListGrid";
+import OpportunityCardListHeader from "./OpportunityCardListHeader";
+
 import FeaturedEventCard from "@/charterafrica/components/FeaturedEventCard/FeaturedEventCard";
-import OpportunityCard from "@/charterafrica/components/OpportunityCard";
 
 const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   props,
@@ -23,89 +25,19 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
         ...sx,
       }}
     >
-      <Grid container justifyContent="space-between" mb={5}>
-        <Grid item xs={12} md={6}>
-          <Typography
-            color="neutral.dark"
-            textAlign={{ xs: "center", sm: "left" }}
-            textTransform="capitalize"
-            variant="h5SemiBold"
-          >
-            {title} {config?.statusGroupTitleSuffix}
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          md={6}
-          textAlign="end"
-          display={{
-            xs: "none",
-            md: "block",
-          }}
-        >
-          <Button
-            sx={{
-              "&:hover": {
-                backgroundColor: "transparent",
-              },
-            }}
-            onClick={() => {
-              setShowAll(!showAll);
-            }}
-          >
-            <Typography
-              color="neutral.dark"
-              variant="p3SemiBold"
-              sx={{
-                textDecoration: "underline",
-              }}
-            >
-              {showAll ? config?.showLessText : config?.showAllText}
-            </Typography>
-          </Button>
-        </Grid>
-      </Grid>
-      <Grid
-        container
-        spacing={5}
-        wrap="wrap"
-        sx={{
-          // hide from 5th child
-          "& > :nth-of-type(n+5)": {
-            display: showAll ? "flex" : "none",
-          },
-
-          // hide from 4th child on only xs and md
-          "& > :nth-of-type(4)": {
-            display: {
-              xs: showAll ? "flex" : "none",
-              sm: "flex",
-              md: showAll ? "flex" : "none",
-              lg: "flex",
-            },
-          },
-        }}
-      >
-        {/* if featured card */}
-        {featuredEvent ? <FeaturedEventCard {...featuredEvent} /> : null}
-
-        {items.map((item) => {
-          return (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
-              key={item.id}
-              display="flex"
-              justifyContent="center"
-            >
-              <OpportunityCard {...item} key={item.id} config={config} />
-            </Grid>
-          );
-        })}
-      </Grid>
+      <OpportunityCardListHeader
+        title={title}
+        onClick={() => setShowAll(!showAll)}
+        showAll={showAll}
+        showAllText="Show all"
+        showLessText="Show less"
+      />
+      {featuredEvent ? <FeaturedEventCard {...featuredEvent} /> : null}
+      <OpportunityCardListGrid
+        items={items}
+        config={config}
+        showAll={showAll}
+      />
       <Button
         onClick={() => {
           setShowAll(!showAll);

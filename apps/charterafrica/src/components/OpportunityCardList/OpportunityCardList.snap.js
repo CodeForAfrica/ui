@@ -15,8 +15,6 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
           class="MuiTypography-root MuiTypography-h5SemiBold css-19vbq4o-MuiTypography-root"
         >
           Grants
-           
-          Calls
         </h5>
       </div>
       <div
@@ -30,7 +28,7 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
           <p
             class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
           >
-            Show All
+            Show all
           </p>
         </button>
       </div>
@@ -69,13 +67,15 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
               >
                 This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
               </p>
-              <span
-                class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+              <div
+                class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
               >
-                Deadline
-                : 
-                2023-02-11
-              </span>
+                <span
+                  class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                >
+                   
+                </span>
+              </div>
             </div>
             <span
               class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
@@ -114,13 +114,15 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
               >
                 This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
               </p>
-              <span
-                class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+              <div
+                class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
               >
-                Deadline
-                : 
-                2023-02-11
-              </span>
+                <span
+                  class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                >
+                   
+                </span>
+              </div>
             </div>
             <span
               class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
@@ -159,13 +161,15 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
               >
                 This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
               </p>
-              <span
-                class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+              <div
+                class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
               >
-                Deadline
-                : 
-                2023-02-11
-              </span>
+                <span
+                  class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                >
+                   
+                </span>
+              </div>
             </div>
             <span
               class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"

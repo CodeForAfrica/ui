@@ -30,7 +30,7 @@ const FeaturedEventCard = React.forwardRef(function FeaturedEventCard(
       }}
       ref={ref}
     >
-      <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "74.5px" } }}>
+      <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 2.5, md: 5 } }}>
         <LineClampedRichTypography
           color="neutral.dark"
           display={{ xs: "flex", md: "none" }}

@@ -5,6 +5,7 @@ import {
   CardMedia,
   Typography,
   styled,
+  Grid,
 } from "@mui/material";
 import React from "react";
 
@@ -19,7 +20,7 @@ const StyledCardActionArea = styled(CardActionArea)(
 );
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const { image, deadline, description, title, config } = props;
+  const { image, date, description, link, title, config } = props;
 
   if (!title) {
     return null;
@@ -70,15 +71,29 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
           <Typography color="neutral.dark" variant="p1">
             {description}
           </Typography>
-          <Typography
-            color="neutral.dark"
-            variant="caption"
-            sx={{
-              textTransform: "uppercase",
-            }}
-          >
-            {config?.deadlineText}: {deadline}
-          </Typography>
+          <Grid container justifyContent="space-between">
+            <Typography
+              color="neutral.dark"
+              variant="caption"
+              sx={{
+                textTransform: "uppercase",
+              }}
+            >
+              {config?.dateText ? `${config?.dateText}:` : null} {date}
+            </Typography>
+            {link ? (
+              <Typography
+                color="neutral.dark"
+                component="a"
+                variant="caption"
+                sx={{
+                  textTransform: "uppercase",
+                }}
+              >
+                Register here
+              </Typography>
+            ) : null}
+          </Grid>
         </CardContent>
       </StyledCardActionArea>
     </Card>

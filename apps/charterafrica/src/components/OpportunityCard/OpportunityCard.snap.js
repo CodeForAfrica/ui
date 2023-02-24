@@ -30,13 +30,15 @@ exports[`<OpportunityCard /> renders unchanged 1`] = `
         >
           This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
         </p>
-        <span
-          class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+        <div
+          class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
         >
-          Deadline
-          : 
-          2023-02-11
-        </span>
+          <span
+            class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+          >
+             
+          </span>
+        </div>
       </div>
       <span
         class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
