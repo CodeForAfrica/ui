@@ -37,7 +37,7 @@ const PostCard = React.forwardRef(function PostCard(props, ref) {
         component={link?.href ? Link : undefined}
         href={link?.href}
       >
-        <CardMedia image={image.url} sx={{ height: 200 }} />
+        <CardMedia image={image?.url} sx={{ height: 200 }} />
         <CardContent>
           <LineClampedRichTypography
             color="neutral.dark"

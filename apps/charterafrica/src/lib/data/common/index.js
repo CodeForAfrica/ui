@@ -180,7 +180,7 @@ export async function processPageNews(page, api) {
   const processArticle = (data) => ({
     ...data,
     author: data?.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
-    image: data?.coverImage || data?.image || null,
+    image: data?.coverImage ?? null,
     date: new Date(data?.publishedOn).toUTCString(),
     link: {
       href: `${breadcrumbs[breadcrumbs.length - 1]?.url}/${data?.id}`,
@@ -193,7 +193,7 @@ export async function processPageNews(page, api) {
     null;
 
   if (!rawArticle) {
-    return { notFound: true };
+    return;
   }
 
   const featuredNewsPost = processArticle(rawArticle);
@@ -210,7 +210,8 @@ export async function processPageNews(page, api) {
     articles,
   };
 
-  return { ...page, blocks: [featuredPost, news] };
+  blocks[0] = featuredPost;
+  blocks[1] = news;
 }
 
 export async function processPageResearch({ blocks }) {
@@ -347,9 +348,8 @@ export async function getPageProps(context, api) {
       })
     )) || [];
   const processPage = processPageFunctionsMap[page.slug];
-  let processedPage = {};
   if (processPage) {
-    processedPage = await processPage(page, api);
+    await processPage(page, api);
   }
   const { settings, ...globalProps } = await getGlobalProps(
     { defaultLocale, locale },
@@ -363,7 +363,6 @@ export async function getPageProps(context, api) {
   return {
     ...globalProps,
     ...page,
-    ...processedPage,
     seo,
   };
 }
