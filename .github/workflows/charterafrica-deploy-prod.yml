@@ -11,9 +11,9 @@ concurrency:
 
 env:
   DOKKU_REMOTE_BRANCH: "master"
-  DOKKU_REMOTE_URL: "ssh://dokku@charter.prod.codeforafrica.org/charterafrica"
+  DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/codeforafrica-ui"
   IMAGE_NAME: "codeforafrica/charterafrica-ui"
-  NEXT_PUBLIC_APP_URL: "https://charterafrica.prod.codeforafrica.org"
+  NEXT_PUBLIC_APP_URL: "https://charterafrica.staging.codeforafrica.org"
   VERSION_FILE_NAME: "./apps/charterafrica/package.json"
 
 jobs:
@@ -86,7 +86,7 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           file: ./Dockerfile.charterafrica
-          platforms: linux/arm64
+          platforms: linux/amd64
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}"
 
