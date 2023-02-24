@@ -32,6 +32,9 @@ const PaginationButton = React.forwardRef(function PaginationButton(
           "&:hover": {
             backgroundColor: type === "next" ? "secondary.main" : neutral[100],
           },
+          "&:focus": {
+            backgroundColor: type === "next" ? "secondary.main" : neutral[100],
+          },
           textTransform: "capitalize",
         }}
         variant="contained"
