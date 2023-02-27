@@ -202,7 +202,6 @@ export async function processPageNews(page, api) {
     ...featuredNewsPost,
     slug: "featured-post",
   };
-
   const news = {
     slug: "news",
     title: "News",
