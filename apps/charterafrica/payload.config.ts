@@ -2,7 +2,7 @@ import path from "path";
 
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
-import nestedDocs from "@payloadcms/plugin-nested-docs";
+// import nestedDocs from "@payloadcms/plugin-nested-docs";
 import seo from "@payloadcms/plugin-seo";
 import dotenv from "dotenv";
 import { buildConfig } from "payload/config";
@@ -135,11 +135,11 @@ export default buildConfig({
       generateURL: ({ doc, locale }: any) =>
         doc?.slug?.value ? `${appURL}/${locale}/${doc.slug.value}` : undefined,
     }),
-    nestedDocs({
-      collections: ["pages"],
-      generateLabel: (_, doc) => doc.title as string,
-      generateURL: (docs) =>
-        docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
-    }),
+    // nestedDocs({
+    //   collections: ["pages"],
+    //   generateLabel: (_, doc) => doc.title as string,
+    //   generateURL: (docs) =>
+    //     docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
+    // }),
   ],
 });
