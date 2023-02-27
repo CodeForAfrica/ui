@@ -8,6 +8,8 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build-next": "turbo run build-next",
+    "build-payload": "turbo run build-payload",
     "dev": "turbo run dev storybook --parallel",
     "lint-check": "turbo run lint-check",
     "lint": "turbo run lint",
@@ -27,7 +29,7 @@
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.0",
     "@playwright/test": "^1.31.1",
-    "eslint": "^8.34.0",
+    "eslint": "^8.35.0",
     "eslint-config-commons-ui": "workspace:*",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",

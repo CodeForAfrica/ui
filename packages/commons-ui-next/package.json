@@ -46,7 +46,7 @@
     "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/react": "^6.5.16",
     "babel-loader": "^9.1.2",
-    "eslint": "^8.34.0",
+    "eslint": "^8.35.0",
     "eslint-config-commons-ui": "workspace:*",
     "jest": "^29.4.3",
     "jest-config-commons-ui": "workspace:*",
