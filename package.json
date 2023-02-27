@@ -8,6 +8,8 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build-next": "turbo run build-next",
+    "build-payload": "turbo run build-payload",
     "dev": "turbo run dev storybook --parallel",
     "lint-check": "turbo run lint-check",
     "lint": "turbo run lint",
