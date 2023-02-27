@@ -191,7 +191,6 @@ export async function processPageNews(page, api) {
   const rawArticle =
     blocks.find(({ slug }) => slug === "featured-post")?.featuredPost?.value ??
     null;
-
   if (!rawArticle) {
     return;
   }
