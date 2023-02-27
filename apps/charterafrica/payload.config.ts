@@ -14,6 +14,7 @@ import Media from "./src/payload/collections/Media";
 import News from "./src/payload/collections/News";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
+import Research from "./src/payload/collections/Research";
 import Resources from "./src/payload/collections/Resources";
 import Tag from "./src/payload/collections/Tag";
 import FocalCountries from "./src/payload/globals/FocalCountries";
@@ -66,6 +67,7 @@ export default buildConfig({
     Pages,
     Partners,
     Resources,
+    Research,
     Tag,
   ] as CollectionConfig[],
   globals: [

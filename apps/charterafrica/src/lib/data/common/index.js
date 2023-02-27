@@ -171,9 +171,9 @@ export async function processPageFellowships({ blocks }) {
   });
 }
 
-export async function processPageNews(page, api) {
-  const { blocks, breadcrumbs = [] } = page;
-  const { docs } = await api.getCollection("news", {
+export async function processPageArticles(page, api) {
+  const { blocks, breadcrumbs = [], slug } = page;
+  const { docs } = await api.getCollection(slug, {
     where: { _status: { equals: "published" } },
   });
 
@@ -191,75 +191,31 @@ export async function processPageNews(page, api) {
 
   const articles = docs?.map(processArticle);
   const rawArticle =
-    blocks.find(({ slug }) => slug === "featured-post")?.featuredPost?.value ??
-    null;
+    blocks.find((block) => block.slug === "featured-post")?.featuredPost
+      ?.value ?? null;
 
   if (rawArticle) {
     const featuredNewsPost = processArticle(rawArticle);
+    const category = `${slug?.charAt(0).toUpperCase()}${slug?.slice(1)}`;
     const featuredPost = {
-      category: "News",
+      category,
       ...featuredNewsPost,
       slug: "featured-post",
     };
-    const news = {
-      slug: "news",
-      title: "News",
+    const article = {
+      slug,
+      title: category,
       articles,
     };
-    blocks.push(featuredPost, news);
+    blocks.push(featuredPost, article);
   }
-}
-
-export async function processPageResearch({ blocks }) {
-  // TODO(kilemensi): Pull data from CMS
-  blocks.push({
-    slug: "featured-post",
-    category: "Research",
-    title: "Research Story title goes here and spans over second line",
-    excerpt:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur",
-    date: "2020-10-10 10:10:10",
-    author: "Author",
-    image: {
-      url: "/images/featured_post.jpg",
-      alt: "Featured Post",
-    },
-    link: {
-      href: "/knowledge/news",
-    },
-  });
-  blocks.push({
-    slug: "research",
-    title: "Research",
-    articles: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Research title goes here and spans over second line. "
-        .repeat((i % 2) + 1)
-        .trim(),
-      author: "Author",
-      date: "2023-02-11",
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Research ${i}`,
-        prefix: "media",
-        filename: `knowledge_${(i % 3) + 1}.jpg`,
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: `/images/knowledge_${(i % 3) + 1}.jpg`,
-      },
-    })),
-  });
 }
 
 const processPageFunctionsMap = {
   about: processPageAbout,
   explainers: processPageExplainers,
-  news: processPageNews,
-  research: processPageResearch,
+  news: processPageArticles,
+  research: processPageArticles,
   fellowships: processPageFellowships,
 };
 
