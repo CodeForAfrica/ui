@@ -22,10 +22,9 @@
     "url": "https://github.com/codeforafrica/ui/issues"
   },
   "scripts": {
-    "build:next": "next build",
-    "build:payload": "payload build",
-    "build:server": "tsc --project tsconfig.server.json",
-    "build": "NODE_ENV=production pnpm build:payload && pnpm build:server && PAYLOAD_CONFIG_PATH=dist/payload.config.js NEXT_BUILD=true node dist/server.js",
+    "build-server": "tsc --project tsconfig.server.json",
+    "build-next": "NEXT_BUILD=true pnpm pnpm build-server && NEXT_BUILD=true PAYLOAD_PUBLIC_APP_URL=http://localhost:3000 PAYLOAD_CONFIG_PATH=dist/payload.config.js node dist/server.js",
+    "build-payload": "payload build",
     "dev": "NODE_OPTIONS='--inspect' ts-node --project tsconfig.server.json server.ts",
     "start": "PAYLOAD_CONFIG_PATH=dist/payload.config.js NODE_ENV=production node dist/server.js",
     "lint-check": "eslint './'",
