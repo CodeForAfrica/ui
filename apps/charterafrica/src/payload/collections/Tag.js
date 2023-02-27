@@ -5,7 +5,7 @@ const Tag = {
   },
   fields: [
     {
-      name: "tagName",
+      name: "name",
       label: {
         en: "Tag Name",
         fr: "Nom de la balise",
