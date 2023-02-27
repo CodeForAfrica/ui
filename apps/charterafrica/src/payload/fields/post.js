@@ -59,6 +59,13 @@ const postFields = [
     },
   }),
   {
+    name: "tags",
+    required: true,
+    type: "relationship",
+    relationTo: "tag",
+    hasMany: true,
+  },
+  {
     name: "content",
     type: "blocks",
     blocks: [RichText, MediaBlock, ExternalEmbed],
