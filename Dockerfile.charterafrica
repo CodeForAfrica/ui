@@ -24,19 +24,6 @@ RUN pnpm fetch
 
 FROM base as builder
 
-# NOTE: ARG values are only available **after** ARG statement & hence we need
-#       to separate NEXT_PUBLIC_APP_URL and PAYLOAD_PUBLIC_APP_URL into
-#       multiple ARG statements so that PAYLOAD can use the value defined
-#       in NEXT.
-ARG NEXT_TELEMETRY_DISABLED=1 \
-    # Needed by Next.js at build time
-    NEXT_PUBLIC_APP_URL=http://localhost:3000
-    # Needed by Payload at build time
-ARG PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
-    # Needed by server.js at build time
-    MONGO_URL \
-    PAYLOAD_SECRET_KEY \
-    PORT=3000
 
 WORKDIR /workspace
 
@@ -47,7 +34,32 @@ COPY apps/charterafrica ./apps/charterafrica
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
 RUN pnpm install --recursive --offline --frozen-lockfile
 
-RUN pnpm build --filter=charterafrica
+# NOTE: ARG values are only available **after** ARG statement & hence we need
+#       to separate NEXT_PUBLIC_APP_URL and PAYLOAD_PUBLIC_APP_URL into
+#       multiple ARG statements so that PAYLOAD can use the value defined
+#       in NEXT.
+ARG NEXT_TELEMETRY_DISABLED=1 \
+    # Needed by Next.js at build time
+    NEXT_PUBLIC_APP_NAME=charterAFRICA \
+    NEXT_PUBLIC_APP_URL=http://localhost:3000 \
+    # Needed by Next.js and server.ts at build time
+    PORT=3000 \
+    # Needed by Payload at Next.js build time (see below for Payload's own
+    # build time vars)
+    MONGO_URL \
+    PAYLOAD_SECRET_KEY
+
+RUN pnpm build-next --filter=charterafrica
+
+# Needed by Payload at Payload build time
+# NOTE: This shouldn't be set at Next.js build time because we want Next.js to
+#       point at localhost instance of Payload when building. If this is set,
+#       Next.js will try to fetch data from the remote instance pointed to by
+#       the URL (unless this URL also points to localhost which won't be the
+#       case in PROD)
+ARG PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+
+RUN pnpm build-payload --filter=charterafrica
 
 # TODO(kilemensi): Optimize and improve this default runner
 #                    i) Start with node-alpine or base and only copy/install
@@ -61,12 +73,14 @@ RUN rm -rf /var/cache/apk/*
 
 # We've already set defaults values for most of these ARGs; don't repeat
 ARG NEXT_TELEMETRY_DISABLED \
-    NEXT_PUBLIC_APP_URL \
-    PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
-    PAYLOAD_PUBLIC_APP_URL \
-    PORT
+   NEXT_PUBLIC_APP_NAME \
+   NEXT_PUBLIC_APP_URL \
+   PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
+   PAYLOAD_PUBLIC_APP_URL \
+   PORT
 
 ENV NODE_ENV=production \
+    NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME} \
     NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
     NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
     PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
