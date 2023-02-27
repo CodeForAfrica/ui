@@ -197,7 +197,6 @@ export async function processPageNews(page, api) {
   }
 
   const featuredNewsPost = processArticle(rawArticle);
-
   const featuredPost = {
     category: "News",
     ...featuredNewsPost,
