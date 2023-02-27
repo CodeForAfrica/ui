@@ -9,6 +9,14 @@ const setPublishedOn = ({ value }) => {
   return new Date(value);
 };
 
+export const content = (overrides) => ({
+  name: "content",
+  type: "blocks",
+  blocks: [RichText, MediaBlock, ExternalEmbed],
+  required: true,
+  ...overrides,
+});
+
 const postFields = [
   {
     name: "title",
@@ -65,12 +73,7 @@ const postFields = [
     relationTo: "tag",
     hasMany: true,
   },
-  {
-    name: "content",
-    type: "blocks",
-    blocks: [RichText, MediaBlock, ExternalEmbed],
-    required: true,
-  },
+  content(),
   {
     name: "publishedOn",
     type: "date",

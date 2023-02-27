@@ -10,6 +10,8 @@ import { buildConfig } from "payload/config";
 import Authors from "./src/payload/collections/Authors";
 import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
 import Explainers from "./src/payload/collections/Explainers";
+import Fellowships from "./src/payload/collections/Fellowships";
+import Grants from "./src/payload/collections/Grants";
 import Media from "./src/payload/collections/Media";
 import News from "./src/payload/collections/News";
 import Pages from "./src/payload/collections/Pages";
@@ -62,6 +64,8 @@ export default buildConfig({
     Authors,
     CommunityPlatforms,
     Explainers,
+    Fellowships,
+    Grants,
     Media,
     News,
     Pages,

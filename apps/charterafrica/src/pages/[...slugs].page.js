@@ -29,7 +29,7 @@ const componentsBySlugs = {
   faq: FAQ,
   "featured-post": FeaturedPostCard,
   fellowships: GrantsAndFellowships,
-  "fellowships-and-grants-header": GrantsFellowshipsHeader,
+  "knowledge-page-header": GrantsFellowshipsHeader,
   "focal-countries": FocalCountries,
   grantees: Grantees,
   grants: GrantsAndFellowships,

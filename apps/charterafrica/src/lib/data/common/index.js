@@ -85,22 +85,6 @@ export async function processPageExplainers({ title, blocks }, api) {
 
 export async function processPageFellowships({ blocks }) {
   blocks.push({
-    slug: "page-info",
-    description: [
-      {
-        children: [
-          {
-            text: "A list of all Charter Africa grants, fellowships and events",
-          },
-        ],
-      },
-    ],
-  });
-  blocks.push({
-    slug: "fellowships-and-grants-header",
-    title: "Grants and Fellowships",
-  });
-  blocks.push({
     slug: "grants",
     title: "Grants",
     items: Array.from({ length: 30 }, (_, i) => ({

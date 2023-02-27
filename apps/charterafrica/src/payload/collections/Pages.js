@@ -8,6 +8,7 @@ import FeaturedPost from "../blocks/FeaturedPost";
 import Global from "../blocks/Global";
 import GuidingPrincipals from "../blocks/GuidingPrinciples";
 import Hero from "../blocks/Hero";
+import KnowledgePageHeader from "../blocks/KnowledgePageHeader";
 import Mooc from "../blocks/Mooc";
 import PageDescription from "../blocks/PageDescription";
 import PageHeader from "../blocks/PageHeader";
@@ -50,6 +51,7 @@ const Pages = {
         Hero,
         Global,
         GuidingPrincipals,
+        KnowledgePageHeader,
         Mooc,
         PageDescription,
         PageHeader,
