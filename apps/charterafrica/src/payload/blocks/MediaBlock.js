@@ -11,6 +11,9 @@ const MediaBlock = {
           type: "upload",
           relationTo: "media",
           required: true,
+          filterOptions: {
+            mimeType: { contains: "image" },
+          },
         },
       ],
     }),

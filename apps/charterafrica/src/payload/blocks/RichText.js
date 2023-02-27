@@ -5,7 +5,7 @@ const RichText = {
   slug: "richText",
   fields: [
     blockFields({
-      name: "richTextFields",
+      name: "richTextBlockFields",
       fields: [richText({ name: "content" })],
     }),
   ],

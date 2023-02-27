@@ -4,7 +4,7 @@ const ExternalEmbed = {
   slug: "embed",
   fields: [
     blockFields({
-      name: "embedField",
+      name: "embedBlockFields",
       fields: [
         {
           type: "row",

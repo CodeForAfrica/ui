@@ -108,14 +108,16 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             />
 
             <CardActions>
-              <Link
-                color="neutral.dark"
-                href={link?.href}
-                underline="always"
-                variant="p3"
-              >
-                Read More
-              </Link>
+              {link?.href && (
+                <Link
+                  color="neutral.dark"
+                  href={link?.href}
+                  underline="always"
+                  variant="p3"
+                >
+                  Read More
+                </Link>
+              )}
             </CardActions>
           </CardContent>
         </Card>

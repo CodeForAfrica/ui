@@ -183,7 +183,9 @@ export async function processPageNews(page, api) {
     image: data?.coverImage ?? null,
     date: new Date(data?.publishedOn).toUTCString(),
     link: {
-      href: `${breadcrumbs[breadcrumbs.length - 1]?.url}/${data?.id}`,
+      href: breadcrumbs[breadcrumbs.length - 1]?.url
+        ? `${breadcrumbs[breadcrumbs.length - 1].url}/${data?.slug}`
+        : null,
     },
   });
 
@@ -191,23 +193,21 @@ export async function processPageNews(page, api) {
   const rawArticle =
     blocks.find(({ slug }) => slug === "featured-post")?.featuredPost?.value ??
     null;
-  if (!rawArticle) {
-    return;
-  }
 
-  const featuredNewsPost = processArticle(rawArticle);
-  const featuredPost = {
-    category: "News",
-    ...featuredNewsPost,
-    slug: "featured-post",
-  };
-  const news = {
-    slug: "news",
-    title: "News",
-    articles,
-  };
-  blocks[0] = featuredPost;
-  blocks[1] = news;
+  if (rawArticle) {
+    const featuredNewsPost = processArticle(rawArticle);
+    const featuredPost = {
+      category: "News",
+      ...featuredNewsPost,
+      slug: "featured-post",
+    };
+    const news = {
+      slug: "news",
+      title: "News",
+      articles,
+    };
+    blocks.push(featuredPost, news);
+  }
 }
 
 export async function processPageResearch({ blocks }) {
