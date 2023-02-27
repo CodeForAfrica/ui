@@ -227,7 +227,7 @@ exports[`<Layout /> renders unchanged 1`] = `
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-p2 css-e55002-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p2 css-1gv1pj1-MuiTypography-root"
                 />
               </div>
               <div
@@ -237,7 +237,7 @@ exports[`<Layout /> renders unchanged 1`] = `
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-p2SemiBold css-1jvfk9c-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p2SemiBold css-1l2ku1a-MuiTypography-root"
                 />
               </div>
             </div>
