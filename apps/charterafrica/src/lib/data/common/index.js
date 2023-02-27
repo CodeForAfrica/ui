@@ -208,7 +208,6 @@ export async function processPageNews(page, api) {
     title: "News",
     articles,
   };
-
   blocks[0] = featuredPost;
   blocks[1] = news;
 }
