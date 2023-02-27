@@ -8,6 +8,8 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build-next": "turbo run build-next",
+    "build-payload": "turbo run build-payload",
     "dev": "turbo run dev storybook --parallel",
     "lint-check": "turbo run lint-check",
     "lint": "turbo run lint",
@@ -26,14 +28,14 @@
     "@actions/exec": "^1.1.1",
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.0",
-    "@playwright/test": "^1.30.0",
-    "eslint": "^8.33.0",
+    "@playwright/test": "^1.31.1",
+    "eslint": "^8.35.0",
     "eslint-config-commons-ui": "workspace:*",
     "husky": "^8.0.3",
-    "lint-staged": "^13.1.1",
+    "lint-staged": "^13.1.2",
     "playwright-config-commons-ui": "workspace:*",
     "prettier": "^2.8.4",
-    "turbo": "^1.7.4"
+    "turbo": "^1.8.2"
   },
   "packageManager": "pnpm@7.14.0"
 }
