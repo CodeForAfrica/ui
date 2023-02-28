@@ -15,7 +15,7 @@ exports[`<Footer /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container css-93fe3t-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-wj0mtg-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-ymnwmk-MuiGrid-root"
           >
             <div
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -71,10 +71,10 @@ exports[`<Footer /> renders unchanged 1`] = `
                 </p>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-item css-f5pcvu-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-item css-1wcyjmw-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gjb3vx-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-3fm92-MuiGrid-root"
                 >
                   <a
                     class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"
@@ -84,7 +84,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                   </a>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gjb3vx-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-3fm92-MuiGrid-root"
                 >
                   <a
                     class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"

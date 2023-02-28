@@ -40,8 +40,12 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               md={4}
               order={{ xs: 0, md: 1 }}
               container
-              flexDirection="column"
               alignItems={{ xs: "center", md: "flex-end" }}
+              flexDirection={{ xs: "column", sm: "row", md: "column" }}
+              justifyContent={{
+                xs: "flex-start",
+                sm: "space-between",
+              }}
             >
               <Grid item>
                 <NewsletterSubscription {...newsletter} />
@@ -147,12 +151,13 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   <Grid
                     item
                     container
-                    flexDirection={{ xs: "column", md: "row" }}
                     alignItems={{ xs: "center", md: "flex-start" }}
+                    flexDirection={{ xs: "column", sm: "row" }}
                     gap={1.25}
+                    justifyContent={{ xs: "center", md: "flex-start" }}
                   >
                     {links.map((link) => (
-                      <Grid item xs={12} md="auto" key={link.id}>
+                      <Grid item xs={12} sm="auto" key={link.id}>
                         <Link
                           color="inherit"
                           href={link?.href}
