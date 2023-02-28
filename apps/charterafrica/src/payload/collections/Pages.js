@@ -46,7 +46,6 @@ const Pages = {
         Error,
         FAQ,
         FeaturedPost,
-        Hero,
         Global,
         GuidingPrincipals,
         Hero,
