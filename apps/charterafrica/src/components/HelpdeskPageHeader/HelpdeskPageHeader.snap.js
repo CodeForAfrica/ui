@@ -29,14 +29,10 @@ exports[`<HelpdeskPageHeader/> renders unchanged 1`] = `
         <h1
           class="MuiTypography-root MuiTypography-h1Small css-bltri2-MuiTypography-root"
         >
-          <h1
-            class="MuiTypography-root MuiTypography-h1Small css-bltri2-MuiTypography-root"
-          >
-            Democracy 
-            <strong>
-              Helpdesk
-            </strong>
-          </h1>
+          Democracy 
+          <strong>
+            Helpdesk
+          </strong>
         </h1>
       </div>
     </div>

@@ -90,16 +90,12 @@ exports[`<FAQ /> renders unchanged 1`] = `
                   class="MuiAccordionDetails-root css-ohput3-MuiAccordionDetails-root"
                   id="panel-63f388c3ebe92a85650e8051-content"
                 >
-                  <div
+                  <p
                     class="MuiTypography-root MuiTypography-p2 css-18o3on8-MuiTypography-root"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-p2 css-18o3on8-MuiTypography-root"
-                    >
-                      Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus penatibus congue vestibulum libero in neque dignissim, netus mus orci eu molestie per gravida, vel placerat maecenas dictumst nec etiam. Libero proin sagittis curae volutpat integer mattis magnis sociis, molestie curabitur montes per lectus sociosqu natoque facilisi, vestibulum convallis cursus nascetur eget vivamus nam. Augue placerat cubilia blandit integer nulla tempor magna, pretium sem magnis netus ullamcorper luctus eget egestas, curae fermentum rhoncus vitae odio sociis.
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus penatibus congue vestibulum libero in neque dignissim, netus mus orci eu molestie per gravida, vel placerat maecenas dictumst nec etiam. Libero proin sagittis curae volutpat integer mattis magnis sociis, molestie curabitur montes per lectus sociosqu natoque facilisi, vestibulum convallis cursus nascetur eget vivamus nam. Augue placerat cubilia blandit integer nulla tempor magna, pretium sem magnis netus ullamcorper luctus eget egestas, curae fermentum rhoncus vitae odio sociis.
 Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan ornare fermentum varius praesent sapien imperdiet, natoque morbi nullam mauris suspendisse nisi aptent. Vehicula malesuada litora libero himenaeos quisque vestibulum urna pretium ullamcorper dapibus, scelerisque phasellus commodo ligula est ut nascetur magna nisi ad ante, senectus sem nostra donec morbi placerat posuere pharetra pellentesque. 
-                    </p>
-                  </div>
+                  </p>
                 </div>
               </div>
             </div>
@@ -183,16 +179,12 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
                   class="MuiAccordionDetails-root css-ohput3-MuiAccordionDetails-root"
                   id="panel-63f388e0ebe92a85650e8052-content"
                 >
-                  <div
+                  <p
                     class="MuiTypography-root MuiTypography-p2 css-18o3on8-MuiTypography-root"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-p2 css-18o3on8-MuiTypography-root"
-                    >
-                      Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus penatibus congue vestibulum libero in neque dignissim, netus mus orci eu molestie per gravida, vel placerat maecenas dictumst nec etiam. Libero proin sagittis curae volutpat integer mattis magnis sociis, molestie curabitur montes per lectus sociosqu natoque facilisi, vestibulum convallis cursus nascetur eget vivamus nam. Augue placerat cubilia blandit integer nulla tempor magna, pretium sem magnis netus ullamcorper luctus eget egestas, curae fermentum rhoncus vitae odio sociis.
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus penatibus congue vestibulum libero in neque dignissim, netus mus orci eu molestie per gravida, vel placerat maecenas dictumst nec etiam. Libero proin sagittis curae volutpat integer mattis magnis sociis, molestie curabitur montes per lectus sociosqu natoque facilisi, vestibulum convallis cursus nascetur eget vivamus nam. Augue placerat cubilia blandit integer nulla tempor magna, pretium sem magnis netus ullamcorper luctus eget egestas, curae fermentum rhoncus vitae odio sociis.
 Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan ornare fermentum varius praesent sapien imperdiet, natoque morbi nullam mauris suspendisse nisi aptent. Vehicula malesuada litora libero himenaeos quisque vestibulum urna pretium ullamcorper dapibus, scelerisque phasellus commodo ligula est ut nascetur magna nisi ad ante, senectus sem nostra donec morbi placerat posuere pharetra pellentesque. 
-                    </p>
-                  </div>
+                  </p>
                 </div>
               </div>
             </div>
@@ -276,16 +268,12 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
                   class="MuiAccordionDetails-root css-ohput3-MuiAccordionDetails-root"
                   id="panel-63f388f9ebe92a85650e8053-content"
                 >
-                  <div
+                  <p
                     class="MuiTypography-root MuiTypography-p2 css-18o3on8-MuiTypography-root"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-p2 css-18o3on8-MuiTypography-root"
-                    >
-                      Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus penatibus congue vestibulum libero in neque dignissim, netus mus orci eu molestie per gravida, vel placerat maecenas dictumst nec etiam. Libero proin sagittis curae volutpat integer mattis magnis sociis, molestie curabitur montes per lectus sociosqu natoque facilisi, vestibulum convallis cursus nascetur eget vivamus nam. Augue placerat cubilia blandit integer nulla tempor magna, pretium sem magnis netus ullamcorper luctus eget egestas, curae fermentum rhoncus vitae odio sociis.
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus penatibus congue vestibulum libero in neque dignissim, netus mus orci eu molestie per gravida, vel placerat maecenas dictumst nec etiam. Libero proin sagittis curae volutpat integer mattis magnis sociis, molestie curabitur montes per lectus sociosqu natoque facilisi, vestibulum convallis cursus nascetur eget vivamus nam. Augue placerat cubilia blandit integer nulla tempor magna, pretium sem magnis netus ullamcorper luctus eget egestas, curae fermentum rhoncus vitae odio sociis.
 Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan ornare fermentum varius praesent sapien imperdiet, natoque morbi nullam mauris suspendisse nisi aptent. Vehicula malesuada litora libero himenaeos quisque vestibulum urna pretium ullamcorper dapibus, scelerisque phasellus commodo ligula est ut nascetur magna nisi ad ante, senectus sem nostra donec morbi placerat posuere pharetra pellentesque. 
-                    </p>
-                  </div>
+                  </p>
                 </div>
               </div>
             </div>
@@ -369,16 +357,12 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
                   class="MuiAccordionDetails-root css-ohput3-MuiAccordionDetails-root"
                   id="panel-63f38902ebe92a85650e8054-content"
                 >
-                  <div
+                  <p
                     class="MuiTypography-root MuiTypography-p2 css-18o3on8-MuiTypography-root"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-p2 css-18o3on8-MuiTypography-root"
-                    >
-                      Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus penatibus congue vestibulum libero in neque dignissim, netus mus orci eu molestie per gravida, vel placerat maecenas dictumst nec etiam. Libero proin sagittis curae volutpat integer mattis magnis sociis, molestie curabitur montes per lectus sociosqu natoque facilisi, vestibulum convallis cursus nascetur eget vivamus nam. Augue placerat cubilia blandit integer nulla tempor magna, pretium sem magnis netus ullamcorper luctus eget egestas, curae fermentum rhoncus vitae odio sociis.
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus penatibus congue vestibulum libero in neque dignissim, netus mus orci eu molestie per gravida, vel placerat maecenas dictumst nec etiam. Libero proin sagittis curae volutpat integer mattis magnis sociis, molestie curabitur montes per lectus sociosqu natoque facilisi, vestibulum convallis cursus nascetur eget vivamus nam. Augue placerat cubilia blandit integer nulla tempor magna, pretium sem magnis netus ullamcorper luctus eget egestas, curae fermentum rhoncus vitae odio sociis.
 Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan ornare fermentum varius praesent sapien imperdiet, natoque morbi nullam mauris suspendisse nisi aptent. Vehicula malesuada litora libero himenaeos quisque vestibulum urna pretium ullamcorper dapibus, scelerisque phasellus commodo ligula est ut nascetur magna nisi ad ante, senectus sem nostra donec morbi placerat posuere pharetra pellentesque. 
-                    </p>
-                  </div>
+                  </p>
                 </div>
               </div>
             </div>

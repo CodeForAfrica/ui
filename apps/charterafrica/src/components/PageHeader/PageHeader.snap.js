@@ -39,15 +39,11 @@ exports[`<PageHeader/> renders unchanged 1`] = `
             <h1
               class="MuiTypography-root MuiTypography-h1Small css-128yll0-MuiTypography-root"
             >
-              <h1
-                class="MuiTypography-root MuiTypography-h1Small css-128yll0-MuiTypography-root"
-              >
-                The largest digital database for 
-                <strong>
-                  African
-                </strong>
-                 communites
-              </h1>
+              The largest digital database for 
+              <strong>
+                African
+              </strong>
+               communites
             </h1>
           </div>
         </div>

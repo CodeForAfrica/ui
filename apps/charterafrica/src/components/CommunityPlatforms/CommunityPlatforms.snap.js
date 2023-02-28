@@ -54,15 +54,11 @@ exports[`<CommunityPlatforms /> renders unchanged 1`] = `
               >
                 Newsletter
               </h3>
-              <div
+              <p
                 class="MuiTypography-root MuiTypography-p3 css-180mg8r-MuiTypography-root"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-p3 css-180mg8r-MuiTypography-root"
-                >
-                  Receive updates on the Charter Project Africa
-                </p>
-              </div>
+                Receive updates on the Charter Project Africa
+              </p>
             </div>
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall active css-8bfrmb-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"

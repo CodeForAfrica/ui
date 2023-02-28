@@ -29,15 +29,11 @@ exports[`<Hero /> renders unchanged 1`] = `
                 <h1
                   class="MuiTypography-root MuiTypography-h2Small css-10230ta-MuiTypography-root"
                 >
-                  <h1
-                    class="MuiTypography-root MuiTypography-h2Small css-10230ta-MuiTypography-root"
-                  >
-                    Find Africa's best 
-                    <em>
-                      digital democracy
-                    </em>
-                     tools
-                  </h1>
+                  Find Africa's best 
+                  <em>
+                    digital democracy
+                  </em>
+                   tools
                 </h1>
                 <div
                   class="MuiTypography-root MuiTypography-p1 css-12fpwxu-MuiTypography-root"
