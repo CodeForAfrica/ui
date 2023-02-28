@@ -15,7 +15,7 @@ import News from "./src/payload/collections/News";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Resources from "./src/payload/collections/Resources";
-import Tag from "./src/payload/collections/Tag";
+import Tags from "./src/payload/collections/Tags";
 import FocalCountries from "./src/payload/globals/FocalCountries";
 import Footer from "./src/payload/globals/Footer";
 import Helpdesk from "./src/payload/globals/Helpdesk";
@@ -66,7 +66,7 @@ export default buildConfig({
     Pages,
     Partners,
     Resources,
-    Tag,
+    Tags,
   ] as CollectionConfig[],
   globals: [
     FocalCountries,

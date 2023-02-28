@@ -26,15 +26,19 @@ exports[`<Hero /> renders unchanged 1`] = `
               <div
                 class="MuiBox-root css-dvxtzn"
               >
-                <h1
-                  class="MuiTypography-root MuiTypography-h2Small css-10230ta-MuiTypography-root"
+                <div
+                  class="MuiBox-root css-8eryce"
                 >
-                  Find Africa's best 
-                  <em>
-                    digital democracy
-                  </em>
-                   tools
-                </h1>
+                  <h1
+                    class="MuiTypography-root MuiTypography-h2Small css-1ddmxiu-MuiTypography-root"
+                  >
+                    Find Africa's best 
+                    <em>
+                      digital democracy
+                    </em>
+                     tools
+                  </h1>
+                </div>
                 <div
                   class="MuiTypography-root MuiTypography-p1 css-12fpwxu-MuiTypography-root"
                 >

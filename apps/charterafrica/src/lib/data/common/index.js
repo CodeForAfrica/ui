@@ -171,7 +171,7 @@ export async function processPageFellowships({ blocks }) {
   });
 }
 
-export async function processPageNews(page, api) {
+export async function processPageNews(page, api, { locale }) {
   const { blocks, breadcrumbs = [] } = page;
   const { docs } = await api.getCollection("news", {
     where: { _status: { equals: "published" } },
@@ -181,7 +181,7 @@ export async function processPageNews(page, api) {
     ...data,
     author: data?.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
     image: data?.coverImage ?? null,
-    date: new Date(data?.publishedOn).toLocaleString(),
+    date: new Date(data?.publishedOn).toLocaleString(locale),
     link: {
       href: breadcrumbs[breadcrumbs.length - 1]?.url
         ? `${breadcrumbs[breadcrumbs.length - 1].url}/${data?.slug}`
@@ -190,23 +190,25 @@ export async function processPageNews(page, api) {
   });
 
   const articles = docs?.map(processArticle);
-  const rawArticle =
+  const featuredArticle =
     blocks.find(({ slug }) => slug === "featured-post")?.featuredPost?.value ??
     null;
-  if (rawArticle) {
-    const featuredNewsPost = processArticle(rawArticle);
+  const news = {
+    slug: "news",
+    title: "News",
+    articles,
+  };
+
+  if (featuredArticle) {
+    const featuredNewsPost = processArticle(featuredArticle);
     const featuredPost = {
       category: "News",
       ...featuredNewsPost,
       slug: "featured-post",
     };
-    const news = {
-      slug: "news",
-      title: "News",
-      articles,
-    };
-    blocks.push(featuredPost, news);
+    blocks.push(featuredPost);
   }
+  blocks.push(news);
 }
 
 export async function processPageResearch({ blocks }) {
@@ -344,7 +346,7 @@ export async function getPageProps(context, api) {
     )) || [];
   const processPage = processPageFunctionsMap[page.slug];
   if (processPage) {
-    await processPage(page, api);
+    await processPage(page, api, context);
   }
   const { settings, ...globalProps } = await getGlobalProps(
     { defaultLocale, locale },

@@ -36,29 +36,33 @@ exports[`<Impressum /> renders unchanged 1`] = `
           <div
             class="MuiBox-root css-yp83e5"
           >
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+            <div
+              class="MuiBox-root css-0"
             >
-              European Partnership for Democracy (EPD)
+              <p
+                class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+              >
+                European Partnership for Democracy (EPD)
 Rue Froissart 123-133
 1040 Brussels, Belgium
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
-            />
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
-            >
-              EPD is registered in Belgium (0648.708.779).
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
-            />
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
-            >
-              You can contact EPD via email (info@epd.eu) or by phone (+32 2 733 2282).
-            </p>
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+              />
+              <p
+                class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+              >
+                EPD is registered in Belgium (0648.708.779).
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+              />
+              <p
+                class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+              >
+                You can contact EPD via email (info@epd.eu) or by phone (+32 2 733 2282).
+              </p>
+            </div>
           </div>
         </div>
       </div>
