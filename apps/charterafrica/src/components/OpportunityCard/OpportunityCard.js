@@ -9,6 +9,7 @@ import {
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
+import RichText from "@/charterafrica/components/RichText/RichText";
 
 const StyledCardActionArea = styled(CardActionArea)(
   () => `
@@ -67,9 +68,10 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
           >
             {title}
           </Typography>
-          <Typography color="neutral.dark" variant="p1">
+          <RichText color="neutral.dark" variant="p1" elements={description} />
+          {/* <Typography color="neutral.dark" variant="p1">
             {description}
-          </Typography>
+          </Typography> */}
           <Typography
             color="neutral.dark"
             variant="caption"
