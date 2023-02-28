@@ -33,7 +33,7 @@ dotenv.config({ path: path.resolve(__dirname, "./.env.local") });
 
 const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
 
-const cors = process?.env?.PAYLOAD_CORS?.split(",")
+const allowedDomains = process?.env?.PAYLOAD_ALLOWED_DOMAINS?.split(",")
   ?.map((d) => d.trim())
   ?.filter(Boolean);
 
@@ -92,7 +92,8 @@ export default buildConfig({
       },
     }),
   },
-  cors,
+  cors: allowedDomains,
+  csrf: allowedDomains,
   i18n: {
     fallbackLng: "en", // default
     debug: false, // default
