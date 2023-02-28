@@ -130,17 +130,26 @@ exports[`<Events /> renders unchanged 1`] = `
                   <div
                     class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
                   >
-                    <span
-                      class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                    <div
+                      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                     >
-                       
-                      2023-02-11
-                    </span>
-                    <a
-                      class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                      <span
+                        class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                      >
+                         
+                        2023-02-11
+                      </span>
+                    </div>
+                    <div
+                      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                     >
-                      Register here
-                    </a>
+                      <a
+                        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineAlways active css-1li7jwl-MuiTypography-root-MuiLink-root"
+                        href="/"
+                      >
+                        Register here
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <span
@@ -181,17 +190,26 @@ exports[`<Events /> renders unchanged 1`] = `
                   <div
                     class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
                   >
-                    <span
-                      class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                    <div
+                      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                     >
-                       
-                      2023-02-11
-                    </span>
-                    <a
-                      class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                      <span
+                        class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                      >
+                         
+                        2023-02-11
+                      </span>
+                    </div>
+                    <div
+                      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                     >
-                      Register here
-                    </a>
+                      <a
+                        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineAlways active css-1li7jwl-MuiTypography-root-MuiLink-root"
+                        href="/"
+                      >
+                        Register here
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <span
@@ -232,17 +250,26 @@ exports[`<Events /> renders unchanged 1`] = `
                   <div
                     class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
                   >
-                    <span
-                      class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                    <div
+                      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                     >
-                       
-                      2023-02-11
-                    </span>
-                    <a
-                      class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                      <span
+                        class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                      >
+                         
+                        2023-02-11
+                      </span>
+                    </div>
+                    <div
+                      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                     >
-                      Register here
-                    </a>
+                      <a
+                        class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineAlways active css-1li7jwl-MuiTypography-root-MuiLink-root"
+                        href="/"
+                      >
+                        Register here
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <span

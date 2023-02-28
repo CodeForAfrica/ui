@@ -70,11 +70,15 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
               >
-                <span
-                  class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                <div
+                  class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                 >
-                   
-                </span>
+                  <span
+                    class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                  >
+                     
+                  </span>
+                </div>
               </div>
             </div>
             <span
@@ -117,11 +121,15 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
               >
-                <span
-                  class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                <div
+                  class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                 >
-                   
-                </span>
+                  <span
+                    class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                  >
+                     
+                  </span>
+                </div>
               </div>
             </div>
             <span
@@ -164,11 +172,15 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
               >
-                <span
-                  class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                <div
+                  class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                 >
-                   
-                </span>
+                  <span
+                    class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+                  >
+                     
+                  </span>
+                </div>
               </div>
             </div>
             <span

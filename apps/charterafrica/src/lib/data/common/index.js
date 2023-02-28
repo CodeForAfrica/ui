@@ -181,7 +181,7 @@ export async function processPageFellowships({ blocks }) {
       featured: [true, false][Math.floor(Math.random() * 2)],
       date: "2023-02-11",
       link: {
-        href: "/",
+        href: `/events/${i}`,
       },
       image: {
         id: "63d2622aafe25f6469605eae",

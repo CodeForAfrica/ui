@@ -1,3 +1,4 @@
+import { Link } from "@commons-ui/next";
 import {
   Card,
   CardActionArea,
@@ -72,26 +73,31 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             {description}
           </Typography>
           <Grid container justifyContent="space-between">
-            <Typography
-              color="neutral.dark"
-              variant="caption"
-              sx={{
-                textTransform: "uppercase",
-              }}
-            >
-              {config?.dateText ? `${config?.dateText}:` : null} {date}
-            </Typography>
-            {link ? (
+            <Grid item>
               <Typography
                 color="neutral.dark"
-                component="a"
                 variant="caption"
                 sx={{
                   textTransform: "uppercase",
                 }}
               >
-                Register here
+                {config?.dateText ? `${config?.dateText}:` : null} {date}
               </Typography>
+            </Grid>
+            {link?.href ? (
+              <Grid item>
+                <Link
+                  color="neutral.dark"
+                  href={link?.href}
+                  underline="always"
+                  variant="caption"
+                  sx={{
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Register here
+                </Link>
+              </Grid>
             ) : null}
           </Grid>
         </CardContent>
