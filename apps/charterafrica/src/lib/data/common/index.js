@@ -181,7 +181,7 @@ export async function processPageArticles(page, api) {
     ...data,
     author: data?.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
     image: data?.coverImage ?? null,
-    date: new Date(data?.publishedOn).toUTCString(),
+    date: new Date(data?.publishedOn).toLocaleString(),
     link: {
       href: breadcrumbs[breadcrumbs.length - 1]?.url
         ? `${breadcrumbs[breadcrumbs.length - 1].url}/${data?.slug}`

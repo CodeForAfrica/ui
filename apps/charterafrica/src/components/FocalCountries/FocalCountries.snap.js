@@ -23,15 +23,11 @@ exports[`<FocalCountries /> renders unchanged 1`] = `
               >
                 Focal Countries
               </h1>
-              <div
+              <p
                 class="MuiTypography-root MuiTypography-p1 css-1bu5ura-MuiTypography-root"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-p1 css-1bu5ura-MuiTypography-root"
-                >
-                  The Charter Project is a pan-African initiative by a coalition of watchdog organisations that use civic technologies to strengthen democracy.
-                </p>
-              </div>
+                The Charter Project is a pan-African initiative by a coalition of watchdog organisations that use civic technologies to strengthen democracy.
+              </p>
             </div>
           </div>
           <div

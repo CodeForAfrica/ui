@@ -9,6 +9,7 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
+  variant: "image",
   title: [
     {
       children: [

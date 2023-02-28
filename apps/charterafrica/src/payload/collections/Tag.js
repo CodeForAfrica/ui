@@ -1,15 +1,15 @@
 const Tag = {
   slug: "tag",
   admin: {
-    useAsTitle: "tagName",
+    useAsTitle: "name",
   },
   fields: [
     {
-      name: "tagName",
+      name: "name",
       label: {
-        en: "Tag Name",
-        fr: "Nom de la balise",
-        pt: "Nome da etiqueta",
+        en: "Name",
+        fr: "Nom",
+        pt: "Nome",
       },
       type: "text",
       localized: true,

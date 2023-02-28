@@ -6,10 +6,7 @@ import React from "react";
 import BackgroundBox from "@/charterafrica/components/BackgroundBox";
 import RichText from "@/charterafrica/components/RichText";
 
-const HelpdeskPageHeader = React.forwardRef(function HelpdeskPageHeader(
-  props,
-  ref
-) {
+const LogoPageHeader = React.forwardRef(function LogoPageHeader(props, ref) {
   const { title, logo: logoProps, sx } = props;
 
   if (!title) {
@@ -52,4 +49,4 @@ const HelpdeskPageHeader = React.forwardRef(function HelpdeskPageHeader(
   );
 });
 
-export default HelpdeskPageHeader;
+export default LogoPageHeader;
