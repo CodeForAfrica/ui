@@ -11,8 +11,8 @@ import GrantsFellowshipsHeader from "@/charterafrica/components/GrantsFellowship
 import GuidingPrinciples from "@/charterafrica/components/GuidingPrinciples";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
-import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
 import Hero from "@/charterafrica/components/Hero";
+import Impressum from "@/charterafrica/components/Impressum";
 import Mooc from "@/charterafrica/components/Mooc";
 import PageDescription from "@/charterafrica/components/PageDescription";
 import PageHeader from "@/charterafrica/components/PageHeader";
@@ -43,10 +43,10 @@ function Page({ blocks }) {
         return <Helpdesk {...block} key={block.slug} />;
       case "helpdesk-page-content":
         return <HelpdeskPageContent {...block} key={block.slug} />;
-      case "helpdesk-page-header":
-        return <HelpdeskPageHeader {...block} key={block.slug} />;
       case "hero":
         return <Hero {...block} key={block.slug} />;
+      case "impressum":
+        return <Impressum {...block} key={block.slug} />;
       case "mooc":
         return <Mooc {...block} key={block.slug} />;
       case "news":
