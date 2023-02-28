@@ -106,6 +106,7 @@ export async function processPageFellowships({ blocks }) {
     items: Array.from({ length: 30 }, (_, i) => ({
       id: i,
       title: "Democratic Governance in Zambia",
+      date: "2023-02-11",
       description:
         "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
       image: {
@@ -121,7 +122,9 @@ export async function processPageFellowships({ blocks }) {
         updatedAt: "2023-01-26T11:21:14.868Z",
         url: "/images/charter-africa-brand.svg",
       },
-      date: "2023-02-11",
+      link: {
+        href: `/grants/${i}`,
+      },
       status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
     })),
     config: {
@@ -138,6 +141,7 @@ export async function processPageFellowships({ blocks }) {
     items: Array.from({ length: 30 }, (_, i) => ({
       id: i,
       title: "Democratic Governance in Zambia",
+      date: "2023-02-11",
       description:
         "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
       image: {
@@ -158,7 +162,9 @@ export async function processPageFellowships({ blocks }) {
           "/images/fellowships3.png",
         ][Math.floor(Math.random() * 4)],
       },
-      date: "2023-02-11",
+      link: {
+        href: `/fellowship/${i}`,
+      },
       status: ["technologies", "other"][Math.floor(Math.random() * 2)],
     })),
     config: {
@@ -176,13 +182,10 @@ export async function processPageFellowships({ blocks }) {
       id: i,
       title: "Event title going on two or even three lines",
       category: "Topic Name",
+      date: "2023-02-11",
       excerpt:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur ",
       featured: [true, false][Math.floor(Math.random() * 2)],
-      date: "2023-02-11",
-      link: {
-        href: `/events/${i}`,
-      },
       image: {
         id: "63d2622aafe25f6469605eae",
         alt: `Grant ${i}`,
@@ -195,6 +198,12 @@ export async function processPageFellowships({ blocks }) {
         createdAt: "2023-01-26T11:21:14.868Z",
         updatedAt: "2023-01-26T11:21:14.868Z",
         url: "/images/featured-event.svg",
+      },
+      link: {
+        href: `/events/${i}`,
+      },
+      registerLink: {
+        href: `/events/${i}`,
       },
       status: ["upcoming", "past"][Math.floor(Math.random() * 2)],
     })),

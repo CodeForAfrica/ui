@@ -29,6 +29,9 @@ const defaultProps = {
   deadlineText: "Deadline: ",
   deadline: "2023-02-11",
   status: "open",
+  link: {
+    href: "/",
+  },
   config: {
     showAllText: "Show All",
     showLessText: "Show Less",

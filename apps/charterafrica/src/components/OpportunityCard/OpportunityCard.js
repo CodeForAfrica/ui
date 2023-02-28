@@ -5,23 +5,15 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  styled,
   Grid,
+  CardActions,
 } from "@mui/material";
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
 
-const StyledCardActionArea = styled(CardActionArea)(
-  () => `
-    .MuiCardActionArea-focusHighlight {
-        background: transparent;
-    }
-`
-);
-
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const { image, date, description, link, title, config } = props;
+  const { image, date, description, link, title, config, registerLink } = props;
 
   if (!title) {
     return null;
@@ -35,7 +27,15 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
         width: "270px",
       }}
     >
-      <StyledCardActionArea>
+      <CardActionArea
+        component={link?.href ? Link : undefined}
+        href={link?.href}
+        sx={{
+          ".MuiCardActionArea-focusHighlight": {
+            background: "transparent",
+          },
+        }}
+      >
         <CardMedia
           component="img"
           height={187.26}
@@ -48,6 +48,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             objectFit: "cover",
           }}
         />
+
         <CardContent
           sx={{
             display: "flex",
@@ -72,36 +73,44 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
           <Typography color="neutral.dark" variant="p1">
             {description}
           </Typography>
-          <Grid container justifyContent="space-between">
+        </CardContent>
+      </CardActionArea>
+      <CardActions
+        disableSpacing
+        sx={{
+          padding: "0",
+          paddingTop: 2,
+        }}
+      >
+        <Grid container justifyContent="space-between">
+          <Grid item>
+            <Typography
+              color="neutral.dark"
+              variant="caption"
+              sx={{
+                textTransform: "uppercase",
+              }}
+            >
+              {config?.dateText ? `${config?.dateText}:` : null} {date}
+            </Typography>
+          </Grid>
+          {registerLink ? (
             <Grid item>
-              <Typography
+              <Link
                 color="neutral.dark"
+                href={registerLink?.href}
+                underline="always"
                 variant="caption"
                 sx={{
-                  textTransform: "uppercase",
+                  textTransform: "capitalize",
                 }}
               >
-                {config?.dateText ? `${config?.dateText}:` : null} {date}
-              </Typography>
+                Register here
+              </Link>
             </Grid>
-            {link?.href ? (
-              <Grid item>
-                <Link
-                  color="neutral.dark"
-                  href={link?.href}
-                  underline="always"
-                  variant="caption"
-                  sx={{
-                    textTransform: "capitalize",
-                  }}
-                >
-                  Register here
-                </Link>
-              </Grid>
-            ) : null}
-          </Grid>
-        </CardContent>
-      </StyledCardActionArea>
+          ) : null}
+        </Grid>
+      </CardActions>
     </Card>
   );
 });

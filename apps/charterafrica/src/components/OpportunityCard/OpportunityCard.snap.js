@@ -6,8 +6,8 @@ exports[`<OpportunityCard /> renders unchanged 1`] = `
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
   >
     <a
-      class="MuiButtonBase-root MuiCardActionArea-root css-1mmyqw5-MuiButtonBase-root-MuiCardActionArea-root"
-      role="button"
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root active css-1t47kot-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+      href="/"
       tabindex="0"
     >
       <img
@@ -30,24 +30,28 @@ exports[`<OpportunityCard /> renders unchanged 1`] = `
         >
           This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
         </p>
-        <div
-          class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
-        >
-          <div
-            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-          >
-            <span
-              class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
-            >
-               
-            </span>
-          </div>
-        </div>
       </div>
       <span
         class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
       />
     </a>
+    <div
+      class="MuiCardActions-root css-kfkx4h-MuiCardActions-root"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+        >
+          <span
+            class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
