@@ -7,7 +7,7 @@ const MediaBlock = {
       name: "mediaBlockFields",
       fields: [
         {
-          name: "media",
+          name: "image",
           type: "upload",
           relationTo: "media",
           required: true,

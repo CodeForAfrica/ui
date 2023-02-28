@@ -16,7 +16,7 @@ import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Research from "./src/payload/collections/Research";
 import Resources from "./src/payload/collections/Resources";
-import Tag from "./src/payload/collections/Tag";
+import Tags from "./src/payload/collections/Tags";
 import FocalCountries from "./src/payload/globals/FocalCountries";
 import Footer from "./src/payload/globals/Footer";
 import Helpdesk from "./src/payload/globals/Helpdesk";
@@ -68,7 +68,7 @@ export default buildConfig({
     Partners,
     Resources,
     Research,
-    Tag,
+    Tags,
   ] as CollectionConfig[],
   globals: [
     FocalCountries,

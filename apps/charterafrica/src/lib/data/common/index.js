@@ -171,7 +171,7 @@ export async function processPageFellowships({ blocks }) {
   });
 }
 
-export async function processPageArticles(page, api) {
+export async function processPageArticles(page, api, { locale }) {
   const { blocks, breadcrumbs = [], slug } = page;
   const { docs } = await api.getCollection(slug, {
     where: { _status: { equals: "published" } },
@@ -181,7 +181,7 @@ export async function processPageArticles(page, api) {
     ...data,
     author: data?.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
     image: data?.coverImage ?? null,
-    date: new Date(data?.publishedOn).toLocaleString(),
+    date: new Date(data?.publishedOn).toLocaleString(locale),
     link: {
       href: breadcrumbs[breadcrumbs.length - 1]?.url
         ? `${breadcrumbs[breadcrumbs.length - 1].url}/${data?.slug}`
@@ -190,25 +190,27 @@ export async function processPageArticles(page, api) {
   });
 
   const articles = docs?.map(processArticle);
-  const rawArticle =
+  const featuredArticle =
     blocks.find((block) => block.slug === "featured-post")?.featuredPost
       ?.value ?? null;
 
-  if (rawArticle) {
-    const featuredNewsPost = processArticle(rawArticle);
+  const news = {
+    slug: "news",
+    title: "News",
+    articles,
+  };
+
+  if (featuredArticle) {
+    const featuredNewsPost = processArticle(featuredArticle);
     const category = `${slug?.charAt(0).toUpperCase()}${slug?.slice(1)}`;
     const featuredPost = {
       category,
       ...featuredNewsPost,
       slug: "featured-post",
     };
-    const article = {
-      slug,
-      title: category,
-      articles,
-    };
-    blocks.push(featuredPost, article);
+    blocks.push(featuredPost);
   }
+  blocks.push(news);
 }
 
 const processPageFunctionsMap = {
@@ -301,7 +303,7 @@ export async function getPageProps(context, api) {
     )) || [];
   const processPage = processPageFunctionsMap[page.slug];
   if (processPage) {
-    await processPage(page, api);
+    await processPage(page, api, context);
   }
   const { settings, ...globalProps } = await getGlobalProps(
     { defaultLocale, locale },

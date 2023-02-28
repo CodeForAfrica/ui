@@ -1,4 +1,6 @@
-const Tag = {
+import slug from "../fields/slug";
+
+const Tags = {
   slug: "tag",
   admin: {
     useAsTitle: "name",
@@ -15,7 +17,8 @@ const Tag = {
       localized: true,
       required: true,
     },
+    slug(),
   ],
 };
 
-export default Tag;
+export default Tags;
