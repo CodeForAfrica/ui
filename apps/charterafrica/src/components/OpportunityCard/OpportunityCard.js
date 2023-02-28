@@ -35,7 +35,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
         width: "270px",
       }}
     >
-      <StyledCardActionArea component="a">
+      <StyledCardActionArea>
         <CardMedia
           component="img"
           height={187.26}
