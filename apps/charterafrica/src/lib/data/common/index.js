@@ -90,11 +90,13 @@ export async function processPageFellowships({ blocks }, api) {
     ...item,
     description: item.excerpt,
     image: item.coverImage,
+    deadline: new Date(item.deadline).toLocaleDateString(),
   }));
   const grants = grantDocs.map((item) => ({
     ...item,
     description: item.excerpt,
     image: item.coverImage,
+    deadline: new Date(item.deadline).toLocaleDateString(),
   }));
   blocks.push({
     slug: "grants",
