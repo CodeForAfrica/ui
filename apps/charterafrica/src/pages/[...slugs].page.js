@@ -11,8 +11,8 @@ import GrantsFellowshipsHeader from "@/charterafrica/components/GrantsFellowship
 import GuidingPrinciples from "@/charterafrica/components/GuidingPrinciples";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
-import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
 import Hero from "@/charterafrica/components/Hero";
+import Impressum from "@/charterafrica/components/Impressum";
 import Mooc from "@/charterafrica/components/Mooc";
 import PageDescription from "@/charterafrica/components/PageDescription";
 import PageHeader from "@/charterafrica/components/PageHeader";
@@ -36,8 +36,8 @@ const componentsBySlugs = {
   "guiding-principles": GuidingPrinciples,
   helpdesk: Helpdesk,
   "helpdesk-page-content": HelpdeskPageContent,
-  "helpdesk-page-header": HelpdeskPageHeader,
   hero: Hero,
+  impressum: Impressum,
   mooc: Mooc,
   news: Articles,
   "our-partners": Partners,

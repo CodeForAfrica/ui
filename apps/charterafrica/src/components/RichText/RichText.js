@@ -5,10 +5,6 @@ import { Text } from "slate";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
-const DEFAULT_PROPS = {
-  html: false,
-};
-
 const serialize = (children, props) =>
   children?.map((node, i) => {
     if (Text.isText(node)) {
@@ -31,7 +27,10 @@ const serialize = (children, props) =>
     if (!node) {
       return null;
     }
-
+    const DEFAULT_PROPS = {
+      html: false,
+      ...props,
+    };
     switch (node.type) {
       case "h1":
         return (
@@ -99,11 +98,7 @@ const RichText = React.forwardRef(function RichText(props, ref) {
   if (!elements?.length) {
     return null;
   }
-  return (
-    <LineClampedRichTypography ref={ref} {...other}>
-      {serialize(elements, other)}
-    </LineClampedRichTypography>
-  );
+  return <Fragment ref={ref}>{serialize(elements, other)}</Fragment>;
 });
 
 export default RichText;

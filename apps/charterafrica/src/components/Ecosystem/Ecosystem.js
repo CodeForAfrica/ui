@@ -61,7 +61,7 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
           spacing={{ xs: 3.75, md: 0 }}
         >
           {/* Chart column  */}
-          <Grid item xs={12} sm={6} order={{ xs: 0, md: 1 }}>
+          <Grid item xs={12} sm={6} md="auto" order={{ xs: 0, md: 1 }}>
             {items.map((datum, i) => (
               <Chart
                 data={datum.data}
