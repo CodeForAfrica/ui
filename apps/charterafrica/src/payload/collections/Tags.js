@@ -1,21 +1,24 @@
-const Tag = {
+import slug from "../fields/slug";
+
+const Tags = {
   slug: "tag",
   admin: {
-    useAsTitle: "tagName",
+    useAsTitle: "name",
   },
   fields: [
     {
       name: "name",
       label: {
-        en: "Tag Name",
-        fr: "Nom de la balise",
-        pt: "Nome da etiqueta",
+        en: "Name",
+        fr: "Nom",
+        pt: "Nome",
       },
       type: "text",
       localized: true,
       required: true,
     },
+    slug(),
   ],
 };
 
-export default Tag;
+export default Tags;

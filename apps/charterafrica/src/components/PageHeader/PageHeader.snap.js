@@ -36,15 +36,19 @@ exports[`<PageHeader/> renders unchanged 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
-            <h1
-              class="MuiTypography-root MuiTypography-h1Small css-128yll0-MuiTypography-root"
+            <div
+              class="MuiBox-root css-g5wzvv"
             >
-              The largest digital database for 
-              <strong>
-                African
-              </strong>
-               communites
-            </h1>
+              <h1
+                class="MuiTypography-root MuiTypography-h1Small css-8ar3yp-MuiTypography-root"
+              >
+                The largest digital database for 
+                <strong>
+                  African
+                </strong>
+                 communites
+              </h1>
+            </div>
           </div>
         </div>
       </div>
