@@ -16,6 +16,7 @@ const NavBarDropdown = React.forwardRef(function NavBarDropdown(props, ref) {
   const anchorRef = React.useRef(null);
   const handleClickArrow = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     setOpen((prevOpen) => !prevOpen);
   };
   // TODO(kilemensi): Since we current don't have any of the child pages, we
