@@ -4,8 +4,8 @@ import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
 
-const GrantsFellowshipsHeader = React.forwardRef(
-  function GrantsFellowshipsHeader(props, ref) {
+const EventsGrantsFellowshipsHeader = React.forwardRef(
+  function EventsGrantsFellowshipsHeader(props, ref) {
     const { sx, title } = props;
 
     if (!title) {
@@ -49,4 +49,4 @@ const GrantsFellowshipsHeader = React.forwardRef(
   }
 );
 
-export default GrantsFellowshipsHeader;
+export default EventsGrantsFellowshipsHeader;

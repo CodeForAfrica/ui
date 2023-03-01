@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import GrantsFellowshipsHeader from "./GrantFellowshipHeader";
+import EventsGrantsFellowshipsHeader from "./EventsGrantsFellowshipsHeader";
 
 import theme from "@/charterafrica/theme";
 
@@ -12,9 +12,11 @@ const defaultProps = {
   title: "Grants and Fellowships",
 };
 
-describe("<GrantsFellowshipsHeader />", () => {
+describe("<EventsGrantsFellowshipsHeader />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<GrantsFellowshipsHeader {...defaultProps} />);
+    const { container } = render(
+      <EventsGrantsFellowshipsHeader {...defaultProps} />
+    );
     expect(container).toMatchSnapshot();
   });
 });
