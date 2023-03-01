@@ -33,11 +33,11 @@ dotenv.config({ path: path.resolve(__dirname, "./.env.local") });
 
 const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
 
-const allowedCORSDomains = process?.env?.PAYLOAD_CORS_DOMAINS?.split(",")
+const cors = process?.env?.PAYLOAD_CORS?.split(",")
   ?.map((d) => d.trim())
   ?.filter(Boolean);
 
-const allowedCSRFDomains = process?.env?.PAYLOAD_CSRF_DOMAINS?.split(",")
+const csrf = process?.env?.PAYLOAD_CSRF?.split(",")
   ?.map((d) => d.trim())
   ?.filter(Boolean);
 
