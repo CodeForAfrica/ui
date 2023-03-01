@@ -3,10 +3,10 @@
 exports[`FeaturedPostCard should render 1`] = `
 <div>
   <div
-    class="MuiBox-root css-156ejva"
+    class="MuiBox-root css-1w0avnn"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-qb38zz-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-63j1t6-MuiContainer-root"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-aezxtm-MuiPaper-root-MuiCard-root"
@@ -19,11 +19,11 @@ exports[`FeaturedPostCard should render 1`] = `
         <div
           class="MuiCardContent-root css-cnb62q-MuiCardContent-root"
         >
-          <h2
-            class="MuiTypography-root MuiTypography-h2SemiBold css-1p7g0rj-MuiTypography-root"
+          <div
+            class="MuiTypography-root MuiTypography-h2SemiBold css-1j0n21l-MuiTypography-root"
           >
             News Story title goes here and spans over second line
-          </h2>
+          </div>
           <p
             class="MuiTypography-root MuiTypography-p1 css-dn6hni-MuiTypography-root"
           >
@@ -35,7 +35,7 @@ exports[`FeaturedPostCard should render 1`] = `
             Oct 10, 2020
           </p>
           <div
-            class="MuiBox-root css-hlylig"
+            class="MuiBox-root css-glpwc3"
           >
             <h6
               class="MuiTypography-root MuiTypography-subheading css-1ea3c8k-MuiTypography-root"
@@ -55,6 +55,9 @@ exports[`FeaturedPostCard should render 1`] = `
           </div>
         </div>
       </div>
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-1c8vknm-MuiDivider-root"
+      />
     </div>
   </div>
 </div>
