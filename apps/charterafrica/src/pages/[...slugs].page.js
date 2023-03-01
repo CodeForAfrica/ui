@@ -1,4 +1,5 @@
 import Articles from "@/charterafrica/components/Articles";
+import ArticlesFilter from "@/charterafrica/components/ArticlesFilter";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import Explainers from "@/charterafrica/components/Explainers";
@@ -25,6 +26,8 @@ import { getPageServerSideProps } from "@/charterafrica/lib/data";
 function Page({ blocks }) {
   return blocks?.map((block) => {
     switch (block?.slug) {
+      case "article-filter":
+        return <ArticlesFilter {...block} key={block.slug} />;
       case "ecosystem":
         return <Ecosystem {...block} key={block.slug} />;
       case "explainers":

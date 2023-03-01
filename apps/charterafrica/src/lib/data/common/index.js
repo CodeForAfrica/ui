@@ -173,6 +173,13 @@ export async function processPageFellowships({ blocks }) {
 
 export async function processPageNews({ blocks }) {
   // TODO(kilemensi): Pull data from CMS
+
+  blocks.push({
+    slug: "article-filter",
+    tags: ["All", "Politics", "Kenya", "Nigeria", "Tanzania"],
+    categories: ["Most Recent", "Most Popular", "Most Commented", "Trending"],
+  });
+
   blocks.push({
     slug: "featured-post",
     category: "News",
@@ -211,6 +218,7 @@ export async function processPageNews({ blocks }) {
         updatedAt: "2023-01-26T11:21:14.868Z",
         url: `/images/knowledge_${(i % 3) + 1}.jpg`,
       },
+      tags: ["Politics", "Kenya", "Nigeria", "Tanzania"],
     })),
   });
 }
