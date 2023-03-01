@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<EventsGrantsFellowshipsHeader /> renders unchanged 1`] = `
+exports[`<EventsFellowshipsGrantsHeader /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-156ejva"

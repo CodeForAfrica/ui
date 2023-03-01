@@ -195,7 +195,7 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
       <p
         class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
       >
-        Show All
+        Show Less
       </p>
     </button>
   </div>

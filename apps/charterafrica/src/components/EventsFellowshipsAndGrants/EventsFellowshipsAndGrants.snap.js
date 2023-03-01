@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<EventsGrantsAndFellowships /> renders unchanged 1`] = `
+exports[`<EventsFellowshipsAndGrants /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-156ejva"
@@ -106,7 +106,7 @@ exports[`<EventsGrantsAndFellowships /> renders unchanged 1`] = `
           <p
             class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
           >
-            Show All
+            Show Less
           </p>
         </button>
       </div>
@@ -206,7 +206,7 @@ exports[`<EventsGrantsAndFellowships /> renders unchanged 1`] = `
           <p
             class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
           >
-            Show All
+            Show Less
           </p>
         </button>
       </div>
@@ -306,7 +306,7 @@ exports[`<EventsGrantsAndFellowships /> renders unchanged 1`] = `
           <p
             class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
           >
-            Show All
+            Show Less
           </p>
         </button>
       </div>

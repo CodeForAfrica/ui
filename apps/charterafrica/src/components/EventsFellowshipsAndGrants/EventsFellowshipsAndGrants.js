@@ -6,8 +6,8 @@ import OpportunityCardList from "../OpportunityCardList";
 
 import { secondary } from "@/charterafrica/colors";
 
-const EventsGrantsAndFellowships = React.forwardRef(
-  function EventsGrantsAndFellowships(props, ref) {
+const EventsFellowshipsAndGrants = React.forwardRef(
+  function EventsFellowshipsAndGrants(props, ref) {
     const { config, items, title, sx } = props;
 
     if (!items?.length) {
@@ -102,4 +102,4 @@ const EventsGrantsAndFellowships = React.forwardRef(
   }
 );
 
-export default EventsGrantsAndFellowships;
+export default EventsFellowshipsAndGrants;
