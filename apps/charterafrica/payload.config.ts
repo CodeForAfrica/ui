@@ -36,13 +36,15 @@ dotenv.config({ path: path.resolve(__dirname, "./.env.local") });
 
 const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
 
-const cors = process?.env?.PAYLOAD_CORS?.split(",")
-  ?.map((d) => d.trim())
-  ?.filter(Boolean) ?? [];
+const cors =
+  process?.env?.PAYLOAD_CORS?.split(",")
+    ?.map((d) => d.trim())
+    ?.filter(Boolean) ?? [];
 
-const csrf = process?.env?.PAYLOAD_CSRF?.split(",")
-  ?.map((d) => d.trim())
-  ?.filter(Boolean) ?? [];
+const csrf =
+  process?.env?.PAYLOAD_CSRF?.split(",")
+    ?.map((d) => d.trim())
+    ?.filter(Boolean) ?? [];
 
 const adapter = s3Adapter({
   config: {
