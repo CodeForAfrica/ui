@@ -207,6 +207,12 @@ export async function processPageFellowships({ blocks }) {
       status: ["upcoming", "past"][Math.floor(Math.random() * 2)],
       featured: i === 0,
     })),
+    config: {
+      showAllText: "Show All",
+      showLessText: "Show Less",
+      showOnMobile: ["upcoming", "past"],
+      statusGroupTitleSuffix: "",
+    },
   });
 }
 

@@ -29,8 +29,8 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
         title={title}
         onClick={() => setShowAll(!showAll)}
         showAll={showAll}
-        showAllText="Show all"
-        showLessText="Show less"
+        showAllText={config?.showAllText || "Show all"}
+        showLessText={config?.showLessText || "Show less"}
       />
       {featuredEvent ? <FeaturedEventCard {...featuredEvent} /> : null}
       <OpportunityCardListGrid
