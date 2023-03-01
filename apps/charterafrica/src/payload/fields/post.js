@@ -17,6 +17,43 @@ export const content = (overrides) => ({
   ...overrides,
 });
 
+export const publishedOn = (overrides) => ({
+  name: "publishedOn",
+  type: "date",
+  required: true,
+  hooks: {
+    beforeValidate: [setPublishedOn],
+  },
+  admin: {
+    date: {
+      pickerAppearance: "dayAndTime",
+    },
+    position: "sidebar",
+  },
+  ...overrides,
+});
+
+export const authors = (overrides) => ({
+  name: "authors",
+  required: true,
+  type: "relationship",
+  relationTo: "author",
+  hasMany: true,
+  admin: {
+    position: "sidebar",
+  },
+  ...overrides,
+});
+
+export const tags = (overrides) => ({
+  name: "tags",
+  required: true,
+  type: "relationship",
+  relationTo: "tag",
+  hasMany: true,
+  ...overrides,
+});
+
 const postFields = [
   {
     name: "title",
@@ -30,16 +67,7 @@ const postFields = [
     required: true,
   },
   slug(),
-  {
-    name: "authors",
-    required: true,
-    type: "relationship",
-    relationTo: "author",
-    hasMany: true,
-    admin: {
-      position: "sidebar",
-    },
-  },
+  authors({ required: false }),
   {
     name: "coverImage",
     label: {
@@ -66,28 +94,9 @@ const postFields = [
       elements: ["leaves"],
     },
   }),
-  {
-    name: "tags",
-    required: true,
-    type: "relationship",
-    relationTo: "tag",
-    hasMany: true,
-  },
+  tags(),
   content(),
-  {
-    name: "publishedOn",
-    type: "date",
-    required: true,
-    hooks: {
-      beforeValidate: [setPublishedOn],
-    },
-    admin: {
-      date: {
-        pickerAppearance: "dayAndTime",
-      },
-      position: "sidebar",
-    },
-  },
+  publishedOn(),
 ];
 
 export default postFields;

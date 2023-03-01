@@ -132,9 +132,19 @@ export async function processPageArticles(page, api, { locale }) {
 
   const processArticle = (data) => ({
     ...data,
-    author: data?.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
+    author:
+      slug === "research"
+        ? data?.authors?.map(({ fullName }) => fullName).join(", ") ?? null
+        : null,
     image: data?.coverImage ?? null,
-    date: new Date(data?.publishedOn).toLocaleString(locale),
+    date: new Date(data?.publishedOn).toLocaleString(locale, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "2-digit",
+    }),
     link: {
       href: breadcrumbs[breadcrumbs.length - 1]?.url
         ? `${breadcrumbs[breadcrumbs.length - 1].url}/${data?.slug}`
