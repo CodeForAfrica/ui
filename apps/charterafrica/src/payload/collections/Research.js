@@ -1,10 +1,12 @@
-import fields from "../fields/post";
+import { authors, content, publishedOn, tags } from "../fields/post";
+import richText from "../fields/richText";
+import slug from "../fields/slug";
 
 const Research = {
   slug: "research",
   admin: {
     useAsTitle: "title",
-    defaultColumns: ["title", "author", "publishedOn"],
+    defaultColumns: ["title", "authors", "publishedOn"],
   },
   access: {
     read: () => true,
@@ -25,16 +27,7 @@ const Research = {
       required: true,
     },
     slug(),
-    {
-      name: "authors",
-      required: true,
-      type: "relationship",
-      relationTo: "author",
-      hasMany: true,
-      admin: {
-        position: "sidebar",
-      },
-    },
+    authors(),
     {
       name: "coverImage",
       label: {
@@ -61,28 +54,9 @@ const Research = {
         elements: ["leaves"],
       },
     }),
-    {
-      name: "tags",
-      required: true,
-      type: "relationship",
-      relationTo: "tag",
-      hasMany: true,
-    },
+    tags({ required: false }),
     content(),
-    {
-      name: "publishedOn",
-      type: "date",
-      required: true,
-      hooks: {
-        beforeValidate: [({ value }) => new Date(value)],
-      },
-      admin: {
-        date: {
-          pickerAppearance: "dayAndTime",
-        },
-        position: "sidebar",
-      },
-    },
+    publishedOn(),
   ],
 };
 
