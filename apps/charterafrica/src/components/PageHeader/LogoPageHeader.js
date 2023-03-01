@@ -39,7 +39,7 @@ const LogoPageHeader = React.forwardRef(function LogoPageHeader(props, ref) {
             typography={{ md: "h1" }}
             variant="h1Small"
             sx={() => ({
-              "& > em, & > strong": {
+              "& h1 > em, & h1 > strong": {
                 color: "secondary.main",
                 fontStyle: "normal",
               },
