@@ -40,6 +40,10 @@ const cors = process?.env?.PAYLOAD_CORS?.split(",")
   ?.map((d) => d.trim())
   ?.filter(Boolean);
 
+const csrf = process?.env?.PAYLOAD_CSRF?.split(",")
+  ?.map((d) => d.trim())
+  ?.filter(Boolean);
+
 const adapter = s3Adapter({
   config: {
     region: process?.env?.S3_REGION,
@@ -99,6 +103,7 @@ export default buildConfig({
     }),
   },
   cors,
+  csrf,
   i18n: {
     fallbackLng: "en", // default
     debug: false, // default
