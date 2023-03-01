@@ -89,7 +89,7 @@ const EventsGrantsAndFellowships = React.forwardRef(
                       md: "block",
                     },
                     "&:last-child": {
-                      mb: 0,
+                      marginBottom: 0,
                     },
                   }}
                 />
