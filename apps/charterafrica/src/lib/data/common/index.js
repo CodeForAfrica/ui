@@ -176,12 +176,6 @@ export async function processPageNews(page, api, { locale }) {
   const { docs } = await api.getCollection("news", {
     where: { _status: { equals: "published" } },
   });
-  // TODO: Filter by tags and categories
-  blocks.push({
-    slug: "article-filter",
-    tags: ["All", "Politics", "Kenya", "Nigeria", "Tanzania"],
-    categories: ["Most Recent", "Most Popular", "Most Commented", "Trending"],
-  });
 
   const processArticle = (data) => ({
     ...data,
@@ -204,6 +198,19 @@ export async function processPageNews(page, api, { locale }) {
     title: "News",
     articles,
   };
+  const allTags =
+    articles
+      ?.map(({ tags }) => {
+        return tags?.map(({ name }) => name);
+      })
+      ?.flat() ?? [];
+
+  blocks.push({
+    slug: "article-filter",
+    tags: ["All", ...new Set(allTags)],
+    // TODO: Look into categories to use
+    categories: ["Most Recent", "Most Popular", "Most Commented", "Trending"],
+  });
 
   if (featuredArticle) {
     const featuredNewsPost = processArticle(featuredArticle);
