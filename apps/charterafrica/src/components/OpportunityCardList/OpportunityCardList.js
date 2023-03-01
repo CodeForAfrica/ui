@@ -1,7 +1,7 @@
 import { Typography, Box, Button } from "@mui/material";
 import React, { useState } from "react";
 
-// import FeaturedPostCard from "../FeaturedPostCard/FeaturedPostCard";
+import FeaturedPostCard from "../FeaturedPostCard/FeaturedPostCard";
 
 import OpportunityCardListGrid from "./OpportunityCardListGrid";
 import OpportunityCardListHeader from "./OpportunityCardListHeader";
@@ -13,7 +13,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   const { config, items, title, sx } = props;
 
   const [showAll, setShowAll] = useState(false);
-  // const featuredEvent = items?.find((item) => item.featured);
+  const featuredEvent = items?.find((item) => item.featured);
 
   if (!items?.length) {
     return null;
@@ -32,7 +32,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
         showAllText={config?.showAllText || "Show all"}
         showLessText={config?.showLessText || "Show less"}
       />
-      {/* {featuredEvent ? <FeaturedPostCard {...featuredEvent} /> : null} */}
+      {featuredEvent ? <FeaturedPostCard {...featuredEvent} /> : null}
       <OpportunityCardListGrid
         items={items}
         config={config}

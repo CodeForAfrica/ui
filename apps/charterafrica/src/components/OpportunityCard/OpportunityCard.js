@@ -11,7 +11,7 @@ import {
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
-import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+import RichText from "@/charterafrica/components/RichText";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
   const { image, date, excerpt, link, title, config, registerLink } = props;
@@ -71,13 +71,12 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
           >
             {title}
           </Typography>
-          <LineClampedRichTypography
+          <RichText
             color="neutral.dark"
             lineClamp="3"
             variant="p1"
-          >
-            {excerpt}
-          </LineClampedRichTypography>
+            elements={excerpt}
+          />
         </CardContent>
       </CardActionArea>
       <CardActions

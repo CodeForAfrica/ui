@@ -107,8 +107,15 @@ export async function processPageFellowships({ blocks }) {
       id: i,
       title: "Democratic Governance in Zambia",
       date: "2023-02-11",
-      description:
-        "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+      excerpt: [
+        {
+          children: [
+            {
+              text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+            },
+          ],
+        },
+      ],
       image: {
         id: "63d2622aafe25f6469605eae",
         alt: `Grant ${i}`,
@@ -142,8 +149,15 @@ export async function processPageFellowships({ blocks }) {
       id: i,
       title: "Democratic Governance in Zambia",
       date: "2023-02-11",
-      excerpt:
-        "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+      excerpt: [
+        {
+          children: [
+            {
+              text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+            },
+          ],
+        },
+      ],
       image: {
         id: "63d2622aafe25f6469605eae",
         alt: `Grant ${i}`,
@@ -183,8 +197,15 @@ export async function processPageFellowships({ blocks }) {
       title: "Event title going on two or even three lines",
       category: "Topic Name",
       date: "2023-02-11",
-      excerpt:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur ",
+      excerpt: [
+        {
+          children: [
+            {
+              text: "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur ",
+            },
+          ],
+        },
+      ],
       image: {
         id: "63d2622aafe25f6469605eae",
         alt: `Grant ${i}`,
