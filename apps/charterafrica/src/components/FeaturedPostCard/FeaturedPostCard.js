@@ -97,7 +97,6 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
                 day: "numeric",
               })}
             </Typography>
-            {/* Line height is constant across all screens at 24 px * 6 lines. Has to be wrapped in another div to overcome */}
             <RichText
               sx={{
                 maxHeight: 24 * 6,
