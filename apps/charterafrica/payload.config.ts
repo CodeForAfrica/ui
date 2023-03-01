@@ -96,8 +96,8 @@ export default buildConfig({
       },
     }),
   },
-  cors: allowedCORSDomains,
-  csrf: allowedCSRFDomains,
+  cors,
+  csrf,
   i18n: {
     fallbackLng: "en", // default
     debug: false, // default
