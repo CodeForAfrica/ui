@@ -26,20 +26,26 @@ const StayInTouch = React.forwardRef(function StayInTouch(props, ref) {
     return null;
   }
   return (
-    <Grid container columnSpacing={4} rowSpacing={2} ref={ref}>
-      <Grid item xs={12} md="auto">
+    <Grid
+      container
+      alignItems="center"
+      columnSpacing={{ xs: 2, md: 4 }}
+      rowSpacing={2}
+      ref={ref}
+    >
+      <Grid item xs="auto">
         <RichTypography
+          fontWeight="bold"
           textAlign={{ xs: "center", md: "left" }}
           textTransform="uppercase"
-          variant="p2SemiBold"
+          variant="footer"
         >
           {title}
         </RichTypography>
       </Grid>
       <Grid
         item
-        xs={12}
-        md="auto"
+        xs="auto"
         container
         justifyContent={{ xs: "center", md: "flex-start" }}
         columnSpacing={2}
