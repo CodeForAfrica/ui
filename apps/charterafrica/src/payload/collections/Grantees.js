@@ -1,4 +1,6 @@
+import { content } from "../fields/post";
 import richText from "../fields/richText";
+import slug from "../fields/slug";
 
 const Grantees = {
   slug: "grantees",
@@ -54,6 +56,8 @@ const Grantees = {
       relationTo: "grantee-tag",
       hasMany: true,
     },
+    content(),
+    slug({ fieldToUse: "name" }),
   ],
 };
 
