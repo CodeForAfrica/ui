@@ -52,11 +52,15 @@ exports[`<Footer /> renders unchanged 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-p2 css-1gv1pj1-MuiTypography-root"
+                <div
+                  class="MuiBox-root css-1lt1yad"
                 >
-                  This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.
-                </p>
+                  <p
+                    class="MuiTypography-root MuiTypography-p2 css-18o3on8-MuiTypography-root"
+                  >
+                    This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.
+                  </p>
+                </div>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -64,11 +68,15 @@ exports[`<Footer /> renders unchanged 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-p2SemiBold css-1l2ku1a-MuiTypography-root"
+                <div
+                  class="MuiBox-root css-1s6v4an"
                 >
-                  Website designed and built by Code for Africa
-                </p>
+                  <p
+                    class="MuiTypography-root MuiTypography-p2SemiBold css-1dfmvqd-MuiTypography-root"
+                  >
+                    Website designed and built by Code for Africa
+                  </p>
+                </div>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-container MuiGrid-item css-f5pcvu-MuiGrid-root"

@@ -15,6 +15,7 @@ const LanguageButton = React.forwardRef(function LanguageButton(props, ref) {
   const { locale: currentLocale } = router;
   const handleClick = (e) => {
     e.preventDefault();
+    e.stopPropagation();
 
     setOpen((prevOpen) => !prevOpen);
   };

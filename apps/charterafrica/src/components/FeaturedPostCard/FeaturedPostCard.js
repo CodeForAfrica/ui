@@ -12,6 +12,7 @@ import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+import RichText from "@/charterafrica/components/RichText";
 
 const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
   props,
@@ -96,24 +97,32 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
                 day: "numeric",
               })}
             </Typography>
-
-            <LineClampedRichTypography
+            <RichText
+              sx={{
+                maxHeight: 24 * 6,
+                overflow: "hidden",
+                "& :is(h1, h2, h3, h4, h5, h6)": {
+                  lineHeight: "24px",
+                },
+              }}
               color="neutral.dark"
               textAlign="left"
               variant="subheading"
               lineClamp={6}
-            >
-              {excerpt}
-            </LineClampedRichTypography>
+              elements={excerpt}
+            />
+
             <CardActions>
-              <Link
-                color="neutral.dark"
-                href={link?.href}
-                underline="always"
-                variant="p3"
-              >
-                Read More
-              </Link>
+              {link?.href && (
+                <Link
+                  color="neutral.dark"
+                  href={link?.href}
+                  underline="always"
+                  variant="p3"
+                >
+                  Read More
+                </Link>
+              )}
             </CardActions>
           </CardContent>
         </Card>
