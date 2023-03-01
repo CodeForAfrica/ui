@@ -62,7 +62,9 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
             textDecoration: "underline",
           }}
         >
-          {showAll ? config?.showLessText : config?.showAllText}
+          {showAll
+            ? config?.showAllText || "Show All"
+            : config?.showLessText || "Show Less"}
         </Typography>
       </Button>
     </Box>
