@@ -3,6 +3,7 @@ import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import Ecosystem from "../blocks/Ecosystem";
 import Error from "../blocks/Error";
 import FAQ from "../blocks/FAQ";
+import FeaturedPost from "../blocks/FeaturedPost";
 import Global from "../blocks/Global";
 import GuidingPrincipals from "../blocks/GuidingPrinciples";
 import Hero from "../blocks/Hero";
@@ -44,6 +45,7 @@ const Pages = {
         Ecosystem,
         Error,
         FAQ,
+        FeaturedPost,
         Global,
         GuidingPrincipals,
         Hero,

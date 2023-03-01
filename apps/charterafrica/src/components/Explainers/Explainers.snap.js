@@ -36,11 +36,15 @@ exports[`<Explainers /> renders unchanged 1`] = `
         >
           Event title going on two or even three lines
         </div>
-        <p
-          class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+        <div
+          class="MuiBox-root css-0"
         >
-          Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
-        </p>
+          <p
+            class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+          >
+            Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
+          </p>
+        </div>
       </div>
       <hr
         class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
@@ -69,11 +73,15 @@ exports[`<Explainers /> renders unchanged 1`] = `
         >
           Event title going on two or even three lines
         </div>
-        <p
-          class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+        <div
+          class="MuiBox-root css-0"
         >
-          Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
-        </p>
+          <p
+            class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+          >
+            Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
+          </p>
+        </div>
       </div>
       <hr
         class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
@@ -102,11 +110,15 @@ exports[`<Explainers /> renders unchanged 1`] = `
         >
           Event title going on two or even three lines
         </div>
-        <p
-          class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+        <div
+          class="MuiBox-root css-0"
         >
-          Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
-        </p>
+          <p
+            class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+          >
+            Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
+          </p>
+        </div>
       </div>
       <hr
         class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
@@ -135,11 +147,15 @@ exports[`<Explainers /> renders unchanged 1`] = `
         >
           Event title going on two or even three lines
         </div>
-        <p
-          class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+        <div
+          class="MuiBox-root css-0"
         >
-          Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
-        </p>
+          <p
+            class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+          >
+            Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
+          </p>
+        </div>
       </div>
       <hr
         class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
@@ -168,11 +184,15 @@ exports[`<Explainers /> renders unchanged 1`] = `
         >
           Event title going on two or even three lines
         </div>
-        <p
-          class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+        <div
+          class="MuiBox-root css-0"
         >
-          Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
-        </p>
+          <p
+            class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+          >
+            Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
+          </p>
+        </div>
       </div>
       <hr
         class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
