@@ -9,6 +9,7 @@ import { buildConfig } from "payload/config";
 
 import Authors from "./src/payload/collections/Authors";
 import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
+import Events from "./src/payload/collections/Events";
 import Explainers from "./src/payload/collections/Explainers";
 import Media from "./src/payload/collections/Media";
 import News from "./src/payload/collections/News";
@@ -61,6 +62,7 @@ export default buildConfig({
   collections: [
     Authors,
     CommunityPlatforms,
+    Events,
     Explainers,
     Media,
     News,
