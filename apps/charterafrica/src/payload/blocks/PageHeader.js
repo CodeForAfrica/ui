@@ -18,6 +18,29 @@ const PageHeader = {
         leaves: ["bold", "italic", "strikethrough", "underline"],
       },
     }),
+    {
+      name: "variant",
+      type: "radio",
+      options: [
+        {
+          label: {
+            en: "Logo",
+            fr: "Logo",
+            pt: "Logótipo",
+          },
+          value: "logo",
+        },
+        {
+          label: {
+            en: "Image",
+            pt: "Imagem",
+            fr: "Image",
+          },
+          value: "image",
+        },
+      ],
+      defaultValue: "image",
+    },
     richText({
       name: "description",
       label: {
@@ -27,13 +50,19 @@ const PageHeader = {
       },
       localized: true,
       admin: {
+        condition: (_, siblingData) => siblingData?.variant === "image",
         elements: [],
         leaves: ["bold", "italic", "strikethrough", "underline"],
       },
     }),
     linkGroup({
       linkConfig: { required: false },
-      overrides: { required: false },
+      overrides: {
+        required: false,
+        admin: {
+          condition: (_, siblingData) => siblingData?.variant === "image",
+        },
+      },
     }),
     {
       name: "media",
@@ -81,6 +110,26 @@ const PageHeader = {
           },
         },
       ],
+      admin: {
+        condition: (_, siblingData) => siblingData?.variant === "image",
+      },
+    },
+    {
+      name: "logo",
+      label: {
+        en: "Logo",
+        fr: "Logo",
+        pt: "Logótipo",
+      },
+      type: "upload",
+      relationTo: "media",
+      required: true,
+      filterOptions: {
+        mimeType: { contains: "image" },
+      },
+      admin: {
+        condition: (_, siblingData) => siblingData?.variant === "logo",
+      },
     },
   ],
 };
