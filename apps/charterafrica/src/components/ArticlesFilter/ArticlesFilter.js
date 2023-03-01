@@ -67,41 +67,6 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
                 />
               );
             })}
-            {/* <Chip
-              label="All"
-              sx={{
-                backgroundColor: neutral[700],
-                color: neutral[50],
-              }}
-            /> */}
-            {/* <Chip
-              label="Africa"
-              sx={{
-                backgroundColor: neutral[50],
-                color: neutral[900],
-              }}
-            /> */}
-            {/* <Chip
-              label="Kenya"
-              sx={{
-                backgroundColor: neutral[50],
-                color: neutral[900],
-              }}
-            /> */}
-            {/* <Chip
-              label="Nigeria"
-              sx={{
-                backgroundColor: neutral[50],
-                color: neutral[900],
-              }}
-            /> */}
-            {/* <Chip
-              label="Tanzania"
-              sx={{
-                backgroundColor: neutral[50],
-                color: neutral[900],
-              }}
-            /> */}
           </Grid>
         </Grid>
       </Section>
