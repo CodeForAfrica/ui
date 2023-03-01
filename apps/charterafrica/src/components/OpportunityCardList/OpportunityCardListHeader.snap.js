@@ -9,7 +9,7 @@ exports[`<OpportunityCardListHeader /> renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1atob12-MuiGrid-root"
     >
       <h5
-        class="MuiTypography-root MuiTypography-h5SemiBold css-19vbq4o-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h5SemiBold css-gjubs-MuiTypography-root"
       >
         Grants
       </h5>

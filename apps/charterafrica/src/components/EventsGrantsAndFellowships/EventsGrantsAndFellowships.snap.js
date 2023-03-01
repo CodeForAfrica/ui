@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
+exports[`<EventsGrantsAndFellowships /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-156ejva"
@@ -9,7 +9,7 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-g8ts05-MuiContainer-root"
     >
       <h3
-        class="MuiTypography-root MuiTypography-h3Small css-yo7jji-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3Small css-zsms2q-MuiTypography-root"
       >
         Fellowships
       </h3>
@@ -23,7 +23,7 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1atob12-MuiGrid-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5SemiBold css-19vbq4o-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5SemiBold css-gjubs-MuiTypography-root"
             >
               open
             </h5>
@@ -39,7 +39,7 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
               <p
                 class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
               >
-                Show all
+                Show All
               </p>
             </button>
           </div>
@@ -73,11 +73,6 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
                   >
                     Democratic Governance in Zambia
                   </h6>
-                  <p
-                    class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
-                  >
-                    This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
-                  </p>
                 </div>
                 <span
                   class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
@@ -128,7 +123,7 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1atob12-MuiGrid-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5SemiBold css-19vbq4o-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5SemiBold css-gjubs-MuiTypography-root"
             >
               closed
             </h5>
@@ -144,7 +139,7 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
               <p
                 class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
               >
-                Show all
+                Show All
               </p>
             </button>
           </div>
@@ -178,11 +173,6 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
                   >
                     Democratic Governance in Zambia
                   </h6>
-                  <p
-                    class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
-                  >
-                    This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
-                  </p>
                 </div>
                 <span
                   class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
@@ -233,7 +223,7 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1atob12-MuiGrid-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5SemiBold css-19vbq4o-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5SemiBold css-gjubs-MuiTypography-root"
             >
               upcoming
             </h5>
@@ -249,7 +239,7 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
               <p
                 class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
               >
-                Show all
+                Show All
               </p>
             </button>
           </div>
@@ -283,11 +273,6 @@ exports[`<GrantsAndFellowships /> renders unchanged 1`] = `
                   >
                     Democratic Governance in Zambia
                   </h6>
-                  <p
-                    class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
-                  >
-                    This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
-                  </p>
                 </div>
                 <span
                   class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"

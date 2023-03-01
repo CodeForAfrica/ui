@@ -31,11 +31,6 @@ exports[`<OpportunityCardListGrid /> renders unchanged 1`] = `
             >
               Democratic Governance in Zambia
             </h6>
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
-            >
-              This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
-            </p>
           </div>
           <span
             class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
@@ -86,11 +81,6 @@ exports[`<OpportunityCardListGrid /> renders unchanged 1`] = `
             >
               Democratic Governance in Zambia
             </h6>
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
-            >
-              This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
-            </p>
           </div>
           <span
             class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
@@ -141,11 +131,6 @@ exports[`<OpportunityCardListGrid /> renders unchanged 1`] = `
             >
               Democratic Governance in Zambia
             </h6>
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
-            >
-              This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
-            </p>
           </div>
           <span
             class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"

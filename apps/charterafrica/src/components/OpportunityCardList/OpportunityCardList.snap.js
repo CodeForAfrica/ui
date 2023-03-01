@@ -12,7 +12,7 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1atob12-MuiGrid-root"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5SemiBold css-19vbq4o-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5SemiBold css-gjubs-MuiTypography-root"
         >
           Grants
         </h5>
@@ -28,7 +28,7 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
           <p
             class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
           >
-            Show all
+            Show All
           </p>
         </button>
       </div>
@@ -62,11 +62,6 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
               >
                 Democratic Governance in Zambia
               </h6>
-              <p
-                class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
-              >
-                This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
-              </p>
             </div>
             <span
               class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
@@ -117,11 +112,6 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
               >
                 Democratic Governance in Zambia
               </h6>
-              <p
-                class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
-              >
-                This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
-              </p>
             </div>
             <span
               class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
@@ -172,11 +162,6 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
               >
                 Democratic Governance in Zambia
               </h6>
-              <p
-                class="MuiTypography-root MuiTypography-p1 css-ywxmxe-MuiTypography-root"
-              >
-                This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
-              </p>
             </div>
             <span
               class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
