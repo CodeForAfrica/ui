@@ -12,6 +12,8 @@ import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
 import Explainers from "./src/payload/collections/Explainers";
 import Fellowships from "./src/payload/collections/Fellowships";
 import Grants from "./src/payload/collections/Grants";
+import Grantees from "./src/payload/collections/Grantees";
+import GranteeTags from "./src/payload/collections/GranteeTags";
 import Media from "./src/payload/collections/Media";
 import News from "./src/payload/collections/News";
 import Pages from "./src/payload/collections/Pages";
@@ -66,6 +68,8 @@ export default buildConfig({
     Explainers,
     Fellowships,
     Grants,
+    Grantees,
+    GranteeTags,
     Media,
     News,
     Pages,

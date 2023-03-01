@@ -1,7 +1,7 @@
 import slug from "../fields/slug";
 
-const Tags = {
-  slug: "tag",
+const GranteeTags = {
+  slug: "grantee-tag",
   admin: {
     useAsTitle: "name",
   },
@@ -14,6 +14,7 @@ const Tags = {
         pt: "Nome",
       },
       type: "text",
+      maxLength: 50,
       localized: true,
       required: true,
     },
@@ -21,4 +22,4 @@ const Tags = {
   ],
 };
 
-export default Tags;
+export default GranteeTags;

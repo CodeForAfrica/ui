@@ -21,6 +21,20 @@ const Grantees = {
       localized: true,
       required: true,
     },
+    {
+      name: "coverImage",
+      label: {
+        en: "Cover Image",
+        pt: "Imagem de capa",
+        fr: "Image de couverture",
+      },
+      type: "upload",
+      relationTo: "media",
+      required: true,
+      filterOptions: {
+        mimeType: { contains: "image" },
+      },
+    },
     richText({
       name: "description",
       label: {
@@ -33,6 +47,13 @@ const Grantees = {
         elements: ["leaves"],
       },
     }),
+    {
+      name: "tags",
+      required: true,
+      type: "relationship",
+      relationTo: "grantee-tag",
+      hasMany: true,
+    },
   ],
 };
 

@@ -29,44 +29,13 @@ async function getGlobalProps({ locale, defaultLocale }, api) {
   return { footer, navbar, settings };
 }
 
-export async function processPageAbout({ blocks }) {
+export async function processPageAbout({ blocks }, api) {
+  const { docs } = await api.getCollection("grantees");
+  const grantees = docs.map((item) => ({ ...item, image: item.coverImage }));
   blocks.push({
     slug: "grantees",
     title: "Grantees",
-    grantees: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      name: "Grantee Name ".repeat((i % 2) + 1).trim(),
-      description: [
-        {
-          children: [
-            {
-              text: "Lorem ipsum dolor sit amet con sectetur adipiscing elit mi, interdum blandit fring illa fus. adipiscing elit mi, adipiscing.",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `About ${i}`,
-        prefix: "media",
-        filename: "Rectangle 117.png",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/Rectangle 117.png",
-      },
-      primaryLink: {
-        label: "Constitutional changes of government",
-        href: "/",
-      },
-      secondaryLink: {
-        label: "Networks",
-        href: "/",
-      },
-    })),
+    grantees,
   });
 }
 
