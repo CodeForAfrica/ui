@@ -1,7 +1,7 @@
 import blockFields from "../fields/blockFields";
 
 const ExternalEmbed = {
-  slug: "embed",
+  slug: "external-embed",
   fields: [
     blockFields({
       name: "embedBlockFields",
