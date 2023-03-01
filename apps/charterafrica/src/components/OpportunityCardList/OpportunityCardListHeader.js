@@ -18,7 +18,7 @@ const OpportunityCardListHeader = React.forwardRef(
         <Grid item xs={12} md={6}>
           <Typography
             color="neutral.dark"
-            textAlign={{ xs: "center", sm: "left" }}
+            textAlign={{ xs: "center", md: "left" }}
             textTransform="capitalize"
             variant="h5SemiBold"
           >

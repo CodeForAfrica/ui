@@ -28,7 +28,7 @@ const GrantsFellowshipsHeader = React.forwardRef(
           <Typography
             color="neutral.dark"
             mb={5}
-            textAlign={{ xs: "center", sm: "left" }}
+            textAlign={{ xs: "center", md: "left" }}
             textTransform="capitalize"
             variant="h3"
           >

@@ -52,7 +52,7 @@ const GrantsAndFellowships = React.forwardRef(function GrantsAndFellowships(
           pb={5}
           textAlign={{
             xs: "center",
-            sm: "left",
+            md: "left",
           }}
           variant="h3Small"
         >

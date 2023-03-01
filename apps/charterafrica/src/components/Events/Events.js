@@ -8,10 +8,6 @@ import OpportunityCardList from "@/charterafrica/components/OpportunityCardList"
 const Events = React.forwardRef(function Events(props, ref) {
   const { config, items, title, sx } = props;
 
-  // const featuredEvent = items?.find((item) => item.featured);
-  // console.log("featuredEvent", featuredEvent);
-  // const otherEvents = items?.splice(items.indexOf(featuredEvent), 1);
-
   const itemsByStatus = items.reduce((acc, item) => {
     const { status } = item;
     acc[status] = acc[status] || [];

@@ -142,7 +142,7 @@ export async function processPageFellowships({ blocks }) {
       id: i,
       title: "Democratic Governance in Zambia",
       date: "2023-02-11",
-      description:
+      excerpt:
         "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
       image: {
         id: "63d2622aafe25f6469605eae",
@@ -185,7 +185,6 @@ export async function processPageFellowships({ blocks }) {
       date: "2023-02-11",
       excerpt:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur ",
-      featured: [true, false][Math.floor(Math.random() * 2)],
       image: {
         id: "63d2622aafe25f6469605eae",
         alt: `Grant ${i}`,
@@ -203,9 +202,10 @@ export async function processPageFellowships({ blocks }) {
         href: `/events/${i}`,
       },
       registerLink: {
-        href: `/events/${i}`,
+        href: `/register/events/${i}`,
       },
       status: ["upcoming", "past"][Math.floor(Math.random() * 2)],
+      featured: i === 0,
     })),
   });
 }
