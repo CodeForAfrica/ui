@@ -83,20 +83,28 @@ export async function processPageExplainers({ title, blocks }, api) {
   }
 }
 
-export async function processPageFellowships({ blocks }, api) {
+export async function processPageFellowships({ blocks }, api, { locale }) {
   const { docs: grantDocs } = await api.getCollection("grants");
   const { docs = [] } = await api.getCollection("fellowships");
   const fellowships = docs.map((item) => ({
     ...item,
     description: item.excerpt,
     image: item.coverImage,
-    deadline: new Date(item.deadline).toLocaleDateString(),
+    deadline: new Date(item.deadline).toLocaleString(locale, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
   }));
   const grants = grantDocs.map((item) => ({
     ...item,
     description: item.excerpt,
     image: item.coverImage,
-    deadline: new Date(item.deadline).toLocaleDateString(),
+    deadline: new Date(item.deadline).toLocaleString(locale, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
   }));
   blocks.push({
     slug: "grants",
