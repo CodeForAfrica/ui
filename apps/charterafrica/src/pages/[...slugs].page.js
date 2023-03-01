@@ -1,12 +1,12 @@
 import Articles from "@/charterafrica/components/Articles";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
+import EventsGrantsAndFellowships from "@/charterafrica/components/EventsGrantsAndFellowships";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Grantees from "@/charterafrica/components/Grantees";
-import GrantsAndFellowships from "@/charterafrica/components/GrantsAndFellowships";
 import GrantsFellowshipsHeader from "@/charterafrica/components/GrantsFellowshipsHeader";
 import GuidingPrinciples from "@/charterafrica/components/GuidingPrinciples";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
@@ -30,7 +30,7 @@ function Page({ blocks }) {
       case "explainers":
         return <Explainers {...block} key={block.slug} />;
       case "events":
-        return <GrantsAndFellowships {...block} key={block.slug} />;
+        return <EventsGrantsAndFellowships {...block} key={block.slug} />;
       case "faq":
         return <FAQ {...block} key={block.slug} />;
       case "featured-post":
@@ -70,9 +70,9 @@ function Page({ blocks }) {
       case "fellowships-and-grants-header":
         return <GrantsFellowshipsHeader {...block} key={block.slug} />;
       case "grants":
-        return <GrantsAndFellowships {...block} key={block.slug} />;
+        return <EventsGrantsAndFellowships {...block} key={block.slug} />;
       case "fellowships":
-        return <GrantsAndFellowships {...block} key={block.slug} />;
+        return <EventsGrantsAndFellowships {...block} key={block.slug} />;
       case "spotlight":
         return <Spotlight {...block} key={block.slug} />;
       default:
