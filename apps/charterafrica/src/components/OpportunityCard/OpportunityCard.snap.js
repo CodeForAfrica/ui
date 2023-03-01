@@ -25,6 +25,15 @@ exports[`<OpportunityCard /> renders unchanged 1`] = `
         >
           Democratic Governance in Zambia
         </h6>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-p1 css-1d4bzy0-MuiTypography-root"
+          >
+            This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
+          </p>
+        </div>
       </div>
       <span
         class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
