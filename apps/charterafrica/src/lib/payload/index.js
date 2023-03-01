@@ -16,7 +16,7 @@ async function getCollection(collection, options) {
   return payload.find({
     ...options,
     collection,
-    where: {},
+    where: { ...options?.where },
   });
 }
 

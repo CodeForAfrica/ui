@@ -11,8 +11,8 @@ import Grantees from "@/charterafrica/components/Grantees";
 import GuidingPrinciples from "@/charterafrica/components/GuidingPrinciples";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
-import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
 import Hero from "@/charterafrica/components/Hero";
+import Impressum from "@/charterafrica/components/Impressum";
 import Mooc from "@/charterafrica/components/Mooc";
 import PageDescription from "@/charterafrica/components/PageDescription";
 import PageHeader from "@/charterafrica/components/PageHeader";
@@ -22,62 +22,41 @@ import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
+const componentsBySlugs = {
+  "our-community-platforms": CommunityPlatforms,
+  ecosystem: Ecosystem,
+  events: EventsFellowshipsAndGrants,
+  explainers: Explainers,
+  faq: FAQ,
+  "featured-post": FeaturedPostCard,
+  fellowships: EventsFellowshipsAndGrants,
+  "fellowships-and-grants-header": EventsFellowshipsGrantsHeader,
+  "focal-countries": FocalCountries,
+  grantees: Grantees,
+  grants: EventsFellowshipsAndGrants,
+  "guiding-principles": GuidingPrinciples,
+  helpdesk: Helpdesk,
+  "helpdesk-page-content": HelpdeskPageContent,
+  hero: Hero,
+  impressum: Impressum,
+  mooc: Mooc,
+  news: Articles,
+  "our-partners": Partners,
+  "our-resources": Resources,
+  "page-description": PageDescription,
+  "page-header": PageHeader,
+  "page-info": PageInfo,
+  research: Articles,
+  spotlight: Spotlight,
+};
+
 function Page({ blocks }) {
   return blocks?.map((block) => {
-    switch (block?.slug) {
-      case "ecosystem":
-        return <Ecosystem {...block} key={block.slug} />;
-      case "explainers":
-        return <Explainers {...block} key={block.slug} />;
-      case "events":
-        return <EventsFellowshipsAndGrants {...block} key={block.slug} />;
-      case "faq":
-        return <FAQ {...block} key={block.slug} />;
-      case "featured-post":
-        return <FeaturedPostCard {...block} key={block.slug} />;
-      case "focal-countries":
-        return <FocalCountries {...block} key={block.slug} />;
-      case "grantees":
-        return <Grantees {...block} key={block.slug} />;
-      case "guiding-principles":
-        return <GuidingPrinciples {...block} key={block.slug} />;
-      case "helpdesk":
-        return <Helpdesk {...block} key={block.slug} />;
-      case "helpdesk-page-content":
-        return <HelpdeskPageContent {...block} key={block.slug} />;
-      case "helpdesk-page-header":
-        return <HelpdeskPageHeader {...block} key={block.slug} />;
-      case "hero":
-        return <Hero {...block} key={block.slug} />;
-      case "mooc":
-        return <Mooc {...block} key={block.slug} />;
-      case "news":
-        return <Articles {...block} key={block.slug} />;
-      case "our-community-platforms":
-        return <CommunityPlatforms {...block} key={block.slug} />;
-      case "our-partners":
-        return <Partners {...block} key={block.slug} />;
-      case "our-resources":
-        return <Resources {...block} key={block.slug} />;
-      case "page-description":
-        return <PageDescription {...block} key={block.slug} />;
-      case "page-header":
-        return <PageHeader {...block} key={block.slug} />;
-      case "page-info":
-        return <PageInfo {...block} key={block.slug} />;
-      case "research":
-        return <Articles {...block} key={block.slug} />;
-      case "fellowships-and-grants-header":
-        return <EventsFellowshipsGrantsHeader {...block} key={block.slug} />;
-      case "grants":
-        return <EventsFellowshipsAndGrants {...block} key={block.slug} />;
-      case "fellowships":
-        return <EventsFellowshipsAndGrants {...block} key={block.slug} />;
-      case "spotlight":
-        return <Spotlight {...block} key={block.slug} />;
-      default:
-        return null;
+    const Component = componentsBySlugs[block.slug];
+    if (!Component) {
+      return null;
     }
+    return <Component key={block.slug} {...block} />;
   });
 }
 

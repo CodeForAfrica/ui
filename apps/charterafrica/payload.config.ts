@@ -7,12 +7,15 @@ import seo from "@payloadcms/plugin-seo";
 import dotenv from "dotenv";
 import { buildConfig } from "payload/config";
 
+import Authors from "./src/payload/collections/Authors";
 import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
 import Explainers from "./src/payload/collections/Explainers";
 import Media from "./src/payload/collections/Media";
+import News from "./src/payload/collections/News";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Resources from "./src/payload/collections/Resources";
+import Tags from "./src/payload/collections/Tags";
 import FocalCountries from "./src/payload/globals/FocalCountries";
 import Footer from "./src/payload/globals/Footer";
 import Helpdesk from "./src/payload/globals/Helpdesk";
@@ -35,7 +38,11 @@ const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
 
 const cors = process?.env?.PAYLOAD_CORS?.split(",")
   ?.map((d) => d.trim())
-  ?.filter(Boolean);
+  ?.filter(Boolean) ?? [];
+
+const csrf = process?.env?.PAYLOAD_CSRF?.split(",")
+  ?.map((d) => d.trim())
+  ?.filter(Boolean) ?? [];
 
 const adapter = s3Adapter({
   config: {
@@ -55,20 +62,23 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   collections: [
-    CommunityPlatforms as CollectionConfig,
-    Explainers as CollectionConfig,
-    Media as CollectionConfig,
-    Pages as CollectionConfig,
-    Partners as CollectionConfig,
-    Resources as CollectionConfig,
-  ],
+    Authors,
+    CommunityPlatforms,
+    Explainers,
+    Media,
+    News,
+    Pages,
+    Partners,
+    Resources,
+    Tags,
+  ] as CollectionConfig[],
   globals: [
-    FocalCountries as GlobalConfig,
-    Footer as GlobalConfig,
-    Helpdesk as GlobalConfig,
-    Navigation as GlobalConfig,
-    Settings as GlobalConfig,
-  ],
+    FocalCountries,
+    Footer,
+    Helpdesk,
+    Navigation,
+    Settings,
+  ] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {
@@ -93,6 +103,7 @@ export default buildConfig({
     }),
   },
   cors,
+  csrf,
   i18n: {
     fallbackLng: "en", // default
     debug: false, // default
