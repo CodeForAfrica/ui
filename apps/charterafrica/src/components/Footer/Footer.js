@@ -46,34 +46,42 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 xs: "flex-start",
                 sm: "space-between",
               }}
+              wrap="nowrap"
             >
               <Grid item>
                 <NewsletterSubscription {...newsletter} />
               </Grid>
-              <Grid item>
-                <RichTypography
-                  fontSize={16}
-                  textAlign={{ xs: "center", sm: "right" }}
-                  variant="p2SemiBold"
-                  mt={{ xs: 3, md: 5 }}
-                  width={{ xs: "100%", md: "170px" }}
-                >
-                  {funder?.title}
-                </RichTypography>
-              </Grid>
-              <Grid item>
-                <Figure
-                  sx={{
-                    height: { xs: "118.11px", md: "103px" },
-                    mt: 2,
-                    width: { xs: "172px", md: "150px" },
-                  }}
-                  ImageProps={{
-                    alt: funder?.logo?.alt,
-                    src: funder?.logo?.url,
-                    sx: { objectPosition: "top" },
-                  }}
-                />
+              <Grid
+                item
+                container
+                direction="column"
+                alignItems={{ xs: "center", sm: "flex-end" }}
+              >
+                <Grid item>
+                  <RichTypography
+                    fontSize={16}
+                    textAlign={{ xs: "center", sm: "right" }}
+                    variant="p2SemiBold"
+                    mt={{ xs: 3, md: 5 }}
+                    width={{ xs: "100%", md: "170px" }}
+                  >
+                    {funder?.title}
+                  </RichTypography>
+                </Grid>
+                <Grid item>
+                  <Figure
+                    sx={{
+                      height: { xs: "118.11px", md: "103px" },
+                      mt: 2,
+                      width: { xs: "172px", md: "150px" },
+                    }}
+                    ImageProps={{
+                      alt: funder?.logo?.alt,
+                      src: funder?.logo?.url,
+                      sx: { objectPosition: "top" },
+                    }}
+                  />
+                </Grid>
               </Grid>
             </Grid>
             <Grid
