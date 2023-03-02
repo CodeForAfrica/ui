@@ -211,14 +211,37 @@ export async function processPageNews(page, api, { locale }) {
   blocks.push(news);
 }
 
+export async function processPagePrivacyPolicy(page) {
+  const { blocks } = page;
+  const index = blocks?.findIndex(({ slug }) => slug === "longform");
+  if (index > -1) {
+    const { content: originalContent } = blocks[index];
+    if (originalContent?.length) {
+      const content = originalContent.map(({ blockType, ...other }) => ({
+        ...other,
+        slug: blockType,
+      }));
+      blocks[index].content = content;
+    }
+  }
+  return page;
+}
+
 export async function processPageResearch({ blocks }) {
   // TODO(kilemensi): Pull data from CMS
   blocks.push({
     slug: "featured-post",
     category: "Research",
     title: "Research Story title goes here and spans over second line",
-    excerpt:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur",
+    excerpt: [
+      {
+        children: [
+          {
+            text: "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur",
+          },
+        ],
+      },
+    ],
     date: "2020-10-10 10:10:10",
     author: "Author",
     image: {
@@ -259,9 +282,10 @@ export async function processPageResearch({ blocks }) {
 const processPageFunctionsMap = {
   about: processPageAbout,
   explainers: processPageExplainers,
-  news: processPageNews,
-  research: processPageResearch,
   fellowships: processPageFellowships,
+  news: processPageNews,
+  "privacy-policy": processPagePrivacyPolicy,
+  research: processPageResearch,
 };
 
 async function processGlobalBlockFocalCountries(block) {
