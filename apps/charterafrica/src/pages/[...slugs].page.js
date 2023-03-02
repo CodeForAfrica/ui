@@ -20,6 +20,7 @@ import PageDescription from "@/charterafrica/components/PageDescription";
 import PageHeader from "@/charterafrica/components/PageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
 import Partners from "@/charterafrica/components/Partners";
+import Post from "@/charterafrica/components/Post";
 import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
@@ -50,6 +51,7 @@ const componentsBySlugs = {
   "page-description": PageDescription,
   "page-header": PageHeader,
   "page-info": PageInfo,
+  post: Post,
   research: Articles,
   spotlight: Spotlight,
 };

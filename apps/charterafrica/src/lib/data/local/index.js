@@ -33,7 +33,7 @@ export async function getGlobalProps({ locale, defaultLocale }) {
 export const api = payload;
 
 export async function getPageServerSideProps(context) {
-  const props = await getPageProps(context, api);
+  const props = await getPageProps(api, context);
 
   if (!props) {
     return { notFound: true };
