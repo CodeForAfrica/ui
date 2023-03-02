@@ -88,11 +88,7 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             ) : null}
 
             <Typography color="neutral.main" textAlign="left" variant="p1">
-              {new Date(date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
+              {date}
             </Typography>
             <RichText
               sx={{
