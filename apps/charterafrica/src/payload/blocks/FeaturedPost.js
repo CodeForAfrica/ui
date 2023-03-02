@@ -21,7 +21,7 @@ const FeaturedPost = {
         fr: "Après sélectionnée",
       },
       type: "relationship",
-      relationTo: ["news", "research"],
+      relationTo: ["news", "research", "events"],
       required: true,
     },
   ],

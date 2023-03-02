@@ -1,4 +1,4 @@
-import { content } from "../fields/post";
+import content from "../fields/content";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
 

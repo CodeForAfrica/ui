@@ -93,6 +93,7 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             <RichText
               sx={{
                 maxHeight: 24 * 6,
+                overflow: "hidden",
               }}
               color="neutral.dark"
               textAlign="left"

@@ -6,8 +6,8 @@ import slug from "../fields/slug";
 const Events = {
   slug: "events",
   admin: {
-    useAsTitle: "name",
-    defaultColumns: ["name", "topic", "date"],
+    useAsTitle: "title",
+    defaultColumns: ["title", "topic", "date"],
   },
   access: {
     read: () => true,
@@ -17,11 +17,11 @@ const Events = {
   },
   fields: [
     {
-      name: "name",
+      name: "title",
       label: {
-        en: "Name",
-        fr: "Nom",
-        pt: "Nome",
+        en: "Title",
+        fr: "Titre",
+        pt: "Título",
       },
       type: "text",
       localized: true,
@@ -54,11 +54,11 @@ const Events = {
       required: true,
     },
     richText({
-      name: "description",
+      name: "excerpt",
       label: {
-        en: "Description",
-        fr: "La description",
-        pt: "Descrição",
+        en: "Excerpt",
+        fr: "Extrait",
+        pt: "Excerto",
       },
       localized: true,
       required: true,

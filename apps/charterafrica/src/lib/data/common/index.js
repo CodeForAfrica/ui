@@ -85,8 +85,12 @@ export async function processPageExplainers({ title, blocks }, api) {
 
 export async function processPageFellowships({ blocks }, api, { locale }) {
   const { docs: grantDocs } = await api.getCollection("grants");
-  const { docs = [] } = await api.getCollection("fellowships");
-  const fellowships = docs.map((item) => ({
+  const { docs: fellowshipDocs } = await api.getCollection("fellowships");
+  const { docs: eventDocs } = await api.getCollection("events", {
+    where: { _status: { equals: "published" } },
+  });
+
+  const fellowships = fellowshipDocs.map((item) => ({
     ...item,
     description: item.excerpt,
     image: item.coverImage,
@@ -106,6 +110,26 @@ export async function processPageFellowships({ blocks }, api, { locale }) {
       day: "numeric",
     }),
   }));
+  const events = eventDocs.map((item, i) => ({
+    ...item,
+    image: item.coverImage ?? null,
+    category: item.topic,
+    registerLink: item.link ?? null,
+    registerText: item?.link?.label ?? null,
+    status:
+      new Date(item.date).getTime() < new Date().getTime()
+        ? "past"
+        : "upcoming",
+    date: new Date(item.date).toLocaleString(locale, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
+    featured: i === 0, // Fetch from CMS
+  }));
+
+  console.error(events);
+
   blocks.push({
     slug: "grants",
     title: "Grants",
@@ -133,43 +157,7 @@ export async function processPageFellowships({ blocks }, api, { locale }) {
   blocks.push({
     slug: "events",
     title: "Events",
-    items: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Event title going on two or even three lines",
-      category: "Topic Name",
-      date: "2023-02-11",
-      excerpt: [
-        {
-          children: [
-            {
-              text: "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur ",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Grant ${i}`,
-        prefix: "media",
-        filename: "Rectangle 113.jpg",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/featured-event.svg",
-      },
-      link: {
-        href: `/events/${i}`,
-      },
-      registerLink: {
-        href: `/register/events/${i}`,
-      },
-      registerText: "Register ",
-      status: ["upcoming", "past"][Math.floor(Math.random() * 2)],
-      featured: i === 0,
-    })),
+    items: events,
     config: {
       showAllText: "Show All",
       showLessText: "Show Less",
