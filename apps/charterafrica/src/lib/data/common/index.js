@@ -114,8 +114,16 @@ export async function processPageFellowships(page) {
     items: Array.from({ length: 30 }, (_, i) => ({
       id: i,
       title: "Democratic Governance in Zambia",
-      description:
-        "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+      date: "2023-02-11",
+      excerpt: [
+        {
+          children: [
+            {
+              text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+            },
+          ],
+        },
+      ],
       image: {
         id: "63d2622aafe25f6469605eae",
         alt: `Grant ${i}`,
@@ -129,13 +137,15 @@ export async function processPageFellowships(page) {
         updatedAt: "2023-01-26T11:21:14.868Z",
         url: "/images/charter-africa-brand.svg",
       },
-      deadline: "2023-02-11",
+      link: {
+        href: `/`,
+      },
       status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
     })),
     config: {
       showAllText: "Show All",
       showLessText: "Show Less",
-      deadlineText: "Deadline",
+      dateText: "Deadline",
       showOnMobile: ["open", "closed"],
       statusGroupTitleSuffix: "Calls",
     },
@@ -146,8 +156,16 @@ export async function processPageFellowships(page) {
     items: Array.from({ length: 30 }, (_, i) => ({
       id: i,
       title: "Democratic Governance in Zambia",
-      description:
-        "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+      date: "2023-02-11",
+      excerpt: [
+        {
+          children: [
+            {
+              text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+            },
+          ],
+        },
+      ],
       image: {
         id: "63d2622aafe25f6469605eae",
         alt: `Grant ${i}`,
@@ -166,14 +184,63 @@ export async function processPageFellowships(page) {
           "/images/fellowships3.png",
         ][Math.floor(Math.random() * 4)],
       },
-      deadline: "2023-02-11",
+      link: {
+        href: `/fellowship/${i}`,
+      },
       status: ["technologies", "other"][Math.floor(Math.random() * 2)],
     })),
     config: {
       showAllText: "Show All",
       showLessText: "Show Less",
-      deadlineText: "Deadline",
+      dateText: "Deadline",
       showOnMobile: ["technologies"],
+      statusGroupTitleSuffix: "",
+    },
+  });
+  blocks.push({
+    slug: "events",
+    title: "Events",
+    items: Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      title: "Event title going on two or even three lines",
+      category: "Topic Name",
+      date: "2023-02-11",
+      excerpt: [
+        {
+          children: [
+            {
+              text: "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur ",
+            },
+          ],
+        },
+      ],
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `Grant ${i}`,
+        prefix: "media",
+        filename: "Rectangle 113.jpg",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "/images/featured-event.svg",
+      },
+      link: {
+        href: `/events/${i}`,
+      },
+      registerLink: {
+        href: `/register/events/${i}`,
+      },
+      registerText: "Register ",
+      status: ["upcoming", "past"][Math.floor(Math.random() * 2)],
+      featured: i === 0,
+    })),
+    config: {
+      showAllText: "Show All",
+      showLessText: "Show Less",
+      showOnMobile: ["upcoming", "past"],
       statusGroupTitleSuffix: "",
     },
   });
