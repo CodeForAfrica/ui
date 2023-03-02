@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import OpportunityCardListHeader from "./OpportunityCardListHeader";
+import OpportunityCardHeader from "./OpportunityCardHeader";
 
 import theme from "@/charterafrica/theme";
 
@@ -17,11 +17,9 @@ const defaultProps = {
   showLessText: "Show less",
 };
 
-describe("<OpportunityCardListHeader />", () => {
+describe("<OpportunityCardHeader />", () => {
   it("renders unchanged", () => {
-    const { container } = render(
-      <OpportunityCardListHeader {...defaultProps} />
-    );
+    const { container } = render(<OpportunityCardHeader {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

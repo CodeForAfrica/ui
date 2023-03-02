@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import FeaturedPostCard from "../FeaturedPostCard/FeaturedPostCard";
 
 import OpportunityCardGrid from "./OpportunityCardGrid";
-import OpportunityCardListHeader from "./OpportunityCardListHeader";
+import OpportunityCardHeader from "./OpportunityCardHeader";
 
 const OpportunityCards = React.forwardRef(function OpportunityCards(
   props,
@@ -25,7 +25,7 @@ const OpportunityCards = React.forwardRef(function OpportunityCards(
         ...sx,
       }}
     >
-      <OpportunityCardListHeader
+      <OpportunityCardHeader
         title={title}
         onClick={() => setShowAll(!showAll)}
         showAll={showAll}
