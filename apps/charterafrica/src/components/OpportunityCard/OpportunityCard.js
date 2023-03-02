@@ -85,6 +85,9 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             lineClamp={3}
             variant="p1"
             elements={excerpt}
+            sx={(theme) => ({
+              height: `calc(${theme.typography.p1.fontSize}px * 3)`,
+            })}
           />
         </CardContent>
       </CardActionArea>

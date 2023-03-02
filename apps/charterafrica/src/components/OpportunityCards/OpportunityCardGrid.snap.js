@@ -32,7 +32,7 @@ exports[`<OpportunityCardGrid /> renders unchanged 1`] = `
               Democratic Governance in Zambia
             </h6>
             <div
-              class="MuiBox-root css-0"
+              class="MuiBox-root css-18wyc5g"
             >
               <p
                 class="MuiTypography-root MuiTypography-p1 css-1d4bzy0-MuiTypography-root"
