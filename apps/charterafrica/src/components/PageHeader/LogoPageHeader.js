@@ -7,14 +7,16 @@ import BackgroundBox from "@/charterafrica/components/BackgroundBox";
 import RichText from "@/charterafrica/components/RichText";
 
 const LogoPageHeader = React.forwardRef(function LogoPageHeader(props, ref) {
-  const { title, logo: logoProps, sx } = props;
+  const { title, logo: logoProp, sx } = props;
 
   if (!title) {
     return null;
   }
-  const logo = {};
-  logo.alt = logoProps.alt || title;
-  logo.src = logoProps.url;
+  const logo = {
+    alt: logoProp.alt || title,
+    priority: true,
+    src: logoProp.src || logoProp.url,
+  };
   return (
     <BackgroundBox sx={sx} ref={ref}>
       <Section ref={ref} sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: 10 } }}>
@@ -37,7 +39,7 @@ const LogoPageHeader = React.forwardRef(function LogoPageHeader(props, ref) {
             typography={{ md: "h1" }}
             variant="h1Small"
             sx={() => ({
-              "& > em, & > strong": {
+              "& h1 > em, & h1 > strong": {
                 color: "secondary.main",
                 fontStyle: "normal",
               },

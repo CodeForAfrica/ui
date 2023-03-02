@@ -4,7 +4,7 @@ import { Stack } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import RichText from "../RichText";
+import RichText from "@/charterafrica/components/RichText";
 
 const Explainer = React.forwardRef(function Explainer(props, ref) {
   const { ImageProps, description, image, sx, title } = props;
