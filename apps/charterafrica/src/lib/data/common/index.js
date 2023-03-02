@@ -1,3 +1,5 @@
+import { deepmerge } from "@mui/utils";
+
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
 async function getGlobalProps({ locale, defaultLocale }, api) {
@@ -29,7 +31,8 @@ async function getGlobalProps({ locale, defaultLocale }, api) {
   return { footer, navbar, settings };
 }
 
-export async function processPageAbout({ blocks }, api) {
+export async function processPageAbout(page, api) {
+  const { blocks } = page;
   const { docs } = await api.getCollection("grantees");
   const grantees = docs.map((item) => ({ ...item, image: item.coverImage }));
   blocks.push({
@@ -37,12 +40,14 @@ export async function processPageAbout({ blocks }, api) {
     title: "Grantees",
     grantees,
   });
+
+  return page;
 }
 
-export async function processPageExplainers({ title, blocks }, api) {
+async function processPageExplainers(page, api) {
   const collection = await api.getCollection("explainers");
   const explainers = collection.docs || null;
-
+  const { title, blocks } = page;
   if (explainers?.length) {
     blocks.push({
       slug: "explainers",
@@ -50,23 +55,66 @@ export async function processPageExplainers({ title, blocks }, api) {
       explainers,
     });
   }
+
+  return page;
 }
 
-export async function processPageFellowships({ blocks }, api) {
+export async function processPageFellowships(page, api, { locale }) {
+  const { blocks } = page;
   const { docs: grantDocs } = await api.getCollection("grants");
-  const { docs = [] } = await api.getCollection("fellowships");
-  const fellowships = docs.map((item) => ({
+  const { docs: fellowshipDocs } = await api.getCollection("fellowships");
+  const { docs: eventDocs } = await api.getCollection("events", {
+    where: { _status: { equals: "published" } },
+    limit: 100, // Perform pagination here
+  });
+
+  const featuredArticle =
+    blocks.find(
+      (block) =>
+        block.slug === "featured-post" &&
+        block.featuredPost?.relationTo === "events"
+    )?.featuredPost?.value ?? null;
+
+  const fellowships = fellowshipDocs.map((item) => ({
     ...item,
     description: item.excerpt,
     image: item.coverImage,
-    deadline: new Date(item.deadline).toLocaleDateString(),
+    status: item.category ?? null,
+    date: new Date(item.deadline).toLocaleString(locale, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
   }));
   const grants = grantDocs.map((item) => ({
     ...item,
     description: item.excerpt,
     image: item.coverImage,
-    deadline: new Date(item.deadline).toLocaleDateString(),
+    date: new Date(item.deadline).toLocaleString(locale, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
   }));
+
+  const events = eventDocs.map((item) => ({
+    ...item,
+    image: item.coverImage ?? null,
+    category: item.topic,
+    registerLink: item.link ?? null,
+    registerText: item?.link?.label ?? null,
+    status:
+      new Date(item.date).getTime() < new Date().getTime()
+        ? "past"
+        : "upcoming",
+    date: new Date(item.date).toLocaleString(locale, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
+    featured: featuredArticle && item.id === featuredArticle?.id,
+  }));
+
   blocks.push({
     slug: "grants",
     title: "Grants",
@@ -74,7 +122,7 @@ export async function processPageFellowships({ blocks }, api) {
     config: {
       showAllText: "Show All",
       showLessText: "Show Less",
-      deadlineText: "Deadline",
+      dateText: "Deadline",
       showOnMobile: ["open", "closed"],
       statusGroupTitleSuffix: "Calls",
     },
@@ -86,60 +134,159 @@ export async function processPageFellowships({ blocks }, api) {
     config: {
       showAllText: "Show All",
       showLessText: "Show Less",
-      deadlineText: "Deadline",
+      dateText: "Deadline",
       showOnMobile: ["technologies"],
       statusGroupTitleSuffix: "",
     },
   });
-}
-
-export async function processPageArticles(page, api, { locale }) {
-  const { blocks, breadcrumbs = [], slug } = page;
-  const { docs } = await api.getCollection(slug, {
-    where: { _status: { equals: "published" } },
-  });
-
-  const processArticle = (data) => ({
-    ...data,
-    author: data?.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
-    image: data?.coverImage ?? null,
-    date: new Date(data?.publishedOn).toLocaleString(locale),
-    link: {
-      href: breadcrumbs[breadcrumbs.length - 1]?.url
-        ? `${breadcrumbs[breadcrumbs.length - 1].url}/${data?.slug}`
-        : null,
+  blocks.push({
+    slug: "events",
+    title: "Events",
+    items: events,
+    config: {
+      showAllText: "Show All",
+      showLessText: "Show Less",
+      showOnMobile: ["upcoming", "past"],
+      statusGroupTitleSuffix: "",
     },
   });
 
-  const articles = docs?.map(processArticle);
-  const featuredArticle =
-    blocks.find((block) => block.slug === "featured-post")?.featuredPost
-      ?.value ?? null;
-  const news = {
-    slug: "news",
-    title: "News",
+  return page;
+}
+
+function processPost(post, page, api, context) {
+  const { breadcrumbs = [] } = page;
+
+  let image = null;
+  if (post.coverImage) {
+    const { alt, url } = post.coverImage;
+    image = {
+      alt: alt || post.title,
+      url,
+    };
+  }
+  let href = null;
+  const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
+  if (pageUrl) {
+    const { slug } = post;
+    href = `${pageUrl}/${slug}`;
+  }
+  const { locale } = context;
+  return {
+    ...post,
+    author: post.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
+    image,
+    date: new Date(post.publishedOn).toLocaleString(locale, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "2-digit",
+    }),
+    link: {
+      href,
+    },
+  };
+}
+
+async function processPageArticlePost(page, api, context) {
+  const { params } = context;
+  const { slug: collection } = page;
+  const slug = params.slugs[2];
+  const { docs } = await api.getCollection(collection, {
+    where: {
+      slug: {
+        equals: slug,
+      },
+      _status: { equals: "published" },
+    },
+  });
+  if (!docs?.length) {
+    return null;
+  }
+
+  const [post] = docs;
+  const processedPost = processPost(docs[0], page, api, context);
+  let content = null;
+  if (post.content?.length) {
+    content = post.content.map(({ blockType, ...other }) => ({
+      ...other,
+      slug: blockType,
+    }));
+  }
+  return {
+    ...page,
+    meta: deepmerge(page.meta, post.meta),
+    title: `${post.title} | ${page.title}`,
+    blocks: [
+      {
+        ...processedPost,
+        slug: "post",
+      },
+      {
+        content,
+        slug: "longform",
+      },
+    ],
+  };
+}
+
+async function processPageArticles(page, api, context) {
+  const { params } = context;
+  if (params.slugs.length > 2) {
+    return processPageArticlePost(page, api, context);
+  }
+
+  const { blocks } = page;
+  const foundIndex = blocks.findIndex(({ slug }) => slug === "featured-post");
+  if (foundIndex > -1) {
+    const foundValue = blocks[foundIndex].featuredPost?.value;
+    if (foundValue) {
+      blocks[foundIndex] = {
+        ...processPost(foundValue, page, api, context),
+        slug: "featured-post",
+      };
+    }
+  }
+  const { slug, title } = page;
+  const { docs } = await api.getCollection(slug, {
+    where: { _status: { equals: "published" } },
+  });
+  const articles =
+    docs?.map((post) => processPost(post, page, api, context)) ?? null;
+  const articlesBlock = {
+    slug,
+    title,
     articles,
   };
+  blocks.push(articlesBlock);
+  return page;
+}
 
-  if (featuredArticle) {
-    const featuredNewsPost = processArticle(featuredArticle);
-    const category = `${slug?.charAt(0).toUpperCase()}${slug?.slice(1)}`;
-    const featuredPost = {
-      category,
-      ...featuredNewsPost,
-      slug: "featured-post",
-    };
-    blocks.push(featuredPost);
+async function processPagePrivacyPolicy(page) {
+  const { blocks } = page;
+  const index = blocks?.findIndex(({ slug }) => slug === "longform");
+  if (index > -1) {
+    const { content: originalContent } = blocks[index];
+    if (originalContent?.length) {
+      const content = originalContent.map(({ blockType, ...other }) => ({
+        ...other,
+        slug: blockType,
+      }));
+      blocks[index].content = content;
+    }
   }
-  blocks.push(news);
+  return page;
 }
 
 const processPageFunctionsMap = {
   about: processPageAbout,
   explainers: processPageExplainers,
+  fellowships: processPageFellowships,
   news: processPageArticles,
   research: processPageArticles,
-  fellowships: processPageFellowships,
+  "privacy-policy": processPagePrivacyPolicy,
 };
 
 async function processGlobalBlockFocalCountries(block) {
@@ -180,15 +327,20 @@ const processGlobalBlockFunctionsMap = {
   helpdesk: processGlobalBlockHelpdesk,
 };
 
-export async function getPageProps(context, api) {
+function getPageSlug({ params }) {
+  const slugsCount = params.slugs?.length;
+  // count < 3, page slug is the last slug e.g. ["about"] or ["knowldge/news"]
+  // count == 3, page slug is the 2nd slug (index 1); last slug (index 3)
+  //             is the post. e.g. opportunities/grants/democratic-governance-in-zambia
+  const pageSlugIndex = slugsCount < 3 ? slugsCount - 1 : 1;
+  return params.slugs?.[pageSlugIndex] || "index";
+}
+
+export async function getPageProps(api, context) {
   const { defaultLocale, locale, locales, params } = context;
   const fallbackLocale = defaultLocale;
-  const slugsCount = params.slugs?.length;
-  const slug = slugsCount ? params.slugs[slugsCount - 1] : "index";
-  // NOTE: we don't use .join because it doesn't put separator first
-  const pathname = slugsCount
-    ? params.slugs.reduce((acc, curr) => `${acc}/${curr}`, "")
-    : "/";
+  const slug = getPageSlug(context);
+  const pathname = slug !== "index" ? `/${params.slugs.join("/")}` : "/";
 
   const { docs: pages } = await api.findPage(slug, {
     locale,
@@ -223,21 +375,27 @@ export async function getPageProps(context, api) {
       })
     )) || [];
   const processPage = processPageFunctionsMap[page.slug];
-  if (processPage) {
-    await processPage(page, api, context);
+  const processedPage = processPage
+    ? await processPage(page, api, context)
+    : page;
+  if (!processedPage) {
+    return null;
   }
+
   const { settings, ...globalProps } = await getGlobalProps(
     { defaultLocale, locale },
     api
   );
-  const seo = getPageSeoFromMeta(page, settings, {
+  const seo = getPageSeoFromMeta(processedPage, settings, {
     locale,
     locales,
     pathname,
   });
   return {
     ...globalProps,
-    ...page,
+    ...processedPage,
     seo,
   };
 }
+
+export default getPageProps;

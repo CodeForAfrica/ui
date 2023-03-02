@@ -1,4 +1,4 @@
-import { content } from "../fields/post";
+import content from "../fields/content";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
 
@@ -48,6 +48,7 @@ const Fellowships = {
         fr: "Catégorie",
         pt: "Categoria",
       },
+      required: true,
       type: "select",
       options: [
         {

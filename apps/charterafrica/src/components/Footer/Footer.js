@@ -40,36 +40,48 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               md={4}
               order={{ xs: 0, md: 1 }}
               container
-              flexDirection="column"
               alignItems={{ xs: "center", md: "flex-end" }}
+              flexDirection={{ xs: "column", sm: "row", md: "column" }}
+              justifyContent={{
+                xs: "flex-start",
+                sm: "space-between",
+              }}
+              wrap="nowrap"
             >
               <Grid item>
                 <NewsletterSubscription {...newsletter} />
               </Grid>
-              <Grid item>
-                <RichTypography
-                  fontSize={16}
-                  textAlign={{ xs: "center", sm: "right" }}
-                  variant="p2SemiBold"
-                  mt={{ xs: 3, md: 5 }}
-                  width={{ xs: "100%", md: "170px" }}
-                >
-                  {funder?.title}
-                </RichTypography>
-              </Grid>
-              <Grid item>
-                <Figure
-                  sx={{
-                    height: { xs: "118.11px", md: "103px" },
-                    mt: 2,
-                    width: { xs: "172px", md: "150px" },
-                  }}
-                  ImageProps={{
-                    alt: funder?.logo?.alt,
-                    src: funder?.logo?.url,
-                    sx: { objectPosition: "top" },
-                  }}
-                />
+              <Grid
+                item
+                container
+                direction="column"
+                alignItems={{ xs: "center", sm: "flex-end" }}
+              >
+                <Grid item>
+                  <RichTypography
+                    fontSize={16}
+                    textAlign={{ xs: "center", sm: "right" }}
+                    variant="p2SemiBold"
+                    mt={{ xs: 3, md: 5 }}
+                    width={{ xs: "100%", md: "170px" }}
+                  >
+                    {funder?.title}
+                  </RichTypography>
+                </Grid>
+                <Grid item>
+                  <Figure
+                    sx={{
+                      height: { xs: "118.11px", md: "103px" },
+                      mt: 2,
+                      width: { xs: "172px", md: "150px" },
+                    }}
+                    ImageProps={{
+                      alt: funder?.logo?.alt,
+                      src: funder?.logo?.url,
+                      sx: { objectPosition: "top" },
+                    }}
+                  />
+                </Grid>
               </Grid>
             </Grid>
             <Grid
@@ -147,12 +159,13 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   <Grid
                     item
                     container
-                    flexDirection={{ xs: "column", md: "row" }}
                     alignItems={{ xs: "center", md: "flex-start" }}
+                    flexDirection={{ xs: "column", sm: "row" }}
                     gap={1.25}
+                    justifyContent={{ xs: "center", md: "flex-start" }}
                   >
                     {links.map((link) => (
-                      <Grid item xs={12} md="auto" key={link.id}>
+                      <Grid item xs={12} sm="auto" key={link.id}>
                         <Link
                           color="inherit"
                           href={link?.href}

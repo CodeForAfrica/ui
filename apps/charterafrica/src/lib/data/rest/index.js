@@ -55,7 +55,7 @@ export const api = {
 };
 
 export async function getPageStaticProps(context) {
-  const props = await getPageProps(context, api);
+  const props = await getPageProps(api, context);
   if (!props) {
     return { notFound: true };
   }

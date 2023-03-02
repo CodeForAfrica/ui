@@ -8,7 +8,7 @@ import Global from "../blocks/Global";
 import GuidingPrincipals from "../blocks/GuidingPrinciples";
 import Hero from "../blocks/Hero";
 import Impressum from "../blocks/Impressum";
-import KnowledgePageHeader from "../blocks/KnowledgePageHeader";
+import LongForm from "../blocks/LongForm";
 import Mooc from "../blocks/Mooc";
 import PageDescription from "../blocks/PageDescription";
 import PageHeader from "../blocks/PageHeader";
@@ -51,7 +51,7 @@ const Pages = {
         GuidingPrincipals,
         Hero,
         Impressum,
-        KnowledgePageHeader,
+        LongForm,
         Mooc,
         PageDescription,
         PageHeader,

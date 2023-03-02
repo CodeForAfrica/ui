@@ -43,6 +43,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
         open={open}
         onClose={handleClose}
         PaperProps={{
+          onClick: handleClick,
           square: true,
           sx: { overflowY: { xs: "scroll", sm: "visible" } },
         }}

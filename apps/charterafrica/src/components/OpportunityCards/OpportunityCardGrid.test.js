@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import GrantsAndFellowships from "./GrantsAndFellowships";
+import OpportunityCardGrid from "./OpportunityCardGrid";
 
 import theme from "@/charterafrica/theme";
 
@@ -9,12 +9,12 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  title: "Fellowships",
+  title: "Grants",
   items: [
     {
       id: 1,
       title: "Democratic Governance in Zambia",
-      description: [
+      excerpt: [
         {
           children: [
             {
@@ -94,7 +94,6 @@ const defaultProps = {
         updatedAt: "2023-01-26T11:21:14.868Z",
         url: "/images/the-charter-project-africa_brandguide_guidedemarque-2-2.jpg",
       },
-      deadlineText: "Deadline: ",
       deadline: "2023-02-11",
       status: "upcoming",
     },
@@ -108,9 +107,9 @@ const defaultProps = {
   },
 };
 
-describe("<GrantsAndFellowships />", () => {
+describe("<OpportunityCardGrid />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<GrantsAndFellowships {...defaultProps} />);
+    const { container } = render(<OpportunityCardGrid {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

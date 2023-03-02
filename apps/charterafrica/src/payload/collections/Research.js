@@ -1,10 +1,14 @@
-import fields from "../fields/post";
+import authors from "../fields/authors";
+import content from "../fields/content";
+import publishedOn from "../fields/publishedOn";
+import richText from "../fields/richText";
+import slug from "../fields/slug";
 
-const News = {
+const Research = {
   slug: "research",
   admin: {
     useAsTitle: "title",
-    defaultColumns: ["title", "author", "publishedOn"],
+    defaultColumns: ["title", "authors", "publishedOn"],
   },
   access: {
     read: () => true,
@@ -12,7 +16,55 @@ const News = {
   versions: {
     drafts: true,
   },
-  fields,
+  fields: [
+    {
+      name: "title",
+      label: {
+        en: "Title",
+        fr: "Titre",
+        pt: "Título",
+      },
+      type: "text",
+      localized: true,
+      required: true,
+    },
+    slug(),
+    authors({ required: true }),
+    {
+      name: "coverImage",
+      label: {
+        en: "Cover Image",
+        pt: "Imagem de capa",
+        fr: "Image de couverture",
+      },
+      type: "upload",
+      relationTo: "media",
+      required: true,
+      filterOptions: {
+        mimeType: { contains: "image" },
+      },
+    },
+    richText({
+      name: "excerpt",
+      label: {
+        en: "Excerpt",
+        fr: "Extrait",
+        pt: "Excerto",
+      },
+      localized: true,
+      admin: {
+        elements: ["leaves"],
+      },
+    }),
+    {
+      name: "tags",
+      type: "relationship",
+      relationTo: "tag",
+      hasMany: true,
+    },
+    content(),
+    publishedOn(),
+  ],
 };
 
-export default News;
+export default Research;
