@@ -22,7 +22,7 @@ const EventsFellowshipsAndGrants = React.forwardRef(
 
     const itemsByStatusArray = Object.keys(itemsByStatus).map((key) => {
       return {
-        title: `${key}`,
+        title: key,
         items: itemsByStatus[key],
       };
     });
