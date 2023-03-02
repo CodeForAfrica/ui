@@ -29,7 +29,8 @@ async function getGlobalProps({ locale, defaultLocale }, api) {
   return { footer, navbar, settings };
 }
 
-export async function processPageAbout({ blocks }) {
+export async function processPageAbout(page) {
+  const { blocks } = page;
   blocks.push({
     slug: "grantees",
     title: "Grantees",
@@ -68,12 +69,14 @@ export async function processPageAbout({ blocks }) {
       },
     })),
   });
+
+  return page;
 }
 
-export async function processPageExplainers({ title, blocks }, api) {
+export async function processPageExplainers(page, api) {
   const collection = await api.getCollection("explainers");
   const explainers = collection.docs || null;
-
+  const { title, blocks } = page;
   if (explainers?.length) {
     blocks.push({
       slug: "explainers",
@@ -81,9 +84,12 @@ export async function processPageExplainers({ title, blocks }, api) {
       explainers,
     });
   }
+
+  return page;
 }
 
-export async function processPageFellowships({ blocks }) {
+export async function processPageFellowships(page) {
+  const { blocks } = page;
   blocks.push({
     slug: "page-info",
     description: [
@@ -169,22 +175,33 @@ export async function processPageFellowships({ blocks }) {
       statusGroupTitleSuffix: "",
     },
   });
+
+  return page;
 }
 
-export async function processPageArticles(page, api, { locale }) {
-  const { blocks, breadcrumbs = [], slug } = page;
-  const { docs } = await api.getCollection(slug, {
-    where: { _status: { equals: "published" } },
-  });
+function processPost(post, page, api, context) {
+  const { breadcrumbs = [] } = page;
 
-  const processArticle = (data) => ({
-    ...data,
-    author:
-      slug === "research"
-        ? data?.authors?.map(({ fullName }) => fullName).join(", ") ?? null
-        : null,
-    image: data?.coverImage ?? null,
-    date: new Date(data?.publishedOn).toLocaleString(locale, {
+  let image = null;
+  if (post.coverImage) {
+    const { alt, url } = post.coverImage;
+    image = {
+      alt: alt || post.title,
+      url,
+    };
+  }
+  let href = null;
+  const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
+  if (pageUrl) {
+    const { slug } = post;
+    href = `${pageUrl}/${slug}`;
+  }
+  const { locale } = context;
+  return {
+    ...post,
+    author: post.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
+    image,
+    date: new Date(post.publishedOn).toLocaleString(locale, {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -193,37 +210,67 @@ export async function processPageArticles(page, api, { locale }) {
       second: "2-digit",
     }),
     link: {
-      href: breadcrumbs[breadcrumbs.length - 1]?.url
-        ? `${breadcrumbs[breadcrumbs.length - 1].url}/${data?.slug}`
-        : null,
+      href,
     },
-  });
-
-  const articles = docs?.map(processArticle);
-  const featuredArticle =
-    blocks.find((block) => block.slug === "featured-post")?.featuredPost
-      ?.value ?? null;
-
-  const news = {
-    slug: "news",
-    title: "News",
-    articles,
   };
-
-  if (featuredArticle) {
-    const featuredNewsPost = processArticle(featuredArticle);
-    const category = `${slug?.charAt(0).toUpperCase()}${slug?.slice(1)}`;
-    const featuredPost = {
-      category,
-      ...featuredNewsPost,
-      slug: "featured-post",
-    };
-    blocks.push(featuredPost);
-  }
-  blocks.push(news);
 }
 
-export async function processPagePrivacyPolicy(page) {
+async function processPageArticlePost(page, api, context) {
+  const { params } = context;
+  const { slug: collection } = page;
+  const slug = params.slugs[2];
+  const { docs } = await api.getCollection(collection, {
+    where: {
+      slug: {
+        equals: slug,
+      },
+      _status: { equals: "published" },
+    },
+  });
+  if (!docs?.length) {
+    return null;
+  }
+
+  const [post] = docs;
+  return {
+    title: `${post.title} | ${page.title}`,
+    blocks: [],
+  };
+}
+
+export async function processPageArticles(page, api, context) {
+  const { params } = context;
+  if (params.slugs.length > 2) {
+    return processPageArticlePost(page, api, context);
+  }
+
+  const { blocks } = page;
+  const foundIndex = blocks.findIndex(({ slug }) => slug === "featured-post");
+  if (foundIndex > -1) {
+    const foundValue = blocks[foundIndex].featuredPost?.value;
+    if (foundValue) {
+      blocks[foundIndex] = {
+        ...processPost(foundValue, page, api, context),
+        slug: "featured-post",
+      };
+    }
+  }
+  const { slug, title } = page;
+  const { docs } = await api.getCollection(slug, {
+    where: { _status: { equals: "published" } },
+  });
+  const articles =
+    docs?.map((post) => processPost(post, page, api, context)) ?? null;
+  const articlesBlock = {
+    slug,
+    title,
+    articles,
+  };
+  blocks.push(articlesBlock);
+  return page;
+}
+
+async function processPagePrivacyPolicy(page) {
   const { blocks } = page;
   const index = blocks?.findIndex(({ slug }) => slug === "longform");
   if (index > -1) {
@@ -286,15 +333,20 @@ const processGlobalBlockFunctionsMap = {
   helpdesk: processGlobalBlockHelpdesk,
 };
 
-export async function getPageProps(context, api) {
+function getPageSlug({ params }) {
+  const slugsCount = params.slugs?.length;
+  // count < 3, page slug is the last slug e.g. ["about"] or ["knowldge/news"]
+  // count == 3, page slug is the 2nd slug (index 1); last slug (index 3)
+  //             is the post. e.g. opportunities/grants/democratic-governance-in-zambia
+  const pageSlugIndex = slugsCount < 3 ? slugsCount - 1 : 1;
+  return slugsCount ? params.slugs[pageSlugIndex] : "index";
+}
+
+export async function getPageProps(api, context) {
   const { defaultLocale, locale, locales, params } = context;
   const fallbackLocale = defaultLocale;
-  const slugsCount = params.slugs?.length;
-  const slug = slugsCount ? params.slugs[slugsCount - 1] : "index";
-  // NOTE: we don't use .join because it doesn't put separator first
-  const pathname = slugsCount
-    ? params.slugs.reduce((acc, curr) => `${acc}/${curr}`, "")
-    : "/";
+  const slug = getPageSlug(context);
+  const pathname = slug !== "index" ? `/${params.slugs.join("/")}` : "/";
 
   const { docs: pages } = await api.findPage(slug, {
     locale,
@@ -329,21 +381,25 @@ export async function getPageProps(context, api) {
       })
     )) || [];
   const processPage = processPageFunctionsMap[page.slug];
-  if (processPage) {
-    await processPage(page, api, context);
+  const processedPage = processPage
+    ? await processPage(page, api, context)
+    : page;
+  if (!processedPage) {
+    return null;
   }
+
   const { settings, ...globalProps } = await getGlobalProps(
     { defaultLocale, locale },
     api
   );
-  const seo = getPageSeoFromMeta(page, settings, {
+  const seo = getPageSeoFromMeta(processedPage, settings, {
     locale,
     locales,
     pathname,
   });
   return {
     ...globalProps,
-    ...page,
+    ...processedPage,
     seo,
   };
 }
