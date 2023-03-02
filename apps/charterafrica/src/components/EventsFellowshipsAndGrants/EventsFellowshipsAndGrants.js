@@ -2,9 +2,8 @@ import { Section } from "@commons-ui/core";
 import { Typography, Box, Divider } from "@mui/material";
 import React from "react";
 
-import OpportunityCardList from "../OpportunityCardList";
-
 import { secondary } from "@/charterafrica/colors";
+import OpportunityCardList from "@/charterafrica/components/OpportunityCardList";
 
 const EventsFellowshipsAndGrants = React.forwardRef(
   function EventsFellowshipsAndGrants(props, ref) {

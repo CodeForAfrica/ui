@@ -2,7 +2,6 @@ import Articles from "@/charterafrica/components/Articles";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import EventsFellowshipsAndGrants from "@/charterafrica/components/EventsFellowshipsAndGrants";
-import EventsFellowshipsGrantsHeader from "@/charterafrica/components/EventsFellowshipsGrantsHeader";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
@@ -14,6 +13,7 @@ import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent"
 import Hero from "@/charterafrica/components/Hero";
 import Impressum from "@/charterafrica/components/Impressum";
 import Mooc from "@/charterafrica/components/Mooc";
+import OpportunityHeader from "@/charterafrica/components/OpportunityHeader";
 import PageDescription from "@/charterafrica/components/PageDescription";
 import PageHeader from "@/charterafrica/components/PageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
@@ -30,7 +30,7 @@ const componentsBySlugs = {
   faq: FAQ,
   "featured-post": FeaturedPostCard,
   fellowships: EventsFellowshipsAndGrants,
-  "fellowships-and-grants-header": EventsFellowshipsGrantsHeader,
+  "fellowships-and-grants-header": OpportunityHeader,
   "focal-countries": FocalCountries,
   grantees: Grantees,
   grants: EventsFellowshipsAndGrants,
