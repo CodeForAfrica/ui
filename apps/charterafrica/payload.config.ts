@@ -143,7 +143,7 @@ export default buildConfig({
       },
     }),
     seo({
-      collections: ["pages"],
+      collections: ["news", "pages", "research"],
       globals: ["settings"],
       uploadsCollection: "media",
       generateTitle: ({ doc }: any) => doc?.title?.value as string,

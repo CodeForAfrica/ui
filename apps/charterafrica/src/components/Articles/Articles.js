@@ -6,7 +6,7 @@ import React from "react";
 import { secondary } from "@/charterafrica/colors";
 import PostCard from "@/charterafrica/components/PostCard";
 
-const Articles = React.forwardRef((props, ref) => {
+const Articles = React.forwardRef(function Articles(props, ref) {
   const { sx, articles } = props;
   return (
     <Box bgcolor={secondary[50]} sx={sx} ref={ref}>
