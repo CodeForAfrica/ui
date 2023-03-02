@@ -18,6 +18,7 @@ const Articles = React.forwardRef((props, ref) => {
             sm: "69px",
             md: 0,
           },
+          py: 5,
         }}
       >
         <Grid container rowSpacing={5} columnSpacing={{ xs: 5, md: 2.5 }}>

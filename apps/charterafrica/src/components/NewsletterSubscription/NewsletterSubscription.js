@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const NewsletterSubscriptionRoot = styled(RichTypography)(
-  ({ theme: { palette, typography } }) => ({
+  ({ theme: { breakpoints, palette, typography } }) => ({
     "& #mc_embed_signup": {
       ...typography.body1,
       backgroundColor: "unset",
@@ -19,10 +19,18 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
       },
     "& #mc_embed_signup_scroll": {
       display: "flex",
+      flexDirection: "column",
+      [breakpoints.up("md")]: {
+        flexDirection: "row",
+      },
     },
     "#mc_embed_signup form": {
       margin: 0,
       display: "flex",
+      justifyContent: "center",
+      [breakpoints.up("sm")]: {
+        justifyContent: "flex-start",
+      },
     },
     "& #mce-EMAIL-HELPERTEXT": {
       display: "none",
@@ -60,26 +68,38 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
       display: "none",
     },
     "#mc_embed_signup .mc-field-group": {
+      minHeight: 0,
+      paddingBottom: 0,
       width: "100%",
     },
     "& #mc_embed_signup input:focus,  #mc_embed_signup textarea:focus": {
       border: `1px solid ${palette.primary.main}`,
     },
     "& #mc_embed_signup input:active,  #mc_embed_signup textarea:active": {},
+    "& #mc_embed_signup .clear.foot": {
+      display: "flex",
+      width: "100%",
+      [breakpoints.up("md")]: {
+        display: "grid",
+        width: "90%",
+      },
+    },
     "& #mc_embed_signup input[type=submit]": {
-      ...typography.subtitle1,
+      ...typography.p1SemiBold,
       background: "none",
-      border: "none",
-      padding: 0,
-      minWidth: "98px",
       backgroundColor: "#F7CE46",
-      fontFamily: "Open Sans",
-      fontStyle: "normal",
-      fontWeight: 600,
-      fontSize: "14px",
+      border: "none",
       color: "#3E202C",
-      marginLeft: typography.pxToRem(10),
       height: typography.pxToRem(36),
+      margin: 0,
+      minWidth: "98px",
+      padding: 0,
+      width: "100%",
+      [breakpoints.up("md")]: {
+        marginLeft: "10px",
+        marginRight: "5px",
+        width: "auto",
+      },
     },
   })
 );
@@ -110,7 +130,7 @@ const NewsletterSubscription = React.forwardRef(function NewsletterSubscription(
       <RichTypography
         mb={2.5}
         variant="p2SemiBold"
-        textAlign={{ xs: "center", md: "right" }}
+        textAlign={{ xs: "center", sm: "left", md: "right" }}
       >
         {title}
       </RichTypography>
