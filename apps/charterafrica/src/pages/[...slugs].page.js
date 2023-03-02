@@ -1,7 +1,6 @@
 import Articles from "@/charterafrica/components/Articles";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
-import EventsFellowshipsAndGrants from "@/charterafrica/components/EventsFellowshipsAndGrants";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
@@ -15,6 +14,7 @@ import Impressum from "@/charterafrica/components/Impressum";
 import LongForm from "@/charterafrica/components/LongForm";
 import Mooc from "@/charterafrica/components/Mooc";
 import OpportunityHeader from "@/charterafrica/components/OpportunityHeader";
+import OpportunityPage from "@/charterafrica/components/OpportunityPage";
 import PageDescription from "@/charterafrica/components/PageDescription";
 import PageHeader from "@/charterafrica/components/PageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
@@ -26,15 +26,15 @@ import { getPageServerSideProps } from "@/charterafrica/lib/data";
 const componentsBySlugs = {
   "our-community-platforms": CommunityPlatforms,
   ecosystem: Ecosystem,
-  events: EventsFellowshipsAndGrants,
+  events: OpportunityPage,
   explainers: Explainers,
   faq: FAQ,
   "featured-post": FeaturedPostCard,
-  fellowships: EventsFellowshipsAndGrants,
+  fellowships: OpportunityPage,
   "fellowships-and-grants-header": OpportunityHeader,
   "focal-countries": FocalCountries,
   grantees: Grantees,
-  grants: EventsFellowshipsAndGrants,
+  grants: OpportunityPage,
   "guiding-principles": GuidingPrinciples,
   helpdesk: Helpdesk,
   "helpdesk-page-content": HelpdeskPageContent,
