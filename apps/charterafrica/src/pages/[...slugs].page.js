@@ -12,6 +12,7 @@ import Helpdesk from "@/charterafrica/components/Helpdesk";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import Hero from "@/charterafrica/components/Hero";
 import Impressum from "@/charterafrica/components/Impressum";
+import LongForm from "@/charterafrica/components/LongForm";
 import Mooc from "@/charterafrica/components/Mooc";
 import OpportunityHeader from "@/charterafrica/components/OpportunityHeader";
 import PageDescription from "@/charterafrica/components/PageDescription";
@@ -39,6 +40,7 @@ const componentsBySlugs = {
   "helpdesk-page-content": HelpdeskPageContent,
   hero: Hero,
   impressum: Impressum,
+  longform: LongForm,
   mooc: Mooc,
   news: Articles,
   "our-partners": Partners,

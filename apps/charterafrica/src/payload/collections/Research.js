@@ -4,8 +4,8 @@ import RichText from "../blocks/RichText";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
 
-const News = {
-  slug: "news",
+const Research = {
+  slug: "research",
   admin: {
     useAsTitle: "title",
     defaultColumns: ["title", "authors", "publishedOn"],
@@ -31,6 +31,7 @@ const News = {
     slug(),
     {
       name: "authors",
+      required: true,
       type: "relationship",
       relationTo: "author",
       hasMany: true,
@@ -66,7 +67,6 @@ const News = {
     }),
     {
       name: "tags",
-      required: true,
       type: "relationship",
       relationTo: "tag",
       hasMany: true,
@@ -94,4 +94,4 @@ const News = {
   ],
 };
 
-export default News;
+export default Research;
