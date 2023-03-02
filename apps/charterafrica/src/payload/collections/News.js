@@ -1,6 +1,6 @@
-import ExternalEmbed from "../blocks/ExternalEmbed";
-import MediaBlock from "../blocks/MediaBlock";
-import RichText from "../blocks/RichText";
+import authors from "../fields/authors";
+import content from "../fields/content";
+import publishedOn from "../fields/publishedOn";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
 
@@ -29,15 +29,7 @@ const News = {
       required: true,
     },
     slug(),
-    {
-      name: "authors",
-      type: "relationship",
-      relationTo: "author",
-      hasMany: true,
-      admin: {
-        position: "sidebar",
-      },
-    },
+    authors(),
     {
       name: "coverImage",
       label: {
@@ -71,26 +63,8 @@ const News = {
       relationTo: "tag",
       hasMany: true,
     },
-    {
-      name: "content",
-      type: "blocks",
-      blocks: [RichText, MediaBlock, ExternalEmbed],
-      required: true,
-    },
-    {
-      name: "publishedOn",
-      type: "date",
-      required: true,
-      hooks: {
-        beforeValidate: [({ value }) => new Date(value)],
-      },
-      admin: {
-        date: {
-          pickerAppearance: "dayAndTime",
-        },
-        position: "sidebar",
-      },
-    },
+    content(),
+    publishedOn(),
   ],
 };
 

@@ -1,4 +1,5 @@
-import { content } from "../fields/post";
+import content from "../fields/content";
+import linkGroup from "../fields/linkGroup";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
 
@@ -27,6 +28,20 @@ const Events = {
       required: true,
     },
     slug({ fieldToUse: "name" }),
+    {
+      name: "coverImage",
+      label: {
+        en: "Cover Image",
+        pt: "Imagem de capa",
+        fr: "Image de couverture",
+      },
+      type: "upload",
+      relationTo: "media",
+      required: true,
+      filterOptions: {
+        mimeType: { contains: "image" },
+      },
+    },
     {
       name: "topic",
       label: {
@@ -68,6 +83,15 @@ const Events = {
         position: "sidebar",
       },
     },
+    linkGroup({
+      overrides: {
+        label: {
+          en: "Register Here",
+          fr: "Inscrivez-vous ici",
+          pt: "Registre-se aqui",
+        },
+      },
+    }),
   ],
 };
 
