@@ -36,12 +36,13 @@ const Mooc = React.forwardRef(function Mooc(props, ref) {
             <Grid item>
               <RichText
                 color="text.secondary"
+                component="h2"
                 elements={title}
                 textAlign={{ xs: "left", sm: "center", md: "left" }}
                 typography={{ md: "h1" }}
                 variant="h3Small"
                 sx={() => ({
-                  "& > em, & > strong": {
+                  "& h2 > em, & h2 > strong": {
                     color: "secondary.main",
                     fontStyle: "normal",
                   },

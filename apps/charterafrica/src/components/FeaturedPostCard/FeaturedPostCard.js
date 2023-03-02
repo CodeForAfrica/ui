@@ -4,6 +4,7 @@ import {
   Card,
   CardContent,
   CardMedia,
+  Divider,
   Typography,
   Box,
   CardActions,
@@ -18,29 +19,21 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
   props,
   ref
 ) {
-  const { author, category, date, excerpt, image, link, sx, title } = props;
+  const { author, date, excerpt, image, link, sx, title } = props;
 
   if (!title?.length) {
     return null;
   }
   return (
     <Box
+      display={{ xs: "none", md: "flex" }}
       sx={{
         backgroundColor: secondary[50],
         ...sx,
       }}
       ref={ref}
     >
-      <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: "74.5px" } }}>
-        <LineClampedRichTypography
-          color="neutral.dark"
-          display={{ xs: "flex", md: "none" }}
-          justifyContent="center"
-          variant="h3"
-          lineClamp={1}
-        >
-          {category}
-        </LineClampedRichTypography>
+      <Section sx={{ px: { xs: 5, sm: 0 }, pt: 5 }}>
         <Card
           sx={{
             display: { xs: "none", md: "flex" },
@@ -70,13 +63,17 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
               },
             }}
           >
-            <Typography
+            <LineClampedRichTypography
               color="neutral.dark"
+              lineClamp={4}
               textAlign="left"
               variant="h2SemiBold"
+              sx={(theme) => ({
+                maxHeight: `calc(${theme.typography.h2SemiBold.fontSize}px * ${theme.typography.h2SemiBold.lineHeight} * 4)`,
+              })}
             >
               {title}
-            </Typography>
+            </LineClampedRichTypography>
             {author?.length ? (
               <Typography
                 color="neutral.main"
@@ -91,19 +88,11 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             ) : null}
 
             <Typography color="neutral.main" textAlign="left" variant="p1">
-              {new Date(date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
+              {date}
             </Typography>
             <RichText
               sx={{
                 maxHeight: 24 * 6,
-                overflow: "hidden",
-                "& :is(h1, h2, h3, h4, h5, h6)": {
-                  lineHeight: "24px",
-                },
               }}
               color="neutral.dark"
               textAlign="left"
@@ -126,6 +115,8 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             </CardActions>
           </CardContent>
         </Card>
+
+        <Divider sx={{ pt: 5 }} />
       </Section>
     </Box>
   );

@@ -52,7 +52,7 @@ const Slide = React.forwardRef(function Slide(props, ref) {
               color: title?.color,
               minHeight: `calc(${t.typography.h2Small.fontSize}px*${t.typography.h2Small.lineHeight}*3)`,
               whiteSpace: "pre-line",
-              "& > em, & > strong": {
+              "& h1 > em, & h1 > strong": {
                 color: "secondary.main",
                 fontStyle: "normal",
               },
