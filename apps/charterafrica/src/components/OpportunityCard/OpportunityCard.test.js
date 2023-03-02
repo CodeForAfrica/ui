@@ -11,7 +11,7 @@ const render = createRender({ theme });
 const defaultProps = {
   id: 1,
   title: "Democratic Governance in Zambia",
-  description: [
+  excerpt: [
     {
       children: [
         {
@@ -36,6 +36,9 @@ const defaultProps = {
   deadlineText: "Deadline: ",
   deadline: "2023-02-11",
   status: "open",
+  link: {
+    href: "/",
+  },
   config: {
     showAllText: "Show All",
     showLessText: "Show Less",

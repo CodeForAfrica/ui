@@ -1,4 +1,6 @@
-import { authors, content, publishedOn, tags } from "../fields/post";
+import ExternalEmbed from "../blocks/ExternalEmbed";
+import MediaBlock from "../blocks/MediaBlock";
+import RichText from "../blocks/RichText";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
 
@@ -27,7 +29,16 @@ const Research = {
       required: true,
     },
     slug(),
-    authors(),
+    {
+      name: "authors",
+      required: true,
+      type: "relationship",
+      relationTo: "author",
+      hasMany: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
     {
       name: "coverImage",
       label: {
@@ -54,9 +65,32 @@ const Research = {
         elements: ["leaves"],
       },
     }),
-    tags({ required: false }),
-    content(),
-    publishedOn(),
+    {
+      name: "tags",
+      type: "relationship",
+      relationTo: "tag",
+      hasMany: true,
+    },
+    {
+      name: "content",
+      type: "blocks",
+      blocks: [RichText, MediaBlock, ExternalEmbed],
+      required: true,
+    },
+    {
+      name: "publishedOn",
+      type: "date",
+      required: true,
+      hooks: {
+        beforeValidate: [({ value }) => new Date(value)],
+      },
+      admin: {
+        date: {
+          pickerAppearance: "dayAndTime",
+        },
+        position: "sidebar",
+      },
+    },
   ],
 };
 

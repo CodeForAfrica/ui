@@ -6,14 +6,15 @@ import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Grantees from "@/charterafrica/components/Grantees";
-import GrantsAndFellowships from "@/charterafrica/components/GrantsAndFellowships";
-import GrantsFellowshipsHeader from "@/charterafrica/components/GrantsFellowshipsHeader";
 import GuidingPrinciples from "@/charterafrica/components/GuidingPrinciples";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import Hero from "@/charterafrica/components/Hero";
 import Impressum from "@/charterafrica/components/Impressum";
+import LongForm from "@/charterafrica/components/LongForm";
 import Mooc from "@/charterafrica/components/Mooc";
+import OpportunityHeader from "@/charterafrica/components/OpportunityHeader";
+import OpportunityPage from "@/charterafrica/components/OpportunityPage";
 import PageDescription from "@/charterafrica/components/PageDescription";
 import PageHeader from "@/charterafrica/components/PageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
@@ -25,19 +26,21 @@ import { getPageServerSideProps } from "@/charterafrica/lib/data";
 const componentsBySlugs = {
   "our-community-platforms": CommunityPlatforms,
   ecosystem: Ecosystem,
+  events: OpportunityPage,
   explainers: Explainers,
   faq: FAQ,
   "featured-post": FeaturedPostCard,
-  fellowships: GrantsAndFellowships,
-  "knowledge-page-header": GrantsFellowshipsHeader,
+  fellowships: OpportunityPage,
+  "fellowships-and-grants-header": OpportunityHeader,
   "focal-countries": FocalCountries,
   grantees: Grantees,
-  grants: GrantsAndFellowships,
+  grants: OpportunityPage,
   "guiding-principles": GuidingPrinciples,
   helpdesk: Helpdesk,
   "helpdesk-page-content": HelpdeskPageContent,
   hero: Hero,
   impressum: Impressum,
+  longform: LongForm,
   mooc: Mooc,
   news: Articles,
   "our-partners": Partners,

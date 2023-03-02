@@ -113,7 +113,7 @@ export async function processPageFellowships({ blocks }, api, { locale }) {
     config: {
       showAllText: "Show All",
       showLessText: "Show Less",
-      deadlineText: "Deadline",
+      dateText: "Deadline",
       showOnMobile: ["open", "closed"],
       statusGroupTitleSuffix: "Calls",
     },
@@ -125,8 +125,55 @@ export async function processPageFellowships({ blocks }, api, { locale }) {
     config: {
       showAllText: "Show All",
       showLessText: "Show Less",
-      deadlineText: "Deadline",
+      dateText: "Deadline",
       showOnMobile: ["technologies"],
+      statusGroupTitleSuffix: "",
+    },
+  });
+  blocks.push({
+    slug: "events",
+    title: "Events",
+    items: Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      title: "Event title going on two or even three lines",
+      category: "Topic Name",
+      date: "2023-02-11",
+      excerpt: [
+        {
+          children: [
+            {
+              text: "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur ",
+            },
+          ],
+        },
+      ],
+      image: {
+        id: "63d2622aafe25f6469605eae",
+        alt: `Grant ${i}`,
+        prefix: "media",
+        filename: "Rectangle 113.jpg",
+        mimeType: "image/jpg",
+        filesize: 257010,
+        width: 1236,
+        height: 696,
+        createdAt: "2023-01-26T11:21:14.868Z",
+        updatedAt: "2023-01-26T11:21:14.868Z",
+        url: "/images/featured-event.svg",
+      },
+      link: {
+        href: `/events/${i}`,
+      },
+      registerLink: {
+        href: `/register/events/${i}`,
+      },
+      registerText: "Register ",
+      status: ["upcoming", "past"][Math.floor(Math.random() * 2)],
+      featured: i === 0,
+    })),
+    config: {
+      showAllText: "Show All",
+      showLessText: "Show Less",
+      showOnMobile: ["upcoming", "past"],
       statusGroupTitleSuffix: "",
     },
   });
@@ -183,12 +230,29 @@ export async function processPageArticles(page, api, { locale }) {
   blocks.push(news);
 }
 
+export async function processPagePrivacyPolicy(page) {
+  const { blocks } = page;
+  const index = blocks?.findIndex(({ slug }) => slug === "longform");
+  if (index > -1) {
+    const { content: originalContent } = blocks[index];
+    if (originalContent?.length) {
+      const content = originalContent.map(({ blockType, ...other }) => ({
+        ...other,
+        slug: blockType,
+      }));
+      blocks[index].content = content;
+    }
+  }
+  return page;
+}
+
 const processPageFunctionsMap = {
   about: processPageAbout,
   explainers: processPageExplainers,
+  fellowships: processPageFellowships,
   news: processPageArticles,
   research: processPageArticles,
-  fellowships: processPageFellowships,
+  "privacy-policy": processPagePrivacyPolicy,
 };
 
 async function processGlobalBlockFocalCountries(block) {

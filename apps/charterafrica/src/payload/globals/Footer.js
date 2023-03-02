@@ -239,14 +239,14 @@ const Footer = {
       fields: [
         {
           name: "title",
-          required: true,
-          localized: true,
-          type: "text",
           label: {
             en: "Title",
             fr: "Titre",
             pt: "título",
           },
+          type: "text",
+          required: true,
+          localized: true,
         },
         {
           name: "logo",

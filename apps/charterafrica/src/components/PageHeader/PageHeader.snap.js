@@ -37,7 +37,7 @@ exports[`<PageHeader/> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <div
-              class="MuiBox-root css-g5wzvv"
+              class="MuiBox-root css-4kydy1"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1Small css-8ar3yp-MuiTypography-root"

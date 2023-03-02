@@ -1,26 +1,29 @@
+import { Link } from "@commons-ui/next";
 import {
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
   Typography,
-  styled,
+  Grid,
+  CardActions,
 } from "@mui/material";
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
-import RichText from "@/charterafrica/components/RichText/RichText";
-
-const StyledCardActionArea = styled(CardActionArea)(
-  () => `
-    .MuiCardActionArea-focusHighlight {
-        background: transparent;
-    }
-`
-);
+import RichText from "@/charterafrica/components/RichText";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const { image, deadline, description, title, config } = props;
+  const {
+    image,
+    date,
+    excerpt,
+    link,
+    title,
+    config,
+    registerLink,
+    registerText,
+  } = props;
 
   if (!title) {
     return null;
@@ -34,7 +37,15 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
         width: "270px",
       }}
     >
-      <StyledCardActionArea component="a">
+      <CardActionArea
+        component={link?.href ? Link : undefined}
+        href={link?.href}
+        sx={{
+          ".MuiCardActionArea-focusHighlight": {
+            background: "transparent",
+          },
+        }}
+      >
         <CardMedia
           component="img"
           height={187.26}
@@ -47,6 +58,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             objectFit: "cover",
           }}
         />
+
         <CardContent
           sx={{
             display: "flex",
@@ -68,21 +80,53 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
           >
             {title}
           </Typography>
-          <RichText color="neutral.dark" variant="p1" elements={description} />
-          {/* <Typography color="neutral.dark" variant="p1">
-            {description}
-          </Typography> */}
-          <Typography
+          <RichText
             color="neutral.dark"
-            variant="caption"
-            sx={{
-              textTransform: "uppercase",
-            }}
-          >
-            {config.deadlineText}: {deadline}
-          </Typography>
+            lineClamp={3}
+            variant="p1"
+            elements={excerpt}
+            sx={(theme) => ({
+              height: `calc(${theme.typography.p1.fontSize}px * 3)`,
+            })}
+          />
         </CardContent>
-      </StyledCardActionArea>
+      </CardActionArea>
+      <CardActions
+        disableSpacing
+        sx={{
+          padding: "0",
+          paddingTop: 2,
+        }}
+      >
+        <Grid container justifyContent="space-between">
+          <Grid item>
+            <Typography
+              color="neutral.dark"
+              variant="caption"
+              sx={{
+                textTransform: "uppercase",
+              }}
+            >
+              {config?.dateText ? `${config?.dateText}:` : null} {date}
+            </Typography>
+          </Grid>
+          {registerLink?.href ? (
+            <Grid item>
+              <Link
+                color="neutral.dark"
+                href={registerLink?.href}
+                underline="always"
+                variant="caption"
+                sx={{
+                  textTransform: "capitalize",
+                }}
+              >
+                {registerText || "Register here"}
+              </Link>
+            </Grid>
+          ) : null}
+        </Grid>
+      </CardActions>
     </Card>
   );
 });
