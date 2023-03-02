@@ -41,18 +41,12 @@ const OpportunityCardHeader = React.forwardRef(function OpportunityCardHeader(
             "&:hover": {
               backgroundColor: "transparent",
             },
+            color: "neutral.dark",
+            variant: "p3SemiBold",
           }}
           onClick={onClick}
         >
-          <Typography
-            color="neutral.dark"
-            variant="p3SemiBold"
-            sx={{
-              textDecoration: "underline",
-            }}
-          >
-            {showAll ? showLessText : showAllText}
-          </Typography>
+          {showAll ? showLessText : showAllText}
         </Button>
       </Grid>
     </Grid>
