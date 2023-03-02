@@ -1,14 +1,33 @@
 import { Section } from "@commons-ui/core";
 import { Box, Grid, Typography, Select, MenuItem, Chip } from "@mui/material";
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 import { neutral } from "@/charterafrica/colors";
 import SearchInput from "@/charterafrica/components/SearchInput";
+import useFilterQuery, {
+  ALL_TAG,
+} from "@/charterafrica/components/useFilterQuery";
 
 const ArticlesFilter = React.forwardRef((props, ref) => {
   const { tags, categories } = props;
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-  const [selectedTags, setSelectedTags] = useState(tags[0]);
+  const [category, setSelectedCategory] = useState(categories[0]);
+  const [tag, setSelectedTags] = useState(ALL_TAG);
+  const [q, setQ] = useState();
+  const router = useRouter();
+  const queryParams = useFilterQuery({ category, q, tag });
+
+  const handleTagChange = (t) => {
+    setSelectedTags(t);
+  };
+
+  useEffect(() => {
+    router.push(queryParams, undefined, { shallow: true });
+
+    // We don't want to listen to router changes here since we're the ones
+    // updating them
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryParams]);
 
   return (
     <Box bgcolor="#fff" ref={ref}>
@@ -26,6 +45,7 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
           <Grid item>
             <SearchInput
               placeholder="Search News"
+              onChange={(e) => setQ(e.target.value)}
               sx={{
                 backgroundColor: "#fff",
                 height: "36px",
@@ -41,29 +61,28 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
                 height: "36px",
                 minWidth: "200px",
               }}
-              defaultValue={selectedCategory}
+              defaultValue={category}
             >
-              {categories.map((category) => {
+              {categories.map((c) => {
                 return (
-                  <MenuItem value={category} key={category}>
-                    {category}
+                  <MenuItem value={c} key={c}>
+                    {c}
                   </MenuItem>
                 );
               })}
             </Select>
           </Grid>
           <Grid item container xs={12} sm={6} md={4} gap={1}>
-            {tags.map((tag) => {
+            {tags.map((s) => {
               return (
                 <Chip
-                  label={tag}
-                  onClick={() => setSelectedTags(tag)}
+                  label={s}
+                  onClick={() => handleTagChange(s)}
                   sx={{
-                    backgroundColor:
-                      selectedTags === tag ? neutral[700] : neutral[50],
-                    color: selectedTags === tag ? neutral[50] : neutral[900],
+                    backgroundColor: tag === s ? neutral[700] : neutral[50],
+                    color: tag === s ? neutral[50] : neutral[900],
                   }}
-                  key={tag}
+                  key={s}
                 />
               );
             })}
