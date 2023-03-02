@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<OpportunityCardList /> renders unchanged 1`] = `
+exports[`<OpportunityCards /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-0"
@@ -21,15 +21,11 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 css-hj0fj-MuiGrid-root"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1nut2uz-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1xg8n5n-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
-          <p
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
-          >
-            Show All
-          </p>
+          Show All
         </button>
       </div>
     </div>

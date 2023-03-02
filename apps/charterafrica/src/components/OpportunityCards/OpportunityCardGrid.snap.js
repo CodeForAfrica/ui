@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<OpportunityCardListGrid /> renders unchanged 1`] = `
+exports[`<OpportunityCardGrid /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 css-15y1rqh-MuiGrid-root"
