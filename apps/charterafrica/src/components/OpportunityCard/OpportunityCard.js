@@ -82,7 +82,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
           </Typography>
           <RichText
             color="neutral.dark"
-            lineClamp="3"
+            lineClamp={3}
             variant="p1"
             elements={excerpt}
           />
@@ -107,7 +107,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
               {config?.dateText ? `${config?.dateText}:` : null} {date}
             </Typography>
           </Grid>
-          {registerLink ? (
+          {registerLink?.href ? (
             <Grid item>
               <Link
                 color="neutral.dark"

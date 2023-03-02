@@ -130,7 +130,7 @@ export async function processPageFellowships({ blocks }) {
         url: "/images/charter-africa-brand.svg",
       },
       link: {
-        href: `/grants/${i}`,
+        href: `/`,
       },
       status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
     })),

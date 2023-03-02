@@ -32,7 +32,7 @@ const OpportunityCards = React.forwardRef(function OpportunityCards(
         showAllText={config?.showAllText || "Show all"}
         showLessText={config?.showLessText || "Show less"}
       />
-      {featuredEvent ? <FeaturedPostCard {...featuredEvent} /> : null}
+      {featuredEvent && <FeaturedPostCard {...featuredEvent} />}
       <OpportunityCardGrid items={items} config={config} showAll={showAll} />
       <Button
         onClick={() => {
