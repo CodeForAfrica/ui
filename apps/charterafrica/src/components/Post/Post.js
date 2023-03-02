@@ -33,7 +33,7 @@ const Post = React.forwardRef(function Post(props, ref) {
           width: 0,
         }}
       />
-      <Section sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: 7.5 } }}>
+      <Section sx={{ px: { xs: 2.5, sm: 0 }, pt: 5 }}>
         <Grid container rowSpacing={2.5}>
           <Grid item xs={12}>
             <RichTypography
