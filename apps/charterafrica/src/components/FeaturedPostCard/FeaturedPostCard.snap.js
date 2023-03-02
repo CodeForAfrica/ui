@@ -35,7 +35,7 @@ exports[`FeaturedPostCard should render 1`] = `
             2020-10-10 10:10:10
           </p>
           <div
-            class="MuiBox-root css-glpwc3"
+            class="MuiBox-root css-15getys"
           >
             <h6
               class="MuiTypography-root MuiTypography-subheading css-1ea3c8k-MuiTypography-root"

@@ -48,6 +48,7 @@ const Fellowships = {
         fr: "Catégorie",
         pt: "Categoria",
       },
+      required: true,
       type: "select",
       options: [
         {

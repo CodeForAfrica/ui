@@ -88,12 +88,21 @@ export async function processPageFellowships({ blocks }, api, { locale }) {
   const { docs: fellowshipDocs } = await api.getCollection("fellowships");
   const { docs: eventDocs } = await api.getCollection("events", {
     where: { _status: { equals: "published" } },
+    limit: 100, // Perform pagination here
   });
+
+  const featuredArticle =
+    blocks.find(
+      (block) =>
+        block.slug === "featured-post" &&
+        block.featuredPost?.relationTo === "events"
+    )?.featuredPost?.value ?? null;
 
   const fellowships = fellowshipDocs.map((item) => ({
     ...item,
     description: item.excerpt,
     image: item.coverImage,
+    status: item.category ?? null,
     deadline: new Date(item.deadline).toLocaleString(locale, {
       year: "numeric",
       month: "long",
@@ -110,7 +119,8 @@ export async function processPageFellowships({ blocks }, api, { locale }) {
       day: "numeric",
     }),
   }));
-  const events = eventDocs.map((item, i) => ({
+
+  const events = eventDocs.map((item) => ({
     ...item,
     image: item.coverImage ?? null,
     category: item.topic,
@@ -125,10 +135,8 @@ export async function processPageFellowships({ blocks }, api, { locale }) {
       month: "long",
       day: "numeric",
     }),
-    featured: i === 0, // Fetch from CMS
+    featured: featuredArticle && item.id === featuredArticle?.id,
   }));
-
-  console.error(events);
 
   blocks.push({
     slug: "grants",
