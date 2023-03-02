@@ -83,57 +83,33 @@ export async function processPageExplainers({ title, blocks }, api) {
   }
 }
 
-export async function processPageFellowships({ blocks }) {
-  blocks.push({
-    slug: "page-info",
-    description: [
-      {
-        children: [
-          {
-            text: "A list of all Charter Africa grants, fellowships and events",
-          },
-        ],
-      },
-    ],
-  });
-  blocks.push({
-    slug: "fellowships-and-grants-header",
-    title: "Grants and Fellowships",
-  });
+export async function processPageFellowships({ blocks }, api, { locale }) {
+  const { docs: grantDocs } = await api.getCollection("grants");
+  const { docs = [] } = await api.getCollection("fellowships");
+  const fellowships = docs.map((item) => ({
+    ...item,
+    description: item.excerpt,
+    image: item.coverImage,
+    deadline: new Date(item.deadline).toLocaleString(locale, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
+  }));
+  const grants = grantDocs.map((item) => ({
+    ...item,
+    description: item.excerpt,
+    image: item.coverImage,
+    deadline: new Date(item.deadline).toLocaleString(locale, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
+  }));
   blocks.push({
     slug: "grants",
     title: "Grants",
-    items: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Democratic Governance in Zambia",
-      date: "2023-02-11",
-      excerpt: [
-        {
-          children: [
-            {
-              text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Grant ${i}`,
-        prefix: "media",
-        filename: "Rectangle 113.jpg",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/charter-africa-brand.svg",
-      },
-      link: {
-        href: `/`,
-      },
-      status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
-    })),
+    items: grants,
     config: {
       showAllText: "Show All",
       showLessText: "Show Less",
@@ -145,42 +121,7 @@ export async function processPageFellowships({ blocks }) {
   blocks.push({
     slug: "fellowships",
     title: "Fellowships",
-    items: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Democratic Governance in Zambia",
-      date: "2023-02-11",
-      excerpt: [
-        {
-          children: [
-            {
-              text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Grant ${i}`,
-        prefix: "media",
-        filename: "Rectangle 113.jpg",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: [
-          "/images/fellowships.png",
-          "/images/fellowships1.png",
-          "/images/fellowships2.png",
-          "/images/fellowships3.png",
-        ][Math.floor(Math.random() * 4)],
-      },
-      link: {
-        href: `/fellowship/${i}`,
-      },
-      status: ["technologies", "other"][Math.floor(Math.random() * 2)],
-    })),
+    items: fellowships,
     config: {
       showAllText: "Show All",
       showLessText: "Show Less",
@@ -270,7 +211,6 @@ export async function processPageArticles(page, api, { locale }) {
   const featuredArticle =
     blocks.find((block) => block.slug === "featured-post")?.featuredPost
       ?.value ?? null;
-
   const news = {
     slug: "news",
     title: "News",

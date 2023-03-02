@@ -11,6 +11,8 @@ import Authors from "./src/payload/collections/Authors";
 import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
 import Events from "./src/payload/collections/Events";
 import Explainers from "./src/payload/collections/Explainers";
+import Fellowships from "./src/payload/collections/Fellowships";
+import Grants from "./src/payload/collections/Grants";
 import Media from "./src/payload/collections/Media";
 import News from "./src/payload/collections/News";
 import Pages from "./src/payload/collections/Pages";
@@ -70,6 +72,8 @@ export default buildConfig({
     CommunityPlatforms,
     Events,
     Explainers,
+    Fellowships,
+    Grants,
     Media,
     News,
     Pages,
