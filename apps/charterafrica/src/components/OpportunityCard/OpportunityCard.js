@@ -14,7 +14,16 @@ import { secondary } from "@/charterafrica/colors";
 import RichText from "@/charterafrica/components/RichText";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const { image, date, excerpt, link, title, config, registerLink } = props;
+  const {
+    image,
+    date,
+    excerpt,
+    link,
+    title,
+    config,
+    registerLink,
+    registerText,
+  } = props;
 
   if (!title) {
     return null;
@@ -109,7 +118,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
                   textTransform: "capitalize",
                 }}
               >
-                Register here
+                {registerText || "Register here"}
               </Link>
             </Grid>
           ) : null}

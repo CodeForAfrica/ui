@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 import FeaturedPostCard from "../FeaturedPostCard/FeaturedPostCard";
 
-import OpportunityCardListGrid from "./OpportunityCardListGrid";
+import OpportunityCardGrid from "./OpportunityCardGrid";
 import OpportunityCardListHeader from "./OpportunityCardListHeader";
 
 const OpportunityCardList = React.forwardRef(function OpportunityCardList(
@@ -33,11 +33,7 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
         showLessText={config?.showLessText || "Show less"}
       />
       {featuredEvent ? <FeaturedPostCard {...featuredEvent} /> : null}
-      <OpportunityCardListGrid
-        items={items}
-        config={config}
-        showAll={showAll}
-      />
+      <OpportunityCardGrid items={items} config={config} showAll={showAll} />
       <Button
         onClick={() => {
           setShowAll(!showAll);
