@@ -111,7 +111,7 @@ export async function processPageFellowships(page, api, { locale }) {
     description: item.excerpt,
     image: item.coverImage,
     status: item.category ?? null,
-    deadline: new Date(item.deadline).toLocaleString(locale, {
+    date: new Date(item.deadline).toLocaleString(locale, {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -121,7 +121,7 @@ export async function processPageFellowships(page, api, { locale }) {
     ...item,
     description: item.excerpt,
     image: item.coverImage,
-    deadline: new Date(item.deadline).toLocaleString(locale, {
+    date: new Date(item.deadline).toLocaleString(locale, {
       year: "numeric",
       month: "long",
       day: "numeric",
