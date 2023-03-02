@@ -2,14 +2,10 @@ import { Section } from "@commons-ui/core";
 import { Typography, Box, Divider } from "@mui/material";
 import React from "react";
 
-import OpportunityCardList from "../OpportunityCardList";
-
 import { secondary } from "@/charterafrica/colors";
+import OpportunityCards from "@/charterafrica/components/OpportunityCards";
 
-const GrantsAndFellowships = React.forwardRef(function GrantsAndFellowships(
-  props,
-  ref
-) {
+const OpportunityPage = React.forwardRef(function OpportunityPage(props, ref) {
   const { config, items, title, sx } = props;
 
   if (!items?.length) {
@@ -25,7 +21,7 @@ const GrantsAndFellowships = React.forwardRef(function GrantsAndFellowships(
 
   const itemsByStatusArray = Object.keys(itemsByStatus).map((key) => {
     return {
-      title: `${key}`,
+      title: key,
       items: itemsByStatus[key],
     };
   });
@@ -52,7 +48,7 @@ const GrantsAndFellowships = React.forwardRef(function GrantsAndFellowships(
           pb={5}
           textAlign={{
             xs: "center",
-            sm: "left",
+            md: "left",
           }}
           variant="h3Small"
         >
@@ -62,7 +58,7 @@ const GrantsAndFellowships = React.forwardRef(function GrantsAndFellowships(
         {itemsByStatusArray.map((item) => {
           return (
             <React.Fragment key={item.title}>
-              <OpportunityCardList
+              <OpportunityCards
                 items={item.items}
                 title={item.title}
                 key={item.title}
@@ -91,7 +87,7 @@ const GrantsAndFellowships = React.forwardRef(function GrantsAndFellowships(
                     md: "block",
                   },
                   "&:last-child": {
-                    mb: 0,
+                    marginBottom: 0,
                   },
                 }}
               />
@@ -103,4 +99,4 @@ const GrantsAndFellowships = React.forwardRef(function GrantsAndFellowships(
   );
 });
 
-export default GrantsAndFellowships;
+export default OpportunityPage;
