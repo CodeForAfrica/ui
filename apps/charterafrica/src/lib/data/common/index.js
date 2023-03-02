@@ -1,3 +1,5 @@
+import { deepmerge } from "@mui/utils";
+
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
 async function getGlobalProps({ locale, defaultLocale }, api) {
@@ -232,9 +234,28 @@ async function processPageArticlePost(page, api, context) {
   }
 
   const [post] = docs;
+  const processedPost = processPost(docs[0], page, api, context);
+  let content = null;
+  if (post.content?.length) {
+    content = post.content.map(({ blockType, ...other }) => ({
+      ...other,
+      slug: blockType,
+    }));
+  }
   return {
+    ...page,
+    meta: deepmerge(page.meta, post.meta),
     title: `${post.title} | ${page.title}`,
-    blocks: [],
+    blocks: [
+      {
+        ...processedPost,
+        slug: "post",
+      },
+      {
+        content,
+        slug: "longform",
+      },
+    ],
   };
 }
 
