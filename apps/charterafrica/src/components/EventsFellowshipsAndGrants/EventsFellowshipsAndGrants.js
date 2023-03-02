@@ -3,7 +3,7 @@ import { Typography, Box, Divider } from "@mui/material";
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
-import OpportunityCardList from "@/charterafrica/components/OpportunityCardList";
+import OpportunityCards from "@/charterafrica/components/OpportunityCards";
 
 const EventsFellowshipsAndGrants = React.forwardRef(
   function EventsFellowshipsAndGrants(props, ref) {
@@ -59,7 +59,7 @@ const EventsFellowshipsAndGrants = React.forwardRef(
           {itemsByStatusArray.map((item) => {
             return (
               <React.Fragment key={item.title}>
-                <OpportunityCardList
+                <OpportunityCards
                   items={item.items}
                   title={item.title}
                   key={item.title}

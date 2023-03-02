@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import OpportunityCardList from "./OpportunityCardList";
+import OpportunityCards from "./OpportunityCards";
 
 import theme from "@/charterafrica/theme";
 
@@ -93,9 +93,9 @@ const defaultProps = {
   },
 };
 
-describe("<OpportunityCardList />", () => {
+describe("<OpportunityCards />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<OpportunityCardList {...defaultProps} />);
+    const { container } = render(<OpportunityCards {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

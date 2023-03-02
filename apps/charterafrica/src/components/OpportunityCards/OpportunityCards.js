@@ -6,7 +6,7 @@ import FeaturedPostCard from "../FeaturedPostCard/FeaturedPostCard";
 import OpportunityCardGrid from "./OpportunityCardGrid";
 import OpportunityCardListHeader from "./OpportunityCardListHeader";
 
-const OpportunityCardList = React.forwardRef(function OpportunityCardList(
+const OpportunityCards = React.forwardRef(function OpportunityCards(
   props,
   ref
 ) {
@@ -67,4 +67,4 @@ const OpportunityCardList = React.forwardRef(function OpportunityCardList(
   );
 });
 
-export default OpportunityCardList;
+export default OpportunityCards;
