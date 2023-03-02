@@ -31,7 +31,7 @@ async function getGlobalProps({ locale, defaultLocale }, api) {
   return { footer, navbar, settings };
 }
 
-export async function processPageAbout(page) {
+async function processPageAbout(page) {
   const { blocks } = page;
   blocks.push({
     slug: "grantees",
@@ -75,7 +75,7 @@ export async function processPageAbout(page) {
   return page;
 }
 
-export async function processPageExplainers(page, api) {
+async function processPageExplainers(page, api) {
   const collection = await api.getCollection("explainers");
   const explainers = collection.docs || null;
   const { title, blocks } = page;
@@ -90,7 +90,7 @@ export async function processPageExplainers(page, api) {
   return page;
 }
 
-export async function processPageFellowships(page) {
+async function processPageFellowships(page) {
   const { blocks } = page;
   blocks.push({
     slug: "page-info",
@@ -326,7 +326,7 @@ async function processPageArticlePost(page, api, context) {
   };
 }
 
-export async function processPageArticles(page, api, context) {
+async function processPageArticles(page, api, context) {
   const { params } = context;
   if (params.slugs.length > 2) {
     return processPageArticlePost(page, api, context);
@@ -427,7 +427,7 @@ function getPageSlug({ params }) {
   // count == 3, page slug is the 2nd slug (index 1); last slug (index 3)
   //             is the post. e.g. opportunities/grants/democratic-governance-in-zambia
   const pageSlugIndex = slugsCount < 3 ? slugsCount - 1 : 1;
-  return slugsCount ? params.slugs[pageSlugIndex] : "index";
+  return params.slugs?.[pageSlugIndex] || "index";
 }
 
 export async function getPageProps(api, context) {
@@ -491,3 +491,5 @@ export async function getPageProps(api, context) {
     seo,
   };
 }
+
+export default getPageProps;
