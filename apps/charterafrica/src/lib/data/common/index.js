@@ -353,7 +353,6 @@ async function processPageArticles(page, api, context) {
       },
     },
   });
-  console.log("docs", docs);
   const articles =
     docs?.map((post) => processPost(post, page, api, context)) ?? null;
   const articlesBlock = {
@@ -368,7 +367,8 @@ async function processPageArticles(page, api, context) {
       ?.map(({ tags }) => {
         return tags?.map(({ name }) => name);
       })
-      ?.flat() ?? [];
+      ?.flat()
+      ?.sort((a, b) => a.localeCompare(b)) ?? [];
 
   blocks.unshift({
     slug: "article-filter",
