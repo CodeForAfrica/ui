@@ -22,7 +22,10 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
   };
 
   useEffect(() => {
-    router.push(queryParams, undefined, { shallow: true });
+    router.push({
+      pathname: router.asPath.split("?")[0],
+      query: queryParams,
+    });
 
     // We don't want to listen to router changes here since we're the ones
     // updating them

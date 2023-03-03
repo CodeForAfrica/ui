@@ -355,6 +355,21 @@ async function processPageArticles(page, api, context) {
     articles,
   };
   blocks.push(articlesBlock);
+
+  const allTags =
+    articles
+      ?.map(({ tags }) => {
+        return tags?.map(({ name }) => name);
+      })
+      ?.flat() ?? [];
+
+  blocks.unshift({
+    slug: "article-filter",
+    tags: ["All", ...new Set(allTags)],
+    // TODO:(kipruto) Look into categories to use
+    categories: ["Most Recent", "Most Popular", "Most Commented", "Trending"],
+  });
+
   return page;
 }
 
