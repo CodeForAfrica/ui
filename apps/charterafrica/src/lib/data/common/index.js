@@ -1,5 +1,6 @@
 import { deepmerge } from "@mui/utils";
 
+import { formatDate } from "@/charterafrica/lib/data/common/utils";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
 async function getGlobalProps({ locale, defaultLocale }, api) {
@@ -90,7 +91,7 @@ async function processPageExplainers(page, api) {
   return page;
 }
 
-export async function processPageFellowships(page, api, { locale }) {
+async function processPageFellowships(page, api, { locale }) {
   const { blocks } = page;
   const { docs: grantDocs } = await api.getCollection("grants");
   const { docs: fellowshipDocs } = await api.getCollection("fellowships");
@@ -109,42 +110,38 @@ export async function processPageFellowships(page, api, { locale }) {
     )?.featuredPost?.value ?? null;
 
   const fellowships = fellowshipDocs.map((item) => ({
-    ...item,
-    description: item.excerpt,
+    id: item.id,
+    title: item.title,
+    excerpt: item.excerpt,
     image: item.coverImage,
     status: item.category ?? null,
-    date: new Date(item.deadline).toLocaleString(locale, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }),
+    date: formatDate(item.deadline, { locale }),
+    registerLink: item.registerLink ?? null,
+    config: configs.fellowships,
   }));
   const grants = grantDocs.map((item) => ({
-    ...item,
-    description: item.excerpt,
+    id: item.id,
+    title: item.title,
+    excerpt: item.excerpt,
+    status: item.status,
+    // description: item.excerpt,
     image: item.coverImage,
-    date: new Date(item.deadline).toLocaleString(locale, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }),
+    date: formatDate(item.deadline, { locale }),
   }));
 
   const events = eventDocs.map((item) => ({
-    ...item,
+    id: item.id,
+    title: item.title,
+    excerpt: item.excerpt,
     image: item.coverImage ?? null,
     category: item.topic,
-    registerLink: item.link ?? null,
-    registerText: item?.link?.label ?? null,
+    registerLink: item.register ?? null,
+    registerText: item?.register?.label ?? null,
     status:
       new Date(item.date).getTime() < new Date().getTime()
         ? "past"
         : "upcoming",
-    date: new Date(item.date).toLocaleString(locale, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }),
+    date: formatDate(item.date, { locale }),
     featured: featuredArticle && item.id === featuredArticle?.id,
   }));
 
@@ -192,14 +189,7 @@ function processPost(post, page, api, context) {
     ...post,
     author: post.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
     image,
-    date: new Date(post.publishedOn).toLocaleString(locale, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      second: "2-digit",
-    }),
+    date: formatDate(post.publishedOn, { locale, includeTime: true }),
     link: {
       href,
     },

@@ -27,7 +27,7 @@ const Events = {
       localized: true,
       required: true,
     },
-    slug({ fieldToUse: "name" }),
+    slug(),
     {
       name: "coverImage",
       label: {
@@ -85,6 +85,7 @@ const Events = {
     },
     linkGroup({
       overrides: {
+        name: "register",
         label: {
           en: "Register Here",
           fr: "Inscrivez-vous ici",

@@ -129,8 +129,15 @@ const RichText = React.forwardRef(function RichText(props, ref) {
   if (!elements?.length) {
     return null;
   }
+  const sxFunc = (...args) => {
+    const defaultSx = other.lineClamp ? { overflow: "hidden" } : {};
+    if (typeof sx === "function") {
+      return { ...sx(...args), ...defaultSx };
+    }
+    return { ...sx, ...defaultSx };
+  };
   return (
-    <Box sx={sx} ref={ref}>
+    <Box sx={sxFunc} ref={ref}>
       {serialize(elements, other)}
     </Box>
   );

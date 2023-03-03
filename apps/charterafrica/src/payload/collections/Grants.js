@@ -92,8 +92,15 @@ const Grant = {
     {
       name: "deadline",
       type: "date",
-      required: true,
-      hooks: {},
+      validate: async (val, { siblingData }) => {
+        if (siblingData.status === "closed") {
+          return true;
+        }
+        if (!val) {
+          return "This field is required";
+        }
+        return true;
+      },
       admin: {
         position: "sidebar",
       },

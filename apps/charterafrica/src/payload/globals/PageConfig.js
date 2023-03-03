@@ -212,6 +212,17 @@ const PageConfig = {
           required: true,
         },
         {
+          type: "text",
+          label: {
+            en: "Date Text",
+            fr: "Date SMS",
+            pt: "Texto da data",
+          },
+          name: "dateText",
+          localized: true,
+          required: true,
+        },
+        {
           type: "select",
           hasMany: true,
           label: {
