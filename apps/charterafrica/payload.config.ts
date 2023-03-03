@@ -24,7 +24,7 @@ import FocalCountries from "./src/payload/globals/FocalCountries";
 import Footer from "./src/payload/globals/Footer";
 import Helpdesk from "./src/payload/globals/Helpdesk";
 import Navigation from "./src/payload/globals/Navigation";
-import PageConfig from "./src/payload/globals/PageConfig";
+import TranslationConfig from "./src/payload/globals/TranslationConfig";
 import Settings from "./src/payload/globals/Settings";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 import { CollectionConfig, GlobalConfig } from "payload/types";
@@ -88,7 +88,7 @@ export default buildConfig({
     Footer,
     Helpdesk,
     Navigation,
-    PageConfig,
+    TranslationConfig,
     Settings,
   ] as GlobalConfig[],
   ...(locales?.length

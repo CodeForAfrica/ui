@@ -70,7 +70,7 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
                     Democratic Governance in Zambia
                   </h6>
                   <div
-                    class="MuiBox-root css-99m6ny"
+                    class="MuiBox-root css-1eoaz54"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-p1 css-1d4bzy0-MuiTypography-root"
@@ -175,7 +175,7 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
                     Democratic Governance in Zambia
                   </h6>
                   <div
-                    class="MuiBox-root css-99m6ny"
+                    class="MuiBox-root css-1eoaz54"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-p1 css-1d4bzy0-MuiTypography-root"
@@ -280,7 +280,7 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
                     Democratic Governance in Zambia
                   </h6>
                   <div
-                    class="MuiBox-root css-99m6ny"
+                    class="MuiBox-root css-1eoaz54"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-p1 css-1d4bzy0-MuiTypography-root"

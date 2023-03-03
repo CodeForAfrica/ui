@@ -55,7 +55,7 @@ exports[`<CommunityPlatforms /> renders unchanged 1`] = `
                 Newsletter
               </h3>
               <div
-                class="MuiBox-root css-1mmb5bq"
+                class="MuiBox-root css-vjuqhg"
               >
                 <p
                   class="MuiTypography-root MuiTypography-p3 css-tvbx87-MuiTypography-root"

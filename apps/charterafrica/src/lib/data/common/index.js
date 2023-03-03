@@ -1,5 +1,6 @@
 import { deepmerge } from "@mui/utils";
 
+import { getConfigs } from "@/charterafrica/lib/data/common/translationConfigs";
 import { formatDate } from "@/charterafrica/lib/data/common/utils";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
@@ -91,43 +92,19 @@ async function processPageExplainers(page, api) {
   return page;
 }
 
-async function processPageFellowships(page, api, { locale }) {
-  const { blocks } = page;
-  const { docs: grantDocs } = await api.getCollection("grants");
-  const { docs: fellowshipDocs } = await api.getCollection("fellowships");
+async function processPageEvents({ blocks }, api, { locale }) {
+  const configs = await getConfigs(api, { locale });
+
   const { docs: eventDocs } = await api.getCollection("events", {
     where: { _status: { equals: "published" } },
     limit: 100, // Perform pagination here
   });
-
-  const configs = await api.findGlobal("page-config");
-
   const featuredArticle =
     blocks.find(
       (block) =>
         block.slug === "featured-post" &&
         block.featuredPost?.relationTo === "events"
     )?.featuredPost?.value ?? null;
-
-  const fellowships = fellowshipDocs.map((item) => ({
-    id: item.id,
-    title: item.title,
-    excerpt: item.excerpt,
-    image: item.coverImage,
-    status: item.category ?? null,
-    date: formatDate(item.deadline, { locale }),
-    registerLink: item.registerLink ?? null,
-    config: configs.fellowships,
-  }));
-  const grants = grantDocs.map((item) => ({
-    id: item.id,
-    title: item.title,
-    excerpt: item.excerpt,
-    status: item.status,
-    // description: item.excerpt,
-    image: item.coverImage,
-    date: formatDate(item.deadline, { locale }),
-  }));
 
   const events = eventDocs.map((item) => ({
     id: item.id,
@@ -144,6 +121,25 @@ async function processPageFellowships(page, api, { locale }) {
     date: formatDate(item.date, { locale }),
     featured: featuredArticle && item.id === featuredArticle?.id,
   }));
+  blocks.push({
+    slug: "events",
+    title: "Events",
+    items: events,
+    config: configs?.events ?? null,
+  });
+}
+
+async function processPageGrants({ blocks }, api, { locale }) {
+  const { docs: grantDocs } = await api.getCollection("grants");
+  const configs = await getConfigs(api, { locale });
+  const grants = grantDocs.map((item) => ({
+    id: item.id,
+    title: item.title,
+    excerpt: item.excerpt,
+    status: item.status,
+    image: item.coverImage,
+    date: formatDate(item.deadline, { locale }),
+  }));
 
   blocks.push({
     slug: "grants",
@@ -151,17 +147,28 @@ async function processPageFellowships(page, api, { locale }) {
     items: grants,
     config: configs?.grants ?? null,
   });
+}
+
+async function processPageFellowships(page, api, { locale }) {
+  const { blocks } = page;
+  const { docs: fellowshipDocs } = await api.getCollection("fellowships");
+  const configs = await getConfigs(api, { locale });
+
+  const fellowships = fellowshipDocs.map((item) => ({
+    id: item.id,
+    title: item.title,
+    excerpt: item.excerpt,
+    image: item.coverImage,
+    status: item.category ?? null,
+    date: formatDate(item.deadline, { locale }),
+    registerLink: item.registerLink ?? null,
+    config: configs.fellowships,
+  }));
   blocks.push({
     slug: "fellowships",
     title: "Fellowships",
     items: fellowships,
     config: configs?.fellowships ?? null,
-  });
-  blocks.push({
-    slug: "events",
-    title: "Events",
-    items: events,
-    config: configs?.events ?? null,
   });
 
   return page;
@@ -286,10 +293,24 @@ async function processPagePrivacyPolicy(page) {
   return page;
 }
 
+// maybe page slug will be sth like events-grants-and-fellowships
+async function processOpportunityPage(page, api, contex) {
+  page.blocks.push({
+    slug: "fellowships-and-grants-header",
+    title: "Grants and Fellowships",
+  });
+  await processPageGrants(page, api, contex);
+  await processPageFellowships(page, api, contex);
+  await processPageEvents(page, api, contex);
+  return page;
+}
+
 const processPageFunctionsMap = {
   about: processPageAbout,
   explainers: processPageExplainers,
-  fellowships: processPageFellowships,
+  events: processOpportunityPage,
+  fellowships: processOpportunityPage,
+  grants: processOpportunityPage,
   news: processPageArticles,
   research: processPageArticles,
   "privacy-policy": processPagePrivacyPolicy,
