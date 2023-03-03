@@ -327,7 +327,7 @@ async function processPageArticlePost(page, api, context) {
 }
 
 async function processPageArticles(page, api, context) {
-  const { params } = context;
+  const { params, query } = context;
   if (params.slugs.length > 2) {
     return processPageArticlePost(page, api, context);
   }
@@ -344,9 +344,16 @@ async function processPageArticles(page, api, context) {
     }
   }
   const { slug, title } = page;
+  const { tag } = query;
   const { docs } = await api.getCollection(slug, {
-    where: { _status: { equals: "published" } },
+    where: {
+      _status: { equals: "published" },
+      "tags.name": {
+        like: tag || "",
+      },
+    },
   });
+  console.log("docs", docs);
   const articles =
     docs?.map((post) => processPost(post, page, api, context)) ?? null;
   const articlesBlock = {
