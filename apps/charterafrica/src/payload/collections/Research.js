@@ -3,6 +3,7 @@ import content from "../fields/content";
 import publishedOn from "../fields/publishedOn";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
+import tags from "../fields/tags";
 
 const Research = {
   slug: "research",
@@ -56,12 +57,7 @@ const Research = {
         elements: ["leaves"],
       },
     }),
-    {
-      name: "tags",
-      type: "relationship",
-      relationTo: "tag",
-      hasMany: true,
-    },
+    tags({ collectionType: "research" }),
     content(),
     publishedOn(),
   ],

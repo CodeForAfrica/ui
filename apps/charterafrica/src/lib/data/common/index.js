@@ -99,6 +99,8 @@ export async function processPageFellowships(page, api, { locale }) {
     limit: 100, // Perform pagination here
   });
 
+  const configs = await api.findGlobal("page-config");
+
   const featuredArticle =
     blocks.find(
       (block) =>
@@ -150,36 +152,19 @@ export async function processPageFellowships(page, api, { locale }) {
     slug: "grants",
     title: "Grants",
     items: grants,
-    config: {
-      showAllText: "Show All",
-      showLessText: "Show Less",
-      dateText: "Deadline",
-      showOnMobile: ["open", "closed"],
-      statusGroupTitleSuffix: "Calls",
-    },
+    config: configs?.grants ?? null,
   });
   blocks.push({
     slug: "fellowships",
     title: "Fellowships",
     items: fellowships,
-    config: {
-      showAllText: "Show All",
-      showLessText: "Show Less",
-      dateText: "Deadline",
-      showOnMobile: ["technologies"],
-      statusGroupTitleSuffix: "",
-    },
+    config: configs?.fellowships ?? null,
   });
   blocks.push({
     slug: "events",
     title: "Events",
     items: events,
-    config: {
-      showAllText: "Show All",
-      showLessText: "Show Less",
-      showOnMobile: ["upcoming", "past"],
-      statusGroupTitleSuffix: "",
-    },
+    config: configs?.events ?? null,
   });
 
   return page;

@@ -3,6 +3,7 @@ import content from "../fields/content";
 import publishedOn from "../fields/publishedOn";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
+import tags from "../fields/tags";
 
 const News = {
   slug: "news",
@@ -56,13 +57,7 @@ const News = {
         elements: ["leaves"],
       },
     }),
-    {
-      name: "tags",
-      required: true,
-      type: "relationship",
-      relationTo: "tag",
-      hasMany: true,
-    },
+    tags({ collectionType: "news" }),
     content(),
     publishedOn(),
   ],
