@@ -12,7 +12,30 @@ exports[`<Opportunity /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container css-1b14d7z-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-ai0z9e-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1g4nj95-MuiGrid-root"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
+            <figure
+              class="MuiBox-root css-1nudpye"
+            >
+              <img
+                alt="Hero 1"
+                class="css-g98gbd"
+                data-nimg="1"
+                decoding="async"
+                height="0"
+                src="/_next/image?url=http%3A%2F%2Flocalhost%3A3000%2Fmedia%2Fhero-slide-1.jpg&w=16&q=75"
+                srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A3000%2Fmedia%2Fhero-slide-1.jpg&w=16&q=75 1x"
+                style="color: transparent; height: auto; object-fit: cover; width: 100%;"
+                width="0"
+              />
+            </figure>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-1h2ytjv-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 css-15he5x-MuiGrid-root"
@@ -49,32 +72,6 @@ exports[`<Opportunity /> renders unchanged 1`] = `
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
-          />
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-16rcxo0-MuiGrid-root"
-        >
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
-          >
-            <figure
-              class="MuiBox-root css-1nudpye"
-            >
-              <img
-                alt="Hero 1"
-                class="css-g98gbd"
-                data-nimg="1"
-                decoding="async"
-                height="0"
-                src="/_next/image?url=http%3A%2F%2Flocalhost%3A3000%2Fmedia%2Fhero-slide-1.jpg&w=16&q=75"
-                srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A3000%2Fmedia%2Fhero-slide-1.jpg&w=16&q=75 1x"
-                style="color: transparent; height: auto; object-fit: cover; width: 100%;"
-                width="0"
-              />
-            </figure>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-auto css-lkz632-MuiGrid-root"
           />
         </div>
       </div>
