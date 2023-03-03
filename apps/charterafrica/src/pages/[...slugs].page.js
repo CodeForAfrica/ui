@@ -13,6 +13,7 @@ import Hero from "@/charterafrica/components/Hero";
 import Impressum from "@/charterafrica/components/Impressum";
 import LongForm from "@/charterafrica/components/LongForm";
 import Mooc from "@/charterafrica/components/Mooc";
+import Opportunity from "@/charterafrica/components/Opportunity";
 import OpportunityHeader from "@/charterafrica/components/OpportunityHeader";
 import OpportunityPage from "@/charterafrica/components/OpportunityPage";
 import PageDescription from "@/charterafrica/components/PageDescription";
@@ -44,6 +45,7 @@ const componentsBySlugs = {
   longform: LongForm,
   mooc: Mooc,
   news: Articles,
+  opportunity: Opportunity,
   "our-partners": Partners,
   "our-resources": Resources,
   "page-description": PageDescription,
