@@ -90,7 +90,228 @@ async function processPageExplainers(page, api) {
   return page;
 }
 
-async function processPageFellowships(page) {
+const grants = Array.from({ length: 30 }, (_, i) => ({
+  id: i,
+  slug: `democratic-governance-in-zambia-${i}`,
+  title: "Democratic Governance in Zambia",
+  date: "2023-02-11",
+  excerpt: [
+    {
+      children: [
+        {
+          text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+        },
+      ],
+    },
+  ],
+  image: {
+    id: "63d2622aafe25f6469605eae",
+    alt: `Grant ${i}`,
+    prefix: "media",
+    filename: "Rectangle 113.jpg",
+    mimeType: "image/jpg",
+    filesize: 257010,
+    width: 1236,
+    height: 696,
+    createdAt: "2023-01-26T11:21:14.868Z",
+    updatedAt: "2023-01-26T11:21:14.868Z",
+    url: "/images/charter-africa-brand.svg",
+  },
+  link: {
+    href: `/opportunitites/fellowships/grants/democratic-governance-in-zambia-${i}`,
+  },
+  apply: {
+    href: "#",
+    label: "Apply Now",
+  },
+  status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
+}));
+
+const fellowships = Array.from({ length: 30 }, (_, i) => ({
+  id: i,
+  title: "Democratic Governance in Zambia",
+  slug: `democratic-governance-in-zambia-${i}`,
+  date: "2023-02-11",
+  excerpt: [
+    {
+      children: [
+        {
+          text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+        },
+      ],
+    },
+  ],
+  image: {
+    id: "63d2622aafe25f6469605eae",
+    alt: `Grant ${i}`,
+    prefix: "media",
+    filename: "Rectangle 113.jpg",
+    mimeType: "image/jpg",
+    filesize: 257010,
+    width: 1236,
+    height: 696,
+    createdAt: "2023-01-26T11:21:14.868Z",
+    updatedAt: "2023-01-26T11:21:14.868Z",
+    url: [
+      "/images/fellowships.png",
+      "/images/fellowships1.png",
+      "/images/fellowships2.png",
+      "/images/fellowships3.png",
+    ][Math.floor(Math.random() * 4)],
+  },
+  link: {
+    href: `/opportunitites/fellowships/fellowships/democratic-governance-in-zambia-${i}`,
+  },
+  apply: {
+    href: "#",
+    label: "Apply Now",
+  },
+  status: ["technologies", "other"][Math.floor(Math.random() * 2)],
+}));
+
+const initiatives = {
+  grants,
+  fellowships,
+};
+
+async function processPageInitiativesOpportunity(page, api, context) {
+  const { params } = context;
+  const collection = params.slugs[2];
+  const slug = params.slugs[3];
+  const docs = initiatives[collection];
+  const opportunity = docs?.find((doc) => doc.slug === slug);
+  if (!opportunity) {
+    return null;
+  }
+
+  const processedOpportunity = opportunity;
+  let content = [
+    {
+      richTextBlockFields: {
+        content: [
+          {
+            children: [
+              {
+                text: "Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+                children: null,
+              },
+            ],
+          },
+          {
+            children: [
+              {
+                text: "",
+                children: null,
+              },
+            ],
+          },
+          {
+            children: [
+              {
+                text: "Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.",
+                children: null,
+              },
+            ],
+          },
+          {
+            children: [
+              {
+                text: "\nAny subtitles\n",
+                bold: true,
+                children: null,
+              },
+            ],
+          },
+          {
+            children: [
+              {
+                text: "Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+                children: null,
+              },
+            ],
+          },
+          {
+            children: [
+              {
+                text: "",
+                children: null,
+              },
+            ],
+          },
+          {
+            children: [
+              {
+                text: "Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.",
+                children: null,
+              },
+            ],
+          },
+          {
+            children: [
+              {
+                text: "",
+                children: null,
+              },
+            ],
+          },
+          {
+            children: [
+              {
+                text: "Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+                children: null,
+              },
+            ],
+          },
+          {
+            children: [
+              {
+                text: "",
+                children: null,
+              },
+            ],
+          },
+          {
+            children: [
+              {
+                text: "Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.",
+                children: null,
+              },
+            ],
+          },
+        ],
+      },
+      blockType: "richText",
+    },
+  ];
+
+  if (content?.length) {
+    content = content.map(({ blockType, ...other }) => ({
+      ...other,
+      slug: blockType,
+    }));
+  }
+  return {
+    ...page,
+    meta: deepmerge(page.meta, opportunity.meta),
+    title: `${opportunity.title} | ${page.title}`,
+    blocks: [
+      {
+        ...processedOpportunity,
+        slug: "opportunity",
+      },
+      {
+        content,
+        slug: "longform",
+      },
+    ],
+  };
+}
+
+async function processPageFellowships(page, api, context) {
+  const { params } = context;
+  if (params.slugs.length > 2) {
+    return processPageInitiativesOpportunity(page, api, context);
+  }
   const { blocks } = page;
   blocks.push({
     slug: "page-info",
@@ -111,37 +332,7 @@ async function processPageFellowships(page) {
   blocks.push({
     slug: "grants",
     title: "Grants",
-    items: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Democratic Governance in Zambia",
-      date: "2023-02-11",
-      excerpt: [
-        {
-          children: [
-            {
-              text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Grant ${i}`,
-        prefix: "media",
-        filename: "Rectangle 113.jpg",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/charter-africa-brand.svg",
-      },
-      link: {
-        href: `/`,
-      },
-      status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
-    })),
+    items: grants,
     config: {
       showAllText: "Show All",
       showLessText: "Show Less",
@@ -153,42 +344,7 @@ async function processPageFellowships(page) {
   blocks.push({
     slug: "fellowships",
     title: "Fellowships",
-    items: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Democratic Governance in Zambia",
-      date: "2023-02-11",
-      excerpt: [
-        {
-          children: [
-            {
-              text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Grant ${i}`,
-        prefix: "media",
-        filename: "Rectangle 113.jpg",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: [
-          "/images/fellowships.png",
-          "/images/fellowships1.png",
-          "/images/fellowships2.png",
-          "/images/fellowships3.png",
-        ][Math.floor(Math.random() * 4)],
-      },
-      link: {
-        href: `/fellowship/${i}`,
-      },
-      status: ["technologies", "other"][Math.floor(Math.random() * 2)],
-    })),
+    items: fellowships,
     config: {
       showAllText: "Show All",
       showLessText: "Show Less",
