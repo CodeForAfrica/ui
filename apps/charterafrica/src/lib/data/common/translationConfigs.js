@@ -9,6 +9,24 @@ const events = [
   {
     type: "text",
     label: {
+      en: "Title",
+      fr: "Titre",
+      pt: "Título",
+    },
+    name: "title",
+    defaultValue: defaultValue({
+      en: "Events",
+      fr: "Événements",
+      pt: "Eventos",
+    }),
+    admin: {
+      description: "Title to show on list of Events. Defaults to Events",
+    },
+    localized: true,
+  },
+  {
+    type: "text",
+    label: {
       en: "Show All Text",
       fr: "Afficher tout le texte",
       pt: "Mostre todo o texto",
@@ -23,7 +41,6 @@ const events = [
       description: "Used to toggle number of visible cards",
     },
     localized: true,
-    required: true,
   },
   {
     type: "text",
@@ -42,7 +59,6 @@ const events = [
       description: "Used to toggle number of visible cards",
     },
     localized: true,
-    required: true,
   },
   {
     type: "text",
@@ -53,7 +69,7 @@ const events = [
     },
     name: "dateText",
     localized: true,
-    required: true,
+
     admin: {
       description: "Text to show on a siggle events card e.g deadline",
     },
@@ -91,7 +107,7 @@ const events = [
     ],
     name: "showOnMobile",
     localized: true,
-    required: true,
+
     defaultValue: defaultValue({
       en: ["upcoming", "past"],
       fr: ["upcoming", "past"],
@@ -125,6 +141,25 @@ const fellowships = [
   {
     type: "text",
     label: {
+      en: "Title",
+      fr: "Titre",
+      pt: "Título",
+    },
+    name: "title",
+    defaultValue: defaultValue({
+      en: "Fellowships",
+      fr: "Bourses",
+      pt: "Bolsas",
+    }),
+    admin: {
+      description:
+        "Title to show on list of fellowships. Defaults to fellowships",
+    },
+    localized: true,
+  },
+  {
+    type: "text",
+    label: {
       en: "Show All Text",
       fr: "Afficher tout le texte",
       pt: "Mostre todo o texto",
@@ -139,7 +174,6 @@ const fellowships = [
       description: "Used to toggle number of visible cards",
     },
     localized: true,
-    required: true,
   },
   {
     type: "text",
@@ -158,7 +192,6 @@ const fellowships = [
       description: "Used to toggle number of visible cards",
     },
     localized: true,
-    required: true,
   },
   {
     type: "text",
@@ -169,7 +202,7 @@ const fellowships = [
     },
     name: "dateText",
     localized: true,
-    required: true,
+
     admin: {
       description: "Text to show on a siggle events card e.g deadline",
     },
@@ -207,7 +240,7 @@ const fellowships = [
     ],
     name: "showOnMobile",
     localized: true,
-    required: true,
+
     defaultValue: defaultValue({
       en: ["technologied"],
       fr: ["technologied"],
@@ -241,6 +274,24 @@ const grants = [
   {
     type: "text",
     label: {
+      en: "Title",
+      fr: "Titre",
+      pt: "Título",
+    },
+    name: "title",
+    defaultValue: defaultValue({
+      en: "Grants",
+      fr: "Subventions",
+      pt: "Subsídios",
+    }),
+    admin: {
+      description: "Title to show on list of Grants. Defaults to Grants",
+    },
+    localized: true,
+  },
+  {
+    type: "text",
+    label: {
       en: "Show All Text",
       fr: "Afficher tout le texte",
       pt: "Mostre todo o texto",
@@ -255,7 +306,6 @@ const grants = [
       description: "Used to toggle number of visible cards",
     },
     localized: true,
-    required: true,
   },
   {
     type: "text",
@@ -274,7 +324,6 @@ const grants = [
       description: "Used to toggle number of visible cards",
     },
     localized: true,
-    required: true,
   },
   {
     type: "text",
@@ -285,7 +334,6 @@ const grants = [
     },
     name: "dateText",
     localized: true,
-    required: true,
     admin: {
       description: "Text to show on a siggle events card e.g deadline",
     },
@@ -331,7 +379,7 @@ const grants = [
     ],
     name: "showOnMobile",
     localized: true,
-    required: true,
+
     defaultValue: defaultValue({
       en: ["upcoming"],
       fr: ["upcoming"],

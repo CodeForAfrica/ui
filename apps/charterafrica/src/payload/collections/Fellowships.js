@@ -1,4 +1,5 @@
 import content from "../fields/content";
+import linkGroup from "../fields/linkGroup";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
 
@@ -91,6 +92,16 @@ const Fellowships = {
         position: "sidebar",
       },
     },
+    linkGroup({
+      overrides: {
+        name: "apply",
+        label: {
+          en: "Apply Here",
+          fr: "Appliquer ici",
+          pt: "Aplique aqui",
+        },
+      },
+    }),
   ],
 };
 

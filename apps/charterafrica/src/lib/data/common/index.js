@@ -77,8 +77,8 @@ async function processPageAbout(page) {
   return page;
 }
 
-async function processPageExplainers(page, api) {
-  const collection = await api.getCollection("explainers");
+async function processPageExplainers(page, api, context) {
+  const collection = await api.getCollection("explainers", context);
   const explainers = collection.docs || null;
   const { title, blocks } = page;
   if (explainers?.length) {
@@ -96,6 +96,7 @@ async function processPageEvents({ blocks }, api, { locale }) {
   const configs = await getConfigs(api, { locale });
 
   const { docs: eventDocs } = await api.getCollection("events", {
+    locale,
     where: { _status: { equals: "published" } },
     limit: 100, // Perform pagination here
   });
@@ -123,14 +124,14 @@ async function processPageEvents({ blocks }, api, { locale }) {
   }));
   blocks.push({
     slug: "events",
-    title: "Events",
+    title: configs.events.title,
     items: events,
     config: configs?.events ?? null,
   });
 }
 
 async function processPageGrants({ blocks }, api, { locale }) {
-  const { docs: grantDocs } = await api.getCollection("grants");
+  const { docs: grantDocs } = await api.getCollection("grants", { locale });
   const configs = await getConfigs(api, { locale });
   const grants = grantDocs.map((item) => ({
     id: item.id,
@@ -143,7 +144,7 @@ async function processPageGrants({ blocks }, api, { locale }) {
 
   blocks.push({
     slug: "grants",
-    title: "Grants",
+    title: configs.grants.title,
     items: grants,
     config: configs?.grants ?? null,
   });
@@ -151,7 +152,9 @@ async function processPageGrants({ blocks }, api, { locale }) {
 
 async function processPageFellowships(page, api, { locale }) {
   const { blocks } = page;
-  const { docs: fellowshipDocs } = await api.getCollection("fellowships");
+  const { docs: fellowshipDocs } = await api.getCollection("fellowships", {
+    locale,
+  });
   const configs = await getConfigs(api, { locale });
 
   const fellowships = fellowshipDocs.map((item) => ({
@@ -166,7 +169,7 @@ async function processPageFellowships(page, api, { locale }) {
   }));
   blocks.push({
     slug: "fellowships",
-    title: "Fellowships",
+    title: configs.fellowships.title,
     items: fellowships,
     config: configs?.fellowships ?? null,
   });
@@ -204,10 +207,11 @@ function processPost(post, page, api, context) {
 }
 
 async function processPageArticlePost(page, api, context) {
-  const { params } = context;
+  const { params, locale } = context;
   const { slug: collection } = page;
   const slug = params.slugs[2];
   const { docs } = await api.getCollection(collection, {
+    locale,
     where: {
       slug: {
         equals: slug,
@@ -246,7 +250,7 @@ async function processPageArticlePost(page, api, context) {
 }
 
 async function processPageArticles(page, api, context) {
-  const { params } = context;
+  const { params, locale } = context;
   if (params.slugs.length > 2) {
     return processPageArticlePost(page, api, context);
   }
@@ -264,6 +268,7 @@ async function processPageArticles(page, api, context) {
   }
   const { slug, title } = page;
   const { docs } = await api.getCollection(slug, {
+    locale,
     where: { _status: { equals: "published" } },
   });
   const articles =
@@ -294,14 +299,14 @@ async function processPagePrivacyPolicy(page) {
 }
 
 // maybe page slug will be sth like events-grants-and-fellowships
-async function processOpportunityPage(page, api, contex) {
+async function processOpportunityPage(page, api, context) {
   page.blocks.push({
     slug: "fellowships-and-grants-header",
     title: "Grants and Fellowships",
   });
-  await processPageGrants(page, api, contex);
-  await processPageFellowships(page, api, contex);
-  await processPageEvents(page, api, contex);
+  await processPageGrants(page, api, context);
+  await processPageFellowships(page, api, context);
+  await processPageEvents(page, api, context);
   return page;
 }
 
