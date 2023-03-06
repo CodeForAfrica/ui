@@ -11,7 +11,7 @@ import useFilterQuery, {
 
 const ArticlesFilter = React.forwardRef((props, ref) => {
   const { tags, categories } = props;
-  const allTags = tags;
+  const allTags = [ALL_TAG, ...tags];
   const [category, setSelectedCategory] = useState(categories[0]);
   const [tag, setSelectedTags] = useState(ALL_TAG);
   const [q, setQ] = useState();

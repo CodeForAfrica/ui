@@ -358,10 +358,7 @@ async function processPageArticles(page, api, context) {
   const articles =
     docs?.map((post) => processPost(post, page, api, context)) ?? null;
 
-  if (tag) {
-    useArticlesStore.getState().setFilterTag(tag);
-  } else {
-    useArticlesStore.getState().setArticles(articles);
+  if (!tag) {
     const allTags =
       articles
         ?.map(({ tags }) => {
@@ -371,20 +368,19 @@ async function processPageArticles(page, api, context) {
         ?.sort((a, b) => a.localeCompare(b)) ?? [];
     useArticlesStore.getState().setTags(allTags);
   }
+  useArticlesStore.getState().setArticles(articles);
 
-  const { filteredArticles, tags } = useArticlesStore.getState();
-  console.log("filteredArticles", filteredArticles);
-  console.log("tags", tags);
+  const { tags } = useArticlesStore.getState();
 
   const articlesBlock = {
-    articles: filteredArticles,
+    articles,
     slug,
     title,
   };
   blocks.push(articlesBlock);
   blocks.unshift({
     slug: "article-filter",
-    tags: ["All", ...new Set(tags)],
+    tags: [...new Set(tags)],
     // TODO:(kipruto) Look into categories to use
     categories: ["Most Recent", "Most Popular", "Most Commented", "Trending"],
   });
