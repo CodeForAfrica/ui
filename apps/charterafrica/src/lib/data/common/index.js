@@ -269,6 +269,7 @@ async function processPageArticles(page, api, context) {
   const { slug, title } = page;
   const { docs } = await api.getCollection(slug, {
     locale,
+    sort: "-publishedOn",
     where: { _status: { equals: "published" } },
   });
   const articles =
