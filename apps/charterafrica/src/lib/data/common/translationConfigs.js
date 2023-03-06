@@ -231,6 +231,14 @@ const fellowships = [
       },
       {
         label: {
+          en: "Students",
+          fr: "Étudiants",
+          pt: "Alunos",
+        },
+        value: "students",
+      },
+      {
+        label: {
           en: "Other",
           fr: "Autre",
           pt: "Outro",
