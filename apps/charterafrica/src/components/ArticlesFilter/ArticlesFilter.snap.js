@@ -73,13 +73,17 @@ exports[`<ArticlesFilter /> renders unchanged 1`] = `
               role="button"
               tabindex="0"
             >
-              Category 1
+              <span
+                class="notranslate"
+              >
+                ​
+              </span>
             </div>
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
               tabindex="-1"
-              value="Category 1"
+              value="Most Recent"
             />
             <svg
               aria-hidden="true"
@@ -113,6 +117,17 @@ exports[`<ArticlesFilter /> renders unchanged 1`] = `
         >
           <div
             class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-uhxaud-MuiButtonBase-root-MuiChip-root"
+            role="button"
+            tabindex="0"
+          >
+            <span
+              class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+            >
+              All
+            </span>
+          </div>
+          <div
+            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1bwds60-MuiButtonBase-root-MuiChip-root"
             role="button"
             tabindex="0"
           >

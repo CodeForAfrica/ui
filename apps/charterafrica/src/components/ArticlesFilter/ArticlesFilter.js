@@ -66,7 +66,7 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
                 height: "36px",
                 minWidth: "200px",
               }}
-              defaultValue={sort}
+              defaultValue={sort ?? ""}
             >
               {sorting.map((c) => {
                 return (

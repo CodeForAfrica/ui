@@ -9,7 +9,7 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  categories: ["Category 1", "Category 2"],
+  sorting: ["Recent", "Oldest"],
   tags: ["Tag 1", "Tag 2"],
 };
 

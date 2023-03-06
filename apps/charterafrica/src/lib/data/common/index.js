@@ -354,7 +354,7 @@ async function processPageArticles(page, api, context) {
         like: tag || "",
       },
     },
-    sort: sorting === "oldest" ? "publishedOn" : "-publishedOn",
+    sort: sorting === "oldest" ? "-publishedOn" : "publishedOn",
   });
   const articles =
     docs?.map((post) => processPost(post, page, api, context)) ?? null;
