@@ -1,6 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
+import useArticlesStore from "@/charterafrica/store/articlesStore";
 
 async function getGlobalProps({ locale, defaultLocale }, api) {
   const settings = await api.findGlobal("settings", {
@@ -328,6 +329,7 @@ async function processPageArticlePost(page, api, context) {
 
 async function processPageArticles(page, api, context) {
   const { params, query } = context;
+
   if (params.slugs.length > 2) {
     return processPageArticlePost(page, api, context);
   }
@@ -355,24 +357,34 @@ async function processPageArticles(page, api, context) {
   });
   const articles =
     docs?.map((post) => processPost(post, page, api, context)) ?? null;
+
+  if (tag) {
+    useArticlesStore.getState().setFilterTag(tag);
+  } else {
+    useArticlesStore.getState().setArticles(articles);
+    const allTags =
+      articles
+        ?.map(({ tags }) => {
+          return tags?.map(({ name }) => name);
+        })
+        ?.flat()
+        ?.sort((a, b) => a.localeCompare(b)) ?? [];
+    useArticlesStore.getState().setTags(allTags);
+  }
+
+  const { filteredArticles, tags } = useArticlesStore.getState();
+  console.log("filteredArticles", filteredArticles);
+  console.log("tags", tags);
+
   const articlesBlock = {
+    articles: filteredArticles,
     slug,
     title,
-    articles,
   };
   blocks.push(articlesBlock);
-
-  const allTags =
-    articles
-      ?.map(({ tags }) => {
-        return tags?.map(({ name }) => name);
-      })
-      ?.flat()
-      ?.sort((a, b) => a.localeCompare(b)) ?? [];
-
   blocks.unshift({
     slug: "article-filter",
-    tags: ["All", ...new Set(allTags)],
+    tags: ["All", ...new Set(tags)],
     // TODO:(kipruto) Look into categories to use
     categories: ["Most Recent", "Most Popular", "Most Commented", "Trending"],
   });

@@ -11,6 +11,7 @@ import useFilterQuery, {
 
 const ArticlesFilter = React.forwardRef((props, ref) => {
   const { tags, categories } = props;
+  const allTags = tags;
   const [category, setSelectedCategory] = useState(categories[0]);
   const [tag, setSelectedTags] = useState(ALL_TAG);
   const [q, setQ] = useState();
@@ -76,7 +77,7 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
             </Select>
           </Grid>
           <Grid item container xs={12} sm={6} md={4} gap={1}>
-            {tags.map((s) => {
+            {allTags.map((s) => {
               return (
                 <Chip
                   label={s}
