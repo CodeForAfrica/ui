@@ -7,7 +7,7 @@ const publishedOn = (overrides) =>
       type: "date",
       required: true,
       hooks: {
-        beforeValidate: [({ value }) => new Date(value)],
+        beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
       },
       admin: {
         date: {

@@ -1,5 +1,6 @@
 import content from "../fields/content";
 import linkGroup from "../fields/linkGroup";
+import publishedOn from "../fields/publishedOn";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
 
@@ -102,6 +103,7 @@ const Fellowships = {
         },
       },
     }),
+    publishedOn(),
   ],
 };
 
