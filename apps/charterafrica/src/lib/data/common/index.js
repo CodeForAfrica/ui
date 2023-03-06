@@ -346,12 +346,15 @@ async function processPageArticles(page, api, context) {
     }
   }
   const { slug, title } = page;
-  const { tag, sort: sorting } = query;
+  const { tag, sort: sorting, q } = query;
   const { docs } = await api.getCollection(slug, {
     where: {
       _status: { equals: "published" },
       "tags.name": {
         like: tag || "",
+      },
+      title: {
+        like: q || "",
       },
     },
     sort: sorting === "oldest" ? "-publishedOn" : "publishedOn",
