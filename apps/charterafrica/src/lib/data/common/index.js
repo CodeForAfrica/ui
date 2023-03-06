@@ -33,7 +33,7 @@ async function getGlobalProps({ locale, defaultLocale }, api) {
   return { footer, navbar, settings };
 }
 
-export async function processPageAbout(page, api, { locale }) {
+async function processPageAbout(page, api, { locale }) {
   const { blocks } = page;
   const { docs } = await api.getCollection("grantees", {
     sort: "-publishedOn",
@@ -73,7 +73,7 @@ async function processPageEvents({ blocks }, api, { locale }) {
     where: { _status: { equals: "published" } },
     limit: 100, // Perform pagination here
   });
-  const featuredArticle =
+  const featuredEvent =
     blocks.find(
       (block) =>
         block.slug === "featured-post" &&
@@ -93,7 +93,7 @@ async function processPageEvents({ blocks }, api, { locale }) {
         ? "past"
         : "upcoming",
     date: formatDate(item.date, { locale }),
-    featured: featuredArticle && item.id === featuredArticle?.id,
+    featured: featuredEvent && item.id === featuredEvent?.id,
   }));
   blocks.push({
     slug: "events",
