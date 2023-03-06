@@ -1,7 +1,6 @@
 import { deepmerge } from "@mui/utils";
 
 const tags = (overrides) => {
-  const { collectionType, ...restArgs } = overrides;
   const field = {
     name: "tags",
     required: true,
@@ -9,7 +8,7 @@ const tags = (overrides) => {
     relationTo: "tag",
     hasMany: true,
   };
-  return deepmerge(field, restArgs);
+  return deepmerge(field, overrides);
 };
 
 export default tags;

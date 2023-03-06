@@ -1,6 +1,8 @@
 import content from "../fields/content";
+import publishedOn from "../fields/publishedOn";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
+import tags from "../fields/tags";
 
 const Grantees = {
   slug: "grantees",
@@ -10,6 +12,9 @@ const Grantees = {
   },
   access: {
     read: () => true,
+  },
+  versions: {
+    drafts: true,
   },
   fields: [
     {
@@ -49,15 +54,10 @@ const Grantees = {
         elements: ["leaves"],
       },
     }),
-    {
-      name: "tags",
-      required: true,
-      type: "relationship",
-      relationTo: "grantee-tag",
-      hasMany: true,
-    },
+    tags(),
     content(),
     slug({ fieldToUse: "name" }),
+    publishedOn(),
   ],
 };
 

@@ -57,7 +57,7 @@ const News = {
         elements: ["leaves"],
       },
     }),
-    tags({ collectionType: "news" }),
+    tags(),
     content(),
     publishedOn(),
   ],

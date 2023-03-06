@@ -57,7 +57,7 @@ const Research = {
         elements: ["leaves"],
       },
     }),
-    tags({ collectionType: "research" }),
+    tags(),
     content(),
     publishedOn(),
   ],

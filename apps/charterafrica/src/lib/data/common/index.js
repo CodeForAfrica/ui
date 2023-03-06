@@ -33,9 +33,13 @@ async function getGlobalProps({ locale, defaultLocale }, api) {
   return { footer, navbar, settings };
 }
 
-export async function processPageAbout(page, api) {
+export async function processPageAbout(page, api, { locale }) {
   const { blocks } = page;
-  const { docs } = await api.getCollection("grantees");
+  const { docs } = await api.getCollection("grantees", {
+    sort: "-publishedOn",
+    locale,
+    where: { _status: { equals: "published" } },
+  });
   const grantees = docs.map((item) => ({ ...item, image: item.coverImage }));
   blocks.push({
     slug: "grantees",
