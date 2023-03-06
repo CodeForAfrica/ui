@@ -7,16 +7,17 @@ import { neutral } from "@/charterafrica/colors";
 import SearchInput from "@/charterafrica/components/SearchInput";
 import useFilterQuery, {
   ALL_TAG,
+  DEFAULT_SORTING,
 } from "@/charterafrica/components/useFilterQuery";
 
 const ArticlesFilter = React.forwardRef((props, ref) => {
-  const { tags, categories } = props;
+  const { tags, sorting } = props;
   const allTags = [ALL_TAG, ...tags];
-  const [category, setSelectedCategory] = useState(categories[0]);
+  const [sort, setSelectedSorting] = useState(DEFAULT_SORTING);
   const [tag, setSelectedTags] = useState(ALL_TAG);
   const [q, setQ] = useState();
   const router = useRouter();
-  const queryParams = useFilterQuery({ category, q, tag });
+  const queryParams = useFilterQuery({ sort, q, tag });
 
   const handleTagChange = (t) => {
     setSelectedTags(t);
@@ -60,14 +61,14 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
           <Grid item>
             <Select
               inputProps={{ "aria-label": "Without label" }}
-              onChange={(e) => setSelectedCategory(e.target.value)}
+              onChange={(e) => setSelectedSorting(e.target.value)}
               sx={{
                 height: "36px",
                 minWidth: "200px",
               }}
-              defaultValue={category}
+              defaultValue={sort}
             >
-              {categories.map((c) => {
+              {sorting.map((c) => {
                 return (
                   <MenuItem value={c} key={c}>
                     {c}

@@ -1,11 +1,11 @@
 const ALL_TAG = "All";
-const ALL_CATEGORY = "Most Recent";
+const DEFAULT_SORTING = "Most Recent";
 
 function useFilterQuery(query = {}) {
   const searchParams = new URLSearchParams();
-  const { category, q, tag } = query;
-  if (category && category !== decodeURIComponent(ALL_CATEGORY)) {
-    searchParams.append("category", category);
+  const { sort, q, tag } = query;
+  if (sort && sort !== decodeURIComponent(DEFAULT_SORTING)) {
+    searchParams.append("sort", sort);
   }
   if (q) {
     searchParams.append("q", q);
@@ -17,6 +17,6 @@ function useFilterQuery(query = {}) {
   return queryString ? `${queryString.toLocaleLowerCase()}` : "";
 }
 
-export { ALL_TAG, ALL_CATEGORY };
+export { ALL_TAG, DEFAULT_SORTING };
 
 export default useFilterQuery;

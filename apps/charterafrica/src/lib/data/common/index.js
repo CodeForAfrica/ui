@@ -346,7 +346,7 @@ async function processPageArticles(page, api, context) {
     }
   }
   const { slug, title } = page;
-  const { tag } = query;
+  const { tag, sort: sorting } = query;
   const { docs } = await api.getCollection(slug, {
     where: {
       _status: { equals: "published" },
@@ -354,6 +354,7 @@ async function processPageArticles(page, api, context) {
         like: tag || "",
       },
     },
+    sort: sorting === "oldest" ? "publishedOn" : "-publishedOn",
   });
   const articles =
     docs?.map((post) => processPost(post, page, api, context)) ?? null;
@@ -381,8 +382,7 @@ async function processPageArticles(page, api, context) {
   blocks.unshift({
     slug: "article-filter",
     tags: [...new Set(tags)],
-    // TODO:(kipruto) Look into categories to use
-    categories: ["Most Recent", "Most Popular", "Most Commented", "Trending"],
+    sorting: ["Most Recent", "Oldest"],
   });
 
   return page;
