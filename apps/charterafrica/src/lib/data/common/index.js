@@ -1,8 +1,8 @@
 import { deepmerge } from "@mui/utils";
 
-import { getConfigs } from "@/charterafrica/lib/data/common/translationConfigs";
-import { formatDate } from "@/charterafrica/lib/data/common/utils";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
+import formatDate from "@/charterafrica/utils/formatDate";
+import { getConfigs } from "@/charterafrica/utils/translationConfigs";
 
 async function getGlobalProps({ locale, defaultLocale }, api) {
   const settings = await api.findGlobal("settings", {
@@ -131,7 +131,10 @@ async function processPageEvents({ blocks }, api, { locale }) {
 }
 
 async function processPageGrants({ blocks }, api, { locale }) {
-  const { docs: grantDocs } = await api.getCollection("grants", { locale });
+  const { docs: grantDocs } = await api.getCollection("grants", {
+    sort: "-publishedOn",
+    locale,
+  });
   const configs = await getConfigs(api, { locale });
   const grants = grantDocs.map((item) => ({
     id: item.id,
@@ -153,6 +156,7 @@ async function processPageGrants({ blocks }, api, { locale }) {
 async function processPageFellowships(page, api, { locale }) {
   const { blocks } = page;
   const { docs: fellowshipDocs } = await api.getCollection("fellowships", {
+    sort: "-publishedOn",
     locale,
   });
   const configs = await getConfigs(api, { locale });

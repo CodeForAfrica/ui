@@ -8,11 +8,6 @@ const tags = (overrides) => {
     type: "relationship",
     relationTo: "tag",
     hasMany: true,
-    filterOptions: () => {
-      return {
-        collectionType: { equals: collectionType },
-      };
-    },
   };
   return deepmerge(field, restArgs);
 };

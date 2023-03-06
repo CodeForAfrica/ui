@@ -16,31 +16,9 @@ const Tags = {
       type: "text",
       localized: true,
       required: true,
+      unique: true,
     },
     slug({ fieldToUse: "name" }),
-    {
-      name: "collectionType",
-      required: true,
-      type: "select",
-      options: [
-        {
-          label: {
-            en: "News",
-            fr: "Nouvelles",
-            pt: "Notícias",
-          },
-          value: "news",
-        },
-        {
-          label: {
-            en: "Research",
-            fr: "Recherche",
-            pt: "Pesquisar",
-          },
-          value: "research",
-        },
-      ],
-    },
   ],
 };
 

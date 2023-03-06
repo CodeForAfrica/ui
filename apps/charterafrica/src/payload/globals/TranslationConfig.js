@@ -1,4 +1,4 @@
-import { configFields } from "../../lib/data/common/translationConfigs";
+import { configFields } from "../../utils/translationConfigs";
 
 const TranslationConfig = {
   slug: "translation-config",
