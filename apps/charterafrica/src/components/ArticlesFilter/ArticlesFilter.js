@@ -18,6 +18,7 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
   const [q, setQ] = useState();
   const router = useRouter();
   const queryParams = useFilterQuery({ sort, q, tag });
+  const pathname = router.asPath.split("?")[0];
 
   const handleTagChange = (t) => {
     setSelectedTags(t);
@@ -25,7 +26,7 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
 
   useEffect(() => {
     router.push({
-      pathname: router.asPath.split("?")[0],
+      pathname,
       query: queryParams,
     });
 
