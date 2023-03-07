@@ -333,10 +333,13 @@ async function processPageArticles(page, api, context) {
   if (params.slugs.length > 2) {
     return processPageArticlePost(page, api, context);
   }
+  const { tag, sort: sorting, q } = query;
+
+  const isFiltering = tag || q || sorting;
 
   const { blocks } = page;
   const foundIndex = blocks.findIndex(({ slug }) => slug === "featured-post");
-  if (foundIndex > -1) {
+  if (foundIndex > -1 && !isFiltering) {
     const foundValue = blocks[foundIndex].featuredPost?.value;
     if (foundValue) {
       blocks[foundIndex] = {
@@ -346,7 +349,6 @@ async function processPageArticles(page, api, context) {
     }
   }
   const { slug, title } = page;
-  const { tag, sort: sorting, q } = query;
   const { docs } = await api.getCollection(slug, {
     where: {
       _status: { equals: "published" },
@@ -357,7 +359,7 @@ async function processPageArticles(page, api, context) {
         like: q || "",
       },
     },
-    sort: sorting === "oldest" ? "-publishedOn" : "publishedOn",
+    sort: sorting === "oldest" ? "publishedOn" : "-publishedOn",
   });
   const articles =
     docs?.map((post) => processPost(post, page, api, context)) ?? null;
