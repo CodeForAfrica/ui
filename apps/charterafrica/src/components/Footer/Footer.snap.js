@@ -15,32 +15,36 @@ exports[`<Footer /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container css-93fe3t-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-wj0mtg-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-wrap-xs-nowrap MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-ylhyo3-MuiGrid-root"
           >
             <div
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             />
             <div
-              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-            />
-            <div
-              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column css-bzzke7-MuiGrid-root"
             >
-              <figure
-                class="MuiBox-root css-102aivi"
+              <div
+                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              />
+              <div
+                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                <img
-                  alt="EU"
-                  class="css-6mvbnf"
-                  data-nimg="fill"
-                  decoding="async"
-                  loading="lazy"
-                  sizes="100vw"
-                  src="/_next/image?url=%2Fimages%2Feu.png&w=3840&q=75"
-                  srcset="/_next/image?url=%2Fimages%2Feu.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Feu.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Feu.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Feu.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Feu.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Feu.png&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Feu.png&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Feu.png&w=3840&q=75 3840w"
-                  style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
-                />
-              </figure>
+                <figure
+                  class="MuiBox-root css-102aivi"
+                >
+                  <img
+                    alt="EU"
+                    class="css-6mvbnf"
+                    data-nimg="fill"
+                    decoding="async"
+                    loading="lazy"
+                    sizes="100vw"
+                    src="/_next/image?url=%2Fimages%2Feu.png&w=3840&q=75"
+                    srcset="/_next/image?url=%2Fimages%2Feu.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Feu.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Feu.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Feu.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Feu.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Feu.png&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Feu.png&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Feu.png&w=3840&q=75 3840w"
+                    style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                  />
+                </figure>
+              </div>
             </div>
           </div>
           <div
@@ -52,11 +56,15 @@ exports[`<Footer /> renders unchanged 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-p2 css-e55002-MuiTypography-root"
+                <div
+                  class="MuiBox-root css-1lt1yad"
                 >
-                  This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.
-                </p>
+                  <p
+                    class="MuiTypography-root MuiTypography-p2 css-18o3on8-MuiTypography-root"
+                  >
+                    This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.
+                  </p>
+                </div>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -64,17 +72,21 @@ exports[`<Footer /> renders unchanged 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-p2SemiBold css-1jvfk9c-MuiTypography-root"
+                <div
+                  class="MuiBox-root css-1s6v4an"
                 >
-                  Website designed and built by Code for Africa
-                </p>
+                  <p
+                    class="MuiTypography-root MuiTypography-p2SemiBold css-1dfmvqd-MuiTypography-root"
+                  >
+                    Website designed and built by Code for Africa
+                  </p>
+                </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-item css-f5pcvu-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-item css-1wcyjmw-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gjb3vx-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-3fm92-MuiGrid-root"
                 >
                   <a
                     class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"
@@ -84,7 +96,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                   </a>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gjb3vx-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-3fm92-MuiGrid-root"
                 >
                   <a
                     class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"

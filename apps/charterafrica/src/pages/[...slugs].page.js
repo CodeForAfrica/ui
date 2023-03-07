@@ -6,76 +6,61 @@ import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Grantees from "@/charterafrica/components/Grantees";
-import GrantsAndFellowships from "@/charterafrica/components/GrantsAndFellowships";
-import GrantsFellowshipsHeader from "@/charterafrica/components/GrantsFellowshipsHeader";
 import GuidingPrinciples from "@/charterafrica/components/GuidingPrinciples";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
-import HelpdeskPageHeader from "@/charterafrica/components/HelpdeskPageHeader";
 import Hero from "@/charterafrica/components/Hero";
+import Impressum from "@/charterafrica/components/Impressum";
+import LongForm from "@/charterafrica/components/LongForm";
 import Mooc from "@/charterafrica/components/Mooc";
+import OpportunityHeader from "@/charterafrica/components/OpportunityHeader";
+import OpportunityPage from "@/charterafrica/components/OpportunityPage";
 import PageDescription from "@/charterafrica/components/PageDescription";
 import PageHeader from "@/charterafrica/components/PageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
 import Partners from "@/charterafrica/components/Partners";
+import Post from "@/charterafrica/components/Post";
 import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
+const componentsBySlugs = {
+  "our-community-platforms": CommunityPlatforms,
+  ecosystem: Ecosystem,
+  events: OpportunityPage,
+  explainers: Explainers,
+  faq: FAQ,
+  "featured-post": FeaturedPostCard,
+  fellowships: OpportunityPage,
+  "fellowships-and-grants-header": OpportunityHeader,
+  "focal-countries": FocalCountries,
+  grantees: Grantees,
+  grants: OpportunityPage,
+  "guiding-principles": GuidingPrinciples,
+  helpdesk: Helpdesk,
+  "helpdesk-page-content": HelpdeskPageContent,
+  hero: Hero,
+  impressum: Impressum,
+  longform: LongForm,
+  mooc: Mooc,
+  news: Articles,
+  "our-partners": Partners,
+  "our-resources": Resources,
+  "page-description": PageDescription,
+  "page-header": PageHeader,
+  "page-info": PageInfo,
+  post: Post,
+  research: Articles,
+  spotlight: Spotlight,
+};
+
 function Page({ blocks }) {
   return blocks?.map((block) => {
-    switch (block?.slug) {
-      case "ecosystem":
-        return <Ecosystem {...block} key={block.slug} />;
-      case "explainers":
-        return <Explainers {...block} key={block.slug} />;
-      case "faq":
-        return <FAQ {...block} key={block.slug} />;
-      case "featured-post":
-        return <FeaturedPostCard {...block} key={block.slug} />;
-      case "focal-countries":
-        return <FocalCountries {...block} key={block.slug} />;
-      case "grantees":
-        return <Grantees {...block} key={block.slug} />;
-      case "guiding-principles":
-        return <GuidingPrinciples {...block} key={block.slug} />;
-      case "helpdesk":
-        return <Helpdesk {...block} key={block.slug} />;
-      case "helpdesk-page-content":
-        return <HelpdeskPageContent {...block} key={block.slug} />;
-      case "helpdesk-page-header":
-        return <HelpdeskPageHeader {...block} key={block.slug} />;
-      case "hero":
-        return <Hero {...block} key={block.slug} />;
-      case "mooc":
-        return <Mooc {...block} key={block.slug} />;
-      case "news":
-        return <Articles {...block} key={block.slug} />;
-      case "our-community-platforms":
-        return <CommunityPlatforms {...block} key={block.slug} />;
-      case "our-partners":
-        return <Partners {...block} key={block.slug} />;
-      case "our-resources":
-        return <Resources {...block} key={block.slug} />;
-      case "page-description":
-        return <PageDescription {...block} key={block.slug} />;
-      case "page-header":
-        return <PageHeader {...block} key={block.slug} />;
-      case "page-info":
-        return <PageInfo {...block} key={block.slug} />;
-      case "research":
-        return <Articles {...block} key={block.slug} />;
-      case "fellowships-and-grants-header":
-        return <GrantsFellowshipsHeader {...block} key={block.slug} />;
-      case "grants":
-        return <GrantsAndFellowships {...block} key={block.slug} />;
-      case "fellowships":
-        return <GrantsAndFellowships {...block} key={block.slug} />;
-      case "spotlight":
-        return <Spotlight {...block} key={block.slug} />;
-      default:
-        return null;
+    const Component = componentsBySlugs[block.slug];
+    if (!Component) {
+      return null;
     }
+    return <Component key={block.slug} {...block} />;
   });
 }
 

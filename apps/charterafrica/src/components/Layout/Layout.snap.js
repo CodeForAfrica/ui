@@ -205,17 +205,21 @@ exports[`<Layout /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container css-93fe3t-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-wj0mtg-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-wrap-xs-nowrap MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-ylhyo3-MuiGrid-root"
           >
             <div
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             />
             <div
-              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-            />
-            <div
-              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-            />
+              class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column css-bzzke7-MuiGrid-root"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              />
+              <div
+                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              />
+            </div>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-1pemd0m-MuiGrid-root"
@@ -226,9 +230,13 @@ exports[`<Layout /> renders unchanged 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-p2 css-e55002-MuiTypography-root"
-                />
+                <div
+                  class="MuiBox-root css-1lt1yad"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-p2 css-18o3on8-MuiTypography-root"
+                  />
+                </div>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -236,9 +244,13 @@ exports[`<Layout /> renders unchanged 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-p2SemiBold css-1jvfk9c-MuiTypography-root"
-                />
+                <div
+                  class="MuiBox-root css-1s6v4an"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-p2SemiBold css-1dfmvqd-MuiTypography-root"
+                  />
+                </div>
               </div>
             </div>
           </div>

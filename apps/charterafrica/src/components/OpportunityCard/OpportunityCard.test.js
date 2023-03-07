@@ -11,8 +11,15 @@ const render = createRender({ theme });
 const defaultProps = {
   id: 1,
   title: "Democratic Governance in Zambia",
-  description:
-    "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+  excerpt: [
+    {
+      children: [
+        {
+          text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
+        },
+      ],
+    },
+  ],
   image: {
     id: "63d2622aafe25f6469605eae",
     alt: `Grant 1`,
@@ -29,6 +36,9 @@ const defaultProps = {
   deadlineText: "Deadline: ",
   deadline: "2023-02-11",
   status: "open",
+  link: {
+    href: "/",
+  },
   config: {
     showAllText: "Show All",
     showLessText: "Show Less",

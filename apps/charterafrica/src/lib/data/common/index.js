@@ -1,4 +1,8 @@
+import { deepmerge } from "@mui/utils";
+
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
+import formatDate from "@/charterafrica/utils/formatDate";
+import { getConfigs } from "@/charterafrica/utils/translationConfigs";
 
 async function getGlobalProps({ locale, defaultLocale }, api) {
   const settings = await api.findGlobal("settings", {
@@ -29,51 +33,27 @@ async function getGlobalProps({ locale, defaultLocale }, api) {
   return { footer, navbar, settings };
 }
 
-export async function processPageAbout({ blocks }) {
+async function processPageAbout(page, api, { locale }) {
+  const { blocks } = page;
+  const { docs } = await api.getCollection("grantees", {
+    sort: "-publishedOn",
+    locale,
+    where: { _status: { equals: "published" } },
+  });
+  const grantees = docs.map((item) => ({ ...item, image: item.coverImage }));
   blocks.push({
     slug: "grantees",
     title: "Grantees",
-    grantees: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      name: "Grantee Name ".repeat((i % 2) + 1).trim(),
-      description: [
-        {
-          children: [
-            {
-              text: "Lorem ipsum dolor sit amet con sectetur adipiscing elit mi, interdum blandit fring illa fus. adipiscing elit mi, adipiscing.",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `About ${i}`,
-        prefix: "media",
-        filename: "Rectangle 117.png",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/Rectangle 117.png",
-      },
-      primaryLink: {
-        label: "Constitutional changes of government",
-        href: "/",
-      },
-      secondaryLink: {
-        label: "Networks",
-        href: "/",
-      },
-    })),
+    grantees,
   });
+
+  return page;
 }
 
-export async function processPageExplainers({ title, blocks }, api) {
-  const collection = await api.getCollection("explainers");
+async function processPageExplainers(page, api, context) {
+  const collection = await api.getCollection("explainers", context);
   const explainers = collection.docs || null;
-
+  const { title, blocks } = page;
   if (explainers?.length) {
     blocks.push({
       slug: "explainers",
@@ -81,191 +61,242 @@ export async function processPageExplainers({ title, blocks }, api) {
       explainers,
     });
   }
+
+  return page;
 }
 
-export async function processPageFellowships({ blocks }) {
+async function processPageEvents({ blocks }, api, { locale }) {
+  const configs = await getConfigs(api, { locale });
+
+  const { docs: eventDocs } = await api.getCollection("events", {
+    locale,
+    where: { _status: { equals: "published" } },
+    limit: 100, // Perform pagination here
+  });
+  const featuredEvent =
+    blocks.find(
+      (block) =>
+        block.slug === "featured-post" &&
+        block.featuredPost?.relationTo === "events"
+    )?.featuredPost?.value ?? null;
+
+  const events = eventDocs.map((item) => ({
+    id: item.id,
+    title: item.title,
+    excerpt: item.excerpt,
+    image: item.coverImage ?? null,
+    category: item.topic,
+    registerLink: item.register ?? null,
+    registerText: item?.register?.label ?? null,
+    status:
+      new Date(item.date).getTime() < new Date().getTime()
+        ? "past"
+        : "upcoming",
+    date: formatDate(item.date, { locale }),
+    featured: featuredEvent && item.id === featuredEvent?.id,
+  }));
   blocks.push({
-    slug: "page-info",
-    description: [
+    slug: "events",
+    title: configs.events.title,
+    items: events,
+    config: configs?.events ?? null,
+  });
+}
+
+async function processPageGrants({ blocks }, api, { locale }) {
+  const { docs: grantDocs } = await api.getCollection("grants", {
+    sort: "-publishedOn",
+    locale,
+  });
+  const configs = await getConfigs(api, { locale });
+  const grants = grantDocs.map((item) => ({
+    id: item.id,
+    title: item.title,
+    excerpt: item.excerpt,
+    status: item.status,
+    image: item.coverImage,
+    date: formatDate(item.deadline, { locale }),
+  }));
+
+  blocks.push({
+    slug: "grants",
+    title: configs.grants.title,
+    items: grants,
+    config: configs?.grants ?? null,
+  });
+}
+
+async function processPageFellowships(page, api, { locale }) {
+  const { blocks } = page;
+  const { docs: fellowshipDocs } = await api.getCollection("fellowships", {
+    sort: "-publishedOn",
+    locale,
+  });
+  const configs = await getConfigs(api, { locale });
+
+  const fellowships = fellowshipDocs.map((item) => ({
+    id: item.id,
+    title: item.title,
+    excerpt: item.excerpt,
+    image: item.coverImage,
+    status: item.category ?? null,
+    date: formatDate(item.deadline, { locale }),
+    registerLink: item.registerLink ?? null,
+    config: configs.fellowships,
+  }));
+  blocks.push({
+    slug: "fellowships",
+    title: configs.fellowships.title,
+    items: fellowships,
+    config: configs?.fellowships ?? null,
+  });
+
+  return page;
+}
+
+function processPost(post, page, api, context) {
+  const { breadcrumbs = [] } = page;
+
+  let image = null;
+  if (post.coverImage) {
+    const { alt, url } = post.coverImage;
+    image = {
+      alt: alt || post.title,
+      url,
+    };
+  }
+  let href = null;
+  const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
+  if (pageUrl) {
+    const { slug } = post;
+    href = `${pageUrl}/${slug}`;
+  }
+  const { locale } = context;
+  return {
+    ...post,
+    author: post.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
+    image,
+    date: formatDate(post.publishedOn, { locale, includeTime: true }),
+    link: {
+      href,
+    },
+  };
+}
+
+async function processPageArticlePost(page, api, context) {
+  const { params, locale } = context;
+  const { slug: collection } = page;
+  const slug = params.slugs[2];
+  const { docs } = await api.getCollection(collection, {
+    locale,
+    where: {
+      slug: {
+        equals: slug,
+      },
+      _status: { equals: "published" },
+    },
+  });
+  if (!docs?.length) {
+    return null;
+  }
+
+  const [post] = docs;
+  const processedPost = processPost(docs[0], page, api, context);
+  let content = null;
+  if (post.content?.length) {
+    content = post.content.map(({ blockType, ...other }) => ({
+      ...other,
+      slug: blockType,
+    }));
+  }
+  return {
+    ...page,
+    meta: deepmerge(page.meta, post.meta),
+    title: `${post.title} | ${page.title}`,
+    blocks: [
       {
-        children: [
-          {
-            text: "A list of all Charter Africa grants, fellowships and events",
-          },
-        ],
+        ...processedPost,
+        slug: "post",
+      },
+      {
+        content,
+        slug: "longform",
       },
     ],
+  };
+}
+
+async function processPageArticles(page, api, context) {
+  const { params, locale } = context;
+  if (params.slugs.length > 2) {
+    return processPageArticlePost(page, api, context);
+  }
+
+  const { blocks } = page;
+  const foundIndex = blocks.findIndex(({ slug }) => slug === "featured-post");
+  if (foundIndex > -1) {
+    const foundValue = blocks[foundIndex].featuredPost?.value;
+    if (foundValue) {
+      blocks[foundIndex] = {
+        ...processPost(foundValue, page, api, context),
+        slug: "featured-post",
+      };
+    }
+  }
+  const { slug, title } = page;
+  const { docs } = await api.getCollection(slug, {
+    locale,
+    sort: "-publishedOn",
+    where: { _status: { equals: "published" } },
   });
-  blocks.push({
+  const articles =
+    docs?.map((post) => processPost(post, page, api, context)) ?? null;
+  const articlesBlock = {
+    slug,
+    title,
+    articles,
+  };
+  blocks.push(articlesBlock);
+  return page;
+}
+
+async function processPagePrivacyPolicy(page) {
+  const { blocks } = page;
+  const index = blocks?.findIndex(({ slug }) => slug === "longform");
+  if (index > -1) {
+    const { content: originalContent } = blocks[index];
+    if (originalContent?.length) {
+      const content = originalContent.map(({ blockType, ...other }) => ({
+        ...other,
+        slug: blockType,
+      }));
+      blocks[index].content = content;
+    }
+  }
+  return page;
+}
+
+// maybe page slug will be sth like events-grants-and-fellowships
+async function processOpportunityPage(page, api, context) {
+  page.blocks.push({
     slug: "fellowships-and-grants-header",
     title: "Grants and Fellowships",
   });
-  blocks.push({
-    slug: "grants",
-    title: "Grants",
-    items: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Democratic Governance in Zambia",
-      description:
-        "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Grant ${i}`,
-        prefix: "media",
-        filename: "Rectangle 113.jpg",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/charter-africa-brand.svg",
-      },
-      deadline: "2023-02-11",
-      status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
-    })),
-    config: {
-      showAllText: "Show All",
-      showLessText: "Show Less",
-      deadlineText: "Deadline",
-      showOnMobile: ["open", "closed"],
-      statusGroupTitleSuffix: "Calls",
-    },
-  });
-  blocks.push({
-    slug: "fellowships",
-    title: "Fellowships",
-    items: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Democratic Governance in Zambia",
-      description:
-        "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Grant ${i}`,
-        prefix: "media",
-        filename: "Rectangle 113.jpg",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: [
-          "/images/fellowships.png",
-          "/images/fellowships1.png",
-          "/images/fellowships2.png",
-          "/images/fellowships3.png",
-        ][Math.floor(Math.random() * 4)],
-      },
-      deadline: "2023-02-11",
-      status: ["technologies", "other"][Math.floor(Math.random() * 2)],
-    })),
-    config: {
-      showAllText: "Show All",
-      showLessText: "Show Less",
-      deadlineText: "Deadline",
-      showOnMobile: ["technologies"],
-      statusGroupTitleSuffix: "",
-    },
-  });
-}
-
-export async function processPageNews({ blocks }) {
-  // TODO(kilemensi): Pull data from CMS
-  blocks.push({
-    slug: "featured-post",
-    category: "News",
-    title: "News Story title goes here and spans over second line",
-    excerpt:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur",
-    date: "2020-10-10 10:10:10",
-    author: "Author Name",
-    image: {
-      url: "/images/featured_post.jpg",
-      alt: "Featured Post",
-    },
-    link: {
-      href: "/knowledge/news",
-    },
-  });
-  blocks.push({
-    slug: "news",
-    title: "News",
-    articles: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "News story title goes here and spans over second line. "
-        .repeat((i % 2) + 1)
-        .trim(),
-      date: "2023-02-11",
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `News Story ${i}`,
-        prefix: "media",
-        filename: `knowledge_${(i % 3) + 1}.jpg`,
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: `/images/knowledge_${(i % 3) + 1}.jpg`,
-      },
-    })),
-  });
-}
-
-export async function processPageResearch({ blocks }) {
-  // TODO(kilemensi): Pull data from CMS
-  blocks.push({
-    slug: "featured-post",
-    category: "Research",
-    title: "Research Story title goes here and spans over second line",
-    excerpt:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur",
-    date: "2020-10-10 10:10:10",
-    author: "Author",
-    image: {
-      url: "/images/featured_post.jpg",
-      alt: "Featured Post",
-    },
-    link: {
-      href: "/knowledge/news",
-    },
-  });
-  blocks.push({
-    slug: "research",
-    title: "Research",
-    articles: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Research title goes here and spans over second line. "
-        .repeat((i % 2) + 1)
-        .trim(),
-      author: "Author",
-      date: "2023-02-11",
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Research ${i}`,
-        prefix: "media",
-        filename: `knowledge_${(i % 3) + 1}.jpg`,
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: `/images/knowledge_${(i % 3) + 1}.jpg`,
-      },
-    })),
-  });
+  await processPageGrants(page, api, context);
+  await processPageFellowships(page, api, context);
+  await processPageEvents(page, api, context);
+  return page;
 }
 
 const processPageFunctionsMap = {
   about: processPageAbout,
   explainers: processPageExplainers,
-  news: processPageNews,
-  research: processPageResearch,
-  fellowships: processPageFellowships,
+  events: processOpportunityPage,
+  fellowships: processOpportunityPage,
+  grants: processOpportunityPage,
+  news: processPageArticles,
+  research: processPageArticles,
+  "privacy-policy": processPagePrivacyPolicy,
 };
 
 async function processGlobalBlockFocalCountries(block) {
@@ -306,15 +337,20 @@ const processGlobalBlockFunctionsMap = {
   helpdesk: processGlobalBlockHelpdesk,
 };
 
-export async function getPageProps(context, api) {
+function getPageSlug({ params }) {
+  const slugsCount = params.slugs?.length;
+  // count < 3, page slug is the last slug e.g. ["about"] or ["knowldge/news"]
+  // count == 3, page slug is the 2nd slug (index 1); last slug (index 3)
+  //             is the post. e.g. opportunities/grants/democratic-governance-in-zambia
+  const pageSlugIndex = slugsCount < 3 ? slugsCount - 1 : 1;
+  return params.slugs?.[pageSlugIndex] || "index";
+}
+
+export async function getPageProps(api, context) {
   const { defaultLocale, locale, locales, params } = context;
   const fallbackLocale = defaultLocale;
-  const slugsCount = params.slugs?.length;
-  const slug = slugsCount ? params.slugs[slugsCount - 1] : "index";
-  // NOTE: we don't use .join because it doesn't put separator first
-  const pathname = slugsCount
-    ? params.slugs.reduce((acc, curr) => `${acc}/${curr}`, "")
-    : "/";
+  const slug = getPageSlug(context);
+  const pathname = slug !== "index" ? `/${params.slugs.join("/")}` : "/";
 
   const { docs: pages } = await api.findPage(slug, {
     locale,
@@ -349,21 +385,27 @@ export async function getPageProps(context, api) {
       })
     )) || [];
   const processPage = processPageFunctionsMap[page.slug];
-  if (processPage) {
-    await processPage(page, api);
+  const processedPage = processPage
+    ? await processPage(page, api, context)
+    : page;
+  if (!processedPage) {
+    return null;
   }
+
   const { settings, ...globalProps } = await getGlobalProps(
     { defaultLocale, locale },
     api
   );
-  const seo = getPageSeoFromMeta(page, settings, {
+  const seo = getPageSeoFromMeta(processedPage, settings, {
     locale,
     locales,
     pathname,
   });
   return {
     ...globalProps,
-    ...page,
+    ...processedPage,
     seo,
   };
 }
+
+export default getPageProps;

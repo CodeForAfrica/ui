@@ -22,7 +22,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3.75 css-1mmhzy4-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1f7q5k1-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-auto css-1p4bcov-MuiGrid-root"
         >
           <div
             class="MuiBox-root css-ii4xwr"

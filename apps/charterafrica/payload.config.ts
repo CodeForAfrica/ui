@@ -2,21 +2,30 @@ import path from "path";
 
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
-// import nestedDocs from "@payloadcms/plugin-nested-docs";
+import nestedDocs from "@payloadcms/plugin-nested-docs";
 import seo from "@payloadcms/plugin-seo";
 import dotenv from "dotenv";
 import { buildConfig } from "payload/config";
 
+import Authors from "./src/payload/collections/Authors";
 import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
+import Events from "./src/payload/collections/Events";
 import Explainers from "./src/payload/collections/Explainers";
+import Fellowships from "./src/payload/collections/Fellowships";
+import Grants from "./src/payload/collections/Grants";
+import Grantees from "./src/payload/collections/Grantees";
 import Media from "./src/payload/collections/Media";
+import News from "./src/payload/collections/News";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
+import Research from "./src/payload/collections/Research";
 import Resources from "./src/payload/collections/Resources";
+import Tags from "./src/payload/collections/Tags";
 import FocalCountries from "./src/payload/globals/FocalCountries";
 import Footer from "./src/payload/globals/Footer";
 import Helpdesk from "./src/payload/globals/Helpdesk";
 import Navigation from "./src/payload/globals/Navigation";
+import TranslationConfig from "./src/payload/globals/TranslationConfig";
 import Settings from "./src/payload/globals/Settings";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 import { CollectionConfig, GlobalConfig } from "payload/types";
@@ -33,9 +42,15 @@ dotenv.config({ path: path.resolve(__dirname, "./.env.local") });
 
 const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
 
-const cors = process?.env?.PAYLOAD_CORS?.split(",")
-  ?.map((d) => d.trim())
-  ?.filter(Boolean);
+const cors =
+  process?.env?.PAYLOAD_CORS?.split(",")
+    ?.map((d) => d.trim())
+    ?.filter(Boolean) ?? [];
+
+const csrf =
+  process?.env?.PAYLOAD_CSRF?.split(",")
+    ?.map((d) => d.trim())
+    ?.filter(Boolean) ?? [];
 
 const adapter = s3Adapter({
   config: {
@@ -55,20 +70,29 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   collections: [
-    CommunityPlatforms as CollectionConfig,
-    Explainers as CollectionConfig,
-    Media as CollectionConfig,
-    Pages as CollectionConfig,
-    Partners as CollectionConfig,
-    Resources as CollectionConfig,
-  ],
+    Authors,
+    CommunityPlatforms,
+    Events,
+    Explainers,
+    Fellowships,
+    Grants,
+    Grantees,
+    Media,
+    News,
+    Pages,
+    Partners,
+    Resources,
+    Research,
+    Tags,
+  ] as CollectionConfig[],
   globals: [
-    FocalCountries as GlobalConfig,
-    Footer as GlobalConfig,
-    Helpdesk as GlobalConfig,
-    Navigation as GlobalConfig,
-    Settings as GlobalConfig,
-  ],
+    FocalCountries,
+    Footer,
+    Helpdesk,
+    Navigation,
+    TranslationConfig,
+    Settings,
+  ] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {
@@ -93,6 +117,7 @@ export default buildConfig({
     }),
   },
   cors,
+  csrf,
   i18n: {
     fallbackLng: "en", // default
     debug: false, // default
@@ -128,18 +153,18 @@ export default buildConfig({
       },
     }),
     seo({
-      collections: ["pages"],
+      collections: ["news", "pages", "research"],
       globals: ["settings"],
       uploadsCollection: "media",
       generateTitle: ({ doc }: any) => doc?.title?.value as string,
       generateURL: ({ doc, locale }: any) =>
         doc?.slug?.value ? `${appURL}/${locale}/${doc.slug.value}` : undefined,
     }),
-    // nestedDocs({
-    //   collections: ["pages"],
-    //   generateLabel: (_, doc) => doc.title as string,
-    //   generateURL: (docs) =>
-    //     docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
-    // }),
+    nestedDocs({
+      collections: ["pages"],
+      generateLabel: (_, doc) => doc.title as string,
+      generateURL: (docs) =>
+        docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
+    }),
   ],
 });

@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { Link } from "@commons-ui/next";
+import { Box } from "@mui/material";
 import React, { Fragment } from "react";
 import { Text } from "slate";
 
@@ -31,41 +32,70 @@ const serialize = (children, props) =>
     if (!node) {
       return null;
     }
-
     switch (node.type) {
       case "h1":
         return (
-          <LineClampedRichTypography {...DEFAULT_PROPS} variant="h1" key={i}>
+          <LineClampedRichTypography
+            {...DEFAULT_PROPS}
+            {...props}
+            variant="h1"
+            key={i}
+          >
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
       case "h2":
         return (
-          <LineClampedRichTypography {...DEFAULT_PROPS} variant="h2" key={i}>
+          <LineClampedRichTypography
+            {...DEFAULT_PROPS}
+            {...props}
+            variant="h2"
+            key={i}
+          >
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
       case "h3":
         return (
-          <LineClampedRichTypography {...DEFAULT_PROPS} variant="h3" key={i}>
+          <LineClampedRichTypography
+            {...DEFAULT_PROPS}
+            {...props}
+            variant="h3"
+            key={i}
+          >
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
       case "h4":
         return (
-          <LineClampedRichTypography {...DEFAULT_PROPS} variant="h4" key={i}>
+          <LineClampedRichTypography
+            {...DEFAULT_PROPS}
+            {...props}
+            variant="h4"
+            key={i}
+          >
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
       case "h5":
         return (
-          <LineClampedRichTypography {...DEFAULT_PROPS} variant="h5" key={i}>
+          <LineClampedRichTypography
+            {...DEFAULT_PROPS}
+            {...props}
+            variant="h5"
+            key={i}
+          >
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
       case "h6":
         return (
-          <LineClampedRichTypography {...DEFAULT_PROPS} variant="h6" key={i}>
+          <LineClampedRichTypography
+            {...DEFAULT_PROPS}
+            {...props}
+            variant="h6"
+            key={i}
+          >
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
@@ -94,13 +124,16 @@ const serialize = (children, props) =>
   });
 
 const RichText = React.forwardRef(function RichText(props, ref) {
-  const { elements, ...other } = props;
+  const { elements, sx, ...other } = props;
 
   if (!elements?.length) {
     return null;
   }
+
   return (
-    <React.Fragment ref={ref}>{serialize(elements, other)}</React.Fragment>
+    <Box sx={sx} ref={ref}>
+      {serialize(elements, other)}
+    </Box>
   );
 });
 
