@@ -228,7 +228,7 @@ async function processPageArticlePost(page, api, context) {
 }
 
 async function processPageArticles(page, api, context) {
-  const { params, query, locale } = context;
+  const { locale, params, query } = context;
 
   if (params.slugs.length > 2) {
     return processPageArticlePost(page, api, context);
