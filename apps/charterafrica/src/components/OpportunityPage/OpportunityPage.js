@@ -1,31 +1,38 @@
-import { Section } from "@commons-ui/core";
-import { Typography, Box, Divider } from "@mui/material";
+import { Section, RichTypography } from "@commons-ui/core";
+import { Box, Divider } from "@mui/material";
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
 import OpportunityCards from "@/charterafrica/components/OpportunityCards";
+import OpportunityHeader from "@/charterafrica/components/OpportunityHeader";
+
+const groupCollectionItems = (items) => {
+  const itemsByStatus =
+    items?.reduce((acc, item) => {
+      // Events, Grants use status; Felloships use category
+      const status = item.status || item.category;
+      acc[status] = acc[status] || [];
+      acc[status].push(item);
+      return acc;
+    }, {}) ?? {};
+
+  return Object.keys(itemsByStatus).map((key) => ({
+    title: key,
+    items: itemsByStatus[key],
+  }));
+};
 
 const OpportunityPage = React.forwardRef(function OpportunityPage(props, ref) {
-  const { config, items, title, sx } = props;
+  const { featured, items, title: header, sx } = props;
 
   if (!items?.length) {
     return null;
   }
 
-  const itemsByStatus = items.reduce((acc, item) => {
-    const { status } = item;
-    acc[status] = acc[status] || [];
-    acc[status].push(item);
-    return acc;
-  }, {});
-
-  const itemsByStatusArray = Object.keys(itemsByStatus).map((key) => {
-    return {
-      title: key,
-      items: itemsByStatus[key],
-    };
+  const itemsPerOpportunity = items.map(({ items: currentItems, ...other }) => {
+    const itemsPerStatus = groupCollectionItems(currentItems);
+    return { ...other, itemsPerStatus };
   });
-
   return (
     <Box
       sx={{
@@ -34,35 +41,37 @@ const OpportunityPage = React.forwardRef(function OpportunityPage(props, ref) {
       }}
       ref={ref}
     >
-      <Section
-        sx={{
-          px: { xs: 2.5, sm: 0 },
-          py: 5,
-          "&:last-child": {
-            pb: 0,
-          },
-        }}
-      >
-        <Typography
-          color="neutral.dark"
-          pb={5}
-          textAlign={{
-            xs: "center",
-            md: "left",
+      <OpportunityHeader title={header} />
+      {itemsPerOpportunity.map(({ config, itemsPerStatus, label }) => (
+        <Section
+          sx={{
+            px: { xs: 7.5, sm: 0 },
+            py: 5,
+            "&:last-child": {
+              pb: 0,
+            },
           }}
-          variant="h3Small"
+          key={label}
         >
-          {title}
-        </Typography>
+          <RichTypography
+            color="neutral.dark"
+            pb={5}
+            textAlign={{
+              xs: "center",
+              md: "left",
+            }}
+            variant="h3Small"
+          >
+            {label}
+          </RichTypography>
 
-        {itemsByStatusArray.map((item) => {
-          return (
+          {itemsPerStatus.map((item) => (
             <React.Fragment key={item.title}>
               <OpportunityCards
+                config={config}
+                featured={featured}
                 items={item.items}
                 title={item.title}
-                key={item.title}
-                config={config}
                 sx={{
                   display: {
                     xs: config?.showOnMobile?.includes(item.title)
@@ -71,6 +80,7 @@ const OpportunityPage = React.forwardRef(function OpportunityPage(props, ref) {
                     md: "block",
                   },
                 }}
+                key={item.title}
               />
               <Divider
                 sx={{
@@ -92,9 +102,9 @@ const OpportunityPage = React.forwardRef(function OpportunityPage(props, ref) {
                 }}
               />
             </React.Fragment>
-          );
-        })}
-      </Section>
+          ))}
+        </Section>
+      ))}
     </Box>
   );
 });
