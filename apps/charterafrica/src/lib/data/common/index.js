@@ -1,6 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
+import formatDateTime from "@/charterafrica/utils/formatDate";
 
 async function getGlobalProps({ locale, defaultLocale }, api) {
   const settings = await api.findGlobal("settings", {
@@ -31,52 +32,25 @@ async function getGlobalProps({ locale, defaultLocale }, api) {
   return { footer, navbar, settings };
 }
 
-async function processPageAbout(page) {
+async function processPageAbout(page, api, { locale }) {
   const { blocks } = page;
+  const { docs } = await api.getCollection("grantees", {
+    sort: "-publishedOn",
+    locale,
+    where: { _status: { equals: "published" } },
+  });
+  const grantees = docs.map((item) => ({ ...item, image: item.coverImage }));
   blocks.push({
     slug: "grantees",
     title: "Grantees",
-    grantees: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      name: "Grantee Name ".repeat((i % 2) + 1).trim(),
-      description: [
-        {
-          children: [
-            {
-              text: "Lorem ipsum dolor sit amet con sectetur adipiscing elit mi, interdum blandit fring illa fus. adipiscing elit mi, adipiscing.",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `About ${i}`,
-        prefix: "media",
-        filename: "Rectangle 117.png",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/Rectangle 117.png",
-      },
-      primaryLink: {
-        label: "Constitutional changes of government",
-        href: "/",
-      },
-      secondaryLink: {
-        label: "Networks",
-        href: "/",
-      },
-    })),
+    grantees,
   });
 
   return page;
 }
 
-async function processPageExplainers(page, api) {
-  const collection = await api.getCollection("explainers");
+async function processPageExplainers(page, api, context) {
+  const collection = await api.getCollection("explainers", context);
   const explainers = collection.docs || null;
   const { title, blocks } = page;
   if (explainers?.length) {
@@ -86,320 +60,6 @@ async function processPageExplainers(page, api) {
       explainers,
     });
   }
-
-  return page;
-}
-
-const grants = Array.from({ length: 30 }, (_, i) => ({
-  id: i,
-  slug: `democratic-governance-in-zambia-${i}`,
-  title: "Democratic Governance in Zambia",
-  date: "2023-02-11",
-  excerpt: [
-    {
-      children: [
-        {
-          text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
-        },
-      ],
-    },
-  ],
-  image: {
-    id: "63d2622aafe25f6469605eae",
-    alt: `Grant ${i}`,
-    prefix: "media",
-    filename: "Rectangle 113.jpg",
-    mimeType: "image/jpg",
-    filesize: 257010,
-    width: 1236,
-    height: 696,
-    createdAt: "2023-01-26T11:21:14.868Z",
-    updatedAt: "2023-01-26T11:21:14.868Z",
-    url: "/images/charter-africa-brand.svg",
-  },
-  link: {
-    href: `/opportunitites/fellowships/grants/democratic-governance-in-zambia-${i}`,
-  },
-  apply: {
-    href: "#",
-    label: "Apply Now",
-  },
-  status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
-}));
-
-const fellowships = Array.from({ length: 30 }, (_, i) => ({
-  id: i,
-  title: "Democratic Governance in Zambia",
-  slug: `democratic-governance-in-zambia-${i}`,
-  date: "2023-02-11",
-  excerpt: [
-    {
-      children: [
-        {
-          text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
-        },
-      ],
-    },
-  ],
-  image: {
-    id: "63d2622aafe25f6469605eae",
-    alt: `Grant ${i}`,
-    prefix: "media",
-    filename: "Rectangle 113.jpg",
-    mimeType: "image/jpg",
-    filesize: 257010,
-    width: 1236,
-    height: 696,
-    createdAt: "2023-01-26T11:21:14.868Z",
-    updatedAt: "2023-01-26T11:21:14.868Z",
-    url: [
-      "/images/fellowships.png",
-      "/images/fellowships1.png",
-      "/images/fellowships2.png",
-      "/images/fellowships3.png",
-    ][Math.floor(Math.random() * 4)],
-  },
-  link: {
-    href: `/opportunitites/fellowships/fellowships/democratic-governance-in-zambia-${i}`,
-  },
-  apply: {
-    href: "#",
-    label: "Apply Now",
-  },
-  status: ["technologies", "other"][Math.floor(Math.random() * 2)],
-}));
-
-const initiatives = {
-  grants,
-  fellowships,
-};
-
-async function processPageInitiativesOpportunity(page, api, context) {
-  const { params } = context;
-  const collection = params.slugs[2];
-  const slug = params.slugs[3];
-  const docs = initiatives[collection];
-  const opportunity = docs?.find((doc) => doc.slug === slug);
-  if (!opportunity) {
-    return null;
-  }
-
-  const processedOpportunity = opportunity;
-  let content = [
-    {
-      richTextBlockFields: {
-        content: [
-          {
-            children: [
-              {
-                text: "Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
-                children: null,
-              },
-            ],
-          },
-          {
-            children: [
-              {
-                text: "",
-                children: null,
-              },
-            ],
-          },
-          {
-            children: [
-              {
-                text: "Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.",
-                children: null,
-              },
-            ],
-          },
-          {
-            children: [
-              {
-                text: "\nAny subtitles\n",
-                bold: true,
-                children: null,
-              },
-            ],
-          },
-          {
-            children: [
-              {
-                text: "Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
-                children: null,
-              },
-            ],
-          },
-          {
-            children: [
-              {
-                text: "",
-                children: null,
-              },
-            ],
-          },
-          {
-            children: [
-              {
-                text: "Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.",
-                children: null,
-              },
-            ],
-          },
-          {
-            children: [
-              {
-                text: "",
-                children: null,
-              },
-            ],
-          },
-          {
-            children: [
-              {
-                text: "Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
-                children: null,
-              },
-            ],
-          },
-          {
-            children: [
-              {
-                text: "",
-                children: null,
-              },
-            ],
-          },
-          {
-            children: [
-              {
-                text: "Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.",
-                children: null,
-              },
-            ],
-          },
-        ],
-      },
-      blockType: "richText",
-    },
-  ];
-
-  if (content?.length) {
-    content = content.map(({ blockType, ...other }) => ({
-      ...other,
-      slug: blockType,
-    }));
-  }
-  return {
-    ...page,
-    meta: deepmerge(page.meta, opportunity.meta),
-    title: `${opportunity.title} | ${page.title}`,
-    blocks: [
-      {
-        ...processedOpportunity,
-        slug: "opportunity",
-      },
-      {
-        content,
-        slug: "longform",
-      },
-    ],
-  };
-}
-
-async function processPageFellowships(page, api, context) {
-  const { params } = context;
-  if (params.slugs.length > 2) {
-    return processPageInitiativesOpportunity(page, api, context);
-  }
-  const { blocks } = page;
-  blocks.push({
-    slug: "page-info",
-    description: [
-      {
-        children: [
-          {
-            text: "A list of all Charter Africa grants, fellowships and events",
-          },
-        ],
-      },
-    ],
-  });
-  blocks.push({
-    slug: "fellowships-and-grants-header",
-    title: "Grants and Fellowships",
-  });
-  blocks.push({
-    slug: "grants",
-    title: "Grants",
-    items: grants,
-    config: {
-      showAllText: "Show All",
-      showLessText: "Show Less",
-      dateText: "Deadline",
-      showOnMobile: ["open", "closed"],
-      statusGroupTitleSuffix: "Calls",
-    },
-  });
-  blocks.push({
-    slug: "fellowships",
-    title: "Fellowships",
-    items: fellowships,
-    config: {
-      showAllText: "Show All",
-      showLessText: "Show Less",
-      dateText: "Deadline",
-      showOnMobile: ["technologies"],
-      statusGroupTitleSuffix: "",
-    },
-  });
-  blocks.push({
-    slug: "events",
-    title: "Events",
-    items: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Event title going on two or even three lines",
-      category: "Topic Name",
-      date: "2023-02-11",
-      excerpt: [
-        {
-          children: [
-            {
-              text: "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur ",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Grant ${i}`,
-        prefix: "media",
-        filename: "Rectangle 113.jpg",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/featured-event.svg",
-      },
-      link: {
-        href: `/events/${i}`,
-      },
-      registerLink: {
-        href: `/register/events/${i}`,
-      },
-      registerText: "Register ",
-      status: ["upcoming", "past"][Math.floor(Math.random() * 2)],
-      featured: i === 0,
-    })),
-    config: {
-      showAllText: "Show All",
-      showLessText: "Show Less",
-      showOnMobile: ["upcoming", "past"],
-      statusGroupTitleSuffix: "",
-    },
-  });
 
   return page;
 }
@@ -426,14 +86,7 @@ function processPost(post, page, api, context) {
     ...post,
     author: post.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
     image,
-    date: new Date(post.publishedOn).toLocaleString(locale, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      second: "2-digit",
-    }),
+    date: formatDateTime(post.publishedOn, { locale, includeTime: true }),
     link: {
       href,
     },
@@ -441,10 +94,11 @@ function processPost(post, page, api, context) {
 }
 
 async function processPageArticlePost(page, api, context) {
-  const { params } = context;
+  const { params, locale } = context;
   const { slug: collection } = page;
   const slug = params.slugs[2];
   const { docs } = await api.getCollection(collection, {
+    locale,
     where: {
       slug: {
         equals: slug,
@@ -483,7 +137,7 @@ async function processPageArticlePost(page, api, context) {
 }
 
 async function processPageArticles(page, api, context) {
-  const { params } = context;
+  const { params, locale } = context;
   if (params.slugs.length > 2) {
     return processPageArticlePost(page, api, context);
   }
@@ -493,14 +147,18 @@ async function processPageArticles(page, api, context) {
   if (foundIndex > -1) {
     const foundValue = blocks[foundIndex].featuredPost?.value;
     if (foundValue) {
+      const variant = blocks[foundIndex].featuredPost?.relationTo;
       blocks[foundIndex] = {
         ...processPost(foundValue, page, api, context),
+        variant,
         slug: "featured-post",
       };
     }
   }
   const { slug, title } = page;
   const { docs } = await api.getCollection(slug, {
+    locale,
+    sort: "-publishedOn",
     where: { _status: { equals: "published" } },
   });
   const articles =
@@ -530,10 +188,266 @@ async function processPagePrivacyPolicy(page) {
   return page;
 }
 
+function processOpportunity(opportunity, pageUrl, api, context) {
+  let image = null;
+  if (opportunity.coverImage) {
+    const { alt, url } = opportunity.coverImage;
+    image = {
+      alt: alt || opportunity.title,
+      url,
+    };
+  }
+  let href = null;
+  if (pageUrl) {
+    const { slug } = opportunity;
+    href = `${pageUrl}/${slug}`;
+  }
+  const { locale } = context;
+  return {
+    ...opportunity,
+    author:
+      opportunity.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
+    image,
+    // event date is more important than when the event was published
+    date: formatDateTime(opportunity.date || opportunity.publishedOn, {
+      locale,
+    }),
+    link: {
+      href,
+    },
+  };
+}
+
+// /opportunities/fellowship/<slug> or /opportunities/grants/<slug>
+async function processPageOpportunitiesPost(page, api, context) {
+  const { params, locale } = context;
+  const { slug: collection } = page;
+  const slug = params.slugs[2];
+  const { docs } = await api.getCollection(collection, {
+    locale,
+    where: {
+      slug: {
+        equals: slug,
+      },
+      _status: { equals: "published" },
+    },
+  });
+  if (!docs?.length) {
+    return null;
+  }
+
+  const [originalOpportunity] = docs;
+  const opportunity = processOpportunity(
+    originalOpportunity,
+    page,
+    api,
+    context
+  );
+  let content = null;
+  if (opportunity.content?.length) {
+    content = opportunity.content.map(({ blockType, ...other }) => ({
+      ...other,
+      slug: blockType,
+    }));
+  }
+  return {
+    ...page,
+    meta: deepmerge(page.meta, opportunity.meta),
+    title: `${opportunity.title} | ${page.title}`,
+    blocks: [
+      {
+        ...opportunity,
+        slug: "opportunity",
+      },
+      {
+        content,
+        slug: "longform",
+      },
+    ],
+  };
+}
+
+async function fetchEvents(pageUrl, api, context) {
+  const { locale } = context;
+  const { docs } = await api.getCollection("events", {
+    sort: "-publishedOn",
+    where: { _status: { equals: "published" } },
+    locale,
+  });
+  if (!docs?.length) {
+    return null;
+  }
+
+  const events = docs.map((item) => {
+    const event = processOpportunity(item, pageUrl, api, context);
+    const status =
+      new Date(item.date).getTime() < new Date().getTime()
+        ? "past"
+        : "upcoming";
+    return { ...event, status, variant: "event" };
+  });
+  return {
+    items: events,
+    config: {
+      dateText: "deadline",
+      showAllText: "show all",
+      showLessText: "show less",
+      showOnMobile: ["past", "upcoming"],
+      statusGroupTitleSuffix: "",
+    },
+  };
+}
+
+async function fetchFellowships(pageUrl, api, context) {
+  const { locale } = context;
+  const { docs } = await api.getCollection("fellowships", {
+    sort: "-publishedOn",
+    where: { _status: { equals: "published" } },
+    locale,
+  });
+  if (!docs?.length) {
+    return null;
+  }
+
+  const fellowships = docs.map((item) =>
+    processOpportunity(item, pageUrl, api, context)
+  );
+  return {
+    items: fellowships,
+    config: {
+      dateText: "deadline",
+      showAllText: "show all",
+      showLessText: "show less",
+      showOnMobile: ["technologies"],
+      statusGroupTitleSuffix: "",
+    },
+  };
+}
+
+async function fetchGrants(pageUrl, api, context) {
+  const { locale } = context;
+  const { docs } = await api.getCollection("grants", {
+    sort: "-publishedOn",
+    where: { _status: { equals: "published" } },
+    locale,
+  });
+  if (!docs?.length) {
+    return null;
+  }
+
+  const fellowships = docs.map((item) =>
+    processOpportunity(item, pageUrl, api, context)
+  );
+  return {
+    items: fellowships,
+    config: {
+      dateText: "deadline",
+      showAllText: "show all",
+      showLessText: "show less",
+      showOnMobile: ["open"],
+      statusGroupTitleSuffix: "",
+    },
+  };
+}
+
+async function processPageEvents(page, api, context) {
+  const { params } = context;
+  if (params.slugs.length > 2) {
+    return processPageArticlePost(page, api, context);
+  }
+
+  // For now, we don't show /opportunities/events by itself
+  return null;
+}
+
+async function processPageFellowships(page, api, context) {
+  const { params } = context;
+  if (params.slugs.length > 2) {
+    return processPageOpportunitiesPost(page, api, context);
+  }
+
+  // For now, we don't show /opportunities/fellowships by itself
+  return null;
+}
+
+async function processPageGrants(page, api, context) {
+  const { params } = context;
+  if (params.slugs.length > 2) {
+    return processPageOpportunitiesPost(page, api, context);
+  }
+
+  // For now, we don't show /opportunities/grants by itself
+  return null;
+}
+
+const fetchOpportunitiesCollectionFunctionMap = {
+  events: fetchEvents,
+  fellowships: fetchFellowships,
+  grants: fetchGrants,
+};
+
+// maybe page slug will be sth like events-grants-and-fellowships
+async function processPageOpportunities(page, api, context) {
+  const { blocks, breadcrumbs = [] } = page;
+  const pageUrl = breadcrumbs[breadcrumbs.length - 1].url;
+  const opportunitiesBlocks = await Promise.all(
+    blocks
+      .filter((b) => b.slug === "opportunities")
+      .map(async (b) => {
+        const { featured: originalFeatured, items: originalItems } = b;
+        let featured = null;
+        if (originalFeatured) {
+          const foundValue = originalFeatured?.value;
+          if (foundValue) {
+            const collection = originalFeatured.relationTo;
+            featured = {
+              ...processOpportunity(
+                foundValue,
+                `${pageUrl}/${collection}`,
+                api,
+                context
+              ),
+              variant: collection,
+              slug: "featured-post",
+            };
+          }
+        }
+        const items = await Promise.all(
+          originalItems.map(async ({ collection, ...other }) => {
+            let found = null;
+            const collectionPageUrl = `${pageUrl}/${collection}`;
+            const fetchCollection =
+              fetchOpportunitiesCollectionFunctionMap[collection];
+            if (fetchCollection) {
+              found = await fetchCollection(collectionPageUrl, api, context);
+            }
+
+            return { ...other, ...found, collection };
+          })
+        );
+
+        return { ...b, featured, items };
+      })
+  );
+  if (!opportunitiesBlocks.length) {
+    return page;
+  }
+
+  // Maintain block order
+  opportunitiesBlocks.forEach((ob) => {
+    const i = blocks.findIndex((b) => b.id === ob.id);
+    blocks[i] = ob;
+  });
+  return page;
+}
+
 const processPageFunctionsMap = {
   about: processPageAbout,
   explainers: processPageExplainers,
+  events: processPageEvents,
   fellowships: processPageFellowships,
+  grants: processPageGrants,
+  opportunities: processPageOpportunities,
   news: processPageArticles,
   research: processPageArticles,
   "privacy-policy": processPagePrivacyPolicy,

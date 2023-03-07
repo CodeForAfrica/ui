@@ -59,7 +59,7 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
                 Democratic Governance in Zambia
               </h6>
               <div
-                class="MuiBox-root css-18wyc5g"
+                class="MuiBox-root css-1eoaz54"
               >
                 <p
                   class="MuiTypography-root MuiTypography-p1 css-1d4bzy0-MuiTypography-root"
@@ -84,7 +84,7 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
                 <span
                   class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
                 >
-                   
+                  : undefined
                 </span>
               </div>
             </div>
@@ -134,7 +134,7 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
                 <span
                   class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
                 >
-                   
+                  : undefined
                 </span>
               </div>
             </div>
@@ -184,7 +184,7 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
                 <span
                   class="MuiTypography-root MuiTypography-caption css-y4met2-MuiTypography-root"
                 >
-                   
+                  : undefined
                 </span>
               </div>
             </div>

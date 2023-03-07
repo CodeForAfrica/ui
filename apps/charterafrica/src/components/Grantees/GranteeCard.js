@@ -1,5 +1,5 @@
 import { Link } from "@commons-ui/next";
-import { Button, CardContent, CardMedia } from "@mui/material";
+import { Box, Button, CardContent, CardMedia } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -18,8 +18,7 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
     variant = "outlined",
     elevation,
     href,
-    primaryLink,
-    secondaryLink,
+    tags,
   } = props;
   const ownerState = {
     elevation,
@@ -56,41 +55,32 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
             color={neutral[500]}
             elements={description}
             sx={(theme) => ({
-              minHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 2)`,
+              minHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
             })}
-            lineClamp={2}
+            lineClamp={3}
           />
-          <Button
-            component={Link}
-            sx={{
-              mt: 2.5,
-              textTransform: "uppercase",
-              fontSize: 10,
-              color: "neutral.dark",
-            }}
-            size="small"
-            variant="contained"
-            color="success"
-            href={primaryLink.href}
-          >
-            {primaryLink.label}
-          </Button>
-          <br />
-          <Button
-            component={Link}
-            sx={{
-              mt: 1.25,
-              textTransform: "uppercase",
-              fontSize: 10,
-              color: "neutral.dark",
-            }}
-            size="small"
-            variant="contained"
-            color="error"
-            href={secondaryLink.href}
-          >
-            {secondaryLink.label}
-          </Button>
+          <Box sx={{ height: 94, overflow: "hidden", mt: 1.25 }}>
+            {tags?.map((tag, i) => {
+              return (
+                <Button
+                  component="div"
+                  key={tag.id}
+                  sx={{
+                    mt: 1.25,
+                    mr: 1.25,
+                    textTransform: "uppercase",
+                    fontSize: 10,
+                    color: "neutral.dark",
+                  }}
+                  size="small"
+                  variant="contained"
+                  color={i ? "error" : "success"}
+                >
+                  {tag.name}
+                </Button>
+              );
+            })}
+          </Box>
         </CardContent>
       </StyledActionArea>
     </Card>
@@ -101,16 +91,14 @@ GranteeCard.propTypes = {
   name: PropTypes.string,
   description: PropTypes.arrayOf(PropTypes.shape({})),
   image: PropTypes.shape({}),
-  primaryLink: PropTypes.shape({}),
-  secondaryLink: PropTypes.shape({}),
+  tags: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 GranteeCard.defaultProps = {
   name: undefined,
   description: undefined,
   image: undefined,
-  primaryLink: undefined,
-  secondaryLink: undefined,
+  tags: undefined,
 };
 
 export default GranteeCard;
