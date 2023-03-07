@@ -231,10 +231,10 @@ exports[`<Layout /> renders unchanged 1`] = `
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
                 <div
-                  class="MuiBox-root css-1nnllg9"
+                  class="MuiBox-root css-1lt1yad"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 css-1vx6nzs-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 css-18o3on8-MuiTypography-root"
                   />
                 </div>
               </div>
@@ -245,10 +245,10 @@ exports[`<Layout /> renders unchanged 1`] = `
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
                 <div
-                  class="MuiBox-root css-1iwky5m"
+                  class="MuiBox-root css-1s6v4an"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2SemiBold css-jzkizn-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2SemiBold css-1dfmvqd-MuiTypography-root"
                   />
                 </div>
               </div>
