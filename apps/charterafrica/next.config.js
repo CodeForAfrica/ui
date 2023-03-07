@@ -53,11 +53,6 @@ module.exports = {
         destination: "/knowledge/explainers",
         permanent: true,
       },
-      {
-        source: "/opportunities",
-        destination: "/opportunities/helpdesk",
-        permanent: true,
-      },
     ];
   },
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
