@@ -15,7 +15,7 @@ const Post = React.forwardRef(function Post(props, ref) {
     <Box bgcolor={secondary[50]} sx={sx} ref={ref}>
       <Figure
         sx={{
-          maxHeight: { xs: "324px", md: "487px" },
+          height: { xs: "324px", md: "487px" },
           overflow: "hidden",
           width: "100vw",
         }}
@@ -26,7 +26,7 @@ const Post = React.forwardRef(function Post(props, ref) {
           priority: true,
           src: image.url,
           style: {
-            height: "auto",
+            height: "100%",
             objectFit: "cover",
             width: "100%",
           },
