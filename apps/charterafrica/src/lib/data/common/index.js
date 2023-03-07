@@ -244,17 +244,20 @@ async function processPageArticles(page, api, context) {
     }
   }
   const { slug, title } = page;
-  const { docs } = await api.getCollection(slug, {
+  const { docs, totalPages } = await api.getCollection(slug, {
+    limit: 9,
     locale,
     sort: "-publishedOn",
     where: { _status: { equals: "published" } },
   });
+
   const articles =
     docs?.map((post) => processPost(post, page, api, context)) ?? null;
   const articlesBlock = {
     slug,
     title,
     articles,
+    totalPages,
   };
   blocks.push(articlesBlock);
   return page;

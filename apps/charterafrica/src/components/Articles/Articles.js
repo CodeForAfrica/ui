@@ -8,7 +8,7 @@ import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import PostCard from "@/charterafrica/components/PostCard";
 
 const Articles = React.forwardRef(function Articles(props, ref) {
-  const { sx, articles } = props;
+  const { sx, articles, totalPages } = props;
   return (
     <Box bgcolor={secondary[50]} sx={sx} ref={ref}>
       <Section
@@ -29,7 +29,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
             </Grid>
           ))}
         </Grid>
-        <NextPrevPagination count={articles?.length} onPageChange={() => {}} />
+        <NextPrevPagination count={totalPages} onPageChange={() => {}} />
       </Section>
     </Box>
   );
