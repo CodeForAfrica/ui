@@ -10,10 +10,9 @@ const OpportunityCards = React.forwardRef(function OpportunityCards(
   props,
   ref
 ) {
-  const { config, items, title, sx } = props;
+  const { config, featured, items, title, sx } = props;
 
   const [showAll, setShowAll] = useState(false);
-  const featuredEvent = items?.find((item) => item.featured);
 
   if (!items?.length) {
     return null;
@@ -32,7 +31,7 @@ const OpportunityCards = React.forwardRef(function OpportunityCards(
         showAllText={config?.showAllText || "Show all"}
         showLessText={config?.showLessText || "Show less"}
       />
-      {featuredEvent && <FeaturedPostCard {...featuredEvent} />}
+      <FeaturedPostCard {...featured} sx={{ pb: 5 }} />
       <OpportunityCardGrid items={items} config={config} showAll={showAll} />
       <Button
         onClick={() => {
