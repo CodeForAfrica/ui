@@ -69,26 +69,27 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
               }}
               defaultValue={sort ?? ""}
             >
-              {sorting.map((c) => {
+              {sorting.map((sortItem) => {
                 return (
-                  <MenuItem value={c} key={c}>
-                    {c}
+                  <MenuItem value={sortItem} key={sortItem}>
+                    {sortItem}
                   </MenuItem>
                 );
               })}
             </Select>
           </Grid>
           <Grid item container xs={12} sm={6} md={4} gap={1}>
-            {allTags.map((s) => {
+            {allTags.map((singleTag) => {
               return (
                 <Chip
-                  label={s}
-                  onClick={() => handleTagChange(s)}
+                  label={singleTag}
+                  onClick={() => handleTagChange(singleTag)}
                   sx={{
-                    backgroundColor: tag === s ? neutral[700] : neutral[50],
-                    color: tag === s ? neutral[50] : neutral[900],
+                    backgroundColor:
+                      tag === singleTag ? neutral[700] : neutral[50],
+                    color: tag === singleTag ? neutral[50] : neutral[900],
                   }}
-                  key={s}
+                  key={singleTag}
                 />
               );
             })}
