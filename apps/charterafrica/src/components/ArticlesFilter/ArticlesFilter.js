@@ -15,9 +15,9 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
   const allTags = [ALL_TAG, ...tags];
   const [sort, setSelectedSorting] = useState(DEFAULT_SORTING);
   const [tag, setSelectedTags] = useState(ALL_TAG);
-  const [q, setQ] = useState();
+  const [query, setQuery] = useState();
   const router = useRouter();
-  const queryParams = useFilterQuery({ sort, q, tag });
+  const queryParams = useFilterQuery({ sort, query, tag });
   const pathname = router.asPath.split("?")[0];
 
   const handleTagChange = (t) => {
@@ -33,7 +33,7 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
     // We don't want to listen to router changes here since we're the ones
     // updating them
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [queryParams]);
+  }, [queryParams, pathname]);
 
   return (
     <Box bgcolor="#fff" ref={ref}>
@@ -51,7 +51,7 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
           <Grid item>
             <SearchInput
               placeholder="Search News"
-              onChange={(e) => setQ(e.target.value)}
+              onChange={(e) => setQuery(e.target.value)}
               sx={{
                 backgroundColor: "#fff",
                 height: "36px",
@@ -67,7 +67,7 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
                 height: "36px",
                 minWidth: "200px",
               }}
-              defaultValue={sort ?? ""}
+              value={sort ?? ""}
             >
               {sorting.map((sortItem) => {
                 return (

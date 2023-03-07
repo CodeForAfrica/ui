@@ -233,9 +233,9 @@ async function processPageArticles(page, api, context) {
   if (params.slugs.length > 2) {
     return processPageArticlePost(page, api, context);
   }
-  const { tag, sort: sorting, q } = query;
+  const { tag, sort: sorting, query: searchQuery } = query;
 
-  const isFiltering = tag || q || sorting;
+  const isFiltering = tag || searchQuery || sorting;
 
   const { blocks } = page;
   const foundIndex = blocks.findIndex(({ slug }) => slug === "featured-post");
@@ -258,7 +258,7 @@ async function processPageArticles(page, api, context) {
         like: tag || "",
       },
       title: {
-        like: q || "",
+        like: searchQuery || "",
       },
     },
   });

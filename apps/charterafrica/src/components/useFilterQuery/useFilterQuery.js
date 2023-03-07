@@ -3,12 +3,12 @@ const DEFAULT_SORTING = "Most Recent";
 
 function useFilterQuery(query = {}) {
   const searchParams = new URLSearchParams();
-  const { sort, q, tag } = query;
+  const { sort, query: searchQuery, tag } = query;
   if (sort && sort !== decodeURIComponent(DEFAULT_SORTING)) {
     searchParams.append("sort", sort);
   }
-  if (q) {
-    searchParams.append("q", q);
+  if (searchQuery) {
+    searchParams.append("query", searchQuery);
   }
   if (tag && tag !== ALL_TAG) {
     searchParams.append("tag", tag);
