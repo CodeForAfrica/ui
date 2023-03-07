@@ -16,8 +16,9 @@ const Tags = {
       type: "text",
       localized: true,
       required: true,
+      unique: true,
     },
-    slug(),
+    slug({ fieldToUse: "name" }),
   ],
 };
 

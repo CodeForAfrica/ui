@@ -129,6 +129,7 @@ const RichText = React.forwardRef(function RichText(props, ref) {
   if (!elements?.length) {
     return null;
   }
+
   return (
     <Box sx={sx} ref={ref}>
       {serialize(elements, other)}

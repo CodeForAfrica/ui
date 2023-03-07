@@ -9,7 +9,11 @@ import { buildConfig } from "payload/config";
 
 import Authors from "./src/payload/collections/Authors";
 import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
+import Events from "./src/payload/collections/Events";
 import Explainers from "./src/payload/collections/Explainers";
+import Fellowships from "./src/payload/collections/Fellowships";
+import Grants from "./src/payload/collections/Grants";
+import Grantees from "./src/payload/collections/Grantees";
 import Media from "./src/payload/collections/Media";
 import News from "./src/payload/collections/News";
 import Pages from "./src/payload/collections/Pages";
@@ -21,6 +25,7 @@ import FocalCountries from "./src/payload/globals/FocalCountries";
 import Footer from "./src/payload/globals/Footer";
 import Helpdesk from "./src/payload/globals/Helpdesk";
 import Navigation from "./src/payload/globals/Navigation";
+import TranslationConfig from "./src/payload/globals/TranslationConfig";
 import Settings from "./src/payload/globals/Settings";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 import { CollectionConfig, GlobalConfig } from "payload/types";
@@ -67,7 +72,11 @@ export default buildConfig({
   collections: [
     Authors,
     CommunityPlatforms,
+    Events,
     Explainers,
+    Fellowships,
+    Grants,
+    Grantees,
     Media,
     News,
     Pages,
@@ -81,6 +90,7 @@ export default buildConfig({
     Footer,
     Helpdesk,
     Navigation,
+    TranslationConfig,
     Settings,
   ] as GlobalConfig[],
   ...(locales?.length

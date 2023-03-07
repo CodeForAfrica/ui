@@ -1,15 +1,14 @@
-import authors from "../fields/authors";
 import content from "../fields/content";
+import linkGroup from "../fields/linkGroup";
 import publishedOn from "../fields/publishedOn";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
-import tags from "../fields/tags";
 
-const News = {
-  slug: "news",
+const Events = {
+  slug: "events",
   admin: {
     useAsTitle: "title",
-    defaultColumns: ["title", "authors", "publishedOn"],
+    defaultColumns: ["title", "topic", "date"],
   },
   access: {
     read: () => true,
@@ -30,7 +29,6 @@ const News = {
       required: true,
     },
     slug(),
-    authors(),
     {
       name: "coverImage",
       label: {
@@ -45,6 +43,17 @@ const News = {
         mimeType: { contains: "image" },
       },
     },
+    {
+      name: "topic",
+      label: {
+        en: "Topic",
+        fr: "Sujet",
+        pt: "Tema",
+      },
+      type: "text",
+      localized: true,
+      required: true,
+    },
     richText({
       name: "excerpt",
       label: {
@@ -53,14 +62,40 @@ const News = {
         pt: "Excerto",
       },
       localized: true,
+      required: true,
       admin: {
         elements: ["leaves"],
       },
     }),
-    tags(),
-    content(),
+    content({ required: false }),
+    {
+      name: "date",
+      type: "date",
+      required: true,
+      label: {
+        en: "Date and Time",
+        pt: "Data e hora",
+        fr: "Date et l'heure",
+      },
+      admin: {
+        date: {
+          pickerAppearance: "dayAndTime",
+        },
+        position: "sidebar",
+      },
+    },
+    linkGroup({
+      overrides: {
+        name: "register",
+        label: {
+          en: "Register Here",
+          fr: "Inscrivez-vous ici",
+          pt: "Registre-se aqui",
+        },
+      },
+    }),
     publishedOn(),
   ],
 };
 
-export default News;
+export default Events;

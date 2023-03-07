@@ -2,6 +2,8 @@ import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 import useArticlesStore from "@/charterafrica/store/articlesStore";
+import formatDate from "@/charterafrica/utils/formatDate";
+import { getConfigs } from "@/charterafrica/utils/translationConfigs";
 
 async function getGlobalProps({ locale, defaultLocale }, api) {
   const settings = await api.findGlobal("settings", {
@@ -32,52 +34,25 @@ async function getGlobalProps({ locale, defaultLocale }, api) {
   return { footer, navbar, settings };
 }
 
-async function processPageAbout(page) {
+async function processPageAbout(page, api, { locale }) {
   const { blocks } = page;
+  const { docs } = await api.getCollection("grantees", {
+    sort: "-publishedOn",
+    locale,
+    where: { _status: { equals: "published" } },
+  });
+  const grantees = docs.map((item) => ({ ...item, image: item.coverImage }));
   blocks.push({
     slug: "grantees",
     title: "Grantees",
-    grantees: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      name: "Grantee Name ".repeat((i % 2) + 1).trim(),
-      description: [
-        {
-          children: [
-            {
-              text: "Lorem ipsum dolor sit amet con sectetur adipiscing elit mi, interdum blandit fring illa fus. adipiscing elit mi, adipiscing.",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `About ${i}`,
-        prefix: "media",
-        filename: "Rectangle 117.png",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/Rectangle 117.png",
-      },
-      primaryLink: {
-        label: "Constitutional changes of government",
-        href: "/",
-      },
-      secondaryLink: {
-        label: "Networks",
-        href: "/",
-      },
-    })),
+    grantees,
   });
 
   return page;
 }
 
-async function processPageExplainers(page, api) {
-  const collection = await api.getCollection("explainers");
+async function processPageExplainers(page, api, context) {
+  const collection = await api.getCollection("explainers", context);
   const explainers = collection.docs || null;
   const { title, blocks } = page;
   if (explainers?.length) {
@@ -91,159 +66,90 @@ async function processPageExplainers(page, api) {
   return page;
 }
 
-async function processPageFellowships(page) {
-  const { blocks } = page;
-  blocks.push({
-    slug: "page-info",
-    description: [
-      {
-        children: [
-          {
-            text: "A list of all Charter Africa grants, fellowships and events",
-          },
-        ],
-      },
-    ],
+async function processPageEvents({ blocks }, api, { locale }) {
+  const configs = await getConfigs(api, { locale });
+
+  const { docs: eventDocs } = await api.getCollection("events", {
+    locale,
+    where: { _status: { equals: "published" } },
+    limit: 100, // Perform pagination here
   });
-  blocks.push({
-    slug: "fellowships-and-grants-header",
-    title: "Grants and Fellowships",
-  });
-  blocks.push({
-    slug: "grants",
-    title: "Grants",
-    items: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Democratic Governance in Zambia",
-      date: "2023-02-11",
-      excerpt: [
-        {
-          children: [
-            {
-              text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Grant ${i}`,
-        prefix: "media",
-        filename: "Rectangle 113.jpg",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/charter-africa-brand.svg",
-      },
-      link: {
-        href: `/`,
-      },
-      status: ["open", "closed", "upcoming"][Math.floor(Math.random() * 3)],
-    })),
-    config: {
-      showAllText: "Show All",
-      showLessText: "Show Less",
-      dateText: "Deadline",
-      showOnMobile: ["open", "closed"],
-      statusGroupTitleSuffix: "Calls",
-    },
-  });
-  blocks.push({
-    slug: "fellowships",
-    title: "Fellowships",
-    items: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Democratic Governance in Zambia",
-      date: "2023-02-11",
-      excerpt: [
-        {
-          children: [
-            {
-              text: "This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Grant ${i}`,
-        prefix: "media",
-        filename: "Rectangle 113.jpg",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: [
-          "/images/fellowships.png",
-          "/images/fellowships1.png",
-          "/images/fellowships2.png",
-          "/images/fellowships3.png",
-        ][Math.floor(Math.random() * 4)],
-      },
-      link: {
-        href: `/fellowship/${i}`,
-      },
-      status: ["technologies", "other"][Math.floor(Math.random() * 2)],
-    })),
-    config: {
-      showAllText: "Show All",
-      showLessText: "Show Less",
-      dateText: "Deadline",
-      showOnMobile: ["technologies"],
-      statusGroupTitleSuffix: "",
-    },
-  });
+  const featuredEvent =
+    blocks.find(
+      (block) =>
+        block.slug === "featured-post" &&
+        block.featuredPost?.relationTo === "events"
+    )?.featuredPost?.value ?? null;
+
+  const events = eventDocs.map((item) => ({
+    id: item.id,
+    title: item.title,
+    excerpt: item.excerpt,
+    image: item.coverImage ?? null,
+    category: item.topic,
+    registerLink: item.register ?? null,
+    registerText: item?.register?.label ?? null,
+    status:
+      new Date(item.date).getTime() < new Date().getTime()
+        ? "past"
+        : "upcoming",
+    date: formatDate(item.date, { locale }),
+    featured: featuredEvent && item.id === featuredEvent?.id,
+  }));
   blocks.push({
     slug: "events",
-    title: "Events",
-    items: Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      title: "Event title going on two or even three lines",
-      category: "Topic Name",
-      date: "2023-02-11",
-      excerpt: [
-        {
-          children: [
-            {
-              text: "Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur ",
-            },
-          ],
-        },
-      ],
-      image: {
-        id: "63d2622aafe25f6469605eae",
-        alt: `Grant ${i}`,
-        prefix: "media",
-        filename: "Rectangle 113.jpg",
-        mimeType: "image/jpg",
-        filesize: 257010,
-        width: 1236,
-        height: 696,
-        createdAt: "2023-01-26T11:21:14.868Z",
-        updatedAt: "2023-01-26T11:21:14.868Z",
-        url: "/images/featured-event.svg",
-      },
-      link: {
-        href: `/events/${i}`,
-      },
-      registerLink: {
-        href: `/register/events/${i}`,
-      },
-      registerText: "Register ",
-      status: ["upcoming", "past"][Math.floor(Math.random() * 2)],
-      featured: i === 0,
-    })),
-    config: {
-      showAllText: "Show All",
-      showLessText: "Show Less",
-      showOnMobile: ["upcoming", "past"],
-      statusGroupTitleSuffix: "",
-    },
+    title: configs.events.title,
+    items: events,
+    config: configs?.events ?? null,
+  });
+}
+
+async function processPageGrants({ blocks }, api, { locale }) {
+  const { docs: grantDocs } = await api.getCollection("grants", {
+    sort: "-publishedOn",
+    locale,
+  });
+  const configs = await getConfigs(api, { locale });
+  const grants = grantDocs.map((item) => ({
+    id: item.id,
+    title: item.title,
+    excerpt: item.excerpt,
+    status: item.status,
+    image: item.coverImage,
+    date: formatDate(item.deadline, { locale }),
+  }));
+
+  blocks.push({
+    slug: "grants",
+    title: configs.grants.title,
+    items: grants,
+    config: configs?.grants ?? null,
+  });
+}
+
+async function processPageFellowships(page, api, { locale }) {
+  const { blocks } = page;
+  const { docs: fellowshipDocs } = await api.getCollection("fellowships", {
+    sort: "-publishedOn",
+    locale,
+  });
+  const configs = await getConfigs(api, { locale });
+
+  const fellowships = fellowshipDocs.map((item) => ({
+    id: item.id,
+    title: item.title,
+    excerpt: item.excerpt,
+    image: item.coverImage,
+    status: item.category ?? null,
+    date: formatDate(item.deadline, { locale }),
+    registerLink: item.registerLink ?? null,
+    config: configs.fellowships,
+  }));
+  blocks.push({
+    slug: "fellowships",
+    title: configs.fellowships.title,
+    items: fellowships,
+    config: configs?.fellowships ?? null,
   });
 
   return page;
@@ -271,14 +177,7 @@ function processPost(post, page, api, context) {
     ...post,
     author: post.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
     image,
-    date: new Date(post.publishedOn).toLocaleString(locale, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      second: "2-digit",
-    }),
+    date: formatDate(post.publishedOn, { locale, includeTime: true }),
     link: {
       href,
     },
@@ -286,10 +185,11 @@ function processPost(post, page, api, context) {
 }
 
 async function processPageArticlePost(page, api, context) {
-  const { params } = context;
+  const { params, locale } = context;
   const { slug: collection } = page;
   const slug = params.slugs[2];
   const { docs } = await api.getCollection(collection, {
+    locale,
     where: {
       slug: {
         equals: slug,
@@ -328,7 +228,7 @@ async function processPageArticlePost(page, api, context) {
 }
 
 async function processPageArticles(page, api, context) {
-  const { params, query } = context;
+  const { params, query, locale } = context;
 
   if (params.slugs.length > 2) {
     return processPageArticlePost(page, api, context);
@@ -350,6 +250,8 @@ async function processPageArticles(page, api, context) {
   }
   const { slug, title } = page;
   const { docs } = await api.getCollection(slug, {
+    locale,
+    sort: sorting === "oldest" ? "publishedOn" : "-publishedOn",
     where: {
       _status: { equals: "published" },
       "tags.name": {
@@ -359,7 +261,6 @@ async function processPageArticles(page, api, context) {
         like: q || "",
       },
     },
-    sort: sorting === "oldest" ? "publishedOn" : "-publishedOn",
   });
   const articles =
     docs?.map((post) => processPost(post, page, api, context)) ?? null;
@@ -409,10 +310,24 @@ async function processPagePrivacyPolicy(page) {
   return page;
 }
 
+// maybe page slug will be sth like events-grants-and-fellowships
+async function processOpportunityPage(page, api, context) {
+  page.blocks.push({
+    slug: "fellowships-and-grants-header",
+    title: "Grants and Fellowships",
+  });
+  await processPageGrants(page, api, context);
+  await processPageFellowships(page, api, context);
+  await processPageEvents(page, api, context);
+  return page;
+}
+
 const processPageFunctionsMap = {
   about: processPageAbout,
   explainers: processPageExplainers,
-  fellowships: processPageFellowships,
+  events: processOpportunityPage,
+  fellowships: processOpportunityPage,
+  grants: processOpportunityPage,
   news: processPageArticles,
   research: processPageArticles,
   "privacy-policy": processPagePrivacyPolicy,

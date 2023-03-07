@@ -86,7 +86,9 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             variant="p1"
             elements={excerpt}
             sx={(theme) => ({
-              height: `calc(${theme.typography.p1.fontSize}px * 3)`,
+              height: `calc(${
+                theme.typography.p1.fontSize * theme.typography.p1.lineHeight
+              }px * 3)`,
             })}
           />
         </CardContent>
@@ -107,7 +109,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
                 textTransform: "uppercase",
               }}
             >
-              {config?.dateText ? `${config?.dateText}:` : null} {date}
+              {`${config?.dateText || ""}: ${date}`}
             </Typography>
           </Grid>
           {registerLink?.href ? (

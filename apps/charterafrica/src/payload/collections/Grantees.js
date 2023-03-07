@@ -1,15 +1,14 @@
-import authors from "../fields/authors";
 import content from "../fields/content";
 import publishedOn from "../fields/publishedOn";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
 import tags from "../fields/tags";
 
-const News = {
-  slug: "news",
+const Grantees = {
+  slug: "grantees",
   admin: {
-    useAsTitle: "title",
-    defaultColumns: ["title", "authors", "publishedOn"],
+    useAsTitle: "name",
+    defaultColumns: ["name", "updatedAt"],
   },
   access: {
     read: () => true,
@@ -19,18 +18,16 @@ const News = {
   },
   fields: [
     {
-      name: "title",
+      name: "name",
       label: {
-        en: "Title",
-        fr: "Titre",
-        pt: "Título",
+        en: "Name",
+        fr: "Nom",
+        pt: "Nome",
       },
       type: "text",
       localized: true,
       required: true,
     },
-    slug(),
-    authors(),
     {
       name: "coverImage",
       label: {
@@ -46,11 +43,11 @@ const News = {
       },
     },
     richText({
-      name: "excerpt",
+      name: "description",
       label: {
-        en: "Excerpt",
-        fr: "Extrait",
-        pt: "Excerto",
+        en: "Description",
+        fr: "La description",
+        pt: "Descrição",
       },
       localized: true,
       admin: {
@@ -59,8 +56,9 @@ const News = {
     }),
     tags(),
     content(),
+    slug({ fieldToUse: "name" }),
     publishedOn(),
   ],
 };
 
-export default News;
+export default Grantees;

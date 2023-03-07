@@ -36,14 +36,16 @@ const defaultProps = {
       updatedAt: "2023-01-26T11:21:14.868Z",
       url: "http://localhost:3000/media/Rectangle 117.png",
     },
-    primaryLink: {
-      label: "Constitutional changes of government",
-      href: "/",
-    },
-    secondaryLink: {
-      label: "Networks",
-      href: "/",
-    },
+    tags: [
+      {
+        ig: 1,
+        name: "Constitutional changes of government",
+      },
+      {
+        ig: 1,
+        name: "Constitutional changes of government",
+      },
+    ],
   })),
 };
 describe("<Grantees />", () => {
