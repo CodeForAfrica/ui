@@ -125,13 +125,18 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 ) : null}
                 <Grid item>
                   <RichText
+                    LinkProps={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      underline: "never",
+                    }}
                     elements={siteDescription}
                     variant="p2"
                     sx={{
                       textAlign: { xs: "center", sm: "left" },
                       "& a, & a:visited, & a:hover": {
                         color: "inherit",
-                        textDecorations: "none",
+                        textDecoration: "none",
                       },
                     }}
                   />
@@ -141,6 +146,11 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 </Grid>
                 <Grid item>
                   <RichText
+                    LinkProps={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      underline: "none",
+                    }}
                     elements={projectDescription}
                     variant="p2SemiBold"
                     sx={{
