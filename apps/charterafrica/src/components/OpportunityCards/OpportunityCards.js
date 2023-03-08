@@ -1,4 +1,4 @@
-import { Typography, Box, Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import React, { useState } from "react";
 
 import FeaturedPostCard from "../FeaturedPostCard/FeaturedPostCard";
@@ -10,10 +10,9 @@ const OpportunityCards = React.forwardRef(function OpportunityCards(
   props,
   ref
 ) {
-  const { config, items, title, sx } = props;
+  const { config, featured, items, title, sx } = props;
 
   const [showAll, setShowAll] = useState(false);
-  const featuredEvent = items?.find((item) => item.featured);
 
   if (!items?.length) {
     return null;
@@ -32,7 +31,7 @@ const OpportunityCards = React.forwardRef(function OpportunityCards(
         showAllText={config?.showAllText || "Show all"}
         showLessText={config?.showLessText || "Show less"}
       />
-      {featuredEvent && <FeaturedPostCard {...featuredEvent} />}
+      <FeaturedPostCard {...featured} sx={{ pb: 5 }} />
       <OpportunityCardGrid items={items} config={config} showAll={showAll} />
       <Button
         onClick={() => {
@@ -40,28 +39,23 @@ const OpportunityCards = React.forwardRef(function OpportunityCards(
         }}
         fullWidth
         sx={{
+          color: "neutral.dark",
           display: {
             xs: "block",
             md: "none",
           },
           marginTop: "40px",
           textAlign: "center",
+          textDecoration: "underline",
+          typography: "p3SemiBold",
           "&:hover": {
             backgroundColor: "transparent",
           },
         }}
       >
-        <Typography
-          color="neutral.dark"
-          variant="p3SemiBold"
-          sx={{
-            textDecoration: "underline",
-          }}
-        >
-          {showAll
-            ? config?.showAllText || "Show All"
-            : config?.showLessText || "Show Less"}
-        </Typography>
+        {showAll
+          ? config?.showAllText || "Show All"
+          : config?.showLessText || "Show Less"}
       </Button>
     </Box>
   );

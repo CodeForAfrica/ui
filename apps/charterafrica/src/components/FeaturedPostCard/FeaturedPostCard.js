@@ -19,7 +19,8 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
   props,
   ref
 ) {
-  const { author, date, excerpt, image, link, sx, title } = props;
+  const { author, date, excerpt, image, link, sx, title, topic, variant } =
+    props;
 
   if (!title?.length) {
     return null;
@@ -74,6 +75,19 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             >
               {title}
             </LineClampedRichTypography>
+            {variant === "event" ? (
+              <LineClampedRichTypography
+                color="neutral.dark"
+                lineClamp={1}
+                textTransform="uppercase"
+                variant="caption"
+                sx={(theme) => ({
+                  maxHeight: `calc(${theme.typography.caption.fontSize}px * ${theme.typography.caption.lineHeight} * 1)`,
+                })}
+              >
+                {topic}
+              </LineClampedRichTypography>
+            ) : null}
             {author?.length ? (
               <Typography
                 color="neutral.main"
@@ -87,9 +101,11 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
               </Typography>
             ) : null}
 
-            <Typography color="neutral.main" textAlign="left" variant="p1">
-              {date}
-            </Typography>
+            {variant !== "event" ? (
+              <Typography color="neutral.main" textAlign="left" variant="p1">
+                {date}
+              </Typography>
+            ) : null}
             <RichText
               sx={{
                 maxHeight: 24 * 6,
@@ -101,9 +117,14 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
               lineClamp={6}
               elements={excerpt}
             />
+            {variant === "event" ? (
+              <Typography color="neutral.main" textAlign="left" variant="p1">
+                {date}
+              </Typography>
+            ) : null}
 
-            <CardActions sx={{ p: 0 }}>
-              {link?.href && (
+            {link?.href && (
+              <CardActions sx={{ p: 0 }}>
                 <Link
                   color="neutral.dark"
                   href={link?.href}
@@ -112,12 +133,12 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
                 >
                   Read More
                 </Link>
-              )}
-            </CardActions>
+              </CardActions>
+            )}
           </CardContent>
         </Card>
 
-        <Divider sx={{ pt: 5 }} />
+        {variant !== "event" ? <Divider sx={{ pt: 5 }} /> : null}
       </Section>
     </Box>
   );

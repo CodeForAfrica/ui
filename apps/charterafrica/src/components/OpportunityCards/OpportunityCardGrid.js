@@ -12,12 +12,12 @@ const OpportunityCardGrid = React.forwardRef(function OpportunityCardGrid(
   if (!items.length) {
     return null;
   }
-
   return (
     <Grid
       ref={ref}
       container
-      spacing={5}
+      alignItems={{ xs: "center", sm: "flex-start" }}
+      flexDirection={{ xs: "column", sm: "row" }}
       wrap="wrap"
       sx={{
         // hide from 5th child
@@ -38,16 +38,7 @@ const OpportunityCardGrid = React.forwardRef(function OpportunityCardGrid(
     >
       {items.map((item) => {
         return (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            lg={3}
-            key={item.id}
-            display="flex"
-            justifyContent="center"
-          >
+          <Grid item xs="auto" sm={6} md={4} lg={3} key={item.id}>
             <OpportunityCard {...item} key={item.id} config={config} />
           </Grid>
         );
