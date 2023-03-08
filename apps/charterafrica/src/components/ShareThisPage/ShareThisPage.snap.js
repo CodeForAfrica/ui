@@ -17,6 +17,7 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
         aria-label="twitter"
         class="react-share__ShareButton"
         style="background-color: transparent; padding: 0px; cursor: pointer;"
+        type="twitter"
       >
         <div
           aria-hidden="true"
@@ -29,6 +30,7 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
         aria-label="facebook"
         class="react-share__ShareButton"
         style="background-color: transparent; padding: 0px; cursor: pointer;"
+        type="facebook"
       >
         <div
           aria-hidden="true"
@@ -41,6 +43,7 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
         aria-label="linkedin"
         class="react-share__ShareButton"
         style="background-color: transparent; padding: 0px; cursor: pointer;"
+        type="linkedin"
       >
         <div
           aria-hidden="true"

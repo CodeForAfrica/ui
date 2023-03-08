@@ -2,11 +2,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import {
-  FacebookShareBarButton,
-  LinkedinShareBarButton,
-  TwitterShareBarButton,
-} from "@/charterafrica/components/ShareButton";
+import ShareButton from "@/charterafrica/components/ShareButton";
 import SocialMediaBar from "@/charterafrica/components/SocialMediaBar";
 
 const ShareThisPage = React.forwardRef(function ShareThisPage(props, ref) {
@@ -15,9 +11,9 @@ const ShareThisPage = React.forwardRef(function ShareThisPage(props, ref) {
   const url = passedurl || (typeof window !== "undefined" && window?.location);
   return (
     <SocialMediaBar title={title} ref={ref} {...other}>
-      <TwitterShareBarButton url={url} />
-      <FacebookShareBarButton url={url} />
-      <LinkedinShareBarButton url={url} />
+      <ShareButton type="twitter" url={url} />
+      <ShareButton type="facebook" url={url} />
+      <ShareButton type="linkedin" url={url} />
     </SocialMediaBar>
   );
 });
