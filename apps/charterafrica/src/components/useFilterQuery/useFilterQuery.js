@@ -10,8 +10,11 @@ function useFilterQuery(query = {}) {
   if (searchQuery) {
     searchParams.append("query", searchQuery);
   }
-  if (tag && tag !== ALL_TAG) {
-    searchParams.append("tag", tag);
+  if (tag) {
+    const tags = tag.filter((t) => t !== ALL_TAG);
+    if (tags.length) {
+      searchParams.append("tag", tags.join(","));
+    }
   }
   const queryString = searchParams.toString();
   return queryString ? `${queryString.toLocaleLowerCase()}` : "";

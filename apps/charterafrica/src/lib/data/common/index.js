@@ -249,17 +249,20 @@ async function processPageArticles(page, api, context) {
     }
   }
   const { slug, title } = page;
+  const tagFilter = tag?.split(",").map((tagItem) => ({
+    "tags.name": {
+      like: tagItem,
+    },
+  }));
   const { docs } = await api.getCollection(slug, {
     locale,
     sort: sorting === "oldest" ? "publishedOn" : "-publishedOn",
     where: {
       _status: { equals: "published" },
-      "tags.name": {
-        like: tag || "",
-      },
       title: {
         like: searchQuery || "",
       },
+      or: tagFilter ?? [],
     },
   });
   const articles =

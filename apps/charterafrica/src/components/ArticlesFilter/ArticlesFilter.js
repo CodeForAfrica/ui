@@ -14,14 +14,23 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
   const { tags, sorting } = props;
   const allTags = [ALL_TAG, ...tags];
   const [sort, setSelectedSorting] = useState(DEFAULT_SORTING);
-  const [tag, setSelectedTags] = useState(ALL_TAG);
+  const [tag, setSelectedTags] = useState([ALL_TAG]);
   const [query, setQuery] = useState();
   const router = useRouter();
   const queryParams = useFilterQuery({ sort, query, tag });
   const pathname = router.asPath.split("?")[0];
 
-  const handleTagChange = (t) => {
-    setSelectedTags(t);
+  const handleTagChange = (tagSelection) => {
+    if (tagSelection === ALL_TAG) {
+      setSelectedTags([ALL_TAG]);
+      return;
+    }
+    const filteredTags = tag.filter((singleTag) => singleTag !== ALL_TAG);
+    if (tag.includes(tagSelection)) {
+      setSelectedTags(tag.filter((singleTag) => singleTag !== tagSelection));
+    } else {
+      setSelectedTags([...filteredTags, tagSelection]);
+    }
   };
 
   useEffect(() => {
@@ -33,7 +42,7 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
     // We don't want to listen to router changes here since we're the ones
     // updating them
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [queryParams, pathname]);
+  }, [queryParams]);
 
   return (
     <Box bgcolor="#fff" ref={ref}>
@@ -85,9 +94,10 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
                   label={singleTag}
                   onClick={() => handleTagChange(singleTag)}
                   sx={{
-                    backgroundColor:
-                      tag === singleTag ? neutral[700] : neutral[50],
-                    color: tag === singleTag ? neutral[50] : neutral[900],
+                    backgroundColor: tag.includes(singleTag)
+                      ? neutral[700]
+                      : neutral[50],
+                    color: tag.includes(singleTag) ? neutral[50] : neutral[900],
                   }}
                   key={singleTag}
                 />
