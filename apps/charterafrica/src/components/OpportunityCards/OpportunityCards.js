@@ -1,4 +1,4 @@
-import { Typography, Box, Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import React, { useState } from "react";
 
 import FeaturedPostCard from "../FeaturedPostCard/FeaturedPostCard";
@@ -39,28 +39,23 @@ const OpportunityCards = React.forwardRef(function OpportunityCards(
         }}
         fullWidth
         sx={{
+          color: "neutral.dark",
           display: {
             xs: "block",
             md: "none",
           },
           marginTop: "40px",
           textAlign: "center",
+          textDecoration: "underline",
+          typography: "p3SemiBold",
           "&:hover": {
             backgroundColor: "transparent",
           },
         }}
       >
-        <Typography
-          color="neutral.dark"
-          variant="p3SemiBold"
-          sx={{
-            textDecoration: "underline",
-          }}
-        >
-          {showAll
-            ? config?.showAllText || "Show All"
-            : config?.showLessText || "Show Less"}
-        </Typography>
+        {showAll
+          ? config?.showAllText || "Show All"
+          : config?.showLessText || "Show Less"}
       </Button>
     </Box>
   );
