@@ -46,7 +46,7 @@ const OpportunityPage = React.forwardRef(function OpportunityPage(props, ref) {
       ref={ref}
     >
       <OpportunityHeader title={header} />
-      {itemsPerOpportunity.map(({ config, itemsPerStatus, label }) => (
+      {itemsPerOpportunity.map(({ config, itemsPerStatus, label }, i) => (
         <Section
           sx={{
             px: { xs: 7.5, sm: 0 },
@@ -73,7 +73,8 @@ const OpportunityPage = React.forwardRef(function OpportunityPage(props, ref) {
             <React.Fragment key={item.title}>
               <OpportunityCards
                 config={config}
-                featured={featured}
+                // Featured should be displayed at the top of the block only
+                featured={i === 0 ? featured : undefined}
                 items={item.items}
                 title={item.title}
                 sx={{
