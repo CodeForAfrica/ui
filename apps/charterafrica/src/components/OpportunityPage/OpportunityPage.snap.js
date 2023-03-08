@@ -3,7 +3,8 @@
 exports[`<OpportunityPage /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-156ejva"
+    class="MuiBox-root css-1105iuu"
+    id="--"
   >
     <div
       class="MuiBox-root css-156ejva"

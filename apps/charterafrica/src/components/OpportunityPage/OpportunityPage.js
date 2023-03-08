@@ -33,12 +33,16 @@ const OpportunityPage = React.forwardRef(function OpportunityPage(props, ref) {
     const itemsPerStatus = groupCollectionItems(currentItems);
     return { ...other, itemsPerStatus };
   });
+  const id = items.map(({ collection }) => collection).join("-");
   return (
     <Box
       sx={{
         backgroundColor: secondary[50],
+        // Height of main navbar
+        scrollMarginTop: { xs: "56px", sm: "64", md: "114px" },
         ...sx,
       }}
+      id={id}
       ref={ref}
     >
       <OpportunityHeader title={header} />
