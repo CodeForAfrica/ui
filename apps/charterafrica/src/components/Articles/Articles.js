@@ -5,13 +5,11 @@ import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
 import PostCard from "@/charterafrica/components/PostCard";
-import ShareThisPage from "@/charterafrica/components/ShareThisPage";
 
 const Articles = React.forwardRef(function Articles(props, ref) {
   const { sx, articles } = props;
   return (
     <Box bgcolor={secondary[50]} sx={sx} ref={ref}>
-      <ShareThisPage title="Share via" />
       <Section
         sx={{
           px: {

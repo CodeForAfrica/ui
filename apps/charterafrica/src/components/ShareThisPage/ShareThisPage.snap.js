@@ -3,10 +3,15 @@
 exports[`<ShareThisPage /> renders unchanged 1`] = `
 <div>
   <div
-    class="css-f57isw-MuiStack-root"
+    class="css-1lwbda4-MuiStack-root"
   >
     <div
-      class="css-19ocxxc-MuiStack-root"
+      class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
+    >
+      Sample Title
+    </div>
+    <div
+      class="css-a2l1ks-MuiStack-root"
     >
       <button
         aria-label="twitter"

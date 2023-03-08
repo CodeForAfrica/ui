@@ -4,6 +4,7 @@ import { Box, Grid } from "@mui/material";
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
+import ShareThisPage from "@/charterafrica/components/ShareThisPage";
 
 const Post = React.forwardRef(function Post(props, ref) {
   const { author, date, image, title, sx } = props;
@@ -67,7 +68,12 @@ const Post = React.forwardRef(function Post(props, ref) {
                 <RichTypography variant="subheading">{date}</RichTypography>
               </Grid>
             </Grid>
-            <Grid item sm="auto" />
+            <Grid item sm="auto">
+              <ShareThisPage
+                sx={{ textAlign: { sm: "right", xs: "left" } }}
+                title="Share via"
+              />
+            </Grid>
           </Grid>
         </Grid>
       </Section>
