@@ -36,7 +36,7 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
   // To ensure faster/smoother rendering, we'll rander all items and only
   // display the selected one.
   return (
-    <Box bgcolor="common.white" overflow="hidden" sx={sx} ref={ref}>
+    <Box bgcolor="common.white" sx={sx} ref={ref}>
       <Section sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: "50px" } }}>
         {items.map((datum, i) => (
           <LineClampedRichTypography

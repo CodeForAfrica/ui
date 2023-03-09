@@ -1,8 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
-import formatDate from "@/charterafrica/utils/formatDate";
-import { getConfigs } from "@/charterafrica/utils/translationConfigs";
+import formatDateTime from "@/charterafrica/utils/formatDate";
 
 async function getGlobalProps({ locale, defaultLocale }, api) {
   const settings = await api.findGlobal("settings", {
@@ -65,95 +64,6 @@ async function processPageExplainers(page, api, context) {
   return page;
 }
 
-async function processPageEvents({ blocks }, api, { locale }) {
-  const configs = await getConfigs(api, { locale });
-
-  const { docs: eventDocs } = await api.getCollection("events", {
-    locale,
-    where: { _status: { equals: "published" } },
-    limit: 100, // Perform pagination here
-  });
-  const featuredEvent =
-    blocks.find(
-      (block) =>
-        block.slug === "featured-post" &&
-        block.featuredPost?.relationTo === "events"
-    )?.featuredPost?.value ?? null;
-
-  const events = eventDocs.map((item) => ({
-    id: item.id,
-    title: item.title,
-    excerpt: item.excerpt,
-    image: item.coverImage ?? null,
-    category: item.topic,
-    registerLink: item.register ?? null,
-    registerText: item?.register?.label ?? null,
-    status:
-      new Date(item.date).getTime() < new Date().getTime()
-        ? "past"
-        : "upcoming",
-    date: formatDate(item.date, { locale }),
-    featured: featuredEvent && item.id === featuredEvent?.id,
-  }));
-  blocks.push({
-    slug: "events",
-    title: configs.events.title,
-    items: events,
-    config: configs?.events ?? null,
-  });
-}
-
-async function processPageGrants({ blocks }, api, { locale }) {
-  const { docs: grantDocs } = await api.getCollection("grants", {
-    sort: "-publishedOn",
-    locale,
-  });
-  const configs = await getConfigs(api, { locale });
-  const grants = grantDocs.map((item) => ({
-    id: item.id,
-    title: item.title,
-    excerpt: item.excerpt,
-    status: item.status,
-    image: item.coverImage,
-    date: formatDate(item.deadline, { locale }),
-  }));
-
-  blocks.push({
-    slug: "grants",
-    title: configs.grants.title,
-    items: grants,
-    config: configs?.grants ?? null,
-  });
-}
-
-async function processPageFellowships(page, api, { locale }) {
-  const { blocks } = page;
-  const { docs: fellowshipDocs } = await api.getCollection("fellowships", {
-    sort: "-publishedOn",
-    locale,
-  });
-  const configs = await getConfigs(api, { locale });
-
-  const fellowships = fellowshipDocs.map((item) => ({
-    id: item.id,
-    title: item.title,
-    excerpt: item.excerpt,
-    image: item.coverImage,
-    status: item.category ?? null,
-    date: formatDate(item.deadline, { locale }),
-    registerLink: item.registerLink ?? null,
-    config: configs.fellowships,
-  }));
-  blocks.push({
-    slug: "fellowships",
-    title: configs.fellowships.title,
-    items: fellowships,
-    config: configs?.fellowships ?? null,
-  });
-
-  return page;
-}
-
 function processPost(post, page, api, context) {
   const { breadcrumbs = [] } = page;
 
@@ -176,7 +86,7 @@ function processPost(post, page, api, context) {
     ...post,
     author: post.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
     image,
-    date: formatDate(post.publishedOn, { locale, includeTime: true }),
+    date: formatDateTime(post.publishedOn, { locale, includeTime: true }),
     link: {
       href,
     },
@@ -237,8 +147,10 @@ async function processPageArticles(page, api, context) {
   if (foundIndex > -1) {
     const foundValue = blocks[foundIndex].featuredPost?.value;
     if (foundValue) {
+      const variant = blocks[foundIndex].featuredPost?.relationTo;
       blocks[foundIndex] = {
         ...processPost(foundValue, page, api, context),
+        variant,
         slug: "featured-post",
       };
     }
@@ -276,24 +188,266 @@ async function processPagePrivacyPolicy(page) {
   return page;
 }
 
-// maybe page slug will be sth like events-grants-and-fellowships
-async function processOpportunityPage(page, api, context) {
-  page.blocks.push({
-    slug: "fellowships-and-grants-header",
-    title: "Grants and Fellowships",
+function processOpportunity(opportunity, pageUrl, api, context) {
+  let image = null;
+  if (opportunity.coverImage) {
+    const { alt, url } = opportunity.coverImage;
+    image = {
+      alt: alt || opportunity.title,
+      url,
+    };
+  }
+  let href = null;
+  if (pageUrl) {
+    const { slug } = opportunity;
+    href = `${pageUrl}/${slug}`;
+  }
+  const { locale } = context;
+  return {
+    ...opportunity,
+    author:
+      opportunity.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
+    image,
+    // event date is more important than when the event was published
+    date: formatDateTime(opportunity.date || opportunity.publishedOn, {
+      locale,
+    }),
+    link: {
+      href,
+    },
+  };
+}
+
+// /opportunities/fellowship/<slug> or /opportunities/grants/<slug>
+async function processPageOpportunitiesPost(page, api, context) {
+  const { params, locale } = context;
+  const { slug: collection } = page;
+  const slug = params.slugs[2];
+  const { docs } = await api.getCollection(collection, {
+    locale,
+    where: {
+      slug: {
+        equals: slug,
+      },
+      _status: { equals: "published" },
+    },
   });
-  await processPageGrants(page, api, context);
-  await processPageFellowships(page, api, context);
-  await processPageEvents(page, api, context);
+  if (!docs?.length) {
+    return null;
+  }
+
+  const [originalOpportunity] = docs;
+  const opportunity = processOpportunity(
+    originalOpportunity,
+    page,
+    api,
+    context
+  );
+  let content = null;
+  if (opportunity.content?.length) {
+    content = opportunity.content.map(({ blockType, ...other }) => ({
+      ...other,
+      slug: blockType,
+    }));
+  }
+  return {
+    ...page,
+    meta: deepmerge(page.meta, opportunity.meta),
+    title: `${opportunity.title} | ${page.title}`,
+    blocks: [
+      {
+        ...opportunity,
+        slug: "opportunity",
+      },
+      {
+        content,
+        slug: "longform",
+      },
+    ],
+  };
+}
+
+async function fetchEvents(pageUrl, api, context) {
+  const { locale } = context;
+  const { docs } = await api.getCollection("events", {
+    sort: "-publishedOn",
+    where: { _status: { equals: "published" } },
+    locale,
+  });
+  if (!docs?.length) {
+    return null;
+  }
+
+  const events = docs.map((item) => {
+    const event = processOpportunity(item, pageUrl, api, context);
+    const status =
+      new Date(item.date).getTime() < new Date().getTime()
+        ? "past"
+        : "upcoming";
+    return { ...event, status, variant: "event" };
+  });
+  return {
+    items: events,
+    config: {
+      dateText: "deadline",
+      showAllText: "show all",
+      showLessText: "show less",
+      showOnMobile: ["past", "upcoming"],
+      statusGroupTitleSuffix: "",
+    },
+  };
+}
+
+async function fetchFellowships(pageUrl, api, context) {
+  const { locale } = context;
+  const { docs } = await api.getCollection("fellowships", {
+    sort: "-publishedOn",
+    where: { _status: { equals: "published" } },
+    locale,
+  });
+  if (!docs?.length) {
+    return null;
+  }
+
+  const fellowships = docs.map((item) =>
+    processOpportunity(item, pageUrl, api, context)
+  );
+  return {
+    items: fellowships,
+    config: {
+      dateText: "deadline",
+      showAllText: "show all",
+      showLessText: "show less",
+      showOnMobile: ["technologies"],
+      statusGroupTitleSuffix: "",
+    },
+  };
+}
+
+async function fetchGrants(pageUrl, api, context) {
+  const { locale } = context;
+  const { docs } = await api.getCollection("grants", {
+    sort: "-publishedOn",
+    where: { _status: { equals: "published" } },
+    locale,
+  });
+  if (!docs?.length) {
+    return null;
+  }
+
+  const fellowships = docs.map((item) =>
+    processOpportunity(item, pageUrl, api, context)
+  );
+  return {
+    items: fellowships,
+    config: {
+      dateText: "deadline",
+      showAllText: "show all",
+      showLessText: "show less",
+      showOnMobile: ["open"],
+      statusGroupTitleSuffix: "",
+    },
+  };
+}
+
+async function processPageEvents(page, api, context) {
+  const { params } = context;
+  if (params.slugs.length > 2) {
+    return processPageArticlePost(page, api, context);
+  }
+
+  // For now, we don't show /opportunities/events by itself
+  return null;
+}
+
+async function processPageFellowships(page, api, context) {
+  const { params } = context;
+  if (params.slugs.length > 2) {
+    return processPageOpportunitiesPost(page, api, context);
+  }
+
+  // For now, we don't show /opportunities/fellowships by itself
+  return null;
+}
+
+async function processPageGrants(page, api, context) {
+  const { params } = context;
+  if (params.slugs.length > 2) {
+    return processPageOpportunitiesPost(page, api, context);
+  }
+
+  // For now, we don't show /opportunities/grants by itself
+  return null;
+}
+
+const fetchOpportunitiesCollectionFunctionMap = {
+  events: fetchEvents,
+  fellowships: fetchFellowships,
+  grants: fetchGrants,
+};
+
+// maybe page slug will be sth like events-grants-and-fellowships
+async function processPageOpportunities(page, api, context) {
+  const { blocks, breadcrumbs = [] } = page;
+  const pageUrl = breadcrumbs[breadcrumbs.length - 1].url;
+  const opportunitiesBlocks = await Promise.all(
+    blocks
+      .filter((b) => b.slug === "opportunities")
+      .map(async (b) => {
+        const { featured: originalFeatured, items: originalItems } = b;
+        let featured = null;
+        if (originalFeatured) {
+          const foundValue = originalFeatured?.value;
+          if (foundValue) {
+            const collection = originalFeatured.relationTo;
+            featured = {
+              ...processOpportunity(
+                foundValue,
+                `${pageUrl}/${collection}`,
+                api,
+                context
+              ),
+              variant: collection,
+              slug: "featured-post",
+            };
+          }
+        }
+        const items = await Promise.all(
+          originalItems.map(async ({ collection, ...other }) => {
+            let found = null;
+            const collectionPageUrl = `${pageUrl}/${collection}`;
+            const fetchCollection =
+              fetchOpportunitiesCollectionFunctionMap[collection];
+            if (fetchCollection) {
+              found = await fetchCollection(collectionPageUrl, api, context);
+            }
+
+            return { ...other, ...found, collection };
+          })
+        );
+
+        return { ...b, featured, items };
+      })
+  );
+  if (!opportunitiesBlocks.length) {
+    return page;
+  }
+
+  // Maintain block order
+  opportunitiesBlocks.forEach((ob) => {
+    const i = blocks.findIndex((b) => b.id === ob.id);
+    blocks[i] = ob;
+  });
   return page;
 }
 
 const processPageFunctionsMap = {
   about: processPageAbout,
   explainers: processPageExplainers,
-  events: processOpportunityPage,
-  fellowships: processOpportunityPage,
-  grants: processOpportunityPage,
+  events: processPageEvents,
+  fellowships: processPageFellowships,
+  grants: processPageGrants,
+  opportunities: processPageOpportunities,
   news: processPageArticles,
   research: processPageArticles,
   "privacy-policy": processPagePrivacyPolicy,

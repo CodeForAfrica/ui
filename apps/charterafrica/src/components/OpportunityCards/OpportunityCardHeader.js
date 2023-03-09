@@ -42,7 +42,7 @@ const OpportunityCardHeader = React.forwardRef(function OpportunityCardHeader(
               backgroundColor: "transparent",
             },
             color: "neutral.dark",
-            variant: "p3SemiBold",
+            typography: "p3SemiBold",
           }}
           onClick={onClick}
         >
