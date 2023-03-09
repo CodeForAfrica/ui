@@ -1,7 +1,6 @@
 import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
-import articlesStore from "@/charterafrica/store/articlesStore";
 import formatDate from "@/charterafrica/utils/formatDate";
 import { getConfigs } from "@/charterafrica/utils/translationConfigs";
 
@@ -268,19 +267,13 @@ async function processPageArticles(page, api, context) {
   const articles =
     docs?.map((post) => processPost(post, page, api, context)) ?? null;
 
-  if (!tag) {
-    const allTags =
-      articles
-        ?.map(({ tags }) => {
-          return tags?.map(({ name }) => name);
-        })
-        ?.flat()
-        ?.sort((a, b) => a.localeCompare(b)) ?? [];
-    articlesStore.getState().setTags(allTags);
-  }
-  articlesStore.getState().setArticles(articles);
-
-  const { tags } = articlesStore.getState();
+  const allTags =
+    articles
+      ?.map(({ tags }) => {
+        return tags?.map(({ name }) => name);
+      })
+      ?.flat()
+      ?.sort((a, b) => a.localeCompare(b)) ?? [];
 
   const articlesBlock = {
     articles,
@@ -290,7 +283,7 @@ async function processPageArticles(page, api, context) {
   blocks.push(articlesBlock);
   blocks.unshift({
     slug: "article-filter",
-    tags: [...new Set(tags)],
+    tags: [...new Set(allTags)],
     sorting: ["Most Recent", "Oldest"],
   });
 

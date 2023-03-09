@@ -12,7 +12,7 @@ import useFilterQuery, {
 
 const ArticlesFilter = React.forwardRef((props, ref) => {
   const { tags, sorting } = props;
-  const allTags = [ALL_TAG, ...tags];
+  const [allTags, setAllTags] = useState([ALL_TAG, ...tags]);
   const [sort, setSelectedSorting] = useState(DEFAULT_SORTING);
   const [tag, setSelectedTags] = useState([ALL_TAG]);
   const [query, setQuery] = useState();
@@ -43,6 +43,17 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
     // updating them
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryParams]);
+
+  useEffect(() => {
+    // on tags change, update allTags if new tags are added
+    if (tags) {
+      tags.forEach((element) => {
+        if (!allTags.includes(element)) {
+          setAllTags([...allTags, element]);
+        }
+      });
+    }
+  }, [tags, allTags]);
 
   return (
     <Box bgcolor="#fff" ref={ref}>
