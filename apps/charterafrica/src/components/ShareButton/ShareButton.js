@@ -12,33 +12,37 @@ import LinkedinIcon from "@/charterafrica/assets/icons/Type=linkedin, Size=24, C
 import TwitterIcon from "@/charterafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 
 const ShareBarButton = forwardRef((props, ref) => {
-  const { type } = props;
-  switch (type) {
+  const { medium } = props;
+  let Button;
+  let Icon;
+  switch (medium) {
     case "facebook":
-      return (
-        <FacebookShareButton {...props} ref={ref}>
-          <SvgIcon sx={{ fill: "none" }} component={FacebookIcon} />
-        </FacebookShareButton>
-      );
+      Button = FacebookShareButton;
+      Icon = FacebookIcon;
+      break;
     case "linkedin":
-      return (
-        <LinkedinShareButton {...props} ref={ref}>
-          <SvgIcon sx={{ fill: "none" }} component={LinkedinIcon} />
-        </LinkedinShareButton>
-      );
+      Button = LinkedinShareButton;
+      Icon = LinkedinIcon;
+      break;
     case "twitter":
-      return (
-        <TwitterShareButton {...props} ref={ref}>
-          <SvgIcon sx={{ fill: "none" }} component={TwitterIcon} />
-        </TwitterShareButton>
-      );
+      Button = TwitterShareButton;
+      Icon = TwitterIcon;
+      break;
     default:
-      return null;
+      break;
   }
+  if (!(Button && Icon)) {
+    return null;
+  }
+  return (
+    <Button {...props} ref={ref}>
+      <SvgIcon sx={{ fill: "none" }} component={Icon} />
+    </Button>
+  );
 });
 
 ShareBarButton.propTypes = {
-  type: PropTypes.oneOf(["linkedin", "facebook", "twitter"]).isRequired,
+  medium: PropTypes.oneOf(["linkedin", "facebook", "twitter"]).isRequired,
 };
 
 export default ShareBarButton;

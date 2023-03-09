@@ -11,9 +11,9 @@ const ShareThisPage = React.forwardRef(function ShareThisPage(props, ref) {
   const url = passedurl || (typeof window !== "undefined" && window?.location);
   return (
     <SocialMediaBar title={title} ref={ref} {...other}>
-      <ShareButton type="twitter" url={url} />
-      <ShareButton type="facebook" url={url} />
-      <ShareButton type="linkedin" url={url} />
+      <ShareButton medium="twitter" url={url} />
+      <ShareButton medium="facebook" url={url} />
+      <ShareButton medium="linkedin" url={url} />
     </SocialMediaBar>
   );
 });
