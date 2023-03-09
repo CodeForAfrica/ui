@@ -21,7 +21,7 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 css-hj0fj-MuiGrid-root"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1xg8n5n-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-yv8dni-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -30,10 +30,10 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 css-15y1rqh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container css-6r13di-MuiGrid-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-zsviu3-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-qnlzq-MuiGrid-root"
       >
         <div
           class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
@@ -92,7 +92,7 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-zsviu3-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-qnlzq-MuiGrid-root"
       >
         <div
           class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
@@ -142,7 +142,7 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-zsviu3-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-qnlzq-MuiGrid-root"
       >
         <div
           class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
@@ -193,15 +193,11 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-fullWidth MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-fullWidth css-1m483mv-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-fullWidth MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-fullWidth css-x9l3sw-MuiButtonBase-root-MuiButton-root"
       tabindex="0"
       type="button"
     >
-      <p
-        class="MuiTypography-root MuiTypography-p3SemiBold css-1tq818f-MuiTypography-root"
-      >
-        Show Less
-      </p>
+      Show Less
     </button>
   </div>
 </div>

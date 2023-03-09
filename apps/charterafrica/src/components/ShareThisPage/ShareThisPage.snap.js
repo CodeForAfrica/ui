@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ShareThisPage /> renders unchanged 1`] = `
+<div>
+  <div
+    class="css-1lwbda4-MuiStack-root"
+  >
+    <div
+      class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
+    >
+      Sample Title
+    </div>
+    <div
+      class="css-a2l1ks-MuiStack-root"
+    >
+      <button
+        aria-label="twitter"
+        class="react-share__ShareButton"
+        medium="twitter"
+        style="background-color: transparent; padding: 0px; cursor: pointer;"
+      >
+        <div
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+          focusable="false"
+          viewbox="0 0 24 24"
+        />
+      </button>
+      <button
+        aria-label="facebook"
+        class="react-share__ShareButton"
+        medium="facebook"
+        style="background-color: transparent; padding: 0px; cursor: pointer;"
+      >
+        <div
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+          focusable="false"
+          viewbox="0 0 24 24"
+        />
+      </button>
+      <button
+        aria-label="linkedin"
+        class="react-share__ShareButton"
+        medium="linkedin"
+        style="background-color: transparent; padding: 0px; cursor: pointer;"
+      >
+        <div
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+          focusable="false"
+          viewbox="0 0 24 24"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

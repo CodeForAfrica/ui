@@ -3,10 +3,10 @@
 exports[`<OpportunityCardGrid /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 css-15y1rqh-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-container css-6r13di-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-zsviu3-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-qnlzq-MuiGrid-root"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
@@ -65,7 +65,7 @@ exports[`<OpportunityCardGrid /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-zsviu3-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-qnlzq-MuiGrid-root"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
@@ -115,7 +115,7 @@ exports[`<OpportunityCardGrid /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-zsviu3-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-qnlzq-MuiGrid-root"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"

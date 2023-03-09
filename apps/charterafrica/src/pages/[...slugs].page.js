@@ -14,6 +14,7 @@ import Hero from "@/charterafrica/components/Hero";
 import Impressum from "@/charterafrica/components/Impressum";
 import LongForm from "@/charterafrica/components/LongForm";
 import Mooc from "@/charterafrica/components/Mooc";
+import Opportunity from "@/charterafrica/components/Opportunity";
 import OpportunityHeader from "@/charterafrica/components/OpportunityHeader";
 import OpportunityPage from "@/charterafrica/components/OpportunityPage";
 import PageDescription from "@/charterafrica/components/PageDescription";
@@ -29,15 +30,12 @@ const componentsBySlugs = {
   "article-filter": ArticlesFilter,
   "our-community-platforms": CommunityPlatforms,
   ecosystem: Ecosystem,
-  events: OpportunityPage,
   explainers: Explainers,
   faq: FAQ,
   "featured-post": FeaturedPostCard,
-  fellowships: OpportunityPage,
   "fellowships-and-grants-header": OpportunityHeader,
   "focal-countries": FocalCountries,
   grantees: Grantees,
-  grants: OpportunityPage,
   "guiding-principles": GuidingPrinciples,
   helpdesk: Helpdesk,
   "helpdesk-page-content": HelpdeskPageContent,
@@ -46,6 +44,8 @@ const componentsBySlugs = {
   longform: LongForm,
   mooc: Mooc,
   news: Articles,
+  opportunity: Opportunity,
+  opportunities: OpportunityPage,
   "our-partners": Partners,
   "our-resources": Resources,
   "page-description": PageDescription,
@@ -62,7 +62,7 @@ function Page({ blocks }) {
     if (!Component) {
       return null;
     }
-    return <Component key={block.slug} {...block} />;
+    return <Component {...block} key={block.id} />;
   });
 }
 

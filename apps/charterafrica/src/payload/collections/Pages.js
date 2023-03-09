@@ -10,6 +10,7 @@ import Hero from "../blocks/Hero";
 import Impressum from "../blocks/Impressum";
 import LongForm from "../blocks/LongForm";
 import Mooc from "../blocks/Mooc";
+import Opportunities from "../blocks/Opportunities";
 import PageDescription from "../blocks/PageDescription";
 import PageHeader from "../blocks/PageHeader";
 import PageInfo from "../blocks/PageInfo";
@@ -53,6 +54,7 @@ const Pages = {
         Impressum,
         LongForm,
         Mooc,
+        Opportunities,
         PageDescription,
         PageHeader,
         PageInfo,
