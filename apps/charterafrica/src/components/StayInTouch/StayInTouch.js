@@ -3,12 +3,12 @@ import { Link } from "@commons-ui/next";
 import { Grid, SvgIcon } from "@mui/material";
 import React from "react";
 
-import FacebookIcon from "@/charterafrica/assets/icons/facebook.svg";
 import GithubIcon from "@/charterafrica/assets/icons/github.svg";
 import InstagramIcon from "@/charterafrica/assets/icons/instagram.svg";
-import LinkedInIcon from "@/charterafrica/assets/icons/linkedin.svg";
 import SlackIcon from "@/charterafrica/assets/icons/slack.svg";
-import TwitterIcon from "@/charterafrica/assets/icons/twitter.svg";
+import FacebookIcon from "@/charterafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
+import LinkedInIcon from "@/charterafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
+import TwitterIcon from "@/charterafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 
 const mediaToIcon = {
   facebook: FacebookIcon,

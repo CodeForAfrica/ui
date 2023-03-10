@@ -44,15 +44,39 @@ const Events = {
       },
     },
     {
-      name: "topic",
-      label: {
-        en: "Topic",
-        fr: "Sujet",
-        pt: "Tema",
-      },
-      type: "text",
-      localized: true,
-      required: true,
+      type: "row",
+      fields: [
+        {
+          name: "date",
+          label: {
+            en: "Date and Time",
+            pt: "Data e hora",
+            fr: "Date et l'heure",
+          },
+          type: "date",
+          required: true,
+          admin: {
+            date: {
+              pickerAppearance: "dayAndTime",
+            },
+            width: "50%",
+          },
+        },
+        {
+          name: "topic",
+          label: {
+            en: "Topic",
+            fr: "Sujet",
+            pt: "Tema",
+          },
+          type: "text",
+          localized: true,
+          required: true,
+          admin: {
+            width: "50%",
+          },
+        },
+      ],
     },
     richText({
       name: "excerpt",
@@ -68,22 +92,6 @@ const Events = {
       },
     }),
     content({ required: false }),
-    {
-      name: "date",
-      type: "date",
-      required: true,
-      label: {
-        en: "Date and Time",
-        pt: "Data e hora",
-        fr: "Date et l'heure",
-      },
-      admin: {
-        date: {
-          pickerAppearance: "dayAndTime",
-        },
-        position: "sidebar",
-      },
-    },
     linkGroup({
       overrides: {
         name: "register",
