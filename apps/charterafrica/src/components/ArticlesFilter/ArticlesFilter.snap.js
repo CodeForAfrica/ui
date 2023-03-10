@@ -3,13 +3,13 @@
 exports[`<ArticlesFilter /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1k9ek97"
+    class="MuiBox-root css-e2yz6z"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-q9dvhu-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container css-4owd4i-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-ztj35b-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -21,7 +21,7 @@ exports[`<ArticlesFilter /> renders unchanged 1`] = `
           </h5>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-3 css-1dkwzu9-MuiGrid-root"
         >
           <div
             class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1bejvs5-MuiInputBase-root-MuiOutlinedInput-root"
@@ -60,7 +60,7 @@ exports[`<ArticlesFilter /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-3 css-1dkwzu9-MuiGrid-root"
         >
           <div
             class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary  css-1ue9p8f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
@@ -113,7 +113,7 @@ exports[`<ArticlesFilter /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 css-3kk30e-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-md-6 css-18cy4o-MuiGrid-root"
         >
           <div
             class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-uhxaud-MuiButtonBase-root-MuiChip-root"
@@ -124,28 +124,6 @@ exports[`<ArticlesFilter /> renders unchanged 1`] = `
               class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
             >
               All
-            </span>
-          </div>
-          <div
-            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1bwds60-MuiButtonBase-root-MuiChip-root"
-            role="button"
-            tabindex="0"
-          >
-            <span
-              class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
-            >
-              Tag 1
-            </span>
-          </div>
-          <div
-            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1bwds60-MuiButtonBase-root-MuiChip-root"
-            role="button"
-            tabindex="0"
-          >
-            <span
-              class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
-            >
-              Tag 2
             </span>
           </div>
         </div>

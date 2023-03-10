@@ -10,7 +10,6 @@ const render = createRender({ theme });
 
 const defaultProps = {
   sorting: ["Recent", "Oldest"],
-  tags: ["Tag 1", "Tag 2"],
 };
 
 describe("<ArticlesFilter />", () => {
