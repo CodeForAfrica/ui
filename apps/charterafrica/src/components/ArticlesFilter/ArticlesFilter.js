@@ -21,8 +21,9 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
   const router = useRouter();
   const queryParams = useFilterQuery({ sort, query, tag });
   const pathname = router.asPath.split("?")[0];
+  const slug = pathname.split("/").pop();
 
-  const tags = useTags();
+  const tags = useTags(slug);
 
   const handleTagChange = (tagSelection) => {
     if (tagSelection === ALL_TAG) {
