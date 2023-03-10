@@ -5,6 +5,9 @@ const Tags = {
   admin: {
     useAsTitle: "name",
   },
+  access: {
+    read: () => true, // Everyone can read Pages
+  },
   fields: [
     {
       name: "name",

@@ -3,6 +3,8 @@ import { Box, Grid, Typography, Select, MenuItem, Chip } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
+import useTags from "./useTags";
+
 import { neutral } from "@/charterafrica/colors";
 import SearchInput from "@/charterafrica/components/SearchInput";
 import useFilterQuery, {
@@ -11,14 +13,16 @@ import useFilterQuery, {
 } from "@/charterafrica/components/useFilterQuery";
 
 const ArticlesFilter = React.forwardRef((props, ref) => {
-  const { tags, sorting } = props;
-  const [allTags, setAllTags] = useState([ALL_TAG, ...tags]);
+  const { sorting } = props;
+  const [allTags, setAllTags] = useState([ALL_TAG]);
   const [sort, setSelectedSorting] = useState(DEFAULT_SORTING);
   const [tag, setSelectedTags] = useState([ALL_TAG]);
   const [query, setQuery] = useState();
   const router = useRouter();
   const queryParams = useFilterQuery({ sort, query, tag });
   const pathname = router.asPath.split("?")[0];
+
+  const tags = useTags();
 
   const handleTagChange = (tagSelection) => {
     if (tagSelection === ALL_TAG) {
