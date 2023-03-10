@@ -60,19 +60,28 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
   }, [tags, allTags]);
 
   return (
-    <Box bgcolor="#fff" ref={ref}>
+    <Box
+      bgcolor="#fff"
+      ref={ref}
+      sx={{
+        display: {
+          xs: "none",
+          md: "block",
+        },
+      }}
+    >
       <Section
         sx={{
           py: 2.5,
         }}
       >
-        <Grid container gap={5}>
+        <Grid container gap={5} wrap="nowrap">
           <Grid item>
             <Typography variant="h5" color={neutral[800]}>
               News
             </Typography>
           </Grid>
-          <Grid item>
+          <Grid item md={3}>
             <SearchInput
               placeholder="Search News"
               onChange={(e) => setQuery(e.target.value)}
@@ -83,7 +92,7 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
               }}
             />
           </Grid>
-          <Grid item>
+          <Grid item md={3}>
             <Select
               inputProps={{ "aria-label": "Without label" }}
               onChange={(e) => setSelectedSorting(e.target.value)}
@@ -102,7 +111,7 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
               })}
             </Select>
           </Grid>
-          <Grid item container xs={12} sm={6} md={4} gap={1}>
+          <Grid item container md={6} gap={1} justifyContent="space-between">
             {allTags.map((singleTag) => {
               return (
                 <Chip

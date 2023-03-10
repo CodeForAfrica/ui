@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       .sort((a, b) => tagScores[b] - tagScores[a]);
 
     return res.status(200).json({
-      tags: sortedTags.slice(0, 4),
+      tags: sortedTags.slice(0, 5),
     });
   }
   return res.status(404).json({
