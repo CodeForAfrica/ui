@@ -50,7 +50,6 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
   }, [queryParams]);
 
   useEffect(() => {
-    // on tags change, update allTags if new tags are added
     if (tags) {
       tags.forEach((element) => {
         if (!allTags.includes(element)) {

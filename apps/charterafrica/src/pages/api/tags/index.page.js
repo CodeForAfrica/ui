@@ -8,6 +8,18 @@ const getNews = async (page, slug) => {
   });
 };
 
+function scoreTags(tags) {
+  const tagScores = {};
+  tags.forEach((tag) => {
+    if (tagScores[tag]) {
+      tagScores[tag] += 1;
+    } else {
+      tagScores[tag] = 1;
+    }
+  });
+  return tagScores;
+}
+
 export default async function handler(req, res) {
   const { slug } = req.query;
   if (slug) {
@@ -21,15 +33,19 @@ export default async function handler(req, res) {
       const tags =
         docs?.map((doc) => doc?.tags.map((tag) => tag.name)).flat() ?? [];
       tags.forEach((tag) => {
-        if (!allTags.includes(tag)) {
-          allTags.push(tag);
-        }
+        allTags.push(tag);
       });
       fetchNextPage = hasNextPage;
       page = nextPage;
     } while (fetchNextPage);
+
+    const tagScores = scoreTags(allTags);
+    const sortedTags = Object.keys(tagScores)
+      .sort((a, b) => a.localeCompare(b))
+      .sort((a, b) => tagScores[b] - tagScores[a]);
+
     return res.status(200).json({
-      tags: allTags,
+      tags: sortedTags.slice(0, 4),
     });
   }
   return res.status(404).json({
