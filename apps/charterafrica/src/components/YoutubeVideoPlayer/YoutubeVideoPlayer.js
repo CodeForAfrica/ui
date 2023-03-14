@@ -1,0 +1,79 @@
+/* eslint-disable jsx-a11y/media-has-caption */
+import { Box, styled } from "@mui/material";
+import PropTypes from "prop-types";
+import React, { useEffect, useRef } from "react";
+import videojs from "video.js";
+import "videojs-youtube";
+import "video.js/dist/video-js.css";
+
+const StyledDiv = styled(Box)({
+  minWidth: "100%",
+  height: "100%",
+  "& .video-js .vjs-big-play-button": {
+    height: "100%",
+    left: 0,
+    top: 0,
+    width: "100%",
+    borderRadius: 0,
+    background: "rgba(62,32,44, 0.9)",
+  },
+  "& .video-js .vjs-big-play-button:hover": {
+    height: "100%",
+    left: 0,
+    top: 0,
+    width: "100%",
+    borderRadius: 0,
+    background: "rgba(62,32,44, 0.8)",
+  },
+  ".vjs-button > .vjs-icon-placeholder:before, .video-js .vjs-big-play-button .vjs-icon-placeholder:before":
+    {
+      position: "relative",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      fontSize: 70,
+    },
+});
+
+function YoutubeVideoPlayer({ videoId, width }) {
+  const videoRef = useRef(null);
+  const playerRef = useRef(null);
+  const parentRef = useRef(null);
+
+  const src = `https://www.youtube.com/watch?v=${videoId}`;
+
+  useEffect(() => {
+    if (videoRef.current && !playerRef.current) {
+      const options = {
+        autoplay: false,
+        controls: true,
+        preload: "auto",
+        sources: [{ src, type: "video/youtube" }],
+        techOrder: ["youtube"],
+        height: "auto",
+        width,
+        youtube: { ytControls: 2 },
+      };
+      playerRef.current = videojs(videoRef.current, options);
+    }
+  }, [src, width]);
+
+  return (
+    <StyledDiv ref={parentRef}>
+      <div data-vjs-player>
+        <video ref={videoRef} className="video-js vjs-default-skin hide" />
+      </div>
+    </StyledDiv>
+  );
+}
+
+YoutubeVideoPlayer.propTypes = {
+  videoId: PropTypes.string,
+  width: PropTypes.number.isRequired,
+};
+
+YoutubeVideoPlayer.defaultProps = {
+  videoId: undefined,
+};
+
+export default YoutubeVideoPlayer;
