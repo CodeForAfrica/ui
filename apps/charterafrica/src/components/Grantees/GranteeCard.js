@@ -26,6 +26,16 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
     variant,
   };
 
+  let ActionArea = Box;
+  let ActionAreaProps = { sx: { p: 2.5 } };
+  if (href?.length) {
+    ActionArea = StyledActionArea;
+    ActionAreaProps = {
+      ...ActionAreaProps,
+      component: Link,
+      href,
+    };
+  }
   return (
     <Card
       elevation={elevation}
@@ -34,9 +44,16 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
       ownerState={ownerState}
       variant={variant}
     >
-      <StyledActionArea component={href ? Link : undefined} href={href}>
-        <CardMedia image={image.url} sx={{ height: 264 }} />
-        <CardContent>
+      <ActionArea {...ActionAreaProps}>
+        <CardMedia
+          image={image.url}
+          sx={{
+            backgroundOrigin: "content-box",
+            backgroundSize: "contain",
+            height: { sm: 243, md: 264 },
+          }}
+        />
+        <CardContent sx={{ p: 0 }}>
           <LineClampedRichTypography
             color="neutral.dark"
             html={false}
@@ -59,18 +76,27 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
             })}
             lineClamp={3}
           />
-          <Box sx={{ height: 94, overflow: "hidden", mt: 1.25 }}>
-            {tags?.map((tag, i) => {
-              return (
+          {tags?.length > 0 ? (
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                height: 74,
+                mt: 2.5,
+                overflow: "hidden",
+              }}
+            >
+              {tags.slice(0, 2).map((tag, i) => (
                 <Button
                   component="div"
                   key={tag.id}
                   sx={{
-                    mt: 1.25,
-                    mr: 1.25,
-                    textTransform: "uppercase",
-                    fontSize: 10,
                     color: "neutral.dark",
+                    typography: "footerCap",
+                    width: "fit-content",
+                    ":last-of-type": {
+                      mt: 1.25,
+                    },
                   }}
                   size="small"
                   variant="contained"
@@ -78,11 +104,11 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
                 >
                   {tag.name}
                 </Button>
-              );
-            })}
-          </Box>
+              ))}
+            </Box>
+          ) : null}
         </CardContent>
-      </StyledActionArea>
+      </ActionArea>
     </Card>
   );
 });
