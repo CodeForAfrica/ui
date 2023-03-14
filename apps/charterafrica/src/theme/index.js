@@ -107,6 +107,9 @@ const theme = createTheme({
     body2: undefined,
     caption: initializeTypographyVariant(12, 14),
     footer: initializeTypographyVariant(10, 12),
+    footerCap: initializeTypographyVariant(10, 12, 600, undefined, {
+      textTransform: "uppercase",
+    }),
     overline: undefined,
     number: initializeTypographyVariant(72, 90, 900, PROMPT_FONT_FAMILY),
     numberSmall: initializeTypographyVariant(42, 42, 700, PROMPT_FONT_FAMILY),
@@ -147,6 +150,7 @@ const theme = createTheme({
           caption: "span",
           captionCap: "span",
           footer: "span",
+          footerCap: "span",
           number: "span",
           numberSmall: "span",
         },
