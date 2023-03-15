@@ -16,6 +16,7 @@ const StyledDiv = styled(Box)({
     width: "100%",
     borderRadius: 0,
     background: "rgba(62,32,44, 0.9)",
+    border: "none",
   },
   "& .video-js .vjs-big-play-button:hover": {
     height: "100%",
@@ -31,7 +32,8 @@ const StyledDiv = styled(Box)({
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      fontSize: 70,
+      // Since we are not using icon of height 126 but rather content "\f101"
+      fontSize: 126,
     },
 });
 
