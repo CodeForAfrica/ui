@@ -1,7 +1,15 @@
 import { Section } from "@commons-ui/core";
-import { Box, Grid, Typography, Select, MenuItem, Chip } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Typography,
+  Select,
+  MenuItem,
+  Chip,
+  debounce,
+} from "@mui/material";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 
 import useTags from "./useTags";
 
@@ -24,6 +32,15 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
   const slug = pathname.split("/").pop();
 
   const tags = useTags(slug);
+
+  const handleQueryChange = (event) => {
+    setQuery(event.target.value);
+  };
+
+  const debouncedQueryChange = useMemo(
+    () => debounce(handleQueryChange, 500),
+    []
+  );
 
   const handleTagChange = (tagSelection) => {
     if (tagSelection === ALL_TAG) {
@@ -84,7 +101,7 @@ const ArticlesFilter = React.forwardRef((props, ref) => {
           <Grid item md={3}>
             <SearchInput
               placeholder="Search News"
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={debouncedQueryChange}
               sx={{
                 backgroundColor: "#fff",
                 height: "36px",
