@@ -19,7 +19,6 @@ const Explainers = {
       },
       type: "text",
       localized: true,
-      required: true,
     },
     richText({
       name: "description",

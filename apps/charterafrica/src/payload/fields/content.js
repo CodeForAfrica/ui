@@ -10,6 +10,7 @@ const content = (overrides) =>
       name: "content",
       type: "blocks",
       blocks: [RichText, MediaBlock, ExternalEmbed],
+      localized: true,
     },
     overrides
   );
