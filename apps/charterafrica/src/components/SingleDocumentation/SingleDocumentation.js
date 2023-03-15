@@ -45,7 +45,11 @@ const SingleDocumentation = React.forwardRef(function SingleDocumentation(
         </RichTypography>
         <Box
           sx={{
-            width: "849px",
+            width: {
+              md: "849px",
+              sm: "568px",
+              xs: "300px",
+            },
             backgroundColor: "white",
             border: "1px solid",
             borderColor: neutral[800],
