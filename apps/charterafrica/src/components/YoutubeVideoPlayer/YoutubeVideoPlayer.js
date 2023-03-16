@@ -37,7 +37,7 @@ const StyledDiv = styled(Box)({
     },
 });
 
-function YoutubeVideoPlayer({ videoId, width }) {
+function YoutubeVideoPlayer({ videoId }) {
   const videoRef = useRef(null);
   const playerRef = useRef(null);
   const parentRef = useRef(null);
@@ -53,17 +53,19 @@ function YoutubeVideoPlayer({ videoId, width }) {
         sources: [{ src, type: "video/youtube" }],
         techOrder: ["youtube"],
         height: "auto",
-        width,
         youtube: { ytControls: 2 },
       };
       playerRef.current = videojs(videoRef.current, options);
     }
-  }, [src, width]);
+  }, [src]);
 
   return (
     <StyledDiv ref={parentRef}>
       <div data-vjs-player>
-        <video ref={videoRef} className="video-js vjs-default-skin hide" />
+        <video
+          ref={videoRef}
+          className="video-js vjs-fluid vjs-default-skin hide"
+        />
       </div>
     </StyledDiv>
   );
@@ -71,7 +73,6 @@ function YoutubeVideoPlayer({ videoId, width }) {
 
 YoutubeVideoPlayer.propTypes = {
   videoId: PropTypes.string,
-  width: PropTypes.number.isRequired,
 };
 
 YoutubeVideoPlayer.defaultProps = {
