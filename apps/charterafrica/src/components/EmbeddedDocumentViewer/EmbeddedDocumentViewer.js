@@ -2,7 +2,7 @@ import { Section, RichTypography } from "@commons-ui/core";
 import { Box } from "@mui/material";
 import React from "react";
 
-import useSourceAfrica from "./useSourceAfrica";
+import useDocument from "./useDocument";
 
 import { secondary, neutral } from "@/charterafrica/colors";
 
@@ -12,7 +12,7 @@ const EmbeddedDocumentViewer = React.forwardRef(function EmbeddedDocumentViewer(
 ) {
   const { documentUrl, excerpt, showNotes, title, sx } = props;
 
-  const { data } = useSourceAfrica(documentUrl, {
+  const { data } = useDocument(documentUrl, {
     notes: showNotes,
   });
   const { html } = data || {};

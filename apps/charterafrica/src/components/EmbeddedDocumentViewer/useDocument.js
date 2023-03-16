@@ -2,8 +2,8 @@ import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function useSourceAfrica(url, args) {
-  const params = new URLSearchParams(args);
+function useDocument(url, options) {
+  const params = new URLSearchParams(options);
   const newUrl = `${url}?${params.toString()}`;
   const { data, error } = useSWR(`/api/sourceAfrica?url=${newUrl}`, fetcher);
 
@@ -14,4 +14,4 @@ function useSourceAfrica(url, args) {
   };
 }
 
-export default useSourceAfrica;
+export default useDocument;
