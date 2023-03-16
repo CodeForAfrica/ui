@@ -1,4 +1,4 @@
-import useFilterQuery, { ALL_TAG, DEFAULT_SORTING } from "./useFilterQuery";
+import useFilterQuery, { DEFAULT_SORTING } from "./useFilterQuery";
 
-export { ALL_TAG, DEFAULT_SORTING };
+export { DEFAULT_SORTING };
 export default useFilterQuery;
