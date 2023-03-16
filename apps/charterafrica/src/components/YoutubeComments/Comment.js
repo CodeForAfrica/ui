@@ -17,41 +17,61 @@ import React, { forwardRef, useState } from "react";
 
 import chevronDown from "@/charterafrica/assets/icons/chevronDown.svg";
 import chevronUp from "@/charterafrica/assets/icons/chevronUp.svg";
-import thumbsDown from "@/charterafrica/assets/icons/thumbsDown.svg";
 import thumbsUp from "@/charterafrica/assets/icons/thumbsUp.svg";
+import userIcon from "@/charterafrica/assets/icons/UserIcon.svg";
+import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
 const ThreadChildComment = forwardRef((props, ref) => {
+  const {
+    comment,
+    authorProfileImageUrl,
+    authorDisplayName,
+    publishedAt,
+    updatedAt,
+  } = props;
+  const [readMoreOpen, setReadMoreOpen] = useState(false);
+  const lineClamp = !readMoreOpen ? 2 : undefined;
   return (
     <Box sx={{ mb: 3 }} ref={ref}>
       <Box display="flex" alignItems="center">
-        <Avatar />
-        <RichTypography sx={{ ml: 1.25 }} variant="p2">
-          User Name
-        </RichTypography>
-        <RichTypography sx={{ ml: 1 }} variant="p2" color="neutral.main">
-          6 months ago (edited)
-        </RichTypography>
+        <Avatar sx={{ bgcolor: "#fff" }} src={authorProfileImageUrl}>
+          <SvgIcon
+            inheritViewBox
+            component={userIcon}
+            sx={{
+              color: neutral[800],
+              fill: "none",
+              height: 40,
+              width: 40,
+            }}
+          />
+        </Avatar>
+        <LineClampedRichTypography
+          lineClamp={1}
+          color="neutral.dark"
+          sx={{ ml: 1.25 }}
+          variant="p2"
+        >
+          {authorDisplayName}
+        </LineClampedRichTypography>
+        <LineClampedRichTypography
+          lineClamp={1}
+          sx={{ ml: 1 }}
+          variant="p2"
+          color="neutral.main"
+        >
+          {publishedAt} {publishedAt !== updatedAt && "(edited)"}
+        </LineClampedRichTypography>
       </Box>
 
       <Box sx={{ mt: 1 }}>
-        <LineClampedRichTypography
-          color="neutral.dark"
-          lineClamp={2}
-          variant="p3"
-        >
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industrys standard dummy ever since
-          the 1500s, when an unknown printer took a galley of of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
+        <LineClampedRichTypography lineClamp={lineClamp} variant="p3">
+          {comment}
         </LineClampedRichTypography>
 
         <Button
+          onClick={() => setReadMoreOpen((v) => !v)}
           sx={(theme) => ({
             ...theme.typography.p2,
             mt: 2,
@@ -67,59 +87,94 @@ const ThreadChildComment = forwardRef((props, ref) => {
 });
 
 const Comment = forwardRef((props, ref) => {
+  const {
+    textDisplay: comment,
+    publishedAt,
+    updatedAt,
+    comments: threads,
+    likeCount,
+    authorDisplayName,
+    pinned,
+    authorProfileImageUrl,
+  } = props;
+
   const [threadExpanded, setThreadExpanded] = useState(false);
+  const [readMoreOpen, setReadMoreOpen] = useState(false);
+  const lineClamp = !readMoreOpen ? 2 : undefined;
 
   const expandThread = () => {
     setThreadExpanded((val) => !val);
   };
   return (
-    <ListItem alignItems="flex-start" ref={ref}>
-      <ListItemAvatar>
-        <Avatar />
+    <ListItem sx={{ p: 2.5 }} alignItems="flex-start" ref={ref}>
+      <ListItemAvatar sx={{ mr: 2.5 }}>
+        <Avatar
+          sx={{ height: 60, width: 60, bgcolor: "#fff" }}
+          src={authorProfileImageUrl}
+        >
+          <SvgIcon
+            inheritViewBox
+            component={userIcon}
+            sx={{
+              color: neutral[800],
+              fill: "none",
+              height: 60,
+              width: 60,
+            }}
+          />
+        </Avatar>
       </ListItemAvatar>
       <ListItemText
         primary={
           <Box>
-            <Box sx={{ mb: 1.25 }}>
-              <RichTypography variant="p2" color="neutral.main">
-                Pinned by Charter Africa
-              </RichTypography>
-            </Box>
+            {pinned && (
+              <Box sx={{ mb: 1.25 }}>
+                <RichTypography variant="p2" color="neutral.main">
+                  Pinned by Charter Africa
+                </RichTypography>
+              </Box>
+            )}
 
             <Box display="flex" alignItems="center" sx={{ mb: 2.5 }}>
-              <Chip
-                sx={(theme) => ({
-                  backgroundColor: theme.palette.neutral.dark,
-                  color: theme.palette.text.secondary,
-                  ...theme.typography.p2,
-                  mr: 1.75,
-                })}
-                label="Charter Africa"
-              />
-              <RichTypography variant="p2" color="neutral.main">
-                6 months ago (edited)
-              </RichTypography>
+              {pinned ? (
+                <>
+                  {}
+                  <Chip
+                    sx={(theme) => ({
+                      backgroundColor: theme.palette.neutral.dark,
+                      color: theme.palette.text.secondary,
+                      ...theme.typography.p2,
+                      mr: 1.75,
+                    })}
+                    label={authorDisplayName}
+                  />
+                </>
+              ) : (
+                <LineClampedRichTypography
+                  lineClamp={1}
+                  sx={{ mr: 2 }}
+                  color="neutral.dark"
+                  variant="p2"
+                >
+                  {authorDisplayName}
+                </LineClampedRichTypography>
+              )}
+              <LineClampedRichTypography
+                lineClamp={1}
+                variant="p2"
+                color="neutral.main"
+              >
+                {publishedAt} {publishedAt !== updatedAt && "(edited)"}
+              </LineClampedRichTypography>
             </Box>
 
             <Box>
-              <LineClampedRichTypography
-                color="neutral.dark"
-                lineClamp={2}
-                variant="p3"
-              >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys standard dummy ever
-                since the 1500s, when an unknown printer took a galley of of
-                type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
+              <LineClampedRichTypography lineClamp={lineClamp} variant="p3">
+                {comment}
               </LineClampedRichTypography>
 
               <Button
+                onClick={() => setReadMoreOpen((v) => !v)}
                 sx={(theme) => ({
                   ...theme.typography.p2,
                   mt: 2,
@@ -130,59 +185,70 @@ const Comment = forwardRef((props, ref) => {
                 Read more
               </Button>
 
-              <Box display="flex" sx={{ mt: 3 }}>
+              <Box display="flex" alignItems="center" sx={{ mt: 3 }}>
                 <IconButton>
-                  <SvgIcon component={thumbsUp} />
-                  <RichTypography color="neutral.dark" sx={{ ml: 1 }}>
-                    4
-                  </RichTypography>
+                  <SvgIcon
+                    sx={{
+                      color: neutral[800],
+                      display: "inline-flex",
+
+                      fill: "none",
+                    }}
+                    component={thumbsUp}
+                  />
                 </IconButton>
-                <IconButton>
-                  <SvgIcon component={thumbsDown} />
-                  <RichTypography color="neutral.dark" sx={{ ml: 1 }}>
-                    4
-                  </RichTypography>
-                </IconButton>
+                <RichTypography color="neutral.dark">
+                  {likeCount}
+                </RichTypography>
+                {/* Dislikes go here. Youtube doesn't have dislike count */}
               </Box>
             </Box>
-            <Box sx={{ mt: 1 }}>
-              <Accordion
-                expanded={threadExpanded}
-                elevation={0}
-                square
-                disableGutters
-              >
-                <AccordionSummary
-                  aria-controls="panel1d-content"
-                  id="panel1d-header"
-                  sx={{ p: 0 }}
+            {threads.length ? (
+              <Box sx={{ mt: 1 }}>
+                <Accordion
+                  expanded={threadExpanded}
+                  elevation={0}
+                  square
+                  disableGutters
                 >
-                  <Button
-                    startIcon={
-                      <SvgIcon
-                        component={threadExpanded ? chevronDown : chevronUp}
-                      />
-                    }
-                    variant="standard"
-                    size="small"
-                    onClick={expandThread}
+                  <AccordionSummary
+                    aria-controls="panel1d-content"
+                    id="panel1d-header"
+                    sx={{ p: 0 }}
                   >
-                    <RichTypography variant="p2" color="neutral.dark">
-                      52 Replies
-                    </RichTypography>
-                  </Button>
-                </AccordionSummary>
-                <AccordionDetails sx={{ p: 0 }}>
-                  <ThreadChildComment />
-                  <ThreadChildComment />
-                  <ThreadChildComment />
-                  <ThreadChildComment />
-                  <ThreadChildComment />
-                  <ThreadChildComment />
-                  <ThreadChildComment />
-                </AccordionDetails>
-              </Accordion>
-            </Box>
+                    <Button
+                      startIcon={
+                        <SvgIcon
+                          component={threadExpanded ? chevronDown : chevronUp}
+                          sx={{
+                            color: neutral[800],
+                            display: "inline-flex",
+
+                            fill: "none",
+                          }}
+                        />
+                      }
+                      variant="standard"
+                      size="small"
+                      onClick={expandThread}
+                    >
+                      <RichTypography variant="p2" color="neutral.dark">
+                        {threads.length} Replies
+                      </RichTypography>
+                    </Button>
+                  </AccordionSummary>
+                  <AccordionDetails sx={{ p: 0 }}>
+                    {threads.map((thread) => (
+                      <ThreadChildComment
+                        comment={thread?.snippet?.textDisplay}
+                        {...thread?.snippet}
+                        key={thread.id}
+                      />
+                    ))}
+                  </AccordionDetails>
+                </Accordion>
+              </Box>
+            ) : null}
           </Box>
         }
       />
