@@ -2,14 +2,26 @@ import { Section, RichTypography } from "@commons-ui/core";
 import { Box } from "@mui/material";
 import React from "react";
 
+import useSourceAfrica from "./useSourceAfrica";
+
 import { secondary, neutral } from "@/charterafrica/colors";
 
 const SingleDocumentation = React.forwardRef(function SingleDocumentation(
   props,
   ref
 ) {
-  const { embedHTML, excerpt, title, sx } = props;
+  const { documentUrl, excerpt, showNotes, title, sx } = props;
 
+  const { data } = useSourceAfrica(documentUrl, {
+    notes: showNotes,
+  });
+  if (!data) {
+    return null;
+  }
+  const { html: embedHTML } = data;
+  if (!embedHTML) {
+    return null;
+  }
   return (
     <Box
       sx={{
@@ -56,6 +68,7 @@ const SingleDocumentation = React.forwardRef(function SingleDocumentation(
             margin: "0 auto",
           }}
         >
+          {/* eslint-disable-next-line react/no-danger */}
           <div dangerouslySetInnerHTML={{ __html: embedHTML }} />
         </Box>
       </Section>
