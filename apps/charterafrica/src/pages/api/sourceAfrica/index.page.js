@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 const baseURL = "https://dc.sourceafrica.net/api";
 
 export default async function handler(req, res) {
