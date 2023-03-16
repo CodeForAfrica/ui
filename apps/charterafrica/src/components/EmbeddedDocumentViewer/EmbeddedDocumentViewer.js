@@ -6,7 +6,7 @@ import useSourceAfrica from "./useSourceAfrica";
 
 import { secondary, neutral } from "@/charterafrica/colors";
 
-const SingleDocumentation = React.forwardRef(function SingleDocumentation(
+const EmbeddedDocumentViewer = React.forwardRef(function EmbeddedDocumentViewer(
   props,
   ref
 ) {
@@ -76,4 +76,4 @@ const SingleDocumentation = React.forwardRef(function SingleDocumentation(
   );
 });
 
-export default SingleDocumentation;
+export default EmbeddedDocumentViewer;

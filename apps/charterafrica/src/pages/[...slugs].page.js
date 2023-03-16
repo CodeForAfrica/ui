@@ -1,6 +1,7 @@
 import Articles from "@/charterafrica/components/Articles";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
+import EmbeddedDocumentViewer from "@/charterafrica/components/EmbeddedDocumentViewer";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
@@ -22,7 +23,6 @@ import PageInfo from "@/charterafrica/components/PageInfo";
 import Partners from "@/charterafrica/components/Partners";
 import Post from "@/charterafrica/components/Post";
 import Resources from "@/charterafrica/components/Resources";
-import SingleDocumentation from "@/charterafrica/components/SingleDocumentation";
 import Spotlight from "@/charterafrica/components/Spotlight";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
@@ -52,7 +52,7 @@ const componentsBySlugs = {
   "page-info": PageInfo,
   post: Post,
   research: Articles,
-  "single-documentation": SingleDocumentation,
+  "embedded-document-viewer": EmbeddedDocumentViewer,
   spotlight: Spotlight,
 };
 
