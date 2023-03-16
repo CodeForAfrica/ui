@@ -1,5 +1,4 @@
 import Articles from "@/charterafrica/components/Articles";
-import ArticlesFilter from "@/charterafrica/components/ArticlesFilter";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import Explainers from "@/charterafrica/components/Explainers";
@@ -27,7 +26,6 @@ import Spotlight from "@/charterafrica/components/Spotlight";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 const componentsBySlugs = {
-  "article-filter": ArticlesFilter,
   "our-community-platforms": CommunityPlatforms,
   ecosystem: Ecosystem,
   explainers: Explainers,
@@ -57,7 +55,10 @@ const componentsBySlugs = {
 };
 
 function Page({ blocks }) {
-  return blocks?.map((block) => {
+  if (!blocks?.length) {
+    return null;
+  }
+  return blocks.map((block) => {
     const Component = componentsBySlugs[block.slug];
     if (!Component) {
       return null;
