@@ -46,8 +46,6 @@ export async function getServerSideTags(collection, context) {
 
 export async function getPageServerSideProps(context) {
   const props = await getPageProps(api, context);
-  console.log("BOOM", JSON.stringify(props.navbar.menus[0], undefined, 2));
-  // console.log("BOOM", JSON.stringify(menus[0].doc, undefined, 2));
 
   if (!props) {
     return { notFound: true };
