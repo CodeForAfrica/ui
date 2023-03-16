@@ -15,13 +15,11 @@ const EmbeddedDocumentViewer = React.forwardRef(function EmbeddedDocumentViewer(
   const { data } = useSourceAfrica(documentUrl, {
     notes: showNotes,
   });
-  if (!data) {
+  const { html } = data || {};
+  if (!html?.length) {
     return null;
   }
-  const { html: embedHTML } = data;
-  if (!embedHTML) {
-    return null;
-  }
+
   return (
     <Box
       sx={{
@@ -69,7 +67,7 @@ const EmbeddedDocumentViewer = React.forwardRef(function EmbeddedDocumentViewer(
           }}
         >
           {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: embedHTML }} />
+          <div dangerouslySetInnerHTML={{ __html: html }} />
         </Box>
       </Section>
     </Box>
