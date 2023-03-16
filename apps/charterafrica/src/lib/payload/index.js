@@ -5,6 +5,7 @@ async function findPage(slug, options) {
     ...options,
     collection: "pages",
     where: {
+      ...options?.where,
       slug: {
         equals: slug,
       },
@@ -17,7 +18,6 @@ async function getCollection(collection, options) {
     limit: 0,
     ...options,
     collection,
-    where: { ...options?.where },
   });
 }
 
