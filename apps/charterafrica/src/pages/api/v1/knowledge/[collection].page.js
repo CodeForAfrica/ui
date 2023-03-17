@@ -8,11 +8,20 @@ export default async function handler(req, res) {
     return res.status(400).json({ message: "UNKNOWN_COLLECTION", collection });
   }
 
+  const breadcrumbs = [
+    {
+      url: `/knowledge/${collection}`,
+    },
+  ];
+  const page = {
+    slug: collection,
+    breadcrumbs,
+  };
   const context = {
     locale,
     query,
   };
-  const articles = await getServerSideArticles(collection, context);
+  const articles = await getServerSideArticles(page, context);
   return res.status(200).json({
     articles,
   });
