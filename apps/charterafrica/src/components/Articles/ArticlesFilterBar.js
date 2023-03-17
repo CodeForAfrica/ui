@@ -13,12 +13,13 @@ const ArticlesFilterBar = React.forwardRef(function ArticlesFilterBar(
   const {
     onChangeSort,
     onChangeQ,
+    q,
     search: searchProp,
     sort,
     sortOrder,
-    q,
+    title,
   } = props;
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState(q);
   const router = useRouter();
 
   useEffect(() => {
@@ -36,20 +37,19 @@ const ArticlesFilterBar = React.forwardRef(function ArticlesFilterBar(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady]);
 
-  const handleChangeSearch = (e) => {
-    setSearch(e.target.value);
+  const handleChangeQ = (e, value) => {
+    if (onChangeQ) {
+      onChangeQ(e, value);
+    }
   };
-
   const handleChangeSort = (e) => {
     if (onChangeSort) {
       onChangeSort(e, e.target.value);
     }
   };
 
-  const handleChangeQ = (e, value) => {
-    if (onChangeQ) {
-      onChangeQ(e, value);
-    }
+  const handleChangeSearch = (e) => {
+    setSearch(e.target.value);
   };
   const handleClickSearch = (e) => {
     handleChangeQ(e, search);
@@ -77,14 +77,14 @@ const ArticlesFilterBar = React.forwardRef(function ArticlesFilterBar(
         }}
       >
         <Grid container gap={5} wrap="nowrap">
-          <Grid item>
+          <Grid item md="auto">
             <Typography variant="h5" color={neutral[800]}>
-              News
+              {title}
             </Typography>
           </Grid>
-          <Grid item md={3}>
+          <Grid item md="auto">
             <SearchInput
-              defaultValue={q}
+              value={search}
               placeholder={searchProp?.placeholder}
               onChange={handleChangeSearch}
               onClick={handleClickSearch}
@@ -92,18 +92,29 @@ const ArticlesFilterBar = React.forwardRef(function ArticlesFilterBar(
               sx={{
                 backgroundColor: "#fff",
                 height: "36px",
+                typography: "p1",
                 width: "200px",
               }}
             />
           </Grid>
           {sortOrder?.length > 0 ? (
-            <Grid item md={3}>
+            <Grid item md="auto">
               <Select
-                inputProps={{ "aria-label": "Without label" }}
+                inputProps={{
+                  "aria-label": "Without label",
+                }}
                 onChange={handleChangeSort}
+                MenuProps={{
+                  sx: {
+                    color: "neutral.dark",
+                    typography: "p1",
+                  },
+                }}
                 sx={{
+                  backgroundColor: neutral[50],
                   height: "36px",
                   minWidth: "200px",
+                  typography: "p1",
                 }}
                 value={sort}
               >
