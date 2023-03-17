@@ -19,7 +19,7 @@ exports[`<YoutubeComments /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item css-1suwj6u-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item css-plk1d4-MuiGrid-root"
       >
         <div
           class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"

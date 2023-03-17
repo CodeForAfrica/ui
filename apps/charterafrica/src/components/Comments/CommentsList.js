@@ -21,7 +21,13 @@ const CommentsList = forwardRef((props, ref) => {
         <Grid item>
           <RichTypography variant="p3">{list.length} comments</RichTypography>
         </Grid>
-        <Grid display="flex" alignItems="center" justifyContent="flex-end" item>
+        <Grid
+          display="flex"
+          alignItems="center"
+          justifyContent="flex-end"
+          flex={1}
+          item
+        >
           <RichTypography variant="p3">Sort by:</RichTypography>
           <Select
             defaultValue="recent"
@@ -44,11 +50,7 @@ const CommentsList = forwardRef((props, ref) => {
         </Grid>
       </Grid>
       {list.map((item) => (
-        <Comment
-          key={item.id}
-          comments={item?.replies?.comments || []}
-          {...item?.snippet?.topLevelComment?.snippet}
-        />
+        <Comment key={item.id} {...item} />
       ))}
     </Box>
   );

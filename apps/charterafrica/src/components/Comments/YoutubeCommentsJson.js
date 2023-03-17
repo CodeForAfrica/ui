@@ -1,5 +1,5 @@
 // Used for purposes of testing
-export default {
+const comments = {
   kind: "youtube#commentThreadListResponse",
   etag: "M6pYMLfwJF4E5-1j75TD0uMUzoE",
   nextPageToken:
@@ -5117,3 +5117,14 @@ export default {
     },
   ],
 };
+
+export default comments.items.map((item) => ({
+  id: item.id,
+  ...item?.snippet?.topLevelComment?.snippet,
+  threads:
+    item.replies?.comments?.map((thread) => ({
+      id: thread.id,
+      ...thread.snippet,
+      comment: thread.snippet.textDisplay,
+    })) || [],
+}));

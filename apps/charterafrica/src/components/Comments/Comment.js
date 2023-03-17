@@ -15,10 +15,10 @@ import {
 } from "@mui/material";
 import React, { forwardRef, useState } from "react";
 
-import chevronDown from "@/charterafrica/assets/icons/chevronDown.svg";
-import chevronUp from "@/charterafrica/assets/icons/chevronUp.svg";
-import thumbsUp from "@/charterafrica/assets/icons/thumbsUp.svg";
-import userIcon from "@/charterafrica/assets/icons/UserIcon.svg";
+import chevronDown from "@/charterafrica/assets/icons/chevron-down, Size=24, Color=CurrentColor.svg";
+import chevronUp from "@/charterafrica/assets/icons/Chevron-up, Size=24, Color=CurrentColor.svg";
+import thumbsUp from "@/charterafrica/assets/icons/Type=thumbs-up, Size=24, Color=CurrentColor.svg";
+import userIcon from "@/charterafrica/assets/icons/Type=user, Size=auto, Color=CurrentColor.svg";
 import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
@@ -91,7 +91,7 @@ const Comment = forwardRef((props, ref) => {
     textDisplay: comment,
     publishedAt,
     updatedAt,
-    comments: threads,
+    threads,
     likeCount,
     authorDisplayName,
     pinned,
@@ -239,11 +239,7 @@ const Comment = forwardRef((props, ref) => {
                   </AccordionSummary>
                   <AccordionDetails sx={{ p: 0 }}>
                     {threads.map((thread) => (
-                      <ThreadChildComment
-                        comment={thread?.snippet?.textDisplay}
-                        {...thread?.snippet}
-                        key={thread.id}
-                      />
+                      <ThreadChildComment {...thread} key={thread.id} />
                     ))}
                   </AccordionDetails>
                 </Accordion>
