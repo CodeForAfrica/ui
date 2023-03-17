@@ -29,17 +29,23 @@ const PostCard = React.forwardRef(function PostCard(props, ref) {
   return (
     <Card
       elevation={elevation}
-      sx={sx}
-      ref={ref}
       ownerState={ownerState}
       variant={variant}
+      sx={sx}
+      ref={ref}
     >
       <StyledActionArea
         component={link?.href ? Link : undefined}
         href={link?.href}
       >
         <CardMedia image={image?.url} sx={{ height: 200 }} />
-        <CardContent>
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
           <LineClampedRichTypography
             color="neutral.dark"
             html={false}
