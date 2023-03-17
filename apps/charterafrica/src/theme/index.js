@@ -59,8 +59,8 @@ const theme = createTheme({
     values: {
       sm: 728,
       md: 1024,
-      lg: 1144,
-      xl: 1144,
+      lg: 1240,
+      xl: 1240,
     },
     unit: "px",
   },
@@ -106,6 +106,9 @@ const theme = createTheme({
     body1: undefined,
     body2: undefined,
     caption: initializeTypographyVariant(12, 14),
+    captionCap: initializeTypographyVariant(12, 14, 600, undefined, {
+      textTransform: "uppercase",
+    }),
     footer: initializeTypographyVariant(10, 12),
     footerCap: initializeTypographyVariant(10, 12, 600, undefined, {
       textTransform: "uppercase",
@@ -167,10 +170,6 @@ deepmerge(
     button: {
       ...theme.typography.p2SemiBold,
       textTransform: "title",
-    },
-    captionCap: {
-      ...theme.typography.caption,
-      textTransform: "uppercase",
     },
   },
   { clone: false }

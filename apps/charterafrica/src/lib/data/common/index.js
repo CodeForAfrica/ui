@@ -86,7 +86,7 @@ function processPost(post, page, api, context) {
     ...post,
     author: post.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
     image,
-    date: formatDateTime(post.publishedOn, { locale, includeTime: true }),
+    date: formatDateTime(post.publishedOn, { locale }),
     link: {
       href,
     },
