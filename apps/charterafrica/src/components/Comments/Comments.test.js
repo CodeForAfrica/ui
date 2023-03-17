@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Comments from "./CommentsList";
+import Comments from "./Comments";
 
 import theme from "@/charterafrica/theme";
 
@@ -12,7 +12,7 @@ const defaultProps = {
   comments: [],
 };
 
-describe("<YoutubeComments />", () => {
+describe("<Comments />", () => {
   it("renders unchanged", () => {
     const { container } = render(<Comments {...defaultProps} />);
     expect(container).toMatchSnapshot();
