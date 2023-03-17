@@ -59,7 +59,7 @@ CommentsList.propTypes = {
 };
 
 CommentsList.defaultProps = {
-  comments: [],
+  comments: undefined,
 };
 
 export default CommentsList;
