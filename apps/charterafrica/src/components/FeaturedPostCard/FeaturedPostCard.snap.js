@@ -6,7 +6,7 @@ exports[`FeaturedPostCard should render 1`] = `
     class="MuiBox-root css-1w0avnn"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-63j1t6-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1om00n2-MuiContainer-root"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-aezxtm-MuiPaper-root-MuiCard-root"
@@ -24,24 +24,28 @@ exports[`FeaturedPostCard should render 1`] = `
           >
             News Story title goes here and spans over second line
           </div>
-          <p
-            class="MuiTypography-root MuiTypography-p1 css-dn6hni-MuiTypography-root"
-          >
-            Author Name
-          </p>
-          <p
-            class="MuiTypography-root MuiTypography-p1 css-zisg9a-MuiTypography-root"
-          >
-            2020-10-10 10:10:10
-          </p>
           <div
-            class="MuiBox-root css-15getys"
+            class="MuiBox-root css-5g71vn"
           >
             <h6
               class="MuiTypography-root MuiTypography-subheading css-1ea3c8k-MuiTypography-root"
             >
               Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur
             </h6>
+          </div>
+          <div
+            class="css-173zx7o-MuiStack-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-iui9m1-MuiTypography-root"
+            >
+              Author Name
+            </div>
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-b4nzsx-MuiTypography-root"
+            >
+              2020-10-10 10:10:10
+            </div>
           </div>
           <div
             class="MuiCardActions-root MuiCardActions-spacing css-i48nla-MuiCardActions-root"

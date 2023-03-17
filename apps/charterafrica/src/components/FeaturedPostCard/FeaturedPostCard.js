@@ -1,13 +1,13 @@
 import { Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import {
+  Box,
   Card,
+  CardActions,
   CardContent,
   CardMedia,
   Divider,
-  Typography,
-  Box,
-  CardActions,
+  Stack,
 } from "@mui/material";
 import React from "react";
 
@@ -75,54 +75,51 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
             >
               {title}
             </LineClampedRichTypography>
-            {variant === "event" ? (
-              <LineClampedRichTypography
-                color="neutral.dark"
-                lineClamp={1}
-                textTransform="uppercase"
-                variant="caption"
-                sx={(theme) => ({
-                  maxHeight: `calc(${theme.typography.caption.fontSize}px * ${theme.typography.caption.lineHeight} * 1)`,
-                })}
-              >
-                {topic}
-              </LineClampedRichTypography>
-            ) : null}
-            {author?.length ? (
-              <Typography
-                color="neutral.main"
-                textAlign="left"
-                typography="p1"
-                sx={{
-                  display: author ? "block" : "none",
-                }}
-              >
-                {author}
-              </Typography>
-            ) : null}
-
-            {variant !== "event" ? (
-              <Typography color="neutral.main" textAlign="left" variant="p1">
-                {date}
-              </Typography>
-            ) : null}
             <RichText
-              sx={{
-                maxHeight: 24 * 6,
-                overflow: "hidden",
-              }}
               color="neutral.dark"
+              elements={excerpt}
+              lineClamp={6}
               textAlign="left"
               variant="subheading"
-              lineClamp={6}
-              elements={excerpt}
+              sx={(theme) => ({
+                maxHeight: `calc(${theme.typography.subheading.fontSize}px * ${theme.typography.subheading.lineHeight} * 6)`,
+              })}
             />
-            {variant === "event" ? (
-              <Typography color="neutral.main" textAlign="left" variant="p1">
+            <Stack spacing={2.5}>
+              {variant === "event" ? (
+                <LineClampedRichTypography
+                  color="neutral.dark"
+                  lineClamp={1}
+                  textTransform="uppercase"
+                  variant="caption"
+                  sx={(theme) => ({
+                    maxHeight: `calc(${theme.typography.caption.fontSize}px * ${theme.typography.caption.lineHeight} * 1)`,
+                  })}
+                >
+                  {topic}
+                </LineClampedRichTypography>
+              ) : null}
+              <LineClampedRichTypography
+                color="neutral.main"
+                lineClamp={2}
+                variant="p1"
+                sx={(theme) => ({
+                  maxHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 2)`,
+                })}
+              >
+                {author}
+              </LineClampedRichTypography>
+              <LineClampedRichTypography
+                color="neutral.main"
+                lineClamp={1}
+                variant="p1"
+                sx={(theme) => ({
+                  maxHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 1)`,
+                })}
+              >
                 {date}
-              </Typography>
-            ) : null}
-
+              </LineClampedRichTypography>
+            </Stack>
             {link?.href && (
               <CardActions sx={{ p: 0 }}>
                 <Link
