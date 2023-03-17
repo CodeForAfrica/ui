@@ -36,7 +36,13 @@ const ThreadChildComment = forwardRef((props, ref) => {
   return (
     <Box sx={{ mb: 3 }} ref={ref}>
       <Box display="flex" alignItems="center">
-        <Avatar sx={{ bgcolor: "#fff" }} src={authorProfileImageUrl}>
+        <Avatar
+          sx={(theme) => ({
+            bgcolor: "#fff",
+            color: theme.palette.neutral.main,
+          })}
+          src={authorProfileImageUrl}
+        >
           <SvgIcon
             inheritViewBox
             component={userIcon}
@@ -111,7 +117,12 @@ const Comment = forwardRef((props, ref) => {
     <ListItem sx={{ p: 2.5 }} alignItems="flex-start" ref={ref}>
       <ListItemAvatar sx={{ mr: 2.5 }}>
         <Avatar
-          sx={{ height: 60, width: 60, bgcolor: "#fff" }}
+          sx={(theme) => ({
+            height: 60,
+            width: 60,
+            bgcolor: "#fff",
+            color: theme.palette.neutral.main,
+          })}
           src={authorProfileImageUrl}
         >
           <SvgIcon
