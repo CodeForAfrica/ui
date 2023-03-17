@@ -6,7 +6,7 @@ exports[`<OpportunityHeader /> renders unchanged 1`] = `
     class="MuiBox-root css-156ejva"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-63j1t6-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1om00n2-MuiContainer-root"
     >
       <h3
         class="MuiTypography-root MuiTypography-h3 css-1dbe021-MuiTypography-root"
