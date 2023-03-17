@@ -8,23 +8,21 @@ import ArticleGrid from "./ArticlesGrid";
 import useArticles from "./useArticles";
 
 import FeaturedPost from "@/charterafrica/components/FeaturedPostCard";
-import useFilterQuery, {
-  DEFAULT_SORTING,
-} from "@/charterafrica/components/useFilterQuery";
+import { DEFAULT_SORTING } from "@/charterafrica/components/useFilterQuery";
 
 const Articles = React.forwardRef(function Articles(props, ref) {
   const { articles: originalArticles, featured, filters, slug, sx } = props;
   const [articles, setArticles] = useState(originalArticles);
+
+  const router = useRouter();
+  const pathname = router.asPath.split("?")[0];
+
   const [sort, setSort] = useState(DEFAULT_SORTING);
   const [q, setQ] = useState("");
-  const router = useRouter();
-  const queryParams = useFilterQuery({ sort, q });
-  const pathname = router.asPath.split("?")[0];
 
   const handleChangeSort = (_, value) => {
     setSort(value);
   };
-
   const handleChangeQ = (_, value) => {
     setQ(value);
   };
@@ -40,13 +38,10 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   useEffect(() => {
     router.push({
       pathname,
-      query: queryParams,
+      query: { q, sort },
     });
-
-    // We don't want to listen to router changes here since we're the ones
-    // updating them
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [queryParams]);
+  }, [q, sort]);
 
   return (
     <Box sx={sx} ref={ref}>
