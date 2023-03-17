@@ -12,7 +12,11 @@ const Explainers = {
   fields: [
     {
       type: "collapsible",
-      label: "Title",
+      label: {
+        en: "Title",
+        fr: "Titre",
+        pt: "Título",
+      },
       fields: [
         {
           name: "title",
