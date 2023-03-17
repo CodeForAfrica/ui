@@ -13,7 +13,7 @@ function useFilterQuery(query = {}) {
     searchParams.append("locale", locale);
   }
   const queryString = searchParams.toString();
-  return queryString ? `?${queryString}` : "";
+  return queryString || "";
 }
 
 export { DEFAULT_SORTING };

@@ -7,7 +7,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 function useArticles(collection, query) {
   const queryParams = useFilterQuery(query);
   const { data, error } = useSWR(
-    `/api/v1/knowledge/${collection}${queryParams}`,
+    `/api/v1/knowledge/${collection}?${queryParams}`,
     fetcher
   );
 
