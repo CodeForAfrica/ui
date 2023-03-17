@@ -84,7 +84,6 @@ function processPost(post, page, api, context) {
   const { locale } = context;
   return {
     ...post,
-    content: post?.content ?? null,
     author: post.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
     image,
     date: formatDateTime(post.publishedOn, { locale, includeTime: true }),
