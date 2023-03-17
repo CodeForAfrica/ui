@@ -136,8 +136,9 @@ async function processPageArticlePost(page, api, context) {
   };
 }
 
-export async function getTags(collection, api, context) {
+export async function getTags(page, api, context) {
   const { locale } = context;
+  const { slug: collection } = page;
   const { docs } = await api.getCollection(collection, {
     locale,
     where: {
@@ -158,9 +159,9 @@ export async function getTags(collection, api, context) {
   return tags.sort((a, b) => frequency[a.slug] - frequency[b.slug]);
 }
 
-export async function getArticles(collection, api, context) {
+export async function getArticles(page, api, context) {
   const { query: originalQuery = {}, locale } = context;
-  const { page = 1, q, sort = "-publishedOn" } = originalQuery;
+  const { page: pageNumber = 1, q, sort = "-publishedOn" } = originalQuery;
   let query;
   if (q) {
     query = {
@@ -178,12 +179,13 @@ export async function getArticles(collection, api, context) {
       ],
     };
   }
+  const { slug: collection } = page;
   const { docs } = await api.getCollection(collection, {
     locale,
     sort,
     where: {
       ...query,
-      page,
+      page: pageNumber,
       _status: { equals: "published" },
     },
   });
@@ -244,10 +246,10 @@ async function processPageArticles(page, api, context) {
     // Featured should be rendered as part of articles
     blocks.splice(foundIndex, 1);
   }
-  const { slug, title } = page;
-  const articles = await getArticles(slug, api, context);
-  const tags = await getTags(slug, api, context);
+  const articles = await getArticles(page, api, context);
+  const tags = await getTags(page, api, context);
   const filterLabels = filtersLabelsPerLocale[locale];
+  const { slug, title } = page;
   const articlesBlock = {
     articles,
     featured,
@@ -262,6 +264,7 @@ async function processPageArticles(page, api, context) {
         { value: "-title", label: filterLabels["-title"] },
       ],
       tags,
+      title,
     },
     slug,
     title,
