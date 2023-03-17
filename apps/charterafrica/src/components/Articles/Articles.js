@@ -15,29 +15,21 @@ import useFilterQuery, {
 const Articles = React.forwardRef(function Articles(props, ref) {
   const { articles: originalArticles, featured, filters, slug, sx } = props;
   const [articles, setArticles] = useState(originalArticles);
-  const [sort, setSort] = useState(DEFAULT_SORTING);
   const [q, setQ] = useState("");
+  const [sort, setSort] = useState(DEFAULT_SORTING);
   const router = useRouter();
-  const queryParams = useFilterQuery({ sort, q });
-  const pathname = router.asPath.split("?")[0];
-
-  const handleChangeSort = (_, value) => {
-    setSort(value);
-  };
+  const { asPath, locale } = router;
 
   const handleChangeQ = (_, value) => {
     setQ(value);
   };
+  const handleChangeSort = (_, value) => {
+    setSort(value);
+  };
 
-  const { data } = useArticles(slug, { locale: router.locale, sort, q });
+  const queryParams = useFilterQuery({ q, sort });
   useEffect(() => {
-    if (data) {
-      const { articles: foundArticles } = data;
-      setArticles(foundArticles);
-    }
-  }, [data]);
-
-  useEffect(() => {
+    const pathname = asPath.split("?")[0];
     router.push({
       pathname,
       query: queryParams,
@@ -47,6 +39,14 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     // updating them
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryParams]);
+
+  const { data } = useArticles(slug, { locale, q, sort });
+  useEffect(() => {
+    if (data) {
+      const { articles: foundArticles } = data;
+      setArticles(foundArticles);
+    }
+  }, [data]);
 
   return (
     <Box sx={sx} ref={ref}>

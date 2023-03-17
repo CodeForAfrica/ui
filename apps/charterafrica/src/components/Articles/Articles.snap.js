@@ -15,19 +15,17 @@ exports[`<Articles /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-ztj35b-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-auto css-11ydr13-MuiGrid-root"
           >
             <h5
               class="MuiTypography-root MuiTypography-h5 css-1lirkz0-MuiTypography-root"
-            >
-              News
-            </h5>
+            />
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-3 css-1dkwzu9-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-auto css-11ydr13-MuiGrid-root"
           >
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1bejvs5-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-xmiuqd-MuiInputBase-root-MuiOutlinedInput-root"
             >
               <input
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1u6lhwd-MuiInputBase-input-MuiOutlinedInput-input"
@@ -63,10 +61,10 @@ exports[`<Articles /> renders unchanged 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-3 css-1dkwzu9-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-auto css-11ydr13-MuiGrid-root"
           >
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary  css-1ue9p8f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary  css-a46zki-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-expanded="false"
