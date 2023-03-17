@@ -13,6 +13,7 @@ import {
   ListItemText,
   SvgIcon,
 } from "@mui/material";
+import PropTypes from "prop-types";
 import React, { forwardRef, useState } from "react";
 
 import chevronDown from "@/charterafrica/assets/icons/chevron-down, Size=24, Color=CurrentColor.svg";
@@ -96,6 +97,7 @@ const Comment = forwardRef((props, ref) => {
     authorDisplayName,
     pinned,
     authorProfileImageUrl,
+    pinnedMessage,
   } = props;
 
   const [threadExpanded, setThreadExpanded] = useState(false);
@@ -130,7 +132,7 @@ const Comment = forwardRef((props, ref) => {
             {pinned && (
               <Box sx={{ mb: 1.25 }}>
                 <RichTypography variant="p2" color="neutral.main">
-                  Pinned by Charter Africa
+                  {pinnedMessage}
                 </RichTypography>
               </Box>
             )}
@@ -251,5 +253,29 @@ const Comment = forwardRef((props, ref) => {
     </ListItem>
   );
 });
+
+Comment.propTypes = {
+  textDisplay: PropTypes.string,
+  publishedAt: PropTypes.string,
+  updatedAt: PropTypes.string,
+  threads: PropTypes.arrayOf(PropTypes.shape()),
+  likeCount: PropTypes.number,
+  authorDisplayName: PropTypes.string,
+  pinned: PropTypes.boolean,
+  authorProfileImageUrl: PropTypes.string,
+  pinnedMessage: PropTypes.string,
+};
+
+Comment.defaultProps = {
+  textDisplay: undefined,
+  publishedAt: undefined,
+  updatedAt: undefined,
+  threads: undefined,
+  likeCount: undefined,
+  authorDisplayName: undefined,
+  pinned: undefined,
+  authorProfileImageUrl: undefined,
+  pinnedMessage: undefined,
+};
 
 export default Comment;

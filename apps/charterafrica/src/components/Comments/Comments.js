@@ -9,7 +9,6 @@ import { neutral } from "@/charterafrica/colors";
 
 const CommentsList = forwardRef((props, ref) => {
   const { comments } = props;
-  const list = comments.map((comm, i) => ({ ...comm, id: i }));
   return (
     <Box bgcolor="#FFF" ref={ref}>
       <Grid
@@ -19,7 +18,9 @@ const CommentsList = forwardRef((props, ref) => {
         container
       >
         <Grid item>
-          <RichTypography variant="p3">{list.length} comments</RichTypography>
+          <RichTypography variant="p3">
+            {comments.length} comments
+          </RichTypography>
         </Grid>
         <Grid
           display="flex"
@@ -49,7 +50,7 @@ const CommentsList = forwardRef((props, ref) => {
           </Select>
         </Grid>
       </Grid>
-      {list.map((item) => (
+      {comments.map((item) => (
         <Comment key={item.id} {...item} />
       ))}
     </Box>
