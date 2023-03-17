@@ -6,7 +6,7 @@ exports[`<Grantees /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1dtbry9-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1kti42o-MuiContainer-root"
     >
       <h3
         class="MuiTypography-root MuiTypography-h3Small css-16tajh2-MuiTypography-root"
