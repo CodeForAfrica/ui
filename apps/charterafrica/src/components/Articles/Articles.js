@@ -34,9 +34,6 @@ const Articles = React.forwardRef(function Articles(props, ref) {
       pathname,
       query: queryParams,
     });
-
-    // We don't want to listen to router changes here since we're the ones
-    // updating them
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryParams]);
 
