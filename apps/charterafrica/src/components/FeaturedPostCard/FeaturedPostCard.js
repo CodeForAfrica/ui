@@ -64,61 +64,63 @@ const FeaturedPostCard = React.forwardRef(function FeaturedPostCard(
               },
             }}
           >
-            <LineClampedRichTypography
-              color="neutral.dark"
-              lineClamp={4}
-              textAlign="left"
-              variant="h2SemiBold"
-              sx={(theme) => ({
-                maxHeight: `calc(${theme.typography.h2SemiBold.fontSize}px * ${theme.typography.h2SemiBold.lineHeight} * 4)`,
-              })}
-            >
-              {title}
-            </LineClampedRichTypography>
-            <RichText
-              color="neutral.dark"
-              elements={excerpt}
-              lineClamp={6}
-              textAlign="left"
-              variant="subheading"
-              sx={(theme) => ({
-                maxHeight: `calc(${theme.typography.subheading.fontSize}px * ${theme.typography.subheading.lineHeight} * 6)`,
-              })}
-            />
-            <Stack spacing={2.5}>
-              {variant === "event" ? (
+            <Stack spacing={5}>
+              <LineClampedRichTypography
+                color="neutral.dark"
+                lineClamp={4}
+                textAlign="left"
+                variant="h2SemiBold"
+                sx={(theme) => ({
+                  maxHeight: `calc(${theme.typography.h2SemiBold.fontSize}px * ${theme.typography.h2SemiBold.lineHeight} * 4)`,
+                })}
+              >
+                {title}
+              </LineClampedRichTypography>
+              <RichText
+                color="neutral.dark"
+                elements={excerpt}
+                lineClamp={6}
+                textAlign="left"
+                variant="subheading"
+                sx={(theme) => ({
+                  maxHeight: `calc(${theme.typography.subheading.fontSize}px * ${theme.typography.subheading.lineHeight} * 6)`,
+                })}
+              />
+              <Stack spacing={2.5}>
+                {variant === "event" ? (
+                  <LineClampedRichTypography
+                    color="neutral.dark"
+                    lineClamp={1}
+                    textTransform="uppercase"
+                    variant="caption"
+                    sx={(theme) => ({
+                      maxHeight: `calc(${theme.typography.caption.fontSize}px * ${theme.typography.caption.lineHeight} * 1)`,
+                    })}
+                  >
+                    {topic}
+                  </LineClampedRichTypography>
+                ) : null}
                 <LineClampedRichTypography
-                  color="neutral.dark"
-                  lineClamp={1}
-                  textTransform="uppercase"
-                  variant="caption"
+                  color="neutral.main"
+                  lineClamp={2}
+                  variant="p1"
                   sx={(theme) => ({
-                    maxHeight: `calc(${theme.typography.caption.fontSize}px * ${theme.typography.caption.lineHeight} * 1)`,
+                    maxHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 2)`,
                   })}
                 >
-                  {topic}
+                  {author}
                 </LineClampedRichTypography>
-              ) : null}
-              <LineClampedRichTypography
-                color="neutral.main"
-                lineClamp={2}
-                variant="p1"
-                sx={(theme) => ({
-                  maxHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 2)`,
-                })}
-              >
-                {author}
-              </LineClampedRichTypography>
-              <LineClampedRichTypography
-                color="neutral.main"
-                lineClamp={1}
-                variant="p1"
-                sx={(theme) => ({
-                  maxHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 1)`,
-                })}
-              >
-                {date}
-              </LineClampedRichTypography>
+                <LineClampedRichTypography
+                  color="neutral.main"
+                  lineClamp={1}
+                  variant="p1"
+                  sx={(theme) => ({
+                    maxHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 1)`,
+                  })}
+                >
+                  {date}
+                </LineClampedRichTypography>
+              </Stack>
             </Stack>
             {link?.href && (
               <CardActions sx={{ p: 0 }}>

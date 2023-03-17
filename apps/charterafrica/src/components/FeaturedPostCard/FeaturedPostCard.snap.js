@@ -20,31 +20,35 @@ exports[`FeaturedPostCard should render 1`] = `
           class="MuiCardContent-root css-cnb62q-MuiCardContent-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2SemiBold css-1j0n21l-MuiTypography-root"
-          >
-            News Story title goes here and spans over second line
-          </div>
-          <div
-            class="MuiBox-root css-5g71vn"
-          >
-            <h6
-              class="MuiTypography-root MuiTypography-subheading css-1ea3c8k-MuiTypography-root"
-            >
-              Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur
-            </h6>
-          </div>
-          <div
-            class="css-173zx7o-MuiStack-root"
+            class="css-pnq1z9-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-p1 css-iui9m1-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2SemiBold css-1j0n21l-MuiTypography-root"
             >
-              Author Name
+              News Story title goes here and spans over second line
             </div>
             <div
-              class="MuiTypography-root MuiTypography-p1 css-b4nzsx-MuiTypography-root"
+              class="MuiBox-root css-5g71vn"
             >
-              2020-10-10 10:10:10
+              <h6
+                class="MuiTypography-root MuiTypography-subheading css-1ea3c8k-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur
+              </h6>
+            </div>
+            <div
+              class="css-173zx7o-MuiStack-root"
+            >
+              <div
+                class="MuiTypography-root MuiTypography-p1 css-iui9m1-MuiTypography-root"
+              >
+                Author Name
+              </div>
+              <div
+                class="MuiTypography-root MuiTypography-p1 css-b4nzsx-MuiTypography-root"
+              >
+                2020-10-10 10:10:10
+              </div>
             </div>
           </div>
           <div
