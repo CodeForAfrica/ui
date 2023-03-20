@@ -21,7 +21,7 @@ const CommentsThread = forwardRef((props, ref) => {
       <Box display="flex" alignItems="center">
         <Avatar
           sx={(theme) => ({
-            bgcolor: "#fff",
+            bgcolor: theme.palette.common.white,
             color: theme.palette.neutral.main,
           })}
           src={authorProfileImageUrl}

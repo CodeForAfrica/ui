@@ -10,8 +10,7 @@ import { neutral } from "@/charterafrica/colors";
 const Comments = forwardRef((props, ref) => {
   const {
     comments,
-    commentsLabel,
-    config: { mostRecentText, relevanceText, sortByText },
+    config: { commentsLabel, mostRecentText, relevanceText, sortByText },
   } = props;
 
   if (!comments?.length) {
@@ -72,6 +71,7 @@ Comments.propTypes = {
     mostRecentText: PropTypes.string.isRequired,
     relevanceText: PropTypes.string.isRequired,
     sortByText: PropTypes.string.isRequired,
+    commentsLabel: PropTypes.string.isRequired,
   }),
 };
 

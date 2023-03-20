@@ -14,6 +14,7 @@ const defaultProps = {
     mostRecentText: "Most Recent",
     relevanceText: "Relevance",
     sortByText: "Sort by",
+    commentsLabel: "Comments",
   },
 };
 
