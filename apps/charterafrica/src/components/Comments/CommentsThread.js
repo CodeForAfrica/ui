@@ -1,0 +1,77 @@
+import { Avatar, Box, SvgIcon } from "@mui/material";
+import PropTypes from "prop-types";
+import React, { forwardRef } from "react";
+
+import userIcon from "@/charterafrica/assets/icons/Type=user, Size=auto, Color=CurrentColor.svg";
+import { neutral } from "@/charterafrica/colors";
+import DynamicLineClampedTypography from "@/charterafrica/components/Comments/DynamicLineClampedTypography";
+import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+
+const CommentsThread = forwardRef((props, ref) => {
+  const {
+    comment,
+    authorProfileImageUrl,
+    authorDisplayName,
+    publishedAt,
+    updatedAt,
+  } = props;
+
+  return (
+    <Box sx={{ mb: 3 }} ref={ref}>
+      <Box display="flex" alignItems="center">
+        <Avatar
+          sx={(theme) => ({
+            bgcolor: "#fff",
+            color: theme.palette.neutral.main,
+          })}
+          src={authorProfileImageUrl}
+        >
+          <SvgIcon
+            inheritViewBox
+            component={userIcon}
+            sx={{
+              color: neutral[800],
+              fill: "none",
+              height: 40,
+              width: 40,
+            }}
+          />
+        </Avatar>
+        <LineClampedRichTypography
+          lineClamp={1}
+          color="neutral.dark"
+          sx={{ ml: 1.25 }}
+          variant="p2"
+        >
+          {authorDisplayName}
+        </LineClampedRichTypography>
+        <LineClampedRichTypography
+          lineClamp={1}
+          sx={{ ml: 1 }}
+          variant="p2"
+          color="neutral.main"
+        >
+          {publishedAt} {publishedAt !== updatedAt && "(edited)"}
+        </LineClampedRichTypography>
+      </Box>
+
+      <Box sx={{ mt: 1 }}>
+        <DynamicLineClampedTypography comment={comment} />
+      </Box>
+    </Box>
+  );
+});
+
+CommentsThread.propTypes = {
+  comment: PropTypes.string.isRequired,
+  authorProfileImageUrl: PropTypes.string,
+  authorDisplayName: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string.isRequired,
+  updatedAt: PropTypes.string.isRequired,
+};
+
+CommentsThread.defaultProps = {
+  authorProfileImageUrl: undefined,
+};
+
+export default CommentsThread;
