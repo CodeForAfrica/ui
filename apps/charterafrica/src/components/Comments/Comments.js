@@ -7,7 +7,7 @@ import Comment from "./Comment";
 
 import { neutral } from "@/charterafrica/colors";
 
-const CommentsList = forwardRef((props, ref) => {
+const Comments = forwardRef((props, ref) => {
   const { comments } = props;
   return (
     <Box bgcolor="#FFF" ref={ref}>
@@ -57,12 +57,12 @@ const CommentsList = forwardRef((props, ref) => {
   );
 });
 
-CommentsList.propTypes = {
+Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-CommentsList.defaultProps = {
+Comments.defaultProps = {
   comments: undefined,
 };
 
-export default CommentsList;
+export default Comments;
