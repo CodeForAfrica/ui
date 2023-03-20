@@ -279,30 +279,6 @@ async function processPageArticles(page, api, context) {
     id: "articles",
   };
   blocks.push(articlesBlock);
-  blocks.push({
-    slug: "embedded-document-viewer",
-    title: [
-      {
-        children: [
-          {
-            text: "Hiding in Plain Sight: Trade in Counterfeit and Pirated Goods in Africa",
-          },
-        ],
-      },
-    ],
-    documentUrl:
-      "https://dc.sourceafrica.net/documents/118055-228743121-Hiding-in-Plain-Sight-Trade.html",
-    showNotes: false,
-    excerpt: [
-      {
-        children: [
-          {
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia.",
-          },
-        ],
-      },
-    ],
-  });
 
   // SWR fallback
   let swrKey = `/api/knowledge/${slug}`;
