@@ -11,22 +11,32 @@ import {
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
+import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import RichText from "@/charterafrica/components/RichText";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
   const {
-    image,
+    config,
     date,
     excerpt,
+    image,
     link,
-    title,
-    config,
     registerLink,
     registerText,
+    sx,
+    title,
+    topic,
+    variant,
   } = props;
 
   if (!title) {
     return null;
+  }
+  let titleTransform = "uppercase";
+  let titleVariant = "h5SemiBold";
+  if (variant === "event") {
+    titleVariant = "h6";
+    titleTransform = "none";
   }
   return (
     <Card
@@ -35,6 +45,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
         boxShadow: "none",
         backgroundColor: secondary[50],
         width: "270px",
+        ...sx,
       }}
     >
       <CardActionArea
@@ -71,15 +82,31 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             },
           }}
         >
-          <Typography
+          <LineClampedRichTypography
             color="neutral.dark"
-            variant="h6"
-            sx={{
-              textTransform: "uppercase",
-            }}
+            html={false}
+            lineClamp={3}
+            textTransform={titleTransform}
+            variant={titleVariant}
+            sx={(theme) => ({
+              minHeight: `calc(${theme.typography[titleVariant].fontSize}px * ${theme.typography[titleVariant].lineHeight} * 3)`,
+            })}
           >
             {title}
-          </Typography>
+          </LineClampedRichTypography>
+          {variant === "event" ? (
+            <LineClampedRichTypography
+              color="neutral.dark"
+              html={false}
+              lineClamp={1}
+              variant="captionCap"
+              sx={(theme) => ({
+                minHeight: `calc(${theme.typography.captionCap.fontSize}px * ${theme.typography.captionCap.lineHeight} * 1)`,
+              })}
+            >
+              {topic}
+            </LineClampedRichTypography>
+          ) : null}
           <RichText
             color="neutral.dark"
             lineClamp={3}

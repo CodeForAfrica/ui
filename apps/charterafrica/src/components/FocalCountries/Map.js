@@ -1,3 +1,4 @@
+import { styled } from "@mui/material/styles";
 import Leaflet from "leaflet";
 import PropTypes from "prop-types";
 import React from "react";
@@ -12,6 +13,12 @@ const markerIcon = new Leaflet.Icon({
   iconUrl: markerIconUrl,
   iconSize: [20.52, 20.52],
   iconAnchor: [10, 10],
+});
+
+const MapContainerRoot = styled(MapContainer)({
+  "&.leaflet-container": {
+    overflow: "visible",
+  },
 });
 
 const Map = React.forwardRef(function Map(props, ref) {
@@ -36,7 +43,7 @@ const Map = React.forwardRef(function Map(props, ref) {
     return null;
   }
   return (
-    <MapContainer
+    <MapContainerRoot
       attributionControl={false}
       center={center}
       boxZoom={false}
@@ -60,7 +67,7 @@ const Map = React.forwardRef(function Map(props, ref) {
         />
       )) || null}
       <GeoJSON data={data} {...GeoJSONProps} />
-    </MapContainer>
+    </MapContainerRoot>
   );
 });
 

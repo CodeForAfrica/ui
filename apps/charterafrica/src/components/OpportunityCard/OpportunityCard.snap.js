@@ -20,11 +20,11 @@ exports[`<OpportunityCard /> renders unchanged 1`] = `
       <div
         class="MuiCardContent-root css-1dwdtg8-MuiCardContent-root"
       >
-        <h6
-          class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+        <h5
+          class="MuiTypography-root MuiTypography-h5SemiBold css-1kj1ppl-MuiTypography-root"
         >
           Democratic Governance in Zambia
-        </h6>
+        </h5>
         <div
           class="MuiBox-root css-1eoaz54"
         >

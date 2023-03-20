@@ -6,7 +6,7 @@ exports[`<Mooc/> renders unchanged 1`] = `
     class="MuiBox-root css-l3bbx9"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-582wlz-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1tgrrgk-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-7yylxy-MuiGrid-root"
