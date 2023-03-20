@@ -1,3 +1,5 @@
+import { SWRConfig } from "swr";
+
 import Articles from "@/charterafrica/components/Articles";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
@@ -54,17 +56,21 @@ const componentsBySlugs = {
   spotlight: Spotlight,
 };
 
-function Page({ blocks }) {
+function Page({ blocks, fallback }) {
   if (!blocks?.length) {
     return null;
   }
-  return blocks.map((block) => {
-    const Component = componentsBySlugs[block.slug];
-    if (!Component) {
-      return null;
-    }
-    return <Component {...block} key={block.id} />;
-  });
+  return (
+    <SWRConfig value={{ fallback }}>
+      {blocks.map((block) => {
+        const Component = componentsBySlugs[block.slug];
+        if (!Component) {
+          return null;
+        }
+        return <Component {...block} key={block.id} />;
+      })}
+    </SWRConfig>
+  );
 }
 
 export async function getServerSideProps(context) {

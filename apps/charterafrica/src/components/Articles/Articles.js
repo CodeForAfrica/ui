@@ -8,9 +8,9 @@ import ArticleGrid from "./ArticlesGrid";
 import useArticles from "./useArticles";
 
 import FeaturedPost from "@/charterafrica/components/FeaturedPostCard";
-import useFilterQuery, {
+import queryString, {
   DEFAULT_SORTING,
-} from "@/charterafrica/components/useFilterQuery";
+} from "@/charterafrica/utils/queryString";
 
 const Articles = React.forwardRef(function Articles(props, ref) {
   const { articles: originalArticles, featured, filters, slug, sx } = props;
@@ -27,7 +27,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     setSort(value);
   };
 
-  const queryParams = useFilterQuery({ q, sort });
+  const queryParams = queryString({ q, sort });
   useEffect(() => {
     const pathname = asPath.split("?")[0];
     router.push({

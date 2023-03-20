@@ -1,37 +1,14 @@
 import { payload } from "@/charterafrica/lib";
 import {
+  getGlobalProps as getGlobalPropsFromCommon,
   getArticles,
   getTags,
   getPageProps,
 } from "@/charterafrica/lib/data/common";
 
-export async function getGlobalProps({ locale, defaultLocale }) {
-  const settings = await payload.findGlobal("settings", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-  const { languages } = settings;
-  const { actions, menus } = await payload.findGlobal("navigation", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-  const navbar = {
-    actions,
-    languages: languages ?? null,
-    logo: {
-      alt: "Charter Africa",
-      src: "/images/charter-logo.svg",
-      href: "/",
-      priority: true,
-    },
-    menus: menus ?? null,
-  };
-  const footer = await payload.findGlobal("footer", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-
-  return { footer, navbar, settings };
+// Only used on home page
+export async function getGlobalProps(context) {
+  return getGlobalPropsFromCommon(context, payload);
 }
 
 export const api = payload;
