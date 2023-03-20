@@ -7,6 +7,7 @@ import ArticleFilterBar from "./ArticlesFilterBar";
 import ArticleGrid from "./ArticlesGrid";
 import useArticles from "./useArticles";
 
+import { secondary } from "@/charterafrica/colors";
 import FeaturedPost from "@/charterafrica/components/FeaturedPostCard";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import useFilterQuery, {
@@ -71,11 +72,13 @@ const Articles = React.forwardRef(function Articles(props, ref) {
       />
       <FeaturedPost {...featured} />
       <ArticleGrid articles={articles} />
-      <NextPrevPagination
-        count={totalPages}
-        onChange={handlePageChange}
-        page={page}
-      />
+      <Box bgcolor={secondary[50]}>
+        <NextPrevPagination
+          count={totalPages}
+          onChange={handlePageChange}
+          page={page}
+        />
+      </Box>
     </Box>
   );
 });
