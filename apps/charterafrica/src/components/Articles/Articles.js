@@ -8,13 +8,22 @@ import ArticleGrid from "./ArticlesGrid";
 import useArticles from "./useArticles";
 
 import FeaturedPost from "@/charterafrica/components/FeaturedPostCard";
+import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import useFilterQuery, {
   DEFAULT_SORTING,
 } from "@/charterafrica/components/useFilterQuery";
 
 const Articles = React.forwardRef(function Articles(props, ref) {
-  const { articles: originalArticles, featured, filters, slug, sx } = props;
+  const {
+    articles: originalArticles,
+    featured,
+    filters,
+    slug,
+    totalPages,
+    sx,
+  } = props;
   const [articles, setArticles] = useState(originalArticles);
+  const [page, setPage] = useState(1);
   const [q, setQ] = useState("");
   const [sort, setSort] = useState(DEFAULT_SORTING);
   const router = useRouter();
@@ -27,7 +36,11 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     setSort(value);
   };
 
-  const queryParams = useFilterQuery({ q, sort });
+  const handlePageChange = (_, value) => {
+    setPage(value);
+  };
+
+  const queryParams = useFilterQuery({ q, sort, page });
   useEffect(() => {
     const pathname = asPath.split("?")[0];
     router.push({
@@ -37,7 +50,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryParams]);
 
-  const { data } = useArticles(slug, { locale, q, sort });
+  const { data } = useArticles(slug, { locale, q, sort, page });
   useEffect(() => {
     if (data) {
       const { articles: foundArticles } = data;
@@ -56,6 +69,11 @@ const Articles = React.forwardRef(function Articles(props, ref) {
       />
       <FeaturedPost {...featured} />
       <ArticleGrid articles={articles} />
+      <NextPrevPagination
+        count={totalPages}
+        onChange={handlePageChange}
+        page={page}
+      />
     </Box>
   );
 });

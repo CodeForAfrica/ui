@@ -2,7 +2,7 @@ const DEFAULT_SORTING = "-publishedOn";
 
 function useFilterQuery(query = {}) {
   const searchParams = new URLSearchParams();
-  const { locale, sort, q } = query;
+  const { locale, sort, q, page } = query;
   if (q) {
     searchParams.append("q", q);
   }
@@ -11,6 +11,9 @@ function useFilterQuery(query = {}) {
   }
   if (locale) {
     searchParams.append("locale", locale);
+  }
+  if (page && page !== 1) {
+    searchParams.append("page", page);
   }
   const queryString = searchParams.toString();
   return queryString || "";

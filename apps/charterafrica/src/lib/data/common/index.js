@@ -180,9 +180,11 @@ export async function getArticles(page, api, context) {
     };
   }
   const { slug: collection } = page;
-  const { docs } = await api.getCollection(collection, {
+  const { docs, totalPages } = await api.getCollection(collection, {
     locale,
     sort,
+    // Limit to 9 articles per page
+    limit: 9,
     where: {
       ...query,
       page: pageNumber,
@@ -193,7 +195,14 @@ export async function getArticles(page, api, context) {
   if (!docs?.length) {
     return null;
   }
-  return docs.map((post) => processPost(post, page, api, context));
+  const processedArticles = docs.map((post) =>
+    processPost(post, page, api, context)
+  );
+
+  return {
+    articles: processedArticles,
+    totalPages,
+  };
 }
 
 const filtersLabelsPerLocale = {
@@ -246,7 +255,7 @@ async function processPageArticles(page, api, context) {
     // Featured should be rendered as part of articles
     blocks.splice(foundIndex, 1);
   }
-  const articles = await getArticles(page, api, context);
+  const { articles, totalPages } = await getArticles(page, api, context);
   const tags = await getTags(page, api, context);
   const filterLabels = filtersLabelsPerLocale[locale];
   const { slug, title } = page;
@@ -268,6 +277,7 @@ async function processPageArticles(page, api, context) {
     },
     slug,
     title,
+    totalPages,
     // since there can be 1 articles block per page
     id: "articles",
   };
