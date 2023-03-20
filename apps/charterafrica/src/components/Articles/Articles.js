@@ -19,10 +19,11 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     featured,
     filters,
     slug,
-    totalPages,
+    totalPages: originalTotalPages,
     sx,
   } = props;
   const [articles, setArticles] = useState(originalArticles);
+  const [totalPages, setTotalPages] = useState(originalTotalPages);
   const [page, setPage] = useState(1);
   const [q, setQ] = useState("");
   const [sort, setSort] = useState(DEFAULT_SORTING);
@@ -53,8 +54,9 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   const { data } = useArticles(slug, { locale, q, sort, page });
   useEffect(() => {
     if (data) {
-      const { articles: foundArticles } = data;
+      const { articles: foundArticles, totalPages: newTotalPages } = data;
       setArticles(foundArticles);
+      setTotalPages(newTotalPages);
     }
   }, [data]);
 
