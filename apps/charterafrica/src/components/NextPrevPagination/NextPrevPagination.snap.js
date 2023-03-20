@@ -3,7 +3,7 @@
 exports[`<NextPrevPagination /> renders unchanged 1`] = `
 <div>
   <ul
-    class="css-1k5gevs"
+    class="css-wmshl1"
   >
     <li
       class="MuiBox-root css-0"

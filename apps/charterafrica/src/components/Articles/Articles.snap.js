@@ -112,6 +112,9 @@ exports[`<Articles /> renders unchanged 1`] = `
         </div>
       </div>
     </div>
+    <div
+      class="MuiBox-root css-156ejva"
+    />
   </div>
 </div>
 `;
