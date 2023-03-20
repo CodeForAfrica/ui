@@ -9,7 +9,7 @@ exports[`<Layout /> renders unchanged 1`] = `
       class="MuiToolbar-root MuiToolbar-regular css-1gcfjze-MuiToolbar-root"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1xkpkdq-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12jovna-MuiContainer-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-hs5ptp-MuiGrid-root"
@@ -199,7 +199,7 @@ exports[`<Layout /> renders unchanged 1`] = `
       class="MuiBox-root css-1idzjj5"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-aiu674-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-s6f1m4-MuiContainer-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-93fe3t-MuiGrid-root"
@@ -261,7 +261,7 @@ exports[`<Layout /> renders unchanged 1`] = `
       class="MuiBox-root css-onpmix"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-mes6to-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-u81ong-MuiContainer-root"
       />
     </div>
   </footer>

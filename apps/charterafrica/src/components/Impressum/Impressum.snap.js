@@ -6,7 +6,7 @@ exports[`<Impressum /> renders unchanged 1`] = `
     class="MuiBox-root css-156ejva"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-qb38zz-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-10ehrg6-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 css-ae960m-MuiGrid-root"

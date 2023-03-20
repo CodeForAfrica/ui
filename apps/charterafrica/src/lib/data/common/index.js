@@ -86,7 +86,7 @@ function processPost(post, page, api, context) {
     ...post,
     author: post.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
     image,
-    date: formatDateTime(post.publishedOn, { locale, includeTime: true }),
+    date: formatDateTime(post.publishedOn, { locale }),
     link: {
       href,
     },
@@ -136,39 +136,143 @@ async function processPageArticlePost(page, api, context) {
   };
 }
 
+export async function getTags(page, api, context) {
+  const { locale } = context;
+  const { slug: collection } = page;
+  const { docs } = await api.getCollection(collection, {
+    locale,
+    where: {
+      _status: { equals: "published" },
+    },
+  });
+
+  if (!docs?.length) {
+    return null;
+  }
+  const tags = docs.flatMap((doc) => doc.tags).filter((tag) => tag?.slug);
+  const frequency = tags.reduce((acc, cur) => {
+    if (cur?.slug) {
+      acc[cur.slug] = (acc[cur.slug] || 0) + 1;
+    }
+    return acc;
+  }, {});
+  return tags.sort((a, b) => frequency[a.slug] - frequency[b.slug]);
+}
+
+export async function getArticles(page, api, context) {
+  const { query: originalQuery = {}, locale } = context;
+  const { page: pageNumber = 1, q, sort = "-publishedOn" } = originalQuery;
+  let query;
+  if (q) {
+    query = {
+      or: [
+        {
+          title: {
+            like: q,
+          },
+        },
+        {
+          "tags.name": {
+            contains: q,
+          },
+        },
+      ],
+    };
+  }
+  const { slug: collection } = page;
+  const { docs } = await api.getCollection(collection, {
+    locale,
+    sort,
+    where: {
+      ...query,
+      page: pageNumber,
+      _status: { equals: "published" },
+    },
+  });
+
+  if (!docs?.length) {
+    return null;
+  }
+  return docs.map((post) => processPost(post, page, api, context));
+}
+
+const filtersLabelsPerLocale = {
+  en: {
+    "-publishedOn": "Most recent",
+    publishedOn: "Least recent",
+    title: "Title A-Z",
+    "-title": "Title Z-A",
+    search: "Search",
+  },
+  fr: {
+    "-publishedOn": "Plus récent",
+    publishedOn: "Moins récent",
+    title: "Titre A-Z",
+    "-title": "Titre Z-A",
+    search: "Recherche",
+  },
+  pt: {
+    "-publishedOn": "Mais recente",
+    publishedOn: "Menos recente",
+    title: "Título A-Z",
+    "-title": "Título Z-A",
+    search: "Pesquisa",
+  },
+};
+
 async function processPageArticles(page, api, context) {
-  const { params, locale } = context;
+  const { params } = context;
   if (params.slugs.length > 2) {
     return processPageArticlePost(page, api, context);
   }
 
+  const { locale, query: { page: pageNumber = 1 } = {} } = context;
   const { blocks } = page;
   const foundIndex = blocks.findIndex(({ slug }) => slug === "featured-post");
+  let featured = null;
   if (foundIndex > -1) {
-    const foundValue = blocks[foundIndex].featuredPost?.value;
-    if (foundValue) {
-      const variant = blocks[foundIndex].featuredPost?.relationTo;
-      blocks[foundIndex] = {
-        ...processPost(foundValue, page, api, context),
-        variant,
-        slug: "featured-post",
-      };
+    if (pageNumber === 1) {
+      const foundValue = blocks[foundIndex].featuredPost?.value;
+      if (foundValue) {
+        const variant = blocks[foundIndex].featuredPost?.relationTo;
+        featured = {
+          ...processPost(foundValue, page, api, context),
+          variant,
+          slug: "featured-post",
+        };
+      }
     }
+
+    // Featured should be rendered as part of articles
+    blocks.splice(foundIndex, 1);
   }
+  const articles = await getArticles(page, api, context);
+  const tags = await getTags(page, api, context);
+  const filterLabels = filtersLabelsPerLocale[locale];
   const { slug, title } = page;
-  const { docs } = await api.getCollection(slug, {
-    locale,
-    sort: "-publishedOn",
-    where: { _status: { equals: "published" } },
-  });
-  const articles =
-    docs?.map((post) => processPost(post, page, api, context)) ?? null;
   const articlesBlock = {
+    articles,
+    featured,
+    filters: {
+      search: {
+        placeholder: filterLabels.search,
+      },
+      sortOrder: [
+        { value: "-publishedOn", label: filterLabels["-publishedOn"] },
+        { value: "publishedOn", label: filterLabels.publishedOn },
+        { value: "title", label: filterLabels.title },
+        { value: "-title", label: filterLabels["-title"] },
+      ],
+      tags,
+      title,
+    },
     slug,
     title,
-    articles,
+    // since there can be 1 articles block per page
+    id: "articles",
   };
   blocks.push(articlesBlock);
+
   return page;
 }
 

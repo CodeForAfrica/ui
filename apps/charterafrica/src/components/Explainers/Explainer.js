@@ -7,7 +7,7 @@ import React from "react";
 import RichText from "@/charterafrica/components/RichText";
 
 const Explainer = React.forwardRef(function Explainer(props, ref) {
-  const { ImageProps, description, image, sx, title } = props;
+  const { ImageProps, description, image, showTitle, sx, title } = props;
 
   return (
     <Stack sx={sx} ref={ref}>
@@ -23,14 +23,16 @@ const Explainer = React.forwardRef(function Explainer(props, ref) {
           style: { width: "100%", height: "auto", ...ImageProps?.style },
         }}
       />
-      <RichTypography
-        color="neutral.dark"
-        typography={{ md: "h2" }}
-        variant="h3SmallSemiBold"
-        mt={3}
-      >
-        {title}
-      </RichTypography>
+      {showTitle ? (
+        <RichTypography
+          color="neutral.dark"
+          typography={{ md: "h2" }}
+          variant="h3SmallSemiBold"
+          mt={3}
+        >
+          {title}
+        </RichTypography>
+      ) : null}
       <RichText
         color="neutral.dark"
         elements={description}

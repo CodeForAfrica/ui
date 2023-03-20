@@ -9,7 +9,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
       class="MuiToolbar-root MuiToolbar-regular css-1gcfjze-MuiToolbar-root"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1xkpkdq-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12jovna-MuiContainer-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-hs5ptp-MuiGrid-root"

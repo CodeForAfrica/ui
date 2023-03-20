@@ -57,7 +57,10 @@ const componentsBySlugs = {
 };
 
 function Page({ blocks }) {
-  return blocks?.map((block) => {
+  if (!blocks?.length) {
+    return null;
+  }
+  return blocks.map((block) => {
     const Component = componentsBySlugs[block.slug];
     if (!Component) {
       return null;
