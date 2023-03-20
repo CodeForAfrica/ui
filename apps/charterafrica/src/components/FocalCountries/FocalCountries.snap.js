@@ -7,7 +7,7 @@ exports[`<FocalCountries /> renders unchanged 1`] = `
       class="MuiBox-root css-ow7qj4"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-16ldj63-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-ly8805-MuiContainer-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-xdpkhm-MuiGrid-root"
@@ -38,7 +38,7 @@ exports[`<FocalCountries /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-7lu6we-MuiGrid-root"
           >
             <div
-              class="MuiBox-root css-1tywh63"
+              class="MuiBox-root css-15e9b0f"
             />
           </div>
         </div>

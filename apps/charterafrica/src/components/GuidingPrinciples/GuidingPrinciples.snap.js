@@ -6,7 +6,7 @@ exports[`<GuidingPrinciples /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-mx281s-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1qbjolu-MuiContainer-root"
     >
       <div
         class="MuiTypography-root MuiTypography-h1Small css-9lm4c0-MuiTypography-root"

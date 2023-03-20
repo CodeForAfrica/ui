@@ -1,5 +1,9 @@
 import { payload } from "@/charterafrica/lib";
-import { getPageProps } from "@/charterafrica/lib/data/common";
+import {
+  getArticles,
+  getTags,
+  getPageProps,
+} from "@/charterafrica/lib/data/common";
 
 export async function getGlobalProps({ locale, defaultLocale }) {
   const settings = await payload.findGlobal("settings", {
@@ -31,6 +35,14 @@ export async function getGlobalProps({ locale, defaultLocale }) {
 }
 
 export const api = payload;
+
+export async function getServerSideArticles(collection, context) {
+  return getArticles(collection, api, context);
+}
+
+export async function getServerSideTags(collection, context) {
+  return getTags(collection, api, context);
+}
 
 export async function getPageServerSideProps(context) {
   const props = await getPageProps(api, context);
