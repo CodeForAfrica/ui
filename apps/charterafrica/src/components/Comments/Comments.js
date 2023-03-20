@@ -9,10 +9,11 @@ import { neutral } from "@/charterafrica/colors";
 
 const Comments = forwardRef((props, ref) => {
   const { comments } = props;
-  
+
   if (!comments?.length) {
     return null;
   }
+
   return (
     <Box bgcolor="common.white" ref={ref}>
       <Grid
