@@ -1,3 +1,4 @@
+import React from "react";
 import { SWRConfig } from "swr";
 
 import Articles from "@/charterafrica/components/Articles";
@@ -60,8 +61,14 @@ function Page({ blocks, fallback }) {
   if (!blocks?.length) {
     return null;
   }
+  let PageComponent = React.Fragment;
+  let pageComponentProps;
+  if (fallback) {
+    PageComponent = SWRConfig;
+    pageComponentProps = { value: { fallback } };
+  }
   return (
-    <SWRConfig value={{ fallback }}>
+    <PageComponent {...pageComponentProps}>
       {blocks.map((block) => {
         const Component = componentsBySlugs[block.slug];
         if (!Component) {
@@ -69,7 +76,7 @@ function Page({ blocks, fallback }) {
         }
         return <Component {...block} key={block.id} />;
       })}
-    </SWRConfig>
+    </PageComponent>
   );
 }
 
