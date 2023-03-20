@@ -10,6 +10,11 @@ const render = createRender({ theme });
 
 const defaultProps = {
   comments: [],
+  config: {
+    mostRecentText: "Most Recent",
+    relevanceText: "Relevance",
+    sortByText: "Sort by",
+  },
 };
 
 describe("<Comments />", () => {

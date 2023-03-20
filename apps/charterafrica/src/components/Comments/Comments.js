@@ -8,7 +8,11 @@ import Comment from "./Comment";
 import { neutral } from "@/charterafrica/colors";
 
 const Comments = forwardRef((props, ref) => {
-  const { comments } = props;
+  const {
+    comments,
+    commentsLabel,
+    config: { mostRecentText, relevanceText, sortByText },
+  } = props;
 
   if (!comments?.length) {
     return null;
@@ -24,7 +28,7 @@ const Comments = forwardRef((props, ref) => {
       >
         <Grid item>
           <RichTypography variant="p3">
-            {comments.length} comments
+            {comments.length} {commentsLabel}
           </RichTypography>
         </Grid>
         <Grid
@@ -34,7 +38,7 @@ const Comments = forwardRef((props, ref) => {
           flex={1}
           item
         >
-          <RichTypography variant="p3">Sort by:</RichTypography>
+          <RichTypography variant="p3">{sortByText}:</RichTypography>
           <Select
             defaultValue="recent"
             size="small"
@@ -47,10 +51,10 @@ const Comments = forwardRef((props, ref) => {
             fullWidth
           >
             <MenuItem value="recent">
-              <RichTypography variant="p1">Most Recent</RichTypography>
+              <RichTypography variant="p1">{mostRecentText}</RichTypography>
             </MenuItem>
             <MenuItem value="relevance">
-              <RichTypography variant="p1">Relevance</RichTypography>
+              <RichTypography variant="p1">{relevanceText}</RichTypography>
             </MenuItem>
           </Select>
         </Grid>
@@ -64,10 +68,16 @@ const Comments = forwardRef((props, ref) => {
 
 Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({})),
+  config: PropTypes.shape({
+    mostRecentText: PropTypes.string.isRequired,
+    relevanceText: PropTypes.string.isRequired,
+    sortByText: PropTypes.string.isRequired,
+  }),
 };
 
 Comments.defaultProps = {
   comments: undefined,
+  config: {},
 };
 
 export default Comments;
