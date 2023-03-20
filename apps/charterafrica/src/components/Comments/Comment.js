@@ -12,9 +12,10 @@ import {
   ListItemAvatar,
   ListItemText,
   SvgIcon,
+  useTheme,
 } from "@mui/material";
 import PropTypes from "prop-types";
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useState, useRef } from "react";
 
 import chevronDown from "@/charterafrica/assets/icons/chevron-down, Size=24, Color=CurrentColor.svg";
 import chevronUp from "@/charterafrica/assets/icons/Chevron-up, Size=24, Color=CurrentColor.svg";
@@ -23,6 +24,48 @@ import userIcon from "@/charterafrica/assets/icons/Type=user, Size=auto, Color=C
 import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
+const DynamicLineClampedTypography = forwardRef(
+  ({ comment, ...props }, ref) => {
+    const ref1 = useRef();
+    const commentHeight = ref1?.current?.offsetHeight;
+    const currentTheme = useTheme();
+    const lineHeight =
+      currentTheme.typography.p3.lineHeight *
+      currentTheme.typography.p3.fontSize;
+    const showReadMore = commentHeight >= lineHeight * 3;
+
+    const [readMoreOpen, setReadMoreOpen] = useState(false);
+    const lineClamp = !readMoreOpen ? 2 : undefined;
+
+    return (
+      <>
+        <LineClampedRichTypography
+          ref={ref}
+          lineClamp={lineClamp}
+          variant="p3"
+          {...props}
+        >
+          {/* eslint-disable-next-line react/no-danger */}
+          <span dangerouslySetInnerHTML={{ __html: comment }} ref={ref1} />
+        </LineClampedRichTypography>
+
+        {showReadMore ? (
+          <Button
+            onClick={() => setReadMoreOpen((v) => !v)}
+            sx={(theme) => ({
+              ...theme.typography.p2,
+              mt: 2,
+              p: 0,
+              color: theme.palette.neutral.main,
+            })}
+          >
+            {readMoreOpen ? "Read less" : `Read more`}
+          </Button>
+        ) : null}
+      </>
+    );
+  }
+);
 const ThreadChildComment = forwardRef((props, ref) => {
   const {
     comment,
@@ -31,8 +74,7 @@ const ThreadChildComment = forwardRef((props, ref) => {
     publishedAt,
     updatedAt,
   } = props;
-  const [readMoreOpen, setReadMoreOpen] = useState(false);
-  const lineClamp = !readMoreOpen ? 2 : undefined;
+
   return (
     <Box sx={{ mb: 3 }} ref={ref}>
       <Box display="flex" alignItems="center">
@@ -73,21 +115,7 @@ const ThreadChildComment = forwardRef((props, ref) => {
       </Box>
 
       <Box sx={{ mt: 1 }}>
-        <LineClampedRichTypography lineClamp={lineClamp} variant="p3">
-          {comment}
-        </LineClampedRichTypography>
-
-        <Button
-          onClick={() => setReadMoreOpen((v) => !v)}
-          sx={(theme) => ({
-            ...theme.typography.p2,
-            mt: 2,
-            p: 0,
-            color: theme.palette.neutral.main,
-          })}
-        >
-          Read more
-        </Button>
+        <DynamicLineClampedTypography comment={comment} />
       </Box>
     </Box>
   );
@@ -107,12 +135,11 @@ const Comment = forwardRef((props, ref) => {
   } = props;
 
   const [threadExpanded, setThreadExpanded] = useState(false);
-  const [readMoreOpen, setReadMoreOpen] = useState(false);
-  const lineClamp = !readMoreOpen ? 2 : undefined;
 
   const expandThread = () => {
     setThreadExpanded((val) => !val);
   };
+
   return (
     <ListItem sx={{ p: 2.5 }} alignItems="flex-start" ref={ref}>
       <ListItemAvatar sx={{ mr: 2.5 }}>
@@ -182,22 +209,7 @@ const Comment = forwardRef((props, ref) => {
             </Box>
 
             <Box>
-              <LineClampedRichTypography lineClamp={lineClamp} variant="p3">
-                {comment}
-              </LineClampedRichTypography>
-
-              <Button
-                onClick={() => setReadMoreOpen((v) => !v)}
-                sx={(theme) => ({
-                  ...theme.typography.p2,
-                  mt: 2,
-                  p: 0,
-                  color: theme.palette.neutral.main,
-                })}
-              >
-                Read more
-              </Button>
-
+              <DynamicLineClampedTypography comment={comment} />
               <Box display="flex" alignItems="center" sx={{ mt: 3 }}>
                 <IconButton>
                   <SvgIcon
