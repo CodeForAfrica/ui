@@ -20,7 +20,6 @@ const EmbeddedDocumentViewer = React.forwardRef(function EmbeddedDocumentViewer(
   if (!html?.length) {
     return null;
   }
-
   return (
     <Box
       sx={{
