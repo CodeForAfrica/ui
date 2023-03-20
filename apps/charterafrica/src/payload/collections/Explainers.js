@@ -11,15 +11,34 @@ const Explainers = {
   },
   fields: [
     {
-      name: "title",
+      type: "collapsible",
       label: {
         en: "Title",
         fr: "Titre",
         pt: "Título",
       },
-      type: "text",
-      localized: true,
-      required: true,
+      fields: [
+        {
+          name: "title",
+          label: {
+            en: "Title",
+            fr: "Titre",
+            pt: "Título",
+          },
+          type: "text",
+          required: true,
+          localized: true,
+        },
+        {
+          name: "showTitle",
+          label: {
+            en: "Show on the website",
+          },
+          type: "checkbox",
+          defaultValue: false,
+          required: true,
+        },
+      ],
     },
     richText({
       name: "description",

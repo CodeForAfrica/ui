@@ -36,6 +36,7 @@ export function getPageSeoFromMeta(page, settings, options = {}) {
     (acc, curr) => deepmerge(acc, curr, { clone: false }),
     { title: settingsTitle, description: settingsDescription }
   );
+
   const { title = null, description = null, image } = meta;
   const openGraph = {
     locale: locale || null,

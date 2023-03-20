@@ -21,7 +21,7 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 css-hj0fj-MuiGrid-root"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-yv8dni-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-11705ea-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -53,11 +53,11 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
             <div
               class="MuiCardContent-root css-1dwdtg8-MuiCardContent-root"
             >
-              <h6
-                class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+              <h5
+                class="MuiTypography-root MuiTypography-h5SemiBold css-1kj1ppl-MuiTypography-root"
               >
                 Democratic Governance in Zambia
-              </h6>
+              </h5>
               <div
                 class="MuiBox-root css-1eoaz54"
               >
@@ -112,11 +112,11 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
             <div
               class="MuiCardContent-root css-1dwdtg8-MuiCardContent-root"
             >
-              <h6
-                class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+              <h5
+                class="MuiTypography-root MuiTypography-h5SemiBold css-1kj1ppl-MuiTypography-root"
               >
                 Democratic Governance in Zambia
-              </h6>
+              </h5>
             </div>
             <span
               class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
@@ -162,11 +162,11 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
             <div
               class="MuiCardContent-root css-1dwdtg8-MuiCardContent-root"
             >
-              <h6
-                class="MuiTypography-root MuiTypography-h6 css-1p9avxy-MuiTypography-root"
+              <h5
+                class="MuiTypography-root MuiTypography-h5SemiBold css-1kj1ppl-MuiTypography-root"
               >
                 Democratic Governance in Zambia
-              </h6>
+              </h5>
             </div>
             <span
               class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"

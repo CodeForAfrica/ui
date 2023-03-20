@@ -3,21 +3,22 @@ import { CardContent, CardMedia } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import LineClampedRichTypography from "../LineClampedRichTypography";
-
+import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+import RichText from "@/charterafrica/components/RichText";
 import Card, { StyledActionArea } from "@/charterafrica/components/StyledCard";
 
 const PostCard = React.forwardRef(function PostCard(props, ref) {
   const {
     author,
     date,
-    image,
-    title,
-    sx,
-    square,
-    variant = "outlined",
     elevation,
+    excerpt,
+    image,
     link,
+    square,
+    sx,
+    title,
+    variant = "outlined",
   } = props;
   const ownerState = {
     elevation,
@@ -28,17 +29,23 @@ const PostCard = React.forwardRef(function PostCard(props, ref) {
   return (
     <Card
       elevation={elevation}
-      sx={sx}
-      ref={ref}
       ownerState={ownerState}
       variant={variant}
+      sx={sx}
+      ref={ref}
     >
       <StyledActionArea
         component={link?.href ? Link : undefined}
         href={link?.href}
       >
         <CardMedia image={image?.url} sx={{ height: 200 }} />
-        <CardContent>
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
           <LineClampedRichTypography
             color="neutral.dark"
             html={false}
@@ -46,7 +53,6 @@ const PostCard = React.forwardRef(function PostCard(props, ref) {
             textAlign="left"
             variant="h5SmallSemiBold"
             sx={(theme) => ({
-              mb: 2.5,
               minHeight: `calc(${theme.typography.h5SmallSemiBold.fontSize}px * ${theme.typography.h5SmallSemiBold.lineHeight} * 3)`,
               [theme.breakpoints.up("md")]: {
                 minHeight: `calc(${theme.typography.h5SemiBold.fontSize}px * ${theme.typography.h5SemiBold.lineHeight} * 3)`,
@@ -56,10 +62,21 @@ const PostCard = React.forwardRef(function PostCard(props, ref) {
           >
             {title}
           </LineClampedRichTypography>
+          <RichText
+            color="neutral.dark"
+            elements={excerpt}
+            lineClamp={3}
+            textAlign="left"
+            variant="p1"
+            sx={(theme) => ({
+              mt: 2.5,
+              maxHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
+            })}
+          />
           <LineClampedRichTypography
             variant="p1"
             color="neutral.main"
-            sx={{ mb: 2.5, height: 18 }}
+            sx={{ mt: 2.5, height: 18 }}
             lineClamp={1}
           >
             {author}
@@ -68,7 +85,7 @@ const PostCard = React.forwardRef(function PostCard(props, ref) {
             color="neutral.main"
             lineClamp={1}
             variant="p1"
-            sx={{ mb: 2.5, height: 18 }}
+            sx={{ mt: 2.5, height: 18 }}
           >
             {date}
           </LineClampedRichTypography>

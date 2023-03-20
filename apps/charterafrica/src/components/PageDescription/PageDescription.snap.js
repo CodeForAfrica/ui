@@ -6,7 +6,7 @@ exports[`<PageDescription/> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1o7b6xw-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-ydzulf-MuiContainer-root"
     >
       <div
         class="MuiBox-root css-yp83e5"

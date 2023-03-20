@@ -108,7 +108,7 @@ const FocalCountries = React.forwardRef(function FocalCountries(props, ref) {
             <Grid item xs={12} sm={6} order={{ xs: 1, sm: 0 }}>
               <Box
                 height={{ xs: 403, sm: 418, md: 629 }}
-                width={{ xs: "calc(100vw - 80px)", sm: "100%" }}
+                width={{ xs: "100%" }}
                 ref={mapRef}
               >
                 <Map

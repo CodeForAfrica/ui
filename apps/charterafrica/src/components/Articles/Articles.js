@@ -1,36 +1,61 @@
-import { Section } from "@commons-ui/core";
-import { Box, Grid } from "@mui/material";
+import { Box } from "@mui/material";
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { secondary } from "@/charterafrica/colors";
-import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
-import PostCard from "@/charterafrica/components/PostCard";
+import ArticleFilterBar from "./ArticlesFilterBar";
+import ArticleGrid from "./ArticlesGrid";
+import useArticles from "./useArticles";
+
+import FeaturedPost from "@/charterafrica/components/FeaturedPostCard";
+import useFilterQuery, {
+  DEFAULT_SORTING,
+} from "@/charterafrica/components/useFilterQuery";
 
 const Articles = React.forwardRef(function Articles(props, ref) {
-  const { sx, articles, totalPages } = props;
+  const { articles: originalArticles, featured, filters, slug, sx } = props;
+  const [articles, setArticles] = useState(originalArticles);
+  const [q, setQ] = useState("");
+  const [sort, setSort] = useState(DEFAULT_SORTING);
+  const router = useRouter();
+  const { asPath, locale } = router;
+
+  const handleChangeQ = (_, value) => {
+    setQ(value);
+  };
+  const handleChangeSort = (_, value) => {
+    setSort(value);
+  };
+
+  const queryParams = useFilterQuery({ q, sort });
+  useEffect(() => {
+    const pathname = asPath.split("?")[0];
+    router.push({
+      pathname,
+      query: queryParams,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryParams]);
+
+  const { data } = useArticles(slug, { locale, q, sort });
+  useEffect(() => {
+    if (data) {
+      const { articles: foundArticles } = data;
+      setArticles(foundArticles);
+    }
+  }, [data]);
+
   return (
-    <Box bgcolor={secondary[50]} sx={sx} ref={ref}>
-      <Section
-        sx={{
-          px: {
-            xs: "57.5px",
-            // (theme.contentWidths.values.sm - 590) / 2
-            sm: "69px",
-            md: 0,
-          },
-          py: 5,
-        }}
-      >
-        <Grid container rowSpacing={5} columnSpacing={{ xs: 5, md: 2.5 }}>
-          {articles?.map((item) => (
-            <Grid key={item.id} item xs={12} sm={6} md={4}>
-              <PostCard {...item} />
-            </Grid>
-          ))}
-        </Grid>
-        <NextPrevPagination count={totalPages} onPageChange={() => {}} />
-      </Section>
+    <Box sx={sx} ref={ref}>
+      <ArticleFilterBar
+        {...filters}
+        onChangeSort={handleChangeSort}
+        onChangeQ={handleChangeQ}
+        sort={sort}
+        q={q}
+      />
+      <FeaturedPost {...featured} />
+      <ArticleGrid articles={articles} />
     </Box>
   );
 });
@@ -45,10 +70,12 @@ Articles.propTypes = {
       href: PropTypes.string,
     })
   ),
+  filter: PropTypes.shape({}),
 };
 
 Articles.defaultProps = {
   articles: undefined,
+  filter: undefined,
 };
 
 export default Articles;

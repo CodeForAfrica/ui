@@ -10,6 +10,17 @@ const render = createRender({ theme });
 
 const defaultProps = {
   articles: [],
+  filters: {
+    search: {
+      placeholder: "Search",
+    },
+    sortOrder: [
+      { value: "-publishedOn", label: "Most recent" },
+      { value: "publishedOn", label: "Least recent" },
+      { value: "title", label: "Title A-Z" },
+      { value: "-title", label: "Title Z-A" },
+    ],
+  },
 };
 
 describe("<Articles />", () => {

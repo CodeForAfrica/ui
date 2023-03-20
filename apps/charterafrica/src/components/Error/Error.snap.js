@@ -6,7 +6,7 @@ exports[`<Error /> renders unchanged 1`] = `
     class="MuiBox-root css-lfupbe"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1noulqg-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1lmdmi3-MuiContainer-root"
     >
       <div
         class="MuiTypography-root MuiTypography-h3 css-uqgjyw-MuiTypography-root"
