@@ -1,10 +1,11 @@
-import { Section, RichTypography } from "@commons-ui/core";
+import { Section } from "@commons-ui/core";
 import { Box } from "@mui/material";
 import React from "react";
 
 import useDocument from "./useDocument";
 
 import { secondary, neutral } from "@/charterafrica/colors";
+import RichText from "@/charterafrica/components/RichText";
 
 const EmbeddedDocumentViewer = React.forwardRef(function EmbeddedDocumentViewer(
   props,
@@ -34,25 +35,23 @@ const EmbeddedDocumentViewer = React.forwardRef(function EmbeddedDocumentViewer(
           px: { xs: 7.5, sm: 0 },
         }}
       >
-        <RichTypography
+        <RichText
+          elements={title}
           variant="h2SemiBold"
           color="neutral.dark"
           sx={{
             textAlign: "center",
             py: 1,
           }}
-        >
-          {title}
-        </RichTypography>
-        <RichTypography
+        />
+        <RichText
+          elements={excerpt}
           variant="subheading"
           sx={{
             textAlign: "center",
             pb: 5,
           }}
-        >
-          {excerpt}
-        </RichTypography>
+        />
         <Box
           sx={{
             width: {
