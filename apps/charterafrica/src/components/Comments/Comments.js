@@ -14,7 +14,7 @@ const Comments = forwardRef((props, ref) => {
     return null;
   }
   return (
-    <Box bgcolor="#FFF" ref={ref}>
+    <Box bgcolor="common.white" ref={ref}>
       <Grid
         sx={{ p: 2.5 }}
         alignItems="center"
