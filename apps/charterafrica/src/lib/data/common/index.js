@@ -2,8 +2,9 @@ import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 import formatDateTime from "@/charterafrica/utils/formatDate";
+import queryString from "@/charterafrica/utils/queryString";
 
-async function getGlobalProps({ locale, defaultLocale }, api) {
+export async function getGlobalProps({ locale, defaultLocale }, api) {
   const settings = await api.findGlobal("settings", {
     locale,
     fallbackLocale: defaultLocale,
@@ -159,9 +160,15 @@ export async function getTags(page, api, context) {
   return tags.sort((a, b) => frequency[a.slug] - frequency[b.slug]);
 }
 
+function getArticlesQuery(context) {
+  const { query = {}, locale } = context;
+  const { page: pageNumber = 1, q, sort = "-publishedOn" } = query;
+
+  return { locale, page: pageNumber, q, sort };
+}
+
 export async function getArticles(page, api, context) {
-  const { query: originalQuery = {}, locale } = context;
-  const { page: pageNumber = 1, q, sort = "-publishedOn" } = originalQuery;
+  const { locale, page: pageNumber, q, sort } = getArticlesQuery(context);
   let query;
   if (q) {
     query = {
@@ -282,6 +289,17 @@ async function processPageArticles(page, api, context) {
     id: "articles",
   };
   blocks.push(articlesBlock);
+
+  // SWR fallback
+  let swrKey = `/api/knowledge/${slug}`;
+  const qs = queryString(getArticlesQuery(context));
+  if (qs) {
+    swrKey = `${swrKey}?${qs}`;
+  }
+  // eslint-disable-next-line no-param-reassign
+  page.fallback = {
+    [swrKey]: { articles },
+  };
 
   return page;
 }

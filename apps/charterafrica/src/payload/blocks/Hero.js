@@ -138,7 +138,6 @@ const Hero = {
         {
           name: "links",
           type: "array",
-          minRows: 1,
           maxRows: 2,
           fields: [
             {
@@ -169,6 +168,13 @@ const Hero = {
             },
             link(),
           ],
+          admin: {
+            components: {
+              RowLabel: ({ data, index }) => {
+                return data?.label || `Link ${String(index).padStart(2, "0")}`;
+              },
+            },
+          },
         },
       ],
     },

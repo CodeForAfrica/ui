@@ -10,9 +10,9 @@ import useArticles from "./useArticles";
 import { secondary } from "@/charterafrica/colors";
 import FeaturedPost from "@/charterafrica/components/FeaturedPostCard";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
-import useFilterQuery, {
+import queryString, {
   DEFAULT_SORTING,
-} from "@/charterafrica/components/useFilterQuery";
+} from "@/charterafrica/utils/queryString";
 
 const Articles = React.forwardRef(function Articles(props, ref) {
   const {
@@ -42,7 +42,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     setPage(value);
   };
 
-  const queryParams = useFilterQuery({ q, sort, page });
+  const queryParams = queryString({ q, sort, page });
   useEffect(() => {
     const pathname = asPath.split("?")[0];
     router.push({
