@@ -9,13 +9,12 @@ import YoutubeVideoPlayer from "@/charterafrica/components/YoutubeVideoPlayer";
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const EmbededYoutubeVideo = forwardRef((props, ref) => {
-  const { videoId } = props;
+  const { config, videoId } = props;
 
   const [params, setParams] = useState({
     videoId,
     part: ["snippet", "replies"],
     sort: "relevance",
-    maxResults: 100,
   });
 
   const searchParams = new URLSearchParams(params).toString();
@@ -40,8 +39,9 @@ const EmbededYoutubeVideo = forwardRef((props, ref) => {
     <Box ref={ref}>
       <YoutubeVideoPlayer videoId={videoId} />
       <Comments
-        onSortChange={(e) => setParams((v) => ({ ...v, sort: e.target.value }))}
         comments={comments}
+        config={config}
+        onSortChange={(e) => setParams((v) => ({ ...v, sort: e.target.value }))}
       />
     </Box>
   );

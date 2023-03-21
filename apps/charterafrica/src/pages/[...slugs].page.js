@@ -1,5 +1,6 @@
 import Articles from "@/charterafrica/components/Articles";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
+import Consultations from "@/charterafrica/components/Consultations";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
@@ -26,6 +27,7 @@ import Spotlight from "@/charterafrica/components/Spotlight";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 const componentsBySlugs = {
+  consultations: Consultations,
   "our-community-platforms": CommunityPlatforms,
   ecosystem: Ecosystem,
   explainers: Explainers,

@@ -1,5 +1,6 @@
 import { deepmerge } from "@mui/utils";
 
+import fetchJson from "@/charterafrica/lib/data/rest/fetchJson";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
@@ -61,6 +62,39 @@ async function processPageExplainers(page, api, context) {
     });
   }
 
+  return page;
+}
+
+async function processPageConsultations(page) {
+  const BASE_URL = process.env.PAYLOAD_PUBLIC_APP_URL;
+  const params = {
+    playlistId: "RDEMPsM0esWCZxNU2OE89iz0kA",
+    part: "snippet",
+    maxResults: 10,
+  };
+  const consultationsFromApi = await fetchJson.get(
+    `${BASE_URL}/api/v1/external/youtube/playlistItems`,
+    { params }
+  );
+
+  const consultations = consultationsFromApi.items?.map(
+    ({ snippet, ...restArgs }) => ({ ...snippet, ...restArgs })
+  );
+
+  const { blocks } = page;
+  const block = {
+    slug: "consultations",
+    config: {
+      mostRecentText: "Most Recent",
+      relevanceText: "Relevance",
+      sortByText: "Sort by",
+      commentsLabel: "Comments",
+    },
+    consultations,
+  };
+  if (consultations.length) {
+    blocks.push(block);
+  }
   return page;
 }
 
@@ -548,6 +582,7 @@ async function processPageOpportunities(page, api, context) {
 
 const processPageFunctionsMap = {
   about: processPageAbout,
+  consultations: processPageConsultations,
   explainers: processPageExplainers,
   events: processPageEvents,
   fellowships: processPageFellowships,
