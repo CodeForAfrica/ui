@@ -8,28 +8,32 @@ import Comment from "./Comment";
 import { neutral } from "@/charterafrica/colors";
 
 const Comments = forwardRef((props, ref) => {
-  const { comments, onSortChange } = props;
+  const {
+    comments,
+    config: { commentsLabel, mostRecentText, relevanceText, sortByText },
+    onSortChange,
+    sx,
+  } = props;
+
+  if (!comments?.length) {
+    return null;
+  }
   return (
-    <Box bgcolor="#FFF" ref={ref}>
-      <Grid
-        sx={{ p: 2.5 }}
-        alignItems="center"
-        justifyContent="space-between"
-        container
-      >
-        <Grid item>
+    <Box bgcolor="common.white" sx={{ p: 2.5, ...sx }} ref={ref}>
+      <Grid container alignItems="center" justifyContent="space-between">
+        <Grid xs={4} item>
           <RichTypography variant="p3">
-            {comments.length} comments
+            {comments.length} {commentsLabel}
           </RichTypography>
         </Grid>
         <Grid
-          display="flex"
+          item
+          container
           alignItems="center"
           justifyContent="flex-end"
-          flex={1}
-          item
+          xs={8}
         >
-          <RichTypography variant="p3">Sort by:</RichTypography>
+          <RichTypography variant="p3">{sortByText}:</RichTypography>
           <Select
             defaultValue="recent"
             size="small"
@@ -43,15 +47,15 @@ const Comments = forwardRef((props, ref) => {
             fullWidth
           >
             <MenuItem value="recent">
-              <RichTypography variant="p1">Most Recent</RichTypography>
+              <RichTypography variant="p1">{mostRecentText}</RichTypography>
             </MenuItem>
             <MenuItem value="relevance">
-              <RichTypography variant="p1">Relevance</RichTypography>
+              <RichTypography variant="p1">{relevanceText}</RichTypography>
             </MenuItem>
           </Select>
         </Grid>
       </Grid>
-      {comments.map((item) => (
+      {comments?.map((item) => (
         <Comment key={item.id} {...item} />
       ))}
     </Box>
@@ -60,10 +64,17 @@ const Comments = forwardRef((props, ref) => {
 
 Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({})),
+  config: PropTypes.shape({
+    mostRecentText: PropTypes.string.isRequired,
+    relevanceText: PropTypes.string.isRequired,
+    sortByText: PropTypes.string.isRequired,
+    commentsLabel: PropTypes.string.isRequired,
+  }),
 };
 
 Comments.defaultProps = {
   comments: undefined,
+  config: {},
 };
 
 export default Comments;
