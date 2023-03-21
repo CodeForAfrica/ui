@@ -38,18 +38,18 @@ const CommentsThread = forwardRef((props, ref) => {
           />
         </Avatar>
         <LineClampedRichTypography
-          lineClamp={1}
           color="neutral.dark"
-          sx={{ ml: 1.25 }}
+          lineClamp={1}
           variant="p2"
+          sx={{ ml: 1.25 }}
         >
           {authorDisplayName}
         </LineClampedRichTypography>
         <LineClampedRichTypography
-          lineClamp={1}
-          sx={{ ml: 1 }}
-          variant="p2"
           color="neutral.main"
+          lineClamp={1}
+          variant="p2"
+          sx={{ ml: 1 }}
         >
           {publishedAt} {publishedAt !== updatedAt && "(edited)"}
         </LineClampedRichTypography>
