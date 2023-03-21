@@ -6,7 +6,7 @@ exports[`<OpportunityCard /> renders unchanged 1`] = `
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
   >
     <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root active css-1t47kot-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root active css-bef567-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
       href="/"
       tabindex="0"
     >
