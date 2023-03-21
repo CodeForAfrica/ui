@@ -1,4 +1,4 @@
-import { Section } from "@commons-ui/core";
+import { Section, RichTypography } from "@commons-ui/core";
 import { Box } from "@mui/material";
 import React from "react";
 
@@ -11,10 +11,20 @@ const EmbeddedDocumentViewer = React.forwardRef(function EmbeddedDocumentViewer(
   props,
   ref
 ) {
-  const { documentUrl, excerpt, showNotes, title, sx } = props;
+  const { excerpt, options, sx, title } = props;
+  const {
+    url,
+    showNotes = false,
+    search = false,
+    text = false,
+    zoom = false,
+  } = options || {};
 
-  const { data } = useDocument(documentUrl, {
+  const { data } = useDocument(url, {
     notes: showNotes,
+    search,
+    text,
+    zoom,
   });
   const { html } = data || {};
   if (!html?.length) {
@@ -34,15 +44,16 @@ const EmbeddedDocumentViewer = React.forwardRef(function EmbeddedDocumentViewer(
           px: { xs: 7.5, sm: 0 },
         }}
       >
-        <RichText
-          elements={title}
-          variant="h2SemiBold"
+        <RichTypography
           color="neutral.dark"
+          variant="h2"
           sx={{
             textAlign: "center",
             py: 1,
           }}
-        />
+        >
+          {title}
+        </RichTypography>
         <RichText
           elements={excerpt}
           variant="subheading"
@@ -52,21 +63,17 @@ const EmbeddedDocumentViewer = React.forwardRef(function EmbeddedDocumentViewer(
           }}
         />
         <Box
-          sx={{
-            width: {
-              md: "849px",
-              sm: "568px",
-              xs: "300px",
-            },
-            backgroundColor: "white",
-            border: "1px solid",
-            borderColor: neutral[800],
-            margin: "0 auto",
+          backgroundColor="white"
+          border="1px solid"
+          borderColor={neutral[800]}
+          margin="0 auto"
+          width={{
+            md: "849px",
+            sm: "568px",
+            xs: "300px",
           }}
-        >
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </Box>
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </Section>
     </Box>
   );

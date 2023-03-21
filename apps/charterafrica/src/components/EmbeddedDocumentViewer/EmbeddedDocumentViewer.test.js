@@ -9,15 +9,7 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  title: [
-    {
-      children: [
-        {
-          text: "Document Title",
-        },
-      ],
-    },
-  ],
+  title: "Document Title",
   excerpt: [
     {
       children: [
@@ -27,6 +19,13 @@ const defaultProps = {
       ],
     },
   ],
+  options: {
+    url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+    showNotes: false,
+    search: false,
+    text: false,
+    zoom: false,
+  },
 };
 
 describe("<EmbeddedDocumentViewer />", () => {
