@@ -162,13 +162,24 @@ export async function getTags(page, api, context) {
 
 function getArticlesQuery(context) {
   const { query = {}, locale } = context;
-  const { page: pageNumber = 1, q, sort = "-publishedOn" } = query;
+  const {
+    page: pageNumber = 1,
+    pageSize = 8,
+    q,
+    sort = "-publishedOn",
+  } = query;
 
-  return { locale, page: pageNumber, q, sort };
+  return { locale, page: pageNumber, pageSize, q, sort };
 }
 
 export async function getArticles(page, api, context) {
-  const { locale, page: pageNumber, q, sort } = getArticlesQuery(context);
+  const {
+    locale,
+    page: pageNumber,
+    pageSize,
+    q,
+    sort,
+  } = getArticlesQuery(context);
   let query;
   if (q) {
     query = {
@@ -190,8 +201,7 @@ export async function getArticles(page, api, context) {
   const { docs, totalPages } = await api.getCollection(collection, {
     locale,
     sort,
-    // Limit to 9 articles per page
-    limit: 9,
+    limit: pageSize,
     where: {
       ...query,
       page: pageNumber,
@@ -207,7 +217,7 @@ export async function getArticles(page, api, context) {
   );
 
   return {
-    articles: processedArticles,
+    results: processedArticles,
     totalPages,
   };
 }
@@ -262,7 +272,7 @@ async function processPageArticles(page, api, context) {
     // Featured should be rendered as part of articles
     blocks.splice(foundIndex, 1);
   }
-  const { articles, totalPages } = await getArticles(page, api, context);
+  const articles = await getArticles(page, api, context);
   const tags = await getTags(page, api, context);
   const filterLabels = filtersLabelsPerLocale[locale];
   const { slug, title } = page;
@@ -284,7 +294,6 @@ async function processPageArticles(page, api, context) {
     },
     slug,
     title,
-    totalPages,
     // since there can be 1 articles block per page
     id: "articles",
   };
@@ -298,7 +307,7 @@ async function processPageArticles(page, api, context) {
   }
   // eslint-disable-next-line no-param-reassign
   page.fallback = {
-    [swrKey]: { articles },
+    [swrKey]: articles,
   };
 
   return page;
