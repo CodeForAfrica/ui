@@ -9,7 +9,7 @@ const DEFAULT_SORTING = "-publishedOn";
  */
 function queryString(query = {}) {
   const searchParams = new URLSearchParams();
-  const { locale, page, sort, q } = query;
+  const { locale, page, pageSize, sort, q } = query;
   if (q) {
     searchParams.append("q", q);
   }
@@ -21,6 +21,9 @@ function queryString(query = {}) {
   }
   if (page && page !== 1) {
     searchParams.append("page", page);
+  }
+  if (pageSize) {
+    searchParams.append("pageSize", pageSize);
   }
 
   return searchParams.toString() || "";
