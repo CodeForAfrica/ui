@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { forwardRef, useState } from "react";
 import useSWR from "swr";
@@ -35,6 +35,7 @@ const EmbededYoutubeVideo = forwardRef((props, ref) => {
         })) || [],
     })) || [];
 
+  const theme = useTheme();
   return (
     <Box ref={ref}>
       <YoutubeVideoPlayer videoId={videoId} />
@@ -42,6 +43,9 @@ const EmbededYoutubeVideo = forwardRef((props, ref) => {
         comments={comments}
         config={config}
         onSortChange={(e) => setParams((v) => ({ ...v, sort: e.target.value }))}
+        sx={{
+          border: `1px solid ${theme.palette.neutral.dark}`,
+        }}
       />
     </Box>
   );
