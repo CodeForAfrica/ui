@@ -53,7 +53,7 @@ const Comments = forwardRef((props, ref) => {
           </Select>
         </Grid>
       </Grid>
-      {comments?.map((item) => (
+      {comments.map((item) => (
         <Comment key={item.id} {...item} />
       ))}
     </Box>
