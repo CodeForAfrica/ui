@@ -6,8 +6,6 @@ import React from "react";
 import { secondary } from "@/charterafrica/colors";
 import PostCard from "@/charterafrica/components/PostCard";
 
-import EmbedYoutubeVideo from "@/charterafrica/components/EmbedYoutubeVideo";
-
 const ArticlesGrid = React.forwardRef(function ArticlesGrid(props, ref) {
   const { sx, articles } = props;
 
@@ -27,7 +25,6 @@ const ArticlesGrid = React.forwardRef(function ArticlesGrid(props, ref) {
           py: 5,
         }}
       >
-        <EmbedYoutubeVideo videoId="Mvow3spXXQo" />
         <Grid
           container
           rowSpacing={5}

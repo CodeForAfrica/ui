@@ -8,7 +8,7 @@ import Comment from "./Comment";
 import { neutral } from "@/charterafrica/colors";
 
 const Comments = forwardRef((props, ref) => {
-  const { comments } = props;
+  const { comments, onSortChange } = props;
   return (
     <Box bgcolor="#FFF" ref={ref}>
       <Grid
@@ -33,6 +33,7 @@ const Comments = forwardRef((props, ref) => {
           <Select
             defaultValue="recent"
             size="small"
+            onChange={(value) => onSortChange(value)}
             sx={() => ({
               maxWidth: 200,
               ml: 2,
