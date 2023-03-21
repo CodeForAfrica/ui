@@ -11,31 +11,26 @@ const Comments = forwardRef((props, ref) => {
   const {
     comments,
     config: { commentsLabel, mostRecentText, relevanceText, sortByText },
+    sx,
   } = props;
 
   if (!comments?.length) {
     return null;
   }
-
   return (
-    <Box bgcolor="common.white" ref={ref}>
-      <Grid
-        sx={{ p: 2.5 }}
-        alignItems="center"
-        justifyContent="space-between"
-        container
-      >
-        <Grid item>
+    <Box bgcolor="common.white" sx={{ p: 2.5, ...sx }} ref={ref}>
+      <Grid container alignItems="center" justifyContent="space-between">
+        <Grid xs={4} item>
           <RichTypography variant="p3">
             {comments.length} {commentsLabel}
           </RichTypography>
         </Grid>
         <Grid
-          display="flex"
+          item
+          container
           alignItems="center"
           justifyContent="flex-end"
-          flex={1}
-          item
+          xs={8}
         >
           <RichTypography variant="p3">{sortByText}:</RichTypography>
           <Select
@@ -58,7 +53,7 @@ const Comments = forwardRef((props, ref) => {
           </Select>
         </Grid>
       </Grid>
-      {comments.map((item) => (
+      {comments?.map((item) => (
         <Comment key={item.id} {...item} />
       ))}
     </Box>

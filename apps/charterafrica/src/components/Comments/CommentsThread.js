@@ -54,10 +54,7 @@ const CommentsThread = forwardRef((props, ref) => {
           {publishedAt} {publishedAt !== updatedAt && "(edited)"}
         </LineClampedRichTypography>
       </Box>
-
-      <Box sx={{ mt: 1 }}>
-        <DynamicLineClampedTypography comment={comment} />
-      </Box>
+      <DynamicLineClampedTypography sx={{ mt: 1 }} comment={comment} />
     </Box>
   );
 });

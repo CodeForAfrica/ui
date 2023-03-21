@@ -1,37 +1,37 @@
-import { Button, useTheme } from "@mui/material";
+import { Box, Button, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { forwardRef, useState, useRef } from "react";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
 const DynamicLineClampedTypography = forwardRef(
-  ({ comment, ...props }, ref) => {
-    const ref1 = useRef();
-    const commentHeight = ref1?.current?.offsetHeight;
+  ({ comment, sx, ...props }, ref) => {
+    const textRef = useRef(null);
+    const [commentHeight] = useState(textRef?.current?.offsetHeight);
+
     const currentTheme = useTheme();
     const lineHeight =
       currentTheme.typography.p3.lineHeight *
       currentTheme.typography.p3.fontSize;
-    const showReadMore = commentHeight >= lineHeight * 3;
+    const hasMore = commentHeight >= lineHeight * 3;
 
-    const [readMoreOpen, setReadMoreOpen] = useState(false);
-    const lineClamp = !readMoreOpen ? 2 : undefined;
+    const [open, setOpen] = useState(false);
+    const lineClamp = !open ? 2 : undefined;
 
     return (
-      <>
+      <Box sx={sx} ref={ref}>
         <LineClampedRichTypography
-          ref={ref}
           lineClamp={lineClamp}
           variant="p3"
           {...props}
         >
           {/* eslint-disable-next-line react/no-danger */}
-          <span dangerouslySetInnerHTML={{ __html: comment }} ref={ref1} />
+          <span dangerouslySetInnerHTML={{ __html: comment }} ref={textRef} />
         </LineClampedRichTypography>
 
-        {showReadMore ? (
+        {hasMore ? (
           <Button
-            onClick={() => setReadMoreOpen((v) => !v)}
+            onClick={() => setOpen((v) => !v)}
             sx={(theme) => ({
               ...theme.typography.p2,
               mt: 2,
@@ -39,10 +39,10 @@ const DynamicLineClampedTypography = forwardRef(
               color: theme.palette.neutral.main,
             })}
           >
-            {readMoreOpen ? "Read less" : `Read more`}
+            {open ? "Read less" : `Read more`}
           </Button>
         ) : null}
-      </>
+      </Box>
     );
   }
 );
