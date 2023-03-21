@@ -1,13 +1,19 @@
 import { Box, Button, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
-import React, { forwardRef, useState, useRef } from "react";
+import React, { forwardRef, useEffect, useState, useRef } from "react";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
 const DynamicLineClampedTypography = forwardRef(
   ({ comment, sx, ...props }, ref) => {
     const textRef = useRef(null);
-    const [commentHeight] = useState(textRef?.current?.offsetHeight);
+    const [commentHeight, setCommentHeight] = useState(
+      textRef?.current?.offsetHeight
+    );
+
+    useEffect(() => {
+      setCommentHeight(textRef?.current?.offsetHeight);
+    }, [textRef]);
 
     const currentTheme = useTheme();
     const lineHeight =
