@@ -1,7 +1,11 @@
+import React from "react";
+import { SWRConfig } from "swr";
+
 import Articles from "@/charterafrica/components/Articles";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Consultations from "@/charterafrica/components/Consultations";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
+import EmbeddedDocumentViewer from "@/charterafrica/components/EmbeddedDocumentViewer";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
@@ -53,20 +57,31 @@ const componentsBySlugs = {
   "page-info": PageInfo,
   post: Post,
   research: Articles,
+  "embedded-document-viewer": EmbeddedDocumentViewer,
   spotlight: Spotlight,
 };
 
-function Page({ blocks }) {
+function Page({ blocks, fallback }) {
   if (!blocks?.length) {
     return null;
   }
-  return blocks.map((block) => {
-    const Component = componentsBySlugs[block.slug];
-    if (!Component) {
-      return null;
-    }
-    return <Component {...block} key={block.id} />;
-  });
+  let PageComponent = React.Fragment;
+  let pageComponentProps;
+  if (fallback) {
+    PageComponent = SWRConfig;
+    pageComponentProps = { value: { fallback } };
+  }
+  return (
+    <PageComponent {...pageComponentProps}>
+      {blocks.map((block) => {
+        const Component = componentsBySlugs[block.slug];
+        if (!Component) {
+          return null;
+        }
+        return <Component {...block} key={block.id} />;
+      })}
+    </PageComponent>
+  );
 }
 
 export async function getServerSideProps(context) {

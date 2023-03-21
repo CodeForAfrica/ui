@@ -1,13 +1,14 @@
 import useSWR from "swr";
 
-import useFilterQuery from "@/charterafrica/components/useFilterQuery";
+import queryString from "@/charterafrica/utils/queryString";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function useArticles(collection, query) {
-  const queryParams = useFilterQuery(query);
+  const qs = queryString(query);
+  const separator = qs ? "?" : "";
   const { data, error } = useSWR(
-    `/api/v1/knowledge/${collection}?${queryParams}`,
+    `/api/v1/knowledge/${collection}${separator}${qs}`,
     fetcher
   );
 
