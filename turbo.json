@@ -2,38 +2,18 @@
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build-next": {
-      "dependsOn": [
-        "^build-next"
-      ],
-      "outputs": [
-        "dist",
-        ".next/**"
-      ],
-      "env": [
-        "CI",
-        "NODE_OPTIONS"
-      ]
+      "dependsOn": ["^build-next"],
+      "outputs": ["dist", ".next/**"],
+      "env": ["CI", "NODE_OPTIONS"]
     },
     "build-payload": {
-      "dependsOn": [
-        "build-next"
-      ],
-      "outputs": [
-        "build"
-      ],
-      "env": [
-        "CI",
-        "NODE_OPTIONS"
-      ]
+      "dependsOn": ["build-next"],
+      "outputs": ["build"],
+      "env": ["CI", "NODE_OPTIONS"]
     },
     "charterafrica#build-next": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "build",
-        ".next/**"
-      ],
+      "dependsOn": ["^build"],
+      "outputs": ["build", ".next/**"],
       "env": [
         "MONGO_URL",
         "NEXT_BUILD",
@@ -65,12 +45,8 @@
       ]
     },
     "charterafrica#build-payload": {
-      "dependsOn": [
-        "^build-payload"
-      ],
-      "outputs": [
-        "build"
-      ],
+      "dependsOn": ["^build-payload"],
+      "outputs": ["build"],
       "env": [
         "MONGO_URL",
         "NEXT_BUILD",
@@ -95,26 +71,13 @@
       ]
     },
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "dist/**",
-        ".next/**"
-      ],
-      "env": [
-        "CI",
-        "NODE_OPTIONS",
-        "PROJECT_ROOT"
-      ]
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"],
+      "env": ["CI", "NODE_OPTIONS", "PROJECT_ROOT"]
     },
     "codeforafrica#build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        ".next/**"
-      ],
+      "dependsOn": ["^build"],
+      "outputs": [".next/**"],
       "env": [
         "GHOST_ADMIN_URL",
         "GHOST_API_KEY",
@@ -135,12 +98,8 @@
       ]
     },
     "promisetracker#build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        ".next/**"
-      ],
+      "dependsOn": ["^build"],
+      "outputs": [".next/**"],
       "env": [
         "ACTNOW_API_KEY",
         "ACTNOW_URL",
@@ -163,27 +122,17 @@
       ]
     },
     "jest": {
-      "inputs": [
-        "src/**/*.js"
-      ],
+      "inputs": ["src/**/*.js"],
       "outputs": []
     },
     "playwright": {
-      "dependsOn": [
-        "build"
-      ],
-      "inputs": [
-        "src/**/*.js"
-      ],
+      "dependsOn": ["build"],
+      "inputs": ["src/**/*.js"],
       "outputs": []
     },
     "test": {
-      "dependsOn": [
-        "build"
-      ],
-      "inputs": [
-        "src/**/*.js"
-      ],
+      "dependsOn": ["build"],
+      "inputs": ["src/**/*.js"],
       "outputs": []
     },
     "lint-check": {
@@ -203,7 +152,5 @@
     }
   },
   "globalDependencies": [],
-  "globalEnv": [
-    "GITHUB_TOKEN"
-  ]
+  "globalEnv": ["GITHUB_TOKEN"]
 }
