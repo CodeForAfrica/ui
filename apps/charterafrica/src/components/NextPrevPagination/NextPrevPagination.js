@@ -1,8 +1,10 @@
-import { usePagination, styled } from "@mui/material";
+import { usePagination, styled, Box } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 
 import PaginationButton from "./PaginationButton";
+
+import { secondary } from "@/charterafrica/colors";
 
 const NextPreviousPaginationListRoot = styled("ul")({
   listStyle: "none",
@@ -11,15 +13,14 @@ const NextPreviousPaginationListRoot = styled("ul")({
   columnGap: "20px",
   justifyContent: "center",
   margin: 0,
-  paddingBottom: "20px",
 });
 
 const NextPrevPagination = React.forwardRef(function NextPrevPagination(
   props,
   ref
 ) {
-  const { count, onChange } = props;
-  const { items, ...other } = usePagination(props);
+  const { count, onChange, sx } = props;
+  const { items } = usePagination(props);
   const router = useRouter();
 
   useEffect(() => {
@@ -38,19 +39,20 @@ const NextPrevPagination = React.forwardRef(function NextPrevPagination(
   if (!count || count < 2) {
     return null;
   }
-
   return (
-    <NextPreviousPaginationListRoot ref={ref} {...other} sx={{ zIndex: 1 }}>
-      {items
-        .filter(({ type }) => ["previous", "next"].includes(type))
-        .map((itemProps) => (
-          <PaginationButton
-            {...itemProps}
-            component="li"
-            key={itemProps.type}
-          />
-        ))}
-    </NextPreviousPaginationListRoot>
+    <Box bgcolor={secondary[50]} sx={sx} ref={ref}>
+      <NextPreviousPaginationListRoot>
+        {items
+          .filter(({ type }) => ["previous", "next"].includes(type))
+          .map((itemProps) => (
+            <PaginationButton
+              {...itemProps}
+              component="li"
+              key={itemProps.type}
+            />
+          ))}
+      </NextPreviousPaginationListRoot>
+    </Box>
   );
 });
 

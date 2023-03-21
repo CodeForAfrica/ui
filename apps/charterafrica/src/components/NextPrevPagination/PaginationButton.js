@@ -24,20 +24,19 @@ const PaginationButton = React.forwardRef(function PaginationButton(
   return (
     <Box component={component} ref={ref}>
       <Button
+        color="secondary"
         disabled={disabled}
         onClick={onClick}
-        sx={{
-          color: type === "next" ? "neutral.dark" : "neutral.light",
-          backgroundColor: type === "next" ? "secondary.main" : neutral[100],
-          "&:hover": {
-            backgroundColor: type === "next" ? "secondary.main" : neutral[100],
-          },
-          "&:focus": {
-            backgroundColor: type === "next" ? "secondary.main" : neutral[100],
-          },
-          textTransform: "capitalize",
-        }}
+        size="small"
         variant="contained"
+        sx={{
+          color: "neutral.dark",
+          textTransform: "capitalize",
+          "&.Mui-disabled": {
+            backgroundColor: neutral[100],
+            color: "neutral.light",
+          },
+        }}
       >
         {label}
       </Button>

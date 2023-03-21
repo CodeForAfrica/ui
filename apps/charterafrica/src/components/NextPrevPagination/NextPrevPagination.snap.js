@@ -2,20 +2,24 @@
 
 exports[`<NextPrevPagination /> renders unchanged 1`] = `
 <div>
-  <ul
-    class="css-wmshl1"
+  <div
+    class="MuiBox-root css-156ejva"
   >
-    <li
-      class="MuiBox-root css-0"
+    <ul
+      class="css-1szo00h"
     >
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-2k4kds-MuiButtonBase-root-MuiButton-root"
-        tabindex="0"
-        type="button"
+      <li
+        class="MuiBox-root css-0"
       >
-        SEE MORE
-      </button>
-    </li>
-  </ul>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-cqffet-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          SEE MORE
+        </button>
+      </li>
+    </ul>
+  </div>
 </div>
 `;
