@@ -22,7 +22,6 @@ const ArticlesGrid = React.forwardRef(function ArticlesGrid(props, ref) {
             sm: "69px",
             md: 0,
           },
-          py: 5,
         }}
       >
         <Grid
