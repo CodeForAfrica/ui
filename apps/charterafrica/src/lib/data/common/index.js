@@ -162,13 +162,24 @@ export async function getTags(page, api, context) {
 
 function getArticlesQuery(context) {
   const { query = {}, locale } = context;
-  const { page: pageNumber = 1, q, sort = "-publishedOn" } = query;
+  const {
+    page: pageNumber = 1,
+    pageSize = 8,
+    q,
+    sort = "-publishedOn",
+  } = query;
 
-  return { locale, page: pageNumber, q, sort };
+  return { locale, page: pageNumber, pageSize, q, sort };
 }
 
 export async function getArticles(page, api, context) {
-  const { locale, page: pageNumber, q, sort } = getArticlesQuery(context);
+  const {
+    locale,
+    page: pageNumber,
+    pageSize,
+    q,
+    sort,
+  } = getArticlesQuery(context);
   let query;
   if (q) {
     query = {
@@ -187,9 +198,10 @@ export async function getArticles(page, api, context) {
     };
   }
   const { slug: collection } = page;
-  const { docs } = await api.getCollection(collection, {
+  const { docs, totalPages } = await api.getCollection(collection, {
     locale,
     sort,
+    limit: pageSize,
     where: {
       ...query,
       page: pageNumber,
@@ -200,7 +212,14 @@ export async function getArticles(page, api, context) {
   if (!docs?.length) {
     return null;
   }
-  return docs.map((post) => processPost(post, page, api, context));
+  const processedArticles = docs.map((post) =>
+    processPost(post, page, api, context)
+  );
+
+  return {
+    results: processedArticles,
+    totalPages,
+  };
 }
 
 const filtersLabelsPerLocale = {
@@ -288,7 +307,7 @@ async function processPageArticles(page, api, context) {
   }
   // eslint-disable-next-line no-param-reassign
   page.fallback = {
-    [swrKey]: { articles },
+    [swrKey]: articles,
   };
 
   return page;

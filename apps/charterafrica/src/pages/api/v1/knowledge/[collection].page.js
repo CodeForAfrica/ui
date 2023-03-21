@@ -21,8 +21,6 @@ export default async function handler(req, res) {
     locale,
     query,
   };
-  const articles = await getServerSideArticles(page, context);
-  return res.status(200).json({
-    articles,
-  });
+  const found = await getServerSideArticles(page, context);
+  return res.status(200).json(found);
 }
