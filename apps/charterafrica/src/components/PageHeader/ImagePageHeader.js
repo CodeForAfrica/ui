@@ -11,7 +11,6 @@ const ImagePageHeader = React.forwardRef(function ImagePageHeader(props, ref) {
   if (!title) {
     return null;
   }
-  console.log("BOOM", { props });
   return (
     <BackgroundBox py={{ xs: 0, md: 5 }} sx={sx} ref={ref}>
       <Box
