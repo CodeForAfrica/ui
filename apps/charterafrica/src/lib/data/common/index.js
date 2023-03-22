@@ -129,6 +129,7 @@ async function processPageConsultations(page, api, context) {
       sortByText: "Sort by",
       commentsLabel: "Comments",
       previousTitle: "Previous Consultations",
+      airedOnText: "Aired On",
     },
     featuredConsultations,
     otherConsultations,

@@ -35,7 +35,7 @@ const Comments = forwardRef((props, ref) => {
         >
           <RichTypography variant="p3">{sortByText}:</RichTypography>
           <Select
-            defaultValue="recent"
+            defaultValue="relevance"
             size="small"
             onChange={(value) => onSortChange(value)}
             sx={() => ({

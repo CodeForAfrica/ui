@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
 
 import AllConsultations from "./AllConsultations";
@@ -22,9 +23,26 @@ const Consultations = forwardRef((props, ref) => {
         title={config.previousTitle}
         consultationTitle={otherConsultations?.title}
         items={otherConsultations?.items}
+        config={config}
       />
     </Box>
   );
 });
+
+Consultations.propTypes = {
+  config: PropTypes.shape({}),
+  featuredConsultations: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.shape({})),
+  }),
+  otherConsultations: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.shape({})),
+  }),
+};
+
+Consultations.defaultProps = {
+  config: undefined,
+  featuredConsultations: undefined,
+  otherConsultations: undefined,
+};
 
 export default Consultations;

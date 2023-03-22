@@ -27,7 +27,9 @@ const Consultations = forwardRef((props, ref) => {
         >
           {consultationTitle}
         </RichTypography>
-        <RichTypography variant="p3">{airedOn}</RichTypography>
+        <RichTypography variant="p3">
+          {config.airedOnText} {airedOn}
+        </RichTypography>
         {items.map((consultation) => {
           const { description, id } = consultation;
           return (
