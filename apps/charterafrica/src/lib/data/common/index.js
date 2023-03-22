@@ -2,6 +2,7 @@ import { deepmerge } from "@mui/utils";
 
 import fetchJson from "@/charterafrica/lib/data/rest/fetchJson";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
+import { YOUTUBE_BASE_URL } from "@/charterafrica/utils/constants";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import queryString from "@/charterafrica/utils/queryString";
 
@@ -67,6 +68,10 @@ async function processPageExplainers(page, api, context) {
 }
 
 async function getVideosFromPlaylist(playlistId) {
+  if (!playlistId) {
+    return [];
+  }
+
   const BASE_URL = process.env.PAYLOAD_PUBLIC_APP_URL;
   const params = {
     playlistId,
@@ -74,54 +79,32 @@ async function getVideosFromPlaylist(playlistId) {
     maxResults: 10,
   };
   const videosFromApi = await fetchJson.get(
-    `${BASE_URL}/api/v1/opportunities/consultation/youtube/playlistItems`,
+    `${BASE_URL}${YOUTUBE_BASE_URL}/playlistItems`,
     { params }
   );
 
-  const videos = videosFromApi.items?.map(({ snippet, ...restArgs }) => ({
+  const items = videosFromApi.items?.map(({ snippet, ...restArgs }) => ({
     ...snippet,
+    ...snippet?.resourceId,
     ...restArgs,
   }));
-  return videos;
+  return items;
 }
 
-async function processPageConsultations(page, api, context) {
+async function processPageConsultations(page) {
   const { blocks } = page;
-  const { locale } = context;
 
-  const featuredConsultationIndex = blocks.findIndex(
-    ({ slug }) => slug === "featured-consultation"
-  );
-  const featuredConsultation =
-    blocks[featuredConsultationIndex]?.featuredConsultation?.value;
-
-  const featuredVideos = featuredConsultation?.playlistId
-    ? await getVideosFromPlaylist(featuredConsultation?.playlistId)
-    : [];
-
-  const { docs } = await api.getCollection("consultation", {
-    locale,
-    where: {
-      id: { not_equals: featuredConsultation.id },
-    },
-  });
-
-  const videos = await Promise.all(
-    docs.map(({ playlistId }) => getVideosFromPlaylist(playlistId))
+  const consultationIndex = blocks.findIndex(
+    ({ slug }) => slug === "consultation"
   );
 
-  const featuredConsultations = {
-    items: featuredVideos,
-    airedOn: featuredConsultation.updatedAt,
-    title: featuredConsultation?.title,
-  };
+  const consultation = blocks[consultationIndex];
 
-  const otherConsultations = {
-    items: videos.flatMap((item) => item),
-    airedOn: docs?.[0].updatedAt,
-    title: docs?.[0].title,
-  };
-  const block = {
+  const otherConsultations = await getVideosFromPlaylist(
+    consultation?.playlistId
+  );
+  blocks[consultationIndex] = {
+    ...consultation,
     slug: "consultations",
     config: {
       mostRecentText: "Most Recent",
@@ -131,11 +114,8 @@ async function processPageConsultations(page, api, context) {
       previousTitle: "Previous Consultations",
       airedOnText: "Aired On",
     },
-    featuredConsultations,
     otherConsultations,
   };
-
-  blocks.push(block);
 
   return page;
 }

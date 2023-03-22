@@ -5,45 +5,58 @@ import React, { forwardRef } from "react";
 
 import { neutral } from "@/charterafrica/colors";
 import EmbedYoutubeVideo from "@/charterafrica/components/EmbedYoutubeVideo";
+import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import YoutubeVideoPlayer from "@/charterafrica/components/YoutubeVideoPlayer";
+import formatDateTime from "@/charterafrica/utils/formatDate";
 
 const Consultations = forwardRef((props, ref) => {
-  const { airedOn, items, config, isFeatured, sx, title, consultationTitle } =
-    props;
+  const { items, config, isFeatured, sx, title } = props;
   if (!items?.length) {
     return null;
   }
 
   return (
     <Box bgcolor={isFeatured ? neutral[50] : "common.white"} sx={sx} ref={ref}>
+      <LineClampedRichTypography
+        color="neutral.dark"
+        lineClamp={1}
+        textAlign="center"
+        variant="h2"
+      >
+        {title}
+      </LineClampedRichTypography>
       <Section>
-        <RichTypography variant="h2" color="neutral.dark" textAlign="center">
-          {title}
-        </RichTypography>
-        <RichTypography
-          color="neutral.dark"
-          fontWeight={{ xs: 400, md: 400 }}
-          variant="h3"
-        >
-          {consultationTitle}
-        </RichTypography>
-        <RichTypography variant="p3">
-          {config.airedOnText} {airedOn}
-        </RichTypography>
         {items.map((consultation) => {
           const { description, id } = consultation;
           return (
             <Box sx={{ py: 6.25 }} key={id}>
+              <LineClampedRichTypography
+                color="neutral.dark"
+                fontWeight={{ xs: 400, md: 400 }}
+                lineClamp={1}
+                variant="h3"
+              >
+                {consultation.title}
+              </LineClampedRichTypography>
+              <LineClampedRichTypography
+                lineClamp={1}
+                sx={{ pb: 6.25 }}
+                variant="p3"
+              >
+                {config.airedOnText}{" "}
+                {formatDateTime(
+                  consultation?.airedOn || consultation?.publishedAt,
+                  {}
+                )}
+              </LineClampedRichTypography>
               {isFeatured ? (
                 <EmbedYoutubeVideo
-                  videoId={consultation?.resourceId?.videoId}
+                  videoId={consultation?.videoId}
                   config={config}
                   key={id}
                 />
               ) : (
-                <YoutubeVideoPlayer
-                  videoId={consultation?.resourceId?.videoId}
-                />
+                <YoutubeVideoPlayer videoId={consultation?.videoId} />
               )}
               <RichTypography variant="p3" sx={{ mt: 3.75 }}>
                 {description}

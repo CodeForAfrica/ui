@@ -5,6 +5,7 @@ import useSWR from "swr";
 
 import Comments from "@/charterafrica/components/Comments";
 import YoutubeVideoPlayer from "@/charterafrica/components/YoutubeVideoPlayer";
+import { YOUTUBE_BASE_URL } from "@/charterafrica/utils/constants";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -19,7 +20,7 @@ const EmbededYoutubeVideo = forwardRef((props, ref) => {
 
   const searchParams = new URLSearchParams(params).toString();
   const { data } = useSWR(
-    `/api/v1/external/youtube/commentThreads?${searchParams}`,
+    `${YOUTUBE_BASE_URL}/commentThreads?${searchParams}`,
     fetcher
   );
 

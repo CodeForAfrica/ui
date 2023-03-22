@@ -25,6 +25,7 @@ import userIcon from "@/charterafrica/assets/icons/Type=user, Size=auto, Color=C
 import { neutral } from "@/charterafrica/colors";
 import DynamicLineClampedTypography from "@/charterafrica/components/Comments/DynamicLineClampedTypography";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+import formatDateTime from "@/charterafrica/utils/formatDate";
 
 const Comment = forwardRef((props, ref) => {
   const {
@@ -109,7 +110,8 @@ const Comment = forwardRef((props, ref) => {
                 variant="p2"
                 color="neutral.main"
               >
-                {publishedAt} {publishedAt !== updatedAt && "(edited)"}
+                {formatDateTime(publishedAt, { includeTime: true })}{" "}
+                {publishedAt !== updatedAt && "(edited)"}
               </LineClampedRichTypography>
             </Box>
 
