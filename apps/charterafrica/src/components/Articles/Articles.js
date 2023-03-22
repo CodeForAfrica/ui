@@ -1,7 +1,7 @@
 import { useMediaQuery, Box } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
 
 import ArticlesFilterBar from "./ArticlesFilterBar";
 import ArticleGrid from "./ArticlesGrid";
@@ -28,6 +28,8 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   const [q, setQ] = useState("");
   const [sort, setSort] = useState(DEFAULT_SORTING);
   const router = useRouter();
+  const articlesRef = useRef();
+  useImperativeHandle(ref, () => articlesRef.current);
   const { asPath, locale } = router;
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up("md"));
   const pageSize = isDesktop ? 9 : 8;
@@ -45,10 +47,17 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   const queryParams = queryString({ q, sort, page });
   useEffect(() => {
     const pathname = asPath.split("?")[0];
-    router.push({
-      pathname,
-      query: queryParams,
-    });
+    router.push(
+      {
+        pathname,
+        query: queryParams,
+      },
+      undefined,
+      { scroll: false, shallow: true }
+    );
+    if (queryParams && articlesRef.current) {
+      articlesRef.current.scrollIntoView({ behavior: "smooth" });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryParams]);
 
@@ -66,11 +75,14 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   }
   return (
     <Box
+      id="articles"
       sx={{
         backgroundColor: secondary[50],
+        // Height of main navbar
+        scrollMarginTop: { xs: "56px", sm: "64", md: "114px" },
         ...sx,
       }}
-      ref={ref}
+      ref={articlesRef}
     >
       <ArticlesFilterBar
         {...filters}
@@ -79,7 +91,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
         sort={sort}
         q={q}
       />
-      {page === 1 ? <FeaturedPost {...featured} /> : null}
+      {!queryParams ? <FeaturedPost {...featured} /> : null}
       <ArticleGrid articles={articles} sx={{ py: 8 }} />
       <NextPrevPagination
         count={totalPages}
