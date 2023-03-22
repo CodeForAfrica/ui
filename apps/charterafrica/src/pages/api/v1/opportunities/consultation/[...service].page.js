@@ -1,6 +1,17 @@
-import fetch from "node-fetch";
+const documents = async (req, res) => {
+  const baseURL = "https://dc.sourceafrica.net/api/oembed.json";
+  const { url } = req.query;
+  try {
+    const fullURL = `${baseURL}?url=${url}`;
+    const response = await fetch(fullURL);
+    const data = await response.json();
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+};
 
-const fetchYoutubeApi = async (req, res) => {
+const youtube = async (req, res) => {
   try {
     const { service, ...rest } = req.query;
     const url = service?.slice(1).join("/");
@@ -16,17 +27,20 @@ const fetchYoutubeApi = async (req, res) => {
   }
 };
 
+const serviceMap = {
+  documents,
+  youtube,
+};
+
 // We do not want apiKeys etc publicly availabe on the frontend
 export default async function handler(req, res) {
   try {
     const {
       query: { service },
     } = req;
-    switch (service?.[0]) {
-      case "youtube":
-        return fetchYoutubeApi(req, res);
-      default:
-        break;
+    const response = serviceMap[service?.[0]];
+    if (response) {
+      return response(req, res);
     }
     return res.status(404).json({ error: "NOT FOUND" });
   } catch (error) {

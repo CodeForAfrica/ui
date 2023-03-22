@@ -1,9 +1,9 @@
 import CommunityPlatforms from "../blocks/CommunityPlatforms";
+import Consultation from "../blocks/Consultation";
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import Ecosystem from "../blocks/Ecosystem";
 import Error from "../blocks/Error";
 import FAQ from "../blocks/FAQ";
-import FeaturedConsultation from "../blocks/FeaturedConsultation";
 import FeaturedPost from "../blocks/FeaturedPost";
 import Global from "../blocks/Global";
 import GuidingPrincipals from "../blocks/GuidingPrinciples";
@@ -44,6 +44,7 @@ const Pages = {
       type: "blocks",
       blocks: [
         CommunityPlatforms,
+        Consultation,
         DemocracyHelpdeskContent,
         Ecosystem,
         Error,
@@ -62,7 +63,6 @@ const Pages = {
         Partners,
         Resources,
         Spotlight,
-        FeaturedConsultation,
       ],
       admin: {
         initCollapsed: true,

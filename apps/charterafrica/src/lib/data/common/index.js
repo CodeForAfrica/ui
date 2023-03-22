@@ -74,7 +74,7 @@ async function getVideosFromPlaylist(playlistId) {
     maxResults: 10,
   };
   const videosFromApi = await fetchJson.get(
-    `${BASE_URL}/api/v1/external/youtube/playlistItems`,
+    `${BASE_URL}/api/v1/opportunities/consultation/youtube/playlistItems`,
     { params }
   );
 
