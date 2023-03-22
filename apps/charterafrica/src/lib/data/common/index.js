@@ -50,6 +50,28 @@ async function processPageAbout(page, api, { locale }) {
   return page;
 }
 
+async function processPageConsultation(page, api, { locale }) {
+  const { blocks } = page;
+  const consultation = blocks.filter((block) => block.slug === "consultations");
+  if (!consultation?.length) {
+    return page;
+  }
+
+  const { collection, description } = consultation[0];
+
+  const { docs } = await api.getCollection(collection, {
+    locale,
+  });
+
+  const groups = docs.map((doc) => doc.groups);
+  blocks.push({
+    slug: collection,
+    groups,
+    description,
+  });
+  return page;
+}
+
 async function processPageExplainers(page, api, context) {
   const collection = await api.getCollection("explainers", context);
   const explainers = collection.docs || null;
@@ -584,6 +606,7 @@ async function processPageOpportunities(page, api, context) {
 
 const processPageFunctionsMap = {
   about: processPageAbout,
+  consultation: processPageConsultation,
   explainers: processPageExplainers,
   events: processPageEvents,
   fellowships: processPageFellowships,

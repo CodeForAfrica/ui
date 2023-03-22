@@ -32,7 +32,7 @@ import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 const componentsBySlugs = {
   "our-community-platforms": CommunityPlatforms,
-  "document-list": DocumentList,
+  documents: DocumentList,
   ecosystem: Ecosystem,
   explainers: Explainers,
   faq: FAQ,
