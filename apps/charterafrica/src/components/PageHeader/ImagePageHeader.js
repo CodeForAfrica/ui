@@ -11,6 +11,7 @@ const ImagePageHeader = React.forwardRef(function ImagePageHeader(props, ref) {
   if (!title) {
     return null;
   }
+  console.log("BOOM", { props });
   return (
     <BackgroundBox py={{ xs: 0, md: 5 }} sx={sx} ref={ref}>
       <Box
@@ -71,8 +72,8 @@ const ImagePageHeader = React.forwardRef(function ImagePageHeader(props, ref) {
             container
             direction="column"
             alignItems={{ xs: "center", md: "flex-start" }}
-            columnSpacing={{ xs: 5 }}
-            rowSpacing={{ xs: 5 }}
+            columnSpacing={5}
+            rowSpacing={5}
           >
             <Grid item>
               <RichText
