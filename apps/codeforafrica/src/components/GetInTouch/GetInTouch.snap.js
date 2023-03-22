@@ -9,7 +9,7 @@ exports[`<GetInTouch /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"
     >
       <div
-        class="css-163ljxj-MuiStack-root"
+        class="MuiStack-root css-163ljxj-MuiStack-root"
       >
         <div
           class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-vpgnax-MuiTypography-root"
@@ -22,7 +22,7 @@ exports[`<GetInTouch /> renders unchanged 1`] = `
           We'd love to hear more.
         </div>
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge css-1uif8c1-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge css-1rn1a08-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
           href="/contact"
           tabindex="0"
         >
