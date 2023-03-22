@@ -4,6 +4,7 @@ import { SWRConfig } from "swr";
 import Articles from "@/charterafrica/components/Articles";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
+import EmbeddedDocumentViewer from "@/charterafrica/components/EmbeddedDocumentViewer";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
@@ -54,6 +55,7 @@ const componentsBySlugs = {
   "page-info": PageInfo,
   post: Post,
   research: Articles,
+  "embedded-document-viewer": EmbeddedDocumentViewer,
   spotlight: Spotlight,
 };
 
