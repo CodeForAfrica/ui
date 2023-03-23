@@ -22,6 +22,7 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
     <Card
       ref={ref}
       sx={{
+        boxShadow: "none",
         my: 2,
         border: "none",
         ...sx,
@@ -32,6 +33,9 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
           display: "flex",
           justifyContent: "start",
           alignItems: "center",
+          ".MuiCardActionArea-focusHighlight": {
+            background: "transparent",
+          },
         }}
       >
         <CardMedia
