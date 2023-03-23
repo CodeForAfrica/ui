@@ -40,7 +40,10 @@ const ConsultationList = forwardRef(function ConsultationList(props, ref) {
                 variant="p3"
               >
                 {config.airedOnText}{" "}
-                {formatDateTime(consultation?.publishedAt, {})}
+                {formatDateTime(
+                  consultation?.publishedAt || consultation.createdAt,
+                  {}
+                )}
               </LineClampedRichTypography>
               {isFeatured ? (
                 <EmbeddedYouTubeVideo

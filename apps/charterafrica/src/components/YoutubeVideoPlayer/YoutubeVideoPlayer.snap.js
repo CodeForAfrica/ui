@@ -7,7 +7,7 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
   >
     <div
       aria-label="Video Player"
-      class="video-js vjs-fluid vjs-default-skin hide vjs-paused vjs_video_3-dimensions vjs-controls-enabled vjs-workinghover vjs-v8 vjs-user-active"
+      class="video-js vjs-fluid vjs-default-skin hide vjs-paused vjs_video_3-dimensions vjs-controls-enabled vjs-workinghover vjs-v7 vjs-user-active"
       data-vjs-player="true"
       id="vjs_video_3"
       lang="en-us"
@@ -20,29 +20,11 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
         id="vjs_video_3_html5_api"
         tabindex="-1"
       />
-      <picture
+      <div
         aria-disabled="false"
         class="vjs-poster vjs-hidden"
         tabindex="-1"
-      >
-        <img
-          alt=""
-          crossorigin="null"
-          src=""
-        />
-      </picture>
-      <div
-        class="vjs-title-bar vjs-hidden"
-      >
-        <div
-          class="vjs-title-bar-title"
-          id="vjs-title-bar-title-27"
-        />
-        <div
-          class="vjs-title-bar-description"
-          id="vjs-title-bar-description-28"
-        />
-      </div>
+      />
       <div
         aria-atomic="true"
         aria-live="off"
@@ -304,12 +286,12 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
         >
           <div
             class="vjs-playback-rate-value"
-            id="vjs-playback-rate-value-label-vjs_video_3_component_263"
+            id="vjs-playback-rate-value-label-vjs_video_3_component_255"
           >
             1x
           </div>
           <button
-            aria-describedby="vjs-playback-rate-value-label-vjs_video_3_component_263"
+            aria-describedby="vjs-playback-rate-value-label-vjs_video_3_component_255"
             aria-disabled="false"
             aria-expanded="false"
             aria-haspopup="true"
@@ -522,7 +504,7 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
         </button>
       </div>
       <div
-        aria-describedby="vjs_video_3_component_467_description"
+        aria-describedby="vjs_video_3_component_459_description"
         aria-hidden="true"
         aria-label="Modal Window"
         class="vjs-error-display vjs-modal-dialog vjs-hidden "
@@ -531,7 +513,7 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
       >
         <p
           class="vjs-modal-dialog-description vjs-control-text"
-          id="vjs_video_3_component_467_description"
+          id="vjs_video_3_component_459_description"
         >
           This is a modal window.
         </p>
@@ -541,7 +523,7 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
         />
       </div>
       <div
-        aria-describedby="vjs_video_3_component_473_description"
+        aria-describedby="vjs_video_3_component_465_description"
         aria-hidden="true"
         aria-label="Caption Settings Dialog"
         class="vjs-modal-dialog vjs-hidden  vjs-text-track-settings"
@@ -550,7 +532,7 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
       >
         <p
           class="vjs-modal-dialog-description vjs-control-text"
-          id="vjs_video_3_component_473_description"
+          id="vjs_video_3_component_465_description"
         >
           Beginning of dialog window. Escape will cancel and close the window.
         </p>
@@ -565,71 +547,71 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               class="vjs-fg-color vjs-track-setting"
             >
               <legend
-                id="captions-text-legend-vjs_video_3_component_473"
+                id="captions-text-legend-vjs_video_3_component_465"
               >
                 Text
               </legend>
               <label
                 class="vjs-label"
-                id="captions-foreground-color-vjs_video_3_component_473"
+                id="captions-foreground-color-vjs_video_3_component_465"
               >
                 Color
               </label>
               <select
-                aria-labelledby="captions-text-legend-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473"
+                aria-labelledby="captions-text-legend-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465"
               >
                 <option
-                  aria-labelledby="captions-text-legend-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473-White"
-                  id="captions-foreground-color-vjs_video_3_component_473-White"
+                  aria-labelledby="captions-text-legend-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465-White"
+                  id="captions-foreground-color-vjs_video_3_component_465-White"
                   value="#FFF"
                 >
                   White
                 </option>
                 <option
-                  aria-labelledby="captions-text-legend-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473-Black"
-                  id="captions-foreground-color-vjs_video_3_component_473-Black"
+                  aria-labelledby="captions-text-legend-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465-Black"
+                  id="captions-foreground-color-vjs_video_3_component_465-Black"
                   value="#000"
                 >
                   Black
                 </option>
                 <option
-                  aria-labelledby="captions-text-legend-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473-Red"
-                  id="captions-foreground-color-vjs_video_3_component_473-Red"
+                  aria-labelledby="captions-text-legend-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465-Red"
+                  id="captions-foreground-color-vjs_video_3_component_465-Red"
                   value="#F00"
                 >
                   Red
                 </option>
                 <option
-                  aria-labelledby="captions-text-legend-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473-Green"
-                  id="captions-foreground-color-vjs_video_3_component_473-Green"
+                  aria-labelledby="captions-text-legend-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465-Green"
+                  id="captions-foreground-color-vjs_video_3_component_465-Green"
                   value="#0F0"
                 >
                   Green
                 </option>
                 <option
-                  aria-labelledby="captions-text-legend-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473-Blue"
-                  id="captions-foreground-color-vjs_video_3_component_473-Blue"
+                  aria-labelledby="captions-text-legend-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465-Blue"
+                  id="captions-foreground-color-vjs_video_3_component_465-Blue"
                   value="#00F"
                 >
                   Blue
                 </option>
                 <option
-                  aria-labelledby="captions-text-legend-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473-Yellow"
-                  id="captions-foreground-color-vjs_video_3_component_473-Yellow"
+                  aria-labelledby="captions-text-legend-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465-Yellow"
+                  id="captions-foreground-color-vjs_video_3_component_465-Yellow"
                   value="#FF0"
                 >
                   Yellow
                 </option>
                 <option
-                  aria-labelledby="captions-text-legend-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473-Magenta"
-                  id="captions-foreground-color-vjs_video_3_component_473-Magenta"
+                  aria-labelledby="captions-text-legend-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465-Magenta"
+                  id="captions-foreground-color-vjs_video_3_component_465-Magenta"
                   value="#F0F"
                 >
                   Magenta
                 </option>
                 <option
-                  aria-labelledby="captions-text-legend-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473 captions-foreground-color-vjs_video_3_component_473-Cyan"
-                  id="captions-foreground-color-vjs_video_3_component_473-Cyan"
+                  aria-labelledby="captions-text-legend-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465 captions-foreground-color-vjs_video_3_component_465-Cyan"
+                  id="captions-foreground-color-vjs_video_3_component_465-Cyan"
                   value="#0FF"
                 >
                   Cyan
@@ -640,23 +622,23 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               >
                 <label
                   class="vjs-label"
-                  id="captions-foreground-opacity-vjs_video_3_component_473"
+                  id="captions-foreground-opacity-vjs_video_3_component_465"
                 >
                   Transparency
                 </label>
                 <select
-                  aria-labelledby="captions-text-legend-vjs_video_3_component_473 captions-foreground-opacity-vjs_video_3_component_473"
+                  aria-labelledby="captions-text-legend-vjs_video_3_component_465 captions-foreground-opacity-vjs_video_3_component_465"
                 >
                   <option
-                    aria-labelledby="captions-text-legend-vjs_video_3_component_473 captions-foreground-opacity-vjs_video_3_component_473 captions-foreground-opacity-vjs_video_3_component_473-Opaque"
-                    id="captions-foreground-opacity-vjs_video_3_component_473-Opaque"
+                    aria-labelledby="captions-text-legend-vjs_video_3_component_465 captions-foreground-opacity-vjs_video_3_component_465 captions-foreground-opacity-vjs_video_3_component_465-Opaque"
+                    id="captions-foreground-opacity-vjs_video_3_component_465-Opaque"
                     value="1"
                   >
                     Opaque
                   </option>
                   <option
-                    aria-labelledby="captions-text-legend-vjs_video_3_component_473 captions-foreground-opacity-vjs_video_3_component_473 captions-foreground-opacity-vjs_video_3_component_473-SemiTransparent"
-                    id="captions-foreground-opacity-vjs_video_3_component_473-SemiTransparent"
+                    aria-labelledby="captions-text-legend-vjs_video_3_component_465 captions-foreground-opacity-vjs_video_3_component_465 captions-foreground-opacity-vjs_video_3_component_465-SemiTransparent"
+                    id="captions-foreground-opacity-vjs_video_3_component_465-SemiTransparent"
                     value="0.5"
                   >
                     Semi-Transparent
@@ -668,71 +650,71 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               class="vjs-bg-color vjs-track-setting"
             >
               <legend
-                id="captions-background-vjs_video_3_component_473"
+                id="captions-background-vjs_video_3_component_465"
               >
                 Background
               </legend>
               <label
                 class="vjs-label"
-                id="captions-background-color-vjs_video_3_component_473"
+                id="captions-background-color-vjs_video_3_component_465"
               >
                 Color
               </label>
               <select
-                aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473"
+                aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465"
               >
                 <option
-                  aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473-Black"
-                  id="captions-background-color-vjs_video_3_component_473-Black"
+                  aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465-Black"
+                  id="captions-background-color-vjs_video_3_component_465-Black"
                   value="#000"
                 >
                   Black
                 </option>
                 <option
-                  aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473-White"
-                  id="captions-background-color-vjs_video_3_component_473-White"
+                  aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465-White"
+                  id="captions-background-color-vjs_video_3_component_465-White"
                   value="#FFF"
                 >
                   White
                 </option>
                 <option
-                  aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473-Red"
-                  id="captions-background-color-vjs_video_3_component_473-Red"
+                  aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465-Red"
+                  id="captions-background-color-vjs_video_3_component_465-Red"
                   value="#F00"
                 >
                   Red
                 </option>
                 <option
-                  aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473-Green"
-                  id="captions-background-color-vjs_video_3_component_473-Green"
+                  aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465-Green"
+                  id="captions-background-color-vjs_video_3_component_465-Green"
                   value="#0F0"
                 >
                   Green
                 </option>
                 <option
-                  aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473-Blue"
-                  id="captions-background-color-vjs_video_3_component_473-Blue"
+                  aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465-Blue"
+                  id="captions-background-color-vjs_video_3_component_465-Blue"
                   value="#00F"
                 >
                   Blue
                 </option>
                 <option
-                  aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473-Yellow"
-                  id="captions-background-color-vjs_video_3_component_473-Yellow"
+                  aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465-Yellow"
+                  id="captions-background-color-vjs_video_3_component_465-Yellow"
                   value="#FF0"
                 >
                   Yellow
                 </option>
                 <option
-                  aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473-Magenta"
-                  id="captions-background-color-vjs_video_3_component_473-Magenta"
+                  aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465-Magenta"
+                  id="captions-background-color-vjs_video_3_component_465-Magenta"
                   value="#F0F"
                 >
                   Magenta
                 </option>
                 <option
-                  aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473 captions-background-color-vjs_video_3_component_473-Cyan"
-                  id="captions-background-color-vjs_video_3_component_473-Cyan"
+                  aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465 captions-background-color-vjs_video_3_component_465-Cyan"
+                  id="captions-background-color-vjs_video_3_component_465-Cyan"
                   value="#0FF"
                 >
                   Cyan
@@ -743,30 +725,30 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               >
                 <label
                   class="vjs-label"
-                  id="captions-background-opacity-vjs_video_3_component_473"
+                  id="captions-background-opacity-vjs_video_3_component_465"
                 >
                   Transparency
                 </label>
                 <select
-                  aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-opacity-vjs_video_3_component_473"
+                  aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-opacity-vjs_video_3_component_465"
                 >
                   <option
-                    aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-opacity-vjs_video_3_component_473 captions-background-opacity-vjs_video_3_component_473-Opaque"
-                    id="captions-background-opacity-vjs_video_3_component_473-Opaque"
+                    aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-opacity-vjs_video_3_component_465 captions-background-opacity-vjs_video_3_component_465-Opaque"
+                    id="captions-background-opacity-vjs_video_3_component_465-Opaque"
                     value="1"
                   >
                     Opaque
                   </option>
                   <option
-                    aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-opacity-vjs_video_3_component_473 captions-background-opacity-vjs_video_3_component_473-SemiTransparent"
-                    id="captions-background-opacity-vjs_video_3_component_473-SemiTransparent"
+                    aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-opacity-vjs_video_3_component_465 captions-background-opacity-vjs_video_3_component_465-SemiTransparent"
+                    id="captions-background-opacity-vjs_video_3_component_465-SemiTransparent"
                     value="0.5"
                   >
                     Semi-Transparent
                   </option>
                   <option
-                    aria-labelledby="captions-background-vjs_video_3_component_473 captions-background-opacity-vjs_video_3_component_473 captions-background-opacity-vjs_video_3_component_473-Transparent"
-                    id="captions-background-opacity-vjs_video_3_component_473-Transparent"
+                    aria-labelledby="captions-background-vjs_video_3_component_465 captions-background-opacity-vjs_video_3_component_465 captions-background-opacity-vjs_video_3_component_465-Transparent"
+                    id="captions-background-opacity-vjs_video_3_component_465-Transparent"
                     value="0"
                   >
                     Transparent
@@ -778,71 +760,71 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               class="vjs-window-color vjs-track-setting"
             >
               <legend
-                id="captions-window-vjs_video_3_component_473"
+                id="captions-window-vjs_video_3_component_465"
               >
                 Window
               </legend>
               <label
                 class="vjs-label"
-                id="captions-window-color-vjs_video_3_component_473"
+                id="captions-window-color-vjs_video_3_component_465"
               >
                 Color
               </label>
               <select
-                aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473"
+                aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465"
               >
                 <option
-                  aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473-Black"
-                  id="captions-window-color-vjs_video_3_component_473-Black"
+                  aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465-Black"
+                  id="captions-window-color-vjs_video_3_component_465-Black"
                   value="#000"
                 >
                   Black
                 </option>
                 <option
-                  aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473-White"
-                  id="captions-window-color-vjs_video_3_component_473-White"
+                  aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465-White"
+                  id="captions-window-color-vjs_video_3_component_465-White"
                   value="#FFF"
                 >
                   White
                 </option>
                 <option
-                  aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473-Red"
-                  id="captions-window-color-vjs_video_3_component_473-Red"
+                  aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465-Red"
+                  id="captions-window-color-vjs_video_3_component_465-Red"
                   value="#F00"
                 >
                   Red
                 </option>
                 <option
-                  aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473-Green"
-                  id="captions-window-color-vjs_video_3_component_473-Green"
+                  aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465-Green"
+                  id="captions-window-color-vjs_video_3_component_465-Green"
                   value="#0F0"
                 >
                   Green
                 </option>
                 <option
-                  aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473-Blue"
-                  id="captions-window-color-vjs_video_3_component_473-Blue"
+                  aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465-Blue"
+                  id="captions-window-color-vjs_video_3_component_465-Blue"
                   value="#00F"
                 >
                   Blue
                 </option>
                 <option
-                  aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473-Yellow"
-                  id="captions-window-color-vjs_video_3_component_473-Yellow"
+                  aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465-Yellow"
+                  id="captions-window-color-vjs_video_3_component_465-Yellow"
                   value="#FF0"
                 >
                   Yellow
                 </option>
                 <option
-                  aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473-Magenta"
-                  id="captions-window-color-vjs_video_3_component_473-Magenta"
+                  aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465-Magenta"
+                  id="captions-window-color-vjs_video_3_component_465-Magenta"
                   value="#F0F"
                 >
                   Magenta
                 </option>
                 <option
-                  aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473 captions-window-color-vjs_video_3_component_473-Cyan"
-                  id="captions-window-color-vjs_video_3_component_473-Cyan"
+                  aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465 captions-window-color-vjs_video_3_component_465-Cyan"
+                  id="captions-window-color-vjs_video_3_component_465-Cyan"
                   value="#0FF"
                 >
                   Cyan
@@ -853,30 +835,30 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               >
                 <label
                   class="vjs-label"
-                  id="captions-window-opacity-vjs_video_3_component_473"
+                  id="captions-window-opacity-vjs_video_3_component_465"
                 >
                   Transparency
                 </label>
                 <select
-                  aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-opacity-vjs_video_3_component_473"
+                  aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-opacity-vjs_video_3_component_465"
                 >
                   <option
-                    aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-opacity-vjs_video_3_component_473 captions-window-opacity-vjs_video_3_component_473-Transparent"
-                    id="captions-window-opacity-vjs_video_3_component_473-Transparent"
+                    aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-opacity-vjs_video_3_component_465 captions-window-opacity-vjs_video_3_component_465-Transparent"
+                    id="captions-window-opacity-vjs_video_3_component_465-Transparent"
                     value="0"
                   >
                     Transparent
                   </option>
                   <option
-                    aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-opacity-vjs_video_3_component_473 captions-window-opacity-vjs_video_3_component_473-SemiTransparent"
-                    id="captions-window-opacity-vjs_video_3_component_473-SemiTransparent"
+                    aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-opacity-vjs_video_3_component_465 captions-window-opacity-vjs_video_3_component_465-SemiTransparent"
+                    id="captions-window-opacity-vjs_video_3_component_465-SemiTransparent"
                     value="0.5"
                   >
                     Semi-Transparent
                   </option>
                   <option
-                    aria-labelledby="captions-window-vjs_video_3_component_473 captions-window-opacity-vjs_video_3_component_473 captions-window-opacity-vjs_video_3_component_473-Opaque"
-                    id="captions-window-opacity-vjs_video_3_component_473-Opaque"
+                    aria-labelledby="captions-window-vjs_video_3_component_465 captions-window-opacity-vjs_video_3_component_465 captions-window-opacity-vjs_video_3_component_465-Opaque"
+                    id="captions-window-opacity-vjs_video_3_component_465-Opaque"
                     value="1"
                   >
                     Opaque
@@ -893,72 +875,72 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
             >
               <legend
                 class=""
-                id="captions-font-size-vjs_video_3_component_473"
+                id="captions-font-size-vjs_video_3_component_465"
               >
                 Font Size
               </legend>
               <select
-                aria-labelledby="captions-font-size-vjs_video_3_component_473"
+                aria-labelledby="captions-font-size-vjs_video_3_component_465"
               >
                 <option
-                  aria-labelledby="captions-font-size-vjs_video_3_component_473 captions-font-size-vjs_video_3_component_473-50"
-                  id="captions-font-size-vjs_video_3_component_473-50"
+                  aria-labelledby="captions-font-size-vjs_video_3_component_465 captions-font-size-vjs_video_3_component_465-50"
+                  id="captions-font-size-vjs_video_3_component_465-50"
                   value="0.50"
                 >
                   50%
                 </option>
                 <option
-                  aria-labelledby="captions-font-size-vjs_video_3_component_473 captions-font-size-vjs_video_3_component_473-75"
-                  id="captions-font-size-vjs_video_3_component_473-75"
+                  aria-labelledby="captions-font-size-vjs_video_3_component_465 captions-font-size-vjs_video_3_component_465-75"
+                  id="captions-font-size-vjs_video_3_component_465-75"
                   value="0.75"
                 >
                   75%
                 </option>
                 <option
-                  aria-labelledby="captions-font-size-vjs_video_3_component_473 captions-font-size-vjs_video_3_component_473-100"
-                  id="captions-font-size-vjs_video_3_component_473-100"
+                  aria-labelledby="captions-font-size-vjs_video_3_component_465 captions-font-size-vjs_video_3_component_465-100"
+                  id="captions-font-size-vjs_video_3_component_465-100"
                   value="1.00"
                 >
                   100%
                 </option>
                 <option
-                  aria-labelledby="captions-font-size-vjs_video_3_component_473 captions-font-size-vjs_video_3_component_473-125"
-                  id="captions-font-size-vjs_video_3_component_473-125"
+                  aria-labelledby="captions-font-size-vjs_video_3_component_465 captions-font-size-vjs_video_3_component_465-125"
+                  id="captions-font-size-vjs_video_3_component_465-125"
                   value="1.25"
                 >
                   125%
                 </option>
                 <option
-                  aria-labelledby="captions-font-size-vjs_video_3_component_473 captions-font-size-vjs_video_3_component_473-150"
-                  id="captions-font-size-vjs_video_3_component_473-150"
+                  aria-labelledby="captions-font-size-vjs_video_3_component_465 captions-font-size-vjs_video_3_component_465-150"
+                  id="captions-font-size-vjs_video_3_component_465-150"
                   value="1.50"
                 >
                   150%
                 </option>
                 <option
-                  aria-labelledby="captions-font-size-vjs_video_3_component_473 captions-font-size-vjs_video_3_component_473-175"
-                  id="captions-font-size-vjs_video_3_component_473-175"
+                  aria-labelledby="captions-font-size-vjs_video_3_component_465 captions-font-size-vjs_video_3_component_465-175"
+                  id="captions-font-size-vjs_video_3_component_465-175"
                   value="1.75"
                 >
                   175%
                 </option>
                 <option
-                  aria-labelledby="captions-font-size-vjs_video_3_component_473 captions-font-size-vjs_video_3_component_473-200"
-                  id="captions-font-size-vjs_video_3_component_473-200"
+                  aria-labelledby="captions-font-size-vjs_video_3_component_465 captions-font-size-vjs_video_3_component_465-200"
+                  id="captions-font-size-vjs_video_3_component_465-200"
                   value="2.00"
                 >
                   200%
                 </option>
                 <option
-                  aria-labelledby="captions-font-size-vjs_video_3_component_473 captions-font-size-vjs_video_3_component_473-300"
-                  id="captions-font-size-vjs_video_3_component_473-300"
+                  aria-labelledby="captions-font-size-vjs_video_3_component_465 captions-font-size-vjs_video_3_component_465-300"
+                  id="captions-font-size-vjs_video_3_component_465-300"
                   value="3.00"
                 >
                   300%
                 </option>
                 <option
-                  aria-labelledby="captions-font-size-vjs_video_3_component_473 captions-font-size-vjs_video_3_component_473-400"
-                  id="captions-font-size-vjs_video_3_component_473-400"
+                  aria-labelledby="captions-font-size-vjs_video_3_component_465 captions-font-size-vjs_video_3_component_465-400"
+                  id="captions-font-size-vjs_video_3_component_465-400"
                   value="4.00"
                 >
                   400%
@@ -970,44 +952,44 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
             >
               <legend
                 class=""
-                id="vjs_video_3_component_473"
+                id="vjs_video_3_component_465"
               >
                 Text Edge Style
               </legend>
               <select
-                aria-labelledby="vjs_video_3_component_473"
+                aria-labelledby="vjs_video_3_component_465"
               >
                 <option
-                  aria-labelledby="vjs_video_3_component_473 vjs_video_3_component_473-None"
-                  id="vjs_video_3_component_473-None"
+                  aria-labelledby="vjs_video_3_component_465 vjs_video_3_component_465-None"
+                  id="vjs_video_3_component_465-None"
                   value="none"
                 >
                   None
                 </option>
                 <option
-                  aria-labelledby="vjs_video_3_component_473 vjs_video_3_component_473-Raised"
-                  id="vjs_video_3_component_473-Raised"
+                  aria-labelledby="vjs_video_3_component_465 vjs_video_3_component_465-Raised"
+                  id="vjs_video_3_component_465-Raised"
                   value="raised"
                 >
                   Raised
                 </option>
                 <option
-                  aria-labelledby="vjs_video_3_component_473 vjs_video_3_component_473-Depressed"
-                  id="vjs_video_3_component_473-Depressed"
+                  aria-labelledby="vjs_video_3_component_465 vjs_video_3_component_465-Depressed"
+                  id="vjs_video_3_component_465-Depressed"
                   value="depressed"
                 >
                   Depressed
                 </option>
                 <option
-                  aria-labelledby="vjs_video_3_component_473 vjs_video_3_component_473-Uniform"
-                  id="vjs_video_3_component_473-Uniform"
+                  aria-labelledby="vjs_video_3_component_465 vjs_video_3_component_465-Uniform"
+                  id="vjs_video_3_component_465-Uniform"
                   value="uniform"
                 >
                   Uniform
                 </option>
                 <option
-                  aria-labelledby="vjs_video_3_component_473 vjs_video_3_component_473-Dropshadow"
-                  id="vjs_video_3_component_473-Dropshadow"
+                  aria-labelledby="vjs_video_3_component_465 vjs_video_3_component_465-Dropshadow"
+                  id="vjs_video_3_component_465-Dropshadow"
                   value="dropshadow"
                 >
                   Dropshadow
@@ -1019,58 +1001,58 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
             >
               <legend
                 class=""
-                id="captions-font-family-vjs_video_3_component_473"
+                id="captions-font-family-vjs_video_3_component_465"
               >
                 Font Family
               </legend>
               <select
-                aria-labelledby="captions-font-family-vjs_video_3_component_473"
+                aria-labelledby="captions-font-family-vjs_video_3_component_465"
               >
                 <option
-                  aria-labelledby="captions-font-family-vjs_video_3_component_473 captions-font-family-vjs_video_3_component_473-ProportionalSansSerif"
-                  id="captions-font-family-vjs_video_3_component_473-ProportionalSansSerif"
+                  aria-labelledby="captions-font-family-vjs_video_3_component_465 captions-font-family-vjs_video_3_component_465-ProportionalSansSerif"
+                  id="captions-font-family-vjs_video_3_component_465-ProportionalSansSerif"
                   value="proportionalSansSerif"
                 >
                   Proportional Sans-Serif
                 </option>
                 <option
-                  aria-labelledby="captions-font-family-vjs_video_3_component_473 captions-font-family-vjs_video_3_component_473-MonospaceSansSerif"
-                  id="captions-font-family-vjs_video_3_component_473-MonospaceSansSerif"
+                  aria-labelledby="captions-font-family-vjs_video_3_component_465 captions-font-family-vjs_video_3_component_465-MonospaceSansSerif"
+                  id="captions-font-family-vjs_video_3_component_465-MonospaceSansSerif"
                   value="monospaceSansSerif"
                 >
                   Monospace Sans-Serif
                 </option>
                 <option
-                  aria-labelledby="captions-font-family-vjs_video_3_component_473 captions-font-family-vjs_video_3_component_473-ProportionalSerif"
-                  id="captions-font-family-vjs_video_3_component_473-ProportionalSerif"
+                  aria-labelledby="captions-font-family-vjs_video_3_component_465 captions-font-family-vjs_video_3_component_465-ProportionalSerif"
+                  id="captions-font-family-vjs_video_3_component_465-ProportionalSerif"
                   value="proportionalSerif"
                 >
                   Proportional Serif
                 </option>
                 <option
-                  aria-labelledby="captions-font-family-vjs_video_3_component_473 captions-font-family-vjs_video_3_component_473-MonospaceSerif"
-                  id="captions-font-family-vjs_video_3_component_473-MonospaceSerif"
+                  aria-labelledby="captions-font-family-vjs_video_3_component_465 captions-font-family-vjs_video_3_component_465-MonospaceSerif"
+                  id="captions-font-family-vjs_video_3_component_465-MonospaceSerif"
                   value="monospaceSerif"
                 >
                   Monospace Serif
                 </option>
                 <option
-                  aria-labelledby="captions-font-family-vjs_video_3_component_473 captions-font-family-vjs_video_3_component_473-Casual"
-                  id="captions-font-family-vjs_video_3_component_473-Casual"
+                  aria-labelledby="captions-font-family-vjs_video_3_component_465 captions-font-family-vjs_video_3_component_465-Casual"
+                  id="captions-font-family-vjs_video_3_component_465-Casual"
                   value="casual"
                 >
                   Casual
                 </option>
                 <option
-                  aria-labelledby="captions-font-family-vjs_video_3_component_473 captions-font-family-vjs_video_3_component_473-Script"
-                  id="captions-font-family-vjs_video_3_component_473-Script"
+                  aria-labelledby="captions-font-family-vjs_video_3_component_465 captions-font-family-vjs_video_3_component_465-Script"
+                  id="captions-font-family-vjs_video_3_component_465-Script"
                   value="script"
                 >
                   Script
                 </option>
                 <option
-                  aria-labelledby="captions-font-family-vjs_video_3_component_473 captions-font-family-vjs_video_3_component_473-SmallCaps"
-                  id="captions-font-family-vjs_video_3_component_473-SmallCaps"
+                  aria-labelledby="captions-font-family-vjs_video_3_component_465 captions-font-family-vjs_video_3_component_465-SmallCaps"
+                  id="captions-font-family-vjs_video_3_component_465-SmallCaps"
                   value="small-caps"
                 >
                   Small Caps

@@ -20,7 +20,7 @@ exports[`FeaturedPostCard should render 1`] = `
           class="MuiCardContent-root css-cnb62q-MuiCardContent-root"
         >
           <div
-            class="MuiStack-root css-pnq1z9-MuiStack-root"
+            class="css-pnq1z9-MuiStack-root"
           >
             <div
               class="MuiTypography-root MuiTypography-h2SemiBold css-1j0n21l-MuiTypography-root"
@@ -37,7 +37,7 @@ exports[`FeaturedPostCard should render 1`] = `
               </h6>
             </div>
             <div
-              class="MuiStack-root css-173zx7o-MuiStack-root"
+              class="css-173zx7o-MuiStack-root"
             >
               <div
                 class="MuiTypography-root MuiTypography-p1 css-iui9m1-MuiTypography-root"

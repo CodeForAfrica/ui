@@ -1,11 +1,10 @@
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { forwardRef, useState } from "react";
 import useSWR from "swr";
 
 import Comments from "@/charterafrica/components/Comments";
 import YoutubeVideoPlayer from "@/charterafrica/components/YoutubeVideoPlayer";
-import { YOUTUBE_BASE_URL } from "@/charterafrica/utils/constants";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -20,7 +19,7 @@ const EmbededYoutubeVideo = forwardRef((props, ref) => {
 
   const searchParams = new URLSearchParams(params).toString();
   const { data } = useSWR(
-    `${YOUTUBE_BASE_URL}/commentThreads?${searchParams}`,
+    `/api/v1/opportunities/consultation/youtube/commentThreads?${searchParams}`,
     fetcher
   );
 
@@ -36,7 +35,6 @@ const EmbededYoutubeVideo = forwardRef((props, ref) => {
         })) || [],
     })) || [];
 
-  const theme = useTheme();
   return (
     <Box ref={ref}>
       <YoutubeVideoPlayer videoId={videoId} />
@@ -45,7 +43,8 @@ const EmbededYoutubeVideo = forwardRef((props, ref) => {
         config={config}
         onSortChange={(e) => setParams((v) => ({ ...v, sort: e.target.value }))}
         sx={{
-          border: `1px solid ${theme.palette.neutral.dark}`,
+          border: "1px solid",
+          borderColor: "neutral.dark",
         }}
       />
     </Box>

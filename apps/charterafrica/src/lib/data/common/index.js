@@ -1,8 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
-import fetchJson from "@/charterafrica/lib/data/rest/fetchJson";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
-import { YOUTUBE_BASE_URL } from "@/charterafrica/utils/constants";
+import fetchJson from "@/charterafrica/utils/fetchJson";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import queryString from "@/charterafrica/utils/queryString";
 
@@ -79,7 +78,7 @@ async function getVideosFromPlaylist(playlistId) {
     maxResults: 10,
   };
   const videosFromApi = await fetchJson.get(
-    `${BASE_URL}${YOUTUBE_BASE_URL}/playlistItems`,
+    `${BASE_URL}/api/v1/opportunities/consultation/youtube/playlistItems`,
     { params }
   );
 
@@ -100,7 +99,7 @@ async function processPageConsultations(page) {
 
   const consultation = blocks[consultationIndex];
 
-  const playlistitems = await getVideosFromPlaylist(consultation?.playlistId);
+  const playlistItems = await getVideosFromPlaylist(consultation?.playlistId);
   blocks[consultationIndex] = {
     slug: "consultations",
     config: {
@@ -116,7 +115,7 @@ async function processPageConsultations(page) {
       title: consultation.title,
     },
     otherConsultations: {
-      items: playlistitems,
+      items: playlistItems,
       title: consultation.title,
     },
   };
@@ -644,7 +643,7 @@ async function processPageOpportunities(page, api, context) {
 
 const processPageFunctionsMap = {
   about: processPageAbout,
-  consultations: processPageConsultations,
+  consultation: processPageConsultations,
   explainers: processPageExplainers,
   events: processPageEvents,
   fellowships: processPageFellowships,
