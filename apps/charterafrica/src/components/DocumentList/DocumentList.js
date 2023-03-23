@@ -1,11 +1,35 @@
 import { Section } from "@commons-ui/core";
 import { Box } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+import DocumentCard from "./DocumentCard";
+import useDocumentSearch from "./useDocumentSearch";
 
 import RichText from "@/charterafrica/components/RichText";
 
 const DocumentList = React.forwardRef(function DocumentList(props, ref) {
   const { description, groups, sx } = props;
+  const [documents, setDocuments] = useState([]);
+  // const [totalPages, setTotalPages] = useState(0);
+  const [page, setPage] = useState(1);
+
+  const { data } = useDocumentSearch(groups, {
+    page,
+    per_page: 8,
+    contributor: true,
+  });
+  useEffect(() => {
+    if (data) {
+      const {
+        documents: foundDocuments,
+        /* total, per_page:pageSize, */ page: currentPage,
+      } = data;
+      setDocuments(foundDocuments);
+      // setTotalPages(Math.ceil(total / per_page));
+      setPage(currentPage);
+    }
+  }, [data]);
+
   return (
     <Box bgcolor="common.white" sx={sx} ref={ref}>
       <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: 10 } }}>
@@ -41,10 +65,8 @@ const DocumentList = React.forwardRef(function DocumentList(props, ref) {
           <RichText color="neutral.dark" elements={description} />
         </Box>
         <Box>
-          {groups.map((group) => (
-            <div key={group}>
-              <h2>{group}</h2>
-            </div>
+          {documents.map((document) => (
+            <DocumentCard {...document} key={document.id} />
           ))}
         </Box>
       </Section>
