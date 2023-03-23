@@ -80,6 +80,7 @@ jobs:
           build-args: |
             MONGO_URL=${{ secrets.CHARTERAFRICA_MONGO_URL }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ secrets.CHARTERAFRICA_GA_MEASUREMENT_ID }}
             PAYLOAD_SECRET_KEY=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new

@@ -7,7 +7,7 @@ exports[`<Projects /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1hxthm7-MuiContainer-root"
     >
       <div
-        class="css-7ziy04-MuiStack-root"
+        class="MuiStack-root css-7ziy04-MuiStack-root"
       >
         <div
           class="MuiFormControl-root MuiTextField-root css-1p0a819-MuiFormControl-root-MuiTextField-root"

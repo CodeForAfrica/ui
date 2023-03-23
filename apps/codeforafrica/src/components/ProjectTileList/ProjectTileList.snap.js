@@ -12,7 +12,7 @@ exports[`<ProjectTileList /> renders unchanged 1`] = `
         class="MuiPaper-root MuiPaper-outlined css-m6avhc-MuiPaper-root"
       >
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1vcwegk-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1ccxlif-MuiTypography-root-MuiLink-root"
           href="/projects/acfrican-drone"
         >
           <figure
@@ -34,7 +34,7 @@ exports[`<ProjectTileList /> renders unchanged 1`] = `
             africanDRONE
           </h4>
           <div
-            class="css-fbzq2r-MuiStack-root"
+            class="MuiStack-root css-fbzq2r-MuiStack-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body3SemiBold css-dyfp2-MuiTypography-root"

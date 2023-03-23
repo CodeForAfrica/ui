@@ -113,7 +113,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
                     knowledgeAFRICA
                   </h4>
                   <div
-                    class="css-1v20l1v-MuiStack-root"
+                    class="MuiStack-root css-1v20l1v-MuiStack-root"
                   >
                     <span
                       class="MuiTypography-root MuiTypography-body3SemiBold css-dyfp2-MuiTypography-root"
@@ -148,7 +148,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
               class="MuiCardActions-root MuiCardActions-spacing css-1jzc3k6-MuiCardActions-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium active css-jhz171-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium active css-15w6lcd-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="https://codeforafrica.org"
                 rel="noreferrer noopener"
                 tabindex="0"
@@ -184,7 +184,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true css-1vcuf8r-MuiGrid-root"
         >
           <div
-            class="css-bqx4d1-MuiStack-root"
+            class="MuiStack-root css-bqx4d1-MuiStack-root"
           >
             <div
               class="MuiTypography-root MuiTypography-h5Small css-1rq9mfe-MuiTypography-root"
@@ -192,7 +192,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
               Details
             </div>
             <div
-              class="css-11d7185-MuiStack-root"
+              class="MuiStack-root css-11d7185-MuiStack-root"
             >
               <div
                 class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
@@ -200,7 +200,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
                 Share This Project
               </div>
               <div
-                class="css-163j9ep-MuiStack-root"
+                class="MuiStack-root css-163j9ep-MuiStack-root"
               >
                 <button
                   aria-label="Twitter"
@@ -252,7 +252,7 @@ exports[`<Pages/Projects/[Slug] /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-17q9xai-MuiGrid-root"
         >
           <div
-            class="css-hhh1r-MuiStack-root"
+            class="MuiStack-root css-hhh1r-MuiStack-root"
           >
             <div
               class="MuiTypography-root MuiTypography-h5 css-1a7nesc-MuiTypography-root"

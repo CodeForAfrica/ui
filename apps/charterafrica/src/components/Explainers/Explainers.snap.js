@@ -14,7 +14,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
         Explainers
       </div>
       <div
-        class="css-nen11g-MuiStack-root"
+        class="MuiStack-root css-nen11g-MuiStack-root"
       >
         <figure
           class="MuiBox-root css-db5opy"
@@ -45,39 +45,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
         class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
       />
       <div
-        class="css-nen11g-MuiStack-root"
-      >
-        <figure
-          class="MuiBox-root css-db5opy"
-        >
-          <img
-            alt="Event title going on two or even three lines"
-            class="css-g98gbd"
-            data-nimg="1"
-            decoding="async"
-            height="0"
-            loading="lazy"
-            src="/_next/image?url=https%3A%2F%2Fuser-images.githubusercontent.com%2F39160236%2F214778112-7aefbe8f-11f2-423f-b6c9-a284feaf9b33.png&w=16&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fuser-images.githubusercontent.com%2F39160236%2F214778112-7aefbe8f-11f2-423f-b6c9-a284feaf9b33.png&w=16&q=75 1x"
-            style="color: transparent; width: 100%; height: auto;"
-            width="0"
-          />
-        </figure>
-        <div
-          class="MuiBox-root css-0"
-        >
-          <p
-            class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
-          >
-            Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
-          </p>
-        </div>
-      </div>
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
-      />
-      <div
-        class="css-nen11g-MuiStack-root"
+        class="MuiStack-root css-nen11g-MuiStack-root"
       >
         <figure
           class="MuiBox-root css-db5opy"
@@ -109,7 +77,7 @@ exports[`<Explainers /> renders unchanged 1`] = `
         class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
       />
       <div
-        class="css-nen11g-MuiStack-root"
+        class="MuiStack-root css-nen11g-MuiStack-root"
       >
         <figure
           class="MuiBox-root css-db5opy"
@@ -141,7 +109,39 @@ exports[`<Explainers /> renders unchanged 1`] = `
         class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
       />
       <div
-        class="css-nen11g-MuiStack-root"
+        class="MuiStack-root css-nen11g-MuiStack-root"
+      >
+        <figure
+          class="MuiBox-root css-db5opy"
+        >
+          <img
+            alt="Event title going on two or even three lines"
+            class="css-g98gbd"
+            data-nimg="1"
+            decoding="async"
+            height="0"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fuser-images.githubusercontent.com%2F39160236%2F214778112-7aefbe8f-11f2-423f-b6c9-a284feaf9b33.png&w=16&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fuser-images.githubusercontent.com%2F39160236%2F214778112-7aefbe8f-11f2-423f-b6c9-a284feaf9b33.png&w=16&q=75 1x"
+            style="color: transparent; width: 100%; height: auto;"
+            width="0"
+          />
+        </figure>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+          >
+            Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
+          </p>
+        </div>
+      </div>
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
+      />
+      <div
+        class="MuiStack-root css-nen11g-MuiStack-root"
       >
         <figure
           class="MuiBox-root css-db5opy"
