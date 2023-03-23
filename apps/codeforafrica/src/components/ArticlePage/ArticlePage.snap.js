@@ -28,7 +28,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         Article
       </div>
       <div
-        class="MuiStack-root css-1rvuxdl-MuiStack-root"
+        class="css-1rvuxdl-MuiStack-root"
       >
         <div
           class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
@@ -36,7 +36,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           Share This Article
         </div>
         <div
-          class="MuiStack-root css-163j9ep-MuiStack-root"
+          class="css-163j9ep-MuiStack-root"
         >
           <button
             aria-label="Twitter"
@@ -94,7 +94,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fwha7w-MuiContainer-root"
     >
       <div
-        class="MuiStack-root css-1rua2vy-MuiStack-root"
+        class="css-1rua2vy-MuiStack-root"
       >
         <div
           class="MuiTypography-root MuiTypography-body2 css-tua52g-MuiTypography-root"
@@ -102,7 +102,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           Article by
         </div>
         <div
-          class="MuiStack-root css-l87b14-MuiStack-root"
+          class="css-l87b14-MuiStack-root"
         />
       </div>
     </address>

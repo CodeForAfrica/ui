@@ -33,7 +33,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
           Our team
         </div>
         <div
-          class="MuiStack-root css-1vi1n47-MuiStack-root"
+          class="css-1vi1n47-MuiStack-root"
         >
           <div
             class="MuiFormControl-root MuiTextField-root css-112en4k-MuiFormControl-root-MuiTextField-root"
@@ -88,7 +88,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"
       >
         <div
-          class="MuiStack-root css-163ljxj-MuiStack-root"
+          class="css-163ljxj-MuiStack-root"
         >
           <div
             class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-vpgnax-MuiTypography-root"
@@ -101,7 +101,7 @@ exports[`<Pages/About/Members /> renders unchanged 1`] = `
             We'd love to hear more.
           </div>
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge css-1rn1a08-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge css-1uif8c1-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
             href="/contact"
             tabindex="0"
           >

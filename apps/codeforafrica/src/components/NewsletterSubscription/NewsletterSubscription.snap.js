@@ -3,7 +3,7 @@
 exports[`<NewsletterSubscription /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiStack-root css-4qg6bb-MuiStack-root"
+    class="css-4qg6bb-MuiStack-root"
   >
     <div
       class="MuiTypography-root MuiTypography-body1 css-emierv-MuiTypography-root"

@@ -59,7 +59,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-14eadhm"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-bmq8gb-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1cv723u-MuiTypography-root-MuiLink-root"
         href="https://twitter.com/Code4Africa"
         rel="noreferrer noopener"
         target="_blank"

@@ -14,7 +14,7 @@ exports[`<OurTeam /> renders unchanged 1`] = `
         Our team
       </div>
       <div
-        class="MuiStack-root css-1vi1n47-MuiStack-root"
+        class="css-1vi1n47-MuiStack-root"
       >
         <div
           class="MuiFormControl-root MuiTextField-root css-112en4k-MuiFormControl-root-MuiTextField-root"

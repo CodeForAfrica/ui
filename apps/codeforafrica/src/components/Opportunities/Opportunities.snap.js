@@ -7,7 +7,7 @@ exports[`<Opportunities /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1an3gwn-MuiContainer-root"
     >
       <div
-        class="MuiStack-root css-7ziy04-MuiStack-root"
+        class="css-7ziy04-MuiStack-root"
       >
         <div
           class="MuiFormControl-root MuiTextField-root css-1p0a819-MuiFormControl-root-MuiTextField-root"

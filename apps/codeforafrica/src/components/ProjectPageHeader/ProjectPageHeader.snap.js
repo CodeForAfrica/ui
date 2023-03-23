@@ -96,7 +96,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
                   class="MuiTypography-root MuiTypography-h4 css-yd0a7d-MuiTypography-root"
                 />
                 <div
-                  class="MuiStack-root css-1v20l1v-MuiStack-root"
+                  class="css-1v20l1v-MuiStack-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body3SemiBold css-dyfp2-MuiTypography-root"
