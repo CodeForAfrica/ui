@@ -5,6 +5,7 @@ import Error from "../blocks/Error";
 import FAQ from "../blocks/FAQ";
 import FeaturedPost from "../blocks/FeaturedPost";
 import Global from "../blocks/Global";
+import Grantees from "../blocks/Grantees";
 import GuidingPrincipals from "../blocks/GuidingPrinciples";
 import Hero from "../blocks/Hero";
 import Impressum from "../blocks/Impressum";
@@ -50,6 +51,7 @@ const Pages = {
         FeaturedPost,
         Global,
         GuidingPrincipals,
+        Grantees,
         Hero,
         Impressum,
         LongForm,
