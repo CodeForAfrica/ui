@@ -14,14 +14,16 @@ const DocumentList = React.forwardRef(function DocumentList(props, ref) {
   const [totalPages, setTotalPages] = useState(0);
   const [page, setPage] = useState(1);
 
+  const handleChangePage = (_, value) => {
+    setPage(value);
+  };
+
   const { data } = useDocumentSearch(groups, {
     page,
     per_page: 8,
     contributor: true,
   });
-  const handleChangePage = (_, value) => {
-    setPage(value);
-  };
+
   useEffect(() => {
     if (data) {
       const {
