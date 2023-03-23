@@ -70,6 +70,7 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
             direction="row"
             alignItems="center"
             justifyContent="flex-start"
+            wrap="nowrap"
             sx={{
               mt: 2,
             }}
@@ -81,7 +82,7 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
                 sm: "subheading",
               }}
             >
-              {pages} Pages
+              {`${pages} Pages`}
             </RichTypography>
             <Span>.</Span>
             <RichTypography
@@ -91,7 +92,7 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
                 sm: "subheading",
               }}
             >
-              Contributed by: {contributor}
+              {`Contributed by: ${contributor}`}
             </RichTypography>
           </Grid>
           <Grid item xs={12}>
