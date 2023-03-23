@@ -10,12 +10,13 @@ const Span = styled("span")(({ theme }) => ({
 
 const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
   const {
-    title,
-    pages,
+    contributor,
     created_at: publishDated,
     image,
-    contributor,
+    locale,
+    pages,
     sx,
+    title,
   } = props;
 
   return (
@@ -83,7 +84,7 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
                 my: 2,
               }}
             >
-              {new Date(publishDated).toLocaleDateString("en-US", {
+              {new Date(publishDated).toLocaleDateString(locale, {
                 month: "long",
                 day: "numeric",
                 year: "numeric",

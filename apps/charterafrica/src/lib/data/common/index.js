@@ -68,6 +68,7 @@ async function processPageConsultation(page, api, { locale }) {
     slug: collection,
     groups,
     description,
+    locale,
   });
   return page;
 }
