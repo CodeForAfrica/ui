@@ -38,10 +38,6 @@ function Index({ blocks }) {
 }
 
 export async function getServerSideProps({ defaultLocale, locale, locales }) {
-  const fc = await payload.findGlobal("focal-countries", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
   const helpdesk = await payload.findGlobal("helpdesk", {
     locale,
     fallbackLocale: defaultLocale,
@@ -159,10 +155,6 @@ export async function getServerSideProps({ defaultLocale, locale, locales }) {
         hero,
         spotlight,
         ecosystem,
-        {
-          slug: "focal-countries",
-          ...fc,
-        },
         ourResources,
         mooc,
         helpdesk,
