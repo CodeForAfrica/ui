@@ -29,12 +29,8 @@ const Consultations = forwardRef((props, ref) => {
 
 Consultations.propTypes = {
   config: PropTypes.shape({}),
-  featuredConsultations: PropTypes.shape({
-    items: PropTypes.arrayOf(PropTypes.shape({})),
-  }),
-  otherConsultations: PropTypes.shape({
-    items: PropTypes.arrayOf(PropTypes.shape({})),
-  }),
+  featuredConsultations: PropTypes.arrayOf(PropTypes.shape({})),
+  otherConsultations: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 Consultations.defaultProps = {

@@ -15,7 +15,7 @@ const youtube = async (req, res) => {
   try {
     const { service, ...rest } = req.query;
     const url = service?.slice(1).join("/");
-    const key = process.env.GOOGLE_API_KEY;
+    const key = process.env.GOOGLE_MAPS_API_KEY;
     const queryParams = { key, ...rest };
     const queryString = new URLSearchParams(queryParams).toString();
     const youtubeBaseUrl = `https://www.googleapis.com/youtube/v3`;
