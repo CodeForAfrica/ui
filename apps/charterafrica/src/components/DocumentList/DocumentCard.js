@@ -13,7 +13,7 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
     title,
     pages,
     created_at: publishDated,
-    resources,
+    image,
     contributor,
     sx,
   } = props;
@@ -23,6 +23,7 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
       ref={ref}
       sx={{
         my: 2,
+        border: "none",
         ...sx,
       }}
     >
@@ -35,7 +36,7 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
       >
         <CardMedia
           component="img"
-          image={resources.thumbnail}
+          image={image}
           sx={{
             width: "100px",
             height: "140px",

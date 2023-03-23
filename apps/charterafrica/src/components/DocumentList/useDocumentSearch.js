@@ -13,7 +13,6 @@ function useDocumentSearch(groups, options) {
     `/api/v1/opportunities/consultation/search?${paramsString}`,
     fetcher
   );
-
   return {
     data,
     isLoading: !error && !data,

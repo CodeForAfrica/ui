@@ -30,6 +30,9 @@ const DocumentList = React.forwardRef(function DocumentList(props, ref) {
     }
   }, [data]);
 
+  if (!documents.length) {
+    return null;
+  }
   return (
     <Box bgcolor="common.white" sx={sx} ref={ref}>
       <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: 10 } }}>
