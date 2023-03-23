@@ -100,11 +100,8 @@ async function processPageConsultations(page) {
 
   const consultation = blocks[consultationIndex];
 
-  const otherConsultations = await getVideosFromPlaylist(
-    consultation?.playlistId
-  );
+  const playlistitems = await getVideosFromPlaylist(consultation?.playlistId);
   blocks[consultationIndex] = {
-    ...consultation,
     slug: "consultations",
     config: {
       mostRecentText: "Most Recent",
@@ -114,7 +111,14 @@ async function processPageConsultations(page) {
       previousTitle: "Previous Consultations",
       airedOnText: "Aired On",
     },
-    otherConsultations,
+    featuredConsultations: {
+      items: consultation.featured,
+      title: consultation.title,
+    },
+    otherConsultations: {
+      items: playlistitems,
+      title: consultation.title,
+    },
   };
 
   return page;

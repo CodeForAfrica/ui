@@ -2,27 +2,39 @@ import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
 
-import AllConsultations from "./AllConsultations";
+import ConsultationList from "./ConsultationList";
+
+import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
 const Consultations = forwardRef((props, ref) => {
-  const { config, featuredConsultations, otherConsultations } = props;
+  const {
+    config,
+    featuredConsultations: { items },
+    otherConsultations,
+  } = props;
   return (
-    <Box ref={ref}>
-      <AllConsultations
+    <Box bgcolor="common.white" ref={ref}>
+      <ConsultationList
         sx={{ py: 6.25 }}
-        title=""
         isFeatured
-        consultationTitle={featuredConsultations?.title}
-        items={featuredConsultations}
+        items={items}
         config={config}
       />
-      <AllConsultations
-        sx={{ py: 12.5 }}
-        title={config.previousTitle}
-        consultationTitle={otherConsultations?.title}
-        items={otherConsultations}
-        config={config}
-      />
+      <Box sx={{ py: 12.5 }}>
+        <LineClampedRichTypography
+          color="neutral.dark"
+          lineClamp={1}
+          textAlign="center"
+          variant="h2"
+        >
+          {config.previousTitle}
+        </LineClampedRichTypography>
+        <ConsultationList
+          title={otherConsultations?.title}
+          items={otherConsultations?.items}
+          config={config}
+        />
+      </Box>
     </Box>
   );
 });

@@ -67,7 +67,7 @@ const Consultations = {
       ],
     },
     {
-      name: "featuredConsultations",
+      name: "featured",
       label: {
         en: "Featured Consultations",
         fr: "Consultations en vedette",
@@ -85,11 +85,6 @@ const Consultations = {
           type: "text",
           required: true,
           localized: true,
-        },
-        {
-          name: "airedOn",
-          label: { en: "Aired On", fr: "Diffusé", pt: "Foi ao ar" },
-          type: "date",
         },
         {
           name: "videoLink",
