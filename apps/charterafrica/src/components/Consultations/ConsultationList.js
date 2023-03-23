@@ -18,7 +18,7 @@ const ConsultationList = forwardRef(function ConsultationList(props, ref) {
   return (
     <Box
       bgcolor={isFeatured ? neutral[50] : "common.white"}
-      sx={{ py: 6.25, ...sx }}
+      sx={{ p: 6.25, ...sx }}
       ref={ref}
     >
       <LineClampedRichTypography
