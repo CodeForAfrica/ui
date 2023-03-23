@@ -5,12 +5,13 @@ import React, { useState, useEffect } from "react";
 import DocumentCard from "./DocumentCard";
 import useDocumentSearch from "./useDocumentSearch";
 
+import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import RichText from "@/charterafrica/components/RichText";
 
 const DocumentList = React.forwardRef(function DocumentList(props, ref) {
   const { description, groups, sx } = props;
   const [documents, setDocuments] = useState([]);
-  // const [totalPages, setTotalPages] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
   const [page, setPage] = useState(1);
 
   const { data } = useDocumentSearch(groups, {
@@ -18,17 +19,23 @@ const DocumentList = React.forwardRef(function DocumentList(props, ref) {
     per_page: 8,
     contributor: true,
   });
+  const handleChangePage = (_, value) => {
+    console.log("value", value);
+    setPage(value);
+  };
   useEffect(() => {
     if (data) {
       const {
         documents: foundDocuments,
-        /* total, per_page:pageSize, */ page: currentPage,
+        total,
+        per_page: pageSize,
+        page: currentPage,
       } = data;
       setDocuments(foundDocuments);
-      // setTotalPages(Math.ceil(total / per_page));
+      setTotalPages(Math.ceil(total / pageSize));
       setPage(currentPage);
     }
-  }, [data]);
+  }, [data, page]);
 
   if (!documents.length) {
     return null;
@@ -72,6 +79,14 @@ const DocumentList = React.forwardRef(function DocumentList(props, ref) {
             <DocumentCard {...document} key={document.id} />
           ))}
         </Box>
+        <NextPrevPagination
+          count={totalPages}
+          onChange={handleChangePage}
+          page={page}
+          sx={{
+            bgcolor: "common.white",
+          }}
+        />
       </Section>
     </Box>
   );
