@@ -1,12 +1,8 @@
 import { RichTypography } from "@commons-ui/core";
-import { Card, CardMedia, CardActionArea, Grid, styled } from "@mui/material";
+import { Card, CardMedia, CardActionArea, Grid } from "@mui/material";
 import React from "react";
 
-const Span = styled("span")(({ theme }) => ({
-  margin: theme.spacing(0, 1),
-  fontSize: "1rem",
-  fontWeight: "bold",
-}));
+import Separator from "./Separator";
 
 const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
   const {
@@ -84,7 +80,7 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
             >
               {`${pages} Pages`}
             </RichTypography>
-            <Span>.</Span>
+            <Separator />
             <RichTypography
               color="black"
               typography={{
