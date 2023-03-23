@@ -3,7 +3,7 @@
 exports[`<SocialMediaBar /> renders unchanged 1`] = `
 <div>
   <div
-    class="css-mpycnp-MuiStack-root"
+    class="MuiStack-root css-mpycnp-MuiStack-root"
   >
     <div
       class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
@@ -11,7 +11,7 @@ exports[`<SocialMediaBar /> renders unchanged 1`] = `
       Connect with: 
     </div>
     <div
-      class="css-163j9ep-MuiStack-root"
+      class="MuiStack-root css-163j9ep-MuiStack-root"
     />
   </div>
 </div>

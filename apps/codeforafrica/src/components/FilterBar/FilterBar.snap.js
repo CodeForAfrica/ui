@@ -3,7 +3,7 @@
 exports[`<FilterBar /> renders unchanged 1`] = `
 <div>
   <div
-    class="css-7ziy04-MuiStack-root"
+    class="MuiStack-root css-7ziy04-MuiStack-root"
   >
     <div
       class="MuiFormControl-root MuiTextField-root css-1p0a819-MuiFormControl-root-MuiTextField-root"

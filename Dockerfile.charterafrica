@@ -42,6 +42,7 @@ ARG NEXT_TELEMETRY_DISABLED=1 \
     # Needed by Next.js at build time
     NEXT_PUBLIC_APP_NAME=charterAFRICA \
     NEXT_PUBLIC_APP_URL=http://localhost:3000 \
+    NEXT_PUBLIC_GA_MEASUREMENT_ID="" \
     # Needed by Next.js and server.ts at build time
     PORT=3000 \
     # Needed by Payload at Next.js build time (see below for Payload's own
@@ -75,6 +76,7 @@ RUN rm -rf /var/cache/apk/*
 ARG NEXT_TELEMETRY_DISABLED \
    NEXT_PUBLIC_APP_NAME \
    NEXT_PUBLIC_APP_URL \
+   NEXT_PUBLIC_GA_MEASUREMENT_ID \
    PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
    PAYLOAD_PUBLIC_APP_URL \
    PORT
@@ -82,6 +84,7 @@ ARG NEXT_TELEMETRY_DISABLED \
 ENV NODE_ENV=production \
     NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME} \
     NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
+    NEXT_PUBLIC_GA_MEASUREMENT_ID=${NEXT_PUBLIC_GA_MEASUREMENT_ID} \
     NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
     PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
     PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
