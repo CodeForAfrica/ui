@@ -8,9 +8,9 @@ function fullSlugFromBreadcrumbs({ breadcrumbs } = {}) {
 
 function formatPagePath(collection, doc) {
   const { slug } = doc;
-  let pageSlug = fullSlugFromBreadcrumbs(doc);
-  if (!pageSlug) {
-    pageSlug = slug !== "index" ? slug : "";
+  let pageSlug = fullSlugFromBreadcrumbs(doc) || slug || "";
+  if (pageSlug === "index") {
+    pageSlug = "";
   }
   let prefix = "";
   if (collection) {
