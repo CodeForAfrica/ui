@@ -27,42 +27,55 @@ const Consultations = {
       },
       fields: [
         {
-          name: "title",
-          label: {
-            en: "Title",
-            fr: "Titre",
-            pt: "Título",
-          },
-          type: "text",
-          required: true,
-          localized: true,
-        },
-        {
-          name: "playlistLink",
-          label: {
-            en: "Playlist",
-            fr: "Playlist",
-            pt: "Lista de reprodução",
-          },
-          type: "text",
-          required: true,
-          localized: true,
-        },
-        {
-          name: "playlistId",
-          label: {
-            en: "Playlist ID",
-            fr: "Identifiant de la liste de lecture",
-            pt: "ID da lista de reprodução",
-          },
-          admin: {
-            hidden: true,
-          },
-          hooks: {
-            beforeValidate: [mapPlaylistLinkToId],
-          },
-          type: "text",
-          localized: true,
+          type: "group",
+          name: "playlist",
+          fields: [
+            {
+              name: "title",
+              label: {
+                en: "Title",
+                fr: "Titre",
+                pt: "Título",
+              },
+              admin: {
+                description: () => "Playlist title e.g previous consultation",
+              },
+              type: "text",
+              required: true,
+              localized: true,
+            },
+            {
+              name: "playlistLink",
+              label: {
+                en: "Playlist URL",
+                fr: "URL de liste de lecture",
+                pt: "URL da lista de reprodução",
+              },
+              type: "text",
+              admin: {
+                description: () =>
+                  "Valid youtube playlist URL e.g https://www.youtube.com/watch?list=RDEMPsM0esWCZxNU2OE89iz0kA or https://www.youtube.com/playlist?list=PLd9BS3XfsFcw4zmhpJWANl6HWc4olrKkg",
+              },
+              required: true,
+              localized: true,
+            },
+            {
+              name: "playlistId",
+              label: {
+                en: "Playlist ID",
+                fr: "Identifiant de la liste de lecture",
+                pt: "ID da lista de reprodução",
+              },
+              admin: {
+                hidden: true,
+              },
+              hooks: {
+                beforeValidate: [mapPlaylistLinkToId],
+              },
+              type: "text",
+              localized: true,
+            },
+          ],
         },
       ],
     },

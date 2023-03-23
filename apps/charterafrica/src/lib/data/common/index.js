@@ -1,7 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
-import fetchJson from "@/charterafrica/utils/fetchJson";
+import fetchYoutube from "@/charterafrica/lib/youtube";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import queryString from "@/charterafrica/utils/queryString";
 
@@ -71,16 +71,7 @@ async function getVideosFromPlaylist(playlistId) {
     return [];
   }
 
-  const BASE_URL = process.env.PAYLOAD_PUBLIC_APP_URL;
-  const params = {
-    playlistId,
-    part: "snippet",
-    maxResults: 10,
-  };
-  const videosFromApi = await fetchJson.get(
-    `${BASE_URL}/api/v1/opportunities/consultation/youtube/playlistItems`,
-    { params }
-  );
+  const videosFromApi = await fetchYoutube("/playlistItems", playlistId);
 
   const items = videosFromApi.items?.map(({ snippet, ...restArgs }) => ({
     ...snippet,
@@ -99,7 +90,9 @@ async function processPageConsultations(page) {
 
   const consultation = blocks[consultationIndex];
 
-  const playlistItems = await getVideosFromPlaylist(consultation?.playlistId);
+  const playlistItems = await getVideosFromPlaylist(
+    consultation?.playlist?.playlistId
+  );
   blocks[consultationIndex] = {
     slug: "consultations",
     config: {
@@ -112,11 +105,10 @@ async function processPageConsultations(page) {
     },
     featuredConsultations: {
       items: consultation.featured,
-      title: consultation.title,
     },
     otherConsultations: {
       items: playlistItems,
-      title: consultation.title,
+      title: consultation.playlist.title,
     },
   };
 

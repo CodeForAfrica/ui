@@ -4,8 +4,6 @@ import React, { forwardRef } from "react";
 
 import ConsultationList from "./ConsultationList";
 
-import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
-
 const Consultations = forwardRef((props, ref) => {
   const {
     config,
@@ -20,21 +18,11 @@ const Consultations = forwardRef((props, ref) => {
         items={items}
         config={config}
       />
-      <Box sx={{ py: 12.5 }}>
-        <LineClampedRichTypography
-          color="neutral.dark"
-          lineClamp={1}
-          textAlign="center"
-          variant="h2"
-        >
-          {config.previousTitle}
-        </LineClampedRichTypography>
-        <ConsultationList
-          title={otherConsultations?.title}
-          items={otherConsultations?.items}
-          config={config}
-        />
-      </Box>
+      <ConsultationList
+        title={otherConsultations?.title}
+        items={otherConsultations?.items}
+        config={config}
+      />
     </Box>
   );
 });

@@ -21,19 +21,28 @@ const ConsultationList = forwardRef(function ConsultationList(props, ref) {
       sx={{ py: 6.25, ...sx }}
       ref={ref}
     >
+      <LineClampedRichTypography
+        color="neutral.dark"
+        lineClamp={1}
+        textAlign="center"
+        variant="h2"
+        sx={{ py: 6.25 }}
+      >
+        {title}
+      </LineClampedRichTypography>
       <Section>
-        <LineClampedRichTypography
-          color="neutral.dark"
-          fontWeight={{ xs: 400, md: 400 }}
-          lineClamp={1}
-          variant="h3"
-        >
-          {title}
-        </LineClampedRichTypography>
         {items.map((consultation) => {
           const { description, id } = consultation;
           return (
             <Box sx={{ pb: 6.25 }} key={id}>
+              <LineClampedRichTypography
+                color="neutral.dark"
+                fontWeight={{ xs: 400, md: 400 }}
+                lineClamp={1}
+                variant="h3"
+              >
+                {consultation.title}
+              </LineClampedRichTypography>
               <LineClampedRichTypography
                 lineClamp={1}
                 sx={{ pb: 1.25 }}
