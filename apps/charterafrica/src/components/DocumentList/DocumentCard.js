@@ -55,7 +55,13 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
           }}
         >
           <Grid item xs={12}>
-            <RichTypography color="neutral.dark" variant="h2SemiBold">
+            <RichTypography
+              color="neutral.dark"
+              variant={{
+                xs: "h6SmallSemiBold",
+                sm: "h2SemiBold",
+              }}
+            >
               {title}
             </RichTypography>
           </Grid>
@@ -68,18 +74,30 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
               mt: 2,
             }}
           >
-            <RichTypography color="black" variant="subheading">
+            <RichTypography
+              color="black"
+              variant={{
+                xs: "caption",
+                sm: "subheading",
+              }}
+            >
               {pages} Pages
             </RichTypography>
             <Span>.</Span>
-            <RichTypography color="black" variant="subheading">
+            <RichTypography
+              color="black"
+              variant={{
+                xs: "caption",
+                sm: "subheading",
+              }}
+            >
               Contributed by: {contributor}
             </RichTypography>
           </Grid>
           <Grid item xs={12}>
             <RichTypography
               color="black"
-              variant="subheading"
+              variant={{ xs: "caption", sm: "subheading" }}
               sx={{
                 my: 2,
               }}

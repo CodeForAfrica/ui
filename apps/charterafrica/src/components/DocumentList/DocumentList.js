@@ -20,7 +20,6 @@ const DocumentList = React.forwardRef(function DocumentList(props, ref) {
     contributor: true,
   });
   const handleChangePage = (_, value) => {
-    console.log("value", value);
     setPage(value);
   };
   useEffect(() => {
