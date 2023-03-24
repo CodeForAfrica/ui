@@ -694,7 +694,7 @@ function getContactPageStaticProps() {
           ...getOurOffices(),
           addresses: getOffices(),
           map: {
-            apiKey: process.env.GOOGLE_MAPS_API_KEY ?? null,
+            apiKey: process.env.GOOGLE_API_KEY ?? null,
             zoom: 20,
             zoomControl: false,
             mapTypeControl: false,

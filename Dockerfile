@@ -28,7 +28,7 @@ ARG NEXT_TELEMETRY_DISABLED=1 \
     PROJECT_ROOT="../../" \
     # Since some pages are completely rendered during build, we need
     # these secret ARGs defined in the builder
-    GOOGLE_MAPS_API_KEY="" \
+    GOOGLE_API_KEY="" \
     GHOST_API_KEY \
     # APP is build time arg only. Shouldn't be used in the image.
     APP
