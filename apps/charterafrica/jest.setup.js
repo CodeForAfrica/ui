@@ -15,6 +15,9 @@ global.TextDecoder = jest.fn().mockImplementation(() => ({
   decode: jest.fn(),
 }));
 
+// https://github.com/jsdom/jsdom/issues/1695
+global.Element.prototype.scrollIntoView = jest.fn();
+
 // NOTE: Since we use Jest for component testing i.e. unit testing, it's not
 //       recommended to load external env vars (since outcome will not be
 //       predictable)
