@@ -17,6 +17,7 @@ const StyledDiv = styled(Box)({
     borderRadius: 0,
     background: "rgba(62,32,44, 0.9)",
     border: "none",
+    margin: 0,
   },
   "& .video-js .vjs-big-play-button:hover": {
     height: "100%",

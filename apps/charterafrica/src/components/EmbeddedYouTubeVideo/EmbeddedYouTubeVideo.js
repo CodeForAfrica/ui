@@ -10,16 +10,18 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const EmbededYoutubeVideo = forwardRef((props, ref) => {
   const { config, videoId } = props;
+  const [sort, setSort] = useState("relevance");
 
-  const [params, setParams] = useState({
+  const params = {
     videoId,
     part: ["snippet", "replies"],
-    sort: "relevance",
-  });
+    sort,
+    pathname: "/commentThreads",
+  };
 
   const searchParams = new URLSearchParams(params).toString();
   const { data } = useSWR(
-    `/api/v1/opportunities/consultation/youtube/commentThreads?${searchParams}`,
+    `/api/v1/opportunities/consultation/multimedia?${searchParams}`,
     fetcher
   );
 
@@ -41,7 +43,7 @@ const EmbededYoutubeVideo = forwardRef((props, ref) => {
       <Comments
         comments={comments}
         config={config}
-        onSortChange={(e) => setParams((v) => ({ ...v, sort: e.target.value }))}
+        onSortChange={(e) => setSort(e.target.value)}
         sx={{
           border: "1px solid",
           borderColor: "neutral.dark",

@@ -45,7 +45,7 @@ const Consultations = {
               localized: true,
             },
             {
-              name: "playlistLink",
+              name: "link",
               label: {
                 en: "Playlist URL",
                 fr: "URL de liste de lecture",
@@ -54,26 +54,20 @@ const Consultations = {
               type: "text",
               admin: {
                 description: () =>
-                  "Valid youtube playlist URL e.g https://www.youtube.com/watch?list=RDEMPsM0esWCZxNU2OE89iz0kA or https://www.youtube.com/playlist?list=PLd9BS3XfsFcw4zmhpJWANl6HWc4olrKkg",
+                  "Valid YouTube playlist URL e.g https://www.youtube.com/watch?list=RDEMPsM0esWCZxNU2OE89iz0kA or https://www.youtube.com/playlist?list=PLd9BS3XfsFcw4zmhpJWANl6HWc4olrKkg",
               },
               required: true,
-              localized: true,
             },
             {
               name: "playlistId",
-              label: {
-                en: "Playlist ID",
-                fr: "Identifiant de la liste de lecture",
-                pt: "ID da lista de reprodução",
-              },
               admin: {
                 hidden: true,
               },
+              required: true,
               hooks: {
                 beforeValidate: [mapPlaylistLinkToId],
               },
               type: "text",
-              localized: true,
             },
           ],
         },

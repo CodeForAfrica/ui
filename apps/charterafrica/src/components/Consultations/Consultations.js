@@ -5,38 +5,31 @@ import React, { forwardRef } from "react";
 import ConsultationList from "./ConsultationList";
 
 const Consultations = forwardRef((props, ref) => {
-  const {
-    config,
-    featuredConsultations: { items },
-    otherConsultations,
-  } = props;
+  const { config, featured, consultations, title } = props;
   return (
     <Box bgcolor="common.white" ref={ref}>
       <ConsultationList
         sx={{ py: 6.25 }}
         isFeatured
-        items={items}
+        items={featured}
         config={config}
       />
-      <ConsultationList
-        title={otherConsultations?.title}
-        items={otherConsultations?.items}
-        config={config}
-      />
+      <ConsultationList title={title} items={consultations} config={config} />
     </Box>
   );
 });
 
 Consultations.propTypes = {
   config: PropTypes.shape({}),
-  featuredConsultations: PropTypes.arrayOf(PropTypes.shape({})),
-  otherConsultations: PropTypes.arrayOf(PropTypes.shape({})),
+  featured: PropTypes.arrayOf(PropTypes.shape({})),
+  consultations: PropTypes.arrayOf(PropTypes.shape({})),
+  title: PropTypes.string.isRequired,
 };
 
 Consultations.defaultProps = {
   config: undefined,
-  featuredConsultations: undefined,
-  otherConsultations: undefined,
+  featured: undefined,
+  consultations: undefined,
 };
 
 export default Consultations;

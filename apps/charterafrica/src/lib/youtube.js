@@ -5,7 +5,7 @@ async function fetchYoutube(path, playlistId) {
     playlistId,
     part: "snippet",
     maxResults: 10,
-    key: process.env.GOOGLE_MAPS_API_KEY,
+    key: process.env.GOOGLE_API_KEY,
   };
   const res = await fetchJson.get(
     `https://www.googleapis.com/youtube/v3${path}`,
@@ -14,4 +14,10 @@ async function fetchYoutube(path, playlistId) {
   return res;
 }
 
-export default fetchYoutube;
+const fetchPlaylistItems = async (playlistId) =>
+  fetchYoutube("/playlistItems", playlistId);
+
+export default {
+  fetchYoutube,
+  fetchPlaylistItems,
+};
