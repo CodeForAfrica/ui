@@ -18,6 +18,5 @@ const fetchPlaylistItems = async (playlistId) =>
   fetchYoutube("/playlistItems", playlistId);
 
 export default {
-  fetchYoutube,
   fetchPlaylistItems,
 };

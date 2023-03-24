@@ -1,10 +1,8 @@
-import {
-  mapPlaylistLinkToId,
-  mapVideoUrlToId,
-} from "../utils/mapPlaylistLinkToId";
+import CustomSelect from "../fields/react/customSelect.tsx";
+import { mapPlaylistLinkToId } from "../utils/mapPlaylistLinkToId";
 
-const Consultations = {
-  slug: "consultation",
+const ConsultationsMultimedia = {
+  slug: "consultation-multimedia",
   labels: {
     singular: {
       en: "Consultation Playlist",
@@ -94,28 +92,20 @@ const Consultations = {
           localized: true,
         },
         {
-          name: "videoLink",
+          name: "videoId",
           label: { en: "Video", fr: "Vidéo", pt: "Vídeo" },
           type: "text",
           required: true,
           localized: true,
-        },
-        {
-          name: "videoId",
-          label: { en: "Video ID", fr: "Identifiant vidéo", pt: "ID do vídeo" },
           admin: {
-            hidden: true,
+            components: {
+              Field: CustomSelect,
+            },
           },
-          hooks: {
-            beforeValidate: [mapVideoUrlToId],
-          },
-          type: "text",
-          localized: true,
-          required: true,
         },
       ],
     },
   ],
 };
 
-export default Consultations;
+export default ConsultationsMultimedia;

@@ -17,8 +17,9 @@ const defaultProps = {
     previousTitle: "Previous Consultations",
     airedOnText: "Aired On",
   },
-  featuredConsultations: { items: [] },
-  otherConsultations: { items: [] },
+  featured: [],
+  consultations: [],
+  title: "Sample tiltle",
 };
 
 describe("<Consultations />", () => {

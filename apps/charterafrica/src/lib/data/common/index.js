@@ -86,29 +86,31 @@ async function getVideosFromPlaylist(playlistId) {
   return items;
 }
 
-async function processPageConsultations(page) {
+async function processPageConsultation(page) {
   const { blocks } = page;
   const consultationIndex = blocks.findIndex(
-    ({ slug }) => slug === "consultation"
+    ({ slug }) => slug === "consultation-multimedia"
   );
   const consultation = blocks[consultationIndex];
   const playlistItems = await getVideosFromPlaylist(
     consultation?.playlist?.playlistId
   );
-  blocks[consultationIndex] = {
-    slug: "consultations",
-    config: {
-      mostRecentText: "Most Recent",
-      relevanceText: "Relevance",
-      sortByText: "Sort by",
-      commentsLabel: "Comments",
-      previousTitle: "Previous Consultations",
-      airedOnText: "Aired On",
-    },
-    featured: consultation.featured,
-    consultations: playlistItems,
-    title: consultation.playlist.title,
-  };
+  if (consultationIndex > -1) {
+    blocks[consultationIndex] = {
+      slug: "consultations",
+      config: {
+        mostRecentText: "Most Recent",
+        relevanceText: "Relevance",
+        sortByText: "Sort by",
+        commentsLabel: "Comments",
+        previousTitle: "Previous Consultations",
+        airedOnText: "Aired On",
+      },
+      featured: consultation.featured,
+      consultations: playlistItems,
+      title: consultation.playlist.title,
+    };
+  }
 
   return page;
 }
@@ -633,7 +635,7 @@ async function processPageOpportunities(page, api, context) {
 
 const processPageFunctionsMap = {
   about: processPageAbout,
-  consultation: processPageConsultations,
+  consultation: processPageConsultation,
   explainers: processPageExplainers,
   events: processPageEvents,
   fellowships: processPageFellowships,
