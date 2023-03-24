@@ -13,6 +13,7 @@ env:
   DOKKU_REMOTE_URL: "ssh://dokku@charterafrica-1.prod.codeforafrica.org/charterafrica"
   IMAGE_NAME: "codeforafrica/charterafrica-ui"
   NEXT_PUBLIC_APP_URL: "https://charterafrica.prod.codeforafrica.org"
+  NEXT_PUBLIC_SEO_DISABLED: "false"
   VERSION_FILE_NAME: "./apps/charterafrica/package.json"
 
 jobs:
@@ -81,6 +82,7 @@ jobs:
             MONGO_URL=${{ secrets.CHARTERAFRICA_MONGO_URL }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ secrets.CHARTERAFRICA_GA_MEASUREMENT_ID }}
+            NEXT_PUBLIC_SEO_DISABLED=${{ env.NEXT_PUBLIC_SEO_DISABLED }}
             PAYLOAD_SECRET_KEY=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
