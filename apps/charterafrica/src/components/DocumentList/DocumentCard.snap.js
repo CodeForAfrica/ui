@@ -30,7 +30,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-14gykn4-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-p1 css-yv0gpw-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-2zk7gx-MuiTypography-root"
           >
             10 Pages
           </div>
@@ -40,7 +40,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
             .
           </span>
           <div
-            class="MuiTypography-root MuiTypography-p1 css-yv0gpw-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-ewz064-MuiTypography-root"
           >
             Contributed by: Contributor
           </div>
