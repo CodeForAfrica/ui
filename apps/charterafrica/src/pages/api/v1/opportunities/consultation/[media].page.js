@@ -40,5 +40,5 @@ export default async function handler(req, res) {
   if (response) {
     return response(req, res);
   }
-  return res.status(404).json({ error: "NOT FOUND" });
+  return res.status(404).json({ message: "UNKNOWN_MEDIA", media });
 }
