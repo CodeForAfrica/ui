@@ -4,6 +4,8 @@ import React from "react";
 
 import Separator from "./Separator";
 
+import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+
 const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
   const {
     contributor,
@@ -77,19 +79,23 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
                 xs: "caption",
                 sm: "subheading",
               }}
+              sx={{
+                whiteSpace: "nowrap",
+              }}
             >
               {`${pages} Pages`}
             </RichTypography>
             <Separator />
-            <RichTypography
+            <LineClampedRichTypography
               color="black"
               typography={{
                 xs: "caption",
                 sm: "subheading",
               }}
+              lineClamp={1}
             >
               {`Contributed by: ${contributor}`}
-            </RichTypography>
+            </LineClampedRichTypography>
           </Grid>
           <Grid item xs={12}>
             <RichTypography
