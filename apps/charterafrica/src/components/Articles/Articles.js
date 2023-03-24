@@ -1,4 +1,4 @@
-import { useMediaQuery, Box } from "@mui/material";
+import { useMediaQuery, Box, LinearProgress } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
@@ -61,23 +61,24 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryParams]);
 
-  const { data } = useArticles(slug, { locale, q, sort, page, pageSize });
+  const res = useArticles(slug, { locale, q, sort, page, pageSize });
   useEffect(() => {
-    const { results: foundArticles, totalPages: foundTotalPages = 0 } =
-      data || {};
-    setArticles(foundArticles);
-    setTotalPages(foundTotalPages);
-  }, [data]);
+    if (!res?.isLoading) {
+      const { data } = res;
+      const { results: foundArticles, totalPages: foundTotalPages = 0 } =
+        data || {};
+      setArticles(foundArticles);
+      setTotalPages(foundTotalPages);
+    }
+  }, [res]);
 
-  if (data?.isLoading) {
-    return null;
-  }
   return (
     <Box
       id="articles"
       sx={{
         backgroundColor: secondary[50],
-        minHeight: { xs: 64, md: 240 },
+        // TODO(kilemensi): May need to show "Articles not found message"
+        minHeight: 76,
         // Height of main navbar
         scrollMarginTop: { xs: "56px", sm: "64", md: "114px" },
         ...sx,
@@ -91,6 +92,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
         sort={sort}
         q={q}
       />
+      {res.isLoading ? <LinearProgress color="secondary" /> : null}
       {!queryParams ? <FeaturedPost {...featured} /> : null}
       <ArticleGrid articles={articles} sx={{ py: 8 }} />
       <NextPrevPagination
