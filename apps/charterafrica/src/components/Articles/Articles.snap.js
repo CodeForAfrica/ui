@@ -32,7 +32,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1u6lhwd-MuiInputBase-input-MuiOutlinedInput-input"
                 placeholder="Search"
                 type="search"
-                value=" "
+                value=""
               />
               <button
                 aria-label="search"
