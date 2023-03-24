@@ -63,11 +63,10 @@ const Articles = React.forwardRef(function Articles(props, ref) {
 
   const { data } = useArticles(slug, { locale, q, sort, page, pageSize });
   useEffect(() => {
-    if (data) {
-      const { results: foundArticles, totalPages: foundTotalPages } = data;
-      setArticles(foundArticles);
-      setTotalPages(foundTotalPages);
-    }
+    const { results: foundArticles, totalPages: foundTotalPages = 0 } =
+      data || {};
+    setArticles(foundArticles);
+    setTotalPages(foundTotalPages);
   }, [data]);
 
   if (data?.isLoading) {
@@ -78,6 +77,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
       id="articles"
       sx={{
         backgroundColor: secondary[50],
+        minHeight: { xs: 64, md: 240 },
         // Height of main navbar
         scrollMarginTop: { xs: "56px", sm: "64", md: "114px" },
         ...sx,

@@ -217,16 +217,13 @@ export async function getArticles(page, api, context) {
       _status: { equals: "published" },
     },
   });
-
-  if (!docs?.length) {
-    return null;
+  let results = [];
+  if (docs?.length) {
+    results = docs.map((post) => processPost(post, page, api, context));
   }
-  const processedArticles = docs.map((post) =>
-    processPost(post, page, api, context)
-  );
 
   return {
-    results: processedArticles,
+    results,
     totalPages,
   };
 }
