@@ -166,14 +166,9 @@ export async function getTags(page, api, context) {
 
 function getArticlesQuery(context) {
   const { query = {}, locale } = context;
-  const {
-    page: pageNumber = 1,
-    pageSize = 8,
-    q,
-    sort = "-publishedOn",
-  } = query;
+  const { page = 1, pageSize = 8, q, sort = "-publishedOn" } = query;
 
-  return { locale, page: pageNumber, pageSize, q, sort };
+  return { locale, page, pageSize, q, sort };
 }
 
 export async function getArticles(page, api, context) {
@@ -196,6 +191,16 @@ export async function getArticles(page, api, context) {
         {
           "tags.name": {
             contains: q,
+          },
+        },
+        {
+          "excerpt.children.text": {
+            like: q,
+          },
+        },
+        {
+          "content.richTextBlockFields.content.children.text": {
+            like: q,
           },
         },
       ],
