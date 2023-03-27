@@ -3,9 +3,8 @@ import useSWR from "swr";
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function useDocuments(groups, options) {
-  const groupsString = groups.map((group) => `group:${group}`).join(" ");
   const params = {
-    q: groupsString,
+    q: `group:${groups}`,
     type: "search",
     ...options,
   };

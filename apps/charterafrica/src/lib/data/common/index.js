@@ -101,17 +101,17 @@ async function getFeaturedConsultations(consultation, playlistItems) {
   return featured;
 }
 
-async function processPageConsultation(page, api, { locale }) {
+async function processPageConsultation(page) {
   const { blocks } = page;
 
-  const { docs: documentGroups } = await api.getCollection("documents", {
-    locale,
-  });
-  const groups = documentGroups.map((doc) => doc.groups);
-  blocks.push({
-    slug: "documents",
-    groups,
-  });
+  const { documents } =
+    blocks.find(({ slug }) => slug === "consultation-documents") || null;
+  if (documents) {
+    blocks.push({
+      slug: "documents",
+      ...documents,
+    });
+  }
 
   const consultationIndex = blocks.findIndex(
     ({ slug }) => slug === "consultation-multimedia"

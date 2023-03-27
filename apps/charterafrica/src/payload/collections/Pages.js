@@ -1,5 +1,5 @@
 import CommunityPlatforms from "../blocks/CommunityPlatforms";
-import Consultations from "../blocks/Consultations";
+import ConsultationDocuments from "../blocks/ConsultationDocuments";
 import ConsultationsMultimedia from "../blocks/ConsultationsMultimedia";
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import Ecosystem from "../blocks/Ecosystem";
@@ -46,7 +46,7 @@ const Pages = {
       type: "blocks",
       blocks: [
         CommunityPlatforms,
-        Consultations,
+        ConsultationDocuments,
         ConsultationsMultimedia,
         DemocracyHelpdeskContent,
         Ecosystem,
