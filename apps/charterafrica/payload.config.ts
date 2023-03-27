@@ -64,7 +64,7 @@ const adapter = s3Adapter({
     },
   },
   bucket: process?.env?.S3_BUCKET,
-});
+} as any);
 
 export default buildConfig({
   serverURL: appURL,
@@ -106,7 +106,7 @@ export default buildConfig({
       resolve: {
         ...config.resolve,
         fallback: {
-          ...config.resolve.fallback,
+          ...config?.resolve?.fallback,
           fs: false,
           os: false,
           "process/browser": false,
@@ -157,7 +157,7 @@ export default buildConfig({
       generateTitle: ({ doc }: any) => doc?.title?.value as string,
       generateURL: ({ doc, locale }: any) =>
         doc?.slug?.value ? `${appURL}/${locale}/${doc.slug.value}` : undefined,
-    }),
+    } as any),
     nestedDocs({
       collections: ["pages"],
       generateLabel: (_, doc) => doc.title as string,
