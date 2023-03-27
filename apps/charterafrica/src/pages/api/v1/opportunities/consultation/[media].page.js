@@ -1,13 +1,41 @@
-const DOCUMENTS_URL = "https://dc.sourceafrica.net/api/oembed.json";
+const BASE_DOCUMENTS_URL = "https://dc.sourceafrica.net/api/";
 const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
 
+function formatDocuments(data) {
+  const { documents, ...rest } = data || {};
+  const formattedDocuments = documents?.map((document) => {
+    const { resources, ...other } = document;
+    const { image } = resources.page;
+
+    const imageUrl = image
+      .replace("-p{page}", "-p1")
+      .replace("-{size}", "-normal");
+    console.log("imageUrl", imageUrl);
+    return {
+      ...other,
+      image: imageUrl,
+    };
+  });
+
+  return {
+    ...rest,
+    documents: formattedDocuments,
+  };
+}
+
 const documents = async (req, res) => {
-  const { url } = req.query;
+  const { type, ...rest } = req.query;
+  const params = new URLSearchParams(rest).toString();
+  const fullURL =
+    type === "search"
+      ? `${BASE_DOCUMENTS_URL}search.json?${params}`
+      : `${BASE_DOCUMENTS_URL}oembed.json?${params}`;
+
   try {
-    const fullURL = `${DOCUMENTS_URL}?url=${url}`;
     const response = await fetch(fullURL);
     const data = await response.json();
-    res.status(200).json(data);
+    const formattedData = type === "search" ? formatDocuments(data) : data;
+    res.status(200).json(formattedData);
   } catch (error) {
     res.status(500).json({ error });
   }

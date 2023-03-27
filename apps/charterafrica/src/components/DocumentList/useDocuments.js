@@ -6,11 +6,12 @@ function useDocuments(groups, options) {
   const groupsString = groups.map((group) => `group:${group}`).join(" ");
   const params = {
     q: groupsString,
+    type: "search",
     ...options,
   };
   const paramsString = new URLSearchParams(params).toString();
   const { data, error } = useSWR(
-    `/api/v1/opportunities/consultation/search?${paramsString}`,
+    `/api/v1/opportunities/consultation/documents?${paramsString}`,
     fetcher
   );
   return {

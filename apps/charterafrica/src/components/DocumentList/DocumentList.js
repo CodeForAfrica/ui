@@ -38,7 +38,7 @@ const DocumentList = React.forwardRef(function DocumentList(props, ref) {
     }
   }, [data, page]);
 
-  if (!documents.length) {
+  if (!documents?.length) {
     return null;
   }
   return (
