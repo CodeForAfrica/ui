@@ -8,8 +8,6 @@ import useSWR from "swr";
 
 import { mapPlaylistLinkToId } from "../../utils/mapPlaylistLinkToId";
 
-import "./styles.scss";
-
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function YoutubeSelect(props) {
@@ -17,7 +15,7 @@ function YoutubeSelect(props) {
 
   const { blocks } = getSiblingData(fields, "blocks");
   const currentBlock = blocks.find(
-    ({ blockType }) => blockType === "consultation-multimedia"
+    (block) => block?.blockType === "consultation-multimedia"
   );
   const link = currentBlock?.playlist?.link;
   const playlistId = mapPlaylistLinkToId({
