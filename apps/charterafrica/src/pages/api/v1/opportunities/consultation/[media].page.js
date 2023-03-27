@@ -10,7 +10,6 @@ function formatDocuments(data) {
     const imageUrl = image
       .replace("-p{page}", "-p1")
       .replace("-{size}", "-normal");
-    console.log("imageUrl", imageUrl);
     return {
       ...other,
       image: imageUrl,
