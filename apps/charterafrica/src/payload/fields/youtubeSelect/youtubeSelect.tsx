@@ -12,15 +12,16 @@ import "./styles.scss";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-const CustomSelect: FC<any> = (props) => {
+const YoutubeSelect: FC<any> = (props) => {
   const [fields] = useAllFormFields();
 
   const { blocks } = getSiblingData(fields, "blocks");
   const currentBlock = blocks.find(
     ({ blockType }) => blockType === "consultation-multimedia"
   );
+  const link = currentBlock?.playlist?.link;
   const playlistId = mapPlaylistLinkToId({
-    siblingData: { link: currentBlock?.playlist?.link },
+    siblingData: { link },
   });
   const params = {
     pathname: "/playlistItems",
@@ -37,8 +38,8 @@ const CustomSelect: FC<any> = (props) => {
       label: video?.snippet?.title,
       value: video?.snippet?.resourceId?.videoId,
     })) || [];
-  const options = useMemo(memoOptions, [playlistId, data?.items?.length]);
+  const options = useMemo(memoOptions, [playlistId, data?.items?.length, link]);
   return <Select {...props} options={options} />;
 };
 
-export default CustomSelect;
+export default YoutubeSelect;

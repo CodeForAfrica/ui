@@ -1,4 +1,4 @@
-import CustomSelect from "../fields/react/customSelect.tsx";
+import CustomSelect from "../fields/youtubeSelect/youtubeSelect.tsx";
 import { mapPlaylistLinkToId } from "../utils/mapPlaylistLinkToId";
 
 const ConsultationsMultimedia = {
@@ -36,7 +36,7 @@ const ConsultationsMultimedia = {
                 pt: "Título",
               },
               admin: {
-                description: () => "Playlist title e.g previous consultation",
+                description: () => "e.g Previous Consultation",
               },
               type: "text",
               required: true,
@@ -52,7 +52,7 @@ const ConsultationsMultimedia = {
               type: "text",
               admin: {
                 description: () =>
-                  "Valid YouTube playlist URL e.g https://www.youtube.com/watch?list=RDEMPsM0esWCZxNU2OE89iz0kA or https://www.youtube.com/playlist?list=PLd9BS3XfsFcw4zmhpJWANl6HWc4olrKkg",
+                  "Valid YouTube playlist URL e.g https://www.youtube.com/watch?list=<id> or https://www.youtube.com/playlist?list=<id>",
               },
               required: true,
             },
@@ -85,17 +85,17 @@ const ConsultationsMultimedia = {
           options: [
             {
               label: {
-                en: "Use Latest video in Playlist",
-                fr: "Dernière liste de lecture",
+                en: "Most recent in the Playlist",
+                fr: "Le plus récent dans la playlist",
                 pt: "Mais recente na lista de reprodução",
               },
               value: "latest",
             },
             {
               label: {
-                en: "Custom Video",
-                fr: "Vidéo personnalisée",
-                pt: "Vídeo personalizado",
+                en: "Custom Selection",
+                fr: "Sélection personnalisée",
+                pt: "Seleção personalizada",
               },
               value: "custom",
             },
