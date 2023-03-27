@@ -107,7 +107,7 @@ async function getVideosFromPlaylist(playlistId) {
 }
 
 async function getFeaturedConsultations(consultation, playlistItems) {
-  if (consultation.featuredType === "latest") {
+  if (consultation?.featuredType === "latest") {
     const sortedItems = playlistItems.sort(
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
     );
@@ -116,9 +116,10 @@ async function getFeaturedConsultations(consultation, playlistItems) {
     }
     return [];
   }
-  const featured = consultation.featured?.map((item) =>
-    playlistItems.find((plItem) => plItem.videoId === item.videoId)
-  );
+  const featured =
+    consultation?.featured?.map((item) =>
+      playlistItems.find((plItem) => plItem.videoId === item.videoId)
+    ) || [];
   return featured;
 }
 
