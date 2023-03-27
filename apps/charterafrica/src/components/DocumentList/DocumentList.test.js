@@ -9,9 +9,13 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  description: [],
-  groups: ["ADF", "AFRICAN UNION"],
-  locale: "en",
+  group: "ADF",
+  options: {
+    showNotes: true,
+    showSearch: true,
+    showText: true,
+    showZoom: true,
+  },
 };
 
 describe("<DocumentList />", () => {
