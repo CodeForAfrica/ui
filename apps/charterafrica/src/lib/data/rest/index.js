@@ -1,6 +1,5 @@
-import fetchJson from "./fetchJson";
-
 import { getPageProps } from "@/charterafrica/lib/data/common";
+import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const BASE_URL = process.env.PAYLOAD_PUBLIC_APP_URL;
 

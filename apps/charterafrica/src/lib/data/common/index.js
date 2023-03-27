@@ -1,6 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
+import youtube from "@/charterafrica/lib/youtube";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import queryString from "@/charterafrica/utils/queryString";
 
@@ -54,27 +55,27 @@ async function processPageAbout(page, api, { locale }) {
   return page;
 }
 
-async function processPageConsultation(page, api, { locale }) {
-  const { blocks } = page;
-  const consultation = blocks.filter((block) => block.slug === "consultations");
-  if (!consultation?.length) {
-    return page;
-  }
+// async function processPageConsultation(page, api, { locale }) {
+//   const { blocks } = page;
+//   const consultation = blocks.filter((block) => block.slug === "consultations");
+//   if (!consultation?.length) {
+//     return page;
+//   }
 
-  const { collection, description } = consultation[0];
+//   const { collection, description } = consultation[0];
 
-  const { docs } = await api.getCollection(collection, {
-    locale,
-  });
+//   const { docs } = await api.getCollection(collection, {
+//     locale,
+//   });
 
-  const groups = docs.map((doc) => doc.groups);
-  blocks.push({
-    slug: collection,
-    groups,
-    description,
-  });
-  return page;
-}
+//   const groups = docs.map((doc) => doc.groups);
+//   blocks.push({
+//     slug: collection,
+//     groups,
+//     description,
+//   });
+//   return page;
+// }
 
 async function processPageExplainers(page, api, context) {
   const collection = await api.getCollection("explainers", context);
@@ -86,6 +87,66 @@ async function processPageExplainers(page, api, context) {
       title,
       explainers,
     });
+  }
+
+  return page;
+}
+
+async function getVideosFromPlaylist(playlistId) {
+  if (!playlistId) {
+    return [];
+  }
+  const videosFromApi = await youtube.fetchPlaylistItems(playlistId);
+  const items =
+    videosFromApi.items?.map(({ snippet, ...restArgs }) => ({
+      ...snippet,
+      ...snippet?.resourceId,
+      ...restArgs,
+    })) || [];
+  return items;
+}
+
+async function getFeaturedConsultations(consultation, playlistItems) {
+  if (consultation.featuredType === "latest") {
+    const sortedItems = playlistItems.sort(
+      (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
+    );
+    if (sortedItems.length) {
+      return [sortedItems?.[0]];
+    }
+    return [];
+  }
+  const featured = consultation.featured?.map((item) =>
+    playlistItems.find((plItem) => plItem.videoId === item.videoId)
+  );
+  return featured;
+}
+
+async function processPageConsultation(page) {
+  const { blocks } = page;
+  const consultationIndex = blocks.findIndex(
+    ({ slug }) => slug === "consultation-multimedia"
+  );
+  const consultation = blocks[consultationIndex];
+  const playlistItems = await getVideosFromPlaylist(
+    consultation?.playlist?.playlistId
+  );
+  const featured = await getFeaturedConsultations(consultation, playlistItems);
+  if (consultationIndex > -1) {
+    blocks[consultationIndex] = {
+      slug: "consultations",
+      config: {
+        mostRecentText: "Most Recent",
+        relevanceText: "Relevance",
+        sortByText: "Sort by",
+        commentsLabel: "Comments",
+        previousTitle: "Previous Consultations",
+        airedOnText: "Aired On",
+      },
+      featured,
+      consultations: playlistItems,
+      title: consultation.playlist.title,
+    };
   }
 
   return page;
@@ -111,6 +172,7 @@ function processPost(post, page, api, context) {
   const { locale } = context;
   return {
     ...post,
+    content: post.content ?? null,
     author: post.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
     image,
     date: formatDateTime(post.publishedOn, { locale }),
@@ -232,10 +294,10 @@ export async function getArticles(page, api, context) {
   const { docs, totalPages } = await api.getCollection(collection, {
     locale,
     sort,
+    page: pageNumber,
     limit: pageSize,
     where: {
       ...query,
-      page: pageNumber,
       _status: { equals: "published" },
     },
   });
