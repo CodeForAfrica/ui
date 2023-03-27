@@ -133,6 +133,8 @@ const ConsultationsMultimedia = {
               required: true,
               localized: true,
               admin: {
+                description: () =>
+                  "enter playlist URL above to select an audio/video",
                 components: {
                   Field: CustomSelect,
                 },
