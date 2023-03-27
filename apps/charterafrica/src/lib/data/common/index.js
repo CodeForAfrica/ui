@@ -250,10 +250,10 @@ export async function getArticles(page, api, context) {
   const { docs, totalPages } = await api.getCollection(collection, {
     locale,
     sort,
+    page: pageNumber,
     limit: pageSize,
     where: {
       ...query,
-      page: pageNumber,
       _status: { equals: "published" },
     },
   });
