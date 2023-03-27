@@ -134,7 +134,7 @@ const ConsultationsMultimedia = {
               localized: true,
               admin: {
                 description: () =>
-                  "enter playlist URL above to select an audio/video",
+                  "Enter playlist URL above to select an audio/video",
                 components: {
                   Field: CustomSelect,
                 },
