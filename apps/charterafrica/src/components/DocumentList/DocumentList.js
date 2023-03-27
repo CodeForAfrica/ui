@@ -9,7 +9,7 @@ import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import RichText from "@/charterafrica/components/RichText";
 
 const DocumentList = React.forwardRef(function DocumentList(props, ref) {
-  const { description, groups, locale, sx } = props;
+  const { description, group, locale, sx } = props;
   const [documents, setDocuments] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [page, setPage] = useState(1);
@@ -18,7 +18,7 @@ const DocumentList = React.forwardRef(function DocumentList(props, ref) {
     setPage(value);
   };
 
-  const { data } = useDocuments(groups, {
+  const { data } = useDocuments(group, {
     page,
     per_page: 8,
     contributor: true,

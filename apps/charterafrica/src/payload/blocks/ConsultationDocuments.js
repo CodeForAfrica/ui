@@ -1,22 +1,6 @@
-import richText from "../fields/richText";
-
 const ConsultationDocuments = {
   slug: "consultation-documents",
   fields: [
-    richText({
-      name: "description",
-      label: {
-        en: "Description",
-        fr: "Description",
-        pt: "Descrição",
-      },
-      required: true,
-      localized: true,
-      admin: {
-        elements: [],
-        leaves: ["bold", "italic", "underline"],
-      },
-    }),
     {
       name: "documents",
       label: {
@@ -27,11 +11,11 @@ const ConsultationDocuments = {
       type: "group",
       fields: [
         {
-          name: "groups",
+          name: "group",
           label: {
-            en: "Group Name",
-            fr: "Nom de groupe",
-            pt: "Nome do grupo",
+            en: "Documents  Group Name",
+            fr: "Nom du groupe de documents",
+            pt: "Nome do grupo de documentos",
           },
           type: "text",
           localized: true,
