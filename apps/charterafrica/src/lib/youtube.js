@@ -4,7 +4,7 @@ async function fetchYoutube(path, playlistId) {
   const params = {
     playlistId,
     part: "snippet",
-    maxResults: 10,
+    maxResults: 100,
     key: process.env.GOOGLE_API_KEY,
   };
   const res = await fetchJson.get(

@@ -74,9 +74,7 @@ async function getVideosFromPlaylist(playlistId) {
   if (!playlistId) {
     return [];
   }
-
   const videosFromApi = await youtube.fetchPlaylistItems(playlistId);
-
   const items =
     videosFromApi.items?.map(({ snippet, ...restArgs }) => ({
       ...snippet,
@@ -84,6 +82,22 @@ async function getVideosFromPlaylist(playlistId) {
       ...restArgs,
     })) || [];
   return items;
+}
+
+async function getFeaturedConsultations(consultation, playlistItems) {
+  if (consultation.featuredType === "latest") {
+    const sortedItems = playlistItems.sort(
+      (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
+    );
+    if (sortedItems.length) {
+      return [sortedItems?.[0]];
+    }
+    return [];
+  }
+  const featured = consultation.featured?.map((item) =>
+    playlistItems.find((plItem) => plItem.videoId === item.videoId)
+  );
+  return featured;
 }
 
 async function processPageConsultation(page) {
@@ -95,6 +109,7 @@ async function processPageConsultation(page) {
   const playlistItems = await getVideosFromPlaylist(
     consultation?.playlist?.playlistId
   );
+  const featured = await getFeaturedConsultations(consultation, playlistItems);
   if (consultationIndex > -1) {
     blocks[consultationIndex] = {
       slug: "consultations",
@@ -106,7 +121,7 @@ async function processPageConsultation(page) {
         previousTitle: "Previous Consultations",
         airedOnText: "Aired On",
       },
-      featured: consultation.featured,
+      featured,
       consultations: playlistItems,
       title: consultation.playlist.title,
     };

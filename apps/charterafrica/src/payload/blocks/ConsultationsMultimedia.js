@@ -72,36 +72,73 @@ const ConsultationsMultimedia = {
       ],
     },
     {
-      name: "featured",
+      type: "collapsible",
       label: {
         en: "Featured Consultations",
         fr: "Consultations en vedette",
         pt: "Consultas em destaque",
       },
-      type: "array",
       fields: [
         {
-          name: "title",
-          label: {
-            en: "Consultation Title",
-            fr: "Titre de consultation",
-            pt: "Título da consulta",
-          },
-          type: "text",
-          required: true,
-          localized: true,
+          name: "featuredType",
+          type: "radio",
+          options: [
+            {
+              label: {
+                en: "Use Latest video in Playlist",
+                fr: "Dernière liste de lecture",
+                pt: "Mais recente na lista de reprodução",
+              },
+              value: "latest",
+            },
+            {
+              label: {
+                en: "Custom Video",
+                fr: "Vidéo personnalisée",
+                pt: "Vídeo personalizado",
+              },
+              value: "custom",
+            },
+          ],
+          defaultValue: "latest",
         },
         {
-          name: "videoId",
-          label: { en: "Video", fr: "Vidéo", pt: "Vídeo" },
-          type: "text",
-          required: true,
-          localized: true,
-          admin: {
-            components: {
-              Field: CustomSelect,
-            },
+          name: "featured",
+          label: {
+            en: "Featured Consultations",
+            fr: "Consultations en vedette",
+            pt: "Consultas em destaque",
           },
+          type: "array",
+          admin: {
+            condition: (_, siblingData) =>
+              siblingData?.featuredType === "custom",
+          },
+          fields: [
+            {
+              name: "title",
+              label: {
+                en: "Consultation Title",
+                fr: "Titre de consultation",
+                pt: "Título da consulta",
+              },
+              type: "text",
+              required: true,
+              localized: true,
+            },
+            {
+              name: "videoId",
+              label: { en: "Video", fr: "Vidéo", pt: "Vídeo" },
+              type: "text",
+              required: true,
+              localized: true,
+              admin: {
+                components: {
+                  Field: CustomSelect,
+                },
+              },
+            },
+          ],
         },
       ],
     },
