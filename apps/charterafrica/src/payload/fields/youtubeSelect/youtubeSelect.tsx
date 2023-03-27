@@ -23,7 +23,7 @@ const YoutubeSelect: FC<any> = (props) => {
   const playlistId = mapPlaylistLinkToId({
     siblingData: { link },
   });
-  const params = {
+  const params: any = {
     pathname: "/playlistItems",
     playlistId,
     part: "snippet",

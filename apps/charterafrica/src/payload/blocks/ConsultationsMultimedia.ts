@@ -1,4 +1,4 @@
-import CustomSelect from "../fields/youtubeSelect/youtubeSelect.tsx";
+import CustomSelect from "../fields/youtubeSelect/youtubeSelect";
 import { mapPlaylistLinkToId } from "../utils/mapPlaylistLinkToId";
 
 const ConsultationsMultimedia = {
