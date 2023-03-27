@@ -12,7 +12,6 @@ const defaultProps = {
   contributor: "Contributor",
   created_at: "2021-09-01",
   image: "/images/hero-slide-1.jpg",
-  locale: "en",
   pages: 10,
   title: "Document Title",
 };

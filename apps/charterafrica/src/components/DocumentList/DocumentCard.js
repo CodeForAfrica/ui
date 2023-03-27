@@ -5,13 +5,13 @@ import React from "react";
 import Separator from "./Separator";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+import formatDateTime from "@/charterafrica/utils/formatDate";
 
 const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
   const {
     contributor,
     created_at: publishDated,
     image,
-    locale,
     pages,
     sx,
     title,
@@ -105,11 +105,7 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
                 my: 2,
               }}
             >
-              {new Date(publishDated).toLocaleDateString(locale, {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
+              {formatDateTime(publishDated, { includeTime: false })}
             </RichTypography>
           </Grid>
         </Grid>
