@@ -2,7 +2,7 @@ import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function useDocumentSearch(groups, options) {
+function useDocuments(groups, options) {
   const groupsString = groups.map((group) => `group:${group}`).join(" ");
   const params = {
     q: groupsString,
@@ -20,4 +20,4 @@ function useDocumentSearch(groups, options) {
   };
 }
 
-export default useDocumentSearch;
+export default useDocuments;

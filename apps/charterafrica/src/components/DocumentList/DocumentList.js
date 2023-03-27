@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import React, { useState, useEffect } from "react";
 
 import DocumentCard from "./DocumentCard";
-import useDocumentSearch from "./useDocumentSearch";
+import useDocuments from "./useDocuments";
 
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import RichText from "@/charterafrica/components/RichText";
@@ -18,7 +18,7 @@ const DocumentList = React.forwardRef(function DocumentList(props, ref) {
     setPage(value);
   };
 
-  const { data } = useDocumentSearch(groups, {
+  const { data } = useDocuments(groups, {
     page,
     per_page: 8,
     contributor: true,
