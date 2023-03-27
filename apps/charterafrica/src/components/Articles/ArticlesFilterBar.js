@@ -6,6 +6,35 @@ import React, { useEffect, useState } from "react";
 import { neutral } from "@/charterafrica/colors";
 import SearchInput from "@/charterafrica/components/SearchInput";
 
+function ControlledSearchInput({ onChange, value: valueProp, ...other }) {
+  const [value, setValue] = useState(valueProp);
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+  const handleClick = (e) => {
+    if (onChange) {
+      onChange(e, value);
+    }
+  };
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      if (onChange) {
+        onChange(e, value);
+      }
+    }
+  };
+
+  return (
+    <SearchInput
+      {...other}
+      onChange={handleChange}
+      onClick={handleClick}
+      onKeyPress={handleKeyPress}
+      value={value}
+    />
+  );
+}
+
 const ArticlesFilterBar = React.forwardRef(function ArticlesFilterBar(
   props,
   ref
@@ -19,7 +48,6 @@ const ArticlesFilterBar = React.forwardRef(function ArticlesFilterBar(
     sortOrder,
     title,
   } = props;
-  const [search, setSearch] = useState(q);
   const router = useRouter();
 
   useEffect(() => {
@@ -48,18 +76,6 @@ const ArticlesFilterBar = React.forwardRef(function ArticlesFilterBar(
     }
   };
 
-  const handleChangeSearch = (e) => {
-    setSearch(e.target.value);
-  };
-  const handleClickSearch = (e) => {
-    handleChangeQ(e, search);
-  };
-  const handleKeyPressSearch = (e) => {
-    if (e.key === "Enter") {
-      handleChangeQ(e, search);
-    }
-  };
-
   return (
     <Box
       bgcolor="#fff"
@@ -76,25 +92,24 @@ const ArticlesFilterBar = React.forwardRef(function ArticlesFilterBar(
           py: 2.5,
         }}
       >
-        <Grid container gap={5} wrap="nowrap">
+        <Grid container alignItems="center" gap={5} wrap="nowrap">
           <Grid item md="auto">
             <Typography variant="h5" color={neutral[800]}>
               {title}
             </Typography>
           </Grid>
           <Grid item md="auto">
-            <SearchInput
-              value={search}
+            <ControlledSearchInput
+              value={q}
               placeholder={searchProp?.placeholder}
-              onChange={handleChangeSearch}
-              onClick={handleClickSearch}
-              onKeyPress={handleKeyPressSearch}
+              onChange={handleChangeQ}
               sx={{
                 backgroundColor: "#fff",
                 height: "36px",
                 typography: "p1",
                 width: "200px",
               }}
+              key={q}
             />
           </Grid>
           {sortOrder?.length > 0 ? (
