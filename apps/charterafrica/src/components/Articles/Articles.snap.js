@@ -3,7 +3,7 @@
 exports[`<Articles /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1105iuu"
+    class="MuiBox-root css-1oqbd6t"
     id="articles"
   >
     <div
@@ -13,7 +13,7 @@ exports[`<Articles /> renders unchanged 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-dygcit-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-ztj35b-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-1bnx1lo-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-auto css-11ydr13-MuiGrid-root"

@@ -211,14 +211,9 @@ export async function getTags(page, api, context) {
 
 function getArticlesQuery(context) {
   const { query = {}, locale } = context;
-  const {
-    page: pageNumber = 1,
-    pageSize = 8,
-    q,
-    sort = "-publishedOn",
-  } = query;
+  const { page = 1, pageSize = 8, q, sort = "-publishedOn" } = query;
 
-  return { locale, page: pageNumber, pageSize, q, sort };
+  return { locale, page, pageSize, q, sort };
 }
 
 export async function getArticles(page, api, context) {
@@ -243,6 +238,16 @@ export async function getArticles(page, api, context) {
             contains: q,
           },
         },
+        {
+          "excerpt.children.text": {
+            like: q,
+          },
+        },
+        {
+          "content.richTextBlockFields.content.children.text": {
+            like: q,
+          },
+        },
       ],
     };
   }
@@ -257,16 +262,13 @@ export async function getArticles(page, api, context) {
       _status: { equals: "published" },
     },
   });
-
-  if (!docs?.length) {
-    return null;
+  let results = [];
+  if (docs?.length) {
+    results = docs.map((post) => processPost(post, page, api, context));
   }
-  const processedArticles = docs.map((post) =>
-    processPost(post, page, api, context)
-  );
 
   return {
-    results: processedArticles,
+    results,
     totalPages,
   };
 }
