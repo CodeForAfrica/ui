@@ -1,6 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
+import youtube from "@/charterafrica/lib/youtube";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import queryString from "@/charterafrica/utils/queryString";
 
@@ -69,6 +70,66 @@ async function processPageExplainers(page, api, context) {
   return page;
 }
 
+async function getVideosFromPlaylist(playlistId) {
+  if (!playlistId) {
+    return [];
+  }
+  const videosFromApi = await youtube.fetchPlaylistItems(playlistId);
+  const items =
+    videosFromApi.items?.map(({ snippet, ...restArgs }) => ({
+      ...snippet,
+      ...snippet?.resourceId,
+      ...restArgs,
+    })) || [];
+  return items;
+}
+
+async function getFeaturedConsultations(consultation, playlistItems) {
+  if (consultation.featuredType === "latest") {
+    const sortedItems = playlistItems.sort(
+      (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
+    );
+    if (sortedItems.length) {
+      return [sortedItems?.[0]];
+    }
+    return [];
+  }
+  const featured = consultation.featured?.map((item) =>
+    playlistItems.find((plItem) => plItem.videoId === item.videoId)
+  );
+  return featured;
+}
+
+async function processPageConsultation(page) {
+  const { blocks } = page;
+  const consultationIndex = blocks.findIndex(
+    ({ slug }) => slug === "consultation-multimedia"
+  );
+  const consultation = blocks[consultationIndex];
+  const playlistItems = await getVideosFromPlaylist(
+    consultation?.playlist?.playlistId
+  );
+  const featured = await getFeaturedConsultations(consultation, playlistItems);
+  if (consultationIndex > -1) {
+    blocks[consultationIndex] = {
+      slug: "consultations",
+      config: {
+        mostRecentText: "Most Recent",
+        relevanceText: "Relevance",
+        sortByText: "Sort by",
+        commentsLabel: "Comments",
+        previousTitle: "Previous Consultations",
+        airedOnText: "Aired On",
+      },
+      featured,
+      consultations: playlistItems,
+      title: consultation.playlist.title,
+    };
+  }
+
+  return page;
+}
+
 function processPost(post, page, api, context) {
   const { breadcrumbs = [] } = page;
 
@@ -89,6 +150,7 @@ function processPost(post, page, api, context) {
   const { locale } = context;
   return {
     ...post,
+    content: post.content ?? null,
     author: post.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
     image,
     date: formatDateTime(post.publishedOn, { locale }),
@@ -590,6 +652,7 @@ async function processPageOpportunities(page, api, context) {
 
 const processPageFunctionsMap = {
   about: processPageAbout,
+  consultation: processPageConsultation,
   explainers: processPageExplainers,
   events: processPageEvents,
   fellowships: processPageFellowships,
