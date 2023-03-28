@@ -105,7 +105,7 @@ async function processPageConsultation(page) {
   const { blocks } = page;
 
   const { documents } =
-    blocks.find(({ slug }) => slug === "consultation-documents") || null;
+    blocks.find(({ slug }) => slug === "consultation-documents") || {};
   if (documents) {
     blocks.push({
       slug: "documents",
