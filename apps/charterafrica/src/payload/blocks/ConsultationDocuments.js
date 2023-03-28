@@ -2,7 +2,7 @@ const ConsultationDocuments = {
   slug: "consultation-documents",
   fields: [
     {
-      name: "documents",
+      name: "group",
       label: {
         en: "Documents Group",
         fr: "Groupe de documents",

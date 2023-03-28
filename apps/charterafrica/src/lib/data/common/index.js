@@ -104,12 +104,12 @@ async function getFeaturedConsultations(consultation, playlistItems) {
 async function processPageConsultation(page) {
   const { blocks } = page;
 
-  const { documents } =
+  const { group } =
     blocks.find(({ slug }) => slug === "consultation-documents") || {};
-  if (documents) {
+  if (group) {
     blocks.push({
       slug: "documents",
-      ...documents,
+      ...group,
     });
   }
 
