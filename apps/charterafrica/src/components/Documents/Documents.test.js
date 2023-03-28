@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import DocumentList from "./DocumentList";
+import Documents from "./Documents";
 
 import theme from "@/charterafrica/theme";
 
@@ -18,9 +18,9 @@ const defaultProps = {
   },
 };
 
-describe("<DocumentList />", () => {
+describe("<Documents />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<DocumentList {...defaultProps} />);
+    const { container } = render(<Documents {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

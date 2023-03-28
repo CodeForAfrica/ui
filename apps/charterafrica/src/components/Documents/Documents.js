@@ -7,7 +7,7 @@ import useDocuments from "./useDocuments";
 
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 
-const DocumentList = React.forwardRef(function DocumentList(props, ref) {
+const Documents = React.forwardRef(function Documents(props, ref) {
   const { group, locale, sx } = props;
   const [documents, setDocuments] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
@@ -59,4 +59,4 @@ const DocumentList = React.forwardRef(function DocumentList(props, ref) {
   );
 });
 
-export default DocumentList;
+export default Documents;
