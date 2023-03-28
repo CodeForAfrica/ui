@@ -57,11 +57,11 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
               color="neutral.dark"
               typography={{
                 xs: "h6SmallSemiBold",
-                sm: "h2SemiBold",
+                md: "h2SemiBold",
               }}
               lineClamp={{
                 xs: 3,
-                sm: 1,
+                md: 1,
               }}
             >
               {title}
@@ -69,12 +69,22 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
           </Grid>
           <Grid
             container
-            direction="row"
-            alignItems="center"
+            direction={{
+              xs: "column",
+              sm: "row",
+            }}
+            alignItems={{
+              xs: "flex-start",
+              sm: "center",
+            }}
             justifyContent="flex-start"
             wrap="nowrap"
             sx={{
               mt: 2,
+              gap: {
+                xs: 1,
+                sm: 0,
+              },
             }}
           >
             <RichTypography
@@ -89,14 +99,24 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
             >
               {`${pages} Pages`}
             </RichTypography>
-            <Separator />
+            <Separator
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: "block",
+                },
+              }}
+            />
             <LineClampedRichTypography
               color="black"
               typography={{
                 xs: "caption",
                 sm: "subheading",
               }}
-              lineClamp={1}
+              lineClamp={{
+                xs: 3,
+                sm: 1,
+              }}
             >
               {`Contributed by: ${contributor}`}
             </LineClampedRichTypography>

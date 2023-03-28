@@ -7,8 +7,12 @@ const Span = styled("span")(({ theme }) => ({
   fontWeight: "bold",
 }));
 
-const Separator = React.forwardRef(function Separator() {
-  return <Span>.</Span>;
+const Separator = React.forwardRef(function Separator({ sx }, ref) {
+  return (
+    <Span ref={ref} sx={sx}>
+      .
+    </Span>
+  );
 });
 
 export default Separator;
