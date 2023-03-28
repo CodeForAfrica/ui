@@ -3,21 +3,19 @@ import {
   Select,
   getSiblingData,
 } from "payload/components/forms";
-import React, { useMemo, FC } from "react";
+import { createElement, useMemo } from "react";
 import useSWR from "swr";
 
 import { mapPlaylistLinkToId } from "../../utils/mapPlaylistLinkToId";
 
-import "./styles.scss";
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
-const YoutubeSelect: FC<any> = (props) => {
+function YoutubeSelect(props) {
   const [fields] = useAllFormFields();
 
   const { blocks } = getSiblingData(fields, "blocks");
   const currentBlock = blocks.find(
-    ({ blockType }) => blockType === "consultation-multimedia"
+    (block) => block?.blockType === "consultation-multimedia"
   );
   const link = currentBlock?.playlist?.link;
   const playlistId = mapPlaylistLinkToId({
@@ -30,16 +28,18 @@ const YoutubeSelect: FC<any> = (props) => {
   };
   const queryString = new URLSearchParams(params).toString();
   const { data } = useSWR(
-    `/api/v1/opportunities/consultation/multimedia?${queryString}`,
+    playlistId
+      ? `/api/v1/opportunities/consultation/multimedia?${queryString}`
+      : null,
     fetcher
   );
   const memoOptions = () =>
-    data?.items?.map((video: any) => ({
+    data?.items?.map((video) => ({
       label: video?.snippet?.title,
       value: video?.snippet?.resourceId?.videoId,
     })) || [];
-  const options = useMemo(memoOptions, [playlistId, data?.items?.length, link]);
-  return <Select {...props} options={options} />;
-};
+  const options = useMemo(memoOptions, [data?.items]);
+  return createElement(Select, { ...props, options });
+}
 
 export default YoutubeSelect;
