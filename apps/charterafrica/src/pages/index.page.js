@@ -9,166 +9,31 @@ import Hero from "@/charterafrica/components/Hero";
 import Partners from "@/charterafrica/components/Partners";
 import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
-import { payload } from "@/charterafrica/lib";
-import { getGlobalProps } from "@/charterafrica/lib/data/local";
+import { getPageServerSideProps } from "@/charterafrica/lib/data";
+
+const componentsBySlugs = {
+  ecosystem: Ecosystem,
+  "focal-countries": FocalCountries,
+  helpdesk: Helpdesk,
+  hero: Hero,
+  mooc: Mooc,
+  "our-partners": Partners,
+  "our-resources": Resources,
+  spotlight: Spotlight,
+};
 
 function Index({ blocks }) {
   return blocks?.map((block) => {
-    switch (block?.slug) {
-      case "ecosystem":
-        return <Ecosystem {...block} key={block.slug} />;
-      case "focal-countries":
-        return <FocalCountries {...block} key={block.slug} />;
-      case "helpdesk":
-        return <Helpdesk {...block} key={block.slug} />;
-      case "hero":
-        return <Hero {...block} key={block.slug} />;
-      case "mooc":
-        return <Mooc {...block} key={block.slug} />;
-      case "our-partners":
-        return <Partners {...block} key={block.slug} />;
-      case "our-resources":
-        return <Resources {...block} key={block.slug} />;
-      case "spotlight":
-        return <Spotlight {...block} key={block.slug} />;
-      default:
-        return null;
+    const Component = componentsBySlugs[block?.slug];
+    if (!Component) {
+      return null;
     }
+    return <Component {...block} key={block.id} />;
   });
 }
 
-export async function getServerSideProps({ defaultLocale, locale, locales }) {
-  const helpdesk = await payload.findGlobal("helpdesk", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-  // TODO(kilemens): Move these to lib/data for any and all page data processing
-  if (helpdesk) {
-    helpdesk.slug = "helpdesk";
-    const { alt: imageAlt, url: imageSrc } = helpdesk.image || {
-      alt: null,
-      url: null,
-    };
-    helpdesk.image = { alt: imageAlt, src: imageSrc };
-    const { href: linkHref, label: linkLabel } = helpdesk.link;
-    helpdesk.link = { href: linkHref ?? null, label: linkLabel ?? null };
-  }
-
-  const { docs: pages } = await payload.findPage("index", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-
-  if (!pages?.length) {
-    return { notFound: true };
-  }
-
-  const blocks =
-    pages[0].blocks?.map(({ blockType, ...other }) => ({
-      ...other,
-      slug: blockType,
-    })) ?? [];
-
-  const spotlight = blocks.find((block) => block.slug === "spotlight") || {};
-
-  const spotlightItems = spotlight?.items?.map((item) => {
-    const { item: itemData, ...rest } = item;
-    return {
-      ...rest,
-      item: {
-        ...itemData,
-        image: {
-          src: itemData.image.url,
-          alt: itemData.image.alt,
-        },
-        date: new Date(itemData.date).toLocaleDateString(locale, {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        }),
-        link: {
-          href: itemData?.link.href || "#", // TODO: handle reference links
-        },
-      },
-    };
-  });
-
-  spotlight.items = spotlightItems || null;
-
-  const ecosystem = blocks.find((block) => block.slug === "ecosystem") || null;
-
-  const mooc = blocks.find((block) => block.slug === "mooc") || null;
-  if (mooc?.image?.url) {
-    mooc.image = {
-      alt: mooc.image.alt,
-      src: mooc.image.url,
-    };
-  }
-
-  const ourResources =
-    blocks.find((block) => block.slug === "our-resources") || null;
-
-  const partners =
-    blocks.find((block) => block.slug === "our-partners") || null;
-
-  const hero = blocks.find((block) => block.slug === "hero") || {};
-
-  const heroSlides = hero?.slides?.map((slide) => {
-    const { background, links, ...other } = slide;
-    const formattedLinks = links.map((link) => {
-      const { color, icon, href, label } = link;
-      return {
-        color,
-        label,
-        icon: { alt: icon.alt, src: icon.url },
-        href,
-      };
-    });
-
-    return {
-      background: {
-        blendMode: background.blendMode.join(","),
-        color: background.color,
-        src: background.image.url,
-      },
-      links: formattedLinks,
-      ...other,
-    };
-  });
-
-  hero.slides = heroSlides || null;
-
-  const { footer, navbar } = await getGlobalProps({
-    defaultLocale,
-    locale,
-    locales,
-  });
-
-  return {
-    props: {
-      blocks: [
-        {
-          slug: "switch",
-          startLabel: "People",
-          endLabel: "Organisations",
-        },
-        hero,
-        spotlight,
-        ecosystem,
-        ourResources,
-        mooc,
-        helpdesk,
-        partners,
-      ],
-      footer,
-      navbar,
-      locale,
-      locales,
-      seo: {
-        title: "charter.AFRICA",
-      },
-    },
-  };
+export async function getServerSideProps(context) {
+  return getPageServerSideProps(context);
 }
 
 export default Index;
