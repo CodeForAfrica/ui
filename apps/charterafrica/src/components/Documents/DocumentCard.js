@@ -60,7 +60,8 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
                 md: "h2SemiBold",
               }}
               lineClamp={{
-                xs: 3,
+                xs: 2,
+                sm: 3,
                 md: 1,
               }}
             >
