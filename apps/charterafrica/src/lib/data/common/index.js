@@ -103,14 +103,16 @@ async function getFeaturedConsultations(consultation, playlistItems) {
 
 async function processPageConsultation(page) {
   const { blocks } = page;
+  const groupIndex = blocks.findIndex(
+    ({ slug }) => slug === "consultation-documents"
+  );
 
-  const { group } =
-    blocks.find(({ slug }) => slug === "consultation-documents") || {};
-  if (group) {
-    blocks.push({
+  if (groupIndex > -1) {
+    const { group } = blocks[groupIndex];
+    blocks[groupIndex] = {
       slug: "documents",
       ...group,
-    });
+    };
   }
 
   const consultationIndex = blocks.findIndex(
