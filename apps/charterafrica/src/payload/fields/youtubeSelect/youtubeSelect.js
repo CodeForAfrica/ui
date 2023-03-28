@@ -28,7 +28,9 @@ function YoutubeSelect(props) {
   };
   const queryString = new URLSearchParams(params).toString();
   const { data } = useSWR(
-    `/api/v1/opportunities/consultation/multimedia?${queryString}`,
+    playlistId
+      ? `/api/v1/opportunities/consultation/multimedia?${queryString}`
+      : null,
     fetcher
   );
   const memoOptions = () =>
@@ -36,8 +38,7 @@ function YoutubeSelect(props) {
       label: video?.snippet?.title,
       value: video?.snippet?.resourceId?.videoId,
     })) || [];
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const options = useMemo(memoOptions, [playlistId, data?.items?.length, link]);
+  const options = useMemo(memoOptions, [data?.items]);
   return createElement(Select, { ...props, options });
 }
 
