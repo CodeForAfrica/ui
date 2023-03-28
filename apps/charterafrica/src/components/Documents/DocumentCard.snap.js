@@ -21,7 +21,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-p1 css-m3f2rl-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-6uwxp5-MuiTypography-root"
           >
             Document Title
           </div>

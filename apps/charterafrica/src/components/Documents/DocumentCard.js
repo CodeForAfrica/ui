@@ -53,15 +53,19 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
           }}
         >
           <Grid item xs={12}>
-            <RichTypography
+            <LineClampedRichTypography
               color="neutral.dark"
               typography={{
                 xs: "h6SmallSemiBold",
                 sm: "h2SemiBold",
               }}
+              lineClamp={{
+                xs: 3,
+                sm: 1,
+              }}
             >
               {title}
-            </RichTypography>
+            </LineClampedRichTypography>
           </Grid>
           <Grid
             container
