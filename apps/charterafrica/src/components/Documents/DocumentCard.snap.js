@@ -21,13 +21,13 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-p1 css-6uwxp5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-1u0x7gy-MuiTypography-root"
           >
             Document Title
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-14gykn4-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-1qjtras-MuiGrid-root"
         >
           <div
             class="MuiTypography-root MuiTypography-p1 css-2zk7gx-MuiTypography-root"
@@ -35,12 +35,12 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
             10 Pages
           </div>
           <span
-            class="css-1q28449"
+            class="css-vnw9up"
           >
             .
           </span>
           <div
-            class="MuiTypography-root MuiTypography-p1 css-ewz064-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-r7a0d0-MuiTypography-root"
           >
             Contributed by: Contributor
           </div>
