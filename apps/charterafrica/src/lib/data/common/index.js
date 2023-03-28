@@ -103,6 +103,7 @@ const processHero = (page) => {
     blocks[heroIndex] = hero;
   }
 };
+
 const processHelpDesk = async (page, api, context) => {
   const { blocks } = page;
   const { locale, defaultLocale } = context;
@@ -176,32 +177,10 @@ const processMooc = (page) => {
 };
 
 async function processPageIndex(page, api, context) {
-  const { blocks } = page;
-
-  blocks.push({
-    slug: "switch",
-    startLabel: "People",
-    endLabel: "Organisations",
-  });
   processSpotlight(page, api, context);
   processHero(page);
   processMooc(page);
   processHelpDesk(page, api, context);
-  const orders = [
-    "switch",
-    "hero",
-    "spotlight",
-    "ecosystem",
-    "our-resources",
-    "mooc",
-    "helpdesk",
-    "our-partners",
-  ];
-  page.blocks?.sort((a, b) => {
-    const aSlugIndex = orders.findIndex((order) => order === a.slug);
-    const bSlugIndex = orders.findIndex((order) => order === b.slug);
-    return aSlugIndex - bSlugIndex;
-  });
   return page;
 }
 
