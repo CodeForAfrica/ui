@@ -104,27 +104,6 @@ const processHero = (page) => {
   }
 };
 
-const processHelpDesk = async (page, api, context) => {
-  const { blocks } = page;
-  const { locale, defaultLocale } = context;
-  const helpdesk = await api.findGlobal("helpdesk", {
-    locale,
-    fallbackLocale: defaultLocale,
-  });
-
-  if (helpdesk) {
-    helpdesk.slug = "helpdesk";
-    const { alt: imageAlt, url: imageSrc } = helpdesk.image || {
-      alt: null,
-      url: null,
-    };
-    helpdesk.image = { alt: imageAlt, src: imageSrc };
-    const { href: linkHref, label: linkLabel } = helpdesk.link;
-    helpdesk.link = { href: linkHref ?? null, label: linkLabel ?? null };
-    blocks.push(helpdesk);
-  }
-};
-
 const processSpotlight = (page, api, context) => {
   const { blocks } = page;
   const { locale } = context;
@@ -180,7 +159,6 @@ async function processPageIndex(page, api, context) {
   processSpotlight(page, api, context);
   processHero(page);
   processMooc(page);
-  processHelpDesk(page, api, context);
   return page;
 }
 
