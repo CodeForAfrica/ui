@@ -11,6 +11,7 @@ const render = createRender({ theme });
 const defaultProps = {
   group: "ADF",
   options: {
+    url: "https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html",
     showNotes: true,
     showSearch: true,
     showText: true,
