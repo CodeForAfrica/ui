@@ -193,7 +193,7 @@ async function getFeaturedConsultations(consultation, playlistItems) {
   return featured;
 }
 
-async function processDocumentPage(page, api, context) {
+async function processPageConsultationDocument(page, api, context) {
   const { query } = context;
 
   const { title, ...rest } = query;
@@ -213,8 +213,9 @@ async function processDocumentPage(page, api, context) {
 async function processPageConsultation(page, api, context) {
   const { params } = context;
 
-  if (params.slugs.length > 2) {
-    return processDocumentPage(page, api, context);
+  // Check if we are on a document page: /opportunities/consultation/documents
+  if (params.slugs.length > 2 && params.slugs[2] === "documents") {
+    return processPageConsultationDocument(page, api, context);
   }
 
   const { blocks } = page;

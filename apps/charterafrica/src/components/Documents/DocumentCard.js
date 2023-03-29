@@ -1,5 +1,6 @@
 import { RichTypography } from "@commons-ui/core";
 import { Card, CardMedia, CardActionArea, Grid } from "@mui/material";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -22,24 +23,6 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
   const router = useRouter();
   const { asPath } = router;
 
-  const showEmbedDocument = () => {
-    router.push(
-      {
-        pathname: `${asPath}/doc/`,
-        query: {
-          url: canonicalUrl,
-          title,
-          ...options,
-        },
-      },
-      undefined,
-      {
-        shallow: false,
-        scroll: false,
-      }
-    );
-  };
-
   return (
     <Card
       ref={ref}
@@ -59,8 +42,15 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
             background: "transparent",
           },
         }}
-        component="button"
-        onClick={showEmbedDocument}
+        component={Link}
+        href={{
+          pathname: `${asPath}/documents/`,
+          query: {
+            url: canonicalUrl,
+            title,
+            ...options,
+          },
+        }}
       >
         <CardMedia
           component="img"
