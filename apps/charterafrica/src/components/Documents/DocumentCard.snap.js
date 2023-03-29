@@ -5,10 +5,10 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1wj4l1q-MuiPaper-root-MuiCard-root"
   >
-    <button
+    <a
       class="MuiButtonBase-root MuiCardActionArea-root css-zv6foc-MuiButtonBase-root-MuiCardActionArea-root"
+      href="/documents?url=https%3A%2F%2Fdc.sourceafrica.net%2Fdocuments%2F120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html&title=Document+Title&showNotes=true&showSearch=true&showText=true&showZoom=true"
       tabindex="0"
-      type="button"
     >
       <img
         class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-2r8llh-MuiCardMedia-root"
@@ -58,7 +58,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
       <span
         class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
       />
-    </button>
+    </a>
   </div>
 </div>
 `;
