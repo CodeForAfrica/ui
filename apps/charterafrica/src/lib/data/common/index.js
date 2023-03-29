@@ -177,7 +177,7 @@ async function getVideosFromPlaylist(playlistId) {
 }
 
 async function getFeaturedConsultations(consultation, playlistItems) {
-  if (consultation.featuredType === "latest") {
+  if (consultation?.featuredType === "latest") {
     const sortedItems = playlistItems.sort(
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
     );
@@ -186,14 +186,27 @@ async function getFeaturedConsultations(consultation, playlistItems) {
     }
     return [];
   }
-  const featured = consultation.featured?.map((item) =>
-    playlistItems.find((plItem) => plItem.videoId === item.videoId)
-  );
+  const featured =
+    consultation?.featured?.map((item) =>
+      playlistItems.find((plItem) => plItem.videoId === item.videoId)
+    ) || [];
   return featured;
 }
 
 async function processPageConsultation(page) {
   const { blocks } = page;
+  const groupIndex = blocks.findIndex(
+    ({ slug }) => slug === "consultation-documents"
+  );
+
+  if (groupIndex > -1) {
+    const { group } = blocks[groupIndex];
+    blocks[groupIndex] = {
+      slug: "documents",
+      ...group,
+    };
+  }
+
   const consultationIndex = blocks.findIndex(
     ({ slug }) => slug === "consultation-multimedia"
   );

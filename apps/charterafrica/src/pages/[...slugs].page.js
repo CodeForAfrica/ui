@@ -4,6 +4,7 @@ import { SWRConfig } from "swr";
 import Articles from "@/charterafrica/components/Articles";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Consultations from "@/charterafrica/components/Consultations";
+import Documents from "@/charterafrica/components/Documents";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import EmbeddedDocumentViewer from "@/charterafrica/components/EmbeddedDocumentViewer";
 import Explainers from "@/charterafrica/components/Explainers";
@@ -33,6 +34,7 @@ import { getPageServerSideProps } from "@/charterafrica/lib/data";
 const componentsBySlugs = {
   consultations: Consultations,
   "our-community-platforms": CommunityPlatforms,
+  documents: Documents,
   ecosystem: Ecosystem,
   explainers: Explainers,
   faq: FAQ,

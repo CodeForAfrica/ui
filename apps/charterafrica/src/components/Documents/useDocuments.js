@@ -2,10 +2,10 @@ import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function useDocument(url, options) {
+function useDocuments(groups, options) {
   const params = {
-    url,
-    type: "embed",
+    q: `group:${groups}`,
+    type: "search",
     ...options,
   };
   const paramsString = new URLSearchParams(params).toString();
@@ -13,7 +13,6 @@ function useDocument(url, options) {
     `/api/v1/opportunities/consultation/documents?${paramsString}`,
     fetcher
   );
-
   return {
     data,
     isLoading: !error && !data,
@@ -21,4 +20,4 @@ function useDocument(url, options) {
   };
 }
 
-export default useDocument;
+export default useDocuments;

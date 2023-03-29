@@ -94,6 +94,12 @@ const theme = createTheme({
     ),
     h6: initializeTypographyVariant(19, 23, 700, PROMPT_FONT_FAMILY),
     h6Small: initializeTypographyVariant(16, 19, 700, PROMPT_FONT_FAMILY),
+    h6SmallSemiBold: initializeTypographyVariant(
+      16,
+      19,
+      600,
+      PROMPT_FONT_FAMILY
+    ),
     subheading: initializeTypographyVariant(20, 24),
     subtitle1: undefined,
     subtitle2: undefined,
