@@ -205,7 +205,6 @@ async function processDocumentPage(page, api, context) {
         slug: "embedded-document-viewer",
         options: rest,
         title,
-        excerpt: [],
       },
     ],
   };
