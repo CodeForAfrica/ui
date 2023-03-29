@@ -193,7 +193,31 @@ async function getFeaturedConsultations(consultation, playlistItems) {
   return featured;
 }
 
-async function processPageConsultation(page) {
+async function processDocumentPage(page, api, context) {
+  const { query } = context;
+
+  const { title, ...rest } = query;
+
+  return {
+    ...page,
+    blocks: [
+      {
+        slug: "embedded-document-viewer",
+        options: rest,
+        title,
+        excerpt: [],
+      },
+    ],
+  };
+}
+
+async function processPageConsultation(page, api, context) {
+  const { params } = context;
+
+  if (params.slugs.length > 2) {
+    return processDocumentPage(page, api, context);
+  }
+
   const { blocks } = page;
   const groupIndex = blocks.findIndex(
     ({ slug }) => slug === "consultation-documents"

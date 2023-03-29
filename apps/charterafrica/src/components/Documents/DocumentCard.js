@@ -1,5 +1,6 @@
 import { RichTypography } from "@commons-ui/core";
 import { Card, CardMedia, CardActionArea, Grid } from "@mui/material";
+import { useRouter } from "next/router";
 import React from "react";
 
 import Separator from "./Separator";
@@ -9,13 +10,35 @@ import formatDateTime from "@/charterafrica/utils/formatDate";
 
 const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
   const {
+    canonical_url: canonicalUrl,
     contributor,
     created_at: publishDated,
     image,
+    options,
     pages,
     sx,
     title,
   } = props;
+  const router = useRouter();
+  const { asPath } = router;
+
+  const showEmbedDocument = () => {
+    router.push(
+      {
+        pathname: `${asPath}/doc/`,
+        query: {
+          url: canonicalUrl,
+          title,
+          ...options,
+        },
+      },
+      undefined,
+      {
+        shallow: false,
+        scroll: false,
+      }
+    );
+  };
 
   return (
     <Card
@@ -36,6 +59,8 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
             background: "transparent",
           },
         }}
+        component="button"
+        onClick={showEmbedDocument}
       >
         <CardMedia
           component="img"
