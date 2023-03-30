@@ -1,21 +1,75 @@
-import CustomSelect from "../fields/youtubeSelect/youtubeSelect";
-import { mapPlaylistLinkToId } from "../utils/mapPlaylistLinkToId";
+import { select } from "payload/dist/fields/validations";
 
-const ConsultationsMultimedia = {
-  slug: "consultation-multimedia",
+import richText from "../fields/richText";
+import YouTubeSelect from "../fields/youtubeSelect/youtubeSelect";
+import {
+  BLOCK_SLUG,
+  getEmbeddedPlaylist,
+  mapPlaylistLinkToId,
+} from "../utils/embeddedPlaylist";
+
+async function validateYouTubeSelect(
+  value,
+  { data: document, hasMany, required, t }
+) {
+  let options = [];
+  const { playlistId, queryString } = getEmbeddedPlaylist(document);
+  if (playlistId) {
+    const response = await fetch(
+      `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/opportunities/consultation/multimedia?${queryString}`
+    );
+    const data = await response.json();
+    options =
+      data?.items?.map((item) => ({
+        label: item?.snippet?.title,
+        value: item?.snippet?.resourceId?.videoId,
+      })) || [];
+  }
+  return select(value, { hasMany, options, required, t });
+}
+
+const EmbeddedPlaylist = {
+  slug: BLOCK_SLUG,
   labels: {
     singular: {
-      en: "Consultation Playlist",
-      fr: "Playlist de consultation",
-      pt: "Consulta Lista de reprodução",
+      en: "Embedded Playlist",
     },
     plural: {
-      en: "Consultation Playlists",
-      fr: "Playlist de consultations",
-      pt: "Lista de reprodução de consulta",
+      en: "Embedded Playlist",
     },
   },
   fields: [
+    {
+      type: "collapsible",
+      label: {
+        en: "Title & Description",
+      },
+      fields: [
+        {
+          name: "title",
+          label: {
+            en: "Title",
+            fr: "Titre",
+            pt: "Título",
+          },
+          type: "text",
+          localized: true,
+        },
+        richText({
+          name: "description",
+          label: {
+            en: "Description",
+            fr: "La description",
+            pt: "Descrição",
+          },
+          localized: true,
+          admin: {
+            elements: ["h3", "h4", "h5", "h6", "link", "ol", "ul", "indent"],
+            leaves: ["bold", "code", "italic", "underline"],
+          },
+        }),
+      ],
+    },
     {
       type: "collapsible",
       label: {
@@ -36,23 +90,20 @@ const ConsultationsMultimedia = {
                 pt: "Título",
               },
               admin: {
-                description: () => "e.g Previous Consultation",
+                description: () => "e.g. Previous Consultation",
               },
               type: "text",
-              required: true,
               localized: true,
             },
             {
               name: "link",
               label: {
-                en: "Playlist URL",
-                fr: "URL de liste de lecture",
-                pt: "URL da lista de reprodução",
+                en: "URL",
               },
               type: "text",
               admin: {
                 description: () =>
-                  "Valid YouTube playlist URL e.g https://www.youtube.com/watch?list=<id> or https://www.youtube.com/playlist?list=<id>",
+                  "YouTube playlist URL e.g https://www.youtube.com/watch?list=<id> or https://www.youtube.com/playlist?list=<id>",
               },
               required: true,
             },
@@ -69,82 +120,74 @@ const ConsultationsMultimedia = {
             },
           ],
         },
-      ],
-    },
-    {
-      type: "collapsible",
-      label: {
-        en: "Featured Consultations",
-        fr: "Consultations en vedette",
-        pt: "Consultas em destaque",
-      },
-      fields: [
-        {
-          name: "featuredType",
-          type: "radio",
-          options: [
-            {
-              label: {
-                en: "Most recent in the Playlist",
-                fr: "Le plus récent dans la playlist",
-                pt: "Mais recente na lista de reprodução",
-              },
-              value: "latest",
-            },
-            {
-              label: {
-                en: "Custom Selection",
-                fr: "Sélection personnalisée",
-                pt: "Seleção personalizada",
-              },
-              value: "custom",
-            },
-          ],
-          defaultValue: "latest",
-        },
         {
           name: "featured",
-          label: {
-            en: "Featured Consultations",
-            fr: "Consultations en vedette",
-            pt: "Consultas em destaque",
-          },
-          type: "array",
-          admin: {
-            condition: (_, siblingData) =>
-              siblingData?.featuredType === "custom",
-          },
+          type: "group",
           fields: [
             {
-              name: "title",
+              name: "featuredType",
               label: {
-                en: "Consultation Title",
-                fr: "Titre de consultation",
-                pt: "Título da consulta",
+                en: "Show",
+                ft: "Afficher",
+                pt: "Mostrar",
               },
-              type: "text",
-              required: true,
-              localized: true,
+              type: "radio",
+              options: [
+                {
+                  label: {
+                    en: "Most recent in the Playlist",
+                    fr: "Le plus récent dans la playlist",
+                    pt: "Mais recente na lista de reprodução",
+                  },
+                  value: "latest",
+                },
+                {
+                  label: {
+                    en: "Custom selection",
+                    fr: "Sélection personnalisée",
+                    pt: "Seleção personalizada",
+                  },
+                  value: "custom",
+                },
+                {
+                  label: {
+                    en: "None",
+                    ft: "Aucun",
+                    pt: "Nenhum",
+                  },
+                  value: "none",
+                },
+              ],
+              defaultValue: "latest",
             },
             {
-              name: "videoId",
-              label: { en: "Video", fr: "Vidéo", pt: "Vídeo" },
-              type: "text",
+              name: "items",
+              label: { en: "Video(s)", fr: "Vidéo(s)", pt: "Vídeo(s)" },
+              type: "select",
+              hasMany: true,
+              // These are just dummy options, YouTubeSelect loads (id, title)
+              // pairs from the playlist link provided above.
+              options: ["-"],
               required: true,
-              localized: true,
+              validate: validateYouTubeSelect,
               admin: {
                 description: () =>
                   "Enter playlist URL above to select an audio/video",
                 components: {
-                  Field: CustomSelect,
+                  Field: YouTubeSelect,
                 },
+                condition: (_, siblingData) =>
+                  siblingData?.featuredType === "custom",
               },
             },
           ],
+          admin: {
+            hideGutter: true,
+          },
         },
       ],
     },
   ],
 };
 
-export default ConsultationsMultimedia;
+export default EmbeddedPlaylist;
