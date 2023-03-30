@@ -1,9 +1,10 @@
+import { fetchResource } from "@/charterafrica/lib/youtube";
+
 const BASE_DOCUMENTS_URL = "https://dc.sourceafrica.net/api/";
-const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
 
 function formatDocuments(data) {
-  const { documents, ...rest } = data || {};
-  const formattedDocuments = documents?.map((document) => {
+  const { documents: originalDocs, ...rest } = data || {};
+  const documents = originalDocs?.map((document) => {
     const { resources, ...other } = document;
     const { image } = resources.page;
 
@@ -18,7 +19,7 @@ function formatDocuments(data) {
 
   return {
     ...rest,
-    documents: formattedDocuments,
+    documents,
   };
 }
 
@@ -43,12 +44,8 @@ const documents = async (req, res) => {
 const multimedia = async (req, res) => {
   try {
     const { pathname, ...rest } = req.query;
-    const key = process.env.GOOGLE_API_KEY;
-    const queryParams = { key, ...rest };
-    const queryString = new URLSearchParams(queryParams).toString();
-    const response = await fetch(`${YOUTUBE_URL}${pathname}?${queryString}`);
-    const data = await response.json();
-    res.status(response.status).json(data);
+    const data = await fetchResource(pathname, rest);
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json(error);
   }
