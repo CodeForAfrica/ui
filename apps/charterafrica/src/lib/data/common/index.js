@@ -1,7 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
-import youtube from "@/charterafrica/lib/youtube";
+import { fetchPlaylistItems } from "@/charterafrica/lib/youtube";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import queryString from "@/charterafrica/utils/queryString";
 
@@ -162,11 +162,12 @@ async function processPageIndex(page, api, context) {
   return page;
 }
 
-async function getVideosFromPlaylist(playlistId) {
+export async function getVideosFromPlaylist(playlistId, options) {
   if (!playlistId) {
     return [];
   }
-  const videosFromApi = await youtube.fetchPlaylistItems(playlistId);
+
+  const videosFromApi = await fetchPlaylistItems(playlistId, options);
   const items =
     videosFromApi.items?.map(({ snippet, ...restArgs }) => ({
       ...snippet,
@@ -176,21 +177,25 @@ async function getVideosFromPlaylist(playlistId) {
   return items;
 }
 
-async function getFeaturedConsultations(consultation, playlistItems) {
-  if (consultation?.featuredType === "latest") {
+async function getFeaturedConsultations(featured, playlistItems) {
+  if (featured?.featuredType === "latest") {
     const sortedItems = playlistItems.sort(
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
     );
-    if (sortedItems.length) {
-      return [sortedItems?.[0]];
+    if (sortedItems?.length) {
+      return sortedItems.slice(0, 1);
     }
-    return [];
+    return null;
   }
-  const featured =
-    consultation?.featured?.map((item) =>
-      playlistItems.find((plItem) => plItem.videoId === item.videoId)
-    ) || [];
-  return featured;
+  if (featured?.featuredType === "custom") {
+    const items =
+      featured?.items?.map((item) =>
+        playlistItems.find((plItem) => plItem.videoId === item)
+      ) ?? null;
+    return items;
+  }
+  // featuredType === 'none', show nothing
+  return null;
 }
 
 async function processPageConsultation(page) {
@@ -208,16 +213,25 @@ async function processPageConsultation(page) {
   }
 
   const consultationIndex = blocks.findIndex(
-    ({ slug }) => slug === "consultation-multimedia"
+    ({ slug }) => slug === "embedded-playlist"
   );
-  const consultation = blocks[consultationIndex];
-  const playlistItems = await getVideosFromPlaylist(
-    consultation?.playlist?.playlistId
-  );
-  const featured = await getFeaturedConsultations(consultation, playlistItems);
   if (consultationIndex > -1) {
+    const {
+      description,
+      featured: featuredField,
+      playlist: playlistField,
+      title,
+    } = blocks[consultationIndex];
+    let items = await getVideosFromPlaylist(playlistField?.playlistId);
+    const featured = await getFeaturedConsultations(featuredField, items);
+    if (featured?.length) {
+      // Remove featured items from the playlist i.e. no need for duplication
+      items = items.filter((i) =>
+        featured.find((f) => f.videoId !== i.videoId)
+      );
+    }
     blocks[consultationIndex] = {
-      slug: "consultations",
+      slug: "embedded-playlist",
       config: {
         mostRecentText: "Most Recent",
         relevanceText: "Relevance",
@@ -226,9 +240,13 @@ async function processPageConsultation(page) {
         previousTitle: "Previous Consultations",
         airedOnText: "Aired On",
       },
+      description: description ?? null,
       featured,
-      consultations: playlistItems,
-      title: consultation.playlist.title,
+      playlist: {
+        ...playlistField,
+        items,
+      },
+      title: title ?? null,
     };
   }
 
