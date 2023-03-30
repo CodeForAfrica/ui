@@ -1,8 +1,8 @@
 import CommunityPlatforms from "../blocks/CommunityPlatforms";
 import ConsultationDocuments from "../blocks/ConsultationDocuments";
-import ConsultationsMultimedia from "../blocks/ConsultationsMultimedia";
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import Ecosystem from "../blocks/Ecosystem";
+import EmbeddedPlaylist from "../blocks/EmbeddedPlaylist";
 import Error from "../blocks/Error";
 import FAQ from "../blocks/FAQ";
 import FeaturedPost from "../blocks/FeaturedPost";
@@ -47,9 +47,9 @@ const Pages = {
       blocks: [
         CommunityPlatforms,
         ConsultationDocuments,
-        ConsultationsMultimedia,
         DemocracyHelpdeskContent,
         Ecosystem,
+        EmbeddedPlaylist,
         Error,
         FAQ,
         FeaturedPost,
