@@ -43,10 +43,9 @@ export function formatDocuments(data, options) {
   };
 }
 
-export async function fetchDocuments(group, options) {
-  const groupString = `group:${group}`;
+export async function fetchDocuments(q, options = {}) {
   const params = {
-    q: groupString,
+    q,
     contributor: true,
     per_page: 8,
     ...options,

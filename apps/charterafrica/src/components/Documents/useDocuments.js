@@ -5,7 +5,6 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 function useDocuments(q, options) {
   const params = {
     q,
-    type: "search",
     ...options,
   };
   const paramsString = new URLSearchParams(params).toString();

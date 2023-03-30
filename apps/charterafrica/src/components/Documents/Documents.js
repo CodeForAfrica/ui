@@ -8,20 +8,10 @@ import useDocuments from "./useDocuments";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 
 const Documents = React.forwardRef(function Documents(props, ref) {
-  const {
-    documents: originalDocuments,
-    options,
-    page: originalPage,
-    per_page: pagination,
-    sx,
-    total: totalItems,
-    q,
-  } = props;
+  const { documents: originalDocuments, options, sx, q } = props;
   const [documents, setDocuments] = useState(originalDocuments);
-  const [totalPages, setTotalPages] = useState(
-    Math.ceil(totalItems / pagination)
-  );
-  const [page, setPage] = useState(originalPage);
+  const [totalPages, setTotalPages] = useState(0);
+  const [page, setPage] = useState(1);
 
   const handleChangePage = (_, value) => {
     setPage(value);

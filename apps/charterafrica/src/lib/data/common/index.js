@@ -233,7 +233,7 @@ async function processPageConsultation(page, api, context) {
   if (groupIndex > -1) {
     const { group } = blocks[groupIndex];
     const { group: documentGroup, options } = group;
-    const documents = await fetchDocuments(documentGroup, options);
+    const documents = await fetchDocuments(`group:${documentGroup}`, options);
 
     blocks[groupIndex] = {
       slug: "documents",

@@ -1,21 +1,13 @@
-import { formatDocuments } from "@/charterafrica/lib/sourceAfrica";
+import { fetchDocuments } from "@/charterafrica/lib/sourceAfrica";
 
-const BASE_DOCUMENTS_URL = "https://dc.sourceafrica.net/api/";
 const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
 
 const documents = async (req, res) => {
-  const { type, ...rest } = req.query;
-  const params = new URLSearchParams(rest).toString();
-  const fullURL =
-    type === "search"
-      ? `${BASE_DOCUMENTS_URL}search.json?${params}`
-      : `${BASE_DOCUMENTS_URL}oembed.json?${params}`;
+  const { q, media, ...rest } = req.query;
 
   try {
-    const response = await fetch(fullURL);
-    const data = await response.json();
-    const formattedData = type === "search" ? formatDocuments(data, {}) : data;
-    res.status(200).json(formattedData);
+    const data = await fetchDocuments(q, rest);
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error });
   }
