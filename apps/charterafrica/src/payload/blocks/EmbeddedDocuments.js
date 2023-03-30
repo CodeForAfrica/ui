@@ -1,7 +1,7 @@
 import richText from "../fields/richText";
 
-const ConsultationDocuments = {
-  slug: "consultation-documents",
+const EmbeddedDocuments = {
+  slug: "embedded-documents",
   fields: [
     {
       type: "collapsible",
@@ -124,4 +124,4 @@ const ConsultationDocuments = {
   ],
 };
 
-export default ConsultationDocuments;
+export default EmbeddedDocuments;

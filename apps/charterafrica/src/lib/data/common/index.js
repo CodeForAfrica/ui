@@ -231,32 +231,31 @@ async function processPageConsultation(page, api, context) {
   }
 
   const { blocks } = page;
-  const groupIndex = blocks.findIndex(
-    ({ slug }) => slug === "consultation-documents"
+  const documentsIndex = blocks.findIndex(
+    ({ slug }) => slug === "embedded-documents"
   );
-
-  if (groupIndex > -1) {
-    const { group } = blocks[groupIndex];
-    const { group: documentGroup, options } = group;
-    const documents = await fetchDocuments(`group:${documentGroup}`, options);
-
-    blocks[groupIndex] = {
+  if (documentsIndex > -1) {
+    const {
+      group: { group, options },
+    } = blocks[documentsIndex];
+    const documents = await fetchDocuments(`group:${group}`, options);
+    blocks[documentsIndex] = {
       slug: "documents",
       options,
       ...documents,
     };
   }
 
-  const consultationIndex = blocks.findIndex(
+  const playlistIndex = blocks.findIndex(
     ({ slug }) => slug === "embedded-playlist"
   );
-  if (consultationIndex > -1) {
+  if (playlistIndex > -1) {
     const {
       description,
       featured: featuredField,
       playlist: playlistField,
       title,
-    } = blocks[consultationIndex];
+    } = blocks[playlistIndex];
     let items = await getVideosFromPlaylist(playlistField?.playlistId);
     const featured = await getFeaturedConsultations(featuredField, items);
     if (featured?.length) {
@@ -265,7 +264,7 @@ async function processPageConsultation(page, api, context) {
         featured.find((f) => f.videoId !== i.videoId)
       );
     }
-    blocks[consultationIndex] = {
+    blocks[playlistIndex] = {
       slug: "embedded-playlist",
       config: {
         mostRecentText: "Most Recent",
