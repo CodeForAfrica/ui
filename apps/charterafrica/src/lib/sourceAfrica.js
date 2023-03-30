@@ -33,7 +33,6 @@ export function formatDocuments(data, options) {
       pages,
       title,
       url: documentURL.toString(),
-      options,
     };
   });
 
