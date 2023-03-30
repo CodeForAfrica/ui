@@ -1,26 +1,7 @@
+import { formatDocuments } from "@/charterafrica/lib/sourceAfrica";
+
 const BASE_DOCUMENTS_URL = "https://dc.sourceafrica.net/api/";
 const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
-
-function formatDocuments(data) {
-  const { documents, ...rest } = data || {};
-  const formattedDocuments = documents?.map((document) => {
-    const { resources, ...other } = document;
-    const { image } = resources.page;
-
-    const imageUrl = image
-      .replace("-p{page}", "-p1")
-      .replace("-{size}", "-normal");
-    return {
-      ...other,
-      image: imageUrl,
-    };
-  });
-
-  return {
-    ...rest,
-    documents: formattedDocuments,
-  };
-}
 
 const documents = async (req, res) => {
   const { type, ...rest } = req.query;
@@ -33,7 +14,7 @@ const documents = async (req, res) => {
   try {
     const response = await fetch(fullURL);
     const data = await response.json();
-    const formattedData = type === "search" ? formatDocuments(data) : data;
+    const formattedData = type === "search" ? formatDocuments(data, {}) : data;
     res.status(200).json(formattedData);
   } catch (error) {
     res.status(500).json({ error });

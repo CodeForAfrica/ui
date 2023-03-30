@@ -13,7 +13,7 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
   const {
     canonical_url: canonicalUrl,
     contributor,
-    created_at: publishDated,
+    createdAt: publishDated,
     image,
     options,
     pages,

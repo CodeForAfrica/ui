@@ -8,19 +8,31 @@ import useDocuments from "./useDocuments";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 
 const Documents = React.forwardRef(function Documents(props, ref) {
-  const { group, locale, options, sx } = props;
-  const [documents, setDocuments] = useState([]);
-  const [totalPages, setTotalPages] = useState(0);
-  const [page, setPage] = useState(1);
+  const {
+    documents: originalDocuments,
+    locale,
+    options,
+    page: originalPage,
+    per_page: pagination,
+    sx,
+    total: totalItems,
+    q,
+  } = props;
+  const [documents, setDocuments] = useState(originalDocuments);
+  const [totalPages, setTotalPages] = useState(
+    Math.ceil(totalItems / pagination)
+  );
+  const [page, setPage] = useState(originalPage);
 
   const handleChangePage = (_, value) => {
     setPage(value);
   };
 
-  const { data } = useDocuments(group, {
+  const { data } = useDocuments(q, {
     page,
     per_page: 8,
     contributor: true,
+    ...options,
   });
 
   useEffect(() => {
@@ -44,12 +56,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
     <Box bgcolor="common.white" sx={sx} ref={ref}>
       <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: 10 } }}>
         {documents.map((document) => (
-          <DocumentCard
-            {...document}
-            locale={locale}
-            key={document.id}
-            options={options}
-          />
+          <DocumentCard {...document} locale={locale} key={document.title} />
         ))}
         <NextPrevPagination
           count={totalPages}

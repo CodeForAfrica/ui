@@ -1,6 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
+import { fetchDocuments } from "@/charterafrica/lib/sourceAfrica";
 import youtube from "@/charterafrica/lib/youtube";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import queryString from "@/charterafrica/utils/queryString";
@@ -225,9 +226,12 @@ async function processPageConsultation(page, api, context) {
 
   if (groupIndex > -1) {
     const { group } = blocks[groupIndex];
+    const { group: documentGroup, options } = group;
+    const documents = await fetchDocuments(documentGroup, options);
+
     blocks[groupIndex] = {
       slug: "documents",
-      ...group,
+      ...documents,
     };
   }
 
