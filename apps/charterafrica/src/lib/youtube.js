@@ -1,10 +1,8 @@
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
-async function fetchYoutube(path, playlistId) {
+export async function fetchResource(path, options) {
   const params = {
-    playlistId,
-    part: "snippet",
-    maxResults: 100,
+    ...options,
     key: process.env.GOOGLE_API_KEY,
   };
   const res = await fetchJson.get(
@@ -14,9 +12,18 @@ async function fetchYoutube(path, playlistId) {
   return res;
 }
 
-const fetchPlaylistItems = async (playlistId) =>
-  fetchYoutube("/playlistItems", playlistId);
+export async function fetchPlaylistItems(playlistId, options) {
+  const params = {
+    maxResults: 100,
+    part: "snippet",
+    ...options,
+    playlistId,
+  };
+
+  return fetchResource("/playlistItems", params);
+}
 
 export default {
+  fetchResource,
   fetchPlaylistItems,
 };
