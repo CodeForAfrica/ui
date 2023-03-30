@@ -5,7 +5,7 @@ import {
   fetchDocuments,
   fetchDocumentIframe,
 } from "@/charterafrica/lib/sourceAfrica";
-import youtube from "@/charterafrica/lib/youtube";
+import { fetchPlaylistItems } from "@/charterafrica/lib/youtube";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import queryString from "@/charterafrica/utils/queryString";
 
@@ -166,11 +166,12 @@ async function processPageIndex(page, api, context) {
   return page;
 }
 
-async function getVideosFromPlaylist(playlistId) {
+export async function getVideosFromPlaylist(playlistId, options) {
   if (!playlistId) {
     return [];
   }
-  const videosFromApi = await youtube.fetchPlaylistItems(playlistId);
+
+  const videosFromApi = await fetchPlaylistItems(playlistId, options);
   const items =
     videosFromApi.items?.map(({ snippet, ...restArgs }) => ({
       ...snippet,
@@ -180,21 +181,25 @@ async function getVideosFromPlaylist(playlistId) {
   return items;
 }
 
-async function getFeaturedConsultations(consultation, playlistItems) {
-  if (consultation?.featuredType === "latest") {
+async function getFeaturedConsultations(featured, playlistItems) {
+  if (featured?.featuredType === "latest") {
     const sortedItems = playlistItems.sort(
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
     );
-    if (sortedItems.length) {
-      return [sortedItems?.[0]];
+    if (sortedItems?.length) {
+      return sortedItems.slice(0, 1);
     }
-    return [];
+    return null;
   }
-  const featured =
-    consultation?.featured?.map((item) =>
-      playlistItems.find((plItem) => plItem.videoId === item.videoId)
-    ) || [];
-  return featured;
+  if (featured?.featuredType === "custom") {
+    const items =
+      featured?.items?.map((item) =>
+        playlistItems.find((plItem) => plItem.videoId === item)
+      ) ?? null;
+    return items;
+  }
+  // featuredType === 'none', show nothing
+  return null;
 }
 
 async function processPageConsultationDocument(page, api, context) {
@@ -226,33 +231,45 @@ async function processPageConsultation(page, api, context) {
   }
 
   const { blocks } = page;
-  const groupIndex = blocks.findIndex(
-    ({ slug }) => slug === "consultation-documents"
+  const documentsIndex = blocks.findIndex(
+    ({ slug }) => slug === "embedded-documents"
   );
-
-  if (groupIndex > -1) {
-    const { group } = blocks[groupIndex];
-    const { group: documentGroup, options } = group;
-    const documents = await fetchDocuments(`group:${documentGroup}`, options);
-
-    blocks[groupIndex] = {
-      slug: "documents",
-      options,
+  if (documentsIndex > -1) {
+    const {
+      description: documentsDescription,
+      group: { group, options },
+      title: documentsTitle,
+    } = blocks[documentsIndex];
+    const documents = await fetchDocuments(`group:${group}`, options);
+    blocks[documentsIndex] = {
       ...documents,
+      slug: "documents",
+      description: documentsDescription ?? null,
+      options,
+      title: documentsTitle ?? null,
     };
   }
 
-  const consultationIndex = blocks.findIndex(
-    ({ slug }) => slug === "consultation-multimedia"
+  const playlistIndex = blocks.findIndex(
+    ({ slug }) => slug === "embedded-playlist"
   );
-  const consultation = blocks[consultationIndex];
-  const playlistItems = await getVideosFromPlaylist(
-    consultation?.playlist?.playlistId
-  );
-  const featured = await getFeaturedConsultations(consultation, playlistItems);
-  if (consultationIndex > -1) {
-    blocks[consultationIndex] = {
-      slug: "consultations",
+  if (playlistIndex > -1) {
+    const {
+      description,
+      featured: featuredField,
+      playlist: playlistField,
+      title,
+    } = blocks[playlistIndex];
+    let items = await getVideosFromPlaylist(playlistField?.playlistId);
+    const featured = await getFeaturedConsultations(featuredField, items);
+    if (featured?.length) {
+      // Remove featured items from the playlist i.e. no need for duplication
+      items = items.filter((i) =>
+        featured.find((f) => f.videoId !== i.videoId)
+      );
+    }
+    blocks[playlistIndex] = {
+      slug: "embedded-playlist",
       config: {
         mostRecentText: "Most Recent",
         relevanceText: "Relevance",
@@ -261,9 +278,13 @@ async function processPageConsultation(page, api, context) {
         previousTitle: "Previous Consultations",
         airedOnText: "Aired On",
       },
+      description: description ?? null,
       featured,
-      consultations: playlistItems,
-      title: consultation.playlist.title,
+      playlist: {
+        ...playlistField,
+        items,
+      },
+      title: title ?? null,
     };
   }
 

@@ -6,27 +6,15 @@ import {
 import { createElement, useMemo } from "react";
 import useSWR from "swr";
 
-import { mapPlaylistLinkToId } from "../../utils/mapPlaylistLinkToId";
+import { getEmbeddedPlaylist } from "../../utils/embeddedPlaylist";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function YoutubeSelect(props) {
+function YouTubeSelect(props) {
   const [fields] = useAllFormFields();
 
-  const { blocks } = getSiblingData(fields, "blocks");
-  const currentBlock = blocks.find(
-    (block) => block?.blockType === "consultation-multimedia"
-  );
-  const link = currentBlock?.playlist?.link;
-  const playlistId = mapPlaylistLinkToId({
-    siblingData: { link },
-  });
-  const params = {
-    pathname: "/playlistItems",
-    playlistId,
-    part: "snippet",
-  };
-  const queryString = new URLSearchParams(params).toString();
+  const document = getSiblingData(fields, "blocks");
+  const { playlistId, queryString } = getEmbeddedPlaylist(document);
   const { data } = useSWR(
     playlistId
       ? `/api/v1/opportunities/consultation/multimedia?${queryString}`
@@ -42,4 +30,4 @@ function YoutubeSelect(props) {
   return createElement(Select, { ...props, options });
 }
 
-export default YoutubeSelect;
+export default YouTubeSelect;

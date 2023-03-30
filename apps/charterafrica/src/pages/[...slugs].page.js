@@ -32,10 +32,9 @@ import Spotlight from "@/charterafrica/components/Spotlight";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 const componentsBySlugs = {
-  consultations: Consultations,
-  "our-community-platforms": CommunityPlatforms,
   documents: Documents,
   ecosystem: Ecosystem,
+  "embedded-playlist": Consultations,
   explainers: Explainers,
   faq: FAQ,
   "featured-post": FeaturedPostCard,
@@ -49,11 +48,12 @@ const componentsBySlugs = {
   longform: LongForm,
   mooc: Mooc,
   news: Articles,
-  opportunity: Opportunity,
-  opportunities: OpportunityPage,
+  "our-community-platforms": CommunityPlatforms,
   "our-grantees": Grantees,
   "our-partners": Partners,
   "our-resources": Resources,
+  opportunity: Opportunity,
+  opportunities: OpportunityPage,
   "page-description": PageDescription,
   "page-header": PageHeader,
   "page-info": PageInfo,

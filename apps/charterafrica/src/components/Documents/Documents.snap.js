@@ -6,10 +6,10 @@ exports[`<Documents /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-ydzulf-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-27tpcc-MuiContainer-root"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1wj4l1q-MuiPaper-root-MuiCard-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-hgg13y-MuiPaper-root-MuiCard-root"
       >
         <a
           class="MuiButtonBase-root MuiCardActionArea-root css-zv6foc-MuiButtonBase-root-MuiCardActionArea-root"

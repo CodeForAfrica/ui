@@ -1,6 +1,41 @@
-const ConsultationDocuments = {
-  slug: "consultation-documents",
+import richText from "../fields/richText";
+
+const EmbeddedDocuments = {
+  slug: "embedded-documents",
   fields: [
+    {
+      type: "collapsible",
+      label: {
+        en: "Title & Description",
+        fr: "Titre & description",
+        pt: "Titulo & descrição",
+      },
+      fields: [
+        {
+          name: "title",
+          label: {
+            en: "Title",
+            fr: "Titre",
+            pt: "Título",
+          },
+          type: "text",
+          localized: true,
+        },
+        richText({
+          name: "description",
+          label: {
+            en: "Description",
+            fr: "La description",
+            pt: "Descrição",
+          },
+          localized: true,
+          admin: {
+            elements: ["h3", "h4", "h5", "h6", "link", "ol", "ul", "indent"],
+            leaves: ["bold", "code", "italic", "underline"],
+          },
+        }),
+      ],
+    },
     {
       name: "group",
       label: {
@@ -13,9 +48,9 @@ const ConsultationDocuments = {
         {
           name: "group",
           label: {
-            en: "Documents  Group Name",
-            fr: "Nom du groupe de documents",
-            pt: "Nome do grupo de documentos",
+            en: "Name",
+            fr: "Nom",
+            pt: "Nome",
           },
           type: "text",
           localized: true,
@@ -80,10 +115,13 @@ const ConsultationDocuments = {
               ],
             },
           ],
+          admin: {
+            hideGutter: true,
+          },
         },
       ],
     },
   ],
 };
 
-export default ConsultationDocuments;
+export default EmbeddedDocuments;
