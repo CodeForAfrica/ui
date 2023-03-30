@@ -2,10 +2,9 @@ import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function useDocuments(groups, options) {
+function useDocuments(q, options) {
   const params = {
-    q: `group:${groups}`,
-    type: "search",
+    q,
     ...options,
   };
   const paramsString = new URLSearchParams(params).toString();

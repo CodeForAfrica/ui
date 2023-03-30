@@ -19,13 +19,9 @@ const defaultProps = {
       ],
     },
   ],
-  options: {
-    url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-    showNotes: false,
-    search: false,
-    text: false,
-    zoom: false,
-  },
+  html: `
+  <iframe src="https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html" width="100%" height="1000px" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+  `,
 };
 
 describe("<EmbeddedDocumentViewer />", () => {

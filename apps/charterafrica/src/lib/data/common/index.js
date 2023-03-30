@@ -1,6 +1,10 @@
 import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
+import {
+  fetchDocuments,
+  fetchDocumentIframe,
+} from "@/charterafrica/lib/sourceAfrica";
 import youtube from "@/charterafrica/lib/youtube";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import queryString from "@/charterafrica/utils/queryString";
@@ -193,7 +197,34 @@ async function getFeaturedConsultations(consultation, playlistItems) {
   return featured;
 }
 
-async function processPageConsultation(page) {
+async function processPageConsultationDocument(page, api, context) {
+  const { query } = context;
+
+  const { title, slugs, ...rest } = query;
+
+  const data = await fetchDocumentIframe(rest);
+  const { html } = data;
+
+  return {
+    ...page,
+    blocks: [
+      {
+        slug: "embedded-document-viewer",
+        html,
+        title,
+      },
+    ],
+  };
+}
+
+async function processPageConsultation(page, api, context) {
+  const { params } = context;
+
+  // Check if we are on a document page: /opportunities/consultation/documents
+  if (params.slugs.length > 2 && params.slugs[2] === "documents") {
+    return processPageConsultationDocument(page, api, context);
+  }
+
   const { blocks } = page;
   const groupIndex = blocks.findIndex(
     ({ slug }) => slug === "consultation-documents"
@@ -201,9 +232,13 @@ async function processPageConsultation(page) {
 
   if (groupIndex > -1) {
     const { group } = blocks[groupIndex];
+    const { group: documentGroup, options } = group;
+    const documents = await fetchDocuments(`group:${documentGroup}`, options);
+
     blocks[groupIndex] = {
       slug: "documents",
-      ...group,
+      options,
+      ...documents,
     };
   }
 

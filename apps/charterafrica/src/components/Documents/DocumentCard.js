@@ -1,5 +1,7 @@
 import { RichTypography } from "@commons-ui/core";
 import { Card, CardMedia, CardActionArea, Grid } from "@mui/material";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
 import Separator from "./Separator";
@@ -10,12 +12,15 @@ import formatDateTime from "@/charterafrica/utils/formatDate";
 const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
   const {
     contributor,
-    created_at: publishDated,
+    createdAt: publishDated,
     image,
     pages,
     sx,
     title,
+    url,
   } = props;
+  const router = useRouter();
+  const { asPath } = router;
 
   return (
     <Card
@@ -36,6 +41,8 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
             background: "transparent",
           },
         }}
+        component={Link}
+        href={`${asPath}/documents?${url}&title=${title}`}
       >
         <CardMedia
           component="img"
