@@ -2,8 +2,6 @@ import { Section, RichTypography } from "@commons-ui/core";
 import { Box } from "@mui/material";
 import React from "react";
 
-import useDocument from "./useDocument";
-
 import { secondary, neutral } from "@/charterafrica/colors";
 import RichText from "@/charterafrica/components/RichText";
 
@@ -11,22 +9,8 @@ const EmbeddedDocumentViewer = React.forwardRef(function EmbeddedDocumentViewer(
   props,
   ref
 ) {
-  const { excerpt, options, sx, title } = props;
-  const {
-    url,
-    showNotes = false,
-    search = false,
-    text = false,
-    zoom = false,
-  } = options || {};
+  const { excerpt, html, sx, title } = props;
 
-  const { data } = useDocument(url, {
-    notes: showNotes,
-    search,
-    text,
-    zoom,
-  });
-  const { html } = data || {};
   if (!html?.length) {
     return null;
   }

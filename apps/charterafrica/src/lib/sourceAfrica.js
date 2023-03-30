@@ -20,11 +20,11 @@ export function formatDocuments(data, options) {
       .replace("-p{page}", "-p1")
       .replace("-{size}", "-normal");
 
-    const documentURLParams = new URLSearchParams({
+    const documentURL = new URLSearchParams({
       url: canonicalUrl,
       ...options,
     });
-    const documentURL = `${BASE_DOCUMENTS_URL}oembed.json?${documentURLParams.toString()}`;
+
     return {
       contributor,
       createdAt,
@@ -32,7 +32,7 @@ export function formatDocuments(data, options) {
       image: imageUrl,
       pages,
       title,
-      url: documentURL,
+      url: documentURL.toString(),
       options,
     };
   });
@@ -58,6 +58,17 @@ export async function fetchDocuments(group, options) {
     });
     const formattedData = formatDocuments(response, options);
     return formattedData;
+  } catch (error) {
+    return error;
+  }
+}
+
+export async function fetchDocumentIframe(params) {
+  try {
+    const response = await fetchJson.get(`${BASE_DOCUMENTS_URL}oembed.json`, {
+      params,
+    });
+    return response;
   } catch (error) {
     return error;
   }

@@ -1,7 +1,10 @@
 import { deepmerge } from "@mui/utils";
 
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
-import { fetchDocuments } from "@/charterafrica/lib/sourceAfrica";
+import {
+  fetchDocuments,
+  fetchDocumentIframe,
+} from "@/charterafrica/lib/sourceAfrica";
 import youtube from "@/charterafrica/lib/youtube";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import queryString from "@/charterafrica/utils/queryString";
@@ -197,14 +200,17 @@ async function getFeaturedConsultations(consultation, playlistItems) {
 async function processPageConsultationDocument(page, api, context) {
   const { query } = context;
 
-  const { title, ...rest } = query;
+  const { title, slugs, ...rest } = query;
+
+  const data = await fetchDocumentIframe(rest);
+  const { html } = data;
 
   return {
     ...page,
     blocks: [
       {
         slug: "embedded-document-viewer",
-        options: rest,
+        html,
         title,
       },
     ],
@@ -231,6 +237,7 @@ async function processPageConsultation(page, api, context) {
 
     blocks[groupIndex] = {
       slug: "documents",
+      options,
       ...documents,
     };
   }

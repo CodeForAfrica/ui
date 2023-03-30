@@ -10,7 +10,6 @@ import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 const Documents = React.forwardRef(function Documents(props, ref) {
   const {
     documents: originalDocuments,
-    locale,
     options,
     page: originalPage,
     per_page: pagination,
@@ -56,7 +55,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
     <Box bgcolor="common.white" sx={sx} ref={ref}>
       <Section sx={{ px: { xs: 5, sm: 0 }, py: { xs: 5, md: 10 } }}>
         {documents.map((document) => (
-          <DocumentCard {...document} locale={locale} key={document.title} />
+          <DocumentCard {...document} key={document.title} />
         ))}
         <NextPrevPagination
           count={totalPages}

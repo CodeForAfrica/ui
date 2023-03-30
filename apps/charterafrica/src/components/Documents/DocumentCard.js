@@ -11,14 +11,13 @@ import formatDateTime from "@/charterafrica/utils/formatDate";
 
 const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
   const {
-    canonical_url: canonicalUrl,
     contributor,
     createdAt: publishDated,
     image,
-    options,
     pages,
     sx,
     title,
+    url,
   } = props;
   const router = useRouter();
   const { asPath } = router;
@@ -43,14 +42,7 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
           },
         }}
         component={Link}
-        href={{
-          pathname: `${asPath}/documents/`,
-          query: {
-            url: canonicalUrl,
-            title,
-            ...options,
-          },
-        }}
+        href={`${asPath}/documents?${url}&title=${title}`}
       >
         <CardMedia
           component="img"
