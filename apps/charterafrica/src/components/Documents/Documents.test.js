@@ -9,7 +9,18 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  group: "ADF",
+  q: "group:ADF",
+  documents: [
+    {
+      contributor: "Contributor",
+      createdAt: "2021-09-01",
+      description: "Document Description",
+      image: "/images/hero-slide-1.jpg",
+      pages: 10,
+      title: "Document Title",
+      url: "https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html",
+    },
+  ],
   options: {
     url: "https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html",
     showNotes: true,
