@@ -1,7 +1,7 @@
 import CommunityPlatforms from "../blocks/CommunityPlatforms";
-import ConsultationDocuments from "../blocks/ConsultationDocuments";
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import Ecosystem from "../blocks/Ecosystem";
+import EmbeddedDocuments from "../blocks/EmbeddedDocuments";
 import EmbeddedPlaylist from "../blocks/EmbeddedPlaylist";
 import Error from "../blocks/Error";
 import FAQ from "../blocks/FAQ";
@@ -46,9 +46,9 @@ const Pages = {
       type: "blocks",
       blocks: [
         CommunityPlatforms,
-        ConsultationDocuments,
         DemocracyHelpdeskContent,
         Ecosystem,
+        EmbeddedDocuments,
         EmbeddedPlaylist,
         Error,
         FAQ,
