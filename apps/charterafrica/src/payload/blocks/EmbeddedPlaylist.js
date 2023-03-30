@@ -33,9 +33,13 @@ const EmbeddedPlaylist = {
   labels: {
     singular: {
       en: "Embedded Playlist",
+      fr: "Playlist Intégrée",
+      pt: "Playlists incorporada",
     },
     plural: {
       en: "Embedded Playlist",
+      fr: "Playlist Intégrée",
+      pt: "Playlists incorporada",
     },
   },
   fields: [
@@ -43,6 +47,8 @@ const EmbeddedPlaylist = {
       type: "collapsible",
       label: {
         en: "Title & Description",
+        fr: "Titre & description",
+        pt: "Titulo & descrição",
       },
       fields: [
         {
@@ -74,8 +80,6 @@ const EmbeddedPlaylist = {
       type: "collapsible",
       label: {
         en: "Playlist",
-        fr: "Playlist",
-        pt: "Lista de reprodução",
       },
       fields: [
         {
