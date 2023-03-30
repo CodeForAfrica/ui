@@ -1,3 +1,5 @@
+export const BLOCK_SLUG = "embedded-playlist";
+
 export const mapPlaylistLinkToId = ({ siblingData }) => {
   try {
     const { link } = siblingData;
@@ -9,14 +11,24 @@ export const mapPlaylistLinkToId = ({ siblingData }) => {
   }
 };
 
-export const mapVideoUrlToId = ({ siblingData }) => {
-  try {
-    const { videoLink } = siblingData;
-    const sharedId = videoLink.split("https://youtu.be/")?.[1];
-    const url = new URL(videoLink);
-    const videoId = url.searchParams.get("v");
-    return sharedId || videoId;
-  } catch (error) {
-    return "";
-  }
-};
+function getEmbeddedPlaylistFromBlock(block) {
+  const link = block?.playlist?.link;
+  const playlistId = mapPlaylistLinkToId({
+    siblingData: { link },
+  });
+  const params = {
+    maxResults: 100,
+    part: "snippet",
+    pathname: "/playlistItems",
+    playlistId,
+  };
+  const queryString = new URLSearchParams(params).toString();
+
+  return { playlistId, queryString };
+}
+
+export function getEmbeddedPlaylist(documents = {}) {
+  const { blocks } = documents;
+  const block = blocks?.find((b) => b?.blockType === BLOCK_SLUG);
+  return getEmbeddedPlaylistFromBlock(block);
+}
