@@ -236,13 +236,17 @@ async function processPageConsultation(page, api, context) {
   );
   if (documentsIndex > -1) {
     const {
+      description: documentsDescription,
       group: { group, options },
+      title: documentsTitle,
     } = blocks[documentsIndex];
     const documents = await fetchDocuments(`group:${group}`, options);
     blocks[documentsIndex] = {
-      slug: "documents",
-      options,
       ...documents,
+      slug: "documents",
+      description: documentsDescription ?? null,
+      options,
+      title: documentsTitle ?? null,
     };
   }
 
