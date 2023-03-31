@@ -523,8 +523,7 @@ async function processPageArticles(page, api, context) {
     },
     slug,
     title,
-    // since there can be 1 articles block per page
-    id: "articles",
+    id: `articles-${slug}`,
   };
   blocks.push(articlesBlock);
 
