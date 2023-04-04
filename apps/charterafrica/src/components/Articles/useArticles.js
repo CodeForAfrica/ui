@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-import queryString from "@/charterafrica/utils/queryString";
+import queryString from "@/charterafrica/utils/articles/queryString";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 

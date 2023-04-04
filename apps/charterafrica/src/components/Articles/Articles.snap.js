@@ -4,7 +4,6 @@ exports[`<Articles /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-1oqbd6t"
-    id="articles"
   >
     <div
       class="MuiBox-root css-e2yz6z"

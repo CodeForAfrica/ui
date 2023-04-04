@@ -24,13 +24,13 @@ const DocumentCard = React.forwardRef(function DocumentCard(props, ref) {
 
   return (
     <Card
-      ref={ref}
       sx={{
         boxShadow: "none",
         my: 2,
         border: "none",
         ...sx,
       }}
+      ref={ref}
     >
       <CardActionArea
         sx={{
