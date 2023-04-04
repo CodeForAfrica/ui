@@ -44,10 +44,8 @@ export function formatDocuments(data, options) {
 
 export async function fetchDocuments(q, options = {}) {
   const params = {
-    q,
-    contributor: true,
-    per_page: 8,
     ...options,
+    q,
   };
 
   try {

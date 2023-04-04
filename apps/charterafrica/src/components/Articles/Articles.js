@@ -12,7 +12,7 @@ import FeaturedPost from "@/charterafrica/components/FeaturedPostCard";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import queryString, {
   DEFAULT_SORTING,
-} from "@/charterafrica/utils/queryString";
+} from "@/charterafrica/utils/articles/queryString";
 
 const Articles = React.forwardRef(function Articles(props, ref) {
   const {
@@ -27,6 +27,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   const [page, setPage] = useState(1);
   const [q, setQ] = useState("");
   const [sort, setSort] = useState(DEFAULT_SORTING);
+  const [filtering, setFiltering] = useState(false);
   const router = useRouter();
   const articlesRef = useRef();
   useImperativeHandle(ref, () => articlesRef.current);
@@ -35,32 +36,35 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   const pageSize = isDesktop ? 9 : 8;
 
   const handleChangeQ = (_, value) => {
+    setFiltering(true);
     setQ(value);
   };
   const handleChangeSort = (_, value) => {
+    setFiltering(true);
     setSort(value);
   };
   const handleChangePage = (_, value) => {
+    setFiltering(true);
     setPage(value);
   };
 
-  const queryParams = queryString({ q, sort, page });
+  const query = queryString({ q, sort, page });
   useEffect(() => {
     const pathname = asPath.split("?")[0];
     router.push(
       {
         pathname,
-        query: queryParams,
+        query,
       },
       undefined,
       { scroll: false, shallow: true }
     );
-    if (queryParams && articlesRef.current) {
-      articlesRef.current.scrollIntoView({ behavior: "smooth" });
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [queryParams]);
+  }, [query]);
 
+  if (filtering && articlesRef.current) {
+    articlesRef.current.scrollIntoView({ behavior: "smooth" });
+  }
   const res = useArticles(slug, { locale, q, sort, page, pageSize });
   useEffect(() => {
     if (!res?.isLoading) {
@@ -74,12 +78,11 @@ const Articles = React.forwardRef(function Articles(props, ref) {
 
   return (
     <Box
-      id="articles"
       sx={{
         backgroundColor: secondary[50],
         // TODO(kilemensi): May need to show "Articles not found message"
         minHeight: 76,
-        // Height of main navbar
+        // Main navbar height
         scrollMarginTop: { xs: "56px", sm: "64", md: "114px" },
         ...sx,
       }}
@@ -93,7 +96,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
         q={q}
       />
       {res.isLoading ? <LinearProgress color="secondary" /> : null}
-      {!queryParams ? <FeaturedPost {...featured} /> : null}
+      {!query ? <FeaturedPost {...featured} /> : null}
       <ArticleGrid articles={articles} sx={{ py: 8 }} />
       <NextPrevPagination
         count={totalPages}

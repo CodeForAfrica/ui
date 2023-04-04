@@ -1,6 +1,6 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import { Box } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import { Box, LinearProgress } from "@mui/material";
+import React, { useState, useEffect, useRef } from "react";
 
 import DocumentCard from "./DocumentCard";
 import useDocuments from "./useDocuments";
@@ -21,37 +21,46 @@ const Documents = React.forwardRef(function Documents(props, ref) {
   const [documents, setDocuments] = useState(originalDocuments);
   const [totalPages, setTotalPages] = useState(0);
   const [page, setPage] = useState(1);
+  const [filtering, setFiltering] = useState(false);
+  const documentsRef = useRef();
 
   const handleChangePage = (_, value) => {
+    setFiltering(true);
     setPage(value);
   };
 
-  const { data } = useDocuments(q, {
+  if (filtering && documentsRef.current) {
+    documentsRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+  const res = useDocuments(q, {
     page,
     per_page: 8,
     contributor: true,
     ...options,
   });
-
   useEffect(() => {
-    if (data) {
+    if (!res?.isLoading) {
+      const { data } = res;
       const {
         documents: foundDocuments,
         total,
         per_page: pageSize,
         page: currentPage,
-      } = data;
+      } = data || {};
       setDocuments(foundDocuments);
-      setTotalPages(Math.ceil(total / pageSize));
       setPage(currentPage);
+      setTotalPages(Math.ceil(total / pageSize));
     }
-  }, [data, page]);
+  }, [res]);
 
-  if (!documents?.length) {
-    return null;
-  }
   return (
-    <Box bgcolor="common.white" sx={sx} ref={ref}>
+    <Box
+      bgcolor="common.white"
+      sx={{
+        ...sx,
+      }}
+      ref={ref}
+    >
       <Section
         sx={{
           borderTop: `1px solid ${neutral[200]}`,
@@ -68,28 +77,39 @@ const Documents = React.forwardRef(function Documents(props, ref) {
           variant="p3"
           sx={{ mt: 2.5 }}
         />
-        {documents.map((document) => (
-          <DocumentCard
-            {...document}
-            key={document.url}
+        {res.isLoading ? <LinearProgress color="secondary" /> : null}
+        {documents?.length > 0 ? (
+          <Box
             sx={{
-              "&:first-of-type": {
-                mt: 5,
-              },
-              "&:last-of-type": {
-                mb: 0,
-              },
+              // Main navbar height + first card margin top
+              scrollMarginTop: { xs: 56 + 40, sm: 64 + 40, md: 114 + 40 },
             }}
-          />
-        ))}
-        <NextPrevPagination
-          count={totalPages}
-          onChange={handleChangePage}
-          page={page}
-          sx={{
-            bgcolor: "common.white",
-          }}
-        />
+            ref={documentsRef}
+          >
+            {documents.map((document) => (
+              <DocumentCard
+                {...document}
+                key={document.url}
+                sx={{
+                  "&:first-of-type": {
+                    mt: 5,
+                  },
+                  "&:last-of-type": {
+                    mb: 0,
+                  },
+                }}
+              />
+            ))}
+            <NextPrevPagination
+              count={totalPages}
+              onChange={handleChangePage}
+              page={page}
+              sx={{
+                bgcolor: "common.white",
+              }}
+            />
+          </Box>
+        ) : null}
       </Section>
     </Box>
   );

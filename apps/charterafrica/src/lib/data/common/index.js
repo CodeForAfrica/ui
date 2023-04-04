@@ -6,8 +6,9 @@ import {
   fetchDocumentIframe,
 } from "@/charterafrica/lib/sourceAfrica";
 import { fetchPlaylistItems } from "@/charterafrica/lib/youtube";
+import articlesQueryString from "@/charterafrica/utils/articles/queryString";
+import documentsQueryString from "@/charterafrica/utils/documents/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
-import queryString from "@/charterafrica/utils/queryString";
 
 export async function getGlobalProps({ locale, defaultLocale }, api) {
   const settings = await api.findGlobal("settings", {
@@ -222,6 +223,13 @@ async function processPageConsultationDocument(page, api, context) {
   };
 }
 
+function getDocumentsQuery(context, options) {
+  const { query = {} } = context;
+  const { contributor = true, page = 1, per_page: perPage = 8 } = query;
+
+  return { contributor, page, per_page: perPage, ...options };
+}
+
 async function processPageConsultation(page, api, context) {
   const { params } = context;
 
@@ -240,13 +248,24 @@ async function processPageConsultation(page, api, context) {
       group: { group, options },
       title: documentsTitle,
     } = blocks[documentsIndex];
-    const documents = await fetchDocuments(`group:${group}`, options);
+    const query = getDocumentsQuery(context, options);
+    const documents = await fetchDocuments(`group:${group}`, query);
     blocks[documentsIndex] = {
       ...documents,
       slug: "documents",
       description: documentsDescription ?? null,
       options,
       title: documentsTitle ?? null,
+    };
+    // SWR fallback
+    let swrKey = `/api/v1/opportunities/consultation/documents`;
+    const qs = documentsQueryString(query);
+    if (qs) {
+      swrKey = `${swrKey}?${qs}`;
+    }
+    // eslint-disable-next-line no-param-reassign
+    page.fallback = {
+      [swrKey]: documents,
     };
   }
 
@@ -528,8 +547,8 @@ async function processPageArticles(page, api, context) {
   blocks.push(articlesBlock);
 
   // SWR fallback
-  let swrKey = `/api/knowledge/${slug}`;
-  const qs = queryString(getArticlesQuery(context));
+  let swrKey = `/api/v1/knowledge/${slug}`;
+  const qs = articlesQueryString(getArticlesQuery(context));
   if (qs) {
     swrKey = `${swrKey}?${qs}`;
   }
