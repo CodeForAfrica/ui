@@ -186,6 +186,7 @@ async function processPageArticlePost(page, api, context) {
     ],
   };
 }
+
 async function processPageArticles(page, api, context) {
   const { params } = context;
   if (params.slugs.length > 2) {
