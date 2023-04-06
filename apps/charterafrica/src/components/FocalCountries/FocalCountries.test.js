@@ -52,8 +52,9 @@ const defaultProps = {
 };
 
 describe("<FocalCountries />", () => {
-  it("renders unchanged", () => {
-    const { container } = render(<FocalCountries {...defaultProps} />);
-    expect(container).toMatchSnapshot();
+  const { container } = render(<FocalCountries {...defaultProps} />);
+
+  it("renders unchanged", async () => {
+    await expect(container).toMatchSnapshot();
   });
 });
