@@ -28,7 +28,6 @@ const OpportunityPage = React.forwardRef(function OpportunityPage(props, ref) {
   if (!items?.length) {
     return null;
   }
-
   const itemsPerOpportunity = items.map(({ items: currentItems, ...other }) => {
     const itemsPerStatus = groupCollectionItems(currentItems);
     return { ...other, itemsPerStatus };

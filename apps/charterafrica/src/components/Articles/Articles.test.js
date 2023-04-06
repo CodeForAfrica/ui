@@ -9,7 +9,10 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  articles: [],
+  articles: {
+    results: [],
+    totalPages: 0,
+  },
   filters: {
     search: {
       placeholder: "Search",
