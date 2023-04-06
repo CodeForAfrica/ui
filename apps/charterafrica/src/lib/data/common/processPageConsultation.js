@@ -12,11 +12,15 @@ export async function getVideosFromPlaylist(playlistId, options) {
 
   const videosFromApi = await fetchPlaylistItems(playlistId, options);
   const items =
-    videosFromApi.items?.map(({ snippet, ...restArgs }) => ({
-      ...snippet,
-      ...snippet?.resourceId,
-      ...restArgs,
-    })) || [];
+    videosFromApi.items?.map(({ snippet, ...restArgs }) => {
+      const { description } = snippet;
+      return {
+        ...snippet,
+        ...snippet?.resourceId,
+        ...restArgs,
+        description: description?.replace(/\r?\n/g, "<br />") || null,
+      };
+    }) || [];
   return items;
 }
 
