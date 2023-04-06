@@ -1,10 +1,12 @@
 import { payload } from "@/charterafrica/lib";
 import {
   getGlobalProps as getGlobalPropsFromCommon,
-  getArticles,
-  getTags,
   getPageProps,
 } from "@/charterafrica/lib/data/common";
+import {
+  getArticles,
+  getTags,
+} from "@/charterafrica/lib/data/common/processPageArticles";
 
 // Only used on home page
 export async function getGlobalProps(context) {
