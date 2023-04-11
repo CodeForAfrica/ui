@@ -38,11 +38,11 @@ const defaultProps = {
     },
     tags: [
       {
-        ig: 1,
+        id: 1,
         name: "Constitutional changes of government",
       },
       {
-        ig: 1,
+        id: 2,
         name: "Constitutional changes of government",
       },
     ],

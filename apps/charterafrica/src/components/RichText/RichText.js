@@ -101,12 +101,6 @@ const serialize = (children, props) =>
         );
       case "quote":
         return <blockquote key={i}>{serialize(node.children)}</blockquote>;
-      case "ul":
-        return <ul key={i}>{serialize(node.children)}</ul>;
-      case "ol":
-        return <ol key={i}>{serialize(node.children)}</ol>;
-      case "li":
-        return <li key={i}>{serialize(node.children)}</li>;
       case "link":
         return (
           <Link href={node.href} key={i}>
@@ -116,7 +110,12 @@ const serialize = (children, props) =>
 
       default:
         return (
-          <LineClampedRichTypography {...DEFAULT_PROPS} {...props} key={i}>
+          <LineClampedRichTypography
+            component={node.type}
+            {...DEFAULT_PROPS}
+            {...props}
+            key={i}
+          >
             {serialize(node.children)}
           </LineClampedRichTypography>
         );
