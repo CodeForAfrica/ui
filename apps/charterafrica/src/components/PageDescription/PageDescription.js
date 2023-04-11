@@ -37,6 +37,12 @@ const PageDescription = React.forwardRef(function PageDescription(props, ref) {
                 ...theme.typography.subheading,
               },
             },
+            "& li": {
+              ...theme.typography.p1,
+              [theme.breakpoints.up("md")]: {
+                ...theme.typography.subheading,
+              },
+            },
             "& p:last-of-type": {
               mb: 0,
             },
