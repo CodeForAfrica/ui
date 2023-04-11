@@ -53,7 +53,7 @@ function accordion({ richTextConfig, overrides = {} } = {}) {
             required: true,
             localized: true,
             admin: {
-              elements: [],
+              elements: ["h6", "link", "ol", "ul", "indent"],
               leaves: ["bold", "italic", "underline", "code"],
             },
           },
