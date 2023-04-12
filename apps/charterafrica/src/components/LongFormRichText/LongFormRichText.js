@@ -13,6 +13,9 @@ const LongFormRichText = React.forwardRef(function LongFormRichText(
       elements={content}
       sx={(theme) => ({
         color: "inherit",
+        "& a, & a:visited, & a:hover": {
+          color: "inherit",
+        },
         "& h1": {
           ...theme.typography.h1Small,
           mb: 3.75,
@@ -68,11 +71,18 @@ const LongFormRichText = React.forwardRef(function LongFormRichText(
             ...theme.typography.subheading,
           },
         },
-        "& p:last-of-type": {
-          mb: 0,
+        "& ul": {
+          mb: 2,
         },
-        "& a, & a:visited, & a:hover": {
-          color: "inherit",
+        "& li": {
+          ...theme.typography.p1,
+          mt: 1,
+          [theme.breakpoints.up("md")]: {
+            ...theme.typography.subheading,
+          },
+        },
+        "& :last-child": {
+          mb: 0,
         },
         ...sx,
       })}

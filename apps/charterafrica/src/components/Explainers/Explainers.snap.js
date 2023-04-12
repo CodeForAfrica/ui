@@ -32,10 +32,10 @@ exports[`<Explainers /> renders unchanged 1`] = `
           />
         </figure>
         <div
-          class="MuiBox-root css-0"
+          class="MuiBox-root css-12mwhaj"
         >
           <p
-            class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1gx5see-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
           </p>
@@ -64,10 +64,10 @@ exports[`<Explainers /> renders unchanged 1`] = `
           />
         </figure>
         <div
-          class="MuiBox-root css-0"
+          class="MuiBox-root css-12mwhaj"
         >
           <p
-            class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1gx5see-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
           </p>
@@ -96,10 +96,10 @@ exports[`<Explainers /> renders unchanged 1`] = `
           />
         </figure>
         <div
-          class="MuiBox-root css-0"
+          class="MuiBox-root css-12mwhaj"
         >
           <p
-            class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1gx5see-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
           </p>
@@ -128,10 +128,10 @@ exports[`<Explainers /> renders unchanged 1`] = `
           />
         </figure>
         <div
-          class="MuiBox-root css-0"
+          class="MuiBox-root css-12mwhaj"
         >
           <p
-            class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1gx5see-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
           </p>
@@ -160,10 +160,10 @@ exports[`<Explainers /> renders unchanged 1`] = `
           />
         </figure>
         <div
-          class="MuiBox-root css-0"
+          class="MuiBox-root css-12mwhaj"
         >
           <p
-            class="MuiTypography-root MuiTypography-p2 css-dk4osf-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1gx5see-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
           </p>

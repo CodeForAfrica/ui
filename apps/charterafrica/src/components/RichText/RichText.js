@@ -32,6 +32,7 @@ const serialize = (children, props) =>
     if (!node) {
       return null;
     }
+    // TODO(kilemensi): handle node.type === indent
     switch (node.type) {
       case "h1":
         return (
@@ -107,7 +108,6 @@ const serialize = (children, props) =>
             {serialize(node.children)}
           </Link>
         );
-
       default:
         return (
           <LineClampedRichTypography
@@ -123,14 +123,13 @@ const serialize = (children, props) =>
   });
 
 const RichText = React.forwardRef(function RichText(props, ref) {
-  const { elements, sx, ...other } = props;
+  const { color, elements, sx, ...other } = props;
 
   if (!elements?.length) {
     return null;
   }
-
   return (
-    <Box sx={sx} ref={ref}>
+    <Box color={color} sx={sx} ref={ref}>
       {serialize(elements, other)}
     </Box>
   );

@@ -37,28 +37,28 @@ exports[`<Impressum /> renders unchanged 1`] = `
             class="MuiBox-root css-yp83e5"
           >
             <div
-              class="MuiBox-root css-0"
+              class="MuiBox-root css-12mwhaj"
             >
               <p
-                class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-fabev4-MuiTypography-root"
               >
                 European Partnership for Democracy (EPD)
 Rue Froissart 123-133
 1040 Brussels, Belgium
               </p>
               <p
-                class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-fabev4-MuiTypography-root"
               />
               <p
-                class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-fabev4-MuiTypography-root"
               >
                 EPD is registered in Belgium (0648.708.779).
               </p>
               <p
-                class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-fabev4-MuiTypography-root"
               />
               <p
-                class="MuiTypography-root MuiTypography-p1 css-10hmrl8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-fabev4-MuiTypography-root"
               >
                 You can contact EPD via email (info@epd.eu) or by phone (+32 2 733 2282).
               </p>
