@@ -26,10 +26,10 @@ exports[`<Error /> renders unchanged 1`] = `
         NOT FOUND
       </div>
       <div
-        class="MuiBox-root css-1xaekgw"
+        class="MuiBox-root css-dx31bc"
       >
         <p
-          class="MuiTypography-root MuiTypography-p3 css-1s9br4a-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p3 css-cu269s-MuiTypography-root"
         >
           Description Text
         </p>

@@ -28,10 +28,10 @@ exports[`FeaturedPostCard should render 1`] = `
               News Story title goes here and spans over second line
             </div>
             <div
-              class="MuiBox-root css-5g71vn"
+              class="MuiBox-root css-1kvdr3x"
             >
               <h6
-                class="MuiTypography-root MuiTypography-subheading css-1ea3c8k-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-subheading css-133dz2k-MuiTypography-root"
               >
                 Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur
               </h6>

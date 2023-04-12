@@ -87,10 +87,10 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
                     Democratic Governance in Zambia
                   </h5>
                   <div
-                    class="MuiBox-root css-1eoaz54"
+                    class="MuiBox-root css-1tdn91g"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p1 css-1d4bzy0-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1 css-16hf0uf-MuiTypography-root"
                     >
                       This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
                     </p>
@@ -188,10 +188,10 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
                     Democratic Governance in Zambia
                   </h5>
                   <div
-                    class="MuiBox-root css-1eoaz54"
+                    class="MuiBox-root css-1tdn91g"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p1 css-1d4bzy0-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1 css-16hf0uf-MuiTypography-root"
                     >
                       This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
                     </p>
@@ -289,10 +289,10 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
                     Democratic Governance in Zambia
                   </h5>
                   <div
-                    class="MuiBox-root css-1eoaz54"
+                    class="MuiBox-root css-1tdn91g"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p1 css-1d4bzy0-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1 css-16hf0uf-MuiTypography-root"
                     >
                       This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
                     </p>
