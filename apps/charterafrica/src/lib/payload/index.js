@@ -21,6 +21,14 @@ async function getCollection(collection, options) {
   });
 }
 
+async function createCollection(collection, data, options) {
+  return payload.create({
+    collection,
+    data,
+    ...options,
+  });
+}
+
 async function findGlobal(slug, options) {
   return payload.findGlobal({
     ...options,
@@ -29,6 +37,7 @@ async function findGlobal(slug, options) {
 }
 
 const api = {
+  createCollection,
   findGlobal,
   findPage,
   getCollection,
