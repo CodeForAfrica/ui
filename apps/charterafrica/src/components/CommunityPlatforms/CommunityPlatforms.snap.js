@@ -55,10 +55,10 @@ exports[`<CommunityPlatforms /> renders unchanged 1`] = `
                 Newsletter
               </h3>
               <div
-                class="MuiBox-root css-vjuqhg"
+                class="MuiBox-root css-c33e1h"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-p3 css-tvbx87-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p3 css-16cmem5-MuiTypography-root"
                 >
                   Receive updates on the Charter Project Africa
                 </p>
