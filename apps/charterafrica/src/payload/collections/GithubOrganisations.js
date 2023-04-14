@@ -3,7 +3,10 @@ import updatedAt from "../fields/updatedAt";
 const GithubOrganisations = {
   slug: "github-organisations",
   admin: {
-    useAsTitle: "organisationGitHub",
+    useAsTitle: "github",
+  },
+  access: {
+    read: () => true,
   },
   labels: {
     singular: {
@@ -19,7 +22,7 @@ const GithubOrganisations = {
   },
   fields: [
     {
-      name: "organisationGitHub",
+      name: "github",
       type: "text",
       label: {
         en: "GitHub Organization",
@@ -38,7 +41,7 @@ const GithubOrganisations = {
       },
     },
     {
-      name: "organisationName",
+      name: "name",
       type: "text",
       label: {
         en: "Organization Name",
@@ -48,7 +51,7 @@ const GithubOrganisations = {
       required: true,
     },
     {
-      name: "organisationDescription",
+      name: "description",
       type: "textarea",
       label: {
         en: "Organization Description",
@@ -57,7 +60,7 @@ const GithubOrganisations = {
       },
     },
     {
-      name: "organisationLocation",
+      name: "location",
       type: "text",
       label: {
         en: "Organization Location",
@@ -66,7 +69,7 @@ const GithubOrganisations = {
       },
     },
     {
-      name: "organisationWebsite",
+      name: "website",
       type: "text",
       label: {
         en: "Organization Website",
@@ -75,7 +78,7 @@ const GithubOrganisations = {
       },
     },
     {
-      name: "organisationTwitter",
+      name: "twitter",
       type: "text",
       label: {
         en: "Organization Twitter",
@@ -84,7 +87,7 @@ const GithubOrganisations = {
       },
     },
     {
-      name: "organisationEmail",
+      name: "email",
       type: "email",
       label: {
         en: "Organization Email",

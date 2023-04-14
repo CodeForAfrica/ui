@@ -14,14 +14,14 @@ const processSheet = async () => {
   );
 
   const toProcess = uniqueEntries.map(async (rawData) => {
-    const toolGithub = rawData["Tool Github"]
+    const github = rawData["Tool Github"]
       ?.replace(/^https?:\/\/github\.com\//, "")
       .replace(/\/$/, "");
     const toCreate = {
-      toolGithub,
-      toolName: rawData["Tool Name"],
-      toolDescription: rawData["Tool Description"],
-      toolLocation: rawData["Tool Description"],
+      github,
+      name: rawData["Tool Name"],
+      description: rawData["Tool Description"],
+      location: rawData["Tool Description"],
       topic: rawData.Topic,
     };
     const tool = await createTool(toCreate);

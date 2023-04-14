@@ -16,23 +16,22 @@ const TOOL_COLLECTION = "tool-github";
 export const createOrganization = async (org) => {
   const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {
     where: {
-      organisationGitHub: { equals: org },
+      github: { equals: org },
     },
   });
   if (docs.length) {
     return docs[0];
   }
   const organisation = await fetchOrganization(org);
-  //   TODO Relate many to any organization and people
   const toCreate = {
-    organisationGitHub: organisation?.login,
+    github: organisation?.login,
     type: organisation?.type,
-    organisationName: organisation?.name,
-    organisationDescription: organisation?.description,
-    organisationLocation: organisation?.location,
-    organisationWebsite: organisation?.html_url,
-    organisationTwitter: organisation?.twitter_username,
-    organisationEmail: organisation?.email,
+    name: organisation?.name,
+    description: organisation?.description,
+    location: organisation?.location,
+    website: organisation?.html_url,
+    twitter: organisation?.twitter_username,
+    email: organisation?.email,
   };
   const data = await api.createCollection(ORGANIZATION_COLLECTION, toCreate);
   return data;
@@ -41,7 +40,7 @@ export const createOrganization = async (org) => {
 export const createPerson = async (user) => {
   const { docs } = await api.getCollection(PEOPLE_COLLECTION, {
     where: {
-      peopleGitHub: { equals: user },
+      github: { equals: user },
     },
   });
   if (docs.length) {
@@ -49,14 +48,13 @@ export const createPerson = async (user) => {
   }
 
   const person = await fetchUserDetails(user);
-  //   TODO Relate many to any organization and people
   const toCreate = {
-    peopleGitHub: person?.login,
-    peopleFullName: person?.name,
-    peopleUsername: person?.login,
-    peopleDescription: person.bio,
-    peopleCountry: person?.location,
-    peopleTwitter: person?.twitter_username,
+    github: person?.login,
+    fullName: person?.name,
+    username: person?.login,
+    description: person.bio,
+    country: person?.location,
+    twitter: person?.twitter_username,
   };
   const data = await api.createCollection(PEOPLE_COLLECTION, toCreate);
   return data;
@@ -69,21 +67,21 @@ const fetchAndCreateContributors = async (nameAndOwner) => {
 };
 
 export const createTool = async (data) => {
-  const { toolGithub, toolName, toolDescription, toolLocation, topic } = data;
+  const { github, name, description, location, topic } = data;
   const { docs } = await api.getCollection(TOOL_COLLECTION, {
     where: {
-      toolGithub: { equals: toolGithub },
+      github: { equals: github },
     },
   });
   if (docs.length) {
     return docs[0];
   }
-  const repoDetails = await fetchRepoDetails(toolGithub);
+  const repoDetails = await fetchRepoDetails(github);
   const promises = [
-    fetchLanguageTechSkills(toolGithub),
-    fetchLatestCommit(toolGithub),
+    fetchLanguageTechSkills(github),
+    fetchLatestCommit(github),
     createOrganization(repoDetails?.organization?.login),
-    fetchAndCreateContributors(toolGithub),
+    fetchAndCreateContributors(github),
   ];
   const [languages, lastCommit, organisation, contributors] = await Promise.all(
     promises
@@ -91,11 +89,11 @@ export const createTool = async (data) => {
   const languagesTechSkills = languages.map((language) => ({ language }));
   const people = contributors.map(({ id }) => id);
   const toCreate = {
-    toolGithub,
-    toolName,
-    toolDescription,
-    toolLink: repoDetails?.html_url,
-    toolLocation,
+    github,
+    name,
+    description,
+    link: repoDetails?.html_url,
+    location,
     topic,
     languagesTechSkills,
     lastCommit,

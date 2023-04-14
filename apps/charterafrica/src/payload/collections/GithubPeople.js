@@ -15,11 +15,14 @@ const GithubPeople = {
     },
   },
   admin: {
-    useAsTitle: "peopleGitHub",
+    useAsTitle: "github",
+  },
+  access: {
+    read: () => true,
   },
   fields: [
     {
-      name: "peopleGitHub",
+      name: "github",
       type: "text",
       required: true,
       label: {
@@ -29,7 +32,7 @@ const GithubPeople = {
       },
     },
     {
-      name: "peopleFullName",
+      name: "fullName",
       type: "text",
       label: {
         en: "People Full Name",
@@ -38,7 +41,7 @@ const GithubPeople = {
       },
     },
     {
-      name: "peopleUsername",
+      name: "username",
       type: "text",
       label: {
         en: "People Username",
@@ -47,7 +50,7 @@ const GithubPeople = {
       },
     },
     {
-      name: "peopleDescription",
+      name: "description",
       type: "textarea",
       label: {
         en: "People Description",
@@ -56,7 +59,7 @@ const GithubPeople = {
       },
     },
     {
-      name: "peopleCountry",
+      name: "country",
       type: "text",
       label: {
         en: "People Country",
@@ -65,7 +68,7 @@ const GithubPeople = {
       },
     },
     {
-      name: "peopleTwitter",
+      name: "twitter",
       type: "text",
       label: {
         en: "People Twitter",
@@ -74,7 +77,7 @@ const GithubPeople = {
       },
     },
     {
-      name: "toolName",
+      name: "name",
       type: "text",
       label: {
         en: "Tool Name",

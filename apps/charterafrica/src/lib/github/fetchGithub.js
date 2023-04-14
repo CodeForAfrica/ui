@@ -10,8 +10,8 @@ export const fetchGithub = async (url, queryParams) => {
   return res;
 };
 
-export const fetchRepoDetails = async (toolGithub) => {
-  const res = await fetchGithub(`https://api.github.com/repos/${toolGithub}`);
+export const fetchRepoDetails = async (github) => {
+  const res = await fetchGithub(`https://api.github.com/repos/${github}`);
   return res;
 };
 

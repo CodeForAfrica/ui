@@ -3,7 +3,10 @@ import updatedAt from "../fields/updatedAt";
 const Tools = {
   slug: "tool-github",
   admin: {
-    useAsTitle: "toolName",
+    useAsTitle: "name",
+  },
+  access: {
+    read: () => true,
   },
   labels: {
     singular: {
@@ -19,7 +22,7 @@ const Tools = {
   },
   fields: [
     {
-      name: "toolGithub",
+      name: "github",
       type: "text",
       required: true,
       label: {
@@ -29,7 +32,7 @@ const Tools = {
       },
     },
     {
-      name: "toolName",
+      name: "name",
       type: "text",
       label: {
         en: "Tool Name",
@@ -38,7 +41,7 @@ const Tools = {
       },
     },
     {
-      name: "toolDescription",
+      name: "description",
       type: "textarea",
       label: {
         en: "Tool Description",
@@ -47,7 +50,7 @@ const Tools = {
       },
     },
     {
-      name: "toolLink",
+      name: "link",
       type: "text",
       label: {
         en: "Tool Link",
@@ -56,7 +59,7 @@ const Tools = {
       },
     },
     {
-      name: "toolLocation",
+      name: "location",
       type: "text",
       label: {
         en: "Tool Location",
