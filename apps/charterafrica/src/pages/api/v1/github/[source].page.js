@@ -1,5 +1,5 @@
-import { fetchSpreadsheet } from "@/charterafrica/lib/github/fetchGSheet";
-import processGsheet from "@/charterafrica/lib/github/processGsheet";
+import { fetchSpreadsheet } from "@/charterafrica/lib/tools/fetchGSheet";
+import processGsheet from "@/charterafrica/lib/tools/processGsheet";
 
 const spreadsheet = async (req, res) => {
   try {

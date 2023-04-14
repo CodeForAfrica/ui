@@ -4,7 +4,7 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-class FetchError extends Error {
+export class FetchError extends Error {
   constructor(message = "Something went wrong", data = {}, status = 500) {
     super();
     this.message = message;
