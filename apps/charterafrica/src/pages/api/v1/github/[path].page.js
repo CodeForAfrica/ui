@@ -1,10 +1,10 @@
-import { fetchSpreadsheet } from "@/charterafrica/lib/tools/fetchGSheet";
+import { getSheetsPerSpreadsheet } from "@/charterafrica/lib/tools/fetchGSheet";
 import processGsheet from "@/charterafrica/lib/tools/processGsheet";
 
-const spreadsheet = async (req, res) => {
+const sheetsPerSpreadsheet = async (req, res) => {
   try {
-    const { pathname, source, ...rest } = req.query;
-    const data = await fetchSpreadsheet(pathname, rest);
+    const { spreadSheetId } = req.query;
+    const data = await getSheetsPerSpreadsheet({ spreadSheetId });
     if (data.error) {
       return res.status(data.error.code).json(data.error);
     }
@@ -15,17 +15,17 @@ const spreadsheet = async (req, res) => {
 };
 
 const sourceMap = {
-  spreadsheet,
+  "sheets-per-doc": sheetsPerSpreadsheet,
   processGsheet,
 };
 
 export default async function handler(req, res) {
   const {
-    query: { source },
+    query: { path },
   } = req;
-  const response = sourceMap[source];
+  const response = sourceMap[path];
   if (response) {
     return response(req, res);
   }
-  return res.status(404).json({ message: "UNKNOWN_SOURCE", source });
+  return res.status(404).json({ message: "UNKNOWN_SOURCE", path });
 }

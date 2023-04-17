@@ -13,10 +13,9 @@ import { getSpreadsheetIdFromUrl } from "../utils/githubUtils";
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const getParamsFromDoc = (siblingData) => {
-  const id = getSpreadsheetIdFromUrl(siblingData.url || "");
+  const spreadSheetId = getSpreadsheetIdFromUrl(siblingData.url || "");
   const params = {
-    fields: "sheets.properties.title",
-    pathname: `/${id}`,
+    spreadSheetId,
   };
   const queryString = new URLSearchParams(params).toString();
   return { queryString };
@@ -28,13 +27,12 @@ export const validateSelect = async (
 ) => {
   const { queryString } = getParamsFromDoc(siblingData);
   const data = await fetchJson.get(
-    `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/spreadsheet?${queryString}`
+    `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/sheets-per-doc?${queryString}`
   );
-  const { sheets } = data || {};
   const options =
-    sheets?.map((item) => ({
-      value: item?.properties?.title,
-      label: item?.properties?.title,
+    data?.map((item) => ({
+      value: item,
+      label: item,
     })) || [];
   return select(value, { hasMany, options, required, t });
 };
@@ -45,17 +43,16 @@ function SheetSelect(props) {
   const { queryString } = getParamsFromDoc(siblingData);
   const { data } = useSWR(
     siblingData.url
-      ? `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/spreadsheet?${queryString}`
+      ? `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/sheets-per-doc?${queryString}`
       : null,
     fetcher
   );
-  const { sheets } = data || {};
   const memoOptions = () =>
-    sheets?.map((item) => ({
-      value: item?.properties?.title,
-      label: item?.properties?.title,
+    data?.map((item) => ({
+      value: item,
+      label: item,
     })) || [];
-  const options = useMemo(memoOptions, [sheets]);
+  const options = useMemo(memoOptions, [data]);
   return createElement(Select, { ...props, options });
 }
 
