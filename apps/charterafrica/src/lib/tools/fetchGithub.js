@@ -14,9 +14,6 @@ export const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName:
     forks {
       totalCount
     }
-    stargazers {
-      totalCount
-    }
     languages(first: 15) {
       nodes {
         name

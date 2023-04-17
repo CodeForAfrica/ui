@@ -2,19 +2,20 @@ import api from "../payload";
 
 import { fetchRepository } from "./fetchGithub";
 import { fetchSpreadsheetPerSheet } from "./fetchGSheet";
-import { createTool, TOOL_COLLECTION } from "./models";
+import { createTool, TOOL_COLLECTION, updateTool } from "./models";
 
 import { FetchError } from "@/charterafrica/utils/fetchJson";
 
 const processRepository = (data, { topic, github, description }) => {
-  const people = data?.collaborators?.nodes?.map((person) => ({
-    github: person?.login,
-    fullName: person?.name,
-    username: person?.login,
-    description: person.bio,
-    country: person?.location,
-    twitter: person?.twitterUsername,
-  }));
+  const people =
+    data?.collaborators?.nodes?.map((person) => ({
+      github: person?.login,
+      fullName: person?.name,
+      username: person?.login,
+      description: person.bio,
+      country: person?.location,
+      twitter: person?.twitterUsername,
+    })) || [];
   const organisation = {
     github: data?.owner?.name,
     type: "Organisation",
@@ -47,7 +48,7 @@ const processRepository = (data, { topic, github, description }) => {
   return tool;
 };
 
-const processSheet = async () => {
+const processSheet = async (update = false) => {
   const { spreadSheetId, sheetName } = await api.findGlobal("github-tool");
   const data = await fetchSpreadsheetPerSheet({ spreadSheetId, sheetName });
   const uniqueEntries = Object.values(
@@ -72,19 +73,30 @@ const processSheet = async () => {
         location: rawData["Tool Description"],
         topic: rawData.Topic,
       };
+      let savedData;
       const { docs } = await api.getCollection(TOOL_COLLECTION, {
         where: {
-          github: { equals: data?.github },
+          github: { equals: github },
         },
       });
       if (docs.length) {
-        return docs[0];
+        savedData = docs?.[0];
+        if (!update) {
+          return savedData;
+        }
       }
       const gitData = await fetchRepository({
         repositoryOwner,
         repositoryName,
       });
       const toCreate = processRepository(gitData, dataFromSheet);
+      if (update) {
+        if (savedData) {
+          const tool = await updateTool({ ...toCreate, id: savedData.id });
+          return tool;
+        }
+        throw new FetchError(`Data does not exist`, rawData, 500);
+      }
       const tool = await createTool(toCreate);
       return tool;
     }
@@ -103,7 +115,7 @@ const processSheet = async () => {
   return { fulfilled, rejected };
 };
 
-const processGsheet = async (_, res) => {
+export const processGsheet = async (_, res) => {
   try {
     const data = await processSheet();
     return res
@@ -114,4 +126,13 @@ const processGsheet = async (_, res) => {
   }
 };
 
-export default processGsheet;
+export const updateTools = async (_, res) => {
+  try {
+    const data = await processSheet(true);
+    return res
+      .status(200)
+      .json({ message: "PROCESS INITIATED SUCCESSFULLY", data });
+  } catch (error) {
+    return res.status(500).send(error);
+  }
+};

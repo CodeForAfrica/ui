@@ -1,5 +1,8 @@
 import { getSheetsPerSpreadsheet } from "@/charterafrica/lib/tools/fetchGSheet";
-import processGsheet from "@/charterafrica/lib/tools/processGsheet";
+import {
+  processGsheet,
+  updateTools,
+} from "@/charterafrica/lib/tools/processGsheet";
 
 const sheetsPerSpreadsheet = async (req, res) => {
   try {
@@ -17,6 +20,7 @@ const sheetsPerSpreadsheet = async (req, res) => {
 const sourceMap = {
   "sheets-per-doc": sheetsPerSpreadsheet,
   processGsheet,
+  updateTools,
 };
 
 export default async function handler(req, res) {

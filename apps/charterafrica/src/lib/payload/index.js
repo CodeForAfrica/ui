@@ -36,11 +36,22 @@ async function findGlobal(slug, options) {
   });
 }
 
+async function updateCollection(collection, data, options) {
+  const { id, ...rest } = data;
+  return payload.update({
+    collection,
+    id,
+    data: rest,
+    ...options,
+  });
+}
+
 const api = {
   createCollection,
   findGlobal,
   findPage,
   getCollection,
+  updateCollection,
 };
 
 export default api;

@@ -11,7 +11,12 @@ export const createOrganization = async (toCreate) => {
     },
   });
   if (docs.length) {
-    return docs[0];
+    const data = await api.updateCollection(ORGANIZATION_COLLECTION, {
+      id: docs[0]?.id,
+      ...toCreate,
+      updatedAt: new Date(),
+    });
+    return data;
   }
   const data = await api.createCollection(ORGANIZATION_COLLECTION, toCreate);
   return data;
@@ -24,7 +29,12 @@ export const createPerson = async (toCreate) => {
     },
   });
   if (docs.length) {
-    return docs[0];
+    const data = await api.updateCollection(PEOPLE_COLLECTION, {
+      id: docs[0]?.id,
+      ...toCreate,
+      updatedAt: new Date(),
+    });
+    return data;
   }
   const data = await api.createCollection(PEOPLE_COLLECTION, toCreate);
   return data;
@@ -58,4 +68,29 @@ export const createTool = async (data) => {
   };
   const res = await api.createCollection(TOOL_COLLECTION, toCreate);
   return res;
+};
+
+export const updateTool = async (data) => {
+  const { organisation, people, id, ...rest } = data;
+  const { docs } = await api.getCollection(TOOL_COLLECTION, {
+    where: {
+      id: { equals: id },
+    },
+  });
+  const createdOrganization = organisation?.github
+    ? await createOrganization(organisation)
+    : null;
+  const createdPeople = await bulkCreatePeople(people);
+  const toCreate = {
+    ...rest,
+    id,
+    people: createdPeople.map((person) => person.id),
+    organisation: createdOrganization?.id,
+    updatedAt: new Date(),
+  };
+  if (docs.length) {
+    const res = await api.updateCollection(TOOL_COLLECTION, toCreate);
+    return res;
+  }
+  return data;
 };
