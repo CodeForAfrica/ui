@@ -26,5 +26,5 @@ export default async function handler(req, res) {
     }
   }
 
-  return res.json(404).json({ message: "NO ORGANIZATION PROVIDED" });
+  return res.status(404).json({ message: "NO ORGANIZATION PROVIDED" });
 }
