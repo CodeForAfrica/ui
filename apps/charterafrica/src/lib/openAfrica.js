@@ -1,6 +1,6 @@
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
-const BASE_DOCUMENTS_URL = "https://open.africa/api/3/action/";
+const BASE_DOCUMENTS_URL = "https://openafrica.net/api/3/action/";
 
 export async function formatDatasets(data) {
   const {
