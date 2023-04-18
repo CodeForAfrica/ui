@@ -1,13 +1,13 @@
 import api from "../payload";
 
-import { fetchRepository } from "./fetchGithub";
-import { fetchSpreadsheetPerSheet } from "./fetchGSheet";
+import { fetchRepository } from "./github";
 import {
   createTool,
   TOOL_COLLECTION,
   GLOBAL_TOOL_COLLECTION_CONFIG,
   updateTool,
 } from "./models";
+import { fetchSpreadSheetSheetByName } from "./spreadsheet";
 
 import { FetchError } from "@/charterafrica/utils/fetchJson";
 
@@ -57,7 +57,7 @@ const processSheet = async (update = false) => {
   const { spreadSheetId, sheetName } = await api.findGlobal(
     GLOBAL_TOOL_COLLECTION_CONFIG
   );
-  const data = await fetchSpreadsheetPerSheet({ spreadSheetId, sheetName });
+  const data = await fetchSpreadSheetSheetByName({ spreadSheetId, sheetName });
   const uniqueEntries = Object.values(
     data.reduce((acc, obj) => {
       acc[obj["Tool Github"]] = obj;

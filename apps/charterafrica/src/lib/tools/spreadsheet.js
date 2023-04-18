@@ -12,7 +12,7 @@ export async function fetchSpreadsheet(path, options) {
   return res;
 }
 
-export const getSheetsPerSpreadsheet = async ({ spreadSheetId }) => {
+export const getSpreadSheetSheetTitles = async ({ spreadSheetId }) => {
   const params = {
     fields: "sheets.properties.title",
   };
@@ -24,29 +24,25 @@ export const getSheetsPerSpreadsheet = async ({ spreadSheetId }) => {
   return [];
 };
 
-export const fetchSpreadsheetPerSheet = async ({
+export const fetchSpreadSheetSheetByName = async ({
   spreadSheetId,
   sheetName,
 }) => {
-  const range = `${sheetName}!a:z`;
   const { values } = await fetchSpreadsheet(
-    `/${spreadSheetId}/values/${range}`
+    `/${spreadSheetId}/values/${sheetName}`
   );
-  if (values && values?.length) {
-    const keys = values[0];
-    const output = [];
-    values?.forEach((data, i) => {
-      if (i > 0) {
-        const item = {};
-        data.forEach((val, index) => {
-          item[keys[index]] = val;
-        });
-        output.push(item);
-      }
+  if (values?.length) {
+    const keys = values.shift();
+    const output = values.map((data) => {
+      const item = {};
+      data.forEach((val, index) => {
+        item[keys[index]] = val;
+      });
+      return item;
     });
     return output;
   }
   return [];
 };
 
-export default fetchSpreadsheetPerSheet;
+export default fetchSpreadSheetSheetByName;

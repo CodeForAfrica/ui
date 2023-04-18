@@ -1,13 +1,13 @@
-import { getSheetsPerSpreadsheet } from "@/charterafrica/lib/tools/fetchGSheet";
 import {
   processGsheet,
   updateTools,
 } from "@/charterafrica/lib/tools/processGsheet";
+import { getSpreadSheetSheetTitles } from "@/charterafrica/lib/tools/spreadsheet";
 
 const sheetsPerSpreadsheet = async (req, res) => {
   try {
     const { spreadSheetId } = req.query;
-    const data = await getSheetsPerSpreadsheet({ spreadSheetId });
+    const data = await getSpreadSheetSheetTitles({ spreadSheetId });
     if (data.error) {
       return res.status(data.error.code).json(data.error);
     }
