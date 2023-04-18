@@ -10,7 +10,8 @@ export default async function handler(req, res) {
       const organizationQuery = organization
         ? `organization:${organization}`
         : "";
-      const tagsQuery = tags.map((tag) => `tags:${tag}`).join(" OR ");
+
+      const tagsQuery = tags.length ? `tags:(${tags.join(" OR ")})` : "";
 
       const filterQuery = [organizationQuery, tagsQuery]
         .filter(Boolean)
