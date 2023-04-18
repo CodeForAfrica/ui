@@ -38,12 +38,7 @@ export async function formatDatasets(data) {
     count,
   };
 }
-export async function fetchDatasets(q, filters = {}) {
-  const params = {
-    q,
-    ...filters,
-  };
-
+export async function fetchDatasets(params = {}) {
   try {
     const response = await fetchJson.get(
       `${BASE_DOCUMENTS_URL}package_search`,
