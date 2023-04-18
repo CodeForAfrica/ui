@@ -2,14 +2,19 @@ import api from "../payload";
 
 import { fetchRepository } from "./fetchGithub";
 import { fetchSpreadsheetPerSheet } from "./fetchGSheet";
-import { createTool, TOOL_COLLECTION, updateTool } from "./models";
+import {
+  createTool,
+  TOOL_COLLECTION,
+  GLOBAL_TOOL_COLLECTION_CONFIG,
+  updateTool,
+} from "./models";
 
 import { FetchError } from "@/charterafrica/utils/fetchJson";
 
-const processRepository = (data, { topic, github, description }) => {
+const processRepository = (data, { topic, externalId, description }) => {
   const people =
     data?.collaborators?.nodes?.map((person) => ({
-      github: person?.login,
+      externalId: person?.login,
       fullName: person?.name,
       username: person?.login,
       description: person.bio,
@@ -17,7 +22,7 @@ const processRepository = (data, { topic, github, description }) => {
       twitter: person?.twitterUsername,
     })) || [];
   const organisation = {
-    github: data?.owner?.name,
+    externalId: data?.owner?.name,
     type: "Organisation",
     name: data?.owner?.name,
     description: data?.owner?.description,
@@ -31,7 +36,7 @@ const processRepository = (data, { topic, github, description }) => {
     language: language?.name,
   }));
   const tool = {
-    github,
+    externalId,
     name: data?.name,
     description,
     link: data?.url,
@@ -49,7 +54,9 @@ const processRepository = (data, { topic, github, description }) => {
 };
 
 const processSheet = async (update = false) => {
-  const { spreadSheetId, sheetName } = await api.findGlobal("github-tool");
+  const { spreadSheetId, sheetName } = await api.findGlobal(
+    GLOBAL_TOOL_COLLECTION_CONFIG
+  );
   const data = await fetchSpreadsheetPerSheet({ spreadSheetId, sheetName });
   const uniqueEntries = Object.values(
     data.reduce((acc, obj) => {
@@ -59,15 +66,15 @@ const processSheet = async (update = false) => {
   );
 
   const toProcess = uniqueEntries.map(async (rawData, i) => {
-    const github = rawData["Tool Github"]
+    const externalId = rawData["Tool Github"]
       ?.replace(/^https?:\/\/github\.com\//, "")
       .replace(/\/$/, "");
-    let [repositoryOwner, repositoryName] = github.split("/");
+    let [repositoryOwner, repositoryName] = externalId.split("/");
     repositoryOwner = repositoryOwner?.trim();
     repositoryName = repositoryName?.trim();
     if (repositoryName && repositoryOwner) {
       const dataFromSheet = {
-        github,
+        externalId,
         name: rawData["Tool Name"],
         description: rawData["Tool Description"],
         location: rawData["Tool Description"],
@@ -76,7 +83,7 @@ const processSheet = async (update = false) => {
       let savedData;
       const { docs } = await api.getCollection(TOOL_COLLECTION, {
         where: {
-          github: { equals: github },
+          externalId: { equals: externalId },
         },
       });
       if (docs.length) {

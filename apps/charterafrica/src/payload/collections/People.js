@@ -1,35 +1,32 @@
+import { PEOPLE_COLLECTION } from "../../lib/tools/models";
 import updatedAt from "../fields/updatedAt";
 
-const GithubPeople = {
-  slug: "github-people",
+const People = {
+  slug: PEOPLE_COLLECTION,
   labels: {
     singular: {
-      en: "Github People",
-      fr: "Github People",
-      pt: "Pessoas do Github",
+      en: "People",
+      fr: "People",
+      pt: "Pessoas",
     },
     plural: {
-      en: "Github People",
-      fr: "Github People",
-      pt: "Pessoas do Github",
+      en: "People",
+      fr: "People",
+      pt: "Pessoas",
     },
   },
   admin: {
-    useAsTitle: "github",
+    useAsTitle: "externalId",
   },
   access: {
     read: () => true,
   },
   fields: [
     {
-      name: "github",
+      name: "externalId",
       type: "text",
       required: true,
-      label: {
-        en: "People GitHub",
-        fr: "Personne GitHub",
-        pt: "GitHub da Pessoa",
-      },
+      label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
     },
     {
       name: "fullName",
@@ -89,4 +86,4 @@ const GithubPeople = {
   ],
 };
 
-export default GithubPeople;
+export default People;

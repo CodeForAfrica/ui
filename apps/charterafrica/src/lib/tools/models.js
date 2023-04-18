@@ -1,13 +1,14 @@
 import api from "../payload";
 
-export const ORGANIZATION_COLLECTION = "github-organisations";
-export const PEOPLE_COLLECTION = "github-people";
-export const TOOL_COLLECTION = "tool-github";
+export const ORGANIZATION_COLLECTION = "organisations";
+export const PEOPLE_COLLECTION = "people";
+export const TOOL_COLLECTION = "tool";
+export const GLOBAL_TOOL_COLLECTION_CONFIG = "global-tool-collection-config";
 
 export const createOrganization = async (toCreate) => {
   const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {
     where: {
-      github: { equals: toCreate.github },
+      externalId: { equals: toCreate.externalId },
     },
   });
   if (docs.length) {
@@ -25,7 +26,7 @@ export const createOrganization = async (toCreate) => {
 export const createPerson = async (toCreate) => {
   const { docs } = await api.getCollection(PEOPLE_COLLECTION, {
     where: {
-      github: { equals: toCreate.github },
+      externalId: { equals: toCreate.externalId },
     },
   });
   if (docs.length) {
@@ -50,14 +51,14 @@ const bulkCreatePeople = async (contributors = []) => {
 export const createTool = async (data) => {
   const { docs } = await api.getCollection(TOOL_COLLECTION, {
     where: {
-      github: { equals: data?.github },
+      externalId: { equals: data?.externalId },
     },
   });
   if (docs.length) {
     return docs[0];
   }
   const { organisation, people, ...rest } = data;
-  const createdOrganization = organisation?.github
+  const createdOrganization = organisation?.externalId
     ? await createOrganization(organisation)
     : null;
   const createdPeople = await bulkCreatePeople(people);
@@ -77,7 +78,7 @@ export const updateTool = async (data) => {
       id: { equals: id },
     },
   });
-  const createdOrganization = organisation?.github
+  const createdOrganization = organisation?.externalId
     ? await createOrganization(organisation)
     : null;
   const createdPeople = await bulkCreatePeople(people);

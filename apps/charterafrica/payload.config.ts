@@ -12,9 +12,9 @@ import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
 import Events from "./src/payload/collections/Events";
 import Explainers from "./src/payload/collections/Explainers";
 import Fellowships from "./src/payload/collections/Fellowships";
-import GithubOrganisations from "./src/payload/collections/GithubOrganisations";
-import GithubPeople from "./src/payload/collections/GithubPeople";
-import GithubTools from "./src/payload/collections/GithubTools";
+import Organisations from "./src/payload/collections/Organisations";
+import People from "./src/payload/collections/People";
+import Tools from "./src/payload/collections/Tools";
 import Grants from "./src/payload/collections/Grants";
 import Grantees from "./src/payload/collections/Grantees";
 import Media from "./src/payload/collections/Media";
@@ -25,7 +25,7 @@ import Research from "./src/payload/collections/Research";
 import Resources from "./src/payload/collections/Resources";
 import Tags from "./src/payload/collections/Tags";
 import FocalCountries from "./src/payload/globals/FocalCountries";
-import GithubToolCollection from "./src/payload/globals/GithubToolCollection";
+import ToolCollectionConfig from "./src/payload/globals/ToolCollectionConfig";
 import Footer from "./src/payload/globals/Footer";
 import Helpdesk from "./src/payload/globals/Helpdesk";
 import Navigation from "./src/payload/globals/Navigation";
@@ -78,23 +78,23 @@ export default buildConfig({
     Events,
     Explainers,
     Fellowships,
-    GithubTools,
-    GithubOrganisations,
-    GithubPeople,
     Grants,
     Grantees,
     Media,
     News,
+    Organisations,
     Pages,
     Partners,
+    People,
     Resources,
     Research,
     Tags,
+    Tools,
   ] as CollectionConfig[],
   globals: [
     FocalCountries,
     Footer,
-    GithubToolCollection,
+    ToolCollectionConfig,
     Helpdesk,
     Navigation,
     Settings,

@@ -1,34 +1,31 @@
+import { ORGANIZATION_COLLECTION } from "../../lib/tools/models";
 import updatedAt from "../fields/updatedAt";
 
-const GithubOrganisations = {
-  slug: "github-organisations",
+const Organisations = {
+  slug: ORGANIZATION_COLLECTION,
   admin: {
-    useAsTitle: "github",
+    useAsTitle: "externalId",
   },
   access: {
     read: () => true,
   },
   labels: {
     singular: {
-      en: "Github Organisation",
-      fr: "Organisation GitHub",
-      pt: "Organização do GitHub",
+      en: "Organisation",
+      fr: "Organisation",
+      pt: "Organização",
     },
     plural: {
-      en: "Github Organisations",
-      fr: "Organisations GitHub",
-      pt: "Organizações do Github",
+      en: "Organisations",
+      fr: "Organisations",
+      pt: "Organizações",
     },
   },
   fields: [
     {
-      name: "github",
+      name: "externalId",
       type: "text",
-      label: {
-        en: "GitHub Organization",
-        fr: "Organisation GitHub",
-        pt: "Organização GitHub",
-      },
+      label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
       required: true,
     },
     {
@@ -99,4 +96,4 @@ const GithubOrganisations = {
   ],
 };
 
-export default GithubOrganisations;
+export default Organisations;

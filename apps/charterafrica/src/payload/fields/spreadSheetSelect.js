@@ -25,16 +25,20 @@ export const validateSelect = async (
   value,
   { data: siblingData, hasMany, required, t }
 ) => {
-  const { queryString } = getParamsFromDoc(siblingData);
-  const data = await fetchJson.get(
-    `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/sheets-per-doc?${queryString}`
-  );
-  const options =
-    data?.map((item) => ({
-      value: item,
-      label: item,
-    })) || [];
-  return select(value, { hasMany, options, required, t });
+  try {
+    const { queryString } = getParamsFromDoc(siblingData);
+    const data = await fetchJson.get(
+      `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/sheets-per-doc?${queryString}`
+    );
+    const options =
+      data?.map((item) => ({
+        value: item,
+        label: item,
+      })) || [];
+    return select(value, { hasMany, options, required, t });
+  } catch (error) {
+    return select(value, { hasMany, options: [], required, t });
+  }
 };
 
 function SheetSelect(props) {

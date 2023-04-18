@@ -1,12 +1,13 @@
+import { GLOBAL_TOOL_COLLECTION_CONFIG } from "../../lib/tools/models";
 import spreadSheetSelect, { validateSelect } from "../fields/spreadSheetSelect";
 import { mapUrlToId } from "../utils/githubUtils";
 
-const GithubTool = {
-  slug: "github-tool",
+const ToolConfig = {
+  slug: GLOBAL_TOOL_COLLECTION_CONFIG,
   label: {
-    en: "Github Tool Collection",
-    fr: "Collection d'outils GitHub",
-    pt: "Coleção de ferramentas do GitHub",
+    en: "Tool Collection",
+    fr: "Collection d'outils",
+    pt: "Coleção de ferramentas",
   },
   access: {
     read: () => true,
@@ -55,4 +56,4 @@ const GithubTool = {
   ],
 };
 
-export default GithubTool;
+export default ToolConfig;

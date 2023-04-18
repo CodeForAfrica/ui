@@ -1,35 +1,36 @@
+import {
+  TOOL_COLLECTION,
+  ORGANIZATION_COLLECTION,
+  PEOPLE_COLLECTION,
+} from "../../lib/tools/models";
 import updatedAt from "../fields/updatedAt";
 
 const Tools = {
-  slug: "tool-github",
+  slug: TOOL_COLLECTION,
   admin: {
-    useAsTitle: "name",
+    useAsTitle: "externalId",
   },
   access: {
     read: () => true,
   },
   labels: {
     singular: {
-      en: "Tool Github",
-      fr: "Outil github",
-      pt: "Ferramenta github",
+      en: "Tool",
+      fr: "Outil",
+      pt: "Ferramenta",
     },
     plural: {
-      en: "Tools Github",
-      fr: "Outils GitHub",
-      pt: "Ferramentas github",
+      en: "Tools",
+      fr: "Outils",
+      pt: "Ferramentas",
     },
   },
   fields: [
     {
-      name: "github",
+      name: "externalId",
       type: "text",
       required: true,
-      label: {
-        en: "Tool GitHub",
-        fr: "Outil GitHub",
-        pt: "Ferramenta GitHub",
-      },
+      label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
     },
     {
       name: "name",
@@ -132,18 +133,18 @@ const Tools = {
     {
       name: "organisation",
       type: "relationship",
-      relationTo: "github-organisations",
+      relationTo: ORGANIZATION_COLLECTION,
       label: {
-        en: "Github Organisation",
-        fr: "Organisation GitHub",
-        pt: "Organizaçõ do Github",
+        en: "Organisation",
+        fr: "Organisation",
+        pt: "Organização",
       },
     },
     {
       name: "people",
       type: "relationship",
       hasMany: true,
-      relationTo: "github-people",
+      relationTo: PEOPLE_COLLECTION,
       label: {
         en: "People",
         fr: "personnes",

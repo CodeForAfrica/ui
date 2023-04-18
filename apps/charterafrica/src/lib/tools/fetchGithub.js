@@ -25,6 +25,11 @@ export const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName:
           history(first: 1) {
             edges {
               node {
+                id
+                author {
+                  name
+                  email
+                }
                 committedDate
                 message
               }
