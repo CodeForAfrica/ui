@@ -2,7 +2,14 @@ import { fetchDatasets } from "@/charterafrica/lib/openAfrica";
 
 export default async function handler(req, res) {
   const {
-    query: { organization, tags = [], q = "", page = 1, perPage = 10 },
+    query: {
+      organization,
+      page = 0,
+      perPage = 10,
+      sort = "metadata_created desc",
+      tags = [],
+      q = "",
+    },
   } = req;
 
   if (organization) {
@@ -21,6 +28,7 @@ export default async function handler(req, res) {
         fq: filterQuery,
         rows: perPage,
         start: page,
+        sort,
       });
       res.status(200).json(datasets);
     } catch (error) {
