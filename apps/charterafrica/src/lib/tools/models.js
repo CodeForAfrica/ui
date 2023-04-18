@@ -12,11 +12,14 @@ export const createOrganization = async (toCreate) => {
     },
   });
   if (docs.length) {
-    const data = await api.updateCollection(ORGANIZATION_COLLECTION, {
-      id: docs[0]?.id,
-      ...toCreate,
-      updatedAt: new Date(),
-    });
+    const data = await api.updateCollection(
+      ORGANIZATION_COLLECTION,
+      docs[0]?.id,
+      {
+        ...toCreate,
+        updatedAt: new Date(),
+      }
+    );
     return data;
   }
   const data = await api.createCollection(ORGANIZATION_COLLECTION, toCreate);
@@ -30,8 +33,7 @@ export const createPerson = async (toCreate) => {
     },
   });
   if (docs.length) {
-    const data = await api.updateCollection(PEOPLE_COLLECTION, {
-      id: docs[0]?.id,
+    const data = await api.updateCollection(PEOPLE_COLLECTION, docs[0]?.id, {
       ...toCreate,
       updatedAt: new Date(),
     });
@@ -90,7 +92,7 @@ export const updateTool = async (data) => {
     updatedAt: new Date(),
   };
   if (docs.length) {
-    const res = await api.updateCollection(TOOL_COLLECTION, toCreate);
+    const res = await api.updateCollection(TOOL_COLLECTION, id, toCreate);
     return res;
   }
   return data;

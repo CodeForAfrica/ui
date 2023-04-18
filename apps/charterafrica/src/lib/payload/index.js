@@ -36,8 +36,8 @@ async function findGlobal(slug, options) {
   });
 }
 
-async function updateCollection(collection, data, options) {
-  const { id, ...rest } = data;
+async function updateCollection(collection, id, data, options) {
+  const { id: _, ...rest } = data;
   return payload.update({
     collection,
     id,
