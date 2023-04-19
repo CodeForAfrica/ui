@@ -23,6 +23,22 @@ const Organisations = {
   },
   fields: [
     {
+      name: "source",
+      type: "select",
+      label: {
+        en: "Source",
+        pt: "Fonte",
+        fr: "Source",
+      },
+      defaultValue: "github",
+      options: [
+        { label: "Github", value: "github" },
+        { label: "Gitlab", value: "gitlab" },
+        { label: "Bitbucket", value: "bitbucket" },
+      ],
+      required: true,
+    },
+    {
       name: "externalId",
       type: "text",
       label: { en: "External ID", fr: "ID externe", pt: "ID externo" },

@@ -20,6 +20,7 @@ const processRepository = (data, { topic, externalId, description }) => {
       description: person.bio,
       country: person?.location,
       twitter: person?.twitterUsername,
+      source: "github",
     })) || [];
   const organisation = {
     externalId: data?.owner?.name,
@@ -30,6 +31,7 @@ const processRepository = (data, { topic, externalId, description }) => {
     website: data?.owner?.url,
     twitter: data?.owner?.twitterUsername,
     email: data?.owner?.email,
+    source: "github",
   };
 
   const languagesTechSkills = data.languages?.nodes?.map((language) => ({
@@ -49,24 +51,33 @@ const processRepository = (data, { topic, externalId, description }) => {
     forks: data?.forks?.totalCount,
     people,
     organisation,
+    source: "github",
   };
   return tool;
 };
 
 const processSheet = async (update = false) => {
-  const { spreadSheetId, sheetName } = await api.findGlobal(
-    GLOBAL_TOOL_COLLECTION_CONFIG
-  );
+  const {
+    spreadSheetId,
+    sheetName,
+    columnMappings: {
+      toolLink,
+      toolDescription,
+      toolName,
+      toolTopic,
+      toolLocation,
+    },
+  } = await api.findGlobal(GLOBAL_TOOL_COLLECTION_CONFIG);
   const data = await fetchSpreadSheetSheetByName({ spreadSheetId, sheetName });
   const uniqueEntries = Object.values(
     data.reduce((acc, obj) => {
-      acc[obj["Tool Github"]] = obj;
+      acc[obj[toolLink]] = obj;
       return acc;
     }, {})
   );
 
   const toProcess = uniqueEntries.map(async (rawData, i) => {
-    const externalId = rawData["Tool Github"]
+    const externalId = rawData[toolLink]
       ?.replace(/^https?:\/\/github\.com\//, "")
       .replace(/\/$/, "");
     let [repositoryOwner, repositoryName] = externalId.split("/");
@@ -75,10 +86,10 @@ const processSheet = async (update = false) => {
     if (repositoryName && repositoryOwner) {
       const dataFromSheet = {
         externalId,
-        name: rawData["Tool Name"],
-        description: rawData["Tool Description"],
-        location: rawData["Tool Description"],
-        topic: rawData.Topic,
+        name: rawData[toolName],
+        description: rawData[toolDescription],
+        location: rawData[toolLocation],
+        topic: rawData[toolTopic],
       };
       let savedData;
       const { docs } = await api.getCollection(TOOL_COLLECTION, {

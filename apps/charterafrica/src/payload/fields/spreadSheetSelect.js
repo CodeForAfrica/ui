@@ -14,8 +14,10 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const getParamsFromDoc = (siblingData) => {
   const spreadSheetId = getSpreadsheetIdFromUrl(siblingData.url || "");
+  const { sheetName } = siblingData;
   const params = {
     spreadSheetId,
+    sheetName,
   };
   const queryString = new URLSearchParams(params).toString();
   return { queryString };
@@ -41,7 +43,7 @@ export const validateSelect = async (
   }
 };
 
-function SheetSelect(props) {
+export function SheetSelect(props) {
   const [fields] = useAllFormFields();
   const siblingData = getSiblingData(fields, "url");
   const { queryString } = getParamsFromDoc(siblingData);
@@ -60,4 +62,26 @@ function SheetSelect(props) {
   return createElement(Select, { ...props, options });
 }
 
-export default SheetSelect;
+export function ColumnSelect(props) {
+  const [fields] = useAllFormFields();
+  const siblingData = getSiblingData(fields, "url");
+  const { queryString } = getParamsFromDoc(siblingData);
+  const { data } = useSWR(
+    siblingData.url && siblingData.sheetName
+      ? `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/sheet-data?${queryString}`
+      : null,
+    fetcher
+  );
+  const firstObject = data?.[0];
+  const options = useMemo(
+    () =>
+      Object.keys(firstObject || {})
+        .filter((key) => !!key)
+        .map((item) => ({
+          value: item,
+          label: item,
+        })) || [],
+    [firstObject]
+  );
+  return createElement(Select, { ...props, options });
+}

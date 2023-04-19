@@ -1,5 +1,9 @@
 import { GLOBAL_TOOL_COLLECTION_CONFIG } from "../../lib/tools/models";
-import spreadSheetSelect, { validateSelect } from "../fields/spreadSheetSelect";
+import {
+  ColumnSelect,
+  validateSelect,
+  SheetSelect,
+} from "../fields/spreadSheetSelect";
 import { mapUrlToId } from "../utils/githubUtils";
 
 const ToolConfig = {
@@ -49,9 +53,88 @@ const ToolConfig = {
       admin: {
         description: () => "Enter a valid sheet url to get the data from",
         components: {
-          Field: spreadSheetSelect,
+          Field: SheetSelect,
         },
       },
+    },
+    {
+      name: "columnMappings",
+      type: "group",
+      fields: [
+        {
+          label: {
+            en: "Tool Link",
+            fr: "Nom d'outil",
+            pt: "Nome da ferramenta",
+          },
+          required: true,
+          name: "toolLink",
+          type: "text",
+          admin: {
+            description: () =>
+              "Select a column that matches Tool Link. Use organisation/owner format",
+            components: {
+              Field: ColumnSelect,
+            },
+          },
+        },
+        {
+          label: {
+            en: "Tool Name",
+            fr: "Nom d'outil",
+            pt: "Nome da ferramenta",
+          },
+          required: true,
+          name: "toolName",
+          type: "text",
+          admin: {
+            description: () => "Select a column that matches Tool Name",
+            components: {
+              Field: ColumnSelect,
+            },
+          },
+        },
+        {
+          label: {
+            en: "Tool Description",
+            fr: "Description de l'outil",
+            pt: "Descrição da ferramenta",
+          },
+          required: true,
+          name: "toolDescription",
+          type: "text",
+          admin: {
+            description: () => "Select a column that matches Tool Description",
+            components: {
+              Field: ColumnSelect,
+            },
+          },
+        },
+        {
+          label: { en: "Location", fr: "Emplacement", pt: "Localização" },
+          required: true,
+          name: "toolLocation",
+          type: "text",
+          admin: {
+            description: () => "Select a column that matches Tool Location",
+            components: {
+              Field: ColumnSelect,
+            },
+          },
+        },
+        {
+          label: { en: "Topic", fr: "Sujet", pt: "Tema" },
+          required: true,
+          name: "toolTopic",
+          type: "text",
+          admin: {
+            description: () => "Select a column that matches Topics",
+            components: {
+              Field: ColumnSelect,
+            },
+          },
+        },
+      ],
     },
   ],
 };
