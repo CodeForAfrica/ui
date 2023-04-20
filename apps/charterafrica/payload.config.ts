@@ -25,7 +25,7 @@ import Research from "./src/payload/collections/Research";
 import Resources from "./src/payload/collections/Resources";
 import Tags from "./src/payload/collections/Tags";
 import FocalCountries from "./src/payload/globals/FocalCountries";
-import ToolCollectionConfig from "./src/payload/globals/ToolCollectionConfig";
+import DigitalDemocracyEcosystem from "./src/payload/globals/DigitalDemocracyEcosystem";
 import Footer from "./src/payload/globals/Footer";
 import Helpdesk from "./src/payload/globals/Helpdesk";
 import Navigation from "./src/payload/globals/Navigation";
@@ -94,7 +94,7 @@ export default buildConfig({
   globals: [
     FocalCountries,
     Footer,
-    ToolCollectionConfig,
+    DigitalDemocracyEcosystem,
     Helpdesk,
     Navigation,
     Settings,

@@ -2,8 +2,8 @@ import api from "../payload";
 
 export const ORGANIZATION_COLLECTION = "organisations";
 export const PEOPLE_COLLECTION = "people";
-export const TOOL_COLLECTION = "tool";
-export const GLOBAL_TOOL_COLLECTION_CONFIG = "global-tool-collection-config";
+export const TOOL_COLLECTION = "tools";
+export const DIGITAL_DEMOCRACY_ECOSYSTEM = "digital-democracy-ecosystem-config";
 
 export const createOrganization = async (toCreate) => {
   const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {

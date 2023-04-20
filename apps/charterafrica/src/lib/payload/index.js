@@ -37,12 +37,11 @@ async function findGlobal(slug, options) {
 }
 
 async function updateCollection(collection, id, data, options) {
-  const { id: _, ...rest } = data;
   return payload.update({
+    ...options,
     collection,
     id,
-    data: rest,
-    ...options,
+    data,
   });
 }
 

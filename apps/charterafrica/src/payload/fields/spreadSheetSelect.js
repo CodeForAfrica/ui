@@ -30,7 +30,7 @@ export const validateSelect = async (
   try {
     const { queryString } = getParamsFromDoc(siblingData);
     const data = await fetchJson.get(
-      `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/sheets-per-doc?${queryString}`
+      `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/sheetsPerSpreadsheet?${queryString}`
     );
     const options =
       data?.map((item) => ({
@@ -49,7 +49,7 @@ export function SheetSelect(props) {
   const { queryString } = getParamsFromDoc(siblingData);
   const { data } = useSWR(
     siblingData.url
-      ? `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/sheets-per-doc?${queryString}`
+      ? `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/sheetsPerSpreadsheet?${queryString}`
       : null,
     fetcher
   );
@@ -68,7 +68,7 @@ export function ColumnSelect(props) {
   const { queryString } = getParamsFromDoc(siblingData);
   const { data } = useSWR(
     siblingData.url && siblingData.sheetName
-      ? `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/sheet-data?${queryString}`
+      ? `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/github/sheetData?${queryString}`
       : null,
     fetcher
   );

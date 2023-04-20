@@ -1,4 +1,5 @@
 import { ORGANIZATION_COLLECTION } from "../../lib/tools/models";
+import source from "../fields/toolSourceField";
 import updatedAt from "../fields/updatedAt";
 
 const Organisations = {
@@ -22,22 +23,7 @@ const Organisations = {
     },
   },
   fields: [
-    {
-      name: "source",
-      type: "select",
-      label: {
-        en: "Source",
-        pt: "Fonte",
-        fr: "Source",
-      },
-      defaultValue: "github",
-      options: [
-        { label: "Github", value: "github" },
-        { label: "Gitlab", value: "gitlab" },
-        { label: "Bitbucket", value: "bitbucket" },
-      ],
-      required: true,
-    },
+    source(),
     {
       name: "externalId",
       type: "text",

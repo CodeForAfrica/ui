@@ -37,8 +37,8 @@ const sheetData = async (req, res) => {
 };
 
 const sourceMap = {
-  "sheets-per-doc": sheetsPerSpreadsheet,
-  "sheet-data": sheetData,
+  sheetsPerSpreadsheet,
+  sheetData,
   processGsheet,
   updateTools,
 };

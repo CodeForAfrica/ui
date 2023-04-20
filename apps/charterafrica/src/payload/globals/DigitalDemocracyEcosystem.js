@@ -1,4 +1,4 @@
-import { GLOBAL_TOOL_COLLECTION_CONFIG } from "../../lib/tools/models";
+import { DIGITAL_DEMOCRACY_ECOSYSTEM } from "../../lib/tools/models";
 import {
   ColumnSelect,
   validateSelect,
@@ -6,12 +6,12 @@ import {
 } from "../fields/spreadSheetSelect";
 import { mapUrlToId } from "../utils/githubUtils";
 
-const ToolConfig = {
-  slug: GLOBAL_TOOL_COLLECTION_CONFIG,
+const DigitalDemocracyEcosystem = {
+  slug: DIGITAL_DEMOCRACY_ECOSYSTEM,
   label: {
-    en: "Tool Collection",
-    fr: "Collection d'outils",
-    pt: "Coleção de ferramentas",
+    en: "Digital Democracy Ecosystem",
+    fr: "Écosystème de la démocratie numérique",
+    pt: "Ecossistema de democracia digital",
   },
   access: {
     read: () => true,
@@ -139,4 +139,4 @@ const ToolConfig = {
   ],
 };
 
-export default ToolConfig;
+export default DigitalDemocracyEcosystem;

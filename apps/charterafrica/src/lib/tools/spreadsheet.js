@@ -18,7 +18,7 @@ export const getSpreadSheetSheetTitles = async ({ spreadSheetId }) => {
   };
   const d = await fetchSpreadsheet(`/${spreadSheetId}`, params);
   const { sheets } = d;
-  if (sheets && sheets?.length) {
+  if (sheets?.length) {
     return sheets.map((item) => item?.properties?.title);
   }
   return [];
