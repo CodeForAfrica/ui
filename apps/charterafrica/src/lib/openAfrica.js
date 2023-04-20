@@ -4,13 +4,15 @@ const BASE_DOCUMENTS_URL = "https://openafrica.net/api/3/action/";
 
 export async function formatDatasets(data) {
   const {
-    result: { results, count },
+    result: {
+      count,
+      facets: { tags: allTags },
+      results,
+    },
   } = data || {};
 
-  const allTags = [];
-
   const formattedDatasets = results?.map((dataset) => {
-    const { name, notes, resources, tags, title } = dataset;
+    const { name, notes, resources, title } = dataset;
 
     const formattedResources = resources?.map((resource) => {
       const { url, format, name: resourceName, description } = resource;
@@ -20,10 +22,6 @@ export async function formatDatasets(data) {
         name: resourceName,
         description,
       };
-    });
-
-    tags.forEach((tag) => {
-      allTags.push(tag.name);
     });
 
     const allDocumentFormats = [
@@ -41,16 +39,20 @@ export async function formatDatasets(data) {
 
   return {
     datasets: formattedDatasets,
-    tags: [...new Set(allTags)],
+    tags: Object.keys(allTags).map((tag) => tag),
     count,
   };
 }
 export async function fetchDatasets(params = {}) {
+  const allParams = {
+    ...params,
+    "facet.field": '["tags"]',
+  };
   try {
     const response = await fetchJson.get(
       `${BASE_DOCUMENTS_URL}package_search`,
       {
-        params,
+        params: allParams,
       }
     );
     const formattedData = formatDatasets(response);
