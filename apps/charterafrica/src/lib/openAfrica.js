@@ -7,8 +7,10 @@ export async function formatDatasets(data) {
     result: { results, count },
   } = data || {};
 
+  const allTags = [];
+
   const formattedDatasets = results?.map((dataset) => {
-    const { name, notes, title, resources } = dataset;
+    const { name, notes, resources, tags, title } = dataset;
 
     const formattedResources = resources?.map((resource) => {
       const { url, format, name: resourceName, description } = resource;
@@ -18,6 +20,10 @@ export async function formatDatasets(data) {
         name: resourceName,
         description,
       };
+    });
+
+    tags.forEach((tag) => {
+      allTags.push(tag.name);
     });
 
     const allDocumentFormats = [
@@ -35,6 +41,7 @@ export async function formatDatasets(data) {
 
   return {
     datasets: formattedDatasets,
+    tags: [...new Set(allTags)],
     count,
   };
 }
