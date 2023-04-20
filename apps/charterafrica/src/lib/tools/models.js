@@ -50,50 +50,31 @@ const bulkCreatePeople = async (contributors = []) => {
   return Promise.all(promises);
 };
 
-export const createTool = async (data) => {
-  const { docs } = await api.getCollection(TOOL_COLLECTION, {
-    where: {
-      externalId: { equals: data?.externalId },
-    },
-  });
-  if (docs.length) {
-    return docs[0];
-  }
-  const { organisation, people, ...rest } = data;
-  const createdOrganization = organisation?.externalId
-    ? await createOrganization(organisation)
-    : null;
-  const createdPeople = await bulkCreatePeople(people);
-  const toCreate = {
-    ...rest,
-    people: createdPeople.map(({ id }) => id),
-    organisation: createdOrganization?.id,
-  };
-  const res = await api.createCollection(TOOL_COLLECTION, toCreate);
-  return res;
-};
-
-export const updateTool = async (data) => {
+export const updateOrCreateTool = async (data) => {
   const { organisation, people, id, ...rest } = data;
-  const { docs } = await api.getCollection(TOOL_COLLECTION, {
+  const queryArgs = {
     where: {
-      id: { equals: id },
+      id: id ? { equals: id } : undefined,
+      externalId: data?.externalId ? { equals: data?.externalId } : undefined,
     },
-  });
+  };
+  const { docs } = await api.getCollection(TOOL_COLLECTION, queryArgs);
   const createdOrganization = organisation?.externalId
     ? await createOrganization(organisation)
     : null;
   const createdPeople = await bulkCreatePeople(people);
   const toCreate = {
     ...rest,
-    id,
     people: createdPeople.map((person) => person.id),
     organisation: createdOrganization?.id,
-    updatedAt: new Date(),
   };
   if (docs.length) {
-    const res = await api.updateCollection(TOOL_COLLECTION, id, toCreate);
-    return res;
+    if (id) {
+      const res = await api.updateCollection(TOOL_COLLECTION, id, toCreate);
+      return res;
+    }
+    return docs[0];
   }
-  return data;
+  const res = await api.createCollection(TOOL_COLLECTION, toCreate);
+  return res;
 };

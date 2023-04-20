@@ -2,10 +2,9 @@ import api from "../payload";
 
 import { fetchRepository } from "./github";
 import {
-  createTool,
+  updateOrCreateTool,
   TOOL_COLLECTION,
   DIGITAL_DEMOCRACY_ECOSYSTEM,
-  updateTool,
 } from "./models";
 import { fetchSpreadSheetSheetByName } from "./spreadsheet";
 
@@ -110,12 +109,15 @@ const processSheet = async (update = false) => {
       const toCreate = processRepository(gitData, dataFromSheet);
       if (update) {
         if (savedData) {
-          const tool = await updateTool({ ...toCreate, id: savedData.id });
+          const tool = await updateOrCreateTool({
+            ...toCreate,
+            id: savedData.id,
+          });
           return tool;
         }
         throw new FetchError(`Data does not exist`, rawData, 500);
       }
-      const tool = await createTool(toCreate);
+      const tool = await updateOrCreateTool(toCreate);
       return tool;
     }
     throw new FetchError(
@@ -133,24 +135,18 @@ const processSheet = async (update = false) => {
   return { fulfilled, rejected };
 };
 
-export const processGsheet = async (_, res) => {
+const processGsheet = async (req, res) => {
   try {
-    const data = await processSheet();
-    return res
-      .status(200)
-      .json({ message: "PROCESS INITIATED SUCCESSFULLY", data });
+    const { update } = req.query;
+    const isUpdate = Number(update);
+    const data = await processSheet(isUpdate);
+    return res.status(200).json({
+      message: `${isUpdate ? "UPDATE" : "CREATE"} PROCESS SUCCEEDED`,
+      data,
+    });
   } catch (error) {
     return res.status(500).send(error);
   }
 };
 
-export const updateTools = async (_, res) => {
-  try {
-    const data = await processSheet(true);
-    return res
-      .status(200)
-      .json({ message: "PROCESS INITIATED SUCCESSFULLY", data });
-  } catch (error) {
-    return res.status(500).send(error);
-  }
-};
+export default processGsheet;

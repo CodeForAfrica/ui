@@ -1,7 +1,4 @@
-import {
-  processGsheet,
-  updateTools,
-} from "@/charterafrica/lib/tools/processGsheet";
+import processGsheet from "@/charterafrica/lib/tools/processGsheet";
 import {
   fetchSpreadSheetSheetByName,
   getSpreadSheetSheetTitles,
@@ -40,7 +37,6 @@ const sourceMap = {
   sheetsPerSpreadsheet,
   sheetData,
   processGsheet,
-  updateTools,
 };
 
 export default async function handler(req, res) {
