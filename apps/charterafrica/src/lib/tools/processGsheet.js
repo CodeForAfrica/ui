@@ -19,6 +19,8 @@ const processRepository = (data, { topic, externalId, description }) => {
       description: person.bio,
       country: person?.location,
       twitter: person?.twitterUsername,
+      avatarUrl: person?.avatarUrl,
+      type: person?.type,
       source: "github",
     })) || [];
   const organisation = {

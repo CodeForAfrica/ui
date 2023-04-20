@@ -45,6 +45,7 @@ export const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName:
         bio
         location
         twitterUsername
+        avatarUrl
       }
     }
     owner {

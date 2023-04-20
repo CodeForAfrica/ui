@@ -58,6 +58,16 @@ const People = {
       },
     },
     {
+      name: "type",
+      type: "text",
+      label: { en: "Type", fr: "Taper", pt: "Tipo" },
+    },
+    {
+      name: "avatarUrl",
+      type: "text",
+      label: { en: "Avatar URL", fr: "URL d'avatar", pt: "URL de avatar" },
+    },
+    {
       name: "country",
       type: "text",
       label: {
