@@ -73,5 +73,5 @@ export const fetchRepository = async (variables) => {
   if (res?.data?.repository) {
     return res.data.repository;
   }
-  throw new FetchError("An Error occured", res.errors, 400);
+  throw new FetchError("An Error occured", res.errors, 500);
 };
