@@ -53,12 +53,6 @@ export const api = {
   findPage,
 };
 
-export async function getOrganizationId() {
-  const data = await findGlobal("datasets");
-  const { organizationId } = data;
-  return organizationId;
-}
-
 export async function getPageStaticProps(context) {
   const props = await getPageProps(api, context);
   if (!props) {
