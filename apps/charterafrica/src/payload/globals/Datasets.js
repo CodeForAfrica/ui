@@ -1,5 +1,8 @@
 const Datasets = {
   slug: "datasets",
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: "organizationId",

@@ -1,8 +1,9 @@
+import { getOrganizationId } from "@/charterafrica/lib/data/rest";
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const BASE_DOCUMENTS_URL = "https://openafrica.net/api/3/action/";
 
-export async function formatDatasets(data) {
+async function formatDatasets(data) {
   const {
     result: {
       count,
@@ -43,16 +44,19 @@ export async function formatDatasets(data) {
     count,
   };
 }
-export async function fetchDatasets(params = {}) {
-  const allParams = {
-    ...params,
+export default async function fetchDatasets(query = {}) {
+  const orgId = await getOrganizationId();
+
+  const params = {
+    ...query,
+    fq: `organization:${orgId}`,
     "facet.field": '["tags"]',
   };
   try {
     const response = await fetchJson.get(
       `${BASE_DOCUMENTS_URL}package_search`,
       {
-        params: allParams,
+        params,
       }
     );
     const formattedData = formatDatasets(response);
