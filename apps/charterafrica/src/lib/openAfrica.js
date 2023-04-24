@@ -45,11 +45,17 @@ async function formatDatasets(data) {
   };
 }
 export default async function fetchDatasets(query = {}) {
+  const { tags } = query || [];
+  const tagsQuery = tags.length ? `tags:(${tags.join(" OR ")})` : "";
   const orgId = await getOrganizationId();
+  const organizationQuery = `organization:${orgId}`;
+  const filterQuery = [tagsQuery, organizationQuery]
+    .filter(Boolean)
+    .join(" AND ");
 
   const params = {
     ...query,
-    fq: `organization:${orgId}`,
+    fq: filterQuery,
     "facet.field": '["tags"]',
   };
   try {
