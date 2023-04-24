@@ -45,7 +45,7 @@ async function formatDatasets(data) {
   };
 }
 export default async function fetchDatasets(query = {}) {
-  const { tags } = query || [];
+  const { tags = [] } = query;
   const tagsQuery = tags.length ? `tags:(${tags.join(" OR ")})` : "";
   const orgId = await getOrganizationId();
   const organizationQuery = `organization:${orgId}`;
