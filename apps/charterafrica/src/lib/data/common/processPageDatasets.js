@@ -2,7 +2,6 @@ import fetchDatasets from "@/charterafrica/lib/openAfrica";
 
 async function processPageDatasets(page) {
   const { blocks } = page;
-
   const datasetsIndex = blocks.findIndex(({ slug }) => slug === "datasets");
 
   if (datasetsIndex > -1) {
@@ -16,7 +15,6 @@ async function processPageDatasets(page) {
       datasets,
     };
   }
-
   return page;
 }
 
