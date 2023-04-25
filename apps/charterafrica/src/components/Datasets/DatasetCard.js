@@ -8,7 +8,14 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
   return (
     <Box
       sx={{
-        borderRadius: "20px",
+        border: "1px solid",
+        borderColor: "neutral.light",
+        borderBottom: "none",
+        p: 2.5,
+        "&:last-child": {
+          borderBottom: "1px solid",
+          borderColor: "neutral.light",
+        },
       }}
     >
       <Grid
@@ -45,7 +52,14 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
             {notes}
           </LineClampedRichTypography>
         </Grid>
-        <Grid item xs={12} md={4} display="flex" justifyContent="flex-end">
+        <Grid
+          item
+          xs={12}
+          md={4}
+          display="flex"
+          justifyContent="flex-end"
+          alignItems="center"
+        >
           {formats.map((format) => (
             <Chip
               label={format}
