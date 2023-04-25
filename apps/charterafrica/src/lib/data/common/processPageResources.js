@@ -35,10 +35,10 @@ const allTags = [
 
 // eslint-disable-next-line
   const sampleDataset = {
-  count: 30,
+  count: 17,
   tags: allTags.slice(0, Math.floor(Math.random() * 3) + 2),
   // eslint-disable-next-line
-    datasets: Array.from({ length: 10 }, (_, i) => ({
+  datasets: Array.from({ length: 17 }, (_, i) => ({
     name: `datasets-name-${i}`,
     notes: "Some notes about the datasets",
     title: `Datasets ${i}`,
@@ -56,5 +56,28 @@ const allTags = [
 
 // eslint-disable-next-line
   export async function processPageData(page, api, context){
+  const { datasets } = sampleDataset;
+
+  const { blocks } = page;
+  const pieChartData = [];
+  datasets.forEach((dataset) => {
+    const { type } = dataset;
+    const index = pieChartData.findIndex((item) => item.id === type);
+    if (index >= 0) {
+      pieChartData[index].value += 1;
+    } else {
+      pieChartData.push({
+        id: type,
+        label: type,
+        value: 1,
+        color: type === "dataset" ? "#D3C5CC" : "#FBE49A",
+      });
+    }
+  });
+  blocks.push({
+    slug: "datasets-charts",
+    data: pieChartData,
+  });
+
   return page;
 }
