@@ -1,0 +1,68 @@
+import { Box, Grid, Typography, Chip } from "@mui/material";
+import React from "react";
+
+import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+
+const DatasetCard = React.forwardRef(function DatasetCard(props) {
+  const { formats, notes, title, created, updated, author } = props;
+  return (
+    <Box
+      sx={{
+        borderRadius: "20px",
+      }}
+    >
+      <Grid
+        container
+        spacing={2}
+        justifyContent="space-between"
+        direction={{ xs: "column", md: "row" }}
+      >
+        <Grid item xs={12} md={4}>
+          <LineClampedRichTypography
+            color="neutral.dark"
+            lineClamp={1}
+            order={1}
+            variant="h5SmallSemiBold"
+            sx={{ mb: 1 }}
+          >
+            {title}
+          </LineClampedRichTypography>
+          <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
+            Updated {updated} | Created {created}
+          </Typography>
+          <Typography variant="p1SemiBold" color="neutral.main">
+            {author}
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <LineClampedRichTypography
+            color="common.black"
+            lineClamp={3}
+            order={1}
+            variant="p1"
+            sx={{ mb: 1 }}
+          >
+            {notes}
+          </LineClampedRichTypography>
+        </Grid>
+        <Grid item xs={12} md={4} display="flex" justifyContent="flex-end">
+          {formats.map((format) => (
+            <Chip
+              label={format}
+              sx={(theme) => ({
+                backgroundColor:
+                  format === "PDF"
+                    ? theme.palette.success.main
+                    : theme.palette.error.main,
+                ...theme.typography.caption,
+                mr: 1.75,
+              })}
+            />
+          ))}
+        </Grid>
+      </Grid>
+    </Box>
+  );
+});
+
+export default DatasetCard;

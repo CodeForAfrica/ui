@@ -39,18 +39,22 @@ const allTags = [
   tags: allTags.slice(0, Math.floor(Math.random() * 3) + 2),
   // eslint-disable-next-line
   datasets: Array.from({ length: 17 }, (_, i) => ({
+    author: "Author Name",
     name: `datasets-name-${i}`,
-    notes: "Some notes about the datasets",
+    notes:
+      "Some notes about the datasets. They notes are very long and can span multiple lines. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl ut aliquam aliquam, nunc nisl aliquam nisl, eget aliquam nunc nisl sit amet nisl. Sed euismod, nisl ut aliquam aliquam, nunc nisl aliquam nisl, eget aliquam nunc nisl sit amet nisl.",
     title: `Datasets ${i}`,
-    formats: ["csv", "pdf"].slice(0, Math.floor(Math.random() * 2) + 1),
+    formats: ["CSV", "PDF"].slice(0, Math.floor(Math.random() * 2) + 1),
     // eslint-disable-next-line
       documents: Array.from({ length: 10 }, (_, i) => ({
       name: `Document ${i}`,
-      format: ["csv", "pdf"][Math.floor(Math.random() * 2)],
+      format: ["CSV", "PDF"][Math.floor(Math.random() * 2)],
       description: "Some description about the document",
       url: "https://www.google.com",
     })),
     type: ["dataset", "document"][Math.floor(Math.random() * 2)],
+    created: "2021-01-01",
+    updated: "2021-01-01",
   })),
 };
 
