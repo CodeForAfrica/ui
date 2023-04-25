@@ -6,12 +6,14 @@ import React from "react";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import Card, { StyledActionArea } from "@/charterafrica/components/StyledCard";
 
-const ToolCard = React.forwardRef(function ToolCard(props, ref) {
+const OrganisationCard = React.forwardRef(function OrganisationCard(
+  props,
+  ref
+) {
   const {
     description,
     lastActive,
     elevation,
-    topic,
     image,
     link,
     square,
@@ -62,23 +64,6 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
             {name}
           </LineClampedRichTypography>
           <LineClampedRichTypography
-            color="neutral.dark"
-            html={false}
-            lineClamp={1}
-            textAlign="left"
-            variant="h5SmallSemiBold"
-            sx={(theme) => ({
-              mt: 2.5,
-              minHeight: theme.typography.h5SmallSemiBold.fontSize,
-              [theme.breakpoints.up("md")]: {
-                minHeight: theme.typography.h5SemiBold.fontSize,
-                typography: "h5SmallSemiBold",
-              },
-            })}
-          >
-            {topic}
-          </LineClampedRichTypography>
-          <LineClampedRichTypography
             variant="p1"
             color="neutral.main"
             sx={(theme) => ({
@@ -103,20 +88,18 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
   );
 });
 
-ToolCard.propTypes = {
+OrganisationCard.propTypes = {
   name: PropTypes.string,
   lastActive: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
-  topic: PropTypes.string,
 };
 
-ToolCard.defaultProps = {
+OrganisationCard.defaultProps = {
   name: undefined,
   lastActive: undefined,
   description: undefined,
   image: undefined,
-  topic: undefined,
 };
 
-export default ToolCard;
+export default OrganisationCard;

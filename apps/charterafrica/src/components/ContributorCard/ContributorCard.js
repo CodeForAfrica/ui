@@ -1,22 +1,20 @@
 import { Link } from "@commons-ui/next";
-import { CardContent, CardMedia } from "@mui/material";
+import { Avatar, Box, CardContent } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import Card, { StyledActionArea } from "@/charterafrica/components/StyledCard";
 
-const ToolCard = React.forwardRef(function ToolCard(props, ref) {
+const ContributorCard = React.forwardRef(function ContributorCard(props, ref) {
   const {
     description,
-    lastActive,
     elevation,
-    topic,
-    image,
     link,
     square,
     sx,
     name,
+    image,
     variant = "outlined",
   } = props;
   const ownerState = {
@@ -37,7 +35,14 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
         component={link?.href ? Link : undefined}
         href={link?.href}
       >
-        <CardMedia image={image} sx={{ height: 200 }} />
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          sx={{ padding: 2 }}
+        >
+          <Avatar src={image} sx={{ width: 250, height: 250 }} />
+        </Box>
         <CardContent
           sx={{
             display: "flex",
@@ -48,13 +53,12 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
           <LineClampedRichTypography
             color="neutral.dark"
             html={false}
-            lineClamp={1}
-            textAlign="left"
+            lineClamp={2}
+            textAlign="center"
             variant="h5SmallSemiBold"
             sx={(theme) => ({
-              minHeight: theme.typography.h5SmallSemiBold.fontSize,
+              minHeight: theme.typography.h5SmallSemiBold.fontSize * 2,
               [theme.breakpoints.up("md")]: {
-                minHeight: theme.typography.h5SmallSemiBold.fontSize,
                 typography: "h5SemiBold",
               },
             })}
@@ -62,25 +66,9 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
             {name}
           </LineClampedRichTypography>
           <LineClampedRichTypography
-            color="neutral.dark"
-            html={false}
-            lineClamp={1}
-            textAlign="left"
-            variant="h5SmallSemiBold"
-            sx={(theme) => ({
-              mt: 2.5,
-              minHeight: theme.typography.h5SmallSemiBold.fontSize,
-              [theme.breakpoints.up("md")]: {
-                minHeight: theme.typography.h5SemiBold.fontSize,
-                typography: "h5SmallSemiBold",
-              },
-            })}
-          >
-            {topic}
-          </LineClampedRichTypography>
-          <LineClampedRichTypography
             variant="p1"
             color="neutral.main"
+            textAlign="center"
             sx={(theme) => ({
               mt: 2.5,
               maxHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
@@ -89,34 +77,22 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
           >
             {description}
           </LineClampedRichTypography>
-          <LineClampedRichTypography
-            color="neutral.dark"
-            lineClamp={1}
-            variant="p1"
-            sx={{ mt: 2.5, height: 18 }}
-          >
-            {lastActive}
-          </LineClampedRichTypography>
         </CardContent>
       </StyledActionArea>
     </Card>
   );
 });
 
-ToolCard.propTypes = {
+ContributorCard.propTypes = {
   name: PropTypes.string,
-  lastActive: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
-  topic: PropTypes.string,
 };
 
-ToolCard.defaultProps = {
+ContributorCard.defaultProps = {
   name: undefined,
-  lastActive: undefined,
   description: undefined,
   image: undefined,
-  topic: undefined,
 };
 
-export default ToolCard;
+export default ContributorCard;
