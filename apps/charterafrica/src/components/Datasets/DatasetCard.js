@@ -1,10 +1,17 @@
-import { Box, Grid, Typography, Chip } from "@mui/material";
-import React from "react";
+import { Box, Grid, Typography, Chip, Button } from "@mui/material";
+import React, { useState } from "react";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
 const DatasetCard = React.forwardRef(function DatasetCard(props) {
   const { formats, notes, title, created, updated, author } = props;
+
+  const [showAll, setState] = useState(false);
+
+  const onClick = () => {
+    setState(!showAll);
+  };
+
   return (
     <Box
       sx={{
@@ -44,13 +51,27 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
         <Grid item xs={12} md={4}>
           <LineClampedRichTypography
             color="common.black"
-            lineClamp={3}
+            lineClamp={showAll ? -1 : 3}
             order={1}
             variant="p1"
             sx={{ mb: 1 }}
           >
             {notes}
           </LineClampedRichTypography>
+          <Button
+            sx={{
+              "&:hover": {
+                backgroundColor: "transparent",
+              },
+              color: "neutral.dark",
+              typography: "p1",
+              textDecoration: "underline",
+              padding: 0,
+            }}
+            onClick={onClick}
+          >
+            {showAll ? "Read Less" : "Read More"}
+          </Button>
         </Grid>
         <Grid
           item
