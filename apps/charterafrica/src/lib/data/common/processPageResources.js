@@ -34,7 +34,7 @@ const allTags = [
 ];
 
 // eslint-disable-next-line
-  const sampleDataset = {
+const sampleDataset = {
   count: 17,
   tags: allTags.slice(0, Math.floor(Math.random() * 3) + 2),
   // eslint-disable-next-line
@@ -46,7 +46,7 @@ const allTags = [
     title: `Datasets ${i}`,
     formats: ["CSV", "PDF"].slice(0, Math.floor(Math.random() * 2) + 1),
     // eslint-disable-next-line
-      documents: Array.from({ length: 10 }, (_, i) => ({
+    documents: Array.from({ length: 10 }, (_, i) => ({
       name: `Document ${i}`,
       format: ["CSV", "PDF"][Math.floor(Math.random() * 2)],
       description: "Some description about the document",
@@ -59,7 +59,7 @@ const allTags = [
 };
 
 // eslint-disable-next-line
-  export async function processPageData(page, api, context){
+export async function processPageData(page, api, context) {
   const { count, datasets, tags } = sampleDataset;
 
   const { blocks } = page;
