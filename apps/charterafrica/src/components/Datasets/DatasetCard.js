@@ -90,6 +90,7 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
                     ? theme.palette.success.main
                     : theme.palette.error.main,
                 ...theme.typography.caption,
+                borderRadius: "10px",
                 mr: 1.75,
               })}
             />
