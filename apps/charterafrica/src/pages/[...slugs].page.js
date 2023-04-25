@@ -4,6 +4,7 @@ import { SWRConfig } from "swr";
 import Articles from "@/charterafrica/components/Articles";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Consultations from "@/charterafrica/components/Consultations";
+import Datasets from "@/charterafrica/components/Datasets";
 import DatasetsCharts from "@/charterafrica/components/DatasetsChart";
 import Documents from "@/charterafrica/components/Documents";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
@@ -38,6 +39,7 @@ import Tools from "@/charterafrica/components/Tools";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 const componentsBySlugs = {
+  datasets: Datasets,
   "datasets-charts": DatasetsCharts,
   documents: Documents,
   ecosystem: Ecosystem,
