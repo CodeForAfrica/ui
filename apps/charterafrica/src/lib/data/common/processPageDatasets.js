@@ -4,7 +4,7 @@ async function processPageDatasets(page, api) {
   const { blocks } = page;
   const datasetsIndex = blocks.findIndex(({ slug }) => slug === "datasets");
 
-  const { organizationId } = await api.getGlobal("datasets");
+  const { organizationId } = await api.findGlobal("datasets");
 
   if (datasetsIndex > -1) {
     const datasets = await fetchDatasets({
