@@ -1,8 +1,9 @@
 import { Link } from "@commons-ui/next";
-import { CardContent, CardMedia } from "@mui/material";
+import { Box, Button, CardContent, CardMedia, SvgIcon } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import GithubIcon from "@/charterafrica/assets/icons/github.svg";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import Card, { StyledActionArea } from "@/charterafrica/components/StyledCard";
 
@@ -17,6 +18,8 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
     square,
     sx,
     name,
+    linkText,
+    showButton,
     variant = "outlined",
   } = props;
   const ownerState = {
@@ -36,31 +39,57 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
       <StyledActionArea
         component={link?.href ? Link : undefined}
         href={link?.href}
+        sx={{ display: "flex", flexWrap: "wrap" }}
       >
-        <CardMedia image={image} sx={{ height: 200 }} />
+        <CardMedia image={image} sx={{ height: 200, minWidth: 314 }} />
         <CardContent
-          sx={{
+          sx={(theme) => ({
+            flex: 1,
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-          }}
+            minWidth: 314,
+            [theme.breakpoints.up("md")]: {
+              px: 7.5,
+            },
+          })}
         >
-          <LineClampedRichTypography
-            color="neutral.dark"
-            html={false}
-            lineClamp={1}
-            textAlign="left"
-            variant="h5SmallSemiBold"
-            sx={(theme) => ({
-              minHeight: theme.typography.h5SmallSemiBold.fontSize,
-              [theme.breakpoints.up("md")]: {
+          <Box display="flex" justifyContent="space-between">
+            <LineClampedRichTypography
+              color="neutral.dark"
+              html={false}
+              lineClamp={1}
+              textAlign="left"
+              variant="h5SmallSemiBold"
+              sx={(theme) => ({
                 minHeight: theme.typography.h5SmallSemiBold.fontSize,
-                typography: "h5SemiBold",
-              },
-            })}
-          >
-            {name}
-          </LineClampedRichTypography>
+                [theme.breakpoints.up("md")]: {
+                  minHeight: theme.typography.h5SmallSemiBold.fontSize,
+                  typography: "h5SemiBold",
+                },
+              })}
+            >
+              {name}
+            </LineClampedRichTypography>
+            {showButton ? (
+              <Button
+                variant="contained"
+                component={link?.href ? Link : undefined}
+                href={link?.href}
+              >
+                <SvgIcon
+                  component={GithubIcon}
+                  sx={{
+                    color: "text.secondary",
+                    display: "inline-flex",
+                    fill: "none",
+                    mr: 0.5,
+                  }}
+                />
+                {linkText}
+              </Button>
+            ) : null}
+          </Box>
           <LineClampedRichTypography
             color="neutral.dark"
             html={false}
@@ -109,6 +138,7 @@ ToolCard.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string,
   topic: PropTypes.string,
+  linkText: PropTypes.string,
 };
 
 ToolCard.defaultProps = {
@@ -117,6 +147,7 @@ ToolCard.defaultProps = {
   description: undefined,
   image: undefined,
   topic: undefined,
+  linkText: undefined,
 };
 
 export default ToolCard;
