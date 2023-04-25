@@ -21,14 +21,7 @@ const DatasetsCharts = React.forwardRef(function DatasetsCharts(props, ref) {
           <Grid item xs={12} md={6}>
             <Chart data={data} />
           </Grid>
-          <Grid
-            item
-            xs={12}
-            md={6}
-            display="flex"
-            direction="column"
-            justifyContent="center"
-          >
+          <Grid item xs={12} md={6} display="flex" justifyContent="center">
             <Box display="flex" gap={3.75} flexDirection="column">
               <LineClampedRichTypography
                 color="neutral.dark"

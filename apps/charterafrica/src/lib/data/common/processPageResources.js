@@ -56,7 +56,7 @@ const allTags = [
 
 // eslint-disable-next-line
   export async function processPageData(page, api, context){
-  const { datasets } = sampleDataset;
+  const { count, datasets, tags } = sampleDataset;
 
   const { blocks } = page;
   const pieChartData = [];
@@ -77,6 +77,12 @@ const allTags = [
   blocks.push({
     slug: "datasets-charts",
     data: pieChartData,
+  });
+  blocks.push({
+    slug: "datasets",
+    count,
+    data: datasets,
+    tags,
   });
 
   return page;
