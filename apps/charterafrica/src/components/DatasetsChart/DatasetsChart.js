@@ -39,7 +39,14 @@ const DatasetsCharts = React.forwardRef(function DatasetsCharts(props, ref) {
               >
                 Database
               </LineClampedRichTypography>
-              <Key data={data} order={{ xs: 2, md: 3 }} title="Key" />
+              <Key
+                data={data}
+                order={{ xs: 2, md: 3 }}
+                title="Key"
+                sx={{
+                  textTransform: "capitalize",
+                }}
+              />
             </Box>
           </Grid>
         </Grid>
