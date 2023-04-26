@@ -5,7 +5,6 @@ import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
 import PostCard from "@/charterafrica/components/PostCard";
-import ToolCard from "@/charterafrica/components/ToolCard";
 
 const ArticlesGrid = React.forwardRef(function ArticlesGrid(props, ref) {
   const { sx, articles } = props;
@@ -36,18 +35,6 @@ const ArticlesGrid = React.forwardRef(function ArticlesGrid(props, ref) {
               <PostCard {...item} sx={{ height: "100%" }} />
             </Grid>
           ))}
-          <ToolCard
-            {...{
-              image:
-                "https://opengraph.githubassets.com/cdea3047f304ac30905b3f49eb4abdb00f2972aab918177244a0f111ea1348c7/CodeForAfrica/ui",
-              name: "Tool Name",
-              topic: "Topic Name",
-              lastActive: "6 Months ago",
-              linkText: "Go to Repo",
-              description:
-                "Lorem ipsum dolor sit amet consectetur adipiscing elit mi, interdum blandit fringilla fus.",
-            }}
-          />
         </Grid>
       </Section>
     </Box>
