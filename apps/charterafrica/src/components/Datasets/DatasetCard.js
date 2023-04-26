@@ -94,6 +94,7 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
                 borderRadius: "10px",
                 mr: 1.75,
               })}
+              key={format}
             />
           ))}
         </Grid>

@@ -12,7 +12,7 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
       <Section sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: "50px" } }}>
         <DatasetFilterBar tags={tags} countries={countries} />
         {data.map((dataset) => (
-          <DatasetCard {...dataset} />
+          <DatasetCard {...dataset} key={dataset.name} />
         ))}
       </Section>
     </Box>
