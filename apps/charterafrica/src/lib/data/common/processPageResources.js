@@ -32,11 +32,49 @@ const allTags = [
   "Independent judiciary",
   "Open",
 ];
-
+const allCountries = [
+  "Algeria",
+  "Angola",
+  "Benin",
+  "Botswana",
+  "Burkina Faso",
+  "Burundi",
+  "Cameroon",
+  "Cape Verde",
+  "Central African Republic",
+  "Chad",
+  "Comoros",
+  "Congo",
+  "Cote d'Ivoire",
+  "Democratic Republic of the Congo",
+  "Djibouti",
+  "Egypt",
+  "Equatorial Guinea",
+  "Eritrea",
+  "Eswatini",
+  "Ethiopia",
+  "Gabon",
+  "Gambia",
+  "Ghana",
+  "Guinea",
+  "Guinea-Bissau",
+  "Kenya",
+  "Lesotho",
+  "Liberia",
+  "Libya",
+  "Madagascar",
+  "Malawi",
+  "Mali",
+  "Mauritania",
+  "Mauritius",
+  "Morocco",
+  "Mozambique",
+];
 // eslint-disable-next-line
 const sampleDataset = {
   count: 17,
-  tags: allTags.slice(0, Math.floor(Math.random() * 3) + 2),
+  tags: allTags,
+  countries: allCountries,
   // eslint-disable-next-line
   datasets: Array.from({ length: 17 }, (_, i) => ({
     author: "Author Name",
@@ -52,6 +90,7 @@ const sampleDataset = {
       description: "Some description about the document",
       url: "https://www.google.com",
     })),
+    tags: allTags.slice(0, Math.floor(Math.random() * 3) + 2),
     type: ["dataset", "document"][Math.floor(Math.random() * 2)],
     created: "2021-01-01",
     updated: "2021-01-01",
@@ -60,7 +99,7 @@ const sampleDataset = {
 
 // eslint-disable-next-line
 export async function processPageData(page, api, context) {
-  const { count, datasets, tags } = sampleDataset;
+  const { count, countries, datasets, tags } = sampleDataset;
 
   const { blocks } = page;
   const pieChartData = [];
@@ -85,6 +124,7 @@ export async function processPageData(page, api, context) {
   blocks.push({
     slug: "datasets",
     count,
+    countries,
     data: datasets,
     tags,
   });
