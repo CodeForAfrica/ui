@@ -1,6 +1,7 @@
 import { Box, Grid, Typography, Chip, Button } from "@mui/material";
 import React, { useState } from "react";
 
+import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
 const DatasetCard = React.forwardRef(function DatasetCard(props) {
@@ -16,12 +17,12 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
     <Box
       sx={{
         border: "1px solid",
-        borderColor: "neutral.light",
+        borderColor: neutral[50],
         borderBottom: "none",
         p: 2.5,
         "&:last-child": {
           borderBottom: "1px solid",
-          borderColor: "neutral.light",
+          borderColor: neutral[50],
         },
       }}
     >
