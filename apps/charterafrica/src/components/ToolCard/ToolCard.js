@@ -34,7 +34,7 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
       sx={{ display: "flex", flexWrap: "wrap" }}
       ref={ref}
     >
-      <CardMedia image={image} sx={{ height: 200, minWidth: 314 }} />
+      <CardMedia image={image} sx={{ height: 200, width: "100%" }} />
       <CardContent
         sx={(theme) => ({
           flex: 1,
@@ -42,9 +42,7 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
           flexDirection: "column",
           justifyContent: "space-between",
           minWidth: 314,
-          [theme.breakpoints.up("md")]: {
-            px: 7.5,
-          },
+          [theme.breakpoints.up("md")]: {},
         })}
       >
         <Box display="flex" justifyContent="space-between">
@@ -84,29 +82,38 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
             </Button>
           ) : null}
         </Box>
-        <LineClampedRichTypography
-          color="neutral.dark"
-          html={false}
-          lineClamp={1}
-          textAlign="left"
-          variant="h5SmallSemiBold"
+        {/* Wrapped in a box fo consistent height */}
+        <Box
           sx={(theme) => ({
             mt: 2.5,
-            minHeight: theme.typography.h5SmallSemiBold.fontSize,
+            height: theme.typography.h5SmallSemiBold.fontSize,
             [theme.breakpoints.up("md")]: {
-              minHeight: theme.typography.h5SemiBold.fontSize,
+              height: theme.typography.h5SemiBold.fontSize,
               typography: "h5SmallSemiBold",
             },
           })}
         >
-          {topic}
-        </LineClampedRichTypography>
+          <LineClampedRichTypography
+            color="neutral.dark"
+            html={false}
+            lineClamp={1}
+            textAlign="left"
+            variant="h5SmallSemiBold"
+            sx={(theme) => ({
+              [theme.breakpoints.up("md")]: {
+                typography: "h5SmallSemiBold",
+              },
+            })}
+          >
+            {topic}
+          </LineClampedRichTypography>
+        </Box>
         <LineClampedRichTypography
           variant="p1"
           color="neutral.main"
           sx={(theme) => ({
             mt: 2.5,
-            maxHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
+            height: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
           })}
           lineClamp={3}
         >

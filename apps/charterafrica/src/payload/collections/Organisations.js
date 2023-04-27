@@ -59,6 +59,11 @@ const Organisations = {
       },
     },
     {
+      name: "avatarUrl",
+      type: "text",
+      label: { en: "Avatar URL", fr: "URL d'avatar", pt: "URL de avatar" },
+    },
+    {
       name: "location",
       type: "text",
       label: {

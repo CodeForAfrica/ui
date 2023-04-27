@@ -54,9 +54,13 @@ const OrganisationCard = React.forwardRef(function OrganisationCard(
             textAlign="left"
             variant="h5SmallSemiBold"
             sx={(theme) => ({
-              minHeight: theme.typography.h5SmallSemiBold.fontSize,
+              height:
+                theme.typography.h5SmallSemiBold.fontSize *
+                theme.typography.h5SmallSemiBold.lineHeight,
               [theme.breakpoints.up("md")]: {
-                minHeight: theme.typography.h5SmallSemiBold.fontSize,
+                height:
+                  theme.typography.h5SemiBold.fontSize *
+                  theme.typography.h5SemiBold.lineHeight,
                 typography: "h5SemiBold",
               },
             })}
@@ -68,7 +72,7 @@ const OrganisationCard = React.forwardRef(function OrganisationCard(
             color="neutral.main"
             sx={(theme) => ({
               mt: 2.5,
-              maxHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
+              height: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
             })}
             lineClamp={3}
           >

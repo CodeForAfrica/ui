@@ -3,6 +3,11 @@ import processPageArticles, {
   processPageEvents,
 } from "@/charterafrica/lib/data/common/processPageArticles";
 import processPageConsultation from "@/charterafrica/lib/data/common/processPageConsultation";
+import {
+  processPageDemocracyTools,
+  processPagePeople,
+  processPageOrganisations,
+} from "@/charterafrica/lib/data/common/processPageDemocracyTools";
 import processPageExplainers from "@/charterafrica/lib/data/common/processPageExplainers";
 import processPageIndex from "@/charterafrica/lib/data/common/processPageIndex";
 import processPageOpportunities, {
@@ -52,7 +57,10 @@ const processPageFunctionsMap = {
   index: processPageIndex,
   news: processPageArticles,
   research: processPageArticles,
+  tools: processPageDemocracyTools,
   "privacy-policy": processPagePrivacyPolicy,
+  people: processPagePeople,
+  organisations: processPageOrganisations,
 };
 
 async function processGlobalBlockFocalCountries(block) {

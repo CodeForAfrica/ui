@@ -22,13 +22,16 @@ import Mooc from "@/charterafrica/components/Mooc";
 import Opportunity from "@/charterafrica/components/Opportunity";
 import OpportunityHeader from "@/charterafrica/components/OpportunityHeader";
 import OpportunityPage from "@/charterafrica/components/OpportunityPage";
+import Organisations from "@/charterafrica/components/Organisations";
 import PageDescription from "@/charterafrica/components/PageDescription";
 import PageHeader from "@/charterafrica/components/PageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
 import Partners from "@/charterafrica/components/Partners";
+import People from "@/charterafrica/components/People";
 import Post from "@/charterafrica/components/Post";
 import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
+import Tools from "@/charterafrica/components/Tools";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 const componentsBySlugs = {
@@ -61,6 +64,9 @@ const componentsBySlugs = {
   research: Articles,
   "embedded-document-viewer": EmbeddedDocumentViewer,
   spotlight: Spotlight,
+  tools: Tools,
+  people: People,
+  organisations: Organisations,
 };
 
 function Page({ blocks, fallback }) {

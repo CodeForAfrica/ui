@@ -4,6 +4,7 @@ export const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName:
   repository(owner: $repositoryOwner, name: $repositoryName) {
     name
     url
+    openGraphImageUrl
     description
     stargazers {
       totalCount
@@ -26,12 +27,12 @@ export const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName:
             edges {
               node {
                 id
-                author {
-                  name
-                  email
-                }
-                committedDate
-                message
+          message
+          committedDate
+          author {
+            name
+            email
+          }
               }
             }
           }
@@ -55,6 +56,9 @@ export const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName:
         description
         location
         twitterUsername
+        email
+        url
+        avatarUrl
       }
     }
   }

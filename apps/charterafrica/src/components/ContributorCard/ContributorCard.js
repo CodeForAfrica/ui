@@ -57,8 +57,16 @@ const ContributorCard = React.forwardRef(function ContributorCard(props, ref) {
             textAlign="center"
             variant="h5SmallSemiBold"
             sx={(theme) => ({
-              minHeight: theme.typography.h5SmallSemiBold.fontSize * 2,
+              height: `calc(${
+                theme.typography.h5SmallSemiBold.fontSize *
+                theme.typography.h5SmallSemiBold.lineHeight
+              }px * 2)`,
               [theme.breakpoints.up("md")]: {
+                height: `calc(${
+                  theme.typography.h5SemiBold.fontSize *
+                  theme.typography.h5SemiBold.lineHeight
+                }px * 2)`,
+                color: theme.typography.h5SemiBold.fontSize,
                 typography: "h5SemiBold",
               },
             })}
@@ -71,7 +79,7 @@ const ContributorCard = React.forwardRef(function ContributorCard(props, ref) {
             textAlign="center"
             sx={(theme) => ({
               mt: 2.5,
-              maxHeight: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
+              height: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
             })}
             lineClamp={3}
           >

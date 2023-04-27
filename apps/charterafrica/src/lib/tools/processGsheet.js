@@ -31,6 +31,7 @@ const processRepository = (data, { topic, externalId, description }) => {
     location: data?.owner?.location,
     website: data?.owner?.url,
     twitter: data?.owner?.twitterUsername,
+    avatarUrl: data?.owner?.avatarUrl,
     email: data?.owner?.email,
     source: "github",
   };
@@ -40,6 +41,7 @@ const processRepository = (data, { topic, externalId, description }) => {
   }));
   const tool = {
     externalId,
+    avatarUrl: data?.openGraphImageUrl,
     name: data?.name,
     description,
     link: data?.url,
