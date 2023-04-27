@@ -6,7 +6,7 @@ import LineClampedRichTypography from "@/charterafrica/components/LineClampedRic
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
 const DatasetCard = React.forwardRef(function DatasetCard(props) {
-  const { formats, notes, title, created, updated, author } = props;
+  const { formats, notes, title, created, updated, author, sx } = props;
 
   const [showAll, setState] = useState(false);
 
@@ -25,6 +25,7 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
           borderBottom: "1px solid",
           borderColor: neutral[50],
         },
+        ...sx,
       }}
     >
       <Grid
