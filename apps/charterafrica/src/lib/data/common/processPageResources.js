@@ -1,107 +1,14 @@
-const allTags = [
-  "Monitoring",
-  "Democratic culture",
-  "Public Accountability",
-  "Empowerment of Women",
-  "Rule of law",
-  "Score",
-  "Anti-corruption",
-  "Civic space",
-  "Polling Technologies",
-  "Dialogue",
-  "Parliament",
-  "Political pluralism",
-  "Electoral Cycles",
-  "Civic values education",
-  "Decentralisation",
-  "Representation of marginalized social groups",
-  "Multi-level democratic governance",
-  "Women representation",
-  "parliament",
-  "Economic and corporate governance",
-  "Election boards",
-  "freedom of assembly",
-  "Separation of powers",
-  "Fight against all discriminations",
-  "Transparency",
-  "Women Participation",
-  "women",
-  "Freedom of opinion",
-  "Anti Corruption",
-  "Civic Participation",
-  "Independent judiciary",
-  "Open",
-];
-const allCountries = [
-  "Algeria",
-  "Angola",
-  "Benin",
-  "Botswana",
-  "Burkina Faso",
-  "Burundi",
-  "Cameroon",
-  "Cape Verde",
-  "Central African Republic",
-  "Chad",
-  "Comoros",
-  "Congo",
-  "Cote d'Ivoire",
-  "Democratic Republic of the Congo",
-  "Djibouti",
-  "Egypt",
-  "Equatorial Guinea",
-  "Eritrea",
-  "Eswatini",
-  "Ethiopia",
-  "Gabon",
-  "Gambia",
-  "Ghana",
-  "Guinea",
-  "Guinea-Bissau",
-  "Kenya",
-  "Lesotho",
-  "Liberia",
-  "Libya",
-  "Madagascar",
-  "Malawi",
-  "Mali",
-  "Mauritania",
-  "Mauritius",
-  "Morocco",
-  "Mozambique",
-];
-// eslint-disable-next-line
-const sampleDataset = {
-  count: 17,
-  tags: allTags,
-  countries: allCountries,
-  // eslint-disable-next-line
-  datasets: Array.from({ length: 17 }, (_, i) => ({
-    author: "Author Name",
-    name: `datasets-name-${i}`,
-    notes:
-      "Some notes about the datasets. They notes are very long and can span multiple lines. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl ut aliquam aliquam, nunc nisl aliquam nisl, eget aliquam nunc nisl sit amet nisl. Sed euismod, nisl ut aliquam aliquam, nunc nisl aliquam nisl, eget aliquam nunc nisl sit amet nisl.",
-    title: `Datasets ${i}`,
-    formats: ["CSV", "PDF"].slice(0, Math.floor(Math.random() * 2) + 1),
-    // eslint-disable-next-line
-    documents: Array.from({ length: 10 }, (_, i) => ({
-      name: `Document ${i}`,
-      format: ["CSV", "PDF"][Math.floor(Math.random() * 2)],
-      description: "Some description about the document",
-      url: "https://www.google.com",
-    })),
-    tags: allTags.slice(0, Math.floor(Math.random() * 3) + 2),
-    type: ["dataset", "document"][Math.floor(Math.random() * 2)],
-    created: "2021-01-01",
-    updated: "2021-01-01",
-  })),
-};
+import fetchDatasets from "@/charterafrica/lib/openAfrica";
 
-// eslint-disable-next-line
-export async function processPageData(page, api, context) {
-  const { count, countries, datasets, tags } = sampleDataset;
-
+// eslint-disable-next-line import/prefer-default-export
+export async function processPageDatasets(page, api) {
   const { blocks } = page;
+  const { organizationId } = await api.findGlobal("datasets");
+  const data = await fetchDatasets(organizationId, {
+    rows: 10,
+    start: 0,
+  });
+  const { count, datasets, countries, tags } = data;
   const pieChartData = [];
   datasets.forEach((dataset) => {
     const { type } = dataset;
@@ -117,6 +24,7 @@ export async function processPageData(page, api, context) {
       });
     }
   });
+
   blocks.push({
     slug: "datasets-charts",
     data: pieChartData,

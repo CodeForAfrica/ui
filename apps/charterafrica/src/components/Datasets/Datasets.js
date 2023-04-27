@@ -11,7 +11,7 @@ import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import queryString from "@/charterafrica/utils/datasets/queryString";
 
 const Datasets = React.forwardRef(function Datasets(props, ref) {
-  const { sx, data, tags, countries, count } = props;
+  const { sx, data = [], tags = [], countries = [], count = 0 } = props;
   const [page, setPage] = useState(1);
   const [q, setQ] = useState("");
   const [sort, setSort] = useState("");
