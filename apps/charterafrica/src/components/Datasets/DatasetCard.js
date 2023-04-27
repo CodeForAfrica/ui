@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+import formatDateTime from "@/charterafrica/utils/formatDate";
 
 const DatasetCard = React.forwardRef(function DatasetCard(props) {
   const { formats, notes, title, created, updated, author } = props;
@@ -43,7 +44,8 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
             {title}
           </LineClampedRichTypography>
           <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
-            Updated {updated} | Created {created}
+            Updated {formatDateTime(updated, { includeTime: false })} | Created{" "}
+            {formatDateTime(created, { includeTime: false })}
           </Typography>
           <Typography variant="p1SemiBold" color="neutral.main">
             {author}

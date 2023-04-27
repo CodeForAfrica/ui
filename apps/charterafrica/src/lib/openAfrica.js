@@ -63,10 +63,15 @@ async function formatDatasets(data) {
 }
 
 export default async function fetchDatasets(organization, query = {}) {
-  const { tags = [], ...other } = query;
-  const tagsQuery = tags.length ? `tags:(${tags.join(" OR ")})` : "";
+  const { tags = [], countries = [], ...other } = query;
+  const tagsQuery = tags.length
+    ? `tags:(${tags.map((tag) => `"${tag}"`).join(" OR ")})`
+    : "";
+  const countriesQuery = countries.length
+    ? `groups:(${countries.map((country) => `"${country}"`).join(" OR ")})`
+    : "";
   const organizationQuery = `organization:${organization}`;
-  const filterQuery = [tagsQuery, organizationQuery]
+  const filterQuery = [tagsQuery, countriesQuery, organizationQuery]
     .filter(Boolean)
     .join(" AND ");
 
