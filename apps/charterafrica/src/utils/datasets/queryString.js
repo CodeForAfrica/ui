@@ -18,14 +18,20 @@ function queryString(query = {}) {
   if (sort && sort !== DEFAULT_SORTING) {
     searchParams.append("sort", sort);
   }
-  if (countries && countries !== DEFAULT_COUNTRY) {
-    searchParams.append("countries", countries.join(","));
+  if (countries && countries.length > 1) {
+    searchParams.append(
+      "countries",
+      countries.filter((c) => c !== DEFAULT_COUNTRY)
+    );
   }
-  if (tags && tags !== DEFAULT_TAG) {
-    searchParams.append("tags", tags.join(","));
+  if (tags && tags.length > 1) {
+    searchParams.append(
+      "tags",
+      tags.filter((t) => t !== DEFAULT_TAG)
+    );
   }
 
-  if (page && page !== 0) {
+  if (page && page !== 1) {
     searchParams.append("page", page);
   }
 
