@@ -7,6 +7,7 @@ import {
   Typography,
   Checkbox,
   ListItemText,
+  styled,
 } from "@mui/material";
 import React, { useState } from "react";
 
@@ -17,6 +18,38 @@ import {
   DEFAULT_COUNTRY,
   DEFAULT_TAG,
 } from "@/charterafrica/utils/datasets/queryString";
+
+const StyledSelect = styled(Select)({
+  backgroundColor: neutral[50],
+  height: "36px",
+  typography: "p1",
+  overflow: "hidden",
+  width: "200px",
+});
+
+const StyledMenuItem = styled(MenuItem)({
+  "&.Mui-selected": {
+    backgroundColor: neutral[200],
+  },
+  "&.Mui-selected:hover": {
+    backgroundColor: neutral[200],
+  },
+});
+
+const StyledCheckbox = styled(Checkbox)({
+  color: neutral[900],
+  "&.Mui-checked": {
+    color: neutral[500],
+  },
+});
+
+const menuProps = {
+  sx: {
+    color: neutral[900],
+    typography: "p1",
+    width: "200px",
+  },
+};
 
 const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   props,
@@ -108,85 +141,36 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
           />
         </Grid>
         <Grid item xs={12} md={2.4}>
-          <Select
-            inputProps={{
-              "aria-label": "Without label",
-            }}
+          <StyledSelect
             onChange={handleChangeSort}
-            MenuProps={{
-              sx: {
-                color: "neutral.dark",
-                typography: "p1",
-              },
-            }}
-            sx={{
-              backgroundColor: neutral[50],
-              height: "36px",
-              minWidth: "200px",
-              typography: "p1",
-            }}
+            MenuProps={menuProps}
             value={sort}
           >
             {sortOrder.map((order) => (
-              <MenuItem value={order.value} key={order.value}>
+              <StyledMenuItem value={order.value} key={order.value}>
                 {order.label}
-              </MenuItem>
+              </StyledMenuItem>
             ))}
-          </Select>
+          </StyledSelect>
         </Grid>
         <Grid item xs={12} md={2.4} overflow="hidden">
-          <Select
+          <StyledSelect
             multiple
             renderValue={(selected) => selected.join(", ")}
-            inputProps={{
-              "aria-label": "Without label",
-            }}
             onChange={handleChangeCountry}
-            MenuProps={{
-              sx: {
-                color: "neutral.dark",
-                typography: "p1",
-                width: "200px",
-              },
-            }}
-            sx={{
-              backgroundColor: neutral[50],
-              height: "36px",
-              typography: "p1",
-              overflow: "hidden",
-              width: "200px",
-            }}
+            MenuProps={menuProps}
             value={country}
           >
             <MenuItem value={DEFAULT_COUNTRY} key={DEFAULT_COUNTRY}>
               {DEFAULT_COUNTRY}
             </MenuItem>
             {countries.map((singleCountry) => (
-              <MenuItem
-                value={singleCountry}
-                key={singleCountry}
-                sx={{
-                  "&.Mui-selected": {
-                    backgroundColor: "neutral.light",
-                  },
-                  "&.Mui-selected:hover": {
-                    backgroundColor: "neutral.light",
-                  },
-                }}
-              >
-                <Checkbox
-                  checked={country.indexOf(singleCountry) > -1}
-                  sx={{
-                    color: "neutral.dark",
-                    "&.Mui-checked": {
-                      color: "neutral.main",
-                    },
-                  }}
-                />
+              <StyledMenuItem value={singleCountry} key={singleCountry}>
+                <StyledCheckbox checked={country.indexOf(singleCountry) > -1} />
                 <ListItemText primary={singleCountry} />
-              </MenuItem>
+              </StyledMenuItem>
             ))}
-          </Select>
+          </StyledSelect>
         </Grid>
         <Grid item xs={12} md={2.4}>
           <Select
