@@ -9,6 +9,7 @@ import { buildConfig } from "payload/config";
 
 import Authors from "./src/payload/collections/Authors";
 import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
+import Datasets from "./src/payload/globals/Datasets";
 import Events from "./src/payload/collections/Events";
 import Explainers from "./src/payload/collections/Explainers";
 import Fellowships from "./src/payload/collections/Fellowships";
@@ -85,6 +86,7 @@ export default buildConfig({
     Tags,
   ] as CollectionConfig[],
   globals: [
+    Datasets,
     FocalCountries,
     Footer,
     Helpdesk,
