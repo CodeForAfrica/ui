@@ -1,8 +1,22 @@
-import { Box, Grid, Select, MenuItem, Chip, Typography } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Select,
+  MenuItem,
+  Chip,
+  Typography,
+  Checkbox,
+  ListItemText,
+} from "@mui/material";
 import React, { useState } from "react";
 
 import { neutral } from "@/charterafrica/colors";
 import SearchInput from "@/charterafrica/components/SearchInput";
+import {
+  DEFAULT_SORTING,
+  DEFAULT_COUNTRY,
+  DEFAULT_TAG,
+} from "@/charterafrica/utils/datasets/queryString";
 
 const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   props,
@@ -11,9 +25,9 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   const { onChange, search: searchProp, countries, tags } = props;
 
   const [value, setValue] = useState(searchProp || "");
-  const [sort, setSort] = useState("metadata_modified desc");
-  const [country, setCountry] = useState("All Countries");
-  const [tag, setTag] = useState("All Tags");
+  const [sort, setSort] = useState(DEFAULT_SORTING);
+  const [country, setCountry] = useState([DEFAULT_COUNTRY]);
+  const [tag, setTag] = useState(DEFAULT_TAG);
 
   const handleChangeQ = (e) => {
     setValue(e.target.value);
@@ -38,7 +52,18 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   };
 
   const handleChangeCountry = (e) => {
-    setCountry(e.target.value);
+    const {
+      target: { value: checkedCountries },
+    } = e;
+
+    if (checkedCountries.length > 1) {
+      const selectedCountries = checkedCountries.filter(
+        (c) => c !== DEFAULT_COUNTRY
+      );
+      setCountry(selectedCountries);
+      return;
+    }
+    setCountry([DEFAULT_COUNTRY]);
   };
 
   const handleChangeTag = (e) => {
@@ -109,8 +134,10 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             ))}
           </Select>
         </Grid>
-        <Grid item xs={12} md={2.4}>
+        <Grid item xs={12} md={2.4} overflow="hidden">
           <Select
+            multiple
+            renderValue={(selected) => selected.join(", ")}
             inputProps={{
               "aria-label": "Without label",
             }}
@@ -119,19 +146,44 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
               sx: {
                 color: "neutral.dark",
                 typography: "p1",
+                width: "200px",
               },
             }}
             sx={{
               backgroundColor: neutral[50],
               height: "36px",
-              minWidth: "200px",
               typography: "p1",
+              overflow: "hidden",
+              width: "200px",
             }}
             value={country}
           >
+            <MenuItem value={DEFAULT_COUNTRY} key={DEFAULT_COUNTRY}>
+              {DEFAULT_COUNTRY}
+            </MenuItem>
             {countries.map((singleCountry) => (
-              <MenuItem value={singleCountry} key={singleCountry}>
-                {singleCountry}
+              <MenuItem
+                value={singleCountry}
+                key={singleCountry}
+                sx={{
+                  "&.Mui-selected": {
+                    backgroundColor: "neutral.light",
+                  },
+                  "&.Mui-selected:hover": {
+                    backgroundColor: "neutral.light",
+                  },
+                }}
+              >
+                <Checkbox
+                  checked={country.indexOf(singleCountry) > -1}
+                  sx={{
+                    color: "neutral.dark",
+                    "&.Mui-checked": {
+                      color: "neutral.main",
+                    },
+                  }}
+                />
+                <ListItemText primary={singleCountry} />
               </MenuItem>
             ))}
           </Select>
@@ -156,6 +208,10 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             }}
             value={tag}
           >
+            <MenuItem value={DEFAULT_TAG} key={DEFAULT_TAG}>
+              {" "}
+              {DEFAULT_TAG}{" "}
+            </MenuItem>
             {tags.map((singleTag) => (
               <MenuItem value={singleTag} key={singleTag}>
                 {singleTag}
