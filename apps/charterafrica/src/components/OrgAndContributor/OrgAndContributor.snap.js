@@ -100,126 +100,106 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-12 css-10j6ha2-MuiGrid-root"
       >
         <div
-          class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1kskzdz-MuiPaper-root-MuiCard-root"
+          class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
         >
-          <button
-            class="MuiButtonBase-root MuiCardActionArea-root css-127nkxh-MuiButtonBase-root-MuiCardActionArea-root"
-            tabindex="0"
-            type="button"
+          <div
+            class="MuiCardMedia-root css-18n4p7v-MuiCardMedia-root"
+            role="img"
+            style="background-image: url(/static/images/react.png);"
+          />
+          <div
+            class="MuiCardContent-root css-fo49kl-MuiCardContent-root"
           >
             <div
-              class="MuiCardMedia-root css-18n4p7v-MuiCardMedia-root"
-              role="img"
-              style="background-image: url(/static/images/react.png);"
-            />
-            <div
-              class="MuiCardContent-root css-fo49kl-MuiCardContent-root"
+              class="MuiBox-root css-gg4vpm"
             >
-              <div
-                class="MuiBox-root css-gg4vpm"
-              >
-                <h5
-                  class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ztwkg1-MuiTypography-root"
-                >
-                  React
-                </h5>
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
-                  tabindex="0"
-                  type="button"
-                >
-                  <div
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1kd67zk-MuiSvgIcon-root"
-                    focusable="false"
-                    viewbox="0 0 24 24"
-                  />
-                  Go to Repo
-                </button>
-              </div>
               <h5
-                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1l5c5j8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ztwkg1-MuiTypography-root"
               >
-                Frontend
+                React
               </h5>
-              <div
-                class="MuiTypography-root MuiTypography-p1 css-vka5zk-MuiTypography-root"
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-f7mktd-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
               >
-                A JavaScript library for building user interfaces
-              </div>
-              <div
-                class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
-              >
-                1 day ago
-              </div>
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1kd67zk-MuiSvgIcon-root"
+                  focusable="false"
+                  viewbox="0 0 24 24"
+                />
+              </button>
             </div>
-            <span
-              class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-            />
-          </button>
+            <h5
+              class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1l5c5j8-MuiTypography-root"
+            >
+              Frontend
+            </h5>
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-vka5zk-MuiTypography-root"
+            >
+              A JavaScript library for building user interfaces
+            </div>
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
+            >
+              1 day ago
+            </div>
+          </div>
         </div>
       </div>
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-12 css-10j6ha2-MuiGrid-root"
       >
         <div
-          class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1kskzdz-MuiPaper-root-MuiCard-root"
+          class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
         >
-          <button
-            class="MuiButtonBase-root MuiCardActionArea-root css-127nkxh-MuiButtonBase-root-MuiCardActionArea-root"
-            tabindex="0"
-            type="button"
+          <div
+            class="MuiCardMedia-root css-18n4p7v-MuiCardMedia-root"
+            role="img"
+            style="background-image: url(/static/images/nodejs.png);"
+          />
+          <div
+            class="MuiCardContent-root css-fo49kl-MuiCardContent-root"
           >
             <div
-              class="MuiCardMedia-root css-18n4p7v-MuiCardMedia-root"
-              role="img"
-              style="background-image: url(/static/images/nodejs.png);"
-            />
-            <div
-              class="MuiCardContent-root css-fo49kl-MuiCardContent-root"
+              class="MuiBox-root css-gg4vpm"
             >
-              <div
-                class="MuiBox-root css-gg4vpm"
-              >
-                <h5
-                  class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ztwkg1-MuiTypography-root"
-                >
-                  Node.js
-                </h5>
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
-                  tabindex="0"
-                  type="button"
-                >
-                  <div
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1kd67zk-MuiSvgIcon-root"
-                    focusable="false"
-                    viewbox="0 0 24 24"
-                  />
-                  Go to Repo
-                </button>
-              </div>
               <h5
-                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1l5c5j8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ztwkg1-MuiTypography-root"
               >
-                Backend
+                Node.js
               </h5>
-              <div
-                class="MuiTypography-root MuiTypography-p1 css-vka5zk-MuiTypography-root"
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-f7mktd-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
               >
-                A JavaScript runtime built on Chrome's V8 JavaScript engine.
-              </div>
-              <div
-                class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
-              >
-                2 days ago
-              </div>
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1kd67zk-MuiSvgIcon-root"
+                  focusable="false"
+                  viewbox="0 0 24 24"
+                />
+              </button>
             </div>
-            <span
-              class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-            />
-          </button>
+            <h5
+              class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1l5c5j8-MuiTypography-root"
+            >
+              Backend
+            </h5>
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-vka5zk-MuiTypography-root"
+            >
+              A JavaScript runtime built on Chrome's V8 JavaScript engine.
+            </div>
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
+            >
+              2 days ago
+            </div>
+          </div>
         </div>
       </div>
     </div>

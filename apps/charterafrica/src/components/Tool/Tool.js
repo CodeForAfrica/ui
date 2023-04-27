@@ -1,8 +1,18 @@
 import { Section, RichTypography } from "@commons-ui/core";
-import { Box, Grid, SvgIcon, Link, CardMedia } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  SvgIcon,
+  Link,
+  CardMedia,
+  Divider,
+} from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import ContributeIcon from "@/charterafrica/assets/icons/contribute.svg";
+import GithubIcon from "@/charterafrica/assets/icons/github.svg";
 import LinkToTool from "@/charterafrica/assets/icons/link.svg";
 import ShareThisPage from "@/charterafrica/components/ShareThisPage";
 import ToolCard from "@/charterafrica/components/ToolCard";
@@ -20,24 +30,27 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     topic,
     image,
     organisationName,
+    contribute,
   } = props;
   return (
     <Section ref={ref}>
       <Grid sx={{ flexWrap: "wrap-reverse" }} container>
-        <Grid item sx={{ p: 2 }} sm={12} md={8}>
-          <Box
+        <Grid item container sx={{ p: 2 }} sm={12} md={8}>
+          <Grid
+            xs={12}
             display="flex"
             justifyContent="space-between"
             alignItems="center"
+            item
           >
             <RichTypography
-              textAlign={{ xs: "center", sm: "left" }}
               color="neutral.dark"
+              sx={{ flex: 1 }}
               variant="h2SemiBold"
             >
               {name}
             </RichTypography>
-            <Link href={link}>
+            <Link href={link.href}>
               <SvgIcon
                 inheritViewBox
                 component={LinkToTool}
@@ -45,46 +58,99 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                   color: "text.primary",
                   display: "inline-flex",
                   fill: "none",
-                  height: 33,
-                  width: "100%",
+                  height: 32,
+                  width: 32,
                 }}
               />
             </Link>
-          </Box>
+          </Grid>
+          <Grid container>
+            <Grid xs={12} sm={8} item>
+              <RichTypography
+                textAlign="left"
+                color="neutral.dark"
+                sx={{ mt: 3.75, fontWeight: 400 }}
+                variant="h4"
+              >
+                {organisationName}
+              </RichTypography>
+              <RichTypography
+                textAlign="left"
+                color="neutral.dark"
+                sx={{ mt: 4, fontWeight: 400 }}
+                variant="h6Small"
+              >
+                {location}
+              </RichTypography>
+              <RichTypography
+                textAlign="left"
+                color="neutral.dark"
+                sx={{ fontWeight: 400 }}
+                variant="h6Small"
+              >
+                {topic}
+              </RichTypography>
+            </Grid>
+            <Grid sx={{ textAlign: "right" }} xs={12} sm={4} item>
+              <Button
+                component={contribute.href ? Link : undefined}
+                href={contribute.href}
+                variant="contained"
+                sx={{ mt: 2.5, width: { xs: "100%", sm: "fit-content" } }}
+              >
+                <SvgIcon
+                  inheritViewBox
+                  component={ContributeIcon}
+                  sx={{
+                    color: "text.secondary",
+                    display: "inline-flex",
+                    fill: "none",
+                    width: 16,
+                    height: 16,
+                    mr: 1,
+                  }}
+                />
+                {contribute.label}
+              </Button>
+              <br />
+              <Button
+                component={link.href ? Link : undefined}
+                href={link?.href}
+                variant="contained"
+                sx={{ mt: 2.5, width: { xs: "100%", sm: "fit-content" } }}
+              >
+                <SvgIcon
+                  component={GithubIcon}
+                  sx={{
+                    color: "text.secondary",
+                    display: "inline-flex",
+                    fill: "none",
+                    width: 16,
+                    height: 16,
+                    mr: 1,
+                  }}
+                />
+                {link.label}
+              </Button>
+            </Grid>
+          </Grid>
+          <Divider sx={{ my: 3.75 }} />
           <RichTypography
-            textAlign={{ xs: "center", sm: "left" }}
-            color="neutral.dark"
-            sx={{ mt: 3.75, fontWeight: 400 }}
-            variant="h4"
-          >
-            {organisationName}
-          </RichTypography>
-          <RichTypography
-            textAlign={{ xs: "center", sm: "left" }}
-            color="neutral.dark"
-            sx={{ mt: 4, fontWeight: 400 }}
-            variant="h6Small"
-          >
-            {location}
-          </RichTypography>
-          <RichTypography
-            textAlign={{ xs: "center", sm: "left" }}
-            color="neutral.dark"
-            sx={{ fontWeight: 400 }}
-            variant="h6Small"
-          >
-            {topic}
-          </RichTypography>
-          <RichTypography
-            textAlign={{ xs: "center", sm: "left" }}
+            textAlign="left"
             color="neutral.dark"
             sx={{ mt: 2.5 }}
             variant="p1"
           >
             {description}
           </RichTypography>
-          <Box display="flex" justifyContent="space-between">
-            <div />
+          <Box
+            display="flex"
+            sx={{
+              mt: 3.75,
+              width: "100%",
+              justifyContent: { xs: "center", sm: "flex-end" },
+            }}
+          >
             <ShareThisPage
               sx={{ textAlign: { sm: "right", xs: "center" } }}
               title="Share via"
@@ -107,15 +173,20 @@ const Tool = React.forwardRef(function Tool(props, ref) {
         sx={{ mt: 8, fontWeight: 400 }}
         color="neutral.dark"
         variant="h4Small"
-        textAlign="left"
+        textAlign={{ xs: "center", sm: "left" }}
       >
         {contributorsTitle}
       </RichTypography>
       <Grid columnSpacing={4.375} rowSpacing={2.5} sx={{ mt: 2.5 }} container>
         {contributors.map((item) => {
           return (
-            <Grid xs={6} sm={4} md={2.4} key={item.id} item>
-              <RichTypography variant="p3SemiBold">{item.name}</RichTypography>
+            <Grid xs={12} sm={6} md={4} lg={3} key={item.id} item>
+              <RichTypography
+                textAlign={{ xs: "center", sm: "left" }}
+                variant="p3SemiBold"
+              >
+                {item.name}
+              </RichTypography>
             </Grid>
           );
         })}
@@ -141,35 +212,70 @@ const Tool = React.forwardRef(function Tool(props, ref) {
   );
 });
 
+const linkProp = PropTypes.shape({
+  label: PropTypes.string,
+  href: PropTypes.string,
+});
 Tool.propTypes = {
-  name: PropTypes.string.isRequired,
-  location: PropTypes.string,
-  description: PropTypes.string,
+  image: PropTypes.string,
+  name: PropTypes.string,
+  topic: PropTypes.string,
+  link: linkProp,
+  toolsTitle: PropTypes.string,
+  contributorsTitle: PropTypes.string,
+  lastActive: PropTypes.string,
+  contributeText: PropTypes.string,
+  organisationName: PropTypes.string,
   twitter: PropTypes.string,
   github: PropTypes.string,
   email: PropTypes.string,
-  image: PropTypes.string,
+  location: PropTypes.string,
+  description: PropTypes.string,
   tools: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      topic: PropTypes.string.isRequired,
-      lastActive: PropTypes.string.isRequired,
+      id: PropTypes.number,
+      name: PropTypes.string,
+      topic: PropTypes.string,
+      lastActive: PropTypes.string,
       description: PropTypes.string,
       image: PropTypes.string,
     })
   ),
-  toolsTitle: PropTypes.string,
+  contributors: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      updatedAt: PropTypes.string,
+      externalId: PropTypes.string,
+      type: PropTypes.string,
+      name: PropTypes.string,
+      description: PropTypes.string,
+      location: PropTypes.string,
+      twitter: PropTypes.string,
+      createdAt: PropTypes.string,
+      source: PropTypes.string,
+    })
+  ),
+  constribute: linkProp,
 };
 
 Tool.defaultProps = {
-  location: undefined,
-  description: undefined,
+  image: undefined,
+  name: undefined,
+  topic: undefined,
+  link: undefined,
+  toolsTitle: undefined,
+  contributorsTitle: undefined,
+  lastActive: undefined,
+  constribute: undefined,
+  contributeText: undefined,
+  organisationName: undefined,
   twitter: undefined,
   github: undefined,
   email: undefined,
-  image: undefined,
+  location: undefined,
+  description: undefined,
   tools: undefined,
-  toolsTitle: undefined,
+  contributors: undefined,
 };
 
 export default Tool;
