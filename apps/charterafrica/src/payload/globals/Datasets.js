@@ -11,7 +11,6 @@ const Datasets = {
         fr: "ID de l'organisation",
         pt: "ID da organização",
       },
-      localized: true,
       type: "text",
       required: true,
     },

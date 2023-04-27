@@ -12,7 +12,7 @@ import processPageOpportunities, {
 import processPageOrganisations from "@/charterafrica/lib/data/common/processPageOrganisations";
 import processPagePeople from "@/charterafrica/lib/data/common/processPagePeople";
 import processPagePrivacyPolicy from "@/charterafrica/lib/data/common/processPagePrivacyPolicy";
-import { processPageData } from "@/charterafrica/lib/data/common/processPageResources";
+import { processPageDatasets } from "@/charterafrica/lib/data/common/processPageResources";
 import processPageTools from "@/charterafrica/lib/data/common/processPageTools";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
@@ -48,7 +48,7 @@ export async function getGlobalProps({ locale, defaultLocale }, api) {
 const processPageFunctionsMap = {
   about: processPageAbout,
   consultation: processPageConsultation,
-  data: processPageData,
+  data: processPageDatasets,
   explainers: processPageExplainers,
   events: processPageEvents,
   fellowships: processPageFellowships,
