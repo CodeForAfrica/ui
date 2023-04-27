@@ -52,8 +52,12 @@ async function formatDatasets(data) {
 
   return {
     datasets: formattedDatasets,
-    countries: Object.keys(allCountries).map((country) => country),
-    tags: Object.keys(allTags).map((tag) => tag),
+    countries: Object.keys(allCountries)
+      .map((country) => country)
+      .sort((a, b) => a.localeCompare(b)),
+    tags: Object.keys(allTags)
+      .map((tag) => tag)
+      .sort((a, b) => a.localeCompare(b)),
     count,
   };
 }

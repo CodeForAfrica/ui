@@ -194,7 +194,12 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             {countries.map((singleCountry) => (
               <StyledMenuItem value={singleCountry} key={singleCountry}>
                 <StyledCheckbox checked={country.indexOf(singleCountry) > -1} />
-                <ListItemText primary={singleCountry} />
+                <ListItemText
+                  sx={{
+                    textTransform: "capitalize",
+                  }}
+                  primary={singleCountry}
+                />
               </StyledMenuItem>
             ))}
           </StyledSelect>
@@ -213,7 +218,12 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             {tags.map((singleTag) => (
               <StyledMenuItem value={singleTag} key={singleTag}>
                 <StyledCheckbox checked={tag.indexOf(singleTag) > -1} />
-                <ListItemText primary={singleTag} />
+                <ListItemText
+                  sx={{
+                    textTransform: "capitalize",
+                  }}
+                  primary={singleTag}
+                />
               </StyledMenuItem>
             ))}
           </StyledSelect>
