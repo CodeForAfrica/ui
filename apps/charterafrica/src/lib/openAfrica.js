@@ -43,10 +43,11 @@ async function formatDatasets(data) {
     count,
   };
 }
-export default async function fetchDatasets(query = {}) {
-  const { organizationId, tags = [], ...other } = query;
+
+export default async function fetchDatasets(organization, query = {}) {
+  const { tags = [], ...other } = query;
   const tagsQuery = tags.length ? `tags:(${tags.join(" OR ")})` : "";
-  const organizationQuery = `organization:${organizationId}`;
+  const organizationQuery = `organization:${organization}`;
   const filterQuery = [tagsQuery, organizationQuery]
     .filter(Boolean)
     .join(" AND ");
