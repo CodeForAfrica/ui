@@ -7,7 +7,8 @@ async function datasets(req, res) {
       page = 1,
       pageSize = 10,
       sort = "metadata_created desc",
-      tags = [],
+      tags,
+      countries,
       q = "",
     },
   } = req;
@@ -19,7 +20,8 @@ async function datasets(req, res) {
       rows: pageSize,
       start: (page - 1) * pageSize,
       sort,
-      tags,
+      tags: tags?.split(","),
+      countries: countries?.split(","),
     });
     return res.status(200).json(data);
   } catch (error) {
