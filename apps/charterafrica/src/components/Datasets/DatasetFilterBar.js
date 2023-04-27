@@ -47,7 +47,6 @@ const menuProps = {
   sx: {
     color: neutral[900],
     typography: "p1",
-    width: "200px",
   },
 };
 
@@ -60,7 +59,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   const [value, setValue] = useState(searchProp || "");
   const [sort, setSort] = useState(DEFAULT_SORTING);
   const [country, setCountry] = useState([DEFAULT_COUNTRY]);
-  const [tag, setTag] = useState(DEFAULT_TAG);
+  const [tag, setTag] = useState([DEFAULT_TAG]);
 
   const handleChangeQ = (e) => {
     setValue(e.target.value);
@@ -100,7 +99,16 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   };
 
   const handleChangeTag = (e) => {
-    setTag(e.target.value);
+    const {
+      target: { value: checkedTags },
+    } = e;
+
+    if (checkedTags.length > 1) {
+      const selectedTags = checkedTags.filter((t) => t !== DEFAULT_TAG);
+      setTag(selectedTags);
+      return;
+    }
+    setTag([DEFAULT_TAG]);
   };
 
   const sortOrder = [
@@ -173,35 +181,23 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
           </StyledSelect>
         </Grid>
         <Grid item xs={12} md={2.4}>
-          <Select
-            inputProps={{
-              "aria-label": "Without label",
-            }}
+          <StyledSelect
+            multiple
+            renderValue={(selected) => selected.join(", ")}
             onChange={handleChangeTag}
-            MenuProps={{
-              sx: {
-                color: "neutral.dark",
-                typography: "p1",
-              },
-            }}
-            sx={{
-              backgroundColor: neutral[50],
-              height: "36px",
-              minWidth: "200px",
-              typography: "p1",
-            }}
+            MenuProps={menuProps}
             value={tag}
           >
             <MenuItem value={DEFAULT_TAG} key={DEFAULT_TAG}>
-              {" "}
-              {DEFAULT_TAG}{" "}
+              {DEFAULT_TAG}
             </MenuItem>
             {tags.map((singleTag) => (
-              <MenuItem value={singleTag} key={singleTag}>
-                {singleTag}
-              </MenuItem>
+              <StyledMenuItem value={singleTag} key={singleTag}>
+                <StyledCheckbox checked={tag.indexOf(singleTag) > -1} />
+                <ListItemText primary={singleTag} />
+              </StyledMenuItem>
             ))}
-          </Select>
+          </StyledSelect>
         </Grid>
         <Grid
           item
