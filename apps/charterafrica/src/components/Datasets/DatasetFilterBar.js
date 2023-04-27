@@ -54,7 +54,15 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   props,
   ref
 ) {
-  const { onChange, search: searchProp, countries, tags } = props;
+  const {
+    onQChange,
+    onSortChange,
+    onChangeCountries,
+    onChangeTags,
+    search: searchProp,
+    countries,
+    tags,
+  } = props;
 
   const [value, setValue] = useState(searchProp || "");
   const [sort, setSort] = useState(DEFAULT_SORTING);
@@ -66,21 +74,24 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   };
 
   const handleClick = (e) => {
-    if (onChange) {
-      onChange(e, value);
+    if (onQChange) {
+      onQChange(e, value);
     }
   };
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-      if (onChange) {
-        onChange(e, value);
+      if (onQChange) {
+        onQChange(e, value);
       }
     }
   };
 
   const handleChangeSort = (e) => {
     setSort(e.target.value);
+    if (onSortChange) {
+      onSortChange(e, e.target.value);
+    }
   };
 
   const handleChangeCountry = (e) => {
@@ -93,9 +104,13 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
         (c) => c !== DEFAULT_COUNTRY
       );
       setCountry(selectedCountries);
-      return;
+    } else {
+      setCountry([DEFAULT_COUNTRY]);
     }
-    setCountry([DEFAULT_COUNTRY]);
+
+    if (onChangeCountries) {
+      onChangeCountries(e, checkedCountries);
+    }
   };
 
   const handleChangeTag = (e) => {
@@ -106,9 +121,13 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     if (checkedTags.length > 1) {
       const selectedTags = checkedTags.filter((t) => t !== DEFAULT_TAG);
       setTag(selectedTags);
-      return;
+    } else {
+      setTag([DEFAULT_TAG]);
     }
-    setTag([DEFAULT_TAG]);
+
+    if (onChangeTags) {
+      onChangeTags(e, checkedTags);
+    }
   };
 
   const sortOrder = [
