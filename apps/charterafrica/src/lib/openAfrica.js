@@ -6,21 +6,30 @@ async function formatDatasets(data) {
   const {
     result: {
       count,
-      facets: { tags: allTags },
+      facets: { tags: allTags, groups: allCountries },
       results,
     },
   } = data || {};
 
   const formattedDatasets = results?.map((dataset) => {
-    const { name, notes, resources, title } = dataset;
+    const {
+      author,
+      metadata_created: created,
+      metadata_modified: updated,
+      name,
+      notes,
+      resources,
+      title,
+      type,
+    } = dataset;
 
     const formattedResources = resources?.map((resource) => {
       const { url, format, name: resourceName, description } = resource;
       return {
-        url,
+        description,
         format,
         name: resourceName,
-        description,
+        url,
       };
     });
 
@@ -29,16 +38,21 @@ async function formatDatasets(data) {
     ];
 
     return {
+      author,
+      created,
+      documents: formattedResources,
+      formats: allDocumentFormats,
       name,
       notes,
       title,
-      documents: formattedResources,
-      formats: allDocumentFormats,
+      type,
+      updated,
     };
   });
 
   return {
     datasets: formattedDatasets,
+    countries: Object.keys(allCountries).map((country) => country),
     tags: Object.keys(allTags).map((tag) => tag),
     count,
   };
@@ -55,7 +69,7 @@ export default async function fetchDatasets(organization, query = {}) {
   const params = {
     ...other,
     fq: filterQuery,
-    "facet.field": '["tags"]',
+    "facet.field": '["tags", "groups"]',
   };
   try {
     const response = await fetchJson.get(
