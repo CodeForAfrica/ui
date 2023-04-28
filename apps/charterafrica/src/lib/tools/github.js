@@ -47,6 +47,10 @@ export const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName:
         location
         twitterUsername
         avatarUrl
+        ... on User {
+          updatedAt
+        }
+        email
       }
     }
     owner {
@@ -59,6 +63,7 @@ export const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName:
         email
         url
         avatarUrl
+        updatedAt
       }
     }
   }

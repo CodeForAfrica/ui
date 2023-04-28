@@ -1,4 +1,5 @@
 import { PEOPLE_COLLECTION } from "../../lib/tools/models";
+import slug from "../fields/slug";
 import source from "../fields/toolSourceField";
 import updatedAt from "../fields/updatedAt";
 
@@ -39,6 +40,7 @@ const People = {
         pt: "Nome completo da Pessoa",
       },
     },
+    slug({ fieldToUse: "username" }),
     {
       name: "username",
       type: "text",
@@ -92,6 +94,29 @@ const People = {
         en: "Tool Name",
         fr: "Nom de l'outil",
         pt: "Nome da ferramenta",
+      },
+    },
+    {
+      name: "email",
+      type: "email",
+      label: {
+        en: "Email",
+        fr: "Email",
+        pt: "Email",
+      },
+    },
+    {
+      name: "lastActive",
+      type: "date",
+      label: {
+        en: "Last Active",
+        fr: "Dernier actif",
+        pt: "ativo pela última vez",
+      },
+      admin: {
+        date: {
+          pickerAppearance: "dayAndTime",
+        },
       },
     },
     updatedAt(),

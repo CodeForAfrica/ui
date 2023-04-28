@@ -29,7 +29,7 @@ exports[`<OrganisationCard /> renders unchanged 1`] = `
         <div
           class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
         >
-          6 Months ago
+          undefined 6 Months ago
         </div>
       </div>
       <span

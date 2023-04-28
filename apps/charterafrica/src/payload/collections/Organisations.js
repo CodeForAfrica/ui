@@ -1,4 +1,5 @@
 import { ORGANIZATION_COLLECTION } from "../../lib/tools/models";
+import slug from "../fields/slug";
 import source from "../fields/toolSourceField";
 import updatedAt from "../fields/updatedAt";
 
@@ -49,6 +50,7 @@ const Organisations = {
       },
       required: true,
     },
+    slug({ fieldToUse: "name" }),
     {
       name: "description",
       type: "textarea",
@@ -97,6 +99,20 @@ const Organisations = {
         en: "Organization Email",
         fr: "Email de l'organisation",
         pt: "Email da organização",
+      },
+    },
+    {
+      name: "lastActive",
+      type: "date",
+      label: {
+        en: "Last Active",
+        fr: "Dernier actif",
+        pt: "ativo pela última vez",
+      },
+      admin: {
+        date: {
+          pickerAppearance: "dayAndTime",
+        },
       },
     },
     updatedAt(),

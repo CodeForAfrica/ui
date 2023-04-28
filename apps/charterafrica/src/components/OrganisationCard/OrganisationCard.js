@@ -20,6 +20,7 @@ const OrganisationCard = React.forwardRef(function OrganisationCard(
     sx,
     name,
     variant = "outlined",
+    activeText,
   } = props;
   const ownerState = {
     elevation,
@@ -84,7 +85,7 @@ const OrganisationCard = React.forwardRef(function OrganisationCard(
             variant="p1"
             sx={{ mt: 2.5, height: 18 }}
           >
-            {lastActive}
+            {`${activeText} ${lastActive}`}
           </LineClampedRichTypography>
         </CardContent>
       </StyledActionArea>

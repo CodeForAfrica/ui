@@ -33,182 +33,197 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     contribute,
   } = props;
   return (
-    <Section ref={ref}>
-      <Grid sx={{ flexWrap: "wrap-reverse" }} container>
-        <Grid item container sx={{ p: 2 }} sm={12} md={8}>
-          <Grid
-            xs={12}
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            item
-          >
-            <RichTypography
-              color="neutral.dark"
-              sx={{ flex: 1 }}
-              variant="h2SemiBold"
+    <Box bgcolor="common.white">
+      <Section ref={ref}>
+        <Grid sx={{ flexWrap: "wrap-reverse" }} container>
+          <Grid item container sx={{ p: 2 }} sm={12} md={8}>
+            <Grid
+              xs={12}
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              item
             >
-              {name}
-            </RichTypography>
-            <Link href={link.href}>
-              <SvgIcon
-                inheritViewBox
-                component={LinkToTool}
-                sx={{
-                  color: "text.primary",
-                  display: "inline-flex",
-                  fill: "none",
-                  height: 32,
-                  width: 32,
-                }}
-              />
-            </Link>
-          </Grid>
-          <Grid container>
-            <Grid xs={12} sm={8} item>
               <RichTypography
-                textAlign="left"
                 color="neutral.dark"
-                sx={{ mt: 3.75, fontWeight: 400 }}
-                variant="h4"
+                sx={{ flex: 1 }}
+                variant="h2SemiBold"
               >
-                {organisationName}
+                {name}
               </RichTypography>
-              <RichTypography
-                textAlign="left"
-                color="neutral.dark"
-                sx={{ mt: 4, fontWeight: 400 }}
-                variant="h6Small"
-              >
-                {location}
-              </RichTypography>
-              <RichTypography
-                textAlign="left"
-                color="neutral.dark"
-                sx={{ fontWeight: 400 }}
-                variant="h6Small"
-              >
-                {topic}
-              </RichTypography>
-            </Grid>
-            <Grid sx={{ textAlign: "right" }} xs={12} sm={4} item>
-              <Button
-                component={contribute.href ? Link : undefined}
-                href={contribute.href}
-                variant="contained"
-                sx={{ mt: 2.5, width: { xs: "100%", sm: "fit-content" } }}
-              >
+              <Link href={link.href}>
                 <SvgIcon
                   inheritViewBox
-                  component={ContributeIcon}
+                  component={LinkToTool}
                   sx={{
-                    color: "text.secondary",
+                    color: "text.primary",
                     display: "inline-flex",
                     fill: "none",
-                    width: 16,
-                    height: 16,
-                    mr: 1,
+                    height: 32,
+                    width: 32,
                   }}
                 />
-                {contribute.label}
-              </Button>
-              <br />
-              <Button
-                component={link.href ? Link : undefined}
-                href={link?.href}
-                variant="contained"
-                sx={{ mt: 2.5, width: { xs: "100%", sm: "fit-content" } }}
-              >
-                <SvgIcon
-                  component={GithubIcon}
-                  sx={{
-                    color: "text.secondary",
-                    display: "inline-flex",
-                    fill: "none",
-                    width: 16,
-                    height: 16,
-                    mr: 1,
-                  }}
-                />
-                {link.label}
-              </Button>
+              </Link>
             </Grid>
+            <Grid container>
+              <Grid xs={12} sm={8} item>
+                <RichTypography
+                  textAlign="left"
+                  color="neutral.dark"
+                  sx={{ mt: 3.75, fontWeight: 400 }}
+                  variant="h4"
+                >
+                  {organisationName}
+                </RichTypography>
+                <RichTypography
+                  textAlign="left"
+                  color="neutral.dark"
+                  sx={{ mt: 4, fontWeight: 400 }}
+                  variant="h6Small"
+                >
+                  {location}
+                </RichTypography>
+                <RichTypography
+                  textAlign="left"
+                  color="neutral.dark"
+                  sx={{ fontWeight: 400 }}
+                  variant="h6Small"
+                >
+                  {topic}
+                </RichTypography>
+              </Grid>
+              <Grid sx={{ textAlign: "right" }} xs={12} sm={4} item>
+                <Button
+                  component={contribute.href ? Link : undefined}
+                  href={contribute.href}
+                  variant="contained"
+                  sx={{ mt: 2.5, width: { xs: "100%", sm: "fit-content" } }}
+                >
+                  <SvgIcon
+                    inheritViewBox
+                    component={ContributeIcon}
+                    sx={{
+                      color: "text.secondary",
+                      display: "inline-flex",
+                      fill: "none",
+                      width: 16,
+                      height: 16,
+                      mr: 1,
+                    }}
+                  />
+                  {contribute.label}
+                </Button>
+                <br />
+                <Button
+                  component={link.href ? Link : undefined}
+                  href={link?.href}
+                  variant="contained"
+                  sx={{ mt: 2.5, width: { xs: "100%", sm: "fit-content" } }}
+                >
+                  <SvgIcon
+                    component={GithubIcon}
+                    sx={{
+                      color: "text.secondary",
+                      display: "inline-flex",
+                      fill: "none",
+                      width: 16,
+                      height: 16,
+                      mr: 1,
+                    }}
+                  />
+                  {link.label}
+                </Button>
+              </Grid>
+            </Grid>
+            <Divider sx={{ my: 3.75 }} />
+            <RichTypography
+              textAlign="left"
+              color="neutral.dark"
+              sx={{ mt: 2.5 }}
+              variant="p1"
+            >
+              {description}
+            </RichTypography>
+            <Box
+              display="flex"
+              sx={{
+                mt: 3.75,
+                width: "100%",
+                justifyContent: { xs: "center", sm: "flex-end" },
+              }}
+            >
+              <ShareThisPage
+                sx={{ textAlign: { sm: "right", xs: "center" } }}
+                title="Share via"
+              />
+            </Box>
           </Grid>
-          <Divider sx={{ my: 3.75 }} />
-          <RichTypography
-            textAlign="left"
-            color="neutral.dark"
-            sx={{ mt: 2.5 }}
-            variant="p1"
-          >
-            {description}
-          </RichTypography>
-          <Box
-            display="flex"
-            sx={{
-              mt: 3.75,
-              width: "100%",
-              justifyContent: { xs: "center", sm: "flex-end" },
-            }}
-          >
-            <ShareThisPage
-              sx={{ textAlign: { sm: "right", xs: "center" } }}
-              title="Share via"
+          <Grid md={4} item>
+            <CardMedia
+              component="img"
+              image={image}
+              alt={name}
+              sx={{
+                width: "100%",
+                height: "auto",
+              }}
             />
-          </Box>
+          </Grid>
         </Grid>
-        <Grid md={4} item>
-          <CardMedia
-            component="img"
-            image={image}
-            alt={name}
-            sx={{
-              width: "100%",
-              height: "auto",
-            }}
-          />
-        </Grid>
-      </Grid>
-      <RichTypography
-        sx={{ mt: 8, fontWeight: 400 }}
-        color="neutral.dark"
-        variant="h4Small"
-        textAlign={{ xs: "center", sm: "left" }}
-      >
-        {contributorsTitle}
-      </RichTypography>
-      <Grid columnSpacing={4.375} rowSpacing={2.5} sx={{ mt: 2.5 }} container>
-        {contributors.map((item) => {
-          return (
-            <Grid xs={12} sm={6} md={4} lg={3} key={item.id} item>
-              <RichTypography
-                textAlign={{ xs: "center", sm: "left" }}
-                variant="p3SemiBold"
-              >
-                {item.name}
-              </RichTypography>
+        {contributors.length ? (
+          <>
+            <RichTypography
+              sx={{ mt: 8, fontWeight: 400 }}
+              color="neutral.dark"
+              variant="h4Small"
+              textAlign={{ xs: "center", sm: "left" }}
+            >
+              {contributorsTitle}
+            </RichTypography>
+            <Grid
+              columnSpacing={4.375}
+              rowSpacing={2.5}
+              sx={{ mt: 2.5 }}
+              container
+            >
+              {contributors.map((item) => {
+                return (
+                  <Grid xs={12} sm={6} md={4} lg={3} key={item.id} item>
+                    <RichTypography
+                      textAlign={{ xs: "center", sm: "left" }}
+                      variant="p3SemiBold"
+                    >
+                      {item.name}
+                    </RichTypography>
+                  </Grid>
+                );
+              })}
             </Grid>
-          );
-        })}
-      </Grid>
-      <RichTypography
-        sx={{ mt: 20 }}
-        color="neutral.dark"
-        variant="h3Small"
-        textAlign="left"
-      >
-        {toolsTitle}
-      </RichTypography>
-      <Grid sx={{ mt: 5 }} spacing={2.5} container>
-        {tools.map((tool) => {
-          return (
-            <Grid xs={12} sm={6} md={4} lg={12} item key={tool.id}>
-              <ToolCard showButton linkText="Go to Repo" {...tool} />
+          </>
+        ) : null}
+        {tools.length ? (
+          <>
+            <RichTypography
+              sx={{ mt: 20 }}
+              color="neutral.dark"
+              variant="h3Small"
+              textAlign="left"
+            >
+              {toolsTitle}
+            </RichTypography>
+            <Grid sx={{ mt: 5 }} spacing={2.5} container>
+              {tools.map((tool) => {
+                return (
+                  <Grid xs={12} sm={6} md={4} lg={12} item key={tool.id}>
+                    <ToolCard showButton linkText="Go to Repo" {...tool} />
+                  </Grid>
+                );
+              })}
             </Grid>
-          );
-        })}
-      </Grid>
-    </Section>
+          </>
+        ) : null}
+      </Section>
+    </Box>
   );
 });
 

@@ -22,6 +22,8 @@ const processRepository = (data, { topic, externalId, description }) => {
       avatarUrl: person?.avatarUrl,
       type: person?.type,
       source: "github",
+      email: person.email,
+      lastActive: person.updatedAt,
     })) || [];
   const organisation = {
     externalId: data?.owner?.name,
@@ -34,6 +36,7 @@ const processRepository = (data, { topic, externalId, description }) => {
     avatarUrl: data?.owner?.avatarUrl,
     email: data?.owner?.email,
     source: "github",
+    lastActive: data.owner.updatedAt,
   };
 
   const languagesTechSkills = data.languages?.nodes?.map((language) => ({

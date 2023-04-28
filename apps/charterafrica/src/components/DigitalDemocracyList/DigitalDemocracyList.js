@@ -1,4 +1,4 @@
-import { Section } from "@commons-ui/core";
+import { Section, RichTypography } from "@commons-ui/core";
 import { Box, Grid } from "@mui/material";
 // import PropTypes from "prop-types";
 import { useRouter } from "next/router";
@@ -16,6 +16,7 @@ const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
     pagination: { page, totalPages },
     sortOrder,
     Component,
+    title,
   } = props;
   const router = useRouter();
   const [values, setValues] = useState({
@@ -65,6 +66,13 @@ const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
         onQuerySearch={onQuerySearch}
       />
       <Section>
+        <RichTypography
+          textAlign={{ xs: "center", sm: "left" }}
+          color="neutral.dark"
+          variant="h2SemiBold"
+        >
+          {title}
+        </RichTypography>
         <Grid container columnSpacing={2.5} rowSpacing={5}>
           {results.map((item) => {
             return (

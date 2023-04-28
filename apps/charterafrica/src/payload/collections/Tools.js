@@ -3,6 +3,7 @@ import {
   ORGANIZATION_COLLECTION,
   PEOPLE_COLLECTION,
 } from "../../lib/tools/models";
+import slug from "../fields/slug";
 import source from "../fields/toolSourceField";
 import updatedAt from "../fields/updatedAt";
 
@@ -34,6 +35,7 @@ const Tools = {
       required: true,
       label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
     },
+    slug({ fieldToUse: "name" }),
     {
       name: "name",
       type: "text",
