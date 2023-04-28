@@ -34,14 +34,12 @@ export async function processPageDatasets(page, api) {
     start: 0,
   });
   const { count, datasets, countries, tags } = data;
-  const resources = datasets.flatMap((dataset) => dataset.documents);
 
   blocks.push({
     slug: "datasets",
     count,
     countries,
     data: datasets,
-    documents: resources,
     tags,
   });
 

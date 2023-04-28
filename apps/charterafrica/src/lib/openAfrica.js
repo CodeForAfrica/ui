@@ -28,6 +28,8 @@ async function formatDatasets(data) {
     },
   } = data || {};
 
+  const allDocuments = [];
+
   const formattedDatasets = results?.map((dataset) => {
     const {
       author,
@@ -43,6 +45,7 @@ async function formatDatasets(data) {
     const formattedResources = resources?.map((resource) => {
       const {
         created: resourceCreated,
+        id,
         last_modified: resourceModified,
         url,
         format,
@@ -54,11 +57,14 @@ async function formatDatasets(data) {
         created: resourceCreated,
         description: description.length ? description : notes,
         format,
+        id,
         name: resourceName,
         updated: resourceModified,
         url,
       };
     });
+
+    allDocuments.push(...formattedResources);
 
     const allDocumentFormats = [
       ...new Set(formattedResources?.map((resource) => resource.format)),
@@ -67,7 +73,6 @@ async function formatDatasets(data) {
     return {
       author,
       created,
-      documents: formattedResources,
       formats: allDocumentFormats,
       name,
       notes,
@@ -76,10 +81,6 @@ async function formatDatasets(data) {
       updated,
     };
   });
-
-  const allDocuments = formattedDatasets
-    .map((dataset) => dataset.documents)
-    .flat();
 
   return {
     datasets: formattedDatasets,

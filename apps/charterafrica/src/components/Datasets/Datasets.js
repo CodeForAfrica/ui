@@ -119,7 +119,7 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
         />
         {resource === "documents"
           ? documents?.map((dataset) => (
-              <DocumentCard {...dataset} key={dataset.name} />
+              <DocumentCard {...dataset} key={dataset.id} />
             ))
           : datasets?.map((dataset) => (
               <DatasetCard {...dataset} key={dataset.name} />
