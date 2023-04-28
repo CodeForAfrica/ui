@@ -1,6 +1,7 @@
 const DEFAULT_SORTING = "metadata_modified desc";
 const DEFAULT_COUNTRY = "Countries";
 const DEFAULT_TAG = "Themes";
+const DEFAULT_RESOURCE = "datasets";
 
 /**
  * This function is important not only because it's reusable on both
@@ -11,7 +12,11 @@ const DEFAULT_TAG = "Themes";
  */
 function queryString(query = {}) {
   const searchParams = new URLSearchParams();
-  const { countries, page, sort, tags, q } = query;
+  const { countries, page, resource, sort, tags, q } = query;
+  if (resource && resource !== DEFAULT_RESOURCE) {
+    searchParams.append("resource", resource);
+  }
+
   if (q) {
     searchParams.append("q", q);
   }

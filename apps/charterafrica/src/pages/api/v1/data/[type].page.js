@@ -10,6 +10,7 @@ async function datasets(req, res) {
       tags,
       countries,
       q = "",
+      resource,
     },
   } = req;
 
@@ -23,6 +24,25 @@ async function datasets(req, res) {
       tags: tags?.split(","),
       countries: countries?.split(","),
     });
+    const { documents: allDocuments } = data;
+
+    if (resource && resource === "documents") {
+      console.log("documents", allDocuments.length);
+
+      // get documents to return
+      const documents = allDocuments.slice(
+        (page - 1) * pageSize,
+        page * pageSize
+      );
+
+      const newData = {
+        documents,
+        count: allDocuments.length,
+      };
+
+      return res.status(200).json(newData);
+    }
+
     return res.status(200).json(data);
   } catch (error) {
     return res.status(500).json({ error });

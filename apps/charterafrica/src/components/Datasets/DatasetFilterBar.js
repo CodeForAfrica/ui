@@ -66,7 +66,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     search: searchProp,
     countries,
     tags,
-    resourceVisibility,
+    resource,
   } = props;
 
   const [value, setValue] = useState(searchProp || "");
@@ -256,9 +256,8 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             label="Documents"
             sx={(theme) => ({
               backgroundColor:
-                resourceVisibility === "documents" ? neutral[700] : neutral[50],
-              color:
-                resourceVisibility === "documents" ? neutral[50] : neutral[700],
+                resource === "documents" ? neutral[700] : neutral[50],
+              color: resource === "documents" ? neutral[50] : neutral[700],
               ...theme.typography.caption,
               borderRadius: "10px",
               mr: 1.75,
@@ -270,9 +269,8 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             label="Datasets"
             sx={(theme) => ({
               backgroundColor:
-                resourceVisibility === "datasets" ? neutral[700] : neutral[50],
-              color:
-                resourceVisibility === "datasets" ? neutral[50] : neutral[700],
+                resource === "datasets" ? neutral[700] : neutral[50],
+              color: resource === "datasets" ? neutral[50] : neutral[700],
               ...theme.typography.caption,
               borderRadius: "10px",
               mr: 1.75,
