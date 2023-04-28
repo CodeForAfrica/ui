@@ -5,8 +5,8 @@ import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
-const DatasetCard = React.forwardRef(function DatasetCard(props) {
-  const { formats, notes, title, created, updated, author, sx } = props;
+const DocumentCard = React.forwardRef(function DocumentCard(props) {
+  const { format, description, name, created, updated, author, sx } = props;
 
   const [showAll, setState] = useState(false);
 
@@ -42,7 +42,7 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
             variant="h5SmallSemiBold"
             sx={{ mb: 1 }}
           >
-            {title}
+            {name}
           </LineClampedRichTypography>
           <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
             Updated {formatDateTime(updated, { includeTime: false })} | Created{" "}
@@ -68,7 +68,7 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
             variant="p1"
             sx={{ mb: 1 }}
           >
-            {notes}
+            {description}
           </LineClampedRichTypography>
           <Button
             sx={{
@@ -100,25 +100,23 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
           }}
           alignItems="center"
         >
-          {formats?.map((format) => (
-            <Chip
-              label={format}
-              sx={(theme) => ({
-                backgroundColor:
-                  format === "PDF"
-                    ? theme.palette.success.main
-                    : theme.palette.error.main,
-                ...theme.typography.caption,
-                borderRadius: "10px",
-                mr: 1.75,
-              })}
-              key={format}
-            />
-          ))}
+          <Chip
+            label={format}
+            sx={(theme) => ({
+              backgroundColor:
+                format === "PDF"
+                  ? theme.palette.success.main
+                  : theme.palette.error.main,
+              ...theme.typography.caption,
+              borderRadius: "10px",
+              mr: 1.75,
+            })}
+            key={format}
+          />
         </Grid>
       </Grid>
     </Box>
   );
 });
 
-export default DatasetCard;
+export default DocumentCard;
