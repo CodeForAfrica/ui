@@ -19,13 +19,16 @@ import {
   DEFAULT_TAG,
 } from "@/charterafrica/utils/datasets/queryString";
 
-const StyledSelect = styled(Select)({
+const StyledSelect = styled(Select)(({ theme: { breakpoints } }) => ({
   backgroundColor: neutral[50],
   height: "36px",
   typography: "p1",
   overflow: "hidden",
-  width: "200px",
-});
+  width: "100%",
+  [breakpoints.up("md")]: {
+    width: "200px",
+  },
+}));
 
 const StyledMenuItem = styled(MenuItem)({
   "&.Mui-selected": {
@@ -152,7 +155,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   return (
     <Box py={5} ref={ref}>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={2.4}>
+        <Grid item xs={12} lg={2.4}>
           <SearchInput
             placeholder="Search Database"
             value={value}
@@ -163,11 +166,11 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
               backgroundColor: "#fff",
               height: "36px",
               typography: "p1",
-              width: "200px",
+              width: { xs: "100%", lg: "200px" },
             }}
           />
         </Grid>
-        <Grid item xs={12} md={2.4}>
+        <Grid item xs={12} sm={4} md={3} lg={2.4}>
           <StyledSelect
             onChange={handleChangeSort}
             MenuProps={menuProps}
@@ -180,7 +183,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             ))}
           </StyledSelect>
         </Grid>
-        <Grid item xs={12} md={2.4} overflow="hidden">
+        <Grid item xs={12} sm={4} md={3} lg={2.4} overflow="hidden">
           <StyledSelect
             multiple
             renderValue={(selected) => selected.join(", ")}
@@ -204,7 +207,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             ))}
           </StyledSelect>
         </Grid>
-        <Grid item xs={12} md={2.4}>
+        <Grid item xs={12} sm={4} md={3} lg={2.4}>
           <StyledSelect
             multiple
             renderValue={(selected) => selected.join(", ")}
@@ -231,9 +234,13 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
         <Grid
           item
           xs={12}
-          md={2.4}
+          md={3}
+          lg={2.4}
           display="flex"
-          justifyContent="center"
+          justifyContent={{
+            sm: "flex-start",
+            lg: "center",
+          }}
           alignItems="center"
         >
           <Typography variant="p1" color="neutral.main" pr={2}>
