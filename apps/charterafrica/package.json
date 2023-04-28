@@ -58,6 +58,7 @@
     "nanoid": "^4.0.1",
     "next": "^13.2.4",
     "next-seo": "^5.15.0",
+    "node-cache": "^5.1.2",
     "nodemailer-sendgrid": "^1.0.3",
     "payload": "^1.6.22",
     "prop-types": "^15.8.1",

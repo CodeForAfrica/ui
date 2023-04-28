@@ -1,6 +1,23 @@
+import NodeCache from "node-cache";
+
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const BASE_DOCUMENTS_URL = "https://openafrica.net/api/3/action/";
+const cache = new NodeCache({ stdTTL: 60 * 60 * 24 });
+
+async function packageSearch(params) {
+  try {
+    const response = await fetchJson.get(
+      `${BASE_DOCUMENTS_URL}package_search`,
+      {
+        params,
+      }
+    );
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
 
 async function formatDatasets(data) {
   const {
@@ -99,6 +116,60 @@ export default async function fetchDatasets(organization, query = {}) {
     );
     const formattedData = formatDatasets(response);
     return formattedData;
+  } catch (error) {
+    return error;
+  }
+}
+
+export async function getOrganizationStatistics(organization) {
+  const statsCacheKey = `organization-stats-${organization}`;
+  let start = 0;
+
+  const cachedStats = cache.get(statsCacheKey);
+  if (cachedStats) {
+    return cachedStats;
+  }
+
+  const params = {
+    rows: 1000,
+    start,
+    fq: `organization:${organization}`,
+  };
+
+  try {
+    const response = await packageSearch(params);
+    const allDatasets = [];
+
+    const {
+      result: { count: datasetCount, results: datasets },
+    } = response;
+
+    allDatasets.push(...datasets);
+    const promises = [];
+    while (allDatasets.length < datasetCount) {
+      start += start;
+      params.start = start;
+      promises.push(packageSearch(params));
+    }
+    const paginatedResponses = await Promise.all(promises);
+    paginatedResponses.forEach((paginatedResponse) => {
+      const {
+        result: { results: paginatedDatasets },
+      } = paginatedResponse;
+      allDatasets.push(...paginatedDatasets);
+    });
+
+    const documentsCount = allDatasets.reduce((acc, dataset) => {
+      return acc + dataset.resources.length;
+    }, 0);
+
+    const stats = {
+      datasetCount,
+      documentsCount,
+    };
+
+    cache.set(statsCacheKey, stats);
+    return stats;
   } catch (error) {
     return error;
   }
