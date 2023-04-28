@@ -52,7 +52,15 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
             {author}
           </Typography>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid
+          item
+          xs={12}
+          md={4}
+          order={{
+            xs: 4,
+            sm: 3,
+          }}
+        >
           <LineClampedRichTypography
             color="common.black"
             lineClamp={showAll ? -1 : 3}
@@ -81,8 +89,15 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
           item
           xs={12}
           md={4}
+          order={{
+            xs: 3,
+            sm: 4,
+          }}
           display="flex"
-          justifyContent="flex-end"
+          justifyContent={{
+            xs: "flex-start",
+            sm: "flex-end",
+          }}
           alignItems="center"
         >
           {formats.map((format) => (

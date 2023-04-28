@@ -27,7 +27,7 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
   const [totalPages, setTotalPages] = useState(
     Math.ceil(originalCount / pageSize)
   );
-  const [datasets, setDatasets] = useState(originalDatasets);
+  const [datasets, setDatasets] = useState(originalDatasets || []);
 
   const router = useRouter();
   const { asPath } = router;
@@ -100,7 +100,7 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
           onChangeCountries={handleChangeCountries}
           onChangeTags={handleChangeTags}
         />
-        {datasets.map((dataset) => (
+        {datasets?.map((dataset) => (
           <DatasetCard {...dataset} key={dataset.name} />
         ))}
         <NextPrevPagination
