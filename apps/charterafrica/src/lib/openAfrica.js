@@ -3,7 +3,7 @@ import NodeCache from "node-cache";
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const BASE_DOCUMENTS_URL = "https://openafrica.net/api/3/action/";
-const cache = new NodeCache({ stdTTL: 60 * 60 * 24 });
+const cache = new NodeCache({ stdTTL: 60 * 60 });
 
 async function packageSearch(params) {
   try {
@@ -108,12 +108,7 @@ export default async function fetchDatasets(organization, query = {}) {
     "facet.field": '["tags", "groups"]',
   };
   try {
-    const response = await fetchJson.get(
-      `${BASE_DOCUMENTS_URL}package_search`,
-      {
-        params,
-      }
-    );
+    const response = await packageSearch(params);
     const formattedData = formatDatasets(response);
     return formattedData;
   } catch (error) {
