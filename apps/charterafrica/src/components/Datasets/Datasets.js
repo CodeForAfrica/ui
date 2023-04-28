@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 
 import DatasetCard from "./DatasetCard";
 import DatasetFilterBar from "./DatasetFilterBar";
+import DocumentCard from "./DocumentCard";
 import useDatasets from "./useDatasets";
 
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
@@ -17,6 +18,7 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
     tags = [],
     countries = [],
     count: originalCount,
+    documents = [],
   } = props;
   const pageSize = 10;
   const [page, setPage] = useState(1);
@@ -28,7 +30,7 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
     Math.ceil(originalCount / pageSize)
   );
   const [datasets, setDatasets] = useState(originalDatasets || []);
-
+  const [resourceVisibility, setShowResources] = useState("datasets");
   const router = useRouter();
   const { asPath } = router;
 
@@ -52,6 +54,10 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
     setSelectedTags(value);
   };
 
+  const handleResourceVisibility = (value) => {
+    setShowResources(value);
+  };
+
   const query = queryString({
     page,
     q,
@@ -59,6 +65,7 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
     countries: selectedCountries,
     tags: selectedTags,
   });
+
   useEffect(() => {
     const pathname = asPath.split("?")[0];
     router.push(
@@ -99,10 +106,16 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
           onSortChange={handleChangeSort}
           onChangeCountries={handleChangeCountries}
           onChangeTags={handleChangeTags}
+          onChangeResourceVisibility={handleResourceVisibility}
+          resourceVisibility={resourceVisibility}
         />
-        {datasets?.map((dataset) => (
-          <DatasetCard {...dataset} key={dataset.name} />
-        ))}
+        {resourceVisibility === "documents"
+          ? documents?.map((dataset) => (
+              <DocumentCard {...dataset} key={dataset.name} />
+            ))
+          : datasets?.map((dataset) => (
+              <DatasetCard {...dataset} key={dataset.name} />
+            ))}
         <NextPrevPagination
           count={totalPages}
           onChange={handleChangePage}

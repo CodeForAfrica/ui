@@ -9,6 +9,7 @@ export async function processPageDatasets(page, api) {
     start: 0,
   });
   const { count, datasets, countries, tags } = data;
+  const resources = datasets.flatMap((dataset) => dataset.documents);
   const pieChartData = [
     {
       id: "dataset",
@@ -19,15 +20,10 @@ export async function processPageDatasets(page, api) {
     {
       id: "document",
       label: "Documents",
-      value: 0,
+      value: resources.length,
       color: "#FBE49A",
     },
   ];
-
-  // TODO: fetch all documents count
-  datasets.forEach((dataset) => {
-    pieChartData[1].value += dataset.documents.length;
-  });
 
   blocks.push({
     slug: "datasets-charts",
@@ -39,6 +35,7 @@ export async function processPageDatasets(page, api) {
     count,
     countries,
     data: datasets,
+    documents: resources,
     tags,
   });
 

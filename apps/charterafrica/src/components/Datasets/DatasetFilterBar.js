@@ -62,9 +62,11 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     onSortChange,
     onChangeCountries,
     onChangeTags,
+    onChangeResourceVisibility,
     search: searchProp,
     countries,
     tags,
+    resourceVisibility,
   } = props;
 
   const [value, setValue] = useState(searchProp || "");
@@ -131,6 +133,10 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     if (onChangeTags) {
       onChangeTags(e, checkedTags);
     }
+  };
+
+  const handleChangeResourceVisibility = (e) => {
+    onChangeResourceVisibility(e);
   };
 
   const sortOrder = [
@@ -249,20 +255,30 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
           <Chip
             label="Documents"
             sx={(theme) => ({
-              backgroundColor: theme.palette.success.main,
+              backgroundColor:
+                resourceVisibility === "documents" ? neutral[700] : neutral[50],
+              color:
+                resourceVisibility === "documents" ? neutral[50] : neutral[700],
               ...theme.typography.caption,
               borderRadius: "10px",
               mr: 1.75,
             })}
+            clickable
+            onClick={() => handleChangeResourceVisibility("documents")}
           />
           <Chip
             label="Datasets"
             sx={(theme) => ({
-              backgroundColor: theme.palette.error.main,
+              backgroundColor:
+                resourceVisibility === "datasets" ? neutral[700] : neutral[50],
+              color:
+                resourceVisibility === "datasets" ? neutral[50] : neutral[700],
               ...theme.typography.caption,
               borderRadius: "10px",
               mr: 1.75,
             })}
+            clickable
+            onClick={() => handleChangeResourceVisibility("datasets")}
           />
         </Grid>
       </Grid>

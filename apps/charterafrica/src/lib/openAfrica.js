@@ -24,11 +24,21 @@ async function formatDatasets(data) {
     } = dataset;
 
     const formattedResources = resources?.map((resource) => {
-      const { url, format, name: resourceName, description } = resource;
-      return {
-        description,
+      const {
+        created: resourceCreated,
+        last_modified: resourceModified,
+        url,
         format,
         name: resourceName,
+        description,
+      } = resource;
+      return {
+        author,
+        created: resourceCreated,
+        description: description.length ? description : notes,
+        format,
+        name: resourceName,
+        updated: resourceModified,
         url,
       };
     });
