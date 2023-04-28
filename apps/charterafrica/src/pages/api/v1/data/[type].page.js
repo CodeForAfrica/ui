@@ -27,8 +27,6 @@ async function datasets(req, res) {
     const { documents: allDocuments } = data;
 
     if (resource && resource === "documents") {
-      console.log("documents", allDocuments.length);
-
       // get documents to return
       const documents = allDocuments.slice(
         (page - 1) * pageSize,
