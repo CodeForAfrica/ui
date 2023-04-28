@@ -17,12 +17,12 @@ exports[`<OrganisationCard /> renders unchanged 1`] = `
         class="MuiCardContent-root css-wsecsz-MuiCardContent-root"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ztwkg1-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-hl4yqj-MuiTypography-root"
         >
           Tool Name
         </h5>
         <div
-          class="MuiTypography-root MuiTypography-p1 css-vka5zk-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
         >
           Sample description
         </div>

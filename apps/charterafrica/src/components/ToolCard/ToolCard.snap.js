@@ -6,10 +6,10 @@ exports[`<ToolCard /> renders unchanged 1`] = `
     class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
   >
     <div
-      class="MuiCardMedia-root css-18n4p7v-MuiCardMedia-root"
+      class="MuiCardMedia-root css-sojj7d-MuiCardMedia-root"
     />
     <div
-      class="MuiCardContent-root css-fo49kl-MuiCardContent-root"
+      class="MuiCardContent-root css-zdaclz-MuiCardContent-root"
     >
       <div
         class="MuiBox-root css-gg4vpm"
@@ -20,13 +20,17 @@ exports[`<ToolCard /> renders unchanged 1`] = `
           Tool Name
         </h5>
       </div>
-      <h5
-        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1l5c5j8-MuiTypography-root"
-      >
-        Topic Name
-      </h5>
       <div
-        class="MuiTypography-root MuiTypography-p1 css-vka5zk-MuiTypography-root"
+        class="MuiBox-root css-vm1zk6"
+      >
+        <h5
+          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1e4j8yq-MuiTypography-root"
+        >
+          Topic Name
+        </h5>
+      </div>
+      <div
+        class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
       >
         Sample description
       </div>

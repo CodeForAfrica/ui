@@ -453,12 +453,12 @@ exports[`<Tool /> renders unchanged 1`] = `
           class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
         >
           <div
-            class="MuiCardMedia-root css-18n4p7v-MuiCardMedia-root"
+            class="MuiCardMedia-root css-sojj7d-MuiCardMedia-root"
             role="img"
             style="background-image: url(/static/images/react.png);"
           />
           <div
-            class="MuiCardContent-root css-fo49kl-MuiCardContent-root"
+            class="MuiCardContent-root css-zdaclz-MuiCardContent-root"
           >
             <div
               class="MuiBox-root css-gg4vpm"
@@ -481,13 +481,17 @@ exports[`<Tool /> renders unchanged 1`] = `
                 />
               </button>
             </div>
-            <h5
-              class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1l5c5j8-MuiTypography-root"
-            >
-              Frontend
-            </h5>
             <div
-              class="MuiTypography-root MuiTypography-p1 css-vka5zk-MuiTypography-root"
+              class="MuiBox-root css-vm1zk6"
+            >
+              <h5
+                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1e4j8yq-MuiTypography-root"
+              >
+                Frontend
+              </h5>
+            </div>
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
             >
               A JavaScript library for building user interfaces
             </div>
@@ -506,12 +510,12 @@ exports[`<Tool /> renders unchanged 1`] = `
           class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
         >
           <div
-            class="MuiCardMedia-root css-18n4p7v-MuiCardMedia-root"
+            class="MuiCardMedia-root css-sojj7d-MuiCardMedia-root"
             role="img"
             style="background-image: url(/static/images/nodejs.png);"
           />
           <div
-            class="MuiCardContent-root css-fo49kl-MuiCardContent-root"
+            class="MuiCardContent-root css-zdaclz-MuiCardContent-root"
           >
             <div
               class="MuiBox-root css-gg4vpm"
@@ -534,13 +538,17 @@ exports[`<Tool /> renders unchanged 1`] = `
                 />
               </button>
             </div>
-            <h5
-              class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1l5c5j8-MuiTypography-root"
-            >
-              Backend
-            </h5>
             <div
-              class="MuiTypography-root MuiTypography-p1 css-vka5zk-MuiTypography-root"
+              class="MuiBox-root css-vm1zk6"
+            >
+              <h5
+                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1e4j8yq-MuiTypography-root"
+              >
+                Backend
+              </h5>
+            </div>
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
             >
               A JavaScript runtime built on Chrome's V8 JavaScript engine.
             </div>
