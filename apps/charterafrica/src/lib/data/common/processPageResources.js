@@ -9,26 +9,31 @@ export async function processPageDatasets(page, api) {
     start: 0,
   });
   const { count, datasets, countries, tags } = data;
-  const pieChartData = [];
+  const pieChartData = [
+    {
+      id: "dataset",
+      label: "Datasets",
+      value: count,
+      color: "#D3C5CC",
+    },
+    {
+      id: "document",
+      label: "Documents",
+      value: 0,
+      color: "#FBE49A",
+    },
+  ];
+
+  // TODO: fetch all documents count
   datasets.forEach((dataset) => {
-    const { type } = dataset;
-    const index = pieChartData.findIndex((item) => item.id === type);
-    if (index >= 0) {
-      pieChartData[index].value += 1;
-    } else {
-      pieChartData.push({
-        id: type,
-        label: type,
-        value: 1,
-        color: type === "dataset" ? "#D3C5CC" : "#FBE49A",
-      });
-    }
+    pieChartData[1].value += dataset.documents.length;
   });
 
   blocks.push({
     slug: "datasets-charts",
     data: pieChartData,
   });
+
   blocks.push({
     slug: "datasets",
     count,
