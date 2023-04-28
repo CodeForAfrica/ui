@@ -77,8 +77,13 @@ async function formatDatasets(data) {
     };
   });
 
+  const allDocuments = formattedDatasets
+    .map((dataset) => dataset.documents)
+    .flat();
+
   return {
     datasets: formattedDatasets,
+    documents: allDocuments,
     countries: Object.keys(allCountries)
       .map((country) => country)
       .sort((a, b) => a.localeCompare(b)),
@@ -90,6 +95,15 @@ async function formatDatasets(data) {
 }
 
 export default async function fetchDatasets(organization, query = {}) {
+  const cacheKey = `organization-datasets-${organization}-${JSON.stringify(
+    query
+  )}`;
+
+  const cachedDatasets = cache.get(cacheKey);
+  if (cachedDatasets) {
+    return cachedDatasets;
+  }
+
   const { tags = [], countries = [], ...other } = query;
   const tagsQuery = tags.length
     ? `tags:(${tags.map((tag) => `"${tag}"`).join(" OR ")})`
@@ -110,6 +124,7 @@ export default async function fetchDatasets(organization, query = {}) {
   try {
     const response = await packageSearch(params);
     const formattedData = formatDatasets(response);
+    cache.set(cacheKey, formattedData);
     return formattedData;
   } catch (error) {
     return error;

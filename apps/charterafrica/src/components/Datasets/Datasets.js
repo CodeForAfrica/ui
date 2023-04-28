@@ -18,7 +18,7 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
     tags = [],
     countries = [],
     count: originalCount,
-    documents = [],
+    documents: originalDocuments,
   } = props;
   const pageSize = 10;
   const [page, setPage] = useState(1);
@@ -30,7 +30,8 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
     Math.ceil(originalCount / pageSize)
   );
   const [datasets, setDatasets] = useState(originalDatasets || []);
-  const [resourceVisibility, setShowResources] = useState("datasets");
+  const [documents, setDocuments] = useState(originalDocuments || []);
+  const [resource, setShowResources] = useState("datasets");
   const router = useRouter();
   const { asPath } = router;
 
@@ -64,6 +65,7 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
     sort,
     countries: selectedCountries,
     tags: selectedTags,
+    resource,
   });
 
   useEffect(() => {
@@ -86,13 +88,19 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
     pageSize,
     countries: selectedCountries,
     tags: selectedTags,
+    resource,
   });
   useEffect(() => {
     if (!res?.isLoading) {
       const { data } = res;
-      const { datasets: filteredDatasets, count } = data;
+      const {
+        datasets: filteredDatasets,
+        documents: filteredDocuments,
+        count,
+      } = data;
       setDatasets(filteredDatasets);
       setTotalPages(Math.ceil(count / pageSize));
+      setDocuments(filteredDocuments);
     }
   }, [res]);
 
@@ -107,9 +115,9 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
           onChangeCountries={handleChangeCountries}
           onChangeTags={handleChangeTags}
           onChangeResourceVisibility={handleResourceVisibility}
-          resourceVisibility={resourceVisibility}
+          resource={resource}
         />
-        {resourceVisibility === "documents"
+        {resource === "documents"
           ? documents?.map((dataset) => (
               <DocumentCard {...dataset} key={dataset.name} />
             ))
