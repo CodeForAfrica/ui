@@ -35,8 +35,10 @@ function Template({ label, ...args }) {
 export const Default = Template.bind({});
 
 Default.parameters = {
-  nextRouter: {
-    pathname: "/?path=/story/components-link--default",
+  nextjs: {
+    router: {
+      asPath: "/?path=/story/components-link--default",
+    },
   },
 };
 

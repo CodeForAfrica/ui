@@ -29,7 +29,7 @@ export const Default = Template.bind({});
 Default.args = {
   content: `
   <h6>This is rich-text component</h6>
-  <p>The component supports <a href="${window.location.pathname}">relative</a>
+  <p>The component supports <a href="${window.parent.location.href}">relative</a>
      and <a href="https://github.com/CodeForAfrica/ui" target="_blank" rel="noreferrer">external</a> linking.
   `,
 };
