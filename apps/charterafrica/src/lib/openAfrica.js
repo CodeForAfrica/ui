@@ -19,18 +19,12 @@ async function packageSearch(params) {
   }
 }
 
-async function formatDatasets(data) {
-  const {
-    result: {
-      count,
-      facets: { tags: allTags, groups: allCountries },
-      results,
-    },
-  } = data || {};
+function formatDatasets(data) {
+  const { result: { count, facets: { tags, groups }, results } = {} } =
+    data || {};
 
-  const allDocuments = [];
-
-  const formattedDatasets = results?.map((dataset) => {
+  const documents = [];
+  const datasets = results?.map((dataset) => {
     const {
       author,
       metadata_created: created,
@@ -42,38 +36,36 @@ async function formatDatasets(data) {
       type,
     } = dataset;
 
-    const formattedResources = resources?.map((resource) => {
-      const {
+    const formattedResources = resources?.map(
+      ({
         created: resourceCreated,
         id,
-        last_modified: resourceModified,
+        last_modified: resourceUpdated,
         url,
         format,
         name: resourceName,
         description,
-      } = resource;
-      return {
+      }) => ({
         author,
         created: resourceCreated,
-        description: description.length ? description : notes,
+        description: description || notes,
         format,
         id,
         name: resourceName,
-        updated: resourceModified,
+        updated: resourceUpdated,
         url,
-      };
-    });
+      })
+    );
+    documents.push(...formattedResources);
 
-    allDocuments.push(...formattedResources);
-
-    const allDocumentFormats = [
+    const formats = [
       ...new Set(formattedResources?.map((resource) => resource.format)),
     ];
 
     return {
       author,
       created,
-      formats: allDocumentFormats,
+      formats,
       name,
       notes,
       title,
@@ -82,17 +74,12 @@ async function formatDatasets(data) {
     };
   });
 
-  return {
-    datasets: formattedDatasets,
-    documents: allDocuments,
-    countries: Object.keys(allCountries)
-      .map((country) => country)
-      .sort((a, b) => a.localeCompare(b)),
-    tags: Object.keys(allTags)
-      .map((tag) => tag)
-      .sort((a, b) => a.localeCompare(b)),
-    count,
-  };
+  const countries = Object.keys(groups || {}).sort((a, b) =>
+    a.localeCompare(b)
+  );
+  const tagsList = Object.keys(tags || {}).sort((a, b) => a.localeCompare(b));
+
+  return { count, datasets, documents, countries, tags: tagsList };
 }
 
 export default async function fetchDatasets(organization, query = {}) {
