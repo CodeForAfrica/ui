@@ -65,7 +65,6 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
     sort,
     countries: selectedCountries,
     tags: selectedTags,
-    resource,
   });
 
   useEffect(() => {
@@ -88,7 +87,6 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
     pageSize,
     countries: selectedCountries,
     tags: selectedTags,
-    resource,
   });
   useEffect(() => {
     if (!res?.isLoading) {
