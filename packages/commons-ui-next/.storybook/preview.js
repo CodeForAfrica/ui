@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "@commons-ui/core";
-import { RouterContext } from "next/dist/shared/lib/router-context";
 import NextImage from "next/image";
 
 // Deoptimize next/image
@@ -13,6 +12,7 @@ Object.defineProperty(NextImage, "default", {
 // Wrap stories in MUI theme
 const theme = createTheme();
 import "./styles.css";
+
 const withThemeProvider = (Story, context) => {
   return (
     <ThemeProvider theme={theme}>
@@ -21,12 +21,16 @@ const withThemeProvider = (Story, context) => {
   );
 };
 
-import { parameters as defaultParameters } from "storybook-config-commons-ui/preview";
+// import { parameters as defaultParameters } from "storybook-config-commons-ui/preview";
 
-export const parameters = {
-  ...defaultParameters,
-  nextRouter: {
-    Provider: RouterContext.Provider,
-  },
+const preview = {
+  // parameters: {
+  //   ...defaultParameters,
+  //   nextRouter: {
+  //     Provider: RouterContext.Provider,
+  //   },
+  // },
+  decorators: [withThemeProvider],
 };
-export const decorators = [withThemeProvider];
+
+export default preview;

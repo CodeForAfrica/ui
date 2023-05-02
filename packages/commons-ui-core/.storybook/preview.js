@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@mui/material/styles";
 import createTheme from "@/commons-ui/core/styles/createTheme";
 
-export * from "storybook-config-commons-ui/preview";
+// export * from "storybook-config-commons-ui/preview";
 
 const theme = createTheme();
 
@@ -15,4 +15,8 @@ const withThemeProvider = (Story, context) => {
   );
 };
 
-export const decorators = [withThemeProvider];
+const preview = {
+  decorators: [withThemeProvider],
+};
+
+export default preview;
