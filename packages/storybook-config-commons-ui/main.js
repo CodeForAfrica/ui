@@ -1,8 +1,4 @@
-module.exports = {
-  core: {
-    builder: "webpack5",
-  },
-  stories: ["../**/*.stories.js"],
+const config = {
   addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   staticDirs: ["../public"],
   previewHead: (head) => `
@@ -15,11 +11,11 @@ module.exports = {
   features: {
     emotionAlias: false,
   },
-  webpackFinal: async (config) => {
+  webpackFinal: async (webpackConfig) => {
     // Need to remove default svg-url-loader first
     // See: https://github.com/webpack/webpack/issues/595
     // eslint-disable-next-line no-param-reassign
-    config.module.rules = config.module.rules.map((data) => {
+    webpackConfig.module.rules = webpackConfig.module.rules.map((data) => {
       const regex = data.test && data.test.toString();
       if (/svg\|/.test(regex)) {
         // eslint-disable-next-line no-param-reassign
@@ -29,7 +25,7 @@ module.exports = {
 
       return data;
     });
-    config.module.rules.push(
+    webpackConfig.module.rules.push(
       {
         test: /\.svg$/i,
         type: "asset",
@@ -43,6 +39,8 @@ module.exports = {
       }
     );
 
-    return config;
+    return webpackConfig;
   },
 };
+
+export default config;

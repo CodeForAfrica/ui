@@ -1,19 +1,26 @@
-const path = require("path");
-const defaultConfig = require("storybook-config-commons-ui/main");
+import * as path from "path";
 
-const { addons, staticDirs, webpackFinal } = defaultConfig;
+import defaultConfig from "storybook-config-commons-ui/main";
 
-module.exports = {
+const { staticDirs, webpackFinal } = defaultConfig;
+const config = {
   ...defaultConfig,
-  addons: [...addons, "storybook-addon-next-router"],
   staticDirs: [...staticDirs, "../../../apps/codeforafrica/public"],
+  stories: ["../src/**/*.stories.js"],
   webpackFinal: async (config) => {
     config = await webpackFinal(config);
     config.resolve.alias = {
       ...config.resolve.alias,
       "@/commons-ui/next": path.resolve(__dirname, "../src"),
     };
-
     return config;
   },
+  framework: {
+    name: "@storybook/nextjs",
+    options: {},
+  },
+  docs: {
+    autodocs: true,
+  },
 };
+export default config;
