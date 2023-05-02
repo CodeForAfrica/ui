@@ -25,13 +25,6 @@ function Template({ height, width, ...args }) {
 
 export const Default = Template.bind({});
 
-Default.parameters = {
-  nextRouter: {
-    path: "/profile/[id]",
-    asPath: "/profile/lifeiscontent",
-  },
-};
-
 Default.args = {
   height: 300,
   width: 600,
