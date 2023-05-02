@@ -83,7 +83,7 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
   useEffect(() => {
     if (!res?.isLoading) {
       const { data } = res;
-      const { datasets: filteredDatasets, count } = data;
+      const { datasets: filteredDatasets, count } = data || {};
       setDatasets(filteredDatasets);
       setTotalPages(Math.ceil(count / pageSize));
     }

@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DatasetCard /> renders unchanged 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-8ai3ev"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-[object Object] css-bkp0sa-MuiGrid-root"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
+      >
+        <div
+          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-mecr4x-MuiTypography-root"
+        >
+          Document Title
+        </div>
+        <p
+          class="MuiTypography-root MuiTypography-p1 css-1pop01s-MuiTypography-root"
+        >
+          Updated 
+          January 1, 2021
+           | Created
+           
+          January 1, 2021
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-p1SemiBold css-1egbhxv-MuiTypography-root"
+        >
+          Author Name
+        </p>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-ls0fcs-MuiGrid-root"
+      >
+        <div
+          class="MuiTypography-root MuiTypography-p1 css-1xsgaa8-MuiTypography-root"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        </div>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-a9l1o7-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          Read More
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1k675k0-MuiGrid-root"
+      >
+        <div
+          class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-6pueiv-MuiChip-root"
+        >
+          <span
+            class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+          >
+            CSV
+          </span>
+        </div>
+        <div
+          class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-12sagfs-MuiChip-root"
+        >
+          <span
+            class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+          >
+            PDF
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
