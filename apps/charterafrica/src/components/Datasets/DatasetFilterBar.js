@@ -62,17 +62,16 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     onSortChange,
     onChangeCountries,
     onChangeTags,
-    onChangeResourceVisibility,
     search: searchProp,
     countries,
     tags,
-    resource,
   } = props;
 
   const [value, setValue] = useState(searchProp || "");
   const [sort, setSort] = useState(DEFAULT_SORTING);
   const [country, setCountry] = useState([DEFAULT_COUNTRY]);
   const [tag, setTag] = useState([DEFAULT_TAG]);
+  const [activeResource, setActiveResource] = useState("datasets");
 
   const handleChangeQ = (e) => {
     setValue(e.target.value);
@@ -136,7 +135,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   };
 
   const handleChangeResourceVisibility = (e) => {
-    onChangeResourceVisibility(e);
+    setActiveResource(e);
   };
 
   const sortOrder = [
@@ -256,8 +255,9 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             label="Documents"
             sx={(theme) => ({
               backgroundColor:
-                resource === "documents" ? neutral[700] : neutral[50],
-              color: resource === "documents" ? neutral[50] : neutral[700],
+                activeResource === "documents" ? neutral[700] : neutral[50],
+              color:
+                activeResource === "documents" ? neutral[50] : neutral[700],
               ...theme.typography.caption,
               borderRadius: "10px",
               mr: 1.75,
@@ -269,8 +269,8 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             label="Datasets"
             sx={(theme) => ({
               backgroundColor:
-                resource === "datasets" ? neutral[700] : neutral[50],
-              color: resource === "datasets" ? neutral[50] : neutral[700],
+                activeResource === "datasets" ? neutral[700] : neutral[50],
+              color: activeResource === "datasets" ? neutral[50] : neutral[700],
               ...theme.typography.caption,
               borderRadius: "10px",
               mr: 1.75,
