@@ -6,35 +6,35 @@ import {
   TOOL_COLLECTION,
   DIGITAL_DEMOCRACY_ECOSYSTEM,
 } from "./models";
-import { fetchSpreadSheetSheetByName } from "./spreadsheet";
 
+import mockData from "@/charterafrica/lib/data/_mock/gitData";
 import { FetchError } from "@/charterafrica/utils/fetchJson";
 
 const processRepository = (data, { topic, externalId, description }) => {
   const people =
     data?.collaborators?.nodes?.map((person) => ({
       externalId: person?.login,
-      fullName: person?.name,
-      username: person?.login,
-      description: person.bio,
-      country: person?.location,
-      twitter: person?.twitterUsername,
-      avatarUrl: person?.avatarUrl,
+      fullName: person?.name ?? null,
+      username: person?.login ?? null,
+      description: person.bio ?? null,
+      country: person?.location ?? null,
+      twitter: person?.twitterUsername ?? null,
+      avatarUrl: person?.avatarUrl ?? null,
       type: person?.type,
       source: "github",
-      email: person.email,
+      email: person.email ?? null,
       lastActive: person.updatedAt,
     })) || [];
   const organisation = {
-    externalId: data?.owner?.name,
+    externalId: data?.owner?.name ?? null,
     type: "Organisation",
-    name: data?.owner?.name,
-    description: data?.owner?.description,
-    location: data?.owner?.location,
-    website: data?.owner?.url,
-    twitter: data?.owner?.twitterUsername,
-    avatarUrl: data?.owner?.avatarUrl,
-    email: data?.owner?.email,
+    name: data?.owner?.name ?? null,
+    description: data?.owner?.description ?? null,
+    location: data?.owner?.location ?? null,
+    website: data?.owner?.url ?? null,
+    twitter: data?.owner?.twitterUsername ?? null,
+    avatarUrl: data?.owner?.avatarUrl ?? null,
+    email: data?.owner?.email ?? null,
     source: "github",
     lastActive: data.owner.updatedAt,
   };
@@ -44,11 +44,11 @@ const processRepository = (data, { topic, externalId, description }) => {
   }));
   const tool = {
     externalId,
-    avatarUrl: data?.openGraphImageUrl,
-    name: data?.name,
+    avatarUrl: data?.openGraphImageUrl ?? null,
+    name: data?.name ?? null,
     description,
-    link: data?.url,
-    location: data?.location,
+    link: data?.url ?? null,
+    location: data?.location ?? null,
     topic,
     languagesTechSkills,
     lastCommit: data?.defaultBranchRef,
@@ -64,8 +64,6 @@ const processRepository = (data, { topic, externalId, description }) => {
 
 const processSheet = async (update = false) => {
   const {
-    spreadSheetId,
-    sheetName,
     columnMappings: {
       toolLink,
       toolDescription,
@@ -73,8 +71,8 @@ const processSheet = async (update = false) => {
       toolTopic,
       toolLocation,
     },
-  } = await api.findGlobal(DIGITAL_DEMOCRACY_ECOSYSTEM);
-  const data = await fetchSpreadSheetSheetByName({ spreadSheetId, sheetName });
+  } = await api.findGlobal(DIGITAL_DEMOCRACY_ECOSYSTEM, {});
+  const data = mockData;
   const uniqueEntries = Object.values(
     data.reduce((acc, obj) => {
       acc[obj[toolLink]] = obj;
@@ -142,7 +140,7 @@ const processSheet = async (update = false) => {
   return { fulfilled, rejected };
 };
 
-const processGsheet = async (req, res) => {
+const processData = async (req, res) => {
   try {
     const { update } = req.query;
     const isUpdate = Number(update);
@@ -156,4 +154,4 @@ const processGsheet = async (req, res) => {
   }
 };
 
-export default processGsheet;
+export default processData;
