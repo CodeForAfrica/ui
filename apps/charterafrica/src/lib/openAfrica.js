@@ -134,8 +134,6 @@ export default async function fetchDatasets(organization, query = {}) {
 
 export async function getOrganizationStatistics(organization) {
   const statsCacheKey = `organization-stats-${organization}`;
-  let start = 0;
-
   const cachedStats = cache.get(statsCacheKey);
   if (cachedStats) {
     return cachedStats;
@@ -143,31 +141,24 @@ export async function getOrganizationStatistics(organization) {
 
   const params = {
     rows: 1000,
-    start,
+    start: 0,
     fq: `organization:${organization}`,
   };
 
   try {
     const response = await packageSearch(params);
-    const allDatasets = [];
+    const allDatasets = [...response.result.results];
+    const { count: datasetCount } = response.result;
 
-    const {
-      result: { count: datasetCount, results: datasets },
-    } = response;
-
-    allDatasets.push(...datasets);
     const promises = [];
-    while (allDatasets.length < datasetCount) {
-      start += start;
-      params.start = start;
-      promises.push(packageSearch(params));
+    for (let i = params.rows; i < datasetCount; i += params.rows) {
+      const nextParams = { ...params, start: i };
+      promises.push(packageSearch(nextParams));
     }
+
     const paginatedResponses = await Promise.all(promises);
     paginatedResponses.forEach((paginatedResponse) => {
-      const {
-        result: { results: paginatedDatasets },
-      } = paginatedResponse;
-      allDatasets.push(...paginatedDatasets);
+      allDatasets.push(...paginatedResponse.result.results);
     });
 
     const documentsCount = allDatasets.reduce((acc, dataset) => {
