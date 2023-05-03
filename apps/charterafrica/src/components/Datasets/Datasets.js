@@ -10,14 +10,13 @@ import useDatasets from "./useDatasets";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import queryString from "@/charterafrica/utils/datasets/queryString";
 
-const Datasets = React.forwardRef(function Datasets(props, ref) {
-  const {
-    sx,
-    data: originalDatasets,
-    tags = [],
-    countries = [],
-    count: originalCount,
-  } = props;
+function Datasets({
+  sx,
+  data: originalDatasets,
+  tags = [],
+  countries = [],
+  count: originalCount,
+}) {
   const pageSize = 10;
   const [page, setPage] = useState(1);
   const [q, setQ] = useState("");
@@ -31,25 +30,11 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
   const router = useRouter();
   const { asPath } = router;
 
-  const handleChangePage = (_, value) => {
-    setPage(value);
-  };
-
-  const handleChangeQ = (_, value) => {
-    setQ(value);
-  };
-
-  const handleChangeSort = (_, value) => {
-    setSort(value);
-  };
-
-  const handleChangeCountries = (_, value) => {
-    setSelectedCountries(value);
-  };
-
-  const handleChangeTags = (_, value) => {
-    setSelectedTags(value);
-  };
+  const handleChangePage = (_, value) => setPage(value);
+  const handleChangeQ = (_, value) => setQ(value);
+  const handleChangeSort = (_, value) => setSort(value);
+  const handleChangeCountries = (_, value) => setSelectedCountries(value);
+  const handleChangeTags = (_, value) => setSelectedTags(value);
 
   const query = queryString({
     page,
@@ -61,18 +46,14 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
 
   useEffect(() => {
     const pathname = asPath.split("?")[0];
-    router.push(
-      {
-        pathname,
-        query,
-      },
-      undefined,
-      { scroll: false, shallow: true }
-    );
+    router.push({ pathname, query }, undefined, {
+      scroll: false,
+      shallow: true,
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
-  const res = useDatasets({
+  const { data, isLoading } = useDatasets({
     q,
     sort,
     page,
@@ -80,17 +61,17 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
     countries: selectedCountries,
     tags: selectedTags,
   });
+
   useEffect(() => {
-    if (!res?.isLoading) {
-      const { data } = res;
+    if (!isLoading) {
       const { datasets: filteredDatasets, count } = data || {};
       setDatasets(filteredDatasets);
       setTotalPages(Math.ceil(count / pageSize));
     }
-  }, [res]);
+  }, [data, isLoading]);
 
   return (
-    <Box bgcolor="common.white" sx={sx} ref={ref}>
+    <Box bgcolor="common.white" sx={sx}>
       <Section sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: "50px" } }}>
         <DatasetFilterBar
           tags={tags}
@@ -100,21 +81,18 @@ const Datasets = React.forwardRef(function Datasets(props, ref) {
           onChangeCountries={handleChangeCountries}
           onChangeTags={handleChangeTags}
         />
-        {datasets?.map((dataset) => (
-          <DatasetCard {...dataset} key={dataset.name} />
+        {datasets.map((dataset) => (
+          <DatasetCard key={dataset.name} {...dataset} />
         ))}
         <NextPrevPagination
           count={totalPages}
-          onChange={handleChangePage}
           page={page}
-          sx={{
-            mt: 2.5,
-            bgcolor: "common.white",
-          }}
+          onChange={handleChangePage}
+          sx={{ mt: 2.5, bgcolor: "common.white" }}
         />
       </Section>
     </Box>
   );
-});
+}
 
 export default Datasets;
