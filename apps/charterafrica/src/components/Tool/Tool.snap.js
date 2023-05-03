@@ -455,13 +455,12 @@ exports[`<Tool /> renders unchanged 1`] = `
           <div
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
           >
-            <div
-              class="MuiCardMedia-root css-1sgy7o0-MuiCardMedia-root"
-              role="img"
-              style="background-image: url(/static/images/react.png);"
+            <img
+              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1xory4n-MuiCardMedia-root"
+              src="/static/images/react.png"
             />
             <div
-              class="MuiCardContent-root css-zdaclz-MuiCardContent-root"
+              class="MuiCardContent-root css-1bpm6nh-MuiCardContent-root"
             >
               <div
                 class="MuiBox-root css-gg4vpm"
@@ -512,13 +511,12 @@ exports[`<Tool /> renders unchanged 1`] = `
           <div
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
           >
-            <div
-              class="MuiCardMedia-root css-1sgy7o0-MuiCardMedia-root"
-              role="img"
-              style="background-image: url(/static/images/nodejs.png);"
+            <img
+              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1xory4n-MuiCardMedia-root"
+              src="/static/images/nodejs.png"
             />
             <div
-              class="MuiCardContent-root css-zdaclz-MuiCardContent-root"
+              class="MuiCardContent-root css-1bpm6nh-MuiCardContent-root"
             >
               <div
                 class="MuiBox-root css-gg4vpm"

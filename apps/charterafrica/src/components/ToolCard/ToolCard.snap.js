@@ -10,11 +10,11 @@ exports[`<ToolCard /> renders unchanged 1`] = `
       tabindex="0"
       type="button"
     >
-      <div
-        class="MuiCardMedia-root css-1sgy7o0-MuiCardMedia-root"
+      <img
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1xory4n-MuiCardMedia-root"
       />
       <div
-        class="MuiCardContent-root css-zdaclz-MuiCardContent-root"
+        class="MuiCardContent-root css-1bpm6nh-MuiCardContent-root"
       >
         <div
           class="MuiBox-root css-gg4vpm"
