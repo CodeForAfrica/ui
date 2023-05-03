@@ -86,21 +86,16 @@ export default async function fetchDatasets(organization, query = {}) {
   const cacheKey = `organization-datasets-${organization}-${JSON.stringify(
     query
   )}`;
-
   const cachedDatasets = cache.get(cacheKey);
-  if (cachedDatasets) {
-    return cachedDatasets;
-  }
+  if (cachedDatasets) return cachedDatasets;
 
   const { tags = [], countries = [], ...other } = query;
-  const tagsQuery = tags.length
-    ? `tags:(${tags.map((tag) => `"${tag}"`).join(" OR ")})`
-    : "";
-  const countriesQuery = countries.length
-    ? `groups:(${countries.map((country) => `"${country}"`).join(" OR ")})`
-    : "";
+  const tagsQuery = tags.map((tag) => `"${tag}"`).join(" OR ");
+  const countriesQuery = countries
+    .map((country) => `"${country}"`)
+    .join(" OR ");
   const organizationQuery = `organization:${organization}`;
-  const filterQuery = [tagsQuery, countriesQuery, organizationQuery]
+  const filterQuery = [organizationQuery, tagsQuery, countriesQuery]
     .filter(Boolean)
     .join(" AND ");
 
@@ -109,6 +104,7 @@ export default async function fetchDatasets(organization, query = {}) {
     fq: filterQuery,
     "facet.field": '["tags", "groups"]',
   };
+
   try {
     const response = await packageSearch(params);
     const formattedData = formatDatasets(response);
