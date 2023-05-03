@@ -51,8 +51,8 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
       >
         <CardMedia
           image={image}
+          component="img"
           sx={{
-            height: 200,
             width: "100%",
             maxWidth: responsive ? 585 : "100%",
           }}
@@ -63,7 +63,6 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            minWidth: 314,
             [theme.breakpoints.up("md")]: {},
           })}
         >
