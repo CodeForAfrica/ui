@@ -1,5 +1,5 @@
 import { Box, Grid, Typography, Chip, Button } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
