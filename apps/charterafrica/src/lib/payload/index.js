@@ -36,6 +36,13 @@ async function findGlobal(slug, options) {
   });
 }
 
+async function deleteCollection(collection, options) {
+  return payload.delete({
+    ...options,
+    collection,
+  });
+}
+
 async function updateCollection(collection, id, data, options) {
   return payload.update({
     ...options,
@@ -51,6 +58,7 @@ const api = {
   findPage,
   getCollection,
   updateCollection,
+  deleteCollection,
 };
 
 export default api;

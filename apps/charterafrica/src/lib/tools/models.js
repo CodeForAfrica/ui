@@ -1,3 +1,4 @@
+import { FetchError } from "../../utils/fetchJson";
 import api from "../payload";
 
 export const ORGANIZATION_COLLECTION = "organisations";
@@ -51,30 +52,34 @@ const bulkCreatePeople = async (contributors = []) => {
 };
 
 export const updateOrCreateTool = async (data) => {
-  const { organisation, people, id, ...rest } = data;
-  const queryArgs = {
-    where: {
-      id: id ? { equals: id } : undefined,
-      externalId: data?.externalId ? { equals: data?.externalId } : undefined,
-    },
-  };
-  const { docs } = await api.getCollection(TOOL_COLLECTION, queryArgs);
-  const createdOrganization = organisation?.externalId
-    ? await createOrganization(organisation)
-    : null;
-  const createdPeople = await bulkCreatePeople(people);
-  const toCreate = {
-    ...rest,
-    people: createdPeople.map((person) => person.id),
-    organisation: createdOrganization?.id,
-  };
-  if (docs.length) {
-    if (id) {
-      const res = await api.updateCollection(TOOL_COLLECTION, id, toCreate);
-      return res;
+  try {
+    const { organisation, people, id, ...rest } = data;
+    const queryArgs = {
+      where: {
+        ...(id ? { id: { equals: id } } : {}),
+        externalId: data?.externalId ? { equals: data?.externalId } : undefined,
+      },
+    };
+    const { docs } = await api.getCollection(TOOL_COLLECTION, queryArgs);
+    const createdOrganization = organisation?.externalId
+      ? await createOrganization(organisation)
+      : null;
+    const createdPeople = await bulkCreatePeople(people);
+    const toCreate = {
+      ...rest,
+      people: createdPeople.map((person) => person.id),
+      organisation: createdOrganization?.id,
+    };
+    if (docs?.length) {
+      if (id) {
+        const res = await api.updateCollection(TOOL_COLLECTION, id, toCreate);
+        return res;
+      }
+      return docs[0];
     }
-    return docs[0];
+    const res = await api.createCollection(TOOL_COLLECTION, toCreate);
+    return res;
+  } catch (error) {
+    throw new FetchError(error.message, error, 500);
   }
-  const res = await api.createCollection(TOOL_COLLECTION, toCreate);
-  return res;
 };
