@@ -81,7 +81,7 @@ function Datasets({
           onChangeCountries={handleChangeCountries}
           onChangeTags={handleChangeTags}
         />
-        {datasets.map((dataset) => (
+        {datasets?.map((dataset) => (
           <DatasetCard key={dataset.name} {...dataset} />
         ))}
         <NextPrevPagination
