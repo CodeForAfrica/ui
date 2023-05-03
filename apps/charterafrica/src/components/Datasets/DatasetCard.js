@@ -5,14 +5,10 @@ import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
-const DatasetCard = React.forwardRef(function DatasetCard(props) {
-  const { formats, notes, title, created, updated, author, sx } = props;
+function DatasetCard({ formats, notes, title, created, updated, author, sx }) {
+  const [showAll, setShowAll] = useState(false);
 
-  const [showAll, setState] = useState(false);
-
-  const onClick = () => {
-    setState(!showAll);
-  };
+  const handleClick = () => setShowAll(!showAll);
 
   return (
     <Box
@@ -52,15 +48,7 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
             {author}
           </Typography>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={4}
-          order={{
-            xs: 4,
-            sm: 3,
-          }}
-        >
+        <Grid item xs={12} md={4} order={{ xs: 4, sm: 3 }}>
           <LineClampedRichTypography
             color="common.black"
             lineClamp={showAll ? -1 : 3}
@@ -72,15 +60,13 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
           </LineClampedRichTypography>
           <Button
             sx={{
-              "&:hover": {
-                backgroundColor: "transparent",
-              },
+              "&:hover": { backgroundColor: "transparent" },
               color: "neutral.dark",
               typography: "p1",
               textDecoration: "underline",
               padding: 0,
             }}
-            onClick={onClick}
+            onClick={handleClick}
           >
             {showAll ? "Read Less" : "Read More"}
           </Button>
@@ -89,15 +75,9 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
           item
           xs={12}
           md={4}
-          order={{
-            xs: 3,
-            sm: 4,
-          }}
+          order={{ xs: 3, sm: 4 }}
           display="flex"
-          justifyContent={{
-            xs: "flex-start",
-            sm: "flex-end",
-          }}
+          justifyContent={{ xs: "flex-start", sm: "flex-end" }}
           alignItems="center"
         >
           {formats?.map((format) => (
@@ -119,6 +99,6 @@ const DatasetCard = React.forwardRef(function DatasetCard(props) {
       </Grid>
     </Box>
   );
-});
+}
 
 export default DatasetCard;
