@@ -3,8 +3,6 @@ import {
   Grid,
   Select,
   MenuItem,
-  Chip,
-  Typography,
   Checkbox,
   ListItemText,
   styled,
@@ -19,16 +17,13 @@ import {
   DEFAULT_TAG,
 } from "@/charterafrica/utils/datasets/queryString";
 
-const StyledSelect = styled(Select)(({ theme: { breakpoints } }) => ({
+const StyledSelect = styled(Select)({
   backgroundColor: neutral[50],
   height: "36px",
   typography: "p1",
   overflow: "hidden",
   width: "100%",
-  [breakpoints.up("md")]: {
-    width: "200px",
-  },
-}));
+});
 
 const StyledMenuItem = styled(MenuItem)({
   "&.Mui-selected": {
@@ -71,7 +66,6 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   const [sort, setSort] = useState(DEFAULT_SORTING);
   const [country, setCountry] = useState([DEFAULT_COUNTRY]);
   const [tag, setTag] = useState([DEFAULT_TAG]);
-  const [activeResource, setActiveResource] = useState("datasets");
 
   const handleChangeQ = (e) => {
     setValue(e.target.value);
@@ -134,10 +128,6 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     }
   };
 
-  const handleChangeResourceVisibility = (e) => {
-    setActiveResource(e);
-  };
-
   const sortOrder = [
     {
       label: "Most Recent",
@@ -160,7 +150,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   return (
     <Box py={5} ref={ref}>
       <Grid container spacing={2}>
-        <Grid item xs={12} lg={2.4}>
+        <Grid item xs={12} lg={3}>
           <SearchInput
             placeholder="Search Database"
             value={value}
@@ -171,11 +161,11 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
               backgroundColor: "#fff",
               height: "36px",
               typography: "p1",
-              width: { xs: "100%", lg: "200px" },
+              width: "100%",
             }}
           />
         </Grid>
-        <Grid item xs={12} sm={4} md={3} lg={2.4}>
+        <Grid item xs={12} sm={4} lg={3}>
           <StyledSelect
             onChange={handleChangeSort}
             MenuProps={menuProps}
@@ -188,7 +178,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             ))}
           </StyledSelect>
         </Grid>
-        <Grid item xs={12} sm={4} md={3} lg={2.4} overflow="hidden">
+        <Grid item xs={12} sm={4} lg={3} overflow="hidden">
           <StyledSelect
             multiple
             renderValue={(selected) => selected.join(", ")}
@@ -212,7 +202,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             ))}
           </StyledSelect>
         </Grid>
-        <Grid item xs={12} sm={4} md={3} lg={2.4}>
+        <Grid item xs={12} sm={4} lg={3}>
           <StyledSelect
             multiple
             renderValue={(selected) => selected.join(", ")}
@@ -235,49 +225,6 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
               </StyledMenuItem>
             ))}
           </StyledSelect>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={3}
-          lg={2.4}
-          display="flex"
-          justifyContent={{
-            sm: "flex-start",
-            lg: "center",
-          }}
-          alignItems="center"
-        >
-          <Typography variant="p1" color="neutral.main" pr={2}>
-            Show:
-          </Typography>
-          <Chip
-            label="Documents"
-            sx={(theme) => ({
-              backgroundColor:
-                activeResource === "documents" ? neutral[700] : neutral[50],
-              color:
-                activeResource === "documents" ? neutral[50] : neutral[700],
-              ...theme.typography.caption,
-              borderRadius: "10px",
-              mr: 1.75,
-            })}
-            clickable
-            onClick={() => handleChangeResourceVisibility("documents")}
-          />
-          <Chip
-            label="Datasets"
-            sx={(theme) => ({
-              backgroundColor:
-                activeResource === "datasets" ? neutral[700] : neutral[50],
-              color: activeResource === "datasets" ? neutral[50] : neutral[700],
-              ...theme.typography.caption,
-              borderRadius: "10px",
-              mr: 1.75,
-            })}
-            clickable
-            onClick={() => handleChangeResourceVisibility("datasets")}
-          />
         </Grid>
       </Grid>
     </Box>
