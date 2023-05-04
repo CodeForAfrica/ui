@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Box } from "@mui/material";
+import { Box, LinearProgress } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 
@@ -81,6 +81,7 @@ function Datasets({
           onChangeCountries={handleChangeCountries}
           onChangeTags={handleChangeTags}
         />
+        {isLoading ? <LinearProgress color="secondary" /> : null}
         {datasets?.map((dataset) => (
           <DatasetCard key={dataset.name} {...dataset} />
         ))}
