@@ -8,7 +8,7 @@ const { webpackFinal } = defaultConfig;
 const config = {
   ...defaultConfig,
   docs: {
-    autodocs: true,
+    autodocs: false,
   },
   framework: {
     name: "@storybook/react-webpack5",
