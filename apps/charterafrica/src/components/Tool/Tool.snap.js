@@ -163,400 +163,408 @@ exports[`<Tool /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiTypography-root MuiTypography-h4Small css-1sclpk3-MuiTypography-root"
-      >
-        Contributors
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-container css-564l6q-MuiGrid-root"
+        class="MuiBox-root css-19midj6"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          class="MuiTypography-root MuiTypography-h4Small css-1sclpk3-MuiTypography-root"
         >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
+          Contributors
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-564l6q-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
-          >
-            Beta maṣāḥǝft
-          </div>
-        </div>
-      </div>
-      <div
-        class="MuiTypography-root MuiTypography-h3Small css-1wpl18t-MuiTypography-root"
-      >
-        More tools
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2.5 css-hamzp9-MuiGrid-root"
-      >
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-12 css-10j6ha2-MuiGrid-root"
-        >
-          <div
-            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
-          >
-            <img
-              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1xory4n-MuiCardMedia-root"
-              src="/static/images/react.png"
-            />
             <div
-              class="MuiCardContent-root css-1bpm6nh-MuiCardContent-root"
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
             >
-              <div
-                class="MuiBox-root css-gg4vpm"
-              >
-                <h5
-                  class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ztwkg1-MuiTypography-root"
-                >
-                  React
-                </h5>
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-f7mktd-MuiButtonBase-root-MuiButton-root"
-                  tabindex="0"
-                  type="button"
-                >
-                  <div
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1kd67zk-MuiSvgIcon-root"
-                    focusable="false"
-                    viewbox="0 0 24 24"
-                  />
-                </button>
-              </div>
-              <div
-                class="MuiBox-root css-vm1zk6"
-              >
-                <h5
-                  class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1e4j8yq-MuiTypography-root"
-                >
-                  Frontend
-                </h5>
-              </div>
-              <div
-                class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
-              >
-                A JavaScript library for building user interfaces
-              </div>
-              <div
-                class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
-              >
-                1 day ago
-              </div>
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p3SemiBold css-1ycukdr-MuiTypography-root"
+            >
+              Beta maṣāḥǝft
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="MuiBox-root css-19midj6"
+      >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-12 css-10j6ha2-MuiGrid-root"
+          class="MuiTypography-root MuiTypography-h3Small css-1wpl18t-MuiTypography-root"
+        >
+          More tools
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2.5 css-hamzp9-MuiGrid-root"
         >
           <div
-            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-12 css-10j6ha2-MuiGrid-root"
           >
-            <img
-              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1xory4n-MuiCardMedia-root"
-              src="/static/images/nodejs.png"
-            />
             <div
-              class="MuiCardContent-root css-1bpm6nh-MuiCardContent-root"
+              class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
             >
+              <img
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1xory4n-MuiCardMedia-root"
+                src="/static/images/react.png"
+              />
               <div
-                class="MuiBox-root css-gg4vpm"
+                class="MuiCardContent-root css-1bpm6nh-MuiCardContent-root"
               >
-                <h5
-                  class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ztwkg1-MuiTypography-root"
+                <div
+                  class="MuiBox-root css-gg4vpm"
                 >
-                  Node.js
-                </h5>
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-f7mktd-MuiButtonBase-root-MuiButton-root"
-                  tabindex="0"
-                  type="button"
+                  <h5
+                    class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ztwkg1-MuiTypography-root"
+                  >
+                    React
+                  </h5>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-f7mktd-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1kd67zk-MuiSvgIcon-root"
+                      focusable="false"
+                      viewbox="0 0 24 24"
+                    />
+                  </button>
+                </div>
+                <div
+                  class="MuiBox-root css-vm1zk6"
                 >
-                  <div
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1kd67zk-MuiSvgIcon-root"
-                    focusable="false"
-                    viewbox="0 0 24 24"
-                  />
-                </button>
-              </div>
-              <div
-                class="MuiBox-root css-vm1zk6"
-              >
-                <h5
-                  class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1e4j8yq-MuiTypography-root"
+                  <h5
+                    class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1e4j8yq-MuiTypography-root"
+                  >
+                    Frontend
+                  </h5>
+                </div>
+                <div
+                  class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
                 >
-                  Backend
-                </h5>
+                  A JavaScript library for building user interfaces
+                </div>
+                <div
+                  class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
+                >
+                  1 day ago
+                </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-12 css-10j6ha2-MuiGrid-root"
+          >
+            <div
+              class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
+            >
+              <img
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1xory4n-MuiCardMedia-root"
+                src="/static/images/nodejs.png"
+              />
               <div
-                class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
+                class="MuiCardContent-root css-1bpm6nh-MuiCardContent-root"
               >
-                A JavaScript runtime built on Chrome's V8 JavaScript engine.
-              </div>
-              <div
-                class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
-              >
-                2 days ago
+                <div
+                  class="MuiBox-root css-gg4vpm"
+                >
+                  <h5
+                    class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ztwkg1-MuiTypography-root"
+                  >
+                    Node.js
+                  </h5>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-f7mktd-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1kd67zk-MuiSvgIcon-root"
+                      focusable="false"
+                      viewbox="0 0 24 24"
+                    />
+                  </button>
+                </div>
+                <div
+                  class="MuiBox-root css-vm1zk6"
+                >
+                  <h5
+                    class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1e4j8yq-MuiTypography-root"
+                  >
+                    Backend
+                  </h5>
+                </div>
+                <div
+                  class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
+                >
+                  A JavaScript runtime built on Chrome's V8 JavaScript engine.
+                </div>
+                <div
+                  class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
+                >
+                  2 days ago
+                </div>
               </div>
             </div>
           </div>
