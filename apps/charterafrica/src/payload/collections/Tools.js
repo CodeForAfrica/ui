@@ -34,6 +34,9 @@ const Tools = {
       type: "text",
       required: true,
       label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
+      admin: {
+        readOnly: true,
+      },
     },
     slug({ fieldToUse: "name" }),
     {
@@ -44,10 +47,16 @@ const Tools = {
         fr: "Nom de l'outil",
         pt: "Nome da ferramenta",
       },
+      admin: {
+        readOnly: true,
+      },
     },
     {
       name: "description",
       type: "textarea",
+      admin: {
+        readOnly: true,
+      },
       label: {
         en: "Tool Description",
         fr: "Description de l'outil",
@@ -57,6 +66,9 @@ const Tools = {
     {
       name: "link",
       type: "text",
+      admin: {
+        readOnly: true,
+      },
       label: {
         en: "Tool Link",
         fr: "Lien de l'outil",
@@ -66,6 +78,9 @@ const Tools = {
     {
       name: "location",
       type: "text",
+      admin: {
+        readOnly: true,
+      },
       label: {
         en: "Tool Location",
         fr: "Emplacement de l'outil",
@@ -75,6 +90,9 @@ const Tools = {
     {
       name: "topic",
       type: "text",
+      admin: {
+        readOnly: true,
+      },
       label: {
         en: "Topic",
         fr: "Sujet",
@@ -84,6 +102,9 @@ const Tools = {
     {
       name: "languagesTechSkills",
       type: "array",
+      admin: {
+        readOnly: true,
+      },
       label: {
         en: "Languages / Tech skills",
         fr: "Langues / Compétences techniques",
@@ -101,11 +122,17 @@ const Tools = {
     {
       name: "avatarUrl",
       type: "text",
+      admin: {
+        readOnly: true,
+      },
       label: { en: "Avatar URL", fr: "URL d'avatar", pt: "URL de avatar" },
     },
     {
       name: "lastCommit",
       type: "json",
+      admin: {
+        readOnly: true,
+      },
       label: {
         en: "Last Commit",
         fr: "Dernier commit",
@@ -115,6 +142,9 @@ const Tools = {
     {
       name: "stars",
       type: "number",
+      admin: {
+        readOnly: true,
+      },
       label: {
         en: "Stars",
         fr: "Étoiles",
@@ -124,6 +154,9 @@ const Tools = {
     {
       name: "views",
       type: "number",
+      admin: {
+        readOnly: true,
+      },
       label: {
         en: "Views",
         fr: "Vues",
@@ -133,6 +166,9 @@ const Tools = {
     {
       name: "forks",
       type: "number",
+      admin: {
+        readOnly: true,
+      },
       label: {
         en: "Forks",
         fr: "Fourches",
@@ -142,6 +178,9 @@ const Tools = {
     {
       name: "organisation",
       type: "relationship",
+      admin: {
+        readOnly: true,
+      },
       relationTo: ORGANIZATION_COLLECTION,
       label: {
         en: "Organisation",
@@ -153,6 +192,9 @@ const Tools = {
       name: "people",
       type: "relationship",
       hasMany: true,
+      admin: {
+        readOnly: true,
+      },
       relationTo: PEOPLE_COLLECTION,
       label: {
         en: "People",

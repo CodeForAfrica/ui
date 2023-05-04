@@ -9,6 +9,7 @@ const updatedAt = (overrides) =>
         beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
       },
       admin: {
+        readOnly: true,
         date: {
           pickerAppearance: "dayAndTime",
         },

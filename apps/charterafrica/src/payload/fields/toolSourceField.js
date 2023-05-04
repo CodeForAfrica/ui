@@ -13,6 +13,9 @@ const source = () => ({
     { label: "Bitbucket", value: "bitbucket" },
   ],
   required: true,
+  admin: {
+    readOnly: true,
+  },
 });
 
 export default source;

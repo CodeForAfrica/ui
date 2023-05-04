@@ -30,6 +30,9 @@ const Organisations = {
       type: "text",
       label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
       required: true,
+      admin: {
+        readOnly: true,
+      },
     },
     {
       name: "type",
@@ -38,6 +41,9 @@ const Organisations = {
         en: "Type",
         fr: "Type",
         pt: "Tipo",
+      },
+      admin: {
+        readOnly: true,
       },
     },
     {
@@ -49,6 +55,9 @@ const Organisations = {
         pt: "Nome da organização",
       },
       required: true,
+      admin: {
+        readOnly: true,
+      },
     },
     slug({ fieldToUse: "name" }),
     {
@@ -59,11 +68,17 @@ const Organisations = {
         fr: "Description de l'organisation",
         pt: "Descrição da organização",
       },
+      admin: {
+        readOnly: true,
+      },
     },
     {
       name: "avatarUrl",
       type: "text",
       label: { en: "Avatar URL", fr: "URL d'avatar", pt: "URL de avatar" },
+      admin: {
+        readOnly: true,
+      },
     },
     {
       name: "location",
@@ -72,6 +87,9 @@ const Organisations = {
         en: "Organization Location",
         fr: "Lieu de l'organisation",
         pt: "Localização da organização",
+      },
+      admin: {
+        readOnly: true,
       },
     },
     {
@@ -82,6 +100,9 @@ const Organisations = {
         fr: "Site web de l'organisation",
         pt: "Website da organização",
       },
+      admin: {
+        readOnly: true,
+      },
     },
     {
       name: "twitter",
@@ -91,6 +112,9 @@ const Organisations = {
         fr: "Twitter de l'organisation",
         pt: "Twitter da organização",
       },
+      admin: {
+        readOnly: true,
+      },
     },
     {
       name: "email",
@@ -99,6 +123,9 @@ const Organisations = {
         en: "Organization Email",
         fr: "Email de l'organisation",
         pt: "Email da organização",
+      },
+      admin: {
+        readOnly: true,
       },
     },
     {
@@ -110,6 +137,7 @@ const Organisations = {
         pt: "ativo pela última vez",
       },
       admin: {
+        readOnly: true,
         date: {
           pickerAppearance: "dayAndTime",
         },
