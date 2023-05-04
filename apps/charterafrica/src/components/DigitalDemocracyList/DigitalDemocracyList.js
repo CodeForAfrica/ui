@@ -76,7 +76,7 @@ const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
         <Grid container columnSpacing={2.5} rowSpacing={5}>
           {results.map((item) => {
             return (
-              <Grid item xs={12} sm={4} md={3} lg={3}>
+              <Grid key={item.id} item xs={12} sm={4} md={3} lg={3}>
                 <Component key={item.id} {...item} />
               </Grid>
             );

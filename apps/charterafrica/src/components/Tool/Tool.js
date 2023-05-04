@@ -171,7 +171,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
           </Grid>
         </Grid>
         {contributors.length ? (
-          <>
+          <Box sx={{ p: 2 }}>
             <RichTypography
               sx={{ mt: 8, fontWeight: 400 }}
               color="neutral.dark"
@@ -199,10 +199,10 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 );
               })}
             </Grid>
-          </>
+          </Box>
         ) : null}
         {tools.length ? (
-          <>
+          <Box sx={{ p: 2 }}>
             <RichTypography
               sx={{ mt: 20 }}
               color="neutral.dark"
@@ -220,7 +220,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 );
               })}
             </Grid>
-          </>
+          </Box>
         ) : null}
       </Section>
     </Box>
