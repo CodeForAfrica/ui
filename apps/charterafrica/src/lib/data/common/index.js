@@ -3,6 +3,7 @@ import processPageArticles, {
   processPageEvents,
 } from "@/charterafrica/lib/data/common/processPageArticles";
 import processPageConsultation from "@/charterafrica/lib/data/common/processPageConsultation";
+import processPageDatasets from "@/charterafrica/lib/data/common/processPageDatasets";
 import processPageExplainers from "@/charterafrica/lib/data/common/processPageExplainers";
 import processPageIndex from "@/charterafrica/lib/data/common/processPageIndex";
 import processPageOpportunities, {
@@ -10,7 +11,6 @@ import processPageOpportunities, {
   processPageGrants,
 } from "@/charterafrica/lib/data/common/processPageOpportunities";
 import processPagePrivacyPolicy from "@/charterafrica/lib/data/common/processPagePrivacyPolicy";
-import { processPageDatasets } from "@/charterafrica/lib/data/common/processPageResources";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
 export async function getGlobalProps({ locale, defaultLocale }, api) {
