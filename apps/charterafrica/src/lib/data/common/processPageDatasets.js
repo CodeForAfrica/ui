@@ -1,32 +1,39 @@
-import fetchDatasets, {
-  getOrganizationStatistics,
-} from "@/charterafrica/lib/openAfrica";
+import fetchDatasets from "@/charterafrica/lib/openAfrica";
 
 export default async function processPageDatasets(page, api) {
   const { blocks } = page;
-  const { organizationId } = await api.findGlobal("datasets");
-  const { datasetCount, documentsCount } = await getOrganizationStatistics(
-    organizationId
-  );
-  const pieChartData = [
-    {
-      id: "dataset",
-      label: "Datasets",
-      value: datasetCount,
-      color: "#D3C5CC",
+  const { organizationId, charts } = await api.findGlobal("datasets");
+  const {
+    showCharts,
+    options: {
+      datasetsLabel,
+      datasetsColor,
+      datasetsCount,
+      documentsLabel,
+      documentsColor,
+      documentsCount,
     },
-    {
-      id: "document",
-      label: "Documents",
-      value: documentsCount,
-      color: "#FBE49A",
-    },
-  ];
+  } = charts;
 
-  blocks.push({
-    slug: "datasets-charts",
-    data: pieChartData,
-  });
+  if (showCharts) {
+    blocks.push({
+      slug: "datasets-charts",
+      data: [
+        {
+          id: "dataset",
+          label: datasetsLabel,
+          value: datasetsCount,
+          color: datasetsColor,
+        },
+        {
+          id: "document",
+          label: documentsLabel,
+          value: documentsCount,
+          color: documentsColor,
+        },
+      ],
+    });
+  }
 
   const data = await fetchDatasets(organizationId, {
     rows: 10,
