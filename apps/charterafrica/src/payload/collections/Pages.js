@@ -1,5 +1,4 @@
 import CommunityPlatforms from "../blocks/CommunityPlatforms";
-import DatasetsCharts from "../blocks/DatasetsCharts";
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import Ecosystem from "../blocks/Ecosystem";
 import EmbeddedDocuments from "../blocks/EmbeddedDocuments";
@@ -47,7 +46,6 @@ const Pages = {
       type: "blocks",
       blocks: [
         CommunityPlatforms,
-        DatasetsCharts,
         DemocracyHelpdeskContent,
         Ecosystem,
         EmbeddedDocuments,
