@@ -1,4 +1,102 @@
 import { validateHexColor } from "../utils/colors";
+import updateDatasetsStatistics from "../utils/datasets";
+
+const filterOptions = [
+  {
+    label: {
+      en: "Most Recent",
+      fr: "Plus récent",
+      pt: "Mais recente",
+    },
+    value: "metadata_created desc",
+  },
+  {
+    label: {
+      en: "Least Recent",
+      fr: "Moins récent",
+      pt: "Menos recente",
+    },
+    value: "metadata_created asc",
+  },
+  {
+    label: {
+      en: "Name (A-Z)",
+      fr: "Nom (A-Z)",
+      pt: "Nome (A-Z)",
+    },
+    value: "name asc",
+  },
+  {
+    label: {
+      en: "Name (Z-A)",
+      fr: "Nom (Z-A)",
+      pt: "Nome (Z-A)",
+    },
+    value: "name desc",
+  },
+  {
+    label: {
+      en: "Most Relevant",
+      fr: "Plus pertinent",
+      pt: "Mais relevante",
+    },
+    value: "relevance desc",
+  },
+  {
+    label: {
+      en: "Least Relevant",
+      fr: "Moins pertinent",
+      pt: "Menos relevante",
+    },
+    value: "relevance asc",
+  },
+  {
+    label: {
+      en: "Recently Updated",
+      fr: "Récemment mis à jour",
+      pt: "Atualizado recentemente",
+    },
+    value: "metadata_modified desc",
+  },
+  {
+    label: {
+      en: "Least Recently Updated",
+      fr: "Moins récemment mis à jour",
+      pt: "Atualizado menos recentemente",
+    },
+    value: "metadata_modified asc",
+  },
+  {
+    label: {
+      en: "Author (A-Z)",
+      fr: "Auteur (A-Z)",
+      pt: "Autor (A-Z)",
+    },
+    value: "author asc",
+  },
+  {
+    label: {
+      en: "Author (Z-A)",
+      fr: "Auteur (Z-A)",
+      pt: "Autor (Z-A)",
+    },
+    value: "author desc",
+  },
+];
+
+async function mapSortValuesToOptions({
+  req: { locale },
+  data: { sortOptions },
+}) {
+  const options = sortOptions.map((option) => {
+    const filterOption = filterOptions.find((o) => o.value === option);
+    return {
+      label: filterOption.label[locale],
+      value: option,
+    };
+  });
+  return options;
+}
 
 const Datasets = {
   slug: "datasets",
@@ -15,6 +113,9 @@ const Datasets = {
       },
       type: "text",
       required: true,
+      hooks: {
+        afterChange: [updateDatasetsStatistics],
+      },
     },
     {
       name: "charts",
@@ -143,6 +244,35 @@ const Datasets = {
           },
         },
       ],
+    },
+    {
+      name: "sortOptions",
+      label: {
+        en: "Sort Options",
+        fr: "Options de tri",
+        pt: "Opções de classificação",
+      },
+      type: "select",
+      hasMany: true,
+      admin: {
+        isClearable: true,
+        isSortable: true,
+      },
+      options: filterOptions,
+      defaultValue: [
+        "metadata_created desc",
+        "metadata_modified desc",
+        "relevance desc",
+        "relevance asc",
+        "name asc",
+        "name desc",
+        "author asc",
+        "author desc",
+      ],
+      required: true,
+      hooks: {
+        afterRead: [mapSortValuesToOptions],
+      },
     },
   ],
 };
