@@ -1,0 +1,13 @@
+name: PROD Cron Jobs
+on:
+  schedule:
+    - cron: "0 * * * *"
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Datasets Stats
+        run: |
+          curl -X GET \
+          https://charter.africa/api/v1/data/datasets-stats \
+          -H 'Authorization: Bearer ${{ secrets.CRONJOBS_SECRET_KEY }}'
