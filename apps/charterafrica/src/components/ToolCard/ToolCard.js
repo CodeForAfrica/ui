@@ -49,16 +49,19 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
         href={link?.href}
         disableCard={showButton}
       >
-        <CardMedia
-          image={image}
-          component="img"
-          sx={{
-            width: "100%",
-            maxWidth: responsive ? 585 : "100%",
-          }}
-        />
+        <Box sx={{ height: 200, width: "100%" }}>
+          <CardMedia
+            image={image}
+            component="img"
+            sx={{
+              width: "100%",
+              maxWidth: responsive ? 585 : "100%",
+            }}
+          />
+        </Box>
         <CardContent
           sx={(theme) => ({
+            p: 2.5,
             flex: 1,
             display: "flex",
             flexDirection: "column",
@@ -119,11 +122,9 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
               html={false}
               lineClamp={1}
               textAlign="left"
-              variant="h5SmallSemiBold"
-              sx={(theme) => ({
-                [theme.breakpoints.up("md")]: {
-                  typography: "h5SmallSemiBold",
-                },
+              variant="caption"
+              sx={() => ({
+                fontWeight: 600,
               })}
             >
               {topic}
