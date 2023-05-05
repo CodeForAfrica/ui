@@ -22,6 +22,24 @@ const defaultProps = {
       author: "Author Name",
     },
   ],
+  sortOptions: [
+    {
+      label: {
+        en: "Most Recent",
+        fr: "Plus récent",
+        pt: "Mais recente",
+      },
+      value: "metadata_created desc",
+    },
+    {
+      label: {
+        en: "Least Recent",
+        fr: "Moins récent",
+        pt: "Menos recente",
+      },
+      value: "metadata_created asc",
+    },
+  ],
 };
 
 describe("<Datasets />", () => {

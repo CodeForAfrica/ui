@@ -60,7 +60,11 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
             role="button"
             tabindex="0"
           >
-            Most Recent
+            <span
+              class="notranslate"
+            >
+              ​
+            </span>
           </div>
           <input
             aria-hidden="true"

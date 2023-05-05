@@ -11,6 +11,24 @@ const render = createRender({ theme });
 const defaultProps = {
   countries: ["Kenya", "Uganda", "Tanzania", "Nigeria"],
   tags: ["Agriculture", "Health", "Education"],
+  sortOptions: [
+    {
+      label: {
+        en: "Most Recent",
+        fr: "Plus récent",
+        pt: "Mais recente",
+      },
+      value: "metadata_created desc",
+    },
+    {
+      label: {
+        en: "Least Recent",
+        fr: "Moins récent",
+        pt: "Menos recente",
+      },
+      value: "metadata_created asc",
+    },
+  ],
 };
 
 describe("<DatasetFilterBar />", () => {
