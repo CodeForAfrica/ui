@@ -3,7 +3,7 @@
   "pipeline": {
     "build-next": {
       "dependsOn": ["^build-next"],
-      "outputs": ["dist", ".next/**"],
+      "outputs": ["dist/**", ".next/**"],
       "env": ["CI", "NODE_OPTIONS"]
     },
     "build-payload": {
@@ -13,7 +13,7 @@
     },
     "charterafrica#build-next": {
       "dependsOn": ["^build"],
-      "outputs": ["build", ".next/**"],
+      "outputs": ["build/**", ".next/**"],
       "env": [
         "MONGO_URL",
         "NEXT_BUILD",
@@ -46,7 +46,7 @@
     },
     "charterafrica#build-payload": {
       "dependsOn": ["^build-payload"],
-      "outputs": ["build"],
+      "outputs": ["build/**"],
       "env": [
         "MONGO_URL",
         "NEXT_BUILD",
@@ -72,7 +72,7 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"],
+      "outputs": ["dist/**", ".next/**", "storybook-static/**"],
       "env": ["CI", "NODE_OPTIONS", "PROJECT_ROOT"]
     },
     "codeforafrica#build": {
