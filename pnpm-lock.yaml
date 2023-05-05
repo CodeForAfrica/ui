@@ -72,7 +72,6 @@ importers:
       nanoid: ^4.0.1
       next: ^13.2.4
       next-seo: ^5.15.0
-      node-cache: ^5.1.2
       nodemailer-sendgrid: ^1.0.3
       nodemon: ^2.0.21
       payload: ^1.6.22
@@ -120,7 +119,6 @@ importers:
       nanoid: 4.0.1
       next: 13.2.4_hrdbe576m4w26u2yfpqpvbxyky
       next-seo: 5.15.0_ld2jel3hspngo3u5lti2kgl2sq
-      node-cache: 5.1.2
       nodemailer-sendgrid: 1.0.3
       payload: 1.6.22_ewzjyun5dz2pfx3it4itewpoey
       prop-types: 15.8.1
@@ -12158,14 +12156,6 @@ packages:
     engines: { node: ">=0.8" }
     dev: true
 
-  /clone/2.1.2:
-    resolution:
-      {
-        integrity: sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==,
-      }
-    engines: { node: ">=0.8" }
-    dev: false
-
   /clsx/1.2.1:
     resolution:
       {
@@ -21286,16 +21276,6 @@ packages:
       {
         integrity: sha512-eh0GgfEkpnoWDq+VY8OyvYhFEzBk6jIYbRKdIlyTiAXIVJ8PyBaKb0rp7oDtoddbdoHWhq8wwr+XZ81F1rpNdA==,
       }
-    dev: false
-
-  /node-cache/5.1.2:
-    resolution:
-      {
-        integrity: sha512-t1QzWwnk4sjLWaQAS8CHgOJ+RAfmHpxFWmc36IWTiWHQfs0w5JDMBS1b1ZxQteo0vVVuWJvIUKHDkkeK7vIGCg==,
-      }
-    engines: { node: ">= 8.0.0" }
-    dependencies:
-      clone: 2.1.2
     dev: false
 
   /node-dir/0.1.17:
