@@ -96,6 +96,11 @@
         "OAUTH_CLIENT_SECRET"
       ]
     },
+    "commons-ui-docs#build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**"],
+      "env": ["STORYBOOK_DISABLE_TELEMETRY"]
+    },
     "promisetracker#build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**"],
