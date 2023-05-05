@@ -49,5 +49,13 @@ export default async function processPageDatasets(page, api) {
     tags,
   });
 
+  // SWR fallback
+  const swrKey = `/api/v1/data/datasets`;
+  const qs = `?rows=10&start=0`;
+  // eslint-disable-next-line no-param-reassign
+  page.fallback = {
+    [`${swrKey}${qs}`]: data,
+  };
+
   return page;
 }
