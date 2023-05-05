@@ -105,12 +105,16 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
           <div
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
           >
-            <img
-              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-fui0cu-MuiCardMedia-root"
-              src="/static/images/react.png"
-            />
             <div
-              class="MuiCardContent-root css-1bpm6nh-MuiCardContent-root"
+              class="MuiBox-root css-14yuxbt"
+            >
+              <img
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-fui0cu-MuiCardMedia-root"
+                src="/static/images/react.png"
+              />
+            </div>
+            <div
+              class="MuiCardContent-root css-1lypdup-MuiCardContent-root"
             >
               <div
                 class="MuiBox-root css-gg4vpm"
@@ -136,11 +140,11 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               <div
                 class="MuiBox-root css-vm1zk6"
               >
-                <h5
-                  class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1e4j8yq-MuiTypography-root"
+                <span
+                  class="MuiTypography-root MuiTypography-caption css-1ch8yk3-MuiTypography-root"
                 >
                   Frontend
-                </h5>
+                </span>
               </div>
               <div
                 class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
@@ -161,12 +165,16 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
           <div
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
           >
-            <img
-              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-fui0cu-MuiCardMedia-root"
-              src="/static/images/nodejs.png"
-            />
             <div
-              class="MuiCardContent-root css-1bpm6nh-MuiCardContent-root"
+              class="MuiBox-root css-14yuxbt"
+            >
+              <img
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-fui0cu-MuiCardMedia-root"
+                src="/static/images/nodejs.png"
+              />
+            </div>
+            <div
+              class="MuiCardContent-root css-1lypdup-MuiCardContent-root"
             >
               <div
                 class="MuiBox-root css-gg4vpm"
@@ -192,11 +200,11 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               <div
                 class="MuiBox-root css-vm1zk6"
               >
-                <h5
-                  class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1e4j8yq-MuiTypography-root"
+                <span
+                  class="MuiTypography-root MuiTypography-caption css-1ch8yk3-MuiTypography-root"
                 >
                   Backend
-                </h5>
+                </span>
               </div>
               <div
                 class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
