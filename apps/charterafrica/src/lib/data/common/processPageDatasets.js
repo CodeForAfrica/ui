@@ -37,19 +37,17 @@ export default async function processPageDatasets(page, api) {
     });
   }
 
-  const data = await fetchDatasets(organizationId, {
-    rows: 10,
-    start: 0,
-  });
-  const { count, datasets, countries, tags } = data;
+  const data = await fetchDatasets(organizationId);
+  const { count, datasets, countries, tags, totalPages } = data;
 
   blocks.push({
     slug: "datasets",
     count,
     countries,
     data: datasets,
-    tags,
     sortOptions,
+    tags,
+    totalPages,
   });
 
   // SWR fallback

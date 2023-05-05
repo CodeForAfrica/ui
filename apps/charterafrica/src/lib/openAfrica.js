@@ -2,6 +2,8 @@ import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const BASE_DOCUMENTS_URL = "https://openafrica.net/api/3/action/";
 
+const PageSize = 10;
+
 async function packageSearch(params) {
   try {
     const response = await fetchJson.get(
@@ -76,11 +78,18 @@ function formatDatasets(data) {
   );
   const tagsList = Object.keys(tags || {}).sort((a, b) => a.localeCompare(b));
 
-  return { count, datasets, documents, countries, tags: tagsList };
+  return {
+    count,
+    datasets,
+    documents,
+    countries,
+    tags: tagsList,
+    totalPages: Math.ceil(count / PageSize),
+  };
 }
 
 export default async function fetchDatasets(organization, query = {}) {
-  const { tags = [], countries = [], ...other } = query;
+  const { tags = [], countries = [], page = 1, ...other } = query;
   const tagsQuery = tags.map((tag) => `"${tag}"`).join(" OR ");
   const countriesQuery = countries
     .map((country) => `"${country}"`)
@@ -93,6 +102,8 @@ export default async function fetchDatasets(organization, query = {}) {
   const params = {
     ...other,
     fq: filterQuery,
+    rows: PageSize,
+    start: (page - 1) * PageSize,
     "facet.field": '["tags", "groups"]',
   };
 
