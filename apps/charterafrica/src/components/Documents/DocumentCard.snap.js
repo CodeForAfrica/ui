@@ -6,7 +6,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1wj4l1q-MuiPaper-root-MuiCard-root"
   >
     <a
-      class="MuiButtonBase-root MuiCardActionArea-root css-zv6foc-MuiButtonBase-root-MuiCardActionArea-root"
+      class="MuiButtonBase-root MuiCardActionArea-root css-dvh6vf-MuiButtonBase-root-MuiCardActionArea-root"
       href="/documents?url=https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html&contrubutor=true&showNotes=true&title=Document Title"
       tabindex="0"
     >
