@@ -52,24 +52,27 @@ const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
     <Box
       sx={{
         backgroundColor: "common.white",
-        minHeight: 76,
+        py: 2.5,
         scrollMarginTop: { xs: "56px", sm: "64", md: "114px" },
         ...sx,
       }}
       ref={ref}
     >
-      <DigitalDemocracyFilter
-        onChange={onFilterChange}
-        searchPlaceholder={searchPlaceholder}
-        values={values}
-        sortOrder={sortOrder}
-        onQuerySearch={onQuerySearch}
-      />
+      <Section>
+        <DigitalDemocracyFilter
+          onChange={onFilterChange}
+          searchPlaceholder={searchPlaceholder}
+          values={values}
+          sortOrder={sortOrder}
+          onQuerySearch={onQuerySearch}
+        />
+      </Section>
       <Section>
         <RichTypography
           textAlign={{ xs: "center", sm: "left" }}
           color="neutral.dark"
           variant="h2SemiBold"
+          sx={{ mb: 5 }}
         >
           {title}
         </RichTypography>

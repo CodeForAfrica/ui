@@ -24,23 +24,14 @@ const DigitalDemocracyFilter = React.forwardRef(function ToolsFilter(
     }
   };
   return (
-    <Box
-      bgcolor="#fff"
-      ref={ref}
-      sx={{
-        display: {
-          xs: "none",
-          md: "block",
-        },
-      }}
-    >
+    <Box bgcolor="#fff" ref={ref}>
       <Section
         sx={{
           py: 2.5,
         }}
       >
-        <Grid container alignItems="center" gap={5} wrap="nowrap">
-          <Grid item md="auto">
+        <Grid container alignItems="center" gap={5}>
+          <Grid item xs={12} md={4}>
             <SearchInput
               value={search}
               onChange={(e) => onChange({ search: e.target.value })}
@@ -51,12 +42,12 @@ const DigitalDemocracyFilter = React.forwardRef(function ToolsFilter(
                 backgroundColor: "common.white",
                 height: "36px",
                 typography: "p1",
-                width: "200px",
+                width: "100%",
               }}
             />
           </Grid>
           {sortOrder?.length > 0 ? (
-            <Grid item md="auto">
+            <Grid item xs={4}>
               <Select
                 onChange={(e) => onChange({ sort: e.target.value })}
                 value={sort}
@@ -72,7 +63,7 @@ const DigitalDemocracyFilter = React.forwardRef(function ToolsFilter(
                 sx={{
                   backgroundColor: neutral[50],
                   height: "36px",
-                  minWidth: "200px",
+                  width: "100%",
                   typography: "p1",
                 }}
               >
