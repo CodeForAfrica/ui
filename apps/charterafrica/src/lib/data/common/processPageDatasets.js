@@ -2,8 +2,7 @@ import fetchDatasets, {
   getOrganizationStatistics,
 } from "@/charterafrica/lib/openAfrica";
 
-// eslint-disable-next-line import/prefer-default-export
-export async function processPageDatasets(page, api) {
+export default async function processPageDatasets(page, api) {
   const { blocks } = page;
   const { organizationId } = await api.findGlobal("datasets");
   const { datasetCount, documentsCount } = await getOrganizationStatistics(
