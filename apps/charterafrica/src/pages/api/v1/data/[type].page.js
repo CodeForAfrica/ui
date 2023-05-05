@@ -6,12 +6,11 @@ import payload from "@/charterafrica/lib/payload";
 async function datasets(req, res) {
   const {
     query: {
-      page = 1,
-      pageSize = 10,
       sort = "metadata_created desc",
       tags,
       countries,
       q = "",
+      page = 1,
     },
   } = req;
 
@@ -19,8 +18,7 @@ async function datasets(req, res) {
     const { organizationId } = await payload.findGlobal("datasets");
     const data = await fetchDatasets(organizationId, {
       q,
-      rows: pageSize,
-      start: (page - 1) * pageSize,
+      page,
       sort,
       tags: tags?.split(","),
       countries: countries?.split(","),

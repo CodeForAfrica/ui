@@ -15,18 +15,15 @@ function Datasets({
   data: originalDatasets,
   tags = [],
   countries = [],
-  count: originalCount,
+  totalPages: originalTotalPages,
   sortOptions = [],
 }) {
-  const pageSize = 10;
   const [page, setPage] = useState(1);
   const [q, setQ] = useState("");
   const [sort, setSort] = useState("");
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
-  const [totalPages, setTotalPages] = useState(
-    Math.ceil(originalCount / pageSize)
-  );
+  const [totalPages, setTotalPages] = useState(originalTotalPages);
   const [datasets, setDatasets] = useState(originalDatasets || []);
   const router = useRouter();
   const { asPath } = router;
@@ -58,16 +55,16 @@ function Datasets({
     q,
     sort,
     page,
-    pageSize,
     countries: selectedCountries,
     tags: selectedTags,
   });
 
   useEffect(() => {
     if (!isLoading) {
-      const { datasets: filteredDatasets, count } = data || {};
+      const { datasets: filteredDatasets, totalPages: filteredTotalPages } =
+        data || {};
       setDatasets(filteredDatasets);
-      setTotalPages(Math.ceil(count / pageSize));
+      setTotalPages(filteredTotalPages);
     }
   }, [data, isLoading]);
 
