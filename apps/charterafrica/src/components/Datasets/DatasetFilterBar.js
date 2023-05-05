@@ -60,6 +60,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     search: searchProp,
     countries,
     tags,
+    sortOptions,
   } = props;
 
   const [value, setValue] = useState(searchProp || "");
@@ -128,25 +129,6 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     }
   };
 
-  const sortOrder = [
-    {
-      label: "Most Recent",
-      value: "metadata_modified desc",
-    },
-    {
-      label: "Least Recent",
-      value: "metadata_modified asc",
-    },
-    {
-      label: "Name (A-Z)",
-      value: "name asc",
-    },
-    {
-      label: "Name (Z-A)",
-      value: "name desc",
-    },
-  ];
-
   return (
     <Box py={5} ref={ref}>
       <Grid container spacing={2}>
@@ -171,9 +153,9 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             MenuProps={menuProps}
             value={sort}
           >
-            {sortOrder.map((order) => (
-              <StyledMenuItem value={order.value} key={order.value}>
-                {order.label}
+            {sortOptions.map((option) => (
+              <StyledMenuItem value={option.value} key={option.value}>
+                {option.label}
               </StyledMenuItem>
             ))}
           </StyledSelect>

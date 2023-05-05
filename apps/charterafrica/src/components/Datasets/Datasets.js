@@ -16,6 +16,7 @@ function Datasets({
   tags = [],
   countries = [],
   count: originalCount,
+  sortOptions = [],
 }) {
   const pageSize = 10;
   const [page, setPage] = useState(1);
@@ -76,6 +77,7 @@ function Datasets({
         <DatasetFilterBar
           tags={tags}
           countries={countries}
+          sortOptions={sortOptions}
           onQChange={handleChangeQ}
           onSortChange={handleChangeSort}
           onChangeCountries={handleChangeCountries}

@@ -2,7 +2,9 @@ import fetchDatasets from "@/charterafrica/lib/openAfrica";
 
 export default async function processPageDatasets(page, api) {
   const { blocks } = page;
-  const { organizationId, charts } = await api.findGlobal("datasets");
+  const { organizationId, charts, sortOptions } = await api.findGlobal(
+    "datasets"
+  );
   const {
     showCharts,
     options: {
@@ -47,6 +49,7 @@ export default async function processPageDatasets(page, api) {
     countries,
     data: datasets,
     tags,
+    sortOptions,
   });
 
   // SWR fallback
