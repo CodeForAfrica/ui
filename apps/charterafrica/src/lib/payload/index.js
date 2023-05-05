@@ -28,10 +28,18 @@ async function findGlobal(slug, options) {
   });
 }
 
+async function updateGlobal(slug, data) {
+  return payload.updateGlobal({
+    slug,
+    data,
+  });
+}
+
 const api = {
   findGlobal,
   findPage,
   getCollection,
+  updateGlobal,
 };
 
 export default api;

@@ -84,7 +84,6 @@ const Datasets = {
                     fr: "Nombre de jeux de données",
                     pt: "Contagem de conjuntos de dados",
                   },
-                  defaultValue: 1,
                   admin: {
                     width: "33.3%",
                     readOnly: true,
@@ -131,7 +130,6 @@ const Datasets = {
                     fr: "Nombre de documents",
                     pt: "Contagem de documentos",
                   },
-                  defaultValue: 1,
                   admin: {
                     width: "33.3%",
                     readOnly: true,
