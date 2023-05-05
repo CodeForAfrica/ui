@@ -1,9 +1,6 @@
-import NodeCache from "node-cache";
-
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const BASE_DOCUMENTS_URL = "https://openafrica.net/api/3/action/";
-const cache = new NodeCache({ stdTTL: 60 * 60 });
 
 async function packageSearch(params) {
   try {
@@ -83,12 +80,6 @@ function formatDatasets(data) {
 }
 
 export default async function fetchDatasets(organization, query = {}) {
-  const cacheKey = `organization-datasets-${organization}-${JSON.stringify(
-    query
-  )}`;
-  const cachedDatasets = cache.get(cacheKey);
-  if (cachedDatasets) return cachedDatasets;
-
   const { tags = [], countries = [], ...other } = query;
   const tagsQuery = tags.map((tag) => `"${tag}"`).join(" OR ");
   const countriesQuery = countries
@@ -108,7 +99,6 @@ export default async function fetchDatasets(organization, query = {}) {
   try {
     const response = await packageSearch(params);
     const formattedData = formatDatasets(response);
-    cache.set(cacheKey, formattedData);
     return formattedData;
   } catch (error) {
     return error;
@@ -116,12 +106,6 @@ export default async function fetchDatasets(organization, query = {}) {
 }
 
 export async function getOrganizationStatistics(organization) {
-  const statsCacheKey = `organization-stats-${organization}`;
-  const cachedStats = cache.get(statsCacheKey);
-  if (cachedStats) {
-    return cachedStats;
-  }
-
   const params = {
     rows: 1000,
     start: 0,
@@ -152,8 +136,6 @@ export async function getOrganizationStatistics(organization) {
       datasetsCount,
       documentsCount,
     };
-
-    cache.set(statsCacheKey, stats);
     return stats;
   } catch (error) {
     return error;
