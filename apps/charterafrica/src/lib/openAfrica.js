@@ -131,10 +131,10 @@ export async function getOrganizationStatistics(organization) {
   try {
     const response = await packageSearch(params);
     const allDatasets = [...response.result.results];
-    const { count: datasetCount } = response.result;
+    const { count: datasetsCount } = response.result;
 
     const promises = [];
-    for (let i = params.rows; i < datasetCount; i += params.rows) {
+    for (let i = params.rows; i < datasetsCount; i += params.rows) {
       const nextParams = { ...params, start: i };
       promises.push(packageSearch(nextParams));
     }
@@ -149,7 +149,7 @@ export async function getOrganizationStatistics(organization) {
     }, 0);
 
     const stats = {
-      datasetCount,
+      datasetsCount,
       documentsCount,
     };
 
