@@ -35,18 +35,6 @@ const Organisations = {
       },
     },
     {
-      name: "type",
-      type: "text",
-      label: {
-        en: "Type",
-        fr: "Type",
-        pt: "Tipo",
-      },
-      admin: {
-        readOnly: true,
-      },
-    },
-    {
       name: "name",
       type: "text",
       label: { en: "Name", fr: "Nom", pt: "Nome" },
