@@ -15,10 +15,10 @@ function queryString(query = {}) {
   if (sort && sort !== "") {
     searchParams.append("sort", sort);
   }
-  if (countries && countries.length > 1) {
+  if (countries && countries.length > 0) {
     searchParams.append("countries", countries);
   }
-  if (tags && tags.length > 1) {
+  if (tags && tags.length > 0) {
     searchParams.append("tags", tags);
   }
 
