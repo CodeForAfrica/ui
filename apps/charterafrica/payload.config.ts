@@ -129,16 +129,19 @@ export default buildConfig({
           uniqueCountries: "Countries must be unique",
           uniqueLocales: "Locales must be unique",
           validHexColor: "Please enter a valid color value (in hex format)",
+          uniqueSortOptions: "Sort options must be unique",
         },
       },
       fr: {
         "charterafrica.site": {
           uniqueLocales: "Les locaux doivent être uniques",
+          uniqueSortOptions: "Les options de tri doivent être uniques",
         },
       },
       pt: {
         "charterafrica.site": {
           uniqueLocales: "Os locais devem ser únicos",
+          uniqueSortOptions: "As opções de classificação devem ser únicas",
         },
       },
     },
