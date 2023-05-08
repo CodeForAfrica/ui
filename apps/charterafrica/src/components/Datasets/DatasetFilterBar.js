@@ -6,6 +6,9 @@ import {
   Checkbox,
   ListItemText,
   styled,
+  Autocomplete,
+  TextField,
+  Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 
@@ -13,7 +16,6 @@ import { neutral } from "@/charterafrica/colors";
 import SearchInput from "@/charterafrica/components/SearchInput";
 import {
   DEFAULT_SORTING,
-  DEFAULT_COUNTRY,
   DEFAULT_TAG,
 } from "@/charterafrica/utils/datasets/queryString";
 
@@ -65,7 +67,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
 
   const [value, setValue] = useState(searchProp || "");
   const [sort, setSort] = useState(DEFAULT_SORTING);
-  const [country, setCountry] = useState([DEFAULT_COUNTRY]);
+  // const [country, setCountry] = useState([DEFAULT_COUNTRY]);
   const [tag, setTag] = useState([DEFAULT_TAG]);
 
   const handleChangeQ = (e) => {
@@ -93,23 +95,8 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     }
   };
 
-  const handleChangeCountry = (e) => {
-    const {
-      target: { value: checkedCountries },
-    } = e;
-
-    if (checkedCountries.length > 1) {
-      const selectedCountries = checkedCountries.filter(
-        (c) => c !== DEFAULT_COUNTRY
-      );
-      setCountry(selectedCountries);
-    } else {
-      setCountry([DEFAULT_COUNTRY]);
-    }
-
-    if (onChangeCountries) {
-      onChangeCountries(e, checkedCountries);
-    }
+  const handleChangeCountry = (e, selectedCountries) => {
+    onChangeCountries(e, selectedCountries);
   };
 
   const handleChangeTag = (e) => {
@@ -161,28 +148,39 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
           </StyledSelect>
         </Grid>
         <Grid item xs={12} sm={4} lg={3} overflow="hidden">
-          <StyledSelect
+          <Autocomplete
             multiple
-            renderValue={(selected) => selected.join(", ")}
+            options={countries}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                sx={{
+                  height: "36px",
+                  overflow: "hidden",
+                }}
+              />
+            )}
+            getOptionLabel={(option) => option.toUpperCase()}
+            renderOption={(renderProps, option, { selected }) => (
+              <li {...renderProps}>
+                <StyledCheckbox checked={selected} />
+                {option}
+              </li>
+            )}
             onChange={handleChangeCountry}
-            MenuProps={menuProps}
-            value={country}
-          >
-            <MenuItem value={DEFAULT_COUNTRY} key={DEFAULT_COUNTRY}>
-              {DEFAULT_COUNTRY}
-            </MenuItem>
-            {countries.map((singleCountry) => (
-              <StyledMenuItem value={singleCountry} key={singleCountry}>
-                <StyledCheckbox checked={country.indexOf(singleCountry) > -1} />
-                <ListItemText
-                  sx={{
-                    textTransform: "capitalize",
-                  }}
-                  primary={singleCountry}
-                />
-              </StyledMenuItem>
-            ))}
-          </StyledSelect>
+            renderTags={(checkedCountries, getTagProps) => {
+              return (
+                <Typography
+                  sx={{ textTransform: "capitalize" }}
+                  {...getTagProps}
+                >
+                  {checkedCountries.length > 3
+                    ? `${checkedCountries.length} countries`
+                    : checkedCountries.join(", ")}
+                </Typography>
+              );
+            }}
+          />
         </Grid>
         <Grid item xs={12} sm={4} lg={3}>
           <StyledSelect
