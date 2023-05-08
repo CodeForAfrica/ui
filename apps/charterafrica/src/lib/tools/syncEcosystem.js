@@ -52,7 +52,7 @@ const processRepository = (
     description,
     link: data?.url ?? null,
     location,
-    topic,
+    subject: topic,
     languagesTechSkills,
     lastCommit: data?.defaultBranchRef,
     stars: data?.stargazers?.totalCount,

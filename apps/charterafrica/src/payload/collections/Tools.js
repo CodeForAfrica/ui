@@ -88,16 +88,12 @@ const Tools = {
       },
     },
     {
-      name: "topic",
+      name: "subject",
       type: "text",
       admin: {
         readOnly: true,
       },
-      label: {
-        en: "Topic",
-        fr: "Sujet",
-        pt: "Tópico",
-      },
+      label: { en: "Subject", fr: "Sujet", pt: "Assunto" },
     },
     {
       name: "languagesTechSkills",
