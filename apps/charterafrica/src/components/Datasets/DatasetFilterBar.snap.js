@@ -70,7 +70,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
             aria-hidden="true"
             class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
             tabindex="-1"
-            value="metadata_modified desc"
+            value=""
           />
           <svg
             aria-hidden="true"
@@ -103,96 +103,132 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-lg-3 css-195h445-MuiGrid-root"
       >
         <div
-          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary css-oh134t-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-19jnr5c-MuiAutocomplete-root"
         >
           <div
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input css-1mtwe1r-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-            role="button"
-            tabindex="0"
+            class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-hcvzns-MuiFormControl-root-MuiTextField-root"
           >
-            Countries
-          </div>
-          <input
-            aria-hidden="true"
-            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-            tabindex="-1"
-            value="Countries"
-          />
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
-            data-testid="ArrowDropDownIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M7 10l5 5 5-5z"
-            />
-          </svg>
-          <fieldset
-            aria-hidden="true"
-            class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
-          >
-            <legend
-              class="css-ihdtdm"
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-mtvuba-MuiInputBase-root-MuiOutlinedInput-root"
             >
-              <span
-                class="notranslate"
+              <input
+                aria-autocomplete="list"
+                aria-expanded="false"
+                aria-invalid="false"
+                autocapitalize="none"
+                autocomplete="off"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-222ubz-MuiInputBase-input-MuiOutlinedInput-input"
+                id=":r0:"
+                role="combobox"
+                spellcheck="false"
+                type="text"
+                value=""
+              />
+              <div
+                class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
               >
-                ​
-              </span>
-            </legend>
-          </fieldset>
+                <button
+                  aria-label="Open"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                  tabindex="-1"
+                  title="Open"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ArrowDropDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <fieldset
+                aria-hidden="true"
+                class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="css-ihdtdm"
+                >
+                  <span
+                    class="notranslate"
+                  >
+                    ​
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
         </div>
       </div>
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-lg-3 css-jevw09-MuiGrid-root"
       >
         <div
-          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary css-oh134t-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-19jnr5c-MuiAutocomplete-root"
         >
           <div
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input css-1mtwe1r-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-            role="button"
-            tabindex="0"
+            class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-hcvzns-MuiFormControl-root-MuiTextField-root"
           >
-            Themes
-          </div>
-          <input
-            aria-hidden="true"
-            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-            tabindex="-1"
-            value="Themes"
-          />
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
-            data-testid="ArrowDropDownIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M7 10l5 5 5-5z"
-            />
-          </svg>
-          <fieldset
-            aria-hidden="true"
-            class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
-          >
-            <legend
-              class="css-ihdtdm"
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-mtvuba-MuiInputBase-root-MuiOutlinedInput-root"
             >
-              <span
-                class="notranslate"
+              <input
+                aria-autocomplete="list"
+                aria-expanded="false"
+                aria-invalid="false"
+                autocapitalize="none"
+                autocomplete="off"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-222ubz-MuiInputBase-input-MuiOutlinedInput-input"
+                id=":r2:"
+                role="combobox"
+                spellcheck="false"
+                type="text"
+                value=""
+              />
+              <div
+                class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
               >
-                ​
-              </span>
-            </legend>
-          </fieldset>
+                <button
+                  aria-label="Open"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                  tabindex="-1"
+                  title="Open"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ArrowDropDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <fieldset
+                aria-hidden="true"
+                class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="css-ihdtdm"
+                >
+                  <span
+                    class="notranslate"
+                  >
+                    ​
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
         </div>
       </div>
     </div>
