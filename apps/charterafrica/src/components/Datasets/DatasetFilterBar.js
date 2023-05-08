@@ -155,30 +155,39 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
               <TextField
                 {...params}
                 sx={{
-                  height: "36px",
                   overflow: "hidden",
+                  "& .MuiInputBase-root": {
+                    height: "36px",
+                    padding: "0 0 0 8px",
+                  },
                 }}
               />
             )}
-            getOptionLabel={(option) => option.toUpperCase()}
             renderOption={(renderProps, option, { selected }) => (
               <li {...renderProps}>
                 <StyledCheckbox checked={selected} />
-                {option}
+                {option.toUpperCase()}
               </li>
             )}
             onChange={handleChangeCountry}
             renderTags={(checkedCountries, getTagProps) => {
               return (
                 <Typography
-                  sx={{ textTransform: "capitalize" }}
+                  sx={{
+                    textTransform: "capitalize",
+                    color: neutral[900],
+                    typography: "p1",
+                  }}
                   {...getTagProps}
                 >
-                  {checkedCountries.length > 3
+                  {checkedCountries.length > 2
                     ? `${checkedCountries.length} countries`
                     : checkedCountries.join(", ")}
                 </Typography>
               );
+            }}
+            sx={{
+              backgroundColor: neutral[50],
             }}
           />
         </Grid>
