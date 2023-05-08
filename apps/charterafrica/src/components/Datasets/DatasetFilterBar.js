@@ -1,8 +1,6 @@
 import {
   Box,
   Grid,
-  Select,
-  MenuItem,
   Checkbox,
   styled,
   Autocomplete,
@@ -14,36 +12,12 @@ import React, { useState } from "react";
 import { neutral } from "@/charterafrica/colors";
 import SearchInput from "@/charterafrica/components/SearchInput";
 
-const StyledSelect = styled(Select)({
-  backgroundColor: neutral[50],
-  height: "36px",
-  typography: "p1",
-  overflow: "hidden",
-  width: "100%",
-});
-
-const StyledMenuItem = styled(MenuItem)({
-  "&.Mui-selected": {
-    backgroundColor: neutral[200],
-  },
-  "&.Mui-selected:hover": {
-    backgroundColor: neutral[200],
-  },
-});
-
 const StyledCheckbox = styled(Checkbox)({
   color: neutral[900],
   "&.Mui-checked": {
     color: neutral[500],
   },
 });
-
-const menuProps = {
-  sx: {
-    color: neutral[900],
-    typography: "p1",
-  },
-};
 
 const StyledAutocompleteInput = styled(TextField)({
   overflow: "hidden",
@@ -75,7 +49,6 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   } = props;
 
   const [value, setValue] = useState(searchProp || "");
-  const [sort, setSort] = useState("");
 
   const handleChangeQ = (e) => {
     setValue(e.target.value);
@@ -95,10 +68,11 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     }
   };
 
-  const handleChangeSort = (e) => {
-    setSort(e.target.value);
-    if (onSortChange) {
-      onSortChange(e, e.target.value);
+  const handleChangeSort = (e, selectedSortOption) => {
+    if (selectedSortOption?.value) {
+      onSortChange(e, selectedSortOption.value);
+    } else {
+      onSortChange(e, "");
     }
   };
 
@@ -133,18 +107,11 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
           />
         </Grid>
         <Grid item xs={12} sm={4} lg={3}>
-          <StyledSelect
+          <Autocomplete
+            options={sortOptions}
+            renderInput={(params) => <StyledAutocompleteInput {...params} />}
             onChange={handleChangeSort}
-            MenuProps={menuProps}
-            value={sort}
-          >
-            <MenuItem value="">Sort by</MenuItem>
-            {sortOptions.map((option) => (
-              <StyledMenuItem value={option.value} key={option.value}>
-                {option.label}
-              </StyledMenuItem>
-            ))}
-          </StyledSelect>
+          />
         </Grid>
         <Grid item xs={12} sm={4} lg={3} overflow="hidden">
           <Autocomplete
