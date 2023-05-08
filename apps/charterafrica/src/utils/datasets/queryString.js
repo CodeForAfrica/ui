@@ -1,6 +1,3 @@
-const DEFAULT_COUNTRY = "Countries";
-const DEFAULT_TAG = "Themes";
-
 /**
  * This function is important not only because it's reusable on both
  * FE and BE, but also to ensure the order of params is maintained. This
@@ -19,16 +16,10 @@ function queryString(query = {}) {
     searchParams.append("sort", sort);
   }
   if (countries && countries.length > 1) {
-    searchParams.append(
-      "countries",
-      countries.filter((c) => c !== DEFAULT_COUNTRY)
-    );
+    searchParams.append("countries", countries);
   }
   if (tags && tags.length > 1) {
-    searchParams.append(
-      "tags",
-      tags.filter((t) => t !== DEFAULT_TAG)
-    );
+    searchParams.append("tags", tags);
   }
 
   if (page && page !== 1) {
@@ -37,7 +28,5 @@ function queryString(query = {}) {
 
   return searchParams.toString() || "";
 }
-
-export { DEFAULT_COUNTRY, DEFAULT_TAG };
 
 export default queryString;

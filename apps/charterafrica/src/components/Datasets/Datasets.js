@@ -31,7 +31,9 @@ function Datasets({
   const handleChangePage = (_, value) => setPage(value);
   const handleChangeQ = (_, value) => setQ(value);
   const handleChangeSort = (_, value) => setSort(value);
-  const handleChangeCountries = (_, value) => setSelectedCountries(value);
+  const handleChangeCountries = (_, value) => {
+    setSelectedCountries(value);
+  };
   const handleChangeTags = (_, value) => setSelectedTags(value);
 
   const query = queryString({

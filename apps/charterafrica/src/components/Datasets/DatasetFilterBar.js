@@ -124,7 +124,6 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
                 {option.toUpperCase()}
               </li>
             )}
-            onChange={handleChangeCountry}
             renderTags={(checkedCountries, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps}>
                 {checkedCountries.length > 2
@@ -132,6 +131,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
                   : checkedCountries.join(", ")}
               </StyledAutocompleteTags>
             )}
+            onChange={handleChangeCountry}
             sx={{
               backgroundColor: neutral[50],
             }}
