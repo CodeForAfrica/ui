@@ -49,11 +49,7 @@ const Organisations = {
     {
       name: "name",
       type: "text",
-      label: {
-        en: "Organization Name",
-        fr: "Nom de l'organisation",
-        pt: "Nome da organização",
-      },
+      label: { en: "Name", fr: "Nom", pt: "Nome" },
       required: true,
       admin: {
         readOnly: true,

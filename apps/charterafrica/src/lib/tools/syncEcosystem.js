@@ -62,7 +62,7 @@ const processRepository = (data, { topic, externalId, description }) => {
   return tool;
 };
 
-const processSheet = async (update = false) => {
+const syncEcosystem = async (update = false) => {
   const {
     columnMappings: {
       toolLink,
@@ -132,26 +132,13 @@ const processSheet = async (update = false) => {
     );
   });
   const promises = await Promise.allSettled(toProcess);
-  const fulfilled = promises
+  const completed = promises
     .filter((p) => p.status === "fulfilled")
     .map((p) => p.value);
+  // TODO Handle errors
   const rejected = promises.filter((p) => p.status === "rejected");
 
-  return { fulfilled, rejected };
+  return { completed, rejected };
 };
 
-const processData = async (req, res) => {
-  try {
-    const { update } = req.query;
-    const isUpdate = Number(update);
-    const data = await processSheet(isUpdate);
-    return res.status(200).json({
-      message: `${isUpdate ? "UPDATE" : "CREATE"} PROCESS SUCCEEDED`,
-      data,
-    });
-  } catch (error) {
-    return res.status(500).send(error);
-  }
-};
-
-export default processData;
+export default syncEcosystem;
