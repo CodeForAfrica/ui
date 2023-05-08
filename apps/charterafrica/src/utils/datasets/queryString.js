@@ -1,4 +1,3 @@
-const DEFAULT_SORTING = "metadata_modified desc";
 const DEFAULT_COUNTRY = "Countries";
 const DEFAULT_TAG = "Themes";
 
@@ -16,7 +15,7 @@ function queryString(query = {}) {
   if (q) {
     searchParams.append("q", q);
   }
-  if (sort && sort !== DEFAULT_SORTING) {
+  if (sort && sort !== "") {
     searchParams.append("sort", sort);
   }
   if (countries && countries.length > 1) {
@@ -39,6 +38,6 @@ function queryString(query = {}) {
   return searchParams.toString() || "";
 }
 
-export { DEFAULT_SORTING, DEFAULT_COUNTRY, DEFAULT_TAG };
+export { DEFAULT_COUNTRY, DEFAULT_TAG };
 
 export default queryString;
