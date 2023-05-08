@@ -1,102 +1,20 @@
+import { array } from "payload/dist/fields/validations";
+
 import { validateHexColor } from "../utils/colors";
 import updateDatasetsStatistics from "../utils/datasets";
 
-const filterOptions = [
-  {
-    label: {
-      en: "Most Recent",
-      fr: "Plus récent",
-      pt: "Mais recente",
-    },
-    value: "metadata_created desc",
-  },
-  {
-    label: {
-      en: "Least Recent",
-      fr: "Moins récent",
-      pt: "Menos recente",
-    },
-    value: "metadata_created asc",
-  },
-  {
-    label: {
-      en: "Name (A-Z)",
-      fr: "Nom (A-Z)",
-      pt: "Nome (A-Z)",
-    },
-    value: "name asc",
-  },
-  {
-    label: {
-      en: "Name (Z-A)",
-      fr: "Nom (Z-A)",
-      pt: "Nome (Z-A)",
-    },
-    value: "name desc",
-  },
-  {
-    label: {
-      en: "Most Relevant",
-      fr: "Plus pertinent",
-      pt: "Mais relevante",
-    },
-    value: "relevance desc",
-  },
-  {
-    label: {
-      en: "Least Relevant",
-      fr: "Moins pertinent",
-      pt: "Menos relevante",
-    },
-    value: "relevance asc",
-  },
-  {
-    label: {
-      en: "Recently Updated",
-      fr: "Récemment mis à jour",
-      pt: "Atualizado recentemente",
-    },
-    value: "metadata_modified desc",
-  },
-  {
-    label: {
-      en: "Least Recently Updated",
-      fr: "Moins récemment mis à jour",
-      pt: "Atualizado menos recentemente",
-    },
-    value: "metadata_modified asc",
-  },
-  {
-    label: {
-      en: "Author (A-Z)",
-      fr: "Auteur (A-Z)",
-      pt: "Autor (A-Z)",
-    },
-    value: "author asc",
-  },
-  {
-    label: {
-      en: "Author (Z-A)",
-      fr: "Auteur (Z-A)",
-      pt: "Autor (Z-A)",
-    },
-    value: "author desc",
-  },
+const sortOptions = [
+  "metadata_created desc",
+  "metadata_created asc",
+  "name asc",
+  "name desc",
+  "relevance desc",
+  "relevance asc",
+  "metadata_modified desc",
+  "metadata_modified asc",
+  "author asc",
+  "author desc",
 ];
-
-async function mapSortValuesToOptions({
-  req: { locale },
-  data: { sortOptions },
-}) {
-  const options = sortOptions.map((option) => {
-    const filterOption = filterOptions.find((o) => o.value === option);
-    return {
-      label: filterOption.label[locale],
-      value: option,
-    };
-  });
-  return options;
-}
 
 const Datasets = {
   slug: "datasets",
@@ -246,33 +164,63 @@ const Datasets = {
       ],
     },
     {
-      name: "sortOptions",
       label: {
         en: "Sort Options",
         fr: "Options de tri",
         pt: "Opções de classificação",
       },
-      type: "select",
-      hasMany: true,
-      admin: {
-        isClearable: true,
-        isSortable: true,
-      },
-      options: filterOptions,
-      defaultValue: [
-        "metadata_created desc",
-        "metadata_modified desc",
-        "relevance desc",
-        "relevance asc",
-        "name asc",
-        "name desc",
-        "author asc",
-        "author desc",
+      type: "collapsible",
+      fields: [
+        {
+          name: "options",
+          type: "array",
+          minRows: 1,
+          label: {
+            en: "Options",
+            fr: "Options",
+            pt: "Opções",
+          },
+          fields: [
+            {
+              name: "value",
+              type: "select",
+              options: sortOptions.map((value) => {
+                return {
+                  value,
+                  label: value,
+                };
+              }),
+              unique: true,
+              required: true,
+              validate: (val, options) => {
+                const { data, t } = options || {};
+                if (data?.options?.filter((l) => l.value === val)?.length > 1) {
+                  return t("charterafrica.site:uniqueSortOptions");
+                }
+                return array(val, options);
+              },
+            },
+            {
+              name: "label",
+              type: "text",
+              label: {
+                en: "Label",
+                fr: "Étiquette",
+                pt: "Rótulo",
+              },
+              required: true,
+            },
+          ],
+          admin: {
+            initCollapsed: true,
+            components: {
+              RowLabel: ({ data }) => {
+                return data?.label || data?.value || data?.id;
+              },
+            },
+          },
+        },
       ],
-      required: true,
-      hooks: {
-        afterRead: [mapSortValuesToOptions],
-      },
     },
   ],
 };
