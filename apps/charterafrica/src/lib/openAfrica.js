@@ -90,15 +90,16 @@ function formatDatasets(data) {
 
 export default async function fetchDatasets(organization, query = {}) {
   const { tags = [], countries = [], page = 1, ...other } = query;
-  const tagsQuery = tags.map((tag) => `"${tag}"`).join(" OR ");
-  const countriesQuery = countries
-    .map((country) => `"${country}"`)
-    .join(" OR ");
+  const tagsQuery = tags.length
+    ? `tags:(${tags.map((tag) => `"${tag}"`).join(" OR ")})`
+    : null;
+  const countriesQuery = countries.length
+    ? `groups:(${countries.map((country) => `"${country}"`).join(" OR ")})`
+    : null;
   const organizationQuery = `organization:${organization}`;
   const filterQuery = [organizationQuery, tagsQuery, countriesQuery]
     .filter(Boolean)
     .join(" AND ");
-
   const params = {
     ...other,
     fq: filterQuery,
