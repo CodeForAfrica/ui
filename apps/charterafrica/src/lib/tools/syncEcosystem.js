@@ -10,7 +10,10 @@ import {
 import mockData from "@/charterafrica/lib/data/_mock/gitData";
 import { FetchError } from "@/charterafrica/utils/fetchJson";
 
-const processRepository = (data, { topic, externalId, description }) => {
+const processRepository = (
+  data,
+  { topic, externalId, description, name, location }
+) => {
   const people =
     data?.collaborators?.nodes?.map((person) => ({
       externalId: person?.login,
@@ -45,10 +48,10 @@ const processRepository = (data, { topic, externalId, description }) => {
   const tool = {
     externalId,
     avatarUrl: data?.openGraphImageUrl ?? null,
-    name: data?.name ?? null,
+    name: data?.name || name || null,
     description,
     link: data?.url ?? null,
-    location: data?.location ?? null,
+    location,
     topic,
     languagesTechSkills,
     lastCommit: data?.defaultBranchRef,
