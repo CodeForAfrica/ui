@@ -30,7 +30,6 @@ const StyledAutocompleteInput = styled(TextField)({
 const StyledAutocompleteTags = styled(Typography)({
   textTransform: "capitalize",
   color: neutral[900],
-  typography: "p1",
 });
 
 const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
@@ -125,7 +124,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
               </li>
             )}
             renderTags={(checkedCountries, getTagProps) => (
-              <StyledAutocompleteTags {...getTagProps}>
+              <StyledAutocompleteTags {...getTagProps} typography="p1">
                 {checkedCountries.length > 2
                   ? `${checkedCountries.length} countries`
                   : checkedCountries.join(", ")}
@@ -134,6 +133,9 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             onChange={handleChangeCountry}
             sx={{
               backgroundColor: neutral[50],
+              "& .MuiOutlinedInput-root": {
+                padding: 0,
+              },
             }}
           />
         </Grid>
@@ -150,7 +152,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             )}
             onChange={handleChangeTag}
             renderTags={(checkedTags, getTagProps) => (
-              <StyledAutocompleteTags {...getTagProps}>
+              <StyledAutocompleteTags {...getTagProps} typography="p1">
                 {checkedTags.length > 1
                   ? `${checkedTags.length} tags`
                   : checkedTags.join(", ")}
@@ -158,6 +160,9 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             )}
             sx={{
               backgroundColor: neutral[50],
+              "& .MuiOutlinedInput-root": {
+                padding: 0,
+              },
             }}
           />
         </Grid>
