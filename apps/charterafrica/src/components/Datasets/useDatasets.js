@@ -8,7 +8,7 @@ function useDatasets(query) {
   const qs = queryString(query);
   const separator = qs ? "?" : "";
   const { data, error } = useSWR(
-    `/api/v1/data/datasets${separator}${qs}`,
+    `/api/v1/resources/datasets${separator}${qs}`,
     fetcher
   );
 
