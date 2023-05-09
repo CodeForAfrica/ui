@@ -31,10 +31,10 @@ async function datasets(req, res) {
 }
 
 async function datasetsStats(req, res) {
-  const { CRONJOBS_SECRET_KEY } = process.env;
+  const { RESOURCES_SECRET_TOKEN } = process.env;
   const { authorization } = req.headers;
 
-  if (CRONJOBS_SECRET_KEY !== authorization) {
+  if (RESOURCES_SECRET_TOKEN !== authorization) {
     return res.status(401).json({ message: "UNAUTHORIZED" });
   }
   const { id, organizationId, charts } = await payload.findGlobal("datasets");
