@@ -3,6 +3,7 @@ import {
   ORGANIZATION_COLLECTION,
   PEOPLE_COLLECTION,
 } from "../../lib/tools/models";
+import deletedAt from "../fields/deletedAt";
 import slug from "../fields/slug";
 import source from "../fields/toolSourceField";
 import updatedAt from "../fields/updatedAt";
@@ -198,7 +199,18 @@ const Tools = {
         pt: "pessoas",
       },
     },
+    {
+      name: "externalUpdatedAt",
+      type: "date",
+      admin: {
+        readOnly: true,
+        date: {
+          pickerAppearance: "dayAndTime",
+        },
+      },
+    },
     updatedAt(),
+    deletedAt(),
   ],
 };
 

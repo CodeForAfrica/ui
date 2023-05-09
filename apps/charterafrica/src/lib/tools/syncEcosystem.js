@@ -12,7 +12,7 @@ import { FetchError } from "@/charterafrica/utils/fetchJson";
 
 const processRepository = (
   data,
-  { topic, externalId, description, name, location }
+  { topic, externalId, description, name, location, toolLink }
 ) => {
   const people =
     data?.collaborators?.nodes?.map((person) => ({
@@ -48,9 +48,9 @@ const processRepository = (
   const tool = {
     externalId,
     avatarUrl: data?.openGraphImageUrl ?? null,
-    name: data?.name || name || null,
+    name,
     description,
-    link: data?.url ?? null,
+    link: toolLink,
     location,
     subject: topic,
     languagesTechSkills,
@@ -61,32 +61,85 @@ const processRepository = (
     people,
     organisation,
     source: "github",
+    externalUpdatedAt: new Date(data.updatedAt),
+    deletedAt: null,
   };
   return tool;
 };
 
-const syncEcosystem = async (update = false) => {
-  const {
-    columnMappings: {
-      toolLink,
-      toolDescription,
-      toolName,
-      toolTopic,
-      toolLocation,
-    },
-  } = await api.findGlobal(DIGITAL_DEMOCRACY_ECOSYSTEM, {});
+const getDataFromSource = ({ toolGithub }) => {
   const data = mockData;
-  const uniqueEntries = Object.values(
+  const unique = Object.values(
     data.reduce((acc, obj) => {
-      acc[obj[toolLink]] = obj;
+      acc[obj[toolGithub]] = obj;
       return acc;
     }, {})
   );
-
-  const toProcess = uniqueEntries.map(async (rawData, i) => {
-    const externalId = rawData[toolLink]
+  return unique.map((item) => {
+    const externalId = item[toolGithub]
       ?.replace(/^https?:\/\/github\.com\//, "")
       .replace(/\/$/, "");
+    return {
+      ...item,
+      externalId,
+    };
+  });
+};
+
+export const updateEcosystemResource = async () => {
+  const { docs } = await api.getCollection(TOOL_COLLECTION);
+  const toProcess = docs.map(async (rawData) => {
+    const { externalId, id } = rawData;
+    let [repositoryOwner, repositoryName] = externalId.split("/");
+    repositoryOwner = repositoryOwner?.trim();
+    repositoryName = repositoryName?.trim();
+    if (repositoryOwner && repositoryName) {
+      const gitData = await fetchRepository({
+        repositoryOwner,
+        repositoryName,
+      });
+      const toCreate = processRepository(gitData, rawData);
+      const tool = await updateOrCreateTool({ ...toCreate, id });
+      return tool;
+    }
+    throw new FetchError(`${externalId} is invalid`, rawData, 500);
+  });
+  const promises = await Promise.allSettled(toProcess);
+  const completed = promises
+    .filter((p) => p.status === "fulfilled")
+    .map((p) => p.value);
+  // TODO Handle errors
+  const rejected = promises.filter((p) => p.status === "rejected");
+
+  return { completed, rejected };
+};
+
+export const createEcosystemResource = async () => {
+  const { columnMappings } = await api.findGlobal(
+    DIGITAL_DEMOCRACY_ECOSYSTEM,
+    {}
+  );
+  const { toolDescription, toolName, toolTopic, toolLocation, toolLink } =
+    columnMappings;
+
+  const data = getDataFromSource(columnMappings);
+  const dataIds = data.map(({ externalId }) => externalId).join(",");
+  const { docs: toDelete } = await api.getCollection(TOOL_COLLECTION, {
+    where: {
+      externalId: {
+        not_in: dataIds,
+      },
+    },
+  });
+  Promise.all(
+    toDelete.map(async ({ id }) => {
+      await api.updateCollection(TOOL_COLLECTION, id, {
+        deletedAt: new Date(),
+      });
+    })
+  );
+  const toProcess = data.map(async (rawData, i) => {
+    const { externalId } = rawData;
     let [repositoryOwner, repositoryName] = externalId.split("/");
     repositoryOwner = repositoryOwner?.trim();
     repositoryName = repositoryName?.trim();
@@ -97,34 +150,31 @@ const syncEcosystem = async (update = false) => {
         description: rawData[toolDescription],
         location: rawData[toolLocation],
         topic: rawData[toolTopic],
+        link: rawData[toolLink],
       };
-      let savedData;
       const { docs } = await api.getCollection(TOOL_COLLECTION, {
         where: {
           externalId: { equals: externalId },
         },
       });
       if (docs.length) {
-        savedData = docs?.[0];
-        if (!update) {
-          return savedData;
-        }
+        const savedData = docs[0];
+        const toCreate = {
+          ...savedData,
+          location: dataFromSheet.location,
+          subject: dataFromSheet.topic,
+          description: dataFromSheet.description,
+          name: dataFromSheet.name,
+          deletedAt: null,
+        };
+        const tool = await updateOrCreateTool(toCreate);
+        return tool;
       }
       const gitData = await fetchRepository({
         repositoryOwner,
         repositoryName,
       });
       const toCreate = processRepository(gitData, dataFromSheet);
-      if (update) {
-        if (savedData) {
-          const tool = await updateOrCreateTool({
-            ...toCreate,
-            id: savedData.id,
-          });
-          return tool;
-        }
-        throw new FetchError(`Data does not exist`, rawData, 500);
-      }
       const tool = await updateOrCreateTool(toCreate);
       return tool;
     }
@@ -143,5 +193,3 @@ const syncEcosystem = async (update = false) => {
 
   return { completed, rejected };
 };
-
-export default syncEcosystem;

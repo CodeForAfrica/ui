@@ -6,6 +6,7 @@ export const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName:
     url
     openGraphImageUrl
     description
+    updatedAt
     stargazers {
       totalCount
     }

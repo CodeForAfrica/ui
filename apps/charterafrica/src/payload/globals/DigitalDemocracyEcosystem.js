@@ -18,6 +18,23 @@ const DigitalDemocracyEcosystem = {
       fields: [
         {
           label: {
+            en: "Tool Github",
+            fr: "Outil github",
+            pt: "Ferramenta github",
+          },
+          required: true,
+          name: "toolGithub",
+          type: "text",
+          admin: {
+            description: () =>
+              "Select a column that matches Tool Github. Use organisation/owner format",
+            components: {
+              Field: ColumnSelect,
+            },
+          },
+        },
+        {
+          label: {
             en: "Tool Link",
             fr: "Nom d'outil",
             pt: "Nome da ferramenta",
@@ -26,8 +43,6 @@ const DigitalDemocracyEcosystem = {
           name: "toolLink",
           type: "text",
           admin: {
-            description: () =>
-              "Select a column that matches Tool Link. Use organisation/owner format",
             components: {
               Field: ColumnSelect,
             },

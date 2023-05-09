@@ -86,6 +86,9 @@ async function processPageTools(page, api, context) {
     sort,
     where: {
       ...query,
+      deletedAt: {
+        equals: null,
+      },
     },
   });
 

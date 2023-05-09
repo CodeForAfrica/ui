@@ -54,13 +54,6 @@ const bulkCreatePeople = async (contributors = []) => {
 export const updateOrCreateTool = async (data) => {
   try {
     const { organisation, people, id, ...rest } = data;
-    const queryArgs = {
-      where: {
-        ...(id ? { id: { equals: id } } : {}),
-        externalId: data?.externalId ? { equals: data?.externalId } : undefined,
-      },
-    };
-    const { docs } = await api.getCollection(TOOL_COLLECTION, queryArgs);
     const createdOrganization = organisation?.externalId
       ? await createOrganization(organisation)
       : null;
@@ -69,7 +62,15 @@ export const updateOrCreateTool = async (data) => {
       ...rest,
       people: createdPeople.map((person) => person.id),
       organisation: createdOrganization?.id,
+      updatedAt: new Date(),
     };
+    const queryArgs = {
+      where: {
+        ...(id ? { id: { equals: id } } : {}),
+        externalId: data?.externalId ? { equals: data?.externalId } : undefined,
+      },
+    };
+    const { docs } = await api.getCollection(TOOL_COLLECTION, queryArgs);
     if (docs?.length) {
       if (id) {
         const res = await api.updateCollection(TOOL_COLLECTION, id, toCreate);
