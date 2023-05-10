@@ -146,6 +146,6 @@
       "cache": false
     }
   },
-  "globalDependencies": [],
+  "globalDependencies": ["**/.env.*local"],
   "globalEnv": ["GITHUB_TOKEN"]
 }
