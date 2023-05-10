@@ -10,9 +10,7 @@ import {
 import mockData from "@/charterafrica/lib/data/_mock/gitData";
 import { FetchError } from "@/charterafrica/utils/fetchJson";
 
-const processRepository = (data, dataFromSheet) => {
-  const { topic, externalId, description, name, location, toolLink } =
-    dataFromSheet;
+const processRepository = (data, { topic, externalId, name, location }) => {
   const people =
     data?.collaborators?.nodes?.map((person) => ({
       externalId: person?.login,
@@ -48,8 +46,8 @@ const processRepository = (data, dataFromSheet) => {
     externalId,
     avatarUrl: data?.openGraphImageUrl ?? null,
     name,
-    description,
-    link: toolLink,
+    description: data?.description,
+    link: data?.homepageUrl,
     location,
     subject: topic,
     languagesTechSkills,
