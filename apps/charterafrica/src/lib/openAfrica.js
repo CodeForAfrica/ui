@@ -18,12 +18,32 @@ async function packageSearch(params) {
   }
 }
 
-function formatDatasets(data) {
-  const { result: { count, facets: { tags, groups }, results } = {} } =
-    data || {};
+function formatResources(resources, author) {
+  return resources?.map((resource) => {
+    const {
+      created: resourceCreated,
+      id,
+      last_modified: resourceUpdated,
+      url,
+      format,
+      name: resourceName,
+      description,
+    } = resource;
+    return {
+      author,
+      created: resourceCreated,
+      description,
+      format,
+      id,
+      name: resourceName,
+      updated: resourceUpdated,
+      url,
+    };
+  });
+}
 
-  const documents = [];
-  const datasets = results?.map((dataset) => {
+function formatDatasets(datasets) {
+  return datasets?.map((dataset) => {
     const {
       author,
       metadata_created: created,
@@ -35,27 +55,7 @@ function formatDatasets(data) {
       type,
     } = dataset;
 
-    const formattedResources = resources?.map(
-      ({
-        created: resourceCreated,
-        id,
-        last_modified: resourceUpdated,
-        url,
-        format,
-        name: resourceName,
-        description,
-      }) => ({
-        author,
-        created: resourceCreated,
-        description: description || notes,
-        format,
-        id,
-        name: resourceName,
-        updated: resourceUpdated,
-        url,
-      })
-    );
-    documents.push(...formattedResources);
+    const formattedResources = formatResources(resources, author);
 
     const formats = [
       ...new Set(formattedResources?.map((resource) => resource.format)),
@@ -65,6 +65,7 @@ function formatDatasets(data) {
       author,
       created,
       formats,
+      formattedResources,
       name,
       notes,
       title,
@@ -72,6 +73,13 @@ function formatDatasets(data) {
       updated,
     };
   });
+}
+
+function formatResponse(data) {
+  const { result: { count, facets: { tags, groups }, results } = {} } =
+    data || {};
+
+  const datasets = formatDatasets(results);
 
   const countries = Object.keys(groups || {}).sort((a, b) =>
     a.localeCompare(b)
@@ -81,7 +89,6 @@ function formatDatasets(data) {
   return {
     count,
     datasets,
-    documents,
     countries,
     tags: tagsList,
     totalPages: Math.ceil(count / PageSize),
@@ -114,7 +121,7 @@ export default async function fetchDatasets(organization, query = {}) {
 
   try {
     const response = await packageSearch(params);
-    const formattedData = formatDatasets(response);
+    const formattedData = formatResponse(response);
     return formattedData;
   } catch (error) {
     return error;
