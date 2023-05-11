@@ -68,7 +68,7 @@ async function processPagePeople(page, api, context) {
   const {
     locale,
     params,
-    query: { page: pageNumber = 1, limit = 12, search, sort } = {},
+    query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
   } = context;
   if (params?.slugs?.length > 2) {
     return processSingleContributor(page, api, context);
