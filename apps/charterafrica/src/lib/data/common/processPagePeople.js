@@ -109,7 +109,7 @@ async function processPagePeople(page, api, context) {
     results,
     pagination,
     searchPlaceholder: filterLabels.searchPeople,
-    sortOrder: [{ value: "fullName", label: filterLabels.name }],
+    sortOrder: [{ value: "name", label: filterLabels.name }],
   };
 
   if (foundIndex > -1) {

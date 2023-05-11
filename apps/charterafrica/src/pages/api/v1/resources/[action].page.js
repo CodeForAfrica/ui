@@ -22,7 +22,7 @@ export default async function handler(req, res) {
   }
   const func = functionMap[action];
   if (func) {
-    const response = await func();
+    const response = await func(req, res);
     return res.status(200).json(response);
   }
   return res.status(404).json({ message: "UNKNOWN_FREQUENCY", action });
