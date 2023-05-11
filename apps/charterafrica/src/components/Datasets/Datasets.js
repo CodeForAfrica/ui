@@ -13,6 +13,7 @@ import queryString from "@/charterafrica/utils/datasets/queryString";
 function Datasets({
   sx,
   data: originalDatasets,
+  labels,
   tags = [],
   countries = [],
   totalPages: originalTotalPages,
@@ -77,6 +78,7 @@ function Datasets({
         <DatasetFilterBar
           tags={tags}
           countries={countries}
+          labels={labels}
           sortOptions={sortOptions}
           onQChange={handleChangeQ}
           onSortChange={handleChangeSort}
