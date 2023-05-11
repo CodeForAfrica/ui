@@ -15,7 +15,7 @@ async function datasets(req, res) {
   } = req;
 
   try {
-    const { organizationId } = await payload.findGlobal("datasets");
+    const { organizationId } = await payload.findGlobal("openAfrica");
     const data = await fetchDatasets(organizationId, {
       q,
       page,
