@@ -6,6 +6,21 @@ export const PEOPLE_COLLECTION = "people";
 export const TOOL_COLLECTION = "tools";
 export const DIGITAL_DEMOCRACY_ECOSYSTEM = "digital-democracy-ecosystem-config";
 
+function removeDuplicatesByKey(arr, key) {
+  const uniqueKeys = new Set();
+  return (arr || []).filter((obj) => {
+    if (!obj) {
+      return false;
+    }
+    const objKey = obj[key];
+    if (!uniqueKeys.has(objKey)) {
+      uniqueKeys.add(objKey);
+      return true;
+    }
+    return false;
+  });
+}
+
 export const createOrganization = async (toCreate) => {
   const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {
     where: {
@@ -44,11 +59,20 @@ export const createPerson = async (toCreate) => {
   return data;
 };
 
-const bulkCreatePeople = async (contributors = []) => {
-  const promises = contributors?.map((contributor) =>
-    createPerson(contributor)
-  );
-  return Promise.all(promises);
+export const bulkCreatePeople = async (contributors = []) => {
+  const promises = contributors?.map(async (contributor) => {
+    return createPerson(contributor);
+  });
+  const results = await Promise.all(promises);
+  return results;
+};
+
+export const bulkCreateOrganisations = async (organisations = []) => {
+  const promises = organisations?.map(async (organisation) => {
+    return createOrganization(organisation);
+  });
+  const results = await Promise.all(promises);
+  return results;
 };
 
 export const updateOrCreateTool = async (data) => {
@@ -60,7 +84,7 @@ export const updateOrCreateTool = async (data) => {
     const createdPeople = await bulkCreatePeople(people);
     const toCreate = {
       ...rest,
-      people: createdPeople.map((person) => person.id),
+      people: createdPeople.map((person) => person?.id),
       organisation: createdOrganization?.id,
       updatedAt: new Date(),
     };
@@ -81,6 +105,28 @@ export const updateOrCreateTool = async (data) => {
     const res = await api.createCollection(TOOL_COLLECTION, toCreate);
     return res;
   } catch (error) {
-    throw new FetchError(error.message, error, 500);
+    throw new FetchError(error.message, data, 500);
   }
+};
+
+export const bulkCreateTools = async (tools) => {
+  const organisationsToCreate = removeDuplicatesByKey(
+    tools.map(({ organisation }) => organisation),
+    "externalId"
+  ).filter((org) => !!org.externalId);
+  await bulkCreateOrganisations(organisationsToCreate);
+  const peopleToCreate = removeDuplicatesByKey(
+    tools.flatMap((obj) => obj.people),
+    "externalId"
+  ).filter((person) => !!person?.externalId);
+  await bulkCreatePeople(peopleToCreate);
+  const toBulkCreate = tools.map(async (item) => {
+    return updateOrCreateTool(item);
+  });
+  const allSettled = await Promise.allSettled(toBulkCreate);
+  const completed = allSettled
+    .filter((p) => p.status === "fulfilled")
+    .map((p) => p.value);
+  const rejected = allSettled.filter((p) => p.status === "rejected");
+  return { completed, rejected };
 };

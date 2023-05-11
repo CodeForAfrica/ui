@@ -2,7 +2,7 @@ import api from "../payload";
 
 import { fetchRepository } from "./github";
 import {
-  updateOrCreateTool,
+  bulkCreateTools,
   TOOL_COLLECTION,
   DIGITAL_DEMOCRACY_ECOSYSTEM,
 } from "./models";
@@ -96,19 +96,18 @@ export const updateEcosystemResource = async () => {
         repositoryName,
       });
       const toCreate = processRepository(gitData, rawData);
-      const tool = await updateOrCreateTool({ ...toCreate, id });
+      const tool = { ...toCreate, id };
       return tool;
     }
     throw new FetchError(`${externalId} is invalid`, rawData, 500);
   });
   const promises = await Promise.allSettled(toProcess);
-  const completed = promises
+  const toCreate = promises
     .filter((p) => p.status === "fulfilled")
     .map((p) => p.value);
-  // TODO Handle errors
-  const rejected = promises.filter((p) => p.status === "rejected");
-
-  return { completed, rejected };
+  const failedProcessing = promises.filter((p) => p.status === "rejected");
+  const { completed, rejected } = await bulkCreateTools(toCreate);
+  return { completed, rejected: [...rejected, ...failedProcessing] };
 };
 
 export const createEcosystemResource = async () => {
@@ -164,16 +163,14 @@ export const createEcosystemResource = async () => {
           name: dataFromSheet.name,
           deletedAt: null,
         };
-        const tool = await updateOrCreateTool(toCreate);
-        return tool;
+        return toCreate;
       }
       const gitData = await fetchRepository({
         repositoryOwner,
         repositoryName,
       });
       const toCreate = processRepository(gitData, dataFromSheet);
-      const tool = await updateOrCreateTool(toCreate);
-      return tool;
+      return toCreate;
     }
     throw new FetchError(
       `Tool is invalid at row ${i}. Use format *CodeForAfrica/ui*`,
@@ -182,11 +179,10 @@ export const createEcosystemResource = async () => {
     );
   });
   const promises = await Promise.allSettled(toProcess);
-  const completed = promises
+  const toCreate = promises
     .filter((p) => p.status === "fulfilled")
     .map((p) => p.value);
-  // TODO Handle errors
-  const rejected = promises.filter((p) => p.status === "rejected");
-
-  return { completed, rejected };
+  const failedProcessing = promises.filter((p) => p.status === "rejected");
+  const { completed, rejected } = await bulkCreateTools(toCreate);
+  return { completed, rejected: [...rejected, ...failedProcessing] };
 };

@@ -74,7 +74,7 @@ async function processPagePeople(page, api, context) {
     return processSingleContributor(page, api, context);
   }
   const toolQueries = orQueryBuilder(
-    ["description", "fullName", "country", "userName", "externalId"],
+    ["description", "fullName", "country", "userName", "externalId", "name"],
     search
   );
   const query = {
@@ -94,7 +94,7 @@ async function processPagePeople(page, api, context) {
     return {
       ...person,
       description: person.description || " ",
-      name: person.fullName || " ",
+      name: person.fullName || person.username,
       image: person.avatarUrl ?? null,
       lastActive: person.lastActive
         ? formatDateTime(person.lastActive, {})

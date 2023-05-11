@@ -26,7 +26,7 @@ const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
   });
 
   const onFilterChange = (value) => {
-    const newValues = { ...values, ...value };
+    const newValues = { ...values, ...value, page: 1 };
     setValues(newValues);
     if (!value.search) {
       router.push({
