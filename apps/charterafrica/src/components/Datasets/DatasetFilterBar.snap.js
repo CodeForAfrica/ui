@@ -16,7 +16,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         >
           <input
             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1u6lhwd-MuiInputBase-input-MuiOutlinedInput-input"
-            placeholder="Search Database"
+            placeholder="Search"
             type="search"
             value=""
           />
@@ -41,7 +41,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
               class="css-yjsfm1"
             >
               <span>
-                Search Database
+                Search
               </span>
             </legend>
           </fieldset>
@@ -51,7 +51,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-lg-3 css-jevw09-MuiGrid-root"
       >
         <div
-          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-l3ln04-MuiAutocomplete-root"
+          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-l3ln04-MuiAutocomplete-root"
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-hcvzns-MuiFormControl-root-MuiTextField-root"
@@ -70,11 +70,30 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
                 role="combobox"
                 spellcheck="false"
                 type="text"
-                value=""
+                value="Sort"
               />
               <div
                 class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
               >
+                <button
+                  aria-label="Clear"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
+                  tabindex="-1"
+                  title="Clear"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="CloseIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                    />
+                  </svg>
+                </button>
                 <button
                   aria-label="Open"
                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
@@ -117,21 +136,26 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-lg-3 css-195h445-MuiGrid-root"
       >
         <div
-          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-17q8kc6-MuiAutocomplete-root"
+          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-17q8kc6-MuiAutocomplete-root"
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-hcvzns-MuiFormControl-root-MuiTextField-root"
           >
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-mtvuba-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1hg3r3m-MuiInputBase-root-MuiOutlinedInput-root"
             >
+              <p
+                class="MuiTypography-root MuiTypography-p1 css-1iv56pm-MuiTypography-root"
+              >
+                Countries
+              </p>
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
                 aria-invalid="false"
                 autocapitalize="none"
                 autocomplete="off"
-                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-222ubz-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-1lp1hoy-MuiInputBase-input-MuiOutlinedInput-input"
                 id=":r2:"
                 role="combobox"
                 spellcheck="false"
@@ -141,6 +165,25 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
               <div
                 class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
               >
+                <button
+                  aria-label="Clear"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
+                  tabindex="-1"
+                  title="Clear"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="CloseIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                    />
+                  </svg>
+                </button>
                 <button
                   aria-label="Open"
                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
@@ -183,21 +226,26 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-lg-3 css-jevw09-MuiGrid-root"
       >
         <div
-          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-17q8kc6-MuiAutocomplete-root"
+          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-17q8kc6-MuiAutocomplete-root"
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-hcvzns-MuiFormControl-root-MuiTextField-root"
           >
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-mtvuba-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1hg3r3m-MuiInputBase-root-MuiOutlinedInput-root"
             >
+              <p
+                class="MuiTypography-root MuiTypography-p1 css-1iv56pm-MuiTypography-root"
+              >
+                Tags
+              </p>
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
                 aria-invalid="false"
                 autocapitalize="none"
                 autocomplete="off"
-                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-222ubz-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-1lp1hoy-MuiInputBase-input-MuiOutlinedInput-input"
                 id=":r4:"
                 role="combobox"
                 spellcheck="false"
@@ -207,6 +255,25 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
               <div
                 class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
               >
+                <button
+                  aria-label="Clear"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
+                  tabindex="-1"
+                  title="Clear"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="CloseIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                    />
+                  </svg>
+                </button>
                 <button
                   aria-label="Open"
                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"

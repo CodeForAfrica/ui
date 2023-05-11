@@ -16,6 +16,12 @@ const defaultProps = {
   created: "2021-01-01T00:00:00.000Z",
   updated: "2021-01-01T00:00:00.000Z",
   author: "Author Name",
+  labels: {
+    countries: "Countries",
+    tags: "Tags",
+    sort: "Sort",
+    search: "Search",
+  },
 };
 
 describe("<DatasetCard />", () => {
