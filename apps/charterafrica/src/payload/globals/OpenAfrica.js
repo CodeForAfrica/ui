@@ -13,9 +13,6 @@ const OpenAfrica = {
       },
       type: "text",
       required: true,
-      //   hooks: {
-      //     afterChange: [updateDatasetsStatistics],
-      //   },
     },
   ],
 };
