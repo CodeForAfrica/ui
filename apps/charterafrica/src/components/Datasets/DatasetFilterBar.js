@@ -43,11 +43,16 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     onChangeTags,
     search: searchProp,
     countries,
+    labels,
     tags,
     sortOptions,
   } = props;
 
   const [value, setValue] = useState(searchProp || "");
+  const [selectedCountries, setSelectedCountries] = useState([
+    labels.countries,
+  ]);
+  const [selectedTags, setSelectedTags] = useState([labels.tags]);
 
   const handleChangeQ = (e) => {
     setValue(e.target.value);
@@ -75,15 +80,39 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     }
   };
 
-  const handleChangeCountry = (e, selectedCountries) => {
-    if (onChangeCountries) {
-      onChangeCountries(e, selectedCountries);
+  const handleChangeCountry = (e, checkedCountries) => {
+    let filteredCountries = [];
+    if (checkedCountries.length > 1) {
+      filteredCountries = checkedCountries.filter(
+        (country) => country !== labels.countries
+      );
+      setSelectedCountries(filteredCountries);
+      if (onChangeCountries) {
+        onChangeCountries(e, filteredCountries);
+      }
+    } else {
+      filteredCountries = [labels.countries];
+      setSelectedCountries(filteredCountries);
+      if (onChangeCountries) {
+        onChangeCountries(e, []);
+      }
     }
   };
 
-  const handleChangeTag = (e, selectedTags) => {
-    if (onChangeTags) {
-      onChangeTags(e, selectedTags);
+  const handleChangeTag = (e, checkedTags) => {
+    let filteredTags = [];
+    if (checkedTags.length > 1) {
+      filteredTags = checkedTags.filter((tag) => tag !== labels.tags);
+      setSelectedTags(filteredTags);
+      if (onChangeTags) {
+        onChangeTags(e, filteredTags);
+      }
+    } else {
+      filteredTags = [labels.tags];
+      setSelectedTags(filteredTags);
+      if (onChangeTags) {
+        onChangeTags(e, []);
+      }
     }
   };
 
@@ -92,7 +121,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
       <Grid container spacing={2}>
         <Grid item xs={12} lg={3}>
           <SearchInput
-            placeholder="Search Database"
+            placeholder={labels?.search || "Search Database"}
             value={value}
             onChange={handleChangeQ}
             onClick={handleClick}
@@ -107,7 +136,8 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
         </Grid>
         <Grid item xs={12} sm={4} lg={3}>
           <Autocomplete
-            options={sortOptions}
+            options={[labels.sort, ...sortOptions]}
+            defaultValue={labels.sort}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             onChange={handleChangeSort}
           />
@@ -115,7 +145,8 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
         <Grid item xs={12} sm={4} lg={3} overflow="hidden">
           <Autocomplete
             multiple
-            options={countries}
+            options={[labels.countries, ...countries]}
+            defaultValue={[labels.countries]}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderOption={(renderProps, option, { selected }) => (
               <li {...renderProps}>
@@ -130,6 +161,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
                   : checkedCountries.join(", ")}
               </StyledAutocompleteTags>
             )}
+            value={selectedCountries}
             onChange={handleChangeCountry}
             sx={{
               backgroundColor: neutral[50],
@@ -142,7 +174,8 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
         <Grid item xs={12} sm={4} lg={3}>
           <Autocomplete
             multiple
-            options={tags}
+            options={[labels.tags, ...tags]}
+            defaultValue={[labels.tags]}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderOption={(renderProps, option, { selected }) => (
               <li {...renderProps}>
@@ -150,6 +183,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
                 {option.toUpperCase()}
               </li>
             )}
+            value={selectedTags}
             onChange={handleChangeTag}
             renderTags={(checkedTags, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">

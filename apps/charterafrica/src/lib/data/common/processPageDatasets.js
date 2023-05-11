@@ -2,7 +2,6 @@ import fetchDatasets from "@/charterafrica/lib/openAfrica";
 
 export default async function processPageDatasets(page, api) {
   const { blocks } = page;
-  console.log("blocks::", blocks);
   const { organizationId } = await api.findGlobal("openAfrica");
   const data = await fetchDatasets(organizationId);
   const { count, datasets, countries, tags, totalPages } = data;
