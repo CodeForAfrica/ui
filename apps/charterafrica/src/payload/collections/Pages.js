@@ -1,4 +1,5 @@
 import CommunityPlatforms from "../blocks/CommunityPlatforms";
+import Datasets from "../blocks/Datasets";
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import Ecosystem from "../blocks/Ecosystem";
 import EmbeddedDocuments from "../blocks/EmbeddedDocuments";
@@ -18,6 +19,7 @@ import PageDescription from "../blocks/PageDescription";
 import PageHeader from "../blocks/PageHeader";
 import PageInfo from "../blocks/PageInfo";
 import Partners from "../blocks/Partners";
+import ResourceHeader from "../blocks/ResourceHeader";
 import Resources from "../blocks/Resources";
 import Spotlight from "../blocks/Spotlight";
 import fullTitle from "../fields/fullTitle";
@@ -46,6 +48,7 @@ const Pages = {
       type: "blocks",
       blocks: [
         CommunityPlatforms,
+        Datasets,
         DemocracyHelpdeskContent,
         Ecosystem,
         EmbeddedDocuments,
@@ -66,6 +69,7 @@ const Pages = {
         PageInfo,
         Partners,
         Resources,
+        ResourceHeader,
         Spotlight,
       ],
       admin: {

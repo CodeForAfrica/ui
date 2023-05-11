@@ -7,7 +7,7 @@ import { Chart, Key } from "@/charterafrica/components/Ecosystem";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 
 const DatasetsCharts = React.forwardRef(function DatasetsCharts(props, ref) {
-  const { sx, data } = props;
+  const { sx, data, title } = props;
 
   return (
     <Box bgcolor={secondary[50]} sx={sx} ref={ref}>
@@ -47,7 +47,7 @@ const DatasetsCharts = React.forwardRef(function DatasetsCharts(props, ref) {
                 variant="h2Small"
                 typography={{ md: "h2" }}
               >
-                Database
+                {title}
               </LineClampedRichTypography>
               <Key
                 data={data}
