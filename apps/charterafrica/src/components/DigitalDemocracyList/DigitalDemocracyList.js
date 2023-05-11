@@ -1,10 +1,10 @@
 import { Section, RichTypography } from "@commons-ui/core";
-import { Box, Grid } from "@mui/material";
-// import PropTypes from "prop-types";
-import { useRouter } from "next/router";
+import { Box, Grid, LinearProgress } from "@mui/material";
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 
 import DigitalDemocracyFilter from "./DigitalDemocracyFilter";
+import useRouterLoading from "./routerLoading";
 
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 
@@ -18,10 +18,10 @@ const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
     Component,
     title,
   } = props;
-  const router = useRouter();
+  const { router, loading } = useRouterLoading();
   const [values, setValues] = useState({
     search: "",
-    sort: "",
+    sort: "name",
     ...router.query,
   });
 
@@ -67,16 +67,16 @@ const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
           onQuerySearch={onQuerySearch}
         />
       </Section>
-      <Section>
+      <Section sx={{ pb: 5 }}>
         <RichTypography
           textAlign={{ xs: "center", sm: "left" }}
           color="neutral.dark"
           variant="h2SemiBold"
-          sx={{ mb: 5 }}
         >
           {title}
         </RichTypography>
-        <Grid container columnSpacing={2.5} rowSpacing={5}>
+        {loading ? <LinearProgress color="secondary" /> : null}
+        <Grid sx={{ mt: 5 }} container columnSpacing={2.5} rowSpacing={5}>
           {results.map((item) => {
             return (
               <Grid key={item.id} item xs={12} sm={4} md={3} lg={3}>
@@ -100,4 +100,26 @@ const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
   );
 });
 
+DigitalDemocracyList.propTypes = {
+  sx: PropTypes.shape({}),
+  results: PropTypes.arrayOf(PropTypes.shape({})),
+  searchPlaceholder: PropTypes.string,
+  pagination: PropTypes.shape({
+    page: PropTypes.number,
+    totalPages: PropTypes.number,
+  }),
+  sortOrder: PropTypes.arrayOf(PropTypes.shape({})),
+  Component: PropTypes.elementType,
+  title: PropTypes.string,
+};
+
+DigitalDemocracyList.defaultProps = {
+  Component: undefined,
+  pagination: undefined,
+  results: undefined,
+  searchPlaceholder: undefined,
+  sortOrder: undefined,
+  sx: undefined,
+  title: undefined,
+};
 export default DigitalDemocracyList;

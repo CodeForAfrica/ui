@@ -68,13 +68,13 @@ async function processPageOrganisations(page, api, context) {
   const {
     locale,
     params,
-    query: { page: pageNumber = 1, limit = 12, search, sort } = {},
+    query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
   } = context;
   if (params?.slugs?.length > 2) {
     return processSingleOrganisation(page, api, context);
   }
   const toolQueries = orQueryBuilder(
-    ["description", "location", "name", "externalId"],
+    ["description", "location", "name", "externalId", "slug"],
     search
   );
   const query = {

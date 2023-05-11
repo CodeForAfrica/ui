@@ -65,10 +65,10 @@ async function processPageTools(page, api, context) {
   const { blocks, breadcrumbs } = page;
   const {
     locale,
-    query: { page: pageNumber = 1, limit = 12, search, sort } = {},
+    query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
   } = context;
   const toolQueries = orQueryBuilder(
-    ["description", "topic", "location", "name", "id"],
+    ["description", "topic", "location", "name", "id", "slug"],
     search
   );
   const query = {
@@ -101,6 +101,7 @@ async function processPageTools(page, api, context) {
     }
     return {
       ...tool,
+      description: tool.description ?? " ",
       link: {
         href,
       },
