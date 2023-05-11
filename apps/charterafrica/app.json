@@ -1,9 +1,9 @@
 {
   "name": "charterafrica",
   "scripts": {
-    "predeploy": "export BASE_URL=$(dokku config:get charterafrica BASE_URL) && export API_KEY=$(dokku config:get charterafrica API_KEY)",
-    "update-ecosystem-resource": "curl -H \"x-api-key: $API_KEY\" $BASE_URL/api/v1/resources/update-ecosystem-resource",
-    "create-ecosystem-resource": "curl -H \"x-api-key: $API_KEY\" $BASE_URL/api/v1/resources/create-ecosystem-resource"
+    "predeploy": "export PAYLOAD_PUBLIC_APP_URL=$(dokku config:get charterafrica PAYLOAD_PUBLIC_APP_URL) && export PAYLOAD_SECRET_KEY=$(dokku config:get charterafrica PAYLOAD_SECRET_KEY)",
+    "update-ecosystem-resource": "curl -H \"x-api-key: $PAYLOAD_SECRET_KEY\" $PAYLOAD_PUBLIC_APP_URL/api/v1/resources/update-ecosystem-resource",
+    "create-ecosystem-resource": "curl -H \"x-api-key: $PAYLOAD_SECRET_KEY\" $PAYLOAD_PUBLIC_APP_URL/api/v1/resources/create-ecosystem-resource"
   },
   "cron": [
     {
