@@ -31,7 +31,7 @@ exports[`<DatasetsChart /> renders unchanged 1`] = `
             <div
               class="MuiTypography-root MuiTypography-h2Small css-tqlili-MuiTypography-root"
             >
-              Database
+              Datasets
             </div>
             <div
               class="MuiBox-root css-1iuqtyj"

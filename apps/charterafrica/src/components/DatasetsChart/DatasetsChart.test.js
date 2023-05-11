@@ -23,6 +23,7 @@ const defaultProps = {
       color: "#FBE49A",
     },
   ],
+  title: "Datasets",
 };
 
 describe("<DatasetsChart />", () => {
