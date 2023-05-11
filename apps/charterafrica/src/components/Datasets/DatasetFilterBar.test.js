@@ -29,6 +29,12 @@ const defaultProps = {
       value: "metadata_created asc",
     },
   ],
+  labels: {
+    countries: "Countries",
+    tags: "Tags",
+    sort: "Sort",
+    search: "Search",
+  },
 };
 
 describe("<DatasetFilterBar />", () => {
