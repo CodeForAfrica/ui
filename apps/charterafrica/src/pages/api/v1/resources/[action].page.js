@@ -1,15 +1,15 @@
 import {
-  createEcosystemResource,
-  updateEcosystemResource,
-} from "@/charterafrica/lib/tools/syncEcosystem";
+  updateEcosystemList,
+  updateEcosystemContent,
+} from "@/charterafrica/lib/tools/ecosystem";
 
 const isApiKeyValid = (key) => {
-  return key && key === process.env.LOCAL_API_KEY;
+  return key && key === process.env.RESOURCES_SECRET_TOKEN;
 };
 
-const functionMap = {
-  "create-ecosystem-resource": createEcosystemResource,
-  "update-ecosystem-resource": updateEcosystemResource,
+const actionMap = {
+  "update-ecosystem-list": updateEcosystemList,
+  "update-ecosystem-content": updateEcosystemContent,
 };
 
 export default async function handler(req, res) {
@@ -20,10 +20,10 @@ export default async function handler(req, res) {
   if (!isApiKeyValid(key)) {
     return res.status(403).json({ message: "INVALID API KEY" });
   }
-  const func = functionMap[action];
-  if (func) {
-    const response = await func(req, res);
+  const actionFunc = actionMap[action];
+  if (actionFunc) {
+    const response = await actionFunc(req, res);
     return res.status(200).json(response);
   }
-  return res.status(404).json({ message: "UNKNOWN_FREQUENCY", action });
+  return res.status(404).json({ message: "UNKNOWN_ACTION", action });
 }

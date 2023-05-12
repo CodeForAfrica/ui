@@ -39,7 +39,7 @@ const processRepository = (data, { topic, externalId, name, location }) => {
     lastActive: data.owner.updatedAt,
   };
 
-  const languagesTechSkills = data.languages?.nodes?.map((language) => ({
+  const techSkills = data.languages?.nodes?.map((language) => ({
     language: language?.name,
   }));
   const tool = {
@@ -50,7 +50,7 @@ const processRepository = (data, { topic, externalId, name, location }) => {
     link: data?.homepageUrl,
     location,
     subject: topic,
-    languagesTechSkills,
+    techSkills,
     lastCommit: data?.defaultBranchRef,
     stars: data?.stargazers?.totalCount,
     views: data?.watchers?.totalCount,
@@ -83,7 +83,7 @@ const getDataFromSource = ({ toolGithub }) => {
   });
 };
 
-export const updateEcosystemResource = async () => {
+export const updateEcosystemList = async () => {
   const { docs } = await api.getCollection(TOOL_COLLECTION);
   const toProcess = docs.map(async (rawData) => {
     const { externalId, id } = rawData;
@@ -110,7 +110,7 @@ export const updateEcosystemResource = async () => {
   return { completed, rejected: [...rejected, ...failedProcessing] };
 };
 
-export const createEcosystemResource = async () => {
+export const updateEcosystemContent = async () => {
   const { columnMappings } = await api.findGlobal(
     DIGITAL_DEMOCRACY_ECOSYSTEM,
     {}

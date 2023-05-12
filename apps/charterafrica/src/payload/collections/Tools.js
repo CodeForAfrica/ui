@@ -97,10 +97,11 @@ const Tools = {
       label: { en: "Subject", fr: "Sujet", pt: "Assunto" },
     },
     {
-      name: "languagesTechSkills",
+      name: "techSkills",
       type: "array",
       admin: {
         readOnly: true,
+        initCollapsed: true,
       },
       label: {
         en: "Languages / Tech skills",

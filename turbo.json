@@ -15,7 +15,7 @@
       "dependsOn": ["^build"],
       "outputs": ["build", ".next/**"],
       "env": [
-        "LOCAL_API_KEY",
+        "RESOURCES_SECRET_TOKEN",
         "MONGO_URL",
         "NEXT_BUILD",
         "NEXT_HOSTNAME",

@@ -12,7 +12,8 @@ const collectionMap = {
 
 export default async function handler(req, res) {
   const { query: { collection, locale = "en", ...query } = {} } = req;
-  if (!Object.keys(collectionMap).includes(collection)) {
+  const collectionFunc = collectionMap[collection];
+  if (!collectionFunc) {
     return res.status(400).json({ message: "UNKNOWN_COLLECTION", collection });
   }
   const breadcrumbs = [
@@ -28,6 +29,6 @@ export default async function handler(req, res) {
     locale,
     query,
   };
-  const found = await collectionMap[collection](page, context);
+  const found = await collectionFunc(page, context);
   return res.status(200).json(found);
 }

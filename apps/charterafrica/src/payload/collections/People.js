@@ -38,7 +38,7 @@ const People = {
       name: "fullName",
       type: "text",
       label: {
-        en: "People Full Name",
+        en: "Full Name",
         fr: "Nom complet de la personne",
         pt: "Nome completo da Pessoa",
       },
@@ -51,7 +51,7 @@ const People = {
       name: "username",
       type: "text",
       label: {
-        en: "People Username",
+        en: "Username",
         fr: "Nom d'utilisateur de la personne",
         pt: "Nome de usuário da Pessoa",
       },
@@ -63,7 +63,7 @@ const People = {
       name: "description",
       type: "textarea",
       label: {
-        en: "People Description",
+        en: "Description",
         fr: "Description de la personne",
         pt: "Descrição da Pessoa",
       },
@@ -91,7 +91,7 @@ const People = {
       name: "country",
       type: "text",
       label: {
-        en: "People Country",
+        en: "Country",
         fr: "Pays de la personne",
         pt: "País da Pessoa",
       },
@@ -103,7 +103,7 @@ const People = {
       name: "twitter",
       type: "text",
       label: {
-        en: "People Twitter",
+        en: "Twitter",
         fr: "Twitter de la personne",
         pt: "Twitter da Pessoa",
       },
