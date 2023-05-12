@@ -1,7 +1,5 @@
 import { array } from "payload/dist/fields/validations";
 
-import { validateHexColor } from "../utils/colors";
-
 const sortOptions = [
   "metadata_created desc",
   "metadata_created asc",
@@ -77,173 +75,110 @@ const Datasets = {
         },
       ],
     },
-    {
-      name: "labels",
-      type: "group",
-      label: {
-        en: "Filter Labels",
-        fr: "Étiquettes de filtre",
-        pt: "Rótulos de filtro",
-      },
-      fields: [
-        {
-          type: "row",
-          fields: [
-            {
-              name: "search",
-              type: "text",
-              label: {
-                en: "Search Label",
-                fr: "Étiquette de recherche",
-                pt: "Rótulo de pesquisa",
-              },
-              required: true,
-              localized: true,
-            },
-            {
-              name: "sort",
-              type: "text",
-              label: {
-                en: "Sort Label",
-                fr: "Étiquette de tri",
-                pt: "Rótulo de classificação",
-              },
-              required: true,
-              localized: true,
-            },
-            {
-              name: "countries",
-              type: "text",
-              label: {
-                en: "Countries Label",
-                fr: "Étiquette des pays",
-                pt: "Rótulo dos países",
-              },
-              required: true,
-              localized: true,
-            },
-            {
-              name: "tags",
-              type: "text",
-              label: {
-                en: "Tags Label",
-                fr: "Étiquette des tags",
-                pt: "Rótulo das tags",
-              },
-              required: true,
-              localized: true,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "statistics",
-      type: "group",
-      label: {
-        en: "Statistics",
-        fr: "Statistiques",
-        pt: "Estatísticas",
-      },
-      fields: [
-        {
-          name: "datasets",
-          type: "group",
-          label: {
-            en: "Datasets",
-            fr: "Jeux de données",
-            pt: "Conjuntos de dados",
-          },
-          fields: [
-            {
-              type: "row",
-              fields: [
-                {
-                  name: "label",
-                  type: "text",
-                  label: {
-                    en: "Datasets Label",
-                    fr: "Étiquette des jeux de données",
-                    pt: "Rótulo dos conjuntos de dados",
-                  },
-                  required: true,
-                  localized: true,
-                },
-                {
-                  name: "count",
-                  type: "number",
-                  label: {
-                    en: "Datasets Count",
-                    fr: "Nombre de jeux de données",
-                    pt: "Contagem de conjuntos de dados",
-                  },
-                  defaultValue: 1,
-                  admin: {
-                    readOnly: true,
-                  },
-                },
-                {
-                  name: "color",
-                  type: "text",
-                  label: {
-                    en: "Datasets Colour",
-                    fr: "Couleur des jeux de données",
-                    pt: "Cor dos conjuntos de dados",
-                  },
-                  validate: validateHexColor,
-                  required: true,
-                },
-              ],
-            },
-          ],
-        },
 
+    {
+      label: {
+        en: "Datasets Labels",
+        fr: "Étiquettes des jeux de données",
+        pt: "Rótulos dos conjuntos de dados",
+      },
+      type: "collapsible",
+      fields: [
         {
-          name: "documents",
+          name: "labels",
           type: "group",
           label: {
-            en: "Documents",
-            fr: "Documents",
-            pt: "Documentos",
+            en: "Labels",
+            fr: "Étiquettes",
+            pt: "Rótulos",
           },
           fields: [
             {
               type: "row",
               fields: [
                 {
-                  name: "label",
+                  name: "search",
                   type: "text",
                   label: {
-                    en: "Documents Label",
-                    fr: "Étiquette des documents",
-                    pt: "Rótulo dos documentos",
+                    en: "Search Label",
+                    fr: "Étiquette de recherche",
+                    pt: "Rótulo de pesquisa",
                   },
                   required: true,
                   localized: true,
-                },
-                {
-                  name: "count",
-                  type: "number",
-                  label: {
-                    en: "Documents Count",
-                    fr: "Nombre de documents",
-                    pt: "Contagem de documentos",
-                  },
-                  defaultValue: 1,
                   admin: {
-                    readOnly: true,
+                    width: "50%",
                   },
                 },
                 {
-                  name: "color",
+                  name: "sort",
                   type: "text",
                   label: {
-                    en: "Datasets Colour",
-                    fr: "Couleur des documents",
-                    pt: "Cor dos documentos",
+                    en: "Sort Label",
+                    fr: "Étiquette de tri",
+                    pt: "Rótulo de classificação",
                   },
-                  validate: validateHexColor,
                   required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "countries",
+                  type: "text",
+                  label: {
+                    en: "Countries Label",
+                    fr: "Étiquette des pays",
+                    pt: "Rótulo dos países",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "tags",
+                  type: "text",
+                  label: {
+                    en: "Tags Label",
+                    fr: "Étiquette des tags",
+                    pt: "Rótulo das tags",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "readMore",
+                  type: "text",
+                  label: {
+                    en: "Read More Label",
+                    fr: "Lire la suite",
+                    pt: "Leia mais",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "readLess",
+                  type: "text",
+                  label: {
+                    en: "Read Less Label",
+                    fr: "Lire moins",
+                    pt: "Leia menos",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
                 },
               ],
             },

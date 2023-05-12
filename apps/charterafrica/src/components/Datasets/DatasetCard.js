@@ -5,7 +5,17 @@ import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
-function DatasetCard({ formats, notes, title, created, updated, author, sx }) {
+function DatasetCard({
+  formats,
+  notes,
+  title,
+  created,
+  readMore,
+  readLess,
+  updated,
+  author,
+  sx,
+}) {
   const [showAll, setShowAll] = useState(false);
 
   const handleClick = () => setShowAll(!showAll);
@@ -68,7 +78,7 @@ function DatasetCard({ formats, notes, title, created, updated, author, sx }) {
             }}
             onClick={handleClick}
           >
-            {showAll ? "Read Less" : "Read More"}
+            {showAll ? readLess : readMore}
           </Button>
         </Grid>
         <Grid

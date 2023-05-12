@@ -87,7 +87,12 @@ function Datasets({
         />
         {isLoading ? <LinearProgress color="secondary" /> : null}
         {datasets?.map((dataset) => (
-          <DatasetCard key={dataset.name} {...dataset} />
+          <DatasetCard
+            key={dataset.name}
+            {...dataset}
+            readMore={labels.readMore}
+            readLess={labels.readLess}
+          />
         ))}
         <NextPrevPagination
           count={totalPages}
