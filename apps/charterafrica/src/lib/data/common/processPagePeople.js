@@ -124,7 +124,7 @@ async function processPagePeople(page, api, context) {
     blocks.push(tool);
   }
   const { slugs, ...queryParams } = context.query;
-  let swrKey = `/api/v1/resources/people`;
+  let swrKey = `/api/v1/resources/collection/people`;
   const qs = new URLSearchParams(queryParams).toString();
   if (qs) {
     swrKey = `${swrKey}?${qs}`;

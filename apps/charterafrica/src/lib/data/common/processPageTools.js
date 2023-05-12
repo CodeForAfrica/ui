@@ -138,7 +138,7 @@ async function processPageTools(page, api, context) {
     blocks.push(tool);
   }
   const { slugs, ...queryParams } = context.query;
-  let swrKey = `/api/v1/resources/tools`;
+  let swrKey = `/api/v1/resources/collection/tools`;
   const qs = new URLSearchParams(queryParams).toString();
   if (qs) {
     swrKey = `${swrKey}?${qs}`;

@@ -133,7 +133,7 @@ async function processPageOrganisations(page, api, context) {
     blocks.push(tool);
   }
   const { slugs, ...queryParams } = context.query;
-  let swrKey = `/api/v1/resources/organisations`;
+  let swrKey = `/api/v1/resources/collection/organisations`;
   const qs = new URLSearchParams(queryParams).toString();
   if (qs) {
     swrKey = `${swrKey}?${qs}`;
