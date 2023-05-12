@@ -7,14 +7,14 @@ export const TOOL_COLLECTION = "tools";
 export const DIGITAL_DEMOCRACY_ECOSYSTEM = "digital-democracy-ecosystem-config";
 
 function removeDuplicatesByKey(arr, key) {
-  const uniqueKeys = new Set();
+  const uniqueKeys = new Map();
   return (arr || []).filter((obj) => {
     if (!obj) {
       return false;
     }
     const objKey = obj[key];
     if (!uniqueKeys.has(objKey)) {
-      uniqueKeys.add(objKey);
+      uniqueKeys.set(objKey, true);
       return true;
     }
     return false;
@@ -60,7 +60,7 @@ export const createPerson = async (toCreate) => {
 };
 
 export const bulkCreatePeople = async (contributors = []) => {
-  const promises = contributors?.map(async (contributor) => {
+  const promises = contributors.map(async (contributor) => {
     return createPerson(contributor);
   });
   const results = await Promise.all(promises);
