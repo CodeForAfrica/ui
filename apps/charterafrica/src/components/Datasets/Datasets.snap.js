@@ -6,7 +6,7 @@ exports[`<Datasets /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1vfict-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-16qnzbm-MuiContainer-root"
     >
       <div
         class="MuiBox-root css-1kgakwq"
