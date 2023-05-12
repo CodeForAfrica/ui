@@ -1,5 +1,5 @@
-const ResourceHeader = {
-  slug: "resource-header",
+const ResourcePageHeader = {
+  slug: "resource-page-header",
   fields: [
     {
       name: "title",
@@ -30,14 +30,6 @@ const ResourceHeader = {
           },
         },
         {
-          value: "Ecosystem",
-          label: {
-            en: "Ecosystem",
-            fr: "Écosystème",
-            pt: "Ecossistema",
-          },
-        },
-        {
           value: "tool",
           label: {
             en: "Tool",
@@ -50,4 +42,4 @@ const ResourceHeader = {
   ],
 };
 
-export default ResourceHeader;
+export default ResourcePageHeader;
