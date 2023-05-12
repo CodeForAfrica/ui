@@ -1,0 +1,10 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "storybook-static/**"],
+      "env": ["STORYBOOK_DISABLE_TELEMETRY"]
+    }
+  }
+}
