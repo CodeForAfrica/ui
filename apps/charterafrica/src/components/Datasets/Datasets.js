@@ -74,7 +74,9 @@ function Datasets({
 
   return (
     <Box bgcolor="common.white" sx={sx}>
-      <Section sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: "50px" } }}>
+      <Section
+        sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: 0 }, pb: { md: 5 } }}
+      >
         <DatasetFilterBar
           tags={tags}
           countries={countries}
