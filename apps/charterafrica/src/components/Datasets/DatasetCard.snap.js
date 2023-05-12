@@ -3,7 +3,7 @@
 exports[`<DatasetCard /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-8ai3ev"
+    class="MuiBox-root css-se62jh"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-[object Object] css-bkp0sa-MuiGrid-root"
@@ -43,9 +43,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
           class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-a9l1o7-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
-        >
-          Read More
-        </button>
+        />
       </div>
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1k675k0-MuiGrid-root"
