@@ -10,16 +10,42 @@ const getDatasetsQuery = (context) => {
 
 export default async function processPageDatasets(page, api, context) {
   const { blocks } = page;
-  const { organizationId } = await api.findGlobal("openAfrica");
+  const { organizationId, statistics } = await api.findGlobal("openAfrica");
+
+  const resourceHeaderIndex = blocks.findIndex(
+    ({ slug }) => slug === "resource-header"
+  );
+
+  if (resourceHeaderIndex > -1) {
+    const { resourceType, title } = blocks[resourceHeaderIndex];
+    if (resourceType === "dataset") {
+      blocks[resourceHeaderIndex] = {
+        slug: "datasets-charts",
+        title,
+        data: [
+          {
+            id: "datasets",
+            value: statistics.datasets,
+            label: "Datasets",
+            color: "#FFC107",
+          },
+          {
+            id: "documents",
+            value: statistics.documents,
+            label: "Documents",
+            color: "#FF9800",
+          },
+        ],
+      };
+    }
+  }
+
   const data = await fetchDatasets(organizationId);
   const { count, datasets, countries, tags, totalPages } = data;
 
   const datasetsIndex = blocks.findIndex(({ slug }) => slug === "datasets");
-  const resourceHeaderIndex = blocks.findIndex(
-    ({ slug }) => slug === "resource-header"
-  );
+
   if (datasetsIndex > -1) {
-    const { statistics } = blocks[datasetsIndex];
     blocks[datasetsIndex] = {
       ...blocks[datasetsIndex],
       count,
@@ -28,23 +54,6 @@ export default async function processPageDatasets(page, api, context) {
       tags,
       totalPages,
     };
-
-    if (resourceHeaderIndex > -1) {
-      const { resourceType, title } = blocks[resourceHeaderIndex];
-      if (resourceType === "dataset") {
-        blocks[resourceHeaderIndex] = {
-          slug: "datasets-charts",
-          title,
-          data: Object.keys(statistics).map((key) => {
-            return {
-              ...statistics[key],
-              id: key,
-              value: statistics[key].count,
-            };
-          }),
-        };
-      }
-    }
   }
   const swrKey = `/api/v1/resources/datasets`;
   const qs = datasetsQuery(getDatasetsQuery(context));
