@@ -1,4 +1,6 @@
-import fetchDatasets from "@/charterafrica/lib/openAfrica";
+import fetchDatasets, {
+  getOrganizationStatistics,
+} from "@/charterafrica/lib/openAfrica";
 import payload from "@/charterafrica/lib/payload";
 
 async function datasets(req, res) {
@@ -28,8 +30,36 @@ async function datasets(req, res) {
   }
 }
 
+async function datasetsStats(req, res) {
+  const { RESOURCES_SECRET_TOKEN } = process.env;
+  const { authorization } = req.headers;
+
+  if (RESOURCES_SECRET_TOKEN !== authorization) {
+    return res.status(401).json({ message: "UNAUTHORIZED" });
+  }
+  const { id, organizationId } = await payload.findGlobal("openAfrica");
+  const { datasetsCount, documentsCount } = await getOrganizationStatistics(
+    organizationId
+  );
+
+  try {
+    const data = await payload.updateGlobal("openAfrica", {
+      statistics: {
+        datasets: datasetsCount,
+        documents: documentsCount,
+      },
+    });
+    return res.status(200).json({
+      message: `Updated ${id} with ${JSON.stringify(data)}`,
+    });
+  } catch (error) {
+    return res.status(500).json({ error });
+  }
+}
+
 const dataHandlerMap = {
   datasets,
+  "datasets-stats": datasetsStats,
 };
 
 export default async function handler(req, res) {
