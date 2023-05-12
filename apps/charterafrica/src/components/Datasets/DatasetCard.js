@@ -23,9 +23,7 @@ function DatasetCard({
   return (
     <Box
       sx={{
-        border: "1px solid",
-        borderColor: neutral[50],
-        borderBottom: "none",
+        border: "none",
         p: 2.5,
         "&:last-child": {
           borderBottom: "1px solid",
