@@ -13,7 +13,7 @@ export default async function processPageDatasets(page, api, context) {
   const { organizationId, statistics } = await api.findGlobal("openAfrica");
 
   const resourceHeaderIndex = blocks.findIndex(
-    ({ slug }) => slug === "resource-header"
+    ({ slug }) => slug === "resource-page-header"
   );
 
   if (resourceHeaderIndex > -1) {

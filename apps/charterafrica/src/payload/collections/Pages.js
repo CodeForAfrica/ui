@@ -19,7 +19,7 @@ import PageDescription from "../blocks/PageDescription";
 import PageHeader from "../blocks/PageHeader";
 import PageInfo from "../blocks/PageInfo";
 import Partners from "../blocks/Partners";
-import ResourceHeader from "../blocks/ResourceHeader";
+import ResourcePageHeader from "../blocks/ResourcePageHeader";
 import Resources from "../blocks/Resources";
 import Spotlight from "../blocks/Spotlight";
 import fullTitle from "../fields/fullTitle";
@@ -69,7 +69,7 @@ const Pages = {
         PageInfo,
         Partners,
         Resources,
-        ResourceHeader,
+        ResourcePageHeader,
         Spotlight,
       ],
       admin: {
