@@ -34,11 +34,11 @@ const dataHandlerMap = {
 
 export default async function handler(req, res) {
   const {
-    query: { type },
+    query: { action },
   } = req;
-  const typeHandler = dataHandlerMap[type];
-  if (typeHandler) {
-    return typeHandler(req, res);
+  const actionHandler = dataHandlerMap[action];
+  if (actionHandler) {
+    return actionHandler(req, res);
   }
-  return res.status(404).json({ message: "UNKNOWN_DATA_TYPE", type });
+  return res.status(404).json({ message: "UNKNOWN_DATA_TYPE", action });
 }
