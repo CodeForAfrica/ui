@@ -8,8 +8,8 @@
     "next.js"
   ],
   "scripts": {
-    "lint-check": "eslint './'",
-    "lint": "eslint --fix './'",
+    "lint-check": "TIMING=1 eslint './'",
+    "lint": "TIMING=1 eslint --fix './'",
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {

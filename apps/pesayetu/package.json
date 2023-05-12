@@ -22,8 +22,8 @@
   },
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
-    "lint-check": "eslint './'",
-    "lint": "eslint --fix './'",
+    "lint-check": "TIMING=1 eslint './'",
+    "lint": "TIMING=1 eslint --fix './'",
     "jest": "jest",
     "playwright": "npx playwright test",
     "build": "next build",
