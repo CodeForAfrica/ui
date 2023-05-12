@@ -11,7 +11,7 @@ exports[`<ToolCard /> renders unchanged 1`] = `
       type="button"
     >
       <div
-        class="MuiBox-root css-14yuxbt"
+        class="MuiBox-root css-e92j10"
       >
         <img
           class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1xory4n-MuiCardMedia-root"

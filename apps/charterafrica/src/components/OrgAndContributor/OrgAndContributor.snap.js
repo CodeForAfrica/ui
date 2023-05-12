@@ -106,7 +106,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
           >
             <div
-              class="MuiBox-root css-14yuxbt"
+              class="MuiBox-root css-1aoqz6g"
             >
               <img
                 class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-fui0cu-MuiCardMedia-root"
@@ -166,7 +166,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
           >
             <div
-              class="MuiBox-root css-14yuxbt"
+              class="MuiBox-root css-1aoqz6g"
             >
               <img
                 class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-fui0cu-MuiCardMedia-root"

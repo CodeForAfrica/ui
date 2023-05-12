@@ -63,16 +63,12 @@ async function processSingleOrganisation(page, api, context) {
   };
 }
 
-async function processPageOrganisations(page, api, context) {
-  const { blocks, breadcrumbs } = page;
+export async function getOrganisations(page, api, context) {
+  const { breadcrumbs } = page;
   const {
     locale,
-    params,
     query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
   } = context;
-  if (params?.slugs?.length > 2) {
-    return processSingleOrganisation(page, api, context);
-  }
   const toolQueries = orQueryBuilder(
     ["description", "location", "name", "externalId", "slug"],
     search
@@ -110,7 +106,18 @@ async function processPageOrganisations(page, api, context) {
     };
   });
 
+  return { pagination, results };
+}
+
+async function processPageOrganisations(page, api, context) {
+  const { pagination, results } = await getOrganisations(page, api, context);
+  const { locale, params } = context;
+  if (params?.slugs?.length > 2) {
+    return processSingleOrganisation(page, api, context);
+  }
+  const { blocks } = page;
   const foundIndex = blocks.findIndex(({ slug }) => slug === "organisations");
+  const filterLabels = labelsPerLocale[locale];
   const tool = {
     slug: "organisations",
     results,
@@ -125,6 +132,16 @@ async function processPageOrganisations(page, api, context) {
   } else {
     blocks.push(tool);
   }
+  const { slugs, ...queryParams } = context.query;
+  let swrKey = `/api/v1/resources/organisations`;
+  const qs = new URLSearchParams(queryParams).toString();
+  if (qs) {
+    swrKey = `${swrKey}?${qs}`;
+  }
+  // eslint-disable-next-line no-param-reassign
+  page.fallback = {
+    [swrKey]: results,
+  };
   return page;
 }
 

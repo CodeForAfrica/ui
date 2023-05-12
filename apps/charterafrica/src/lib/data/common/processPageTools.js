@@ -43,8 +43,8 @@ async function processSingleTool(page, api, context) {
         contributors,
         tools,
         image: tool.avatarUrl ?? null,
-        name: tool.name,
-        topic: tool.topic,
+        name: tool.name ?? null,
+        topic: tool?.topic ?? null,
         toolsTitle: filterLabels.tools,
         contributorsTitle: filterLabels.contributors,
         lastActive: tool.lastActive
@@ -61,8 +61,8 @@ async function processSingleTool(page, api, context) {
   };
 }
 
-async function processPageTools(page, api, context) {
-  const { blocks, breadcrumbs } = page;
+export async function getTools(page, api, context) {
+  const { breadcrumbs } = page;
   const {
     locale,
     query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
@@ -74,11 +74,7 @@ async function processPageTools(page, api, context) {
   const query = {
     or: toolQueries,
   };
-  const { params } = context;
-  if (params.slugs.length > 2) {
-    return processSingleTool(page, api, context);
-  }
-  const filterLabels = labelsPerLocale[locale];
+
   const { docs, ...pagination } = await api.getCollection("tools", {
     locale,
     page: pageNumber,
@@ -108,8 +104,18 @@ async function processPageTools(page, api, context) {
       image: tool.avatarUrl ?? null,
     };
   });
+  return { results, pagination };
+}
 
+async function processPageTools(page, api, context) {
+  const { blocks } = page;
+  const { locale, params } = context;
+  if (params.slugs.length > 2) {
+    return processSingleTool(page, api, context);
+  }
+  const { pagination, results } = await getTools(page, api, context);
   const foundIndex = blocks.findIndex(({ slug }) => slug === "tools");
+  const filterLabels = labelsPerLocale[locale];
   const tool = {
     slug: "tools",
     results,
@@ -131,6 +137,16 @@ async function processPageTools(page, api, context) {
   } else {
     blocks.push(tool);
   }
+  const { slugs, ...queryParams } = context.query;
+  let swrKey = `/api/v1/resources/tools`;
+  const qs = new URLSearchParams(queryParams).toString();
+  if (qs) {
+    swrKey = `${swrKey}?${qs}`;
+  }
+  // eslint-disable-next-line no-param-reassign
+  page.fallback = {
+    [swrKey]: results,
+  };
   return page;
 }
 

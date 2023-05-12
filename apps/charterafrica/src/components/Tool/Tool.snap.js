@@ -463,7 +463,7 @@ exports[`<Tool /> renders unchanged 1`] = `
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
             >
               <div
-                class="MuiBox-root css-14yuxbt"
+                class="MuiBox-root css-e92j10"
               >
                 <img
                   class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1xory4n-MuiCardMedia-root"
@@ -523,7 +523,7 @@ exports[`<Tool /> renders unchanged 1`] = `
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
             >
               <div
-                class="MuiBox-root css-14yuxbt"
+                class="MuiBox-root css-e92j10"
               >
                 <img
                   class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1xory4n-MuiCardMedia-root"

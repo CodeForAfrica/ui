@@ -49,7 +49,13 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
         href={link?.href}
         disableCard={showButton}
       >
-        <Box sx={{ height: 200, width: "100%" }}>
+        <Box
+          sx={{
+            height: 200,
+            width: "100%",
+            maxWidth: responsive ? 585 : "100%",
+          }}
+        >
           <CardMedia
             image={image}
             component="img"

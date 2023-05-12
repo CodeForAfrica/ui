@@ -5,6 +5,43 @@ const orQueryBuilder = (fields, search) => {
   return fields.map((field) => ({ [field]: { like: search } }));
 };
 
+export async function getPeople(page, api, context) {
+  const {
+    locale,
+    query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
+  } = context;
+
+  const toolQueries = orQueryBuilder(
+    ["description", "fullName", "country", "userName", "externalId", "name"],
+    search
+  );
+  const query = {
+    or: toolQueries,
+  };
+
+  const { docs, ...pagination } = await api.getCollection("people", {
+    locale,
+    page: pageNumber,
+    limit,
+    sort,
+    where: {
+      ...query,
+    },
+  });
+  const results = docs.map((person) => {
+    return {
+      ...person,
+      description: person.description || " ",
+      name: person.fullName || person.username,
+      image: person.avatarUrl ?? null,
+      lastActive: person.lastActive
+        ? formatDateTime(person.lastActive, {})
+        : null,
+    };
+  });
+  return { pagination, results };
+}
+
 async function processSingleContributor(page, api, context) {
   const { params, locale } = context;
   const { slug: collection } = page;
@@ -65,44 +102,13 @@ async function processSingleContributor(page, api, context) {
 
 async function processPagePeople(page, api, context) {
   const { blocks } = page;
-  const {
-    locale,
-    params,
-    query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
-  } = context;
+  const { locale, params } = context;
   if (params?.slugs?.length > 2) {
     return processSingleContributor(page, api, context);
   }
-  const toolQueries = orQueryBuilder(
-    ["description", "fullName", "country", "userName", "externalId", "name"],
-    search
-  );
-  const query = {
-    or: toolQueries,
-  };
-  const filterLabels = labelsPerLocale[locale];
-  const { docs, ...pagination } = await api.getCollection("people", {
-    locale,
-    page: pageNumber,
-    limit,
-    sort,
-    where: {
-      ...query,
-    },
-  });
-  const results = docs.map((person) => {
-    return {
-      ...person,
-      description: person.description || " ",
-      name: person.fullName || person.username,
-      image: person.avatarUrl ?? null,
-      lastActive: person.lastActive
-        ? formatDateTime(person.lastActive, {})
-        : null,
-    };
-  });
-
+  const { pagination, results } = await getPeople(page, api, context);
   const foundIndex = blocks.findIndex(({ slug }) => slug === "people");
+  const filterLabels = labelsPerLocale[locale];
   const tool = {
     slug: "people",
     title: filterLabels.people,
@@ -117,6 +123,16 @@ async function processPagePeople(page, api, context) {
   } else {
     blocks.push(tool);
   }
+  const { slugs, ...queryParams } = context.query;
+  let swrKey = `/api/v1/resources/people`;
+  const qs = new URLSearchParams(queryParams).toString();
+  if (qs) {
+    swrKey = `${swrKey}?${qs}`;
+  }
+  // eslint-disable-next-line no-param-reassign
+  page.fallback = {
+    [swrKey]: results,
+  };
   return page;
 }
 

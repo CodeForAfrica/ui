@@ -1,50 +1,82 @@
 import { Section, RichTypography } from "@commons-ui/core";
 import { Box, Grid, LinearProgress } from "@mui/material";
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState, useImperativeHandle } from "react";
 
 import DigitalDemocracyFilter from "./DigitalDemocracyFilter";
-import useRouterLoading from "./routerLoading";
+import useDigitalDemocracy from "./useDigitalDemocracyList";
 
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 
 const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
   const {
     sx,
-    results,
+    results: originalResults,
     searchPlaceholder,
-    pagination: { page, totalPages },
+    pagination,
     sortOrder,
     Component,
     title,
   } = props;
-  const { router, loading } = useRouterLoading();
+  const router = useRouter();
   const [values, setValues] = useState({
-    search: "",
     sort: "name",
-    ...router.query,
+    page: router.query?.page,
+    search: router?.query?.search,
   });
 
-  const onFilterChange = (value) => {
-    const newValues = { ...values, ...value, page: 1 };
-    setValues(newValues);
-    if (!value.search) {
-      router.push({
-        query: newValues,
-      });
-    }
+  const [search, setSearch] = useState("");
+  const [data, setData] = useState({ results: originalResults, pagination });
+  const listRef = useRef();
+  useImperativeHandle(ref, () => listRef.current);
+  const updateParams = (vals) => {
+    const searchParams = new URLSearchParams(vals).toString();
+    const [pathname] = router.asPath.split("?");
+    router.replace(`${pathname}?${searchParams}`);
   };
 
+  const onFilterChange = ({ search: s, ...value }) => {
+    setSearch(s || "");
+    const newValues = s
+      ? { ...values, ...value }
+      : { ...values, ...value, search: s };
+    setValues(newValues);
+  };
+  const collection =
+    router.query?.slugs[(router.query?.slugs?.length || 1) - 1];
+  const res = useDigitalDemocracy({
+    collection,
+    ...values,
+    search: (search && values.search) || "",
+  });
+
+  const { data: d, loading } = res;
+  useEffect(() => {
+    if (d) {
+      setData(d);
+    }
+  }, [d]);
+
   const onQuerySearch = () => {
-    router.push({
-      query: values,
-    });
+    const vals = { ...values, search, page: 1 };
+    setValues(vals);
+    updateParams(vals);
   };
 
   const onPageChange = (p) => {
     onFilterChange({ page: p });
+    updateParams({ ...values, page: p, search });
   };
 
+  const {
+    results,
+    pagination: { totalPages, page },
+  } = data;
+
+  if (loading && listRef.current) {
+    listRef.current.scrollIntoView({ behavior: "smooth" });
+  }
   if (!results.length && !values.search) {
     return null;
   }
@@ -56,13 +88,13 @@ const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
         scrollMarginTop: { xs: "56px", sm: "64", md: "114px" },
         ...sx,
       }}
-      ref={ref}
+      ref={listRef}
     >
       <Section>
         <DigitalDemocracyFilter
           onChange={onFilterChange}
           searchPlaceholder={searchPlaceholder}
-          values={values}
+          values={{ ...values, search }}
           sortOrder={sortOrder}
           onQuerySearch={onQuerySearch}
         />
