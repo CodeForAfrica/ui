@@ -1,7 +1,6 @@
 import { Box, Grid, Typography, Chip, Button } from "@mui/material";
 import { useState } from "react";
 
-import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
@@ -25,10 +24,6 @@ function DatasetCard({
       sx={{
         border: "none",
         p: 2.5,
-        "&:last-child": {
-          borderBottom: "1px solid",
-          borderColor: neutral[50],
-        },
         ...sx,
       }}
     >
