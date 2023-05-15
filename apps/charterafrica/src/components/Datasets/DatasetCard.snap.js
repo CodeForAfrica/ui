@@ -3,7 +3,7 @@
 exports[`<DatasetCard /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-se62jh"
+    class="MuiBox-root css-vwqlya"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-[object Object] css-bkp0sa-MuiGrid-root"
