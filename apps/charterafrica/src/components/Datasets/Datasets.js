@@ -1,7 +1,7 @@
 import { Section } from "@commons-ui/core";
 import { Box, LinearProgress } from "@mui/material";
 import { useRouter } from "next/router";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useImperativeHandle } from "react";
 
 import DatasetCard from "./DatasetCard";
 import DatasetFilterBar from "./DatasetFilterBar";
@@ -10,15 +10,18 @@ import useDatasets from "./useDatasets";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import queryString from "@/charterafrica/utils/datasets/queryString";
 
-function Datasets({
-  sx,
-  data: originalDatasets,
-  labels,
-  tags = [],
-  countries = [],
-  totalPages: originalTotalPages,
-  sortOptions = [],
-}) {
+const Datasets = React.forwardRef(function Datasets(
+  {
+    sx,
+    data: originalDatasets,
+    labels,
+    tags = [],
+    countries = [],
+    totalPages: originalTotalPages,
+    sortOptions = [],
+  },
+  ref
+) {
   const [page, setPage] = useState(1);
   const [q, setQ] = useState("");
   const [sort, setSort] = useState("");
@@ -27,6 +30,8 @@ function Datasets({
   const [totalPages, setTotalPages] = useState(originalTotalPages);
   const [datasets, setDatasets] = useState(originalDatasets || []);
   const router = useRouter();
+  const datasetsRef = useRef();
+  useImperativeHandle(ref, () => datasetsRef.current);
   const { asPath } = router;
 
   const handleChangePage = (_, value) => setPage(value);
@@ -63,6 +68,10 @@ function Datasets({
     tags: selectedTags,
   });
 
+  if (isLoading && datasetsRef.current) {
+    datasetsRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+
   useEffect(() => {
     if (!isLoading) {
       const { datasets: filteredDatasets, totalPages: filteredTotalPages } =
@@ -73,7 +82,7 @@ function Datasets({
   }, [data, isLoading]);
 
   return (
-    <Box bgcolor="common.white" sx={sx}>
+    <Box bgcolor="common.white" sx={sx} ref={datasetsRef}>
       <Section
         sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: 0 }, pb: { md: 5 } }}
       >
@@ -105,6 +114,6 @@ function Datasets({
       </Section>
     </Box>
   );
-}
+});
 
 export default Datasets;
