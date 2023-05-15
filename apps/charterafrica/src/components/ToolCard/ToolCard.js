@@ -3,7 +3,7 @@ import { Box, Button, CardContent, CardMedia, SvgIcon } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import GithubIcon from "@/charterafrica/assets/icons/github.svg";
+import GithubIcon from "@/charterafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import Card, { StyledActionArea } from "@/charterafrica/components/StyledCard";
 

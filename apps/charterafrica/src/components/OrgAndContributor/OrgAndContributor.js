@@ -3,7 +3,7 @@ import { Avatar, Grid, SvgIcon, Link, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import GithubIcon from "@/charterafrica/assets/icons/github.svg";
+import GithubIcon from "@/charterafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
 import EmailIcon from "@/charterafrica/assets/icons/Type=mail, Size=32, Color=CurrentColor.svg";
 import TwitterIcon from "@/charterafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 import ToolCard from "@/charterafrica/components/ToolCard";

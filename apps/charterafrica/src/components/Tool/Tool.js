@@ -11,9 +11,9 @@ import {
 import PropTypes from "prop-types";
 import React from "react";
 
-import ContributeIcon from "@/charterafrica/assets/icons/contribute.svg";
-import GithubIcon from "@/charterafrica/assets/icons/github.svg";
-import LinkToTool from "@/charterafrica/assets/icons/link.svg";
+import ContributeIcon from "@/charterafrica/assets/icons/Type=contribute, Size=24, Color=CurrentColor.svg";
+import GithubIcon from "@/charterafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
+import LinkToTool from "@/charterafrica/assets/icons/Type=link, Size=24, Color=CurrentColor.svg";
 import ShareThisPage from "@/charterafrica/components/ShareThisPage";
 import ToolCard from "@/charterafrica/components/ToolCard";
 
