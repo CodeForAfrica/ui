@@ -10,35 +10,7 @@ const getDatasetsQuery = (context) => {
 
 export default async function processPageDatasets(page, api, context) {
   const { blocks } = page;
-  const { organizationId, statistics } = await api.findGlobal("openAfrica");
-
-  const resourceHeaderIndex = blocks.findIndex(
-    ({ slug }) => slug === "resource-page-header"
-  );
-
-  if (resourceHeaderIndex > -1) {
-    const { resourceType, title } = blocks[resourceHeaderIndex];
-    if (resourceType === "dataset") {
-      blocks[resourceHeaderIndex] = {
-        slug: "datasets-charts",
-        title,
-        data: [
-          {
-            id: "datasets",
-            value: statistics.datasets,
-            label: "Datasets",
-            color: "#FFC107",
-          },
-          {
-            id: "documents",
-            value: statistics.documents,
-            label: "Documents",
-            color: "#FF9800",
-          },
-        ],
-      };
-    }
-  }
+  const { organizationId } = await api.findGlobal("openAfrica");
 
   const data = await fetchDatasets(organizationId);
   const { count, datasets, countries, tags, totalPages } = data;
