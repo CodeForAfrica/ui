@@ -45,7 +45,7 @@ export async function getGlobalProps({ locale, defaultLocale }, api) {
 const processPageFunctionsMap = {
   about: processPageAbout,
   consultation: processPageConsultation,
-  data: processPageDatasets,
+  datasets: processPageDatasets,
   explainers: processPageExplainers,
   events: processPageEvents,
   fellowships: processPageFellowships,
