@@ -5,7 +5,6 @@ import Articles from "@/charterafrica/components/Articles";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Consultations from "@/charterafrica/components/Consultations";
 import Datasets from "@/charterafrica/components/Datasets";
-import DatasetsCharts from "@/charterafrica/components/DatasetsChart";
 import Documents from "@/charterafrica/components/Documents";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import EmbeddedDocumentViewer from "@/charterafrica/components/EmbeddedDocumentViewer";
@@ -35,7 +34,6 @@ import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 const componentsBySlugs = {
   datasets: Datasets,
-  "datasets-charts": DatasetsCharts,
   documents: Documents,
   ecosystem: Ecosystem,
   "embedded-playlist": Consultations,
