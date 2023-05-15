@@ -43,7 +43,7 @@ const Organisations = {
         readOnly: true,
       },
     },
-    slug({ fieldToUse: "name" }),
+    slug({ fieldToUse: ["source", "name"] }),
     {
       name: "description",
       type: "textarea",

@@ -39,7 +39,7 @@ const Tools = {
         readOnly: true,
       },
     },
-    slug({ fieldToUse: "name" }),
+    slug({ fieldToUse: ["source", "name"] }),
     {
       name: "name",
       type: "text",

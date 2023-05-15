@@ -17,7 +17,7 @@ const processRepository = (data, { topic, externalId, name, location }) => {
       fullName: person?.name ?? null,
       username: person?.login ?? null,
       description: person.bio ?? null,
-      country: person?.location ?? null,
+      location: person?.location ?? null,
       twitter: person?.twitterUsername ?? null,
       avatarUrl: person?.avatarUrl ?? null,
       type: person?.type,
@@ -25,19 +25,21 @@ const processRepository = (data, { topic, externalId, name, location }) => {
       email: person.email ?? null,
       lastActive: person.updatedAt,
     })) || [];
-  const organisation = {
-    externalId: data?.owner?.name ?? null,
-    type: "Organisation",
-    name: data?.owner?.name ?? null,
-    description: data?.owner?.description ?? null,
-    location: data?.owner?.location ?? null,
-    website: data?.owner?.url ?? null,
-    twitter: data?.owner?.twitterUsername ?? null,
-    avatarUrl: data?.owner?.avatarUrl ?? null,
-    email: data?.owner?.email ?? null,
-    source: "github",
-    lastActive: data.owner.updatedAt,
-  };
+  const organisation = data?.owner?.name
+    ? {
+        externalId: data?.owner?.name ?? null,
+        type: "Organisation",
+        name: data?.owner?.name ?? null,
+        description: data?.owner?.description ?? null,
+        location: data?.owner?.location ?? null,
+        website: data?.owner?.url ?? null,
+        twitter: data?.owner?.twitterUsername ?? null,
+        avatarUrl: data?.owner?.avatarUrl ?? null,
+        email: data?.owner?.email ?? null,
+        source: "github",
+        lastActive: data.owner.updatedAt,
+      }
+    : null;
 
   const techSkills = data.languages?.nodes?.map((language) => ({
     language: language?.name,

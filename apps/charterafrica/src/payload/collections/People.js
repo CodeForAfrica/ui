@@ -46,7 +46,7 @@ const People = {
         readOnly: true,
       },
     },
-    slug({ fieldToUse: "username" }),
+    slug({ fieldToUse: ["source", "username"] }),
     {
       name: "username",
       type: "text",
@@ -88,13 +88,9 @@ const People = {
       },
     },
     {
-      name: "country",
+      name: "location",
       type: "text",
-      label: {
-        en: "Country",
-        fr: "Pays de la personne",
-        pt: "País da Pessoa",
-      },
+      label: { en: "Location", fr: "Emplacement", pt: "Localização" },
       admin: {
         readOnly: true,
       },

@@ -4,6 +4,17 @@ const format = (val) =>
     .replace(/[^\w-]+/g, "")
     .toLowerCase();
 
+const getFallbackData = ({ fallback, originalDoc, data }) => {
+  let fallbackData = "";
+  fallback.forEach((value, i) => {
+    const prefix = i === 0 ? "" : "-";
+    fallbackData += `${prefix}${
+      (data && data[value]) || (originalDoc && originalDoc[value])
+    }`;
+  });
+  return fallbackData;
+};
+
 const formatSlug =
   (fallback) =>
   ({ value, originalDoc, data }) => {
@@ -11,8 +22,13 @@ const formatSlug =
       return format(value);
     }
 
-    const fallbackData =
-      (data && data[fallback]) || (originalDoc && originalDoc[fallback]);
+    const validFallback = typeof fallback === "string" ? [fallback] : fallback;
+    const fallbackData = getFallbackData({
+      fallback: validFallback,
+      originalDoc,
+      data,
+    });
+
     if (fallbackData && typeof fallbackData === "string") {
       return format(fallbackData);
     }

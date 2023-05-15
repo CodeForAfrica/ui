@@ -25,6 +25,7 @@ export const createOrganization = async (toCreate) => {
   const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {
     where: {
       externalId: { equals: toCreate.externalId },
+      source: { equals: toCreate.source },
     },
   });
   if (docs.length) {
@@ -46,6 +47,7 @@ export const createPerson = async (toCreate) => {
   const { docs } = await api.getCollection(PEOPLE_COLLECTION, {
     where: {
       externalId: { equals: toCreate.externalId },
+      source: { equals: toCreate.source },
     },
   });
   if (docs.length) {
@@ -92,6 +94,7 @@ export const updateOrCreateTool = async (data) => {
       where: {
         ...(id ? { id: { equals: id } } : {}),
         externalId: data?.externalId ? { equals: data?.externalId } : undefined,
+        source: { equals: toCreate.source },
       },
     };
     const { docs } = await api.getCollection(TOOL_COLLECTION, queryArgs);
@@ -113,12 +116,12 @@ export const bulkCreateTools = async (tools) => {
   const organisationsToCreate = removeDuplicatesByKey(
     tools.map(({ organisation }) => organisation),
     "externalId"
-  ).filter((org) => !!org.externalId);
+  );
   await bulkCreateOrganisations(organisationsToCreate);
   const peopleToCreate = removeDuplicatesByKey(
     tools.flatMap((obj) => obj.people),
     "externalId"
-  ).filter((person) => !!person?.externalId);
+  );
   await bulkCreatePeople(peopleToCreate);
   const toBulkCreate = tools.map(async (item) => {
     return updateOrCreateTool(item);
