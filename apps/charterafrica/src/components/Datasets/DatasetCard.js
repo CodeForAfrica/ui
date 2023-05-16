@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, Chip, Button } from "@mui/material";
+import { Grid, Typography, Chip, Button, Card } from "@mui/material";
 import { useState } from "react";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
@@ -20,10 +20,11 @@ function DatasetCard({
   const handleClick = () => setShowAll(!showAll);
 
   return (
-    <Box
+    <Card
       sx={{
         border: "none",
         p: 2.5,
+        boxShadow: "none",
         ...sx,
       }}
     >
@@ -74,33 +75,35 @@ function DatasetCard({
             {showAll ? readLess : readMore}
           </Button>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={4}
-          order={{ xs: 3, sm: 4 }}
-          display="flex"
-          justifyContent={{ xs: "flex-start", sm: "flex-end" }}
-          alignItems="center"
-        >
-          {formats?.map((format) => (
-            <Chip
-              label={format}
-              sx={(theme) => ({
-                backgroundColor:
-                  format === "PDF"
-                    ? theme.palette.success.main
-                    : theme.palette.error.main,
-                ...theme.typography.caption,
-                borderRadius: "10px",
-                mr: 1.75,
-              })}
-              key={format}
-            />
-          ))}
-        </Grid>
+        {formats.length ? (
+          <Grid
+            item
+            xs={12}
+            md={4}
+            order={{ xs: 3, sm: 4 }}
+            container
+            justifyContent={{ xs: "flex-start", sm: "flex-end" }}
+            alignItems="center"
+          >
+            {formats?.map((format) => (
+              <Chip
+                label={format}
+                sx={(theme) => ({
+                  backgroundColor:
+                    format === "PDF"
+                      ? theme.palette.success.main
+                      : theme.palette.error.main,
+                  ...theme.typography.caption,
+                  borderRadius: "10px",
+                  mr: 1.75,
+                })}
+                key={format}
+              />
+            ))}
+          </Grid>
+        ) : null}
       </Grid>
-    </Box>
+    </Card>
   );
 }
 

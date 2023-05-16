@@ -82,7 +82,14 @@ const Datasets = React.forwardRef(function Datasets(
   }, [data, isLoading]);
 
   return (
-    <Box bgcolor="common.white" sx={sx} ref={datasetsRef}>
+    <Box
+      bgcolor="common.white"
+      sx={{
+        scrollMarginTop: { xs: "56px", sm: "64", md: "114px" },
+        ...sx,
+      }}
+      ref={datasetsRef}
+    >
       <Section
         sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: 0 }, pb: { md: 5 } }}
       >
