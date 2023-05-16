@@ -21,6 +21,8 @@ const defaultProps = {
     tags: "Tags",
     sort: "Sort",
     search: "Search",
+    updatedLabel: "Updated",
+    createdLabel: "Created",
   },
 };
 

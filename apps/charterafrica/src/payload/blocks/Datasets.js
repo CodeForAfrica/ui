@@ -179,6 +179,34 @@ const Datasets = {
                     width: "50%",
                   },
                 },
+                {
+                  name: "updated",
+                  type: "text",
+                  label: {
+                    en: "Updated At Label",
+                    fr: "Mis à jour à l'étiquette",
+                    pt: "Atualizado em",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "created",
+                  type: "text",
+                  label: {
+                    en: "Created At Label",
+                    fr: "Créé à l'étiquette",
+                    pt: "Criado em",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
               ],
             },
           ],
