@@ -108,7 +108,11 @@ export const updateOrCreateTool = async (data) => {
     const res = await api.createCollection(TOOL_COLLECTION, toCreate);
     return res;
   } catch (error) {
-    throw new FetchError(error.message, data, 500);
+    throw new FetchError(
+      `Creating ${data?.externalId} failed with message ${error.message}`,
+      data,
+      500
+    );
   }
 };
 

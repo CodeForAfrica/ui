@@ -136,7 +136,7 @@ export const updateEcosystemContent = async () => {
       });
     })
   );
-  const toProcess = data.map(async (rawData, i) => {
+  const toProcess = data.map(async (rawData) => {
     const { externalId } = rawData;
     let [repositoryOwner, repositoryName] = externalId.split("/");
     repositoryOwner = repositoryOwner?.trim();
@@ -175,7 +175,7 @@ export const updateEcosystemContent = async () => {
       return toCreate;
     }
     throw new FetchError(
-      `Tool is invalid at row ${i}. Use format *CodeForAfrica/ui*`,
+      `Tool is invalid at row ${externalId}. Use format *CodeForAfrica/ui*`,
       rawData,
       500
     );

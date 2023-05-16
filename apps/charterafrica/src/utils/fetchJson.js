@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/nextjs";
 import { stringify } from "qs";
 
 const headers = {
@@ -10,6 +11,7 @@ export class FetchError extends Error {
     this.message = message;
     this.data = data;
     this.status = status;
+    Sentry.captureMessage(message);
   }
 }
 

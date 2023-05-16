@@ -85,5 +85,11 @@ export const fetchRepository = async (variables) => {
   if (res?.data?.repository) {
     return res.data.repository;
   }
-  throw new FetchError("An Error occured", res.errors, 500);
+  throw new FetchError(
+    `Unable to fetch ${variables.repositoryOwner}/${
+      variables.repositoryName
+    } from github errors ${JSON.stringify(res.errors)}`,
+    res.errors,
+    500
+  );
 };
