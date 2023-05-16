@@ -1,3 +1,4 @@
+import queryString from "@/charterafrica/utils/articles/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
@@ -67,10 +68,8 @@ export async function getTools(page, api, context) {
     locale,
     query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
   } = context;
-  const toolQueries = orQueryBuilder(
-    ["description", "topic", "location", "name", "id", "slug"],
-    search
-  );
+  const fields = ["description", "topic", "location", "name", "id", "slug"];
+  const toolQueries = orQueryBuilder(fields, search);
   const query = {
     or: toolQueries,
   };
@@ -139,7 +138,7 @@ async function processPageTools(page, api, context) {
   }
   const { slugs, ...queryParams } = context.query;
   let swrKey = `/api/v1/resources/collection/tools`;
-  const qs = new URLSearchParams(queryParams).toString();
+  const qs = queryString(queryParams);
   if (qs) {
     swrKey = `${swrKey}?${qs}`;
   }

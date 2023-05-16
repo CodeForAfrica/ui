@@ -15,7 +15,7 @@ exports[`<Tool /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-8 css-1uc7gvi-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1i4efx7-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-5ovtdi-MuiGrid-root"
           >
             <div
               class="MuiTypography-root MuiTypography-h2SemiBold css-1iwazyv-MuiTypography-root"
@@ -34,7 +34,7 @@ exports[`<Tool /> renders unchanged 1`] = `
             </a>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item css-1f064cs-MuiGrid-root"
           >
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-1bzrmhg-MuiGrid-root"

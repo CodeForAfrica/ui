@@ -57,10 +57,6 @@ const ContributorCard = React.forwardRef(function ContributorCard(props, ref) {
             textAlign="center"
             variant="h5SmallSemiBold"
             sx={(theme) => ({
-              height: `calc(${
-                theme.typography.h5SmallSemiBold.fontSize *
-                theme.typography.h5SmallSemiBold.lineHeight
-              }px * 2)`,
               [theme.breakpoints.up("md")]: {
                 height: `calc(${
                   theme.typography.h5SemiBold.fontSize *

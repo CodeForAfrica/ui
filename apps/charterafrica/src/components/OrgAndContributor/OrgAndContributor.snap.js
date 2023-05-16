@@ -55,7 +55,6 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   aria-hidden="true"
                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1835xr2-MuiSvgIcon-root"
                   focusable="false"
-                  viewbox="0 0 24 24"
                 />
               </a>
             </div>
@@ -70,7 +69,6 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   aria-hidden="true"
                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1835xr2-MuiSvgIcon-root"
                   focusable="false"
-                  viewbox="0 0 24 24"
                 />
               </a>
             </div>

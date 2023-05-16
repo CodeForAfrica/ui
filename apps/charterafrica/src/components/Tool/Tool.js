@@ -39,7 +39,6 @@ const Tool = React.forwardRef(function Tool(props, ref) {
           <Grid item container sx={{ p: 2 }} sm={12} md={8}>
             <Grid
               xs={12}
-              display="flex"
               justifyContent="space-between"
               alignItems="center"
               item
@@ -65,7 +64,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 />
               </Link>
             </Grid>
-            <Grid container>
+            <Grid item container>
               <Grid xs={12} sm={8} item>
                 <RichTypography
                   textAlign="left"
@@ -186,18 +185,16 @@ const Tool = React.forwardRef(function Tool(props, ref) {
               sx={{ mt: 2.5 }}
               container
             >
-              {contributors.map((item) => {
-                return (
-                  <Grid xs={12} sm={6} md={4} lg={3} key={item.id} item>
-                    <RichTypography
-                      textAlign={{ xs: "center", sm: "left" }}
-                      variant="p3SemiBold"
-                    >
-                      {item.name}
-                    </RichTypography>
-                  </Grid>
-                );
-              })}
+              {contributors.map((item) => (
+                <Grid xs={12} sm={6} md={4} lg={3} key={item.id} item>
+                  <RichTypography
+                    textAlign={{ xs: "center", sm: "left" }}
+                    variant="p3SemiBold"
+                  >
+                    {item.name}
+                  </RichTypography>
+                </Grid>
+              ))}
             </Grid>
           </Box>
         ) : null}
@@ -212,13 +209,11 @@ const Tool = React.forwardRef(function Tool(props, ref) {
               {toolsTitle}
             </RichTypography>
             <Grid sx={{ mt: 5 }} spacing={2.5} container>
-              {tools.map((tool) => {
-                return (
-                  <Grid xs={12} sm={6} md={4} lg={12} item key={tool.id}>
-                    <ToolCard showButton linkText="Go to Repo" {...tool} />
-                  </Grid>
-                );
-              })}
+              {tools.map((tool) => (
+                <Grid xs={12} sm={6} md={4} lg={12} item key={tool.id}>
+                  <ToolCard showButton linkText="Go to Repo" {...tool} />
+                </Grid>
+              ))}
             </Grid>
           </Box>
         ) : null}

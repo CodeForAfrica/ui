@@ -33,7 +33,7 @@ exports[`<ContributorCard /> renders unchanged 1`] = `
         class="MuiCardContent-root css-wsecsz-MuiCardContent-root"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-jxs0jl-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1x5aff0-MuiTypography-root"
         >
           Tool Name
         </h5>
