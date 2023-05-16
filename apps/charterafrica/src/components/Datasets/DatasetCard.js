@@ -13,6 +13,8 @@ function DatasetCard({
   readLess,
   updated,
   author,
+  updatedLabel,
+  createdLabel,
   sx,
 }) {
   const [showAll, setShowAll] = useState(false);
@@ -45,8 +47,8 @@ function DatasetCard({
             {title}
           </LineClampedRichTypography>
           <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
-            Updated {formatDateTime(updated, { includeTime: false })} | Created{" "}
-            {formatDateTime(created, { includeTime: false })}
+            {updatedLabel} {formatDateTime(updated, { includeTime: false })} |{" "}
+            {createdLabel} {formatDateTime(created, { includeTime: false })}
           </Typography>
           <Typography variant="p1SemiBold" color="neutral.main">
             {author}

@@ -110,6 +110,8 @@ const Datasets = React.forwardRef(function Datasets(
             {...dataset}
             readMore={labels.readMore}
             readLess={labels.readLess}
+            updatedLabel={labels.updated}
+            createdLabel={labels.created}
           />
         ))}
         <NextPrevPagination
