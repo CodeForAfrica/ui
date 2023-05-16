@@ -5,14 +5,10 @@ const format = (val) =>
     .toLowerCase();
 
 const getFallbackData = ({ fallback, originalDoc, data }) => {
-  let fallbackData = "";
-  fallback.forEach((value, i) => {
-    const prefix = i === 0 ? "" : "-";
-    fallbackData += `${prefix}${
-      (data && data[value]) || (originalDoc && originalDoc[value])
-    }`;
-  });
-  return fallbackData;
+  const fallbackValues = fallback.map(
+    (value) => (data && data[value]) || (originalDoc && originalDoc[value])
+  );
+  return fallbackValues.join("-");
 };
 
 const formatSlug =

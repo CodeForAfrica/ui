@@ -12,6 +12,7 @@ const Tools = {
   slug: TOOL_COLLECTION,
   admin: {
     useAsTitle: "externalId",
+    defaultColumns: ["externalId", "name", "location", "description"],
   },
   access: {
     read: () => true,
@@ -29,7 +30,6 @@ const Tools = {
     },
   },
   fields: [
-    source(),
     {
       name: "externalId",
       type: "text",
@@ -212,6 +212,7 @@ const Tools = {
     },
     updatedAt(),
     deletedAt(),
+    source(),
   ],
 };
 
