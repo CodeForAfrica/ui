@@ -12,7 +12,7 @@ function queryString(query = {}) {
   if (q) {
     searchParams.append("q", q);
   }
-  if (sort && sort !== "") {
+  if (sort) {
     searchParams.append("sort", sort);
   }
   if (countries && countries.length > 0) {

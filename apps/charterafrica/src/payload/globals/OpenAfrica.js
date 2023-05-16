@@ -1,6 +1,6 @@
 const OpenAfrica = {
   slug: "openAfrica",
-  label: "openAfrica",
+  label: "openAFRICA",
   access: {
     read: () => true,
   },
