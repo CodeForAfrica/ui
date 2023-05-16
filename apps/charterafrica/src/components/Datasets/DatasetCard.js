@@ -1,4 +1,13 @@
-import { Grid, Typography, Chip, Button, Card } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  Chip,
+  Button,
+  Card,
+  CardActionArea,
+  CardContent,
+} from "@mui/material";
+import Link from "next/link";
 import { useState } from "react";
 
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
@@ -25,87 +34,99 @@ function DatasetCard({
     <Card
       sx={{
         border: "none",
-        p: 2.5,
         boxShadow: "none",
         ...sx,
       }}
     >
-      <Grid
-        container
-        spacing={2}
-        justifyContent="space-between"
-        direction={{ xs: "column", md: "row" }}
+      <CardActionArea
+        sx={{
+          ".MuiCardActionArea-focusHighlight": {
+            background: "transparent",
+          },
+        }}
+        component={Link}
+        href="#"
       >
-        <Grid item xs={12} md={4}>
-          <LineClampedRichTypography
-            color="neutral.dark"
-            lineClamp={1}
-            order={1}
-            variant="h5SmallSemiBold"
-            sx={{ mb: 1 }}
-          >
-            {title}
-          </LineClampedRichTypography>
-          <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
-            {updatedLabel} {formatDateTime(updated, { includeTime: false })} |{" "}
-            {createdLabel} {formatDateTime(created, { includeTime: false })}
-          </Typography>
-          <Typography variant="p1SemiBold" color="neutral.main">
-            {author}
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={4} order={{ xs: 4, sm: 3 }}>
-          <LineClampedRichTypography
-            color="common.black"
-            lineClamp={showAll ? -1 : 3}
-            order={1}
-            variant="p1"
-            sx={{ mb: 1 }}
-          >
-            {notes}
-          </LineClampedRichTypography>
-          <Button
-            sx={{
-              "&:hover": { backgroundColor: "transparent" },
-              color: "neutral.dark",
-              typography: "p1",
-              textDecoration: "underline",
-              padding: 0,
-              minWidth: 0,
-            }}
-            onClick={handleClick}
-          >
-            {showAll ? readLess : readMore}
-          </Button>
-        </Grid>
-        {formats.length ? (
+        <CardContent>
           <Grid
-            item
-            xs={12}
-            md={4}
-            order={{ xs: 3, sm: 4 }}
             container
-            justifyContent={{ xs: "flex-start", sm: "flex-end" }}
-            alignItems="center"
+            spacing={2}
+            justifyContent="space-between"
+            direction={{ xs: "column", md: "row" }}
           >
-            {formats?.map((format) => (
-              <Chip
-                label={format}
-                sx={(theme) => ({
-                  backgroundColor:
-                    format === "PDF"
-                      ? theme.palette.success.main
-                      : theme.palette.error.main,
-                  ...theme.typography.caption,
-                  borderRadius: "10px",
-                  mr: 1.75,
-                })}
-                key={format}
-              />
-            ))}
+            <Grid item xs={12} md={4}>
+              <LineClampedRichTypography
+                color="neutral.dark"
+                lineClamp={1}
+                order={1}
+                variant="h5SmallSemiBold"
+                sx={{ mb: 1 }}
+              >
+                {title}
+              </LineClampedRichTypography>
+              <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
+                {updatedLabel} {formatDateTime(updated, { includeTime: false })}{" "}
+                | {createdLabel}{" "}
+                {formatDateTime(created, { includeTime: false })}
+              </Typography>
+              <Typography variant="p1SemiBold" color="neutral.main">
+                {author}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={4} order={{ xs: 4, sm: 3 }}>
+              <LineClampedRichTypography
+                color="common.black"
+                lineClamp={showAll ? -1 : 3}
+                order={1}
+                variant="p1"
+                sx={{ mb: 1 }}
+              >
+                {notes}
+              </LineClampedRichTypography>
+              <Button
+                sx={{
+                  "&:hover": { backgroundColor: "transparent" },
+                  color: "neutral.dark",
+                  typography: "p1",
+                  textDecoration: "underline",
+                  padding: 0,
+                  minWidth: 0,
+                }}
+                onClick={handleClick}
+              >
+                {showAll ? readLess : readMore}
+              </Button>
+            </Grid>
+            {formats.length ? (
+              <Grid
+                item
+                xs={12}
+                md={4}
+                order={{ xs: 3, sm: 4 }}
+                container
+                justifyContent={{ xs: "flex-start", sm: "flex-end" }}
+                alignItems="center"
+              >
+                {formats?.map((format) => (
+                  <Chip
+                    label={format}
+                    sx={(theme) => ({
+                      backgroundColor:
+                        format === "PDF"
+                          ? theme.palette.success.main
+                          : theme.palette.error.main,
+                      ...theme.typography.caption,
+                      borderRadius: "10px",
+                      mr: 1.75,
+                    })}
+                    key={format}
+                  />
+                ))}
+              </Grid>
+            ) : null}
           </Grid>
-        ) : null}
-      </Grid>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 }
