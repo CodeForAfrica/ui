@@ -1,3 +1,5 @@
+import * as Sentry from "@sentry/nextjs";
+
 import { FetchError } from "../../utils/fetchJson";
 import api from "../payload";
 
@@ -108,11 +110,9 @@ export const updateOrCreateTool = async (data) => {
     const res = await api.createCollection(TOOL_COLLECTION, toCreate);
     return res;
   } catch (error) {
-    throw new FetchError(
-      `Creating ${data?.externalId} failed with message ${error.message}`,
-      data,
-      500
-    );
+    const message = `Creating ${data?.externalId} failed with message ${error.message}`;
+    Sentry.captureMessage(message);
+    throw new FetchError(message, data, 500);
   }
 };
 
