@@ -1,10 +1,10 @@
 import React from "react";
 
-import DigitalDemocracyList from "@/charterafrica/components/DigitalDemocracyList";
+import EcosystemList from "@/charterafrica/components/EcosystemList";
 import ToolCard from "@/charterafrica/components/ToolCard";
 
 const Tools = React.forwardRef(function Tools(props, ref) {
-  return <DigitalDemocracyList ref={ref} Component={ToolCard} {...props} />;
+  return <EcosystemList ref={ref} Component={ToolCard} {...props} />;
 });
 
 export default Tools;

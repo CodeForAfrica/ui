@@ -4,12 +4,12 @@ import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState, useImperativeHandle } from "react";
 
-import DigitalDemocracyFilter from "./DigitalDemocracyFilter";
-import useDigitalDemocracy from "./useDigitalDemocracyList";
+import DigitalDemocracyFilter from "./EcosystemFilter";
+import useDigitalDemocracy from "./useEcosystemList";
 
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 
-const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
+const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
   const {
     sx,
     results: originalResults,
@@ -109,13 +109,11 @@ const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
         </RichTypography>
         {loading ? <LinearProgress color="secondary" /> : null}
         <Grid sx={{ mt: 5 }} container columnSpacing={2.5} rowSpacing={5}>
-          {results.map((item) => {
-            return (
-              <Grid key={item.id} item xs={12} sm={4} md={3} lg={3}>
-                <Component key={item.id} {...item} />
-              </Grid>
-            );
-          })}
+          {results.map((item) => (
+            <Grid key={item.id} item xs={12} sm={4} md={3} lg={3}>
+              <Component key={item.id} {...item} />
+            </Grid>
+          ))}
         </Grid>
         <NextPrevPagination
           count={totalPages}
@@ -132,7 +130,7 @@ const DigitalDemocracyList = React.forwardRef(function Tools(props, ref) {
   );
 });
 
-DigitalDemocracyList.propTypes = {
+Ecosystem.propTypes = {
   sx: PropTypes.shape({}),
   results: PropTypes.arrayOf(PropTypes.shape({})),
   searchPlaceholder: PropTypes.string,
@@ -145,7 +143,7 @@ DigitalDemocracyList.propTypes = {
   title: PropTypes.string,
 };
 
-DigitalDemocracyList.defaultProps = {
+Ecosystem.defaultProps = {
   Component: undefined,
   pagination: undefined,
   results: undefined,
@@ -154,4 +152,4 @@ DigitalDemocracyList.defaultProps = {
   sx: undefined,
   title: undefined,
 };
-export default DigitalDemocracyList;
+export default Ecosystem;

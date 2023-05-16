@@ -19,12 +19,12 @@ const People = {
   },
   admin: {
     useAsTitle: "externalId",
+    defaultColumns: ["externalId", "fullName", "location", "description"],
   },
   access: {
     read: () => true,
   },
   fields: [
-    source(),
     {
       name: "externalId",
       type: "text",
@@ -146,6 +146,7 @@ const People = {
         },
       },
     },
+    source(),
     updatedAt(),
   ],
 };

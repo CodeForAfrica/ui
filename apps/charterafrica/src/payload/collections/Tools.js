@@ -12,6 +12,7 @@ const Tools = {
   slug: TOOL_COLLECTION,
   admin: {
     useAsTitle: "externalId",
+    defaultColumns: ["externalId", "name", "location", "description"],
   },
   access: {
     read: () => true,
@@ -29,7 +30,6 @@ const Tools = {
     },
   },
   fields: [
-    source(),
     {
       name: "externalId",
       type: "text",
@@ -127,7 +127,7 @@ const Tools = {
     },
     {
       name: "lastCommit",
-      type: "json",
+      type: "group",
       admin: {
         readOnly: true,
       },
@@ -136,6 +136,39 @@ const Tools = {
         fr: "Dernier commit",
         pt: "Último commit",
       },
+      fields: [
+        {
+          name: "message",
+          type: "text",
+          admin: {
+            readOnly: true,
+          },
+          label: { en: "Message", fr: "Message", pt: "Mensagem" },
+        },
+        {
+          name: "author",
+          type: "text",
+          admin: {
+            readOnly: true,
+          },
+          label: { en: "author", fr: "auteur", pt: "autor" },
+        },
+        {
+          name: "committedDate",
+          type: "date",
+          admin: {
+            readOnly: true,
+            date: {
+              pickerAppearance: "dayAndTime",
+            },
+          },
+          label: {
+            en: "Comitted Date",
+            fr: "Date d'arrivée",
+            pt: "Data emodificada",
+          },
+        },
+      ],
     },
     {
       name: "stars",
@@ -212,6 +245,7 @@ const Tools = {
     },
     updatedAt(),
     deletedAt(),
+    source(),
   ],
 };
 

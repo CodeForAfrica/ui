@@ -44,6 +44,7 @@ const processRepository = (data, { topic, externalId, name, location }) => {
   const techSkills = data.languages?.nodes?.map((language) => ({
     language: language?.name,
   }));
+  const commit = data?.defaultBranchRef?.target.history.edges?.[0]?.node;
   const tool = {
     externalId,
     avatarUrl: data?.openGraphImageUrl ?? null,
@@ -53,7 +54,11 @@ const processRepository = (data, { topic, externalId, name, location }) => {
     location,
     subject: topic,
     techSkills,
-    lastCommit: data?.defaultBranchRef,
+    lastCommit: {
+      author: commit?.author?.name,
+      committedDate: commit?.committedDate,
+      message: commit?.message,
+    },
     stars: data?.stargazers?.totalCount,
     views: data?.watchers?.totalCount,
     forks: data?.forks?.totalCount,
