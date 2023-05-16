@@ -1,7 +1,5 @@
 import * as Sentry from "@sentry/nextjs";
 
-import api from "../payload";
-
 import { fetchRepository } from "./github";
 import {
   bulkCreateTools,
@@ -10,6 +8,7 @@ import {
 } from "./models";
 
 import mockData from "@/charterafrica/lib/data/_mock/gitData";
+import api from "@/charterafrica/lib/payload";
 import { FetchError } from "@/charterafrica/utils/fetchJson";
 
 const processRepository = (data, { topic, externalId, name, location }) => {
