@@ -4,14 +4,37 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import GithubIcon from "@/charterafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
-import EmailIcon from "@/charterafrica/assets/icons/Type=mail, Size=32, Color=CurrentColor.svg";
+import EmailIcon from "@/charterafrica/assets/icons/Type=mail, Size=24, Color=CurrentColor.svg";
 import TwitterIcon from "@/charterafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 import ToolCard from "@/charterafrica/components/ToolCard";
 
-const OrgAndContributor = React.forwardRef(function OrgAndContributor(
-  props,
-  ref
-) {
+const SocialIcon = React.forwardRef(function SocialIcon(props, ref) {
+  const { href, variant } = props;
+  const icons = {
+    twitter: TwitterIcon,
+    github: GithubIcon,
+    email: EmailIcon,
+  };
+  return href ? (
+    <Grid ref={ref} item>
+      <Link href={href}>
+        <SvgIcon
+          inheritViewBox
+          component={icons[variant]}
+          sx={{
+            color: "text.primary",
+            display: "inline-flex",
+            fill: "none",
+            height: 32,
+            width: 32,
+          }}
+        />
+      </Link>
+    </Grid>
+  ) : null;
+});
+
+const Entity = React.forwardRef(function Entity(props, ref) {
   const {
     name,
     location,
@@ -24,8 +47,8 @@ const OrgAndContributor = React.forwardRef(function OrgAndContributor(
     toolsTitle,
   } = props;
   return (
-    <Box sx={{ p: 10 }} bgcolor="common.white">
-      <Section ref={ref}>
+    <Box ref={ref} sx={{ p: 10 }} bgcolor="common.white">
+      <Section>
         <Grid container>
           <Grid sx={{ p: 2 }} item xs={12} sm={4}>
             <Avatar
@@ -65,55 +88,9 @@ const OrgAndContributor = React.forwardRef(function OrgAndContributor(
               justifyContent={{ xs: "center", sm: "flex-start" }}
               columnSpacing={2}
             >
-              {twitter ? (
-                <Grid item>
-                  <Link href={twitter}>
-                    <SvgIcon
-                      component={TwitterIcon}
-                      sx={{
-                        color: "text.primary",
-                        display: "inline-flex",
-                        fill: "none",
-                        height: 32,
-                        width: 32,
-                      }}
-                    />
-                  </Link>
-                </Grid>
-              ) : null}
-              {github ? (
-                <Grid item>
-                  <Link href={github}>
-                    <SvgIcon
-                      component={GithubIcon}
-                      sx={{
-                        color: "text.primary",
-                        display: "inline-flex",
-                        fill: "none",
-                        height: 32,
-                        width: 32,
-                      }}
-                    />
-                  </Link>
-                </Grid>
-              ) : null}
-              {email ? (
-                <Grid item>
-                  <Link href={`maito:${email}`}>
-                    <SvgIcon
-                      inheritViewBox
-                      component={EmailIcon}
-                      sx={{
-                        color: "text.primary",
-                        display: "inline-flex",
-                        fill: "none",
-                        height: 32,
-                        width: 32,
-                      }}
-                    />
-                  </Link>
-                </Grid>
-              ) : null}
+              <SocialIcon href={twitter} variant="twitter" />
+              <SocialIcon href={github} variant="github" />
+              <SocialIcon href={`maito:${email}`} variant="email" />
             </Grid>
           </Grid>
         </Grid>
@@ -126,25 +103,18 @@ const OrgAndContributor = React.forwardRef(function OrgAndContributor(
           {toolsTitle}
         </RichTypography>
         <Grid sx={{ mt: 5 }} spacing={2.5} container>
-          {tools.map((tool) => {
-            return (
-              <Grid xs={12} sm={6} md={4} lg={12} item key={tool.id}>
-                <ToolCard
-                  responsive
-                  showButton
-                  linkText="Go to Repo"
-                  {...tool}
-                />
-              </Grid>
-            );
-          })}
+          {tools.map((tool) => (
+            <Grid xs={12} sm={6} md={4} lg={12} item key={tool.id}>
+              <ToolCard responsive showButton linkText="Go to Repo" {...tool} />
+            </Grid>
+          ))}
         </Grid>
       </Section>
     </Box>
   );
 });
 
-OrgAndContributor.propTypes = {
+Entity.propTypes = {
   name: PropTypes.string.isRequired,
   location: PropTypes.string,
   description: PropTypes.string,
@@ -164,7 +134,7 @@ OrgAndContributor.propTypes = {
   toolsTitle: PropTypes.string,
 };
 
-OrgAndContributor.defaultProps = {
+Entity.defaultProps = {
   location: undefined,
   description: undefined,
   twitter: undefined,
@@ -175,4 +145,4 @@ OrgAndContributor.defaultProps = {
   toolsTitle: undefined,
 };
 
-export default OrgAndContributor;
+export default Entity;
