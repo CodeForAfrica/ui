@@ -3,7 +3,7 @@
 exports[`<DatasetCard /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-vwqlya"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-6s8z3q-MuiPaper-root-MuiCard-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-[object Object] css-bkp0sa-MuiGrid-root"
@@ -19,9 +19,10 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
         <p
           class="MuiTypography-root MuiTypography-p1 css-1pop01s-MuiTypography-root"
         >
-          Updated 
+           
           January 1, 2021
-           | Created
+           |
+           
            
           January 1, 2021
         </p>
@@ -46,7 +47,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
         />
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1k675k0-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-zuysgr-MuiGrid-root"
       >
         <div
           class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-6pueiv-MuiChip-root"
