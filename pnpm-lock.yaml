@@ -53,6 +53,7 @@ importers:
       "@payloadcms/plugin-nested-docs": ^1.0.4
       "@payloadcms/plugin-seo": ^1.0.10
       "@playwright/test": ^1.31.2
+      "@sentry/nextjs": ^7.44.2
       "@svgr/webpack": ^6.5.1
       "@swc/core": ^1.3.41
       "@types/express": ^4.17.17
@@ -113,6 +114,7 @@ importers:
       "@payloadcms/plugin-cloud-storage": 1.0.14_czmyaon2b4p3weeim5opqvah7i
       "@payloadcms/plugin-nested-docs": 1.0.4_hdojy4kyzgppb6cagvbqccedwi
       "@payloadcms/plugin-seo": 1.0.10_hdojy4kyzgppb6cagvbqccedwi
+      "@sentry/nextjs": 7.44.2_noprcuvbyxqxoqdtsl2zjvayd4
       dotenv: 16.0.3
       express: 4.18.2
       leaflet: 1.9.3
@@ -6615,7 +6617,7 @@ packages:
       rollup: 2.78.0
       stacktrace-parser: 0.1.10
       tslib: 1.14.1
-      webpack: 5.76.2
+      webpack: 5.76.2_@swc+core@1.3.41
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -27348,6 +27350,7 @@ packages:
       serialize-javascript: 6.0.1
       terser: 5.16.6
       webpack: 5.76.2
+    dev: true
 
   /terser/4.8.1:
     resolution:
@@ -29581,6 +29584,7 @@ packages:
       - "@swc/core"
       - esbuild
       - uglify-js
+    dev: true
 
   /webpack/5.76.2_@swc+core@1.3.41:
     resolution:

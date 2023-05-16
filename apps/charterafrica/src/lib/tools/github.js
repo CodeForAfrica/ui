@@ -1,3 +1,5 @@
+import * as Sentry from "@sentry/nextjs";
+
 import fetchJson, { FetchError } from "@/charterafrica/utils/fetchJson";
 
 export const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName: String!) {
@@ -85,5 +87,9 @@ export const fetchRepository = async (variables) => {
   if (res?.data?.repository) {
     return res.data.repository;
   }
-  throw new FetchError("An Error occured", res.errors, 500);
+  const message = `Unable to fetch ${variables.repositoryOwner}/${
+    variables.repositoryName
+  } from github errors ${JSON.stringify(res.errors)}`;
+  Sentry.captureMessage(message);
+  throw new FetchError(message, res.errors, 500);
 };

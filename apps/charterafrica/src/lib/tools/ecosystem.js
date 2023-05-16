@@ -1,3 +1,5 @@
+import * as Sentry from "@sentry/nextjs";
+
 import api from "../payload";
 
 import { fetchRepository } from "./github";
@@ -106,7 +108,9 @@ export const updateEcosystemList = async () => {
       const tool = { ...toCreate, id };
       return tool;
     }
-    throw new FetchError(`${externalId} is invalid`, rawData, 500);
+    const message = `${externalId} is invalid`;
+    Sentry.captureMessage(message);
+    throw new FetchError(message, rawData, 500);
   });
   const promises = await Promise.allSettled(toProcess);
   const toCreate = promises
@@ -141,7 +145,7 @@ export const updateEcosystemContent = async () => {
       });
     })
   );
-  const toProcess = data.map(async (rawData, i) => {
+  const toProcess = data.map(async (rawData) => {
     const { externalId } = rawData;
     let [repositoryOwner, repositoryName] = externalId.split("/");
     repositoryOwner = repositoryOwner?.trim();
@@ -179,11 +183,9 @@ export const updateEcosystemContent = async () => {
       const toCreate = processRepository(gitData, dataFromSheet);
       return toCreate;
     }
-    throw new FetchError(
-      `Tool is invalid at row ${i}. Use format *CodeForAfrica/ui*`,
-      rawData,
-      500
-    );
+    const message = `Tool is invalid at row ${externalId}. Use format *CodeForAfrica/ui*`;
+    Sentry.captureMessage(message);
+    throw new FetchError(message, rawData, 500);
   });
   const promises = await Promise.allSettled(toProcess);
   const toCreate = promises
