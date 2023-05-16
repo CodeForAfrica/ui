@@ -18,9 +18,9 @@ const Datasets = {
   fields: [
     {
       label: {
-        en: "Sort Options",
-        fr: "Options de tri",
-        pt: "Opções de classificação",
+        en: "Search & Filter Values",
+        fr: "Valeurs de recherche et de filtrage",
+        pt: "Valores de pesquisa e filtro",
       },
       type: "collapsible",
       fields: [
@@ -29,9 +29,9 @@ const Datasets = {
           type: "array",
           minRows: 1,
           label: {
-            en: "Options",
-            fr: "Options",
-            pt: "Opções",
+            en: "Sort Options",
+            fr: "Options de tri",
+            pt: "Opções de classificação",
           },
           fields: [
             {
@@ -77,9 +77,9 @@ const Datasets = {
     },
     {
       label: {
-        en: "Datasets Labels",
-        fr: "Étiquettes des jeux de données",
-        pt: "Rótulos dos conjuntos de dados",
+        en: "Search & Filter Labels",
+        fr: "Étiquettes de recherche et de filtrage",
+        pt: "Rótulos de pesquisa e filtro",
       },
       type: "collapsible",
       fields: [

@@ -12,12 +12,12 @@ export default async function processPageDatasets(page, api, context) {
   const { blocks } = page;
   const { organizationId } = await api.findGlobal("openAfrica");
 
-  const data = await fetchDatasets(organizationId);
-  const { count, datasets, countries, tags, totalPages } = data;
-
   const datasetsIndex = blocks.findIndex(({ slug }) => slug === "datasets");
 
-  if (datasetsIndex > -1) {
+  if (datasetsIndex > -1 && organizationId) {
+    const data = await fetchDatasets(organizationId);
+    const { count, datasets, countries, tags, totalPages } = data;
+
     blocks[datasetsIndex] = {
       ...blocks[datasetsIndex],
       count,
@@ -31,7 +31,7 @@ export default async function processPageDatasets(page, api, context) {
   const qs = datasetsQuery(getDatasetsQuery(context));
   // eslint-disable-next-line no-param-reassign
   page.fallback = {
-    [`${swrKey}${qs}`]: data,
+    [`${swrKey}${qs}`]: [],
   };
 
   return page;

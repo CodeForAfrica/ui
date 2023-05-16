@@ -28,17 +28,10 @@ async function datasets(req, res) {
   }
 }
 
-const dataHandlerMap = {
-  datasets,
-};
-
 export default async function handler(req, res) {
-  const {
-    query: { action },
-  } = req;
-  const actionHandler = dataHandlerMap[action];
-  if (actionHandler) {
-    return actionHandler(req, res);
+  try {
+    return await datasets(req, res);
+  } catch (error) {
+    return res.status(500).json({ error });
   }
-  return res.status(404).json({ message: "UNKNOWN_DATA_TYPE", action });
 }

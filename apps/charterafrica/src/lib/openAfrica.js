@@ -21,22 +21,22 @@ async function packageSearch(params) {
 function formatResources(resources, author) {
   return resources?.map((resource) => {
     const {
-      created: resourceCreated,
+      created,
       id,
-      last_modified: resourceUpdated,
+      last_modified: updated,
       url,
       format,
-      name: resourceName,
+      name,
       description,
     } = resource;
     return {
       author,
-      created: resourceCreated,
+      created,
       description,
       format,
       id,
-      name: resourceName,
-      updated: resourceUpdated,
+      name,
+      updated,
       url,
     };
   });
@@ -57,9 +57,8 @@ function formatDatasets(datasets) {
 
     const formattedResources = formatResources(resources, author);
 
-    const formats = [
-      ...new Set(formattedResources?.map((resource) => resource.format)),
-    ];
+    const formatsSet = new Set(resources?.map((r) => r.format));
+    const formats = Array.from(formatsSet);
 
     return {
       author,
@@ -80,11 +79,9 @@ function formatResponse(data) {
     data || {};
 
   const datasets = formatDatasets(results);
-
-  const countries = Object.keys(groups || {}).sort((a, b) =>
-    a.localeCompare(b)
-  );
-  const tagsList = Object.keys(tags || {}).sort((a, b) => a.localeCompare(b));
+  const sortStrings = (a, b) => a.localeCompare(b);
+  const countries = Object.keys(groups || {}).sort(sortStrings);
+  const tagsList = Object.keys(tags || {}).sort(sortStrings);
 
   return {
     count,
@@ -98,14 +95,10 @@ function formatResponse(data) {
 export default async function fetchDatasets(organization, query = {}) {
   const { tags = [], countries = [], page = 1, ...other } = query;
   const tagsQuery = tags.length
-    ? `tags:(${tags.reduce((acc, tag) => {
-        return acc ? `${acc} OR "${tag}"` : `"${tag}"`;
-      }, null)})`
+    ? `tags:(${tags.map((t) => `"${t}"`).join(" OR ")})`
     : null;
   const countriesQuery = countries.length
-    ? `groups:(${countries.reduce((acc, country) => {
-        return acc ? `${acc} OR "${country}"` : `"${country}"`;
-      }, null)})`
+    ? `groups:(${countries.map((c) => `"${c}"`).join(" OR ")})`
     : null;
   const organizationQuery = `organization:${organization}`;
   const filterQuery = [organizationQuery, tagsQuery, countriesQuery]
