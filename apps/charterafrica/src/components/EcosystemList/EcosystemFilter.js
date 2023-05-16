@@ -5,10 +5,7 @@ import React from "react";
 import { neutral } from "@/charterafrica/colors";
 import SearchInput from "@/charterafrica/components/SearchInput";
 
-const DigitalDemocracyFilter = React.forwardRef(function ToolsFilter(
-  props,
-  ref
-) {
+const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
   const {
     onChange,
     searchPlaceholder,
@@ -81,4 +78,4 @@ const DigitalDemocracyFilter = React.forwardRef(function ToolsFilter(
   );
 });
 
-export default DigitalDemocracyFilter;
+export default EcosystemFilter;

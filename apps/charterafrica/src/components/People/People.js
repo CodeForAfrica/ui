@@ -1,12 +1,10 @@
 import React from "react";
 
 import ContributorCard from "@/charterafrica/components/ContributorCard";
-import DigitalDemocracyList from "@/charterafrica/components/DigitalDemocracyList";
+import EcosystemList from "@/charterafrica/components/EcosystemList";
 
 const People = React.forwardRef(function Tools(props, ref) {
-  return (
-    <DigitalDemocracyList ref={ref} Component={ContributorCard} {...props} />
-  );
+  return <EcosystemList ref={ref} Component={ContributorCard} {...props} />;
 });
 
 export default People;
