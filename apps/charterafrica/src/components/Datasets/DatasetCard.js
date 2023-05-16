@@ -71,6 +71,7 @@ function DatasetCard({
               typography: "p1",
               textDecoration: "underline",
               padding: 0,
+              minWidth: 0,
             }}
             onClick={handleClick}
           >
