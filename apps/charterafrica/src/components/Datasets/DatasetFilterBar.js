@@ -93,7 +93,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
 
   const handleChangeCountry = (e, checkedCountries) => {
     let filteredCountries = [];
-    if (checkedCountries.length > 1) {
+    if (checkedCountries.length > 0) {
       filteredCountries = checkedCountries.filter(
         (country) => country !== labels.countries
       );
@@ -112,7 +112,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
 
   const handleChangeTag = (e, checkedTags) => {
     let filteredTags = [];
-    if (checkedTags.length > 1) {
+    if (checkedTags.length > 0) {
       filteredTags = checkedTags.filter((tag) => tag !== labels.tags);
       setSelectedTags(filteredTags);
       if (onChangeTags) {
