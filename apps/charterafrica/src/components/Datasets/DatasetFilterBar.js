@@ -19,6 +19,17 @@ const StyledCheckbox = styled(Checkbox)({
   },
 });
 
+const StyledAutocomplete = styled(Autocomplete)({
+  backgroundColor: neutral[50],
+  border: "1px solid",
+  borderColor: neutral[900],
+  borderRadius: "4px",
+  "& .MuiOutlinedInput-root": {
+    py: 0,
+    border: "none",
+  },
+});
+
 const StyledAutocompleteInput = styled(TextField)({
   overflow: "hidden",
   "& .MuiInputBase-root": {
@@ -135,7 +146,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
           />
         </Grid>
         <Grid item xs={12} sm={4} lg={3}>
-          <Autocomplete
+          <StyledAutocomplete
             options={[labels.sort, ...sortOptions]}
             defaultValue={labels.sort}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
@@ -143,7 +154,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
           />
         </Grid>
         <Grid item xs={12} sm={4} lg={3} overflow="hidden">
-          <Autocomplete
+          <StyledAutocomplete
             multiple
             options={[labels.countries, ...countries]}
             defaultValue={[labels.countries]}
@@ -157,22 +168,16 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             renderTags={(checkedCountries, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
                 {checkedCountries.length > 2
-                  ? `${checkedCountries.length} countries`
+                  ? `${checkedCountries.length} ${labels.countries}`
                   : checkedCountries.join(", ")}
               </StyledAutocompleteTags>
             )}
             value={selectedCountries}
             onChange={handleChangeCountry}
-            sx={{
-              backgroundColor: neutral[50],
-              "& .MuiOutlinedInput-root": {
-                padding: 0,
-              },
-            }}
           />
         </Grid>
         <Grid item xs={12} sm={4} lg={3}>
-          <Autocomplete
+          <StyledAutocomplete
             multiple
             options={[labels.tags, ...tags]}
             defaultValue={[labels.tags]}
@@ -188,16 +193,10 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             renderTags={(checkedTags, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
                 {checkedTags.length > 1
-                  ? `${checkedTags.length} tags`
+                  ? `${checkedTags.length} ${labels.tags}`
                   : checkedTags.join(", ")}
               </StyledAutocompleteTags>
             )}
-            sx={{
-              backgroundColor: neutral[50],
-              "& .MuiOutlinedInput-root": {
-                padding: 0,
-              },
-            }}
           />
         </Grid>
       </Grid>
