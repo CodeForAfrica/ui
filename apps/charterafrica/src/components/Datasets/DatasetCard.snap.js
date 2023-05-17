@@ -3,7 +3,7 @@
 exports[`<DatasetCard /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-19232nk-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-dzxyww-MuiPaper-root-MuiCard-root"
   >
     <a
       class="MuiButtonBase-root MuiCardActionArea-root css-1aib4ax-MuiButtonBase-root-MuiCardActionArea-root"
