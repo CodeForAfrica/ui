@@ -14,14 +14,22 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1bxfcex-MuiGrid-root"
         >
-          <div
-            class="MuiAvatar-root MuiAvatar-circular css-l0ohoi-MuiAvatar-root"
+          <figure
+            class="MuiBox-root css-db5opy"
           >
             <img
-              class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
-              src="/static/images/avatar/1.jpg"
+              alt="John Doe"
+              class="css-g98gbd"
+              data-nimg="1"
+              decoding="async"
+              height="0"
+              loading="lazy"
+              src="/_next/image?url=%2Fstatic%2Fimages%2Favatar%2F1.jpg&w=16&q=75"
+              srcset="/_next/image?url=%2Fstatic%2Fimages%2Favatar%2F1.jpg&w=16&q=75 1x"
+              style="color: transparent; width: 100%; height: auto;"
+              width="0"
             />
-          </div>
+          </figure>
         </div>
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-10wmm61-MuiGrid-root"
@@ -32,7 +40,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
             John Doe
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h4Small css-sjc2zx-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4Small css-1qtcam1-MuiTypography-root"
           >
             San Francisco, CA
           </div>

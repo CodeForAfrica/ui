@@ -172,7 +172,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
         {contributors.length ? (
           <Box sx={{ p: 2 }}>
             <RichTypography
-              sx={{ mt: 8, fontWeight: 400 }}
+              sx={{ mt: 8 }}
               color="neutral.dark"
               variant="h4Small"
               textAlign={{ xs: "center", sm: "left" }}

@@ -1,5 +1,6 @@
 import { Section, RichTypography } from "@commons-ui/core";
-import { Avatar, Grid, SvgIcon, Link, Box } from "@mui/material";
+import { Figure } from "@commons-ui/next";
+import { Grid, SvgIcon, Link, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -51,9 +52,16 @@ const Entity = React.forwardRef(function Entity(props, ref) {
       <Section>
         <Grid container>
           <Grid sx={{ p: 2 }} item xs={12} sm={4}>
-            <Avatar
-              src={image}
-              sx={{ aspectRatio: "1/1", width: "100%", height: "auto" }}
+            <Figure
+              ImageProps={{
+                src: image,
+                alt: name,
+                // We're going to set img size directly using style https://nextjs.org/docs/api-reference/next/image#style
+                fill: false,
+                height: 0,
+                width: 0,
+                style: { width: "100%", height: "auto" },
+              }}
             />
           </Grid>
           <Grid item sx={{ p: 2 }} xs={12} sm={8}>
@@ -67,7 +75,7 @@ const Entity = React.forwardRef(function Entity(props, ref) {
             <RichTypography
               textAlign={{ xs: "center", sm: "left" }}
               color="neutral.dark"
-              sx={{ mt: 2.5, fontWeight: 400 }}
+              sx={{ mt: 2.5 }}
               variant="h4Small"
             >
               {location}
