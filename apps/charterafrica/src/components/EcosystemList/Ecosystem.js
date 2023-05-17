@@ -9,6 +9,15 @@ import useDigitalDemocracy from "./useEcosystemList";
 
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 
+function removeEmptyParams(urlSearchParams) {
+  [...urlSearchParams].forEach(([param, value]) => {
+    if (!value || value === "undefined") {
+      urlSearchParams.delete(param);
+    }
+  });
+  return urlSearchParams;
+}
+
 const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
   const {
     sx,
@@ -21,17 +30,20 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
   } = props;
   const router = useRouter();
   const [values, setValues] = useState({
-    sort: "name",
+    sort: router.query?.sort || "name",
     page: router.query?.page,
     search: router?.query?.search,
   });
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(router?.query?.search || "");
   const [data, setData] = useState({ results: originalResults, pagination });
   const listRef = useRef();
   useImperativeHandle(ref, () => listRef.current);
+
   const updateParams = (vals) => {
-    const searchParams = new URLSearchParams(vals).toString();
+    const params = new URLSearchParams(vals);
+    removeEmptyParams(params);
+    const searchParams = params.toString();
     const [pathname] = router.asPath.split("?");
     router.replace(`${pathname}?${searchParams}`);
   };
@@ -42,6 +54,7 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
       ? { ...values, ...value }
       : { ...values, ...value, search: s };
     setValues(newValues);
+    updateParams(newValues);
   };
   const collection =
     router.query?.slugs[(router.query?.slugs?.length || 1) - 1];
