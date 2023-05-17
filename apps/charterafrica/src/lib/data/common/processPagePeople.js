@@ -7,6 +7,7 @@ const orQueryBuilder = (fields, search) => {
 };
 
 export async function getPeople(page, api, context) {
+  const { breadcrumbs } = page;
   const {
     locale,
     query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
@@ -35,8 +36,17 @@ export async function getPeople(page, api, context) {
     },
   });
   const results = docs.map((person) => {
+    let href = null;
+    const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
+    if (pageUrl) {
+      const { slug } = person;
+      href = `${pageUrl}/${slug}`;
+    }
     return {
       ...person,
+      link: {
+        href,
+      },
       description: person.description || " ",
       name: person.fullName || person.username,
       image: person.avatarUrl ?? null,
@@ -115,7 +125,7 @@ async function processPagePeople(page, api, context) {
   const { pagination, results } = await getPeople(page, api, context);
   const foundIndex = blocks.findIndex(({ slug }) => slug === "people");
   const filterLabels = labelsPerLocale[locale];
-  const tool = {
+  const people = {
     slug: "people",
     title: filterLabels.people,
     results,
@@ -125,9 +135,9 @@ async function processPagePeople(page, api, context) {
   };
 
   if (foundIndex > -1) {
-    blocks[foundIndex] = tool;
+    blocks[foundIndex] = people;
   } else {
-    blocks.push(tool);
+    blocks.push(people);
   }
   const { slugs, ...queryParams } = context.query;
   let swrKey = `/api/v1/resources/collection/people`;

@@ -56,11 +56,14 @@ const Entity = React.forwardRef(function Entity(props, ref) {
               ImageProps={{
                 src: image,
                 alt: name,
-                // We're going to set img size directly using style https://nextjs.org/docs/api-reference/next/image#style
                 fill: false,
                 height: 0,
                 width: 0,
-                style: { width: "100%", height: "auto" },
+                style: {
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: "50%",
+                },
               }}
             />
           </Grid>
@@ -140,6 +143,7 @@ Entity.propTypes = {
     })
   ),
   toolsTitle: PropTypes.string,
+  entity: PropTypes.oneOf(["people", "organisation"]),
 };
 
 Entity.defaultProps = {
@@ -151,6 +155,7 @@ Entity.defaultProps = {
   image: undefined,
   tools: undefined,
   toolsTitle: undefined,
+  entity: undefined,
 };
 
 export default Entity;

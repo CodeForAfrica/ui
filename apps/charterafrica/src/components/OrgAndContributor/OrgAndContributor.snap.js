@@ -26,7 +26,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               loading="lazy"
               src="/_next/image?url=%2Fstatic%2Fimages%2Favatar%2F1.jpg&w=16&q=75"
               srcset="/_next/image?url=%2Fstatic%2Fimages%2Favatar%2F1.jpg&w=16&q=75 1x"
-              style="color: transparent; width: 100%; height: auto;"
+              style="color: transparent; width: 100%; height: auto; border-radius: 50%;"
               width="0"
             />
           </figure>
