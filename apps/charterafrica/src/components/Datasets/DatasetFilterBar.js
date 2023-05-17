@@ -127,12 +127,18 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     }
   };
 
+  const listToLabel = (list, label, num = 1) => {
+    return list?.length > num
+      ? `${list.length} ${labels[label]}`
+      : list.join(", ");
+  };
+
   return (
     <Box py={5} ref={ref}>
       <Grid container spacing={2}>
         <Grid item xs={12} lg={3}>
           <SearchInput
-            placeholder={labels?.search || "Search Database"}
+            placeholder={labels.search}
             value={value}
             onChange={handleChangeQ}
             onClick={handleClick}
@@ -177,9 +183,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             )}
             renderTags={(checkedCountries, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
-                {checkedCountries.length > 2
-                  ? `${checkedCountries.length} ${labels.countries}`
-                  : checkedCountries.join(", ")}
+                {listToLabel(checkedCountries, "countries", 2)}
               </StyledAutocompleteTags>
             )}
             value={selectedCountries}
@@ -202,9 +206,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             onChange={handleChangeTag}
             renderTags={(checkedTags, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
-                {checkedTags.length > 1
-                  ? `${checkedTags.length} ${labels.tags}`
-                  : checkedTags.join(", ")}
+                {listToLabel(checkedTags, "tags")}
               </StyledAutocompleteTags>
             )}
           />
