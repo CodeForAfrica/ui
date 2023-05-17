@@ -2,7 +2,7 @@ import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const BASE_DOCUMENTS_URL = "https://openafrica.net/api/3/action/";
 
-const PageSize = 10;
+const PAGE_SIZE = 10;
 
 async function packageSearch(params) {
   try {
@@ -88,7 +88,7 @@ function formatResponse(data) {
     datasets,
     countries,
     tags: tagsList,
-    totalPages: Math.ceil(count / PageSize),
+    totalPages: Math.ceil(count / PAGE_SIZE),
   };
 }
 
@@ -107,8 +107,8 @@ export default async function fetchDatasets(organization, query = {}) {
   const params = {
     ...other,
     fq: filterQuery,
-    rows: PageSize,
-    start: (page - 1) * PageSize,
+    rows: PAGE_SIZE,
+    start: (page - 1) * PAGE_SIZE,
     "facet.field": '["tags", "groups"]',
   };
 

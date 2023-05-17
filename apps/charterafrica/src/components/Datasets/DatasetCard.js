@@ -110,7 +110,7 @@ function DatasetCard({
                 justifyContent={{ xs: "flex-start", sm: "flex-end" }}
                 alignItems="center"
               >
-                {formats?.map((format) => (
+                {formats.map((format) => (
                   <Chip
                     label={format}
                     sx={(theme) => ({

@@ -13,7 +13,7 @@ import queryString from "@/charterafrica/utils/datasets/queryString";
 const Datasets = React.forwardRef(function Datasets(
   {
     sx,
-    data: originalDatasets,
+    data: datasetsProp,
     labels,
     tags = [],
     countries = [],
@@ -28,7 +28,7 @@ const Datasets = React.forwardRef(function Datasets(
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [totalPages, setTotalPages] = useState(originalTotalPages);
-  const [datasets, setDatasets] = useState(originalDatasets || []);
+  const [datasets, setDatasets] = useState(datasetsProp || []);
   const router = useRouter();
   const datasetsRef = useRef();
   useImperativeHandle(ref, () => datasetsRef.current);
@@ -106,8 +106,8 @@ const Datasets = React.forwardRef(function Datasets(
         {isLoading ? <LinearProgress color="secondary" /> : null}
         {datasets?.map((dataset) => (
           <DatasetCard
-            key={dataset.name}
             {...dataset}
+            key={dataset.name}
             readMore={labels.readMore}
             readLess={labels.readLess}
             updatedLabel={labels.updated}

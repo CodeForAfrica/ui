@@ -15,14 +15,14 @@ function queryString(query = {}) {
   if (sort) {
     searchParams.append("sort", sort);
   }
-  if (countries && countries.length > 0) {
+  if (countries?.length > 0) {
     searchParams.append("countries", countries);
   }
-  if (tags && tags.length > 0) {
+  if (tags?.length > 0) {
     searchParams.append("tags", tags);
   }
 
-  if (page && page !== 1) {
+  if (page > 1) {
     searchParams.append("page", page);
   }
 
