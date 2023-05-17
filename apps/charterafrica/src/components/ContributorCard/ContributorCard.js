@@ -1,5 +1,5 @@
 import { Link } from "@commons-ui/next";
-import { Avatar, Box, CardContent } from "@mui/material";
+import { Box, CardMedia, CardContent } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -35,13 +35,16 @@ const ContributorCard = React.forwardRef(function ContributorCard(props, ref) {
         component={link?.href ? Link : undefined}
         href={link?.href}
       >
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          sx={{ padding: 2 }}
-        >
-          <Avatar src={image} sx={{ width: 250, height: 250 }} />
+        <Box sx={{ p: 2, display: "flex", justifyContent: "center" }}>
+          <CardMedia
+            component="img"
+            image={image}
+            sx={{
+              width: 250,
+              height: 250,
+              borderRadius: "50%",
+            }}
+          />
         </Box>
         <CardContent
           sx={{
