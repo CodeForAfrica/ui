@@ -149,7 +149,17 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
           <StyledAutocomplete
             options={[labels.sort, ...sortOptions]}
             defaultValue={labels.sort}
-            renderInput={(params) => <StyledAutocompleteInput {...params} />}
+            renderInput={(params) => (
+              <StyledAutocompleteInput
+                {...params}
+                sx={{
+                  "& .MuiInputBase-root": {
+                    color: neutral[900],
+                    typography: "p1",
+                  },
+                }}
+              />
+            )}
             onChange={handleChangeSort}
           />
         </Grid>
