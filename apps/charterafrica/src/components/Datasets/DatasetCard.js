@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 
+import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
@@ -33,7 +34,9 @@ function DatasetCard({
   return (
     <Card
       sx={{
-        border: "none",
+        border: "1px solid",
+        borderColor: neutral[50],
+        borderRadius: 0,
         boxShadow: "none",
         ...sx,
       }}
