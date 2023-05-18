@@ -46,6 +46,7 @@ function formatDatasets(datasets) {
   return datasets?.map((dataset) => {
     const {
       author,
+      id,
       metadata_created: created,
       metadata_modified: updated,
       name,
@@ -53,6 +54,7 @@ function formatDatasets(datasets) {
       resources,
       title,
       type,
+      url,
     } = dataset;
 
     const formattedResources = formatResources(resources, author);
@@ -65,8 +67,10 @@ function formatDatasets(datasets) {
       created,
       formats,
       formattedResources,
+      id,
       name,
       notes,
+      url,
       title,
       type,
       updated,

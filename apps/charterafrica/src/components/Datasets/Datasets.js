@@ -107,7 +107,7 @@ const Datasets = React.forwardRef(function Datasets(
         {datasets?.map((dataset) => (
           <DatasetCard
             {...dataset}
-            key={dataset.name}
+            key={dataset.id}
             readMore={labels.readMore}
             readLess={labels.readLess}
             updatedLabel={labels.updated}
