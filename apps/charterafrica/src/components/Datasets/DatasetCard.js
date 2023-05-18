@@ -25,6 +25,7 @@ function DatasetCard({
   author,
   updatedLabel,
   createdLabel,
+  url,
   sx,
 }) {
   const [showAll, setShowAll] = useState(false);
@@ -48,7 +49,8 @@ function DatasetCard({
           },
         }}
         component={Link}
-        href="#"
+        // TODO: Update URL to single dataset page
+        href={url}
       >
         <CardContent>
           <Grid
