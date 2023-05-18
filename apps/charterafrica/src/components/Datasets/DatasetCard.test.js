@@ -24,6 +24,8 @@ const defaultProps = {
     updatedLabel: "Updated",
     createdLabel: "Created",
   },
+  id: "1234",
+  url: "https://example.com",
 };
 
 describe("<DatasetCard />", () => {

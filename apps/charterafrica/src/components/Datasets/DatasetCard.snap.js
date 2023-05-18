@@ -7,7 +7,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
   >
     <a
       class="MuiButtonBase-root MuiCardActionArea-root css-1aib4ax-MuiButtonBase-root-MuiCardActionArea-root"
-      href="#"
+      href="https://example.com"
       tabindex="0"
     >
       <div
