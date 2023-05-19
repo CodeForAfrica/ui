@@ -27,11 +27,14 @@ export default async function processPageDatasets(page, api, context) {
       totalPages,
     };
 
-    const swrKey = `/api/v1/resources/datasets`;
+    let swrKey = `/api/v1/resources/datasets`;
     const qs = datasetsQuery(getDatasetsQuery(context));
+    if (qs) {
+      swrKey = `${swrKey}?${qs}`;
+    }
     // eslint-disable-next-line no-param-reassign
     page.fallback = {
-      [`${swrKey}${qs}`]: data,
+      [`${swrKey}`]: data,
     };
   }
 
