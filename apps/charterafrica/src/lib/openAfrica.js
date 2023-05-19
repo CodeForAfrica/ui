@@ -61,7 +61,7 @@ function formatDatasets(datasets) {
     const formattedResources = formatResources(resources, author);
 
     const formatsSet = new Set(resources?.map((r) => r.format));
-    const formats = Array.from(formatsSet);
+    const formats = Array.from(formatsSet).sort();
 
     return {
       author,
@@ -87,11 +87,8 @@ function formatResponse(data) {
   const sortStrings = (a, b) => a.localeCompare(b);
   const uniqueCountries = Object.keys(groups || {}).sort(sortStrings);
   const validCountries = uniqueCountries.filter((country) =>
-    allCountries.africa
-      .map((c) => c.toLowerCase())
-      .includes(country.toLowerCase())
+    allCountries.africa.includes(country.toLowerCase())
   );
-
   const tagsList = Object.keys(tags || {}).sort(sortStrings);
 
   return {
