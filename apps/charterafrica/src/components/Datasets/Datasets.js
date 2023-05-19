@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Box, LinearProgress } from "@mui/material";
+import { Box, LinearProgress, Stack } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useState, useEffect, useRef, useImperativeHandle } from "react";
 
@@ -7,6 +7,7 @@ import DatasetCard from "./DatasetCard";
 import DatasetFilterBar from "./DatasetFilterBar";
 import useDatasets from "./useDatasets";
 
+import { neutral } from "@/charterafrica/colors";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import queryString from "@/charterafrica/utils/datasets/queryString";
 
@@ -114,16 +115,25 @@ const Datasets = React.forwardRef(function Datasets(
           onChangeTags={handleChangeTags}
         />
         {isLoading ? <LinearProgress color="secondary" /> : null}
-        {datasets?.map((dataset) => (
-          <DatasetCard
-            {...dataset}
-            key={dataset.id}
-            readMore={labels.readMore}
-            readLess={labels.readLess}
-            updatedLabel={labels.updated}
-            createdLabel={labels.created}
-          />
-        ))}
+        <Stack>
+          {datasets?.map((dataset) => (
+            <DatasetCard
+              {...dataset}
+              key={dataset.id}
+              readMore={labels.readMore}
+              readLess={labels.readLess}
+              updatedLabel={labels.updated}
+              createdLabel={labels.created}
+              sx={{
+                borderBottom: "none",
+                "&:last-of-type": {
+                  borderBottom: "1px solid",
+                  borderColor: neutral[50],
+                },
+              }}
+            />
+          ))}
+        </Stack>
         <NextPrevPagination
           count={totalPages}
           page={page}

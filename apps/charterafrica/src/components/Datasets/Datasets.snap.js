@@ -320,6 +320,9 @@ exports[`<Datasets /> renders unchanged 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="MuiStack-root css-nen11g-MuiStack-root"
+      />
     </div>
   </div>
 </div>
