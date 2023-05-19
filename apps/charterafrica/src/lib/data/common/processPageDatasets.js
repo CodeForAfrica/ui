@@ -26,13 +26,14 @@ export default async function processPageDatasets(page, api, context) {
       tags,
       totalPages,
     };
+
+    const swrKey = `/api/v1/resources/datasets`;
+    const qs = datasetsQuery(getDatasetsQuery(context));
+    // eslint-disable-next-line no-param-reassign
+    page.fallback = {
+      [`${swrKey}${qs}`]: [],
+    };
   }
-  const swrKey = `/api/v1/resources/datasets`;
-  const qs = datasetsQuery(getDatasetsQuery(context));
-  // eslint-disable-next-line no-param-reassign
-  page.fallback = {
-    [`${swrKey}${qs}`]: [],
-  };
 
   return page;
 }
