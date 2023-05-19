@@ -25,6 +25,8 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     link,
     tools,
     toolsTitle,
+    donors,
+    donorsTitle,
     contributorsTitle,
     contributors,
     topic,
@@ -39,15 +41,12 @@ const Tool = React.forwardRef(function Tool(props, ref) {
           <Grid item container sx={{ p: 2 }} sm={12} md={8}>
             <Grid
               xs={12}
+              display="flex"
               justifyContent="space-between"
               alignItems="center"
               item
             >
-              <RichTypography
-                color="neutral.dark"
-                sx={{ flex: 1 }}
-                variant="h2SemiBold"
-              >
+              <RichTypography color="neutral.dark" variant="h2SemiBold">
                 {name}
               </RichTypography>
               <Link href={link.href}>
@@ -85,18 +84,18 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 <RichTypography
                   textAlign="left"
                   color="neutral.dark"
-                  sx={{ fontWeight: 400 }}
+                  sx={{ fontWeight: 400, mt: 0.625 }}
                   variant="h6Small"
                 >
-                  {topic}
+                  {topic && `Topic:${topic}`}
                 </RichTypography>
               </Grid>
-              <Grid sx={{ textAlign: "right" }} xs={12} sm={4} item>
+              <Grid sx={{ textAlign: "right", mt: 3.75 }} xs={12} sm={4} item>
                 <Button
                   component={contribute.href ? Link : undefined}
                   href={contribute.href}
                   variant="contained"
-                  sx={{ mt: 2.5, width: { xs: "100%", sm: "fit-content" } }}
+                  sx={{ width: { xs: "100%", sm: "fit-content" }, height: 50 }}
                 >
                   <SvgIcon
                     inheritViewBox
@@ -117,7 +116,11 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                   component={link.href ? Link : undefined}
                   href={link?.href}
                   variant="contained"
-                  sx={{ mt: 2.5, width: { xs: "100%", sm: "fit-content" } }}
+                  sx={{
+                    mt: 1.25,
+                    width: { xs: "100%", sm: "fit-content" },
+                    height: 50,
+                  }}
                 >
                   <SvgIcon
                     component={GithubIcon}
@@ -134,28 +137,29 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 </Button>
               </Grid>
             </Grid>
-            <Divider sx={{ my: 3.75 }} />
-            <RichTypography
-              textAlign="left"
-              color="neutral.dark"
-              sx={{ mt: 2.5 }}
-              variant="p1"
-            >
-              {description}
-            </RichTypography>
-            <Box
-              display="flex"
-              sx={{
-                mt: 3.75,
-                width: "100%",
-                justifyContent: { xs: "center", sm: "flex-end" },
-              }}
-            >
-              <ShareThisPage
-                sx={{ textAlign: { sm: "right", xs: "center" } }}
-                title="Share via"
-              />
-            </Box>
+            <Grid item>
+              <RichTypography
+                textAlign="left"
+                color="neutral.dark"
+                sx={{ mt: 3.75 }}
+                variant="p1"
+              >
+                {description}
+              </RichTypography>
+              <Box
+                display="flex"
+                sx={{
+                  mt: 3.75,
+                  width: "100%",
+                  justifyContent: { xs: "center", sm: "flex-end" },
+                }}
+              >
+                <ShareThisPage
+                  sx={{ textAlign: { sm: "right", xs: "center" } }}
+                  title="Share via"
+                />
+              </Box>
+            </Grid>
           </Grid>
           <Grid md={4} item>
             <CardMedia
@@ -169,10 +173,38 @@ const Tool = React.forwardRef(function Tool(props, ref) {
             />
           </Grid>
         </Grid>
+        {donors.length ? (
+          <Box sx={{ mt: 6.25 }}>
+            <RichTypography
+              color="neutral.dark"
+              variant="h4Small"
+              textAlign={{ xs: "center", sm: "left" }}
+            >
+              {donorsTitle}
+            </RichTypography>
+            <Grid
+              columnSpacing={4.375}
+              rowSpacing={2.5}
+              sx={{ mt: 2.5 }}
+              container
+            >
+              {donors.map((item) => (
+                <Grid xs={12} sm={6} md={4} lg={3} key={item.id} item>
+                  <RichTypography
+                    textAlign={{ xs: "center", sm: "left" }}
+                    variant="p3SemiBold"
+                  >
+                    {item.name}
+                  </RichTypography>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        ) : null}
+        <Divider sx={{ my: 3.75 }} />
         {contributors.length ? (
           <Box sx={{ p: 2 }}>
             <RichTypography
-              sx={{ mt: 8 }}
               color="neutral.dark"
               variant="h4Small"
               textAlign={{ xs: "center", sm: "left" }}

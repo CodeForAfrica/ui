@@ -17,6 +17,7 @@ const labelsPerLocale = {
     organisations: "organisations",
     searchPeople: "Search People",
     searchOrganisations: "Search organisations",
+    donors: "Donors",
   },
   fr: {
     topic: "Sujet A-Z",
@@ -36,6 +37,7 @@ const labelsPerLocale = {
     organisations: "Organisations",
     searchPeople: "Recherche de personnes",
     searchOrganisations: "Recherche d'organisations",
+    donors: "Donateurs",
   },
   pt: {
     topic: "Tópico A-Z",
@@ -55,6 +57,7 @@ const labelsPerLocale = {
     organisations: "Organizaçãoes",
     searchPeople: "Procurar pessoas",
     searchOrganisations: "Procurar organizações",
+    donors: "Doadores",
   },
 };
 

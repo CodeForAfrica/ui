@@ -47,7 +47,9 @@ async function processSingleTool(page, api, context) {
         image: tool.avatarUrl ?? null,
         name: tool.name ?? null,
         topic: tool?.topic ?? null,
+        donors: [],
         toolsTitle: filterLabels.tools,
+        donorsTitle: filterLabels.donors,
         contributorsTitle: filterLabels.contributors,
         lastActive: tool.lastActive
           ? formatDateTime(tool.lastActive, {})
