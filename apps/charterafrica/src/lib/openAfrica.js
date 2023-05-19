@@ -1,3 +1,4 @@
+import allCountries from "@/charterafrica/lib/data/json/countries";
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const BASE_DOCUMENTS_URL = "https://openafrica.net/api/3/action/";
@@ -70,7 +71,7 @@ function formatDatasets(datasets) {
       id,
       name,
       notes,
-      url,
+      url: url?.trim(),
       title,
       type,
       updated,
@@ -84,13 +85,19 @@ function formatResponse(data) {
 
   const datasets = formatDatasets(results);
   const sortStrings = (a, b) => a.localeCompare(b);
-  const countries = Object.keys(groups || {}).sort(sortStrings);
+  const uniqueCountries = Object.keys(groups || {}).sort(sortStrings);
+  const validCountries = uniqueCountries.filter((country) =>
+    allCountries.africa
+      .map((c) => c.toLowerCase())
+      .includes(country.toLowerCase())
+  );
+
   const tagsList = Object.keys(tags || {}).sort(sortStrings);
 
   return {
     count,
     datasets,
-    countries,
+    countries: validCountries,
     tags: tagsList,
     totalPages: Math.ceil(count / PAGE_SIZE),
   };

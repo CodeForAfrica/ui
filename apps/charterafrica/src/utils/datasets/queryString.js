@@ -21,7 +21,6 @@ function queryString(query = {}) {
   if (tags?.length > 0) {
     searchParams.append("tags", tags);
   }
-
   if (page > 1) {
     searchParams.append("page", page);
   }
