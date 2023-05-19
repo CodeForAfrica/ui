@@ -166,7 +166,7 @@ exports[`<Tool /> renders unchanged 1`] = `
         class="MuiBox-root css-19midj6"
       >
         <div
-          class="MuiTypography-root MuiTypography-h4Small css-8o17jh-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4Small css-v0m1t0-MuiTypography-root"
         >
           Contributors
         </div>

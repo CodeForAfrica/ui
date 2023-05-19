@@ -40,7 +40,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
             John Doe
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h4Small css-1qtcam1-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4Small css-j3zrak-MuiTypography-root"
           >
             San Francisco, CA
           </div>
