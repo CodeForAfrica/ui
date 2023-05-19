@@ -4,40 +4,34 @@ import payload from "@/charterafrica/lib/payload";
 async function datasets(req, res) {
   const {
     query: {
-      page = 1,
-      pageSize = 10,
       sort = "metadata_created desc",
-      tags = [],
+      tags,
+      countries,
       q = "",
+      page = 1,
     },
   } = req;
 
   try {
-    const { organizationId } = await payload.findGlobal("datasets");
+    const { organizationId } = await payload.findGlobal("openAfrica");
     const data = await fetchDatasets(organizationId, {
       q,
-      rows: pageSize,
-      start: (page - 1) * pageSize,
+      page,
       sort,
-      tags,
+      tags: tags?.split(","),
+      countries: countries?.split(","),
     });
+
     return res.status(200).json(data);
   } catch (error) {
     return res.status(500).json({ error });
   }
 }
 
-const dataHandlerMap = {
-  datasets,
-};
-
 export default async function handler(req, res) {
-  const {
-    query: { type },
-  } = req;
-  const typeHandler = dataHandlerMap[type];
-  if (typeHandler) {
-    return typeHandler(req, res);
+  try {
+    return await datasets(req, res);
+  } catch (error) {
+    return res.status(500).json({ error });
   }
-  return res.status(404).json({ message: "UNKNOWN_DATA_TYPE", type });
 }

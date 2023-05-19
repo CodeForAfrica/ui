@@ -1,76 +1,11 @@
+import allCountries from "@/charterafrica/lib/data/json/countries";
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const BASE_DOCUMENTS_URL = "https://openafrica.net/api/3/action/";
 
-async function formatDatasets(data) {
-  const {
-    result: {
-      count,
-      facets: { tags: allTags, groups: allCountries },
-      results,
-    },
-  } = data || {};
+const PAGE_SIZE = 10;
 
-  const formattedDatasets = results?.map((dataset) => {
-    const {
-      author,
-      metadata_created: created,
-      metadata_modified: updated,
-      name,
-      notes,
-      resources,
-      title,
-      type,
-    } = dataset;
-
-    const formattedResources = resources?.map((resource) => {
-      const { url, format, name: resourceName, description } = resource;
-      return {
-        description,
-        format,
-        name: resourceName,
-        url,
-      };
-    });
-
-    const allDocumentFormats = [
-      ...new Set(formattedResources?.map((resource) => resource.format)),
-    ];
-
-    return {
-      author,
-      created,
-      documents: formattedResources,
-      formats: allDocumentFormats,
-      name,
-      notes,
-      title,
-      type,
-      updated,
-    };
-  });
-
-  return {
-    datasets: formattedDatasets,
-    countries: Object.keys(allCountries).map((country) => country),
-    tags: Object.keys(allTags).map((tag) => tag),
-    count,
-  };
-}
-
-export default async function fetchDatasets(organization, query = {}) {
-  const { tags = [], ...other } = query;
-  const tagsQuery = tags.length ? `tags:(${tags.join(" OR ")})` : "";
-  const organizationQuery = `organization:${organization}`;
-  const filterQuery = [tagsQuery, organizationQuery]
-    .filter(Boolean)
-    .join(" AND ");
-
-  const params = {
-    ...other,
-    fq: filterQuery,
-    "facet.field": '["tags", "groups"]',
-  };
+async function packageSearch(params) {
   try {
     const response = await fetchJson.get(
       `${BASE_DOCUMENTS_URL}package_search`,
@@ -78,7 +13,116 @@ export default async function fetchDatasets(organization, query = {}) {
         params,
       }
     );
-    const formattedData = formatDatasets(response);
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+
+function formatResources(resources, author) {
+  return resources?.map((resource) => {
+    const {
+      created,
+      id,
+      last_modified: updated,
+      url,
+      format,
+      name,
+      description,
+    } = resource;
+    return {
+      author,
+      created,
+      description,
+      format,
+      id,
+      name,
+      updated,
+      url,
+    };
+  });
+}
+
+function formatDatasets(datasets) {
+  return datasets?.map((dataset) => {
+    const {
+      author,
+      id,
+      metadata_created: created,
+      metadata_modified: updated,
+      name,
+      notes,
+      resources,
+      title,
+      type,
+      url,
+    } = dataset;
+
+    const formattedResources = formatResources(resources, author);
+
+    const formatsSet = new Set(resources?.map((r) => r.format));
+    const formats = Array.from(formatsSet).sort();
+
+    return {
+      author,
+      created,
+      formats,
+      formattedResources,
+      id,
+      name,
+      notes,
+      url: url?.trim(),
+      title,
+      type,
+      updated,
+    };
+  });
+}
+
+function formatResponse(data) {
+  const { result: { count, facets: { tags, groups }, results } = {} } =
+    data || {};
+
+  const datasets = formatDatasets(results);
+  const sortStrings = (a, b) => a.localeCompare(b);
+  const uniqueCountries = Object.keys(groups || {}).sort(sortStrings);
+  const validCountries = uniqueCountries.filter((country) =>
+    allCountries.africa.includes(country.toLowerCase())
+  );
+  const tagsList = Object.keys(tags || {}).sort(sortStrings);
+
+  return {
+    count,
+    datasets,
+    countries: validCountries,
+    tags: tagsList,
+    totalPages: Math.ceil(count / PAGE_SIZE),
+  };
+}
+
+export default async function fetchDatasets(organization, query = {}) {
+  const { tags = [], countries = [], page = 1, ...other } = query;
+  const tagsQuery = tags.length
+    ? `tags:(${tags.map((t) => `"${t}"`).join(" OR ")})`
+    : null;
+  const countriesQuery = countries.length
+    ? `groups:(${countries.map((c) => `"${c}"`).join(" OR ")})`
+    : null;
+  const organizationQuery = `organization:${organization}`;
+  const filterQuery = [organizationQuery, tagsQuery, countriesQuery]
+    .filter(Boolean)
+    .join(" AND ");
+  const params = {
+    ...other,
+    fq: filterQuery,
+    rows: PAGE_SIZE,
+    start: (page - 1) * PAGE_SIZE,
+    "facet.field": '["tags", "groups"]',
+  };
+
+  try {
+    const response = await packageSearch(params);
+    const formattedData = formatResponse(response);
     return formattedData;
   } catch (error) {
     return error;

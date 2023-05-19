@@ -9,7 +9,6 @@ import { buildConfig } from "payload/config";
 
 import Authors from "./src/payload/collections/Authors";
 import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
-import Datasets from "./src/payload/globals/Datasets";
 import Events from "./src/payload/collections/Events";
 import Explainers from "./src/payload/collections/Explainers";
 import Fellowships from "./src/payload/collections/Fellowships";
@@ -17,6 +16,7 @@ import Grants from "./src/payload/collections/Grants";
 import Grantees from "./src/payload/collections/Grantees";
 import Media from "./src/payload/collections/Media";
 import News from "./src/payload/collections/News";
+import OpenAfrica from "./src/payload/globals/OpenAfrica";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Research from "./src/payload/collections/Research";
@@ -86,11 +86,11 @@ export default buildConfig({
     Tags,
   ] as CollectionConfig[],
   globals: [
-    Datasets,
     FocalCountries,
     Footer,
     Helpdesk,
     Navigation,
+    OpenAfrica,
     Settings,
   ] as GlobalConfig[],
   ...(locales?.length
@@ -129,16 +129,19 @@ export default buildConfig({
           uniqueCountries: "Countries must be unique",
           uniqueLocales: "Locales must be unique",
           validHexColor: "Please enter a valid color value (in hex format)",
+          uniqueSortOptions: "Sort options must be unique",
         },
       },
       fr: {
         "charterafrica.site": {
           uniqueLocales: "Les locaux doivent être uniques",
+          uniqueSortOptions: "Les options de tri doivent être uniques",
         },
       },
       pt: {
         "charterafrica.site": {
           uniqueLocales: "Os locais devem ser únicos",
+          uniqueSortOptions: "As opções de classificação devem ser únicas",
         },
       },
     },

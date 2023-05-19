@@ -3,6 +3,7 @@ import processPageArticles, {
   processPageEvents,
 } from "@/charterafrica/lib/data/common/processPageArticles";
 import processPageConsultation from "@/charterafrica/lib/data/common/processPageConsultation";
+import processPageDatasets from "@/charterafrica/lib/data/common/processPageDatasets";
 import processPageExplainers from "@/charterafrica/lib/data/common/processPageExplainers";
 import processPageIndex from "@/charterafrica/lib/data/common/processPageIndex";
 import processPageOpportunities, {
@@ -44,6 +45,7 @@ export async function getGlobalProps({ locale, defaultLocale }, api) {
 const processPageFunctionsMap = {
   about: processPageAbout,
   consultation: processPageConsultation,
+  datasets: processPageDatasets,
   explainers: processPageExplainers,
   events: processPageEvents,
   fellowships: processPageFellowships,

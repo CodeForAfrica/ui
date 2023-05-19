@@ -1,5 +1,6 @@
-const Datasets = {
-  slug: "datasets",
+const OpenAfrica = {
+  slug: "openAfrica",
+  label: "openAFRICA",
   access: {
     read: () => true,
   },
@@ -11,11 +12,10 @@ const Datasets = {
         fr: "ID de l'organisation",
         pt: "ID da organização",
       },
-      localized: true,
       type: "text",
       required: true,
     },
   ],
 };
 
-export default Datasets;
+export default OpenAfrica;
