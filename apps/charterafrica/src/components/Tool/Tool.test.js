@@ -18,6 +18,7 @@ const defaultProps = {
   contributorsTitle: "Contributors",
   lastActive: "6 Months ago",
   linkText: "Go to Repo",
+  donors: [],
   contributeText: "Contribute",
   organisationName: "organisationName",
   twitter: "https://twitter.com/johndoe",

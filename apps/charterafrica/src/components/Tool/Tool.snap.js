@@ -15,10 +15,10 @@ exports[`<Tool /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-8 css-1uc7gvi-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-5ovtdi-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1i4efx7-MuiGrid-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h2SemiBold css-1iwazyv-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2SemiBold css-lknjzb-MuiTypography-root"
             >
               Tool Name
             </div>
@@ -50,16 +50,16 @@ exports[`<Tool /> renders unchanged 1`] = `
                 Africa
               </div>
               <div
-                class="MuiTypography-root MuiTypography-h6Small css-2nvr83-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6Small css-y4v0ok-MuiTypography-root"
               >
-                Topic Name
+                Topic:Topic Name
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-tmgb8p-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-x7i6jq-MuiGrid-root"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-tippda-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-clwbes-MuiButtonBase-root-MuiButton-root"
                 href=""
                 tabindex="0"
                 type="button"
@@ -73,7 +73,7 @@ exports[`<Tool /> renders unchanged 1`] = `
               </button>
               <br />
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-uto52t-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-y1ceyj-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="https://git.com"
                 tabindex="0"
               >
@@ -87,67 +87,68 @@ exports[`<Tool /> renders unchanged 1`] = `
               </a>
             </div>
           </div>
-          <hr
-            class="MuiDivider-root MuiDivider-fullWidth css-gq7efl-MuiDivider-root"
-          />
           <div
-            class="MuiTypography-root MuiTypography-p1 css-1lqf5ct-MuiTypography-root"
-          >
-            Lorem ipsum dolor sit amet consectetur adipiscing elit gravida, urna enim nulla iaculis taciti semper parturient laoreet luctus, orci ac ornare senectus posuere nam libero. Imperdiet turpis tortor nu. Lorem ipsum dolor sit amet consectetur adipiscing elit gravida, urna enim nulla iaculis taciti semper parturient laoreet luctus, orci ac ornare senectus posuere nam libero. Imperdiet turpis tortor nu.
-          </div>
-          <div
-            class="MuiBox-root css-oqyb22"
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <div
-              class="MuiStack-root css-hmfqeh-MuiStack-root"
+              class="MuiTypography-root MuiTypography-p1 css-1oplxpo-MuiTypography-root"
+            >
+              Lorem ipsum dolor sit amet consectetur adipiscing elit gravida, urna enim nulla iaculis taciti semper parturient laoreet luctus, orci ac ornare senectus posuere nam libero. Imperdiet turpis tortor nu. Lorem ipsum dolor sit amet consectetur adipiscing elit gravida, urna enim nulla iaculis taciti semper parturient laoreet luctus, orci ac ornare senectus posuere nam libero. Imperdiet turpis tortor nu.
+            </div>
+            <div
+              class="MuiBox-root css-oqyb22"
             >
               <div
-                class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
+                class="MuiStack-root css-hmfqeh-MuiStack-root"
               >
-                Share via
-              </div>
-              <div
-                class="MuiStack-root css-a2l1ks-MuiStack-root"
-              >
-                <button
-                  aria-label="twitter"
-                  class="react-share__ShareButton"
-                  medium="twitter"
-                  style="background-color: transparent; padding: 0px; cursor: pointer;"
+                <div
+                  class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
                 >
-                  <div
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
-                    focusable="false"
-                    viewbox="0 0 24 24"
-                  />
-                </button>
-                <button
-                  aria-label="facebook"
-                  class="react-share__ShareButton"
-                  medium="facebook"
-                  style="background-color: transparent; padding: 0px; cursor: pointer;"
+                  Share via
+                </div>
+                <div
+                  class="MuiStack-root css-a2l1ks-MuiStack-root"
                 >
-                  <div
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
-                    focusable="false"
-                    viewbox="0 0 24 24"
-                  />
-                </button>
-                <button
-                  aria-label="linkedin"
-                  class="react-share__ShareButton"
-                  medium="linkedin"
-                  style="background-color: transparent; padding: 0px; cursor: pointer;"
-                >
-                  <div
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
-                    focusable="false"
-                    viewbox="0 0 24 24"
-                  />
-                </button>
+                  <button
+                    aria-label="twitter"
+                    class="react-share__ShareButton"
+                    medium="twitter"
+                    style="background-color: transparent; padding: 0px; cursor: pointer;"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                      focusable="false"
+                      viewbox="0 0 24 24"
+                    />
+                  </button>
+                  <button
+                    aria-label="facebook"
+                    class="react-share__ShareButton"
+                    medium="facebook"
+                    style="background-color: transparent; padding: 0px; cursor: pointer;"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                      focusable="false"
+                      viewbox="0 0 24 24"
+                    />
+                  </button>
+                  <button
+                    aria-label="linkedin"
+                    class="react-share__ShareButton"
+                    medium="linkedin"
+                    style="background-color: transparent; padding: 0px; cursor: pointer;"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                      focusable="false"
+                      viewbox="0 0 24 24"
+                    />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -162,11 +163,14 @@ exports[`<Tool /> renders unchanged 1`] = `
           />
         </div>
       </div>
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-gq7efl-MuiDivider-root"
+      />
       <div
         class="MuiBox-root css-19midj6"
       >
         <div
-          class="MuiTypography-root MuiTypography-h4Small css-v0m1t0-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4Small css-1ye1y66-MuiTypography-root"
         >
           Contributors
         </div>
