@@ -1,7 +1,6 @@
 import {
   Box,
   Grid,
-  Checkbox,
   styled,
   Autocomplete,
   TextField,
@@ -11,13 +10,6 @@ import React, { useState } from "react";
 
 import { neutral } from "@/charterafrica/colors";
 import SearchInput from "@/charterafrica/components/SearchInput";
-
-const StyledCheckbox = styled(Checkbox)({
-  color: neutral[900],
-  "&.Mui-checked": {
-    color: neutral[500],
-  },
-});
 
 const StyledAutocomplete = styled(Autocomplete)({
   backgroundColor: neutral[50],
@@ -42,12 +34,6 @@ const StyledAutocompleteTags = styled(Typography)({
   textTransform: "capitalize",
   color: neutral[900],
 });
-
-const StyledListItem = styled("li")(({ theme }) => ({
-  color: neutral[900],
-  fontSize: theme.typography.p1.fontSize,
-  fontWeight: theme.typography.p1.fontWeight,
-}));
 
 const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   props,
@@ -144,11 +130,11 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
       <Grid container spacing={2}>
         <Grid item xs={12} lg={3}>
           <SearchInput
-            placeholder={labels.search}
-            value={value}
             onChange={handleChangeQ}
             onClick={handleClick}
             onKeyPress={handleKeyPress}
+            placeholder={labels.search}
+            value={value}
             sx={{
               backgroundColor: "#fff",
               height: "36px",
@@ -159,8 +145,9 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
         </Grid>
         <Grid item xs={12} sm={4} lg={3}>
           <StyledAutocomplete
-            options={[labels.sort, ...sortOptions]}
             defaultValue={labels.sort}
+            options={[labels.sort, ...sortOptions]}
+            onChange={handleChangeSort}
             renderInput={(params) => (
               <StyledAutocompleteInput
                 {...params}
@@ -172,49 +159,36 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
                 }}
               />
             )}
-            onChange={handleChangeSort}
           />
         </Grid>
         <Grid item xs={12} sm={4} lg={3} overflow="hidden">
           <StyledAutocomplete
+            defaultValue={[labels.countries]}
             multiple
             options={[labels.countries, ...countries]}
-            defaultValue={[labels.countries]}
+            onChange={handleChangeCountry}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
-            renderOption={(renderProps, option, { selected }) => (
-              <StyledListItem {...renderProps}>
-                <StyledCheckbox checked={selected} />
-                {option.toUpperCase()}
-              </StyledListItem>
-            )}
             renderTags={(checkedCountries, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
                 {listToLabel(checkedCountries, "countries", 2)}
               </StyledAutocompleteTags>
             )}
             value={selectedCountries}
-            onChange={handleChangeCountry}
           />
         </Grid>
         <Grid item xs={12} sm={4} lg={3}>
           <StyledAutocomplete
+            defaultValue={[labels.tags]}
             multiple
             options={[labels.tags, ...tags]}
-            defaultValue={[labels.tags]}
-            renderInput={(params) => <StyledAutocompleteInput {...params} />}
-            renderOption={(renderProps, option, { selected }) => (
-              <StyledListItem {...renderProps}>
-                <StyledCheckbox checked={selected} />
-                {option.toUpperCase()}
-              </StyledListItem>
-            )}
-            value={selectedTags}
             onChange={handleChangeTag}
+            renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderTags={(checkedTags, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
                 {listToLabel(checkedTags, "tags")}
               </StyledAutocompleteTags>
             )}
+            value={selectedTags}
           />
         </Grid>
       </Grid>
