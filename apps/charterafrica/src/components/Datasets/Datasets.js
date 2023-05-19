@@ -35,13 +35,23 @@ const Datasets = React.forwardRef(function Datasets(
   const { asPath } = router;
 
   const handleChangePage = (_, value) => setPage(value);
-  const handleChangeQ = (_, value) => setQ(value);
-  const handleChangeSort = (_, value) => setSort(value);
+  const handleChangeQ = (_, value) => {
+    setQ(value);
+    setPage(1);
+  };
+  const handleChangeSort = (_, value) => {
+    setSort(value);
+    setPage(1);
+  };
   const handleChangeCountries = (_, value) => {
     setSelectedCountries(value);
+    setPage(1);
   };
 
-  const handleChangeTags = (_, value) => setSelectedTags(value);
+  const handleChangeTags = (_, value) => {
+    setSelectedTags(value);
+    setPage(1);
+  };
 
   const query = queryString({
     page,
