@@ -9,7 +9,10 @@ import processPageOpportunities, {
   processPageFellowships,
   processPageGrants,
 } from "@/charterafrica/lib/data/common/processPageOpportunities";
+import processPageOrganisations from "@/charterafrica/lib/data/common/processPageOrganisations";
+import processPagePeople from "@/charterafrica/lib/data/common/processPagePeople";
 import processPagePrivacyPolicy from "@/charterafrica/lib/data/common/processPagePrivacyPolicy";
+import processPageTools from "@/charterafrica/lib/data/common/processPageTools";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
 export async function getGlobalProps({ locale, defaultLocale }, api) {
@@ -52,7 +55,10 @@ const processPageFunctionsMap = {
   index: processPageIndex,
   news: processPageArticles,
   research: processPageArticles,
+  tools: processPageTools,
   "privacy-policy": processPagePrivacyPolicy,
+  people: processPagePeople,
+  organisations: processPageOrganisations,
 };
 
 async function processGlobalBlockFocalCountries(block) {
