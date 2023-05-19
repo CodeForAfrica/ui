@@ -31,7 +31,7 @@ export default async function processPageDatasets(page, api, context) {
     const qs = datasetsQuery(getDatasetsQuery(context));
     // eslint-disable-next-line no-param-reassign
     page.fallback = {
-      [`${swrKey}${qs}`]: [],
+      [`${swrKey}${qs}`]: data,
     };
   }
 
