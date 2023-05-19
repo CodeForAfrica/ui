@@ -43,6 +43,12 @@ const StyledAutocompleteTags = styled(Typography)({
   color: neutral[900],
 });
 
+const StyledListItem = styled("li")(({ theme }) => ({
+  color: neutral[900],
+  fontSize: theme.typography.p1.fontSize,
+  fontWeight: theme.typography.p1.fontWeight,
+}));
+
 const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   props,
   ref
@@ -176,10 +182,10 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             defaultValue={[labels.countries]}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderOption={(renderProps, option, { selected }) => (
-              <li {...renderProps}>
+              <StyledListItem {...renderProps}>
                 <StyledCheckbox checked={selected} />
                 {option.toUpperCase()}
-              </li>
+              </StyledListItem>
             )}
             renderTags={(checkedCountries, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
@@ -197,10 +203,10 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             defaultValue={[labels.tags]}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderOption={(renderProps, option, { selected }) => (
-              <li {...renderProps}>
+              <StyledListItem {...renderProps}>
                 <StyledCheckbox checked={selected} />
                 {option.toUpperCase()}
-              </li>
+              </StyledListItem>
             )}
             value={selectedTags}
             onChange={handleChangeTag}
