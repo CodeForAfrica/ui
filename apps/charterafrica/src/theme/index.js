@@ -288,6 +288,35 @@ deepmerge(
        }
       `,
     },
+    MuiAutocomplete: {
+      styleOverrides: {
+        option: {
+          ...theme.typography.caption,
+          borderBottom: "1px solid",
+          borderColor: neutral[900],
+          color: neutral[900],
+          margin: 0,
+          // TODO(kelvinkipruto): Figure out a way to style without !important
+          padding: "10px !important",
+          textTransform: "capitalize",
+          "&:last-of-type": {
+            borderBottom: "none",
+          },
+          "&[aria-selected=true]": {
+            backgroundColor: `${neutral[100]} !important`,
+          },
+        },
+        listbox: {
+          border: "1px solid",
+          borderColor: neutral[900],
+          padding: 0,
+        },
+        paper: {
+          borderRadius: 0,
+          marginTop: "10px",
+        },
+      },
+    },
   },
   { clone: false }
 );
