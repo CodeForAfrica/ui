@@ -9,7 +9,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1w6el6r-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-rkv75a-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1bxfcex-MuiGrid-root"
@@ -32,25 +32,25 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
           </figure>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-10wmm61-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-6q6fhx-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2SemiBold css-12rsgnc-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2SemiBold css-1ij80lf-MuiTypography-root"
           >
             John Doe
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h4Small css-j3zrak-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4Small css-6del67-MuiTypography-root"
           >
             San Francisco, CA
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p1 css-12lfw4o-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-1syd6cp-MuiTypography-root"
           >
             Full-stack web developer with over 5 years of experience.
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-auto css-s0fo87-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-auto css-f44kqc-MuiGrid-root"
           >
             <div
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"

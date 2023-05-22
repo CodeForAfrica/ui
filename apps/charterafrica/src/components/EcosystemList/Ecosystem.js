@@ -27,6 +27,7 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
     sortOrder,
     Component,
     title,
+    filterOptions,
   } = props;
   const router = useRouter();
   const [values, setValues] = useState({
@@ -109,6 +110,7 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
           searchPlaceholder={searchPlaceholder}
           values={{ ...values, search }}
           sortOrder={sortOrder}
+          filterOptions={filterOptions}
           onQuerySearch={onQuerySearch}
         />
       </Section>
@@ -123,7 +125,7 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
         {loading ? <LinearProgress color="secondary" /> : null}
         <Grid sx={{ mt: 5 }} container columnSpacing={2.5} rowSpacing={5}>
           {results.map((item) => (
-            <Grid key={item.id} item xs={12} sm={4} md={3} lg={3}>
+            <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>
               <Component key={item.id} {...item} />
             </Grid>
           ))}

@@ -129,10 +129,53 @@ async function processPagePeople(page, api, context) {
   const { pagination, results } = await getPeople(page, api, context);
   const foundIndex = blocks.findIndex(({ slug }) => slug === "people");
   const filterLabels = labelsPerLocale[locale];
+  const filterOptions = [
+    {
+      type: "select",
+      name: "sort",
+      options: [
+        { value: "topic", label: filterLabels.topic },
+        { value: "-topic", label: filterLabels["-topic"] },
+        { value: "views", label: filterLabels.views },
+        { value: "-views", label: filterLabels["-views"] },
+        { value: "stars", label: filterLabels.stars },
+        { value: "-stars", label: filterLabels["-stars"] },
+        { value: "name", label: filterLabels.name },
+      ],
+    },
+    {
+      type: "select",
+      name: "stars",
+      label: "Rating",
+      options: [
+        {
+          value: "",
+          label: "All",
+        },
+        {
+          value: "<1000",
+          label: "<1000",
+        },
+      ],
+    },
+    {
+      type: "select",
+      name: "expert",
+      label: "Expert",
+      multiple: true,
+      options: [
+        {
+          value: "Expert",
+          label: "Expert",
+        },
+      ],
+    },
+  ];
   const people = {
     slug: "people",
     title: filterLabels.people,
     results,
+    filterOptions,
     pagination,
     searchPlaceholder: filterLabels.searchPeople,
     sortOrder: [{ value: "name", label: filterLabels.name }],

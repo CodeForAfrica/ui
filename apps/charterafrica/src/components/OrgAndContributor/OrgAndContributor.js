@@ -50,7 +50,7 @@ const Entity = React.forwardRef(function Entity(props, ref) {
   return (
     <Box ref={ref} sx={{ p: 10 }} bgcolor="common.white">
       <Section>
-        <Grid container>
+        <Grid columnSpacing={{ sm: 13.25 }} container>
           <Grid sx={{ p: 2 }} item xs={12} sm={4}>
             <Figure
               ImageProps={{
@@ -67,18 +67,28 @@ const Entity = React.forwardRef(function Entity(props, ref) {
               }}
             />
           </Grid>
-          <Grid item sx={{ p: 2 }} xs={12} sm={8}>
+          <Grid
+            display="flex"
+            flexDirection="column"
+            alignItems="flex-start"
+            justifyContent="center"
+            item
+            sx={{ p: 2 }}
+            xs={12}
+            sm={8}
+          >
             <RichTypography
               textAlign={{ xs: "center", sm: "left" }}
               color="neutral.dark"
               variant="h2SemiBold"
+              sx={{ width: "100%" }}
             >
               {name}
             </RichTypography>
             <RichTypography
               textAlign={{ xs: "center", sm: "left" }}
               color="neutral.dark"
-              sx={{ mt: 2.5 }}
+              sx={{ mt: 2.5, width: "100%" }}
               variant="h4Small"
             >
               {location}
@@ -86,7 +96,7 @@ const Entity = React.forwardRef(function Entity(props, ref) {
             <RichTypography
               textAlign={{ xs: "center", sm: "left" }}
               color="neutral.dark"
-              sx={{ mt: 2.5 }}
+              sx={{ mt: 2.5, width: "100%" }}
               variant="p1"
             >
               {description}
@@ -95,7 +105,7 @@ const Entity = React.forwardRef(function Entity(props, ref) {
               item
               xs="auto"
               container
-              sx={{ mt: 3 }}
+              sx={{ mt: 3, width: "100%" }}
               justifyContent={{ xs: "center", sm: "flex-start" }}
               columnSpacing={2}
             >

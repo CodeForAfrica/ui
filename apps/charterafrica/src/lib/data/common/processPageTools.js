@@ -114,20 +114,54 @@ async function processPageTools(page, api, context) {
   const { pagination, results } = await getTools(page, api, context);
   const foundIndex = blocks.findIndex(({ slug }) => slug === "tools");
   const filterLabels = labelsPerLocale[locale];
+  const filterOptions = [
+    {
+      type: "select",
+      name: "sort",
+      options: [
+        { value: "topic", label: filterLabels.topic },
+        { value: "-topic", label: filterLabels["-topic"] },
+        { value: "views", label: filterLabels.views },
+        { value: "-views", label: filterLabels["-views"] },
+        { value: "stars", label: filterLabels.stars },
+        { value: "-stars", label: filterLabels["-stars"] },
+        { value: "name", label: filterLabels.name },
+      ],
+    },
+    {
+      type: "select",
+      name: "stars",
+      label: "Stars",
+      options: [
+        {
+          value: "",
+          label: "All",
+        },
+        {
+          value: "<1000",
+          label: "<1000",
+        },
+      ],
+    },
+    {
+      type: "select",
+      name: "topic",
+      label: "Topic",
+      multiple: true,
+      options: [
+        {
+          value: "Governance",
+          label: "Governance",
+        },
+      ],
+    },
+  ];
   const tool = {
     slug: "tools",
     results,
     pagination,
     searchPlaceholder: filterLabels.searchTools,
-    sortOrder: [
-      { value: "topic", label: filterLabels.topic },
-      { value: "-topic", label: filterLabels["-topic"] },
-      { value: "views", label: filterLabels.views },
-      { value: "-views", label: filterLabels["-views"] },
-      { value: "stars", label: filterLabels.stars },
-      { value: "-stars", label: filterLabels["-stars"] },
-      { value: "name", label: filterLabels.name },
-    ],
+    filterOptions,
   };
 
   if (foundIndex > -1) {
