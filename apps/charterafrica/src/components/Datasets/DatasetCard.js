@@ -15,6 +15,7 @@ import LineClampedRichTypography from "@/charterafrica/components/LineClampedRic
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
 function DatasetCard({
+  id,
   formats,
   notes,
   title,
@@ -25,7 +26,7 @@ function DatasetCard({
   author,
   updatedLabel,
   createdLabel,
-  url,
+  pageUrl,
   sx,
 }) {
   const [showAll, setShowAll] = useState(false);
@@ -49,8 +50,7 @@ function DatasetCard({
           },
         }}
         component={Link}
-        // TODO: Update URL to single dataset page
-        href={url}
+        href={`${pageUrl}/${id}`}
       >
         <CardContent>
           <Grid

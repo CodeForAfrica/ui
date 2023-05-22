@@ -20,6 +20,7 @@ const Datasets = React.forwardRef(function Datasets(
     countries = [],
     totalPages: originalTotalPages,
     sortOptions = [],
+    pageUrl,
   },
   ref
 ) {
@@ -124,6 +125,7 @@ const Datasets = React.forwardRef(function Datasets(
               readLess={labels.readLess}
               updatedLabel={labels.updated}
               createdLabel={labels.created}
+              pageUrl={pageUrl}
               sx={{
                 borderBottom: "none",
                 "&:last-of-type": {

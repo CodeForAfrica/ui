@@ -128,3 +128,16 @@ export default async function fetchDatasets(organization, query = {}) {
     return error;
   }
 }
+
+export async function fetchDataset(id) {
+  try {
+    const response = await fetchJson.get(
+      `${BASE_DOCUMENTS_URL}package_show?id=${id}`
+    );
+    const { result: dataset } = response;
+    const formattedDataset = formatDatasets([dataset]);
+    return formattedDataset[0];
+  } catch (error) {
+    return error;
+  }
+}
