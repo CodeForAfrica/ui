@@ -1,5 +1,5 @@
-import { Section } from "@commons-ui/core";
-import { Box, Grid, Select, MenuItem } from "@mui/material";
+import { RichTypography } from "@commons-ui/core";
+import { Autocomplete, Box, Grid, SvgIcon, TextField } from "@mui/material";
 import React from "react";
 
 import ChevronDown from "@/charterafrica/assets/icons/Type=chevron-down, Size=16, Color=CurrentColor.svg";
@@ -22,83 +22,78 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
     }
   };
   return (
-    <Box bgcolor="#fff" ref={ref}>
-      <Section
-        sx={{
-          py: 2.5,
-        }}
+    <Box sx={{ pb: 3.75 }} bgcolor="common.white" ref={ref}>
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="space-between"
+        columnGap={1.25}
+        rowGap={1.25}
       >
-        <Grid
-          container
-          alignItems="center"
-          justifyContent="space-between"
-          columnGap={{ xs: 3, sm: 3 }}
-          rowGap={3}
-        >
-          <Grid item xs={12} lg={2}>
-            <SearchInput
-              value={values.search}
-              onChange={(e) => onChange({ search: e.target.value })}
-              placeholder={searchPlaceholder}
-              onKeyPress={handleKeyPress}
-              onClick={onQuerySearch}
-              sx={{
-                backgroundColor: "common.white",
-                height: "36px",
-                typography: "p1",
-                width: "100%",
-              }}
-            />
-          </Grid>
-          {filterOptions.map((option) => {
-            if (option.type === "select" && option.options.length) {
-              const renderValue = (value) => {
-                let output = option.label;
-                if (value.length) {
-                  if (Array.isArray(value)) {
-                    return value.join(", ");
-                  }
-                  output = value;
-                }
-                return output;
-              };
-              return (
-                <Grid key={option.name} item xs={3.5} lg={3}>
-                  <Select
-                    label={option.label}
-                    IconComponent={ChevronDown}
-                    onChange={(e) =>
-                      onChange({ [option.name]: e.target.value })
-                    }
-                    displayEmpty
-                    renderValue={renderValue}
-                    value={values[option.name] || ""}
-                    MenuProps={{
-                      sx: {
-                        color: "neutral.dark",
-                        typography: "p1",
-                      },
-                    }}
-                    sx={{
-                      backgroundColor: neutral[50],
-                      height: "36px",
-                      width: "100%",
-                      typography: "p1",
-                    }}
-                  >
-                    {option.options.map((order) => (
-                      <MenuItem value={order.value} key={order.value}>
-                        {order.label}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </Grid>
-              );
-            }
-            return null;
-          })}
+        <Grid item xs={12} lg={2}>
+          <SearchInput
+            value={values.search}
+            onChange={(e) => onChange({ search: e.target.value })}
+            placeholder={searchPlaceholder}
+            onKeyPress={handleKeyPress}
+            onClick={onQuerySearch}
+            sx={{
+              backgroundColor: "common.white",
+              height: "36px",
+              typography: "p1",
+              width: "100%",
+            }}
+          />
         </Grid>
-      </Section>
+        {filterOptions.map((option) => {
+          if (option.type === "select" && option.options.length) {
+            const value = values[option.name] || "";
+            const optValue = option.options.find((opt) => value === opt.value);
+
+            const onItemChange = (e, target) => {
+              onChange({ [option.name]: target?.value });
+            };
+            return (
+              <Grid key={option.name} item xs={3.75} lg={3}>
+                <Autocomplete
+                  size="small"
+                  options={option.options}
+                  getOptionLabel={(opt) => opt.label || option.label}
+                  popupIcon={
+                    <SvgIcon
+                      inheritViewBox
+                      sx={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        fill: "none",
+                        mt: 0.5,
+                      }}
+                      component={ChevronDown}
+                    />
+                  }
+                  value={optValue}
+                  onChange={onItemChange}
+                  isOptionEqualToValue={(opt) => opt?.value === optValue?.value}
+                  renderOption={(optionProps, opt) => (
+                    <li {...optionProps}>
+                      <RichTypography variant="p1">{opt.label}</RichTypography>
+                    </li>
+                  )}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      fullWidth
+                      value={params.value || ""}
+                      sx={{ backgroundColor: neutral[50] }}
+                    />
+                  )}
+                />
+              </Grid>
+            );
+          }
+          return null;
+        })}
+      </Grid>
     </Box>
   );
 });

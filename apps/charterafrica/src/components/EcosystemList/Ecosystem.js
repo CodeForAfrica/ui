@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState, useImperativeHandle } from "react";
 
-import DigitalDemocracyFilter from "./EcosystemFilter";
+import EcosystemFilter from "./EcosystemFilter";
 import useDigitalDemocracy from "./useEcosystemList";
 
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
@@ -95,17 +95,19 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
     return null;
   }
   return (
-    <Box
+    <Section
       sx={{
-        backgroundColor: "common.white",
-        py: 2.5,
-        scrollMarginTop: { xs: "56px", sm: "64", md: "114px" },
         ...sx,
       }}
-      ref={listRef}
     >
-      <Section>
-        <DigitalDemocracyFilter
+      <Box
+        sx={{
+          p: 3.75,
+          scrollMarginTop: { xs: "56px", sm: "64", md: "114px" },
+        }}
+        ref={listRef}
+      >
+        <EcosystemFilter
           onChange={onFilterChange}
           searchPlaceholder={searchPlaceholder}
           values={{ ...values, search }}
@@ -113,17 +115,16 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
           filterOptions={filterOptions}
           onQuerySearch={onQuerySearch}
         />
-      </Section>
-      <Section sx={{ pb: 5 }}>
         <RichTypography
           textAlign={{ xs: "center", sm: "left" }}
           color="neutral.dark"
           variant="h2SemiBold"
+          sx={{ mt: 6.25 }}
         >
           {title}
         </RichTypography>
         {loading ? <LinearProgress color="secondary" /> : null}
-        <Grid sx={{ mt: 5 }} container columnSpacing={2.5} rowSpacing={5}>
+        <Grid sx={{ py: 6.25 }} container columnSpacing={2.5} rowSpacing={5}>
           {results.map((item) => (
             <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>
               <Component key={item.id} {...item} />
@@ -140,8 +141,8 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
             pb: 8,
           }}
         />
-      </Section>
-    </Box>
+      </Box>
+    </Section>
   );
 });
 
