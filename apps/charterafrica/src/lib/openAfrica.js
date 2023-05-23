@@ -80,21 +80,16 @@ function formatDatasets(datasets) {
 }
 
 function formatResponse(data) {
-  const { result: { count, facets: { tags, groups }, results } = {} } =
-    data || {};
+  const { result: { count, facets: { tags }, results } = {} } = data || {};
 
   const datasets = formatDatasets(results);
   const sortStrings = (a, b) => a.localeCompare(b);
-  const uniqueCountries = Object.keys(groups || {}).sort(sortStrings);
-  const validCountries = uniqueCountries.filter((country) =>
-    allCountries.africa.includes(country.toLowerCase())
-  );
   const tagsList = Object.keys(tags || {}).sort(sortStrings);
 
   return {
     count,
     datasets,
-    countries: validCountries,
+    countries: allCountries.africa,
     tags: tagsList,
     totalPages: Math.ceil(count / PAGE_SIZE),
   };
