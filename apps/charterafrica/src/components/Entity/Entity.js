@@ -17,21 +17,19 @@ const SocialIcon = React.forwardRef(function SocialIcon(props, ref) {
     email: EmailIcon,
   };
   return href ? (
-    <Grid ref={ref} item>
-      <Link href={href}>
-        <SvgIcon
-          inheritViewBox
-          component={icons[variant]}
-          sx={{
-            color: "text.primary",
-            display: "inline-flex",
-            fill: "none",
-            height: 32,
-            width: 32,
-          }}
-        />
-      </Link>
-    </Grid>
+    <Link ref={ref} href={href}>
+      <SvgIcon
+        inheritViewBox
+        component={icons[variant]}
+        sx={{
+          color: "text.primary",
+          display: "inline-flex",
+          fill: "none",
+          height: 32,
+          width: 32,
+        }}
+      />
+    </Link>
   ) : null;
 });
 
@@ -125,7 +123,9 @@ const Entity = React.forwardRef(function Entity(props, ref) {
               columnSpacing={2}
             >
               {icons.map((icon) => (
-                <SocialIcon key={icon.variant} {...icon} />
+                <Grid key={icon.variant} item>
+                  <SocialIcon {...icon} />
+                </Grid>
               ))}
             </Grid>
           </Grid>

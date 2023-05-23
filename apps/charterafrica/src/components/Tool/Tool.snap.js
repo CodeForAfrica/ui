@@ -9,7 +9,7 @@ exports[`<Tool /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1w6el6r-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-flex-wrap css-13oncfi-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-wrap-reverse css-14dbrlv-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-8 css-1uc7gvi-MuiGrid-root"
@@ -52,7 +52,7 @@ exports[`<Tool /> renders unchanged 1`] = `
               <div
                 class="MuiTypography-root MuiTypography-h6Small css-y4v0ok-MuiTypography-root"
               >
-                Topic:Topic Name
+                undefined:Topic Name
               </div>
             </div>
             <div
@@ -154,7 +154,7 @@ exports[`<Tool /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-4 css-9r9iok-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
         >
           <img
             alt="Tool Name"
@@ -163,7 +163,6 @@ exports[`<Tool /> renders unchanged 1`] = `
           />
         </div>
       </div>
-      0
       <div
         class="MuiBox-root css-19midj6"
       >

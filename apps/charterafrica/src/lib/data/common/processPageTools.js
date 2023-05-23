@@ -42,6 +42,7 @@ async function processPageSingleTool(page, api, context) {
           href: tool.link,
           label: filterLabels.contribute,
         },
+        topicLabel: "Topic",
         contributors,
         tools,
         image: tool.avatarUrl ?? null,
@@ -95,6 +96,7 @@ export async function getTools(page, api, context) {
     }
     return {
       ...tool,
+      topicLabel: "Topic",
       description: tool.description ?? " ",
       link: {
         href,

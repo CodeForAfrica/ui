@@ -33,12 +33,13 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     image,
     organisationName,
     contribute,
+    topicLabel,
   } = props;
   return (
     <Box bgcolor="common.white" ref={ref}>
       <Section>
-        <Grid container wrap="flex-wrap">
-          <Grid item container sx={{ p: 2 }} sm={12} md={8}>
+        <Grid container sx={{}} wrap="wrap-reverse">
+          <Grid item sm={12} md={8} container sx={{ p: 2 }}>
             <Grid
               xs={12}
               display="flex"
@@ -87,7 +88,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                   sx={{ fontWeight: 400, mt: 0.625 }}
                   variant="h6Small"
                 >
-                  {topic && `Topic:${topic}`}
+                  {topic && `${topicLabel}:${topic}`}
                 </RichTypography>
               </Grid>
               <Grid sx={{ textAlign: "right", mt: 3.75 }} xs={12} sm={4} item>
@@ -161,7 +162,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
               </Box>
             </Grid>
           </Grid>
-          <Grid md={4} item>
+          <Grid md={4} xs={12} item>
             <CardMedia
               component="img"
               image={image}
@@ -201,7 +202,9 @@ const Tool = React.forwardRef(function Tool(props, ref) {
             </Grid>
           </Box>
         ) : null}
-        {contributors.length && donors.length && <Divider sx={{ my: 3.75 }} />}
+        {contributors.length && donors.length ? (
+          <Divider sx={{ my: 3.75 }} />
+        ) : null}
         {contributors.length ? (
           <Box sx={{ p: 2 }}>
             <RichTypography
