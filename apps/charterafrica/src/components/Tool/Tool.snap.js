@@ -172,7 +172,7 @@ exports[`<Tool /> renders unchanged 1`] = `
           Contributors
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container css-564l6q-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-5mz40h-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"

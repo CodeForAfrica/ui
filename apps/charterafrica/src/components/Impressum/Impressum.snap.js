@@ -22,7 +22,6 @@ exports[`<Impressum /> renders unchanged 1`] = `
               class="css-g98gbd"
               data-nimg="1"
               decoding="async"
-              fetchpriority="high"
               height="0"
               src="/_next/image?url=http%3A%2F%2Flocalhost%3A3000%2Fmedia%2F3a134a6ee61bdaf42fd06b59f46cf9fe-1.png&w=16&q=75"
               srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A3000%2Fmedia%2F3a134a6ee61bdaf42fd06b59f46cf9fe-1.png&w=16&q=75 1x"

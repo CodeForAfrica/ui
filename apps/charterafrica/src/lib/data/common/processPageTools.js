@@ -169,6 +169,8 @@ async function processPageTools(page, api, context) {
 
   if (foundIndex > -1) {
     blocks[foundIndex] = tool;
+  } else {
+    blocks.push(tool);
   }
 
   const { slugs, ...queryParams } = context.query;

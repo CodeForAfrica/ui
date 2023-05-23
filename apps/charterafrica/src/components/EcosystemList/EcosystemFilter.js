@@ -54,7 +54,7 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
               onChange({ [option.name]: target?.value });
             };
             return (
-              <Grid key={option.name} item xs={3.75} lg={3}>
+              <Grid key={option.name} item xs={12} lg={3}>
                 <Autocomplete
                   size="small"
                   options={option.options}
