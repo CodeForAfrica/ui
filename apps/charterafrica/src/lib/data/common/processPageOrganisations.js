@@ -174,9 +174,8 @@ async function processPageOrganisations(page, api, context) {
 
   if (foundIndex > -1) {
     blocks[foundIndex] = tool;
-  } else {
-    blocks.push(tool);
   }
+
   const { slugs, ...queryParams } = context.query;
   let swrKey = `/api/v1/resources/collection/organisations`;
   const qs = queryString(queryParams);

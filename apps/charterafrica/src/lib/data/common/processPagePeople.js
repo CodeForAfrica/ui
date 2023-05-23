@@ -185,6 +185,7 @@ async function processPagePeople(page, api, context) {
   if (foundIndex > -1) {
     blocks[foundIndex] = people;
   }
+
   const { slugs, ...queryParams } = context.query;
   let swrKey = `/api/v1/resources/collection/people`;
   const qs = queryString(queryParams);
