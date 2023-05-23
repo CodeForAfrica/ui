@@ -7,7 +7,7 @@ const orQueryBuilder = (fields, search) => {
   return fields.map((field) => ({ [field]: { like: search } }));
 };
 
-async function processSingleTool(page, api, context) {
+async function processPageSingleTool(page, api, context) {
   const { params, locale } = context;
   const { slug: collection } = page;
   const slug = params.slugs[2];
@@ -109,8 +109,9 @@ async function processPageTools(page, api, context) {
   const { blocks } = page;
   const { locale, params } = context;
   if (params.slugs.length > 2) {
-    return processSingleTool(page, api, context);
+    return processPageSingleTool(page, api, context);
   }
+
   const { pagination, results } = await getTools(page, api, context);
   const foundIndex = blocks.findIndex(({ slug }) => slug === "tools");
   const filterLabels = labelsPerLocale[locale];

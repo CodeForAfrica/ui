@@ -7,6 +7,7 @@ import Consultations from "@/charterafrica/components/Consultations";
 import Documents from "@/charterafrica/components/Documents";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import EmbeddedDocumentViewer from "@/charterafrica/components/EmbeddedDocumentViewer";
+import Entity from "@/charterafrica/components/Entity";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
@@ -22,7 +23,6 @@ import Mooc from "@/charterafrica/components/Mooc";
 import Opportunity from "@/charterafrica/components/Opportunity";
 import OpportunityHeader from "@/charterafrica/components/OpportunityHeader";
 import OpportunityPage from "@/charterafrica/components/OpportunityPage";
-import OrgAndContributor from "@/charterafrica/components/OrgAndContributor";
 import Organisations from "@/charterafrica/components/Organisations";
 import PageDescription from "@/charterafrica/components/PageDescription";
 import PageHeader from "@/charterafrica/components/PageHeader";
@@ -70,7 +70,7 @@ const componentsBySlugs = {
   tools: Tools,
   people: People,
   organisations: Organisations,
-  "org-or-person": OrgAndContributor,
+  entity: Entity,
 };
 
 function Page({ blocks, fallback }) {

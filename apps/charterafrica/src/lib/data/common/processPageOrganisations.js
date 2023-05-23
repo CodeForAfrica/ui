@@ -10,7 +10,7 @@ const orQueryBuilder = (fields, search) => {
   return fields.map((field) => ({ [field]: { like: search } }));
 };
 
-async function processSingleOrganisation(page, api, context) {
+async function processPageSingleOrganisation(page, api, context) {
   const { params, locale } = context;
   const { slug: collection } = page;
   const slug = params.slugs[2];
@@ -47,7 +47,7 @@ async function processSingleOrganisation(page, api, context) {
     ...page,
     blocks: [
       {
-        slug: "org-or-person",
+        slug: "entity",
         image: organisation.avatarUrl ?? null,
         name: organisation?.name ?? null,
         location: organisation?.country ?? null,
@@ -116,7 +116,7 @@ async function processPageOrganisations(page, api, context) {
   const { pagination, results } = await getOrganisations(page, api, context);
   const { locale, params } = context;
   if (params?.slugs?.length > 2) {
-    return processSingleOrganisation(page, api, context);
+    return processPageSingleOrganisation(page, api, context);
   }
   const { blocks } = page;
   const foundIndex = blocks.findIndex(({ slug }) => slug === "organisations");

@@ -35,9 +35,9 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     contribute,
   } = props;
   return (
-    <Box bgcolor="common.white">
-      <Section ref={ref}>
-        <Grid sx={{ flexWrap: "wrap-reverse" }} container>
+    <Box bgcolor="common.white" ref={ref}>
+      <Section>
+        <Grid container wrap="flex-wrap">
           <Grid item container sx={{ p: 2 }} sm={12} md={8}>
             <Grid
               xs={12}
@@ -201,7 +201,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
             </Grid>
           </Box>
         ) : null}
-        <Divider sx={{ my: 3.75 }} />
+        {contributors.length && donors.length && <Divider sx={{ my: 3.75 }} />}
         {contributors.length ? (
           <Box sx={{ p: 2 }}>
             <RichTypography

@@ -1,3 +1,3 @@
-import Ecosystem from "./Ecosystem";
+import EcosystemList from "./EcosystemList";
 
-export default Ecosystem;
+export default EcosystemList;

@@ -62,7 +62,7 @@ export async function getPeople(page, api, context) {
   return { pagination, results };
 }
 
-async function processSingleContributor(page, api, context) {
+async function processPagePerson(page, api, context) {
   const { params, locale } = context;
   const { slug: collection } = page;
   const slug = params.slugs[2];
@@ -77,6 +77,7 @@ async function processSingleContributor(page, api, context) {
   if (!docs?.length) {
     return null;
   }
+
   const filterLabels = labelsPerLocale[locale];
   const contributor = docs[0] || {};
   const { docs: toolDocs } = toolMocks("tools", {
@@ -99,7 +100,7 @@ async function processSingleContributor(page, api, context) {
     ...page,
     blocks: [
       {
-        slug: "org-or-person",
+        slug: "entity",
         image: contributor.avatarUrl ?? null,
         name: contributor?.fullName ?? null,
         location: contributor.country ?? null,
@@ -124,7 +125,7 @@ async function processPagePeople(page, api, context) {
   const { blocks } = page;
   const { locale, params } = context;
   if (params?.slugs?.length > 2) {
-    return processSingleContributor(page, api, context);
+    return processPagePerson(page, api, context);
   }
   const { pagination, results } = await getPeople(page, api, context);
   const foundIndex = blocks.findIndex(({ slug }) => slug === "people");
@@ -183,8 +184,6 @@ async function processPagePeople(page, api, context) {
 
   if (foundIndex > -1) {
     blocks[foundIndex] = people;
-  } else {
-    blocks.push(people);
   }
   const { slugs, ...queryParams } = context.query;
   let swrKey = `/api/v1/resources/collection/people`;

@@ -18,7 +18,7 @@ function removeEmptyParams(urlSearchParams) {
   return urlSearchParams;
 }
 
-const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
+const EcosystemList = React.forwardRef(function EcosystemList(props, ref) {
   const {
     sx,
     results: originalResults,
@@ -95,58 +95,60 @@ const Ecosystem = React.forwardRef(function Ecosystem(props, ref) {
     return null;
   }
   return (
-    <Section
-      sx={{
-        ...sx,
-      }}
-    >
-      <Box
+    <Box ref={ref} sx={{ backgroundColor: "common.white" }}>
+      <Section
         sx={{
-          p: 3.75,
-          scrollMarginTop: { xs: "56px", sm: "64", md: "114px" },
+          ...sx,
         }}
-        ref={listRef}
       >
-        <EcosystemFilter
-          onChange={onFilterChange}
-          searchPlaceholder={searchPlaceholder}
-          values={{ ...values, search }}
-          sortOrder={sortOrder}
-          filterOptions={filterOptions}
-          onQuerySearch={onQuerySearch}
-        />
-        <RichTypography
-          textAlign={{ xs: "center", sm: "left" }}
-          color="neutral.dark"
-          variant="h2SemiBold"
-          sx={{ mt: 6.25 }}
-        >
-          {title}
-        </RichTypography>
-        {loading ? <LinearProgress color="secondary" /> : null}
-        <Grid sx={{ py: 6.25 }} container columnSpacing={2.5} rowSpacing={5}>
-          {results.map((item) => (
-            <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>
-              <Component key={item.id} {...item} />
-            </Grid>
-          ))}
-        </Grid>
-        <NextPrevPagination
-          count={totalPages}
-          onChange={(_, p) => onPageChange(p)}
-          page={page}
+        <Box
           sx={{
-            backgroundColor: "common.white",
-            mt: 5,
-            pb: 8,
+            p: 3.75,
+            scrollMarginTop: { xs: "56px", sm: "64", md: "114px" },
           }}
-        />
-      </Box>
-    </Section>
+          ref={listRef}
+        >
+          <EcosystemFilter
+            onChange={onFilterChange}
+            searchPlaceholder={searchPlaceholder}
+            values={{ ...values, search }}
+            sortOrder={sortOrder}
+            filterOptions={filterOptions}
+            onQuerySearch={onQuerySearch}
+          />
+          <RichTypography
+            textAlign={{ xs: "center", sm: "left" }}
+            color="neutral.dark"
+            variant="h2SemiBold"
+            sx={{ mt: 6.25 }}
+          >
+            {title}
+          </RichTypography>
+          {loading ? <LinearProgress color="secondary" /> : null}
+          <Grid sx={{ py: 6.25 }} container columnSpacing={2.5} rowSpacing={5}>
+            {results.map((item) => (
+              <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>
+                <Component key={item.id} {...item} />
+              </Grid>
+            ))}
+          </Grid>
+          <NextPrevPagination
+            count={totalPages}
+            onChange={(_, p) => onPageChange(p)}
+            page={page}
+            sx={{
+              backgroundColor: "common.white",
+              mt: 5,
+              pb: 8,
+            }}
+          />
+        </Box>
+      </Section>
+    </Box>
   );
 });
 
-Ecosystem.propTypes = {
+EcosystemList.propTypes = {
   sx: PropTypes.shape({}),
   results: PropTypes.arrayOf(PropTypes.shape({})),
   searchPlaceholder: PropTypes.string,
@@ -159,7 +161,7 @@ Ecosystem.propTypes = {
   title: PropTypes.string,
 };
 
-Ecosystem.defaultProps = {
+EcosystemList.defaultProps = {
   Component: undefined,
   pagination: undefined,
   results: undefined,
@@ -168,4 +170,4 @@ Ecosystem.defaultProps = {
   sx: undefined,
   title: undefined,
 };
-export default Ecosystem;
+export default EcosystemList;

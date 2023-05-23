@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import OrgAndContributor from "./OrgAndContributor";
+import Entity from "./Entity";
 
 import theme from "@/charterafrica/theme";
 
@@ -38,7 +38,7 @@ const defaultProps = {
 
 describe("<OrgAndContributor />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<OrgAndContributor {...defaultProps} />);
+    const { container } = render(<Entity {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

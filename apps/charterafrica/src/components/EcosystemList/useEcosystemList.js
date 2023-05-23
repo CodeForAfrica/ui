@@ -4,7 +4,7 @@ import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const fetcher = (url) => fetchJson.get(url);
 
-function useDigitalDemocracy(params) {
+function useEcosystemList(params) {
   const { collection, slugs, ...rest } = params;
   const searchParams = new URLSearchParams(rest).toString();
   const key = `/api/v1/resources/collections/${collection}?${searchParams}`;
@@ -16,4 +16,4 @@ function useDigitalDemocracy(params) {
   };
 }
 
-export default useDigitalDemocracy;
+export default useEcosystemList;

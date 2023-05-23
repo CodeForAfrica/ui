@@ -47,6 +47,21 @@ const Entity = React.forwardRef(function Entity(props, ref) {
     tools,
     toolsTitle,
   } = props;
+
+  const icons = [
+    {
+      href: twitter,
+      variant: "twitter",
+    },
+    {
+      href: github,
+      variant: "github",
+    },
+    {
+      href: `maito:${email}`,
+      variant: "email",
+    },
+  ];
   return (
     <Box ref={ref} sx={{ p: 10 }} bgcolor="common.white">
       <Section>
@@ -109,9 +124,9 @@ const Entity = React.forwardRef(function Entity(props, ref) {
               justifyContent={{ xs: "center", sm: "flex-start" }}
               columnSpacing={2}
             >
-              <SocialIcon href={twitter} variant="twitter" />
-              <SocialIcon href={github} variant="github" />
-              <SocialIcon href={`maito:${email}`} variant="email" />
+              {icons.map((icon) => (
+                <SocialIcon key={icon.variant} {...icon} />
+              ))}
             </Grid>
           </Grid>
         </Grid>
