@@ -1,12 +1,9 @@
+import { NavBar, RichTypography } from "@commons-ui/core";
 import Box from "@mui/material/Box";
 import React from "react";
 
-import NavBar from "./NavBar";
-
-import RichTypography from "@/commons-ui/core/RichTypography";
-
 export default {
-  title: "Component/NavBar",
+  title: "@commons-ui/core/NavBar",
   argTypes: {
     color: {
       options: ["default", "inherit", "primary", "secondary", "transparent"],

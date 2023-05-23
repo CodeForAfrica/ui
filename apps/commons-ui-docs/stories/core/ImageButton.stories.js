@@ -1,9 +1,8 @@
+import { ImageButton } from "@commons-ui/core";
 import React from "react";
 
-import ImageButton from "./ImageButton";
-
 export default {
-  title: "Component/ImageButton",
+  title: "@commons-ui/core/ImageButton",
   argTypes: {
     height: {
       control: {
@@ -31,6 +30,6 @@ export const Default = Template.bind({});
 
 Default.args = {
   height: "62px",
-  src: "/CfA logo.png",
+  src: "/images/cfa-logo.svg",
   width: "136px",
 };

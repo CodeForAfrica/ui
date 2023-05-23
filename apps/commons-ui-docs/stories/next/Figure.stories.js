@@ -1,11 +1,9 @@
-/* eslint-env browser */
 import { Section } from "@commons-ui/core";
+import { Figure } from "@commons-ui/next";
 import React from "react";
 
-import Figure from "./Figure";
-
 export default {
-  title: "Components/Figure",
+  title: "@commons-ui/next/Figure",
   argTypes: {
     ImageProps: {
       control: {
@@ -25,17 +23,10 @@ function Template({ height, width, ...args }) {
 
 export const Default = Template.bind({});
 
-Default.parameters = {
-  nextRouter: {
-    path: "/profile/[id]",
-    asPath: "/profile/lifeiscontent",
-  },
-};
-
 Default.args = {
   height: 300,
   width: 600,
   ImageProps: {
-    src: "/android-chrome-512x512.png",
+    src: "/images/cfa-logo.svg",
   },
 };

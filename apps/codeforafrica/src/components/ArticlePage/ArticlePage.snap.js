@@ -13,6 +13,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         class="css-45v618"
         data-nimg="fill"
         decoding="async"
+        fetchpriority="high"
         sizes="100vw"
         src="/_next/image?url=%2Fimages%2Fstories-1.png&w=3840&q=75"
         srcset="/_next/image?url=%2Fimages%2Fstories-1.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fstories-1.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Fstories-1.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fstories-1.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fstories-1.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fstories-1.png&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Fstories-1.png&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Fstories-1.png&w=3840&q=75 3840w"

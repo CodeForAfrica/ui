@@ -6,7 +6,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
     class="MuiPaper-root MuiPaper-outlined MuiCard-root css-ern672-MuiPaper-root-MuiCard-root"
   >
     <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-skwykv-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-275i79-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
       href="/stories/article-1"
       tabindex="0"
     >

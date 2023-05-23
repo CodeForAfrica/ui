@@ -1,10 +1,9 @@
+import { Section } from "@commons-ui/core";
 import Box from "@mui/material/Box";
 import React from "react";
 
-import Section from "./Section";
-
 export default {
-  title: "Component/Section",
+  title: "@commons-ui/core/Section",
   argTypes: {
     fixed: { control: "boolean" },
     label: {

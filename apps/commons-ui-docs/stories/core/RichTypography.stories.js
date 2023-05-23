@@ -1,11 +1,8 @@
+import { RichTypography, Section } from "@commons-ui/core";
 import React from "react";
 
-import Section from "../Section";
-
-import RichTypography from "./RichTypography";
-
 export default {
-  title: "Component/RichTypography",
+  title: "@commons-ui/core/RichTypography",
   argTypes: {
     content: {
       control: {
