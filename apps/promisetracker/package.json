@@ -85,5 +85,8 @@
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf .next .turbo node_modules"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
