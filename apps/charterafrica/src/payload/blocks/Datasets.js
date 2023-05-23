@@ -207,6 +207,34 @@ const Datasets = {
                     width: "50%",
                   },
                 },
+                {
+                  name: "openDataset",
+                  type: "text",
+                  label: {
+                    en: "Open Dataset Label",
+                    fr: "Ouvrir l'étiquette de jeu de données",
+                    pt: "Abrir rótulo do conjunto de dados",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "backToDatasets",
+                  type: "text",
+                  label: {
+                    en: "Back to Datasets Label",
+                    fr: "Retour aux étiquettes de jeux de données",
+                    pt: "Voltar para rótulos de conjuntos de dados",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
               ],
             },
           ],
