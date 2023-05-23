@@ -184,6 +184,8 @@ async function processPagePeople(page, api, context) {
 
   if (foundIndex > -1) {
     blocks[foundIndex] = people;
+  } else {
+    blocks.push(people);
   }
 
   const { slugs, ...queryParams } = context.query;

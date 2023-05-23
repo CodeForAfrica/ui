@@ -1,5 +1,5 @@
 import { Link } from "@commons-ui/next";
-import { Box, CardMedia, CardContent } from "@mui/material";
+import { CardMedia, CardContent } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -28,24 +28,23 @@ const ContributorCard = React.forwardRef(function ContributorCard(props, ref) {
       elevation={elevation}
       ownerState={ownerState}
       variant={variant}
-      sx={sx}
+      sx={{ ...sx }}
       ref={ref}
     >
       <StyledActionArea
         component={link?.href ? Link : undefined}
         href={link?.href}
       >
-        <Box sx={{ p: 2, display: "flex", justifyContent: "center" }}>
-          <CardMedia
-            component="img"
-            image={image}
-            sx={{
-              width: 250,
-              height: 250,
-              borderRadius: "50%",
-            }}
-          />
-        </Box>
+        <CardMedia
+          component="img"
+          image={image}
+          sx={{
+            width: 250,
+            height: 250,
+            borderRadius: "50%",
+            m: 2,
+          }}
+        />
         <CardContent
           sx={{
             display: "flex",
