@@ -1,84 +1,15 @@
 {
-  "$schema": "https://turborepo.org/schema.json",
+  "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "build-next": {
-      "dependsOn": ["^build-next"],
-      "outputs": ["dist/**", ".next/**"],
-      "env": ["CI", "NODE_OPTIONS"]
-    },
-    "build-payload": {
-      "dependsOn": ["build-next"],
-      "outputs": ["build"],
-      "env": ["CI", "NODE_OPTIONS"]
-    },
-    "charterafrica#build-next": {
-      "dependsOn": ["^build"],
-      "outputs": ["build/**", ".next/**"],
-      "env": [
-        "MONGO_URL",
-        "NEXT_BUILD",
-        "NEXT_HOSTNAME",
-        "NEXT_MANUAL_SIG_HANDLE",
-        "NEXT_PUBLIC_APP_URL",
-        "NEXT_PUBLIC_DEFAULT_LOCALE",
-        "NEXT_PUBLIC_GA_MEASUREMENT_ID",
-        "NEXT_PUBLIC_IMAGE_DOMAINS",
-        "NEXT_PUBLIC_LOCALES",
-        "NEXT_PUBLIC_SEO_DISABLED",
-        "NODE_ENV",
-        "NODE_OPTIONS",
-        "PAYLOAD_CORS",
-        "PAYLOAD_CSRF",
-        "PAYLOAD_PUBLIC_APP_NAME",
-        "PAYLOAD_PUBLIC_APP_URL",
-        "PAYLOAD_PUBLIC_DEFAULT_LOCALE",
-        "PAYLOAD_PUBLIC_LOCALES",
-        "PAYLOAD_SECRET_KEY",
-        "PORT",
-        "S3_ACCESS_KEY_ID",
-        "S3_BUCKET",
-        "S3_SECRET_ACCESS_KEY",
-        "S3_REGION",
-        "SENDGRID_API_KEY",
-        "SENDGRID_FROM_EMAIL",
-        "SENDGRID_FROM_NAME"
-      ]
-    },
-    "charterafrica#build-payload": {
-      "dependsOn": ["^build-payload"],
-      "outputs": ["build/**"],
-      "env": [
-        "MONGO_URL",
-        "NEXT_BUILD",
-        "NEXT_HOSTNAME",
-        "NODE_ENV",
-        "NODE_OPTIONS",
-        "PAYLOAD_CORS",
-        "PAYLOAD_CSRF",
-        "PAYLOAD_PUBLIC_APP_NAME",
-        "PAYLOAD_PUBLIC_APP_URL",
-        "PAYLOAD_PUBLIC_DEFAULT_LOCALE",
-        "PAYLOAD_PUBLIC_LOCALES",
-        "PAYLOAD_SECRET_KEY",
-        "PORT",
-        "S3_ACCESS_KEY_ID",
-        "S3_BUCKET",
-        "S3_SECRET_ACCESS_KEY",
-        "S3_REGION",
-        "SENDGRID_API_KEY",
-        "SENDGRID_FROM_EMAIL",
-        "SENDGRID_FROM_NAME"
-      ]
-    },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "storybook-static/**"],
-      "env": ["CI", "NODE_OPTIONS", "PROJECT_ROOT"]
+      "outputs": [".next/**", "!.next/cache/**"]
     },
     "codeforafrica#build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**"],
+      "outputs": [".next/**", "!.next/cache/**"],
       "env": [
+        "CI",
         "GHOST_ADMIN_URL",
         "GHOST_API_KEY",
         "GHOST_API_VERSION",
@@ -87,31 +18,31 @@
         "GITHUB_BACKEND_REPO",
         "GITHUB_TOKEN",
         "GOOGLE_API_KEY",
+        "NODE_ENV",
+        "NODE_OPTIONS",
         "NEXT_PUBLIC_APP_DIRECTORY",
         "NEXT_PUBLIC_APP_LOGO_URL",
         "NEXT_PUBLIC_APP_URL",
         "NEXT_PUBLIC_IMAGE_DOMAINS",
-        "NODE_ENV",
         "OAUTH_CLIENT_ID",
-        "OAUTH_CLIENT_SECRET"
+        "OAUTH_CLIENT_SECRET",
+        "PROJECT_ROOT"
       ]
-    },
-    "commons-ui-docs#build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**"],
-      "env": ["STORYBOOK_DISABLE_TELEMETRY"]
     },
     "promisetracker#build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**"],
+      "outputs": [".next/**", "!.next/cache/**"],
       "env": [
         "ACTNOW_API_KEY",
         "ACTNOW_URL",
         "APP_SLUG",
+        "CI",
         "GOOGLE_ID",
         "GOOGLE_SECRET",
         "PROMISE_TRACKER_SENTRY_DSN",
         "PUBLIC_PROMISE_TRACKER_SENTRY_DSN",
+        "NODE_ENV",
+        "NODE_OPTIONS",
         "NEXT_PUBLIC_APP_NAME",
         "NEXT_PUBLIC_APP_URL",
         "NEXT_PUBLIC_GTM_ID",
@@ -126,35 +57,26 @@
       ]
     },
     "jest": {
-      "inputs": ["src/**/*.js"],
-      "outputs": []
+      "inputs": ["src/**/*.js"]
     },
     "playwright": {
       "dependsOn": ["build"],
-      "inputs": ["src/**/*.js"],
-      "outputs": []
+      "inputs": ["src/**/*.js"]
     },
     "test": {
       "dependsOn": ["build"],
-      "inputs": ["src/**/*.js"],
-      "outputs": []
+      "inputs": ["src/**/*.js"]
     },
-    "lint-check": {
-      "outputs": []
-    },
-    "lint": {
-      "outputs": []
-    },
+    "lint-check": {},
+    "lint": {},
     "dev": {
-      "cache": false
-    },
-    "storybook": {
-      "cache": false
+      "cache": false,
+      "persistent": true
     },
     "clean": {
       "cache": false
     }
   },
-  "globalDependencies": [],
-  "globalEnv": ["GITHUB_TOKEN"]
+  "globalDependencies": ["**/.env.*local"],
+  "globalEnv": ["GITHUB_TOKEN", "PORT"]
 }

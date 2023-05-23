@@ -80,8 +80,8 @@
   },
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev --port 3001",
-    "lint-check": "eslint './'",
-    "lint": "eslint --fix './'",
+    "lint-check": "TIMING=1 eslint './'",
+    "lint": "TIMING=1 eslint --fix './'",
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf .next .turbo node_modules"
