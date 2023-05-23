@@ -10,13 +10,9 @@ exports[`<ContributorCard /> renders unchanged 1`] = `
       tabindex="0"
       type="button"
     >
-      <div
-        class="MuiBox-root css-1c3tbzi"
-      >
-        <img
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-13t132a-MuiCardMedia-root"
-        />
-      </div>
+      <img
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-10z892v-MuiCardMedia-root"
+      />
       <div
         class="MuiCardContent-root css-wsecsz-MuiCardContent-root"
       >
