@@ -9,7 +9,7 @@ exports[`<Tool /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1w6el6r-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container css-1uag90i-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-flex-wrap css-13oncfi-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-8 css-1uc7gvi-MuiGrid-root"
@@ -163,9 +163,7 @@ exports[`<Tool /> renders unchanged 1`] = `
           />
         </div>
       </div>
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-gq7efl-MuiDivider-root"
-      />
+      0
       <div
         class="MuiBox-root css-19midj6"
       >
