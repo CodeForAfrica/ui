@@ -25,10 +25,9 @@ exports[`<Dataset /> renders unchanged 1`] = `
             Updated
              
             January 1, 2021
-             |
+             
+            |
             Created
-             
-             
              
             January 1, 2021
           </p>
