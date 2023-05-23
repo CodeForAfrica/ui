@@ -48,6 +48,7 @@ const defaultProps = {
     sort: "Sort",
     search: "Search",
   },
+  pageUrl: "/resources/datasets",
 };
 
 describe("<Datasets />", () => {

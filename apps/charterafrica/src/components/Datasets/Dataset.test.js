@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import DatasetCard from "./DatasetCard";
+import Dataset from "./Dataset";
 
 import theme from "@/charterafrica/theme";
 
@@ -26,12 +26,11 @@ const defaultProps = {
   },
   id: "1234",
   url: "https://example.com",
-  pageUrl: "/resources/datasets",
 };
 
-describe("<DatasetCard />", () => {
+describe("<Dataset />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<DatasetCard {...defaultProps} />);
+    const { container } = render(<Dataset {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
