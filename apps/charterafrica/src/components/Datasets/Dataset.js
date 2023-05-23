@@ -152,6 +152,22 @@ function Dataset({ title, url, updated, created, formats, notes }) {
             </Button>
           </Box>
         </Box>
+        <Typography
+          variant="p1"
+          component="a"
+          color="neutral.dark"
+          href="/resources/datasets"
+          sx={{
+            display: {
+              xs: "block",
+              md: "none",
+            },
+            my: 4,
+            textAlign: "right",
+          }}
+        >
+          Back to Database
+        </Typography>
       </Section>
     </Box>
   );
