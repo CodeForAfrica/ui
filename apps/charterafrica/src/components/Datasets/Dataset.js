@@ -16,9 +16,10 @@ function Dataset({ title, url, updated, created, formats, notes }) {
       <Section
         sx={{
           py: 4,
+          px: { xs: 2, sm: 4 },
         }}
       >
-        <Grid container spacing={2}>
+        <Grid container spacing={4} direction={{ xs: "column", sm: "row" }}>
           <Grid item xs={12} md={8}>
             <Typography variant="h4" component="h2" gutterBottom>
               {title}
@@ -62,30 +63,6 @@ function Dataset({ title, url, updated, created, formats, notes }) {
             >
               {notes}
             </RichTypography>
-            <Box
-              sx={{
-                backgroundImage: "url(/images/dataset-background.png)",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                width: "100%",
-                height: "450px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Box>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="medium"
-                  startIcon={<ExternalLinkIcon />}
-                >
-                  Open Dataset
-                </Button>
-              </Box>
-            </Box>
           </Grid>
           <Grid item xs={12} md={4} container direction="column" gap={2}>
             <Typography
@@ -93,6 +70,12 @@ function Dataset({ title, url, updated, created, formats, notes }) {
               component="a"
               color="neutral.dark"
               href="/resources/datasets"
+              sx={{
+                display: {
+                  xs: "none",
+                  md: "block",
+                },
+              }}
             >
               Back to Database
             </Typography>
@@ -104,7 +87,10 @@ function Dataset({ title, url, updated, created, formats, notes }) {
               href={url}
               target="_blank"
               sx={{
-                width: "200px",
+                width: {
+                  xs: "100%",
+                  md: "200px",
+                },
               }}
             >
               Open Dataset
@@ -117,16 +103,55 @@ function Dataset({ title, url, updated, created, formats, notes }) {
               href=""
               target="_blank"
               sx={{
-                width: "200px",
+                width: {
+                  xs: "100%",
+                  md: "200px",
+                },
               }}
             >
               Github
             </Button>
             <Grid>
-              <ShareThisPage title="Share this Page" />
+              <ShareThisPage
+                title="Share this Page"
+                sx={{
+                  alignItems: {
+                    xs: "center",
+                    md: "flex-start",
+                  },
+                  py: 2,
+                }}
+              />
             </Grid>
           </Grid>
         </Grid>
+        <Box
+          sx={{
+            backgroundImage: "url(/images/dataset-background.png)",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            width: {
+              xs: "100%",
+              md: "720px",
+            },
+            height: "450px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Box>
+            <Button
+              variant="contained"
+              color="primary"
+              size="medium"
+              startIcon={<ExternalLinkIcon />}
+            >
+              Open Dataset
+            </Button>
+          </Box>
+        </Box>
       </Section>
     </Box>
   );
