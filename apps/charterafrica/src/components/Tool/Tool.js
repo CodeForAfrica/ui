@@ -217,7 +217,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
             <Grid
               columnSpacing={4.375}
               rowSpacing={2.5}
-              sx={{ mt: 2.5 }}
+              sx={{ mt: 2.5, pb: 10 }}
               container
             >
               {contributors.map((item) => (
