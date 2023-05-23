@@ -15,12 +15,12 @@ function Dataset({ title, url, updated, created, formats, notes }) {
     >
       <Section
         sx={{
-          py: 4,
-          px: { xs: 2, sm: 4 },
+          px: { xs: 5, sm: 0 },
+          py: { xs: 5, md: 7.5 },
         }}
       >
         <Grid container spacing={4} direction={{ xs: "column", sm: "row" }}>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={8} padding={0}>
             <Typography variant="h4" component="h2" gutterBottom>
               {title}
             </Typography>
@@ -64,7 +64,19 @@ function Dataset({ title, url, updated, created, formats, notes }) {
               {notes}
             </RichTypography>
           </Grid>
-          <Grid item xs={12} md={4} container direction="column" gap={2}>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            container
+            gap={2}
+            direction={{ xs: "column", sm: "row" }}
+            justifyContent="space-between"
+            alignItems="center"
+            sx={{
+              p: 0,
+            }}
+          >
             <Typography
               variant="p1"
               component="a"
@@ -89,8 +101,9 @@ function Dataset({ title, url, updated, created, formats, notes }) {
               sx={{
                 width: {
                   xs: "100%",
-                  md: "200px",
+                  sm: "200px",
                 },
+                height: "50px",
               }}
             >
               Open Dataset
@@ -105,8 +118,9 @@ function Dataset({ title, url, updated, created, formats, notes }) {
               sx={{
                 width: {
                   xs: "100%",
-                  md: "200px",
+                  sm: "200px",
                 },
+                height: "50px",
               }}
             >
               Github
