@@ -22,9 +22,14 @@ exports[`<Dataset /> renders unchanged 1`] = `
           <p
             class="MuiTypography-root MuiTypography-p1 css-1pop01s-MuiTypography-root"
           >
-            Updated 
+            Updated
+             
             January 1, 2021
-             | created 
+             |
+            Created
+             
+             
+             
             January 1, 2021
           </p>
           <div
@@ -59,10 +64,10 @@ exports[`<Dataset /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-[object Object] MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-wpb7bi-MuiGrid-root"
         >
           <a
-            class="MuiTypography-root MuiTypography-p1 css-1urlqlj-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-kiotxi-MuiTypography-root"
             href="/resources/datasets"
           >
-            Back to Database
+            Back to Datasets
           </a>
           <a
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1scqxyq-MuiButtonBase-root-MuiButton-root"
@@ -173,7 +178,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
         class="MuiTypography-root MuiTypography-p1 css-1ya8cbh-MuiTypography-root"
         href="/resources/datasets"
       >
-        Back to Database
+        Back to Datasets
       </a>
     </div>
   </div>

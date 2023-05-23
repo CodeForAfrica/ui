@@ -6,7 +6,7 @@ import ExternalLinkIcon from "@/charterafrica/assets/icons/Type=external-link, S
 import ShareThisPage from "@/charterafrica/components/ShareThisPage";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
-function Dataset({ title, url, updated, created, formats, notes }) {
+function Dataset({ title, url, updated, created, formats, notes, labels }) {
   return (
     <Box
       sx={{
@@ -25,8 +25,9 @@ function Dataset({ title, url, updated, created, formats, notes }) {
               {title}
             </Typography>
             <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
-              Updated {formatDateTime(updated, { includeTime: false })} |
-              created {formatDateTime(created, { includeTime: false })}
+              {labels.updated} {formatDateTime(updated, { includeTime: false })}{" "}
+              |{labels.created}{" "}
+              {formatDateTime(created, { includeTime: false })}
             </Typography>
             {formats.length ? (
               <Grid
@@ -87,9 +88,10 @@ function Dataset({ title, url, updated, created, formats, notes }) {
                   xs: "none",
                   md: "block",
                 },
+                width: "100%",
               }}
             >
-              Back to Database
+              {labels.backToDatasets}
             </Typography>
             <Button
               variant="contained"
@@ -106,7 +108,7 @@ function Dataset({ title, url, updated, created, formats, notes }) {
                 height: "50px",
               }}
             >
-              Open Dataset
+              {labels.openDataset}
             </Button>
             <Button
               variant="contained"
@@ -162,7 +164,7 @@ function Dataset({ title, url, updated, created, formats, notes }) {
               size="medium"
               startIcon={<ExternalLinkIcon />}
             >
-              Open Dataset
+              {labels.openDataset}
             </Button>
           </Box>
         </Box>
@@ -180,7 +182,7 @@ function Dataset({ title, url, updated, created, formats, notes }) {
             textAlign: "right",
           }}
         >
-          Back to Database
+          {labels.backToDatasets}
         </Typography>
       </Section>
     </Box>

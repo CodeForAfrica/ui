@@ -16,6 +16,8 @@ async function processSingleDataset(page, api, context) {
   if (!dataset) {
     return null;
   }
+  const { blocks } = page;
+  const { labels = {} } = blocks.find(({ slug }) => slug === "datasets");
 
   return {
     ...page,
@@ -23,6 +25,7 @@ async function processSingleDataset(page, api, context) {
     blocks: [
       {
         ...dataset,
+        labels,
         slug: "dataset",
       },
     ],
