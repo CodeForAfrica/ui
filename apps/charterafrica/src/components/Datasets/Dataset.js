@@ -62,13 +62,6 @@ function Dataset({ title, url, updated, created, formats, notes }) {
             >
               {notes}
             </RichTypography>
-            {/* <Image
-              src="/images/dataset-background.png"
-              alt="Dataset Background"
-              width={720}
-              height={450}
-            /> */}
-            {/* Box with background image */}
             <Box
               sx={{
                 backgroundImage: "url(/images/dataset-background.png)",
