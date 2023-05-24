@@ -1,11 +1,18 @@
 import { Autocomplete } from "@mui/material";
 import React from "react";
 
-const findOption = (options, value, separateValueAndLabel) => {
-  return options.find((o) => {
-    const valueToCompare = separateValueAndLabel ? o.value : o;
-    return valueToCompare === value;
-  });
+const findOptionIndex = (options, value, isOptionObject) => {
+  return (
+    options?.findIndex((o) => {
+      const valueToCompare = isOptionObject ? o.value : o;
+      return valueToCompare === value;
+    }) ?? -1
+  );
+};
+
+const findOption = (options, value, isOptionObject) => {
+  const index = findOptionIndex(options, value, isOptionObject);
+  return options?.[index];
 };
 
 /**
@@ -20,33 +27,37 @@ const ComboBox = React.forwardRef(function ComboBox(props, ref) {
     value: valueProp,
     ...others
   } = props;
-  const separateValueAndLabel = typeof optionsProp?.[0] === "object";
+  const isOptionObject = typeof optionsProp?.[0] === "object";
   const labelValue = "";
-  const labelOption = separateValueAndLabel
-    ? { value: labelValue, label }
-    : label;
+  const labelOption = isOptionObject ? { value: labelValue, label } : label;
   const options = [labelOption, ...optionsProp];
   let selectedValue = valueProp;
   if (!selectedValue?.length) {
-    const valueToUse = separateValueAndLabel ? labelValue : label;
+    const valueToUse = isOptionObject ? labelValue : label;
     selectedValue = multiple ? [valueToUse] : valueToUse;
   }
   const value = multiple
-    ? selectedValue.map((v) => findOption(options, v, separateValueAndLabel))
-    : findOption(options, selectedValue, separateValueAndLabel);
+    ? selectedValue.map((v) => findOption(options, v, isOptionObject))
+    : findOption(options, selectedValue, isOptionObject);
 
   const handleChange = (e, option) => {
     let selected;
     if (multiple) {
-      selected = option?.filter((o) => {
-        const optionLabel = separateValueAndLabel ? o.label : o;
-        return optionLabel !== label;
-      });
-      if (separateValueAndLabel) {
-        selected = selected.map((s) => s.value);
+      const labelIndex = findOptionIndex(option, labelValue, isOptionObject);
+      // Selecting label means deselecting current selection
+      if (labelIndex === option.length - 1) {
+        selected = labelValue;
+      } else {
+        selected = option?.filter((o) => {
+          const optionLabel = isOptionObject ? o.label : o;
+          return optionLabel !== label;
+        });
+        if (isOptionObject) {
+          selected = selected.map((s) => s.value);
+        }
       }
     } else {
-      selected = separateValueAndLabel ? option?.value : option;
+      selected = isOptionObject ? option?.value : option;
     }
     if (onChange) {
       onChange(e, selected);
@@ -55,9 +66,6 @@ const ComboBox = React.forwardRef(function ComboBox(props, ref) {
 
   return (
     <Autocomplete
-      getOptionDisabled={(o) =>
-        separateValueAndLabel ? o.value === "" : o === label
-      }
       {...others}
       multiple={multiple}
       options={options}

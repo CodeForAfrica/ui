@@ -1,4 +1,5 @@
 import { createRender } from "@commons-ui/testing-library";
+import { TextField } from "@mui/material";
 import React from "react";
 
 import ComboBox from "./ComboBox";
@@ -11,12 +12,16 @@ const render = createRender({ theme });
 const defaultProps = {
   label: "Countries",
   options: ["Kenya", "Uganda", "Tanzania", "Nigeria"],
-  renderInput: () => null,
 };
 
 describe("<ComboBox />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ComboBox {...defaultProps} />);
+    const { container } = render(
+      <ComboBox
+        renderInput={(params) => <TextField {...params} />}
+        {...defaultProps}
+      />
+    );
     expect(container).toMatchSnapshot();
   });
 });
