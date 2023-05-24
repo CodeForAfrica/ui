@@ -1,12 +1,25 @@
 import { Section, RichTypography } from "@commons-ui/core";
 import { Typography, Box, Grid, Button, Chip } from "@mui/material";
 
+import DatasetCard from "./DatasetCard";
+
 import GithubIcon from "@/charterafrica/assets/icons/github.svg";
 import ExternalLinkIcon from "@/charterafrica/assets/icons/Type=external-link, Size=24, Color=White.svg";
+import { neutral } from "@/charterafrica/colors";
 import ShareThisPage from "@/charterafrica/components/ShareThisPage";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
-function Dataset({ title, url, updated, created, formats, notes, labels }) {
+function Dataset({
+  title,
+  url,
+  updated,
+  created,
+  formats,
+  notes,
+  labels,
+  relatedDatasets,
+  pageUrl,
+}) {
   return (
     <Box
       sx={{
@@ -82,7 +95,7 @@ function Dataset({ title, url, updated, created, formats, notes, labels }) {
               variant="p1"
               component="a"
               color="neutral.dark"
-              href="/resources/datasets"
+              href={pageUrl}
               sx={{
                 display: {
                   xs: "none",
@@ -172,7 +185,7 @@ function Dataset({ title, url, updated, created, formats, notes, labels }) {
           variant="p1"
           component="a"
           color="neutral.dark"
-          href="/resources/datasets"
+          href={pageUrl}
           sx={{
             display: {
               xs: "block",
@@ -184,6 +197,73 @@ function Dataset({ title, url, updated, created, formats, notes, labels }) {
         >
           {labels.backToDatasets}
         </Typography>
+        <Box
+          sx={{
+            mt: 5,
+          }}
+        >
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Grid item>
+              <Typography variant="h3" color="neutral.dark" gutterBottom>
+                See More Datasets
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography
+                variant="p1"
+                component="a"
+                color="neutral.dark"
+                href={pageUrl}
+                sx={{
+                  display: {
+                    xs: "none",
+                    md: "block",
+                  },
+                  width: "100%",
+                }}
+              >
+                See more datasets
+              </Typography>
+            </Grid>
+          </Grid>
+
+          {relatedDatasets?.map((dataset) => (
+            <DatasetCard
+              {...dataset}
+              key={dataset.id}
+              labels={labels}
+              pageUrl={pageUrl}
+              sx={{
+                borderBottom: "none",
+                "&:last-of-type": {
+                  borderBottom: "1px solid",
+                  borderColor: neutral[50],
+                },
+              }}
+            />
+          ))}
+          <Typography
+            variant="p1"
+            component="a"
+            color="neutral.dark"
+            href={pageUrl}
+            sx={{
+              display: {
+                xs: "block",
+                md: "none",
+              },
+              my: 4,
+              textAlign: "left",
+            }}
+          >
+            {labels.backToDatasets}
+          </Typography>
+        </Box>
       </Section>
     </Box>
   );

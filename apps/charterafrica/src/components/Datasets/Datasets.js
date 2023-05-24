@@ -121,10 +121,7 @@ const Datasets = React.forwardRef(function Datasets(
             <DatasetCard
               {...dataset}
               key={dataset.id}
-              readMore={labels.readMore}
-              readLess={labels.readLess}
-              updatedLabel={labels.updated}
-              createdLabel={labels.created}
+              labels={labels}
               pageUrl={pageUrl}
               sx={{
                 borderBottom: "none",
