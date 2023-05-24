@@ -135,8 +135,16 @@ export async function fetchDataset(id) {
       `${BASE_DOCUMENTS_URL}package_show?id=${id}`
     );
     const { result: dataset } = response;
+    const { tags = [] } = dataset;
+    const tagsNames = tags.map((tag) => tag.name);
     const formattedDataset = formatDatasets([dataset]);
-    return formattedDataset[0];
+    const relatedDatasets = await fetchDatasets(dataset.organization.name, {
+      tags: tagsNames,
+    });
+    return {
+      ...formattedDataset[0],
+      relatedDatasets: relatedDatasets.datasets,
+    };
   } catch (error) {
     return error;
   }
