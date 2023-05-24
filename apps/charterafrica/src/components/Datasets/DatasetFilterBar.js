@@ -1,26 +1,9 @@
-import {
-  Box,
-  Grid,
-  styled,
-  Autocomplete,
-  TextField,
-  Typography,
-} from "@mui/material";
-import React, { useState } from "react";
+import { Box, Grid, styled, TextField, Typography } from "@mui/material";
+import React from "react";
 
 import { neutral } from "@/charterafrica/colors";
+import ComboBox from "@/charterafrica/components/ComboBox";
 import { ControlledSearchInput } from "@/charterafrica/components/SearchInput";
-
-const StyledAutocomplete = styled(Autocomplete)({
-  backgroundColor: neutral[50],
-  border: "1px solid",
-  borderColor: neutral[900],
-  borderRadius: "4px",
-  "& .MuiOutlinedInput-root": {
-    py: 0,
-    border: "none",
-  },
-});
 
 const StyledAutocompleteInput = styled(TextField)({
   overflow: "hidden",
@@ -40,21 +23,19 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   ref
 ) {
   const {
+    countries,
+    countriesOptions,
     onChangeQ,
     onChangeSort,
     onChangeCountries,
     onChangeTags,
-    countries,
     labels,
     sortOptions,
+    sort,
     q,
     tags,
+    tagsOptions,
   } = props;
-
-  const [selectedCountries, setSelectedCountries] = useState([
-    labels.countries,
-  ]);
-  const [selectedTags, setSelectedTags] = useState([labels.tags]);
 
   const handleChangeQ = (e, value) => {
     if (onChangeQ) {
@@ -62,54 +43,10 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     }
   };
 
-  const handleChangeSort = (e, selectedSortOption) => {
-    if (selectedSortOption?.value) {
-      onChangeSort(e, selectedSortOption.value);
-    } else {
-      onChangeSort(e, "");
-    }
-  };
-
-  const handleChangeCountry = (e, checkedCountries) => {
-    let filteredCountries = [];
-    if (checkedCountries.length > 0) {
-      filteredCountries = checkedCountries.filter(
-        (country) => country !== labels.countries
-      );
-      setSelectedCountries(filteredCountries);
-      if (onChangeCountries) {
-        onChangeCountries(e, filteredCountries);
-      }
-    } else {
-      filteredCountries = [labels.countries];
-      setSelectedCountries(filteredCountries);
-      if (onChangeCountries) {
-        onChangeCountries(e, []);
-      }
-    }
-  };
-
-  const handleChangeTag = (e, checkedTags) => {
-    let filteredTags = [];
-    if (checkedTags.length > 0) {
-      filteredTags = checkedTags.filter((tag) => tag !== labels.tags);
-      setSelectedTags(filteredTags);
-      if (onChangeTags) {
-        onChangeTags(e, filteredTags);
-      }
-    } else {
-      filteredTags = [labels.tags];
-      setSelectedTags(filteredTags);
-      if (onChangeTags) {
-        onChangeTags(e, []);
-      }
-    }
-  };
-
   const listToLabel = (list, label, num = 1) => {
     return list?.length > num
       ? `${list.length} ${labels[label]}`
-      : list.join(", ");
+      : list.map((l) => l.label || l).join(", ");
   };
 
   return (
@@ -129,10 +66,10 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
           />
         </Grid>
         <Grid item xs={12} sm={4} lg={3}>
-          <StyledAutocomplete
-            defaultValue={labels.sort}
-            options={[labels.sort, ...sortOptions]}
-            onChange={handleChangeSort}
+          <ComboBox
+            label={labels.sort}
+            options={sortOptions}
+            onChange={onChangeSort}
             renderInput={(params) => (
               <StyledAutocompleteInput
                 {...params}
@@ -144,36 +81,37 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
                 }}
               />
             )}
+            value={sort}
           />
         </Grid>
         <Grid item xs={12} sm={4} lg={3} overflow="hidden">
-          <StyledAutocomplete
-            defaultValue={[labels.countries]}
+          <ComboBox
+            label={labels.countries}
             multiple
-            options={[labels.countries, ...countries]}
-            onChange={handleChangeCountry}
+            options={countriesOptions}
+            onChange={onChangeCountries}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderTags={(checkedCountries, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
                 {listToLabel(checkedCountries, "countries", 2)}
               </StyledAutocompleteTags>
             )}
-            value={selectedCountries}
+            value={countries}
           />
         </Grid>
         <Grid item xs={12} sm={4} lg={3}>
-          <StyledAutocomplete
-            defaultValue={[labels.tags]}
+          <ComboBox
+            label={labels.tags}
             multiple
-            options={[labels.tags, ...tags]}
-            onChange={handleChangeTag}
+            options={tagsOptions}
+            onChange={onChangeTags}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderTags={(checkedTags, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
                 {listToLabel(checkedTags, "tags")}
               </StyledAutocompleteTags>
             )}
-            value={selectedTags}
+            value={tags}
           />
         </Grid>
       </Grid>
