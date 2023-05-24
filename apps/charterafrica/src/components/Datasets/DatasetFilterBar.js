@@ -93,7 +93,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderTags={(checkedCountries, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
-                {listToLabel(checkedCountries, "countries", 2)}
+                {listToLabel(checkedCountries, "countries")}
               </StyledAutocompleteTags>
             )}
             value={countries}
