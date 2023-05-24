@@ -34,6 +34,24 @@ function Dataset({
       >
         <Grid container spacing={4} direction={{ xs: "column", sm: "row" }}>
           <Grid item xs={12} md={8} padding={0}>
+            <Typography
+              variant="p1"
+              component="a"
+              color="neutral.dark"
+              href={pageUrl}
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: "block",
+                  md: "none",
+                },
+                width: "100%",
+                textAlign: "right",
+                mb: 2,
+              }}
+            >
+              {labels.backToDatasets}
+            </Typography>
             <Typography variant="h4" component="h2" gutterBottom>
               {title}
             </Typography>
@@ -140,9 +158,9 @@ function Dataset({
             >
               Github
             </Button>
-            <Grid>
+            <Grid item xs={12}>
               <ShareThisPage
-                title="Share this Page"
+                title={labels.shareDataset}
                 sx={{
                   alignItems: {
                     xs: "center",
@@ -168,6 +186,7 @@ function Dataset({
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            mt: 5,
           }}
         >
           <Box>
@@ -189,7 +208,7 @@ function Dataset({
           sx={{
             display: {
               xs: "block",
-              md: "none",
+              sm: "none",
             },
             my: 4,
             textAlign: "right",
@@ -222,7 +241,7 @@ function Dataset({
                 sx={{
                   display: {
                     xs: "none",
-                    md: "block",
+                    sm: "block",
                   },
                   width: "100%",
                 }}
@@ -255,7 +274,7 @@ function Dataset({
             sx={{
               display: {
                 xs: "block",
-                md: "none",
+                sm: "none",
               },
               my: 4,
               textAlign: "left",

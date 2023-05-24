@@ -249,6 +249,20 @@ const Datasets = {
                     width: "50%",
                   },
                 },
+                {
+                  name: "shareDataset",
+                  type: "text",
+                  label: {
+                    en: "Share Dataset Label",
+                    fr: "Partager l'étiquette de jeu de données",
+                    pt: "Compartilhar rótulo do conjunto de dados",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
               ],
             },
           ],

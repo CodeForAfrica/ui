@@ -26,6 +26,7 @@ const defaultProps = {
     backToDatasets: "Back to Datasets",
     openDataset: "Open Dataset",
     seeMoreDatasets: "See more datasets",
+    shareDataset: "Share Via",
   },
   id: "1234",
   url: "https://example.com",

@@ -14,6 +14,11 @@ exports[`<Dataset /> renders unchanged 1`] = `
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-nosa61-MuiGrid-root"
         >
+          <a
+            class="MuiTypography-root MuiTypography-p1 css-i1xkt3-MuiTypography-root"
+          >
+            Back to Datasets
+          </a>
           <h2
             class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom css-1vv4c3h-MuiTypography-root"
           >
@@ -103,7 +108,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
               <div
                 class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
               >
-                Share this Page
+                Share Via
               </div>
               <div
                 class="MuiStack-root css-a2l1ks-MuiStack-root"
@@ -153,7 +158,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiBox-root css-ik1xyh"
+        class="MuiBox-root css-dmrfx3"
       >
         <div
           class="MuiBox-root css-0"
@@ -173,7 +178,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
         </div>
       </div>
       <a
-        class="MuiTypography-root MuiTypography-p1 css-1ya8cbh-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p1 css-1v10z4i-MuiTypography-root"
       >
         Back to Datasets
       </a>
@@ -196,14 +201,14 @@ exports[`<Dataset /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-p1 css-kiotxi-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-1wdkhl3-MuiTypography-root"
             >
               See more datasets
             </a>
           </div>
         </div>
         <a
-          class="MuiTypography-root MuiTypography-p1 css-1g052ih-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p1 css-qnck1c-MuiTypography-root"
         >
           Back to Datasets
         </a>

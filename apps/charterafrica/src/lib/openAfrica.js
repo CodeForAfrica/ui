@@ -143,7 +143,7 @@ export async function fetchDataset(id) {
     });
     return {
       ...formattedDataset[0],
-      relatedDatasets: relatedDatasets.datasets,
+      relatedDatasets: relatedDatasets.datasets.slice(0, 3),
     };
   } catch (error) {
     return error;
