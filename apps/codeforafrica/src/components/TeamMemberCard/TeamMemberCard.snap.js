@@ -6,7 +6,7 @@ exports[`<TeamMemberCard /> renders unchanged 1`] = `
     class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-wixki0-MuiPaper-root-MuiCard-root"
   >
     <button
-      class="MuiButtonBase-root MuiCardActionArea-root css-sl1uh6-MuiButtonBase-root-MuiCardActionArea-root"
+      class="MuiButtonBase-root MuiCardActionArea-root css-18mm84o-MuiButtonBase-root-MuiCardActionArea-root"
       tabindex="0"
       type="button"
     >

@@ -7,18 +7,18 @@
     "index.js"
   ],
   "scripts": {
-    "lint-check": "eslint './'",
-    "lint": "eslint --fix './'",
+    "lint-check": "TIMING=1 eslint './'",
+    "lint": "TIMING=1 eslint --fix './'",
     "clean": "rm -rf .turbo node_modules"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.3",
-    "@babel/preset-env": "^7.20.2",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6",
-    "@playwright/test": "^1.31.2",
-    "eslint": "^8.36.0",
+    "@playwright/test": "^1.33.0",
+    "eslint": "^8.39.0",
     "eslint-config-commons-ui": "workspace:*",
-    "prettier": "^2.8.6",
+    "prettier": "^2.8.8",
     "react": "^18.2.0",
     "typescript": "^4.9.5"
   },

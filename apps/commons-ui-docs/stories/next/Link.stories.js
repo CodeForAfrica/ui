@@ -1,9 +1,8 @@
+import { Link } from "@commons-ui/next";
 import React from "react";
 
-import Link from "./Link";
-
 export default {
-  title: "Components/Link",
+  title: "@commons-ui/next/Link",
   argTypes: {
     color: {
       control: {
@@ -35,13 +34,15 @@ function Template({ label, ...args }) {
 export const Default = Template.bind({});
 
 Default.parameters = {
-  nextRouter: {
-    pathname: "/?path=/story/components-link--default",
+  nextjs: {
+    router: {
+      asPath: "/?path=/story/commons-ui-next-link--default",
+    },
   },
 };
 
 Default.args = {
   color: "primary",
-  href: "/?path=/story/components-link--default",
+  href: "/?path=/story/commons-ui-next-link--default",
   label: "Link",
 };

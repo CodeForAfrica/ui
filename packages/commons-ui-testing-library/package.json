@@ -27,29 +27,29 @@
     "url": "https://github.com/codeforafrica/ui/issues"
   },
   "scripts": {
-    "lint-check": "eslint './'",
-    "lint": "eslint --fix './'",
+    "lint-check": "TIMING=1 eslint './'",
+    "lint": "TIMING=1 eslint --fix './'",
     "clean": "rm -rf .turbo node_modules dist"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.3",
+    "@babel/core": "^7.21.8",
     "@babel/preset-react": "^7.18.6",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@mui/material": "^5.11.13",
-    "@types/react": "^18.0.28",
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@mui/material": "^5.12.3",
+    "@types/react": "^18.2.5",
     "babel-loader": "^9.1.2",
-    "eslint": "^8.36.0",
+    "eslint": "^8.39.0",
     "eslint-config-commons-ui": "workspace:*",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.5.0",
     "jest-config-commons-ui": "workspace:*",
-    "prettier": "^2.8.6",
+    "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-test-renderer": "^18.2.0",
     "typescript": "^4.9.5",
-    "webpack": "^5.76.2"
+    "webpack": "^5.82.0"
   },
   "peerDependencies": {
     "@babel/core": "^7.17.7",

@@ -22,6 +22,7 @@ exports[`<PageHeader/> renders unchanged 1`] = `
               class="css-g98gbd"
               data-nimg="1"
               decoding="async"
+              fetchpriority="high"
               height="0"
               src="/_next/image?url=%2Fmedia%2Fs.jpg&w=16&q=75"
               srcset="/_next/image?url=%2Fmedia%2Fs.jpg&w=16&q=75 1x"
