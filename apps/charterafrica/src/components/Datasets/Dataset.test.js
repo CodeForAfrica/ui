@@ -25,6 +25,7 @@ const defaultProps = {
     created: "Created",
     backToDatasets: "Back to Datasets",
     openDataset: "Open Dataset",
+    seeMoreDatasets: "See more datasets",
   },
   id: "1234",
   url: "https://example.com",

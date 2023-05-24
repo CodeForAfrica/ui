@@ -189,7 +189,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
             <h3
               class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-11gtfkg-MuiTypography-root"
             >
-              See More Datasets
+              See more datasets
             </h3>
           </div>
           <div

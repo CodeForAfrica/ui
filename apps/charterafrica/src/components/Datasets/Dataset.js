@@ -210,7 +210,7 @@ function Dataset({
           >
             <Grid item>
               <Typography variant="h3" color="neutral.dark" gutterBottom>
-                See More Datasets
+                {labels.seeMoreDatasets}
               </Typography>
             </Grid>
             <Grid item>
@@ -227,7 +227,7 @@ function Dataset({
                   width: "100%",
                 }}
               >
-                See more datasets
+                {labels.seeMoreDatasets}
               </Typography>
             </Grid>
           </Grid>

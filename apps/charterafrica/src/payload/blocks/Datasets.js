@@ -235,6 +235,20 @@ const Datasets = {
                     width: "50%",
                   },
                 },
+                {
+                  name: "seeMoreDatasets",
+                  type: "text",
+                  label: {
+                    en: "See More Datasets Label",
+                    fr: "Voir plus d'étiquettes de jeux de données",
+                    pt: "Ver mais rótulos de conjuntos de dados",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
               ],
             },
           ],
