@@ -24,34 +24,42 @@ const Datasets = React.forwardRef(function Datasets(
   },
   ref
 ) {
+  const [datasets, setDatasets] = useState(datasetsProp || []);
+  const [filtering, setFiltering] = useState(false);
   const [page, setPage] = useState(1);
   const [q, setQ] = useState("");
-  const [sort, setSort] = useState("");
-  const [selectedCountries, setSelectedCountries] = useState([]);
+  const [sort, setSort] = useState();
+  const [selectedCountries, setSelectedCountries] = useState();
   const [selectedTags, setSelectedTags] = useState([]);
   const [totalPages, setTotalPages] = useState(originalTotalPages);
-  const [datasets, setDatasets] = useState(datasetsProp || []);
   const router = useRouter();
   const datasetsRef = useRef();
   useImperativeHandle(ref, () => datasetsRef.current);
-  const { asPath } = router;
+  const { asPath, locale } = router;
 
-  const handleChangePage = (_, value) => setPage(value);
+  const handleChangePage = (_, value) => {
+    setPage(value);
+    setFiltering(true);
+  };
   const handleChangeQ = (_, value) => {
     setQ(value);
+    setFiltering(true);
     setPage(1);
   };
   const handleChangeSort = (_, value) => {
     setSort(value);
+    setFiltering(true);
     setPage(1);
   };
   const handleChangeCountries = (_, value) => {
     setSelectedCountries(value);
+    setFiltering(true);
     setPage(1);
   };
 
   const handleChangeTags = (_, value) => {
     setSelectedTags(value);
+    setFiltering(true);
     setPage(1);
   };
 
@@ -72,18 +80,17 @@ const Datasets = React.forwardRef(function Datasets(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
-  const { data, isLoading } = useDatasets({
-    q,
-    sort,
-    page,
-    countries: selectedCountries,
-    tags: selectedTags,
-  });
-
-  if (isLoading && datasetsRef.current) {
+  if (filtering && datasetsRef.current) {
     datasetsRef.current.scrollIntoView({ behavior: "smooth" });
   }
-
+  const { data, isLoading } = useDatasets({
+    countries: selectedCountries,
+    locale,
+    page,
+    q,
+    sort,
+    tags: selectedTags,
+  });
   useEffect(() => {
     if (!isLoading) {
       const { datasets: filteredDatasets, totalPages: filteredTotalPages } =
@@ -106,14 +113,17 @@ const Datasets = React.forwardRef(function Datasets(
         sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: 0 }, pb: { md: 5 } }}
       >
         <DatasetFilterBar
-          tags={tags}
-          countries={countries}
+          countries={selectedCountries}
+          countriesOptions={countries}
           labels={labels}
           sortOptions={sortOptions}
-          onQChange={handleChangeQ}
-          onSortChange={handleChangeSort}
+          onChangeQ={handleChangeQ}
+          onChangeSort={handleChangeSort}
           onChangeCountries={handleChangeCountries}
           onChangeTags={handleChangeTags}
+          sort={sort}
+          tags={selectedTags}
+          tagsOptions={tags}
         />
         {isLoading ? <LinearProgress color="secondary" /> : null}
         <Stack>

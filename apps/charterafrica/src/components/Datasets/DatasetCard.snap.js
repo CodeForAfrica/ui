@@ -11,7 +11,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
       tabindex="0"
     >
       <div
-        class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        class="MuiCardContent-root css-16iq3h-MuiCardContent-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-[object Object] css-bkp0sa-MuiGrid-root"
@@ -19,11 +19,11 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
           >
-            <div
+            <h5
               class="MuiTypography-root MuiTypography-h5SmallSemiBold css-mecr4x-MuiTypography-root"
             >
               Document Title
-            </div>
+            </h5>
             <p
               class="MuiTypography-root MuiTypography-p1 css-1pop01s-MuiTypography-root"
             >

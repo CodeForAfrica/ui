@@ -1,39 +1,10 @@
 import { Section } from "@commons-ui/core";
 import { Box, Grid, Typography, Select, MenuItem } from "@mui/material";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import { neutral } from "@/charterafrica/colors";
-import SearchInput from "@/charterafrica/components/SearchInput";
-
-function ControlledSearchInput({ onChange, value: valueProp, ...other }) {
-  const [value, setValue] = useState(valueProp);
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
-  const handleClick = (e) => {
-    if (onChange) {
-      onChange(e, value);
-    }
-  };
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      if (onChange) {
-        onChange(e, value);
-      }
-    }
-  };
-
-  return (
-    <SearchInput
-      {...other}
-      onChange={handleChange}
-      onClick={handleClick}
-      onKeyPress={handleKeyPress}
-      value={value}
-    />
-  );
-}
+import { ControlledSearchInput } from "@/charterafrica/components/SearchInput";
 
 const ArticlesFilterBar = React.forwardRef(function ArticlesFilterBar(
   props,

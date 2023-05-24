@@ -9,8 +9,8 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  countries: ["Kenya", "Uganda", "Tanzania", "Nigeria"],
-  tags: ["Agriculture", "Health", "Education"],
+  countriesOptions: ["Kenya", "Uganda", "Tanzania", "Nigeria"],
+  tagsOptions: ["Agriculture", "Health", "Education"],
   sortOptions: [
     {
       label: {
