@@ -100,7 +100,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
             Github
           </button>
           <div
-            class="MuiGrid-root css-vj1n65-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <div
               class="MuiStack-root css-1gopyth-MuiStack-root"
