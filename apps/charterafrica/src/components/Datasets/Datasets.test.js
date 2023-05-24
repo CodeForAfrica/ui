@@ -49,6 +49,16 @@ const defaultProps = {
     search: "Search",
   },
   pageUrl: "/resources/datasets",
+  relatedDatasets: [
+    {
+      formats: ["CSV", "PDF"],
+      notes:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+      title: "Document Title",
+      created: "2021-01-01T00:00:00.000Z",
+      updated: "2021-01-01T00:00:00.000Z",
+    },
+  ],
 };
 
 describe("<Datasets />", () => {

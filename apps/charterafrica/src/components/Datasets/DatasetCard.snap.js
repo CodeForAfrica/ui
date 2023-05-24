@@ -27,10 +27,12 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
             <p
               class="MuiTypography-root MuiTypography-p1 css-1pop01s-MuiTypography-root"
             >
+              Updated
                
               January 1, 2021
+               |
                
-              | 
+              Created
                
               January 1, 2021
             </p>

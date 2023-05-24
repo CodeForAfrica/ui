@@ -64,7 +64,6 @@ exports[`<Dataset /> renders unchanged 1`] = `
         >
           <a
             class="MuiTypography-root MuiTypography-p1 css-kiotxi-MuiTypography-root"
-            href="/resources/datasets"
           >
             Back to Datasets
           </a>
@@ -175,10 +174,40 @@ exports[`<Dataset /> renders unchanged 1`] = `
       </div>
       <a
         class="MuiTypography-root MuiTypography-p1 css-1ya8cbh-MuiTypography-root"
-        href="/resources/datasets"
       >
         Back to Datasets
       </a>
+      <div
+        class="MuiBox-root css-y1gt6f"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container css-9cyib4-MuiGrid-root"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+          >
+            <h3
+              class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-11gtfkg-MuiTypography-root"
+            >
+              See More Datasets
+            </h3>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-p1 css-kiotxi-MuiTypography-root"
+            >
+              See more datasets
+            </a>
+          </div>
+        </div>
+        <a
+          class="MuiTypography-root MuiTypography-p1 css-1g052ih-MuiTypography-root"
+        >
+          Back to Datasets
+        </a>
+      </div>
     </div>
   </div>
 </div>
