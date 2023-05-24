@@ -279,17 +279,18 @@ deepmerge(
         },
       ],
     },
-    MuiCssBaseline: {
-      styleOverrides: `
-       #__next {
-          display: flex;
-          flex-direction: column;
-          min-height: 100vh;
-       }
-      `,
-    },
     MuiAutocomplete: {
       styleOverrides: {
+        root: {
+          backgroundColor: neutral[50],
+          border: "1px solid",
+          borderColor: neutral[900],
+          borderRadius: 4,
+          "& .MuiOutlinedInput-root": {
+            py: 0,
+            border: "none",
+          },
+        },
         option: {
           ...theme.typography.caption,
           borderBottom: "1px solid",
@@ -316,6 +317,15 @@ deepmerge(
           marginTop: "10px",
         },
       },
+    },
+    MuiCssBaseline: {
+      styleOverrides: `
+       #__next {
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+       }
+      `,
     },
   },
   { clone: false }

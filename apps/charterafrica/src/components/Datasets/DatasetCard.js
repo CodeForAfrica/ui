@@ -4,7 +4,6 @@ import {
   Chip,
   Button,
   Card,
-  CardActionArea,
   CardContent,
 } from "@mui/material";
 import Link from "next/link";
@@ -12,6 +11,7 @@ import { useState } from "react";
 
 import { neutral } from "@/charterafrica/colors";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
+import { StyledActionArea as CardActionArea } from "@/charterafrica/components/StyledCard";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
 function DatasetCard({
@@ -29,7 +29,6 @@ function DatasetCard({
   sx,
 }) {
   const [showAll, setShowAll] = useState(false);
-
   const handleClick = () => setShowAll(!showAll);
 
   return (
@@ -43,16 +42,15 @@ function DatasetCard({
       }}
     >
       <CardActionArea
-        sx={{
-          ".MuiCardActionArea-focusHighlight": {
-            background: "transparent",
-          },
-        }}
         component={Link}
         // TODO: Update URL to single dataset page
         href={url}
       >
-        <CardContent>
+        <CardContent
+          sx={{
+            padding: "30px",
+          }}
+        >
           <Grid
             container
             spacing={2}
@@ -62,6 +60,7 @@ function DatasetCard({
             <Grid item xs={12} md={4}>
               <LineClampedRichTypography
                 color="neutral.dark"
+                html={false}
                 lineClamp={1}
                 order={1}
                 variant="h5SmallSemiBold"

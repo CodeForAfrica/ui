@@ -12,7 +12,7 @@ const StyledCard = styled(Card)(({ ownerState, theme }) => ({
   backgroundColor: "#fff",
   transition: theme.transitions.create(["filter", "border-color"]),
   width: "100%",
-  ...(ownerState.variant === "outlined" && {
+  ...(ownerState?.variant === "outlined" && {
     border: `2px solid transparent`,
     borderRadius: 5,
     filter: "drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.1))",
