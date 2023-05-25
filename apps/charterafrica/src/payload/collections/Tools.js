@@ -221,18 +221,14 @@ const Tools = {
       },
     },
     {
-      name: "people",
+      name: "contributors",
       type: "relationship",
       hasMany: true,
       admin: {
         readOnly: true,
       },
       relationTo: CONTRIBUTORS_COLLECTION,
-      label: {
-        en: "People",
-        fr: "personnes",
-        pt: "pessoas",
-      },
+      label: { en: "Contributors", fr: "Contributeurs", pt: "Colaboradores" },
     },
     {
       name: "externalUpdatedAt",
