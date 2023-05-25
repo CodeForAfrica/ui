@@ -26,11 +26,15 @@ exports[`<ToolCard /> renders unchanged 1`] = `
           <div
             class="MuiCardContent-root css-1gdcjgz-MuiCardContent-root"
           >
-            <h5
-              class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1ubne6m-MuiTypography-root"
+            <div
+              class="MuiBox-root css-gg4vpm"
             >
-              Tool Name
-            </h5>
+              <h5
+                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1ubne6m-MuiTypography-root"
+              >
+                Tool Name
+              </h5>
+            </div>
             <span
               class="MuiTypography-root MuiTypography-caption css-11kmaoc-MuiTypography-root"
             >

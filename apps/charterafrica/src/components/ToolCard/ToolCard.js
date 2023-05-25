@@ -1,5 +1,5 @@
 import { Link } from "@commons-ui/next";
-import { CardContent, CardMedia, Grid } from "@mui/material";
+import { Button, Box, CardContent, CardMedia, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -16,8 +16,10 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
     link,
     square,
     name,
+    showButton,
     variant = "outlined",
     orientation = "vertical",
+    exploreText,
   } = props;
   const ownerState = {
     elevation,
@@ -61,20 +63,25 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
                 [theme.breakpoints.up("md")]: {},
               })}
             >
-              <LineClampedRichTypography
-                color="neutral.dark"
-                html={false}
-                lineClamp={1}
-                textAlign="left"
-                variant="h5SmallSemiBold"
-                sx={(theme) => ({
-                  [theme.breakpoints.up("md")]: {
-                    typography: "h5SemiBold",
-                  },
-                })}
-              >
-                {name}
-              </LineClampedRichTypography>
+              <Box display="flex" justifyContent="space-between">
+                <LineClampedRichTypography
+                  color="neutral.dark"
+                  html={false}
+                  lineClamp={1}
+                  textAlign="left"
+                  variant="h5SmallSemiBold"
+                  sx={(theme) => ({
+                    [theme.breakpoints.up("md")]: {
+                      typography: "h5SemiBold",
+                    },
+                  })}
+                >
+                  {name}
+                </LineClampedRichTypography>
+                {showButton ? (
+                  <Button variant="contained">{exploreText}</Button>
+                ) : null}
+              </Box>
               <LineClampedRichTypography
                 color="neutral.dark"
                 html={false}

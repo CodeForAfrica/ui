@@ -485,11 +485,20 @@ exports[`<Tool /> renders unchanged 1`] = `
                     <div
                       class="MuiCardContent-root css-1gdcjgz-MuiCardContent-root"
                     >
-                      <h5
-                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1ubne6m-MuiTypography-root"
+                      <div
+                        class="MuiBox-root css-gg4vpm"
                       >
-                        React
-                      </h5>
+                        <h5
+                          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1ubne6m-MuiTypography-root"
+                        >
+                          React
+                        </h5>
+                        <button
+                          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
+                          tabindex="0"
+                          type="button"
+                        />
+                      </div>
                       <span
                         class="MuiTypography-root MuiTypography-caption css-11kmaoc-MuiTypography-root"
                       >
@@ -542,11 +551,20 @@ exports[`<Tool /> renders unchanged 1`] = `
                     <div
                       class="MuiCardContent-root css-1gdcjgz-MuiCardContent-root"
                     >
-                      <h5
-                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1ubne6m-MuiTypography-root"
+                      <div
+                        class="MuiBox-root css-gg4vpm"
                       >
-                        Node.js
-                      </h5>
+                        <h5
+                          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1ubne6m-MuiTypography-root"
+                        >
+                          Node.js
+                        </h5>
+                        <button
+                          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
+                          tabindex="0"
+                          type="button"
+                        />
+                      </div>
                       <span
                         class="MuiTypography-root MuiTypography-caption css-11kmaoc-MuiTypography-root"
                       >

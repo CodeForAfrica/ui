@@ -246,7 +246,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
             <Grid sx={{ mt: 5 }} spacing={2.5} container>
               {tools.map((tool) => (
                 <Grid xs={12} sm={6} md={4} lg={12} item key={tool.id}>
-                  <ToolCard showButton linkText="Go to Repo" {...tool} />
+                  <ToolCard showButton linkText="Explore" {...tool} />
                 </Grid>
               ))}
             </Grid>

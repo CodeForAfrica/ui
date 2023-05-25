@@ -152,7 +152,7 @@ const Entity = React.forwardRef(function Entity(props, ref) {
               <ToolCard
                 orientation="horizontal"
                 showButton
-                linkText="Go to Repo"
+                exploreText="Explore"
                 {...tool}
               />
             </Grid>

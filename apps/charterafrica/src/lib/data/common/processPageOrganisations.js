@@ -36,12 +36,23 @@ async function processPageSingleOrganisation(page, api, context) {
     },
   });
 
-  const tools = toolDocs.map((tool) => ({
-    ...tool,
-    image: tool.avatarUrl ?? null,
-    description: tool?.description || " ",
-    name: tool.name || " ",
-  }));
+  const tools = toolDocs.map((tool) => {
+    let href = null;
+    // TODO resolve tools breadcrumb
+    const pageUrl = "resources/tools";
+    if (pageUrl) {
+      href = `${pageUrl}/${tool.slug}`;
+    }
+    return {
+      ...tool,
+      link: {
+        href,
+      },
+      image: tool.avatarUrl ?? null,
+      description: tool?.description || " ",
+      name: tool.name || " ",
+    };
+  });
 
   return {
     ...page,
