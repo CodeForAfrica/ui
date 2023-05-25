@@ -133,12 +133,12 @@ export async function fetchDataset(id) {
     const { tags = [] } = dataset;
     const tagsNames = tags.map((tag) => tag.name);
     const formattedDataset = formatDatasets([dataset]);
-    const relatedDatasets = await fetchDatasets(dataset.organization.name, {
+    const related = await fetchDatasets(dataset.organization.name, {
       tags: tagsNames,
     });
     return {
       ...formattedDataset[0],
-      relatedDatasets: relatedDatasets.datasets.slice(0, 3),
+      related: related.datasets.slice(0, 3),
     };
   } catch (error) {
     return error;

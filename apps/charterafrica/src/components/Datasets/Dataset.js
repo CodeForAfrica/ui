@@ -17,7 +17,7 @@ function Dataset({
   formats,
   notes,
   labels,
-  relatedDatasets,
+  related,
   pageUrl,
 }) {
   return (
@@ -251,7 +251,7 @@ function Dataset({
             </Grid>
           </Grid>
 
-          {relatedDatasets?.map((dataset) => (
+          {related?.map((dataset) => (
             <DatasetCard
               {...dataset}
               key={dataset.id}

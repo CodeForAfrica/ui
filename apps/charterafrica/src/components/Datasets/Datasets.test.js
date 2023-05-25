@@ -49,7 +49,7 @@ const defaultProps = {
     search: "Search",
   },
   pageUrl: "/resources/datasets",
-  relatedDatasets: [
+  related: [
     {
       formats: ["CSV", "PDF"],
       notes:
