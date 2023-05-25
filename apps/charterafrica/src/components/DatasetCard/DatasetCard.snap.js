@@ -6,7 +6,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-dzxyww-MuiPaper-root-MuiCard-root"
   >
     <a
-      class="MuiButtonBase-root MuiCardActionArea-root css-1jz6i76-MuiButtonBase-root-MuiCardActionArea-root"
+      class="MuiButtonBase-root MuiCardActionArea-root css-11lg1vd-MuiButtonBase-root-MuiCardActionArea-root"
       href="/resources/datasets/1234"
       tabindex="0"
     >

@@ -51,7 +51,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-lg-3 css-jevw09-MuiGrid-root"
       >
         <div
-          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-d3edgb-MuiAutocomplete-root"
+          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-rwdu3q-MuiFormControl-root-MuiTextField-root"
@@ -136,7 +136,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-lg-3 css-195h445-MuiGrid-root"
       >
         <div
-          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-d3edgb-MuiAutocomplete-root"
+          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-hcvzns-MuiFormControl-root-MuiTextField-root"
@@ -226,7 +226,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-lg-3 css-jevw09-MuiGrid-root"
       >
         <div
-          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-d3edgb-MuiAutocomplete-root"
+          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-hcvzns-MuiFormControl-root-MuiTextField-root"

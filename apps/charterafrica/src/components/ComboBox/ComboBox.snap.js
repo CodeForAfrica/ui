@@ -3,7 +3,7 @@
 exports[`<ComboBox /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-d3edgb-MuiAutocomplete-root"
+    class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
   >
     <div
       class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
