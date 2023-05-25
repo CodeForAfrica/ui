@@ -1,11 +1,10 @@
 import { Section, RichTypography } from "@commons-ui/core";
 import { Typography, Box, Grid, Button, Chip } from "@mui/material";
 
-import DatasetCard from "./DatasetCard";
-
 import GithubIcon from "@/charterafrica/assets/icons/github.svg";
 import ExternalLinkIcon from "@/charterafrica/assets/icons/Type=external-link, Size=24, Color=White.svg";
 import { neutral } from "@/charterafrica/colors";
+import DatasetCard from "@/charterafrica/components/DatasetCard";
 import ShareThisPage from "@/charterafrica/components/ShareThisPage";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 

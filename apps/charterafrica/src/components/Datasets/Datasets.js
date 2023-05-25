@@ -3,11 +3,11 @@ import { Box, LinearProgress, Stack } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useState, useEffect, useRef, useImperativeHandle } from "react";
 
-import DatasetCard from "./DatasetCard";
 import DatasetFilterBar from "./DatasetFilterBar";
 import useDatasets from "./useDatasets";
 
 import { neutral } from "@/charterafrica/colors";
+import DatasetCard from "@/charterafrica/components/DatasetCard";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import queryString from "@/charterafrica/utils/datasets/queryString";
 
