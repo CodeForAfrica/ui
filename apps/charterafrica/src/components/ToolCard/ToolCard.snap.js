@@ -11,38 +11,42 @@ exports[`<ToolCard /> renders unchanged 1`] = `
       type="button"
     >
       <div
-        class="MuiBox-root css-e92j10"
-      >
-        <img
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1xory4n-MuiCardMedia-root"
-        />
-      </div>
-      <div
-        class="MuiCardContent-root css-1lypdup-MuiCardContent-root"
+        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-gg4vpm"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-18qart5-MuiGrid-root"
         >
-          <h5
-            class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ztwkg1-MuiTypography-root"
+          <img
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-li0ryz-MuiCardMedia-root"
+          />
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-18qart5-MuiGrid-root"
+        >
+          <div
+            class="MuiCardContent-root css-1gdcjgz-MuiCardContent-root"
           >
-            Tool Name
-          </h5>
-        </div>
-        <span
-          class="MuiTypography-root MuiTypography-caption css-1fdzkey-MuiTypography-root"
-        >
-          Topic Name
-        </span>
-        <div
-          class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
-        >
-          Sample description
-        </div>
-        <div
-          class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
-        >
-          6 Months ago
+            <h5
+              class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1ubne6m-MuiTypography-root"
+            >
+              Tool Name
+            </h5>
+            <span
+              class="MuiTypography-root MuiTypography-caption css-11kmaoc-MuiTypography-root"
+            >
+              Topic Name
+            </span>
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-1xf8skh-MuiTypography-root"
+            >
+              Sample description
+            </div>
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
+            >
+              6 Months ago
+            </div>
+          </div>
         </div>
       </div>
       <span

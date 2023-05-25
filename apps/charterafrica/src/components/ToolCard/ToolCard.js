@@ -1,20 +1,10 @@
 import { Link } from "@commons-ui/next";
-import { Box, Button, CardContent, CardMedia, SvgIcon } from "@mui/material";
+import { CardContent, CardMedia, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import GithubIcon from "@/charterafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import Card, { StyledActionArea } from "@/charterafrica/components/StyledCard";
-
-const CardActionAreaWrapper = React.forwardRef((props, ref) => {
-  const { disableCard, ...restProps } = props;
-  return disableCard ? (
-    props.children
-  ) : (
-    <StyledActionArea ref={ref} {...restProps} />
-  );
-});
 
 const ToolCard = React.forwardRef(function ToolCard(props, ref) {
   const {
@@ -26,7 +16,6 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
     link,
     square,
     name,
-    showButton,
     variant = "outlined",
     orientation = "vertical",
   } = props;
@@ -45,112 +34,84 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
       sx={{ display: "flex", flexWrap: "wrap" }}
       ref={ref}
     >
-      <CardActionAreaWrapper
+      <StyledActionArea
         component={link?.href ? Link : undefined}
         href={link?.href}
-        disableCard={showButton}
       >
-        <Box
-          sx={{
-            height: 200,
-            width: "100%",
-            maxWidth: horizontalDisplay ? 585 : "100%",
-          }}
-        >
-          <CardMedia
-            image={image}
-            component="img"
-            sx={{
-              width: "100%",
-              maxWidth: horizontalDisplay ? 585 : "100%",
-            }}
-          />
-        </Box>
-        <CardContent
-          sx={(theme) => ({
-            p: 2.5,
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            [theme.breakpoints.up("md")]: {},
-          })}
-        >
-          <Box display="flex" justifyContent="space-between">
-            <LineClampedRichTypography
-              color="neutral.dark"
-              html={false}
-              lineClamp={1}
-              textAlign="left"
-              variant="h5SmallSemiBold"
+        <Grid container>
+          <Grid item xs={12} lg={horizontalDisplay ? 4 : 12}>
+            <CardMedia
+              image={image}
+              component="img"
+              sx={{
+                width: "100%",
+                maxWidth: horizontalDisplay ? 585 : "100%",
+                minWidth: 330,
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} lg={horizontalDisplay ? 8 : 12}>
+            <CardContent
               sx={(theme) => ({
-                minHeight: theme.typography.h5SmallSemiBold.fontSize,
-                [theme.breakpoints.up("md")]: {
-                  minHeight: theme.typography.h5SmallSemiBold.fontSize,
-                  typography: "h5SemiBold",
-                },
+                p: 3.75,
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                [theme.breakpoints.up("md")]: {},
               })}
             >
-              {name}
-            </LineClampedRichTypography>
-            {showButton ? (
-              <Button
-                variant="contained"
-                href={link?.href}
-                component={link?.href ? Link : undefined}
-                sx={{ width: "fit-content" }}
+              <LineClampedRichTypography
+                color="neutral.dark"
+                html={false}
+                lineClamp={1}
+                textAlign="left"
+                variant="h5SmallSemiBold"
+                sx={(theme) => ({
+                  [theme.breakpoints.up("md")]: {
+                    typography: "h5SemiBold",
+                  },
+                })}
               >
-                <SvgIcon
-                  component={GithubIcon}
-                  sx={{
-                    color: "text.secondary",
-                    display: "inline-flex",
-                    fill: "none",
-                    mr: 0.5,
-                  }}
-                />
-                {link?.label}
-              </Button>
-            ) : null}
-          </Box>
-          <LineClampedRichTypography
-            color="neutral.dark"
-            html={false}
-            lineClamp={1}
-            textAlign="left"
-            variant="caption"
-            sx={(theme) => ({
-              mt: 2.5,
-              height: theme.typography.h5SmallSemiBold.fontSize,
-              [theme.breakpoints.up("md")]: {
-                height: theme.typography.h5SemiBold.fontSize,
-                typography: "h5SmallSemiBold",
-              },
-            })}
-          >
-            {topic}
-          </LineClampedRichTypography>
-          <LineClampedRichTypography
-            variant="p1"
-            color="neutral.main"
-            sx={(theme) => ({
-              mt: 2.5,
-              height: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
-            })}
-            lineClamp={3}
-          >
-            {description}
-          </LineClampedRichTypography>
-          <LineClampedRichTypography
-            color="neutral.dark"
-            lineClamp={1}
-            variant="p1"
-            sx={{ mt: 2.5, height: 18 }}
-          >
-            {lastActive}
-          </LineClampedRichTypography>
-        </CardContent>
-      </CardActionAreaWrapper>
+                {name}
+              </LineClampedRichTypography>
+              <LineClampedRichTypography
+                color="neutral.dark"
+                html={false}
+                lineClamp={1}
+                textAlign="left"
+                variant="caption"
+                sx={(theme) => ({
+                  mt: 2.5,
+                  [theme.breakpoints.up("md")]: {
+                    typography: "h5SmallSemiBold",
+                  },
+                })}
+              >
+                {topic}
+              </LineClampedRichTypography>
+              <LineClampedRichTypography
+                variant="p1"
+                color="neutral.main"
+                sx={() => ({
+                  mt: 2.5,
+                })}
+                lineClamp={3}
+              >
+                {description}
+              </LineClampedRichTypography>
+              <LineClampedRichTypography
+                color="neutral.dark"
+                lineClamp={1}
+                variant="p1"
+                sx={{ mt: 2.5, height: 18 }}
+              >
+                {lastActive}
+              </LineClampedRichTypography>
+            </CardContent>
+          </Grid>
+        </Grid>
+      </StyledActionArea>
     </Card>
   );
 });
@@ -161,7 +122,6 @@ ToolCard.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string,
   topic: PropTypes.string,
-  showButton: PropTypes.bool,
   link: PropTypes.text,
 };
 
@@ -171,7 +131,6 @@ ToolCard.defaultProps = {
   description: undefined,
   image: undefined,
   topic: undefined,
-  showButton: undefined,
   link: undefined,
 };
 
