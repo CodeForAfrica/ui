@@ -29,15 +29,11 @@ exports[`<ToolCard /> renders unchanged 1`] = `
             Tool Name
           </h5>
         </div>
-        <div
-          class="MuiBox-root css-vm1zk6"
+        <span
+          class="MuiTypography-root MuiTypography-caption css-1fdzkey-MuiTypography-root"
         >
-          <span
-            class="MuiTypography-root MuiTypography-caption css-1ch8yk3-MuiTypography-root"
-          >
-            Topic Name
-          </span>
-        </div>
+          Topic Name
+        </span>
         <div
           class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
         >

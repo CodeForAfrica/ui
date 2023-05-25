@@ -167,7 +167,7 @@ exports[`<Tool /> renders unchanged 1`] = `
         class="MuiBox-root css-19midj6"
       >
         <div
-          class="MuiTypography-root MuiTypography-h4Small css-1ye1y66-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h4Small css-1q7b45d-MuiTypography-root"
         >
           Contributors
         </div>
@@ -495,15 +495,11 @@ exports[`<Tool /> renders unchanged 1`] = `
                     />
                   </button>
                 </div>
-                <div
-                  class="MuiBox-root css-vm1zk6"
+                <span
+                  class="MuiTypography-root MuiTypography-caption css-1fdzkey-MuiTypography-root"
                 >
-                  <span
-                    class="MuiTypography-root MuiTypography-caption css-1ch8yk3-MuiTypography-root"
-                  >
-                    Frontend
-                  </span>
-                </div>
+                  Frontend
+                </span>
                 <div
                   class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
                 >
@@ -555,15 +551,11 @@ exports[`<Tool /> renders unchanged 1`] = `
                     />
                   </button>
                 </div>
-                <div
-                  class="MuiBox-root css-vm1zk6"
+                <span
+                  class="MuiTypography-root MuiTypography-caption css-1fdzkey-MuiTypography-root"
                 >
-                  <span
-                    class="MuiTypography-root MuiTypography-caption css-1ch8yk3-MuiTypography-root"
-                  >
-                    Backend
-                  </span>
-                </div>
+                  Backend
+                </span>
                 <div
                   class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
                 >

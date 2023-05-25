@@ -28,7 +28,7 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
     name,
     showButton,
     variant = "outlined",
-    responsive,
+    orientation = "vertical",
   } = props;
   const ownerState = {
     elevation,
@@ -36,6 +36,7 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
     variant,
   };
 
+  const horizontalDisplay = orientation !== "vertical";
   return (
     <Card
       elevation={elevation}
@@ -53,7 +54,7 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
           sx={{
             height: 200,
             width: "100%",
-            maxWidth: responsive ? 585 : "100%",
+            maxWidth: horizontalDisplay ? 585 : "100%",
           }}
         >
           <CardMedia
@@ -61,7 +62,7 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
             component="img"
             sx={{
               width: "100%",
-              maxWidth: responsive ? 585 : "100%",
+              maxWidth: horizontalDisplay ? 585 : "100%",
             }}
           />
         </Box>
@@ -112,8 +113,12 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
               </Button>
             ) : null}
           </Box>
-          {/* Wrapped in a box fo consistent height */}
-          <Box
+          <LineClampedRichTypography
+            color="neutral.dark"
+            html={false}
+            lineClamp={1}
+            textAlign="left"
+            variant="caption"
             sx={(theme) => ({
               mt: 2.5,
               height: theme.typography.h5SmallSemiBold.fontSize,
@@ -123,19 +128,8 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
               },
             })}
           >
-            <LineClampedRichTypography
-              color="neutral.dark"
-              html={false}
-              lineClamp={1}
-              textAlign="left"
-              variant="caption"
-              sx={() => ({
-                fontWeight: 600,
-              })}
-            >
-              {topic}
-            </LineClampedRichTypography>
-          </Box>
+            {topic}
+          </LineClampedRichTypography>
           <LineClampedRichTypography
             variant="p1"
             color="neutral.main"

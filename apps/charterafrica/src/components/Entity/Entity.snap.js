@@ -3,16 +3,16 @@
 exports[`<OrgAndContributor /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-iig9jb"
+    class="MuiBox-root css-1jnk8c7"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1w6el6r-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container css-rkv75a-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-s1wmk7-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1bxfcex-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-uf3sf1-MuiGrid-root"
         >
           <figure
             class="MuiBox-root css-db5opy"
@@ -40,7 +40,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
             John Doe
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h4Small css-6del67-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4Small css-1yjvdmj-MuiTypography-root"
           >
             San Francisco, CA
           </div>
@@ -143,15 +143,11 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   />
                 </button>
               </div>
-              <div
-                class="MuiBox-root css-vm1zk6"
+              <span
+                class="MuiTypography-root MuiTypography-caption css-1fdzkey-MuiTypography-root"
               >
-                <span
-                  class="MuiTypography-root MuiTypography-caption css-1ch8yk3-MuiTypography-root"
-                >
-                  Frontend
-                </span>
-              </div>
+                Frontend
+              </span>
               <div
                 class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
               >
@@ -203,15 +199,11 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   />
                 </button>
               </div>
-              <div
-                class="MuiBox-root css-vm1zk6"
+              <span
+                class="MuiTypography-root MuiTypography-caption css-1fdzkey-MuiTypography-root"
               >
-                <span
-                  class="MuiTypography-root MuiTypography-caption css-1ch8yk3-MuiTypography-root"
-                >
-                  Backend
-                </span>
-              </div>
+                Backend
+              </span>
               <div
                 class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
               >

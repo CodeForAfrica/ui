@@ -61,10 +61,18 @@ const Entity = React.forwardRef(function Entity(props, ref) {
     },
   ];
   return (
-    <Box ref={ref} sx={{ p: 10 }} bgcolor="common.white">
+    <Box ref={ref} sx={{ p: { xs: 3.75 } }} bgcolor="common.white">
       <Section>
-        <Grid columnSpacing={{ sm: 13.25 }} container>
-          <Grid sx={{ p: 2 }} item xs={12} sm={4}>
+        <Grid container columnSpacing={{ sm: 6.25 }} sx={{ p: 5 }}>
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            sx={{ p: 2 }}
+          >
             <Figure
               ImageProps={{
                 src: image,
@@ -141,7 +149,12 @@ const Entity = React.forwardRef(function Entity(props, ref) {
         <Grid sx={{ mt: 5 }} spacing={2.5} container>
           {tools.map((tool) => (
             <Grid xs={12} sm={6} md={4} lg={12} item key={tool.id}>
-              <ToolCard responsive showButton linkText="Go to Repo" {...tool} />
+              <ToolCard
+                orientation="horizontal"
+                showButton
+                linkText="Go to Repo"
+                {...tool}
+              />
             </Grid>
           ))}
         </Grid>

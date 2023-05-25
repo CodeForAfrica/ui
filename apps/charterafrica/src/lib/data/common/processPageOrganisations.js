@@ -50,7 +50,7 @@ async function processPageSingleOrganisation(page, api, context) {
         slug: "entity",
         image: organisation.avatarUrl ?? null,
         name: organisation?.name ?? null,
-        location: organisation?.country ?? null,
+        location: organisation?.location ?? null,
         description: organisation.description,
         twitter: organisation.twitter,
         email: organisation.email ?? null,
@@ -163,7 +163,7 @@ async function processPageOrganisations(page, api, context) {
       ],
     },
   ];
-  const tool = {
+  const organisations = {
     slug: "organisations",
     results,
     pagination,
@@ -173,7 +173,7 @@ async function processPageOrganisations(page, api, context) {
   };
 
   if (foundIndex > -1) {
-    blocks[foundIndex] = tool;
+    blocks[foundIndex] = organisations;
   }
 
   const { slugs, ...queryParams } = context.query;

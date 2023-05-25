@@ -38,7 +38,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
   return (
     <Box bgcolor="common.white" ref={ref}>
       <Section>
-        <Grid container sx={{}} wrap="wrap-reverse">
+        <Grid container wrap="wrap-reverse">
           <Grid item sm={12} md={8} container sx={{ p: 2 }}>
             <Grid
               xs={12}

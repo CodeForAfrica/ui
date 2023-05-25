@@ -56,11 +56,11 @@ const processPageFunctionsMap = {
   opportunities: processPageOpportunities,
   index: processPageIndex,
   news: processPageArticles,
+  organisations: processPageOrganisations,
+  people: processPagePeople,
   research: processPageArticles,
   tools: processPageTools,
   "privacy-policy": processPagePrivacyPolicy,
-  people: processPagePeople,
-  organisations: processPageOrganisations,
 };
 
 async function processGlobalBlockFocalCountries(block) {
