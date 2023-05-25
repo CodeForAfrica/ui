@@ -16,6 +16,7 @@ const Datasets = React.forwardRef(function Datasets(
     sx,
     data: datasetsProp,
     labels,
+    commonLabels,
     tags = [],
     countries = [],
     totalPages: originalTotalPages,
@@ -132,6 +133,7 @@ const Datasets = React.forwardRef(function Datasets(
               {...dataset}
               key={dataset.id}
               labels={labels}
+              commonLabels={commonLabels}
               pageUrl={pageUrl}
               sx={{
                 borderBottom: "none",

@@ -151,6 +151,32 @@ const Datasets = {
                     width: "50%",
                   },
                 },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: {
+        en: "Common Labels",
+        fr: "Étiquettes communes",
+        pt: "Rótulos comuns",
+      },
+      type: "collapsible",
+      fields: [
+        {
+          name: "commonLabels",
+          type: "group",
+          label: {
+            en: "Labels",
+            fr: "Étiquettes",
+            pt: "Rótulos",
+          },
+          fields: [
+            {
+              type: "row",
+              fields: [
                 {
                   name: "readMore",
                   type: "text",

@@ -18,7 +18,7 @@ async function processSingleDataset(page, api, context) {
   }
   const { blocks, breadcrumbs } = page;
   const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
-  const { labels = {} } = blocks.find(({ slug }) => slug === "datasets");
+  const { commonLabels = {} } = blocks.find(({ slug }) => slug === "datasets");
 
   return {
     ...page,
@@ -26,7 +26,7 @@ async function processSingleDataset(page, api, context) {
     blocks: [
       {
         ...dataset,
-        labels,
+        commonLabels,
         slug: "dataset",
         pageUrl,
       },

@@ -16,7 +16,7 @@ function Dataset({
   created,
   formats,
   notes,
-  labels,
+  commonLabels,
   related,
   pageUrl,
 }) {
@@ -50,14 +50,15 @@ function Dataset({
                 mb: 2,
               }}
             >
-              {labels.backToDatasets}
+              {commonLabels.backToDatasets}
             </Typography>
             <Typography variant="h4" component="h2" gutterBottom>
               {title}
             </Typography>
             <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
-              {labels.updated} {formatDateTime(updated, { includeTime: false })}{" "}
-              |{labels.created}{" "}
+              {commonLabels.updated}{" "}
+              {formatDateTime(updated, { includeTime: false })} |
+              {commonLabels.created}{" "}
               {formatDateTime(created, { includeTime: false })}
             </Typography>
             {formats.length ? (
@@ -122,7 +123,7 @@ function Dataset({
                 width: "100%",
               }}
             >
-              {labels.backToDatasets}
+              {commonLabels.backToDatasets}
             </Typography>
             <Button
               variant="contained"
@@ -139,7 +140,7 @@ function Dataset({
                 height: "50px",
               }}
             >
-              {labels.openDataset}
+              {commonLabels.openDataset}
             </Button>
             <Button
               variant="contained"
@@ -160,7 +161,7 @@ function Dataset({
             </Button>
             <Grid item xs={12}>
               <ShareThisPage
-                title={labels.shareDataset}
+                title={commonLabels.shareDataset}
                 sx={{
                   alignItems: {
                     xs: "center",
@@ -198,7 +199,7 @@ function Dataset({
               href={href}
               target="_blank"
             >
-              {labels.openDataset}
+              {commonLabels.openDataset}
             </Button>
           </Box>
         </Box>
@@ -216,7 +217,7 @@ function Dataset({
             textAlign: "right",
           }}
         >
-          {labels.backToDatasets}
+          {commonLabels.backToDatasets}
         </Typography>
         <Box
           sx={{
@@ -231,7 +232,7 @@ function Dataset({
           >
             <Grid item>
               <Typography variant="h3" color="neutral.dark" gutterBottom>
-                {labels.seeMoreDatasets}
+                {commonLabels.seeMoreDatasets}
               </Typography>
             </Grid>
             <Grid item>
@@ -248,7 +249,7 @@ function Dataset({
                   width: "100%",
                 }}
               >
-                {labels.seeMoreDatasets}
+                {commonLabels.seeMoreDatasets}
               </Typography>
             </Grid>
           </Grid>
@@ -257,7 +258,7 @@ function Dataset({
             <DatasetCard
               {...dataset}
               key={dataset.id}
-              labels={labels}
+              commonLabels={commonLabels}
               pageUrl={pageUrl}
               sx={{
                 borderBottom: "none",
@@ -282,7 +283,7 @@ function Dataset({
               textAlign: "left",
             }}
           >
-            {labels.backToDatasets}
+            {commonLabels.backToDatasets}
           </Typography>
         </Box>
       </Section>
