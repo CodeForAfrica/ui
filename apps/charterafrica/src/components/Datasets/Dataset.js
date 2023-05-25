@@ -12,6 +12,7 @@ import formatDateTime from "@/charterafrica/utils/formatDate";
 function Dataset({
   title,
   url,
+  href,
   updated,
   created,
   formats,
@@ -195,6 +196,8 @@ function Dataset({
               color="primary"
               size="medium"
               startIcon={<ExternalLinkIcon />}
+              href={href}
+              target="_blank"
             >
               {labels.openDataset}
             </Button>

@@ -72,6 +72,7 @@ function formatDatasets(datasets) {
       name,
       notes,
       url: url?.trim(),
+      href: `https://openafrica.net/${type}/${id}`,
       title,
       type,
       updated,
