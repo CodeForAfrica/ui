@@ -30,8 +30,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
             Updated
              
             January 1, 2021
-             
-            |
+             |
             Created
              
             January 1, 2021
@@ -166,6 +165,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
+            target="_blank"
             type="button"
           >
             <span

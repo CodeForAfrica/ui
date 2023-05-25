@@ -39,7 +39,7 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
           class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
         >
           <button
-            class="MuiButtonBase-root MuiCardActionArea-root css-1hrkjpx-MuiButtonBase-root-MuiCardActionArea-root"
+            class="MuiButtonBase-root MuiCardActionArea-root css-1aib4ax-MuiButtonBase-root-MuiCardActionArea-root"
             tabindex="0"
             type="button"
           >
@@ -98,7 +98,7 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
           class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
         >
           <button
-            class="MuiButtonBase-root MuiCardActionArea-root css-1hrkjpx-MuiButtonBase-root-MuiCardActionArea-root"
+            class="MuiButtonBase-root MuiCardActionArea-root css-1aib4ax-MuiButtonBase-root-MuiCardActionArea-root"
             tabindex="0"
             type="button"
           >
@@ -148,7 +148,7 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
           class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-s80wf8-MuiPaper-root-MuiCard-root"
         >
           <button
-            class="MuiButtonBase-root MuiCardActionArea-root css-1hrkjpx-MuiButtonBase-root-MuiCardActionArea-root"
+            class="MuiButtonBase-root MuiCardActionArea-root css-1aib4ax-MuiButtonBase-root-MuiCardActionArea-root"
             tabindex="0"
             type="button"
           >

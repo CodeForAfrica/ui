@@ -48,6 +48,14 @@ const defaultProps = {
     sort: "Sort",
     search: "Search",
   },
+  commonLabels: {
+    updated: "Updated",
+    created: "Created",
+    backToDatasets: "Back to Datasets",
+    openDataset: "Open Dataset",
+    seeMoreDatasets: "See more datasets",
+    shareDataset: "Share Via",
+  },
   pageUrl: "/resources/datasets",
   related: [
     {
