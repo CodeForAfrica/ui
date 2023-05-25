@@ -131,12 +131,14 @@ export async function fetchDataset(id) {
       `${BASE_DOCUMENTS_URL}package_show?id=${id}`
     );
     const { result: dataset } = response;
-    const { tags = [] } = dataset;
+    const { tags = [], groups = [] } = dataset;
     const tagsNames = tags.map((tag) => tag.name);
+    const groupNames = groups.map((group) => group.name);
     const formattedDataset = formatDatasets([dataset]);
-    const related = await fetchDatasets(dataset.organization.name, {
-      tags: tagsNames,
-    });
+    const payload = tagsNames.length
+      ? { tags: tagsNames }
+      : { groups: groupNames };
+    const related = await fetchDatasets(dataset.organization.name, payload);
     return {
       ...formattedDataset[0],
       related: related.datasets.slice(0, 3),
