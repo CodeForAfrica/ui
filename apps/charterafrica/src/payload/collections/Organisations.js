@@ -87,7 +87,7 @@ const Organisations = {
         readOnly: true,
       },
     },
-    slug({ fieldToUse: ["source", "name"] }),
+    slug({ fieldToUse: ["source", "externalId"] }),
     {
       name: "description",
       type: "textarea",
@@ -156,21 +156,6 @@ const Organisations = {
       },
       admin: {
         readOnly: true,
-      },
-    },
-    {
-      name: "lastActive",
-      type: "date",
-      label: {
-        en: "Last Active",
-        fr: "Dernier actif",
-        pt: "ativo pela última vez",
-      },
-      admin: {
-        readOnly: true,
-        date: {
-          pickerAppearance: "dayAndTime",
-        },
       },
     },
     donors(),

@@ -12,7 +12,7 @@ const Tools = {
   slug: TOOL_COLLECTION,
   admin: {
     useAsTitle: "externalId",
-    defaultColumns: ["externalId", "name", "location", "description"],
+    defaultColumns: ["externalId", "name", "location", "source"],
   },
   access: {
     read: () => true,
@@ -90,12 +90,13 @@ const Tools = {
       },
     },
     {
-      name: "subject",
+      name: "theme",
       type: "text",
       admin: {
         readOnly: true,
       },
-      label: { en: "Subject", fr: "Sujet", pt: "Assunto" },
+      localized: true,
+      label: { en: "Theme", fr: "Thème", pt: "Tema" },
     },
     {
       name: "techSkills",
@@ -231,7 +232,7 @@ const Tools = {
       label: { en: "Contributors", fr: "Contributeurs", pt: "Colaboradores" },
     },
     {
-      name: "externalUpdatedAt",
+      name: "sourceUpdatedAt",
       type: "date",
       admin: {
         readOnly: true,

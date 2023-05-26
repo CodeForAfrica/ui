@@ -11,7 +11,7 @@ const Contributors = {
   },
   admin: {
     useAsTitle: "externalId",
-    defaultColumns: ["externalId", "fullName", "location", "description"],
+    defaultColumns: ["externalId", "fullName", "location", "source"],
   },
   access: {
     read: () => true,
@@ -83,21 +83,9 @@ const Contributors = {
       name: "twitter",
       type: "text",
       label: {
-        en: "Twitter",
+        en: "Twitter handle",
         fr: "Twitter de la personne",
         pt: "Twitter da Pessoa",
-      },
-      admin: {
-        readOnly: true,
-      },
-    },
-    {
-      name: "name",
-      type: "text",
-      label: {
-        en: "Tool Name",
-        fr: "Nom de l'outil",
-        pt: "Nome da ferramenta",
       },
       admin: {
         readOnly: true,
