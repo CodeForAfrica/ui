@@ -9,7 +9,6 @@ import { buildConfig } from "payload/config";
 
 import Authors from "./src/payload/collections/Authors";
 import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
-import DocumentGroups from "./src/payload/collections/DocumentGroups";
 import Events from "./src/payload/collections/Events";
 import Explainers from "./src/payload/collections/Explainers";
 import Fellowships from "./src/payload/collections/Fellowships";
@@ -73,7 +72,6 @@ export default buildConfig({
   collections: [
     Authors,
     CommunityPlatforms,
-    DocumentGroups,
     Events,
     Explainers,
     Fellowships,
