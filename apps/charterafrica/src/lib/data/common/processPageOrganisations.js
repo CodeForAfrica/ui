@@ -185,6 +185,8 @@ async function processPageOrganisations(page, api, context) {
 
   if (foundIndex > -1) {
     blocks[foundIndex] = organisations;
+  } else {
+    blocks.push(organisations);
   }
 
   const { slugs, ...queryParams } = context.query;

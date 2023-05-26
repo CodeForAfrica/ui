@@ -7,6 +7,24 @@ const orQueryBuilder = (fields, search) => {
   return fields.map((field) => ({ [field]: { like: search } }));
 };
 
+const getRepoLink = (tool) => {
+  switch (tool.source) {
+    case "github":
+      return `https://github.com/${tool.externalId}`;
+    default:
+      return "";
+  }
+};
+
+const getContributorsLink = (contributor) => {
+  switch (contributor.source) {
+    case "github":
+      return `https://github.com/${contributor.externalId}`;
+    default:
+      return "";
+  }
+};
+
 async function processPageSingleTool(page, api, context) {
   const { params, locale } = context;
   const { slug: collection } = page;
@@ -25,6 +43,7 @@ async function processPageSingleTool(page, api, context) {
   const tool = docs[0];
   const contributors = tool?.people?.map((person) => ({
     ...person,
+    link: getContributorsLink(person),
     name: person.name || person?.fullName || person.username || null,
   }));
   const tools = [];
@@ -36,11 +55,15 @@ async function processPageSingleTool(page, api, context) {
         slug: "tool",
         link: {
           href: tool.link,
-          label: filterLabels.goToRepo,
+          label: "",
         },
         contribute: {
-          href: tool.link,
+          href: getRepoLink(tool),
           label: filterLabels.contribute,
+        },
+        goToRepo: {
+          href: getRepoLink(tool),
+          label: filterLabels.goToRepo,
         },
         topicLabel: "Topic",
         contributors,
@@ -121,6 +144,7 @@ async function processPageTools(page, api, context) {
     {
       type: "select",
       name: "sort",
+      label: "Sort",
       options: [
         { value: "topic", label: filterLabels.topic },
         { value: "-topic", label: filterLabels["-topic"] },
@@ -136,10 +160,6 @@ async function processPageTools(page, api, context) {
       name: "stars",
       label: "Stars",
       options: [
-        {
-          value: "",
-          label: "All",
-        },
         {
           value: "<1000",
           label: "<1000",

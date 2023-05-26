@@ -1,9 +1,10 @@
 import { RichTypography } from "@commons-ui/core";
-import { Autocomplete, Box, Grid, SvgIcon, TextField } from "@mui/material";
+import { Box, Grid, SvgIcon, TextField } from "@mui/material";
 import React from "react";
 
 import ChevronDown from "@/charterafrica/assets/icons/Type=chevron-down, Size=16, Color=CurrentColor.svg";
 import { neutral } from "@/charterafrica/colors";
+import ComboBox from "@/charterafrica/components/ComboBox/ComboBox";
 import SearchInput from "@/charterafrica/components/SearchInput";
 
 const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
@@ -50,15 +51,21 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
             const value = values[option.name] || "";
             const optValue = option.options.find((opt) => value === opt.value);
 
-            const onItemChange = (e, target) => {
-              onChange({ [option.name]: target?.value });
+            const onItemChange = (_, v) => {
+              onChange({ [option.name]: v });
             };
             return (
               <Grid key={option.name} item xs={12} lg={3}>
-                <Autocomplete
+                <ComboBox
                   size="small"
                   options={option.options}
-                  getOptionLabel={(opt) => opt.label || option.label}
+                  getOptionLabel={(opt) => opt.label}
+                  label={option.label}
+                  value={optValue?.value}
+                  onChange={onItemChange}
+                  sx={{
+                    borderColor: neutral[400],
+                  }}
                   popupIcon={
                     <SvgIcon
                       inheritViewBox
@@ -71,9 +78,6 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
                       component={ChevronDown}
                     />
                   }
-                  value={optValue}
-                  onChange={onItemChange}
-                  isOptionEqualToValue={(opt) => opt?.value === optValue?.value}
                   renderOption={(optionProps, opt) => (
                     <li {...optionProps}>
                       <RichTypography variant="p1">{opt.label}</RichTypography>
@@ -84,7 +88,11 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
                       {...params}
                       fullWidth
                       value={params.value || ""}
-                      sx={{ backgroundColor: neutral[50] }}
+                      sx={{
+                        backgroundColor: neutral[50],
+
+                        borderRadius: 0.5,
+                      }}
                     />
                   )}
                 />

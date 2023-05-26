@@ -34,6 +34,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     organisationName,
     contribute,
     topicLabel,
+    goToRepo,
   } = props;
   return (
     <Box bgcolor="common.white" ref={ref}>
@@ -50,7 +51,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
               <RichTypography color="neutral.dark" variant="h2SemiBold">
                 {name}
               </RichTypography>
-              <Link href={link.href}>
+              <Link target="_blank" href={link.href}>
                 <SvgIcon
                   inheritViewBox
                   component={ExternalLink}
@@ -96,6 +97,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                   component={contribute.href ? Link : undefined}
                   href={contribute.href}
                   variant="contained"
+                  target="_blank"
                   sx={{ width: { xs: "100%", sm: "fit-content" }, height: 50 }}
                 >
                   <SvgIcon
@@ -114,9 +116,10 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 </Button>
                 <br />
                 <Button
-                  component={link.href ? Link : undefined}
-                  href={link?.href}
+                  component={goToRepo.href ? Link : undefined}
+                  href={goToRepo?.href}
                   variant="contained"
+                  target="_blank"
                   sx={{
                     mt: 1.25,
                     width: { xs: "100%", sm: "fit-content" },
@@ -134,7 +137,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                       mr: 1,
                     }}
                   />
-                  {link.label}
+                  {goToRepo.label}
                 </Button>
               </Grid>
             </Grid>
@@ -225,6 +228,11 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                   <RichTypography
                     textAlign={{ xs: "center", sm: "left" }}
                     variant="p3SemiBold"
+                    color="textPrimary"
+                    component={Link}
+                    target="_blank"
+                    href={item.link}
+                    sx={{ textDecoration: "none" }}
                   >
                     {item.name}
                   </RichTypography>

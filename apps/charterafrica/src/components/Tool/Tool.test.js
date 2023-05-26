@@ -50,6 +50,10 @@ const defaultProps = {
     label: "Contribute",
     href: "",
   },
+  goToRepo: {
+    label: "Go to Repo",
+    href: "",
+  },
   contributors: Array(30)
     .fill({
       id: "643e5303d3a60641b5b6df8e",
