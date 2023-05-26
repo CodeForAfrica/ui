@@ -259,7 +259,6 @@ function Dataset({
               {...dataset}
               key={dataset.id}
               commonLabels={commonLabels}
-              pageUrl={pageUrl}
               sx={{
                 borderBottom: "none",
                 "&:last-of-type": {
