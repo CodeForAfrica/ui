@@ -46,14 +46,15 @@ const EmbeddedDocuments = {
       type: "group",
       fields: [
         {
-          name: "group",
+          name: "documentGroup",
           label: {
-            en: "Name",
-            fr: "Nom",
-            pt: "Nome",
+            en: "Documents",
+            fr: "Documents",
+            pt: "Documentos",
           },
-          type: "text",
-          localized: true,
+          type: "relationship",
+          relationTo: "documentGroups",
+          hasMany: false,
           required: true,
         },
         {
