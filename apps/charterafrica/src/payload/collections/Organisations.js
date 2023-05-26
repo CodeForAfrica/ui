@@ -1,8 +1,8 @@
 import { ORGANIZATION_COLLECTION } from "../../lib/ecosystem/models";
+import dateField from "../fields/dateField";
 import donors from "../fields/donorsField";
 import slug from "../fields/slug";
-import source from "../fields/toolSourceField";
-import updatedAt from "../fields/updatedAt";
+import source from "../fields/source";
 
 const Organisations = {
   slug: ORGANIZATION_COLLECTION,
@@ -160,7 +160,12 @@ const Organisations = {
     },
     donors(),
     source(),
-    updatedAt(),
+    dateField({
+      name: "updatedAt",
+      hooks: {
+        beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
+      },
+    }),
   ],
 };
 

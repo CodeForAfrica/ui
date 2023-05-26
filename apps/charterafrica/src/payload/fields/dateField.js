@@ -1,13 +1,10 @@
 import { deepmerge } from "@mui/utils";
 
-const updatedAt = (overrides) =>
+const dateField = (overrides) =>
   deepmerge(
     {
       name: "updatedAt",
       type: "date",
-      hooks: {
-        beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
-      },
       admin: {
         readOnly: true,
         date: {
@@ -19,4 +16,4 @@ const updatedAt = (overrides) =>
     overrides
   );
 
-export default updatedAt;
+export default dateField;

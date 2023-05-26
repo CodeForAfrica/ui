@@ -1,7 +1,7 @@
 import { CONTRIBUTORS_COLLECTION } from "../../lib/ecosystem/models";
+import dateField from "../fields/dateField";
 import slug from "../fields/slug";
-import source from "../fields/toolSourceField";
-import updatedAt from "../fields/updatedAt";
+import source from "../fields/source";
 
 const Contributors = {
   slug: CONTRIBUTORS_COLLECTION,
@@ -120,7 +120,12 @@ const Contributors = {
     },
     slug({ fieldToUse: ["source", "username"] }),
     source(),
-    updatedAt(),
+    dateField({
+      name: "updatedAt",
+      hooks: {
+        beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
+      },
+    }),
   ],
 };
 

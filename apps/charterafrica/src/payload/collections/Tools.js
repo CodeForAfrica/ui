@@ -3,10 +3,10 @@ import {
   ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
 } from "../../lib/ecosystem/models";
+import dateField from "../fields/dateField";
 import donors from "../fields/donorsField";
 import slug from "../fields/slug";
-import source from "../fields/toolSourceField";
-import updatedAt from "../fields/updatedAt";
+import source from "../fields/source";
 
 const Tools = {
   slug: TOOL_COLLECTION,
@@ -300,7 +300,15 @@ const Tools = {
         },
       ],
     },
-    updatedAt(),
+    dateField({
+      name: "updatedAt",
+      hooks: {
+        beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
+      },
+    }),
+    dateField({
+      name: "deletedAt",
+    }),
     source(),
   ],
 };
