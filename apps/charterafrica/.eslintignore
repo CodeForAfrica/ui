@@ -34,3 +34,6 @@ yarn-error.log*
 .turbo
 test-results/
 playwright-report/
+
+# AGA Infographic
+public/infographic

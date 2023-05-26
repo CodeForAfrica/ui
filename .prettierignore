@@ -2,3 +2,6 @@
 build
 dist
 node_modules
+
+# AGA infographic
+apps/charterafrica/public/infographic
