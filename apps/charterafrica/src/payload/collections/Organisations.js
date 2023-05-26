@@ -1,8 +1,8 @@
 import { ORGANIZATION_COLLECTION } from "../../lib/ecosystem/models";
 import dateField from "../fields/dateField";
-import donors from "../fields/donorsField";
 import slug from "../fields/slug";
 import source from "../fields/source";
+import supporter from "../fields/supporter";
 
 const Organisations = {
   slug: ORGANIZATION_COLLECTION,
@@ -158,7 +158,26 @@ const Organisations = {
         readOnly: true,
       },
     },
-    donors(),
+    {
+      name: "donors",
+      type: "array",
+      admin: {
+        readOnly: true,
+        initCollapsed: true,
+      },
+      label: { en: "Donors", fr: "Donateurs", pt: "Doadores" },
+      fields: supporter,
+    },
+    {
+      name: "partners",
+      type: "array",
+      admin: {
+        readOnly: true,
+        initCollapsed: true,
+      },
+      label: { en: "Partners", fr: "Les partenaires", pt: "Parceiros" },
+      fields: supporter,
+    },
     source(),
     dateField({
       name: "updatedAt",
