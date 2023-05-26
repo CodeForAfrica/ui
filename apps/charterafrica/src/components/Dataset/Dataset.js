@@ -1,7 +1,6 @@
 import { Section, RichTypography } from "@commons-ui/core";
 import { Typography, Box, Grid, Button, Chip } from "@mui/material";
 
-import GithubIcon from "@/charterafrica/assets/icons/github.svg";
 import ExternalLinkIcon from "@/charterafrica/assets/icons/Type=external-link, Size=24, Color=White.svg";
 import { neutral } from "@/charterafrica/colors";
 import DatasetCard from "@/charterafrica/components/DatasetCard";
@@ -141,23 +140,6 @@ function Dataset({
               }}
             >
               {commonLabels.openDataset}
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              size="medium"
-              startIcon={<GithubIcon />}
-              href=""
-              target="_blank"
-              sx={{
-                width: {
-                  xs: "100%",
-                  sm: "200px",
-                },
-                height: "50px",
-              }}
-            >
-              Github
             </Button>
             <Grid item xs={12}>
               <ShareThisPage
