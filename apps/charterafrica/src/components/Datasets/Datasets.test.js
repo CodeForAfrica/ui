@@ -21,6 +21,7 @@ const defaultProps = {
       updated: "2021-01-01T00:00:00.000Z",
       author: "Author Name",
       url: "https://example.com",
+      localHref: "/resources/datasets",
       id: "1234",
     },
   ],
@@ -56,7 +57,6 @@ const defaultProps = {
     seeMoreDatasets: "See more datasets",
     shareDataset: "Share Via",
   },
-  pageUrl: "/resources/datasets",
   related: [
     {
       formats: ["CSV", "PDF"],

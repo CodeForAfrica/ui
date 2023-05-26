@@ -9,6 +9,7 @@ async function datasets(req, res) {
       countries,
       q = "",
       page = 1,
+      path,
     },
   } = req;
 
@@ -17,6 +18,7 @@ async function datasets(req, res) {
     const data = await fetchDatasets(organizationId, {
       q,
       page,
+      path,
       sort,
       tags: tags?.split(","),
       countries: countries?.split(","),

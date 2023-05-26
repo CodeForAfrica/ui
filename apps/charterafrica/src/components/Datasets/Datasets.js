@@ -37,6 +37,7 @@ const Datasets = React.forwardRef(function Datasets(
   const datasetsRef = useRef();
   useImperativeHandle(ref, () => datasetsRef.current);
   const { asPath, locale } = router;
+  const pathname = asPath.split("?")[0];
 
   const handleChangePage = (_, value) => {
     setPage(value);
@@ -73,7 +74,6 @@ const Datasets = React.forwardRef(function Datasets(
   });
 
   useEffect(() => {
-    const pathname = asPath.split("?")[0];
     router.push({ pathname, query }, undefined, {
       scroll: false,
       shallow: true,
@@ -84,14 +84,17 @@ const Datasets = React.forwardRef(function Datasets(
   if (filtering && datasetsRef.current) {
     datasetsRef.current.scrollIntoView({ behavior: "smooth" });
   }
-  const { data, isLoading } = useDatasets({
-    countries: selectedCountries,
-    locale,
-    page,
-    q,
-    sort,
-    tags: selectedTags,
-  });
+  const { data, isLoading } = useDatasets(
+    {
+      countries: selectedCountries,
+      locale,
+      page,
+      q,
+      sort,
+      tags: selectedTags,
+    },
+    pathname
+  );
   useEffect(() => {
     if (!isLoading) {
       const { datasets: filteredDatasets, totalPages: filteredTotalPages } =

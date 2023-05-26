@@ -12,12 +12,13 @@ async function processSingleDataset(page, api, context) {
   const { params } = context;
   const { slugs } = params;
   const datasetId = slugs[slugs.length - 1];
-  const dataset = await fetchDataset(datasetId);
+  const { blocks, breadcrumbs } = page;
+  const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
+  const dataset = await fetchDataset(datasetId, pageUrl);
   if (!dataset) {
     return null;
   }
-  const { blocks, breadcrumbs } = page;
-  const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
+
   const { commonLabels = {} } = blocks.find(({ slug }) => slug === "datasets");
 
   return {
@@ -28,7 +29,6 @@ async function processSingleDataset(page, api, context) {
         ...dataset,
         commonLabels,
         slug: "dataset",
-        pageUrl,
       },
     ],
   };
@@ -47,7 +47,9 @@ export default async function processPageDatasets(page, api, context) {
   const datasetsIndex = blocks.findIndex(({ slug }) => slug === "datasets");
 
   if (datasetsIndex > -1 && organizationId) {
-    const data = await fetchDatasets(organizationId);
+    const data = await fetchDatasets(organizationId, {
+      path: pageUrl,
+    });
     const { count, datasets, countries, tags, totalPages } = data;
 
     blocks[datasetsIndex] = {
@@ -57,7 +59,6 @@ export default async function processPageDatasets(page, api, context) {
       data: datasets,
       tags,
       totalPages,
-      pageUrl,
     };
 
     let swrKey = `/api/v1/resources/datasets`;

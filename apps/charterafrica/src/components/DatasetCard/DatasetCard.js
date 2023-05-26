@@ -15,7 +15,6 @@ import { StyledActionArea as CardActionArea } from "@/charterafrica/components/S
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
 function DatasetCard({
-  id,
   formats,
   notes,
   title,
@@ -23,7 +22,7 @@ function DatasetCard({
   commonLabels,
   updated,
   author,
-  pageUrl,
+  localHref,
   sx,
 }) {
   const [showAll, setShowAll] = useState(false);
@@ -39,7 +38,7 @@ function DatasetCard({
         ...sx,
       }}
     >
-      <CardActionArea component={Link} href={`${pageUrl}/${id}`}>
+      <CardActionArea component={Link} href={localHref}>
         <CardContent
           sx={{
             padding: "30px",
