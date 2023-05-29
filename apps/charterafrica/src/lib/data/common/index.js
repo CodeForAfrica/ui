@@ -1,16 +1,15 @@
-import processPageAbout from "@/charterafrica/lib/data/common/processPageAbout";
+import blockifyPage from "./blockify";
+
 import processPageArticles, {
   processPageEvents,
 } from "@/charterafrica/lib/data/common/processPageArticles";
 import processPageConsultation from "@/charterafrica/lib/data/common/processPageConsultation";
 import processPageDatasets from "@/charterafrica/lib/data/common/processPageDatasets";
-import processPageExplainers from "@/charterafrica/lib/data/common/processPageExplainers";
 import processPageIndex from "@/charterafrica/lib/data/common/processPageIndex";
 import processPageOpportunities, {
   processPageFellowships,
   processPageGrants,
 } from "@/charterafrica/lib/data/common/processPageOpportunities";
-import processPagePrivacyPolicy from "@/charterafrica/lib/data/common/processPagePrivacyPolicy";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
 export async function getGlobalProps({ locale, defaultLocale }, api) {
@@ -43,10 +42,8 @@ export async function getGlobalProps({ locale, defaultLocale }, api) {
 }
 
 const processPageFunctionsMap = {
-  about: processPageAbout,
   consultation: processPageConsultation,
   datasets: processPageDatasets,
-  explainers: processPageExplainers,
   events: processPageEvents,
   fellowships: processPageFellowships,
   grants: processPageGrants,
@@ -54,7 +51,6 @@ const processPageFunctionsMap = {
   index: processPageIndex,
   news: processPageArticles,
   research: processPageArticles,
-  "privacy-policy": processPagePrivacyPolicy,
 };
 
 async function processGlobalBlockFocalCountries(block) {
@@ -146,9 +142,7 @@ export async function getPageProps(api, context) {
   const processedPage = processPage
     ? await processPage(page, api, context)
     : page;
-  if (!processedPage) {
-    return null;
-  }
+  processedPage.blocks = await blockifyPage(processedPage, api, context);
 
   const { settings, ...globalProps } = await getGlobalProps(
     { defaultLocale, locale },
