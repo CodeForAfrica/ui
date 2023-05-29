@@ -10,6 +10,17 @@ const orQueryBuilder = (fields, search) => {
   return fields.map((field) => ({ [field]: { like: search } }));
 };
 
+const toolsBreadcrumbs = async (api) => {
+  const { docs } = await api.getCollection("pages", {
+    where: {
+      slug: {
+        equals: "tools",
+      },
+    },
+  });
+  return docs[0]?.breadcrumbs || [];
+};
+
 export async function getPeople(page, api, context) {
   const { breadcrumbs } = page;
   const {
@@ -89,10 +100,11 @@ async function processPagePerson(page, api, context) {
     },
   });
 
+  const toolBreadcrumbs = await toolsBreadcrumbs(api);
   const tools = toolDocs.map((tool) => {
     let href = null;
     // TODO resolve tools breadcrumb
-    const pageUrl = "resources/tools";
+    const pageUrl = toolBreadcrumbs[toolBreadcrumbs.length - 1]?.url;
     if (pageUrl) {
       href = `${pageUrl}/${tool.slug}`;
     }
