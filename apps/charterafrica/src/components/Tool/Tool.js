@@ -1,13 +1,6 @@
 import { Section, RichTypography } from "@commons-ui/core";
-import {
-  Box,
-  Button,
-  Grid,
-  SvgIcon,
-  Link,
-  CardMedia,
-  Divider,
-} from "@mui/material";
+import { Link } from "@commons-ui/next";
+import { Box, Button, Grid, SvgIcon, CardMedia, Divider } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -57,7 +50,6 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                   component={ExternalLink}
                   sx={{
                     color: "text.primary",
-                    display: "inline-flex",
                     fill: "none",
                     height: 32,
                     width: 32,
@@ -230,7 +222,6 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                     variant="p3SemiBold"
                     color="textPrimary"
                     component={Link}
-                    target="_blank"
                     href={item.link}
                     sx={{ textDecoration: "none" }}
                   >

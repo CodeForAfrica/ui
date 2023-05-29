@@ -23,13 +23,14 @@ exports[`<Tool /> renders unchanged 1`] = `
               Tool Name
             </div>
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-j4i3qf-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-j4i3qf-MuiTypography-root-MuiLink-root"
               href="https://git.com"
+              rel="noreferrer noopener"
               target="_blank"
             >
               <div
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1835xr2-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-mg30as-MuiSvgIcon-root"
                 focusable="false"
               />
             </a>
@@ -182,8 +183,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -192,8 +193,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -202,8 +203,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -212,8 +213,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -222,8 +223,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -232,8 +233,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -242,8 +243,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -252,8 +253,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -262,8 +263,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -272,8 +273,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -282,8 +283,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -292,8 +293,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -302,8 +303,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -312,8 +313,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -322,8 +323,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -332,8 +333,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -342,8 +343,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -352,8 +353,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -362,8 +363,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -372,8 +373,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -382,8 +383,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -392,8 +393,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -402,8 +403,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -412,8 +413,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -422,8 +423,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -432,8 +433,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -442,8 +443,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -452,8 +453,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -462,8 +463,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>
@@ -472,8 +473,8 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold css-odamm5-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              target="_blank"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1imu0qh-MuiTypography-root-MuiLink-root-MuiTypography-root"
+              href=""
             >
               Beta maṣāḥǝft
             </a>

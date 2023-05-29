@@ -17,12 +17,7 @@ const getRepoLink = (tool) => {
 };
 
 const getContributorsLink = (contributor) => {
-  switch (contributor.source) {
-    case "github":
-      return `https://github.com/${contributor.externalId}`;
-    default:
-      return "";
-  }
+  return `/resources/people/${contributor.externalId}`;
 };
 
 async function processPageSingleTool(page, api, context) {
