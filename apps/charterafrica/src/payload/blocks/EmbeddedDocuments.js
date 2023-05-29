@@ -46,7 +46,7 @@ const EmbeddedDocuments = {
       type: "group",
       fields: [
         {
-          name: "groupId",
+          name: "group",
           label: {
             en: "Group ID",
             fr: "ID du groupe",
