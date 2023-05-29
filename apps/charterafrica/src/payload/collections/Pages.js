@@ -1,3 +1,4 @@
+import AgaInfographic from "../blocks/AgaInfographic";
 import CommunityPlatforms from "../blocks/CommunityPlatforms";
 import Datasets from "../blocks/Datasets";
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
@@ -46,6 +47,7 @@ const Pages = {
       name: "blocks",
       type: "blocks",
       blocks: [
+        AgaInfographic,
         CommunityPlatforms,
         Datasets,
         DemocracyHelpdeskContent,
