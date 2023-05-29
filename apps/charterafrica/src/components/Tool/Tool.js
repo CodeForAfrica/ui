@@ -44,7 +44,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
               <RichTypography color="neutral.dark" variant="h2SemiBold">
                 {name}
               </RichTypography>
-              <Link target="_blank" href={link.href}>
+              <Link href={link.href}>
                 <SvgIcon
                   inheritViewBox
                   component={ExternalLink}
