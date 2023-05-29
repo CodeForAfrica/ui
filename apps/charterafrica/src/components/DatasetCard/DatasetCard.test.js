@@ -26,7 +26,7 @@ const defaultProps = {
   },
   id: "1234",
   url: "https://example.com",
-  localHref: "/resources/datasets",
+  href: "/resources/datasets",
 };
 
 describe("<DatasetCard />", () => {

@@ -9,8 +9,8 @@ import formatDateTime from "@/charterafrica/utils/formatDate";
 
 function Dataset({
   title,
+  source,
   url,
-  href,
   updated,
   created,
   formats,
@@ -55,12 +55,13 @@ function Dataset({
               {title}
             </Typography>
             <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
-              {commonLabels.updated}{" "}
-              {formatDateTime(updated, { includeTime: false })} |
-              {commonLabels.created}{" "}
-              {formatDateTime(created, { includeTime: false })}
+              {`${commonLabels.updated} ${formatDateTime(updated, {
+                includeTime: false,
+              })} | ${commonLabels.created} ${formatDateTime(created, {
+                includeTime: false,
+              })}`}
             </Typography>
-            {formats.length ? (
+            {formats?.length ? (
               <Grid
                 item
                 xs={12}
@@ -129,7 +130,7 @@ function Dataset({
               color="primary"
               size="medium"
               startIcon={<ExternalLinkIcon />}
-              href={url}
+              href={source}
               target="_blank"
               sx={{
                 width: {
@@ -178,7 +179,7 @@ function Dataset({
               color="primary"
               size="medium"
               startIcon={<ExternalLinkIcon />}
-              href={href}
+              href={url}
               target="_blank"
             >
               {commonLabels.openDataset}

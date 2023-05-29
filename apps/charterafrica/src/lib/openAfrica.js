@@ -71,9 +71,9 @@ function formatDatasets(datasets, path) {
       id,
       name,
       notes,
-      url: url?.trim(),
-      href: `https://openafrica.net/${type}/${id}`,
-      localHref: `${path}/${id}`,
+      source: url?.trim(),
+      url: `https://openafrica.net/${type}/${id}`,
+      href: `${path}/${id}`,
       title,
       type,
       updated,
@@ -81,10 +81,10 @@ function formatDatasets(datasets, path) {
   });
 }
 
-function formatResponse(data, path) {
+function formatResponse(data, pathname) {
   const { result: { count, facets: { tags }, results } = {} } = data || {};
 
-  const datasets = formatDatasets(results, path);
+  const datasets = formatDatasets(results, pathname);
   const sortStrings = (a, b) => a.localeCompare(b);
   const tagsList = Object.keys(tags || {}).sort(sortStrings);
 
@@ -97,8 +97,12 @@ function formatResponse(data, path) {
   };
 }
 
-export default async function fetchDatasets(organization, query = {}) {
-  const { tags = [], countries = [], page = 1, path, ...other } = query;
+export default async function fetchDatasets(
+  organization,
+  pathname,
+  query = {}
+) {
+  const { tags = [], countries = [], page = 1, ...other } = query;
   const tagsQuery = tags.length
     ? `tags:(${tags.map((t) => `"${t}"`).join(" OR ")})`
     : null;
@@ -119,7 +123,7 @@ export default async function fetchDatasets(organization, query = {}) {
 
   try {
     const response = await packageSearch(params);
-    const formattedData = formatResponse(response, path);
+    const formattedData = formatResponse(response, pathname);
     return formattedData;
   } catch (error) {
     return error;

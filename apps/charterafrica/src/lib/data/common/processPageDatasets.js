@@ -47,9 +47,7 @@ export default async function processPageDatasets(page, api, context) {
   const datasetsIndex = blocks.findIndex(({ slug }) => slug === "datasets");
 
   if (datasetsIndex > -1 && organizationId) {
-    const data = await fetchDatasets(organizationId, {
-      path: pageUrl,
-    });
+    const data = await fetchDatasets(organizationId, pageUrl, {});
     const { count, datasets, countries, tags, totalPages } = data;
 
     blocks[datasetsIndex] = {

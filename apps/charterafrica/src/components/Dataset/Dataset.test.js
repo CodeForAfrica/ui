@@ -29,7 +29,7 @@ const defaultProps = {
     shareDataset: "Share Via",
   },
   id: "1234",
-  url: "https://example.com",
+  source: "https://example.com",
 };
 
 describe("<Dataset />", () => {

@@ -27,13 +27,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
           <p
             class="MuiTypography-root MuiTypography-p1 css-1pop01s-MuiTypography-root"
           >
-            Updated
-             
-            January 1, 2021
-             |
-            Created
-             
-            January 1, 2021
+            Updated January 1, 2021 | Created January 1, 2021
           </p>
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-11hlojd-MuiGrid-root"

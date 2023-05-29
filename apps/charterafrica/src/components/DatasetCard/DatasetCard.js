@@ -22,7 +22,7 @@ function DatasetCard({
   commonLabels,
   updated,
   author,
-  localHref,
+  href,
   sx,
 }) {
   const [showAll, setShowAll] = useState(false);
@@ -38,7 +38,7 @@ function DatasetCard({
         ...sx,
       }}
     >
-      <CardActionArea component={Link} href={localHref}>
+      <CardActionArea component={Link} href={href}>
         <CardContent
           sx={{
             padding: "30px",
