@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="22" viewBox="0 0 22 22">
+  <defs>
+    <clipPath id="clip-chevron-down">
+      <rect width="22" height="22"/>
+    </clipPath>
+  </defs>
+  <g id="chevron-down" clip-path="url(#clip-chevron-down)">
+    <g id="Layer_2" data-name="Layer 2" transform="translate(-1 -1)">
+      <g id="chevron-down-2" data-name="chevron-down">
+        <rect id="Rectangle_145" data-name="Rectangle 145" width="24" height="24" fill="#fff" opacity="0"/>
+        <path id="Path_798" data-name="Path 798" d="M12,15.5a1,1,0,0,1-.71-.29l-4-4A1,1,0,0,1,8.71,9.79L12,13.1l3.3-3.18a1,1,0,1,1,1.38,1.44l-4,3.86A1,1,0,0,1,12,15.5Z" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
