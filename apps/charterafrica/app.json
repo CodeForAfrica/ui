@@ -1,0 +1,18 @@
+{
+  "name": "charterafrica",
+  "scripts": {
+    "predeploy": "export NEXT_PUBLIC_APP_URL=$(dokku config:get charterafrica NEXT_PUBLIC_APP_URL) && export RESOURCES_SECRET_TOKEN=$(dokku config:get charterafrica RESOURCES_SECRET_TOKEN)",
+    "update-ecosystem-list": "curl -H \"x-api-key: $RESOURCES_SECRET_TOKEN\" $NEXT_PUBLIC_APP_URL/api/v1/resources/ecosystem/update-ecosystem-list",
+    "update-ecosystem-content": "curl -H \"x-api-key: $RESOURCES_SECRET_TOKEN\" $NEXT_PUBLIC_APP_URL/api/v1/resources/ecosystem/update-ecosystem-content"
+  },
+  "cron": [
+    {
+      "command": "npm run update-ecosystem-content",
+      "schedule": "@daily"
+    },
+    {
+      "command": "npm run update-ecosystem-list",
+      "schedule": "@hourly"
+    }
+  ]
+}

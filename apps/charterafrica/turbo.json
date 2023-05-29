@@ -8,6 +8,9 @@
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
         "CI",
+        "CHARTERAFRICA_SENTRY_DSN",
+        "PUBLIC_CHARTERAFRICA_SENTRY_DSN",
+        "RESOURCES_SECRET_TOKEN",
         "MONGO_URL",
         "NEXT_BUILD",
         "NEXT_HOSTNAME",
