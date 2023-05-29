@@ -1,0 +1,442 @@
+[
+  {
+    "id": 1,
+    "country": "Algeria",
+    "iso3": "DZA",
+    "signature_date": "14-7-2012",
+    "ratification_date": "20-11-2016",
+    "deposited_date": "10-1-2017"
+  },
+  {
+    "id": 2,
+    "country": "Angola",
+    "iso3": "AGO",
+    "signature_date": "27-1-2012",
+    "ratification_date": "8-6-2021",
+    "deposited_date": "29-7-2021"
+  },
+  {
+    "id": 3,
+    "country": "Benin",
+    "iso3": "BEN",
+    "signature_date": "16-7-2007",
+    "ratification_date": "28-6-2012",
+    "deposited_date": "11-7-2012"
+  },
+  {
+    "id": 4,
+    "country": "Botswana",
+    "iso3": "BWA",
+    "signature_date": "-",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 5,
+    "country": "Burkina Faso",
+    "iso3": "BFA",
+    "signature_date": "2-8-2007",
+    "ratification_date": "26-5-2010",
+    "deposited_date": "6-7-2010"
+  },
+  {
+    "id": 6,
+    "country": "Burundi",
+    "iso3": "BDI",
+    "signature_date": "20-6-2007",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 7,
+    "country": "Cameroon",
+    "iso3": "CMR",
+    "signature_date": "-",
+    "ratification_date": "24-8-2011",
+    "deposited_date": "16-1-2012"
+  },
+  {
+    "id": 8,
+    "country": "Central African Rep.",
+    "iso3": "CAF",
+    "signature_date": "28-6-2008",
+    "ratification_date": "24-4-2017",
+    "deposited_date": "6-3-2019"
+  },
+  {
+    "id": 9,
+    "country": "Cape Verde",
+    "iso3": "CPV",
+    "signature_date": "27-1-2012",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 10,
+    "country": "Chad",
+    "iso3": "TCD",
+    "signature_date": "22-1-2009",
+    "ratification_date": "11-7-2011",
+    "deposited_date": "13-10-2011"
+  },
+  {
+    "id": 11,
+    "country": "Côte d’Ivoire",
+    "iso3": "CIV",
+    "signature_date": "11-6-2009",
+    "ratification_date": "16-10-2013",
+    "deposited_date": "28-11-2013"
+  },
+  {
+    "id": 12,
+    "country": "Comoros",
+    "iso3": "COM",
+    "signature_date": "2-2-2010",
+    "ratification_date": "30-11-2016",
+    "deposited_date": "6-1-2017"
+  },
+  {
+    "id": 13,
+    "country": "Congo",
+    "iso3": "COG",
+    "signature_date": "18-6-2007",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 14,
+    "country": "Djibouti",
+    "iso3": "DJI",
+    "signature_date": "15-6-2007",
+    "ratification_date": "2-12-2012",
+    "deposited_date": "22-1-2013"
+  },
+  {
+    "id": 15,
+    "country": "Democratic Rep. of Congo",
+    "iso3": "COD",
+    "signature_date": "29-6-2008",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 16,
+    "country": "Egypt",
+    "iso3": "EGY",
+    "signature_date": "-",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 17,
+    "country": "Equatorial Guinea",
+    "iso3": "GNQ",
+    "signature_date": "30-1-2011",
+    "ratification_date": "11-7-2017",
+    "deposited_date": "8-10-2019"
+  },
+  {
+    "id": 18,
+    "country": "Eritrea",
+    "iso3": "ERI",
+    "signature_date": "-",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 19,
+    "country": "Ethiopia",
+    "iso3": "ETH",
+    "signature_date": "28-12-2007",
+    "ratification_date": "5-12-2008",
+    "deposited_date": "6-1-2009"
+  },
+  {
+    "id": 20,
+    "country": "Gabon",
+    "iso3": "GAB",
+    "signature_date": "2-2-2010",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 21,
+    "country": "Gambia",
+    "iso3": "GMB",
+    "signature_date": "29-1-2008",
+    "ratification_date": "11-6-2018",
+    "deposited_date": "4-2-2019"
+  },
+  {
+    "id": 22,
+    "country": "Ghana",
+    "iso3": "GHA",
+    "signature_date": "15-1-2008",
+    "ratification_date": "6-9-2010",
+    "deposited_date": "19-10-2010"
+  },
+  {
+    "id": 23,
+    "country": "Guinea-Bissau",
+    "iso3": "GNB",
+    "signature_date": "17-6-2008",
+    "ratification_date": "23-12-2011",
+    "deposited_date": "4-1-2012"
+  },
+  {
+    "id": 24,
+    "country": "Guinea",
+    "iso3": "GIN",
+    "signature_date": "9-5-2007",
+    "ratification_date": "17-6-2011",
+    "deposited_date": "11-7-2011"
+  },
+  {
+    "id": 25,
+    "country": "Kenya",
+    "iso3": "KEN",
+    "signature_date": "28-6-2008",
+    "ratification_date": "7-1-2021",
+    "deposited_date": "4-2-2022"
+  },
+  {
+    "id": 26,
+    "country": "Libya",
+    "iso3": "LBY",
+    "signature_date": "-",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 27,
+    "country": "Lesotho",
+    "iso3": "LSO",
+    "signature_date": "17-3-2010",
+    "ratification_date": "30-6-2010",
+    "deposited_date": "9-7-2010"
+  },
+  {
+    "id": 28,
+    "country": "Liberia",
+    "iso3": "LBR",
+    "signature_date": "18-6-2008",
+    "ratification_date": "23-2-2014",
+    "deposited_date": "7-3-2017"
+  },
+  {
+    "id": 29,
+    "country": "Madagascar",
+    "iso3": "MDG",
+    "signature_date": "31-1-2014",
+    "ratification_date": "23-2-2017",
+    "deposited_date": "13-4-2017"
+  },
+  {
+    "id": 30,
+    "country": "Mali",
+    "iso3": "MLI",
+    "signature_date": "29-6-2007",
+    "ratification_date": "13-8-2013",
+    "deposited_date": "2-9-2013"
+  },
+  {
+    "id": 31,
+    "country": "Malawi",
+    "iso3": "MWI",
+    "signature_date": "-",
+    "ratification_date": "11-10-2012",
+    "deposited_date": "24-10-2012"
+  },
+  {
+    "id": 32,
+    "country": "Morocco",
+    "iso3": "MAR",
+    "signature_date": "-",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 33,
+    "country": "Mozambique",
+    "iso3": "MOZ",
+    "signature_date": "27-5-2010",
+    "ratification_date": "24-4-2018",
+    "deposited_date": "9-5-2018"
+  },
+  {
+    "id": 34,
+    "country": "Mauritania",
+    "iso3": "MRT",
+    "signature_date": "29-1-2008",
+    "ratification_date": "7-7-2008",
+    "deposited_date": "28-7-2008"
+  },
+  {
+    "id": 35,
+    "country": "Mauritius",
+    "iso3": "MUS",
+    "signature_date": "14-12-2007",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 36,
+    "country": "Namibia",
+    "iso3": "NAM",
+    "signature_date": "10-5-2007",
+    "ratification_date": "23-8-2016",
+    "deposited_date": "30-8-2016"
+  },
+  {
+    "id": 37,
+    "country": "Nigeria",
+    "iso3": "NGA",
+    "signature_date": "2-7-2007",
+    "ratification_date": "1-12-2011",
+    "deposited_date": "9-1-2012"
+  },
+  {
+    "id": 38,
+    "country": "Niger",
+    "iso3": "NER",
+    "signature_date": "17-6-2008",
+    "ratification_date": "4-10-2011",
+    "deposited_date": "8-11-2011"
+  },
+  {
+    "id": 39,
+    "country": "Rwanda",
+    "iso3": "RWA",
+    "signature_date": "29-6-2007",
+    "ratification_date": "9-7-2010",
+    "deposited_date": "14-7-2010"
+  },
+  {
+    "id": 40,
+    "country": "South Africa",
+    "iso3": "ZAF",
+    "signature_date": "1-2-2010",
+    "ratification_date": "24-12-2010",
+    "deposited_date": "24-1-2011"
+  },
+  {
+    "id": 41,
+    "country": "Sahrawi Arab Democratic Republic",
+    "iso3": "ESH",
+    "signature_date": "25-7-2010",
+    "ratification_date": "27-11-2013",
+    "deposited_date": "27-1-2014"
+  },
+  {
+    "id": 42,
+    "country": "Senegal",
+    "iso3": "SEN",
+    "signature_date": "15-12-2008",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 43,
+    "country": "Seychelles",
+    "iso3": "SYC",
+    "signature_date": "-",
+    "ratification_date": "12-8-2016",
+    "deposited_date": "28-9-2016"
+  },
+  {
+    "id": 44,
+    "country": "Sierra Leone",
+    "iso3": "SLE",
+    "signature_date": "17-6-2008",
+    "ratification_date": "17-2-2009",
+    "deposited_date": "8-12-2009"
+  },
+  {
+    "id": 45,
+    "country": "Somalia",
+    "iso3": "SOM",
+    "signature_date": "28-1-2013",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 46,
+    "country": "South Sudan",
+    "iso3": "SSD",
+    "signature_date": "24-1-2013",
+    "ratification_date": "26-1-2014",
+    "deposited_date": "13-4-2015"
+  },
+  {
+    "id": 47,
+    "country": "Sao Tome & Principe",
+    "iso3": "STP",
+    "signature_date": "1-2-2010",
+    "ratification_date": "18-4-2019",
+    "deposited_date": "27-6-2019"
+  },
+  {
+    "id": 48,
+    "country": "Sudan",
+    "iso3": "SDN",
+    "signature_date": "30-6-2008",
+    "ratification_date": "19-6-2013",
+    "deposited_date": "16-9-2013"
+  },
+  {
+    "id": 49,
+    "country": "Eswatini",
+    "iso3": "SWZ",
+    "signature_date": "29-1-2008",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 50,
+    "country": "Tanzania",
+    "iso3": "TZA",
+    "signature_date": "-",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 51,
+    "country": "Togo",
+    "iso3": "TGO",
+    "signature_date": "30-10-2007",
+    "ratification_date": "24-1-2012",
+    "deposited_date": "20-3-2012"
+  },
+  {
+    "id": 52,
+    "country": "Tunisia",
+    "iso3": "TUN",
+    "signature_date": "27-1-2013",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 53,
+    "country": "Uganda",
+    "iso3": "UGA",
+    "signature_date": "16-12-2008",
+    "ratification_date": "-",
+    "deposited_date": "-"
+  },
+  {
+    "id": 54,
+    "country": "Zambia",
+    "iso3": "ZMB",
+    "signature_date": "31-1-2010",
+    "ratification_date": "31-5-2011",
+    "deposited_date": "8-7-2011"
+  },
+  {
+    "id": 55,
+    "country": "Zimbabwe",
+    "iso3": "ZWE",
+    "signature_date": "21-3-2018",
+    "ratification_date": "6-4-2022",
+    "deposited_date": "6-7-2022"
+  }
+]

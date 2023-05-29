@@ -1,11 +1,11 @@
 import React from "react";
 
-import Mooc from "../components/Mooc";
-
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Helpdesk from "@/charterafrica/components/Helpdesk";
 import Hero from "@/charterafrica/components/Hero";
+import Infographic from "@/charterafrica/components/Infographic";
+import Mooc from "@/charterafrica/components/Mooc";
 import Partners from "@/charterafrica/components/Partners";
 import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
@@ -16,6 +16,7 @@ const componentsBySlugs = {
   "focal-countries": FocalCountries,
   helpdesk: Helpdesk,
   hero: Hero,
+  "aga-infographic": Infographic,
   mooc: Mooc,
   "our-partners": Partners,
   "our-resources": Resources,
