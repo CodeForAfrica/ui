@@ -1,0 +1,45 @@
+{
+  "regions": {
+    "RER": "Europe and Central Asia",
+    "RLA": "Americas",
+    "RAF": "Africa",
+    "RAS": "Asia and the Pacific",
+    "RAB": "Arab States"
+  },
+  "subregions": {
+    "SEU0": "European Region (other)",
+    "SMO0": "Eastern Europe and Central Asia",
+    "SLI0": "Andean Countries",
+    "SNA0": "North America",
+    "SPS0": "Caribbean Islands",
+    "SSA0": "South Cone of Latin America",
+    "SSJ0": "Central America",
+    "SAD0": "Eastern Africa",
+    "SYA0": "Central Africa",
+    "SMA0": "South Eastern Asia and the Pacific",
+    "SBE0": "Arab States Subregion",
+    "SAB0": "Western Africa",
+    "SBK0": "Eastern Asia",
+    "SBU0": "Central and Eastern Europe",
+    "SDA0": "Sahel Region",
+    "RER0": "Europe Region",
+    "SND0": "Southern Asia",
+    "SCA0": "Northern Africa",
+    "SHA0": "Southern Africa"
+  },
+  "countries": [
+    {
+      "id2": "XK",
+      "id3": "XKX",
+      "r": "RER",
+      "s": "SBU0",
+      "c": "Kosovo",
+      "b": [
+        [20.1824068, 43.1580048],
+        [21.4773471, 42.0391232]
+      ],
+      "l": [20.5371385, 42.5870141],
+      "p": "1873000"
+    }
+  ]
+}

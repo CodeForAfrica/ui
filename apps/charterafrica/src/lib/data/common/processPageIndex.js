@@ -1,3 +1,5 @@
+import site from "@/charterafrica/utils/site";
+
 const processHero = (page) => {
   const { blocks } = page;
   const heroIndex = blocks.findIndex((block) => block.slug === "hero");
@@ -29,6 +31,19 @@ const processHero = (page) => {
 
     hero.slides = heroSlides || null;
     blocks[heroIndex] = hero;
+  }
+};
+
+const processInfographic = (page) => {
+  const { blocks } = page;
+  const infographicIndex = blocks.findIndex(
+    (block) => block.slug === "aga-infographic"
+  );
+
+  const infographic = blocks[infographicIndex] ?? null;
+  if (infographic) {
+    const { url } = site;
+    blocks[infographicIndex] = { ...infographic, url };
   }
 };
 
@@ -84,9 +99,11 @@ const processMooc = (page) => {
 };
 
 async function processPageIndex(page, api, context) {
-  processSpotlight(page, api, context);
   processHero(page);
+  processInfographic(page);
   processMooc(page);
+  processSpotlight(page, api, context);
+
   return page;
 }
 
