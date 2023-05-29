@@ -6,6 +6,7 @@ import Ecosystem from "../blocks/Ecosystem";
 import EmbeddedDocuments from "../blocks/EmbeddedDocuments";
 import EmbeddedPlaylist from "../blocks/EmbeddedPlaylist";
 import Error from "../blocks/Error";
+import Explainers from "../blocks/Explainers";
 import FAQ from "../blocks/FAQ";
 import FeaturedPost from "../blocks/FeaturedPost";
 import Global from "../blocks/Global";
@@ -55,6 +56,7 @@ const Pages = {
         EmbeddedDocuments,
         EmbeddedPlaylist,
         Error,
+        Explainers,
         FAQ,
         FeaturedPost,
         Global,
