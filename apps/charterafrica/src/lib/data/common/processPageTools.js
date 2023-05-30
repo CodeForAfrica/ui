@@ -1,4 +1,5 @@
 import { tools as toolsMock } from "@/charterafrica/lib/data/_mock/ecosystemJson";
+import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
 import queryString from "@/charterafrica/utils/articles/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
@@ -14,17 +15,6 @@ const getRepoLink = (tool) => {
     default:
       return "";
   }
-};
-
-const peopleBreadCrumbs = async (api) => {
-  const { docs } = await api.getCollection("pages", {
-    where: {
-      slug: {
-        equals: "people",
-      },
-    },
-  });
-  return docs[0]?.breadcrumbs || [];
 };
 
 async function processPageSingleTool(page, api, context) {
@@ -43,9 +33,7 @@ async function processPageSingleTool(page, api, context) {
     return null;
   }
   const tool = docs[0];
-  const contributorBradcrumbs = await peopleBreadCrumbs(api);
-  const contributorPage =
-    contributorBradcrumbs[contributorBradcrumbs.length - 1]?.url;
+  const contributorPage = await getPageUrl(api, "people");
   const contributors = tool?.people?.map((person) => ({
     ...person,
     link: `${contributorPage}/${person.slug}`,

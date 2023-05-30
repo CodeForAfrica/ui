@@ -83,7 +83,7 @@ const theme = createTheme({
       PROMPT_FONT_FAMILY
     ),
     h4: initializeTypographyVariant(28, 34, 700, PROMPT_FONT_FAMILY),
-    h4Small: initializeTypographyVariant(23, 28, 400, PROMPT_FONT_FAMILY),
+    h4Small: initializeTypographyVariant(23, 28, 700, PROMPT_FONT_FAMILY),
     h5: initializeTypographyVariant(23, 28, 700, PROMPT_FONT_FAMILY),
     h5SemiBold: initializeTypographyVariant(23, 28, 600, PROMPT_FONT_FAMILY),
     h5Small: initializeTypographyVariant(19, 23, 700, PROMPT_FONT_FAMILY),
