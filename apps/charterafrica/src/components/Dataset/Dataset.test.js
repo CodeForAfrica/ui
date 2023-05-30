@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import DatasetCard from "./DatasetCard";
+import Dataset from "./Dataset";
 
 import theme from "@/charterafrica/theme";
 
@@ -16,21 +16,25 @@ const defaultProps = {
   created: "2021-01-01T00:00:00.000Z",
   updated: "2021-01-01T00:00:00.000Z",
   author: "Author Name",
-  labels: {
+  commonLabels: {
     countries: "Countries",
     tags: "Tags",
     sort: "Sort",
     search: "Search",
-    updatedLabel: "Updated",
-    createdLabel: "Created",
+    updated: "Updated",
+    created: "Created",
+    backToDatasets: "Back to Datasets",
+    openDataset: "Open Dataset",
+    seeMoreDatasets: "See more datasets",
+    shareDataset: "Share Via",
   },
   id: "1234",
-  url: "https://example.com",
+  source: "https://example.com",
 };
 
-describe("<DatasetCard />", () => {
+describe("<Dataset />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<DatasetCard {...defaultProps} />);
+    const { container } = render(<Dataset {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
