@@ -39,7 +39,7 @@ const Popup = React.forwardRef(function Popup(props, ref) {
         <LineClampedRichTypography
           color={neutral[800]}
           lineClamp={1}
-          variant="h4Small"
+          variant="h4SmallSemiBold"
           typography={{ md: "h4" }}
         >
           {name}
