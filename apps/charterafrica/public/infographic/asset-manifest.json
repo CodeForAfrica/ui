@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "./static/css/main.439b6d89.css",
+    "main.js": "./static/js/main.015988d7.js",
+    "static/js/787.2c40637b.chunk.js": "./static/js/787.2c40637b.chunk.js",
+    "static/media/logo-cpa.svg": "./static/media/logo-cpa.632cb779c4c1ac75429e2cb41822c1fb.svg",
+    "static/media/eu.png": "./static/media/eu.a4c0423749e33dea5b7f.png",
+    "static/media/bullet.svg": "./static/media/bullet.374a84f3f32cd4156188.svg",
+    "index.html": "./index.html",
+    "static/media/chevron-down.svg": "./static/media/chevron-down.ac65454ef255ce99088d.svg",
+    "static/media/close-outline.svg": "./static/media/close-outline.2f83c18665dd37251d56.svg",
+    "static/media/diamond-mobile-green.svg": "./static/media/diamond-mobile-green.ff3e6351884e6661b036.svg",
+    "static/media/diamond-mobile.svg": "./static/media/diamond-mobile.e06ecf666d0af9d9625b.svg",
+    "static/media/chevron-right-outline.svg": "./static/media/chevron-right-outline.3cc26dd8f37de07f9f37df6efd2edee5.svg",
+    "static/media/chevron-left-outline.svg": "./static/media/chevron-left-outline.f62bbd8622a4a7324878e5dfa47ee795.svg",
+    "main.439b6d89.css.map": "./static/css/main.439b6d89.css.map",
+    "main.015988d7.js.map": "./static/js/main.015988d7.js.map",
+    "787.2c40637b.chunk.js.map": "./static/js/787.2c40637b.chunk.js.map"
+  },
+  "entrypoints": ["static/css/main.439b6d89.css", "static/js/main.015988d7.js"]
+}
