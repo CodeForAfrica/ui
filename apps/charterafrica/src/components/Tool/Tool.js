@@ -31,7 +31,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
   } = props;
   return (
     <Box bgcolor="common.white" ref={ref}>
-      <Section>
+      <Section sx={{ pb: { xs: 10 } }}>
         <Grid container wrap="wrap-reverse">
           <Grid item sm={12} md={8} container sx={{ p: 2 }}>
             <Grid
@@ -223,7 +223,11 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                     color="textPrimary"
                     component={Link}
                     href={item.link}
-                    sx={{ textDecoration: "none" }}
+                    sx={{
+                      textDecoration: "none",
+                      width: "100%",
+                      display: "block",
+                    }}
                   >
                     {item.name}
                   </RichTypography>

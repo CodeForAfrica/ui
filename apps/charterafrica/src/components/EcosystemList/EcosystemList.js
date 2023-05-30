@@ -36,7 +36,6 @@ const EcosystemList = React.forwardRef(function EcosystemList(props, ref) {
     search: router?.query?.search,
   });
 
-  const [search, setSearch] = useState(router?.query?.search || "");
   const [data, setData] = useState({ results: originalResults, pagination });
   const listRef = useRef();
   useImperativeHandle(ref, () => listRef.current);
@@ -49,11 +48,7 @@ const EcosystemList = React.forwardRef(function EcosystemList(props, ref) {
     router.replace(`${pathname}?${searchParams}`);
   };
 
-  const onFilterChange = ({ search: s, ...value }) => {
-    setSearch(s || "");
-    const newValues = s
-      ? { ...values, ...value }
-      : { ...values, ...value, search: s };
+  const onFilterChange = (newValues) => {
     setValues(newValues);
     updateParams(newValues);
   };
@@ -62,7 +57,6 @@ const EcosystemList = React.forwardRef(function EcosystemList(props, ref) {
   const res = useEcosystemList({
     collection,
     ...values,
-    search: (search && values.search) || "",
   });
 
   const { data: d, loading } = res;
@@ -73,14 +67,14 @@ const EcosystemList = React.forwardRef(function EcosystemList(props, ref) {
   }, [d]);
 
   const onQuerySearch = () => {
-    const vals = { ...values, search, page: 1 };
+    const vals = { ...values, page: 1 };
     setValues(vals);
     updateParams(vals);
   };
 
   const onPageChange = (p) => {
     onFilterChange({ page: p });
-    updateParams({ ...values, page: p, search });
+    updateParams({ ...values, page: p });
   };
 
   const {
@@ -111,7 +105,7 @@ const EcosystemList = React.forwardRef(function EcosystemList(props, ref) {
           <EcosystemFilter
             onChange={onFilterChange}
             searchPlaceholder={searchPlaceholder}
-            values={{ ...values, search }}
+            values={{ ...values }}
             sortOrder={sortOrder}
             filterOptions={filterOptions}
             onQuerySearch={onQuerySearch}

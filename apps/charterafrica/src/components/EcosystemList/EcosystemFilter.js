@@ -4,23 +4,11 @@ import React from "react";
 
 import { neutral } from "@/charterafrica/colors";
 import ComboBox from "@/charterafrica/components/ComboBox/ComboBox";
-import SearchInput from "@/charterafrica/components/SearchInput";
+import { ControlledSearchInput } from "@/charterafrica/components/SearchInput";
 
 const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
-  const {
-    onChange,
-    searchPlaceholder,
-    values,
-    onQuerySearch,
-    filterOptions = [],
-  } = props;
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      if (onQuerySearch) {
-        onQuerySearch();
-      }
-    }
-  };
+  const { onChange, searchPlaceholder, values, filterOptions = [] } = props;
+
   return (
     <Box sx={{ pb: 3.75 }} bgcolor="common.white" ref={ref}>
       <Grid
@@ -31,15 +19,12 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
         rowGap={1.25}
       >
         <Grid item xs={12} lg={2}>
-          <SearchInput
+          <ControlledSearchInput
             value={values.search}
             onChange={(e) => onChange({ search: e.target.value })}
             placeholder={searchPlaceholder}
-            onKeyPress={handleKeyPress}
-            onClick={onQuerySearch}
             sx={{
               backgroundColor: "common.white",
-              height: "36px",
               typography: "p1",
               width: "100%",
             }}
@@ -58,7 +43,7 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
                 <ComboBox
                   size="small"
                   options={option.options}
-                  getOptionLabel={(opt) => opt.label}
+                  label={option.label}
                   value={optValue?.value}
                   onChange={onItemChange}
                   sx={{
