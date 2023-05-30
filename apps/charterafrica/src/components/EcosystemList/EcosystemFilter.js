@@ -1,8 +1,7 @@
 import { RichTypography } from "@commons-ui/core";
-import { Box, Grid, SvgIcon, TextField } from "@mui/material";
+import { Box, Grid, TextField } from "@mui/material";
 import React from "react";
 
-import ChevronDown from "@/charterafrica/assets/icons/Type=chevron-down, Size=16, Color=CurrentColor.svg";
 import { neutral } from "@/charterafrica/colors";
 import ComboBox from "@/charterafrica/components/ComboBox/ComboBox";
 import SearchInput from "@/charterafrica/components/SearchInput";
@@ -60,24 +59,11 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
                   size="small"
                   options={option.options}
                   getOptionLabel={(opt) => opt.label}
-                  label={option.label}
                   value={optValue?.value}
                   onChange={onItemChange}
                   sx={{
                     borderColor: neutral[400],
                   }}
-                  popupIcon={
-                    <SvgIcon
-                      inheritViewBox
-                      sx={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        fill: "none",
-                        mt: 0.5,
-                      }}
-                      component={ChevronDown}
-                    />
-                  }
                   renderOption={(optionProps, opt) => (
                     <li {...optionProps}>
                       <RichTypography variant="p1">{opt.label}</RichTypography>

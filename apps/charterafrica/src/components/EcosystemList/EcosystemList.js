@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState, useImperativeHandle } from "react";
 
 import EcosystemFilter from "./EcosystemFilter";
-import useDigitalDemocracy from "./useEcosystemList";
+import useEcosystemList from "./useEcosystemList";
 
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 
@@ -59,7 +59,7 @@ const EcosystemList = React.forwardRef(function EcosystemList(props, ref) {
   };
   const collection =
     router.query?.slugs[(router.query?.slugs?.length || 1) - 1];
-  const res = useDigitalDemocracy({
+  const res = useEcosystemList({
     collection,
     ...values,
     search: (search && values.search) || "",

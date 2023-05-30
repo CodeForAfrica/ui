@@ -3,16 +3,16 @@
 exports[`<OrgAndContributor /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1jnk8c7"
+    class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1w6el6r-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1sdb2xz-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-s1wmk7-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-uf3sf1-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1bxfcex-MuiGrid-root"
         >
           <figure
             class="MuiBox-root css-db5opy"
@@ -58,6 +58,8 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-j4i3qf-MuiTypography-root-MuiLink-root"
                 href="https://twitter.com/johndoe"
+                rel="noreferrer noopener"
+                target="_blank"
               >
                 <div
                   aria-hidden="true"
@@ -72,6 +74,8 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-j4i3qf-MuiTypography-root-MuiLink-root"
                 href="https://github.com/johndoe"
+                rel="noreferrer noopener"
+                target="_blank"
               >
                 <div
                   aria-hidden="true"
@@ -84,7 +88,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-j4i3qf-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1sa2x3w-MuiTypography-root-MuiLink-root"
                 href="maito:johndoe@example.com"
               >
                 <div

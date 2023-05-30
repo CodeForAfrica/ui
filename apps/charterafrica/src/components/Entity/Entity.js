@@ -1,6 +1,6 @@
 import { Section, RichTypography } from "@commons-ui/core";
-import { Figure } from "@commons-ui/next";
-import { Grid, SvgIcon, Link, Box } from "@mui/material";
+import { Figure, Link } from "@commons-ui/next";
+import { Grid, SvgIcon, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -9,7 +9,7 @@ import EmailIcon from "@/charterafrica/assets/icons/Type=mail, Size=24, Color=Cu
 import TwitterIcon from "@/charterafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 import ToolCard from "@/charterafrica/components/ToolCard";
 
-const SocialIcon = React.forwardRef(function SocialIcon(props, ref) {
+const SocialMediaLink = React.forwardRef(function SocialMediaLink(props, ref) {
   const { href, variant } = props;
   const icons = {
     twitter: TwitterIcon,
@@ -61,18 +61,10 @@ const Entity = React.forwardRef(function Entity(props, ref) {
     },
   ];
   return (
-    <Box ref={ref} sx={{ p: { xs: 3.75 } }} bgcolor="common.white">
-      <Section>
+    <Box ref={ref} bgcolor="common.white">
+      <Section sx={{ py: { xs: 3.75 } }}>
         <Grid container columnSpacing={{ sm: 6.25 }} sx={{ p: 5 }}>
-          <Grid
-            item
-            xs={12}
-            sm={4}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            sx={{ p: 2 }}
-          >
+          <Grid item xs={12} sm={4} sx={{ p: 2 }}>
             <Figure
               ImageProps={{
                 src: image,
@@ -132,32 +124,36 @@ const Entity = React.forwardRef(function Entity(props, ref) {
             >
               {icons.map((icon) => (
                 <Grid key={icon.variant} item>
-                  <SocialIcon {...icon} />
+                  <SocialMediaLink {...icon} />
                 </Grid>
               ))}
             </Grid>
           </Grid>
         </Grid>
-        <RichTypography
-          sx={{ mt: 6.25 }}
-          color="neutral.dark"
-          variant="h3Small"
-          textAlign="left"
-        >
-          {toolsTitle}
-        </RichTypography>
-        <Grid sx={{ mt: 5 }} spacing={2.5} container>
-          {tools.map((tool) => (
-            <Grid xs={12} sm={6} md={4} lg={12} item key={tool.id}>
-              <ToolCard
-                orientation="horizontal"
-                showButton
-                exploreText="Explore"
-                {...tool}
-              />
+        {tools.length ? (
+          <>
+            <RichTypography
+              sx={{ mt: 6.25 }}
+              color="neutral.dark"
+              variant="h3Small"
+              textAlign="left"
+            >
+              {toolsTitle}
+            </RichTypography>
+            <Grid sx={{ mt: 5 }} spacing={2.5} container>
+              {tools.map((tool) => (
+                <Grid xs={12} sm={6} md={4} lg={12} item key={tool.id}>
+                  <ToolCard
+                    orientation="horizontal"
+                    showButton
+                    exploreText="Explore"
+                    {...tool}
+                  />
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
+          </>
+        ) : null}
       </Section>
     </Box>
   );
