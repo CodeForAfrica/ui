@@ -4,6 +4,15 @@ const headers = {
   "Content-Type": "application/json",
 };
 
+export class FetchError extends Error {
+  constructor(message = "Something went wrong", data = {}, status = 500) {
+    super();
+    this.message = message;
+    this.data = data;
+    this.status = status;
+  }
+}
+
 async function fetchJson(url, { method, data, params, ...args }) {
   const stringifiedQuery = stringify(params || {}, {
     addQueryPrefix: true,
@@ -16,7 +25,15 @@ async function fetchJson(url, { method, data, params, ...args }) {
     ...args,
   });
   const response = await res.json();
-  return response;
+  if (res.ok) {
+    return response;
+  }
+  response.headers = res.headers;
+  throw new FetchError(
+    `Request to ${url} failed with status ${res.status}`,
+    response,
+    res.status
+  );
 }
 
 async function postJson(url, args) {
