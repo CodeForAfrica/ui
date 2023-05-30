@@ -7,7 +7,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
   >
     <a
       class="MuiButtonBase-root MuiCardActionArea-root css-11lg1vd-MuiButtonBase-root-MuiCardActionArea-root"
-      href="https://example.com"
+      href="/resources/datasets"
       tabindex="0"
     >
       <div
@@ -29,8 +29,8 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
             >
                
               January 1, 2021
+               |
                
-              | 
                
               January 1, 2021
             </p>

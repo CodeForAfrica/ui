@@ -151,6 +151,32 @@ const Datasets = {
                     width: "50%",
                   },
                 },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: {
+        en: "Common Labels",
+        fr: "Étiquettes communes",
+        pt: "Rótulos comuns",
+      },
+      type: "collapsible",
+      fields: [
+        {
+          name: "commonLabels",
+          type: "group",
+          label: {
+            en: "Labels",
+            fr: "Étiquettes",
+            pt: "Rótulos",
+          },
+          fields: [
+            {
+              type: "row",
+              fields: [
                 {
                   name: "readMore",
                   type: "text",
@@ -200,6 +226,62 @@ const Datasets = {
                     en: "Created At Label",
                     fr: "Créé à l'étiquette",
                     pt: "Criado em",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "openDataset",
+                  type: "text",
+                  label: {
+                    en: "Open Dataset Label",
+                    fr: "Ouvrir l'étiquette de jeu de données",
+                    pt: "Abrir rótulo do conjunto de dados",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "backToDatasets",
+                  type: "text",
+                  label: {
+                    en: "Back to Datasets Label",
+                    fr: "Retour aux étiquettes de jeux de données",
+                    pt: "Voltar para rótulos de conjuntos de dados",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "seeMoreDatasets",
+                  type: "text",
+                  label: {
+                    en: "See More Datasets Label",
+                    fr: "Voir plus d'étiquettes de jeux de données",
+                    pt: "Ver mais rótulos de conjuntos de dados",
+                  },
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "shareDataset",
+                  type: "text",
+                  label: {
+                    en: "Share Dataset Label",
+                    fr: "Partager l'étiquette de jeu de données",
+                    pt: "Compartilhar rótulo do conjunto de dados",
                   },
                   required: true,
                   localized: true,

@@ -19,13 +19,10 @@ function DatasetCard({
   notes,
   title,
   created,
-  readMore,
-  readLess,
+  commonLabels,
   updated,
   author,
-  updatedLabel,
-  createdLabel,
-  url,
+  href,
   sx,
 }) {
   const [showAll, setShowAll] = useState(false);
@@ -41,11 +38,7 @@ function DatasetCard({
         ...sx,
       }}
     >
-      <CardActionArea
-        component={Link}
-        // TODO: Update URL to single dataset page
-        href={url}
-      >
+      <CardActionArea component={Link} href={href}>
         <CardContent
           sx={{
             padding: "30px",
@@ -69,8 +62,9 @@ function DatasetCard({
                 {title}
               </LineClampedRichTypography>
               <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
-                {updatedLabel} {formatDateTime(updated, { includeTime: false })}{" "}
-                | {createdLabel}{" "}
+                {commonLabels.updated}{" "}
+                {formatDateTime(updated, { includeTime: false })} |{" "}
+                {commonLabels.created}{" "}
                 {formatDateTime(created, { includeTime: false })}
               </Typography>
               <Typography variant="p1SemiBold" color="neutral.main">
@@ -98,7 +92,7 @@ function DatasetCard({
                 }}
                 onClick={handleClick}
               >
-                {showAll ? readLess : readMore}
+                {showAll ? commonLabels.readLess : commonLabels.readMore}
               </Button>
             </Grid>
             {formats.length ? (
