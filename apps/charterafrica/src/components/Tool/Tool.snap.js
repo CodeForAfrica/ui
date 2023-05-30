@@ -168,6 +168,9 @@ exports[`<Tool /> renders unchanged 1`] = `
           />
         </div>
       </div>
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-gq7efl-MuiDivider-root"
+      />
       <div
         class="MuiBox-root css-19midj6"
       >

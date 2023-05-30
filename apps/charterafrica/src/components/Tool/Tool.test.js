@@ -56,7 +56,7 @@ const defaultProps = {
   },
   contributors: Array(30)
     .fill({
-      link: "",
+      link: { href: "" },
       id: "643e5303d3a60641b5b6df8e",
       updatedAt: "2023-04-20T08:00:08.469Z",
       externalId: "Beta maṣāḥǝft: Manuscripts of Ethiopia and Eritrea",

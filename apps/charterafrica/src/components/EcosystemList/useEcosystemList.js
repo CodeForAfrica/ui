@@ -7,7 +7,9 @@ const fetcher = (url) => fetchJson.get(url);
 function useEcosystemList(params) {
   const { collection, ...rest } = params;
   const searchParams = new URLSearchParams(rest).toString();
-  const key = `/api/v1/resources/collections/${collection}?${searchParams}`;
+  const key = `/api/v1/resources/collections/${collection}${
+    searchParams ? `?${searchParams}` : ""
+  }`;
   const { data, error } = useSWR(key, fetcher);
   return {
     data,

@@ -197,7 +197,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
             </Grid>
           </Box>
         ) : null}
-        {contributors.length && donors.length ? (
+        {contributors.length || donors.length ? (
           <Divider sx={{ my: 3.75 }} />
         ) : null}
         {contributors.length ? (
@@ -222,7 +222,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                     variant="p3SemiBold"
                     color="textPrimary"
                     component={Link}
-                    href={item.link}
+                    href={item.link.href}
                     sx={{
                       textDecoration: "none",
                       width: "100%",

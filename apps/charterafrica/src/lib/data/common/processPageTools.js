@@ -36,7 +36,7 @@ async function processPageSingleTool(page, api, context) {
   const contributorPage = await getPageUrl(api, "people");
   const contributors = tool?.people?.map((person) => ({
     ...person,
-    link: `${contributorPage}/${person.slug}`,
+    link: { href: `${contributorPage}/${person.slug}` },
     name: person.name || person?.fullName || person.username || null,
   }));
   const tools = [];
