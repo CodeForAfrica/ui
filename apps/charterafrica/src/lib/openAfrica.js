@@ -43,7 +43,7 @@ function formatResources(resources, author) {
   });
 }
 
-function formatDatasets(datasets) {
+function formatDatasets(datasets, path) {
   return datasets?.map((dataset) => {
     const {
       author,
@@ -71,7 +71,9 @@ function formatDatasets(datasets) {
       id,
       name,
       notes,
-      url: url?.trim(),
+      source: url?.trim(),
+      url: `https://openafrica.net/${type}/${id}`,
+      href: `${path}/${id}`,
       title,
       type,
       updated,
@@ -79,10 +81,10 @@ function formatDatasets(datasets) {
   });
 }
 
-function formatResponse(data) {
+function formatResponse(data, pathname) {
   const { result: { count, facets: { tags }, results } = {} } = data || {};
 
-  const datasets = formatDatasets(results);
+  const datasets = formatDatasets(results, pathname);
   const sortStrings = (a, b) => a.localeCompare(b);
   const tagsList = Object.keys(tags || {}).sort(sortStrings);
 
@@ -95,7 +97,11 @@ function formatResponse(data) {
   };
 }
 
-export default async function fetchDatasets(organization, query = {}) {
+export default async function fetchDatasets(
+  organization,
+  pathname,
+  query = {}
+) {
   const { tags = [], countries = [], page = 1, ...other } = query;
   const tagsQuery = tags.length
     ? `tags:(${tags.map((t) => `"${t}"`).join(" OR ")})`
@@ -117,8 +123,34 @@ export default async function fetchDatasets(organization, query = {}) {
 
   try {
     const response = await packageSearch(params);
-    const formattedData = formatResponse(response);
+    const formattedData = formatResponse(response, pathname);
     return formattedData;
+  } catch (error) {
+    return error;
+  }
+}
+
+export async function fetchDataset(id, path) {
+  try {
+    const response = await fetchJson.get(
+      `${BASE_DOCUMENTS_URL}package_show?id=${id}`
+    );
+    const { result: dataset } = response;
+    const { tags = [], groups = [] } = dataset;
+    const tagsNames = tags.map((tag) => tag.name);
+    const groupNames = groups.map((group) => group.name);
+    const formattedDataset = formatDatasets([dataset], path);
+    const payload = tagsNames.length
+      ? { tags: tagsNames }
+      : { groups: groupNames };
+    const related = await fetchDatasets(dataset.organization.name, {
+      ...payload,
+      path,
+    });
+    return {
+      ...formattedDataset[0],
+      related: related.datasets.slice(0, 3),
+    };
   } catch (error) {
     return error;
   }
