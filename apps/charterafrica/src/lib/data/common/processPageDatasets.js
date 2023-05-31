@@ -1,4 +1,6 @@
 import fetchDatasets, { fetchDataset } from "@/charterafrica/lib/openAfrica";
+import { fetchDocuments } from "@/charterafrica/lib/sourceAfrica";
+import getDocumentsQuery from "@/charterafrica/payload/utils/documents";
 import datasetsQuery from "@/charterafrica/utils/datasets/queryString";
 
 const getDatasetsQuery = (context) => {
@@ -49,15 +51,35 @@ export default async function processPageDatasets(page, api, context) {
   if (datasetsIndex > -1 && organizationId) {
     const data = await fetchDatasets(organizationId, pageUrl, {});
     const { count, datasets, countries, tags, totalPages } = data;
+    const { showDocuments, documents } = blocks[datasetsIndex];
 
-    blocks[datasetsIndex] = {
-      ...blocks[datasetsIndex],
-      count,
-      countries,
-      data: datasets,
-      tags,
-      totalPages,
-    };
+    if (showDocuments) {
+      const { groupID, options } = documents;
+      const documentsData = await fetchDocuments(
+        `group:${groupID}`,
+        getDocumentsQuery(context, options)
+      );
+      blocks[datasetsIndex] = {
+        ...blocks[datasetsIndex],
+        count,
+        countries,
+        data: datasets,
+        tags,
+        totalPages,
+        documents: documentsData,
+        includeDocuments: true,
+      };
+    } else {
+      blocks[datasetsIndex] = {
+        ...blocks[datasetsIndex],
+        count,
+        countries,
+        data: datasets,
+        tags,
+        totalPages,
+        includeDocuments: false,
+      };
+    }
 
     let swrKey = `/api/v1/resources/datasets`;
     const qs = datasetsQuery(getDatasetsQuery(context));

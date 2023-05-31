@@ -3,6 +3,7 @@ import {
   fetchDocumentIframe,
 } from "@/charterafrica/lib/sourceAfrica";
 import { fetchPlaylistItems } from "@/charterafrica/lib/youtube";
+import getDocumentsQuery from "@/charterafrica/payload/utils/documents";
 import documentsQueryString from "@/charterafrica/utils/documents/queryString";
 
 export async function getVideosFromPlaylist(playlistId, options) {
@@ -63,13 +64,6 @@ async function processPageConsultationDocument(page, api, context) {
       },
     ],
   };
-}
-
-function getDocumentsQuery(context, options) {
-  const { query = {} } = context;
-  const { contributor = true, page = 1, per_page: perPage = 8 } = query;
-
-  return { contributor, page, per_page: perPage, ...options };
 }
 
 async function processPageConsultation(page, api, context) {
