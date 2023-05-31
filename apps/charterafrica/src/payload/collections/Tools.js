@@ -78,6 +78,18 @@ const Tools = {
       },
     },
     {
+      name: "repoLink",
+      type: "text",
+      admin: {
+        readOnly: true,
+      },
+      label: {
+        en: "Repo Link",
+        fr: "Lien de réapprovisionnement",
+        pt: "Link repo",
+      },
+    },
+    {
       name: "deployedLocation",
       type: "text",
       admin: {
@@ -271,16 +283,12 @@ const Tools = {
       fields: supporter,
     },
     {
-      name: "originLocation",
+      name: "origin",
       type: "text",
       admin: {
         readOnly: true,
       },
-      label: {
-        en: "Location (Country of Origin)",
-        fr: "Emplacement (pays d'origine)",
-        pt: "Localização (país de origem)",
-      },
+      label: { en: "Origin", fr: "Origine", pt: "Origem" },
     },
     {
       name: "otherSocialMedia",
