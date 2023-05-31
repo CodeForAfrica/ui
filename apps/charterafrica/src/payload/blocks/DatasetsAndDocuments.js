@@ -313,7 +313,7 @@ const DatasetsAndDocuments = {
               type: "collapsible",
               fields: [
                 {
-                  name: "labels",
+                  name: "documentsLabels",
                   type: "group",
                   label: {
                     en: "Labels",
