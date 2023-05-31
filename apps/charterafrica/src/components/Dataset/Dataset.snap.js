@@ -136,27 +136,6 @@ exports[`<Dataset /> renders unchanged 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="MuiBox-root css-dmrfx3"
-      >
-        <div
-          class="MuiBox-root css-0"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
-            tabindex="0"
-            target="_blank"
-            type="button"
-          >
-            <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
-            >
-              <div />
-            </span>
-            Open Dataset
-          </button>
-        </div>
-      </div>
       <a
         class="MuiTypography-root MuiTypography-p1 css-1v10z4i-MuiTypography-root"
       >
