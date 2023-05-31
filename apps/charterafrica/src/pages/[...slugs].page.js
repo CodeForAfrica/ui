@@ -9,6 +9,7 @@ import Datasets from "@/charterafrica/components/Datasets";
 import Documents from "@/charterafrica/components/Documents";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
 import EmbeddedDocumentViewer from "@/charterafrica/components/EmbeddedDocumentViewer";
+import Entity from "@/charterafrica/components/Entity";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
@@ -24,13 +25,17 @@ import Mooc from "@/charterafrica/components/Mooc";
 import Opportunity from "@/charterafrica/components/Opportunity";
 import OpportunityHeader from "@/charterafrica/components/OpportunityHeader";
 import OpportunityPage from "@/charterafrica/components/OpportunityPage";
+import Organisations from "@/charterafrica/components/Organisations";
 import PageDescription from "@/charterafrica/components/PageDescription";
 import PageHeader from "@/charterafrica/components/PageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
 import Partners from "@/charterafrica/components/Partners";
+import People from "@/charterafrica/components/People";
 import Post from "@/charterafrica/components/Post";
 import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
+import Tool from "@/charterafrica/components/Tool";
+import Tools from "@/charterafrica/components/Tools";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 const componentsBySlugs = {
@@ -65,6 +70,11 @@ const componentsBySlugs = {
   research: Articles,
   "embedded-document-viewer": EmbeddedDocumentViewer,
   spotlight: Spotlight,
+  tool: Tool,
+  tools: Tools,
+  people: People,
+  organisations: Organisations,
+  entity: Entity,
 };
 
 function Page({ blocks, fallback }) {
