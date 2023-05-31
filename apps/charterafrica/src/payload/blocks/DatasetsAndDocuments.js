@@ -13,6 +13,14 @@ const sortOptions = [
   "author desc",
 ];
 
+const documentSortOptions = [
+  "created_at",
+  "score",
+  "title",
+  "page_count",
+  "source",
+];
+
 const DatasetsAndDocuments = {
   slug: "datasetsAndDocuments",
   fields: [
@@ -292,6 +300,122 @@ const DatasetsAndDocuments = {
                   ],
                   admin: {
                     condition: (_, siblingData) => siblingData?.showDocuments,
+                  },
+                },
+              ],
+            },
+            {
+              label: {
+                en: "Search & Filter Labels",
+                fr: "Étiquettes de recherche et de filtrage",
+                pt: "Rótulos de pesquisa e filtro",
+              },
+              type: "collapsible",
+              fields: [
+                {
+                  name: "labels",
+                  type: "group",
+                  label: {
+                    en: "Labels",
+                    fr: "Étiquettes",
+                    pt: "Rótulos",
+                  },
+                  fields: [
+                    {
+                      type: "row",
+                      fields: [
+                        {
+                          name: "documentsSearch",
+                          type: "text",
+                          label: {
+                            en: "Search Label",
+                            fr: "Étiquette de recherche",
+                            pt: "Rótulo de pesquisa",
+                          },
+                          required: true,
+                          localized: true,
+                          admin: {
+                            width: "50%",
+                          },
+                        },
+                        {
+                          name: "documentsSort",
+                          type: "text",
+                          label: {
+                            en: "Sort Label",
+                            fr: "Étiquette de tri",
+                            pt: "Rótulo de classificação",
+                          },
+                          required: true,
+                          localized: true,
+                          admin: {
+                            width: "50%",
+                          },
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: {
+                en: "Search & Filter Values",
+                fr: "Valeurs de recherche et de filtrage",
+                pt: "Valores de pesquisa e filtro",
+              },
+              type: "collapsible",
+              fields: [
+                {
+                  name: "documentsSortOptions",
+                  type: "array",
+                  minRows: 1,
+                  label: {
+                    en: "Sort Options",
+                    fr: "Options de tri",
+                    pt: "Opções de classificação",
+                  },
+                  fields: [
+                    {
+                      name: "value",
+                      type: "select",
+                      options: documentSortOptions.map((value) => {
+                        return {
+                          value,
+                          label: value,
+                        };
+                      }),
+                      unique: true,
+                      required: true,
+                      validate: (val, options) => {
+                        const { data, t } = options || {};
+                        if (
+                          data?.options?.filter((l) => l.value === val)
+                            ?.length > 1
+                        ) {
+                          return t("charterafrica.site:uniqueSortOptions");
+                        }
+                        return array(val, options);
+                      },
+                    },
+                    {
+                      name: "label",
+                      type: "text",
+                      label: {
+                        en: "Label",
+                        fr: "Étiquette",
+                        pt: "Rótulo",
+                      },
+                      required: true,
+                    },
+                  ],
+                  admin: {
+                    initCollapsed: true,
+                    components: {
+                      RowLabel: ({ data }) => {
+                        return data?.label || data?.value || data?.id;
+                      },
+                    },
                   },
                 },
               ],
