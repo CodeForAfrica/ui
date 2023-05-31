@@ -101,17 +101,11 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
                   title="Open"
                   type="button"
                 >
-                  <svg
+                  <div
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                    data-testid="ArrowDropDownIcon"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1hf2qhf-MuiSvgIcon-root"
                     focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M7 10l5 5 5-5z"
-                    />
-                  </svg>
+                  />
                 </button>
               </div>
               <fieldset
@@ -191,17 +185,11 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
                   title="Open"
                   type="button"
                 >
-                  <svg
+                  <div
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                    data-testid="ArrowDropDownIcon"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1hf2qhf-MuiSvgIcon-root"
                     focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M7 10l5 5 5-5z"
-                    />
-                  </svg>
+                  />
                 </button>
               </div>
               <fieldset
@@ -281,17 +269,11 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
                   title="Open"
                   type="button"
                 >
-                  <svg
+                  <div
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                    data-testid="ArrowDropDownIcon"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1hf2qhf-MuiSvgIcon-root"
                     focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M7 10l5 5 5-5z"
-                    />
-                  </svg>
+                  />
                 </button>
               </div>
               <fieldset
