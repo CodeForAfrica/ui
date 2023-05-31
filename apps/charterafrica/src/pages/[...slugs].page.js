@@ -39,7 +39,7 @@ import Tools from "@/charterafrica/components/Tools";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 const componentsBySlugs = {
-  datasets: Datasets,
+  datasetsAndDocuments: Datasets,
   dataset: Dataset,
   documents: Documents,
   ecosystem: Ecosystem,

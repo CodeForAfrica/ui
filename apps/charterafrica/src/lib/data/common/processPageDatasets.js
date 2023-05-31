@@ -21,7 +21,9 @@ async function processSingleDataset(page, api, context) {
     return null;
   }
 
-  const { commonLabels = {} } = blocks.find(({ slug }) => slug === "datasets");
+  const { commonLabels = {} } = blocks.find(
+    ({ slug }) => slug === "datasetsAndDocuments"
+  );
 
   return {
     ...page,
@@ -46,7 +48,9 @@ export default async function processPageDatasets(page, api, context) {
 
   const { organizationId } = await api.findGlobal("openAfrica");
 
-  const datasetsIndex = blocks.findIndex(({ slug }) => slug === "datasets");
+  const datasetsIndex = blocks.findIndex(
+    ({ slug }) => slug === "datasetsAndDocuments"
+  );
 
   if (datasetsIndex > -1 && organizationId) {
     const data = await fetchDatasets(organizationId, pageUrl, {});
