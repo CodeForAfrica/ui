@@ -15,12 +15,11 @@ const Datasets = React.forwardRef(function Datasets(
   {
     sx,
     data: datasetsProp,
-    labels,
+    datasetsOptions,
     commonLabels,
     tags = [],
     countries = [],
     totalPages: originalTotalPages,
-    sortOptions = [],
     pageUrl,
   },
   ref
@@ -119,8 +118,8 @@ const Datasets = React.forwardRef(function Datasets(
         <DatasetFilterBar
           countries={selectedCountries}
           countriesOptions={countries}
-          labels={labels}
-          sortOptions={sortOptions}
+          labels={datasetsOptions.labels}
+          sortOptions={datasetsOptions.sortOptions}
           onChangeQ={handleChangeQ}
           onChangeSort={handleChangeSort}
           onChangeCountries={handleChangeCountries}
@@ -135,7 +134,7 @@ const Datasets = React.forwardRef(function Datasets(
             <DatasetCard
               {...dataset}
               key={dataset.id}
-              labels={labels}
+              labels={datasetsOptions.labels}
               commonLabels={commonLabels}
               pageUrl={pageUrl}
               sx={{

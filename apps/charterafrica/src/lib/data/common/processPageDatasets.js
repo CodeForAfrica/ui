@@ -55,10 +55,18 @@ export default async function processPageDatasets(page, api, context) {
   if (datasetsIndex > -1 && organizationId) {
     const data = await fetchDatasets(organizationId, pageUrl, {});
     const { count, datasets, countries, tags, totalPages } = data;
-    const { showDocuments, documents } = blocks[datasetsIndex];
+    const {
+      documents: { showDocuments },
+      datasets: datasetsOptions,
+    } = blocks[datasetsIndex];
 
     if (showDocuments) {
-      const { groupID, options } = documents;
+      const { documents: datasetsDocuments } = blocks[datasetsIndex];
+      const {
+        labels,
+        sortOptions,
+        documents: { groupID, options },
+      } = datasetsDocuments;
       const documentsData = await fetchDocuments(
         `group:${groupID}`,
         getDocumentsQuery(context, options)
@@ -68,6 +76,11 @@ export default async function processPageDatasets(page, api, context) {
         count,
         countries,
         data: datasets,
+        datasetsOptions,
+        documentsOptions: {
+          labels,
+          sortOptions,
+        },
         tags,
         totalPages,
         documents: documentsData,
@@ -79,6 +92,7 @@ export default async function processPageDatasets(page, api, context) {
         count,
         countries,
         data: datasets,
+        datasetsOptions,
         tags,
         totalPages,
         includeDocuments: false,
