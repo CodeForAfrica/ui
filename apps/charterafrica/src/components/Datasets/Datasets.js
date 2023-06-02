@@ -70,6 +70,7 @@ const Datasets = React.forwardRef(function Datasets(
   };
 
   const handleDataToDisplay = (value) => {
+    setPage(1);
     setDataToDisplay(value);
   };
 
