@@ -3,6 +3,8 @@ import { Box, LinearProgress, Stack } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useState, useEffect, useRef, useImperativeHandle } from "react";
 
+import DocumentCard from "../Documents/DocumentCard";
+
 import DatasetFilterBar from "./DatasetFilterBar";
 import useDatasets from "./useDatasets";
 
@@ -15,6 +17,7 @@ const Datasets = React.forwardRef(function Datasets(
   {
     sx,
     data: datasetsProp,
+    documents,
     labels,
     commonLabels,
     tags = [],
@@ -139,22 +142,26 @@ const Datasets = React.forwardRef(function Datasets(
         />
         {isLoading ? <LinearProgress color="secondary" /> : null}
         <Stack>
-          {datasets?.map((dataset) => (
-            <DatasetCard
-              {...dataset}
-              key={dataset.id}
-              labels={labels}
-              commonLabels={commonLabels}
-              pageUrl={pageUrl}
-              sx={{
-                borderBottom: "none",
-                "&:last-of-type": {
-                  borderBottom: "1px solid",
-                  borderColor: neutral[50],
-                },
-              }}
-            />
-          ))}
+          {dataToDisplay === "datasets"
+            ? datasets?.map((dataset) => (
+                <DatasetCard
+                  {...dataset}
+                  key={dataset.id}
+                  labels={labels}
+                  commonLabels={commonLabels}
+                  pageUrl={pageUrl}
+                  sx={{
+                    borderBottom: "none",
+                    "&:last-of-type": {
+                      borderBottom: "1px solid",
+                      borderColor: neutral[50],
+                    },
+                  }}
+                />
+              ))
+            : documents?.documents?.map((document) => (
+                <DocumentCard {...document} />
+              ))}
         </Stack>
         <NextPrevPagination
           count={totalPages}

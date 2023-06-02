@@ -68,6 +68,29 @@ const defaultProps = {
       updated: "2021-01-01T00:00:00.000Z",
     },
   ],
+  documents: {
+    totalDocuments: 30,
+    perPage: 10,
+    currentPage: 1,
+    totalPages: 3,
+    documents: Array.from({ length: 10 }, (_, i) => ({
+      id: i,
+      contributor: `Contributor ${i}`,
+      createdAt: "2021-09-01",
+      description: `Document Description ${i}`,
+      image: "/images/hero-slide-1.jpg",
+      pages: 10,
+      title: `Document Title ${i}`,
+      url: "https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html",
+    })),
+    options: {
+      url: "https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html",
+      showNotes: true,
+      showSearch: true,
+      showText: true,
+      showZoom: true,
+    },
+  },
 };
 
 describe("<Datasets />", () => {
