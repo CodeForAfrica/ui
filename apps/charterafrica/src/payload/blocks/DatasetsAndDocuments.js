@@ -27,6 +27,184 @@ const DatasetsAndDocuments = {
   slug: "datasetsAndDocuments",
   fields: [
     {
+      label: {
+        en: "Common Labels",
+        fr: "Étiquettes communes",
+        pt: "Rótulos comuns",
+      },
+      type: "collapsible",
+      fields: [
+        {
+          name: "commonLabels",
+          type: "group",
+          label: {
+            en: "Labels",
+            fr: "Étiquettes",
+            pt: "Rótulos",
+          },
+          fields: [
+            {
+              type: "row",
+              fields: [
+                {
+                  name: "readMore",
+                  type: "text",
+                  label: {
+                    en: "Read More Label",
+                    fr: "Lire la suite",
+                    pt: "Leia mais",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Read More",
+                    fr: "Lire la suite",
+                    pt: "Leia mais",
+                  }),
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "readLess",
+                  type: "text",
+                  label: {
+                    en: "Read Less Label",
+                    fr: "Lire moins",
+                    pt: "Leia menos",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Read Less",
+                    fr: "Lire moins",
+                    pt: "Leia menos",
+                  }),
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "updated",
+                  type: "text",
+                  label: {
+                    en: "Updated At Label",
+                    fr: "Mis à jour à l'étiquette",
+                    pt: "Atualizado em",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Updated",
+                    fr: "Mis à jour",
+                    pt: "Atualizado",
+                  }),
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "created",
+                  type: "text",
+                  label: {
+                    en: "Created At Label",
+                    fr: "Créé à l'étiquette",
+                    pt: "Criado em",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Created",
+                    fr: "Créé",
+                    pt: "Criado",
+                  }),
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "openDataset",
+                  type: "text",
+                  label: {
+                    en: "Open Dataset Label",
+                    fr: "Ouvrir l'étiquette de jeu de données",
+                    pt: "Abrir rótulo do conjunto de dados",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Open Dataset",
+                    fr: "Ouvrir le jeu de données",
+                    pt: "Abrir conjunto de dados",
+                  }),
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "backToDatasets",
+                  type: "text",
+                  label: {
+                    en: "Back to Datasets Label",
+                    fr: "Retour aux étiquettes de jeux de données",
+                    pt: "Voltar para rótulos de conjuntos de dados",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Back to Datasets",
+                    fr: "Retour aux jeux de données",
+                    pt: "Voltar para conjuntos de dados",
+                  }),
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "seeMoreDatasets",
+                  type: "text",
+                  label: {
+                    en: "See More Datasets Label",
+                    fr: "Voir plus d'étiquettes de jeux de données",
+                    pt: "Ver mais rótulos de conjuntos de dados",
+                  },
+                  defaultValue: defaultValue({
+                    en: "See More Datasets",
+                    fr: "Voir plus de jeux de données",
+                    pt: "Ver mais conjuntos de dados",
+                  }),
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+                {
+                  name: "shareDataset",
+                  type: "text",
+                  label: {
+                    en: "Share Dataset Label",
+                    fr: "Partager l'étiquette de jeu de données",
+                    pt: "Compartilhar rótulo do conjunto de dados",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Share Dataset",
+                    fr: "Partager le jeu de données",
+                    pt: "Compartilhar conjunto de dados",
+                  }),
+                  required: true,
+                  localized: true,
+                  admin: {
+                    width: "50%",
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
       type: "tabs",
       tabs: [
         {
@@ -448,184 +626,6 @@ const DatasetsAndDocuments = {
                         return data?.label || data?.value || data?.id;
                       },
                     },
-                  },
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: {
-        en: "Common Labels",
-        fr: "Étiquettes communes",
-        pt: "Rótulos comuns",
-      },
-      type: "collapsible",
-      fields: [
-        {
-          name: "commonLabels",
-          type: "group",
-          label: {
-            en: "Labels",
-            fr: "Étiquettes",
-            pt: "Rótulos",
-          },
-          fields: [
-            {
-              type: "row",
-              fields: [
-                {
-                  name: "readMore",
-                  type: "text",
-                  label: {
-                    en: "Read More Label",
-                    fr: "Lire la suite",
-                    pt: "Leia mais",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Read More",
-                    fr: "Lire la suite",
-                    pt: "Leia mais",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "readLess",
-                  type: "text",
-                  label: {
-                    en: "Read Less Label",
-                    fr: "Lire moins",
-                    pt: "Leia menos",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Read Less",
-                    fr: "Lire moins",
-                    pt: "Leia menos",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "updated",
-                  type: "text",
-                  label: {
-                    en: "Updated At Label",
-                    fr: "Mis à jour à l'étiquette",
-                    pt: "Atualizado em",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Updated",
-                    fr: "Mis à jour",
-                    pt: "Atualizado",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "created",
-                  type: "text",
-                  label: {
-                    en: "Created At Label",
-                    fr: "Créé à l'étiquette",
-                    pt: "Criado em",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Created",
-                    fr: "Créé",
-                    pt: "Criado",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "openDataset",
-                  type: "text",
-                  label: {
-                    en: "Open Dataset Label",
-                    fr: "Ouvrir l'étiquette de jeu de données",
-                    pt: "Abrir rótulo do conjunto de dados",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Open Dataset",
-                    fr: "Ouvrir le jeu de données",
-                    pt: "Abrir conjunto de dados",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "backToDatasets",
-                  type: "text",
-                  label: {
-                    en: "Back to Datasets Label",
-                    fr: "Retour aux étiquettes de jeux de données",
-                    pt: "Voltar para rótulos de conjuntos de dados",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Back to Datasets",
-                    fr: "Retour aux jeux de données",
-                    pt: "Voltar para conjuntos de dados",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "seeMoreDatasets",
-                  type: "text",
-                  label: {
-                    en: "See More Datasets Label",
-                    fr: "Voir plus d'étiquettes de jeux de données",
-                    pt: "Ver mais rótulos de conjuntos de dados",
-                  },
-                  defaultValue: defaultValue({
-                    en: "See More Datasets",
-                    fr: "Voir plus de jeux de données",
-                    pt: "Ver mais conjuntos de dados",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "shareDataset",
-                  type: "text",
-                  label: {
-                    en: "Share Dataset Label",
-                    fr: "Partager l'étiquette de jeu de données",
-                    pt: "Compartilhar rótulo do conjunto de dados",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Share Dataset",
-                    fr: "Partager le jeu de données",
-                    pt: "Compartilhar conjunto de dados",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
                   },
                 },
               ],
