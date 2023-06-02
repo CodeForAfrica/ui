@@ -1,4 +1,5 @@
 import { ORGANIZATION_COLLECTION } from "../../lib/ecosystem/models";
+import airtableId from "../fields/airtableId";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
@@ -39,7 +40,6 @@ const Organisations = {
       name: "name",
       type: "text",
       label: { en: "Name", fr: "Nom", pt: "Nome" },
-      required: true,
       admin: {
         readOnly: true,
       },
@@ -186,6 +186,7 @@ const Organisations = {
         beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
       },
     }),
+    airtableId(),
   ],
 };
 
