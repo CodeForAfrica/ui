@@ -1,5 +1,7 @@
 import { array } from "payload/dist/fields/validations";
 
+import defaultValue from "../utils/defaultValues";
+
 const sortOptions = [
   "metadata_created desc",
   "metadata_created asc",
@@ -12,10 +14,6 @@ const sortOptions = [
   "author asc",
   "author desc",
 ];
-export const defaultValue =
-  (translation) =>
-  ({ locale }) =>
-    translation[locale];
 
 const documentSortOptions = [
   "created_at",
