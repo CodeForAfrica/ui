@@ -32,10 +32,12 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   const {
     countries,
     countriesOptions,
+    dataToDisplay,
     onChangeQ,
     onChangeSort,
     onChangeCountries,
     onChangeTags,
+    onChangeDataToDisplay,
     labels,
     sortOptions,
     sort,
@@ -148,21 +150,27 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
 
           <Button
             variant="contained"
-            color="primary"
             sx={{
               width: "95px",
               borderRadius: "10px",
+              backgroundColor:
+                dataToDisplay === "datasets" ? "primary" : neutral[50],
+              color: dataToDisplay === "datasets" ? "#fff" : "neutral.dark",
             }}
+            onClick={() => onChangeDataToDisplay("datasets")}
           >
-            <Typography typography="p1">Documents</Typography>
+            <Typography typography="p1">Datasets</Typography>
           </Button>
           <Button
             variant="contained"
-            color="primary"
             sx={{
               width: "95px",
               borderRadius: "10px",
+              backgroundColor:
+                dataToDisplay === "documents" ? "primary" : neutral[50],
+              color: dataToDisplay === "documents" ? "#fff" : "neutral.dark",
             }}
+            onClick={() => onChangeDataToDisplay("documents")}
           >
             <Typography typography="p1">Documents</Typography>
           </Button>

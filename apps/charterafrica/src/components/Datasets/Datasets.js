@@ -33,6 +33,7 @@ const Datasets = React.forwardRef(function Datasets(
   const [selectedCountries, setSelectedCountries] = useState();
   const [selectedTags, setSelectedTags] = useState([]);
   const [totalPages, setTotalPages] = useState(originalTotalPages);
+  const [dataToDisplay, setDataToDisplay] = useState("datasets");
   const router = useRouter();
   const datasetsRef = useRef();
   useImperativeHandle(ref, () => datasetsRef.current);
@@ -63,6 +64,10 @@ const Datasets = React.forwardRef(function Datasets(
     setSelectedTags(value);
     setFiltering(true);
     setPage(1);
+  };
+
+  const handleDataToDisplay = (value) => {
+    setDataToDisplay(value);
   };
 
   const query = queryString({
@@ -126,9 +131,11 @@ const Datasets = React.forwardRef(function Datasets(
           onChangeSort={handleChangeSort}
           onChangeCountries={handleChangeCountries}
           onChangeTags={handleChangeTags}
+          onChangeDataToDisplay={handleDataToDisplay}
           sort={sort}
           tags={selectedTags}
           tagsOptions={tags}
+          dataToDisplay={dataToDisplay}
         />
         {isLoading ? <LinearProgress color="secondary" /> : null}
         <Stack>

@@ -10,6 +10,7 @@ const render = createRender({ theme });
 
 const defaultProps = {
   countriesOptions: ["Kenya", "Uganda", "Tanzania", "Nigeria"],
+  dataToDisplay: "datasets",
   tagsOptions: ["Agriculture", "Health", "Education"],
   sortOptions: [
     {
