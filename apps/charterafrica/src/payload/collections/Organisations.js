@@ -8,6 +8,7 @@ const Organisations = {
   slug: ORGANIZATION_COLLECTION,
   admin: {
     useAsTitle: "externalId",
+    defaultColumns: ["externalId", "source", "name", "type", "location"],
   },
   access: {
     read: () => true,

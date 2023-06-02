@@ -1,9 +1,12 @@
 import {
+  allCountries,
+  countriesByContinent,
+} from "../../lib/data/json/countries";
+import {
   TOOL_COLLECTION,
   ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
 } from "../../lib/ecosystem/models";
-import { allCountries, countriesByContinent } from "../fields/countries";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
