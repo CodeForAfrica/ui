@@ -26,29 +26,57 @@ const defaultProps = {
       id: "1234",
     },
   ],
-  sortOptions: [
-    {
-      label: {
-        en: "Most Recent",
-        fr: "Plus récent",
-        pt: "Mais recente",
-      },
-      value: "metadata_created desc",
+  datasetsOptions: {
+    labels: {
+      countries: "Countries",
+      tags: "Tags",
+      sort: "Sort",
+      search: "Search",
     },
-    {
-      label: {
-        en: "Least Recent",
-        fr: "Moins récent",
-        pt: "Menos recente",
+    sortOptions: [
+      {
+        label: {
+          en: "Most Recent",
+          fr: "Plus récent",
+          pt: "Mais recente",
+        },
+        value: "metadata_created desc",
       },
-      value: "metadata_created asc",
+      {
+        label: {
+          en: "Least Recent",
+          fr: "Moins récent",
+          pt: "Menos recente",
+        },
+        value: "metadata_created asc",
+      },
+    ],
+  },
+  documentsOptions: {
+    labels: {
+      countries: "Countries",
+      tags: "Tags",
+      sort: "Sort",
+      search: "Search",
     },
-  ],
-  labels: {
-    countries: "Countries",
-    tags: "Tags",
-    sort: "Sort",
-    search: "Search",
+    sortOptions: [
+      {
+        label: {
+          en: "Most Recent",
+          fr: "Plus récent",
+          pt: "Mais recente",
+        },
+        value: "metadata_created desc",
+      },
+      {
+        label: {
+          en: "Least Recent",
+          fr: "Moins récent",
+          pt: "Menos recente",
+        },
+        value: "metadata_created asc",
+      },
+    ],
   },
   commonLabels: {
     updated: "Updated",
