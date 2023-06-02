@@ -12,6 +12,10 @@ const sortOptions = [
   "author asc",
   "author desc",
 ];
+export const defaultValue =
+  (translation) =>
+  ({ locale }) =>
+    translation[locale];
 
 const documentSortOptions = [
   "created_at",
@@ -131,6 +135,11 @@ const DatasetsAndDocuments = {
                           },
                           required: true,
                           localized: true,
+                          defaultValue: defaultValue({
+                            en: "Search",
+                            fr: "Rechercher",
+                            pt: "Pesquisar",
+                          }),
                           admin: {
                             width: "50%",
                           },
@@ -143,6 +152,11 @@ const DatasetsAndDocuments = {
                             fr: "Étiquette de tri",
                             pt: "Rótulo de classificação",
                           },
+                          defaultValue: defaultValue({
+                            en: "Sort",
+                            fr: "Trier",
+                            pt: "Classificar",
+                          }),
                           required: true,
                           localized: true,
                           admin: {
@@ -157,6 +171,11 @@ const DatasetsAndDocuments = {
                             fr: "Étiquette des pays",
                             pt: "Rótulo dos países",
                           },
+                          defaultValue: defaultValue({
+                            en: "Countries",
+                            fr: "Pays",
+                            pt: "Países",
+                          }),
                           required: true,
                           localized: true,
                           admin: {
@@ -171,6 +190,11 @@ const DatasetsAndDocuments = {
                             fr: "Étiquette des tags",
                             pt: "Rótulo das tags",
                           },
+                          defaultValue: defaultValue({
+                            en: "Tags",
+                            fr: "Tags",
+                            pt: "Tags",
+                          }),
                           required: true,
                           localized: true,
                           admin: {
@@ -332,6 +356,11 @@ const DatasetsAndDocuments = {
                             fr: "Étiquette de recherche",
                             pt: "Rótulo de pesquisa",
                           },
+                          defaultValue: defaultValue({
+                            en: "Search",
+                            fr: "Rechercher",
+                            pt: "Pesquisar",
+                          }),
                           required: true,
                           localized: true,
                           admin: {
@@ -346,6 +375,11 @@ const DatasetsAndDocuments = {
                             fr: "Étiquette de tri",
                             pt: "Rótulo de classificação",
                           },
+                          defaultValue: defaultValue({
+                            en: "Sort",
+                            fr: "Trier",
+                            pt: "Classificar",
+                          }),
                           required: true,
                           localized: true,
                           admin: {
@@ -452,6 +486,11 @@ const DatasetsAndDocuments = {
                     fr: "Lire la suite",
                     pt: "Leia mais",
                   },
+                  defaultValue: defaultValue({
+                    en: "Read More",
+                    fr: "Lire la suite",
+                    pt: "Leia mais",
+                  }),
                   required: true,
                   localized: true,
                   admin: {
@@ -466,6 +505,11 @@ const DatasetsAndDocuments = {
                     fr: "Lire moins",
                     pt: "Leia menos",
                   },
+                  defaultValue: defaultValue({
+                    en: "Read Less",
+                    fr: "Lire moins",
+                    pt: "Leia menos",
+                  }),
                   required: true,
                   localized: true,
                   admin: {
@@ -480,6 +524,11 @@ const DatasetsAndDocuments = {
                     fr: "Mis à jour à l'étiquette",
                     pt: "Atualizado em",
                   },
+                  defaultValue: defaultValue({
+                    en: "Updated",
+                    fr: "Mis à jour",
+                    pt: "Atualizado",
+                  }),
                   required: true,
                   localized: true,
                   admin: {
@@ -494,6 +543,11 @@ const DatasetsAndDocuments = {
                     fr: "Créé à l'étiquette",
                     pt: "Criado em",
                   },
+                  defaultValue: defaultValue({
+                    en: "Created",
+                    fr: "Créé",
+                    pt: "Criado",
+                  }),
                   required: true,
                   localized: true,
                   admin: {
@@ -508,6 +562,11 @@ const DatasetsAndDocuments = {
                     fr: "Ouvrir l'étiquette de jeu de données",
                     pt: "Abrir rótulo do conjunto de dados",
                   },
+                  defaultValue: defaultValue({
+                    en: "Open Dataset",
+                    fr: "Ouvrir le jeu de données",
+                    pt: "Abrir conjunto de dados",
+                  }),
                   required: true,
                   localized: true,
                   admin: {
@@ -522,6 +581,11 @@ const DatasetsAndDocuments = {
                     fr: "Retour aux étiquettes de jeux de données",
                     pt: "Voltar para rótulos de conjuntos de dados",
                   },
+                  defaultValue: defaultValue({
+                    en: "Back to Datasets",
+                    fr: "Retour aux jeux de données",
+                    pt: "Voltar para conjuntos de dados",
+                  }),
                   required: true,
                   localized: true,
                   admin: {
@@ -536,6 +600,11 @@ const DatasetsAndDocuments = {
                     fr: "Voir plus d'étiquettes de jeux de données",
                     pt: "Ver mais rótulos de conjuntos de dados",
                   },
+                  defaultValue: defaultValue({
+                    en: "See More Datasets",
+                    fr: "Voir plus de jeux de données",
+                    pt: "Ver mais conjuntos de dados",
+                  }),
                   required: true,
                   localized: true,
                   admin: {
@@ -550,6 +619,11 @@ const DatasetsAndDocuments = {
                     fr: "Partager l'étiquette de jeu de données",
                     pt: "Compartilhar rótulo do conjunto de dados",
                   },
+                  defaultValue: defaultValue({
+                    en: "Share Dataset",
+                    fr: "Partager le jeu de données",
+                    pt: "Compartilhar conjunto de dados",
+                  }),
                   required: true,
                   localized: true,
                   admin: {
