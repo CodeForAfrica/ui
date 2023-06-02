@@ -73,31 +73,23 @@ export default async function processPageDatasets(page, api, context) {
       );
       blocks[datasetsIndex] = {
         ...blocks[datasetsIndex],
-        count,
-        countries,
-        data: datasets,
-        datasetsOptions,
         documentsOptions: {
           labels,
           sortOptions,
         },
-        tags,
-        totalPages,
         documents: documentsData,
-        includeDocuments: true,
-      };
-    } else {
-      blocks[datasetsIndex] = {
-        ...blocks[datasetsIndex],
-        count,
-        countries,
-        data: datasets,
-        datasetsOptions,
-        tags,
-        totalPages,
-        includeDocuments: false,
       };
     }
+    blocks[datasetsIndex] = {
+      ...blocks[datasetsIndex],
+      count,
+      countries,
+      data: datasets,
+      datasetsOptions,
+      tags,
+      totalPages,
+      includeDocuments: showDocuments,
+    };
 
     let swrKey = `/api/v1/resources/datasets`;
     const qs = datasetsQuery(getDatasetsQuery(context));
