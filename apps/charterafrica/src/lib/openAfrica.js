@@ -81,15 +81,15 @@ function formatDatasets(datasets, path) {
   });
 }
 
-function formatResponse(data, pathname) {
+function formatResponse(data, pathname, locale) {
   const { result: { count, facets: { tags }, results } = {} } = data || {};
 
   const datasets = formatDatasets(results, pathname);
   const sortStrings = (a, b) => a.localeCompare(b);
   const tagsList = Object.keys(tags || {}).sort(sortStrings);
-  const countries = countriesByContinent("Africa").map(({ name, value }) => ({
-    value: value.toLowerCase(),
-    label: name,
+  const countries = countriesByContinent("Africa").map(({ label, value }) => ({
+    value,
+    label: label[locale].toLowerCase(),
   }));
   return {
     count,
@@ -103,6 +103,7 @@ function formatResponse(data, pathname) {
 export default async function fetchDatasets(
   organization,
   pathname,
+  locale = "en",
   query = {}
 ) {
   const { tags = [], countries = [], page = 1, ...other } = query;
@@ -126,14 +127,14 @@ export default async function fetchDatasets(
 
   try {
     const response = await packageSearch(params);
-    const formattedData = formatResponse(response, pathname);
+    const formattedData = formatResponse(response, pathname, locale);
     return formattedData;
   } catch (error) {
     return error;
   }
 }
 
-export async function fetchDataset(id, path) {
+export async function fetchDataset(id, path, locale = "en") {
   try {
     const response = await fetchJson.get(
       `${BASE_DOCUMENTS_URL}package_show?id=${id}`
@@ -146,10 +147,12 @@ export async function fetchDataset(id, path) {
     const payload = tagsNames.length
       ? { tags: tagsNames }
       : { groups: groupNames };
-    const related = await fetchDatasets(dataset.organization.name, {
-      ...payload,
+    const related = await fetchDatasets(
+      dataset.organization.name,
       path,
-    });
+      locale,
+      payload
+    );
     return {
       ...formattedDataset[0],
       related: related.datasets.slice(0, 3),

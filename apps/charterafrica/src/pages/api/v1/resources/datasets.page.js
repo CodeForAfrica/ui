@@ -10,12 +10,13 @@ async function datasets(req, res) {
       q = "",
       page = 1,
       path: pathname,
+      locale,
     },
   } = req;
 
   try {
     const { organizationId } = await payload.findGlobal("openAfrica");
-    const data = await fetchDatasets(organizationId, pathname, {
+    const data = await fetchDatasets(organizationId, pathname, locale, {
       q,
       page,
       sort,

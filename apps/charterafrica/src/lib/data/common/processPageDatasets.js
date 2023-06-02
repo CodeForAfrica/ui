@@ -9,12 +9,12 @@ const getDatasetsQuery = (context) => {
 };
 
 async function processSingleDataset(page, api, context) {
-  const { params } = context;
+  const { params, locale } = context;
   const { slugs } = params;
   const datasetId = slugs[slugs.length - 1];
   const { blocks, breadcrumbs } = page;
   const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
-  const dataset = await fetchDataset(datasetId, pageUrl);
+  const dataset = await fetchDataset(datasetId, pageUrl, locale);
   if (!dataset) {
     return null;
   }
@@ -35,7 +35,7 @@ async function processSingleDataset(page, api, context) {
 }
 
 export default async function processPageDatasets(page, api, context) {
-  const { params } = context;
+  const { params, locale } = context;
   if (params.slugs.length > 2) {
     return processSingleDataset(page, api, context);
   }
@@ -47,7 +47,7 @@ export default async function processPageDatasets(page, api, context) {
   const datasetsIndex = blocks.findIndex(({ slug }) => slug === "datasets");
 
   if (datasetsIndex > -1 && organizationId) {
-    const data = await fetchDatasets(organizationId, pageUrl, {});
+    const data = await fetchDatasets(organizationId, pageUrl, locale, {});
     const { count, datasets, countries, tags, totalPages } = data;
 
     blocks[datasetsIndex] = {
