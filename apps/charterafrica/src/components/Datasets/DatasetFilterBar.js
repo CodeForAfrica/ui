@@ -1,4 +1,11 @@
-import { Box, Grid, styled, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  styled,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React from "react";
 
 import { neutral } from "@/charterafrica/colors";
@@ -51,8 +58,8 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
 
   return (
     <Box py={5} ref={ref}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} lg={3}>
+      <Grid container spacing={1}>
+        <Grid item xs={12} lg={2.4}>
           <ControlledSearchInput
             onChange={handleChangeQ}
             placeholder={labels.search}
@@ -65,7 +72,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             }}
           />
         </Grid>
-        <Grid item xs={12} sm={4} lg={3}>
+        <Grid item xs={12} sm={4} md={3} lg={2.4}>
           <ComboBox
             label={labels.sort}
             options={sortOptions}
@@ -84,7 +91,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             value={sort}
           />
         </Grid>
-        <Grid item xs={12} sm={4} lg={3} overflow="hidden">
+        <Grid item xs={12} sm={4} md={3} lg={2.4} overflow="hidden">
           <ComboBox
             label={labels.countries}
             multiple
@@ -99,7 +106,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             value={countries}
           />
         </Grid>
-        <Grid item xs={12} sm={4} lg={3}>
+        <Grid item xs={12} sm={4} md={3} lg={2.4}>
           <ComboBox
             label={labels.tags}
             multiple
@@ -113,6 +120,52 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             )}
             value={tags}
           />
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          md={3}
+          lg={2.4}
+          container
+          justifyContent={{
+            xs: "flex-start",
+            md: "space-between",
+          }}
+          gap={1}
+          alignItems="center"
+          direction="row"
+          wrap="nowrap"
+        >
+          <Typography
+            typography="p1"
+            color="neutral.dark"
+            sx={{
+              mr: 1,
+            }}
+          >
+            Show:
+          </Typography>
+
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{
+              width: "95px",
+              borderRadius: "10px",
+            }}
+          >
+            <Typography typography="p1">Documents</Typography>
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{
+              width: "95px",
+              borderRadius: "10px",
+            }}
+          >
+            <Typography typography="p1">Documents</Typography>
+          </Button>
         </Grid>
       </Grid>
     </Box>
