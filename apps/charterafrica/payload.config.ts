@@ -17,11 +17,14 @@ import Grantees from "./src/payload/collections/Grantees";
 import Media from "./src/payload/collections/Media";
 import News from "./src/payload/collections/News";
 import OpenAfrica from "./src/payload/globals/OpenAfrica";
+import Organisations from "./src/payload/collections/Organisations";
+import Contributors from "./src/payload/collections/Contributors";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Research from "./src/payload/collections/Research";
 import Resources from "./src/payload/collections/Resources";
 import Tags from "./src/payload/collections/Tags";
+import Tools from "./src/payload/collections/Tools";
 import FocalCountries from "./src/payload/globals/FocalCountries";
 import Footer from "./src/payload/globals/Footer";
 import Helpdesk from "./src/payload/globals/Helpdesk";
@@ -72,6 +75,7 @@ export default buildConfig({
   collections: [
     Authors,
     CommunityPlatforms,
+    Contributors,
     Events,
     Explainers,
     Fellowships,
@@ -79,11 +83,13 @@ export default buildConfig({
     Grantees,
     Media,
     News,
+    Organisations,
     Pages,
     Partners,
     Resources,
     Research,
     Tags,
+    Tools,
   ] as CollectionConfig[],
   globals: [
     FocalCountries,
