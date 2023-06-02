@@ -1,4 +1,8 @@
 import {
+  allCountries,
+  countriesByContinent,
+} from "../../lib/data/json/countries";
+import {
   TOOL_COLLECTION,
   ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
@@ -90,15 +94,17 @@ const Tools = {
       },
     },
     {
-      name: "deployedLocation",
-      type: "text",
+      name: "operatingCountries",
+      type: "select",
+      options: countriesByContinent("Africa"),
+      label: {
+        en: "Operating Countries",
+        fr: "Pays opérationnels",
+        pt: "Países operacionais",
+      },
+      hasMany: true,
       admin: {
         readOnly: true,
-      },
-      label: {
-        en: "Deployed Location",
-        fr: "Emplacement déployé",
-        pt: "Localização implantada",
       },
     },
     {
@@ -283,12 +289,13 @@ const Tools = {
       fields: supporter,
     },
     {
-      name: "origin",
-      type: "text",
+      name: "homeCountry",
+      type: "select",
+      options: allCountries,
+      label: { en: "Home Country", fr: "Pays natal", pt: "País natal" },
       admin: {
         readOnly: true,
       },
-      label: { en: "Origin", fr: "Origine", pt: "Origem" },
     },
     {
       name: "otherSocialMedia",
