@@ -38,18 +38,7 @@ const Contributors = {
         readOnly: true,
       },
     },
-    {
-      name: "username",
-      type: "text",
-      label: {
-        en: "Username",
-        fr: "Nom d'utilisateur de la personne",
-        pt: "Nome de usuário da Pessoa",
-      },
-      admin: {
-        readOnly: true,
-      },
-    },
+
     {
       name: "description",
       type: "textarea",
