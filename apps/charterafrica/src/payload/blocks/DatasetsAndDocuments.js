@@ -2,7 +2,7 @@ import { array } from "payload/dist/fields/validations";
 
 import defaultValue from "../utils/defaultValues";
 
-const sortOptions = [
+const datasetsSortOptions = [
   "metadata_created desc",
   "metadata_created asc",
   "name asc",
@@ -213,19 +213,13 @@ const DatasetsAndDocuments = {
             fr: "Ensembles de données",
             pt: "Conjuntos de dados",
           },
-          description: {
-            en: "Configure the datasets block",
-            fr: "Configurez le bloc de jeux de données",
-            pt: "Configure o bloco de conjuntos de dados",
-          },
           fields: [
             {
-              label: {
-                en: "Search & Filter Values",
-                fr: "Valeurs de recherche et de filtrage",
-                pt: "Valores de pesquisa e filtro",
+              name: "datasets",
+              type: "group",
+              admin: {
+                hideGutter: true,
               },
-              type: "collapsible",
               fields: [
                 {
                   name: "sortOptions",
@@ -240,7 +234,7 @@ const DatasetsAndDocuments = {
                     {
                       name: "value",
                       type: "select",
-                      options: sortOptions.map((value) => {
+                      options: datasetsSortOptions.map((value) => {
                         return {
                           value,
                           label: value,
@@ -279,16 +273,6 @@ const DatasetsAndDocuments = {
                     },
                   },
                 },
-              ],
-            },
-            {
-              label: {
-                en: "Search & Filter Labels",
-                fr: "Étiquettes de recherche et de filtrage",
-                pt: "Rótulos de pesquisa e filtro",
-              },
-              type: "collapsible",
-              fields: [
                 {
                   name: "labels",
                   type: "group",
@@ -296,6 +280,9 @@ const DatasetsAndDocuments = {
                     en: "Labels",
                     fr: "Étiquettes",
                     pt: "Rótulos",
+                  },
+                  admin: {
+                    hideGutter: true,
                   },
                   fields: [
                     {
@@ -398,12 +385,8 @@ const DatasetsAndDocuments = {
           },
           fields: [
             {
-              label: {
-                en: "Documents",
-                fr: "Documents",
-                pt: "Documentos",
-              },
-              type: "collapsible",
+              name: "documents",
+              type: "group",
               fields: [
                 {
                   name: "showDocuments",
@@ -500,84 +483,11 @@ const DatasetsAndDocuments = {
                   ],
                   admin: {
                     condition: (_, siblingData) => siblingData?.showDocuments,
+                    hideGutter: true,
                   },
                 },
-              ],
-            },
-            {
-              label: {
-                en: "Search & Filter Labels",
-                fr: "Étiquettes de recherche et de filtrage",
-                pt: "Rótulos de pesquisa e filtro",
-              },
-              type: "collapsible",
-              fields: [
                 {
-                  name: "documentsLabels",
-                  type: "group",
-                  label: {
-                    en: "Labels",
-                    fr: "Étiquettes",
-                    pt: "Rótulos",
-                  },
-                  fields: [
-                    {
-                      type: "row",
-                      fields: [
-                        {
-                          name: "documentsSearch",
-                          type: "text",
-                          label: {
-                            en: "Search Label",
-                            fr: "Étiquette de recherche",
-                            pt: "Rótulo de pesquisa",
-                          },
-                          defaultValue: defaultValue({
-                            en: "Search",
-                            fr: "Rechercher",
-                            pt: "Pesquisar",
-                          }),
-                          required: true,
-                          localized: true,
-                          admin: {
-                            width: "50%",
-                          },
-                        },
-                        {
-                          name: "documentsSort",
-                          type: "text",
-                          label: {
-                            en: "Sort Label",
-                            fr: "Étiquette de tri",
-                            pt: "Rótulo de classificação",
-                          },
-                          defaultValue: defaultValue({
-                            en: "Sort",
-                            fr: "Trier",
-                            pt: "Classificar",
-                          }),
-                          required: true,
-                          localized: true,
-                          admin: {
-                            width: "50%",
-                          },
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              label: {
-                en: "Search & Filter Values",
-                fr: "Valeurs de recherche et de filtrage",
-                pt: "Valores de pesquisa e filtro",
-              },
-              type: "collapsible",
-              fields: [
-                {
-                  name: "documentsSortOptions",
+                  name: "sortOptions",
                   type: "array",
                   minRows: 1,
                   label: {
@@ -626,6 +536,65 @@ const DatasetsAndDocuments = {
                         return data?.label || data?.value || data?.id;
                       },
                     },
+                    condition: (_, siblingData) => siblingData?.showDocuments,
+                  },
+                },
+                {
+                  name: "labels",
+                  type: "group",
+                  label: {
+                    en: "Labels",
+                    fr: "Étiquettes",
+                    pt: "Rótulos",
+                  },
+                  fields: [
+                    {
+                      type: "row",
+                      fields: [
+                        {
+                          name: "search",
+                          type: "text",
+                          label: {
+                            en: "Search Label",
+                            fr: "Étiquette de recherche",
+                            pt: "Rótulo de pesquisa",
+                          },
+                          defaultValue: defaultValue({
+                            en: "Search",
+                            fr: "Rechercher",
+                            pt: "Pesquisar",
+                          }),
+                          required: true,
+                          localized: true,
+                          admin: {
+                            width: "50%",
+                          },
+                        },
+                        {
+                          name: "sort",
+                          type: "text",
+                          label: {
+                            en: "Sort Label",
+                            fr: "Étiquette de tri",
+                            pt: "Rótulo de classificação",
+                          },
+                          defaultValue: defaultValue({
+                            en: "Sort",
+                            fr: "Trier",
+                            pt: "Classificar",
+                          }),
+                          required: true,
+                          localized: true,
+                          admin: {
+                            width: "50%",
+                          },
+                        },
+                      ],
+                    },
+                  ],
+                  admin: {
+                    hideGutter: true,
+                    condition: (_, siblingData) => siblingData?.showDocuments,
                   },
                 },
               ],
