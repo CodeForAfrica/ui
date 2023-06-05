@@ -1,4 +1,5 @@
 import blockifyPage from "./blockify";
+import pagify from "./pagify";
 
 import processPageArticles, {
   processPageEvents,
@@ -49,7 +50,6 @@ const processPageFunctionsMap = {
   grants: processPageGrants,
   opportunities: processPageOpportunities,
   index: processPageIndex,
-  news: processPageArticles,
   research: processPageArticles,
 };
 
@@ -114,7 +114,10 @@ export async function getPageProps(api, context) {
     return null;
   }
 
-  const [page] = pages;
+  let [page] = pages;
+  if (params.slugs.length === 3) {
+    page = await pagify(page, api, context);
+  }
   page.blocks =
     (await Promise.all(
       page.blocks?.map(async ({ block, blockType, ...other }) => {
@@ -142,7 +145,9 @@ export async function getPageProps(api, context) {
   const processedPage = processPage
     ? await processPage(page, api, context)
     : page;
-  processedPage.blocks = await blockifyPage(processedPage, api, context);
+  const { blocks, fallback } = await blockifyPage(processedPage, api, context);
+  processedPage.blocks = blocks;
+  processedPage.fallback = fallback || null;
 
   const { settings, ...globalProps } = await getGlobalProps(
     { defaultLocale, locale },
