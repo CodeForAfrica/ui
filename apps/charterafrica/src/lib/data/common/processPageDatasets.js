@@ -1,4 +1,4 @@
-import fetchDatasets from "@/charterafrica/lib/openAfrica";
+import fetchDatasets, { fetchDataset } from "@/charterafrica/lib/openAfrica";
 import datasetsQuery from "@/charterafrica/utils/datasets/queryString";
 
 const getDatasetsQuery = (context) => {
@@ -8,14 +8,48 @@ const getDatasetsQuery = (context) => {
   return { countries, locale, page, q, tags, sort };
 };
 
+async function processSingleDataset(page, api, context) {
+  const { params, locale } = context;
+  const { slugs } = params;
+  const datasetId = slugs[slugs.length - 1];
+  const { blocks, breadcrumbs } = page;
+  const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
+  const dataset = await fetchDataset(datasetId, pageUrl, { locale });
+  if (!dataset) {
+    return null;
+  }
+
+  const { commonLabels = {} } = blocks.find(({ slug }) => slug === "datasets");
+
+  return {
+    ...page,
+    slug: "dataset",
+    blocks: [
+      {
+        ...dataset,
+        commonLabels,
+        slug: "dataset",
+      },
+    ],
+  };
+}
+
 export default async function processPageDatasets(page, api, context) {
-  const { blocks } = page;
+  const { params, locale } = context;
+  if (params.slugs.length > 2) {
+    return processSingleDataset(page, api, context);
+  }
+  const { blocks, breadcrumbs = [] } = page;
+  const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
+
   const { organizationId } = await api.findGlobal("openAfrica");
 
   const datasetsIndex = blocks.findIndex(({ slug }) => slug === "datasets");
 
   if (datasetsIndex > -1 && organizationId) {
-    const data = await fetchDatasets(organizationId);
+    const data = await fetchDatasets(organizationId, pageUrl, {
+      locale,
+    });
     const { count, datasets, countries, tags, totalPages } = data;
 
     blocks[datasetsIndex] = {

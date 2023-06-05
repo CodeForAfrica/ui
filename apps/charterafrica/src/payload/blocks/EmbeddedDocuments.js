@@ -48,12 +48,11 @@ const EmbeddedDocuments = {
         {
           name: "group",
           label: {
-            en: "Name",
-            fr: "Nom",
-            pt: "Nome",
+            en: "Group ID",
+            fr: "ID du groupe",
+            pt: "ID do grupo",
           },
           type: "text",
-          localized: true,
           required: true,
         },
         {

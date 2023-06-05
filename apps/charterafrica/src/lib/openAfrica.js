@@ -1,4 +1,4 @@
-import allCountries from "@/charterafrica/lib/data/json/countries";
+import { countriesByContinent } from "@/charterafrica/lib/data/json/countries";
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const BASE_DOCUMENTS_URL = "https://openafrica.net/api/3/action/";
@@ -43,7 +43,7 @@ function formatResources(resources, author) {
   });
 }
 
-function formatDatasets(datasets) {
+function formatDatasets(datasets, pathname) {
   return datasets?.map((dataset) => {
     const {
       author,
@@ -71,7 +71,9 @@ function formatDatasets(datasets) {
       id,
       name,
       notes,
-      url: url?.trim(),
+      source: url?.trim(),
+      url: `https://openafrica.net/${type}/${id}`,
+      href: `${pathname}/${id}`,
       title,
       type,
       updated,
@@ -79,24 +81,31 @@ function formatDatasets(datasets) {
   });
 }
 
-function formatResponse(data) {
+function formatResponse(data, pathname, locale) {
   const { result: { count, facets: { tags }, results } = {} } = data || {};
 
-  const datasets = formatDatasets(results);
+  const datasets = formatDatasets(results, pathname);
   const sortStrings = (a, b) => a.localeCompare(b);
   const tagsList = Object.keys(tags || {}).sort(sortStrings);
-
+  const countries = countriesByContinent("Africa").map(({ label, value }) => ({
+    value,
+    label: label[locale],
+  }));
   return {
     count,
     datasets,
-    countries: allCountries.africa,
+    countries,
     tags: tagsList,
     totalPages: Math.ceil(count / PAGE_SIZE),
   };
 }
 
-export default async function fetchDatasets(organization, query = {}) {
-  const { tags = [], countries = [], page = 1, ...other } = query;
+export default async function fetchDatasets(
+  organization,
+  pathname,
+  query = {}
+) {
+  const { tags = [], countries = [], page = 1, locale, ...other } = query;
   const tagsQuery = tags.length
     ? `tags:(${tags.map((t) => `"${t}"`).join(" OR ")})`
     : null;
@@ -117,8 +126,35 @@ export default async function fetchDatasets(organization, query = {}) {
 
   try {
     const response = await packageSearch(params);
-    const formattedData = formatResponse(response);
+    const formattedData = formatResponse(response, pathname, locale);
     return formattedData;
+  } catch (error) {
+    return error;
+  }
+}
+
+export async function fetchDataset(id, pathname, query) {
+  const { locale } = query;
+  try {
+    const response = await fetchJson.get(
+      `${BASE_DOCUMENTS_URL}package_show?id=${id}`
+    );
+    const { result: dataset } = response;
+    const { tags = [], groups = [] } = dataset;
+    const tagsNames = tags.map((tag) => tag.name);
+    const groupNames = groups.map((group) => group.name);
+    const formattedDataset = formatDatasets([dataset], pathname);
+    const payload = tagsNames.length
+      ? { tags: tagsNames }
+      : { groups: groupNames };
+    const related = await fetchDatasets(dataset.organization.name, pathname, {
+      ...payload,
+      locale,
+    });
+    return {
+      ...formattedDataset[0],
+      related: related.datasets.slice(0, 3),
+    };
   } catch (error) {
     return error;
   }

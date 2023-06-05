@@ -1,5 +1,7 @@
-import { Autocomplete } from "@mui/material";
+import { Autocomplete, SvgIcon } from "@mui/material";
 import React from "react";
+
+import ChevronDown from "@/charterafrica/assets/icons/Type=chevron-down, Size=16, Color=CurrentColor.svg";
 
 const findOptionIndex = (options, value, isOptionObject) => {
   return (
@@ -72,6 +74,18 @@ const ComboBox = React.forwardRef(function ComboBox(props, ref) {
       onChange={handleChange}
       value={value}
       ref={ref}
+      popupIcon={
+        <SvgIcon
+          inheritViewBox
+          sx={{
+            display: "inline-flex",
+            alignItems: "center",
+            fill: "none",
+            mt: 0.5,
+          }}
+          component={ChevronDown}
+        />
+      }
     />
   );
 });

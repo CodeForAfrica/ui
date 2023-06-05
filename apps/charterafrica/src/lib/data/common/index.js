@@ -11,6 +11,9 @@ import processPageOpportunities, {
   processPageFellowships,
   processPageGrants,
 } from "@/charterafrica/lib/data/common/processPageOpportunities";
+import processPageOrganisations from "@/charterafrica/lib/data/common/processPageOrganisations";
+import processPagePeople from "@/charterafrica/lib/data/common/processPagePeople";
+import processPageTools from "@/charterafrica/lib/data/common/processPageTools";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
 export async function getGlobalProps({ locale, defaultLocale }, api) {
@@ -48,9 +51,12 @@ const processPageFunctionsMap = {
   events: processPageEvents,
   fellowships: processPageFellowships,
   grants: processPageGrants,
-  opportunities: processPageOpportunities,
   index: processPageIndex,
+  opportunities: processPageOpportunities,
+  organisations: processPageOrganisations,
+  people: processPagePeople,
   research: processPageArticles,
+  tools: processPageTools,
 };
 
 async function processGlobalBlockFocalCountries(block) {

@@ -3,11 +3,11 @@ import { Box, LinearProgress, Stack } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useState, useEffect, useRef, useImperativeHandle } from "react";
 
-import DatasetCard from "./DatasetCard";
 import DatasetFilterBar from "./DatasetFilterBar";
 import useDatasets from "./useDatasets";
 
 import { neutral } from "@/charterafrica/colors";
+import DatasetCard from "@/charterafrica/components/DatasetCard";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import queryString from "@/charterafrica/utils/datasets/queryString";
 
@@ -16,10 +16,12 @@ const Datasets = React.forwardRef(function Datasets(
     sx,
     data: datasetsProp,
     labels,
+    commonLabels,
     tags = [],
     countries = [],
     totalPages: originalTotalPages,
     sortOptions = [],
+    pageUrl,
   },
   ref
 ) {
@@ -35,6 +37,7 @@ const Datasets = React.forwardRef(function Datasets(
   const datasetsRef = useRef();
   useImperativeHandle(ref, () => datasetsRef.current);
   const { asPath, locale } = router;
+  const pathname = asPath.split("?")[0];
 
   const handleChangePage = (_, value) => {
     setPage(value);
@@ -71,7 +74,6 @@ const Datasets = React.forwardRef(function Datasets(
   });
 
   useEffect(() => {
-    const pathname = asPath.split("?")[0];
     router.push({ pathname, query }, undefined, {
       scroll: false,
       shallow: true,
@@ -82,14 +84,17 @@ const Datasets = React.forwardRef(function Datasets(
   if (filtering && datasetsRef.current) {
     datasetsRef.current.scrollIntoView({ behavior: "smooth" });
   }
-  const { data, isLoading } = useDatasets({
-    countries: selectedCountries,
-    locale,
-    page,
-    q,
-    sort,
-    tags: selectedTags,
-  });
+  const { data, isLoading } = useDatasets(
+    {
+      countries: selectedCountries,
+      locale,
+      page,
+      q,
+      sort,
+      tags: selectedTags,
+    },
+    pathname
+  );
   useEffect(() => {
     if (!isLoading) {
       const { datasets: filteredDatasets, totalPages: filteredTotalPages } =
@@ -130,10 +135,9 @@ const Datasets = React.forwardRef(function Datasets(
             <DatasetCard
               {...dataset}
               key={dataset.id}
-              readMore={labels.readMore}
-              readLess={labels.readLess}
-              updatedLabel={labels.updated}
-              createdLabel={labels.created}
+              labels={labels}
+              commonLabels={commonLabels}
+              pageUrl={pageUrl}
               sx={{
                 borderBottom: "none",
                 "&:last-of-type": {
