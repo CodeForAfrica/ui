@@ -281,58 +281,6 @@ const DatasetsAndDocuments = {
                           type: "row",
                           fields: [
                             simpleLabel({
-                              name: "readMore",
-                              label: {
-                                en: "Read More Label",
-                                fr: "Lire la suite",
-                                pt: "Leia mais",
-                              },
-                              defaultValue: defaultValue({
-                                en: "Read More",
-                                fr: "Lire la suite",
-                                pt: "Leia mais",
-                              }),
-                            }),
-                            simpleLabel({
-                              name: "readLess",
-                              label: {
-                                en: "Read Less Label",
-                                fr: "Lire moins",
-                                pt: "Leia menos",
-                              },
-                              defaultValue: defaultValue({
-                                en: "Read Less",
-                                fr: "Lire moins",
-                                pt: "Leia menos",
-                              }),
-                            }),
-                            simpleLabel({
-                              name: "updated",
-                              label: {
-                                en: "Updated At Label",
-                                fr: "Mis à jour à l'étiquette",
-                                pt: "Atualizado em",
-                              },
-                              defaultValue: defaultValue({
-                                en: "Updated",
-                                fr: "Mis à jour",
-                                pt: "Atualizado",
-                              }),
-                            }),
-                            simpleLabel({
-                              name: "created",
-                              label: {
-                                en: "Created At Label",
-                                fr: "Créé à l'étiquette",
-                                pt: "Criado em",
-                              },
-                              defaultValue: defaultValue({
-                                en: "Created",
-                                fr: "Créé",
-                                pt: "Criado",
-                              }),
-                            }),
-                            simpleLabel({
                               name: "openDataset",
                               label: {
                                 en: "Open Dataset Label",
@@ -612,6 +560,77 @@ const DatasetsAndDocuments = {
             },
           ],
         },
+      ],
+    },
+    {
+      type: "collapsible",
+      label: {
+        en: "Common Labels",
+        fr: "Étiquettes communes",
+        pt: "Rótulos comuns",
+      },
+      fields: [
+        groupedLabels({
+          fields: [
+            {
+              type: "row",
+              fields: [
+                simpleLabel({
+                  name: "readMore",
+                  label: {
+                    en: "Read More Label",
+                    fr: "Lire la suite",
+                    pt: "Leia mais",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Read More",
+                    fr: "Lire la suite",
+                    pt: "Leia mais",
+                  }),
+                }),
+                simpleLabel({
+                  name: "readLess",
+                  label: {
+                    en: "Read Less Label",
+                    fr: "Lire moins",
+                    pt: "Leia menos",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Read Less",
+                    fr: "Lire moins",
+                    pt: "Leia menos",
+                  }),
+                }),
+                simpleLabel({
+                  name: "updated",
+                  label: {
+                    en: "Updated At Label",
+                    fr: "Mis à jour à l'étiquette",
+                    pt: "Atualizado em",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Updated",
+                    fr: "Mis à jour",
+                    pt: "Atualizado",
+                  }),
+                }),
+                simpleLabel({
+                  name: "created",
+                  label: {
+                    en: "Created At Label",
+                    fr: "Créé à l'étiquette",
+                    pt: "Criado em",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Created",
+                    fr: "Créé",
+                    pt: "Criado",
+                  }),
+                }),
+              ],
+            },
+          ],
+        }),
       ],
     },
   ],

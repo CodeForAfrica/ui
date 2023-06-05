@@ -23,6 +23,7 @@ async function processSingleDataset(page, api, context) {
 
   const {
     datasets: { labels },
+    labels: commonLabels,
   } = blocks.find(({ slug }) => slug === "datasetsAndDocuments");
 
   return {
@@ -31,7 +32,10 @@ async function processSingleDataset(page, api, context) {
     blocks: [
       {
         ...dataset,
-        labels,
+        labels: {
+          ...commonLabels,
+          ...labels,
+        },
         slug: "dataset",
       },
     ],
@@ -51,7 +55,11 @@ export default async function processPageDatasets(page, api, context) {
   );
 
   if (datasetsIndex > -1) {
-    const { showDatasets, showDocuments } = blocks[datasetsIndex];
+    const {
+      showDatasets,
+      showDocuments,
+      labels: commonLabels,
+    } = blocks[datasetsIndex];
 
     if (showDatasets) {
       const {
@@ -67,7 +75,10 @@ export default async function processPageDatasets(page, api, context) {
         datasets: {
           data,
           filterBar,
-          labels,
+          labels: {
+            ...commonLabels,
+            ...labels,
+          },
           organizationId,
         },
       };
@@ -89,7 +100,10 @@ export default async function processPageDatasets(page, api, context) {
         documents: {
           data,
           filterBar,
-          labels,
+          labels: {
+            ...commonLabels,
+            ...labels,
+          },
         },
       };
     }
