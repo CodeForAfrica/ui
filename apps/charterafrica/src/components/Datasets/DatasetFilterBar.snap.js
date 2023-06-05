@@ -141,7 +141,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
               <p
                 class="MuiTypography-root MuiTypography-p1 css-1iv56pm-MuiTypography-root"
               >
-                Countries
+                2 Countries
               </p>
               <input
                 aria-autocomplete="list"
@@ -225,7 +225,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
               <p
                 class="MuiTypography-root MuiTypography-p1 css-1iv56pm-MuiTypography-root"
               >
-                Tags
+                Agriculture
               </p>
               <input
                 aria-autocomplete="list"
