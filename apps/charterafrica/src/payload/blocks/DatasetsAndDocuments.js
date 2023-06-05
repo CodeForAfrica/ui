@@ -60,14 +60,23 @@ const DatasetsAndDocuments = {
               },
               fields: [
                 {
-                  name: "organizationId",
-                  type: "text",
+                  type: "collapsible",
                   label: {
-                    en: "Organization ID",
-                    fr: "ID de l'organisation",
-                    pt: "ID da organização",
+                    en: "Datasets Source",
+                    fr: "Source des ensembles de données",
+                    pt: "Fonte de conjuntos de dados",
                   },
-                  required: true,
+                  fields: [
+                    simpleLabel({
+                      name: "organizationId",
+                      label: {
+                        en: "Organization ID",
+                        fr: "ID de l'organisation",
+                        pt: "ID da organização",
+                      },
+                      localized: false,
+                    }),
+                  ],
                 },
                 {
                   type: "collapsible",
@@ -94,22 +103,18 @@ const DatasetsAndDocuments = {
                                 hideGutter: true,
                               },
                               fields: [
-                                {
-                                  name: "label",
-                                  type: "text",
+                                simpleLabel({
                                   label: {
                                     en: "Search Label",
                                     fr: "Étiquette de recherche",
                                     pt: "Rótulo de pesquisa",
                                   },
-                                  required: true,
-                                  localized: true,
                                   defaultValue: defaultValue({
                                     en: "Search",
                                     fr: "Rechercher",
                                     pt: "Pesquisar",
                                   }),
-                                },
+                                }),
                               ],
                             },
                           ],
@@ -161,16 +166,13 @@ const DatasetsAndDocuments = {
                                         return array(val, options);
                                       },
                                     }),
-                                    {
-                                      name: "label",
-                                      type: "text",
+                                    simpleLabel({
                                       label: {
                                         en: "Label",
                                         fr: "Étiquette",
                                         pt: "Rótulo",
                                       },
-                                      required: true,
-                                    },
+                                    }),
                                   ],
                                   admin: {
                                     initCollapsed: true,
@@ -183,9 +185,7 @@ const DatasetsAndDocuments = {
                                     },
                                   },
                                 },
-                                {
-                                  name: "label",
-                                  type: "text",
+                                simpleLabel({
                                   label: {
                                     en: "Sort Label",
                                     fr: "Étiquette de tri",
@@ -196,9 +196,7 @@ const DatasetsAndDocuments = {
                                     fr: "Trier",
                                     pt: "Classificar",
                                   }),
-                                  required: true,
-                                  localized: true,
-                                },
+                                }),
                               ],
                             },
                           ],
@@ -218,9 +216,7 @@ const DatasetsAndDocuments = {
                                 hideGutter: true,
                               },
                               fields: [
-                                {
-                                  name: "label",
-                                  type: "text",
+                                simpleLabel({
                                   label: {
                                     en: "Countries Label",
                                     fr: "Étiquette des pays",
@@ -231,9 +227,7 @@ const DatasetsAndDocuments = {
                                     fr: "Pays",
                                     pt: "Países",
                                   }),
-                                  required: true,
-                                  localized: true,
-                                },
+                                }),
                               ],
                             },
                           ],
@@ -253,9 +247,7 @@ const DatasetsAndDocuments = {
                                 hideGutter: true,
                               },
                               fields: [
-                                {
-                                  name: "label",
-                                  type: "text",
+                                simpleLabel({
                                   label: {
                                     en: "Tags Label",
                                     fr: "Étiquette des tags",
@@ -266,9 +258,7 @@ const DatasetsAndDocuments = {
                                     fr: "Tags",
                                     pt: "Tags",
                                   }),
-                                  required: true,
-                                  localized: true,
-                                },
+                                }),
                               ],
                             },
                           ],

@@ -2,13 +2,10 @@ import { deepmerge } from "@mui/utils";
 
 const simpleLabel = (overrides = {}) => {
   const basicSimpleLabel = {
-    name: "basicLabel",
+    name: "label",
     type: "text",
     required: true,
     localized: true,
-    admin: {
-      width: "50%",
-    },
   };
 
   return deepmerge(basicSimpleLabel, overrides);
