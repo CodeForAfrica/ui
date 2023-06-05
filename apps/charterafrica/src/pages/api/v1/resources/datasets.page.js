@@ -8,7 +8,7 @@ async function datasets(req, res) {
       countries,
       q = "",
       page = 1,
-      path: pathname,
+      pathname,
       locale,
       organizationId,
     },
