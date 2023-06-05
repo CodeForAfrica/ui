@@ -43,7 +43,7 @@ function formatResources(resources, author) {
   });
 }
 
-function formatDatasets(datasets, path) {
+function formatDatasets(datasets, pathname) {
   return datasets?.map((dataset) => {
     const {
       author,
@@ -73,7 +73,7 @@ function formatDatasets(datasets, path) {
       notes,
       source: url?.trim(),
       url: `https://openafrica.net/${type}/${id}`,
-      href: `${path}/${id}`,
+      href: `${pathname}/${id}`,
       title,
       type,
       updated,
@@ -103,10 +103,9 @@ function formatResponse(data, pathname, locale) {
 export default async function fetchDatasets(
   organization,
   pathname,
-  locale = "en",
   query = {}
 ) {
-  const { tags = [], countries = [], page = 1, ...other } = query;
+  const { tags = [], countries = [], page = 1, locale, ...other } = query;
   const tagsQuery = tags.length
     ? `tags:(${tags.map((t) => `"${t}"`).join(" OR ")})`
     : null;
@@ -134,7 +133,8 @@ export default async function fetchDatasets(
   }
 }
 
-export async function fetchDataset(id, path, locale = "en") {
+export async function fetchDataset(id, pathname, query) {
+  const { locale } = query;
   try {
     const response = await fetchJson.get(
       `${BASE_DOCUMENTS_URL}package_show?id=${id}`
@@ -143,16 +143,14 @@ export async function fetchDataset(id, path, locale = "en") {
     const { tags = [], groups = [] } = dataset;
     const tagsNames = tags.map((tag) => tag.name);
     const groupNames = groups.map((group) => group.name);
-    const formattedDataset = formatDatasets([dataset], path);
+    const formattedDataset = formatDatasets([dataset], pathname);
     const payload = tagsNames.length
       ? { tags: tagsNames }
       : { groups: groupNames };
-    const related = await fetchDatasets(
-      dataset.organization.name,
-      path,
+    const related = await fetchDatasets(dataset.organization.name, pathname, {
+      ...payload,
       locale,
-      payload
-    );
+    });
     return {
       ...formattedDataset[0],
       related: related.datasets.slice(0, 3),

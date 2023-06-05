@@ -16,12 +16,13 @@ async function datasets(req, res) {
 
   try {
     const { organizationId } = await payload.findGlobal("openAfrica");
-    const data = await fetchDatasets(organizationId, pathname, locale, {
+    const data = await fetchDatasets(organizationId, pathname, {
       q,
       page,
       sort,
       tags: tags?.split(","),
       countries: countries?.split(","),
+      locale,
     });
 
     return res.status(200).json(data);

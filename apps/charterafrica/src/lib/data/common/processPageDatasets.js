@@ -14,7 +14,7 @@ async function processSingleDataset(page, api, context) {
   const datasetId = slugs[slugs.length - 1];
   const { blocks, breadcrumbs } = page;
   const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
-  const dataset = await fetchDataset(datasetId, pageUrl, locale);
+  const dataset = await fetchDataset(datasetId, pageUrl, { locale });
   if (!dataset) {
     return null;
   }
@@ -47,7 +47,9 @@ export default async function processPageDatasets(page, api, context) {
   const datasetsIndex = blocks.findIndex(({ slug }) => slug === "datasets");
 
   if (datasetsIndex > -1 && organizationId) {
-    const data = await fetchDatasets(organizationId, pageUrl, locale, {});
+    const data = await fetchDatasets(organizationId, pageUrl, {
+      locale,
+    });
     const { count, datasets, countries, tags, totalPages } = data;
 
     blocks[datasetsIndex] = {

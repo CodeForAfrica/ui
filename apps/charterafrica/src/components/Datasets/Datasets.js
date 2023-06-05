@@ -93,8 +93,7 @@ const Datasets = React.forwardRef(function Datasets(
       sort,
       tags: selectedTags,
     },
-    pathname,
-    locale
+    pathname
   );
   useEffect(() => {
     if (!isLoading) {
