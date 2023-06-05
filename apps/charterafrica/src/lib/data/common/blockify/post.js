@@ -12,13 +12,15 @@ async function post(block, _, { locale }) {
   }
 
   return {
-    ...other,
-    author: block.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
-    content: block.content ?? null,
-    date: formatDateTime(block.publishedOn, { locale }),
-    image,
-    link: {
-      href: url,
+    block: {
+      ...other,
+      author: block.authors?.map(({ fullName }) => fullName).join(", ") ?? null,
+      content: block.content ?? null,
+      date: formatDateTime(block.publishedOn, { locale }),
+      image,
+      link: {
+        href: url,
+      },
     },
   };
 }
