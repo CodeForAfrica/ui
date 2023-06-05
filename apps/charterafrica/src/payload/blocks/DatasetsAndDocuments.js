@@ -1,5 +1,6 @@
 import { array } from "payload/dist/fields/validations";
 
+import sourceAfricaDocument from "../fields/sourceAfricaDocument";
 import defaultValue from "../utils/defaultValues";
 
 const datasetsSortOptions = [
@@ -432,88 +433,7 @@ const DatasetsAndDocuments = {
                 hideGutter: true,
               },
               fields: [
-                {
-                  name: "organization",
-                  type: "group",
-                  admin: {
-                    hideGutter: true,
-                  },
-                  fields: [
-                    {
-                      name: "groupID",
-                      type: "text",
-                      label: {
-                        en: "Group ID",
-                        fr: "ID de groupe",
-                        pt: "ID do grupo",
-                      },
-                      required: true,
-                    },
-                    {
-                      name: "options",
-                      label: {
-                        en: "Options",
-                        fr: "Options",
-                        pt: "Opções",
-                      },
-                      type: "group",
-                      fields: [
-                        {
-                          type: "row",
-                          fields: [
-                            {
-                              name: "showNotes",
-                              label: {
-                                en: "Show Notes",
-                                fr: "Afficher les notes",
-                                pt: "Mostrar notas",
-                              },
-                              type: "checkbox",
-                              defaultValue: true,
-                              required: true,
-                            },
-                            {
-                              name: "showSearch",
-                              label: {
-                                en: "Show Search",
-                                fr: "Afficher la recherche",
-                                pt: "Mostrar pesquisa",
-                              },
-                              type: "checkbox",
-                              defaultValue: false,
-                              required: true,
-                            },
-                            {
-                              name: "showText",
-                              label: {
-                                en: "Show Text",
-                                fr: "Afficher le texte",
-                                pt: "Mostrar texto",
-                              },
-                              type: "checkbox",
-                              defaultValue: false,
-                              required: true,
-                            },
-                            {
-                              name: "showZoom",
-                              label: {
-                                en: "Show Zoom",
-                                fr: "Afficher le zoom",
-                                pt: "Mostrar zoom",
-                              },
-                              type: "checkbox",
-                              defaultValue: false,
-                              required: true,
-                            },
-                          ],
-                        },
-                      ],
-                      admin: {
-                        hideGutter: true,
-                      },
-                    },
-                  ],
-                },
+                sourceAfricaDocument(),
                 {
                   name: "filterBar",
                   type: "group",
