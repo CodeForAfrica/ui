@@ -46,13 +46,14 @@ export default async function processPageDatasets(page, api, context) {
   const { blocks, breadcrumbs = [] } = page;
   const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
 
-  const { organizationId } = await api.findGlobal("openAfrica");
-
   const datasetsIndex = blocks.findIndex(
     ({ slug }) => slug === "datasetsAndDocuments"
   );
 
-  if (datasetsIndex > -1 && organizationId) {
+  if (datasetsIndex > -1) {
+    const {
+      datasets: { organizationId },
+    } = blocks[datasetsIndex];
     const data = await fetchDatasets(organizationId, pageUrl, {
       locale,
     });
@@ -87,6 +88,7 @@ export default async function processPageDatasets(page, api, context) {
       count,
       countries,
       data: datasets,
+      organizationId,
       datasetsOptions,
       tags,
       totalPages,

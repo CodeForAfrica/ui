@@ -26,6 +26,7 @@ const defaultProps = {
       id: "1234",
     },
   ],
+  organizationId: "the-charter-project",
   datasetsOptions: {
     labels: {
       countries: "Countries",

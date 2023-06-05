@@ -15,6 +15,7 @@ const Datasets = React.forwardRef(function Datasets(
   {
     sx,
     data: datasetsProp,
+    organizationId,
     datasetsOptions,
     commonLabels,
     tags = [],
@@ -86,6 +87,7 @@ const Datasets = React.forwardRef(function Datasets(
   const { data, isLoading } = useDatasets(
     {
       countries: selectedCountries,
+      organizationId,
       locale,
       page,
       q,

@@ -222,6 +222,16 @@ const DatasetsAndDocuments = {
               },
               fields: [
                 {
+                  name: "organizationId",
+                  type: "text",
+                  label: {
+                    en: "Organization ID",
+                    fr: "ID de l'organisation",
+                    pt: "ID da organização",
+                  },
+                  required: true,
+                },
+                {
                   name: "sortOptions",
                   type: "array",
                   minRows: 1,
