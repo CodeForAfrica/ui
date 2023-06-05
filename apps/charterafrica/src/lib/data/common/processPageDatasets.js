@@ -51,48 +51,52 @@ export default async function processPageDatasets(page, api, context) {
   );
 
   if (datasetsIndex > -1) {
-    const {
-      datasets: { organizationId },
-    } = blocks[datasetsIndex];
-    const data = await fetchDatasets(organizationId, pageUrl, {
-      locale,
-    });
-    const { count, datasets, countries, tags, totalPages } = data;
-    const {
-      documents: { showDocuments },
-      datasets: datasetsOptions,
-    } = blocks[datasetsIndex];
+    const { showDatasets, showDocuments } = blocks[datasetsIndex];
+
+    if (showDatasets) {
+      const {
+        datasets: { organizationId, filterBar, labels },
+      } = blocks[datasetsIndex];
+
+      const data = await fetchDatasets(organizationId, pageUrl, {
+        locale,
+      });
+
+      blocks[datasetsIndex] = {
+        ...blocks[datasetsIndex],
+        datasets: {
+          data,
+          filterBar,
+          labels,
+          organizationId,
+        },
+      };
+    }
 
     if (showDocuments) {
       const { documents: datasetsDocuments } = blocks[datasetsIndex];
       const {
         labels,
-        sortOptions,
+        filterBar,
         documents: { groupID, options },
       } = datasetsDocuments;
-      const documentsData = await fetchDocuments(
+      const data = await fetchDocuments(
         `group:${groupID}`,
         getDocumentsQuery(context, options)
       );
       blocks[datasetsIndex] = {
         ...blocks[datasetsIndex],
-        documentsOptions: {
+        documents: {
+          data,
+          filterBar,
           labels,
-          sortOptions,
         },
-        documents: documentsData,
       };
     }
     blocks[datasetsIndex] = {
       ...blocks[datasetsIndex],
-      count,
-      countries,
-      data: datasets,
-      organizationId,
-      datasetsOptions,
-      tags,
-      totalPages,
-      includeDocuments: showDocuments,
+      showDatasets,
+      showDocuments,
     };
 
     let swrKey = `/api/v1/resources/datasets`;
@@ -102,7 +106,7 @@ export default async function processPageDatasets(page, api, context) {
     }
     // eslint-disable-next-line no-param-reassign
     page.fallback = {
-      [`${swrKey}`]: data,
+      [`${swrKey}`]: [],
     };
   }
 

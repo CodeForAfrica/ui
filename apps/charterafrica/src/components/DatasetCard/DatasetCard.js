@@ -19,7 +19,7 @@ function DatasetCard({
   notes,
   title,
   created,
-  commonLabels,
+  labels,
   updated,
   author,
   href,
@@ -62,9 +62,9 @@ function DatasetCard({
                 {title}
               </LineClampedRichTypography>
               <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
-                {commonLabels.updated}{" "}
+                {labels.updated}{" "}
                 {formatDateTime(updated, { includeTime: false })} |{" "}
-                {commonLabels.created}{" "}
+                {labels.created}{" "}
                 {formatDateTime(created, { includeTime: false })}
               </Typography>
               <Typography variant="p1SemiBold" color="neutral.main">
@@ -92,7 +92,7 @@ function DatasetCard({
                 }}
                 onClick={handleClick}
               >
-                {showAll ? commonLabels.readLess : commonLabels.readMore}
+                {showAll ? labels.readLess : labels.readMore}
               </Button>
             </Grid>
             {formats.length ? (
