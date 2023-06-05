@@ -1,3 +1,5 @@
+import featuredPost from "../fields/featuredPost";
+
 const FeaturedPost = {
   slug: "featured-post",
   labels: {
@@ -12,19 +14,7 @@ const FeaturedPost = {
       fr: "Après sélectionnée",
     },
   },
-  fields: [
-    {
-      name: "featuredPost",
-      label: {
-        en: "Featured Post",
-        pt: "Postagem em destaque",
-        fr: "Après sélectionnée",
-      },
-      type: "relationship",
-      relationTo: ["news", "research", "events"],
-      required: true,
-    },
-  ],
+  fields: [featuredPost()],
 };
 
 export default FeaturedPost;

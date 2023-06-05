@@ -3,12 +3,12 @@ const OurExplainers = {
   labels: {
     singular: {
       en: "Explainers",
-      fr: "Des explicateurs ",
+      fr: "Des explicateurs",
       pt: "Explicadores",
     },
     plural: {
       en: "Explainers",
-      fr: "Des explicateurs ",
+      fr: "Des explicateurs",
       pt: "Explicadores",
     },
   },
