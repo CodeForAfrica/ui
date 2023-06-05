@@ -15,7 +15,7 @@ function Dataset({
   created,
   formats,
   notes,
-  commonLabels,
+  labels,
   related,
   pageUrl,
 }) {
@@ -49,15 +49,15 @@ function Dataset({
                 mb: 2,
               }}
             >
-              {commonLabels.backToDatasets}
+              {labels.backToDatasets}
             </Typography>
             <Typography variant="h4" component="h2" gutterBottom>
               {title}
             </Typography>
             <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
-              {`${commonLabels.updated} ${formatDateTime(updated, {
+              {`${labels.updated} ${formatDateTime(updated, {
                 includeTime: false,
-              })} | ${commonLabels.created} ${formatDateTime(created, {
+              })} | ${labels.created} ${formatDateTime(created, {
                 includeTime: false,
               })}`}
             </Typography>
@@ -123,7 +123,7 @@ function Dataset({
                 width: "100%",
               }}
             >
-              {commonLabels.backToDatasets}
+              {labels.backToDatasets}
             </Typography>
             <Button
               variant="contained"
@@ -140,11 +140,11 @@ function Dataset({
                 height: "50px",
               }}
             >
-              {commonLabels.openDataset}
+              {labels.openDataset}
             </Button>
             <Grid item xs={12}>
               <ShareThisPage
-                title={commonLabels.shareDataset}
+                title={labels.shareDataset}
                 sx={{
                   alignItems: {
                     xs: "center",
@@ -182,7 +182,7 @@ function Dataset({
               href={url}
               target="_blank"
             >
-              {commonLabels.openDataset}
+              {labels.openDataset}
             </Button>
           </Box>
         </Box>
@@ -200,7 +200,7 @@ function Dataset({
             textAlign: "right",
           }}
         >
-          {commonLabels.backToDatasets}
+          {labels.backToDatasets}
         </Typography>
         <Box
           sx={{
@@ -215,7 +215,7 @@ function Dataset({
           >
             <Grid item>
               <Typography variant="h3" color="neutral.dark" gutterBottom>
-                {commonLabels.seeMoreDatasets}
+                {labels.seeMoreDatasets}
               </Typography>
             </Grid>
             <Grid item>
@@ -232,7 +232,7 @@ function Dataset({
                   width: "100%",
                 }}
               >
-                {commonLabels.seeMoreDatasets}
+                {labels.seeMoreDatasets}
               </Typography>
             </Grid>
           </Grid>
@@ -241,7 +241,7 @@ function Dataset({
             <DatasetCard
               {...dataset}
               key={dataset.id}
-              commonLabels={commonLabels}
+              labels={labels}
               sx={{
                 borderBottom: "none",
                 "&:last-of-type": {
@@ -265,7 +265,7 @@ function Dataset({
               textAlign: "left",
             }}
           >
-            {commonLabels.backToDatasets}
+            {labels.backToDatasets}
           </Typography>
         </Box>
       </Section>

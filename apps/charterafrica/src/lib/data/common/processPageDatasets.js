@@ -21,9 +21,9 @@ async function processSingleDataset(page, api, context) {
     return null;
   }
 
-  const { commonLabels = {} } = blocks.find(
-    ({ slug }) => slug === "datasetsAndDocuments"
-  );
+  const {
+    datasets: { labels },
+  } = blocks.find(({ slug }) => slug === "datasetsAndDocuments");
 
   return {
     ...page,
@@ -31,7 +31,7 @@ async function processSingleDataset(page, api, context) {
     blocks: [
       {
         ...dataset,
-        commonLabels,
+        labels,
         slug: "dataset",
       },
     ],
