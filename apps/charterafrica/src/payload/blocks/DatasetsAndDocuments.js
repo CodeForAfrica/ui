@@ -215,10 +215,21 @@ const DatasetsAndDocuments = {
           },
           fields: [
             {
+              name: "showDatasets",
+              type: "checkbox",
+              label: {
+                en: "Show Datasets",
+                fr: "Afficher les ensembles de données",
+                pt: "Mostrar conjuntos de dados",
+              },
+              defaultValue: true,
+            },
+            {
               name: "datasets",
               type: "group",
               admin: {
                 hideGutter: true,
+                condition: (_, siblingData) => siblingData?.showDatasets,
               },
               fields: [
                 {
