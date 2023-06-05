@@ -89,7 +89,7 @@ function formatResponse(data, pathname, locale) {
   const tagsList = Object.keys(tags || {}).sort(sortStrings);
   const countries = countriesByContinent("Africa").map(({ label, value }) => ({
     value,
-    label: label[locale].toLowerCase(),
+    label: label[locale],
   }));
   return {
     count,
