@@ -4,30 +4,34 @@ import {
   ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,
+  ECOSYSTEM_CONFIG,
 } from "@/charterafrica/lib/ecosystem/models";
+import api from "@/charterafrica/lib/payload";
 
 export const updateEcosystemList = async (req, res) => {
+  const config = await api.findGlobal(ECOSYSTEM_CONFIG, {});
   const args = {
-    baseId: "appDuwqg5qeS4h5ji",
-    tableIdOrName: "tblBhgz5VmG9IZVe4",
+    baseId: config.airtableBase,
+    tableIdOrName: config.toolsTableName,
   };
   const response = await getListFromAirtable(args);
   res.status(200).json(response);
 };
 
 const processOrganisationFromAirTable = async (data) => {
+  const config = await api.findGlobal(ECOSYSTEM_CONFIG, {});
   const description = {
-    en: data["Organisation Description"],
-    pt: data["Organisation Description(Portuguese)"],
-    fr: data["Organisation Description(French)"],
+    en: data[config.organisationDescription.english],
+    pt: data[config.organisationDescription.portuguese],
+    fr: data[config.organisationDescription.french],
   };
   const unLocalizedData = {
     airtableId: data.id,
-    externalId: data["Organisation Username"] || data.id,
-    name: data["Organisation Name"]?.[0],
-    type: data["Organisation Type"],
-    repoLink: data["Organisation Github"],
-    donors: [], // data.Donors,
+    externalId: data[config.organisationUserName] || data.id,
+    name: data[config.organisationName]?.[0],
+    type: data[config.organisationType],
+    repoLink: data[config.organisationRepoLink],
+    donors: [], // data.Donors, UPDATE when source is sanitized
     partners: [], // data.Partners,
   };
   return {
@@ -47,16 +51,16 @@ const processOrganisationFromAirTable = async (data) => {
 };
 
 const processContributorFromAirtable = async (data) => {
+  const config = await api.findGlobal(ECOSYSTEM_CONFIG, {});
   const description = {
-    en: data["Contributors Description"],
-    pt: data["Contributors Description(Portuguese)"],
-    fr: data["Contributors Description(French)"],
+    en: data[config.contributorDescription.english],
+    pt: data[config.contributorDescription.portuguese],
+    fr: data[config.contributorDescription.french],
   };
   const defaultData = {
     airtableId: data.id,
-    externalId: data["Contributors Username"] || data.id,
-    type: data["Organisation Type"],
-    repoLink: data["Organisation Github"],
+    externalId: data[config.contributorUserName] || data.id,
+    repoLink: `https://github.com/${data.id}`,
     donors: [], // data.Donors,
     partners: [], // data.Partners,
   };
@@ -77,27 +81,29 @@ const processContributorFromAirtable = async (data) => {
 };
 
 const processToolFromAirtable = async (data) => {
+  const config = await api.findGlobal(ECOSYSTEM_CONFIG, {});
   const theme = {
-    en: data.Theme?.[0],
-    pt: data["Theme(Portuguese)"]?.[0],
-    fr: data["Theme(French)"]?.[0],
+    en: data[config.toolTheme.english]?.[0],
+    pt: data[config.toolTheme.portuguese]?.[0],
+    fr: data[config.toolTheme.french]?.[0],
   };
   const description = {
-    en: data["Tool Description"] || "",
-    pt: data["Tool Description(Portuguese)"] || "",
-    fr: data["Tool Description(French)"] || "",
+    en: data[config.toolsDescription.english] || "",
+    pt: data[config.toolsDescription.portuguese] || "",
+    fr: data[config.toolsDescription.french] || "",
   };
+
   const operatingCountries = [];
-  const homeCountry = data["Tool Location"];
+  const homeCountry = data[config.homeCountry];
   const defaultData = {
     airtableId: data.id,
-    externalId: data["Tool Github"],
-    repoLink: data["Tool Github"],
-    name: data["Tool Name"],
-    link: data["Tool Link"],
+    externalId: data[config.toolExternalId],
+    repoLink: data[config.toolRepoLink],
+    name: data[config.toolName],
+    link: data[config.toolLink],
     operatingCountries,
-    contributors: data["Contributors Table 2"],
-    organisation: data["Organisation Table"]?.[0],
+    contributors: data[config.toolContributors],
+    organisation: data[config.toolOrganisation]?.[0],
     donors: [], // data.Donors,
     partners: [], //  data.Partners,
     homeCountry,
@@ -124,12 +130,11 @@ const processToolFromAirtable = async (data) => {
 };
 
 export const updateEcosystemContent = async (req, res) => {
-  const baseId = "appDuwqg5qeS4h5ji";
-  const toolTableName = "Tools Table";
-  const contributorsTableName = "tblgVBmrpYETy3F51";
-  // const donorsTableName = "tblPQVgk6voDcxvtO";
-  const organisationTable = "tblPGobbSBkFJaM5p";
-
+  const config = await api.findGlobal(ECOSYSTEM_CONFIG, {});
+  const baseId = config.airtableBase;
+  const toolTableName = config.toolsTableName;
+  const contributorsTableName = config.contributorTableName;
+  const organisationTable = config.organisationTableName;
   const contributorsFromAirtTable = await getListFromAirtable({
     baseId,
     tableIdOrName: contributorsTableName,
