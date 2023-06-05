@@ -27,184 +27,6 @@ const DatasetsAndDocuments = {
   slug: "datasetsAndDocuments",
   fields: [
     {
-      label: {
-        en: "Common Labels",
-        fr: "Étiquettes communes",
-        pt: "Rótulos comuns",
-      },
-      type: "collapsible",
-      fields: [
-        {
-          name: "commonLabels",
-          type: "group",
-          label: {
-            en: "Labels",
-            fr: "Étiquettes",
-            pt: "Rótulos",
-          },
-          fields: [
-            {
-              type: "row",
-              fields: [
-                {
-                  name: "readMore",
-                  type: "text",
-                  label: {
-                    en: "Read More Label",
-                    fr: "Lire la suite",
-                    pt: "Leia mais",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Read More",
-                    fr: "Lire la suite",
-                    pt: "Leia mais",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "readLess",
-                  type: "text",
-                  label: {
-                    en: "Read Less Label",
-                    fr: "Lire moins",
-                    pt: "Leia menos",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Read Less",
-                    fr: "Lire moins",
-                    pt: "Leia menos",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "updated",
-                  type: "text",
-                  label: {
-                    en: "Updated At Label",
-                    fr: "Mis à jour à l'étiquette",
-                    pt: "Atualizado em",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Updated",
-                    fr: "Mis à jour",
-                    pt: "Atualizado",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "created",
-                  type: "text",
-                  label: {
-                    en: "Created At Label",
-                    fr: "Créé à l'étiquette",
-                    pt: "Criado em",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Created",
-                    fr: "Créé",
-                    pt: "Criado",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "openDataset",
-                  type: "text",
-                  label: {
-                    en: "Open Dataset Label",
-                    fr: "Ouvrir l'étiquette de jeu de données",
-                    pt: "Abrir rótulo do conjunto de dados",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Open Dataset",
-                    fr: "Ouvrir le jeu de données",
-                    pt: "Abrir conjunto de dados",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "backToDatasets",
-                  type: "text",
-                  label: {
-                    en: "Back to Datasets Label",
-                    fr: "Retour aux étiquettes de jeux de données",
-                    pt: "Voltar para rótulos de conjuntos de dados",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Back to Datasets",
-                    fr: "Retour aux jeux de données",
-                    pt: "Voltar para conjuntos de dados",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "seeMoreDatasets",
-                  type: "text",
-                  label: {
-                    en: "See More Datasets Label",
-                    fr: "Voir plus d'étiquettes de jeux de données",
-                    pt: "Ver mais rótulos de conjuntos de dados",
-                  },
-                  defaultValue: defaultValue({
-                    en: "See More Datasets",
-                    fr: "Voir plus de jeux de données",
-                    pt: "Ver mais conjuntos de dados",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-                {
-                  name: "shareDataset",
-                  type: "text",
-                  label: {
-                    en: "Share Dataset Label",
-                    fr: "Partager l'étiquette de jeu de données",
-                    pt: "Compartilhar rótulo do conjunto de dados",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Share Dataset",
-                    fr: "Partager le jeu de données",
-                    pt: "Compartilhar conjunto de dados",
-                  }),
-                  required: true,
-                  localized: true,
-                  admin: {
-                    width: "50%",
-                  },
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
       type: "tabs",
       tabs: [
         {
@@ -243,56 +65,167 @@ const DatasetsAndDocuments = {
                   required: true,
                 },
                 {
-                  name: "sortOptions",
-                  type: "array",
-                  minRows: 1,
-                  label: {
-                    en: "Sort Options",
-                    fr: "Options de tri",
-                    pt: "Opções de classificação",
+                  name: "filterBar",
+                  type: "group",
+                  admin: {
+                    hideGutter: true,
                   },
                   fields: [
                     {
-                      name: "value",
-                      type: "select",
-                      options: datasetsSortOptions.map((value) => {
-                        return {
-                          value,
-                          label: value,
-                        };
-                      }),
-                      unique: true,
-                      required: true,
-                      validate: (val, options) => {
-                        const { data, t } = options || {};
-                        if (
-                          data?.options?.filter((l) => l.value === val)
-                            ?.length > 1
-                        ) {
-                          return t("charterafrica.site:uniqueSortOptions");
-                        }
-                        return array(val, options);
+                      name: "search",
+                      type: "group",
+                      admin: {
+                        hideGutter: true,
                       },
+                      fields: [
+                        {
+                          name: "label",
+                          type: "text",
+                          label: {
+                            en: "Search Label",
+                            fr: "Étiquette de recherche",
+                            pt: "Rótulo de pesquisa",
+                          },
+                          required: true,
+                          localized: true,
+                          defaultValue: defaultValue({
+                            en: "Search",
+                            fr: "Rechercher",
+                            pt: "Pesquisar",
+                          }),
+                        },
+                      ],
                     },
                     {
-                      name: "label",
-                      type: "text",
-                      label: {
-                        en: "Label",
-                        fr: "Étiquette",
-                        pt: "Rótulo",
+                      name: "sort",
+                      type: "group",
+                      admin: {
+                        hideGutter: true,
                       },
-                      required: true,
+                      fields: [
+                        {
+                          name: "label",
+                          type: "text",
+                          label: {
+                            en: "Sort Label",
+                            fr: "Étiquette de tri",
+                            pt: "Rótulo de classificação",
+                          },
+                          defaultValue: defaultValue({
+                            en: "Sort",
+                            fr: "Trier",
+                            pt: "Classificar",
+                          }),
+                          required: true,
+                          localized: true,
+                        },
+                        {
+                          name: "options",
+                          type: "array",
+                          minRows: 1,
+                          label: {
+                            en: "Sort Options",
+                            fr: "Options de tri",
+                            pt: "Opções de classificação",
+                          },
+                          fields: [
+                            {
+                              name: "value",
+                              type: "select",
+                              options: datasetsSortOptions.map((value) => {
+                                return {
+                                  value,
+                                  label: value,
+                                };
+                              }),
+                              unique: true,
+                              required: true,
+                              validate: (val, options) => {
+                                const { data, t } = options || {};
+                                if (
+                                  data?.options?.filter((l) => l.value === val)
+                                    ?.length > 1
+                                ) {
+                                  return t(
+                                    "charterafrica.site:uniqueSortOptions"
+                                  );
+                                }
+                                return array(val, options);
+                              },
+                            },
+                            {
+                              name: "label",
+                              type: "text",
+                              label: {
+                                en: "Label",
+                                fr: "Étiquette",
+                                pt: "Rótulo",
+                              },
+                              required: true,
+                            },
+                          ],
+                          admin: {
+                            initCollapsed: true,
+                            components: {
+                              RowLabel: ({ data }) => {
+                                return data?.label || data?.value || data?.id;
+                              },
+                            },
+                          },
+                        },
+                      ],
+                    },
+                    {
+                      name: "countries",
+                      type: "group",
+                      admin: {
+                        hideGutter: true,
+                      },
+                      fields: [
+                        {
+                          name: "label",
+                          type: "text",
+                          label: {
+                            en: "Countries Label",
+                            fr: "Étiquette des pays",
+                            pt: "Rótulo dos países",
+                          },
+                          defaultValue: defaultValue({
+                            en: "Countries",
+                            fr: "Pays",
+                            pt: "Países",
+                          }),
+                          required: true,
+                          localized: true,
+                        },
+                      ],
+                    },
+                    {
+                      name: "tags",
+                      type: "group",
+                      admin: {
+                        hideGutter: true,
+                      },
+                      fields: [
+                        {
+                          name: "label",
+                          type: "text",
+                          label: {
+                            en: "Tags Label",
+                            fr: "Étiquette des tags",
+                            pt: "Rótulo das tags",
+                          },
+                          defaultValue: defaultValue({
+                            en: "Tags",
+                            fr: "Tags",
+                            pt: "Tags",
+                          }),
+                          required: true,
+                          localized: true,
+                        },
+                      ],
                     },
                   ],
-                  admin: {
-                    initCollapsed: true,
-                    components: {
-                      RowLabel: ({ data }) => {
-                        return data?.label || data?.value || data?.id;
-                      },
-                    },
-                  },
                 },
                 {
                   name: "labels",
@@ -310,36 +243,17 @@ const DatasetsAndDocuments = {
                       type: "row",
                       fields: [
                         {
-                          name: "search",
+                          name: "readMore",
                           type: "text",
                           label: {
-                            en: "Search Label",
-                            fr: "Étiquette de recherche",
-                            pt: "Rótulo de pesquisa",
-                          },
-                          required: true,
-                          localized: true,
-                          defaultValue: defaultValue({
-                            en: "Search",
-                            fr: "Rechercher",
-                            pt: "Pesquisar",
-                          }),
-                          admin: {
-                            width: "50%",
-                          },
-                        },
-                        {
-                          name: "sort",
-                          type: "text",
-                          label: {
-                            en: "Sort Label",
-                            fr: "Étiquette de tri",
-                            pt: "Rótulo de classificação",
+                            en: "Read More Label",
+                            fr: "Lire la suite",
+                            pt: "Leia mais",
                           },
                           defaultValue: defaultValue({
-                            en: "Sort",
-                            fr: "Trier",
-                            pt: "Classificar",
+                            en: "Read More",
+                            fr: "Lire la suite",
+                            pt: "Leia mais",
                           }),
                           required: true,
                           localized: true,
@@ -348,17 +262,17 @@ const DatasetsAndDocuments = {
                           },
                         },
                         {
-                          name: "countries",
+                          name: "readLess",
                           type: "text",
                           label: {
-                            en: "Countries Label",
-                            fr: "Étiquette des pays",
-                            pt: "Rótulo dos países",
+                            en: "Read Less Label",
+                            fr: "Lire moins",
+                            pt: "Leia menos",
                           },
                           defaultValue: defaultValue({
-                            en: "Countries",
-                            fr: "Pays",
-                            pt: "Países",
+                            en: "Read Less",
+                            fr: "Lire moins",
+                            pt: "Leia menos",
                           }),
                           required: true,
                           localized: true,
@@ -367,17 +281,112 @@ const DatasetsAndDocuments = {
                           },
                         },
                         {
-                          name: "tags",
+                          name: "updated",
                           type: "text",
                           label: {
-                            en: "Tags Label",
-                            fr: "Étiquette des tags",
-                            pt: "Rótulo das tags",
+                            en: "Updated At Label",
+                            fr: "Mis à jour à l'étiquette",
+                            pt: "Atualizado em",
                           },
                           defaultValue: defaultValue({
-                            en: "Tags",
-                            fr: "Tags",
-                            pt: "Tags",
+                            en: "Updated",
+                            fr: "Mis à jour",
+                            pt: "Atualizado",
+                          }),
+                          required: true,
+                          localized: true,
+                          admin: {
+                            width: "50%",
+                          },
+                        },
+                        {
+                          name: "created",
+                          type: "text",
+                          label: {
+                            en: "Created At Label",
+                            fr: "Créé à l'étiquette",
+                            pt: "Criado em",
+                          },
+                          defaultValue: defaultValue({
+                            en: "Created",
+                            fr: "Créé",
+                            pt: "Criado",
+                          }),
+                          required: true,
+                          localized: true,
+                          admin: {
+                            width: "50%",
+                          },
+                        },
+                        {
+                          name: "openDataset",
+                          type: "text",
+                          label: {
+                            en: "Open Dataset Label",
+                            fr: "Ouvrir l'étiquette de jeu de données",
+                            pt: "Abrir rótulo do conjunto de dados",
+                          },
+                          defaultValue: defaultValue({
+                            en: "Open Dataset",
+                            fr: "Ouvrir le jeu de données",
+                            pt: "Abrir conjunto de dados",
+                          }),
+                          required: true,
+                          localized: true,
+                          admin: {
+                            width: "50%",
+                          },
+                        },
+                        {
+                          name: "backToDatasets",
+                          type: "text",
+                          label: {
+                            en: "Back to Datasets Label",
+                            fr: "Retour aux étiquettes de jeux de données",
+                            pt: "Voltar para rótulos de conjuntos de dados",
+                          },
+                          defaultValue: defaultValue({
+                            en: "Back to Datasets",
+                            fr: "Retour aux jeux de données",
+                            pt: "Voltar para conjuntos de dados",
+                          }),
+                          required: true,
+                          localized: true,
+                          admin: {
+                            width: "50%",
+                          },
+                        },
+                        {
+                          name: "seeMoreDatasets",
+                          type: "text",
+                          label: {
+                            en: "See More Datasets Label",
+                            fr: "Voir plus d'étiquettes de jeux de données",
+                            pt: "Ver mais rótulos de conjuntos de dados",
+                          },
+                          defaultValue: defaultValue({
+                            en: "See More Datasets",
+                            fr: "Voir plus de jeux de données",
+                            pt: "Ver mais conjuntos de dados",
+                          }),
+                          required: true,
+                          localized: true,
+                          admin: {
+                            width: "50%",
+                          },
+                        },
+                        {
+                          name: "shareDataset",
+                          type: "text",
+                          label: {
+                            en: "Share Dataset Label",
+                            fr: "Partager l'étiquette de jeu de données",
+                            pt: "Compartilhar rótulo do conjunto de dados",
+                          },
+                          defaultValue: defaultValue({
+                            en: "Share Dataset",
+                            fr: "Partager le jeu de données",
+                            pt: "Compartilhar conjunto de dados",
                           }),
                           required: true,
                           localized: true,
@@ -399,33 +408,35 @@ const DatasetsAndDocuments = {
             fr: "Documents",
             pt: "Documentos",
           },
-          description: {
-            en: "Configure the documents block",
-            fr: "Configurez le bloc de documents",
-            pt: "Configure o bloco de documentos",
-          },
           fields: [
+            {
+              name: "showDocuments",
+              type: "checkbox",
+              label: {
+                en: "Show Documents",
+                fr: "Afficher les documents",
+                pt: "Mostrar documentos",
+              },
+              defaultValue: true,
+            },
             {
               name: "documents",
               type: "group",
+              label: {
+                en: "Documents",
+                fr: "Documents",
+                pt: "Documentos",
+              },
+              admin: {
+                condition: (_, siblingData) => siblingData?.showDocuments,
+                hideGutter: true,
+              },
               fields: [
                 {
-                  name: "showDocuments",
-                  type: "checkbox",
-                  label: {
-                    en: "Show Documents",
-                    fr: "Afficher les documents",
-                    pt: "Mostrar documentos",
-                  },
-                  defaultValue: true,
-                },
-                {
-                  name: "documents",
+                  name: "organization",
                   type: "group",
-                  label: {
-                    en: "Documents",
-                    fr: "Documents",
-                    pt: "Documentos",
+                  admin: {
+                    hideGutter: true,
                   },
                   fields: [
                     {
@@ -502,78 +513,23 @@ const DatasetsAndDocuments = {
                       },
                     },
                   ],
+                },
+                {
+                  name: "filterBar",
+                  type: "group",
                   admin: {
-                    condition: (_, siblingData) => siblingData?.showDocuments,
                     hideGutter: true,
                   },
-                },
-                {
-                  name: "sortOptions",
-                  type: "array",
-                  minRows: 1,
-                  label: {
-                    en: "Sort Options",
-                    fr: "Options de tri",
-                    pt: "Opções de classificação",
-                  },
                   fields: [
                     {
-                      name: "value",
-                      type: "select",
-                      options: documentSortOptions.map((value) => {
-                        return {
-                          value,
-                          label: value,
-                        };
-                      }),
-                      unique: true,
-                      required: true,
-                      validate: (val, options) => {
-                        const { data, t } = options || {};
-                        if (
-                          data?.options?.filter((l) => l.value === val)
-                            ?.length > 1
-                        ) {
-                          return t("charterafrica.site:uniqueSortOptions");
-                        }
-                        return array(val, options);
+                      name: "search",
+                      type: "group",
+                      admin: {
+                        hideGutter: true,
                       },
-                    },
-                    {
-                      name: "label",
-                      type: "text",
-                      label: {
-                        en: "Label",
-                        fr: "Étiquette",
-                        pt: "Rótulo",
-                      },
-                      required: true,
-                    },
-                  ],
-                  admin: {
-                    initCollapsed: true,
-                    components: {
-                      RowLabel: ({ data }) => {
-                        return data?.label || data?.value || data?.id;
-                      },
-                    },
-                    condition: (_, siblingData) => siblingData?.showDocuments,
-                  },
-                },
-                {
-                  name: "labels",
-                  type: "group",
-                  label: {
-                    en: "Labels",
-                    fr: "Étiquettes",
-                    pt: "Rótulos",
-                  },
-                  fields: [
-                    {
-                      type: "row",
                       fields: [
                         {
-                          name: "search",
+                          name: "label",
                           type: "text",
                           label: {
                             en: "Search Label",
@@ -587,12 +543,18 @@ const DatasetsAndDocuments = {
                           }),
                           required: true,
                           localized: true,
-                          admin: {
-                            width: "50%",
-                          },
                         },
+                      ],
+                    },
+                    {
+                      name: "sort",
+                      type: "group",
+                      admin: {
+                        hideGutter: true,
+                      },
+                      fields: [
                         {
-                          name: "sort",
+                          name: "label",
                           type: "text",
                           label: {
                             en: "Sort Label",
@@ -606,17 +568,105 @@ const DatasetsAndDocuments = {
                           }),
                           required: true,
                           localized: true,
-                          admin: {
-                            width: "50%",
+                        },
+                        {
+                          name: "options",
+                          type: "array",
+                          minRows: 1,
+                          label: {
+                            en: "Sort Options",
+                            fr: "Options de tri",
+                            pt: "Opções de classificação",
                           },
+                          fields: [
+                            {
+                              name: "value",
+                              type: "select",
+                              options: documentSortOptions.map((value) => {
+                                return {
+                                  value,
+                                  label: value,
+                                };
+                              }),
+                              unique: true,
+                              required: true,
+                              validate: (val, options) => {
+                                const { data, t } = options || {};
+                                if (
+                                  data?.options?.filter((l) => l.value === val)
+                                    ?.length > 1
+                                ) {
+                                  return t(
+                                    "charterafrica.site:uniqueSortOptions"
+                                  );
+                                }
+                                return array(val, options);
+                              },
+                            },
+                            {
+                              name: "label",
+                              type: "text",
+                              label: {
+                                en: "Label",
+                                fr: "Étiquette",
+                                pt: "Rótulo",
+                              },
+                              required: true,
+                            },
+                          ],
                         },
                       ],
                     },
                   ],
+                },
+                {
+                  name: "labels",
+                  type: "group",
+                  label: {
+                    en: "Labels",
+                    fr: "Étiquettes",
+                    pt: "Rótulos",
+                  },
                   admin: {
                     hideGutter: true,
-                    condition: (_, siblingData) => siblingData?.showDocuments,
                   },
+                  fields: [
+                    {
+                      type: "row",
+                      fields: [
+                        {
+                          name: "Pages",
+                          type: "text",
+                          label: {
+                            en: "No of Pages Label",
+                            fr: "Nombre de pages",
+                            pt: "Número de páginas",
+                          },
+                          defaultValue: defaultValue({
+                            en: "Pages",
+                            fr: "Pages",
+                            pt: "Páginas",
+                          }),
+                          required: true,
+                        },
+                        {
+                          name: "contributedBy",
+                          type: "text",
+                          label: {
+                            en: "Contributed By",
+                            fr: "Contributed By",
+                            pt: "Contributed By",
+                          },
+                          defaultValue: defaultValue({
+                            en: "Contributed By",
+                            fr: "Contributed By",
+                            pt: "Contributed By",
+                          }),
+                          required: true,
+                        },
+                      ],
+                    },
+                  ],
                 },
               ],
             },
