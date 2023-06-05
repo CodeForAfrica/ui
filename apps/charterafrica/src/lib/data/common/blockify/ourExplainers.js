@@ -1,14 +1,13 @@
-async function ourExplainers(block, api, context) {
+async function ourExplainers(block, _, api, context) {
   if (block) {
     const collection = await api.getCollection("explainers", context);
     const explainers = collection.docs || null;
 
     return {
-      ...block,
-      explainers,
+      block: { ...block, explainers },
     };
   }
-  return block;
+  return { block };
 }
 
 export default ourExplainers;

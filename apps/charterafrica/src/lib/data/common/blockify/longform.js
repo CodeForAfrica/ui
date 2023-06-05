@@ -7,11 +7,10 @@ async function longform(block) {
     }));
 
     return {
-      ...block,
-      content,
+      block: { ...block, content },
     };
   }
-  return block;
+  return { block };
 }
 
 export default longform;

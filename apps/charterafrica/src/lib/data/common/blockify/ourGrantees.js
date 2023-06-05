@@ -1,4 +1,4 @@
-async function ourGrantees(block, api, { locale }) {
+async function ourGrantees(block, _, api, { locale }) {
   if (block) {
     const { sort } = block;
     const { docs } = await api.getCollection("grantees", {
@@ -9,11 +9,10 @@ async function ourGrantees(block, api, { locale }) {
     const grantees = docs.map((item) => ({ ...item, image: item.coverImage }));
 
     return {
-      ...block,
-      grantees,
+      block: { ...block, grantees },
     };
   }
-  return block;
+  return { block };
 }
 
 export default ourGrantees;
