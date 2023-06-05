@@ -7,6 +7,7 @@ export const DIGITAL_DEMOCRACY_ECOSYSTEM = "digital-democracy-ecosystem-config";
 
 const create = async (collection, toCreate, locale) => {
   const { docs } = await api.getCollection(collection, {
+    locale,
     where: {
       airtableId: { equals: toCreate.airtableId },
     },

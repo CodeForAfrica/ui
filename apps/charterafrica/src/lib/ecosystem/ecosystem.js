@@ -83,9 +83,9 @@ const processToolFromAirtable = async (data) => {
     fr: data["Theme(French)"]?.[0],
   };
   const description = {
-    en: data["Tool Description"],
-    pt: data["Tool Description(Portuguese)"],
-    fr: data["Tool Description(French)"],
+    en: data["Tool Description"] || "",
+    pt: data["Tool Description(Portuguese)"] || "",
+    fr: data["Tool Description(French)"] || "",
   };
   const operatingCountries = [];
   const homeCountry = data["Tool Location"];
@@ -96,7 +96,6 @@ const processToolFromAirtable = async (data) => {
     name: data["Tool Name"],
     link: data["Tool Link"],
     operatingCountries,
-    funder: null,
     contributors: data["Contributors Table 2"],
     organisation: data["Organisation Table"]?.[0],
     donors: [], // data.Donors,
@@ -104,6 +103,7 @@ const processToolFromAirtable = async (data) => {
     homeCountry,
     otherSocialMedia: [],
   };
+
   return {
     en: {
       ...defaultData,
