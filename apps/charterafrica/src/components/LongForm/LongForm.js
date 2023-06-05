@@ -33,7 +33,7 @@ const LongForm = React.forwardRef(function LongForm(props, ref) {
         {content.map((c) => {
           const Component = COMPONENT_BY_LONG_FORM_TYPE[c.slug];
           if (Component) {
-            return <Component {...c} key={c.slug} />;
+            return <Component {...c} key={c.id} />;
           }
           return null;
         })}
