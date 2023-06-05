@@ -6,7 +6,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function useDatasets(query, pathname) {
   const qs = queryString(query);
-  const qsPath = qs ? `?${qs}&path=${pathname}` : `?path=${pathname}`;
+  const qsPath = qs ? `?${qs}&pathname=${pathname}` : `?pathname=${pathname}`;
   const { data, error } = useSWR(
     `/api/v1/resources/datasets${qsPath}`,
     fetcher
