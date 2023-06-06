@@ -89,178 +89,145 @@ const DatasetsAndDocuments = {
                     filterBar({
                       fields: [
                         {
-                          type: "collapsible",
-                          label: {
-                            en: "Search Input",
-                            fr: "Entrée de recherche",
-                            pt: "Entrada de pesquisa",
+                          name: "search",
+                          type: "group",
+                          admin: {
+                            hideGutter: true,
                           },
                           fields: [
-                            {
-                              name: "search",
-                              type: "group",
-                              admin: {
-                                hideGutter: true,
+                            simpleLabel({
+                              label: {
+                                en: "Search Label",
+                                fr: "Étiquette de recherche",
+                                pt: "Rótulo de pesquisa",
                               },
-                              fields: [
-                                simpleLabel({
-                                  label: {
-                                    en: "Search Label",
-                                    fr: "Étiquette de recherche",
-                                    pt: "Rótulo de pesquisa",
-                                  },
-                                  defaultValue: defaultValue({
-                                    en: "Search",
-                                    fr: "Rechercher",
-                                    pt: "Pesquisar",
-                                  }),
-                                }),
-                              ],
-                            },
+                              defaultValue: defaultValue({
+                                en: "Search",
+                                fr: "Rechercher",
+                                pt: "Pesquisar",
+                              }),
+                            }),
                           ],
                         },
                         {
-                          type: "collapsible",
-                          label: {
-                            en: "Sort Filter",
-                            fr: "Filtre de tri",
-                            pt: "Filtro de classificação",
+                          name: "sort",
+                          type: "group",
+                          admin: {
+                            hideGutter: true,
+                            style: {
+                              marginTop: 10,
+                            },
                           },
                           fields: [
+                            simpleLabel({
+                              label: {
+                                en: "Sort Label",
+                                fr: "Étiquette de tri",
+                                pt: "Rótulo de classificação",
+                              },
+                              defaultValue: defaultValue({
+                                en: "Sort",
+                                fr: "Trier",
+                                pt: "Classificar",
+                              }),
+                            }),
                             {
-                              name: "sort",
-                              type: "group",
-                              admin: {
-                                hideGutter: true,
+                              name: "options",
+                              type: "array",
+                              minRows: 1,
+                              label: {
+                                en: "Sort Options",
+                                fr: "Options de tri",
+                                pt: "Opções de classificação",
                               },
                               fields: [
-                                {
-                                  name: "options",
-                                  type: "array",
-                                  minRows: 1,
-                                  label: {
-                                    en: "Sort Options",
-                                    fr: "Options de tri",
-                                    pt: "Opções de classificação",
+                                selectField({
+                                  name: "value",
+                                  options: datasetsSortOptions.map((value) => ({
+                                    value,
+                                    label: value,
+                                  })),
+                                  validate: (val, options) => {
+                                    const { data, t } = options || {};
+                                    if (
+                                      data?.options?.filter(
+                                        (l) => l.value === val
+                                      )?.length > 1
+                                    ) {
+                                      return t(
+                                        "charterafrica.site:uniqueSortOptions"
+                                      );
+                                    }
+                                    return array(val, options);
                                   },
-                                  fields: [
-                                    selectField({
-                                      name: "value",
-                                      options: datasetsSortOptions.map(
-                                        (value) => ({
-                                          value,
-                                          label: value,
-                                        })
-                                      ),
-                                      validate: (val, options) => {
-                                        const { data, t } = options || {};
-                                        if (
-                                          data?.options?.filter(
-                                            (l) => l.value === val
-                                          )?.length > 1
-                                        ) {
-                                          return t(
-                                            "charterafrica.site:uniqueSortOptions"
-                                          );
-                                        }
-                                        return array(val, options);
-                                      },
-                                    }),
-                                    simpleLabel({
-                                      label: {
-                                        en: "Label",
-                                        fr: "Étiquette",
-                                        pt: "Rótulo",
-                                      },
-                                    }),
-                                  ],
-                                  admin: {
-                                    initCollapsed: true,
-                                    components: {
-                                      RowLabel: ({ data }) => {
-                                        return (
-                                          data?.label || data?.value || data?.id
-                                        );
-                                      },
-                                    },
+                                }),
+                                simpleLabel({
+                                  label: {
+                                    en: "Label",
+                                    fr: "Étiquette",
+                                    pt: "Rótulo",
+                                  },
+                                }),
+                              ],
+                              admin: {
+                                initCollapsed: true,
+                                components: {
+                                  RowLabel: ({ data }) => {
+                                    return (
+                                      data?.label || data?.value || data?.id
+                                    );
                                   },
                                 },
-                                simpleLabel({
-                                  label: {
-                                    en: "Sort Label",
-                                    fr: "Étiquette de tri",
-                                    pt: "Rótulo de classificação",
-                                  },
-                                  defaultValue: defaultValue({
-                                    en: "Sort",
-                                    fr: "Trier",
-                                    pt: "Classificar",
-                                  }),
-                                }),
-                              ],
+                              },
                             },
                           ],
                         },
                         {
-                          type: "collapsible",
-                          label: {
-                            en: "Countries Filter",
-                            fr: "Filtre des pays",
-                            pt: "Filtro de países",
+                          name: "countries",
+                          type: "group",
+                          admin: {
+                            hideGutter: true,
+                            style: {
+                              marginTop: 10,
+                            },
                           },
                           fields: [
-                            {
-                              name: "countries",
-                              type: "group",
-                              admin: {
-                                hideGutter: true,
+                            simpleLabel({
+                              label: {
+                                en: "Countries Label",
+                                fr: "Étiquette des pays",
+                                pt: "Rótulo dos países",
                               },
-                              fields: [
-                                simpleLabel({
-                                  label: {
-                                    en: "Countries Label",
-                                    fr: "Étiquette des pays",
-                                    pt: "Rótulo dos países",
-                                  },
-                                  defaultValue: defaultValue({
-                                    en: "Countries",
-                                    fr: "Pays",
-                                    pt: "Países",
-                                  }),
-                                }),
-                              ],
-                            },
+                              defaultValue: defaultValue({
+                                en: "Countries",
+                                fr: "Pays",
+                                pt: "Países",
+                              }),
+                            }),
                           ],
                         },
                         {
-                          type: "collapsible",
-                          label: {
-                            en: "Tags Filter",
-                            fr: "Filtre des tags",
-                            pt: "Filtro de tags",
+                          name: "tags",
+                          type: "group",
+                          admin: {
+                            hideGutter: true,
+                            style: {
+                              marginTop: 10,
+                            },
                           },
                           fields: [
-                            {
-                              name: "tags",
-                              type: "group",
-                              admin: {
-                                hideGutter: true,
+                            simpleLabel({
+                              label: {
+                                en: "Tags Label",
+                                fr: "Étiquette des tags",
+                                pt: "Rótulo das tags",
                               },
-                              fields: [
-                                simpleLabel({
-                                  label: {
-                                    en: "Tags Label",
-                                    fr: "Étiquette des tags",
-                                    pt: "Rótulo das tags",
-                                  },
-                                  defaultValue: defaultValue({
-                                    en: "Tags",
-                                    fr: "Tags",
-                                    pt: "Tags",
-                                  }),
-                                }),
-                              ],
-                            },
+                              defaultValue: defaultValue({
+                                en: "Tags",
+                                fr: "Tags",
+                                pt: "Tags",
+                              }),
+                            }),
                           ],
                         },
                       ],
@@ -392,116 +359,97 @@ const DatasetsAndDocuments = {
                     filterBar({
                       fields: [
                         {
-                          type: "collapsible",
-                          label: {
-                            en: "Search Input",
-                            fr: "Entrée de recherche",
-                            pt: "Entrada de pesquisa",
+                          name: "search",
+                          type: "group",
+                          admin: {
+                            hideGutter: true,
                           },
                           fields: [
                             {
-                              name: "search",
-                              type: "group",
-                              admin: {
-                                hideGutter: true,
+                              name: "label",
+                              type: "text",
+                              label: {
+                                en: "Search Label",
+                                fr: "Étiquette de recherche",
+                                pt: "Rótulo de pesquisa",
                               },
-                              fields: [
-                                {
-                                  name: "label",
-                                  type: "text",
-                                  label: {
-                                    en: "Search Label",
-                                    fr: "Étiquette de recherche",
-                                    pt: "Rótulo de pesquisa",
-                                  },
-                                  defaultValue: defaultValue({
-                                    en: "Search",
-                                    fr: "Rechercher",
-                                    pt: "Pesquisar",
-                                  }),
-                                  required: true,
-                                  localized: true,
-                                },
-                              ],
+                              defaultValue: defaultValue({
+                                en: "Search",
+                                fr: "Rechercher",
+                                pt: "Pesquisar",
+                              }),
+                              required: true,
+                              localized: true,
                             },
                           ],
                         },
                         {
-                          type: "collapsible",
-                          label: {
-                            en: "Sort Filter",
-                            fr: "Filtre de tri",
-                            pt: "Filtro de classificação",
+                          name: "sort",
+                          type: "group",
+                          admin: {
+                            hideGutter: true,
+                            style: {
+                              marginTop: 10,
+                            },
                           },
                           fields: [
                             {
-                              name: "sort",
-                              type: "group",
-                              admin: {
-                                hideGutter: true,
+                              name: "label",
+                              type: "text",
+                              label: {
+                                en: "Sort Label",
+                                fr: "Étiquette de tri",
+                                pt: "Rótulo de classificação",
+                              },
+                              defaultValue: defaultValue({
+                                en: "Sort",
+                                fr: "Trier",
+                                pt: "Classificar",
+                              }),
+                              required: true,
+                              localized: true,
+                            },
+                            {
+                              name: "options",
+                              type: "array",
+                              minRows: 1,
+                              label: {
+                                en: "Sort Options",
+                                fr: "Options de tri",
+                                pt: "Opções de classificação",
                               },
                               fields: [
+                                selectField({
+                                  name: "value",
+                                  options: documentSortOptions.map((value) => {
+                                    return {
+                                      value,
+                                      label: value,
+                                    };
+                                  }),
+                                  validate: (val, options) => {
+                                    const { data, t } = options || {};
+                                    if (
+                                      data?.options?.filter(
+                                        (l) => l.value === val
+                                      )?.length > 1
+                                    ) {
+                                      return t(
+                                        "charterafrica.site:uniqueSortOptions"
+                                      );
+                                    }
+                                    return array(val, options);
+                                  },
+                                }),
                                 {
                                   name: "label",
                                   type: "text",
                                   label: {
-                                    en: "Sort Label",
-                                    fr: "Étiquette de tri",
-                                    pt: "Rótulo de classificação",
+                                    en: "Label",
+                                    fr: "Étiquette",
+                                    pt: "Rótulo",
                                   },
-                                  defaultValue: defaultValue({
-                                    en: "Sort",
-                                    fr: "Trier",
-                                    pt: "Classificar",
-                                  }),
                                   required: true,
-                                  localized: true,
-                                },
-                                {
-                                  name: "options",
-                                  type: "array",
-                                  minRows: 1,
-                                  label: {
-                                    en: "Sort Options",
-                                    fr: "Options de tri",
-                                    pt: "Opções de classificação",
-                                  },
-                                  fields: [
-                                    selectField({
-                                      name: "value",
-                                      options: documentSortOptions.map(
-                                        (value) => {
-                                          return {
-                                            value,
-                                            label: value,
-                                          };
-                                        }
-                                      ),
-                                      validate: (val, options) => {
-                                        const { data, t } = options || {};
-                                        if (
-                                          data?.options?.filter(
-                                            (l) => l.value === val
-                                          )?.length > 1
-                                        ) {
-                                          return t(
-                                            "charterafrica.site:uniqueSortOptions"
-                                          );
-                                        }
-                                        return array(val, options);
-                                      },
-                                    }),
-                                    {
-                                      name: "label",
-                                      type: "text",
-                                      label: {
-                                        en: "Label",
-                                        fr: "Étiquette",
-                                        pt: "Rótulo",
-                                      },
-                                      required: true,
-                                    },
-                                  ],
                                 },
                               ],
                             },
