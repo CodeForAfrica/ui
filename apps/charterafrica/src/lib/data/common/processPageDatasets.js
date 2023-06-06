@@ -118,9 +118,12 @@ export default async function processPageDatasets(page, api, context) {
     if (qs) {
       swrKey = `${swrKey}?${qs}`;
     }
+    const {
+      datasets: { data = [] },
+    } = blocks[datasetsIndex];
     // eslint-disable-next-line no-param-reassign
     page.fallback = {
-      [`${swrKey}`]: [],
+      [`${swrKey}`]: data,
     };
   }
 
