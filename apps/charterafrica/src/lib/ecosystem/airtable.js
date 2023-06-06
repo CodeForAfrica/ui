@@ -1,23 +1,13 @@
-import fetchJson from "@/charterafrica/utils/fetchJson";
+import Airtable from "airtable";
 
-const headers = {
-  "Content-Type": "application/json",
-  Authorization: `Bearer ${process.env.AIRTABLE_API_TOKEN}`,
-};
+const airtable = new Airtable({
+  apiKey: process.env.AIRTABLE_API_TOKEN,
+});
 
-const getListFromAirtable = async ({ baseId, tableIdOrName, offset }) => {
-  const url = `https://api.airtable.com/v0/${baseId}/${tableIdOrName}`;
-  const params = { offset };
-  const res = await fetchJson.get(url, { params, headers });
-  if (!res.offset) {
-    return res.records;
-  }
-  const results = await getListFromAirtable({
-    baseId,
-    tableIdOrName,
-    offset: res.offset,
-  });
-  return [...res.records, ...results];
+const getListFromAirtable = async ({ baseId, tableIdOrName }) => {
+  const base = airtable.base(baseId);
+  const records = await base(tableIdOrName).select().all();
+  return records;
 };
 
 export default getListFromAirtable;
