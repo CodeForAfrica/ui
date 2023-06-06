@@ -121,7 +121,7 @@ export async function getPageProps(api, context) {
   }
 
   let [page] = pages;
-  if (params.slugs.length === 3) {
+  if (params?.slugs?.length === 3) {
     page = await pagify(page, api, context);
   }
   page.blocks =
