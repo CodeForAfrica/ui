@@ -9,7 +9,8 @@ async function datasets(req, res) {
       countries,
       q = "",
       page = 1,
-      path: pathname,
+      pathname,
+      locale,
     },
   } = req;
 
@@ -21,6 +22,7 @@ async function datasets(req, res) {
       sort,
       tags: tags?.split(","),
       countries: countries?.split(","),
+      locale,
     });
 
     return res.status(200).json(data);
