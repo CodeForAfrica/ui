@@ -8,6 +8,7 @@ import {
   CONTRIBUTORS_COLLECTION,
 } from "../../lib/ecosystem/models";
 import dateField from "../fields/dateField";
+import eTag from "../fields/eTag";
 import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
@@ -336,6 +337,7 @@ const Tools = {
       name: "deletedAt",
     }),
     source(),
+    eTag(),
   ],
 };
 

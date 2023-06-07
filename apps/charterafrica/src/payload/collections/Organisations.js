@@ -1,5 +1,6 @@
 import { ORGANIZATION_COLLECTION } from "../../lib/ecosystem/models";
 import dateField from "../fields/dateField";
+import eTag from "../fields/eTag";
 import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
@@ -89,6 +90,18 @@ const Organisations = {
       },
     },
     slug({ fieldToUse: ["source", "externalId"] }),
+    {
+      name: "repoLink",
+      type: "text",
+      admin: {
+        readOnly: true,
+      },
+      label: {
+        en: "Repo Link",
+        fr: "Lien de réapprovisionnement",
+        pt: "Link repo",
+      },
+    },
     {
       name: "description",
       type: "textarea",
@@ -186,6 +199,10 @@ const Organisations = {
         beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
       },
     }),
+    dateField({
+      name: "sourceUpdatedAt",
+    }),
+    eTag(),
   ],
 };
 

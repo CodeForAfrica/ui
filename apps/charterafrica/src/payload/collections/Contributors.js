@@ -1,5 +1,6 @@
 import { CONTRIBUTORS_COLLECTION } from "../../lib/ecosystem/models";
 import dateField from "../fields/dateField";
+import eTag from "../fields/eTag";
 import slug from "../fields/slug";
 import source from "../fields/source";
 
@@ -115,6 +116,10 @@ const Contributors = {
         beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
       },
     }),
+    dateField({
+      name: "sourceUpdatedAt",
+    }),
+    eTag(),
   ],
 };
 
