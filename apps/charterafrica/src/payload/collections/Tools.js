@@ -7,6 +7,7 @@ import {
   ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
 } from "../../lib/ecosystem/models";
+import airtableId from "../fields/airtableId";
 import dateField from "../fields/dateField";
 import eTag from "../fields/eTag";
 import slug from "../fields/slug";
@@ -17,7 +18,7 @@ const Tools = {
   slug: TOOL_COLLECTION,
   admin: {
     useAsTitle: "externalId",
-    defaultColumns: ["externalId", "name", "location", "source"],
+    defaultColumns: ["externalId", "name", "homeCountry", "source"],
   },
   access: {
     read: () => true,
@@ -281,15 +282,6 @@ const Tools = {
       fields: supporter,
     },
     {
-      name: "funder",
-      type: "group",
-      admin: {
-        readOnly: true,
-      },
-      label: { en: "Funder", fr: "Bailleur de fonds", pt: "Financiador" },
-      fields: supporter,
-    },
-    {
       name: "homeCountry",
       type: "select",
       options: allCountries,
@@ -338,6 +330,7 @@ const Tools = {
     }),
     source(),
     eTag(),
+    airtableId(),
   ],
 };
 

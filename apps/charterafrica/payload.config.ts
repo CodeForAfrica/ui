@@ -25,6 +25,7 @@ import Research from "./src/payload/collections/Research";
 import Resources from "./src/payload/collections/Resources";
 import Tags from "./src/payload/collections/Tags";
 import Tools from "./src/payload/collections/Tools";
+import EcosystemConfig from "./src/payload/globals/EcosystemConfig";
 import FocalCountries from "./src/payload/globals/FocalCountries";
 import Footer from "./src/payload/globals/Footer";
 import Helpdesk from "./src/payload/globals/Helpdesk";
@@ -92,6 +93,7 @@ export default buildConfig({
     Tools,
   ] as CollectionConfig[],
   globals: [
+    EcosystemConfig,
     FocalCountries,
     Footer,
     Helpdesk,
