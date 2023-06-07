@@ -5,6 +5,11 @@ import {
   processContributorFromAirtable,
 } from "@/charterafrica/lib/ecosystem/airtable";
 import {
+  processGithubTool,
+  processGithubOrganisation,
+  processGithubContributor,
+} from "@/charterafrica/lib/ecosystem/github";
+import {
   createCollection,
   ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
@@ -38,7 +43,22 @@ export const updateEcosystemContent = async (req, res) => {
       ...data.fields,
       id: data.id,
     });
-    return createCollection(CONTRIBUTORS_COLLECTION, airtableData);
+    const gitData = await processGithubContributor(airtableData.en);
+    const toCreate = {
+      en: {
+        ...gitData,
+        ...airtableData.en,
+      },
+      pt: {
+        ...gitData,
+        ...airtableData.pt,
+      },
+      fr: {
+        ...gitData,
+        ...airtableData.fr,
+      },
+    };
+    return createCollection(CONTRIBUTORS_COLLECTION, toCreate);
   });
 
   const contributors = await Promise.allSettled(processedContributors);
@@ -52,7 +72,22 @@ export const updateEcosystemContent = async (req, res) => {
       ...data.fields,
       id: data.id,
     });
-    return createCollection(ORGANIZATION_COLLECTION, airtableData);
+    const gitData = await processGithubOrganisation(airtableData.en);
+    const toCreate = {
+      en: {
+        ...gitData,
+        ...airtableData.en,
+      },
+      pt: {
+        ...gitData,
+        ...airtableData.pt,
+      },
+      fr: {
+        ...gitData,
+        ...airtableData.fr,
+      },
+    };
+    return createCollection(ORGANIZATION_COLLECTION, toCreate);
   });
 
   const organisations = await Promise.allSettled(processedOrganisations);
@@ -65,7 +100,22 @@ export const updateEcosystemContent = async (req, res) => {
       ...data.fields,
       id: data.id,
     });
-    return createCollection(TOOL_COLLECTION, airtableData);
+    const gitData = await processGithubTool(airtableData.en);
+    const toCreate = {
+      en: {
+        ...gitData,
+        ...airtableData.en,
+      },
+      pt: {
+        ...gitData,
+        ...airtableData.pt,
+      },
+      fr: {
+        ...gitData,
+        ...airtableData.fr,
+      },
+    };
+    return createCollection(TOOL_COLLECTION, toCreate);
   });
   const tools = await Promise.allSettled(processedToolPromises);
 
