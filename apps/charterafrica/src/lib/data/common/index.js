@@ -124,6 +124,10 @@ export async function getPageProps(api, context) {
   if (params?.slugs?.length === 3) {
     page = await pagify(page, api, context);
   }
+  if (!page) {
+    return null;
+  }
+
   page.blocks =
     (await Promise.all(
       page.blocks?.map(async ({ block, blockType, ...other }) => {
