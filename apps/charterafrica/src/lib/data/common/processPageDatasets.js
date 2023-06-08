@@ -89,7 +89,7 @@ export default async function processPageDatasets(page, api, context) {
       const {
         labels,
         filterBar,
-        documents: { groupID, options },
+        organization: { groupID, options },
       } = datasetsDocuments;
       const data = await fetchDocuments(
         `group:${groupID}`,

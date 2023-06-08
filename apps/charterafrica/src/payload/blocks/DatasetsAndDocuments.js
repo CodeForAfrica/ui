@@ -346,7 +346,16 @@ const DatasetsAndDocuments = {
                     fr: "Source des documents",
                     pt: "Fonte de documentos",
                   },
-                  fields: [sourceAfricaDocument()],
+                  fields: [
+                    sourceAfricaDocument({
+                      name: "organization",
+                      label: {
+                        en: "Organization",
+                        fr: "Organisation",
+                        pt: "Organização",
+                      },
+                    }),
+                  ],
                 },
                 {
                   type: "collapsible",
