@@ -13,8 +13,7 @@ const airtable = new Airtable({
 
 export const getListFromAirtable = async ({ baseId, tableIdOrName }) => {
   const base = airtable.base(baseId);
-  const records = await base(tableIdOrName).select().all();
-  return records;
+  return base(tableIdOrName).select().all();
 };
 
 export const processOrganisationFromAirTable = async (data) => {
@@ -87,9 +86,9 @@ export const processToolFromAirtable = async (data) => {
     fr: data[config.toolTheme.french]?.[0],
   };
   const description = {
-    en: data[config.toolsDescription.english] || "",
-    pt: data[config.toolsDescription.portuguese] || "",
-    fr: data[config.toolsDescription.french] || "",
+    en: data[config.toolsDescription.english],
+    pt: data[config.toolsDescription.portuguese],
+    fr: data[config.toolsDescription.french],
   };
   const { docs: contrib } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
     where: { airtableId: { in: data[config.toolContributors]?.join(",") } },
@@ -107,7 +106,7 @@ export const processToolFromAirtable = async (data) => {
     link: data[config.toolLink],
     operatingCountries,
     contributors: contrib.map(({ id }) => id),
-    organisation: org[0]?.id,
+    organisation: org?.[0]?.id,
     donors: [], // data.Donors,
     partners: [], //  data.Partners,
     homeCountry,

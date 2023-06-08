@@ -5,26 +5,21 @@ import useSWR from "swr";
 
 import fetchJson from "../../../utils/fetchJson";
 
-const fetcher = (url) =>
-  fetchJson.get(url, { params: { source: "airtable", url: "/meta/bases" } });
-const url = `/api/v1/resources/ecosystem/proxy`;
+const url = `/api/v1/resources/ecosystem/proxy?source=airtable&url=/meta/bases`;
+
 const getOptions = async () => {
-  const { bases } = await fetcher(url);
-  const options = bases.map((item) => ({ value: item.id, label: item.name }));
+  const { bases = [] } = await fetchJson.get(url);
+  const options = bases?.map((item) => ({ value: item.id, label: item.name }));
   return options;
 };
 
 export const validateSelect = async (value, { hasMany, required, t }) => {
   const options = await getOptions();
-  try {
-    return select(value, { hasMany, options, required, t });
-  } catch (error) {
-    return select(value, { hasMany, options, required, t });
-  }
+  return select(value, { hasMany, options, required, t });
 };
 
 function AirtableBaseSelect(props) {
-  const { data = {} } = useSWR(url, fetcher);
+  const { data = {} } = useSWR(url, fetchJson.get);
   const options =
     data?.bases?.map((item) => ({ value: item.id, label: item.name })) || [];
   return createElement(Select, { ...props, options });

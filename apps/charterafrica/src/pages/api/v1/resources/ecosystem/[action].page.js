@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   } = req;
   const key = req.headers["x-api-key"];
   if (!isApiKeyValid(key)) {
-    return res.status(403).json({ message: "INVALID API KEY" });
+    return res.status(403).json({ message: "INVALID_API_KEY" });
   }
   const actionFunc = actionMap[action];
   if (actionFunc) {
