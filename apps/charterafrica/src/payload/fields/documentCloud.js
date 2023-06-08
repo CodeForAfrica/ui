@@ -1,6 +1,6 @@
 import { deepmerge } from "@mui/utils";
 
-const sourceAfricaDocument = (overrides = {}) => {
+const documentCloud = (overrides = {}) => {
   const basicDocument = {
     name: "documents",
     type: "group",
@@ -92,4 +92,4 @@ const sourceAfricaDocument = (overrides = {}) => {
   return deepmerge(basicDocument, overrides);
 };
 
-export default sourceAfricaDocument;
+export default documentCloud;

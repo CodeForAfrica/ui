@@ -1,6 +1,6 @@
 import { array } from "payload/dist/fields/validations";
 
-import sourceAfricaDocument from "../fields/sourceAfricaDocument";
+import documentCloud from "../fields/documentCloud";
 import defaultValue from "../utils/defaultValues";
 
 const datasetsSortOptions = [
@@ -395,7 +395,7 @@ const DatasetsAndDocuments = {
                     pt: "Fonte de documentos",
                   },
                   fields: [
-                    sourceAfricaDocument({
+                    documentCloud({
                       name: "organization",
                       label: {
                         en: "Organization",

@@ -1,5 +1,5 @@
+import documentCloud from "../fields/documentCloud";
 import richText from "../fields/richText";
-import sourceAfricaDocument from "../fields/sourceAfricaDocument";
 
 const EmbeddedDocuments = {
   slug: "embedded-documents",
@@ -37,7 +37,7 @@ const EmbeddedDocuments = {
         }),
       ],
     },
-    sourceAfricaDocument({
+    documentCloud({
       name: "group",
       label: {
         en: "Documents Group",
