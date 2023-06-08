@@ -1,5 +1,4 @@
 import { CONTRIBUTORS_COLLECTION } from "../../lib/ecosystem/models";
-import airtableId from "../fields/airtableId";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
@@ -108,6 +107,12 @@ const Contributors = {
         },
       },
     },
+    {
+      name: "airtableId",
+      label: { en: "Airtable ID", fr: "ID Airtable", pt: "ID da Airtable" },
+      type: "text",
+      required: true,
+    },
     slug({ fieldToUse: ["source", "externalId"] }),
     source(),
     dateField({
@@ -116,7 +121,6 @@ const Contributors = {
         beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
       },
     }),
-    airtableId(),
   ],
 };
 

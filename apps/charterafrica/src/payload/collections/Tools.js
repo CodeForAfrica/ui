@@ -7,7 +7,6 @@ import {
   ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
 } from "../../lib/ecosystem/models";
-import airtableId from "../fields/airtableId";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
@@ -318,6 +317,12 @@ const Tools = {
         },
       ],
     },
+    {
+      name: "airtableId",
+      label: { en: "Airtable ID", fr: "ID Airtable", pt: "ID da Airtable" },
+      type: "text",
+      required: true,
+    },
     dateField({
       name: "updatedAt",
       hooks: {
@@ -328,7 +333,6 @@ const Tools = {
       name: "deletedAt",
     }),
     source(),
-    airtableId(),
   ],
 };
 

@@ -1,5 +1,4 @@
 import { ORGANIZATION_COLLECTION } from "../../lib/ecosystem/models";
-import airtableId from "../fields/airtableId";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
@@ -179,6 +178,12 @@ const Organisations = {
       label: { en: "Partners", fr: "Les partenaires", pt: "Parceiros" },
       fields: supporter,
     },
+    {
+      name: "airtableId",
+      label: { en: "Airtable ID", fr: "ID Airtable", pt: "ID da Airtable" },
+      type: "text",
+      required: true,
+    },
     source(),
     dateField({
       name: "updatedAt",
@@ -186,7 +191,6 @@ const Organisations = {
         beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
       },
     }),
-    airtableId(),
   ],
 };
 
