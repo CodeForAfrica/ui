@@ -10,7 +10,6 @@ import formatDateTime from "@/charterafrica/utils/formatDate";
 function Dataset({
   title,
   source,
-  url,
   updated,
   created,
   formats,
@@ -156,36 +155,6 @@ function Dataset({
             </Grid>
           </Grid>
         </Grid>
-        <Box
-          sx={{
-            backgroundImage: "url(/images/dataset-background.png)",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            width: {
-              xs: "100%",
-              md: "720px",
-            },
-            height: "450px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            mt: 5,
-          }}
-        >
-          <Box>
-            <Button
-              variant="contained"
-              color="primary"
-              size="medium"
-              startIcon={<ExternalLinkIcon />}
-              href={url}
-              target="_blank"
-            >
-              {labels.openDataset}
-            </Button>
-          </Box>
-        </Box>
         <Typography
           variant="p1"
           component="a"
