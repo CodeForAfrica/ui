@@ -1,7 +1,6 @@
 import { array } from "payload/dist/fields/validations";
 
 import groupedLabels from "../fields/groupedLabels";
-import selectField from "../fields/selectField";
 import simpleLabel from "../fields/simpleLabel";
 import sourceAfricaDocument from "../fields/sourceAfricaDocument";
 import defaultValue from "../utils/defaultValues";
@@ -145,8 +144,11 @@ const DatasetsAndDocuments = {
                                 pt: "Opções de classificação",
                               },
                               fields: [
-                                selectField({
+                                {
                                   name: "value",
+                                  type: "select",
+                                  unique: true,
+                                  required: true,
                                   options: datasetsSortOptions.map((value) => ({
                                     value,
                                     label: value,
@@ -164,7 +166,7 @@ const DatasetsAndDocuments = {
                                     }
                                     return array(val, options);
                                   },
-                                }),
+                                },
                                 simpleLabel({
                                   label: {
                                     en: "Label",
@@ -437,8 +439,11 @@ const DatasetsAndDocuments = {
                                 pt: "Opções de classificação",
                               },
                               fields: [
-                                selectField({
+                                {
                                   name: "value",
+                                  type: "select",
+                                  unique: true,
+                                  required: true,
                                   options: documentSortOptions.map((value) => {
                                     return {
                                       value,
@@ -458,7 +463,7 @@ const DatasetsAndDocuments = {
                                     }
                                     return array(val, options);
                                   },
-                                }),
+                                },
                                 {
                                   name: "label",
                                   type: "text",
