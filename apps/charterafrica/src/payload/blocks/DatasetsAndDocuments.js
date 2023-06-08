@@ -1,7 +1,6 @@
 import { array } from "payload/dist/fields/validations";
 
 import groupedLabels from "../fields/groupedLabels";
-import simpleLabel from "../fields/simpleLabel";
 import sourceAfricaDocument from "../fields/sourceAfricaDocument";
 import defaultValue from "../utils/defaultValues";
 
@@ -65,15 +64,17 @@ const DatasetsAndDocuments = {
                     pt: "Fonte de conjuntos de dados",
                   },
                   fields: [
-                    simpleLabel({
+                    {
                       name: "organizationId",
+                      type: "text",
+                      required: true,
                       label: {
                         en: "Organization ID",
                         fr: "ID de l'organisation",
                         pt: "ID da organização",
                       },
                       localized: false,
-                    }),
+                    },
                   ],
                 },
                 {
@@ -98,7 +99,11 @@ const DatasetsAndDocuments = {
                             hideGutter: true,
                           },
                           fields: [
-                            simpleLabel({
+                            {
+                              name: "label",
+                              type: "text",
+                              required: true,
+                              localized: true,
                               label: {
                                 en: "Search Label",
                                 fr: "Étiquette de recherche",
@@ -109,7 +114,7 @@ const DatasetsAndDocuments = {
                                 fr: "Rechercher",
                                 pt: "Pesquisar",
                               }),
-                            }),
+                            },
                           ],
                         },
                         {
@@ -122,7 +127,11 @@ const DatasetsAndDocuments = {
                             },
                           },
                           fields: [
-                            simpleLabel({
+                            {
+                              name: "label",
+                              type: "text",
+                              required: true,
+                              localized: true,
                               label: {
                                 en: "Sort Label",
                                 fr: "Étiquette de tri",
@@ -133,7 +142,7 @@ const DatasetsAndDocuments = {
                                 fr: "Trier",
                                 pt: "Classificar",
                               }),
-                            }),
+                            },
                             {
                               name: "options",
                               type: "array",
@@ -167,13 +176,17 @@ const DatasetsAndDocuments = {
                                     return array(val, options);
                                   },
                                 },
-                                simpleLabel({
+                                {
+                                  name: "label",
+                                  type: "text",
+                                  required: true,
+                                  localized: true,
                                   label: {
                                     en: "Label",
                                     fr: "Étiquette",
                                     pt: "Rótulo",
                                   },
-                                }),
+                                },
                               ],
                               admin: {
                                 initCollapsed: true,
@@ -198,7 +211,11 @@ const DatasetsAndDocuments = {
                             },
                           },
                           fields: [
-                            simpleLabel({
+                            {
+                              name: "label",
+                              type: "text",
+                              required: true,
+                              localized: true,
                               label: {
                                 en: "Countries Label",
                                 fr: "Étiquette des pays",
@@ -209,7 +226,7 @@ const DatasetsAndDocuments = {
                                 fr: "Pays",
                                 pt: "Países",
                               }),
-                            }),
+                            },
                           ],
                         },
                         {
@@ -222,7 +239,11 @@ const DatasetsAndDocuments = {
                             },
                           },
                           fields: [
-                            simpleLabel({
+                            {
+                              name: "label",
+                              type: "text",
+                              required: true,
+                              localized: true,
                               label: {
                                 en: "Tags Label",
                                 fr: "Étiquette des tags",
@@ -233,7 +254,7 @@ const DatasetsAndDocuments = {
                                 fr: "Tags",
                                 pt: "Tags",
                               }),
-                            }),
+                            },
                           ],
                         },
                       ],
@@ -253,8 +274,11 @@ const DatasetsAndDocuments = {
                         {
                           type: "row",
                           fields: [
-                            simpleLabel({
+                            {
                               name: "openDataset",
+                              type: "text",
+                              required: true,
+                              localized: true,
                               label: {
                                 en: "Open Dataset Label",
                                 fr: "Ouvrir l'étiquette de jeu de données",
@@ -265,8 +289,8 @@ const DatasetsAndDocuments = {
                                 fr: "Ouvrir le jeu de données",
                                 pt: "Abrir conjunto de dados",
                               }),
-                            }),
-                            simpleLabel({
+                            },
+                            {
                               name: "backToDatasets",
                               label: {
                                 en: "Back to Datasets Label",
@@ -278,8 +302,11 @@ const DatasetsAndDocuments = {
                                 fr: "Retour aux jeux de données",
                                 pt: "Voltar para conjuntos de dados",
                               }),
-                            }),
-                            simpleLabel({
+                              type: "text",
+                              required: true,
+                              localized: true,
+                            },
+                            {
                               name: "seeMoreDatasets",
                               label: {
                                 en: "See More Datasets Label",
@@ -291,8 +318,11 @@ const DatasetsAndDocuments = {
                                 fr: "Voir plus de jeux de données",
                                 pt: "Ver mais conjuntos de dados",
                               }),
-                            }),
-                            simpleLabel({
+                              type: "text",
+                              required: true,
+                              localized: true,
+                            },
+                            {
                               name: "shareDataset",
                               label: {
                                 en: "Share Dataset Label",
@@ -304,7 +334,10 @@ const DatasetsAndDocuments = {
                                 fr: "Partager le jeu de données",
                                 pt: "Compartilhar conjunto de dados",
                               }),
-                            }),
+                              type: "text",
+                              required: true,
+                              localized: true,
+                            },
                           ],
                         },
                       ],
@@ -495,7 +528,7 @@ const DatasetsAndDocuments = {
                         {
                           type: "row",
                           fields: [
-                            simpleLabel({
+                            {
                               name: "pages",
                               label: {
                                 en: "No of Pages Label",
@@ -507,8 +540,11 @@ const DatasetsAndDocuments = {
                                 fr: "Pages",
                                 pt: "Páginas",
                               }),
-                            }),
-                            simpleLabel({
+                              type: "text",
+                              required: true,
+                              localized: true,
+                            },
+                            {
                               name: "contributedBy",
                               label: {
                                 en: "Contributed By",
@@ -520,7 +556,10 @@ const DatasetsAndDocuments = {
                                 fr: "Contributed By",
                                 pt: "Contributed By",
                               }),
-                            }),
+                              type: "text",
+                              required: true,
+                              localized: true,
+                            },
                           ],
                         },
                       ],
@@ -546,7 +585,7 @@ const DatasetsAndDocuments = {
             {
               type: "row",
               fields: [
-                simpleLabel({
+                {
                   name: "readMore",
                   label: {
                     en: "Read More Label",
@@ -558,8 +597,11 @@ const DatasetsAndDocuments = {
                     fr: "Lire la suite",
                     pt: "Leia mais",
                   }),
-                }),
-                simpleLabel({
+                  type: "text",
+                  required: true,
+                  localized: true,
+                },
+                {
                   name: "readLess",
                   label: {
                     en: "Read Less Label",
@@ -571,8 +613,11 @@ const DatasetsAndDocuments = {
                     fr: "Lire moins",
                     pt: "Leia menos",
                   }),
-                }),
-                simpleLabel({
+                  type: "text",
+                  required: true,
+                  localized: true,
+                },
+                {
                   name: "updated",
                   label: {
                     en: "Updated At Label",
@@ -584,8 +629,11 @@ const DatasetsAndDocuments = {
                     fr: "Mis à jour",
                     pt: "Atualizado",
                   }),
-                }),
-                simpleLabel({
+                  type: "text",
+                  required: true,
+                  localized: true,
+                },
+                {
                   name: "created",
                   label: {
                     en: "Created At Label",
@@ -597,7 +645,10 @@ const DatasetsAndDocuments = {
                     fr: "Créé",
                     pt: "Criado",
                   }),
-                }),
+                  type: "text",
+                  required: true,
+                  localized: true,
+                },
               ],
             },
           ],
