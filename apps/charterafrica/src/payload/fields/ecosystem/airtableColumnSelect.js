@@ -19,7 +19,7 @@ const columnSelect = ({ tableField, baseField }) => {
     const tableId = document[tableField];
     const { data = {} } = useSWR(
       baseId
-        ? `/api/v1/resources/ecosystem/proxy?source=airtable&url=/meta/bases/${baseId}/tables`
+        ? `/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases/${baseId}/tables`
         : null,
       fetcher
     );

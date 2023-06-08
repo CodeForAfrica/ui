@@ -10,7 +10,7 @@ import useSWR from "swr";
 import fetchJson from "../../../utils/fetchJson";
 
 const getOptions = async (baseId) => {
-  const url = `/api/v1/resources/ecosystem/proxy?source=airtable&url=/meta/bases/${baseId}/tables`;
+  const url = `/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases/${baseId}/tables`;
   const { tables } = await fetchJson.get(url);
   const options = tables?.map((item) => ({ value: item.id, label: item.name }));
   return options;
@@ -30,7 +30,7 @@ function AirtableTableSelect(props) {
   const baseId = document.airtableBase;
   const { data = {} } = useSWR(
     baseId
-      ? `/api/v1/resources/ecosystem/proxy?source=airtable&url=/meta/bases/${baseId}/tables`
+      ? `/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases/${baseId}/tables`
       : null,
     fetchJson.get
   );

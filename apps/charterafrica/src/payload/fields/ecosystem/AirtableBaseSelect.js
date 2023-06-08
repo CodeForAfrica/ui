@@ -5,7 +5,7 @@ import useSWR from "swr";
 
 import fetchJson from "../../../utils/fetchJson";
 
-const url = `/api/v1/resources/ecosystem/proxy?source=airtable&url=/meta/bases`;
+const url = `/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases`;
 
 const getOptions = async () => {
   const { bases = [] } = await fetchJson.get(url);
