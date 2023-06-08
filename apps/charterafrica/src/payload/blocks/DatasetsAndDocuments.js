@@ -1,6 +1,5 @@
 import { array } from "payload/dist/fields/validations";
 
-import groupedLabels from "../fields/groupedLabels";
 import sourceAfricaDocument from "../fields/sourceAfricaDocument";
 import defaultValue from "../utils/defaultValues";
 
@@ -269,7 +268,17 @@ const DatasetsAndDocuments = {
                     pt: "Rótulos dos conjuntos de dados",
                   },
                   fields: [
-                    groupedLabels({
+                    {
+                      name: "labels",
+                      type: "group",
+                      label: {
+                        en: "Labels",
+                        fr: "Étiquettes",
+                        pt: "Rótulos",
+                      },
+                      admin: {
+                        hideGutter: true,
+                      },
                       fields: [
                         {
                           type: "row",
@@ -341,7 +350,7 @@ const DatasetsAndDocuments = {
                           ],
                         },
                       ],
-                    }),
+                    },
                   ],
                 },
               ],
@@ -523,7 +532,17 @@ const DatasetsAndDocuments = {
                     pt: "Rótulos de documentos",
                   },
                   fields: [
-                    groupedLabels({
+                    {
+                      name: "labels",
+                      type: "group",
+                      label: {
+                        en: "Labels",
+                        fr: "Étiquettes",
+                        pt: "Rótulos",
+                      },
+                      admin: {
+                        hideGutter: true,
+                      },
                       fields: [
                         {
                           type: "row",
@@ -563,7 +582,7 @@ const DatasetsAndDocuments = {
                           ],
                         },
                       ],
-                    }),
+                    },
                   ],
                 },
               ],
@@ -580,7 +599,17 @@ const DatasetsAndDocuments = {
         pt: "Rótulos comuns",
       },
       fields: [
-        groupedLabels({
+        {
+          name: "labels",
+          type: "group",
+          label: {
+            en: "Labels",
+            fr: "Étiquettes",
+            pt: "Rótulos",
+          },
+          admin: {
+            hideGutter: true,
+          },
           fields: [
             {
               type: "row",
@@ -652,7 +681,7 @@ const DatasetsAndDocuments = {
               ],
             },
           ],
-        }),
+        },
       ],
     },
   ],
