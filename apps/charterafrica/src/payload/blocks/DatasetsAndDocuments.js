@@ -1,6 +1,5 @@
 import { array } from "payload/dist/fields/validations";
 
-import filterBar from "../fields/filterbar";
 import groupedLabels from "../fields/groupedLabels";
 import selectField from "../fields/selectField";
 import simpleLabel from "../fields/simpleLabel";
@@ -86,7 +85,12 @@ const DatasetsAndDocuments = {
                     pt: "Barra de filtro",
                   },
                   fields: [
-                    filterBar({
+                    {
+                      name: "filterBar",
+                      type: "group",
+                      admin: {
+                        hideGutter: true,
+                      },
                       fields: [
                         {
                           name: "search",
@@ -231,7 +235,7 @@ const DatasetsAndDocuments = {
                           ],
                         },
                       ],
-                    }),
+                    },
                   ],
                 },
                 {
@@ -365,7 +369,12 @@ const DatasetsAndDocuments = {
                     pt: "Barra de filtro",
                   },
                   fields: [
-                    filterBar({
+                    {
+                      name: "filterBar",
+                      type: "group",
+                      admin: {
+                        hideGutter: true,
+                      },
                       fields: [
                         {
                           name: "search",
@@ -465,7 +474,7 @@ const DatasetsAndDocuments = {
                           ],
                         },
                       ],
-                    }),
+                    },
                   ],
                 },
                 {
