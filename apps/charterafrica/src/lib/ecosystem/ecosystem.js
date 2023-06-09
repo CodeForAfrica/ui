@@ -93,11 +93,11 @@ const processContributors = async () => {
   return Promise.allSettled(processedContributors);
 };
 
-export const updateEcosystemList = async (req, res) => {
+export const updateEcosystemContent = async (req, res) => {
   // For all list in database query Github API. using ETAG
   res.status(200).json({});
 };
-export const updateEcosystemContent = async (req, res) => {
+export const updateEcosystemList = async (req, res) => {
   const contributors = await processContributors();
   const organisations = await processOrganisations();
   const tools = await processTools();
