@@ -1,7 +1,7 @@
 import fetchDatasets, { fetchDataset } from "@/charterafrica/lib/openAfrica";
 import { fetchDocuments } from "@/charterafrica/lib/sourceAfrica";
-import getDocumentsQuery from "@/charterafrica/payload/utils/documents";
 import datasetsQuery from "@/charterafrica/utils/datasets/queryString";
+import getDocumentsQuery from "@/charterafrica/utils/documents/documents";
 
 const getDatasetsQuery = (context) => {
   const { query = {}, locale } = context;

@@ -3,7 +3,7 @@ import {
   fetchDocumentIframe,
 } from "@/charterafrica/lib/sourceAfrica";
 import { fetchPlaylistItems } from "@/charterafrica/lib/youtube";
-import getDocumentsQuery from "@/charterafrica/payload/utils/documents";
+import getDocumentsQuery from "@/charterafrica/utils/documents/documents";
 import documentsQueryString from "@/charterafrica/utils/documents/queryString";
 
 export async function getVideosFromPlaylist(playlistId, options) {
