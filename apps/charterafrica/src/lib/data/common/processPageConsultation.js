@@ -81,11 +81,11 @@ async function processPageConsultation(page, api, context) {
   if (documentsIndex > -1) {
     const {
       description: documentsDescription,
-      group: { groupID, options },
+      group: { groupId, options },
       title: documentsTitle,
     } = blocks[documentsIndex];
     const query = getDocumentsQuery(context, options);
-    const documents = await fetchDocuments(`group:${groupID}`, query);
+    const documents = await fetchDocuments(`group:${groupId}`, query);
     blocks[documentsIndex] = {
       ...documents,
       slug: "documents",

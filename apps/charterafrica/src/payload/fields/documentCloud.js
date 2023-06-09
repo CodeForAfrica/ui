@@ -14,7 +14,7 @@ const documentCloud = (overrides = {}) => {
     },
     fields: [
       {
-        name: "groupID",
+        name: "groupId",
         type: "text",
         label: {
           en: "Group ID",

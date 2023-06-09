@@ -89,10 +89,10 @@ export default async function processPageDatasets(page, api, context) {
       const {
         labels,
         filterBar,
-        organization: { groupID, options },
+        organization: { groupId, options },
       } = datasetsDocuments;
       const data = await fetchDocuments(
-        `group:${groupID}`,
+        `group:${groupId}`,
         getDocumentsQuery(context, options)
       );
       blocks[datasetsIndex] = {
