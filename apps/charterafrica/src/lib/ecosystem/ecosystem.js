@@ -5,6 +5,11 @@ import {
   processContributorFromAirtable,
 } from "@/charterafrica/lib/ecosystem/airtable";
 import {
+  processGithubTool,
+  processGithubOrganisation,
+  processGithubContributor,
+} from "@/charterafrica/lib/ecosystem/github";
+import {
   createCollection,
   ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
@@ -30,6 +35,46 @@ const markBulkAsDeleted = async (collection, fromSource) => {
     })
   );
 };
+
+async function getToolfromCacheOrGithub(airtableData) {
+  const { airtableId } = airtableData;
+  const { docs } = await api.getCollection(TOOL_COLLECTION, {
+    where: {
+      airtableId: { equals: airtableId },
+    },
+  });
+  if (docs.length) {
+    return docs?.[0];
+  }
+  return processGithubTool(airtableData);
+}
+
+async function getOrganisationFromCacheOrGithub(airtableData) {
+  const { airtableId } = airtableData;
+  const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {
+    where: {
+      airtableId: { equals: airtableId },
+    },
+  });
+  if (docs.length) {
+    return docs?.[0];
+  }
+  return processGithubOrganisation(airtableData);
+}
+
+async function getContributorFromCacheOrGithub(airtableData) {
+  const { airtableId } = airtableData;
+  const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
+    where: {
+      airtableId: { equals: airtableId },
+    },
+  });
+  if (docs.length) {
+    return docs?.[0];
+  }
+  return processGithubContributor(airtableData);
+}
+
 const processTools = async () => {
   const { toolsTableName, airtableBase } = await api.findGlobal(
     ECOSYSTEM_CONFIG,
@@ -45,8 +90,22 @@ const processTools = async () => {
       ...data.fields,
       id: data.id,
     });
-    // Only get git data if not exist in database
-    return createCollection(TOOL_COLLECTION, airtableData);
+    const gitData = await getToolfromCacheOrGithub(airtableData.en);
+    const toCreate = {
+      en: {
+        ...gitData,
+        ...airtableData.en,
+      },
+      pt: {
+        ...gitData,
+        ...airtableData.pt,
+      },
+      fr: {
+        ...gitData,
+        ...airtableData.fr,
+      },
+    };
+    return createCollection(TOOL_COLLECTION, toCreate);
   });
   return Promise.allSettled(processedToolPromises);
 };
@@ -66,8 +125,22 @@ const processOrganisations = async () => {
       ...data.fields,
       id: data.id,
     });
-    // Only get git data if not exist in database
-    return createCollection(ORGANIZATION_COLLECTION, airtableData);
+    const gitData = await getOrganisationFromCacheOrGithub(airtableData.en);
+    const toCreate = {
+      en: {
+        ...gitData,
+        ...airtableData.en,
+      },
+      pt: {
+        ...gitData,
+        ...airtableData.pt,
+      },
+      fr: {
+        ...gitData,
+        ...airtableData.fr,
+      },
+    };
+    return createCollection(ORGANIZATION_COLLECTION, toCreate);
   });
   return Promise.allSettled(processedOrgPromises);
 };
@@ -87,20 +160,63 @@ const processContributors = async () => {
       ...data.fields,
       id: data.id,
     });
-    // Only get git data if not exist in database
-    return createCollection(CONTRIBUTORS_COLLECTION, airtableData);
+    const gitData = await getContributorFromCacheOrGithub(airtableData.en);
+    const toCreate = {
+      en: {
+        ...gitData,
+        ...airtableData.en,
+      },
+      pt: {
+        ...gitData,
+        ...airtableData.pt,
+      },
+      fr: {
+        ...gitData,
+        ...airtableData.fr,
+      },
+    };
+    return createCollection(CONTRIBUTORS_COLLECTION, toCreate);
   });
   return Promise.allSettled(processedContributors);
 };
 
-export const updateEcosystemContent = async (req, res) => {
-  // For all list in database query Github API. using ETAG
-  res.status(200).json({});
+async function updateContributorContent() {
+  const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION);
+  const updatePromises = docs.map(async (item) => {
+    const updated = await processGithubContributor(item);
+    return api.updateCollection(CONTRIBUTORS_COLLECTION, item.id, updated);
+  });
+  return Promise.allSettled(updatePromises);
+}
+
+async function updateOrganisationContent() {
+  const { docs } = await api.getCollection(ORGANIZATION_COLLECTION);
+  const updatePromises = docs.map(async (item) => {
+    const updated = await processGithubOrganisation(item);
+    return api.updateCollection(ORGANIZATION_COLLECTION, item.id, updated);
+  });
+  return Promise.allSettled(updatePromises);
+}
+
+async function updateToolContent() {
+  const { docs } = await api.getCollection(TOOL_COLLECTION);
+  const updatePromises = docs.map(async (item) => {
+    const updated = await processGithubTool(item);
+    return api.updateCollection(TOOL_COLLECTION, item.id, updated);
+  });
+  return Promise.allSettled(updatePromises);
+}
+
+export const updateEcosystemContent = async () => {
+  const contributors = await updateContributorContent();
+  const organisations = await updateOrganisationContent();
+  const tools = await updateToolContent();
+  return { tools, contributors, organisations };
 };
-export const updateEcosystemList = async (req, res) => {
+
+export const updateEcosystemList = async () => {
   const contributors = await processContributors();
   const organisations = await processOrganisations();
   const tools = await processTools();
-
-  res.status(200).json({ tools, contributors, organisations });
+  return { tools, contributors, organisations };
 };

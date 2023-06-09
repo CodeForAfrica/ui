@@ -32,8 +32,8 @@ export const processOrganisationFromAirTable = async (data) => {
   };
   const unLocalizedData = {
     airtableId: data.id,
-    externalId: data[config.organisationUserName] || data.id,
-    name: data[config.organisationName]?.[0],
+    externalId: data[config.organisationUserName],
+    name: data[config.organisationName],
     type: data[config.organisationType],
     repoLink: data[config.organisationRepoLink],
     donors: [], // data.Donors, UPDATE when source is sanitized

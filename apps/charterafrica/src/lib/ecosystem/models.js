@@ -1,3 +1,5 @@
+import * as Sentry from "@sentry/nextjs";
+
 import api from "../payload";
 
 export const ORGANIZATION_COLLECTION = "organisations";
@@ -29,9 +31,14 @@ const create = async (collection, toCreate, locale) => {
 };
 
 export const createCollection = async (collection, toCreate) => {
-  const { en: enToCreate, pt: ptToCreate, fr: frToCreate } = toCreate;
-  const en = await create(collection, enToCreate, "en");
-  const pt = await create(collection, ptToCreate, "pt");
-  const fr = await create(collection, frToCreate, "fr");
-  return { en, pt, fr };
+  try {
+    const { en: enToCreate, pt: ptToCreate, fr: frToCreate } = toCreate;
+    const en = await create(collection, enToCreate, "en");
+    const pt = await create(collection, ptToCreate, "pt");
+    const fr = await create(collection, frToCreate, "fr");
+    return { en, pt, fr };
+  } catch (err) {
+    Sentry.captureMessage(err.message);
+    return {};
+  }
 };

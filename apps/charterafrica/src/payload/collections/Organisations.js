@@ -30,7 +30,6 @@ const Organisations = {
     {
       name: "externalId",
       type: "text",
-      required: true,
       label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
       admin: {
         readOnly: true,
@@ -44,45 +43,65 @@ const Organisations = {
         readOnly: true,
       },
     },
-    // Can either be Non-Profit, For- Profit, Donor/ Investor, Charter Grantee
     {
       name: "type",
       type: "select",
       label: { en: "Type", fr: "Taper", pt: "Tipo" },
       options: [
         {
+          value: "Academic and Research",
+          label: {
+            en: "Academic & Research",
+            fr: "Recherche académique",
+            pt: "Pesquisa acadêmica",
+          },
+        },
+        {
+          value: "Faith-based",
+          label: {
+            en: "Faith-Based",
+            fr: "Confessionnel",
+            pt: "Baseada na fé",
+          },
+        },
+        {
+          value: "For-profit",
           label: {
             en: "For-Profit",
             fr: "À but lucratif",
             pt: "Com fins lucrativos",
           },
-          value: "For-Profit",
         },
         {
+          value: "Foundation",
+          label: { en: "Foundation", fr: "Fondation", pt: "Fundação" },
+        },
+        {
+          value: "Media",
+          label: { en: "Media", fr: "Médias", pt: "meios de comunicação" },
+        },
+        {
+          value: "Multilateral institution",
+          label: {
+            en: "Multilateral institution",
+            fr: "Institution multilatérale",
+            pt: "Instituição Multilateral",
+          },
+        },
+        {
+          value: "Network",
+          label: { en: "Network", fr: "Réseau", pt: "Rede" },
+        },
+        {
+          value: "Non-profit",
           label: {
             en: "Non-Profit",
             fr: "Non lucratif",
             pt: "Organização sem fins lucrativos",
           },
-          value: "Non-Profit",
-        },
-        {
-          label: {
-            en: "Donor/ Investor",
-            fr: "Donateur / investisseur",
-            pt: "Doador/ investidor",
-          },
-          value: "Donor/ Investor",
-        },
-        {
-          value: "Charter Grantee",
-          label: {
-            en: "Charter Grantee",
-            fr: "Accumulé",
-            pt: "Charter donatel",
-          },
         },
       ],
+      localized: true,
       required: true,
       admin: {
         readOnly: true,

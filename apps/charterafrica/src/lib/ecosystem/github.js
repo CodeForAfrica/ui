@@ -102,12 +102,20 @@ export async function fetchGithubApi(path, tag) {
       Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
     };
     const res = await fetch(url, { headers });
+    const response = await res.json();
+    const eTag = res.headers.get("ETag") || "";
     if (res.ok) {
-      const response = await res.json();
-      return response;
+      return { ...response, eTag };
+    }
+    if (res.status !== 304) {
+      const message = `Error fetching "${url}" from github errors ${JSON.stringify(
+        response
+      )}`;
+      throw new FetchError(message, response, 500);
     }
     return null;
   } catch (e) {
+    Sentry.captureMessage(e.message);
     return null;
   }
 }
@@ -160,12 +168,12 @@ export async function processGithubOrganisation({ externalId, eTag }) {
     return {};
   }
   return {
-    name: data.name,
     avatarUrl: data.avatar_url,
     repoLink: data.html_url,
     location: data.location,
     website: data.blog,
     email: data.email,
+    eTag: data.eTag,
   };
 }
 
@@ -178,11 +186,12 @@ export async function processGithubContributor({ externalId, eTag }) {
     return {};
   }
   return {
-    name: data.name,
+    fullName: data.name,
     avatarUrl: data.avatar_url,
     repoLink: data.html_url,
     location: data.location,
     website: data.blog,
     email: data.email,
+    eTag: data.eTag,
   };
 }
