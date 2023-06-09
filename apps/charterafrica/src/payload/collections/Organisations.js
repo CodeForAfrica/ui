@@ -1,5 +1,4 @@
 import { ORGANIZATION_COLLECTION } from "../../lib/ecosystem/models";
-import airtableId from "../fields/airtableId";
 import dateField from "../fields/dateField";
 import eTag from "../fields/eTag";
 import slug from "../fields/slug";
@@ -192,6 +191,12 @@ const Organisations = {
       label: { en: "Partners", fr: "Les partenaires", pt: "Parceiros" },
       fields: supporter,
     },
+    {
+      name: "airtableId",
+      label: { en: "Airtable ID", fr: "ID Airtable", pt: "ID da Airtable" },
+      type: "text",
+      required: true,
+    },
     source(),
     dateField({
       name: "updatedAt",
@@ -203,7 +208,6 @@ const Organisations = {
       name: "sourceUpdatedAt",
     }),
     eTag(),
-    airtableId(),
   ],
 };
 

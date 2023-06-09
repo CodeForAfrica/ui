@@ -15,15 +15,42 @@ const EcosystemConfig = {
   },
   fields: [
     {
-      name: "airtableBase",
-      label: { en: "Airtable Base", fr: "Base aérinable", pt: "Base aérea" },
-      required: true,
-      type: "text",
-      admin: {
-        components: {
-          Field: AirtableBaseSelect,
-        },
+      type: "collapsible",
+      label: {
+        en: "Base Select",
+        fr: "Sélection de base",
+        pt: "Base Selecione",
       },
+      admin: {
+        initCollapsed: true,
+      },
+      fields: [
+        {
+          name: "airtableBase",
+          label: {
+            en: "Airtable Base",
+            fr: "Base aérinable",
+            pt: "Base aérea",
+          },
+          required: true,
+          type: "text",
+          admin: {
+            components: {
+              Field: AirtableBaseSelect,
+            },
+          },
+        },
+        {
+          name: "enableTranslation",
+          type: "checkbox",
+          label: {
+            en: "Enable Translations",
+            fr: "Activer les traductions",
+            pt: "Ativar traduções",
+          },
+          defaultValue: false,
+        },
+      ],
     },
     {
       type: "collapsible",
@@ -96,6 +123,9 @@ const EcosystemConfig = {
                 fr: "Thème (français)",
                 pt: "Tema (francês)",
               },
+              admin: {
+                condition: (siblingData) => siblingData?.enableTranslation,
+              },
             }),
             airtableColumnSelect({
               tableField: "toolsTableName",
@@ -105,6 +135,9 @@ const EcosystemConfig = {
                 en: "Theme(Portuguese)",
                 fr: "Thème (portugais)",
                 pt: "Tema (português)",
+              },
+              admin: {
+                condition: (siblingData) => siblingData?.enableTranslation,
               },
             }),
           ],
@@ -133,6 +166,9 @@ const EcosystemConfig = {
                 fr: "Description (français)",
                 pt: "Descrição (francês)",
               },
+              admin: {
+                condition: (siblingData) => siblingData?.enableTranslation,
+              },
             }),
             airtableColumnSelect({
               tableField: "toolsTableName",
@@ -142,6 +178,9 @@ const EcosystemConfig = {
                 en: "Description(Portuguese)",
                 fr: "Description (portugais)",
                 pt: "Descrição (português)",
+              },
+              admin: {
+                condition: (siblingData) => siblingData?.enableTranslation,
               },
             }),
           ],
@@ -275,6 +314,9 @@ const EcosystemConfig = {
                 fr: "Description (français)",
                 pt: "Descrição (francês)",
               },
+              admin: {
+                condition: (siblingData) => siblingData?.enableTranslation,
+              },
             }),
             airtableColumnSelect({
               tableField: "organisationTableName",
@@ -284,6 +326,9 @@ const EcosystemConfig = {
                 en: "Description(Portuguese)",
                 fr: "Description (portugais)",
                 pt: "Descrição (português)",
+              },
+              admin: {
+                condition: (siblingData) => siblingData?.enableTranslation,
               },
             }),
           ],
@@ -391,6 +436,9 @@ const EcosystemConfig = {
                 fr: "Description (français)",
                 pt: "Descrição (francês)",
               },
+              admin: {
+                condition: (siblingData) => siblingData?.enableTranslation,
+              },
             }),
             airtableColumnSelect({
               tableField: "contributorTableName",
@@ -400,6 +448,9 @@ const EcosystemConfig = {
                 en: "Description(Portuguese)",
                 fr: "Description (portugais)",
                 pt: "Descrição (português)",
+              },
+              admin: {
+                condition: (siblingData) => siblingData?.enableTranslation,
               },
             }),
           ],

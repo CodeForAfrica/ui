@@ -9,21 +9,19 @@ import useSWR from "swr";
 
 import fetchJson from "../../../utils/fetchJson";
 
-const fetcher = (url) => fetchJson.get(url);
 const getOptions = async (baseId) => {
-  const url = `/api/v1/resources/ecosystem/proxy${baseId}/tables`;
-  const { bases } = await fetcher(url);
-  const options = bases.map((item) => ({ value: item.id, label: item.name }));
+  const url = `/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases/${baseId}/tables`;
+  const { tables } = await fetchJson.get(url);
+  const options = tables?.map((item) => ({ value: item.id, label: item.name }));
   return options;
 };
 
-export const validateSelect = async (value, { hasMany, required, t }) => {
-  const options = await getOptions();
-  try {
-    return select(value, { hasMany, options, required, t });
-  } catch (error) {
-    return select(value, { hasMany, options, required, t });
-  }
+export const validateSelect = async (
+  value,
+  { hasMany, required, t, siblingData: { airtableBase } }
+) => {
+  const options = await getOptions(airtableBase);
+  return select(value, { hasMany, options, required, t });
 };
 
 function AirtableTableSelect(props) {
@@ -32,9 +30,9 @@ function AirtableTableSelect(props) {
   const baseId = document.airtableBase;
   const { data = {} } = useSWR(
     baseId
-      ? `/api/v1/resources/ecosystem/proxy?source=airtable&url=/meta/bases/${baseId}/tables`
+      ? `/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases/${baseId}/tables`
       : null,
-    fetcher
+    fetchJson.get
   );
   const options =
     data?.tables?.map((item) => ({ value: item.id, label: item.name })) || [];

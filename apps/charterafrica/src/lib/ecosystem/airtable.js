@@ -6,6 +6,7 @@ import {
   ECOSYSTEM_CONFIG,
 } from "@/charterafrica/lib/ecosystem/models";
 import api from "@/charterafrica/lib/payload";
+import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const airtable = new Airtable({
   apiKey: process.env.AIRTABLE_API_TOKEN,
@@ -13,16 +14,21 @@ const airtable = new Airtable({
 
 export const getListFromAirtable = async ({ baseId, tableIdOrName }) => {
   const base = airtable.base(baseId);
-  const records = await base(tableIdOrName).select().all();
-  return records;
+  return base(tableIdOrName).select().all();
 };
 
 export const processOrganisationFromAirTable = async (data) => {
   const config = await api.findGlobal(ECOSYSTEM_CONFIG, {});
   const description = {
     en: data[config.organisationDescription.english],
-    pt: data[config.organisationDescription.portuguese],
-    fr: data[config.organisationDescription.french],
+    pt: data[
+      config.organisationDescription.portuguese ||
+        config.organisationDescription.english
+    ],
+    fr: data[
+      config.organisationDescription.french ||
+        config.organisationDescription.english
+    ],
   };
   const unLocalizedData = {
     airtableId: data.id,
@@ -53,8 +59,14 @@ export const processContributorFromAirtable = async (data) => {
   const config = await api.findGlobal(ECOSYSTEM_CONFIG, {});
   const description = {
     en: data[config.contributorDescription.english],
-    pt: data[config.contributorDescription.portuguese],
-    fr: data[config.contributorDescription.french],
+    pt: data[
+      config.contributorDescription.portuguese ||
+        config.contributorDescription.english
+    ],
+    fr: data[
+      config.contributorDescription.french ||
+        config.contributorDescription.english
+    ],
   };
   const defaultData = {
     airtableId: data.id,
@@ -83,13 +95,15 @@ export const processToolFromAirtable = async (data) => {
   const config = await api.findGlobal(ECOSYSTEM_CONFIG, {});
   const theme = {
     en: data[config.toolTheme.english]?.[0],
-    pt: data[config.toolTheme.portuguese]?.[0],
-    fr: data[config.toolTheme.french]?.[0],
+    pt: data[config.toolTheme.portuguese || config.toolTheme.english]?.[0],
+    fr: data[config.toolTheme.french || config.toolTheme.english]?.[0],
   };
   const description = {
-    en: data[config.toolsDescription.english] || "",
-    pt: data[config.toolsDescription.portuguese] || "",
-    fr: data[config.toolsDescription.french] || "",
+    en: data[config.toolsDescription.english],
+    pt: data[
+      config.toolsDescription.portuguese || config.toolsDescription.english
+    ],
+    fr: data[config.toolsDescription.french || config.toolsDescription.english],
   };
   const { docs: contrib } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
     where: { airtableId: { in: data[config.toolContributors]?.join(",") } },
@@ -107,7 +121,7 @@ export const processToolFromAirtable = async (data) => {
     link: data[config.toolLink],
     operatingCountries,
     contributors: contrib.map(({ id }) => id),
-    organisation: org[0]?.id,
+    organisation: org?.[0]?.id,
     donors: [], // data.Donors,
     partners: [], //  data.Partners,
     homeCountry,
@@ -132,3 +146,15 @@ export const processToolFromAirtable = async (data) => {
     },
   };
 };
+
+export async function airtableSchema(req) {
+  const { url } = req.query;
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${process.env.AIRTABLE_API_TOKEN}`,
+  };
+  const response = await fetchJson.get(`https://api.airtable.com/v0${url}`, {
+    headers,
+  });
+  return response;
+}
