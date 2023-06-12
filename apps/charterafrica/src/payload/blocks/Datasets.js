@@ -340,7 +340,7 @@ const Datasets = {
                 fr: "Afficher les documents",
                 pt: "Mostrar documentos",
               },
-              defaultValue: true,
+              defaultValue: false,
             },
             {
               name: "documentsPage",
