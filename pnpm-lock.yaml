@@ -96,6 +96,9 @@ importers:
       "@payloadcms/plugin-seo":
         specifier: ^1.0.10
         version: 1.0.10(payload@1.7.5)(react@18.2.0)
+      "@sentry/nextjs":
+        specifier: ^7.51.0
+        version: 7.51.0(next@13.3.4)(react@18.2.0)(webpack@5.82.0)
       dotenv:
         specifier: ^16.0.3
         version: 16.0.3
