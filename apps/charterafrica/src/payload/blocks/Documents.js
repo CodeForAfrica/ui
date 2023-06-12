@@ -1,6 +1,7 @@
 import { array } from "payload/dist/fields/validations";
 
 import documentCloud from "../fields/documentCloud";
+import linkGroup from "../fields/linkGroup";
 import defaultValue from "../utils/defaultValues";
 
 const documentSortOptions = [
@@ -240,21 +241,15 @@ const Documents = {
               },
               defaultValue: false,
             },
-            {
-              name: "datasetsPage",
-              label: {
-                en: "Datasets Page",
-                fr: "Page des ensembles de données",
-                pt: "Página de conjuntos de dados",
+            linkGroup({
+              linkConfig: { disableLabel: true },
+              overrides: {
+                name: "datasetsPage",
+                admin: {
+                  condition: (_, siblingData) => siblingData?.showDatasets,
+                },
               },
-              admin: {
-                condition: (_, siblingData) => siblingData?.showDatasets,
-              },
-              type: "relationship",
-              relationTo: "pages",
-              hasMany: false,
-              required: true,
-            },
+            }),
           ],
         },
       ],
