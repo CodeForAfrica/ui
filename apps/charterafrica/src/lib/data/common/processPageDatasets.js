@@ -1,7 +1,5 @@
 import fetchDatasets, { fetchDataset } from "@/charterafrica/lib/openAfrica";
-import { fetchDocuments } from "@/charterafrica/lib/sourceAfrica";
 import datasetsQuery from "@/charterafrica/utils/datasets/queryString";
-import getDocumentsQuery from "@/charterafrica/utils/documents/documents";
 
 const getDatasetsQuery = (context) => {
   const { query = {}, locale } = context;
@@ -21,10 +19,11 @@ async function processSingleDataset(page, api, context) {
     return null;
   }
 
-  const {
-    datasets: { labels },
-    labels: commonLabels,
-  } = blocks.find(({ slug }) => slug === "datasetsAndDocuments");
+  const { labels } = blocks.find(({ slug }) => slug === "datasets");
+
+  const { labels: commonLabels } = await api.findGlobal("common-labels", {
+    locale,
+  });
 
   return {
     ...page,
@@ -50,67 +49,26 @@ export default async function processPageDatasets(page, api, context) {
   const { blocks, breadcrumbs = [] } = page;
   const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
 
-  const datasetsIndex = blocks.findIndex(
-    ({ slug }) => slug === "datasetsAndDocuments"
-  );
+  const datasetsIndex = blocks.findIndex(({ slug }) => slug === "datasets");
 
   if (datasetsIndex > -1) {
-    const {
-      showDatasets,
-      showDocuments,
-      labels: commonLabels,
-    } = blocks[datasetsIndex];
+    const { organizationId, filterBar, labels } = blocks[datasetsIndex];
+    const datasets = await fetchDatasets(organizationId, pageUrl, {
+      locale,
+    });
+    const { labels: commonLabels } = await api.findGlobal("common-labels", {
+      locale,
+    });
 
-    if (showDatasets) {
-      const {
-        datasets: { organizationId, filterBar, labels },
-      } = blocks[datasetsIndex];
-
-      const data = await fetchDatasets(organizationId, pageUrl, {
-        locale,
-      });
-
-      blocks[datasetsIndex] = {
-        ...blocks[datasetsIndex],
-        datasets: {
-          data,
-          filterBar,
-          labels: {
-            ...commonLabels,
-            ...labels,
-          },
-          organizationId,
-        },
-      };
-    }
-
-    if (showDocuments) {
-      const { documents: datasetsDocuments } = blocks[datasetsIndex];
-      const {
-        labels,
-        filterBar,
-        organization: { groupId, options },
-      } = datasetsDocuments;
-      const data = await fetchDocuments(
-        `group:${groupId}`,
-        getDocumentsQuery(context, options)
-      );
-      blocks[datasetsIndex] = {
-        ...blocks[datasetsIndex],
-        documents: {
-          data,
-          filterBar,
-          labels: {
-            ...commonLabels,
-            ...labels,
-          },
-        },
-      };
-    }
     blocks[datasetsIndex] = {
       ...blocks[datasetsIndex],
-      showDatasets,
-      showDocuments,
+      ...datasets,
+      filterBar,
+      labels: {
+        ...commonLabels,
+        ...labels,
+      },
+      organizationId,
     };
 
     let swrKey = `/api/v1/resources/datasets`;
@@ -118,12 +76,9 @@ export default async function processPageDatasets(page, api, context) {
     if (qs) {
       swrKey = `${swrKey}?${qs}`;
     }
-    const {
-      datasets: { data = [] },
-    } = blocks[datasetsIndex];
     // eslint-disable-next-line no-param-reassign
     page.fallback = {
-      [`${swrKey}`]: data,
+      [`${swrKey}`]: datasets,
     };
   }
 

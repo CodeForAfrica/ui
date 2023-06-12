@@ -1,8 +1,8 @@
 import AgaInfographic from "../blocks/AgaInfographic";
 import CommunityPlatforms from "../blocks/CommunityPlatforms";
 import Datasets from "../blocks/Datasets";
-import DatasetsAndDocuments from "../blocks/DatasetsAndDocuments";
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
+import Documents from "../blocks/Documents";
 import Ecosystem from "../blocks/Ecosystem";
 import EmbeddedDocuments from "../blocks/EmbeddedDocuments";
 import EmbeddedPlaylist from "../blocks/EmbeddedPlaylist";
@@ -51,8 +51,8 @@ const Pages = {
         AgaInfographic,
         CommunityPlatforms,
         Datasets,
-        DatasetsAndDocuments,
         DemocracyHelpdeskContent,
+        Documents,
         Ecosystem,
         EmbeddedDocuments,
         EmbeddedPlaylist,

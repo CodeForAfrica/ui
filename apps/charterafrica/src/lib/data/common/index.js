@@ -4,6 +4,7 @@ import processPageArticles, {
 } from "@/charterafrica/lib/data/common/processPageArticles";
 import processPageConsultation from "@/charterafrica/lib/data/common/processPageConsultation";
 import processPageDatasets from "@/charterafrica/lib/data/common/processPageDatasets";
+import processPageDocuments from "@/charterafrica/lib/data/common/processPageDocuments";
 import processPageExplainers from "@/charterafrica/lib/data/common/processPageExplainers";
 import processPageIndex from "@/charterafrica/lib/data/common/processPageIndex";
 import processPageOpportunities, {
@@ -49,6 +50,7 @@ const processPageFunctionsMap = {
   about: processPageAbout,
   consultation: processPageConsultation,
   datasets: processPageDatasets,
+  documents: processPageDocuments,
   explainers: processPageExplainers,
   events: processPageEvents,
   fellowships: processPageFellowships,

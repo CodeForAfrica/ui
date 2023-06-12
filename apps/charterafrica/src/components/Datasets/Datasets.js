@@ -15,17 +15,13 @@ const Datasets = React.forwardRef(function Datasets(
   {
     sx,
     pageUrl,
-    datasets: {
-      organizationId,
-      data: {
-        datasets: datasetsProp,
-        countries = [],
-        tags = [],
-        totalPages: originalTotalPages,
-      },
-      filterBar: datasetsFilterBar,
-      labels: datasetsLabels,
-    },
+    organizationId,
+    filterBar: datasetsFilterBar,
+    labels: datasetsLabels,
+    datasets: datasetsProp,
+    countries = [],
+    tags = [],
+    totalPages: originalTotalPages,
   },
   ref
 ) {
