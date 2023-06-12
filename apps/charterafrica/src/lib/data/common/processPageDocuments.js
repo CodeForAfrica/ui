@@ -14,6 +14,8 @@ export default async function processPageDocuments(page, api, context) {
       organization: { groupId, options },
       filterBar,
       labels,
+      showDatasets,
+      datasetsPage = {},
     } = blocks[documentsIndex];
     const query = getDocumentsQuery(context, options);
     const documents = await fetchDocuments(`group:${groupId}`, query);
@@ -29,7 +31,18 @@ export default async function processPageDocuments(page, api, context) {
         ...commonLabels,
         ...labels,
       },
+      showDatasets,
     };
+
+    if (showDatasets) {
+      const { breadcrumbs: datasetsPageBreadcrumbs } = datasetsPage;
+      const datasetsPageUrl =
+        datasetsPageBreadcrumbs[datasetsPageBreadcrumbs.length - 1]?.url;
+      blocks[documentsIndex] = {
+        ...blocks[documentsIndex],
+        datasetsPageUrl,
+      };
+    }
 
     let swrKey = `/api/v1/resources/datasets`;
     const qs = documentsQueryString(getDocumentsQuery(context));
