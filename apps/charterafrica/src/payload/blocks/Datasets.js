@@ -1,5 +1,6 @@
 import { array } from "payload/dist/fields/validations";
 
+import linkGroup from "../fields/linkGroup";
 import defaultValue from "../utils/defaultValues";
 
 const sortOptions = [
@@ -342,21 +343,15 @@ const Datasets = {
               },
               defaultValue: false,
             },
-            {
-              name: "documentsPage",
-              label: {
-                en: "Documents Page",
-                fr: "Page des documents",
-                pt: "Página de documentos",
+            linkGroup({
+              linkConfig: { disableLabel: true },
+              overrides: {
+                name: "documentsPage",
+                admin: {
+                  condition: (_, siblingData) => siblingData?.showDocuments,
+                },
               },
-              admin: {
-                condition: (_, siblingData) => siblingData?.showDocuments,
-              },
-              type: "relationship",
-              relationTo: "pages",
-              hasMany: false,
-              required: true,
-            },
+            }),
           ],
         },
       ],

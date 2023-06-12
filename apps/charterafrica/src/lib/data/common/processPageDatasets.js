@@ -79,12 +79,10 @@ export default async function processPageDatasets(page, api, context) {
     };
 
     if (showDocuments) {
-      const { breadcrumbs: documentsPageBreadcrumbs } = documentsPage;
-      const documentsPageUrl =
-        documentsPageBreadcrumbs[documentsPageBreadcrumbs.length - 1]?.url;
+      const { href } = documentsPage;
       blocks[datasetsIndex] = {
         ...blocks[datasetsIndex],
-        documentsPageUrl,
+        documentsUrl: href,
       };
     }
 
