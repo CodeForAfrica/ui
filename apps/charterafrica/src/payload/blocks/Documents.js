@@ -121,12 +121,7 @@ const Documents = {
                           type: "select",
                           unique: true,
                           required: true,
-                          options: documentSortOptions.map((value) => {
-                            return {
-                              value,
-                              label: value,
-                            };
-                          }),
+                          options: documentSortOptions,
                           validate: (val, options) => {
                             const { data, t } = options || {};
                             if (

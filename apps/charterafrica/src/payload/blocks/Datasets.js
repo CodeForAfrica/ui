@@ -128,10 +128,7 @@ const Datasets = {
                           type: "select",
                           unique: true,
                           required: true,
-                          options: sortOptions.map((value) => ({
-                            value,
-                            label: value,
-                          })),
+                          options: sortOptions,
                           validate: (val, options) => {
                             const { data, t } = options || {};
                             if (
