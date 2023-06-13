@@ -1,11 +1,11 @@
-import { ECOSYSTEM_CONFIG } from "../../lib/ecosystem/models";
+import { ECOSYSTEM_GLOBAL } from "../../lib/ecosystem/models";
 import airtableBaseSelect from "../fields/ecosystem/airtableBaseSelect";
 import airtableColumnSelect from "../fields/ecosystem/airtableColumnSelect";
 import airtableTableSelect from "../fields/ecosystem/airtableTableSelect";
 import sourceField from "../fields/ecosystem/sourceField";
 
 const Ecosystem = {
-  slug: ECOSYSTEM_CONFIG,
+  slug: ECOSYSTEM_GLOBAL,
   label: { en: "Ecosystem", fr: "Écosystème", pt: "Ecossistema" },
   access: {
     read: () => true,
