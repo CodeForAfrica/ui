@@ -1,3 +1,4 @@
+import { deepmerge } from "@mui/utils";
 import {
   Select,
   getSiblingData,
@@ -9,15 +10,22 @@ import useSWR from "swr";
 
 import fetchJson from "../../../utils/fetchJson";
 
-const getOptions = async (baseId) => {
+function getUrl(baseId) {
   if (baseId) {
-    const url = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases/${baseId}/tables`;
+    return `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases/${baseId}/tables`;
+  }
+  return null;
+}
+
+function tablesToOptions(tables) {
+  return tables?.map((item) => ({ value: item.id, label: item.name })) || [];
+}
+
+const getOptions = async (baseId) => {
+  const url = getUrl(baseId);
+  if (url) {
     const { tables } = await fetchJson.get(url);
-    const options = tables?.map((item) => ({
-      value: item.id,
-      label: item.name,
-    }));
-    return options;
+    return tablesToOptions(tables);
   }
   return [];
 };
@@ -33,21 +41,26 @@ export const validateTableSelect = async (
 function AirtableTableSelect(props) {
   const [fields] = useAllFormFields();
   const { baseId } = getSiblingData(fields, "baseId");
-  const { data = { tables: [] } } = useSWR(
-    baseId
-      ? `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases/${baseId}/tables`
-      : null,
-    fetchJson.get
-  );
-  const options = useMemo(
-    () =>
-      data.tables.map((item) => ({
-        value: item.id,
-        label: item.name,
-      })),
-    [data.tables]
-  );
+  const { data: { tables } = {} } = useSWR(getUrl(baseId), fetchJson.get);
+  const options = useMemo(() => tablesToOptions(tables), [tables]);
+
   return createElement(Select, { ...props, options });
 }
 
-export default AirtableTableSelect;
+function airtableTableSelect(overrides) {
+  const defaultSelect = {
+    type: "text",
+    validate: validateTableSelect,
+    required: true,
+    admin: {
+      components: {
+        Field: AirtableTableSelect,
+      },
+      description: () => "Select Airtable Base above to see available tables",
+    },
+  };
+
+  return deepmerge(defaultSelect, overrides);
+}
+
+export default airtableTableSelect;
