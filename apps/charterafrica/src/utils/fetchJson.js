@@ -1,5 +1,14 @@
 import { stringify } from "qs";
 
+export class FetchError extends Error {
+  constructor(message = "Something went wrong", data = {}, status = 500) {
+    super();
+    this.message = message;
+    this.data = data;
+    this.status = status;
+  }
+}
+
 const headers = {
   "Content-Type": "application/json",
 };

@@ -35,7 +35,7 @@ export const createCollection = async (collection, toCreate) => {
     const pt = await create(collection, ptToCreate, "pt");
     const fr = await create(collection, frToCreate, "fr");
     return { en, pt, fr };
-  } catch (error) {
+  } catch (e) {
     return {};
   }
 };

@@ -2,7 +2,7 @@ import Airtable from "airtable";
 
 import { CONTRIBUTORS_COLLECTION } from "@/charterafrica/lib/ecosystem/models";
 import api from "@/charterafrica/lib/payload";
-import fetchJson from "@/charterafrica/utils/fetchJson";
+import fetchJson, { FetchError } from "@/charterafrica/utils/fetchJson";
 
 const airtable = new Airtable({
   apiKey: process.env.AIRTABLE_API_TOKEN,
@@ -22,19 +22,21 @@ export const processOrganisationFromAirTable = async (data, config) => {
     schema: { organisationTableColumns },
   } = config;
   const description = {
-    en: getter(data, organisationTableColumns.description.english),
-    pt: getter(data, organisationTableColumns.description.portuguese),
-    fr: getter(data, organisationTableColumns.description.french),
+    en: getter(data, organisationTableColumns.description.en),
+    pt: getter(data, organisationTableColumns.description.pt),
+    fr: getter(data, organisationTableColumns.description.fr),
   };
   const unLocalizedData = {
     airtableId: data.id,
-    externalId: getter(organisationTableColumns.slug),
-    name: getter(data, organisationTableColumns.name),
+    externalId: getter(data, organisationTableColumns.slug),
     type: getter(data, organisationTableColumns.type),
     repoLink: getter(data, organisationTableColumns.source.url),
     donors: [], // data.Donors, UPDATE when source is sanitized
     partners: [], // data.Partners,
   };
+  if (!unLocalizedData.externalId) {
+    throw new FetchError(`Missing external ID for ${data.id}`, data, 500);
+  }
   return {
     en: {
       ...unLocalizedData,
@@ -56,9 +58,9 @@ export const processContributorFromAirtable = async (data, config) => {
     schema: { contributorTableColumns },
   } = config;
   const description = {
-    en: getter(data, contributorTableColumns.description.english),
-    pt: getter(data, contributorTableColumns.description.portuguese),
-    fr: getter(data, contributorTableColumns.description.french),
+    en: getter(data, contributorTableColumns.description.en),
+    pt: getter(data, contributorTableColumns.description.pt),
+    fr: getter(data, contributorTableColumns.description.fr),
   };
   const defaultData = {
     airtableId: data.id,
@@ -88,14 +90,14 @@ export const processToolFromAirtable = async (data, config) => {
     schema: { toolTableColumns },
   } = config;
   const theme = {
-    en: getter(data, toolTableColumns.theme.english)?.[0],
-    pt: getter(data, toolTableColumns.theme.portuguese)?.[0],
-    fr: getter(data, toolTableColumns.theme.french)?.[0],
+    en: getter(data, toolTableColumns.theme.en)?.[0],
+    pt: getter(data, toolTableColumns.theme.pt)?.[0],
+    fr: getter(data, toolTableColumns.theme.fr)?.[0],
   };
   const description = {
-    en: getter(data, toolTableColumns.description.english),
-    pt: getter(data, toolTableColumns.description.portuguese),
-    fr: getter(data, toolTableColumns.description.french),
+    en: getter(data, toolTableColumns.description.en),
+    pt: getter(data, toolTableColumns.description.pt),
+    fr: getter(data, toolTableColumns.description.fr),
   };
   const { docs: contrib } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
     where: {

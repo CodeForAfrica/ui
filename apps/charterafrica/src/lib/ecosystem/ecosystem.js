@@ -11,7 +11,7 @@ import {
   ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,
-  ECOSYSTEM_CONFIG,
+  ECOSYSTEM_GLOBAL,
 } from "@/charterafrica/lib/ecosystem/models";
 
 const bulkMarkDeleted = async (collection, fromSource) => {
@@ -107,11 +107,11 @@ export const updateEcosystemContent = async (req, res) => {
   // For all list in database query Github API. using ETAG
   res.status(200).json({});
 };
-export const updateEcosystemList = async (req, res) => {
-  const config = await api.findGlobal(ECOSYSTEM_CONFIG, {});
+export const updateEcosystemList = async () => {
+  const config = await api.findGlobal(ECOSYSTEM_GLOBAL, {});
   const organisations = await processOrganisations(config);
   const contributors = await processContributors(config);
   const tools = await processTools(config);
 
-  res.status(200).json({ tools, contributors, organisations });
+  return { organisations, contributors, tools };
 };
