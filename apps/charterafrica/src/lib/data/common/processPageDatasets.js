@@ -53,11 +53,8 @@ export default async function processPageDatasets(page, api, context) {
 
   if (datasetsIndex > -1) {
     const {
-      organizationId,
-      filterBar,
-      labels,
-      showDocuments,
-      documentsPage = {},
+      datasets: { organizationId, filterBar, labels },
+      documents: { showDocuments, documentsPage = {} },
     } = blocks[datasetsIndex];
     const datasets = await fetchDatasets(organizationId, pageUrl, {
       locale,
