@@ -2,7 +2,7 @@ import fetchJson from "@/charterafrica/utils/fetchJson";
 
 export const processToolFromAirtable = async () => {};
 
-export async function airtableSchema(req) {
+export async function schema(req) {
   const { url } = req.query;
   const headers = {
     "Content-Type": "application/json",

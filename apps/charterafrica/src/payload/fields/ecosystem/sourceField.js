@@ -1,7 +1,5 @@
 import { deepmerge } from "@mui/utils";
 
-import source from "../source";
-
 import airtableColumnSelect from "./airtableColumnSelect";
 
 function sourceField({ tableField, overrides = {} }) {
@@ -17,11 +15,14 @@ function sourceField({ tableField, overrides = {} }) {
           label: { en: "Source URL", fr: "URL de source", pt: "URL da fonte" },
         },
       }),
-      source({
-        name: "type",
-        label: {
-          en: "Type",
-          pt: "Tipo",
+      airtableColumnSelect({
+        tableField,
+        overrides: {
+          name: "type",
+          label: {
+            en: "Type",
+            pt: "Tipo",
+          },
         },
       }),
     ],
