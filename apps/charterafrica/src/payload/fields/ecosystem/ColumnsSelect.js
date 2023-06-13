@@ -11,16 +11,17 @@ import fetchJson from "../../../utils/fetchJson";
 
 export function validate(tableField) {
   return async function validateColumn(value, { hasMany, required, t, data }) {
-    const tableId = data[tableField];
-    const { tables } = fetchJson.get(
+    const tableId = data.schema[tableField];
+    const { tables } = await fetchJson.get(
       `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases/${data.baseId}/tables`
     );
     const table = tables?.find(({ id }) => id === tableId);
-    const options = table?.fields?.map((item) => ({
-      value: item.name,
-      label: item.name,
-      id: item.id,
-    }));
+    const options =
+      table?.fields?.map((item) => ({
+        value: item.name,
+        label: item.name,
+        id: item.id,
+      })) || [];
     return select(value, { hasMany, options, required, t });
   };
 }

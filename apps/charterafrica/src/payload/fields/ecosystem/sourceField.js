@@ -5,6 +5,9 @@ function sourceField({ tableField }) {
     type: "group",
     label: { en: "Source", fr: "Source", pt: "Fonte" },
     name: "source",
+    admin: {
+      hideGutter: true,
+    },
     fields: [
       airtableColumnSelect({
         tableField,

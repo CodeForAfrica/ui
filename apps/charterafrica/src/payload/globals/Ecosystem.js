@@ -54,6 +54,9 @@ const Ecosystem = {
       name: "schema",
       type: "group",
       label: { en: "Schema", fr: "Schéma", pt: "Esquema" },
+      admin: {
+        hideGutter: true,
+      },
       fields: [
         {
           type: "collapsible",
@@ -87,6 +90,9 @@ const Ecosystem = {
             {
               name: "toolTableColumns",
               type: "group",
+              admin: {
+                hideGutter: true,
+              },
               fields: [
                 airtableColumnSelect({
                   tableField: "toolTableId",
@@ -113,6 +119,9 @@ const Ecosystem = {
                     en: "Description",
                     fr: "Description",
                     pt: "Descrição",
+                  },
+                  admin: {
+                    hideGutter: true,
                   },
                   fields: [
                     airtableColumnSelect({
@@ -154,6 +163,9 @@ const Ecosystem = {
                   name: "theme",
                   type: "group",
                   label: { en: "Theme", fr: "Thème", pt: "Tema" },
+                  admin: {
+                    hideGutter: true,
+                  },
                   fields: [
                     airtableColumnSelect({
                       tableField: "toolTableId",
@@ -281,6 +293,9 @@ const Ecosystem = {
             {
               name: "contributorTableColumns",
               type: "group",
+              admin: {
+                hideGutter: true,
+              },
               fields: [
                 airtableColumnSelect({
                   tableField: "contributorTableId",
@@ -303,6 +318,9 @@ const Ecosystem = {
                 {
                   name: "description",
                   type: "group",
+                  admin: {
+                    hideGutter: true,
+                  },
                   label: {
                     en: "Description",
                     fr: "Description",
@@ -385,6 +403,9 @@ const Ecosystem = {
             {
               name: "organisationTableColumns",
               type: "group",
+              admin: {
+                hideGutter: true,
+              },
               fields: [
                 airtableColumnSelect({
                   tableField: "organisationTableId",
@@ -398,6 +419,9 @@ const Ecosystem = {
                 {
                   name: "description",
                   type: "group",
+                  admin: {
+                    hideGutter: true,
+                  },
                   label: {
                     en: "Description",
                     fr: "Description",
