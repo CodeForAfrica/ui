@@ -1,11 +1,7 @@
 import { ECOSYSTEM_CONFIG } from "../../lib/ecosystem/models";
-import AirtableBaseSelect, {
-  validateBaseSelect,
-} from "../fields/ecosystem/AirtableBaseSelect";
+import airtableBaseSelect from "../fields/ecosystem/airtableBaseSelect";
 import airtableColumnSelect from "../fields/ecosystem/airtableColumnSelect";
-import AirtableTableSelect, {
-  validateTableSelect,
-} from "../fields/ecosystem/AirtableTableSelect";
+import airtableTableSelect from "../fields/ecosystem/airtableTableSelect";
 import sourceField from "../fields/ecosystem/sourceField";
 
 const Ecosystem = {
@@ -18,31 +14,13 @@ const Ecosystem = {
     {
       type: "collapsible",
       label: { en: "Airtable Base", fr: "Base aérinable", pt: "Base aérea" },
-      admin: {
-        initCollapsed: true,
-      },
       fields: [
-        {
-          name: "baseId",
-          label: {
-            en: "Airtable Base",
-            fr: "Base aérinable",
-            pt: "Base aérea",
-          },
-          required: true,
-          type: "text",
-          validate: validateBaseSelect,
-          admin: {
-            components: {
-              Field: AirtableBaseSelect,
-            },
-          },
-        },
+        airtableBaseSelect(),
         {
           name: "localized",
           type: "checkbox",
           label: {
-            en: "Enable Translations",
+            en: "Enable translations",
             fr: "Activer les traductions",
             pt: "Ativar traduções",
           },
@@ -55,6 +33,7 @@ const Ecosystem = {
       type: "group",
       label: { en: "Schema", fr: "Schéma", pt: "Esquema" },
       admin: {
+        condition: (siblingData) => siblingData?.baseId,
         hideGutter: true,
       },
       fields: [
@@ -69,26 +48,21 @@ const Ecosystem = {
             initCollapsed: true,
           },
           fields: [
-            {
+            airtableTableSelect({
               name: "toolTableId",
               label: {
-                en: "Tools Table Name",
-                fr: "Nom du tableau des outils",
-                pt: "Nome da tabela de ferramentas",
+                en: "Table Name",
+                fr: "Nom du tableau",
+                pt: "Nome da tabela",
               },
-              required: true,
-              validate: validateTableSelect,
-              type: "text",
-              admin: {
-                description: () =>
-                  "Enter Airtable Base above to select a table",
-                components: {
-                  Field: AirtableTableSelect,
-                },
-              },
-            },
+            }),
             {
               name: "toolTableColumns",
+              label: {
+                en: "Columns",
+                fr: "Colonnes",
+                pt: "Colunas",
+              },
               type: "group",
               admin: {
                 hideGutter: true,
@@ -96,20 +70,24 @@ const Ecosystem = {
               fields: [
                 airtableColumnSelect({
                   tableField: "toolTableId",
-                  name: "slug",
-                  label: {
-                    en: "Tool External Id Column",
-                    fr: "Outil colonne d'identification externe",
-                    pt: "Coluna de identificação externa da ferramenta",
+                  overrides: {
+                    name: "slug",
+                    label: {
+                      en: "External Id",
+                      fr: "Identification externe",
+                      pt: "Identificação externa",
+                    },
                   },
                 }),
                 airtableColumnSelect({
                   tableField: "toolTableId",
-                  name: "name",
-                  label: {
-                    en: "Tool Name Column",
-                    fr: "Colonne du nom de l'outil",
-                    pt: "Coluna do nome da ferramenta",
+                  overrides: {
+                    name: "name",
+                    label: {
+                      en: "Name",
+                      fr: "Nom",
+                      pt: "Nome",
+                    },
                   },
                 }),
                 {
@@ -126,35 +104,41 @@ const Ecosystem = {
                   fields: [
                     airtableColumnSelect({
                       tableField: "toolTableId",
-                      name: "english",
-                      label: {
-                        en: "Description(English)",
-                        fr: "Description (anglais)",
-                        pt: "Descrição (inglês)",
+                      overrides: {
+                        name: "en",
+                        label: {
+                          en: "Description (English)",
+                          fr: "Description (anglais)",
+                          pt: "Descrição (inglês)",
+                        },
                       },
                     }),
                     airtableColumnSelect({
                       tableField: "toolTableId",
-                      name: "french",
-                      label: {
-                        en: "Description(French)",
-                        fr: "Description (français)",
-                        pt: "Descrição (francês)",
-                      },
-                      admin: {
-                        condition: (siblingData) => siblingData?.localized,
+                      overrides: {
+                        name: "fr",
+                        label: {
+                          en: "Description (French)",
+                          fr: "Description (français)",
+                          pt: "Descrição (francês)",
+                        },
+                        admin: {
+                          condition: (siblingData) => siblingData?.localized,
+                        },
                       },
                     }),
                     airtableColumnSelect({
                       tableField: "toolTableId",
-                      name: "portuguese",
-                      label: {
-                        en: "Description(Portuguese)",
-                        fr: "Description (portugais)",
-                        pt: "Descrição (português)",
-                      },
-                      admin: {
-                        condition: (siblingData) => siblingData?.localized,
+                      overrides: {
+                        name: "pt",
+                        label: {
+                          en: "Description (Portuguese)",
+                          fr: "Description (portugais)",
+                          pt: "Descrição (português)",
+                        },
+                        admin: {
+                          condition: (siblingData) => siblingData?.localized,
+                        },
                       },
                     }),
                   ],
@@ -169,92 +153,108 @@ const Ecosystem = {
                   fields: [
                     airtableColumnSelect({
                       tableField: "toolTableId",
-                      name: "english",
-                      label: {
-                        en: "Theme(English)",
-                        fr: "Thème (anglais)",
-                        pt: "Tema (inglês)",
+                      overrides: {
+                        name: "pt",
+                        label: {
+                          en: "Theme (English)",
+                          fr: "Thème (anglais)",
+                          pt: "Tema (inglês)",
+                        },
                       },
                     }),
                     airtableColumnSelect({
                       tableField: "toolTableId",
-                      name: "french",
-                      label: {
-                        en: "Theme(French)",
-                        fr: "Thème (français)",
-                        pt: "Tema (francês)",
-                      },
-                      admin: {
-                        condition: (siblingData) => siblingData?.localized,
+                      overrides: {
+                        name: "fr",
+                        label: {
+                          en: "Theme (French)",
+                          fr: "Thème (français)",
+                          pt: "Tema (francês)",
+                        },
+                        admin: {
+                          condition: (siblingData) => siblingData?.localized,
+                        },
                       },
                     }),
                     airtableColumnSelect({
                       tableField: "toolTableId",
-                      name: "portuguese",
-                      label: {
-                        en: "Theme(Portuguese)",
-                        fr: "Thème (portugais)",
-                        pt: "Tema (português)",
-                      },
-                      admin: {
-                        condition: (siblingData) => siblingData?.localized,
+                      overrides: {
+                        name: "pt",
+                        label: {
+                          en: "Theme(Portuguese)",
+                          fr: "Thème (portugais)",
+                          pt: "Tema (português)",
+                        },
+                        admin: {
+                          condition: (siblingData) => siblingData?.localized,
+                        },
                       },
                     }),
                   ],
                 },
                 airtableColumnSelect({
                   tableField: "toolTableId",
-                  name: "homeCountry",
-                  label: {
-                    en: "Home Country Column",
-                    fr: "Colonne de campagne d'origine",
-                    pt: "Coluna do país natal",
+                  overrides: {
+                    name: "homeCountry",
+                    label: {
+                      en: "Home Country",
+                      fr: "Campagne d'origine",
+                      pt: "País natal",
+                    },
                   },
                 }),
                 airtableColumnSelect({
                   tableField: "toolTableId",
-                  name: "url",
-                  label: {
-                    en: "Tool Link Column",
-                    fr: "Colonne de liaison d'outil",
-                    pt: "Coluna de link da ferramenta",
+                  overrides: {
+                    name: "url",
+                    label: {
+                      en: "Website",
+                    },
                   },
                 }),
                 sourceField({ tableField: "toolTableId" }),
                 airtableColumnSelect({
                   tableField: "toolTableId",
-                  name: "contributors",
-                  label: {
-                    en: "Tool Contributors Column",
-                    fr: "Colonne des contributeurs d'outils",
-                    pt: "Coluna dos colaboradores da ferramenta",
+                  overrides: {
+                    name: "contributors",
+                    label: {
+                      en: "Contributors",
+                      fr: "Contributeurs",
+                      pt: "Colaboradores",
+                    },
                   },
                 }),
                 airtableColumnSelect({
                   tableField: "toolTableId",
-                  name: "organisation",
-                  label: {
-                    en: "Organisation Column",
-                    fr: "Colonne d'organisation",
-                    pt: "Coluna da organização",
+                  overrides: {
+                    name: "organisation",
+                    label: {
+                      en: "Organisation",
+                      fr: "Organisation",
+                      pt: "Organização",
+                    },
                   },
                 }),
                 airtableColumnSelect({
                   tableField: "toolTableId",
-                  name: "partners",
-                  label: {
-                    en: "Tool Partners Column",
-                    fr: "Colonne des partenaires d'outils",
-                    pt: "Coluna de parceiros de ferramentas",
+                  overrides: {
+                    name: "partners",
+                    label: {
+                      en: "Partners",
+                      fr: "Partenaires",
+                      pt: "Parceiros",
+                    },
                   },
                 }),
                 airtableColumnSelect({
                   tableField: "toolTableId",
-                  name: "supporters",
-                  label: {
-                    en: "Supporters",
-                    fr: "Partisans",
-                    pt: "Apoiadores",
+                  overrides: {
+                    name: "supporters",
+                    label: {
+                      en: "Supporters",
+                      fr: "Partisans",
+                      pt: "Apoiadores",
+                    },
                   },
                 }),
               ],
@@ -272,26 +272,21 @@ const Ecosystem = {
             initCollapsed: true,
           },
           fields: [
-            {
+            airtableTableSelect({
               name: "contributorTableId",
               label: {
-                en: "Contributors Table Name",
-                fr: "Nom du tableau des contributeurs",
-                pt: "Nome da tabela dos colaboradores",
+                en: "Table Name",
+                fr: "Nom du tableau",
+                pt: "Nome da tabela",
               },
-              required: true,
-              validate: validateTableSelect,
-              type: "text",
-              admin: {
-                description: () =>
-                  "Enter Airtable Base above to select a table",
-                components: {
-                  Field: AirtableTableSelect,
-                },
-              },
-            },
+            }),
             {
               name: "contributorTableColumns",
+              label: {
+                en: "Columns",
+                fr: "Colonnes",
+                pt: "Colunas",
+              },
               type: "group",
               admin: {
                 hideGutter: true,
@@ -299,28 +294,29 @@ const Ecosystem = {
               fields: [
                 airtableColumnSelect({
                   tableField: "contributorTableId",
-                  name: "slug",
-                  label: {
-                    en: "External ID(Username)",
-                    fr: "ID externe (nom d'utilisateur)",
-                    pt: "ID externo (nome de usuário)",
+                  overrides: {
+                    name: "slug",
+                    label: {
+                      en: "Username",
+                      fr: "Nom d'utilisateur",
+                      pt: "Nome de usuário",
+                    },
                   },
                 }),
                 airtableColumnSelect({
                   tableField: "contributorTableId",
-                  name: "name",
-                  label: {
-                    en: "Contributor Name Column",
-                    fr: "Colonne de nom de contributeur",
-                    pt: "Coluna de nome do colaborador",
+                  overrides: {
+                    name: "name",
+                    label: {
+                      en: "Name",
+                      fr: "Nom",
+                      pt: "Nome",
+                    },
                   },
                 }),
                 {
                   name: "description",
                   type: "group",
-                  admin: {
-                    hideGutter: true,
-                  },
                   label: {
                     en: "Description",
                     fr: "Description",
@@ -329,43 +325,48 @@ const Ecosystem = {
                   fields: [
                     airtableColumnSelect({
                       tableField: "contributorTableId",
-
-                      name: "english",
-                      label: {
-                        en: "Description(English)",
-                        fr: "Description (anglais)",
-                        pt: "Descrição (inglês)",
+                      overrides: {
+                        name: "en",
+                        label: {
+                          en: "Description (English)",
+                          fr: "Description (anglais)",
+                          pt: "Descrição (inglês)",
+                        },
                       },
                     }),
                     airtableColumnSelect({
                       tableField: "contributorTableId",
-
-                      name: "french",
-                      label: {
-                        en: "Description(French)",
-                        fr: "Description (français)",
-                        pt: "Descrição (francês)",
-                      },
-                      admin: {
-                        condition: (siblingData) => siblingData?.localized,
+                      overrides: {
+                        name: "fr",
+                        label: {
+                          en: "Description (French)",
+                          fr: "Description (français)",
+                          pt: "Descrição (francês)",
+                        },
+                        admin: {
+                          condition: (siblingData) => siblingData?.localized,
+                        },
                       },
                     }),
                     airtableColumnSelect({
                       tableField: "contributorTableId",
-
-                      name: "portuguese",
-                      label: {
-                        en: "Description(Portuguese)",
-                        fr: "Description (portugais)",
-                        pt: "Descrição (português)",
-                      },
-                      admin: {
-                        condition: (siblingData) => siblingData?.localized,
+                      overrides: {
+                        name: "pt",
+                        label: {
+                          en: "Description (Portuguese)",
+                          fr: "Description (portugais)",
+                          pt: "Descrição (português)",
+                        },
+                        admin: {
+                          condition: (siblingData) => siblingData?.localized,
+                        },
                       },
                     }),
                   ],
+                  admin: {
+                    hideGutter: true,
+                  },
                 },
-
                 sourceField({ tableField: "contributorTableId" }),
               ],
             },
@@ -382,26 +383,21 @@ const Ecosystem = {
             initCollapsed: true,
           },
           fields: [
-            {
+            airtableTableSelect({
               name: "organisationTableId",
               label: {
-                en: "OrganisationTable Name",
-                fr: "Nom d'organisation",
-                pt: "Nome de organização",
+                en: "Table Name",
+                fr: "Nom du tableau",
+                pt: "Nome da tabela",
               },
-              required: true,
-              validate: validateTableSelect,
-              type: "text",
-              admin: {
-                description: () =>
-                  "Enter Airtable Base above to select a table",
-                components: {
-                  Field: AirtableTableSelect,
-                },
-              },
-            },
+            }),
             {
               name: "organisationTableColumns",
+              label: {
+                en: "Columns",
+                fr: "Colonnes",
+                pt: "Colunas",
+              },
               type: "group",
               admin: {
                 hideGutter: true,
@@ -409,11 +405,13 @@ const Ecosystem = {
               fields: [
                 airtableColumnSelect({
                   tableField: "organisationTableId",
-                  name: "slug",
-                  label: {
-                    en: "Organisation Username Column",
-                    fr: "Colonne de nom d'utilisateur d'organisation",
-                    pt: "Coluna de nome de usuário da organização",
+                  overrides: {
+                    name: "slug",
+                    label: {
+                      en: "Username",
+                      fr: "nom d'utilisateur",
+                      pt: "nome de usuário",
+                    },
                   },
                 }),
                 {
@@ -430,56 +428,62 @@ const Ecosystem = {
                   fields: [
                     airtableColumnSelect({
                       tableField: "organisationTableId",
-
-                      name: "english",
-                      label: {
-                        en: "Description(English)",
-                        fr: "Description (anglais)",
-                        pt: "Descrição (inglês)",
+                      overrides: {
+                        name: "en",
+                        label: {
+                          en: "Description (English)",
+                          fr: "Description (anglais)",
+                          pt: "Descrição (inglês)",
+                        },
                       },
                     }),
                     airtableColumnSelect({
                       tableField: "organisationTableId",
-
-                      name: "french",
-                      label: {
-                        en: "Description(French)",
-                        fr: "Description (français)",
-                        pt: "Descrição (francês)",
-                      },
-                      admin: {
-                        condition: (siblingData) => siblingData?.localized,
+                      overrides: {
+                        name: "fr",
+                        label: {
+                          en: "Description (French)",
+                          fr: "Description (français)",
+                          pt: "Descrição (francês)",
+                        },
+                        admin: {
+                          condition: (siblingData) => siblingData?.localized,
+                        },
                       },
                     }),
                     airtableColumnSelect({
                       tableField: "organisationTableId",
-
-                      name: "portuguese",
-                      label: {
-                        en: "Description(Portuguese)",
-                        fr: "Description (portugais)",
-                        pt: "Descrição (português)",
-                      },
-                      admin: {
-                        condition: (siblingData) => siblingData?.localized,
+                      overrides: {
+                        name: "pt",
+                        label: {
+                          en: "Description (Portuguese)",
+                          fr: "Description (portugais)",
+                          pt: "Descrição (português)",
+                        },
+                        admin: {
+                          condition: (siblingData) => siblingData?.localized,
+                        },
                       },
                     }),
                   ],
                 },
                 airtableColumnSelect({
                   tableField: "organisationTableId",
-                  name: "type",
-                  label: {
-                    en: "Organisation Type Column",
-                    fr: "Colonne de type organisation",
-                    pt: "Coluna do tipo de organização",
+                  overrides: {
+                    name: "type",
+                    label: {
+                      en: "Type",
+                      pt: "Tipo",
+                    },
                   },
                 }),
                 sourceField({ tableField: "organisationTableId" }),
                 airtableColumnSelect({
                   tableField: "organisationTableId",
-                  name: "url",
-                  label: { en: "URL", fr: "URL", pt: "Url" },
+                  overrides: {
+                    name: "url",
+                    label: { en: "Website" },
+                  },
                 }),
               ],
             },
