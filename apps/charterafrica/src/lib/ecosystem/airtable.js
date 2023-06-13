@@ -1,6 +1,143 @@
+import Airtable from "airtable";
+
+import { CONTRIBUTORS_COLLECTION } from "@/charterafrica/lib/ecosystem/models";
+import api from "@/charterafrica/lib/payload";
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
-export const processToolFromAirtable = async () => {};
+const airtable = new Airtable({
+  apiKey: process.env.AIRTABLE_API_TOKEN,
+});
+
+function getter(data, key) {
+  return key ? data?.[key] : null;
+}
+
+export const getListFromAirtable = async ({ baseId, tableIdOrName }) => {
+  const base = airtable.base(baseId);
+  return base(tableIdOrName).select().all();
+};
+
+export const processOrganisationFromAirTable = async (data, config) => {
+  const {
+    schema: { organisationTableColumns },
+  } = config;
+  const description = {
+    en: getter(data, organisationTableColumns.description.english),
+    pt: getter(data, organisationTableColumns.description.portuguese),
+    fr: getter(data, organisationTableColumns.description.french),
+  };
+  const unLocalizedData = {
+    airtableId: data.id,
+    externalId: getter(organisationTableColumns.slug),
+    name: getter(data, organisationTableColumns.name),
+    type: getter(data, organisationTableColumns.type),
+    repoLink: getter(data, organisationTableColumns.source.url),
+    donors: [], // data.Donors, UPDATE when source is sanitized
+    partners: [], // data.Partners,
+  };
+  return {
+    en: {
+      ...unLocalizedData,
+      description: description.en,
+    },
+    fr: {
+      ...unLocalizedData,
+      description: description.fr,
+    },
+    pt: {
+      ...unLocalizedData,
+      description: description.pt,
+    },
+  };
+};
+
+export const processContributorFromAirtable = async (data, config) => {
+  const {
+    schema: { contributorTableColumns },
+  } = config;
+  const description = {
+    en: getter(data, contributorTableColumns.description.english),
+    pt: getter(data, contributorTableColumns.description.portuguese),
+    fr: getter(data, contributorTableColumns.description.french),
+  };
+  const defaultData = {
+    airtableId: data.id,
+    externalId: getter(data, contributorTableColumns.slug),
+    repoLink: `https://github.com/${data.id}`,
+    donors: [], // data.Donors,
+    partners: [], // data.Partners,
+  };
+  return {
+    en: {
+      ...defaultData,
+      description: description.en,
+    },
+    fr: {
+      ...defaultData,
+      description: description.fr,
+    },
+    pt: {
+      ...defaultData,
+      description: description.pt,
+    },
+  };
+};
+
+export const processToolFromAirtable = async (data, config) => {
+  const {
+    schema: { toolTableColumns },
+  } = config;
+  const theme = {
+    en: getter(data, toolTableColumns.theme.english)?.[0],
+    pt: getter(data, toolTableColumns.theme.portuguese)?.[0],
+    fr: getter(data, toolTableColumns.theme.french)?.[0],
+  };
+  const description = {
+    en: getter(data, toolTableColumns.description.english),
+    pt: getter(data, toolTableColumns.description.portuguese),
+    fr: getter(data, toolTableColumns.description.french),
+  };
+  const { docs: contrib } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
+    where: {
+      airtableId: {
+        in: getter(data, toolTableColumns.contributors)?.join(","),
+      },
+    },
+  });
+  const operatingCountries = [];
+  const homeCountry = getter(data, toolTableColumns.homeCountry);
+  const defaultData = {
+    airtableId: data.id,
+    externalId: getter(data, toolTableColumns.slug) || " ",
+    repoLink: getter(data, toolTableColumns.source.url),
+    name: getter(data, toolTableColumns.name),
+    link: getter(data, toolTableColumns.url),
+    operatingCountries,
+    contributors: contrib.map(({ id }) => id),
+    donors: [], // data.Donors,
+    partners: [], //  data.Partners,
+    homeCountry,
+    otherSocialMedia: [],
+  };
+
+  return {
+    en: {
+      ...defaultData,
+      description: description.en,
+      theme: theme.en,
+    },
+    fr: {
+      ...defaultData,
+      description: description.fr,
+      theme: theme.fr,
+    },
+    pt: {
+      ...defaultData,
+      description: description.pt,
+      theme: theme.pt,
+    },
+  };
+};
 
 export async function airtableSchema(req) {
   const { url } = req.query;

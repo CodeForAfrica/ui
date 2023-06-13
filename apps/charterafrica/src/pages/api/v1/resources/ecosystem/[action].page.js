@@ -1,4 +1,8 @@
 import { airtableSchema } from "@/charterafrica/lib/ecosystem/airtable";
+import {
+  updateEcosystemList,
+  updateEcosystemContent,
+} from "@/charterafrica/lib/ecosystem/ecosystem";
 
 const isApiKeyValid = (key) => {
   return key && key === process.env.RESOURCES_SECRET_TOKEN;
@@ -17,7 +21,10 @@ export async function schema(req, res) {
   return res.status(404).json({ message: "SOURCE_NOT_FOUND" });
 }
 
-const actionMap = {};
+const actionMap = {
+  "update-ecosystem-list": updateEcosystemList,
+  "update-ecosystem-content": updateEcosystemContent,
+};
 
 export default async function handler(req, res) {
   const {

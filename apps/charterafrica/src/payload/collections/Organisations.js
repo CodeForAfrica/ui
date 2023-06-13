@@ -1,4 +1,7 @@
-import { ORGANIZATION_COLLECTION } from "../../lib/ecosystem/models";
+import {
+  ORGANIZATION_COLLECTION,
+  TOOL_COLLECTION,
+} from "../../lib/ecosystem/models";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
@@ -29,7 +32,7 @@ const Organisations = {
     {
       name: "externalId",
       type: "text",
-      required: true,
+
       label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
       admin: {
         readOnly: true,
@@ -39,7 +42,7 @@ const Organisations = {
       name: "name",
       type: "text",
       label: { en: "Name", fr: "Nom", pt: "Nome" },
-      required: true,
+
       admin: {
         readOnly: true,
       },
@@ -83,7 +86,7 @@ const Organisations = {
           },
         },
       ],
-      required: true,
+
       admin: {
         readOnly: true,
       },
@@ -178,6 +181,22 @@ const Organisations = {
       },
       label: { en: "Partners", fr: "Les partenaires", pt: "Parceiros" },
       fields: supporter,
+    },
+    {
+      name: "tools",
+      type: "relationship",
+      hasMany: true,
+      admin: {
+        readOnly: true,
+      },
+      relationTo: TOOL_COLLECTION,
+      label: { en: "Tools", fr: "Outils", pt: "Ferramentas" },
+    },
+    {
+      name: "airtableId",
+      label: { en: "Airtable ID", fr: "ID Airtable", pt: "ID da Airtable" },
+      type: "text",
+      required: true,
     },
     source(),
     dateField({

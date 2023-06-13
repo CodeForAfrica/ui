@@ -20,7 +20,7 @@ const Contributors = {
     {
       name: "externalId",
       type: "text",
-      required: true,
+
       label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
       admin: {
         readOnly: true,
@@ -108,6 +108,12 @@ const Contributors = {
       },
     },
     slug({ fieldToUse: ["source", "username"] }),
+    {
+      name: "airtableId",
+      label: { en: "Airtable ID", fr: "ID Airtable", pt: "ID da Airtable" },
+      type: "text",
+      required: true,
+    },
     source(),
     dateField({
       name: "updatedAt",
