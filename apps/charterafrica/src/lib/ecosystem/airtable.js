@@ -139,14 +139,13 @@ export const processToolFromAirtable = async (data, config) => {
   };
 };
 
-export async function airtableSchema(req) {
+export async function schema(req) {
   const { url } = req.query;
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${process.env.AIRTABLE_API_TOKEN}`,
   };
-  const response = await fetchJson.get(`https://api.airtable.com/v0${url}`, {
+  return fetchJson.get(`https://api.airtable.com/v0${url}`, {
     headers,
   });
-  return response;
 }
