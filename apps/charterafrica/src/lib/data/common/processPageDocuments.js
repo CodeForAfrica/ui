@@ -11,11 +11,12 @@ export default async function processPageDocuments(page, api, context) {
 
   if (documentsIndex > -1) {
     const {
-      organization: { groupId, options },
-      filterBar,
-      labels,
-      showDatasets,
-      datasetsPage = {},
+      documents: {
+        organization: { groupId, options },
+        filterBar,
+        labels,
+      },
+      datasets: { showDatasets, datasetsPage = {} },
     } = blocks[documentsIndex];
     const query = getDocumentsQuery(context, options);
     const documents = await fetchDocuments(`group:${groupId}`, query);
