@@ -266,15 +266,6 @@ const Tools = {
       fields: supporter,
     },
     {
-      name: "funder",
-      type: "group",
-      admin: {
-        readOnly: true,
-      },
-      label: { en: "Funder", fr: "Bailleur de fonds", pt: "Financiador" },
-      fields: supporter,
-    },
-    {
       name: "homeCountry",
       type: "select",
       options: allCountries,

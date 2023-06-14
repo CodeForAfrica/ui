@@ -1,7 +1,10 @@
 import * as Sentry from "@sentry/nextjs";
 import Airtable from "airtable";
 
-import { CONTRIBUTORS_COLLECTION } from "@/charterafrica/lib/ecosystem/models";
+import {
+  CONTRIBUTORS_COLLECTION,
+  TOOL_COLLECTION,
+} from "@/charterafrica/lib/ecosystem/models";
 import api from "@/charterafrica/lib/payload";
 import fetchJson, { FetchError } from "@/charterafrica/utils/fetchJson";
 
@@ -13,13 +16,24 @@ function getter(data, key) {
   return key ? data?.[key] : null;
 }
 
-async function mapSupportersToFields(supporters, config) {
+export async function getBases(config) {
   const {
     baseId,
-    schema: { partnersTableId, partnerTableColumns },
+    schema: { partnersTableId, socialMediaTableId },
+  } = config;
+  const partnerTableBase = airtable.base(baseId)(partnersTableId);
+  const socialMediaTableBase = airtable.base(baseId)(socialMediaTableId);
+  return {
+    partnerTableBase,
+    socialMediaTableBase,
+  };
+}
+
+async function mapSupportersToFields(supporters, config, base) {
+  const {
+    schema: { partnerTableColumns },
   } = config;
   const { name, url, logo } = partnerTableColumns;
-  const base = airtable.base(baseId)(partnersTableId);
   const promises = supporters.map(async (id) => {
     try {
       const { fields } = await base.find(id);
@@ -37,13 +51,25 @@ async function mapSupportersToFields(supporters, config) {
   return sanitized.filter(Boolean);
 }
 
-async function mapSocialMediaToFields(socialMedia, config) {
+async function getToolsPerAirtableId(ids) {
+  if (!ids || !ids?.length) {
+    return [];
+  }
+  const { docs } = await api.getCollection(TOOL_COLLECTION, {
+    where: {
+      airtableId: {
+        in: ids?.join(","),
+      },
+    },
+  });
+  return docs.map(({ id }) => id);
+}
+
+async function mapSocialMediaToFields(socialMedia, config, base) {
   const {
-    baseId,
-    schema: { socialMediaTableId, socialMediaTableColumns },
+    schema: { socialMediaTableColumns },
   } = config;
   const { name, url } = socialMediaTableColumns;
-  const base = airtable.base(baseId)(socialMediaTableId);
   const promises = socialMedia.map(async (id) => {
     try {
       const { fields } = await base.find(id);
@@ -65,7 +91,11 @@ export const getListFromAirtable = async ({ baseId, tableIdOrName }) => {
   return base(tableIdOrName).select().all();
 };
 
-export const processOrganisationFromAirTable = async (data, config) => {
+export const processOrganisationFromAirTable = async (
+  data,
+  config,
+  { partnerTableBase, socialMediaTableBase }
+) => {
   const {
     schema: { organisationTableColumns },
   } = config;
@@ -80,11 +110,16 @@ export const processOrganisationFromAirTable = async (data, config) => {
   );
   const supporters = await mapSupportersToFields(
     getter(data, organisationTableColumns.supporters) || [],
-    config
+    config,
+    partnerTableBase
   );
   const socialMedia = await mapSocialMediaToFields(
     getter(data, organisationTableColumns.socialMedia) || [],
-    config
+    config,
+    socialMediaTableBase
+  );
+  const tools = await getToolsPerAirtableId(
+    getter(data, organisationTableColumns.tools)
   );
   const unLocalizedData = {
     airtableId: data.id,
@@ -94,6 +129,7 @@ export const processOrganisationFromAirTable = async (data, config) => {
     supporters,
     partners,
     socialMedia,
+    tools,
   };
   if (!unLocalizedData.externalId) {
     throw new FetchError(`Missing external ID for ${data.id}`, data, 500);
@@ -152,7 +188,11 @@ export const processContributorFromAirtable = async (data, config) => {
   };
 };
 
-export const processToolFromAirtable = async (data, config) => {
+export const processToolFromAirtable = async (
+  data,
+  config,
+  { partnerTableBase, socialMediaTableBase }
+) => {
   const {
     schema: { toolTableColumns },
   } = config;
@@ -181,11 +221,13 @@ export const processToolFromAirtable = async (data, config) => {
   );
   const supporters = await mapSupportersToFields(
     getter(data, toolTableColumns.supporters) || [],
-    config
+    config,
+    partnerTableBase
   );
   const socialMedia = await mapSocialMediaToFields(
     getter(data, toolTableColumns.socialMedia) || [],
-    config
+    config,
+    socialMediaTableBase
   );
   const defaultData = {
     airtableId: data.id,

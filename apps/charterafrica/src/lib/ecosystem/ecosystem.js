@@ -2,6 +2,7 @@ import api from "../payload";
 
 import {
   getListFromAirtable,
+  getBases,
   processToolFromAirtable,
   processOrganisationFromAirTable,
   processContributorFromAirtable,
@@ -31,7 +32,7 @@ const bulkMarkDeleted = async (collection, fromSource) => {
     })
   );
 };
-const processTools = async (config) => {
+const processTools = async (config, bases) => {
   const {
     baseId,
     schema: { toolTableId: tableIdOrName },
@@ -47,7 +48,8 @@ const processTools = async (config) => {
         ...data.fields,
         id: data.id,
       },
-      config
+      config,
+      bases
     );
     // Only get git data if not exist in database
     return createCollection(TOOL_COLLECTION, airtableData);
@@ -55,7 +57,7 @@ const processTools = async (config) => {
   return Promise.allSettled(processedToolPromises);
 };
 
-const processOrganisations = async (config) => {
+const processOrganisations = async (config, bases) => {
   const {
     baseId,
     schema: { organisationTableId: tableIdOrName },
@@ -71,7 +73,8 @@ const processOrganisations = async (config) => {
         ...data.fields,
         id: data.id,
       },
-      config
+      config,
+      bases
     );
     // Only get git data if not exist in database
     return createCollection(ORGANIZATION_COLLECTION, airtableData);
@@ -79,7 +82,7 @@ const processOrganisations = async (config) => {
   return Promise.allSettled(processedOrgPromises);
 };
 
-const processContributors = async (config) => {
+const processContributors = async (config, bases) => {
   const {
     baseId,
     schema: { contributorTableId: tableIdOrName },
@@ -95,7 +98,8 @@ const processContributors = async (config) => {
         ...data.fields,
         id: data.id,
       },
-      config
+      config,
+      bases
     );
     // Only get git data if not exist in database
     return createCollection(CONTRIBUTORS_COLLECTION, airtableData);
@@ -107,10 +111,16 @@ export const updateEcosystemContent = async (req, res) => {
   // For all list in database query Github API. using ETAG
   res.status(200).json({});
 };
-export const updateEcosystemList = async () => {
+
+const execute = async () => {
   const config = await api.findGlobal(ECOSYSTEM_GLOBAL, {});
-  const organisations = await processOrganisations(config);
-  const contributors = await processContributors(config);
-  const tools = await processTools(config);
-  return { contributors, tools, organisations };
+  const bases = await getBases(config);
+  await processContributors(config, bases);
+  await processTools(config, bases);
+  await processOrganisations(config, bases);
+};
+
+export const updateEcosystemList = async () => {
+  execute();
+  return { message: "PROCESS_STARTED" };
 };
