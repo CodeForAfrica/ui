@@ -212,6 +212,17 @@ const Ecosystem = {
                     },
                   },
                 }),
+                airtableColumnSelect({
+                  tableField: "toolTableId",
+                  overrides: {
+                    name: "socialMedia",
+                    label: {
+                      en: "Social Media",
+                      fr: "Réseaux sociaux",
+                      pt: "Mídia social",
+                    },
+                  },
+                }),
                 sourceField({ tableField: "toolTableId" }),
                 airtableColumnSelect({
                   tableField: "toolTableId",
@@ -367,6 +378,17 @@ const Ecosystem = {
                     hideGutter: true,
                   },
                 },
+                airtableColumnSelect({
+                  tableField: "contributorTableId",
+                  overrides: {
+                    name: "socialMedia",
+                    label: {
+                      en: "Social Media",
+                      fr: "Réseaux sociaux",
+                      pt: "Mídia social",
+                    },
+                  },
+                }),
                 sourceField({ tableField: "contributorTableId" }),
               ],
             },
@@ -474,6 +496,39 @@ const Ecosystem = {
                     label: {
                       en: "Type",
                       pt: "Tipo",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  tableField: "organisationTableId",
+                  overrides: {
+                    name: "socialMedia",
+                    label: {
+                      en: "Social Media",
+                      fr: "Réseaux sociaux",
+                      pt: "Mídia social",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  tableField: "organisationTableId",
+                  overrides: {
+                    name: "partners",
+                    label: {
+                      en: "Partners",
+                      fr: "Partenaires",
+                      pt: "Parceiros",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  tableField: "organisationTableId",
+                  overrides: {
+                    name: "supporters",
+                    label: {
+                      en: "Supporters",
+                      fr: "Partisans",
+                      pt: "Apoiadores",
                     },
                   },
                 }),
