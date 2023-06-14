@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/nextjs";
 import Airtable from "airtable";
 
 import { CONTRIBUTORS_COLLECTION } from "@/charterafrica/lib/ecosystem/models";
@@ -10,6 +11,30 @@ const airtable = new Airtable({
 
 function getter(data, key) {
   return key ? data?.[key] : null;
+}
+
+async function mapSupportersToFields(supporters, config) {
+  const {
+    baseId,
+    schema: { partnersTableId, partnerTableColumns },
+  } = config;
+  const { name, url, logo } = partnerTableColumns;
+  const base = airtable.base(baseId)(partnersTableId);
+  const promises = supporters.map(async (id) => {
+    try {
+      const { fields } = await base.find(id);
+      return {
+        name: getter(fields, name),
+        website: getter(fields, url),
+        logo: getter(fields, logo),
+      };
+    } catch (error) {
+      Sentry.captureMessage(error.message);
+      return null;
+    }
+  });
+  const sanitized = await Promise.all(promises);
+  return sanitized.filter(Boolean);
 }
 
 export const getListFromAirtable = async ({ baseId, tableIdOrName }) => {
@@ -26,13 +51,21 @@ export const processOrganisationFromAirTable = async (data, config) => {
     pt: getter(data, organisationTableColumns.description.pt),
     fr: getter(data, organisationTableColumns.description.fr),
   };
+  const partners = await mapSupportersToFields(
+    getter(data, "Partners") || [],
+    config
+  );
+  const supporters = await mapSupportersToFields(
+    getter(data, "Supporters") || [],
+    config
+  );
   const unLocalizedData = {
     airtableId: data.id,
     externalId: getter(data, organisationTableColumns.slug),
     type: getter(data, organisationTableColumns.type),
     repoLink: getter(data, organisationTableColumns.source.url),
-    donors: [], // data.Donors, UPDATE when source is sanitized
-    partners: [], // data.Partners,
+    donors: supporters,
+    partners,
   };
   if (!unLocalizedData.externalId) {
     throw new FetchError(`Missing external ID for ${data.id}`, data, 500);
@@ -66,8 +99,6 @@ export const processContributorFromAirtable = async (data, config) => {
     airtableId: data.id,
     externalId: getter(data, contributorTableColumns.slug),
     repoLink: `https://github.com/${data.id}`,
-    donors: [], // data.Donors,
-    partners: [], // data.Partners,
   };
   return {
     en: {
