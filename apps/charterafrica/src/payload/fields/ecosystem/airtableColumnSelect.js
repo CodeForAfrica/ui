@@ -29,21 +29,15 @@ function fieldsToOptions(fields) {
 
 export function validateColumnSelect(tableField) {
   return async function validate(value, { hasMany, required, t, data }) {
-    try {
-      const url = getUrl(data?.baseId);
-      if (url) {
-        const tableId = data.schema[tableField];
-        const { tables } = await fetchJson.get(url);
-        const table = tables?.find(({ id }) => id === tableId);
-        const options = fieldsToOptions(table?.fields);
-        if (options.length) {
-          return select(value, { hasMany, options, required, t });
-        }
-      }
-      return true;
-    } catch (error) {
-      return true;
+    const url = getUrl(data?.baseId);
+    if (url) {
+      const tableId = data.schema[tableField];
+      const { tables } = await fetchJson.get(url);
+      const table = tables?.find(({ id }) => id === tableId);
+      const options = fieldsToOptions(table?.fields);
+      return select(value, { hasMany, options, required, t });
     }
+    return true;
   };
 }
 
