@@ -14,7 +14,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
   const {
     description,
     documents: originalDocuments,
-    options,
+    documentOptions,
     q,
     sx,
     title,
@@ -22,6 +22,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
     showDatasets,
     filterBar: documentsFilterBar,
     labels: documentsLabels,
+    pathname,
   } = props;
   const [documents, setDocuments] = useState(originalDocuments);
   const [totalPages, setTotalPages] = useState(0);
@@ -51,14 +52,18 @@ const Documents = React.forwardRef(function Documents(props, ref) {
   if (filtering && documentsRef.current) {
     documentsRef.current.scrollIntoView({ behavior: "smooth" });
   }
-  const res = useDocuments(q, {
-    page,
-    per_page: 8,
-    contributor: true,
-    sort,
-    search,
-    ...options,
-  });
+  const res = useDocuments(
+    q,
+    {
+      page,
+      per_page: 8,
+      contributor: true,
+      sort,
+      search,
+      ...documentOptions,
+    },
+    pathname
+  );
   useEffect(() => {
     if (!res?.isLoading) {
       const { data } = res;

@@ -7,7 +7,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
   >
     <a
       class="MuiButtonBase-root MuiCardActionArea-root css-dvh6vf-MuiButtonBase-root-MuiCardActionArea-root"
-      href="/documents?url=https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html&contrubutor=true&showNotes=true&title=Document Title"
+      href="url=https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html&contrubutor=true&showNotes=true"
       tabindex="0"
     >
       <img

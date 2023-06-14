@@ -8,6 +8,7 @@ import Dataset from "@/charterafrica/components/Dataset";
 import Datasets from "@/charterafrica/components/Datasets";
 import Documents from "@/charterafrica/components/Documents";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
+import EmbeddedDatasetDocumentViewer from "@/charterafrica/components/EmbeddedDatasetDocumentViewer";
 import EmbeddedDocumentViewer from "@/charterafrica/components/EmbeddedDocumentViewer";
 import Entity from "@/charterafrica/components/Entity";
 import Explainers from "@/charterafrica/components/Explainers";
@@ -44,6 +45,8 @@ const componentsBySlugs = {
   documents: Documents,
   ecosystem: Ecosystem,
   "embedded-playlist": Consultations,
+  "embedded-document-viewer": EmbeddedDocumentViewer,
+  "embedded-dataset-document-viewer": EmbeddedDatasetDocumentViewer,
   explainers: Explainers,
   faq: FAQ,
   "featured-post": FeaturedPostCard,
@@ -68,7 +71,6 @@ const componentsBySlugs = {
   "page-info": PageInfo,
   post: Post,
   research: Articles,
-  "embedded-document-viewer": EmbeddedDocumentViewer,
   spotlight: Spotlight,
   tool: Tool,
   tools: Tools,

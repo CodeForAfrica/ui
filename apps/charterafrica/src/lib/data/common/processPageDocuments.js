@@ -1,11 +1,52 @@
-import { fetchDocuments } from "@/charterafrica/lib/sourceAfrica";
+import {
+  fetchDocuments,
+  fetchDocumentIframe,
+} from "@/charterafrica/lib/sourceAfrica";
 import getDocumentsQuery from "@/charterafrica/utils/documents/documents";
 import documentsQueryString from "@/charterafrica/utils/documents/queryString";
 
-export default async function processPageDocuments(page, api, context) {
-  const { locale } = context;
+async function processSingleDocument(page, api, context) {
+  const { query, locale } = context;
+  const { title, slugs, ...rest } = query;
 
   const { blocks } = page;
+  const {
+    labels,
+    organization: { groupId, options },
+  } = blocks.find(({ slug }) => slug === "documents");
+
+  const { labels: commonLabels } = await api.findGlobal("common-labels", {
+    locale,
+  });
+
+  const data = await fetchDocumentIframe(rest);
+  const { html } = data;
+
+  return {
+    ...page,
+    blocks: [
+      {
+        slug: "embedded-dataset-document-viewer",
+        html,
+        groupId,
+        options,
+        labels: {
+          ...commonLabels,
+          ...labels,
+        },
+      },
+    ],
+  };
+}
+
+export default async function processPageDocuments(page, api, context) {
+  const { locale, params } = context;
+  if (params.slugs.length > 2) {
+    return processSingleDocument(page, api, context);
+  }
+
+  const { blocks, breadcrumbs } = page;
+  const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
 
   const documentsIndex = blocks.findIndex(({ slug }) => slug === "documents");
   if (documentsIndex > -1) {
@@ -17,13 +58,14 @@ export default async function processPageDocuments(page, api, context) {
       datasets: { href: datasetsHref },
     } = blocks[documentsIndex];
     const query = getDocumentsQuery(context, options);
-    const documents = await fetchDocuments(`group:${groupId}`, query);
+    const documents = await fetchDocuments(`group:${groupId}`, pageUrl, query);
 
     const { labels: commonLabels } = await api.findGlobal("common-labels", {
       locale,
     });
     blocks[documentsIndex] = {
       ...documents,
+      documentOptions: options,
       slug: "documents",
       filterBar,
       labels: {
@@ -32,6 +74,7 @@ export default async function processPageDocuments(page, api, context) {
       },
       showDatasets,
       datasetsHref,
+      pathname: pageUrl,
     };
 
     let swrKey = `/api/v1/resources/datasets`;

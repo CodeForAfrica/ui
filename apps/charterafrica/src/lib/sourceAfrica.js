@@ -2,7 +2,7 @@ import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const BASE_DOCUMENTS_URL = "https://dc.sourceafrica.net/api/";
 
-export function formatDocuments(data, options) {
+export function formatDocuments(data, options, pathname) {
   const { documents, ...rest } = data || {};
   const formattedDocuments = documents?.map((document) => {
     const {
@@ -33,6 +33,7 @@ export function formatDocuments(data, options) {
       pages,
       title,
       url: documentURL.toString(),
+      href: `${pathname}/single?${documentURL.toString()}`,
     };
   });
 
@@ -42,7 +43,7 @@ export function formatDocuments(data, options) {
   };
 }
 
-export async function fetchDocuments(q, options = {}) {
+export async function fetchDocuments(q, pathname, options = {}) {
   const params = {
     ...options,
     q,
@@ -52,7 +53,7 @@ export async function fetchDocuments(q, options = {}) {
     const response = await fetchJson.get(`${BASE_DOCUMENTS_URL}search.json`, {
       params,
     });
-    const formattedData = formatDocuments(response, options);
+    const formattedData = formatDocuments(response, options, pathname);
     return formattedData;
   } catch (error) {
     return error;
