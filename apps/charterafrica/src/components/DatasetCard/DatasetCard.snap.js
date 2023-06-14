@@ -27,10 +27,12 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
             <p
               class="MuiTypography-root MuiTypography-p1 css-1pop01s-MuiTypography-root"
             >
+              Updated
                
               January 1, 2021
                |
                
+              Created
                
               January 1, 2021
             </p>
@@ -52,7 +54,9 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-iwoc5g-MuiButtonBase-root-MuiButton-root"
               tabindex="0"
               type="button"
-            />
+            >
+              Read more
+            </button>
           </div>
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-zuysgr-MuiGrid-root"

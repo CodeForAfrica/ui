@@ -23,18 +23,22 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   ref
 ) {
   const {
-    countries,
-    countriesOptions,
+    selectedCountries,
+    countriesList,
     onChangeQ,
     onChangeSort,
     onChangeCountries,
     onChangeTags,
-    labels,
-    sortOptions,
+    options: {
+      countries: countriesOptions,
+      search,
+      sort: sortOptions,
+      tags: tagsOptions,
+    },
     sort,
     q,
-    tags,
-    tagsOptions,
+    selectedTags,
+    tagsList,
   } = props;
 
   const handleChangeQ = (e, value) => {
@@ -45,7 +49,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
 
   const listToLabel = (list, label, num = 1) => {
     return list?.length > num
-      ? `${list.length} ${labels[label]}`
+      ? `${list.length} ${label}`
       : list.map((l) => l.label || l).join(", ");
   };
 
@@ -55,7 +59,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
         <Grid item xs={12} lg={3}>
           <ControlledSearchInput
             onChange={handleChangeQ}
-            placeholder={labels.search}
+            placeholder={search.label}
             value={q}
             sx={{
               backgroundColor: "#fff",
@@ -67,8 +71,8 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
         </Grid>
         <Grid item xs={12} sm={4} lg={3}>
           <ComboBox
-            label={labels.sort}
-            options={sortOptions}
+            label={sortOptions.label}
+            options={sortOptions.options}
             onChange={onChangeSort}
             renderInput={(params) => (
               <StyledAutocompleteInput
@@ -86,32 +90,32 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
         </Grid>
         <Grid item xs={12} sm={4} lg={3} overflow="hidden">
           <ComboBox
-            label={labels.countries}
+            label={countriesOptions.label}
             multiple
-            options={countriesOptions}
+            options={countriesList}
             onChange={onChangeCountries}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderTags={(checkedCountries, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
-                {listToLabel(checkedCountries, "countries")}
+                {listToLabel(checkedCountries, countriesOptions.label)}
               </StyledAutocompleteTags>
             )}
-            value={countries}
+            value={selectedCountries}
           />
         </Grid>
         <Grid item xs={12} sm={4} lg={3}>
           <ComboBox
-            label={labels.tags}
+            label={tagsOptions.label}
             multiple
-            options={tagsOptions}
+            options={tagsList}
             onChange={onChangeTags}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderTags={(checkedTags, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
-                {listToLabel(checkedTags, "tags")}
+                {listToLabel(checkedTags, tagsOptions.label)}
               </StyledAutocompleteTags>
             )}
-            value={tags}
+            value={selectedTags}
           />
         </Grid>
       </Grid>
