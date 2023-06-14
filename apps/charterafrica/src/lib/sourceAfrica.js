@@ -22,6 +22,7 @@ export function formatDocuments(data, options, pathname) {
 
     const documentURL = new URLSearchParams({
       url: canonicalUrl,
+      title,
       ...options,
     });
 
@@ -33,7 +34,7 @@ export function formatDocuments(data, options, pathname) {
       pages,
       title,
       url: documentURL.toString(),
-      href: `${pathname}/single?${documentURL.toString()}`,
+      href: `${pathname}/document?${documentURL.toString()}`,
     };
   });
 

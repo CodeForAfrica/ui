@@ -49,7 +49,7 @@ async function getFeaturedConsultations(featured, playlistItems) {
 async function processPageConsultationDocument(page, api, context) {
   const { query } = context;
 
-  const { title, slugs, ...rest } = query;
+  const { title, ...rest } = query;
 
   const data = await fetchDocumentIframe(rest);
   const { html } = data;
@@ -68,13 +68,13 @@ async function processPageConsultationDocument(page, api, context) {
 
 async function processPageConsultation(page, api, context) {
   const { params } = context;
-
-  // Check if we are on a document page: /opportunities/consultation/documents
-  if (params.slugs.length > 2 && params.slugs[2] === "documents") {
+  // Check if we are on a document page: /opportunities/consultation/document
+  if (params.slugs.length > 2 && params.slugs[2] === "document") {
     return processPageConsultationDocument(page, api, context);
   }
 
-  const { blocks } = page;
+  const { blocks, breadcrumbs } = page;
+  const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
   const documentsIndex = blocks.findIndex(
     ({ slug }) => slug === "embedded-documents"
   );
@@ -85,13 +85,15 @@ async function processPageConsultation(page, api, context) {
       title: documentsTitle,
     } = blocks[documentsIndex];
     const query = getDocumentsQuery(context, options);
-    const documents = await fetchDocuments(`group:${groupId}`, query);
+    const documents = await fetchDocuments(`group:${groupId}`, pageUrl, query);
     blocks[documentsIndex] = {
       ...documents,
       slug: "documents",
       description: documentsDescription ?? null,
-      options,
+      documentOptions: options,
       title: documentsTitle ?? null,
+      pathname: pageUrl,
+      showFilterbar: false,
     };
     // SWR fallback
     let swrKey = `/api/v1/opportunities/consultation/documents`;

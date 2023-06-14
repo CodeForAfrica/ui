@@ -23,6 +23,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
     filterBar: documentsFilterBar,
     labels: documentsLabels,
     pathname,
+    showFilterbar = true,
   } = props;
   const [documents, setDocuments] = useState(originalDocuments);
   const [totalPages, setTotalPages] = useState(0);
@@ -103,14 +104,17 @@ const Documents = React.forwardRef(function Documents(props, ref) {
           variant="p3"
           sx={{ mt: 2.5 }}
         />
-        <DocumentFilterBar
-          options={documentsFilterBar}
-          onChangeQ={handleChangeQ}
-          onChangeSort={handleChangeSort}
-          datasetsHref={datasetsHref}
-          showDatasets={showDatasets}
-          documentsLabels={documentsLabels}
-        />
+        {showFilterbar ? (
+          <DocumentFilterBar
+            options={documentsFilterBar}
+            onChangeQ={handleChangeQ}
+            onChangeSort={handleChangeSort}
+            datasetsHref={datasetsHref}
+            showDatasets={showDatasets}
+            documentsLabels={documentsLabels}
+          />
+        ) : null}
+
         {res.isLoading ? <LinearProgress color="secondary" /> : null}
         {documents?.length > 0 ? (
           <Box
