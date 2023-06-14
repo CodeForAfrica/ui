@@ -3,6 +3,7 @@ import { Box, LinearProgress } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
 
 import DocumentCard from "./DocumentCard";
+import DocumentFilterBar from "./DocumentFilterBar";
 import useDocuments from "./useDocuments";
 
 import { neutral } from "@/charterafrica/colors";
@@ -17,16 +18,34 @@ const Documents = React.forwardRef(function Documents(props, ref) {
     q,
     sx,
     title,
+    datasetsHref,
+    showDatasets,
+    filterBar: documentsFilterBar,
+    labels: documentsLabels,
   } = props;
   const [documents, setDocuments] = useState(originalDocuments);
   const [totalPages, setTotalPages] = useState(0);
   const [page, setPage] = useState(1);
   const [filtering, setFiltering] = useState(false);
+  const [sort, setSort] = useState();
+  const [search, setSearch] = useState();
   const documentsRef = useRef();
 
   const handleChangePage = (_, value) => {
     setFiltering(true);
     setPage(value);
+  };
+
+  const handleChangeQ = (_, value) => {
+    setFiltering(true);
+    setSearch(value);
+    setPage(1);
+  };
+
+  const handleChangeSort = (_, value) => {
+    setFiltering(true);
+    setSort(value);
+    setPage(1);
   };
 
   if (filtering && documentsRef.current) {
@@ -36,6 +55,8 @@ const Documents = React.forwardRef(function Documents(props, ref) {
     page,
     per_page: 8,
     contributor: true,
+    sort,
+    search,
     ...options,
   });
   useEffect(() => {
@@ -76,6 +97,14 @@ const Documents = React.forwardRef(function Documents(props, ref) {
           elements={description}
           variant="p3"
           sx={{ mt: 2.5 }}
+        />
+        <DocumentFilterBar
+          options={documentsFilterBar}
+          onChangeQ={handleChangeQ}
+          onChangeSort={handleChangeSort}
+          datasetsHref={datasetsHref}
+          showDatasets={showDatasets}
+          documentsLabels={documentsLabels}
         />
         {res.isLoading ? <LinearProgress color="secondary" /> : null}
         {documents?.length > 0 ? (
