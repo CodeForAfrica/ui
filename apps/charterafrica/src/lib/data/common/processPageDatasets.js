@@ -27,7 +27,6 @@ async function processSingleDataset(page, api, context) {
 
   return {
     ...page,
-    slug: "dataset",
     blocks: [
       {
         ...dataset,
@@ -36,6 +35,7 @@ async function processSingleDataset(page, api, context) {
           ...labels,
         },
         slug: "dataset",
+        pageUrl,
       },
     ],
   };
