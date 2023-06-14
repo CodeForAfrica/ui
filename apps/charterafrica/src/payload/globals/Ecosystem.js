@@ -489,6 +489,123 @@ const Ecosystem = {
             },
           ],
         },
+        {
+          type: "collapsible",
+          label: {
+            en: "Partners and Supporters",
+            fr: "Partenaires et supporters",
+            pt: "Parceiros e apoiadores",
+          },
+          admin: {
+            initCollapsed: true,
+          },
+          fields: [
+            airtableTableSelect({
+              name: "partnersTableId",
+              label: {
+                en: "Table Name",
+                fr: "Nom du tableau",
+                pt: "Nome da tabela",
+              },
+            }),
+            {
+              type: "group",
+              name: "partnerTableColumns",
+              label: {
+                en: "Columns",
+                fr: "Colonnes",
+                pt: "Colunas",
+              },
+              admin: {
+                hideGutter: true,
+              },
+              fields: [
+                airtableColumnSelect({
+                  tableField: "partnersTableId",
+                  overrides: {
+                    name: "name",
+                    label: {
+                      en: "Name",
+                      fr: "Nom",
+                      pt: "Nome",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  tableField: "partnersTableId",
+                  overrides: {
+                    name: "url",
+                    label: {
+                      en: "Website",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  tableField: "partnersTableId",
+                  overrides: {
+                    name: "logo",
+                    label: { en: "Logo", fr: "Logo", pt: "Logotipo" },
+                  },
+                }),
+              ],
+            },
+          ],
+        },
+        {
+          type: "collapsible",
+          label: {
+            en: "Social Media",
+            fr: "Réseaux sociaux",
+            pt: "Mídia social",
+          },
+          admin: {
+            initCollapsed: true,
+          },
+          fields: [
+            airtableTableSelect({
+              name: "socialMediaTableId",
+              label: {
+                en: "Table Name",
+                fr: "Nom du tableau",
+                pt: "Nome da tabela",
+              },
+            }),
+            {
+              type: "group",
+              name: "socialMediaTableColumns",
+              label: {
+                en: "Columns",
+                fr: "Colonnes",
+                pt: "Colunas",
+              },
+              admin: {
+                hideGutter: true,
+              },
+              fields: [
+                airtableColumnSelect({
+                  tableField: "socialMediaTableId",
+                  overrides: {
+                    name: "name",
+                    label: {
+                      en: "Name",
+                      fr: "Nom",
+                      pt: "Nome",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  tableField: "partnersTableId",
+                  overrides: {
+                    name: "url",
+                    label: {
+                      en: "URL",
+                    },
+                  },
+                }),
+              ],
+            },
+          ],
+        },
       ],
     },
   ],

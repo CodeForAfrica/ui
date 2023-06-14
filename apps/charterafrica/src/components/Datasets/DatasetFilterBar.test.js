@@ -9,31 +9,41 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  countriesOptions: ["Kenya", "Uganda", "Tanzania", "Nigeria"],
-  tagsOptions: ["Agriculture", "Health", "Education"],
-  sortOptions: [
-    {
-      label: {
-        en: "Most Recent",
-        fr: "Plus récent",
-        pt: "Mais recente",
-      },
-      value: "metadata_created desc",
+  countriesList: ["Kenya", "Uganda", "Tanzania", "Nigeria"],
+  selectedCountries: ["Kenya", "Uganda"],
+  tagsList: ["Agriculture", "Health", "Education"],
+  selectedTags: ["Agriculture"],
+  options: {
+    countries: {
+      label: "Countries",
     },
-    {
-      label: {
-        en: "Least Recent",
-        fr: "Moins récent",
-        pt: "Menos recente",
-      },
-      value: "metadata_created asc",
+    tags: {
+      label: "Tags",
     },
-  ],
-  labels: {
-    countries: "Countries",
-    tags: "Tags",
-    sort: "Sort",
-    search: "Search",
+    sort: {
+      label: "Sort",
+      options: [
+        {
+          label: {
+            en: "Most Recent",
+            fr: "Plus récent",
+            pt: "Mais recente",
+          },
+          value: "metadata_created desc",
+        },
+        {
+          label: {
+            en: "Least Recent",
+            fr: "Moins récent",
+            pt: "Menos recente",
+          },
+          value: "metadata_created asc",
+        },
+      ],
+    },
+    search: {
+      label: "Search",
+    },
   },
 };
 
