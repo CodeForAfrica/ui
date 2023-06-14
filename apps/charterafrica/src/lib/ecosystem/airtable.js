@@ -37,6 +37,29 @@ async function mapSupportersToFields(supporters, config) {
   return sanitized.filter(Boolean);
 }
 
+async function mapSocialMediaToFields(socialMedia, config) {
+  const {
+    baseId,
+    schema: { socialMediaTableId, socialMediaTableColumns },
+  } = config;
+  const { name, url } = socialMediaTableColumns;
+  const base = airtable.base(baseId)(socialMediaTableId);
+  const promises = socialMedia.map(async (id) => {
+    try {
+      const { fields } = await base.find(id);
+      return {
+        name: getter(fields, name),
+        website: getter(fields, url),
+      };
+    } catch (error) {
+      Sentry.captureMessage(error.message);
+      return null;
+    }
+  });
+  const sanitized = await Promise.all(promises);
+  return sanitized.filter(Boolean);
+}
+
 export const getListFromAirtable = async ({ baseId, tableIdOrName }) => {
   const base = airtable.base(baseId);
   return base(tableIdOrName).select().all();
@@ -52,11 +75,15 @@ export const processOrganisationFromAirTable = async (data, config) => {
     fr: getter(data, organisationTableColumns.description.fr),
   };
   const partners = await mapSupportersToFields(
-    getter(data, "Partners") || [],
+    getter(data, organisationTableColumns.partners) || [],
     config
   );
   const supporters = await mapSupportersToFields(
-    getter(data, "Supporters") || [],
+    getter(data, organisationTableColumns.supporters) || [],
+    config
+  );
+  const socialMedia = await mapSocialMediaToFields(
+    getter(data, organisationTableColumns.socialMedia) || [],
     config
   );
   const unLocalizedData = {
@@ -64,8 +91,9 @@ export const processOrganisationFromAirTable = async (data, config) => {
     externalId: getter(data, organisationTableColumns.slug),
     type: getter(data, organisationTableColumns.type),
     repoLink: getter(data, organisationTableColumns.source.url),
-    donors: supporters,
+    supporters,
     partners,
+    socialMedia,
   };
   if (!unLocalizedData.externalId) {
     throw new FetchError(`Missing external ID for ${data.id}`, data, 500);
@@ -90,6 +118,10 @@ export const processContributorFromAirtable = async (data, config) => {
   const {
     schema: { contributorTableColumns },
   } = config;
+  const socialMedia = await mapSocialMediaToFields(
+    getter(data, contributorTableColumns.socialMedia) || [],
+    config
+  );
   const description = {
     en: getter(data, contributorTableColumns.description.en),
     pt: getter(data, contributorTableColumns.description.pt),
@@ -98,7 +130,11 @@ export const processContributorFromAirtable = async (data, config) => {
   const defaultData = {
     airtableId: data.id,
     externalId: getter(data, contributorTableColumns.slug),
-    repoLink: `https://github.com/${data.id}`,
+    repoLink: `https://github.com/${getter(
+      data,
+      contributorTableColumns.slug
+    )}`,
+    socialMedia,
   };
   return {
     en: {
@@ -139,6 +175,18 @@ export const processToolFromAirtable = async (data, config) => {
   });
   const operatingCountries = [];
   const homeCountry = getter(data, toolTableColumns.homeCountry);
+  const partners = await mapSupportersToFields(
+    getter(data, toolTableColumns.partners) || [],
+    config
+  );
+  const supporters = await mapSupportersToFields(
+    getter(data, toolTableColumns.supporters) || [],
+    config
+  );
+  const socialMedia = await mapSocialMediaToFields(
+    getter(data, toolTableColumns.socialMedia) || [],
+    config
+  );
   const defaultData = {
     airtableId: data.id,
     externalId: getter(data, toolTableColumns.slug) || " ",
@@ -147,10 +195,10 @@ export const processToolFromAirtable = async (data, config) => {
     link: getter(data, toolTableColumns.url),
     operatingCountries,
     contributors: contrib.map(({ id }) => id),
-    donors: [], // data.Donors,
-    partners: [], //  data.Partners,
+    supporters,
+    partners,
     homeCountry,
-    otherSocialMedia: [],
+    socialMedia,
   };
 
   return {

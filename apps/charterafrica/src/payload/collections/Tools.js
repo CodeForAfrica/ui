@@ -246,13 +246,13 @@ const Tools = {
       },
     },
     {
-      name: "donors",
+      name: "supporters",
       type: "array",
       admin: {
         readOnly: true,
         initCollapsed: true,
       },
-      label: { en: "Donors", fr: "Donateurs", pt: "Doadores" },
+      label: { en: "Supporters", fr: "Partisans", pt: "Apoiadores" },
       fields: supporter,
     },
     {
@@ -284,7 +284,7 @@ const Tools = {
       },
     },
     {
-      name: "otherSocialMedia",
+      name: "socialMedia",
       type: "array",
       admin: {
         readOnly: true,
@@ -300,7 +300,6 @@ const Tools = {
           name: "name",
           type: "text",
           label: { en: "Name", fr: "Nom", pt: "Nome" },
-          required: true,
         },
         {
           name: "link",

@@ -112,6 +112,5 @@ export const updateEcosystemList = async () => {
   const organisations = await processOrganisations(config);
   const contributors = await processContributors(config);
   const tools = await processTools(config);
-
   return { contributors, tools, organisations };
 };

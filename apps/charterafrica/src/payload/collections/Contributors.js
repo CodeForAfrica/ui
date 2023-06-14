@@ -109,6 +109,34 @@ const Contributors = {
     },
     slug({ fieldToUse: ["source", "username"] }),
     {
+      name: "socialMedia",
+      type: "array",
+      admin: {
+        readOnly: true,
+        initCollapsed: true,
+      },
+      label: {
+        en: "Other Social Media Pages (A list)",
+        fr: "Autres pages de médias sociaux (une liste)",
+        pt: "Outras páginas de mídia social (uma lista)",
+      },
+      fields: [
+        {
+          name: "name",
+          type: "text",
+          label: { en: "Name", fr: "Nom", pt: "Nome" },
+        },
+        {
+          name: "link",
+          type: "text",
+          admin: {
+            readOnly: true,
+          },
+          label: { en: "Link", fr: "Lien", pt: "Link" },
+        },
+      ],
+    },
+    {
       name: "airtableId",
       label: { en: "Airtable ID", fr: "ID Airtable", pt: "ID da Airtable" },
       type: "text",
