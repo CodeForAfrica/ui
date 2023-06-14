@@ -14,14 +14,14 @@ import queryString from "@/charterafrica/utils/datasets/queryString";
 const Datasets = React.forwardRef(function Datasets(
   {
     sx,
-    data: datasetsProp,
-    labels,
-    commonLabels,
-    tags = [],
-    countries = [],
-    totalPages: originalTotalPages,
-    sortOptions = [],
     pageUrl,
+    organizationId,
+    filterBar: datasetsFilterBar,
+    labels: datasetsLabels,
+    datasets: datasetsProp,
+    countries = [],
+    tags = [],
+    totalPages: originalTotalPages,
   },
   ref
 ) {
@@ -87,6 +87,7 @@ const Datasets = React.forwardRef(function Datasets(
   const { data, isLoading } = useDatasets(
     {
       countries: selectedCountries,
+      organizationId,
       locale,
       page,
       q,
@@ -117,26 +118,24 @@ const Datasets = React.forwardRef(function Datasets(
         sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: 0 }, pb: { md: 5 } }}
       >
         <DatasetFilterBar
-          countries={selectedCountries}
-          countriesOptions={countries}
-          labels={labels}
-          sortOptions={sortOptions}
+          selectedCountries={selectedCountries}
+          countriesList={countries}
+          options={datasetsFilterBar}
           onChangeQ={handleChangeQ}
           onChangeSort={handleChangeSort}
           onChangeCountries={handleChangeCountries}
           onChangeTags={handleChangeTags}
-          sort={sort}
-          tags={selectedTags}
-          tagsOptions={tags}
+          selectedTags={selectedTags}
+          tagsList={tags}
         />
+
         {isLoading ? <LinearProgress color="secondary" /> : null}
         <Stack>
           {datasets?.map((dataset) => (
             <DatasetCard
               {...dataset}
               key={dataset.id}
-              labels={labels}
-              commonLabels={commonLabels}
+              labels={datasetsLabels}
               pageUrl={pageUrl}
               sx={{
                 borderBottom: "none",

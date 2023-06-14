@@ -1,5 +1,4 @@
 import fetchDatasets from "@/charterafrica/lib/openAfrica";
-import payload from "@/charterafrica/lib/payload";
 
 async function datasets(req, res) {
   const {
@@ -11,11 +10,11 @@ async function datasets(req, res) {
       page = 1,
       pathname,
       locale,
+      organizationId,
     },
   } = req;
 
   try {
-    const { organizationId } = await payload.findGlobal("openAfrica");
     const data = await fetchDatasets(organizationId, pathname, {
       q,
       page,
