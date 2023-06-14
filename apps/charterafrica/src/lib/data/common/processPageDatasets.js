@@ -19,7 +19,11 @@ async function processSingleDataset(page, api, context) {
     return null;
   }
 
-  const { commonLabels = {} } = blocks.find(({ slug }) => slug === "datasets");
+  const { labels } = blocks.find(({ slug }) => slug === "datasets");
+
+  const { labels: commonLabels } = await api.findGlobal("common-labels", {
+    locale,
+  });
 
   return {
     ...page,
@@ -27,7 +31,10 @@ async function processSingleDataset(page, api, context) {
     blocks: [
       {
         ...dataset,
-        commonLabels,
+        labels: {
+          ...commonLabels,
+          ...labels,
+        },
         slug: "dataset",
       },
     ],
@@ -42,46 +49,34 @@ export default async function processPageDatasets(page, api, context) {
   const { blocks, breadcrumbs = [] } = page;
   const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
 
-  const { organizationId } = await api.findGlobal("openAfrica");
-
   const datasetsIndex = blocks.findIndex(({ slug }) => slug === "datasets");
 
-  if (datasetsIndex > -1 && organizationId) {
-    const data = await fetchDatasets(organizationId, pageUrl, {
+  if (datasetsIndex > -1) {
+    const {
+      organizationId,
+      filterBar,
+      labels,
+      showDocuments,
+      documents: { href: documentsHref },
+    } = blocks[datasetsIndex];
+    const datasets = await fetchDatasets(organizationId, pageUrl, {
       locale,
     });
-    const { count, datasets, countries, tags, totalPages } = data;
+    const { labels: commonLabels } = await api.findGlobal("common-labels", {
+      locale,
+    });
 
     blocks[datasetsIndex] = {
       ...blocks[datasetsIndex],
-      count,
-      countries,
-      data: datasets,
-      tags,
-      totalPages,
-      documents: {
-        totalDocuments: 30,
-        perPage: 10,
-        currentPage: 1,
-        totalPages: 3,
-        documents: Array.from({ length: 10 }, (_, i) => ({
-          id: i,
-          contributor: `Contributor ${i}`,
-          createdAt: "2021-09-01",
-          description: `Document Description ${i}`,
-          image: "/images/hero-slide-1.jpg",
-          pages: 10,
-          title: `Document Title ${i}`,
-          url: "https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html",
-        })),
-        options: {
-          url: "https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html",
-          showNotes: true,
-          showSearch: true,
-          showText: true,
-          showZoom: true,
-        },
+      ...datasets,
+      filterBar,
+      labels: {
+        ...commonLabels,
+        ...labels,
       },
+      organizationId,
+      showDocuments,
+      documentsHref,
     };
 
     let swrKey = `/api/v1/resources/datasets`;
@@ -91,7 +86,7 @@ export default async function processPageDatasets(page, api, context) {
     }
     // eslint-disable-next-line no-param-reassign
     page.fallback = {
-      [`${swrKey}`]: data,
+      [`${swrKey}`]: datasets,
     };
   }
 

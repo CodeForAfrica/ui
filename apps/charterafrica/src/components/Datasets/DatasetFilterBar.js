@@ -30,20 +30,22 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   ref
 ) {
   const {
-    countries,
-    countriesOptions,
-    dataToDisplay,
+    selectedCountries,
+    countriesList,
     onChangeQ,
     onChangeSort,
     onChangeCountries,
     onChangeTags,
-    onChangeDataToDisplay,
-    labels,
-    sortOptions,
+    options: {
+      countries: countriesOptions,
+      search,
+      sort: sortOptions,
+      tags: tagsOptions,
+    },
     sort,
     q,
-    tags,
-    tagsOptions,
+    selectedTags,
+    tagsList,
   } = props;
 
   const handleChangeQ = (e, value) => {
@@ -54,7 +56,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
 
   const listToLabel = (list, label, num = 1) => {
     return list?.length > num
-      ? `${list.length} ${labels[label]}`
+      ? `${list.length} ${label}`
       : list.map((l) => l.label || l).join(", ");
   };
 
@@ -64,7 +66,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
         <Grid item xs={12} lg={2.4}>
           <ControlledSearchInput
             onChange={handleChangeQ}
-            placeholder={labels.search}
+            placeholder={search.label}
             value={q}
             sx={{
               backgroundColor: "#fff",
@@ -76,8 +78,8 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
         </Grid>
         <Grid item xs={12} sm={4} md={3} lg={2.4}>
           <ComboBox
-            label={labels.sort}
-            options={sortOptions}
+            label={sortOptions.label}
+            options={sortOptions.options}
             onChange={onChangeSort}
             renderInput={(params) => (
               <StyledAutocompleteInput
@@ -95,32 +97,32 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
         </Grid>
         <Grid item xs={12} sm={4} md={3} lg={2.4} overflow="hidden">
           <ComboBox
-            label={labels.countries}
+            label={countriesOptions.label}
             multiple
-            options={countriesOptions}
+            options={countriesList}
             onChange={onChangeCountries}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderTags={(checkedCountries, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
-                {listToLabel(checkedCountries, "countries")}
+                {listToLabel(checkedCountries, countriesOptions.label)}
               </StyledAutocompleteTags>
             )}
-            value={countries}
+            value={selectedCountries}
           />
         </Grid>
         <Grid item xs={12} sm={4} md={3} lg={2.4}>
           <ComboBox
-            label={labels.tags}
+            label={tagsOptions.label}
             multiple
-            options={tagsOptions}
+            options={tagsList}
             onChange={onChangeTags}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderTags={(checkedTags, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
-                {listToLabel(checkedTags, "tags")}
+                {listToLabel(checkedTags, tagsOptions.label)}
               </StyledAutocompleteTags>
             )}
-            value={tags}
+            value={selectedTags}
           />
         </Grid>
         <Grid
@@ -153,11 +155,11 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             sx={{
               width: "95px",
               borderRadius: "10px",
-              backgroundColor:
-                dataToDisplay === "datasets" ? "primary" : neutral[50],
-              color: dataToDisplay === "datasets" ? "#fff" : "neutral.dark",
+              // backgroundColor:
+              //   dataToDisplay === "datasets" ? "primary" : neutral[50],
+              // color: dataToDisplay === "datasets" ? "#fff" : "neutral.dark",
             }}
-            onClick={() => onChangeDataToDisplay("datasets")}
+            // onClick={() => onChangeDataToDisplay("datasets")}
           >
             <Typography typography="p1">Datasets</Typography>
           </Button>
@@ -166,11 +168,11 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             sx={{
               width: "95px",
               borderRadius: "10px",
-              backgroundColor:
-                dataToDisplay === "documents" ? "primary" : neutral[50],
-              color: dataToDisplay === "documents" ? "#fff" : "neutral.dark",
+              // backgroundColor:
+              //   dataToDisplay === "documents" ? "primary" : neutral[50],
+              // color: dataToDisplay === "documents" ? "#fff" : "neutral.dark",
             }}
-            onClick={() => onChangeDataToDisplay("documents")}
+            // onClick={() => onChangeDataToDisplay("documents")}
           >
             <Typography typography="p1">Documents</Typography>
           </Button>

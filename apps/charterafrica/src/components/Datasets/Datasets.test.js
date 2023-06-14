@@ -9,9 +9,10 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
+  organizationId: "the-charter-project",
   countries: ["Kenya", "Uganda", "Tanzania", "Nigeria"],
   tags: ["Agriculture", "Health", "Education"],
-  data: [
+  datasets: [
     {
       formats: ["CSV", "PDF"],
       notes:
@@ -26,31 +27,40 @@ const defaultProps = {
       id: "1234",
     },
   ],
-  sortOptions: [
-    {
-      label: {
-        en: "Most Recent",
-        fr: "Plus récent",
-        pt: "Mais recente",
-      },
-      value: "metadata_created desc",
+  totalPages: 10,
+  filterBar: {
+    countries: {
+      label: "Countries",
     },
-    {
-      label: {
-        en: "Least Recent",
-        fr: "Moins récent",
-        pt: "Menos recente",
-      },
-      value: "metadata_created asc",
+    tags: {
+      label: "Tags",
     },
-  ],
-  labels: {
-    countries: "Countries",
-    tags: "Tags",
-    sort: "Sort",
-    search: "Search",
+    sort: {
+      label: "Sort",
+      options: [
+        {
+          label: {
+            en: "Most Recent",
+            fr: "Plus récent",
+            pt: "Mais recente",
+          },
+          value: "metadata_created desc",
+        },
+        {
+          label: {
+            en: "Least Recent",
+            fr: "Moins récent",
+            pt: "Menos recente",
+          },
+          value: "metadata_created asc",
+        },
+      ],
+    },
+    search: {
+      label: "Search",
+    },
   },
-  commonLabels: {
+  labels: {
     updated: "Updated",
     created: "Created",
     backToDatasets: "Back to Datasets",

@@ -3,8 +3,6 @@ import { Box, LinearProgress, Stack } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useState, useEffect, useRef, useImperativeHandle } from "react";
 
-import DocumentCard from "../Documents/DocumentCard";
-
 import DatasetFilterBar from "./DatasetFilterBar";
 import useDatasets from "./useDatasets";
 
@@ -16,15 +14,14 @@ import queryString from "@/charterafrica/utils/datasets/queryString";
 const Datasets = React.forwardRef(function Datasets(
   {
     sx,
-    data: datasetsProp,
-    documents,
-    labels,
-    commonLabels,
-    tags = [],
-    countries = [],
-    totalPages: originalTotalPages,
-    sortOptions = [],
     pageUrl,
+    organizationId,
+    filterBar: datasetsFilterBar,
+    labels: datasetsLabels,
+    datasets: datasetsProp,
+    countries = [],
+    tags = [],
+    totalPages: originalTotalPages,
   },
   ref
 ) {
@@ -36,7 +33,6 @@ const Datasets = React.forwardRef(function Datasets(
   const [selectedCountries, setSelectedCountries] = useState();
   const [selectedTags, setSelectedTags] = useState([]);
   const [totalPages, setTotalPages] = useState(originalTotalPages);
-  const [dataToDisplay, setDataToDisplay] = useState("datasets");
   const router = useRouter();
   const datasetsRef = useRef();
   useImperativeHandle(ref, () => datasetsRef.current);
@@ -69,11 +65,6 @@ const Datasets = React.forwardRef(function Datasets(
     setPage(1);
   };
 
-  const handleDataToDisplay = (value) => {
-    setPage(1);
-    setDataToDisplay(value);
-  };
-
   const query = queryString({
     page,
     q,
@@ -96,6 +87,7 @@ const Datasets = React.forwardRef(function Datasets(
   const { data, isLoading } = useDatasets(
     {
       countries: selectedCountries,
+      organizationId,
       locale,
       page,
       q,
@@ -126,42 +118,34 @@ const Datasets = React.forwardRef(function Datasets(
         sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: 0 }, pb: { md: 5 } }}
       >
         <DatasetFilterBar
-          countries={selectedCountries}
-          countriesOptions={countries}
-          labels={labels}
-          sortOptions={sortOptions}
+          selectedCountries={selectedCountries}
+          countriesList={countries}
+          options={datasetsFilterBar}
           onChangeQ={handleChangeQ}
           onChangeSort={handleChangeSort}
           onChangeCountries={handleChangeCountries}
           onChangeTags={handleChangeTags}
-          onChangeDataToDisplay={handleDataToDisplay}
-          sort={sort}
-          tags={selectedTags}
-          tagsOptions={tags}
-          dataToDisplay={dataToDisplay}
+          selectedTags={selectedTags}
+          tagsList={tags}
         />
+
         {isLoading ? <LinearProgress color="secondary" /> : null}
         <Stack>
-          {dataToDisplay === "datasets"
-            ? datasets?.map((dataset) => (
-                <DatasetCard
-                  {...dataset}
-                  key={dataset.id}
-                  labels={labels}
-                  commonLabels={commonLabels}
-                  pageUrl={pageUrl}
-                  sx={{
-                    borderBottom: "none",
-                    "&:last-of-type": {
-                      borderBottom: "1px solid",
-                      borderColor: neutral[50],
-                    },
-                  }}
-                />
-              ))
-            : documents?.documents?.map((document) => (
-                <DocumentCard {...document} />
-              ))}
+          {datasets?.map((dataset) => (
+            <DatasetCard
+              {...dataset}
+              key={dataset.id}
+              labels={datasetsLabels}
+              pageUrl={pageUrl}
+              sx={{
+                borderBottom: "none",
+                "&:last-of-type": {
+                  borderBottom: "1px solid",
+                  borderColor: neutral[50],
+                },
+              }}
+            />
+          ))}
         </Stack>
         <NextPrevPagination
           count={totalPages}
