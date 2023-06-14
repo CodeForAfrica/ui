@@ -23,8 +23,9 @@ export async function schema(req) {
     "Content-Type": "application/json",
     Authorization: `Bearer ${process.env.AIRTABLE_API_TOKEN}`,
   };
-  if (getFromCache(url)) {
-    return getFromCache(url);
+  const cached = getFromCache(url);
+  if (cached) {
+    return cached;
   }
   const value = fetchJson.get(`https://api.airtable.com/v0${url}`, {
     headers,
