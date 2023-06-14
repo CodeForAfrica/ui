@@ -18,6 +18,18 @@ const sortOptions = [
 
 const Datasets = {
   slug: "datasets",
+  labels: {
+    singular: {
+      en: "Dataset",
+      fr: "Ensemble de données",
+      pt: "Conjunto de dados",
+    },
+    plural: {
+      en: "Datasets",
+      fr: "Ensembles de données",
+      pt: "Conjuntos de dados",
+    },
+  },
   fields: [
     {
       name: "datasets",

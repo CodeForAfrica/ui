@@ -14,6 +14,18 @@ const documentSortOptions = [
 
 const Documents = {
   slug: "documents",
+  labels: {
+    singular: {
+      en: "Document",
+      fr: "Document",
+      pt: "Documento",
+    },
+    plural: {
+      en: "Documents",
+      fr: "Documents",
+      pt: "Documentos",
+    },
+  },
   fields: [
     {
       name: "documents",
