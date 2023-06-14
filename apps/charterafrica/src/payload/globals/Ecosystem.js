@@ -532,6 +532,13 @@ const Ecosystem = {
                     },
                   },
                 }),
+                airtableColumnSelect({
+                  tableField: "organisationTableId",
+                  overrides: {
+                    name: "tools",
+                    label: { en: "Tools", fr: "Outils", pt: "Ferramentas" },
+                  },
+                }),
                 sourceField({ tableField: "organisationTableId" }),
                 airtableColumnSelect({
                   tableField: "organisationTableId",
@@ -649,7 +656,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
-                  tableField: "partnersTableId",
+                  tableField: "socialMediaTableId",
                   overrides: {
                     name: "url",
                     label: {
