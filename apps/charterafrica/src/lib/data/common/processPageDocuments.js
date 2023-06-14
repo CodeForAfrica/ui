@@ -8,15 +8,13 @@ export default async function processPageDocuments(page, api, context) {
   const { blocks } = page;
 
   const documentsIndex = blocks.findIndex(({ slug }) => slug === "documents");
-
   if (documentsIndex > -1) {
     const {
-      documents: {
-        organization: { groupId, options },
-        filterBar,
-        labels,
-      },
-      datasets: { showDatasets, datasetsPage = {} },
+      organization: { groupId, options },
+      filterBar,
+      labels,
+      showDatasets,
+      datasets: { href: datasetsHref },
     } = blocks[documentsIndex];
     const query = getDocumentsQuery(context, options);
     const documents = await fetchDocuments(`group:${groupId}`, query);
@@ -33,15 +31,8 @@ export default async function processPageDocuments(page, api, context) {
         ...labels,
       },
       showDatasets,
+      datasetsHref,
     };
-
-    if (showDatasets) {
-      const { href } = datasetsPage;
-      blocks[documentsIndex] = {
-        ...blocks[documentsIndex],
-        datasetsUrl: href,
-      };
-    }
 
     let swrKey = `/api/v1/resources/datasets`;
     const qs = documentsQueryString(getDocumentsQuery(context));

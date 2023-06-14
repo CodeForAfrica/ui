@@ -53,8 +53,11 @@ export default async function processPageDatasets(page, api, context) {
 
   if (datasetsIndex > -1) {
     const {
-      datasets: { organizationId, filterBar, labels },
-      documents: { showDocuments, documentsPage = {} },
+      organizationId,
+      filterBar,
+      labels,
+      showDocuments,
+      documents: { href: documentsHref },
     } = blocks[datasetsIndex];
     const datasets = await fetchDatasets(organizationId, pageUrl, {
       locale,
@@ -73,15 +76,8 @@ export default async function processPageDatasets(page, api, context) {
       },
       organizationId,
       showDocuments,
+      documentsHref,
     };
-
-    if (showDocuments) {
-      const { href } = documentsPage;
-      blocks[datasetsIndex] = {
-        ...blocks[datasetsIndex],
-        documentsUrl: href,
-      };
-    }
 
     let swrKey = `/api/v1/resources/datasets`;
     const qs = datasetsQuery(getDatasetsQuery(context));
