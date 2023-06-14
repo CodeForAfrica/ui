@@ -308,28 +308,28 @@ exports[`<Datasets /> renders unchanged 1`] = `
             >
               Show:
             </p>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1k2s779-MuiButtonBase-root-MuiButton-root"
+            <a
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-18vgmlm-MuiButtonBase-root-MuiButton-root"
+              role="button"
               tabindex="0"
-              type="button"
             >
               <p
                 class="MuiTypography-root MuiTypography-p1 css-sz96qg-MuiTypography-root"
               >
                 Datasets
               </p>
-            </button>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-18vgmlm-MuiButtonBase-root-MuiButton-root"
+            </a>
+            <a
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1k2s779-MuiButtonBase-root-MuiButton-root"
+              href="/documents"
               tabindex="0"
-              type="button"
             >
               <p
                 class="MuiTypography-root MuiTypography-p1 css-sz96qg-MuiTypography-root"
               >
                 Documents
               </p>
-            </button>
+            </a>
           </div>
         </div>
       </div>

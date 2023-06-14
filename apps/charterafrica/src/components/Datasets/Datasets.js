@@ -22,6 +22,8 @@ const Datasets = React.forwardRef(function Datasets(
     countries = [],
     tags = [],
     totalPages: originalTotalPages,
+    showDocuments,
+    documentsHref,
   },
   ref
 ) {
@@ -127,6 +129,8 @@ const Datasets = React.forwardRef(function Datasets(
           onChangeTags={handleChangeTags}
           selectedTags={selectedTags}
           tagsList={tags}
+          documentsHref={documentsHref}
+          showDocuments={showDocuments}
         />
 
         {isLoading ? <LinearProgress color="secondary" /> : null}

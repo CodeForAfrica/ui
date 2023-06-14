@@ -45,6 +45,8 @@ const defaultProps = {
       label: "Search",
     },
   },
+  documentsHref: "/documents",
+  showDocuments: true,
 };
 
 describe("<DatasetFilterBar />", () => {

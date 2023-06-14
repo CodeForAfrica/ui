@@ -46,6 +46,8 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
     q,
     selectedTags,
     tagsList,
+    documentsHref,
+    showDocuments,
   } = props;
 
   const handleChangeQ = (e, value) => {
@@ -155,11 +157,11 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             sx={{
               width: "95px",
               borderRadius: "10px",
-              // backgroundColor:
-              //   dataToDisplay === "datasets" ? "primary" : neutral[50],
-              // color: dataToDisplay === "datasets" ? "#fff" : "neutral.dark",
+              backgroundColor: showDocuments ? neutral[50] : "primary",
+              color: showDocuments ? "neutral.dark" : "#fff",
             }}
-            // onClick={() => onChangeDataToDisplay("datasets")}
+            component="a"
+            disabled={!showDocuments}
           >
             <Typography typography="p1">Datasets</Typography>
           </Button>
@@ -168,11 +170,11 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             sx={{
               width: "95px",
               borderRadius: "10px",
-              // backgroundColor:
-              //   dataToDisplay === "documents" ? "primary" : neutral[50],
-              // color: dataToDisplay === "documents" ? "#fff" : "neutral.dark",
+              backgroundColor: showDocuments ? "primary" : neutral[50],
+              color: showDocuments ? "#fff" : "neutral.dark",
             }}
-            // onClick={() => onChangeDataToDisplay("documents")}
+            component="a"
+            href={documentsHref}
           >
             <Typography typography="p1">Documents</Typography>
           </Button>
