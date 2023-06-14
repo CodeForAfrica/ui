@@ -7,13 +7,10 @@ import documentsQueryString from "@/charterafrica/utils/documents/queryString";
 
 async function processSingleDocument(page, api, context) {
   const { query, locale } = context;
-  const { title, slugs, ...rest } = query;
+  const { title, ...rest } = query;
 
   const { blocks } = page;
-  const {
-    labels,
-    organization: { groupId, options },
-  } = blocks.find(({ slug }) => slug === "documents");
+  const { labels } = blocks.find(({ slug }) => slug === "documents");
 
   const { labels: commonLabels } = await api.findGlobal("common-labels", {
     locale,
@@ -28,8 +25,7 @@ async function processSingleDocument(page, api, context) {
       {
         slug: "embedded-dataset-document-viewer",
         html,
-        groupId,
-        options,
+        title,
         labels: {
           ...commonLabels,
           ...labels,
