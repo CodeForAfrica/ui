@@ -42,8 +42,8 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
 
   return (
     <Box py={5} ref={ref}>
-      <Grid container spacing={1}>
-        <Grid item xs={12} lg={2.4}>
+      <Grid container spacing={1} justifyContent="space-between">
+        <Grid item xs={12} md={3}>
           <ControlledSearchInput
             onChange={handleChangeQ}
             placeholder={search.label}
@@ -56,7 +56,7 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
             }}
           />
         </Grid>
-        <Grid item xs={12} sm={4} md={3} lg={2.4}>
+        <Grid item xs={12} md={3}>
           <ComboBox
             label={sortOptions.label}
             options={sortOptions.options}
@@ -75,41 +75,10 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
             value={sort}
           />
         </Grid>
-        {/* <Grid item xs={12} sm={4} md={3} lg={2.4} overflow="hidden">
-          <ComboBox
-            label={countriesOptions.label}
-            multiple
-            options={countriesList}
-            onChange={onChangeCountries}
-            renderInput={(params) => <StyledAutocompleteInput {...params} />}
-            renderTags={(checkedCountries, getTagProps) => (
-              <StyledAutocompleteTags {...getTagProps} typography="p1">
-                {listToLabel(checkedCountries, countriesOptions.label)}
-              </StyledAutocompleteTags>
-            )}
-            value={selectedCountries}
-          />
-        </Grid>
-        <Grid item xs={12} sm={4} md={3} lg={2.4}>
-          <ComboBox
-            label={tagsOptions.label}
-            multiple
-            options={tagsList}
-            onChange={onChangeTags}
-            renderInput={(params) => <StyledAutocompleteInput {...params} />}
-            renderTags={(checkedTags, getTagProps) => (
-              <StyledAutocompleteTags {...getTagProps} typography="p1">
-                {listToLabel(checkedTags, tagsOptions.label)}
-              </StyledAutocompleteTags>
-            )}
-            value={selectedTags}
-          />
-        </Grid> */}
         <Grid
           item
           xs={12}
           md={3}
-          lg={2.4}
           container
           justifyContent={{
             xs: "flex-start",
