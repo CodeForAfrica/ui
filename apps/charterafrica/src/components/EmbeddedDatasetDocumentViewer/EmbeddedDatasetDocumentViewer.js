@@ -23,12 +23,17 @@ const EmbeddedDatasetDocumentViewer = React.forwardRef(
             py: { xs: 5, md: 7.5 },
           }}
         >
-          <Grid
-            container
-            spacing={4}
-            direction={{ xs: "column-reverse", sm: "row" }}
-          >
-            <Grid item xs={12} md={8} padding={0}>
+          <Grid container spacing={4} direction={{ xs: "column", md: "row" }}>
+            <Grid
+              item
+              xs={12}
+              md={8}
+              padding={0}
+              container
+              direction="column"
+              gap={2}
+              alignItems={{ xs: "center", md: "flex-start" }}
+            >
               <Typography variant="h4" component="h2" gutterBottom>
                 {title}
               </Typography>
@@ -37,9 +42,9 @@ const EmbeddedDatasetDocumentViewer = React.forwardRef(
                 border="1px solid"
                 borderColor={neutral[800]}
                 width={{
-                  md: "720px",
-                  sm: "568px",
-                  xs: "300px",
+                  lg: "720px",
+                  sm: "648px",
+                  xs: "330px",
                 }}
                 sx={{
                   mt: 5,
@@ -57,6 +62,7 @@ const EmbeddedDatasetDocumentViewer = React.forwardRef(
               sx={{
                 p: 0,
               }}
+              justifyContent={{ xs: "center", md: "flex-end" }}
             >
               <Button
                 variant="contained"
@@ -87,7 +93,7 @@ const EmbeddedDatasetDocumentViewer = React.forwardRef(
                   sx={{
                     alignItems: {
                       xs: "center",
-                      md: "flex-start",
+                      md: "flex-end",
                     },
                     py: 2,
                   }}
