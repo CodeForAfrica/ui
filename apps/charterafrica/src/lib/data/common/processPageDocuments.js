@@ -47,8 +47,7 @@ export default async function processPageDocuments(page, api, context) {
   const documentsIndex = blocks.findIndex(({ slug }) => slug === "documents");
   if (documentsIndex > -1) {
     const {
-      organization: { groupId, options },
-      filterBar,
+      organization: { groupId, options, showFilterBar, filterBar },
       labels,
       showDatasets,
       datasets: { href: datasetsHref },
@@ -63,6 +62,7 @@ export default async function processPageDocuments(page, api, context) {
       ...documents,
       documentOptions: options,
       slug: "documents",
+      showFilterBar,
       filterBar,
       labels: {
         ...commonLabels,

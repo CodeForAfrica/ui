@@ -46,6 +46,7 @@ const defaultProps = {
       ],
     },
   },
+  showFilterBar: true,
   labels: {
     updated: "Updated",
     created: "Created",

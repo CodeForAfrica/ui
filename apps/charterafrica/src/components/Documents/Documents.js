@@ -23,7 +23,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
     filterBar: documentsFilterBar,
     labels: documentsLabels,
     pathname,
-    showFilterbar = true,
+    showFilterBar,
   } = props;
   const [documents, setDocuments] = useState(originalDocuments);
   const [totalPages, setTotalPages] = useState(0);
@@ -104,7 +104,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
           variant="p3"
           sx={{ mt: 2.5 }}
         />
-        {showFilterbar ? (
+        {showFilterBar ? (
           <DocumentFilterBar
             options={documentsFilterBar}
             onChangeQ={handleChangeQ}
