@@ -10,6 +10,7 @@ import { buildConfig } from "payload/config";
 import Authors from "./src/payload/collections/Authors";
 import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
 import CommonLabels from "./src/payload/globals/CommonLabels";
+import Ecosystem from "./src/payload/globals/Ecosystem";
 import Events from "./src/payload/collections/Events";
 import Explainers from "./src/payload/collections/Explainers";
 import Fellowships from "./src/payload/collections/Fellowships";
@@ -93,6 +94,7 @@ export default buildConfig({
   ] as CollectionConfig[],
   globals: [
     CommonLabels,
+    Ecosystem,
     FocalCountries,
     Footer,
     Helpdesk,
