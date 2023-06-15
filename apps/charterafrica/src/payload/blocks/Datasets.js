@@ -1,5 +1,6 @@
 import { array } from "payload/dist/fields/validations";
 
+import filterBar from "../fields/filterBar";
 import linkGroup from "../fields/linkGroup";
 import defaultValue from "../utils/defaultValues";
 
@@ -60,12 +61,7 @@ const Datasets = {
         pt: "Barra de filtro",
       },
       fields: [
-        {
-          name: "filterBar",
-          type: "group",
-          admin: {
-            hideGutter: true,
-          },
+        filterBar({
           fields: [
             {
               name: "search",
@@ -225,7 +221,7 @@ const Datasets = {
               ],
             },
           ],
-        },
+        }),
       ],
     },
     {

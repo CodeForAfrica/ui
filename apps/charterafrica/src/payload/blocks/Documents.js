@@ -1,6 +1,7 @@
 import { array } from "payload/dist/fields/validations";
 
 import documentCloud from "../fields/documentCloud";
+import filterBar from "../fields/filterBar";
 import linkGroup from "../fields/linkGroup";
 import defaultValue from "../utils/defaultValues";
 
@@ -53,12 +54,7 @@ const Documents = {
         pt: "Barra de filtro",
       },
       fields: [
-        {
-          name: "filterBar",
-          type: "group",
-          admin: {
-            hideGutter: true,
-          },
+        filterBar({
           fields: [
             {
               name: "search",
@@ -153,7 +149,7 @@ const Documents = {
               ],
             },
           ],
-        },
+        }),
       ],
     },
     {
