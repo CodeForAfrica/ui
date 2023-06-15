@@ -132,7 +132,14 @@ export const processOrganisationFromAirTable = async (
     tools,
   };
   if (!unLocalizedData.externalId) {
-    throw new FetchError(`Missing external ID for ${data.id}`, data, 500);
+    const message = `Missing external ID for ${data.id}`;
+    Sentry.captureMessage(message);
+    throw new FetchError(message, data, 500);
+  }
+  if (!tools.length) {
+    const message = `Organisation ${data.id} is not assigned to any tool and has been skipped`;
+    Sentry.captureMessage(message);
+    throw new FetchError(message, data, 500);
   }
   return {
     en: {
