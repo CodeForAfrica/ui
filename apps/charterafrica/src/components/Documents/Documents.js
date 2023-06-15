@@ -2,11 +2,11 @@ import { RichTypography, Section } from "@commons-ui/core";
 import { Box, LinearProgress } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
 
-import DocumentCard from "./DocumentCard";
 import DocumentFilterBar from "./DocumentFilterBar";
 import useDocuments from "./useDocuments";
 
 import { neutral } from "@/charterafrica/colors";
+import DocumentCard from "@/charterafrica/components/DocumentCard";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 import RichText from "@/charterafrica/components/RichText";
 
