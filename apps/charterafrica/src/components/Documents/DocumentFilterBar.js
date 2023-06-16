@@ -75,57 +75,59 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
             value={sort}
           />
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={3}
-          container
-          justifyContent={{
-            xs: "flex-start",
-            md: "space-between",
-          }}
-          gap={1}
-          alignItems="center"
-          direction="row"
-          wrap="nowrap"
-        >
-          <Typography
-            typography="p1"
-            color="neutral.dark"
-            sx={{
-              mr: 1,
+        {showDatasets ? (
+          <Grid
+            item
+            xs={12}
+            md={3}
+            container
+            justifyContent={{
+              xs: "flex-start",
+              md: "space-between",
             }}
+            gap={1}
+            alignItems="center"
+            direction="row"
+            wrap="nowrap"
           >
-            Show:
-          </Typography>
+            <Typography
+              typography="p1"
+              color="neutral.dark"
+              sx={{
+                mr: 1,
+              }}
+            >
+              Show:
+            </Typography>
 
-          <Button
-            variant="contained"
-            sx={{
-              width: "95px",
-              borderRadius: "10px",
-              backgroundColor: showDatasets ? neutral[50] : "primary",
-              color: showDatasets ? "neutral.dark" : "#fff",
-            }}
-            component="a"
-            disabled={!showDatasets}
-          >
-            <Typography typography="p1">Documents</Typography>
-          </Button>
-          <Button
-            variant="contained"
-            sx={{
-              width: "95px",
-              borderRadius: "10px",
-              backgroundColor: showDatasets ? "primary" : neutral[50],
-              color: showDatasets ? "#fff" : "neutral.dark",
-            }}
-            component="a"
-            href={datasetsHref}
-          >
-            <Typography typography="p1">Datasets</Typography>
-          </Button>
-        </Grid>
+            <Button
+              variant="contained"
+              sx={{
+                width: "95px",
+                borderRadius: "10px",
+                backgroundColor: showDatasets ? neutral[50] : "primary",
+                color: showDatasets ? "neutral.dark" : "#fff",
+              }}
+              component="a"
+              disabled={!showDatasets}
+            >
+              <Typography typography="p1">Documents</Typography>
+            </Button>
+            <Button
+              variant="contained"
+              sx={{
+                width: "95px",
+                borderRadius: "10px",
+                backgroundColor: showDatasets ? "primary" : neutral[50],
+                color: showDatasets ? "#fff" : "neutral.dark",
+              }}
+              component="a"
+              href={datasetsHref}
+            >
+              <Typography typography="p1">Datasets</Typography>
+            </Button>
+          </Grid>
+        ) : null}
       </Grid>
     </Box>
   );
