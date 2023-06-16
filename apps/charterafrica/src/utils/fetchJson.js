@@ -25,15 +25,7 @@ async function fetchJson(url, { method, data, params, ...args }) {
     ...args,
   });
   const response = await res.json();
-  if (res.ok) {
-    return response;
-  }
-  response.headers = res.headers;
-  throw new FetchError(
-    `Request to ${url} failed with status ${res.status}`,
-    response,
-    res.status
-  );
+  return response;
 }
 
 async function postJson(url, args) {
