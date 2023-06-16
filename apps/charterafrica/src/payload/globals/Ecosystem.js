@@ -206,6 +206,17 @@ const Ecosystem = {
                 airtableColumnSelect({
                   tableField: "toolTableId",
                   overrides: {
+                    name: "operatingCountries",
+                    label: {
+                      en: "Operating Countries",
+                      fr: "Pays opérationnels",
+                      pt: "Países operacionais",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  tableField: "toolTableId",
+                  overrides: {
                     name: "url",
                     label: {
                       en: "Website",

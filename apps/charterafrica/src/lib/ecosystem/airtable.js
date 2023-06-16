@@ -220,7 +220,7 @@ export const processToolFromAirtable = async (
       },
     },
   });
-  const operatingCountries = [];
+  const operatingCountries = getter(data, toolTableColumns.operatingCountries);
   const homeCountry = getter(data, toolTableColumns.homeCountry);
   const partners = await mapSupportersToFields(
     getter(data, toolTableColumns.partners) || [],
