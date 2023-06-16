@@ -5,7 +5,7 @@ import api from "../payload";
 export const ORGANIZATION_COLLECTION = "organisations";
 export const CONTRIBUTORS_COLLECTION = "contributors";
 export const TOOL_COLLECTION = "tools";
-export const ECOSYSTEM_CONFIG = "ecosystem-config";
+export const ECOSYSTEM_GLOBAL = "ecosystem-schema";
 
 const create = async (collection, toCreate, locale) => {
   const { docs } = await api.getCollection(collection, {

@@ -52,7 +52,6 @@ async function updateCollection(collection, id, data, options) {
   };
   return payload.update(args);
 }
-
 const api = {
   createCollection,
   deleteCollection,

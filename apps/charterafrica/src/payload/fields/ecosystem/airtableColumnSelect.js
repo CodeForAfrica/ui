@@ -4,48 +4,75 @@ import {
   getSiblingData,
   useAllFormFields,
 } from "payload/components/forms";
-import { createElement } from "react";
+import { select } from "payload/dist/fields/validations";
+import { createElement, useMemo } from "react";
 import useSWR from "swr";
 
 import fetchJson from "../../../utils/fetchJson";
 
-const fetcher = (url) => fetchJson.get(url);
+function getUrl(baseId) {
+  if (baseId) {
+    return `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases/${baseId}/tables`;
+  }
+  return null;
+}
 
-const columnSelect = ({ tableField, baseField }) => {
-  return function ColumnSelect(props) {
+function fieldsToOptions(fields) {
+  return (
+    fields?.map((item) => ({
+      value: item.name,
+      label: item.name,
+      id: item.id,
+    })) || []
+  );
+}
+
+export function validateColumnSelect(tableField) {
+  return async function validate(value, { hasMany, required, t, data }) {
+    const url = getUrl(data?.baseId);
+    if (url) {
+      const tableId = data.schema[tableField];
+      const { tables } = await fetchJson.get(url);
+      const table = tables?.find(({ id }) => id === tableId);
+      const options = fieldsToOptions(table?.fields);
+      return select(value, { hasMany, options, required, t });
+    }
+    return true;
+  };
+}
+
+const ColumnSelect = (tableField) => {
+  return function CSelect(props) {
     const [fields] = useAllFormFields();
-    const document = getSiblingData(fields, baseField);
-    const baseId = document.airtableBase;
-    const tableId = document[tableField];
-    const { data = {} } = useSWR(
-      baseId
-        ? `/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases/${baseId}/tables`
-        : null,
-      fetcher
-    );
+    const document = getSiblingData(fields, "schema");
+    const { baseId, schema } = document;
+    const tableId = schema[tableField];
+    const { data = {} } = useSWR(getUrl(baseId), fetchJson.get);
     const table = data?.tables?.find(({ id }) => id === tableId);
-    const options =
-      table?.fields?.map((item) => ({
-        value: item.name,
-        label: item.name,
-        id: item.id,
-      })) || [];
+    const options = useMemo(
+      () => fieldsToOptions(table?.fields),
+      [table?.fields]
+    );
+
     return createElement(Select, { ...props, options });
   };
 };
 
-const airtableColumnSelect = ({ tableField, baseField, ...overrrides }) => {
-  const defaults = {
-    required: true,
+function airtableColumnSelect({ tableField, overrides = {} }) {
+  const defaultSelect = {
     type: "text",
+    validate: validateColumnSelect(tableField),
+    required: true,
     admin: {
-      description: () =>
-        "Enter Airtable Base above and Table to select a column from",
       components: {
-        Field: columnSelect({ tableField, baseField }),
+        Field: ColumnSelect(tableField),
       },
+      description: () =>
+        "Select Airtable Base and Table name above to see available columns",
     },
   };
-  return deepmerge(defaults, overrrides);
-};
+
+  return deepmerge(defaultSelect, overrides);
+}
+
 export default airtableColumnSelect;

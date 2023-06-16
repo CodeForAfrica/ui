@@ -1,9 +1,5 @@
 import { stringify } from "qs";
 
-const headers = {
-  "Content-Type": "application/json",
-};
-
 export class FetchError extends Error {
   constructor(message = "Something went wrong", data = {}, status = 500) {
     super();
@@ -12,6 +8,10 @@ export class FetchError extends Error {
     this.status = status;
   }
 }
+
+const headers = {
+  "Content-Type": "application/json",
+};
 
 async function fetchJson(url, { method, data, params, ...args }) {
   const stringifiedQuery = stringify(params || {}, {

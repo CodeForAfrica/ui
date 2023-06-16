@@ -88,7 +88,7 @@ function formatResponse(data, pathname, locale) {
   const sortStrings = (a, b) => a.localeCompare(b);
   const tagsList = Object.keys(tags || {}).sort(sortStrings);
   const countries = countriesByContinent("Africa").map(({ label, value }) => ({
-    value,
+    value: value.toLowerCase(),
     label: label[locale],
   }));
   return {

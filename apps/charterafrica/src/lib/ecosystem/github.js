@@ -1,5 +1,11 @@
 import * as Sentry from "@sentry/nextjs";
 
+import {
+  ORGANIZATION_COLLECTION,
+  CONTRIBUTORS_COLLECTION,
+  TOOL_COLLECTION,
+} from "@/charterafrica/lib/ecosystem/models";
+import api from "@/charterafrica/lib/payload";
 import fetchJson, { FetchError } from "@/charterafrica/utils/fetchJson";
 
 export const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName: String!) {
@@ -194,4 +200,43 @@ export async function processGithubContributor({ externalId, eTag }) {
     email: data.email,
     eTag: data.eTag,
   };
+}
+
+export async function getToolfromCacheOrGithub(airtableData) {
+  const { airtableId } = airtableData;
+  const { docs } = await api.getCollection(TOOL_COLLECTION, {
+    where: {
+      airtableId: { equals: airtableId },
+    },
+  });
+  if (docs.length) {
+    return docs?.[0];
+  }
+  return processGithubTool(airtableData);
+}
+
+export async function getOrganisationFromCacheOrGithub(airtableData) {
+  const { airtableId } = airtableData;
+  const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {
+    where: {
+      airtableId: { equals: airtableId },
+    },
+  });
+  if (docs.length) {
+    return docs?.[0];
+  }
+  return processGithubOrganisation(airtableData);
+}
+
+export async function getContributorFromCacheOrGithub(airtableData) {
+  const { airtableId } = airtableData;
+  const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
+    where: {
+      airtableId: { equals: airtableId },
+    },
+  });
+  if (docs.length) {
+    return docs?.[0];
+  }
+  return processGithubContributor(airtableData);
 }

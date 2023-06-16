@@ -1,4 +1,7 @@
-import { ORGANIZATION_COLLECTION } from "../../lib/ecosystem/models";
+import {
+  ORGANIZATION_COLLECTION,
+  TOOL_COLLECTION,
+} from "../../lib/ecosystem/models";
 import dateField from "../fields/dateField";
 import eTag from "../fields/eTag";
 import slug from "../fields/slug";
@@ -9,7 +12,7 @@ const Organisations = {
   slug: ORGANIZATION_COLLECTION,
   admin: {
     useAsTitle: "externalId",
-    defaultColumns: ["externalId", "source", "name", "type", "location"],
+    defaultColumns: ["externalId", "source", "name", "type"],
   },
   access: {
     read: () => true,
@@ -101,8 +104,6 @@ const Organisations = {
           },
         },
       ],
-      localized: true,
-      required: true,
       admin: {
         readOnly: true,
       },
@@ -191,13 +192,13 @@ const Organisations = {
       },
     },
     {
-      name: "donors",
+      name: "supporters",
       type: "array",
       admin: {
         readOnly: true,
         initCollapsed: true,
       },
-      label: { en: "Donors", fr: "Donateurs", pt: "Doadores" },
+      label: { en: "Supporters", fr: "Partisans", pt: "Apoiadores" },
       fields: supporter,
     },
     {
@@ -209,6 +210,44 @@ const Organisations = {
       },
       label: { en: "Partners", fr: "Les partenaires", pt: "Parceiros" },
       fields: supporter,
+    },
+    {
+      name: "tools",
+      type: "relationship",
+      hasMany: true,
+      admin: {
+        readOnly: true,
+      },
+      relationTo: TOOL_COLLECTION,
+      label: { en: "Tools", fr: "Outils", pt: "Ferramentas" },
+    },
+    {
+      name: "socialMedia",
+      type: "array",
+      admin: {
+        readOnly: true,
+        initCollapsed: true,
+      },
+      label: {
+        en: "Other Social Media Pages (A list)",
+        fr: "Autres pages de médias sociaux (une liste)",
+        pt: "Outras páginas de mídia social (uma lista)",
+      },
+      fields: [
+        {
+          name: "name",
+          type: "text",
+          label: { en: "Name", fr: "Nom", pt: "Nome" },
+        },
+        {
+          name: "link",
+          type: "text",
+          admin: {
+            readOnly: true,
+          },
+          label: { en: "Link", fr: "Lien", pt: "Link" },
+        },
+      ],
     },
     {
       name: "airtableId",

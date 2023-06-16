@@ -1,10 +1,16 @@
+import api from "../payload";
+
 import {
   getListFromAirtable,
+  getBases,
   processToolFromAirtable,
   processOrganisationFromAirTable,
   processContributorFromAirtable,
 } from "@/charterafrica/lib/ecosystem/airtable";
 import {
+  getToolfromCacheOrGithub,
+  getOrganisationFromCacheOrGithub,
+  getContributorFromCacheOrGithub,
   processGithubTool,
   processGithubOrganisation,
   processGithubContributor,
@@ -14,11 +20,10 @@ import {
   ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,
-  ECOSYSTEM_CONFIG,
+  ECOSYSTEM_GLOBAL,
 } from "@/charterafrica/lib/ecosystem/models";
-import api from "@/charterafrica/lib/payload";
 
-const markBulkAsDeleted = async (collection, fromSource) => {
+const bulkMarkDeleted = async (collection, fromSource) => {
   const dataIds = fromSource.map(({ id }) => id).join(",");
   const { docs: toDelete } = await api.getCollection(collection, {
     where: {
@@ -35,61 +40,25 @@ const markBulkAsDeleted = async (collection, fromSource) => {
     })
   );
 };
-
-async function getToolfromCacheOrGithub(airtableData) {
-  const { airtableId } = airtableData;
-  const { docs } = await api.getCollection(TOOL_COLLECTION, {
-    where: {
-      airtableId: { equals: airtableId },
-    },
-  });
-  if (docs.length) {
-    return docs?.[0];
-  }
-  return processGithubTool(airtableData);
-}
-
-async function getOrganisationFromCacheOrGithub(airtableData) {
-  const { airtableId } = airtableData;
-  const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {
-    where: {
-      airtableId: { equals: airtableId },
-    },
-  });
-  if (docs.length) {
-    return docs?.[0];
-  }
-  return processGithubOrganisation(airtableData);
-}
-
-async function getContributorFromCacheOrGithub(airtableData) {
-  const { airtableId } = airtableData;
-  const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
-    where: {
-      airtableId: { equals: airtableId },
-    },
-  });
-  if (docs.length) {
-    return docs?.[0];
-  }
-  return processGithubContributor(airtableData);
-}
-
-const processTools = async () => {
-  const { toolsTableName, airtableBase } = await api.findGlobal(
-    ECOSYSTEM_CONFIG,
-    {}
-  );
+const processTools = async (config, bases) => {
+  const {
+    baseId,
+    schema: { toolTableId: tableIdOrName },
+  } = config;
   const toolsFromAirtable = await getListFromAirtable({
-    baseId: airtableBase,
-    tableIdOrName: toolsTableName,
+    baseId,
+    tableIdOrName,
   });
-  await markBulkAsDeleted(TOOL_COLLECTION, toolsFromAirtable);
+  await bulkMarkDeleted(TOOL_COLLECTION, toolsFromAirtable);
   const processedToolPromises = toolsFromAirtable.map(async (data) => {
-    const airtableData = await processToolFromAirtable({
-      ...data.fields,
-      id: data.id,
-    });
+    const airtableData = await processToolFromAirtable(
+      {
+        ...data.fields,
+        id: data.id,
+      },
+      config,
+      bases
+    );
     const gitData = await getToolfromCacheOrGithub(airtableData.en);
     const toCreate = {
       en: {
@@ -110,21 +79,26 @@ const processTools = async () => {
   return Promise.allSettled(processedToolPromises);
 };
 
-const processOrganisations = async () => {
-  const { organisationTableName, airtableBase } = await api.findGlobal(
-    ECOSYSTEM_CONFIG,
-    {}
-  );
+const processOrganisations = async (config, bases) => {
+  const {
+    baseId,
+    schema: { organisationTableId: tableIdOrName },
+  } = config;
   const organisationsFromAirtable = await getListFromAirtable({
-    baseId: airtableBase,
-    tableIdOrName: organisationTableName,
+    baseId,
+    tableIdOrName,
   });
-  await markBulkAsDeleted(ORGANIZATION_COLLECTION, organisationsFromAirtable);
+  await bulkMarkDeleted(ORGANIZATION_COLLECTION, organisationsFromAirtable);
   const processedOrgPromises = organisationsFromAirtable.map(async (data) => {
-    const airtableData = await processOrganisationFromAirTable({
-      ...data.fields,
-      id: data.id,
-    });
+    const airtableData = await processOrganisationFromAirTable(
+      {
+        ...data.fields,
+        id: data.id,
+      },
+      config,
+      bases
+    );
+    // Only get git data if not exist in database
     const gitData = await getOrganisationFromCacheOrGithub(airtableData.en);
     const toCreate = {
       en: {
@@ -145,21 +119,26 @@ const processOrganisations = async () => {
   return Promise.allSettled(processedOrgPromises);
 };
 
-const processContributors = async () => {
-  const { contributorTableName, airtableBase } = await api.findGlobal(
-    ECOSYSTEM_CONFIG,
-    {}
-  );
+const processContributors = async (config, bases) => {
+  const {
+    baseId,
+    schema: { contributorTableId: tableIdOrName },
+  } = config;
   const contributorsFromAirtTable = await getListFromAirtable({
-    baseId: airtableBase,
-    tableIdOrName: contributorTableName,
+    baseId,
+    tableIdOrName,
   });
-  await markBulkAsDeleted(CONTRIBUTORS_COLLECTION, contributorsFromAirtTable);
+  await bulkMarkDeleted(CONTRIBUTORS_COLLECTION, contributorsFromAirtTable);
   const processedContributors = contributorsFromAirtTable.map(async (data) => {
-    const airtableData = await processContributorFromAirtable({
-      ...data.fields,
-      id: data.id,
-    });
+    const airtableData = await processContributorFromAirtable(
+      {
+        ...data.fields,
+        id: data.id,
+      },
+      config,
+      bases
+    );
+    // Only get git data if not exist in database
     const gitData = await getContributorFromCacheOrGithub(airtableData.en);
     const toCreate = {
       en: {
@@ -207,16 +186,22 @@ async function updateToolContent() {
   return Promise.allSettled(updatePromises);
 }
 
-export const updateEcosystemContent = async () => {
+export async function updateEcosystemContent() {
   const contributors = await updateContributorContent();
   const organisations = await updateOrganisationContent();
   const tools = await updateToolContent();
   return { tools, contributors, organisations };
-};
+}
+
+async function execute() {
+  const config = await api.findGlobal(ECOSYSTEM_GLOBAL, {});
+  const bases = await getBases(config);
+  await processContributors(config, bases);
+  await processTools(config, bases);
+  await processOrganisations(config, bases);
+}
 
 export const updateEcosystemList = async () => {
-  const contributors = await processContributors();
-  const organisations = await processOrganisations();
-  const tools = await processTools();
-  return { tools, contributors, organisations };
+  execute();
+  return { message: "PROCESS_STARTED" };
 };
