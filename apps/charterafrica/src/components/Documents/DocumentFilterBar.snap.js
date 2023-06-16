@@ -126,38 +126,6 @@ exports[`<DocumentFilterBar /> renders unchanged 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-wrap-xs-nowrap MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-1a71r9t-MuiGrid-root"
-      >
-        <p
-          class="MuiTypography-root MuiTypography-p1 css-1eww23z-MuiTypography-root"
-        >
-          Show:
-        </p>
-        <a
-          aria-disabled="true"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1k2s779-MuiButtonBase-root-MuiButton-root"
-          role="button"
-          tabindex="-1"
-        >
-          <p
-            class="MuiTypography-root MuiTypography-p1 css-sz96qg-MuiTypography-root"
-          >
-            Documents
-          </p>
-        </a>
-        <a
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-18vgmlm-MuiButtonBase-root-MuiButton-root"
-          role="button"
-          tabindex="0"
-        >
-          <p
-            class="MuiTypography-root MuiTypography-p1 css-sz96qg-MuiTypography-root"
-          >
-            Datasets
-          </p>
-        </a>
-      </div>
     </div>
   </div>
 </div>
