@@ -52,7 +52,7 @@ const processTools = async (config, bases) => {
       bases
     );
     // Only get git data if not exist in database
-    return createCollection(TOOL_COLLECTION, airtableData);
+    return createCollection(TOOL_COLLECTION, airtableData, config);
   });
   return Promise.allSettled(processedToolPromises);
 };
@@ -77,7 +77,7 @@ const processOrganisations = async (config, bases) => {
       bases
     );
     // Only get git data if not exist in database
-    return createCollection(ORGANIZATION_COLLECTION, airtableData);
+    return createCollection(ORGANIZATION_COLLECTION, airtableData, config);
   });
   return Promise.allSettled(processedOrgPromises);
 };
@@ -102,7 +102,7 @@ const processContributors = async (config, bases) => {
       bases
     );
     // Only get git data if not exist in database
-    return createCollection(CONTRIBUTORS_COLLECTION, airtableData);
+    return createCollection(CONTRIBUTORS_COLLECTION, airtableData, config);
   });
   return Promise.allSettled(processedContributors);
 };
