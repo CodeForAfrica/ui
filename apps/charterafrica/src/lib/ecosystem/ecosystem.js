@@ -74,7 +74,7 @@ const processTools = async (config, bases) => {
         ...airtableData.fr,
       },
     };
-    return createCollection(TOOL_COLLECTION, toCreate);
+    return createCollection(TOOL_COLLECTION, toCreate, config);
   });
   return Promise.allSettled(processedToolPromises);
 };
@@ -114,7 +114,7 @@ const processOrganisations = async (config, bases) => {
         ...airtableData.fr,
       },
     };
-    return createCollection(ORGANIZATION_COLLECTION, toCreate);
+    return createCollection(ORGANIZATION_COLLECTION, toCreate, config);
   });
   return Promise.allSettled(processedOrgPromises);
 };
@@ -154,7 +154,7 @@ const processContributors = async (config, bases) => {
         ...airtableData.fr,
       },
     };
-    return createCollection(CONTRIBUTORS_COLLECTION, toCreate);
+    return createCollection(CONTRIBUTORS_COLLECTION, toCreate, config);
   });
   return Promise.allSettled(processedContributors);
 };

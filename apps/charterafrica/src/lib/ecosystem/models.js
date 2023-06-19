@@ -30,9 +30,12 @@ const create = async (collection, toCreate, locale) => {
   return data;
 };
 
-export const createCollection = async (collection, toCreate) => {
+export const createCollection = async (collection, toCreate, { localized }) => {
   try {
     const { en: enToCreate, pt: ptToCreate, fr: frToCreate } = toCreate;
+    if (!localized) {
+      return create(collection, enToCreate);
+    }
     const en = await create(collection, enToCreate, "en");
     const pt = await create(collection, ptToCreate, "pt");
     const fr = await create(collection, frToCreate, "fr");
