@@ -1,4 +1,5 @@
-import documentCloud from "../fields/documentCloud";
+import documentCloudFilterBar from "../fields/documentCloudFilterBar";
+import documentCloudSource from "../fields/documentCloudSource";
 import linkGroup from "../fields/linkGroup";
 import defaultValue from "../utils/defaultValues";
 
@@ -6,9 +7,9 @@ const Documents = {
   slug: "documents",
   labels: {
     singular: {
-      en: "Document",
-      fr: "Document",
-      pt: "Documento",
+      en: "Documents",
+      fr: "Documents",
+      pt: "Documentos",
     },
     plural: {
       en: "Documents",
@@ -20,17 +21,17 @@ const Documents = {
     {
       type: "collapsible",
       label: {
-        en: "Documents Source",
-        fr: "Source des documents",
-        pt: "Fonte de documentos",
+        en: "Source",
       },
       fields: [
-        documentCloud({
-          name: "organization",
-          label: {
-            en: "Organization",
-            fr: "Organisation",
-            pt: "Organização",
+        documentCloudSource({
+          overrides: {
+            name: "organization",
+            label: {
+              en: "Organization",
+              fr: "Organisation",
+              pt: "Organização",
+            },
           },
         }),
       ],
@@ -38,9 +39,19 @@ const Documents = {
     {
       type: "collapsible",
       label: {
-        en: "Documents Labels",
-        fr: "Étiquettes des documents",
-        pt: "Rótulos de documentos",
+        en: "Search & Filter",
+      },
+      fields: [documentCloudFilterBar()],
+      admin: {
+        initCollapsed: true,
+      },
+    },
+    {
+      type: "collapsible",
+      label: {
+        en: "Labels",
+        fr: "Étiquettes",
+        pt: "Rótulos",
       },
       fields: [
         {
@@ -61,7 +72,7 @@ const Documents = {
                 {
                   name: "pages",
                   label: {
-                    en: "No of Pages Label",
+                    en: "Number of Pages",
                     fr: "Nombre de pages",
                     pt: "Número de páginas",
                   },
@@ -95,27 +106,46 @@ const Documents = {
           ],
         },
       ],
+      admin: {
+        initCollapsed: true,
+      },
     },
     {
-      name: "showDatasets",
-      type: "checkbox",
+      type: "collapsible",
       label: {
-        en: "Show Datasets",
-        fr: "Afficher les ensembles de données",
-        pt: "Mostrar conjuntos de dados",
+        en: "Datasets",
+        fr: "Ensembles de données",
+        pt: "Conjuntos de dados",
       },
-      defaultValue: false,
-    },
-    linkGroup({
-      linkConfig: { disableLabel: true },
-      overrides: {
-        name: "datasets",
-        admin: {
-          condition: (_, siblingData) => siblingData?.showDatasets,
-          hideGutter: true,
+      fields: [
+        {
+          name: "showDatasets",
+          type: "checkbox",
+          label: {
+            en: "Show Datasets",
+            fr: "Afficher les ensembles de données",
+            pt: "Mostrar conjuntos de dados",
+          },
+          defaultValue: false,
         },
+        linkGroup({
+          linkConfig: {
+            disableLinkTypeSelection: true,
+            disableOpenInNewTab: true,
+          },
+          overrides: {
+            name: "datasets",
+            admin: {
+              condition: (_, siblingData) => siblingData?.showDatasets,
+              hideGutter: true,
+            },
+          },
+        }),
+      ],
+      admin: {
+        initCollapsed: true,
       },
-    }),
+    },
   ],
 };
 
