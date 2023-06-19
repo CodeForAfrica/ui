@@ -81,6 +81,7 @@ const Slide = React.forwardRef(function Slide(props, ref) {
                 typography: "subheading",
                 minHeight: `calc(${t.typography.subheading.fontSize}px*${t.typography.subheading.lineHeight}*2)`,
               },
+              "-webkit-line-clamp": "unset !important",
             })}
           >
             {subheading?.content || subheading}
