@@ -123,6 +123,7 @@ export const processOrganisationFromAirTable = async (
   );
   const unLocalizedData = {
     airtableId: data.id,
+    avatarUrl: getter(data, organisationTableColumns.avatarUrl)?.[0]?.url,
     externalId: getter(data, organisationTableColumns.slug),
     type: getter(data, organisationTableColumns.type),
     repoLink: getter(data, organisationTableColumns.source.url),
@@ -172,6 +173,7 @@ export const processContributorFromAirtable = async (data, config) => {
   };
   const defaultData = {
     airtableId: data.id,
+    avatarUrl: getter(data, contributorTableColumns.avatarUrl)?.[0]?.url,
     externalId: getter(data, contributorTableColumns.slug),
     repoLink: `https://github.com/${getter(
       data,
@@ -238,6 +240,7 @@ export const processToolFromAirtable = async (
   );
   const defaultData = {
     airtableId: data.id,
+    avatarUrl: getter(data, toolTableColumns.avatarUrl)?.[0]?.url,
     externalId: getter(data, toolTableColumns.slug) || " ",
     repoLink: getter(data, toolTableColumns.source.url),
     name: getter(data, toolTableColumns.name),

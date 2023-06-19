@@ -90,6 +90,13 @@ const Ecosystem = {
                     },
                   },
                 }),
+                airtableColumnSelect({
+                  tableField: "toolTableId",
+                  overrides: {
+                    name: "avatarUrl",
+                    label: { en: "Image", fr: "Image", pt: "Imagem" },
+                  },
+                }),
                 {
                   name: "description",
                   type: "group",
@@ -336,6 +343,13 @@ const Ecosystem = {
                     },
                   },
                 }),
+                airtableColumnSelect({
+                  tableField: "contributorTableId",
+                  overrides: {
+                    name: "avatarUrl",
+                    label: { en: "Image", fr: "Image", pt: "Imagem" },
+                  },
+                }),
                 {
                   name: "description",
                   type: "group",
@@ -445,6 +459,13 @@ const Ecosystem = {
                       fr: "nom d'utilisateur",
                       pt: "nome de usuário",
                     },
+                  },
+                }),
+                airtableColumnSelect({
+                  tableField: "organisationTableId",
+                  overrides: {
+                    name: "avatarUrl",
+                    label: { en: "Image", fr: "Image", pt: "Imagem" },
                   },
                 }),
                 {
