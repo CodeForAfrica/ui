@@ -6,8 +6,8 @@ import ExternalLinkIcon from "@/charterafrica/assets/icons/Type=external-link, S
 import { neutral } from "@/charterafrica/colors";
 import ShareThisPage from "@/charterafrica/components/ShareThisPage";
 
-const EmbeddedDatasetDocumentViewer = React.forwardRef(
-  function EmbeddedDatasetDocumentViewer(props, ref) {
+const EmbeddedResourceDocumentViewer = React.forwardRef(
+  function EmbeddedResourceDocumentViewer(props, ref) {
     const { title, html } = props;
 
     return (
@@ -107,4 +107,4 @@ const EmbeddedDatasetDocumentViewer = React.forwardRef(
   }
 );
 
-export default EmbeddedDatasetDocumentViewer;
+export default EmbeddedResourceDocumentViewer;

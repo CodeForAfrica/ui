@@ -23,7 +23,7 @@ async function processSingleDocument(page, api, context) {
     ...page,
     blocks: [
       {
-        slug: "embedded-dataset-document-viewer",
+        slug: "embedded-resource-document-viewer",
         html,
         title,
         labels: {

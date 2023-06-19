@@ -8,8 +8,8 @@ import Dataset from "@/charterafrica/components/Dataset";
 import Datasets from "@/charterafrica/components/Datasets";
 import Documents from "@/charterafrica/components/Documents";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
-import EmbeddedDatasetDocumentViewer from "@/charterafrica/components/EmbeddedDatasetDocumentViewer";
 import EmbeddedDocumentViewer from "@/charterafrica/components/EmbeddedDocumentViewer";
+import EmbeddedResourceDocumentViewer from "@/charterafrica/components/EmbeddedResourceDocumentViewer";
 import Entity from "@/charterafrica/components/Entity";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
@@ -46,7 +46,7 @@ const componentsBySlugs = {
   ecosystem: Ecosystem,
   "embedded-playlist": Consultations,
   "embedded-document-viewer": EmbeddedDocumentViewer,
-  "embedded-dataset-document-viewer": EmbeddedDatasetDocumentViewer,
+  "embedded-resource-document-viewer": EmbeddedResourceDocumentViewer,
   explainers: Explainers,
   faq: FAQ,
   "featured-post": FeaturedPostCard,
