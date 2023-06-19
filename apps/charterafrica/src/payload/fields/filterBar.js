@@ -1,15 +1,14 @@
 import { deepmerge } from "@mui/utils";
 
-const filterBar = (overrides) =>
-  deepmerge(
-    {
-      name: "filterBar",
-      type: "group",
-      admin: {
-        hideGutter: true,
-      },
+function filterBar({ overrides } = {}) {
+  const generatedFilterBar = {
+    name: "filterBar",
+    type: "group",
+    admin: {
+      hideGutter: true,
     },
-    overrides
-  );
+  };
+  return deepmerge(generatedFilterBar, overrides);
+}
 
 export default filterBar;
