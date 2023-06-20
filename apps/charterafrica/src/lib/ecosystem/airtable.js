@@ -16,27 +16,15 @@ function getter(data, key) {
   return key ? data?.[key] : null;
 }
 
-export async function getBases(config) {
-  const {
-    baseId,
-    schema: { partnersTableId, socialMediaTableId },
-  } = config;
-  const partnerTableBase = airtable.base(baseId)(partnersTableId);
-  const socialMediaTableBase = airtable.base(baseId)(socialMediaTableId);
-  return {
-    partnerTableBase,
-    socialMediaTableBase,
-  };
-}
-
-async function mapSupportersToFields(supporters, config, base) {
+async function mapSupportersToFields(supporters, config, tableData) {
   const {
     schema: { partnerTableColumns },
   } = config;
   const { name, url, logo } = partnerTableColumns;
-  const promises = supporters.map(async (id) => {
+  const { partners } = tableData;
+  const mapped = supporters.map((id) => {
     try {
-      const { fields } = await base.find(id);
+      const { fields } = partners.find((item) => id === item.id);
       return {
         name: getter(fields, name),
         website: getter(fields, url),
@@ -47,8 +35,7 @@ async function mapSupportersToFields(supporters, config, base) {
       return null;
     }
   });
-  const sanitized = await Promise.all(promises);
-  return sanitized.filter(Boolean);
+  return mapped.filter(Boolean);
 }
 
 async function getToolsPerAirtableId(ids) {
@@ -65,14 +52,15 @@ async function getToolsPerAirtableId(ids) {
   return docs.map(({ id }) => id);
 }
 
-async function mapSocialMediaToFields(socialMedia, config, base) {
+async function mapSocialMediaToFields(socialMedia, config, tableData) {
   const {
     schema: { socialMediaTableColumns },
   } = config;
   const { name, url } = socialMediaTableColumns;
-  const promises = socialMedia.map(async (id) => {
+  const { socialMedia: socialMediaData } = tableData;
+  const mapped = socialMedia.map((id) => {
     try {
-      const { fields } = await base.find(id);
+      const { fields } = socialMediaData.find((item) => item.id === id);
       return {
         name: getter(fields, name),
         website: getter(fields, url),
@@ -82,8 +70,7 @@ async function mapSocialMediaToFields(socialMedia, config, base) {
       return null;
     }
   });
-  const sanitized = await Promise.all(promises);
-  return sanitized.filter(Boolean);
+  return mapped.filter(Boolean);
 }
 
 export const getListFromAirtable = async ({ baseId, tableIdOrName }) => {
@@ -94,182 +81,203 @@ export const getListFromAirtable = async ({ baseId, tableIdOrName }) => {
 export const processOrganisationFromAirTable = async (
   data,
   config,
-  { partnerTableBase, socialMediaTableBase }
+  tableData
 ) => {
-  const {
-    schema: { organisationTableColumns },
-  } = config;
-  const description = {
-    en: getter(data, organisationTableColumns.description.en),
-    pt: getter(data, organisationTableColumns.description.pt),
-    fr: getter(data, organisationTableColumns.description.fr),
-  };
-  const partners = await mapSupportersToFields(
-    getter(data, organisationTableColumns.partners) || [],
-    config
-  );
-  const supporters = await mapSupportersToFields(
-    getter(data, organisationTableColumns.supporters) || [],
-    config,
-    partnerTableBase
-  );
-  const socialMedia = await mapSocialMediaToFields(
-    getter(data, organisationTableColumns.socialMedia) || [],
-    config,
-    socialMediaTableBase
-  );
-  const tools = await getToolsPerAirtableId(
-    getter(data, organisationTableColumns.tools)
-  );
-  const unLocalizedData = {
-    airtableId: data.id,
-    avatarUrl: getter(data, organisationTableColumns.avatarUrl)?.[0]?.url,
-    externalId: getter(data, organisationTableColumns.slug),
-    type: getter(data, organisationTableColumns.type),
-    repoLink: getter(data, organisationTableColumns.source.url),
-    supporters,
-    partners,
-    socialMedia,
-    tools,
-  };
-  if (!unLocalizedData.externalId) {
-    const message = `Missing external ID for ${data.id}`;
-    Sentry.captureMessage(message);
-    throw new FetchError(message, data, 500);
+  try {
+    const {
+      schema: { organisationTableColumns },
+    } = config;
+    const description = {
+      en: getter(data, organisationTableColumns.description.en),
+      pt: getter(data, organisationTableColumns.description.pt),
+      fr: getter(data, organisationTableColumns.description.fr),
+    };
+    const partners = await mapSupportersToFields(
+      getter(data, organisationTableColumns.partners) || [],
+      config,
+      tableData
+    );
+    const supporters = await mapSupportersToFields(
+      getter(data, organisationTableColumns.supporters) || [],
+      config,
+      tableData
+    );
+    const socialMedia = await mapSocialMediaToFields(
+      getter(data, organisationTableColumns.socialMedia) || [],
+      config,
+      tableData
+    );
+    const tools = await getToolsPerAirtableId(
+      getter(data, organisationTableColumns.tools)
+    );
+    const unLocalizedData = {
+      airtableId: data.id,
+      avatarUrl: getter(data, organisationTableColumns.avatarUrl)?.[0]?.url,
+      externalId: getter(data, organisationTableColumns.slug),
+      type: getter(data, organisationTableColumns.type),
+      repoLink: getter(data, organisationTableColumns.source.url),
+      supporters,
+      partners,
+      socialMedia,
+      tools,
+    };
+    if (!unLocalizedData.externalId) {
+      const message = `Missing external ID for ${data.id}`;
+      Sentry.captureMessage(message);
+      throw new FetchError(message, data, 500);
+    }
+    if (!tools.length) {
+      const message = `Organisation ${data.id} is not assigned to any tool and has been skipped`;
+      Sentry.captureMessage(message);
+      throw new FetchError(message, data, 500);
+    }
+    return {
+      en: {
+        ...unLocalizedData,
+        description: description.en,
+      },
+      fr: {
+        ...unLocalizedData,
+        description: description.fr,
+      },
+      pt: {
+        ...unLocalizedData,
+        description: description.pt,
+      },
+    };
+  } catch (error) {
+    Sentry.captureMessage(error.message);
+    return null;
   }
-  if (!tools.length) {
-    const message = `Organisation ${data.id} is not assigned to any tool and has been skipped`;
-    Sentry.captureMessage(message);
-    throw new FetchError(message, data, 500);
-  }
-  return {
-    en: {
-      ...unLocalizedData,
-      description: description.en,
-    },
-    fr: {
-      ...unLocalizedData,
-      description: description.fr,
-    },
-    pt: {
-      ...unLocalizedData,
-      description: description.pt,
-    },
-  };
 };
 
-export const processContributorFromAirtable = async (data, config) => {
-  const {
-    schema: { contributorTableColumns },
-  } = config;
-  const socialMedia = await mapSocialMediaToFields(
-    getter(data, contributorTableColumns.socialMedia) || [],
-    config
-  );
-  const description = {
-    en: getter(data, contributorTableColumns.description.en),
-    pt: getter(data, contributorTableColumns.description.pt),
-    fr: getter(data, contributorTableColumns.description.fr),
-  };
-  const defaultData = {
-    airtableId: data.id,
-    avatarUrl: getter(data, contributorTableColumns.avatarUrl)?.[0]?.url,
-    externalId: getter(data, contributorTableColumns.slug),
-    repoLink: `https://github.com/${getter(
-      data,
-      contributorTableColumns.slug
-    )}`,
-    socialMedia,
-  };
-  return {
-    en: {
-      ...defaultData,
-      description: description.en,
-    },
-    fr: {
-      ...defaultData,
-      description: description.fr,
-    },
-    pt: {
-      ...defaultData,
-      description: description.pt,
-    },
-  };
-};
-
-export const processToolFromAirtable = async (
+export const processContributorFromAirtable = async (
   data,
   config,
-  { partnerTableBase, socialMediaTableBase }
+  tableData
 ) => {
-  const {
-    schema: { toolTableColumns },
-  } = config;
-  const theme = {
-    en: getter(data, toolTableColumns.theme.en)?.[0],
-    pt: getter(data, toolTableColumns.theme.pt)?.[0],
-    fr: getter(data, toolTableColumns.theme.fr)?.[0],
-  };
-  const description = {
-    en: getter(data, toolTableColumns.description.en),
-    pt: getter(data, toolTableColumns.description.pt),
-    fr: getter(data, toolTableColumns.description.fr),
-  };
-  const { docs: contrib } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
-    where: {
-      airtableId: {
-        in: getter(data, toolTableColumns.contributors)?.join(","),
+  try {
+    const {
+      schema: { contributorTableColumns },
+    } = config;
+    const socialMedia = await mapSocialMediaToFields(
+      getter(data, contributorTableColumns.socialMedia) || [],
+      config,
+      tableData
+    );
+    const description = {
+      en: getter(data, contributorTableColumns.description.en),
+      pt: getter(data, contributorTableColumns.description.pt),
+      fr: getter(data, contributorTableColumns.description.fr),
+    };
+    const defaultData = {
+      airtableId: data.id,
+      avatarUrl: getter(data, contributorTableColumns.avatarUrl)?.[0]?.url,
+      externalId: getter(data, contributorTableColumns.slug),
+      repoLink: `https://github.com/${getter(
+        data,
+        contributorTableColumns.slug
+      )}`,
+      socialMedia,
+    };
+    return {
+      en: {
+        ...defaultData,
+        description: description.en,
       },
-    },
-  });
-  const operatingCountries = getter(data, toolTableColumns.operatingCountries);
-  const homeCountry = getter(data, toolTableColumns.homeCountry);
-  const partners = await mapSupportersToFields(
-    getter(data, toolTableColumns.partners) || [],
-    config
-  );
-  const supporters = await mapSupportersToFields(
-    getter(data, toolTableColumns.supporters) || [],
-    config,
-    partnerTableBase
-  );
-  const socialMedia = await mapSocialMediaToFields(
-    getter(data, toolTableColumns.socialMedia) || [],
-    config,
-    socialMediaTableBase
-  );
-  const defaultData = {
-    airtableId: data.id,
-    avatarUrl: getter(data, toolTableColumns.avatarUrl)?.[0]?.url,
-    externalId: getter(data, toolTableColumns.slug) || " ",
-    repoLink: getter(data, toolTableColumns.source.url),
-    name: getter(data, toolTableColumns.name),
-    link: getter(data, toolTableColumns.url),
-    operatingCountries,
-    contributors: contrib.map(({ id }) => id),
-    supporters,
-    partners,
-    homeCountry,
-    socialMedia,
-  };
+      fr: {
+        ...defaultData,
+        description: description.fr,
+      },
+      pt: {
+        ...defaultData,
+        description: description.pt,
+      },
+    };
+  } catch (error) {
+    Sentry.captureMessage(error.message);
+    return null;
+  }
+};
 
-  return {
-    en: {
-      ...defaultData,
-      description: description.en,
-      theme: theme.en,
-    },
-    fr: {
-      ...defaultData,
-      description: description.fr,
-      theme: theme.fr,
-    },
-    pt: {
-      ...defaultData,
-      description: description.pt,
-      theme: theme.pt,
-    },
-  };
+export const processToolFromAirtable = async (data, config, tableData) => {
+  try {
+    const {
+      schema: { toolTableColumns },
+    } = config;
+    const theme = {
+      en: getter(data, toolTableColumns.theme.en)?.[0],
+      pt: getter(data, toolTableColumns.theme.pt)?.[0],
+      fr: getter(data, toolTableColumns.theme.fr)?.[0],
+    };
+    const description = {
+      en: getter(data, toolTableColumns.description.en),
+      pt: getter(data, toolTableColumns.description.pt),
+      fr: getter(data, toolTableColumns.description.fr),
+    };
+    const { docs: contrib } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
+      where: {
+        airtableId: {
+          in: getter(data, toolTableColumns.contributors)?.join(","),
+        },
+      },
+    });
+    const operatingCountries = getter(
+      data,
+      toolTableColumns.operatingCountries
+    );
+    const homeCountry = getter(data, toolTableColumns.homeCountry);
+    const partners = await mapSupportersToFields(
+      getter(data, toolTableColumns.partners) || [],
+      config,
+      tableData
+    );
+    const supporters = await mapSupportersToFields(
+      getter(data, toolTableColumns.supporters) || [],
+      config,
+      tableData
+    );
+    const socialMedia = await mapSocialMediaToFields(
+      getter(data, toolTableColumns.socialMedia) || [],
+      config,
+      tableData
+    );
+    const defaultData = {
+      airtableId: data.id,
+      avatarUrl: getter(data, toolTableColumns.avatarUrl)?.[0]?.url,
+      externalId: getter(data, toolTableColumns.slug) || " ",
+      repoLink: getter(data, toolTableColumns.source.url),
+      name: getter(data, toolTableColumns.name),
+      link: getter(data, toolTableColumns.url),
+      operatingCountries,
+      contributors: contrib.map(({ id }) => id),
+      supporters,
+      partners,
+      homeCountry,
+      socialMedia,
+    };
+
+    return {
+      en: {
+        ...defaultData,
+        description: description.en,
+        theme: theme.en,
+      },
+      fr: {
+        ...defaultData,
+        description: description.fr,
+        theme: theme.fr,
+      },
+      pt: {
+        ...defaultData,
+        description: description.pt,
+        theme: theme.pt,
+      },
+    };
+  } catch (error) {
+    Sentry.captureMessage(error.message);
+    return null;
+  }
 };
 
 const cache = {};
@@ -302,4 +310,38 @@ export async function schema(req) {
   });
   cache[url] = { value, lastUpdated: new Date() };
   return value;
+}
+
+export async function getAirtableData(config) {
+  const {
+    baseId,
+    schema: {
+      toolTableId,
+      organisationTableId,
+      contributorTableId,
+      partnersTableId,
+      socialMediaTableId,
+    },
+  } = config;
+  const tools = await getListFromAirtable({
+    baseId,
+    tableIdOrName: toolTableId,
+  });
+  const contributors = await getListFromAirtable({
+    baseId,
+    tableIdOrName: contributorTableId,
+  });
+  const organisations = await getListFromAirtable({
+    baseId,
+    tableIdOrName: organisationTableId,
+  });
+  const socialMedia = await getListFromAirtable({
+    baseId,
+    tableIdOrName: socialMediaTableId,
+  });
+  const partners = await getListFromAirtable({
+    baseId,
+    tableIdOrName: partnersTableId,
+  });
+  return { tools, organisations, contributors, socialMedia, partners };
 }
