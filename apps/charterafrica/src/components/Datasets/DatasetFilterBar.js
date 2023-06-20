@@ -152,7 +152,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
                 mr: 1,
               }}
             >
-              Show:
+              {labels.show}:
             </Typography>
             <Button
               disabled

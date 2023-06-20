@@ -99,7 +99,7 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
                 mr: 1,
               }}
             >
-              Show:
+              {labels.show}:
             </Typography>
 
             <Button
