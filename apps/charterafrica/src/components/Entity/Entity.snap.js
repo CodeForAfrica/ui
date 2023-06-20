@@ -145,13 +145,13 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       >
                         React
                       </h5>
-                      <button
+                      <span
                         class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
+                        role="button"
                         tabindex="0"
-                        type="button"
                       >
                         Explore
-                      </button>
+                      </span>
                     </div>
                     <span
                       class="MuiTypography-root MuiTypography-caption css-11kmaoc-MuiTypography-root"
@@ -213,13 +213,13 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       >
                         Node.js
                       </h5>
-                      <button
+                      <span
                         class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
+                        role="button"
                         tabindex="0"
-                        type="button"
                       >
                         Explore
-                      </button>
+                      </span>
                     </div>
                     <span
                       class="MuiTypography-root MuiTypography-caption css-11kmaoc-MuiTypography-root"

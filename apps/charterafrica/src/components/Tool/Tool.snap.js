@@ -531,10 +531,10 @@ exports[`<Tool /> renders unchanged 1`] = `
                         >
                           React
                         </h5>
-                        <button
+                        <span
                           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
+                          role="button"
                           tabindex="0"
-                          type="button"
                         />
                       </div>
                       <span
@@ -597,10 +597,10 @@ exports[`<Tool /> renders unchanged 1`] = `
                         >
                           Node.js
                         </h5>
-                        <button
+                        <span
                           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
+                          role="button"
                           tabindex="0"
-                          type="button"
                         />
                       </div>
                       <span
