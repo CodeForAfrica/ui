@@ -141,7 +141,7 @@ exports[`<Documents /> renders unchanged 1`] = `
               <p
                 class="MuiTypography-root MuiTypography-p1 css-1eww23z-MuiTypography-root"
               >
-                Show:
+                :
               </p>
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-18vgmlm-MuiButtonBase-root-MuiButton-root"

@@ -32,6 +32,7 @@ const defaultProps = {
     openDataset: "Open Dataset",
     seeMoreDatasets: "See more datasets",
     shareDataset: "Share Via",
+    show: "Show",
   },
   showDocuments: true,
   datasets: {

@@ -47,6 +47,7 @@ const defaultProps = {
   },
   labels: {
     datasets: "Datasets",
+    show: "Show",
   },
   showDocuments: true,
   documents: {
