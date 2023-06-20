@@ -110,7 +110,7 @@ export const processOrganisationFromAirTable = async (
     const tools = await getToolsPerAirtableId(
       getter(data, organisationTableColumns.tools)
     );
-    const unLocalizedData = {
+    const commonData = {
       airtableId: data.id,
       avatarUrl: getter(data, organisationTableColumns.avatarUrl)?.[0]?.url,
       externalId: getter(data, organisationTableColumns.slug),
@@ -121,7 +121,7 @@ export const processOrganisationFromAirTable = async (
       socialMedia,
       tools,
     };
-    if (!unLocalizedData.externalId) {
+    if (!commonData.externalId) {
       const message = `Missing external ID for ${data.id}`;
       Sentry.captureMessage(message);
       throw new FetchError(message, data, 500);
@@ -133,15 +133,15 @@ export const processOrganisationFromAirTable = async (
     }
     return {
       en: {
-        ...unLocalizedData,
+        ...commonData,
         description: description.en,
       },
       fr: {
-        ...unLocalizedData,
+        ...commonData,
         description: description.fr,
       },
       pt: {
-        ...unLocalizedData,
+        ...commonData,
         description: description.pt,
       },
     };

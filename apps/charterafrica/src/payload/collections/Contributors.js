@@ -20,7 +20,7 @@ const Contributors = {
     {
       name: "externalId",
       type: "text",
-
+      required: true,
       label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
       admin: {
         readOnly: true,
@@ -38,7 +38,6 @@ const Contributors = {
         readOnly: true,
       },
     },
-
     {
       name: "description",
       type: "textarea",

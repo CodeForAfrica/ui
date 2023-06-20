@@ -32,7 +32,7 @@ const Organisations = {
     {
       name: "externalId",
       type: "text",
-
+      required: true,
       label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
       admin: {
         readOnly: true,

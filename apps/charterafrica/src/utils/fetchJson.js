@@ -2,7 +2,7 @@ import { stringify } from "qs";
 
 export class FetchError extends Error {
   constructor(message = "Something went wrong", data = {}, status = 500) {
-    super();
+    super(message);
     this.message = message;
     this.data = data;
     this.status = status;
