@@ -67,7 +67,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   return (
     <Box py={5} ref={ref}>
       <Grid container spacing={1}>
-        <Grid item xs={12} lg={2.4}>
+        <Grid item xs={12} lg={2}>
           <ControlledSearchInput
             onChange={handleChangeQ}
             placeholder={search.label}
@@ -80,7 +80,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             }}
           />
         </Grid>
-        <Grid item xs={12} sm={4} md={3} lg={2.4}>
+        <Grid item xs={12} sm={4} md={3} lg={2}>
           <ComboBox
             label={sortOptions.label}
             options={sortOptions.options}
@@ -99,7 +99,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             value={sort}
           />
         </Grid>
-        <Grid item xs={12} sm={4} md={3} lg={2.4} overflow="hidden">
+        <Grid item xs={12} sm={4} md={3} lg={2} overflow="hidden">
           <ComboBox
             label={countriesOptions.label}
             multiple
@@ -114,7 +114,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             value={selectedCountries}
           />
         </Grid>
-        <Grid item xs={12} sm={4} md={3} lg={2.4}>
+        <Grid item xs={12} sm={4} md={3} lg={2}>
           <ComboBox
             label={tagsOptions.label}
             multiple
@@ -134,7 +134,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             item
             xs={12}
             md={3}
-            lg={2.4}
+            lg={2}
             container
             justifyContent={{
               xs: "flex-start",
