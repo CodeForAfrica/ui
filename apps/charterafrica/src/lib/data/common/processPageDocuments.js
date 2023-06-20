@@ -10,8 +10,7 @@ async function processSingleDocument(page, api, context) {
   const { title, ...rest } = query;
 
   const { blocks } = page;
-  const { labels } = blocks.find(({ slug }) => slug === "documents");
-
+  const { labels } = blocks.find(({ slug }) => slug === "documents") || {};
   const { labels: commonLabels } = await api.findGlobal("common-labels", {
     locale,
   });
@@ -47,10 +46,12 @@ export default async function processPageDocuments(page, api, context) {
   const documentsIndex = blocks.findIndex(({ slug }) => slug === "documents");
   if (documentsIndex > -1) {
     const {
-      organization: { groupId, options, showFilterBar, filterBar },
+      datasets,
+      filterBar,
       labels,
+      organization: { groupId, options },
       showDatasets,
-      datasets: { href: datasetsHref },
+      showFilterBar,
     } = blocks[documentsIndex];
     const query = getDocumentsQuery(context, options);
     const documents = await fetchDocuments(`group:${groupId}`, pageUrl, query);
@@ -62,14 +63,14 @@ export default async function processPageDocuments(page, api, context) {
       ...documents,
       documentOptions: options,
       slug: "documents",
-      showFilterBar,
       filterBar,
       labels: {
         ...commonLabels,
         ...labels,
       },
       showDatasets,
-      datasetsHref,
+      showFilterBar,
+      datasets,
       pathname: pageUrl,
     };
 

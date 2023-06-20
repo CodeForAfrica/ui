@@ -81,7 +81,7 @@ async function processPageConsultation(page, api, context) {
   if (documentsIndex > -1) {
     const {
       description: documentsDescription,
-      group: { groupId, options, showFilterBar, filterBar },
+      group: { groupId, options },
       title: documentsTitle,
     } = blocks[documentsIndex];
     const query = getDocumentsQuery(context, options);
@@ -93,8 +93,6 @@ async function processPageConsultation(page, api, context) {
       documentOptions: options,
       title: documentsTitle ?? null,
       pathname: pageUrl,
-      showFilterBar,
-      filterBar,
     };
     // SWR fallback
     let swrKey = `/api/v1/opportunities/consultation/documents`;
