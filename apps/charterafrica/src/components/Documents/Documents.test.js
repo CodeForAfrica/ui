@@ -30,8 +30,7 @@ const defaultProps = {
     showZoom: true,
   },
   pathname: "/documents",
-  datasetsHref: "/datasets",
-  showDatasets: true,
+  showFilterBar: true,
   filterBar: {
     search: {
       label: "Search",
@@ -46,14 +45,19 @@ const defaultProps = {
       ],
     },
   },
-  showFilterBar: true,
   labels: {
+    documents: "Documents",
     updated: "Updated",
     created: "Created",
     backToDatasets: "Back to Datasets",
     openDataset: "Open Dataset",
     seeMoreDatasets: "See more datasets",
     shareDataset: "Share Via",
+  },
+  showDatasets: true,
+  datasets: {
+    href: "/datasets",
+    label: "Datasets",
   },
 };
 

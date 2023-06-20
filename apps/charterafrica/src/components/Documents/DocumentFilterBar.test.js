@@ -25,6 +25,7 @@ const defaultProps = {
     },
   },
   labels: {
+    documents: "Documents",
     updated: "Updated",
     created: "Created",
     backToDatasets: "Back to Datasets",
@@ -33,7 +34,10 @@ const defaultProps = {
     shareDataset: "Share Via",
   },
   showDocuments: true,
-  documentsHref: "/documents",
+  datasets: {
+    href: "/datasets",
+    label: "Datasets",
+  },
 };
 
 describe("<DocumentFilterBar />", () => {

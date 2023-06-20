@@ -1,3 +1,4 @@
+import { Link } from "@commons-ui/next";
 import {
   Box,
   Button,
@@ -25,13 +26,14 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
   ref
 ) {
   const {
+    datasets,
+    labels,
     onChangeQ,
     onChangeSort,
     options: { search, sort: sortOptions },
-    sort,
     q,
-    datasetsHref,
     showDatasets,
+    sort,
   } = props;
 
   const handleChangeQ = (e, value) => {
@@ -101,30 +103,29 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
             </Typography>
 
             <Button
+              disabled
               variant="contained"
               sx={{
                 width: "95px",
                 borderRadius: "10px",
-                backgroundColor: showDatasets ? neutral[50] : "primary",
-                color: showDatasets ? "neutral.dark" : "#fff",
+                backgroundColor: neutral[50],
+                color: "neutral.dark",
               }}
-              component="a"
-              disabled={!showDatasets}
             >
-              <Typography typography="p1">Documents</Typography>
+              {labels.documents}
             </Button>
             <Button
+              color="primary"
+              component={datasets?.href ? Link : undefined}
+              href={datasets?.href}
               variant="contained"
               sx={{
                 width: "95px",
                 borderRadius: "10px",
-                backgroundColor: showDatasets ? "primary" : neutral[50],
                 color: showDatasets ? "#fff" : "neutral.dark",
               }}
-              component="a"
-              href={datasetsHref}
             >
-              <Typography typography="p1">Datasets</Typography>
+              {datasets?.label}
             </Button>
           </Grid>
         ) : null}

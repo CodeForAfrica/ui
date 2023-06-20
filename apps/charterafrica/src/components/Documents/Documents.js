@@ -18,10 +18,10 @@ const Documents = React.forwardRef(function Documents(props, ref) {
     q,
     sx,
     title,
-    datasetsHref,
+    datasets,
     showDatasets,
     filterBar: documentsFilterBar,
-    labels: documentsLabels,
+    labels,
     pathname,
     showFilterBar,
   } = props;
@@ -91,8 +91,9 @@ const Documents = React.forwardRef(function Documents(props, ref) {
       <Section
         sx={{
           borderTop: `1px solid ${neutral[200]}`,
-          px: { xs: 5, sm: 0 },
-          py: { xs: 5, md: 10 },
+          px: { xs: 2.5, sm: 0 },
+          py: { xs: 5, md: 0 },
+          pb: { md: 5 },
         }}
       >
         <RichTypography color="neutral.dark" variant="h2">
@@ -104,50 +105,47 @@ const Documents = React.forwardRef(function Documents(props, ref) {
           variant="p3"
           sx={{ mt: 2.5 }}
         />
-        {showFilterBar ? (
-          <DocumentFilterBar
-            options={documentsFilterBar}
-            onChangeQ={handleChangeQ}
-            onChangeSort={handleChangeSort}
-            datasetsHref={datasetsHref}
-            showDatasets={showDatasets}
-            documentsLabels={documentsLabels}
-          />
-        ) : null}
-
-        {res.isLoading ? <LinearProgress color="secondary" /> : null}
-        {documents?.length > 0 ? (
-          <Box
-            sx={{
-              // Main navbar height + first card margin top
-              scrollMarginTop: { xs: 56 + 40, sm: 64 + 40, md: 114 + 40 },
-            }}
-            ref={documentsRef}
-          >
-            {documents.map((document) => (
-              <DocumentCard
-                {...document}
-                key={document.url}
-                sx={{
-                  "&:first-of-type": {
-                    mt: 5,
-                  },
-                  "&:last-of-type": {
-                    mb: 0,
-                  },
-                }}
-              />
-            ))}
-            <NextPrevPagination
-              count={totalPages}
-              onChange={handleChangePage}
-              page={page}
+        <Box
+          sx={{
+            // Main navbar height + first card margin top
+            scrollMarginTop: { xs: 56 + 40, sm: 64 + 40, md: 114 + 40 },
+          }}
+          ref={documentsRef}
+        >
+          {showFilterBar ? (
+            <DocumentFilterBar
+              datasets={datasets}
+              labels={labels}
+              onChangeQ={handleChangeQ}
+              onChangeSort={handleChangeSort}
+              options={documentsFilterBar}
+              showDatasets={showDatasets}
+            />
+          ) : null}
+          {res.isLoading ? <LinearProgress color="secondary" /> : null}
+          {documents?.map((document) => (
+            <DocumentCard
+              {...document}
+              key={document.href}
               sx={{
-                bgcolor: "common.white",
+                "&:first-of-type": {
+                  mt: 5,
+                },
+                "&:last-of-type": {
+                  mb: 0,
+                },
               }}
             />
-          </Box>
-        ) : null}
+          ))}
+          <NextPrevPagination
+            count={totalPages}
+            onChange={handleChangePage}
+            page={page}
+            sx={{
+              bgcolor: "common.white",
+            }}
+          />
+        </Box>
       </Section>
     </Box>
   );
