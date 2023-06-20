@@ -66,7 +66,7 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
 
   return (
     <Box py={5} ref={ref}>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} justifyContent="space-between">
         <Grid item xs={12} lg={2}>
           <ControlledSearchInput
             onChange={handleChangeQ}
@@ -134,11 +134,11 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             item
             xs={12}
             md={3}
-            lg={2}
+            lg={3}
             container
             justifyContent={{
               xs: "flex-start",
-              md: "space-between",
+              md: "center",
             }}
             gap={1}
             alignItems="center"
@@ -157,12 +157,13 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             <Button
               disabled
               variant="contained"
-              sx={{
-                width: "95px",
+              sx={(theme) => ({
+                ...theme.typography.p1,
                 borderRadius: "10px",
                 backgroundColor: neutral[50],
                 color: "neutral.dark",
-              }}
+                width: "95px",
+              })}
             >
               {labels.datasets}
             </Button>
@@ -170,12 +171,13 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
               component={Link}
               href={documents.href}
               variant="contained"
-              sx={{
-                width: "95px",
+              sx={(theme) => ({
+                ...theme.typography.p1,
                 borderRadius: "10px",
                 backgroundColor: showDocuments ? "primary" : neutral[50],
                 color: showDocuments ? "#fff" : "neutral.dark",
-              }}
+                width: "95px",
+              })}
             >
               {documents.label}
             </Button>

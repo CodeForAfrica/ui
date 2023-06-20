@@ -45,7 +45,7 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
   return (
     <Box py={5} ref={ref}>
       <Grid container spacing={1} justifyContent="space-between">
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={4}>
           <ControlledSearchInput
             onChange={handleChangeQ}
             placeholder={search.label}
@@ -58,7 +58,7 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
             }}
           />
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={4}>
           <ComboBox
             label={sortOptions.label}
             options={sortOptions.options}
@@ -81,11 +81,11 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
             container
             justifyContent={{
               xs: "flex-start",
-              md: "space-between",
+              md: "center",
             }}
             gap={1}
             alignItems="center"
@@ -105,12 +105,13 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
             <Button
               disabled
               variant="contained"
-              sx={{
+              sx={(theme) => ({
+                ...theme.typography.p1,
                 width: "95px",
                 borderRadius: "10px",
                 backgroundColor: neutral[50],
                 color: "neutral.dark",
-              }}
+              })}
             >
               {labels.documents}
             </Button>
@@ -119,11 +120,12 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
               component={datasets?.href ? Link : undefined}
               href={datasets?.href}
               variant="contained"
-              sx={{
+              sx={(theme) => ({
+                ...theme.typography.p1,
                 width: "95px",
                 borderRadius: "10px",
                 color: showDatasets ? "#fff" : "neutral.dark",
-              }}
+              })}
             >
               {datasets?.label}
             </Button>

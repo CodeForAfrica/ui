@@ -6,7 +6,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
     class="MuiBox-root css-1kgakwq"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-a5rdam-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-5yr11w-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-2 css-uzx68p-MuiGrid-root"
@@ -295,7 +295,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-wrap-xs-nowrap MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-lg-2 css-l02ruw-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-wrap-xs-nowrap MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-lg-3 css-10brl9b-MuiGrid-root"
       >
         <p
           class="MuiTypography-root MuiTypography-p1 css-1eww23z-MuiTypography-root"
@@ -304,7 +304,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
           :
         </p>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-18vgmlm-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1iz4wtk-MuiButtonBase-root-MuiButton-root"
           disabled=""
           tabindex="-1"
           type="button"
@@ -312,7 +312,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
           Datasets
         </button>
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1krbgpl-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1lrcfc-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
           href="/documents"
           tabindex="0"
         >

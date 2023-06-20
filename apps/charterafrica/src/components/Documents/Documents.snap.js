@@ -18,7 +18,7 @@ exports[`<Documents /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-5yr11w-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-h47cor-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
             >
               <div
                 class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1iuekym-MuiInputBase-root-MuiOutlinedInput-root"
@@ -57,7 +57,7 @@ exports[`<Documents /> renders unchanged 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-h47cor-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
             >
               <div
                 class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
@@ -136,7 +136,7 @@ exports[`<Documents /> renders unchanged 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-wrap-xs-nowrap MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-1a71r9t-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-wrap-xs-nowrap MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1ia2r28-MuiGrid-root"
             >
               <p
                 class="MuiTypography-root MuiTypography-p1 css-1eww23z-MuiTypography-root"
@@ -144,7 +144,7 @@ exports[`<Documents /> renders unchanged 1`] = `
                 :
               </p>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-18vgmlm-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1sbqixe-MuiButtonBase-root-MuiButton-root"
                 disabled=""
                 tabindex="-1"
                 type="button"
@@ -152,7 +152,7 @@ exports[`<Documents /> renders unchanged 1`] = `
                 Documents
               </button>
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11uaerd-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-etikzf-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="/datasets"
                 tabindex="0"
               >
