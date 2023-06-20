@@ -41,7 +41,18 @@ const Documents = {
       label: {
         en: "Search & Filter",
       },
-      fields: [documentCloudFilterBar()],
+      fields: [
+        {
+          name: "showFilterBar",
+          type: "checkbox",
+          defaultValue: true,
+          admin: {
+            disabled: true,
+          },
+          required: true,
+        },
+        documentCloudFilterBar(),
+      ],
       admin: {
         initCollapsed: true,
       },
@@ -69,6 +80,21 @@ const Documents = {
             {
               type: "row",
               fields: [
+                {
+                  name: "documents",
+                  type: "text",
+                  label: {
+                    en: "Documents",
+                    pt: "Documentos",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Documents",
+                    fr: "Documents",
+                    pt: "Documentos",
+                  }),
+                  required: true,
+                  localized: true,
+                },
                 {
                   name: "pages",
                   label: {
