@@ -21,9 +21,9 @@ const Datasets = {
   slug: "datasets",
   labels: {
     singular: {
-      en: "Dataset",
-      fr: "Ensemble de données",
-      pt: "Conjunto de dados",
+      en: "Datasets",
+      fr: "Ensembles de données",
+      pt: "Conjuntos de dados",
     },
     plural: {
       en: "Datasets",
@@ -62,174 +62,176 @@ const Datasets = {
       },
       fields: [
         filterBar({
-          fields: [
-            {
-              name: "search",
-              type: "group",
-              admin: {
-                hideGutter: true,
-              },
-              fields: [
-                {
-                  name: "label",
-                  type: "text",
-                  required: true,
-                  localized: true,
-                  label: {
-                    en: "Search Label",
-                    fr: "Étiquette de recherche",
-                    pt: "Rótulo de pesquisa",
+          overrides: {
+            fields: [
+              {
+                name: "search",
+                type: "group",
+                fields: [
+                  {
+                    name: "label",
+                    type: "text",
+                    required: true,
+                    localized: true,
+                    label: {
+                      en: "Search Label",
+                      fr: "Étiquette de recherche",
+                      pt: "Rótulo de pesquisa",
+                    },
+                    defaultValue: defaultValue({
+                      en: "Search",
+                      fr: "Rechercher",
+                      pt: "Pesquisar",
+                    }),
                   },
-                  defaultValue: defaultValue({
-                    en: "Search",
-                    fr: "Rechercher",
-                    pt: "Pesquisar",
-                  }),
-                },
-              ],
-            },
-            {
-              name: "sort",
-              type: "group",
-              admin: {
-                hideGutter: true,
-                style: {
-                  marginTop: 10,
+                ],
+                admin: {
+                  hideGutter: true,
                 },
               },
-              fields: [
-                {
-                  name: "label",
-                  type: "text",
-                  required: true,
-                  localized: true,
-                  label: {
-                    en: "Sort Label",
-                    fr: "Étiquette de tri",
-                    pt: "Rótulo de classificação",
+              {
+                name: "sort",
+                type: "group",
+                admin: {
+                  hideGutter: true,
+                  style: {
+                    marginTop: 10,
                   },
-                  defaultValue: defaultValue({
-                    en: "Sort",
-                    fr: "Trier",
-                    pt: "Classificar",
-                  }),
                 },
-                {
-                  name: "options",
-                  type: "array",
-                  minRows: 1,
-                  label: {
-                    en: "Sort Options",
-                    fr: "Options de tri",
-                    pt: "Opções de classificação",
+                fields: [
+                  {
+                    name: "label",
+                    type: "text",
+                    required: true,
+                    localized: true,
+                    label: {
+                      en: "Sort Label",
+                      fr: "Étiquette de tri",
+                      pt: "Rótulo de classificação",
+                    },
+                    defaultValue: defaultValue({
+                      en: "Sort",
+                      fr: "Trier",
+                      pt: "Classificar",
+                    }),
                   },
-                  fields: [
-                    {
-                      name: "value",
-                      type: "select",
-                      unique: true,
-                      required: true,
-                      options: sortOptions,
-                      validate: (val, options) => {
-                        const { data, t } = options || {};
-                        if (
-                          data?.options?.filter((l) => l.value === val)
-                            ?.length > 1
-                        ) {
-                          return t("charterafrica.site:uniqueSortOptions");
-                        }
-                        return array(val, options);
+                  {
+                    name: "options",
+                    type: "array",
+                    minRows: 1,
+                    label: {
+                      en: "Sort Options",
+                      fr: "Options de tri",
+                      pt: "Opções de classificação",
+                    },
+                    fields: [
+                      {
+                        name: "value",
+                        type: "select",
+                        unique: true,
+                        required: true,
+                        options: sortOptions,
+                        validate: (val, options) => {
+                          const { data, t } = options || {};
+                          if (
+                            data?.options?.filter((l) => l.value === val)
+                              ?.length > 1
+                          ) {
+                            return t("charterafrica.site:uniqueSortOptions");
+                          }
+                          return array(val, options);
+                        },
+                      },
+                      {
+                        name: "label",
+                        type: "text",
+                        required: true,
+                        localized: true,
+                        label: {
+                          en: "Label",
+                          fr: "Étiquette",
+                          pt: "Rótulo",
+                        },
+                      },
+                    ],
+                    admin: {
+                      initCollapsed: true,
+                      components: {
+                        RowLabel: ({ data }) => {
+                          return data?.label || data?.value || data?.id;
+                        },
                       },
                     },
-                    {
-                      name: "label",
-                      type: "text",
-                      required: true,
-                      localized: true,
-                      label: {
-                        en: "Label",
-                        fr: "Étiquette",
-                        pt: "Rótulo",
-                      },
-                    },
-                  ],
-                  admin: {
-                    initCollapsed: true,
-                    components: {
-                      RowLabel: ({ data }) => {
-                        return data?.label || data?.value || data?.id;
-                      },
-                    },
                   },
-                },
-              ],
-            },
-            {
-              name: "countries",
-              type: "group",
-              admin: {
-                hideGutter: true,
-                style: {
-                  marginTop: 10,
-                },
+                ],
               },
-              fields: [
-                {
-                  name: "label",
-                  type: "text",
-                  required: true,
-                  localized: true,
-                  label: {
-                    en: "Countries Label",
-                    fr: "Étiquette des pays",
-                    pt: "Rótulo dos países",
+              {
+                name: "countries",
+                type: "group",
+                admin: {
+                  hideGutter: true,
+                  style: {
+                    marginTop: 10,
                   },
-                  defaultValue: defaultValue({
-                    en: "Countries",
-                    fr: "Pays",
-                    pt: "Países",
-                  }),
                 },
-              ],
-            },
-            {
-              name: "tags",
-              type: "group",
-              admin: {
-                hideGutter: true,
-                style: {
-                  marginTop: 10,
-                },
+                fields: [
+                  {
+                    name: "label",
+                    type: "text",
+                    required: true,
+                    localized: true,
+                    label: {
+                      en: "Countries Label",
+                      fr: "Étiquette des pays",
+                      pt: "Rótulo dos países",
+                    },
+                    defaultValue: defaultValue({
+                      en: "Countries",
+                      fr: "Pays",
+                      pt: "Países",
+                    }),
+                  },
+                ],
               },
-              fields: [
-                {
-                  name: "label",
-                  type: "text",
-                  required: true,
-                  localized: true,
-                  label: {
-                    en: "Tags Label",
-                    fr: "Étiquette des tags",
-                    pt: "Rótulo das tags",
+              {
+                name: "tags",
+                type: "group",
+                admin: {
+                  hideGutter: true,
+                  style: {
+                    marginTop: 10,
                   },
-                  defaultValue: defaultValue({
-                    en: "Tags",
-                    fr: "Tags",
-                    pt: "Tags",
-                  }),
                 },
-              ],
-            },
-          ],
+                fields: [
+                  {
+                    name: "label",
+                    type: "text",
+                    required: true,
+                    localized: true,
+                    label: {
+                      en: "Tags Label",
+                      fr: "Étiquette des tags",
+                      pt: "Rótulo das tags",
+                    },
+                    defaultValue: defaultValue({
+                      en: "Tags",
+                      fr: "Tags",
+                      pt: "Tags",
+                    }),
+                  },
+                ],
+              },
+            ],
+          },
         }),
       ],
     },
     {
       type: "collapsible",
       label: {
-        en: "Datasets Labels",
-        fr: "Étiquettes des ensembles de données",
-        pt: "Rótulos dos conjuntos de dados",
+        en: "Labels",
+        fr: "Étiquettes",
+        pt: "Rótulos",
       },
       fields: [
         {
@@ -240,13 +242,26 @@ const Datasets = {
             fr: "Étiquettes",
             pt: "Rótulos",
           },
-          admin: {
-            hideGutter: true,
-          },
           fields: [
             {
               type: "row",
               fields: [
+                {
+                  name: "datasets",
+                  type: "text",
+                  label: {
+                    en: "Datasets",
+                    fr: "Ensembles de données",
+                    pt: "Conjuntos de dados",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Datasets",
+                    fr: "Ensembles de données",
+                    pt: "Conjuntos de dados",
+                  }),
+                  required: true,
+                  localized: true,
+                },
                 {
                   name: "openDataset",
                   type: "text",
@@ -314,29 +329,44 @@ const Datasets = {
               ],
             },
           ],
+          admin: {
+            hideGutter: true,
+          },
         },
       ],
     },
     {
-      name: "showDocuments",
-      type: "checkbox",
+      type: "collapsible",
       label: {
-        en: "Show Documents",
-        fr: "Afficher les documents",
-        pt: "Mostrar documentos",
+        en: "Documents",
+        pt: "Documentos",
       },
-      defaultValue: false,
-    },
-    linkGroup({
-      linkConfig: { disableLabel: true },
-      overrides: {
-        name: "documents",
-        admin: {
-          condition: (_, siblingData) => siblingData?.showDocuments,
-          hideGutter: true,
+      fields: [
+        {
+          name: "showDocuments",
+          type: "checkbox",
+          label: {
+            en: "Show Documents",
+            fr: "Afficher les documents",
+            pt: "Mostrar documentos",
+          },
+          defaultValue: false,
         },
-      },
-    }),
+        linkGroup({
+          linkConfig: {
+            disableLinkTypeSelection: true,
+            disableOpenInNewTab: true,
+          },
+          overrides: {
+            name: "documents",
+            admin: {
+              condition: (_, siblingData) => siblingData?.showDocuments,
+              hideGutter: true,
+            },
+          },
+        }),
+      ],
+    },
   ],
 };
 
