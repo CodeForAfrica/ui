@@ -8,7 +8,7 @@ import ShareThisPage from "@/charterafrica/components/ShareThisPage";
 
 const EmbeddedResourceDocumentViewer = React.forwardRef(
   function EmbeddedResourceDocumentViewer(props, ref) {
-    const { title, html } = props;
+    const { title, html, labels } = props;
 
     return (
       <Box
@@ -79,7 +79,7 @@ const EmbeddedResourceDocumentViewer = React.forwardRef(
                   height: "50px",
                 }}
               >
-                Open Document
+                {labels.openDocument}
               </Button>
               <Grid
                 item

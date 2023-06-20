@@ -127,6 +127,22 @@ const Documents = {
                   required: true,
                   localized: true,
                 },
+                {
+                  name: "openDocument",
+                  label: {
+                    en: "Open Document",
+                    fr: "Ouvrir le document",
+                    pt: "Abrir documento",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Open Document",
+                    fr: "Ouvrir le document",
+                    pt: "Abrir documento",
+                  }),
+                  type: "text",
+                  required: true,
+                  localized: true,
+                },
               ],
             },
           ],
