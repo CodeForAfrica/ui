@@ -34,6 +34,7 @@ const defaultProps = {
     },
   },
   labels: {
+    datasets: "Datasets",
     updated: "Updated",
     created: "Created",
     backToDatasets: "Back to Datasets",
@@ -56,7 +57,10 @@ const defaultProps = {
   })),
   totalPages: 10,
   showDocuments: true,
-  documentsHref: "/documents",
+  documents: {
+    href: "/documents",
+    label: "Documents",
+  },
 };
 
 describe("<Datasets />", () => {

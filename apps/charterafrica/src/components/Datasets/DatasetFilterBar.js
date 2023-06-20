@@ -1,3 +1,4 @@
+import { Link } from "@commons-ui/next";
 import {
   Box,
   Button,
@@ -30,11 +31,12 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   ref
 ) {
   const {
-    selectedCountries,
     countriesList,
+    documents,
+    labels,
+    onChangeCountries,
     onChangeQ,
     onChangeSort,
-    onChangeCountries,
     onChangeTags,
     options: {
       countries: countriesOptions,
@@ -42,12 +44,12 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
       sort: sortOptions,
       tags: tagsOptions,
     },
-    sort,
     q,
+    selectedCountries,
     selectedTags,
-    tagsList,
-    documentsHref,
     showDocuments,
+    sort,
+    tagsList,
   } = props;
 
   const handleChangeQ = (e, value) => {
@@ -152,21 +154,21 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             >
               Show:
             </Typography>
-
             <Button
+              disabled
               variant="contained"
               sx={{
                 width: "95px",
                 borderRadius: "10px",
-                backgroundColor: showDocuments ? neutral[50] : "primary",
-                color: showDocuments ? "neutral.dark" : "#fff",
+                backgroundColor: neutral[50],
+                color: "neutral.dark",
               }}
-              component="a"
-              disabled={!showDocuments}
             >
-              <Typography typography="p1">Datasets</Typography>
+              {labels.datasets}
             </Button>
             <Button
+              component={Link}
+              href={documents.href}
               variant="contained"
               sx={{
                 width: "95px",
@@ -174,10 +176,8 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
                 backgroundColor: showDocuments ? "primary" : neutral[50],
                 color: showDocuments ? "#fff" : "neutral.dark",
               }}
-              component="a"
-              href={documentsHref}
             >
-              <Typography typography="p1">Documents</Typography>
+              {documents.label}
             </Button>
           </Grid>
         ) : null}

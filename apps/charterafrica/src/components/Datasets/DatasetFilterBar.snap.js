@@ -302,27 +302,20 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         >
           Show:
         </p>
-        <a
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-18vgmlm-MuiButtonBase-root-MuiButton-root"
-          role="button"
-          tabindex="0"
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-18vgmlm-MuiButtonBase-root-MuiButton-root"
+          disabled=""
+          tabindex="-1"
+          type="button"
         >
-          <p
-            class="MuiTypography-root MuiTypography-p1 css-sz96qg-MuiTypography-root"
-          >
-            Datasets
-          </p>
-        </a>
+          Datasets
+        </button>
         <a
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1k2s779-MuiButtonBase-root-MuiButton-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1krbgpl-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
           href="/documents"
           tabindex="0"
         >
-          <p
-            class="MuiTypography-root MuiTypography-p1 css-sz96qg-MuiTypography-root"
-          >
-            Documents
-          </p>
+          Documents
         </a>
       </div>
     </div>

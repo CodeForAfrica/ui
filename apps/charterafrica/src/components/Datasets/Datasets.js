@@ -13,17 +13,17 @@ import queryString from "@/charterafrica/utils/datasets/queryString";
 
 const Datasets = React.forwardRef(function Datasets(
   {
-    sx,
-    pageUrl,
-    organizationId,
-    filterBar: datasetsFilterBar,
-    labels: datasetsLabels,
-    datasets: datasetsProp,
     countries = [],
+    datasets: datasetsProp,
+    documents,
+    filterBar: datasetsFilterBar,
+    labels,
+    organizationId,
+    pageUrl,
+    showDocuments,
+    sx,
     tags = [],
     totalPages: originalTotalPages,
-    showDocuments,
-    documentsHref,
   },
   ref
 ) {
@@ -120,17 +120,18 @@ const Datasets = React.forwardRef(function Datasets(
         sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: 0 }, pb: { md: 5 } }}
       >
         <DatasetFilterBar
-          selectedCountries={selectedCountries}
           countriesList={countries}
+          documents={documents}
+          labels={labels}
           options={datasetsFilterBar}
+          onChangeCountries={handleChangeCountries}
           onChangeQ={handleChangeQ}
           onChangeSort={handleChangeSort}
-          onChangeCountries={handleChangeCountries}
           onChangeTags={handleChangeTags}
+          selectedCountries={selectedCountries}
           selectedTags={selectedTags}
-          tagsList={tags}
-          documentsHref={documentsHref}
           showDocuments={showDocuments}
+          tagsList={tags}
         />
 
         {isLoading ? <LinearProgress color="secondary" /> : null}
@@ -139,7 +140,7 @@ const Datasets = React.forwardRef(function Datasets(
             <DatasetCard
               {...dataset}
               key={dataset.id}
-              labels={datasetsLabels}
+              labels={labels}
               pageUrl={pageUrl}
               sx={{
                 borderBottom: "none",
@@ -153,8 +154,8 @@ const Datasets = React.forwardRef(function Datasets(
         </Stack>
         <NextPrevPagination
           count={totalPages}
-          page={page}
           onChange={handleChangePage}
+          page={page}
           sx={{ mt: 2.5, bgcolor: "common.white" }}
         />
       </Section>
