@@ -74,9 +74,6 @@ const Slide = React.forwardRef(function Slide(props, ref) {
             sx={(t) => ({
               color: subheading?.color,
               minHeight: `calc(${t.typography.p1.fontSize}px*${t.typography.p1.lineHeight}*2)`,
-              [t.breakpoints.up("sm")]: {
-                minHeight: `calc(${t.typography.p1.fontSize}px*${t.typography.p1.lineHeight})`,
-              },
               [t.breakpoints.up("md")]: {
                 typography: "subheading",
                 minHeight: `calc(${t.typography.subheading.fontSize}px*${t.typography.subheading.lineHeight}*2)`,
