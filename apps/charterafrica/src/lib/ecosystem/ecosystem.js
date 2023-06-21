@@ -1,3 +1,5 @@
+import * as Sentry from "@sentry/nextjs";
+
 import api from "../payload";
 
 import {
@@ -33,9 +35,13 @@ const bulkMarkDeleted = async (collection, fromSource) => {
   });
   Promise.all(
     toDelete.map(async ({ id }) => {
-      await api.updateCollection(collection, id, {
-        deletedAt: new Date(),
-      });
+      try {
+        await api.updateCollection(collection, id, {
+          deletedAt: new Date(),
+        });
+      } catch (error) {
+        Sentry.captureMessage(error.message);
+      }
     })
   );
 };
@@ -172,11 +178,19 @@ export async function updateEcosystemContent() {
 }
 
 async function execute() {
+  Sentry.captureEvent({
+    message: `Update Ecosystem List process started at ${new Date().toString()}`,
+    level: "info",
+  });
   const config = await api.findGlobal(ECOSYSTEM_GLOBAL, {});
   const tableData = await getAirtableData(config);
   await processContributors(config, tableData);
   await processTools(config, tableData);
   await processOrganisations(config, tableData);
+  Sentry.captureEvent({
+    message: `Update Ecosystem List process completed ${new Date().toString()}`,
+    level: "info",
+  });
 }
 
 export const updateEcosystemList = async () => {

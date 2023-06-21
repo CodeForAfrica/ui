@@ -1,4 +1,5 @@
 import { CONTRIBUTORS_COLLECTION } from "../../lib/ecosystem/models";
+import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import eTag from "../fields/eTag";
 import slug from "../fields/slug";
@@ -21,7 +22,7 @@ const Contributors = {
     {
       name: "externalId",
       type: "text",
-
+      required: true,
       label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
       admin: {
         readOnly: true,
@@ -39,7 +40,6 @@ const Contributors = {
         readOnly: true,
       },
     },
-
     {
       name: "description",
       type: "textarea",
@@ -53,14 +53,7 @@ const Contributors = {
         readOnly: true,
       },
     },
-    {
-      name: "avatarUrl",
-      type: "text",
-      label: { en: "Avatar URL", fr: "URL d'avatar", pt: "URL de avatar" },
-      admin: {
-        readOnly: true,
-      },
-    },
+    avatarUrl(),
     {
       name: "location",
       type: "text",

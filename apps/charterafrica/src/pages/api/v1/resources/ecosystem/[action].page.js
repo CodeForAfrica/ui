@@ -9,8 +9,8 @@ const isApiKeyValid = (key) => {
 };
 
 const actionMap = {
-  "update-ecosystem-list": updateEcosystemList,
-  "update-ecosystem-content": updateEcosystemContent,
+  "update-list": updateEcosystemList,
+  "update-content": updateEcosystemContent,
   schema,
 };
 
