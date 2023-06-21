@@ -40,7 +40,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                   </h1>
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-1p97i67-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-5wjfwk-MuiTypography-root"
                 >
                   Easy to use resources for democracy activists
                 </div>
