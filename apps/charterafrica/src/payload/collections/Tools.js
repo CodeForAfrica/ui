@@ -6,6 +6,7 @@ import {
   TOOL_COLLECTION,
   CONTRIBUTORS_COLLECTION,
 } from "../../lib/ecosystem/models";
+import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
@@ -36,7 +37,6 @@ const Tools = {
     {
       name: "externalId",
       type: "text",
-
       label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
       admin: {
         readOnly: true,
@@ -136,14 +136,7 @@ const Tools = {
         },
       ],
     },
-    {
-      name: "avatarUrl",
-      type: "text",
-      admin: {
-        readOnly: true,
-      },
-      label: { en: "Avatar URL", fr: "URL d'avatar", pt: "URL de avatar" },
-    },
+    avatarUrl(),
     {
       name: "lastCommit",
       type: "group",

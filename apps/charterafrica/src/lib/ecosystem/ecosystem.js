@@ -1,3 +1,5 @@
+import * as Sentry from "@sentry/nextjs";
+
 import api from "../payload";
 
 import {
@@ -91,11 +93,19 @@ export const updateEcosystemContent = async (req, res) => {
 };
 
 const execute = async () => {
+  Sentry.captureEvent({
+    message: `Update Ecosystem List process started at ${new Date().toString()}`,
+    level: "info",
+  });
   const config = await api.findGlobal(ECOSYSTEM_GLOBAL, {});
   const tableData = await getAirtableData(config);
   await processContributors(config, tableData);
   await processTools(config, tableData);
   await processOrganisations(config, tableData);
+  Sentry.captureEvent({
+    message: `Update Ecosystem List process completed ${new Date().toString()}`,
+    level: "info",
+  });
 };
 
 export const updateEcosystemList = async () => {

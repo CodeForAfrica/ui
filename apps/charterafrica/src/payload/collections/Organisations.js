@@ -2,6 +2,7 @@ import {
   ORGANIZATION_COLLECTION,
   TOOL_COLLECTION,
 } from "../../lib/ecosystem/models";
+import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
@@ -125,14 +126,7 @@ const Organisations = {
         readOnly: true,
       },
     },
-    {
-      name: "avatarUrl",
-      type: "text",
-      label: { en: "Avatar URL", fr: "URL d'avatar", pt: "URL de avatar" },
-      admin: {
-        readOnly: true,
-      },
-    },
+    avatarUrl(),
     {
       name: "location",
       type: "text",
