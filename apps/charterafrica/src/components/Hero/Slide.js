@@ -66,7 +66,7 @@ const Slide = React.forwardRef(function Slide(props, ref) {
             })}
           />
           <LineClampedRichTypography
-            lineClamp={{ xs: "2", sm: "1" }}
+            lineClamp="2"
             mt="30px"
             textAlign="center"
             variant="p1"
@@ -81,7 +81,6 @@ const Slide = React.forwardRef(function Slide(props, ref) {
                 typography: "subheading",
                 minHeight: `calc(${t.typography.subheading.fontSize}px*${t.typography.subheading.lineHeight}*2)`,
               },
-              "-webkit-line-clamp": "unset !important",
             })}
           >
             {subheading?.content || subheading}
