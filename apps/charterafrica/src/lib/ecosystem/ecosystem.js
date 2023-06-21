@@ -27,9 +27,13 @@ const bulkMarkDeleted = async (collection, fromSource) => {
   });
   Promise.all(
     toDelete.map(async ({ id }) => {
-      await api.updateCollection(collection, id, {
-        deletedAt: new Date(),
-      });
+      try {
+        await api.updateCollection(collection, id, {
+          deletedAt: new Date(),
+        });
+      } catch (error) {
+        Sentry.captureMessage(error.message);
+      }
     })
   );
 };
