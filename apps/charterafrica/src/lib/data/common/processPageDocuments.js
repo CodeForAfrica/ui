@@ -1,34 +1,46 @@
 import {
+  fetchDocument,
   fetchDocuments,
   fetchDocumentIframe,
 } from "@/charterafrica/lib/sourceAfrica";
 import getDocumentsQuery from "@/charterafrica/utils/documents/documents";
-import documentsQueryString from "@/charterafrica/utils/documents/queryString";
+import queryString from "@/charterafrica/utils/documents/queryString";
 
-async function processSingleDocument(page, api, context) {
-  const { query, locale } = context;
-  const { title, ...rest } = query;
-
+async function processPageDocument(page, api, context) {
+  const { params } = context;
   const { blocks } = page;
-  const { labels } = blocks.find(({ slug }) => slug === "documents") || {};
-  const { labels: commonLabels } = await api.findGlobal("common-labels", {
-    locale,
-  });
+  const documentsIndex = blocks.findIndex(({ slug }) => slug === "documents");
+  if (documentsIndex === -1) {
+    return null;
+  }
 
-  const data = await fetchDocumentIframe(rest);
+  const {
+    organization: { options },
+    labels,
+  } = blocks[documentsIndex];
+  const documentsQuery = getDocumentsQuery(page, context, options);
+  const { pathname, ...query } = documentsQuery;
+  const id = params.slugs[2];
+  const document = await fetchDocument(id, pathname);
+  if (!document) {
+    return null;
+  }
+
+  const { labels: commonLabels } = await api.findGlobal("common-labels", query);
+  const { url } = document;
+  const data = await fetchDocumentIframe({ ...query, responsive: true, url });
   const { html } = data;
-
   return {
     ...page,
     blocks: [
       {
-        slug: "embedded-resource-document-viewer",
+        ...document,
         html,
-        title,
         labels: {
           ...commonLabels,
           ...labels,
         },
+        slug: "embedded-resource-document-viewer",
       },
     ],
   };
@@ -37,7 +49,7 @@ async function processSingleDocument(page, api, context) {
 export default async function processPageDocuments(page, api, context) {
   const { locale, params } = context;
   if (params.slugs.length > 2) {
-    return processSingleDocument(page, api, context);
+    return processPageDocument(page, api, context);
   }
 
   const { blocks, breadcrumbs } = page;
@@ -53,29 +65,30 @@ export default async function processPageDocuments(page, api, context) {
       showDatasets,
       showFilterBar,
     } = blocks[documentsIndex];
-    const query = getDocumentsQuery(context, options);
-    const documents = await fetchDocuments(`group:${groupId}`, pageUrl, query);
+    const documentsQuery = getDocumentsQuery(page, context, options);
+    const { pathname, ...query } = documentsQuery;
+    const documents = await fetchDocuments(`group:${groupId}`, pathname, query);
 
     const { labels: commonLabels } = await api.findGlobal("common-labels", {
       locale,
     });
     blocks[documentsIndex] = {
+      ...blocks[documentsIndex],
       ...documents,
       documentOptions: options,
-      slug: "documents",
+      showFilterBar,
       filterBar,
       labels: {
         ...commonLabels,
         ...labels,
       },
       showDatasets,
-      showFilterBar,
       datasets,
       pathname: pageUrl,
     };
 
     let swrKey = `/api/v1/resources/datasets`;
-    const qs = documentsQueryString(getDocumentsQuery(context));
+    const qs = queryString(documentsQuery);
     if (qs) {
       swrKey = `${swrKey}?${qs}`;
     }
