@@ -40,7 +40,7 @@ async function processPageDocument(page, api, context) {
           ...commonLabels,
           ...labels,
         },
-        slug: "embedded-resource-document-viewer",
+        slug: "document",
       },
     ],
   };

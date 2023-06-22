@@ -85,7 +85,7 @@ async function processPageConsultationDocument(page, api, context) {
         labels: {
           ...commonLabels,
         },
-        slug: "embedded-resource-document-viewer",
+        slug: "document",
       },
     ],
   };

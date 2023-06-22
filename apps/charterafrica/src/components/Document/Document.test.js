@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import EmbeddedResourceDocumentViewer from "./EmbeddedResourceDocumentViewer";
+import Document from "./Document";
 
 import theme from "@/charterafrica/theme";
 
@@ -9,20 +9,19 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  title: "Document Title",
   html: `
   <iframe src="https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html" width="100%" height="1000px" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
   `,
   labels: {
     openDocument: "Open Document",
   },
+  title: "Document Title",
+  url: "/",
 };
 
-describe("<EmbeddedResourceDocumentViewer />", () => {
+describe("<Document />", () => {
   it("renders unchanged", () => {
-    const { container } = render(
-      <EmbeddedResourceDocumentViewer {...defaultProps} />
-    );
+    const { container } = render(<Document {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
