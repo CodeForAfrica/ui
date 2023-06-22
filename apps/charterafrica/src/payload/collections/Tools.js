@@ -4,9 +4,9 @@ import {
 } from "../../lib/data/json/countries";
 import {
   TOOL_COLLECTION,
-  ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
 } from "../../lib/ecosystem/models";
+import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
@@ -37,7 +37,6 @@ const Tools = {
     {
       name: "externalId",
       type: "text",
-      required: true,
       label: { en: "External ID", fr: "ID externe", pt: "ID externo" },
       admin: {
         readOnly: true,
@@ -137,14 +136,7 @@ const Tools = {
         },
       ],
     },
-    {
-      name: "avatarUrl",
-      type: "text",
-      admin: {
-        readOnly: true,
-      },
-      label: { en: "Avatar URL", fr: "URL d'avatar", pt: "URL de avatar" },
-    },
+    avatarUrl(),
     {
       name: "lastCommit",
       type: "group",
@@ -227,19 +219,6 @@ const Tools = {
       },
     },
     {
-      name: "organisation",
-      type: "relationship",
-      admin: {
-        readOnly: true,
-      },
-      relationTo: ORGANIZATION_COLLECTION,
-      label: {
-        en: "Organisation",
-        fr: "Organisation",
-        pt: "Organização",
-      },
-    },
-    {
       name: "contributors",
       type: "relationship",
       hasMany: true,
@@ -260,13 +239,13 @@ const Tools = {
       },
     },
     {
-      name: "donors",
+      name: "supporters",
       type: "array",
       admin: {
         readOnly: true,
         initCollapsed: true,
       },
-      label: { en: "Donors", fr: "Donateurs", pt: "Doadores" },
+      label: { en: "Supporters", fr: "Partisans", pt: "Apoiadores" },
       fields: supporter,
     },
     {
@@ -280,15 +259,6 @@ const Tools = {
       fields: supporter,
     },
     {
-      name: "funder",
-      type: "group",
-      admin: {
-        readOnly: true,
-      },
-      label: { en: "Funder", fr: "Bailleur de fonds", pt: "Financiador" },
-      fields: supporter,
-    },
-    {
       name: "homeCountry",
       type: "select",
       options: allCountries,
@@ -298,7 +268,7 @@ const Tools = {
       },
     },
     {
-      name: "otherSocialMedia",
+      name: "socialMedia",
       type: "array",
       admin: {
         readOnly: true,
@@ -314,7 +284,6 @@ const Tools = {
           name: "name",
           type: "text",
           label: { en: "Name", fr: "Nom", pt: "Nome" },
-          required: true,
         },
         {
           name: "link",
@@ -332,6 +301,12 @@ const Tools = {
         beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
       },
     }),
+    {
+      name: "airtableId",
+      label: { en: "Airtable ID", fr: "ID Airtable", pt: "ID da Airtable" },
+      type: "text",
+      required: true,
+    },
     dateField({
       name: "deletedAt",
     }),

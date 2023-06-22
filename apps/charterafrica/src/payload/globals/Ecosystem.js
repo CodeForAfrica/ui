@@ -90,6 +90,13 @@ const Ecosystem = {
                     },
                   },
                 }),
+                airtableColumnSelect({
+                  tableField: "toolTableId",
+                  overrides: {
+                    name: "avatarUrl",
+                    label: { en: "Image", fr: "Image", pt: "Imagem" },
+                  },
+                }),
                 {
                   name: "description",
                   type: "group",
@@ -200,6 +207,17 @@ const Ecosystem = {
                       en: "Home Country",
                       fr: "Campagne d'origine",
                       pt: "País natal",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  tableField: "toolTableId",
+                  overrides: {
+                    name: "operatingCountries",
+                    label: {
+                      en: "Operating Countries",
+                      fr: "Pays opérationnels",
+                      pt: "Países operacionais",
                     },
                   },
                 }),
@@ -325,6 +343,13 @@ const Ecosystem = {
                     },
                   },
                 }),
+                airtableColumnSelect({
+                  tableField: "contributorTableId",
+                  overrides: {
+                    name: "avatarUrl",
+                    label: { en: "Image", fr: "Image", pt: "Imagem" },
+                  },
+                }),
                 {
                   name: "description",
                   type: "group",
@@ -434,6 +459,13 @@ const Ecosystem = {
                       fr: "nom d'utilisateur",
                       pt: "nome de usuário",
                     },
+                  },
+                }),
+                airtableColumnSelect({
+                  tableField: "organisationTableId",
+                  overrides: {
+                    name: "avatarUrl",
+                    label: { en: "Image", fr: "Image", pt: "Imagem" },
                   },
                 }),
                 {
