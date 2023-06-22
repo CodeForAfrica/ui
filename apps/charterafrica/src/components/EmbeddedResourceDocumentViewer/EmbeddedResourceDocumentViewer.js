@@ -1,4 +1,5 @@
 import { Section } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
 import { Typography, Box, Grid, Button } from "@mui/material";
 import React from "react";
 
@@ -8,7 +9,7 @@ import ShareThisPage from "@/charterafrica/components/ShareThisPage";
 
 const EmbeddedResourceDocumentViewer = React.forwardRef(
   function EmbeddedResourceDocumentViewer(props, ref) {
-    const { title, html, labels } = props;
+    const { html, labels, title, url } = props;
 
     return (
       <Box
@@ -65,12 +66,13 @@ const EmbeddedResourceDocumentViewer = React.forwardRef(
               justifyContent={{ xs: "center", md: "flex-end" }}
             >
               <Button
-                variant="contained"
                 color="primary"
+                component={url ? Link : undefined}
+                disabled={!url}
+                href={url}
                 size="medium"
                 startIcon={<ExternalLinkIcon />}
-                href=""
-                target="_blank"
+                variant="contained"
                 sx={{
                   width: {
                     xs: "100%",
