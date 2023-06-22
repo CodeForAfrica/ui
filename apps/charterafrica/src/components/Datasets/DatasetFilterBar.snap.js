@@ -6,10 +6,10 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
     class="MuiBox-root css-1kgakwq"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-5yr11w-MuiGrid-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3 css-i9ealm-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-2 css-uzx68p-MuiGrid-root"
       >
         <div
           class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1iuekym-MuiInputBase-root-MuiOutlinedInput-root"
@@ -48,7 +48,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-lg-3 css-jevw09-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-3 MuiGrid-grid-lg-2 css-s0xw5o-MuiGrid-root"
       >
         <div
           class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
@@ -127,7 +127,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-lg-3 css-195h445-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-3 MuiGrid-grid-lg-2 css-15uuqmm-MuiGrid-root"
       >
         <div
           class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
@@ -211,7 +211,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-lg-3 css-jevw09-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-3 MuiGrid-grid-lg-2 css-s0xw5o-MuiGrid-root"
       >
         <div
           class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
@@ -293,6 +293,31 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-wrap-xs-nowrap MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-lg-3 css-10brl9b-MuiGrid-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-p1 css-1eww23z-MuiTypography-root"
+        >
+          Show
+          :
+        </p>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-2vhkfv-MuiButtonBase-root-MuiButton-root"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          Datasets
+        </button>
+        <a
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1lrcfc-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+          href="/documents"
+          tabindex="0"
+        >
+          Documents
+        </a>
       </div>
     </div>
   </div>

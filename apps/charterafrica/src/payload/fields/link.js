@@ -27,6 +27,8 @@ export async function mapLinkToHrefBeforeValidate({
 const link = ({
   defaultValue = "internal",
   disableLabel = false,
+  disableLinkTypeSelection = false,
+  disableOpenInNewTab = false,
   overrides = {},
   required = true,
 } = {}) => {
@@ -55,6 +57,9 @@ const link = ({
           },
         ],
         defaultValue,
+        admin: {
+          hidden: disableLinkTypeSelection,
+        },
       },
     ],
   };
@@ -125,11 +130,9 @@ const link = ({
       },
     ];
   }
-  linkResult.fields = [
-    ...labelFields,
-    ...linkResult.fields,
-    ...linkTypes,
-    {
+  linkResult.fields = [...labelFields, ...linkResult.fields, ...linkTypes];
+  if (!disableOpenInNewTab) {
+    linkResult.fields.push({
       type: "row",
       fields: [
         {
@@ -142,8 +145,8 @@ const link = ({
           type: "checkbox",
         },
       ],
-    },
-  ];
+    });
+  }
 
   return deepmerge(linkResult, overrides);
 };

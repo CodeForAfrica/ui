@@ -1,24 +1,15 @@
-import { array } from "payload/dist/fields/validations";
-
-import documentCloud from "../fields/documentCloud";
+import documentCloudFilterBar from "../fields/documentCloudFilterBar";
+import documentCloudSource from "../fields/documentCloudSource";
 import linkGroup from "../fields/linkGroup";
 import defaultValue from "../utils/defaultValues";
-
-const documentSortOptions = [
-  "created_at",
-  "score",
-  "title",
-  "page_count",
-  "source",
-];
 
 const Documents = {
   slug: "documents",
   labels: {
     singular: {
-      en: "Document",
-      fr: "Document",
-      pt: "Documento",
+      en: "Documents",
+      fr: "Documents",
+      pt: "Documentos",
     },
     plural: {
       en: "Documents",
@@ -30,17 +21,17 @@ const Documents = {
     {
       type: "collapsible",
       label: {
-        en: "Documents Source",
-        fr: "Source des documents",
-        pt: "Fonte de documentos",
+        en: "Source",
       },
       fields: [
-        documentCloud({
-          name: "organization",
-          label: {
-            en: "Organization",
-            fr: "Organisation",
-            pt: "Organização",
+        documentCloudSource({
+          overrides: {
+            name: "organization",
+            label: {
+              en: "Organization",
+              fr: "Organisation",
+              pt: "Organização",
+            },
           },
         }),
       ],
@@ -48,120 +39,30 @@ const Documents = {
     {
       type: "collapsible",
       label: {
-        en: "Filter Bar",
-        fr: "Barre de filtre",
-        pt: "Barra de filtro",
+        en: "Search & Filter",
       },
       fields: [
         {
-          name: "filterBar",
-          type: "group",
+          name: "showFilterBar",
+          type: "checkbox",
+          defaultValue: true,
           admin: {
-            hideGutter: true,
+            disabled: true,
           },
-          fields: [
-            {
-              name: "search",
-              type: "group",
-              admin: {
-                hideGutter: true,
-              },
-              fields: [
-                {
-                  name: "label",
-                  type: "text",
-                  label: {
-                    en: "Search Label",
-                    fr: "Étiquette de recherche",
-                    pt: "Rótulo de pesquisa",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Search",
-                    fr: "Rechercher",
-                    pt: "Pesquisar",
-                  }),
-                  required: true,
-                  localized: true,
-                },
-              ],
-            },
-            {
-              name: "sort",
-              type: "group",
-              admin: {
-                hideGutter: true,
-                style: {
-                  marginTop: 10,
-                },
-              },
-              fields: [
-                {
-                  name: "label",
-                  type: "text",
-                  label: {
-                    en: "Sort Label",
-                    fr: "Étiquette de tri",
-                    pt: "Rótulo de classificação",
-                  },
-                  defaultValue: defaultValue({
-                    en: "Sort",
-                    fr: "Trier",
-                    pt: "Classificar",
-                  }),
-                  required: true,
-                  localized: true,
-                },
-                {
-                  name: "options",
-                  type: "array",
-                  minRows: 1,
-                  label: {
-                    en: "Sort Options",
-                    fr: "Options de tri",
-                    pt: "Opções de classificação",
-                  },
-                  fields: [
-                    {
-                      name: "value",
-                      type: "select",
-                      unique: true,
-                      required: true,
-                      options: documentSortOptions,
-                      validate: (val, options) => {
-                        const { data, t } = options || {};
-                        if (
-                          data?.options?.filter((l) => l.value === val)
-                            ?.length > 1
-                        ) {
-                          return t("charterafrica.site:uniqueSortOptions");
-                        }
-                        return array(val, options);
-                      },
-                    },
-                    {
-                      name: "label",
-                      type: "text",
-                      label: {
-                        en: "Label",
-                        fr: "Étiquette",
-                        pt: "Rótulo",
-                      },
-                      required: true,
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
+          required: true,
         },
+        documentCloudFilterBar(),
       ],
+      admin: {
+        initCollapsed: true,
+      },
     },
     {
       type: "collapsible",
       label: {
-        en: "Documents Labels",
-        fr: "Étiquettes des documents",
-        pt: "Rótulos de documentos",
+        en: "Labels",
+        fr: "Étiquettes",
+        pt: "Rótulos",
       },
       fields: [
         {
@@ -180,9 +81,24 @@ const Documents = {
               type: "row",
               fields: [
                 {
+                  name: "documents",
+                  type: "text",
+                  label: {
+                    en: "Documents",
+                    pt: "Documentos",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Documents",
+                    fr: "Documents",
+                    pt: "Documentos",
+                  }),
+                  required: true,
+                  localized: true,
+                },
+                {
                   name: "pages",
                   label: {
-                    en: "No of Pages Label",
+                    en: "Number of Pages",
                     fr: "Nombre de pages",
                     pt: "Número de páginas",
                   },
@@ -211,32 +127,67 @@ const Documents = {
                   required: true,
                   localized: true,
                 },
+                {
+                  name: "openDocument",
+                  label: {
+                    en: "Open Document",
+                    fr: "Ouvrir le document",
+                    pt: "Abrir documento",
+                  },
+                  defaultValue: defaultValue({
+                    en: "Open Document",
+                    fr: "Ouvrir le document",
+                    pt: "Abrir documento",
+                  }),
+                  type: "text",
+                  required: true,
+                  localized: true,
+                },
               ],
             },
           ],
         },
       ],
+      admin: {
+        initCollapsed: true,
+      },
     },
     {
-      name: "showDatasets",
-      type: "checkbox",
+      type: "collapsible",
       label: {
-        en: "Show Datasets",
-        fr: "Afficher les ensembles de données",
-        pt: "Mostrar conjuntos de dados",
+        en: "Datasets",
+        fr: "Ensembles de données",
+        pt: "Conjuntos de dados",
       },
-      defaultValue: false,
-    },
-    linkGroup({
-      linkConfig: { disableLabel: true },
-      overrides: {
-        name: "datasets",
-        admin: {
-          condition: (_, siblingData) => siblingData?.showDatasets,
-          hideGutter: true,
+      fields: [
+        {
+          name: "showDatasets",
+          type: "checkbox",
+          label: {
+            en: "Show Datasets",
+            fr: "Afficher les ensembles de données",
+            pt: "Mostrar conjuntos de dados",
+          },
+          defaultValue: false,
         },
+        linkGroup({
+          linkConfig: {
+            disableLinkTypeSelection: true,
+            disableOpenInNewTab: true,
+          },
+          overrides: {
+            name: "datasets",
+            admin: {
+              condition: (_, siblingData) => siblingData?.showDatasets,
+              hideGutter: true,
+            },
+          },
+        }),
+      ],
+      admin: {
+        initCollapsed: true,
       },
-    }),
+    },
   ],
 };
 

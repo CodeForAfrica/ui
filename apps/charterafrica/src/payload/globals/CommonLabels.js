@@ -90,6 +90,22 @@ const CommonLabels = {
               required: true,
               localized: true,
             },
+            {
+              name: "show",
+              label: {
+                en: "Show",
+                fr: "Montrer",
+                pt: "Mostrar",
+              },
+              defaultValue: defaultValue({
+                en: "Show",
+                fr: "Montrer",
+                pt: "Mostrar",
+              }),
+              type: "text",
+              required: true,
+              localized: true,
+            },
           ],
         },
       ],

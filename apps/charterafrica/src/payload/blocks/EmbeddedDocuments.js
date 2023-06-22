@@ -1,4 +1,4 @@
-import documentCloud from "../fields/documentCloud";
+import documentCloudSource from "../fields/documentCloudSource";
 import richText from "../fields/richText";
 
 const EmbeddedDocuments = {
@@ -37,14 +37,24 @@ const EmbeddedDocuments = {
         }),
       ],
     },
-    documentCloud({
-      name: "group",
+    {
+      type: "collapsible",
       label: {
-        en: "Documents Group",
-        fr: "Groupe de documents",
-        pt: "Grupo de documentos",
+        en: "Source",
       },
-    }),
+      fields: [
+        documentCloudSource({
+          overrides: {
+            name: "group",
+            label: {
+              en: "Documents Group",
+              fr: "Groupe de documents",
+              pt: "Grupo de documentos",
+            },
+          },
+        }),
+      ],
+    },
   ],
 };
 
