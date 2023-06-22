@@ -7,106 +7,104 @@ import ExternalLinkIcon from "@/charterafrica/assets/icons/Type=external-link, S
 import { neutral } from "@/charterafrica/colors";
 import ShareThisPage from "@/charterafrica/components/ShareThisPage";
 
-const EmbeddedResourceDocumentViewer = React.forwardRef(
-  function EmbeddedResourceDocumentViewer(props, ref) {
-    const { html, labels, title, url } = props;
+const Document = React.forwardRef(function Document(props, ref) {
+  const { html, labels, title, url } = props;
 
-    return (
-      <Box
+  return (
+    <Box
+      sx={{
+        backgroundColor: "#fff",
+      }}
+      ref={ref}
+    >
+      <Section
         sx={{
-          backgroundColor: "#fff",
+          px: { xs: 5, sm: 0 },
+          py: { xs: 5, md: 7.5 },
         }}
-        ref={ref}
       >
-        <Section
-          sx={{
-            px: { xs: 5, sm: 0 },
-            py: { xs: 5, md: 7.5 },
-          }}
-        >
-          <Grid container spacing={4} direction={{ xs: "column", md: "row" }}>
+        <Grid container spacing={4} direction={{ xs: "column", md: "row" }}>
+          <Grid
+            item
+            xs={12}
+            md={8}
+            padding={0}
+            container
+            direction="column"
+            gap={2}
+            alignItems={{ xs: "center", md: "flex-start" }}
+          >
+            <Typography variant="h4" component="h2" gutterBottom>
+              {title}
+            </Typography>
+            <Box
+              backgroundColor="white"
+              border="1px solid"
+              borderColor={neutral[800]}
+              width={{
+                lg: "720px",
+                sm: "648px",
+                xs: "330px",
+              }}
+              sx={{
+                mt: 5,
+              }}
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            container
+            gap={2}
+            direction={{ xs: "column", sm: "row" }}
+            sx={{
+              p: 0,
+            }}
+            justifyContent={{ xs: "center", md: "flex-end" }}
+          >
+            <Button
+              color="primary"
+              component={url ? Link : undefined}
+              disabled={!url}
+              href={url}
+              size="medium"
+              startIcon={<ExternalLinkIcon />}
+              variant="contained"
+              sx={{
+                width: {
+                  xs: "100%",
+                  sm: "200px",
+                },
+                height: "50px",
+              }}
+            >
+              {labels.openDocument}
+            </Button>
             <Grid
               item
               xs={12}
-              md={8}
-              padding={0}
-              container
-              direction="column"
-              gap={2}
-              alignItems={{ xs: "center", md: "flex-start" }}
+              sx={{
+                height: "100%",
+              }}
             >
-              <Typography variant="h4" component="h2" gutterBottom>
-                {title}
-              </Typography>
-              <Box
-                backgroundColor="white"
-                border="1px solid"
-                borderColor={neutral[800]}
-                width={{
-                  lg: "720px",
-                  sm: "648px",
-                  xs: "330px",
-                }}
+              <ShareThisPage
+                title="Share this document"
                 sx={{
-                  mt: 5,
+                  alignItems: {
+                    xs: "center",
+                    md: "flex-end",
+                  },
+                  py: 2,
                 }}
-                dangerouslySetInnerHTML={{ __html: html }}
               />
             </Grid>
-            <Grid
-              item
-              xs={12}
-              md={4}
-              container
-              gap={2}
-              direction={{ xs: "column", sm: "row" }}
-              sx={{
-                p: 0,
-              }}
-              justifyContent={{ xs: "center", md: "flex-end" }}
-            >
-              <Button
-                color="primary"
-                component={url ? Link : undefined}
-                disabled={!url}
-                href={url}
-                size="medium"
-                startIcon={<ExternalLinkIcon />}
-                variant="contained"
-                sx={{
-                  width: {
-                    xs: "100%",
-                    sm: "200px",
-                  },
-                  height: "50px",
-                }}
-              >
-                {labels.openDocument}
-              </Button>
-              <Grid
-                item
-                xs={12}
-                sx={{
-                  height: "100%",
-                }}
-              >
-                <ShareThisPage
-                  title="Share this document"
-                  sx={{
-                    alignItems: {
-                      xs: "center",
-                      md: "flex-end",
-                    },
-                    py: 2,
-                  }}
-                />
-              </Grid>
-            </Grid>
           </Grid>
-        </Section>
-      </Box>
-    );
-  }
-);
+        </Grid>
+      </Section>
+    </Box>
+  );
+});
 
-export default EmbeddedResourceDocumentViewer;
+export default Document;
