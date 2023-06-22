@@ -5,16 +5,17 @@ import queryString from "@/charterafrica/utils/documents/queryString";
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function useDocuments(q, options, pathname) {
-  const qs = queryString({ ...options, q });
-  const qsPath = qs ? `?${qs}&pathname=${pathname}` : `?pathname=${pathname}`;
+  const qs = queryString({ ...options, q, pathname });
+  const separator = qs ? "?" : "";
   const { data, error } = useSWR(
-    `/api/v1/opportunities/consultation/documents${qsPath}`,
+    `/api/v1/opportunities/consultation/documents${separator}${qs}`,
     fetcher
   );
+
   return {
     data,
     isLoading: !error && !data,
-    isError: error,
+    error,
   };
 }
 

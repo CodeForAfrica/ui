@@ -101,20 +101,6 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
             >
               {labels.show}:
             </Typography>
-
-            <Button
-              disabled
-              variant="contained"
-              sx={(theme) => ({
-                ...theme.typography.p1,
-                width: "95px",
-                borderRadius: "10px",
-                backgroundColor: neutral[50],
-                color: "neutral.dark",
-              })}
-            >
-              {labels.documents}
-            </Button>
             <Button
               color="primary"
               component={datasets?.href ? Link : undefined}
@@ -128,6 +114,19 @@ const DocumentFilterBar = React.forwardRef(function DocumentFilterBar(
               })}
             >
               {datasets?.label}
+            </Button>
+            <Button
+              disabled
+              variant="contained"
+              sx={(theme) => ({
+                ...theme.typography.p1,
+                width: "95px",
+                borderRadius: "10px",
+                backgroundColor: neutral[50],
+                color: "neutral.dark",
+              })}
+            >
+              {labels.documents}
             </Button>
           </Grid>
         ) : null}
