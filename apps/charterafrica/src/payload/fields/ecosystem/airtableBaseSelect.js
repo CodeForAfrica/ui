@@ -8,6 +8,15 @@ import fetchJson from "../../../utils/fetchJson";
 
 const url = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases`;
 
+export function getUrl(baseId) {
+  if (baseId) {
+    return `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases/${baseId}/tables`;
+  }
+  return null;
+}
+
+export const schema = {};
+
 function basesToOptions(bases) {
   return bases?.map((item) => ({ value: item.id, label: item.name })) || [];
 }
@@ -18,6 +27,11 @@ const getOptions = async () => {
 };
 
 const validateBaseSelect = async (value, { hasMany, required, t }) => {
+  if (value) {
+    const link = getUrl(value);
+    const { tables } = await fetchJson.get(link);
+    schema.tables = tables;
+  }
   const options = await getOptions();
   return select(value, { hasMany, options, required, t });
 };
