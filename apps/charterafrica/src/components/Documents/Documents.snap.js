@@ -143,6 +143,13 @@ exports[`<Documents /> renders unchanged 1`] = `
               >
                 :
               </p>
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-etikzf-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                href="/datasets"
+                tabindex="0"
+              >
+                Datasets
+              </a>
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1sbqixe-MuiButtonBase-root-MuiButton-root"
                 disabled=""
@@ -151,13 +158,6 @@ exports[`<Documents /> renders unchanged 1`] = `
               >
                 Documents
               </button>
-              <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-etikzf-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-                href="/datasets"
-                tabindex="0"
-              >
-                Datasets
-              </a>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<EmbeddedResourceDocumentViewer /> renders unchanged 1`] = `
+exports[`<Document /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-1k9ek97"
@@ -40,12 +40,10 @@ exports[`<EmbeddedResourceDocumentViewer /> renders unchanged 1`] = `
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-[object Object] MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-19fdzmu-MuiGrid-root"
         >
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1scqxyq-MuiButtonBase-root-MuiButton-root"
-            href=""
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium active css-1cjcswz-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+            href="/"
             tabindex="0"
-            target="_blank"
-            type="button"
           >
             <span
               class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
@@ -53,7 +51,7 @@ exports[`<EmbeddedResourceDocumentViewer /> renders unchanged 1`] = `
               <div />
             </span>
             Open Document
-          </button>
+          </a>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-mqmitf-MuiGrid-root"
           >
