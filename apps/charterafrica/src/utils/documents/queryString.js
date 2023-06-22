@@ -9,6 +9,7 @@ function queryString(query = {}) {
   const searchParams = new URLSearchParams();
   const {
     contributor = true,
+    pathname,
     per_page: pageSize = 8,
     q,
     sort,
@@ -36,6 +37,9 @@ function queryString(query = {}) {
     Object.keys(rest)
       .sort()
       .forEach((k) => searchParams.append(k, rest[k]));
+  }
+  if (pathname) {
+    searchParams.append("pathname", pathname);
   }
 
   return searchParams.toString() || "";
