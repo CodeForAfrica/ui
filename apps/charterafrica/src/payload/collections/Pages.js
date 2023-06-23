@@ -25,12 +25,14 @@ import Resources from "../blocks/Resources";
 import Spotlight from "../blocks/Spotlight";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
+import formatDraftUrl from "../utils/formatDraftUrl";
 
 const Pages = {
   slug: "pages",
   admin: {
-    useAsTitle: "title",
     defaultColumns: ["fullTitle", "updatedAt"],
+    preview: (doc, options) => formatDraftUrl("pages", doc, options),
+    useAsTitle: "title",
   },
   access: {
     read: () => true, // Everyone can read Pages
