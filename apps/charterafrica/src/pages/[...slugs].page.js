@@ -20,6 +20,7 @@ import Helpdesk from "@/charterafrica/components/Helpdesk";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import Hero from "@/charterafrica/components/Hero";
 import Impressum from "@/charterafrica/components/Impressum";
+import Infographic from "@/charterafrica/components/Infographic";
 import LongForm from "@/charterafrica/components/LongForm";
 import Mooc from "@/charterafrica/components/Mooc";
 import Opportunity from "@/charterafrica/components/Opportunity";
@@ -39,6 +40,7 @@ import Tools from "@/charterafrica/components/Tools";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 const componentsBySlugs = {
+  "aga-infographic": Infographic,
   datasets: Datasets,
   dataset: Dataset,
   documents: Documents,
