@@ -105,7 +105,7 @@ async function processPageConsultation(page, api, context) {
   if (documentsIndex > -1) {
     const {
       description: documentsDescription,
-      group: { groupId, options },
+      group: { groupId, options, showPinnedDocuments, pinnedDocuments = [] },
       title: documentsTitle,
     } = blocks[documentsIndex];
     const documentsQuery = getDocumentsQuery(page, context, options);
@@ -115,7 +115,10 @@ async function processPageConsultation(page, api, context) {
     const documents = await fetchDocuments(
       `group:${groupId}`,
       documentsPathname,
-      query
+      query,
+      showPinnedDocuments
+        ? pinnedDocuments.map((document) => document.title)
+        : []
     );
     blocks[documentsIndex] = {
       ...blocks[documentsIndex],
@@ -125,6 +128,7 @@ async function processPageConsultation(page, api, context) {
       pathname: documentsPathname,
       slug: "documents",
       title: documentsTitle ?? null,
+      pinnedDocuments: pinnedDocuments.map((document) => document.title),
     };
     // SWR fallback
     let swrKey = `/api/v1/opportunities/consultation/documents`;

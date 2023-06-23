@@ -37,11 +37,35 @@ function formatDocuments(data, pathname) {
 
   return {
     ...rest,
-    documents: formattedDocuments,
+    documents: formattedDocuments || [],
   };
 }
 
-export async function fetchDocuments(q, pathname, options = {}) {
+export async function fetchPinnedDocument(titles) {
+  const q = titles.map((title) => `title:"${title}"`).join(" ");
+  const params = {
+    q,
+  };
+  try {
+    const data = await fetchJson.get(`${BASE_DOCUMENTS_URL}search.json`, {
+      params,
+    });
+    if (data?.documents) {
+      return data;
+    }
+    return {};
+  } catch (err) {
+    Sentry.captureException(err);
+  }
+  return null;
+}
+
+export async function fetchDocuments(
+  q,
+  pathname,
+  options = {},
+  pinnedDocuments = []
+) {
   const params = {
     ...options,
     q,
@@ -50,7 +74,40 @@ export async function fetchDocuments(q, pathname, options = {}) {
     const data = await fetchJson.get(`${BASE_DOCUMENTS_URL}search.json`, {
       params,
     });
-    return formatDocuments(data, pathname, options);
+    const formattedData = formatDocuments(data, pathname);
+
+    const fetchedPinnedDocuments = formattedData.documents.filter(
+      (document) => {
+        return pinnedDocuments.includes(document.title);
+      }
+    );
+
+    const pinnedDocumentsNotInSearchResults = pinnedDocuments.filter(
+      (pinnedDocument) => {
+        return !formattedData.documents.some(
+          (document) => document.title === pinnedDocument
+        );
+      }
+    );
+
+    const pinnedDocumentsNotInSearchResultsArray = await fetchPinnedDocument(
+      pinnedDocumentsNotInSearchResults
+    );
+
+    const formattedPinnedDocumentsNotInSearchResultsArray = formatDocuments(
+      pinnedDocumentsNotInSearchResultsArray,
+      pathname
+    );
+
+    const filteredDocuments = formattedData.documents.filter((document) => {
+      return !fetchedPinnedDocuments.includes(document);
+    });
+    formattedData.documents = [
+      ...fetchedPinnedDocuments,
+      ...formattedPinnedDocumentsNotInSearchResultsArray.documents,
+      ...filteredDocuments,
+    ];
+    return formattedData;
   } catch (err) {
     Sentry.captureException(err);
   }

@@ -86,6 +86,41 @@ function documentCloudSource({ overrides } = {}) {
           hideGutter: true,
         },
       },
+      {
+        name: "showPinnedDocuments",
+        type: "checkbox",
+        label: {
+          en: "Show Pinned Documents",
+          fr: "Afficher les documents épinglés",
+          pt: "Mostrar documentos fixados",
+        },
+        defaultValue: false,
+        required: true,
+      },
+      {
+        name: "pinnedDocuments",
+        type: "array",
+        label: {
+          en: "Pinned Documents",
+          fr: "Documents épinglés",
+          pt: "Documentos fixados",
+        },
+        fields: [
+          {
+            name: "title",
+            type: "text",
+            label: {
+              en: "Title",
+              fr: "Titre",
+              pt: "Título",
+            },
+            required: true,
+          },
+        ],
+        admin: {
+          condition: (_, siblingData) => siblingData?.showPinnedDocuments,
+        },
+      },
     ],
   };
 

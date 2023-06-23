@@ -24,6 +24,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
     labels,
     pathname,
     showFilterBar,
+    pinnedDocuments,
   } = props;
   const [documents, setDocuments] = useState(originalDocuments);
   const [totalPages, setTotalPages] = useState(0);
@@ -63,7 +64,8 @@ const Documents = React.forwardRef(function Documents(props, ref) {
       search,
       ...documentOptions,
     },
-    pathname
+    pathname,
+    pinnedDocuments
   );
   useEffect(() => {
     if (!res?.isLoading) {
