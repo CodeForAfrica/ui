@@ -7,7 +7,7 @@ import {
   processToolFromAirtable,
   processOrganisationFromAirTable,
   processContributorFromAirtable,
-} from "@/charterafrica/lib/ecosystem/airtable";
+} from "@/charterafrica/lib/ecosystem/airtable.old";
 import {
   createCollection,
   ORGANIZATION_COLLECTION,
