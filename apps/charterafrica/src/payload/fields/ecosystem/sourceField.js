@@ -2,7 +2,7 @@ import { deepmerge } from "@mui/utils";
 
 import airtableColumnSelect from "./airtableColumnSelect";
 
-function sourceField({ tableField, overrides = {} }) {
+function sourceField({ tableField, schema, overrides = {} }) {
   const defaultField = {
     type: "group",
     label: { en: "Source", fr: "Source", pt: "Fonte" },
@@ -10,6 +10,7 @@ function sourceField({ tableField, overrides = {} }) {
     fields: [
       airtableColumnSelect({
         tableField,
+        schema,
         overrides: {
           name: "url",
           label: { en: "Source URL", fr: "URL de source", pt: "URL da fonte" },
@@ -17,6 +18,7 @@ function sourceField({ tableField, overrides = {} }) {
       }),
       airtableColumnSelect({
         tableField,
+        schema,
         overrides: {
           name: "type",
           label: {

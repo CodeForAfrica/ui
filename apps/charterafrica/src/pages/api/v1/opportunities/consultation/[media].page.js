@@ -2,10 +2,10 @@ import { fetchDocuments } from "@/charterafrica/lib/sourceAfrica";
 import { fetchResource } from "@/charterafrica/lib/youtube";
 
 const documents = async (req, res) => {
-  const { q, media, ...rest } = req.query;
+  const { q, media, pathname, ...rest } = req.query;
 
   try {
-    const data = await fetchDocuments(q, rest);
+    const data = await fetchDocuments(q, pathname, rest);
     return res.status(200).json(data);
   } catch (error) {
     return res.status(500).json({ error });

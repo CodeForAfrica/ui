@@ -1,7 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
-const documentCloud = (overrides = {}) => {
-  const basicDocument = {
+function documentCloudSource({ overrides } = {}) {
+  const generatedDocumentCloudSource = {
     name: "documents",
     type: "group",
     label: {
@@ -25,12 +25,12 @@ const documentCloud = (overrides = {}) => {
       },
       {
         name: "options",
+        type: "group",
         label: {
           en: "Options",
           fr: "Options",
           pt: "Opções",
         },
-        type: "group",
         fields: [
           {
             type: "row",
@@ -89,7 +89,7 @@ const documentCloud = (overrides = {}) => {
     ],
   };
 
-  return deepmerge(basicDocument, overrides);
-};
+  return deepmerge(generatedDocumentCloudSource, overrides);
+}
 
-export default documentCloud;
+export default documentCloudSource;

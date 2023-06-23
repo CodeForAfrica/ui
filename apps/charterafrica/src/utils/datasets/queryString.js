@@ -7,7 +7,8 @@
  */
 function queryString(query = {}) {
   const searchParams = new URLSearchParams();
-  const { countries, locale, organizationId, page, sort, tags, q } = query;
+  const { countries, locale, organizationId, page, pathname, sort, tags, q } =
+    query;
 
   if (q) {
     searchParams.append("q", q);
@@ -29,6 +30,9 @@ function queryString(query = {}) {
   }
   if (organizationId) {
     searchParams.append("organizationId", organizationId);
+  }
+  if (pathname) {
+    searchParams.append("pathname", pathname);
   }
 
   return searchParams.toString() || "";

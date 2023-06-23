@@ -19,14 +19,45 @@ const defaultProps = {
       pages: 10,
       title: "Document Title",
       url: "https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html",
+      href: "/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html",
     },
   ],
-  options: {
+  documentOptions: {
     url: "https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html",
     showNotes: true,
     showSearch: true,
     showText: true,
     showZoom: true,
+  },
+  pathname: "/documents",
+  showFilterBar: true,
+  filterBar: {
+    search: {
+      label: "Search",
+    },
+    sort: {
+      label: "Sort",
+      options: [
+        {
+          label: "Most Recent",
+          value: "metadata_created desc",
+        },
+      ],
+    },
+  },
+  labels: {
+    documents: "Documents",
+    updated: "Updated",
+    created: "Created",
+    backToDatasets: "Back to Datasets",
+    openDataset: "Open Dataset",
+    seeMoreDatasets: "See more datasets",
+    shareDataset: "Share Via",
+  },
+  showDatasets: true,
+  datasets: {
+    href: "/datasets",
+    label: "Datasets",
   },
 };
 

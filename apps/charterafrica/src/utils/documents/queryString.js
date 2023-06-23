@@ -7,12 +7,27 @@
  */
 function queryString(query = {}) {
   const searchParams = new URLSearchParams();
-  const { contributor = true, per_page: pageSize = 8, q, ...rest } = query;
+  const {
+    contributor = true,
+    pathname,
+    per_page: pageSize = 8,
+    q,
+    sort,
+    search,
+    ...rest
+  } = query;
   if (q) {
-    searchParams.append("q", q);
+    if (search) {
+      searchParams.append("q", `${q} ${search}`);
+    } else {
+      searchParams.append("q", q);
+    }
   }
   if (pageSize) {
     searchParams.append("per_page", pageSize);
+  }
+  if (sort) {
+    searchParams.append("order", sort);
   }
   if (contributor !== undefined) {
     searchParams.append("contributor", contributor);
@@ -22,6 +37,9 @@ function queryString(query = {}) {
     Object.keys(rest)
       .sort()
       .forEach((k) => searchParams.append(k, rest[k]));
+  }
+  if (pathname) {
+    searchParams.append("pathname", pathname);
   }
 
   return searchParams.toString() || "";

@@ -281,7 +281,7 @@ Tool.propTypes = {
   description: PropTypes.string,
   tools: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
       name: PropTypes.string,
       topic: PropTypes.string,
       lastActive: PropTypes.string,
@@ -291,7 +291,7 @@ Tool.propTypes = {
   ),
   contributors: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
       updatedAt: PropTypes.string,
       externalId: PropTypes.string,
       type: PropTypes.string,
