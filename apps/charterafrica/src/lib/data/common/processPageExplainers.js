@@ -4,9 +4,10 @@ async function processPageExplainers(page, api, context) {
   const { title, blocks } = page;
   if (explainers?.length) {
     blocks.push({
+      id: page.id,
+      explainers,
       slug: "explainers",
       title,
-      explainers,
     });
   }
 

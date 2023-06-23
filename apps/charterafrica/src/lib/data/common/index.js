@@ -70,12 +70,12 @@ async function processGlobalBlockFocalCountries(block) {
 }
 
 async function processGlobalBlockHelpdesk(block) {
-  const { description, image, link, slug, title } = block || {};
+  const { description, id, image, link, slug, title } = block || {};
   if (!title?.length) {
     return null;
   }
 
-  const helpdesk = { slug, title };
+  const helpdesk = { id, slug, title };
   if (description?.length) {
     helpdesk.description = description;
   }
