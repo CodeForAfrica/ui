@@ -126,8 +126,8 @@ async function processPageConsultation(page, api, context) {
       slug: "documents",
       title: documentsTitle ?? null,
     };
-    // SWR fallback
-    let swrKey = `/api/v1/opportunities/consultation/documents`;
+
+    let swrKey = `/api/v1/resources/documents`;
     const qs = queryString(documentsQuery);
     if (qs) {
       swrKey = `${swrKey}?${qs}`;
@@ -157,7 +157,7 @@ async function processPageConsultation(page, api, context) {
       );
     }
     blocks[playlistIndex] = {
-      slug: "embedded-playlist",
+      ...blocks[playlistIndex],
       config: {
         mostRecentText: "Most Recent",
         relevanceText: "Relevance",
@@ -172,6 +172,7 @@ async function processPageConsultation(page, api, context) {
         ...playlistField,
         items,
       },
+      slug: "embedded-playlist",
       title: title ?? null,
     };
   }

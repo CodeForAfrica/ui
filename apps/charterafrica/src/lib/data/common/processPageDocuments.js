@@ -87,14 +87,14 @@ export default async function processPageDocuments(page, api, context) {
       pathname: pageUrl,
     };
 
-    let swrKey = `/api/v1/resources/datasets`;
+    let swrKey = `/api/v1/resources/documents`;
     const qs = queryString(documentsQuery);
     if (qs) {
       swrKey = `${swrKey}?${qs}`;
     }
     // eslint-disable-next-line no-param-reassign
     page.fallback = {
-      [`${swrKey}`]: documents,
+      [swrKey]: documents,
     };
   }
 
