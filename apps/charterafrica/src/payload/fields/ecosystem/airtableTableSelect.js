@@ -3,39 +3,38 @@ import { Select } from "payload/components/forms";
 import { select } from "payload/dist/fields/validations";
 import { createElement, useMemo } from "react";
 
-import { schema } from "./airtableBaseSelect";
-
 function tablesToOptions(tables) {
   return tables?.map((item) => ({ value: item.id, label: item.name })) || [];
 }
 
-const getOptions = async () => {
+const getOptions = async (schema) => {
   const { tables } = schema;
   return tablesToOptions(tables);
 };
 
-export const validateTableSelect = async (
-  value,
-  { hasMany, required, t, data: { baseId } }
-) => {
-  const options = await getOptions(baseId);
-  return select(value, { hasMany, options, required, t });
-};
+export const validateTableSelect =
+  (schema) =>
+  async (value, { hasMany, required, t }) => {
+    const options = await getOptions(schema);
+    return select(value, { hasMany, options, required, t });
+  };
 
-function AirtableTableSelect(props) {
-  const { tables } = schema;
-  const options = useMemo(() => tablesToOptions(tables), [tables]);
-  return createElement(Select, { ...props, options });
+function AirtableTableSelect(schema) {
+  return function ATSelect(props) {
+    const { tables } = schema;
+    const options = useMemo(() => tablesToOptions(tables), [tables]);
+    return createElement(Select, { ...props, options });
+  };
 }
 
-function airtableTableSelect(overrides) {
+function airtableTableSelect({ schema, ...overrides }) {
   const defaultSelect = {
     type: "text",
-    validate: validateTableSelect,
+    validate: validateTableSelect(schema),
     required: true,
     admin: {
       components: {
-        Field: AirtableTableSelect,
+        Field: AirtableTableSelect(schema),
       },
       description: () => "Select Airtable Base above to see available tables",
     },

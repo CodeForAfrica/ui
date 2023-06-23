@@ -7,8 +7,6 @@ import {
 import { select } from "payload/dist/fields/validations";
 import { createElement, useMemo } from "react";
 
-import { schema as globalSchema } from "./airtableBaseSelect";
-
 function fieldsToOptions(fields) {
   return (
     fields?.map((item) => ({
@@ -19,23 +17,22 @@ function fieldsToOptions(fields) {
   );
 }
 
-export function validateColumnSelect(tableField) {
+export function validateColumnSelect(tableField, schema) {
   return async function validate(value, { hasMany, required, t, data }) {
     const tableId = data.schema[tableField];
-    const { tables } = globalSchema;
+    const { tables } = schema;
     const table = tables?.find(({ id }) => id === tableId);
     const options = fieldsToOptions(table?.fields);
     return select(value, { hasMany, options, required, t });
   };
 }
 
-const ColumnSelect = (tableField) => {
+const ColumnSelect = (tableField, schema) => {
   return function CSelect(props) {
     const [fields] = useAllFormFields();
     const document = getSiblingData(fields, "schema");
-    const { schema } = document;
-    const tableId = schema[tableField];
-    const { tables } = globalSchema;
+    const tableId = document.schema[tableField];
+    const { tables } = schema;
     const table = tables?.find(({ id }) => id === tableId);
     const options = useMemo(
       () => fieldsToOptions(table?.fields),
@@ -46,14 +43,14 @@ const ColumnSelect = (tableField) => {
   };
 };
 
-function airtableColumnSelect({ tableField, overrides = {} }) {
+function airtableColumnSelect({ tableField, schema, overrides = {} }) {
   const defaultSelect = {
     type: "text",
-    validate: validateColumnSelect(tableField),
+    validate: validateColumnSelect(tableField, schema),
     required: true,
     admin: {
       components: {
-        Field: ColumnSelect(tableField),
+        Field: ColumnSelect(tableField, schema),
       },
       description: () =>
         "Select Airtable Base and Table name above to see available columns",
