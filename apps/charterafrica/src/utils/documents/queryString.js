@@ -43,7 +43,6 @@ function queryString(query = {}) {
     searchParams.append("pathname", pathname);
   }
 
-  // pinned docs is array, wrap with string
   if (pinnedDocuments) {
     searchParams.append("pinnedDocuments", pinnedDocuments);
   }
