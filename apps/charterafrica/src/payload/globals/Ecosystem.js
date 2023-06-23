@@ -1,5 +1,7 @@
 import { ECOSYSTEM_GLOBAL } from "../../lib/ecosystem/models";
-import airtableBaseSelect from "../fields/ecosystem/airtableBaseSelect";
+import airtableBaseSelect, {
+  schema,
+} from "../fields/ecosystem/airtableBaseSelect";
 import airtableColumnSelect from "../fields/ecosystem/airtableColumnSelect";
 import airtableTableSelect from "../fields/ecosystem/airtableTableSelect";
 import sourceField from "../fields/ecosystem/sourceField";
@@ -49,6 +51,7 @@ const Ecosystem = {
           },
           fields: [
             airtableTableSelect({
+              schema,
               name: "toolTableId",
               label: {
                 en: "Table Name",
@@ -69,6 +72,7 @@ const Ecosystem = {
               },
               fields: [
                 airtableColumnSelect({
+                  schema,
                   tableField: "toolTableId",
                   overrides: {
                     name: "slug",
@@ -80,6 +84,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "toolTableId",
                   overrides: {
                     name: "name",
@@ -91,6 +96,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "toolTableId",
                   overrides: {
                     name: "avatarUrl",
@@ -110,6 +116,7 @@ const Ecosystem = {
                   },
                   fields: [
                     airtableColumnSelect({
+                      schema,
                       tableField: "toolTableId",
                       overrides: {
                         name: "en",
@@ -121,6 +128,7 @@ const Ecosystem = {
                       },
                     }),
                     airtableColumnSelect({
+                      schema,
                       tableField: "toolTableId",
                       overrides: {
                         name: "fr",
@@ -135,6 +143,7 @@ const Ecosystem = {
                       },
                     }),
                     airtableColumnSelect({
+                      schema,
                       tableField: "toolTableId",
                       overrides: {
                         name: "pt",
@@ -159,6 +168,7 @@ const Ecosystem = {
                   },
                   fields: [
                     airtableColumnSelect({
+                      schema,
                       tableField: "toolTableId",
                       overrides: {
                         name: "pt",
@@ -170,6 +180,7 @@ const Ecosystem = {
                       },
                     }),
                     airtableColumnSelect({
+                      schema,
                       tableField: "toolTableId",
                       overrides: {
                         name: "fr",
@@ -184,6 +195,7 @@ const Ecosystem = {
                       },
                     }),
                     airtableColumnSelect({
+                      schema,
                       tableField: "toolTableId",
                       overrides: {
                         name: "pt",
@@ -200,6 +212,7 @@ const Ecosystem = {
                   ],
                 },
                 airtableColumnSelect({
+                  schema,
                   tableField: "toolTableId",
                   overrides: {
                     name: "homeCountry",
@@ -211,6 +224,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "toolTableId",
                   overrides: {
                     name: "operatingCountries",
@@ -222,6 +236,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "toolTableId",
                   overrides: {
                     name: "url",
@@ -231,6 +246,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "toolTableId",
                   overrides: {
                     name: "socialMedia",
@@ -241,8 +257,9 @@ const Ecosystem = {
                     },
                   },
                 }),
-                sourceField({ tableField: "toolTableId" }),
+                sourceField({ tableField: "toolTableId", schema }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "toolTableId",
                   overrides: {
                     name: "contributors",
@@ -254,6 +271,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "toolTableId",
                   overrides: {
                     name: "organisation",
@@ -265,6 +283,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "toolTableId",
                   overrides: {
                     name: "partners",
@@ -276,6 +295,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "toolTableId",
                   overrides: {
                     name: "supporters",
@@ -302,6 +322,7 @@ const Ecosystem = {
           },
           fields: [
             airtableTableSelect({
+              schema,
               name: "contributorTableId",
               label: {
                 en: "Table Name",
@@ -322,6 +343,7 @@ const Ecosystem = {
               },
               fields: [
                 airtableColumnSelect({
+                  schema,
                   tableField: "contributorTableId",
                   overrides: {
                     name: "slug",
@@ -333,6 +355,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "contributorTableId",
                   overrides: {
                     name: "name",
@@ -344,6 +367,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "contributorTableId",
                   overrides: {
                     name: "avatarUrl",
@@ -360,6 +384,7 @@ const Ecosystem = {
                   },
                   fields: [
                     airtableColumnSelect({
+                      schema,
                       tableField: "contributorTableId",
                       overrides: {
                         name: "en",
@@ -371,6 +396,7 @@ const Ecosystem = {
                       },
                     }),
                     airtableColumnSelect({
+                      schema,
                       tableField: "contributorTableId",
                       overrides: {
                         name: "fr",
@@ -385,6 +411,7 @@ const Ecosystem = {
                       },
                     }),
                     airtableColumnSelect({
+                      schema,
                       tableField: "contributorTableId",
                       overrides: {
                         name: "pt",
@@ -404,6 +431,7 @@ const Ecosystem = {
                   },
                 },
                 airtableColumnSelect({
+                  schema,
                   tableField: "contributorTableId",
                   overrides: {
                     name: "socialMedia",
@@ -414,7 +442,7 @@ const Ecosystem = {
                     },
                   },
                 }),
-                sourceField({ tableField: "contributorTableId" }),
+                sourceField({ tableField: "contributorTableId", schema }),
               ],
             },
           ],
@@ -431,6 +459,7 @@ const Ecosystem = {
           },
           fields: [
             airtableTableSelect({
+              schema,
               name: "organisationTableId",
               label: {
                 en: "Table Name",
@@ -451,6 +480,7 @@ const Ecosystem = {
               },
               fields: [
                 airtableColumnSelect({
+                  schema,
                   tableField: "organisationTableId",
                   overrides: {
                     name: "slug",
@@ -462,6 +492,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "organisationTableId",
                   overrides: {
                     name: "avatarUrl",
@@ -481,6 +512,7 @@ const Ecosystem = {
                   },
                   fields: [
                     airtableColumnSelect({
+                      schema,
                       tableField: "organisationTableId",
                       overrides: {
                         name: "en",
@@ -492,6 +524,7 @@ const Ecosystem = {
                       },
                     }),
                     airtableColumnSelect({
+                      schema,
                       tableField: "organisationTableId",
                       overrides: {
                         name: "fr",
@@ -506,6 +539,7 @@ const Ecosystem = {
                       },
                     }),
                     airtableColumnSelect({
+                      schema,
                       tableField: "organisationTableId",
                       overrides: {
                         name: "pt",
@@ -522,6 +556,7 @@ const Ecosystem = {
                   ],
                 },
                 airtableColumnSelect({
+                  schema,
                   tableField: "organisationTableId",
                   overrides: {
                     name: "type",
@@ -532,6 +567,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "organisationTableId",
                   overrides: {
                     name: "socialMedia",
@@ -543,6 +579,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "organisationTableId",
                   overrides: {
                     name: "partners",
@@ -554,6 +591,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "organisationTableId",
                   overrides: {
                     name: "supporters",
@@ -565,14 +603,16 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "organisationTableId",
                   overrides: {
                     name: "tools",
                     label: { en: "Tools", fr: "Outils", pt: "Ferramentas" },
                   },
                 }),
-                sourceField({ tableField: "organisationTableId" }),
+                sourceField({ tableField: "organisationTableId", schema }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "organisationTableId",
                   overrides: {
                     name: "url",
@@ -595,6 +635,7 @@ const Ecosystem = {
           },
           fields: [
             airtableTableSelect({
+              schema,
               name: "partnersTableId",
               label: {
                 en: "Table Name",
@@ -615,6 +656,7 @@ const Ecosystem = {
               },
               fields: [
                 airtableColumnSelect({
+                  schema,
                   tableField: "partnersTableId",
                   overrides: {
                     name: "name",
@@ -626,6 +668,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "partnersTableId",
                   overrides: {
                     name: "url",
@@ -635,6 +678,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "partnersTableId",
                   overrides: {
                     name: "logo",
@@ -657,6 +701,7 @@ const Ecosystem = {
           },
           fields: [
             airtableTableSelect({
+              schema,
               name: "socialMediaTableId",
               label: {
                 en: "Table Name",
@@ -677,6 +722,7 @@ const Ecosystem = {
               },
               fields: [
                 airtableColumnSelect({
+                  schema,
                   tableField: "socialMediaTableId",
                   overrides: {
                     name: "name",
@@ -688,6 +734,7 @@ const Ecosystem = {
                   },
                 }),
                 airtableColumnSelect({
+                  schema,
                   tableField: "socialMediaTableId",
                   overrides: {
                     name: "url",
