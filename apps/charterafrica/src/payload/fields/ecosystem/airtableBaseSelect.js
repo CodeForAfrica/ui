@@ -6,24 +6,39 @@ import useSWR from "swr";
 
 import fetchJson from "../../../utils/fetchJson";
 
-const url = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases`;
+const baseUrl = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases`;
+
+export function getTablesUrl(baseId) {
+  if (baseId) {
+    return `${baseUrl}/${baseId}/tables`;
+  }
+  return null;
+}
+
+export const schema = {};
 
 function basesToOptions(bases) {
   return bases?.map((item) => ({ value: item.id, label: item.name })) || [];
 }
 
-const getOptions = async () => {
-  const { bases } = await fetchJson.get(url);
+const getBaseOptions = async () => {
+  const { bases } = await fetchJson.get(baseUrl);
   return basesToOptions(bases);
 };
 
 const validateBaseSelect = async (value, { hasMany, required, t }) => {
-  const options = await getOptions();
-  return select(value, { hasMany, options, required, t });
+  const options = await getBaseOptions();
+  const valid = select(value, { hasMany, options, required, t });
+  if (valid) {
+    const link = getTablesUrl(value);
+    const { tables } = await fetchJson.get(link);
+    schema.tables = tables;
+  }
+  return valid;
 };
 
 function AirtableBaseSelect(props) {
-  const { data: { bases } = {} } = useSWR(url, fetchJson.get);
+  const { data: { bases } = {} } = useSWR(baseUrl, fetchJson.get);
   const options = basesToOptions(bases);
 
   return createElement(Select, { ...props, options });
