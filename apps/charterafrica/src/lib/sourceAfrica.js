@@ -76,6 +76,12 @@ export async function fetchDocuments(
     });
     const formattedData = formatDocuments(data, pathname);
 
+    const { page } = options;
+
+    if (page > 1) {
+      return formattedData;
+    }
+
     const fetchedPinnedDocuments = formattedData.documents.filter(
       (document) => {
         return pinnedDocuments.includes(document.title);
