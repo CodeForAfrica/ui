@@ -29,7 +29,10 @@ async function datasets(req, res) {
 async function documents(req, res) {
   const { q, pathname, ...rest } = req.query;
 
-  const data = await fetchDocuments(q, pathname, rest);
+  const data = await fetchDocuments(q, pathname, {
+    ...rest,
+    lang: req.locale,
+  });
   return res.status(200).json(data);
 }
 

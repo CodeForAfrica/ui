@@ -92,7 +92,7 @@ async function processPageConsultationDocument(page, api, context) {
 }
 
 async function processPageConsultation(page, api, context) {
-  const { params } = context;
+  const { params, locale } = context;
   // Check if we are on a document page: /opportunities/consultation/documents/<id>
   if (params.slugs.length > 3 && params.slugs[2] === "documents") {
     return processPageConsultationDocument(page, api, context);
@@ -115,7 +115,10 @@ async function processPageConsultation(page, api, context) {
     const documents = await fetchDocuments(
       `group:${groupId}`,
       documentsPathname,
-      query
+      {
+        ...query,
+        lang: locale,
+      }
     );
     blocks[documentsIndex] = {
       ...blocks[documentsIndex],
