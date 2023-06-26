@@ -67,10 +67,11 @@ export default async function processPageDocuments(page, api, context) {
     } = blocks[documentsIndex];
     const documentsQuery = getDocumentsQuery(page, context, options);
     const { pathname, ...query } = documentsQuery;
-    const documents = await fetchDocuments(`group:${groupId}`, pathname, {
-      ...query,
-      lang: locale,
-    });
+    const documents = await fetchDocuments(
+      `group:${groupId} lang:locale`,
+      pathname,
+      query
+    );
 
     const { labels: commonLabels } = await api.findGlobal("common-labels", {
       locale,

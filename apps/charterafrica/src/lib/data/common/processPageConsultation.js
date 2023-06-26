@@ -113,12 +113,9 @@ async function processPageConsultation(page, api, context) {
     // Show documents in unders /documents of this page
     const documentsPathname = `${pathname}/documents`;
     const documents = await fetchDocuments(
-      `group:${groupId}`,
+      `group:${groupId} lang:${locale}`,
       documentsPathname,
-      {
-        ...query,
-        lang: locale,
-      }
+      query
     );
     blocks[documentsIndex] = {
       ...blocks[documentsIndex],
