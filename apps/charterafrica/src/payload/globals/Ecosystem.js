@@ -1,4 +1,4 @@
-import { ECOSYSTEM_GLOBAL } from "../../lib/ecosystem/models";
+import { ECOSYSTEM_GLOBAL } from "../../lib/ecosystem/payload";
 import airtableBaseSelect, {
   schema,
 } from "../fields/ecosystem/airtableBaseSelect";

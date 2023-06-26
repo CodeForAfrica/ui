@@ -4,7 +4,7 @@ import Airtable from "airtable";
 import {
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,
-} from "@/charterafrica/lib/ecosystem/models";
+} from "@/charterafrica/lib/ecosystem/payload";
 import api from "@/charterafrica/lib/payload";
 import fetchJson, { FetchError } from "@/charterafrica/utils/fetchJson";
 

@@ -5,7 +5,7 @@ import {
 import {
   TOOL_COLLECTION,
   CONTRIBUTORS_COLLECTION,
-} from "../../lib/ecosystem/models";
+} from "../../lib/ecosystem/payload";
 import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";

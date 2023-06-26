@@ -7,7 +7,7 @@ export const CONTRIBUTORS_COLLECTION = "contributors";
 export const TOOL_COLLECTION = "tools";
 export const ECOSYSTEM_GLOBAL = "ecosystem-schema";
 
-const create = async (collection, toCreate, locale) => {
+const createOrUpdate = async (collection, toCreate, locale) => {
   const { docs } = await api.getCollection(collection, {
     locale,
     where: {
@@ -34,11 +34,11 @@ export const createCollection = async (collection, toCreate, { localized }) => {
   try {
     const { en: enToCreate, pt: ptToCreate, fr: frToCreate } = toCreate;
     if (!localized) {
-      return create(collection, enToCreate);
+      return createOrUpdate(collection, enToCreate);
     }
-    const en = await create(collection, enToCreate, "en");
-    const pt = await create(collection, ptToCreate, "pt");
-    const fr = await create(collection, frToCreate, "fr");
+    const en = await createOrUpdate(collection, enToCreate, "en");
+    const pt = await createOrUpdate(collection, ptToCreate, "pt");
+    const fr = await createOrUpdate(collection, frToCreate, "fr");
     return { en, pt, fr };
   } catch (e) {
     Sentry.captureMessage(e.message);
