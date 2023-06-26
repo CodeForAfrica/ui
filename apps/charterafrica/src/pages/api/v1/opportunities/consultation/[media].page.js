@@ -3,9 +3,13 @@ import { fetchResource } from "@/charterafrica/lib/youtube";
 
 const documents = async (req, res) => {
   const { q, media, pathname, pinnedDocuments, ...rest } = req.query;
-
   try {
-    const data = await fetchDocuments(q, pathname, rest, pinnedDocuments);
+    const data = await fetchDocuments(
+      q,
+      pathname,
+      rest,
+      pinnedDocuments.split(",")
+    );
     return res.status(200).json(data);
   } catch (error) {
     return res.status(500).json({ error });
