@@ -47,9 +47,28 @@ async function schema(baseId) {
   return fetchData(url);
 }
 
-async function data(baseId, tableId) {
+async function table(baseId, tableId) {
   const base = airtable.base(baseId);
   return base(tableId).select().all();
 }
 
-export default { bases, schema, data };
+async function data(config) {
+  const {
+    baseId,
+    schema: {
+      toolTableId,
+      organisationTableId,
+      contributorTableId,
+      partnersTableId,
+      socialMediaTableId,
+    },
+  } = config;
+  const tools = await airtable.table(baseId, toolTableId);
+  const contributors = await airtable.table(baseId, contributorTableId);
+  const organisations = await airtable.table(baseId, organisationTableId);
+  const socialMedia = await airtable.table(baseId, socialMediaTableId);
+  const partners = await airtable.table(baseId, partnersTableId);
+  return { tools, organisations, contributors, socialMedia, partners };
+}
+
+export default { bases, schema, table, data };
