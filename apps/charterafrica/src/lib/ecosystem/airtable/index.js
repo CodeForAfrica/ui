@@ -1,5 +1,11 @@
 import Airtable from "airtable";
 
+import {
+  processToolFromAirtable,
+  processContributorFromAirtable,
+  processOrganisationFromAirTable,
+} from "./processData";
+
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const airtable = new Airtable({
@@ -37,13 +43,15 @@ async function fetchData(url) {
   return value;
 }
 
+const BASES_URL = "https://api.airtable.com/v0/meta/bases";
+
 async function bases() {
-  const url = `https://api.airtable.com/v0/meta/bases`;
+  const url = BASES_URL;
   return fetchData(url);
 }
 
 async function schema(baseId) {
-  const url = `https://api.airtable.com/v0/meta/bases/${baseId}/tables`;
+  const url = `${BASES_URL}/${baseId}/tables`;
   return fetchData(url);
 }
 
@@ -63,11 +71,48 @@ async function data(config) {
       socialMediaTableId,
     },
   } = config;
-  const tools = await airtable.table(baseId, toolTableId);
-  const contributors = await airtable.table(baseId, contributorTableId);
-  const organisations = await airtable.table(baseId, organisationTableId);
+  const airtableTools = await airtable.table(baseId, toolTableId);
+  const airtableContributors = await airtable.table(baseId, contributorTableId);
+  const airtableOrganisations = await airtable.table(
+    baseId,
+    organisationTableId
+  );
   const socialMedia = await airtable.table(baseId, socialMediaTableId);
   const partners = await airtable.table(baseId, partnersTableId);
+  const tableData = { socialMedia, partners };
+  const processedTools = airtableTools.map(async () =>
+    processToolFromAirtable(
+      {
+        ...data.fields,
+        id: data.id,
+      },
+      config,
+      tableData
+    )
+  );
+  const tools = await Promise.all(processedTools);
+  const processedContributors = airtableContributors.map(async () =>
+    processContributorFromAirtable(
+      {
+        ...data.fields,
+        id: data.id,
+      },
+      config,
+      tableData
+    )
+  );
+  const contributors = await Promise.all(processedContributors);
+  const processedOrganisations = airtableOrganisations.map(async () =>
+    processOrganisationFromAirTable(
+      {
+        ...data.fields,
+        id: data.id,
+      },
+      config,
+      tableData
+    )
+  );
+  const organisations = await Promise.all(processedOrganisations);
   return { tools, organisations, contributors, socialMedia, partners };
 }
 
