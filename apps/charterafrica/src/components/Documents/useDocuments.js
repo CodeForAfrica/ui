@@ -8,7 +8,7 @@ function useDocuments(q, options, pathname) {
   const qs = queryString({ ...options, q, pathname });
   const separator = qs ? "?" : "";
   const { data, error } = useSWR(
-    `/api/v1/opportunities/consultation/documents${separator}${qs}`,
+    `/api/v1/resources/documents${separator}${qs}`,
     fetcher
   );
 

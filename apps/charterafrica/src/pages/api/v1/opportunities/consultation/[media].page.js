@@ -1,39 +1,28 @@
-import { fetchDocuments } from "@/charterafrica/lib/sourceAfrica";
+import * as Sentry from "@sentry/nextjs";
+
 import { fetchResource } from "@/charterafrica/lib/youtube";
 
-const documents = async (req, res) => {
-  const { q, media, pathname, ...rest } = req.query;
+async function multimedia(req, res) {
+  const { pathname, ...rest } = req.query;
 
-  try {
-    const data = await fetchDocuments(q, pathname, rest);
-    return res.status(200).json(data);
-  } catch (error) {
-    return res.status(500).json({ error });
-  }
-};
+  const data = await fetchResource(pathname, rest);
+  return res.status(200).json(data);
+}
 
-const multimedia = async (req, res) => {
-  try {
-    const { pathname, ...rest } = req.query;
-    const data = await fetchResource(pathname, rest);
-    return res.status(200).json(data);
-  } catch (error) {
-    return res.status(500).json(error);
-  }
-};
-
-const mediaMap = {
-  documents,
+const fetchMediaMap = {
   multimedia,
 };
 
 export default async function handler(req, res) {
-  const {
-    query: { media },
-  } = req;
-  const response = mediaMap[media];
-  if (response) {
-    return response(req, res);
+  const { media } = req.query;
+  const fetchMedia = fetchMediaMap[media];
+  if (fetchMedia) {
+    try {
+      return fetchMedia(req, res);
+    } catch (err) {
+      Sentry.captureException(err);
+      return res.status(500).json(err);
+    }
   }
   return res.status(404).json({ message: "UNKNOWN_MEDIA", media });
 }
