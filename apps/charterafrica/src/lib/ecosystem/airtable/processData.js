@@ -1,27 +1,7 @@
 import * as Sentry from "@sentry/nextjs";
 
-import {
-  CONTRIBUTORS_COLLECTION,
-  TOOL_COLLECTION,
-} from "@/charterafrica/lib/ecosystem/payload";
-import api from "@/charterafrica/lib/payload";
-
 function getter(data, key) {
   return key ? data?.[key] : null;
-}
-
-async function getToolsPerAirtableId(ids) {
-  if (!ids || !ids?.length) {
-    return [];
-  }
-  const { docs } = await api.getCollection(TOOL_COLLECTION, {
-    where: {
-      airtableId: {
-        in: ids?.join(","),
-      },
-    },
-  });
-  return docs.map(({ id }) => id);
 }
 
 async function mapSupportersToFields(supporters, config, tableData) {
@@ -82,13 +62,7 @@ export async function processToolFromAirtable(data, config, tableData) {
       pt: getter(data, toolTableColumns.description.pt),
       fr: getter(data, toolTableColumns.description.fr),
     };
-    const { docs: contrib } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
-      where: {
-        airtableId: {
-          in: getter(data, toolTableColumns.contributors)?.join(","),
-        },
-      },
-    });
+
     const operatingCountries = getter(
       data,
       toolTableColumns.operatingCountries
@@ -117,7 +91,7 @@ export async function processToolFromAirtable(data, config, tableData) {
       name: getter(data, toolTableColumns.name),
       link: getter(data, toolTableColumns.url),
       operatingCountries,
-      contributors: contrib.map(({ id }) => id),
+      contributors: getter(data, toolTableColumns.contributors),
       supporters,
       partners,
       homeCountry,
@@ -221,9 +195,8 @@ export const processOrganisationFromAirTable = async (
       config,
       tableData
     );
-    const tools = await getToolsPerAirtableId(
-      getter(data, organisationTableColumns.tools)
-    );
+    const tools = getter(data, organisationTableColumns.tools);
+
     const commonData = {
       airtableId: data.id,
       avatarUrl: getter(data, organisationTableColumns.avatarUrl)?.[0]?.url,

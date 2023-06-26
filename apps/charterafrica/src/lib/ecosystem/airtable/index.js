@@ -71,42 +71,39 @@ async function data(config) {
       socialMediaTableId,
     },
   } = config;
-  const airtableTools = await airtable.table(baseId, toolTableId);
-  const airtableContributors = await airtable.table(baseId, contributorTableId);
-  const airtableOrganisations = await airtable.table(
-    baseId,
-    organisationTableId
-  );
-  const socialMedia = await airtable.table(baseId, socialMediaTableId);
-  const partners = await airtable.table(baseId, partnersTableId);
+  const airtableTools = await table(baseId, toolTableId);
+  const airtableContributors = await table(baseId, contributorTableId);
+  const airtableOrganisations = await table(baseId, organisationTableId);
+  const socialMedia = await table(baseId, socialMediaTableId);
+  const partners = await table(baseId, partnersTableId);
   const tableData = { socialMedia, partners };
-  const processedTools = airtableTools.map(async () =>
+  const processedTools = airtableTools.map(async (item) =>
     processToolFromAirtable(
       {
-        ...data.fields,
-        id: data.id,
+        ...item.fields,
+        id: item.id,
       },
       config,
       tableData
     )
   );
   const tools = await Promise.all(processedTools);
-  const processedContributors = airtableContributors.map(async () =>
+  const processedContributors = airtableContributors.map(async (item) =>
     processContributorFromAirtable(
       {
-        ...data.fields,
-        id: data.id,
+        ...item.fields,
+        id: item.id,
       },
       config,
       tableData
     )
   );
   const contributors = await Promise.all(processedContributors);
-  const processedOrganisations = airtableOrganisations.map(async () =>
+  const processedOrganisations = airtableOrganisations.map(async (item) =>
     processOrganisationFromAirTable(
       {
-        ...data.fields,
-        id: data.id,
+        ...item.fields,
+        id: item.id,
       },
       config,
       tableData

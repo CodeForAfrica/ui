@@ -32,14 +32,17 @@ const createOrUpdate = async (collection, toCreate, locale) => {
 
 export const createCollection = async (collection, toCreate, { localized }) => {
   try {
-    const { en: enToCreate, pt: ptToCreate, fr: frToCreate } = toCreate;
-    if (!localized) {
-      return createOrUpdate(collection, enToCreate);
+    if (toCreate) {
+      const { en: enToCreate, pt: ptToCreate, fr: frToCreate } = toCreate;
+      if (!localized) {
+        return createOrUpdate(collection, enToCreate);
+      }
+      const en = await createOrUpdate(collection, enToCreate, "en");
+      const pt = await createOrUpdate(collection, ptToCreate, "pt");
+      const fr = await createOrUpdate(collection, frToCreate, "fr");
+      return { en, pt, fr };
     }
-    const en = await createOrUpdate(collection, enToCreate, "en");
-    const pt = await createOrUpdate(collection, ptToCreate, "pt");
-    const fr = await createOrUpdate(collection, frToCreate, "fr");
-    return { en, pt, fr };
+    return {};
   } catch (e) {
     Sentry.captureMessage(e.message);
     return {};

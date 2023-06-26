@@ -1,7 +1,7 @@
 import airtable from "@/charterafrica/lib/ecosystem/airtable";
 import {
-  updateEcosystemList,
-  updateEcosystemContent,
+  updateList,
+  updateContent,
 } from "@/charterafrica/lib/ecosystem/ecosystem";
 
 const isApiKeyValid = (key) => {
@@ -20,14 +20,24 @@ async function bases() {
   return airtable.bases();
 }
 
+async function entities(req, res) {
+  if (req.method === "POST") {
+    return updateList();
+  }
+  if (req.method === "PUT") {
+    return updateContent();
+  }
+  return res.status(405).json({ message: "METHOD_NOT_ALLOWED" });
+}
+
 const actionMap = {
-  "update-list": updateEcosystemList,
-  "update-content": updateEcosystemContent,
   schema,
   bases,
+  entities,
 };
 
 const apiKeyExcludedActions = ["schema", "bases"];
+
 export default async function handler(req, res) {
   const {
     query: { action },
