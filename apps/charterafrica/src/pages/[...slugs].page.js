@@ -13,6 +13,7 @@ import Entity from "@/charterafrica/components/Entity";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
+import FlourishCharts from "@/charterafrica/components/FlourishCharts";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Grantees from "@/charterafrica/components/Grantees";
 import GuidingPrinciples from "@/charterafrica/components/GuidingPrinciples";
@@ -51,6 +52,7 @@ const componentsBySlugs = {
   faq: FAQ,
   "featured-post": FeaturedPostCard,
   "fellowships-and-grants-header": OpportunityHeader,
+  "flourish-chars": FlourishCharts,
   "focal-countries": FocalCountries,
   "guiding-principles": GuidingPrinciples,
   helpdesk: Helpdesk,
