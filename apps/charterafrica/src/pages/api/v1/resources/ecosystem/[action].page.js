@@ -1,4 +1,4 @@
-import { schema } from "@/charterafrica/lib/ecosystem/airtable";
+import { schema } from "@/charterafrica/lib/ecosystem/airtable.old";
 import {
   updateEcosystemList,
   updateEcosystemContent,
