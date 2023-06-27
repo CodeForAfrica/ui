@@ -74,9 +74,9 @@ async function data(config) {
   const toolsData = await table(baseId, toolTableId);
   const contributorsData = await table(baseId, contributorTableId);
   const organisationsData = await table(baseId, organisationTableId);
-  const socialMedia = await table(baseId, socialMediaTableId);
-  const partners = await table(baseId, partnersTableId);
-  const tableData = { socialMedia, partners };
+  const socialMediaData = await table(baseId, socialMediaTableId);
+  const partnersData = await table(baseId, partnersTableId);
+  const tableData = { socialMediaData, partnersData };
   const tools = toolsData.map((item) => processTool(item, config, tableData));
   const contributors = contributorsData.map((item) =>
     processContributor(item, config, tableData)
@@ -84,7 +84,13 @@ async function data(config) {
   const organisations = organisationsData.map((item) =>
     processOrganisation(item, config, tableData)
   );
-  return { tools, organisations, contributors, socialMedia, partners };
+  return {
+    tools,
+    organisations,
+    contributors,
+    socialMedia: socialMediaData,
+    partners: partnersData,
+  };
 }
 
 export default { bases, schema, table, data };

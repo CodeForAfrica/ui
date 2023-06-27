@@ -4,6 +4,13 @@ function getValue(data, key, defaultValue = null) {
   return data?.[key] ?? defaultValue;
 }
 
+function getRepoLink(source = "github", slug = "") {
+  if (source === "github") {
+    return `https://github.com/${slug}`;
+  }
+  return "";
+}
+
 function mapSupporterIdsToObjects(supporterIds, config, { partnersData }) {
   const {
     schema: { partnerTableColumns },
@@ -46,11 +53,7 @@ function mapSocialMediaIdsToFields(socialMedia, config, tableData) {
   return mapped.filter(Boolean);
 }
 
-export function processTool(
-  item,
-  config,
-  { partners: partnersData, socialMedia: socialMediaData }
-) {
+export function processTool(item, config, { partnersData, socialMediaData }) {
   try {
     const {
       schema: { toolTableColumns },
@@ -112,7 +115,7 @@ export function processTool(
 export function processContributor(
   item,
   config,
-  { partners: partnersData, socialMedia: socialMediaData }
+  { partnersData, socialMediaData }
 ) {
   try {
     const {
@@ -130,14 +133,15 @@ export function processContributor(
       acc[curr] = getValue(data, contributorTableColumns.description[curr]);
       return acc;
     }, {});
+    const repoLink = getRepoLink(
+      getValue(data, contributorTableColumns.source.type) || "github",
+      getValue(data, contributorTableColumns.slug)
+    );
     return {
       airtableId: data.id,
       avatarUrl: getValue(data, contributorTableColumns.avatarUrl)?.[0]?.url,
       externalId: getValue(data, contributorTableColumns.slug),
-      repoLink: `https://github.com/${getValue(
-        data,
-        contributorTableColumns.slug
-      )}`,
+      repoLink,
       socialMedia,
       description,
     };
@@ -150,7 +154,7 @@ export function processContributor(
 export function processOrganisation(
   item,
   config,
-  { partners: partnersData, socialMedia: socialMediaData }
+  { partnersData, socialMediaData }
 ) {
   try {
     const {
