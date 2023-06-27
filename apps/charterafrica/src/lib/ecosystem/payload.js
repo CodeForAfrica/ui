@@ -67,3 +67,17 @@ export async function bulkMarkDeleted(collection, fromSource) {
     Sentry.captureMessage(e.message);
   }
 }
+
+export async function getCollectionPerAirtableId(collection, ids) {
+  if (!ids || !ids?.length) {
+    return [];
+  }
+  const { docs } = await api.getCollection(collection, {
+    where: {
+      airtableId: {
+        in: ids?.join(","),
+      },
+    },
+  });
+  return docs.map(({ id }) => id);
+}
