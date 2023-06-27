@@ -171,7 +171,7 @@ const Ecosystem = {
                       schema,
                       tableField: "toolTableId",
                       overrides: {
-                        name: "pt",
+                        name: "en",
                         label: {
                           en: "Theme (English)",
                           fr: "Thème (anglais)",

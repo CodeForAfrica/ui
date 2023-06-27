@@ -4,36 +4,44 @@ import { localizeData } from "@/charterafrica/lib/ecosystem/utils";
 import api from "@/charterafrica/lib/payload";
 
 export async function updateOrCreate(collection, toCreate, locale) {
-  const { docs } = await api.getCollection(collection, {
-    locale,
-    where: {
-      airtableId: { equals: toCreate.airtableId },
-    },
-  });
-  if (docs.length) {
-    const data = await api.updateCollection(
-      collection,
-      docs[0]?.id,
-      {
-        ...toCreate,
-        updatedAt: new Date(),
+  try {
+    const { docs } = await api.getCollection(collection, {
+      locale,
+      where: {
+        airtableId: { equals: toCreate.airtableId },
       },
-      { locale }
-    );
+    });
+    if (docs.length) {
+      const data = await api.updateCollection(
+        collection,
+        docs[0]?.id,
+        {
+          ...toCreate,
+          updatedAt: new Date(),
+        },
+        { locale }
+      );
+      return data;
+    }
+    const data = await api.createCollection(collection, toCreate, { locale });
     return data;
+  } catch (e) {
+    Sentry.captureMessage(e.message);
+    return {};
   }
-  const data = await api.createCollection(collection, toCreate, { locale });
-  return data;
 }
 
 export async function createCollection(collection, toCreate, { localized }) {
   try {
-    const localizedData = localizeData(toCreate);
+    const localizedData = localizeData(toCreate || {});
+    if (!localizedData) {
+      return {};
+    }
     if (!localized) {
-      return updateOrCreate(collection, localizedData.en);
+      return updateOrCreate(collection, localizedData?.en);
     }
     const promises = Object.keys(localizeData).map((key) =>
-      updateOrCreate(collection, localizedData[key], key)
+      updateOrCreate(collection, localizedData?.[key], key)
     );
     return Promise.all(promises);
   } catch (e) {

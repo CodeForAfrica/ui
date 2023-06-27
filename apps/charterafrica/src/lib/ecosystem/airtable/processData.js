@@ -1,6 +1,6 @@
 import * as Sentry from "@sentry/nextjs";
 
-function getValue(data, key, defaultValue = null) {
+function getValue(data, key = null, defaultValue = null) {
   return data?.[key] ?? defaultValue;
 }
 
@@ -32,7 +32,7 @@ function mapSocialMediaIdsToObjects(socialMedia, config, tableData) {
     schema: { socialMediaTableColumns },
   } = config;
   const { name, url } = socialMediaTableColumns;
-  const { socialMedia: socialMediaData } = tableData;
+  const { socialMediaData = [] } = tableData;
   const mapped = socialMedia.map((id) => {
     const { fields } = socialMediaData.find((item) => item.id === id);
     return {
@@ -50,15 +50,15 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
   } = config;
   const data = { ...item.fields, id: item.id };
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
-  const theme = locales.reduce((curr, acc) => {
-    acc[curr] = getValue(data, toolTableColumns.theme[curr])?.[0] ?? null;
-    return acc;
-  }, {});
-  const description = locales.reduce((curr, acc) => {
-    acc[curr] = getValue(data, toolTableColumns.description[curr]);
-    return acc;
-  }, {});
 
+  const theme = locales.reduce((acc, curr) => {
+    acc[curr] = getValue(data, toolTableColumns.theme?.[curr])?.[0] ?? null;
+    return acc;
+  }, {});
+  const description = locales.reduce((acc, curr) => {
+    acc[curr] = getValue(data, toolTableColumns.description?.[curr]);
+    return acc;
+  }, {});
   const operatingCountries = getValue(
     data,
     toolTableColumns.operatingCountries
@@ -113,7 +113,7 @@ export function processContributor(
     config,
     { partnersData, socialMediaData }
   );
-  const description = locales.reduce((curr, acc) => {
+  const description = locales.reduce((acc, curr) => {
     acc[curr] = getValue(data, contributorTableColumns.description[curr]);
     return acc;
   }, {});
@@ -149,13 +149,13 @@ export function processOrganisation(
     return null;
   }
   const tools = getValue(data, organisationTableColumns.tools);
-  if (!tools.length) {
+  if (!tools?.length) {
     const message = `Organisation ${data.id} is not assigned to any tool and has been skipped`;
     Sentry.captureMessage(message);
     return null;
   }
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
-  const description = locales.reduce((curr, acc) => {
+  const description = locales.reduce((acc, curr) => {
     acc[curr] = getValue(data, organisationTableColumns.description[curr]);
     return acc;
   }, {});

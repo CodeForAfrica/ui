@@ -6,11 +6,11 @@ import useSWR from "swr";
 
 import fetchJson from "../../../utils/fetchJson";
 
-const baseUrl = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/schema?source=airtable&url=/meta/bases`;
+const baseUrl = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/bases`;
 
 export function getTablesUrl(baseId) {
   if (baseId) {
-    return `${baseUrl}/${baseId}/tables`;
+    return `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/schema?baseId=${baseId}`;
   }
   return null;
 }
