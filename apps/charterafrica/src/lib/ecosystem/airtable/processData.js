@@ -81,7 +81,7 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
   );
   return {
     airtableId: data.id,
-    avatarUrl: getValue(data, toolTableColumns.avatarUrl)?.[0]?.url,
+    avatarUrl: getValue(data, toolTableColumns.avatarUrl)?.[0]?.url ?? null,
     externalId: getValue(data, toolTableColumns.slug) || " ",
     repoLink: getValue(data, toolTableColumns.source.url),
     name: getValue(data, toolTableColumns.name),
@@ -123,7 +123,8 @@ export function processContributor(
   );
   return {
     airtableId: data.id,
-    avatarUrl: getValue(data, contributorTableColumns.avatarUrl)?.[0]?.url,
+    avatarUrl:
+      getValue(data, contributorTableColumns.avatarUrl)?.[0]?.url ?? null,
     externalId: getValue(data, contributorTableColumns.slug),
     repoLink,
     socialMedia,
@@ -176,7 +177,8 @@ export function processOrganisation(
 
   const commonData = {
     airtableId: data.id,
-    avatarUrl: getValue(data, organisationTableColumns.avatarUrl)?.[0]?.url,
+    avatarUrl:
+      getValue(data, organisationTableColumns.avatarUrl)?.[0]?.url ?? null,
     externalId,
     type: getValue(data, organisationTableColumns.type),
     repoLink: getValue(data, organisationTableColumns.source.url),
