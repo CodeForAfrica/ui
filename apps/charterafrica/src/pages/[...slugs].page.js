@@ -52,7 +52,7 @@ const componentsBySlugs = {
   faq: FAQ,
   "featured-post": FeaturedPostCard,
   "fellowships-and-grants-header": OpportunityHeader,
-  "flourish-chars": FlourishCharts,
+  "flourish-charts": FlourishCharts,
   "focal-countries": FocalCountries,
   "guiding-principles": GuidingPrinciples,
   helpdesk: Helpdesk,

@@ -20,7 +20,7 @@ const FlourishCharts = {
         fr: "Code d'intégration",
         pt: "Código de incorporação",
       },
-      type: "text",
+      type: "textarea",
       required: true,
     },
   ],
