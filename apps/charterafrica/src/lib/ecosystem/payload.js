@@ -1,8 +1,7 @@
 import * as Sentry from "@sentry/nextjs";
 
-import api from "../payload";
-
 import { localizeData } from "@/charterafrica/lib/ecosystem/utils";
+import api from "@/charterafrica/lib/payload";
 
 export async function updateOrCreate(collection, toCreate, locale) {
   const { docs } = await api.getCollection(collection, {

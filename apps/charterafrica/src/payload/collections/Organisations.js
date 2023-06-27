@@ -1,12 +1,9 @@
-import {
-  ORGANIZATION_COLLECTION,
-  TOOL_COLLECTION,
-} from "../../lib/payload/constants";
 import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
+import { ORGANIZATION_COLLECTION, TOOL_COLLECTION } from "../utils/constants";
 
 const Organisations = {
   slug: ORGANIZATION_COLLECTION,

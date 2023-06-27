@@ -14,7 +14,7 @@ import {
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,
   ECOSYSTEM_GLOBAL,
-} from "@/charterafrica/lib/payload/constants";
+} from "@/charterafrica/payload/utils/constants";
 
 const bulkMarkDeleted = async (collection, fromSource) => {
   const dataIds = fromSource.map(({ id }) => id).join(",");

@@ -5,7 +5,7 @@ import api from "@/charterafrica/lib/payload";
 import {
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,
-} from "@/charterafrica/lib/payload/constants";
+} from "@/charterafrica/payload/utils/constants";
 import fetchJson, { FetchError } from "@/charterafrica/utils/fetchJson";
 
 const airtable = new Airtable({
