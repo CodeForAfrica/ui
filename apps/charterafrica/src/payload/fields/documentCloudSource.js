@@ -1,5 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
+import documentSelect from "./documents/documentSelect";
+
 function documentCloudSource({ overrides } = {}) {
   const generatedDocumentCloudSource = {
     name: "documents",
@@ -97,30 +99,17 @@ function documentCloudSource({ overrides } = {}) {
         defaultValue: false,
         required: true,
       },
-      {
+      documentSelect({
         name: "pinnedDocuments",
-        type: "array",
         label: {
           en: "Pinned Documents",
           fr: "Documents épinglés",
           pt: "Documentos fixados",
         },
-        fields: [
-          {
-            name: "title",
-            type: "text",
-            label: {
-              en: "Title",
-              fr: "Titre",
-              pt: "Título",
-            },
-            required: true,
-          },
-        ],
         admin: {
           condition: (_, siblingData) => siblingData?.showPinnedDocuments,
         },
-      },
+      }),
     ],
   };
 
