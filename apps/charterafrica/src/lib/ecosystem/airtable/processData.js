@@ -27,7 +27,7 @@ function mapSupporterIdsToObjects(supporterIds, config, { partnersData }) {
   return mapped.filter(Boolean);
 }
 
-function mapSocialMediaIdsToFields(socialMedia, config, tableData) {
+function mapSocialMediaIdsToObjects(socialMedia, config, tableData) {
   const {
     schema: { socialMediaTableColumns },
   } = config;
@@ -74,7 +74,7 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
     config,
     { partnersData, socialMediaData }
   );
-  const socialMedia = mapSocialMediaIdsToFields(
+  const socialMedia = mapSocialMediaIdsToObjects(
     getValue(data, toolTableColumns.socialMedia) || [],
     config,
     { partnersData, socialMediaData }
@@ -108,7 +108,7 @@ export function processContributor(
   } = config;
   const data = { ...item.fields, id: item.id };
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
-  const socialMedia = mapSocialMediaIdsToFields(
+  const socialMedia = mapSocialMediaIdsToObjects(
     getValue(data, contributorTableColumns.socialMedia) || [],
     config,
     { partnersData, socialMediaData }
@@ -138,13 +138,26 @@ export function processOrganisation(
 ) {
   const {
     schema: { organisationTableColumns },
+    localized,
   } = config;
   const data = { ...item.fields, id: item.id };
-  const description = {
-    en: getValue(data, organisationTableColumns.description.en),
-    pt: getValue(data, organisationTableColumns.description.pt),
-    fr: getValue(data, organisationTableColumns.description.fr),
-  };
+  const externalId = getValue(data, organisationTableColumns.slug);
+  if (!externalId) {
+    const message = `Missing external ID for ${data.id}`;
+    Sentry.captureMessage(message);
+    return null;
+  }
+  const tools = getValue(data, organisationTableColumns.tools);
+  if (!tools.length) {
+    const message = `Organisation ${data.id} is not assigned to any tool and has been skipped`;
+    Sentry.captureMessage(message);
+    return null;
+  }
+  const locales = localized ? ["en", "fr", "pt"] : ["en"];
+  const description = locales.reduce((curr, acc) => {
+    acc[curr] = getValue(data, organisationTableColumns.description[curr]);
+    return acc;
+  }, {});
   const partners = mapSupporterIdsToObjects(
     getValue(data, organisationTableColumns.partners) || [],
     config,
@@ -155,17 +168,16 @@ export function processOrganisation(
     config,
     { partnersData }
   );
-  const socialMedia = mapSocialMediaIdsToFields(
+  const socialMedia = mapSocialMediaIdsToObjects(
     getValue(data, organisationTableColumns.socialMedia) || [],
     config,
     { socialMediaData }
   );
-  const tools = getValue(data, organisationTableColumns.tools);
 
   const commonData = {
     airtableId: data.id,
     avatarUrl: getValue(data, organisationTableColumns.avatarUrl)?.[0]?.url,
-    externalId: getValue(data, organisationTableColumns.slug),
+    externalId,
     type: getValue(data, organisationTableColumns.type),
     repoLink: getValue(data, organisationTableColumns.source.url),
     supporters,
@@ -174,15 +186,5 @@ export function processOrganisation(
     tools,
     description,
   };
-  if (!commonData.externalId) {
-    const message = `Missing external ID for ${data.id}`;
-    Sentry.captureMessage(message);
-    return null;
-  }
-  if (!tools.length) {
-    const message = `Organisation ${data.id} is not assigned to any tool and has been skipped`;
-    Sentry.captureMessage(message);
-    return null;
-  }
   return commonData;
 }
