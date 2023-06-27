@@ -16,6 +16,8 @@ const FlourishCharts = React.forwardRef(function FlourishCharts(props, ref) {
         sx={{
           px: { xs: 5, sm: 0 },
           py: { xs: 5, md: 7.5 },
+          width: "100%",
+          height: "500px",
         }}
       >
         <div dangerouslySetInnerHTML={{ __html: code }} />
