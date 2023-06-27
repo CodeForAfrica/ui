@@ -77,13 +77,15 @@ async function data(config) {
   const socialMediaData = await table(baseId, socialMediaTableId);
   const partnersData = await table(baseId, partnersTableId);
   const tableData = { socialMediaData, partnersData };
-  const tools = toolsData.map((item) => processTool(item, config, tableData));
-  const contributors = contributorsData.map((item) =>
-    processContributor(item, config, tableData)
-  );
-  const organisations = organisationsData.map((item) =>
-    processOrganisation(item, config, tableData)
-  );
+  const tools = toolsData
+    .map((item) => processTool(item, config, tableData))
+    .filter(Boolean);
+  const contributors = contributorsData
+    .map((item) => processContributor(item, config, tableData))
+    .filter(Boolean);
+  const organisations = organisationsData
+    .map((item) => processOrganisation(item, config, tableData))
+    .filter(Boolean);
   return {
     tools,
     organisations,
