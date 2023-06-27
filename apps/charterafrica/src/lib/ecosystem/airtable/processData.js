@@ -1,22 +1,21 @@
 import * as Sentry from "@sentry/nextjs";
 
-function getter(data, key) {
-  return key ? data?.[key] : null;
+function getValue(data, key, defaultValue = null) {
+  return data?.[key] ?? defaultValue;
 }
 
-function mapSupportersToFields(supporters, config, tableData) {
+function mapSupporterIdsToObjects(supporterIds, config, { partnersData }) {
   const {
     schema: { partnerTableColumns },
   } = config;
   const { name, url, logo } = partnerTableColumns;
-  const { partners } = tableData;
-  const mapped = supporters.map((id) => {
+  const mapped = supporterIds.map((id) => {
     try {
-      const { fields } = partners.find((item) => id === item.id);
+      const { fields } = partnersData.find((item) => id === item.id);
       return {
-        name: getter(fields, name),
-        website: getter(fields, url),
-        logo: getter(fields, logo),
+        name: getValue(fields, name),
+        website: getValue(fields, url),
+        logo: getValue(fields, logo),
       };
     } catch (error) {
       Sentry.captureMessage(error.message);
@@ -26,7 +25,7 @@ function mapSupportersToFields(supporters, config, tableData) {
   return mapped.filter(Boolean);
 }
 
-function mapSocialMediaToFields(socialMedia, config, tableData) {
+function mapSocialMediaIdsToFields(socialMedia, config, tableData) {
   const {
     schema: { socialMediaTableColumns },
   } = config;
@@ -36,8 +35,8 @@ function mapSocialMediaToFields(socialMedia, config, tableData) {
     try {
       const { fields } = socialMediaData.find((item) => item.id === id);
       return {
-        name: getter(fields, name),
-        website: getter(fields, url),
+        name: getValue(fields, name),
+        website: getValue(fields, url),
       };
     } catch (error) {
       Sentry.captureMessage(error.message);
@@ -47,51 +46,56 @@ function mapSocialMediaToFields(socialMedia, config, tableData) {
   return mapped.filter(Boolean);
 }
 
-export function processTool(data, config, tableData) {
+export function processTool(
+  item,
+  config,
+  { partners: partnersData, socialMedia: socialMediaData }
+) {
   try {
     const {
       schema: { toolTableColumns },
+      localized,
     } = config;
-    const theme = {
-      en: getter(data, toolTableColumns.theme.en)?.[0],
-      pt: getter(data, toolTableColumns.theme.pt)?.[0],
-      fr: getter(data, toolTableColumns.theme.fr)?.[0],
-    };
-    const description = {
-      en: getter(data, toolTableColumns.description.en),
-      pt: getter(data, toolTableColumns.description.pt),
-      fr: getter(data, toolTableColumns.description.fr),
-    };
+    const data = { ...item.fields, id: item.id };
+    const locales = localized ? ["en", "fr", "pt"] : ["en"];
+    const theme = locales.reduce((curr, acc) => {
+      acc[curr] = getValue(data, toolTableColumns.theme[curr])?.[0];
+      return acc;
+    }, {});
+    const description = locales.reduce((curr, acc) => {
+      acc[curr] = getValue(data, toolTableColumns.description[curr]);
+      return acc;
+    }, {});
 
-    const operatingCountries = getter(
+    const operatingCountries = getValue(
       data,
       toolTableColumns.operatingCountries
     );
-    const homeCountry = getter(data, toolTableColumns.homeCountry);
-    const partners = mapSupportersToFields(
-      getter(data, toolTableColumns.partners) || [],
+    const homeCountry = getValue(data, toolTableColumns.homeCountry);
+    const partners = mapSupporterIdsToObjects(
+      getValue(data, toolTableColumns.partners) || [],
       config,
-      tableData
+      { partnersData, socialMediaData }
     );
-    const supporters = mapSupportersToFields(
-      getter(data, toolTableColumns.supporters) || [],
+    const supporters = mapSupporterIdsToObjects(
+      getValue(data, toolTableColumns.supporters) || [],
       config,
-      tableData
+      { partnersData, socialMediaData }
     );
-    const socialMedia = mapSocialMediaToFields(
-      getter(data, toolTableColumns.socialMedia) || [],
+    const socialMedia = mapSocialMediaIdsToFields(
+      getValue(data, toolTableColumns.socialMedia) || [],
       config,
-      tableData
+      { partnersData, socialMediaData }
     );
     return {
       airtableId: data.id,
-      avatarUrl: getter(data, toolTableColumns.avatarUrl)?.[0]?.url,
-      externalId: getter(data, toolTableColumns.slug) || " ",
-      repoLink: getter(data, toolTableColumns.source.url),
-      name: getter(data, toolTableColumns.name),
-      link: getter(data, toolTableColumns.url),
+      avatarUrl: getValue(data, toolTableColumns.avatarUrl)?.[0]?.url,
+      externalId: getValue(data, toolTableColumns.slug) || " ",
+      repoLink: getValue(data, toolTableColumns.source.url),
+      name: getValue(data, toolTableColumns.name),
+      link: getValue(data, toolTableColumns.url),
       operatingCountries,
-      contributors: getter(data, toolTableColumns.contributors),
+      contributors: getValue(data, toolTableColumns.contributors),
       supporters,
       partners,
       homeCountry,
@@ -105,26 +109,32 @@ export function processTool(data, config, tableData) {
   }
 }
 
-export function processContributor(data, config, tableData) {
+export function processContributor(
+  item,
+  config,
+  { partners: partnersData, socialMedia: socialMediaData }
+) {
   try {
     const {
       schema: { contributorTableColumns },
+      localized,
     } = config;
-    const socialMedia = mapSocialMediaToFields(
-      getter(data, contributorTableColumns.socialMedia) || [],
+    const data = { ...item.fields, id: item.id };
+    const locales = localized ? ["en", "fr", "pt"] : ["en"];
+    const socialMedia = mapSocialMediaIdsToFields(
+      getValue(data, contributorTableColumns.socialMedia) || [],
       config,
-      tableData
+      { partnersData, socialMediaData }
     );
-    const description = {
-      en: getter(data, contributorTableColumns.description.en),
-      pt: getter(data, contributorTableColumns.description.pt),
-      fr: getter(data, contributorTableColumns.description.fr),
-    };
+    const description = locales.reduce((curr, acc) => {
+      acc[curr] = getValue(data, contributorTableColumns.description[curr]);
+      return acc;
+    }, {});
     return {
       airtableId: data.id,
-      avatarUrl: getter(data, contributorTableColumns.avatarUrl)?.[0]?.url,
-      externalId: getter(data, contributorTableColumns.slug),
-      repoLink: `https://github.com/${getter(
+      avatarUrl: getValue(data, contributorTableColumns.avatarUrl)?.[0]?.url,
+      externalId: getValue(data, contributorTableColumns.slug),
+      repoLink: `https://github.com/${getValue(
         data,
         contributorTableColumns.slug
       )}`,
@@ -137,39 +147,44 @@ export function processContributor(data, config, tableData) {
   }
 }
 
-export function processOrganisation(data, config, tableData) {
+export function processOrganisation(
+  item,
+  config,
+  { partners: partnersData, socialMedia: socialMediaData }
+) {
   try {
     const {
       schema: { organisationTableColumns },
     } = config;
+    const data = { ...item.fields, id: item.id };
     const description = {
-      en: getter(data, organisationTableColumns.description.en),
-      pt: getter(data, organisationTableColumns.description.pt),
-      fr: getter(data, organisationTableColumns.description.fr),
+      en: getValue(data, organisationTableColumns.description.en),
+      pt: getValue(data, organisationTableColumns.description.pt),
+      fr: getValue(data, organisationTableColumns.description.fr),
     };
-    const partners = mapSupportersToFields(
-      getter(data, organisationTableColumns.partners) || [],
+    const partners = mapSupporterIdsToObjects(
+      getValue(data, organisationTableColumns.partners) || [],
       config,
-      tableData
+      { partnersData }
     );
-    const supporters = mapSupportersToFields(
-      getter(data, organisationTableColumns.supporters) || [],
+    const supporters = mapSupporterIdsToObjects(
+      getValue(data, organisationTableColumns.supporters) || [],
       config,
-      tableData
+      { partnersData }
     );
-    const socialMedia = mapSocialMediaToFields(
-      getter(data, organisationTableColumns.socialMedia) || [],
+    const socialMedia = mapSocialMediaIdsToFields(
+      getValue(data, organisationTableColumns.socialMedia) || [],
       config,
-      tableData
+      { socialMediaData }
     );
-    const tools = getter(data, organisationTableColumns.tools);
+    const tools = getValue(data, organisationTableColumns.tools);
 
     const commonData = {
       airtableId: data.id,
-      avatarUrl: getter(data, organisationTableColumns.avatarUrl)?.[0]?.url,
-      externalId: getter(data, organisationTableColumns.slug),
-      type: getter(data, organisationTableColumns.type),
-      repoLink: getter(data, organisationTableColumns.source.url),
+      avatarUrl: getValue(data, organisationTableColumns.avatarUrl)?.[0]?.url,
+      externalId: getValue(data, organisationTableColumns.slug),
+      type: getValue(data, organisationTableColumns.type),
+      repoLink: getValue(data, organisationTableColumns.source.url),
       supporters,
       partners,
       socialMedia,

@@ -71,41 +71,18 @@ async function data(config) {
       socialMediaTableId,
     },
   } = config;
-  const airtableTools = await table(baseId, toolTableId);
-  const airtableContributors = await table(baseId, contributorTableId);
-  const airtableOrganisations = await table(baseId, organisationTableId);
+  const toolsData = await table(baseId, toolTableId);
+  const contributorsData = await table(baseId, contributorTableId);
+  const organisationsData = await table(baseId, organisationTableId);
   const socialMedia = await table(baseId, socialMediaTableId);
   const partners = await table(baseId, partnersTableId);
   const tableData = { socialMedia, partners };
-  const tools = airtableTools.map((item) =>
-    processTool(
-      {
-        ...item.fields,
-        id: item.id,
-      },
-      config,
-      tableData
-    )
+  const tools = toolsData.map((item) => processTool(item, config, tableData));
+  const contributors = contributorsData.map((item) =>
+    processContributor(item, config, tableData)
   );
-  const contributors = airtableContributors.map((item) =>
-    processContributor(
-      {
-        ...item.fields,
-        id: item.id,
-      },
-      config,
-      tableData
-    )
-  );
-  const organisations = airtableOrganisations.map((item) =>
-    processOrganisation(
-      {
-        ...item.fields,
-        id: item.id,
-      },
-      config,
-      tableData
-    )
+  const organisations = organisationsData.map((item) =>
+    processOrganisation(item, config, tableData)
   );
   return { tools, organisations, contributors, socialMedia, partners };
 }
