@@ -8,13 +8,13 @@ import {
   processOrganisationFromAirTable,
   processContributorFromAirtable,
 } from "@/charterafrica/lib/ecosystem/airtable.old";
+import { createCollection } from "@/charterafrica/lib/ecosystem/payload";
 import {
-  createCollection,
   ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,
   ECOSYSTEM_GLOBAL,
-} from "@/charterafrica/lib/ecosystem/models";
+} from "@/charterafrica/lib/payload/constants";
 
 const bulkMarkDeleted = async (collection, fromSource) => {
   const dataIds = fromSource.map(({ id }) => id).join(",");

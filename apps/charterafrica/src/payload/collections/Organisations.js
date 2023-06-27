@@ -1,7 +1,7 @@
 import {
   ORGANIZATION_COLLECTION,
   TOOL_COLLECTION,
-} from "../../lib/ecosystem/models";
+} from "../../lib/payload/constants";
 import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
