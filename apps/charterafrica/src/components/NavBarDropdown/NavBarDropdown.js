@@ -19,9 +19,6 @@ const NavBarDropdown = React.forwardRef(function NavBarDropdown(props, ref) {
     e.stopPropagation();
     setOpen((prevOpen) => !prevOpen);
   };
-  // TODO(kilemensi): Since we current don't have any of the child pages, we
-  //                  have to manually hide the popup.
-  //                  SHOULD BE REMOVED ONCE CHILD PAGES ARE IMPLEMENTED.
   const handleClickMenuItem = () => {
     setOpen(false);
   };
