@@ -15,10 +15,7 @@ export async function updateOrCreate(collection, toCreate, locale) {
       const data = await api.updateCollection(
         collection,
         docs[0]?.id,
-        {
-          ...toCreate,
-          // updatedAt: new Date(),
-        },
+        toCreate,
         { locale }
       );
       return data;
@@ -76,7 +73,7 @@ export async function bulkMarkDeleted(collection, fromSource) {
   }
 }
 
-export async function getCollectionPerAirtableId(collection, ids) {
+export async function getCollectionIdsPerAirtableId(collection, ids) {
   if (!ids || !ids?.length) {
     return [];
   }
