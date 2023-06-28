@@ -17,7 +17,7 @@ export async function updateOrCreate(collection, toCreate, locale) {
         docs[0]?.id,
         {
           ...toCreate,
-          updatedAt: new Date(),
+          // updatedAt: new Date(),
         },
         { locale }
       );
@@ -27,7 +27,7 @@ export async function updateOrCreate(collection, toCreate, locale) {
     return data;
   } catch (e) {
     Sentry.captureMessage(e.message);
-    return {};
+    return null;
   }
 }
 
@@ -35,7 +35,7 @@ export async function createCollection(collection, toCreate, { localized }) {
   try {
     const localizedData = localizeData(toCreate || {});
     if (!localizedData) {
-      return {};
+      return null;
     }
     if (!localized) {
       return updateOrCreate(collection, localizedData?.en);
@@ -46,7 +46,7 @@ export async function createCollection(collection, toCreate, { localized }) {
     return Promise.all(promises);
   } catch (e) {
     Sentry.captureMessage(e.message);
-    return {};
+    return null;
   }
 }
 
