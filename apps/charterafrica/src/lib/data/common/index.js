@@ -36,7 +36,19 @@ export async function getGlobalProps({ locale, defaultLocale }, api) {
       href: "/",
       priority: true,
     },
-    menus: menus ?? null,
+    menus:
+      menus?.map((originalMenu) => {
+        const { doc, ...menu } = originalMenu;
+        // Remove pages (doc) from menu and it's children
+        // This can also be done via afterRead global hook on navigation block
+        // but it may interfere with CMS functionality
+        if (menu.children) {
+          menu.children =
+            menu.children?.map(({ doc: _, ...other }) => ({ ...other })) ??
+            null;
+        }
+        return menu;
+      }) ?? null,
   };
   const footer = await api.findGlobal("footer", {
     locale,
