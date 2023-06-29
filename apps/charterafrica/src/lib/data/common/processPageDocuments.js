@@ -61,7 +61,7 @@ export default async function processPageDocuments(page, api, context) {
       datasets,
       filterBar,
       labels,
-      organization: { groupId, options, showPinnedDocuments, pinnedDocuments },
+      organization: { groupId, options, pinnedDocuments = [] },
       showDatasets,
       showFilterBar,
     } = blocks[documentsIndex];
@@ -71,7 +71,7 @@ export default async function processPageDocuments(page, api, context) {
       `group:${groupId}`,
       pathname,
       query,
-      showPinnedDocuments ? pinnedDocuments : []
+      pinnedDocuments
     );
 
     const { labels: commonLabels } = await api.findGlobal("common-labels", {
@@ -90,7 +90,7 @@ export default async function processPageDocuments(page, api, context) {
       showDatasets,
       datasets,
       pathname: pageUrl,
-      pinnedDocuments: pinnedDocuments.map((document) => document.title),
+      pinnedDocuments,
     };
 
     let swrKey = `/api/v1/resources/datasets`;
