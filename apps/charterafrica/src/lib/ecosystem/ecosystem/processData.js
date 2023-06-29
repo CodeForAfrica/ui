@@ -1,7 +1,7 @@
 import {
   createCollection,
   bulkMarkDeleted,
-  getCollectionPerAirtableId,
+  getCollectionIdsPerAirtableId,
 } from "@/charterafrica/lib/ecosystem/payload";
 import {
   ORGANIZATION_COLLECTION,
@@ -23,7 +23,7 @@ export async function processOrganisations(airtableData, config) {
   await bulkMarkDeleted(ORGANIZATION_COLLECTION, organisations);
   const toProcess = airtableData?.organisations?.map(async (item) => {
     const rawTools = item?.en?.tools || [];
-    const tools = await getCollectionPerAirtableId(
+    const tools = await getCollectionIdsPerAirtableId(
       CONTRIBUTORS_COLLECTION,
       rawTools
     );
@@ -41,7 +41,7 @@ export async function processTools(airtableData, config) {
   await bulkMarkDeleted(TOOL_COLLECTION, tools);
   const toProcess = airtableData?.tools?.map(async (item) => {
     const contrib = item?.en?.contributors || [];
-    const contributors = await getCollectionPerAirtableId(
+    const contributors = await getCollectionIdsPerAirtableId(
       CONTRIBUTORS_COLLECTION,
       contrib
     );
