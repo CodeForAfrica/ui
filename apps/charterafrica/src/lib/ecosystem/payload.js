@@ -15,10 +15,7 @@ export async function updateOrCreate(collection, toCreate, locale) {
       const data = await api.updateCollection(
         collection,
         docs[0]?.id,
-        {
-          ...toCreate,
-          // updatedAt: new Date(),
-        },
+        toCreate,
         { locale }
       );
       return data;
@@ -74,18 +71,4 @@ export async function bulkMarkDeleted(collection, fromSource) {
   } catch (e) {
     Sentry.captureMessage(e.message);
   }
-}
-
-export async function getCollectionPerAirtableId(collection, ids) {
-  if (!ids || !ids?.length) {
-    return [];
-  }
-  const { docs } = await api.getCollection(collection, {
-    where: {
-      airtableId: {
-        in: ids?.join(","),
-      },
-    },
-  });
-  return docs.map(({ id }) => id);
 }
