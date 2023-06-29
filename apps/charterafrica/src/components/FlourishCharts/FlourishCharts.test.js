@@ -9,7 +9,10 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  code: "<div>Flourish Charts</div>",
+  html: "<div>Flourish Charts</div>",
+  height: 500,
+  width: 100,
+  backgroundColor: "#fff",
 };
 
 describe("<FlourishCharts />", () => {

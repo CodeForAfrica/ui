@@ -3,12 +3,12 @@ import { Box } from "@mui/material";
 import React from "react";
 
 const FlourishCharts = React.forwardRef(function FlourishCharts(props, ref) {
-  const { code } = props;
+  const { backgroundColor, height, html, width } = props;
 
   return (
     <Box
       sx={{
-        backgroundColor: "#fff",
+        backgroundColor: { backgroundColor },
       }}
       ref={ref}
     >
@@ -16,11 +16,11 @@ const FlourishCharts = React.forwardRef(function FlourishCharts(props, ref) {
         sx={{
           px: { xs: 5, sm: 0 },
           py: { xs: 5, md: 7.5 },
-          width: "100%",
-          height: "500px",
+          width: `${width}%`,
+          height: `${height + 50}px`,
         }}
       >
-        <div dangerouslySetInnerHTML={{ __html: code }} />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </Section>
     </Box>
   );

@@ -1,3 +1,5 @@
+import { validateHexColor } from "../utils/colors";
+
 const FlourishCharts = {
   slug: "flourish-charts",
   labels: {
@@ -14,7 +16,7 @@ const FlourishCharts = {
   },
   fields: [
     {
-      name: "code",
+      name: "html",
       label: {
         en: "Embed Code",
         fr: "Code d'intégration",
@@ -22,6 +24,44 @@ const FlourishCharts = {
       },
       type: "textarea",
       required: true,
+    },
+    {
+      name: "height",
+      label: {
+        en: "Height",
+        fr: "Hauteur",
+        pt: "Altura",
+      },
+      type: "number",
+      required: true,
+      admin: {
+        description: "Height in pixels",
+      },
+    },
+    {
+      name: "width",
+      label: {
+        en: "Width",
+        fr: "Largeur",
+        pt: "Largura",
+      },
+      type: "number",
+      required: true,
+      admin: {
+        description: "Width %",
+      },
+      defaultValue: 100,
+    },
+    {
+      name: "backgroundColor",
+      label: {
+        en: "Background Color",
+        fr: "Couleur de fond",
+        pt: "Cor de fundo",
+      },
+      type: "text",
+      required: true,
+      validate: validateHexColor,
     },
   ],
 };
