@@ -1,4 +1,4 @@
-export function localizeData(data = {}) {
+function localize(data, locales = ["en"]) {
   const getValue = (value, locale) => {
     if (value?.[locale] !== undefined) {
       return value?.[locale];
@@ -8,26 +8,16 @@ export function localizeData(data = {}) {
     }
     return value;
   };
-  return Object.keys(data).reduce(
-    (result, key) => ({
-      ...result,
-      en: {
-        ...result.en,
-        [key]: getValue(data[key], "en"),
-      },
-      pt: {
-        ...result.pt,
-        [key]: getValue(data[key], "pt"),
-      },
-      fr: {
-        ...result.fr,
-        [key]: getValue(data[key], "fr"),
-      },
-    }),
-    { en: {}, pt: {}, fr: {} }
-  );
+  return locales.reduce((loc, locale) => {
+    const localized = loc;
+    localized[locale] = {};
+    Object.keys(data).reduce((locData, key) => {
+      const localeData = locData;
+      localeData[key] = getValue(data[key], locale);
+      return localeData;
+    }, localized[locale]);
+    return localized;
+  }, {});
 }
 
-export function delocalize(data) {
-  return data.en;
-}
+export default localize;

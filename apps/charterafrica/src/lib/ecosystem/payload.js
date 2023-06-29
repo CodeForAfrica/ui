@@ -1,6 +1,6 @@
 import * as Sentry from "@sentry/nextjs";
 
-import { localizeData } from "@/charterafrica/lib/ecosystem/utils";
+import localize from "@/charterafrica/lib/ecosystem/utils";
 import api from "@/charterafrica/lib/payload";
 
 export async function updateOrCreate(collection, toCreate, locale) {
@@ -30,14 +30,15 @@ export async function updateOrCreate(collection, toCreate, locale) {
 
 export async function createCollection(collection, toCreate, { localized }) {
   try {
-    const localizedData = localizeData(toCreate || {});
+    const locales = localized ? ["en", "pt", "fr"] : ["en"];
+    const localizedData = localize(toCreate || {}, locales);
     if (!localizedData) {
       return null;
     }
     if (!localized) {
       return updateOrCreate(collection, localizedData?.en);
     }
-    const promises = Object.keys(localizeData).map((key) =>
+    const promises = Object.keys(localizedData).map((key) =>
       updateOrCreate(collection, localizedData?.[key], key)
     );
     return Promise.all(promises);
