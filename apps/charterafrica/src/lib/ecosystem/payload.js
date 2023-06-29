@@ -30,7 +30,8 @@ export async function updateOrCreate(collection, toCreate, locale) {
 
 export async function createCollection(collection, toCreate, { localized }) {
   try {
-    const localizedData = localize(toCreate || {}, ["en", "pt", "fr"]);
+    const locales = localized ? ["en", "pt", "fr"] : ["en"];
+    const localizedData = localize(toCreate || {}, locales);
     if (!localizedData) {
       return null;
     }
