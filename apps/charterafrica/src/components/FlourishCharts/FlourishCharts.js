@@ -1,9 +1,9 @@
 import { Section } from "@commons-ui/core";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 
 const FlourishCharts = React.forwardRef(function FlourishCharts(props, ref) {
-  const { backgroundColor, height, html, width } = props;
+  const { backgroundColor, height, html, title, subtitle, width } = props;
 
   return (
     <Box
@@ -15,12 +15,23 @@ const FlourishCharts = React.forwardRef(function FlourishCharts(props, ref) {
       <Section
         sx={{
           px: { xs: 5, sm: 0 },
-          py: { xs: 5, md: 7.5 },
-          width: `${width}%`,
-          height: `${height + 50}px`,
+          pt: 2.5,
+          pb: 0,
         }}
       >
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <Typography variant="h5SemiBold" sx={{ mb: 1 }} color="neutral.dark">
+          {title}
+        </Typography>
+        <Typography variant="p1" sx={{ mb: 1 }} color="neutral.dark">
+          {subtitle}
+        </Typography>
+        <div
+          style={{
+            width: `${width}%`,
+            height: `${height}px`,
+          }}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </Section>
     </Box>
   );

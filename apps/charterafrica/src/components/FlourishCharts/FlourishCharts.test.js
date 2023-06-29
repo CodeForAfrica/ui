@@ -13,6 +13,8 @@ const defaultProps = {
   height: 500,
   width: 100,
   backgroundColor: "#fff",
+  title: "Flourish Charts",
+  subtitle: "Flourish Charts",
 };
 
 describe("<FlourishCharts />", () => {

@@ -16,6 +16,26 @@ const FlourishCharts = {
   },
   fields: [
     {
+      name: "title",
+      label: {
+        en: "Title",
+        fr: "Titre",
+        pt: "Título",
+      },
+      type: "text",
+      required: true,
+    },
+    {
+      name: "subtitle",
+      label: {
+        en: "Subtitle",
+        fr: "Sous-titre",
+        pt: "Subtítulo",
+      },
+      type: "text",
+      required: true,
+    },
+    {
       name: "html",
       label: {
         en: "Embed Code",
