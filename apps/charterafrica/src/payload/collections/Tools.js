@@ -7,7 +7,7 @@ import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
-import { TOOL_COLLECTION, CONTRIBUTORS_COLLECTION } from "../utils/constants";
+import { TOOL_COLLECTION, CONTRIBUTORS_COLLECTION } from "../utils/collections";
 
 const Tools = {
   slug: TOOL_COLLECTION,

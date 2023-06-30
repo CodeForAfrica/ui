@@ -4,7 +4,7 @@ import airtableBaseSelect, {
 import airtableColumnSelect from "../fields/ecosystem/airtableColumnSelect";
 import airtableTableSelect from "../fields/ecosystem/airtableTableSelect";
 import sourceField from "../fields/ecosystem/sourceField";
-import { ECOSYSTEM_GLOBAL } from "../utils/constants";
+import { ECOSYSTEM_GLOBAL } from "../utils/collections";
 
 const Ecosystem = {
   slug: ECOSYSTEM_GLOBAL,
