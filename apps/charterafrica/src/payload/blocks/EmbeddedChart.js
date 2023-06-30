@@ -24,6 +24,7 @@ const EmbeddedChart = {
       },
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "subtitle",
@@ -34,6 +35,7 @@ const EmbeddedChart = {
       },
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "html",
@@ -44,6 +46,7 @@ const EmbeddedChart = {
       },
       type: "textarea",
       required: true,
+      localized: true,
     },
     {
       name: "height",
