@@ -7,7 +7,7 @@ import {
   ORGANIZATION_COLLECTION,
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,
-} from "@/charterafrica/payload/utils/constants";
+} from "@/charterafrica/payload/utils/collections";
 
 export async function processContributors(airtableData, config) {
   const { contributors } = airtableData;

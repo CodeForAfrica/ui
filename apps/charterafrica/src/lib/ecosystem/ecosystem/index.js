@@ -8,7 +8,7 @@ import {
   processTools,
   processOrganisations,
 } from "@/charterafrica/lib/ecosystem/ecosystem/processData";
-import { ECOSYSTEM_GLOBAL } from "@/charterafrica/payload/utils/constants";
+import { ECOSYSTEM_GLOBAL } from "@/charterafrica/payload/utils/collections";
 
 export async function updateList() {
   const config = await api.findGlobal(ECOSYSTEM_GLOBAL, {});
