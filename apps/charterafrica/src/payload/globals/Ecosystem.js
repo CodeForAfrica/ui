@@ -1,10 +1,10 @@
-import { ECOSYSTEM_GLOBAL } from "../../lib/ecosystem/models";
 import airtableBaseSelect, {
   schema,
 } from "../fields/ecosystem/airtableBaseSelect";
 import airtableColumnSelect from "../fields/ecosystem/airtableColumnSelect";
 import airtableTableSelect from "../fields/ecosystem/airtableTableSelect";
 import sourceField from "../fields/ecosystem/sourceField";
+import { ECOSYSTEM_GLOBAL } from "../utils/collections";
 
 const Ecosystem = {
   slug: ECOSYSTEM_GLOBAL,

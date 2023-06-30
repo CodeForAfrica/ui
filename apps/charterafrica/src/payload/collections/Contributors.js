@@ -1,8 +1,8 @@
-import { CONTRIBUTORS_COLLECTION } from "../../lib/ecosystem/models";
 import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
+import { CONTRIBUTORS_COLLECTION } from "../utils/collections";
 
 const Contributors = {
   slug: CONTRIBUTORS_COLLECTION,

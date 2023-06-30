@@ -1,11 +1,11 @@
 import * as Sentry from "@sentry/nextjs";
 import Airtable from "airtable";
 
+import api from "@/charterafrica/lib/payload";
 import {
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,
-} from "@/charterafrica/lib/ecosystem/models";
-import api from "@/charterafrica/lib/payload";
+} from "@/charterafrica/payload/utils/collections";
 import fetchJson, { FetchError } from "@/charterafrica/utils/fetchJson";
 
 const airtable = new Airtable({
