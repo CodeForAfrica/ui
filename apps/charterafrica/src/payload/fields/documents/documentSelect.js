@@ -11,7 +11,6 @@ import useSWR from "swr";
 import fetchJson from "../../../utils/fetchJson";
 
 const baseUrl = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/documents`;
-let allOptions = [];
 
 function DocumentSelect(props) {
   const [fields] = useAllFormFields();
@@ -36,29 +35,38 @@ function DocumentSelect(props) {
   const { data } = useSWR(url, fetchJson.get);
 
   const options = useMemo(() => {
-    return (
-      data?.documents.map((doc) => ({
-        label: doc.title,
-        value: doc.title,
-      })) || []
-    );
-  }, [data]);
+    return data?.documents.map((doc) => doc.title) || [];
+  }, [data?.documents]);
 
-  allOptions = options;
   return createElement(Select, { ...props, hasMany: true, options });
 }
 
-async function validateDocumentSelect(value, { required, t }) {
-  const valid = select(value, {
-    hasMany: true,
-    options: allOptions,
-    required,
-    t,
-  });
-  return valid;
-}
+const validate = (siblingData) => {
+  return async function validateDocumentSelect(value, { required, t }) {
+    const params = {
+      q: `group:${siblingData.groupId}`,
+      pathname: "",
+      pinnedDocuments: [],
+      per_page: 1000,
+    };
 
-function documentSelect(overrides) {
+    const res = await fetchJson.get(baseUrl, {
+      params,
+    });
+
+    const options = res?.documents.map((doc) => doc.title) || [];
+
+    const valid = await select(value, {
+      hasMany: true,
+      options,
+      required,
+      t,
+    });
+    return valid;
+  };
+};
+
+function documentSelect({ groupData, ...overrides }) {
   const defaultSelect = {
     name: "document",
     label: {
@@ -70,7 +78,7 @@ function documentSelect(overrides) {
     options: ["Options Loading"],
     hasMany: true,
     required: true,
-    validate: validateDocumentSelect,
+    validate: validate(groupData),
     admin: {
       components: {
         Field: DocumentSelect,
