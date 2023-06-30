@@ -1,6 +1,6 @@
 import { deepmerge } from "@mui/utils";
 
-import documentSelect from "./documents/documentSelect";
+// import documentSelect from "./documents/documentSelect";
 
 function documentCloudSource({ overrides } = {}) {
   const generatedDocumentCloudSource = {
@@ -88,28 +88,28 @@ function documentCloudSource({ overrides } = {}) {
           hideGutter: true,
         },
       },
-      {
-        name: "showPinnedDocuments",
-        type: "checkbox",
-        label: {
-          en: "Show Pinned Documents",
-          fr: "Afficher les documents épinglés",
-          pt: "Mostrar documentos fixados",
-        },
-        defaultValue: false,
-        required: true,
-      },
-      documentSelect({
-        name: "pinnedDocuments",
-        label: {
-          en: "Pinned Documents",
-          fr: "Documents épinglés",
-          pt: "Documentos fixados",
-        },
-        admin: {
-          condition: (_, siblingData) => siblingData?.showPinnedDocuments,
-        },
-      }),
+      // {
+      //   name: "showPinnedDocuments",
+      //   type: "checkbox",
+      //   label: {
+      //     en: "Show Pinned Documents",
+      //     fr: "Afficher les documents épinglés",
+      //     pt: "Mostrar documentos fixados",
+      //   },
+      //   defaultValue: false,
+      //   required: true,
+      // },
+      // documentSelect({
+      //   name: "pinnedDocuments",
+      //   label: {
+      //     en: "Pinned Documents",
+      //     fr: "Documents épinglés",
+      //     pt: "Documentos fixados",
+      //   },
+      //   admin: {
+      //     condition: (_, siblingData) => siblingData?.showPinnedDocuments,
+      //   },
+      // }),
     ],
   };
 

@@ -41,21 +41,26 @@ function formatDocuments(data, pathname) {
   };
 }
 
-export async function fetchPinnedDocument(titles) {
-  const q = titles.map((title) => `title:"${title}"`).join(" ");
-  const params = {
-    q,
-  };
-  try {
-    const data = await fetchJson.get(`${BASE_DOCUMENTS_URL}search.json`, {
+export async function fetchPinnedDocument(titles, pathname) {
+  const promises = titles.map((title) => {
+    const params = {
+      q: `title:"${title}"`,
+      contributor: true,
+      data: true,
+    };
+    return fetchJson.get(`${BASE_DOCUMENTS_URL}search.json`, {
       params,
     });
-    if (data?.documents) {
-      return data;
-    }
-    return {};
-  } catch (err) {
-    Sentry.captureException(err);
+  });
+
+  try {
+    const results = await Promise.all(promises);
+    const formattedResults = results.map((result) => {
+      return formatDocuments(result, pathname);
+    });
+    return formattedResults;
+  } catch (error) {
+    Sentry.captureException(error);
   }
   return null;
 }
@@ -64,8 +69,13 @@ export async function fetchDocuments(
   q,
   pathname,
   options = {},
-  pinnedDocuments = []
+  pinnedDocuments = [
+    "115127145 Mengi v Hermitage Judgement",
+    "228743121 Hiding in Plain Sight Trade Misinvoicing and the Impact of Revenue Loss in Ghana Kenya Mozambique Tanzania and Uganda 2002 2011",
+    "222825452 CAG Report 2012 2013 Tanzania",
+  ]
 ) {
+  // console.log("fetchDocuments", q, pathname, options, pinnedDocuments);
   const params = {
     ...options,
     q,
@@ -78,7 +88,7 @@ export async function fetchDocuments(
 
     const { page } = options;
 
-    if (page > 1) {
+    if (page > 1 || !pinnedDocuments.length) {
       return formattedData;
     }
 
@@ -87,6 +97,9 @@ export async function fetchDocuments(
         return pinnedDocuments.includes(document.title);
       }
     );
+    const filteredDocuments = formattedData.documents.filter((document) => {
+      return !fetchedPinnedDocuments.includes(document);
+    });
 
     const pinnedDocumentsNotInSearchResults = pinnedDocuments.filter(
       (pinnedDocument) => {
@@ -96,23 +109,21 @@ export async function fetchDocuments(
       }
     );
 
-    const pinnedDocumentsNotInSearchResultsArray = await fetchPinnedDocument(
-      pinnedDocumentsNotInSearchResults
-    );
+    if (pinnedDocumentsNotInSearchResults.length) {
+      const pinnedDocumentsNotInSearchResultsArray = await fetchPinnedDocument(
+        pinnedDocumentsNotInSearchResults,
+        pathname
+      );
 
-    const formattedPinnedDocumentsNotInSearchResultsArray = formatDocuments(
-      pinnedDocumentsNotInSearchResultsArray,
-      pathname
-    );
+      const docs = pinnedDocumentsNotInSearchResultsArray
+        .map((doc) => doc.documents)
+        .flat();
 
-    const filteredDocuments = formattedData.documents.filter((document) => {
-      return !fetchedPinnedDocuments.includes(document);
-    });
-    formattedData.documents = [
-      ...fetchedPinnedDocuments,
-      ...formattedPinnedDocumentsNotInSearchResultsArray.documents,
-      ...filteredDocuments,
-    ];
+      fetchedPinnedDocuments.push(...docs);
+    }
+
+    formattedData.documents = [...fetchedPinnedDocuments, ...filteredDocuments];
+
     return formattedData;
   } catch (err) {
     Sentry.captureException(err);

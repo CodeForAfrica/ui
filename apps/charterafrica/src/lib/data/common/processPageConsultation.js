@@ -105,7 +105,7 @@ async function processPageConsultation(page, api, context) {
   if (documentsIndex > -1) {
     const {
       description: documentsDescription,
-      group: { groupId, options, showPinnedDocuments, pinnedDocuments = [] },
+      group: { groupId, options, pinnedDocuments = [] },
       title: documentsTitle,
     } = blocks[documentsIndex];
     const documentsQuery = getDocumentsQuery(page, context, options);
@@ -116,9 +116,7 @@ async function processPageConsultation(page, api, context) {
       `group:${groupId} lang:${locale}`,
       documentsPathname,
       query,
-      showPinnedDocuments
-        ? pinnedDocuments.map((document) => document.title)
-        : []
+      pinnedDocuments
     );
     blocks[documentsIndex] = {
       ...blocks[documentsIndex],
@@ -128,7 +126,7 @@ async function processPageConsultation(page, api, context) {
       pathname: documentsPathname,
       slug: "documents",
       title: documentsTitle ?? null,
-      pinnedDocuments: pinnedDocuments.map((document) => document.title),
+      pinnedDocuments,
     };
 
     let swrKey = `/api/v1/resources/documents`;

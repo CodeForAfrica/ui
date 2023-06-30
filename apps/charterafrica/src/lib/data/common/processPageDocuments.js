@@ -69,9 +69,7 @@ export default async function processPageDocuments(page, api, context) {
     const { pathname, ...query } = documentsQuery;
     const documents = await fetchDocuments(
       `group:${groupId} lang:${locale}`,
-
       pathname,
-
       query,
       pinnedDocuments
     );

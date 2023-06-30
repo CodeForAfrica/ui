@@ -24,7 +24,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
     labels,
     pathname,
     showFilterBar,
-    pinnedDocuments,
+    pinnedDocuments = [],
   } = props;
   const [documents, setDocuments] = useState(originalDocuments);
   const [totalPages, setTotalPages] = useState(0);
