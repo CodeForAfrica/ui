@@ -8,6 +8,7 @@ function localize(data, locales = ["en"], localized = false) {
     }
     return value;
   };
+
   return locales.reduce((loc, locale) => {
     const localizedData = loc;
     localizedData[locale] = {};
