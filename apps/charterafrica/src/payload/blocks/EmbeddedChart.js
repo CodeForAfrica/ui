@@ -61,7 +61,7 @@ const EmbeddedChart = {
       type: "text",
       required: true,
       admin: {
-        description: "Height with unit (px, %, rem etc.)",
+        description: "Height with unit (px, %, rem etc.) i.e. 500px, 100% etc.",
       },
     },
     {
@@ -74,7 +74,7 @@ const EmbeddedChart = {
       type: "text",
       required: true,
       admin: {
-        description: "Width with unit (px, %, rem etc.)",
+        description: "Width with unit (px, %, rem etc.) i.e. 500px, 100% etc.",
       },
       defaultValue: "100%",
     },
