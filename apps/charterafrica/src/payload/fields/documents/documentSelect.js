@@ -5,17 +5,17 @@ import {
   useAllFormFields,
 } from "payload/components/forms";
 import { select } from "payload/dist/fields/validations";
-import { createElement } from "react";
+import { createElement, useMemo } from "react";
 import useSWR from "swr";
 
 import fetchJson from "../../../utils/fetchJson";
 
-const baseUrl = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/opportunities/consultation/documents`;
+const baseUrl = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/documents`;
+let allOptions = [];
 
 function DocumentSelect(props) {
   const [fields] = useAllFormFields();
   const document = getSiblingData(fields, "groupId");
-  let options = [];
   const documentsBlock = document.blocks.find(
     (block) => block?.blockType === "documents"
   );
@@ -35,18 +35,26 @@ function DocumentSelect(props) {
 
   const { data } = useSWR(url, fetchJson.get);
 
-  if (data) {
-    options = data.documents.map((doc) => ({
-      label: doc.title,
-      value: doc.title,
-    }));
-  }
+  const options = useMemo(() => {
+    return (
+      data?.documents.map((doc) => ({
+        label: doc.title,
+        value: doc.title,
+      })) || []
+    );
+  }, [data]);
+
+  allOptions = options;
   return createElement(Select, { ...props, hasMany: true, options });
 }
 
-async function validateDocumentSelect(value, { hasMany, required, t }) {
-  const options = [];
-  const valid = select(value, { hasMany, options, required, t });
+async function validateDocumentSelect(value, { required, t }) {
+  const valid = select(value, {
+    hasMany: true,
+    options: allOptions,
+    required,
+    t,
+  });
   return valid;
 }
 
@@ -58,7 +66,9 @@ function documentSelect(overrides) {
       fr: "Sélectionner le document",
       pt: "Selecionar documento",
     },
-    type: "text",
+    type: "select",
+    options: ["No Options"],
+    hasMany: true,
     required: true,
     validate: validateDocumentSelect,
     admin: {
