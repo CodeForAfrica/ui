@@ -34,7 +34,7 @@ export async function createCollection(collection, toCreate, { localized }) {
       return null;
     }
     const locales = localized ? ["en", "pt", "fr"] : ["en"];
-    const dataPerLocale = localize(toCreate, locales, localized);
+    const dataPerLocale = localize(toCreate, locales);
     const promises = Object.keys(dataPerLocale).map((locale) =>
       updateOrCreate(collection, dataPerLocale?.[locale], locale)
     );

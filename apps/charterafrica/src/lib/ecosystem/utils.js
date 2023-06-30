@@ -3,9 +3,6 @@ function localize(data, locales = ["en"]) {
     if (value?.[locale] !== undefined) {
       return value?.[locale];
     }
-    if (value?.en !== undefined) {
-      return value?.en;
-    }
     return value;
   };
 
