@@ -27,8 +27,8 @@ const EmbeddedChart = React.forwardRef(function EmbeddedChart(props, ref) {
         </Typography>
         <div
           style={{
-            width: `${width}%`,
-            height: `${height}px`,
+            width: `${width}`,
+            height: `${height}`,
           }}
           dangerouslySetInnerHTML={{ __html: html }}
         />

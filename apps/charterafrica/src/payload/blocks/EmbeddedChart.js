@@ -4,14 +4,14 @@ const EmbeddedChart = {
   slug: "embedded-chart",
   labels: {
     singular: {
-      en: "Flourish Charts",
-      fr: "Graphiques Flourish",
-      pt: "Gráficos Flourish",
+      en: "Embedded Chart",
+      fr: "Graphique intégré",
+      pt: "Gráfico incorporado",
     },
     plural: {
-      en: "Flourish Charts",
-      fr: "Graphiques Flourish",
-      pt: "Gráficos Flourish",
+      en: "Embedded Charts",
+      fr: "Graphiques intégrés",
+      pt: "Gráficos incorporados",
     },
   },
   fields: [
@@ -44,9 +44,12 @@ const EmbeddedChart = {
         fr: "Code d'intégration",
         pt: "Código de incorporação",
       },
-      type: "textarea",
+      type: "code",
       required: true,
       localized: true,
+      admin: {
+        language: "html",
+      },
     },
     {
       name: "height",
@@ -55,10 +58,10 @@ const EmbeddedChart = {
         fr: "Hauteur",
         pt: "Altura",
       },
-      type: "number",
+      type: "text",
       required: true,
       admin: {
-        description: "Height in pixels",
+        description: "Height with unit (px, %, rem etc.)",
       },
     },
     {
@@ -68,12 +71,12 @@ const EmbeddedChart = {
         fr: "Largeur",
         pt: "Largura",
       },
-      type: "number",
+      type: "text",
       required: true,
       admin: {
-        description: "Width %",
+        description: "Width with unit (px, %, rem etc.)",
       },
-      defaultValue: 100,
+      defaultValue: "100%",
     },
     {
       name: "backgroundColor",
