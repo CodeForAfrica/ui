@@ -68,8 +68,10 @@ export default async function processPageDocuments(page, api, context) {
     const documentsQuery = getDocumentsQuery(page, context, options);
     const { pathname, ...query } = documentsQuery;
     const documents = await fetchDocuments(
-      `group:${groupId}`,
+      `group:${groupId} lang:${locale}`,
+
       pathname,
+
       query,
       pinnedDocuments
     );
@@ -93,14 +95,14 @@ export default async function processPageDocuments(page, api, context) {
       pinnedDocuments,
     };
 
-    let swrKey = `/api/v1/resources/datasets`;
+    let swrKey = `/api/v1/resources/documents`;
     const qs = queryString(documentsQuery);
     if (qs) {
       swrKey = `${swrKey}?${qs}`;
     }
     // eslint-disable-next-line no-param-reassign
     page.fallback = {
-      [`${swrKey}`]: documents,
+      [swrKey]: documents,
     };
   }
 

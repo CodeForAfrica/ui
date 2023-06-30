@@ -92,7 +92,7 @@ async function processPageConsultationDocument(page, api, context) {
 }
 
 async function processPageConsultation(page, api, context) {
-  const { params } = context;
+  const { params, locale } = context;
   // Check if we are on a document page: /opportunities/consultation/documents/<id>
   if (params.slugs.length > 3 && params.slugs[2] === "documents") {
     return processPageConsultationDocument(page, api, context);
@@ -113,7 +113,7 @@ async function processPageConsultation(page, api, context) {
     // Show documents in unders /documents of this page
     const documentsPathname = `${pathname}/documents`;
     const documents = await fetchDocuments(
-      `group:${groupId}`,
+      `group:${groupId} lang:${locale}`,
       documentsPathname,
       query,
       showPinnedDocuments
@@ -130,8 +130,8 @@ async function processPageConsultation(page, api, context) {
       title: documentsTitle ?? null,
       pinnedDocuments: pinnedDocuments.map((document) => document.title),
     };
-    // SWR fallback
-    let swrKey = `/api/v1/opportunities/consultation/documents`;
+
+    let swrKey = `/api/v1/resources/documents`;
     const qs = queryString(documentsQuery);
     if (qs) {
       swrKey = `${swrKey}?${qs}`;
@@ -161,7 +161,7 @@ async function processPageConsultation(page, api, context) {
       );
     }
     blocks[playlistIndex] = {
-      slug: "embedded-playlist",
+      ...blocks[playlistIndex],
       config: {
         mostRecentText: "Most Recent",
         relevanceText: "Relevance",
@@ -176,6 +176,7 @@ async function processPageConsultation(page, api, context) {
         ...playlistField,
         items,
       },
+      slug: "embedded-playlist",
       title: title ?? null,
     };
   }
