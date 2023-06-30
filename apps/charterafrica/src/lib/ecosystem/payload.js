@@ -23,27 +23,24 @@ export async function updateOrCreate(collection, toCreate, locale) {
     const data = await api.createCollection(collection, toCreate, { locale });
     return data;
   } catch (e) {
-    Sentry.captureMessage(e.message);
+    Sentry.captureException(e.message);
     return null;
   }
 }
 
 export async function createCollection(collection, toCreate, { localized }) {
   try {
-    const locales = localized ? ["en", "pt", "fr"] : ["en"];
-    const localizedData = localize(toCreate || {}, locales);
-    if (!localizedData) {
+    if (!toCreate?.airtableId) {
       return null;
     }
-    if (!localized) {
-      return updateOrCreate(collection, localizedData?.en);
-    }
-    const promises = Object.keys(localizedData).map((key) =>
-      updateOrCreate(collection, localizedData?.[key], key)
+    const locales = localized ? ["en", "pt", "fr"] : ["en"];
+    const dataPerLocale = localize(toCreate, locales);
+    const promises = Object.keys(dataPerLocale).map((locale) =>
+      updateOrCreate(collection, dataPerLocale?.[locale], locale)
     );
     return Promise.all(promises);
   } catch (e) {
-    Sentry.captureMessage(e.message);
+    Sentry.captureException(e.message);
     return null;
   }
 }
@@ -65,11 +62,11 @@ export async function bulkMarkDeleted(collection, fromSource) {
             deletedAt: new Date(),
           });
         } catch (error) {
-          Sentry.captureMessage(error.message);
+          Sentry.captureException(error.message);
         }
       })
     );
   } catch (e) {
-    Sentry.captureMessage(e.message);
+    Sentry.captureException(e.message);
   }
 }
