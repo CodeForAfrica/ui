@@ -55,7 +55,7 @@ export async function bulkMarkDeleted(collection, fromSource) {
         },
       },
     });
-    Promise.all(
+    Promise.allSettled(
       toDelete.map(async ({ id }) => {
         try {
           await api.updateCollection(collection, id, {
