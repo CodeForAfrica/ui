@@ -67,7 +67,7 @@ function documentSelect(overrides) {
       pt: "Selecionar documento",
     },
     type: "select",
-    options: ["No Options"],
+    options: ["Options Loading"],
     hasMany: true,
     required: true,
     validate: validateDocumentSelect,

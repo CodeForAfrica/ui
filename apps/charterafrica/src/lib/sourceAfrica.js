@@ -69,13 +69,8 @@ export async function fetchDocuments(
   q,
   pathname,
   options = {},
-  pinnedDocuments = [
-    "115127145 Mengi v Hermitage Judgement",
-    "228743121 Hiding in Plain Sight Trade Misinvoicing and the Impact of Revenue Loss in Ghana Kenya Mozambique Tanzania and Uganda 2002 2011",
-    "222825452 CAG Report 2012 2013 Tanzania",
-  ]
+  pinnedDocuments = []
 ) {
-  // console.log("fetchDocuments", q, pathname, options, pinnedDocuments);
   const params = {
     ...options,
     q,
