@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import FlourishCharts from "./FlourishCharts";
+import EmbeddedChart from "./EmbeddedChart";
 
 import theme from "@/charterafrica/theme";
 
@@ -17,8 +17,8 @@ const defaultProps = {
   subtitle: "Flourish Charts",
 };
 
-describe("<FlourishCharts />", () => {
-  const { container } = render(<FlourishCharts {...defaultProps} />);
+describe("<EmbeddedChart />", () => {
+  const { container } = render(<EmbeddedChart {...defaultProps} />);
 
   it("renders unchanged", async () => {
     await expect(container).toMatchSnapshot();

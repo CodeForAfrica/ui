@@ -2,7 +2,7 @@ import { Section } from "@commons-ui/core";
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
-const FlourishCharts = React.forwardRef(function FlourishCharts(props, ref) {
+const EmbeddedChart = React.forwardRef(function EmbeddedChart(props, ref) {
   const { backgroundColor, height, html, title, subtitle, width } = props;
 
   return (
@@ -37,4 +37,4 @@ const FlourishCharts = React.forwardRef(function FlourishCharts(props, ref) {
   );
 });
 
-export default FlourishCharts;
+export default EmbeddedChart;

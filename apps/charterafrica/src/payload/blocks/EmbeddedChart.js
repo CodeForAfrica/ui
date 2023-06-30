@@ -1,7 +1,7 @@
 import { validateHexColor } from "../utils/colors";
 
-const FlourishCharts = {
-  slug: "flourish-charts",
+const EmbeddedChart = {
+  slug: "embedded-chart",
   labels: {
     singular: {
       en: "Flourish Charts",
@@ -86,4 +86,4 @@ const FlourishCharts = {
   ],
 };
 
-export default FlourishCharts;
+export default EmbeddedChart;

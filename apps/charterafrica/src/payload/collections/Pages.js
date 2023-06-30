@@ -4,12 +4,12 @@ import Datasets from "../blocks/Datasets";
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import Documents from "../blocks/Documents";
 import Ecosystem from "../blocks/Ecosystem";
+import EmbeddedChart from "../blocks/EmbeddedChart";
 import EmbeddedDocuments from "../blocks/EmbeddedDocuments";
 import EmbeddedPlaylist from "../blocks/EmbeddedPlaylist";
 import Error from "../blocks/Error";
 import FAQ from "../blocks/FAQ";
 import FeaturedPost from "../blocks/FeaturedPost";
-import FlourishCharts from "../blocks/FlourishCharts";
 import Global from "../blocks/Global";
 import Grantees from "../blocks/Grantees";
 import GuidingPrincipals from "../blocks/GuidingPrinciples";
@@ -62,7 +62,7 @@ const Pages = {
         Error,
         FAQ,
         FeaturedPost,
-        FlourishCharts,
+        EmbeddedChart,
         Global,
         GuidingPrincipals,
         Grantees,
