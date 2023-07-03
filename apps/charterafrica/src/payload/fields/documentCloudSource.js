@@ -115,6 +115,7 @@ function documentCloudSource({ overrides } = {}) {
         },
         admin: {
           condition: (_, siblingData) => siblingData?.showPinnedDocuments,
+          description: "Add Group ID above to select documents",
         },
       }),
     ],
