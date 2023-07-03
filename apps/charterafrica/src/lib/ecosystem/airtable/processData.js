@@ -1,6 +1,6 @@
 import * as Sentry from "@sentry/nextjs";
 
-function getValue(data, key = null, defaultValue = null) {
+function getValue(data, key, defaultValue = null) {
   return data?.[key] ?? defaultValue;
 }
 
@@ -52,7 +52,7 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
 
   const theme = locales.reduce((acc, curr) => {
-    acc[curr] = getValue(data, toolTableColumns.theme?.[curr])?.[0] ?? null;
+    acc[curr] = getValue(data, toolTableColumns.theme?.[curr])?.[0] ?? "";
     return acc;
   }, {});
   const description = locales.reduce((acc, curr) => {

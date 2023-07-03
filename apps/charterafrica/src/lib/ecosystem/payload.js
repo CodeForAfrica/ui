@@ -72,7 +72,7 @@ export async function bulkMarkDeleted(collection, fromSource) {
 }
 
 export async function getCollectionIdsPerAirtableId(collection, ids) {
-  if (!ids || !ids?.length) {
+  if (!ids?.length) {
     return [];
   }
   const { docs } = await api.getCollection(collection, {

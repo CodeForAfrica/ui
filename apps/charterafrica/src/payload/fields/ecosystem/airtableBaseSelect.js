@@ -6,11 +6,11 @@ import useSWR from "swr";
 
 import fetchJson from "../../../utils/fetchJson";
 
-const baseUrl = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/bases`;
+const baseUrl = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem`;
 
 export function getTablesUrl(baseId) {
   if (baseId) {
-    return `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/ecosystem/schema?baseId=${baseId}`;
+    return `${baseUrl}/schema?baseId=${baseId}`;
   }
   return null;
 }
@@ -22,7 +22,7 @@ function basesToOptions(bases) {
 }
 
 const getBaseOptions = async () => {
-  const { bases } = await fetchJson.get(baseUrl);
+  const { bases } = await fetchJson.get(`${baseUrl}/bases`);
   return basesToOptions(bases);
 };
 
@@ -38,7 +38,7 @@ const validateBaseSelect = async (value, { hasMany, required, t }) => {
 };
 
 function AirtableBaseSelect(props) {
-  const { data: { bases } = {} } = useSWR(baseUrl, fetchJson.get);
+  const { data: { bases } = {} } = useSWR(`${baseUrl}/bases`, fetchJson.get);
   const options = basesToOptions(bases);
 
   return createElement(Select, { ...props, options });
