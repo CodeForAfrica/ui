@@ -28,12 +28,11 @@ async function datasets(req, res) {
 
 async function documents(req, res) {
   const { q, pathname, pinnedDocuments, ...rest } = req.query;
-
   const data = await fetchDocuments(
     q,
     pathname,
     rest,
-    pinnedDocuments.split(",")
+    pinnedDocuments?.split(",") || []
   );
   return res.status(200).json(data);
 }
