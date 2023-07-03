@@ -34,9 +34,17 @@ export async function updateList() {
 
 export async function updateContent() {
   async function execute() {
+    Sentry.captureEvent({
+      message: `Update Ecosystem Content process started at ${new Date().toString()}`,
+      level: "info",
+    });
     const contributors = await updateContributor();
     const organisations = await updateOrganisation();
     const tools = await updateTool();
+    Sentry.captureEvent({
+      message: `Update Ecosystem Content process completed ${new Date().toString()}`,
+      level: "info",
+    });
     return { tools, contributors, organisations };
   }
   execute();
