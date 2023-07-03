@@ -12,6 +12,22 @@ import fetchJson from "../../../utils/fetchJson";
 
 const baseUrl = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/documents`;
 
+async function fetchDocuments(groupId, page) {
+  const params = {
+    q: `group:${groupId}`,
+    pathname: "",
+    pinnedDocuments: [],
+    per_page: 1000,
+    page,
+  };
+
+  const url = `${baseUrl}?${new URLSearchParams(params)}`;
+
+  const res = await fetchJson.get(url);
+
+  return res;
+}
+
 function DocumentSelect(props) {
   const [fields] = useAllFormFields();
   const document = getSiblingData(fields, "groupId");
@@ -43,18 +59,24 @@ function DocumentSelect(props) {
 
 const validate = (siblingData) => {
   return async function validateDocumentSelect(value, { required, t }) {
-    const params = {
-      q: `group:${siblingData.groupId}`,
-      pathname: "",
-      pinnedDocuments: [],
-      per_page: 1000,
-    };
+    if (!siblingData.groupId) {
+      return false;
+    }
 
-    const res = await fetchJson.get(baseUrl, {
-      params,
-    });
+    let page = 1;
+    let lastPage = 1;
+    let documents = [];
 
-    const options = res?.documents.map((doc) => doc.title) || [];
+    do {
+      // eslint-disable-next-line no-await-in-loop
+      const res = await fetchDocuments(siblingData.groupId, page);
+      const { total, per_page: perPage } = res;
+      documents = [...documents, ...res.documents];
+      lastPage = Math.ceil(total / perPage);
+      page += 1;
+    } while (page <= lastPage);
+
+    const options = documents.map((doc) => doc.title) || [];
 
     const valid = await select(value, {
       hasMany: true,
