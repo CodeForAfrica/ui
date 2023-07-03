@@ -12,22 +12,6 @@ import fetchJson from "../../../utils/fetchJson";
 
 const baseUrl = `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/resources/documents`;
 
-async function fetchDocuments(groupId, page) {
-  const params = {
-    q: `group:${groupId}`,
-    pathname: "",
-    pinnedDocuments: [],
-    per_page: 1000,
-    page,
-  };
-
-  const url = `${baseUrl}?${new URLSearchParams(params)}`;
-
-  const res = await fetchJson.get(url);
-
-  return res;
-}
-
 function arrayFetcher(...urls) {
   return Promise.all(urls.map((url) => fetchJson.get(url)));
 }
@@ -81,20 +65,30 @@ const validate = (siblingData) => {
       return false;
     }
 
-    let page = 1;
-    let lastPage = 1;
-    let documents = [];
+    const params = {
+      q: `group:${siblingData.groupId}`,
+      pathname: "",
+      pinnedDocuments: [],
+      per_page: 1000,
+    };
 
-    do {
-      // eslint-disable-next-line no-await-in-loop
-      const res = await fetchDocuments(siblingData.groupId, page);
-      const { total, per_page: perPage } = res;
-      documents = [...documents, ...res.documents];
-      lastPage = Math.ceil(total / perPage);
-      page += 1;
-    } while (page <= lastPage);
+    const res = await fetchJson.get(
+      `${baseUrl}?${new URLSearchParams(params)}`
+    );
+    const { total, per_page: perPage, documents: originalDocuments } = res;
+    const lastPage = Math.ceil(total / perPage);
+    const urls = [];
+    // eslint-disable-next-line no-plusplus
+    for (let i = 2; i <= lastPage; i++) {
+      urls.push(`${baseUrl}?${new URLSearchParams({ ...params, page: i })}`);
+    }
 
-    const options = documents.map((doc) => doc.title) || [];
+    const allData = await arrayFetcher(...urls);
+
+    const documents = allData?.map((d) => d.documents).flat() || [];
+    const allDocs = [...originalDocuments, ...documents];
+
+    const options = allDocs.map((doc) => doc.title) || [];
 
     const valid = await select(value, {
       hasMany: true,
