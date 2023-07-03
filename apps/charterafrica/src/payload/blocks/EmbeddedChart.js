@@ -65,20 +65,6 @@ const EmbeddedChart = {
       },
     },
     {
-      name: "width",
-      label: {
-        en: "Width",
-        fr: "Largeur",
-        pt: "Largura",
-      },
-      type: "text",
-      required: true,
-      admin: {
-        description: "Width with unit (px, %, rem etc.) i.e. 500px, 100% etc.",
-      },
-      defaultValue: "100%",
-    },
-    {
       name: "backgroundColor",
       label: {
         en: "Background Color",

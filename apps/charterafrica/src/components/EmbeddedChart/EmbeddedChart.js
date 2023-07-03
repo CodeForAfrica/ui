@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 
 const EmbeddedChart = React.forwardRef(function EmbeddedChart(props, ref) {
-  const { backgroundColor, height, html, title, subtitle, width } = props;
+  const { backgroundColor, height, html, title, subtitle } = props;
 
   return (
     <Box
@@ -27,9 +27,9 @@ const EmbeddedChart = React.forwardRef(function EmbeddedChart(props, ref) {
         </Typography>
         <div
           style={{
-            width: `${width}`,
             height: `${height}`,
           }}
+          className="embedded-chart"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </Section>
