@@ -244,6 +244,15 @@ const Organisations = {
         beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
       },
     }),
+    {
+      type: "text",
+      label: { en: "E Tag", fr: "Étiquette", pt: "E tag" },
+      name: "eTag",
+      admin: {
+        readOnly: true,
+        position: "sidebar",
+      },
+    },
   ],
 };
 

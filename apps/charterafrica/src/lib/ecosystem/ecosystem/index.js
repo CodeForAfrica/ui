@@ -5,6 +5,9 @@ import {
   processContributors,
   processTools,
   processOrganisations,
+  updateContributor,
+  updateTool,
+  updateOrganisation,
 } from "@/charterafrica/lib/ecosystem/ecosystem/processData";
 import api from "@/charterafrica/lib/payload";
 import { ECOSYSTEM_GLOBAL } from "@/charterafrica/payload/utils/collections";
@@ -30,5 +33,12 @@ export async function updateList() {
 }
 
 export async function updateContent() {
+  async function execute() {
+    const contributors = await updateContributor();
+    const organisations = await updateOrganisation();
+    const tools = await updateTool();
+    return { tools, contributors, organisations };
+  }
+  execute();
   return { message: "PROCESS_STARTED" };
 }
