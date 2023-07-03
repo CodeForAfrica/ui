@@ -105,7 +105,7 @@ async function processPageConsultation(page, api, context) {
   if (documentsIndex > -1) {
     const {
       description: documentsDescription,
-      group: { groupId, options, pinnedDocuments = [] },
+      group: { groupId, options, pinnedDocuments },
       title: documentsTitle,
     } = blocks[documentsIndex];
     const documentsQuery = getDocumentsQuery(page, context, options);

@@ -61,7 +61,7 @@ export default async function processPageDocuments(page, api, context) {
       datasets,
       filterBar,
       labels,
-      organization: { groupId, options, pinnedDocuments = [] },
+      organization: { groupId, options, pinnedDocuments },
       showDatasets,
       showFilterBar,
     } = blocks[documentsIndex];
