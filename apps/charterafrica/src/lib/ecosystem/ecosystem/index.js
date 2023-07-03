@@ -1,13 +1,12 @@
 import * as Sentry from "@sentry/nextjs";
 
-import api from "../../payload";
-
 import airtable from "@/charterafrica/lib/ecosystem/airtable";
 import {
   processContributors,
   processTools,
   processOrganisations,
 } from "@/charterafrica/lib/ecosystem/ecosystem/processData";
+import api from "@/charterafrica/lib/payload";
 import { ECOSYSTEM_GLOBAL } from "@/charterafrica/payload/utils/collections";
 
 export async function updateList() {
