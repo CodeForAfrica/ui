@@ -28,6 +28,10 @@ async function fetchDocuments(groupId, page) {
   return res;
 }
 
+function arrayFetcher(...urls) {
+  return Promise.all(urls.map((url) => fetchJson.get(url)));
+}
+
 function DocumentSelect(props) {
   const [fields] = useAllFormFields();
   const document = getSiblingData(fields, "groupId");
@@ -49,10 +53,24 @@ function DocumentSelect(props) {
   const url = `${baseUrl}?${new URLSearchParams(params)}`;
 
   const { data } = useSWR(url, fetchJson.get);
+  const { per_page: perPage, total } = data || {};
+  const lastPage = Math.ceil(total / perPage);
+
+  const urls = [];
+
+  // eslint-disable-next-line no-plusplus
+  for (let i = 2; i <= lastPage; i++) {
+    urls.push(`${baseUrl}?${new URLSearchParams({ ...params, page: i })}`);
+  }
+
+  const { data: allData } = useSWR(urls, arrayFetcher);
 
   const options = useMemo(() => {
-    return data?.documents.map((doc) => doc.title) || [];
-  }, [data?.documents]);
+    const allDocs = allData?.map((d) => d.documents).flat() || [];
+    const docs = data?.documents || [];
+    return [...docs, ...allDocs].map((doc) => doc.title);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return createElement(Select, { ...props, hasMany: true, options });
 }
