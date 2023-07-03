@@ -1,9 +1,6 @@
 function localize(data, locales = ["en"]) {
   const getValue = (value, locale) => {
-    if (value?.[locale] !== undefined) {
-      return value?.[locale];
-    }
-    return value;
+    return value?.[locale] ?? value;
   };
 
   return locales.reduce((loc, locale) => {
