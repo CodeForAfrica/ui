@@ -18,7 +18,9 @@ exports[`<EmbeddedChart /> renders unchanged 1`] = `
       >
         Flourish Charts
       </p>
-      <div>
+      <div
+        style="height: 400px;"
+      >
         <div>
           Flourish Charts
         </div>
