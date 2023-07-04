@@ -1,8 +1,5 @@
+import { updateList, updateContent } from "@/charterafrica/lib/ecosystem";
 import airtable from "@/charterafrica/lib/ecosystem/airtable";
-import {
-  updateList,
-  updateContent,
-} from "@/charterafrica/lib/ecosystem/ecosystem";
 
 const isApiKeyValid = (key) => {
   return key && key === process.env.RESOURCES_SECRET_TOKEN;
