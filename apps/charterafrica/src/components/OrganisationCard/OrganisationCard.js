@@ -12,7 +12,6 @@ const OrganisationCard = React.forwardRef(function OrganisationCard(
 ) {
   const {
     description,
-    lastActive,
     elevation,
     image,
     link,
@@ -20,7 +19,6 @@ const OrganisationCard = React.forwardRef(function OrganisationCard(
     sx,
     name,
     variant = "outlined",
-    activeText,
   } = props;
   const ownerState = {
     elevation,
@@ -79,14 +77,6 @@ const OrganisationCard = React.forwardRef(function OrganisationCard(
           >
             {description}
           </LineClampedRichTypography>
-          <LineClampedRichTypography
-            color="neutral.dark"
-            lineClamp={1}
-            variant="p1"
-            sx={{ mt: 2.5, height: 18 }}
-          >
-            {`${activeText} ${lastActive}`}
-          </LineClampedRichTypography>
         </CardContent>
       </StyledActionArea>
     </Card>
@@ -95,14 +85,12 @@ const OrganisationCard = React.forwardRef(function OrganisationCard(
 
 OrganisationCard.propTypes = {
   name: PropTypes.string,
-  lastActive: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
 };
 
 OrganisationCard.defaultProps = {
   name: undefined,
-  lastActive: undefined,
   description: undefined,
   image: undefined,
 };

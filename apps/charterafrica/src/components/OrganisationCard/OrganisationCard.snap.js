@@ -26,11 +26,6 @@ exports[`<OrganisationCard /> renders unchanged 1`] = `
         >
           Sample description
         </div>
-        <div
-          class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
-        >
-          undefined 6 Months ago
-        </div>
       </div>
       <span
         class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
