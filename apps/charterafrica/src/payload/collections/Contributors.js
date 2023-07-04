@@ -100,7 +100,7 @@ const Contributors = {
         },
       },
     },
-    slug({ fieldToUse: ["source", "username"] }),
+    slug({ fieldToUse: ["source", "externalId"] }),
     {
       name: "socialMedia",
       type: "array",
@@ -142,6 +142,15 @@ const Contributors = {
         beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
       },
     }),
+    {
+      type: "text",
+      label: { en: "E Tag", fr: "Étiquette", pt: "E tag" },
+      name: "eTag",
+      admin: {
+        readOnly: true,
+        position: "sidebar",
+      },
+    },
   ],
 };
 

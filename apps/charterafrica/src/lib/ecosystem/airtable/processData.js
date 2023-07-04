@@ -17,7 +17,11 @@ function mapSupporterIdsToObjects(supporterIds, config, { partnersData }) {
   } = config;
   const { name, url, logo } = partnerTableColumns;
   const mapped = supporterIds.map((id) => {
-    const { fields } = partnersData.find((item) => id === item.id);
+    const { fields } = partnersData.find((item) => id === item.id) || {};
+
+    if (!fields) {
+      return null;
+    }
     return {
       name: getValue(fields, name),
       website: getValue(fields, url),
@@ -34,7 +38,11 @@ function mapSocialMediaIdsToObjects(socialMedia, config, tableData) {
   const { name, url } = socialMediaTableColumns;
   const { socialMediaData = [] } = tableData;
   const mapped = socialMedia.map((id) => {
-    const { fields } = socialMediaData.find((item) => item.id === id);
+    const { fields } = socialMediaData.find((item) => item.id === id) || {};
+
+    if (!fields) {
+      return null;
+    }
     return {
       name: getValue(fields, name),
       website: getValue(fields, url),
@@ -49,8 +57,14 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
     localized,
   } = config;
   const data = { ...item.fields, id: item.id };
-  const locales = localized ? ["en", "fr", "pt"] : ["en"];
+  const externalId = getValue(data, toolTableColumns.slug)?.trim();
+  if (!externalId?.length) {
+    const message = `Missing externalId for Tool ${data.id}. Skipping`;
+    Sentry.captureMessage(message);
+    return null;
+  }
 
+  const locales = localized ? ["en", "fr", "pt"] : ["en"];
   const theme = locales.reduce((acc, curr) => {
     acc[curr] = getValue(data, toolTableColumns.theme?.[curr])?.[0] ?? "";
     return acc;
@@ -82,7 +96,7 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
   return {
     airtableId: data.id,
     avatarUrl: getValue(data, toolTableColumns.avatarUrl)?.[0]?.url ?? null,
-    externalId: getValue(data, toolTableColumns.slug) || " ",
+    externalId,
     repoLink: getValue(data, toolTableColumns.source.url),
     name: getValue(data, toolTableColumns.name),
     link: getValue(data, toolTableColumns.url),
@@ -107,6 +121,13 @@ export function processContributor(
     localized,
   } = config;
   const data = { ...item.fields, id: item.id };
+  const externalId = getValue(data, contributorTableColumns.slug)?.trim();
+  if (!externalId?.length) {
+    const message = `Missing externalId for Contributor ${data.id}. Skipping`;
+    Sentry.captureMessage(message);
+    return null;
+  }
+
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
   const socialMedia = mapSocialMediaIdsToObjects(
     getValue(data, contributorTableColumns.socialMedia) || [],
@@ -125,7 +146,7 @@ export function processContributor(
     airtableId: data.id,
     avatarUrl:
       getValue(data, contributorTableColumns.avatarUrl)?.[0]?.url ?? null,
-    externalId: getValue(data, contributorTableColumns.slug),
+    externalId,
     repoLink,
     socialMedia,
     description,
@@ -142,18 +163,20 @@ export function processOrganisation(
     localized,
   } = config;
   const data = { ...item.fields, id: item.id };
-  const externalId = getValue(data, organisationTableColumns.slug);
-  if (!externalId) {
-    const message = `Missing external ID for ${data.id}`;
+  const externalId = getValue(data, organisationTableColumns.slug)?.trim();
+  if (!externalId?.length) {
+    const message = `Missing externalId for Organisation ${data.id}. Skipping`;
     Sentry.captureMessage(message);
     return null;
   }
+
   const tools = getValue(data, organisationTableColumns.tools);
   if (!tools?.length) {
-    const message = `Organisation ${data.id} is not assigned to any tool and has been skipped`;
+    const message = `Missing tools for Organisation ${data.id}. Skipping`;
     Sentry.captureMessage(message);
     return null;
   }
+
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
   const description = locales.reduce((acc, curr) => {
     acc[curr] = getValue(data, organisationTableColumns.description[curr]);
