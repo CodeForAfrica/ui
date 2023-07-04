@@ -1,9 +1,33 @@
 import { Section } from "@commons-ui/core";
-import { Box, Typography } from "@mui/material";
-import React from "react";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
+import React, { useState, useEffect } from "react";
 
 const EmbeddedChart = React.forwardRef(function EmbeddedChart(props, ref) {
-  const { backgroundColor, height, html, title, subtitle, width } = props;
+  const {
+    backgroundColor,
+    height: originalHeight,
+    html: originalHtml,
+    title,
+    subtitle,
+    width,
+  } = props;
+
+  const theme = useTheme();
+  const isSmDown = useMediaQuery(theme.breakpoints.down("sm"));
+  const newHeight = isSmDown ? "350px" : "400px";
+
+  const [height, setHeight] = useState(originalHeight);
+  const [html, setHtml] = useState(originalHtml);
+
+  useEffect(() => {
+    const dataHeightRegex = /data-height="(\d+)px"/g;
+    setHeight(newHeight);
+    const newHTML = originalHtml.replace(
+      dataHeightRegex,
+      `data-height="${newHeight}"`
+    );
+    setHtml(newHTML);
+  }, [isSmDown, newHeight, originalHtml]);
 
   return (
     <Box
