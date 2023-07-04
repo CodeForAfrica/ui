@@ -59,7 +59,7 @@ async function contributorFromCacheOrGit(airtableData, update) {
   return github.contributor(airtableData);
 }
 
-export async function processContributors(airtableData, config) {
+export async function prepareContributors(airtableData, config) {
   const { contributors } = airtableData;
   await bulkMarkDeleted(CONTRIBUTORS_COLLECTION, contributors);
   const toProcess = airtableData?.contributors?.map(async (item) => {
@@ -70,7 +70,7 @@ export async function processContributors(airtableData, config) {
   return Promise.allSettled(toProcess);
 }
 
-export async function processOrganisations(airtableData, config) {
+export async function prepareOrganisations(airtableData, config) {
   const { organisations } = airtableData;
   await bulkMarkDeleted(ORGANIZATION_COLLECTION, organisations);
   const toProcess = airtableData?.organisations?.map(async (item) => {
@@ -90,7 +90,7 @@ export async function processOrganisations(airtableData, config) {
   return Promise.allSettled(toProcess);
 }
 
-export async function processTools(airtableData, config) {
+export async function prepareTools(airtableData, config) {
   const { tools } = airtableData;
   await bulkMarkDeleted(TOOL_COLLECTION, tools);
   const toProcess = airtableData?.tools?.map(async (item) => {

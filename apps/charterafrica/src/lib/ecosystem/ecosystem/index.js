@@ -2,9 +2,9 @@ import * as Sentry from "@sentry/nextjs";
 
 import airtable from "@/charterafrica/lib/ecosystem/airtable";
 import {
-  processContributors,
-  processTools,
-  processOrganisations,
+  prepareContributors,
+  prepareTools,
+  prepareOrganisations,
   updateContributor,
   updateTool,
   updateOrganisation,
@@ -20,9 +20,9 @@ export async function updateList() {
       level: "info",
     });
     const data = await airtable.data(config);
-    await processContributors(data, config);
-    await processTools(data, config);
-    await processOrganisations(data, config);
+    await prepareContributors(data, config);
+    await prepareTools(data, config);
+    await prepareOrganisations(data, config);
     Sentry.captureEvent({
       message: `Update Ecosystem List process completed ${new Date().toString()}`,
       level: "info",
