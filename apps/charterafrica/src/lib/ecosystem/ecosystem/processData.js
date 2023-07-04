@@ -11,52 +11,11 @@ import {
   TOOL_COLLECTION,
 } from "@/charterafrica/payload/utils/collections";
 
-async function toolFromCacheOrGit(airtableData) {
-  const { airtableId } = airtableData;
-  const { docs } = await api.getCollection(TOOL_COLLECTION, {
-    where: {
-      airtableId: { equals: airtableId },
-    },
-  });
-  if (docs.length) {
-    return docs[0];
-  }
-  return github.fetchTool(airtableData);
-}
-
-async function organisationFromCacheOrGit(airtableData) {
-  const { airtableId } = airtableData;
-  const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {
-    where: {
-      airtableId: { equals: airtableId },
-    },
-  });
-  if (docs.length) {
-    return docs[0];
-  }
-  return github.fetchOrganisation(airtableData);
-}
-
-async function contributorFromCacheOrGit(airtableData) {
-  const { airtableId } = airtableData;
-  const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
-    where: {
-      airtableId: { equals: airtableId },
-    },
-  });
-  if (docs.length) {
-    return docs[0];
-  }
-  return github.fetchContributor(airtableData);
-}
-
 export async function prepareContributors(airtableData, config) {
   const { contributors } = airtableData;
   await bulkMarkDeleted(CONTRIBUTORS_COLLECTION, contributors);
   const toProcess = airtableData?.contributors?.map(async (item) => {
-    const gitData = await contributorFromCacheOrGit(item);
-    const toCreate = { ...item, gitData };
-    return createCollection(CONTRIBUTORS_COLLECTION, toCreate, config);
+    return createCollection(CONTRIBUTORS_COLLECTION, item, config);
   });
   return Promise.allSettled(toProcess);
 }
@@ -70,10 +29,8 @@ export async function prepareOrganisations(airtableData, config) {
       CONTRIBUTORS_COLLECTION,
       rawTools
     );
-    const gitData = await organisationFromCacheOrGit(item);
     const toCreate = {
       ...item,
-      ...gitData,
       tools,
     };
     return createCollection(ORGANIZATION_COLLECTION, toCreate, config);
@@ -90,10 +47,8 @@ export async function prepareTools(airtableData, config) {
       CONTRIBUTORS_COLLECTION,
       contrib
     );
-    const gitData = await toolFromCacheOrGit(item);
     const toCreate = {
       ...item,
-      ...gitData,
       contributors,
     };
     return createCollection(TOOL_COLLECTION, toCreate, config);
@@ -104,7 +59,7 @@ export async function prepareTools(airtableData, config) {
 export async function updateContributor() {
   const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION);
   const updatePromises = docs.map(async (item) => {
-    const updated = await github.contributor(item);
+    const updated = await github.fetchContributor(item);
     return api.updateCollection(CONTRIBUTORS_COLLECTION, item.id, updated);
   });
   return Promise.allSettled(updatePromises);
@@ -113,7 +68,7 @@ export async function updateContributor() {
 export async function updateOrganisation() {
   const { docs } = await api.getCollection(ORGANIZATION_COLLECTION);
   const updatePromises = docs.map(async (item) => {
-    const updated = await github.organisation(item);
+    const updated = await github.fetchOrganisation(item);
     return api.updateCollection(ORGANIZATION_COLLECTION, item.id, updated);
   });
   return Promise.allSettled(updatePromises);
@@ -122,7 +77,7 @@ export async function updateOrganisation() {
 export async function updateTool() {
   const { docs } = await api.getCollection(TOOL_COLLECTION);
   const updatePromises = docs.map(async (item) => {
-    const updated = await github.tool(item);
+    const updated = await github.fetchTool(item);
     return api.updateCollection(TOOL_COLLECTION, item.id, updated);
   });
   return Promise.allSettled(updatePromises);
