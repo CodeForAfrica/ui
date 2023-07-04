@@ -43,33 +43,6 @@ const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName: String
           }
         }
       }
-      collaborators(first: 100) {
-        nodes {
-          login
-          name
-          bio
-          location
-          twitterUsername
-          avatarUrl
-          ... on User {
-            updatedAt
-          }
-          email
-        }
-      }
-      owner {
-        ... on Organization {
-          login
-          name
-          description
-          location
-          twitterUsername
-          email
-          url
-          avatarUrl
-          updatedAt
-        }
-      }
     }
   }`;
 
