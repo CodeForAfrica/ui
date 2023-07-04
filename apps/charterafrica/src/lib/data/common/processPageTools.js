@@ -1,5 +1,5 @@
-import { tools as toolsMock } from "@/charterafrica/lib/data/_mock/ecosystemJson";
 import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
+import { TOOL_COLLECTION } from "@/charterafrica/payload/utils/collections";
 import queryString from "@/charterafrica/utils/articles/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
@@ -21,7 +21,7 @@ async function processPageSingleTool(page, api, context) {
   const { params, locale } = context;
   const { slug: collection } = page;
   const slug = params.slugs[2];
-  const { docs } = toolsMock(collection, {
+  const { docs } = await api.getCollection(collection, {
     locale,
     where: {
       slug: {
@@ -94,8 +94,7 @@ export async function getTools(page, api, context) {
     or: toolQueries,
   };
 
-  // Use mock data for test
-  const { docs, ...pagination } = toolsMock({
+  const { docs, ...pagination } = await api.getCollection(TOOL_COLLECTION, {
     locale,
     pageNumber,
     limit,

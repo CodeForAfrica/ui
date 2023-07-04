@@ -2,7 +2,7 @@ import * as Sentry from "@sentry/nextjs";
 
 import fetchJson, { FetchError } from "@/charterafrica/utils/fetchJson";
 
-const BASE_URL = "https://api.github.com/";
+const BASE_URL = "https://api.github.com";
 const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName: String!) {
     repository(owner: $repositoryOwner, name: $repositoryName) {
       name
