@@ -11,10 +11,7 @@ import {
   TOOL_COLLECTION,
 } from "@/charterafrica/payload/utils/collections";
 
-async function toolFromCacheOrGit(airtableData, update) {
-  if (update) {
-    return github.fetchTool(airtableData);
-  }
+async function toolFromCacheOrGit(airtableData) {
   const { airtableId } = airtableData;
   const { docs } = await api.getCollection(TOOL_COLLECTION, {
     where: {
@@ -27,10 +24,7 @@ async function toolFromCacheOrGit(airtableData, update) {
   return github.fetchTool(airtableData);
 }
 
-async function organisationFromCacheOrGit(airtableData, update) {
-  if (update) {
-    return github.fetchOrganisation(airtableData);
-  }
+async function organisationFromCacheOrGit(airtableData) {
   const { airtableId } = airtableData;
   const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {
     where: {
@@ -43,10 +37,7 @@ async function organisationFromCacheOrGit(airtableData, update) {
   return github.fetchOrganisation(airtableData);
 }
 
-async function contributorFromCacheOrGit(airtableData, update) {
-  if (update) {
-    return github.fetchContributor(airtableData);
-  }
+async function contributorFromCacheOrGit(airtableData) {
   const { airtableId } = airtableData;
   const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
     where: {
