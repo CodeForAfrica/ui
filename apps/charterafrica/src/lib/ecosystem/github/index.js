@@ -1,11 +1,7 @@
-import {
-  processTool,
-  processOrganisation,
-  processContributor,
-} from "./processData";
+import { fetchTool, fetchOrganisation, fetchContributor } from "./processData";
 
 export default {
-  tool: processTool,
-  organisation: processOrganisation,
-  contributor: processContributor,
+  fetchTool,
+  fetchOrganisation,
+  fetchContributor,
 };
