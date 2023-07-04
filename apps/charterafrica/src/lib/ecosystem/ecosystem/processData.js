@@ -13,7 +13,7 @@ import {
 
 async function toolFromCacheOrGit(airtableData, update) {
   if (update) {
-    return github.tool(airtableData);
+    return github.fetchTool(airtableData);
   }
   const { airtableId } = airtableData;
   const { docs } = await api.getCollection(TOOL_COLLECTION, {
@@ -24,12 +24,12 @@ async function toolFromCacheOrGit(airtableData, update) {
   if (docs.length) {
     return docs[0];
   }
-  return github.tool(airtableData);
+  return github.fetchTool(airtableData);
 }
 
 async function organisationFromCacheOrGit(airtableData, update) {
   if (update) {
-    return github.organisation(airtableData);
+    return github.fetchOrganisation(airtableData);
   }
   const { airtableId } = airtableData;
   const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {
@@ -40,12 +40,12 @@ async function organisationFromCacheOrGit(airtableData, update) {
   if (docs.length) {
     return docs[0];
   }
-  return github.organisation(airtableData);
+  return github.fetchOrganisation(airtableData);
 }
 
 async function contributorFromCacheOrGit(airtableData, update) {
   if (update) {
-    return github.contributor(airtableData);
+    return github.fetchContributor(airtableData);
   }
   const { airtableId } = airtableData;
   const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
@@ -56,7 +56,7 @@ async function contributorFromCacheOrGit(airtableData, update) {
   if (docs.length) {
     return docs[0];
   }
-  return github.contributor(airtableData);
+  return github.fetchContributor(airtableData);
 }
 
 export async function prepareContributors(airtableData, config) {
