@@ -15,45 +15,52 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
         src="/images/hero-slide-1.jpg"
       />
       <div
-        class="MuiGrid-root MuiGrid-container css-1d9j9dw-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-1c9lqjq-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1d9j9dw-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-p1 css-d1m63n-MuiTypography-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
-            Document Title
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-d1m63n-MuiTypography-root"
+            >
+              Document Title
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-1qjtras-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-2zk7gx-MuiTypography-root"
+            >
+              10 Pages
+            </div>
+            <span
+              class="css-vnw9up"
+            >
+              .
+            </span>
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-r7a0d0-MuiTypography-root"
+            >
+              Contributed by: Contributor
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-yvyayl-MuiTypography-root"
+            >
+              September 1, 2021
+            </div>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-1qjtras-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p1 css-2zk7gx-MuiTypography-root"
-          >
-            10 Pages
-          </div>
-          <span
-            class="css-vnw9up"
-          >
-            .
-          </span>
-          <div
-            class="MuiTypography-root MuiTypography-p1 css-r7a0d0-MuiTypography-root"
-          >
-            Contributed by: Contributor
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-p1 css-yvyayl-MuiTypography-root"
-          >
-            September 1, 2021
-          </div>
-        </div>
+          class="MuiGrid-root css-vj1n65-MuiGrid-root"
+        />
       </div>
       <span
         class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"

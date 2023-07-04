@@ -117,8 +117,8 @@ export async function fetchDocuments(
       fetchedPinnedDocuments.push(...docs);
     }
 
-    formattedData.documents = [...fetchedPinnedDocuments, ...filteredDocuments];
-
+    formattedData.documents = [...filteredDocuments];
+    formattedData.pinned = [...fetchedPinnedDocuments];
     return formattedData;
   } catch (err) {
     Sentry.captureException(err);
