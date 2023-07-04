@@ -2,6 +2,7 @@ import * as Sentry from "@sentry/nextjs";
 
 import fetchJson, { FetchError } from "@/charterafrica/utils/fetchJson";
 
+const BASE_URL = "https://api.github.com/";
 const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName: String!) {
     repository(owner: $repositoryOwner, name: $repositoryName) {
       name
@@ -47,7 +48,7 @@ const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName: String
   }`;
 
 async function fetchRepository(variables) {
-  const url = "https://api.github.com/graphql";
+  const url = `${BASE_URL}/graphql`;
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
@@ -68,12 +69,12 @@ async function fetchRepository(variables) {
 }
 
 async function fetchGithubApi(path, tag) {
+  const url = `${BASE_URL}/${path}`;
+  const headers = {
+    "If-None-Match": tag,
+    Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+  };
   try {
-    const url = `https://api.github.com/${path}`;
-    const headers = {
-      "If-None-Match": tag,
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-    };
     const res = await fetch(url, { headers });
     const response = await res.json();
     const eTag = res.headers.get("ETag") || "";
@@ -88,17 +89,12 @@ async function fetchGithubApi(path, tag) {
     }
     return null;
   } catch (e) {
-    Sentry.captureException(e.message);
+    Sentry.captureException(e);
     return null;
   }
 }
 
-export async function processTool({ externalId, airtableId }) {
-  if (!externalId?.trim()) {
-    const message = `Could not fetch Tool ${airtableId} from Github`;
-    Sentry.captureException(message);
-    return null;
-  }
+export async function fetchTool({ externalId }) {
   let [repositoryOwner, repositoryName] = externalId
     .replace(/^https?:\/\/github\.com\//, "")
     .replace(/\/$/, "")
@@ -106,8 +102,8 @@ export async function processTool({ externalId, airtableId }) {
   repositoryOwner = repositoryOwner?.trim();
   repositoryName = repositoryName?.trim();
   if (!repositoryName || !repositoryOwner) {
-    const message = `Could not fetch Tool ${airtableId} from Github. Repository Name and Owner are required`;
-    Sentry.captureException(message);
+    const message = `Could not fetch Tool ${externalId} from Github. Owner/RepositoryName required`;
+    Sentry.captureMessage(message);
     return null;
   }
 
@@ -115,7 +111,6 @@ export async function processTool({ externalId, airtableId }) {
     repositoryOwner,
     repositoryName,
   });
-
   const techSkills = data.languages?.nodes?.map((language) => ({
     language: language?.name,
   }));
@@ -138,13 +133,7 @@ export async function processTool({ externalId, airtableId }) {
   };
 }
 
-export async function processOrganisation({ externalId, airtableId, eTag }) {
-  if (!externalId?.trim()) {
-    const message = `Could not fetch Organisation ${airtableId} from Github`;
-    Sentry.captureException(message);
-    return null;
-  }
-
+export async function fetchOrganisation({ externalId, eTag }) {
   const data = await fetchGithubApi(`orgs/${externalId}`, eTag);
   if (!data) {
     return null;
@@ -160,12 +149,7 @@ export async function processOrganisation({ externalId, airtableId, eTag }) {
   };
 }
 
-export async function processContributor({ externalId, airtableId, eTag }) {
-  if (!externalId?.trim()) {
-    const message = `Could not fetch Contributor ${airtableId} from Github`;
-    Sentry.captureException(message);
-    return null;
-  }
+export async function fetchContributor({ externalId, eTag }) {
   const data = await fetchGithubApi(`users/${externalId}`, eTag);
   if (!data) {
     return null;
