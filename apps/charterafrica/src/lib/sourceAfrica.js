@@ -41,84 +41,40 @@ function formatDocuments(data, pathname) {
   };
 }
 
-export async function fetchPinnedDocument(titles, pathname) {
-  const promises = titles.map((title) => {
-    const params = {
-      q: `title:"${title}"`,
-      contributor: true,
-      data: true,
-    };
-    return fetchJson.get(`${BASE_DOCUMENTS_URL}search.json`, {
-      params,
-    });
-  });
-
-  try {
-    const results = await Promise.all(promises);
-    const formattedResults = results.map((result) => {
-      return formatDocuments(result, pathname);
-    });
-    return formattedResults;
-  } catch (error) {
-    Sentry.captureException(error);
-  }
-  return null;
-}
-
 export async function fetchDocuments(
   q,
   pathname,
   options = {},
-  pinnedDocuments = []
+  showPinnedDocuments = false
 ) {
   const params = {
     ...options,
     q,
   };
+
   try {
     const data = await fetchJson.get(`${BASE_DOCUMENTS_URL}search.json`, {
       params,
     });
     const formattedData = formatDocuments(data, pathname);
 
-    const { page } = options;
-
-    if (page > 1 || !pinnedDocuments.length) {
+    if (!showPinnedDocuments) {
       return formattedData;
     }
 
-    const fetchedPinnedDocuments = formattedData.documents.filter(
-      (document) => {
-        return pinnedDocuments.includes(document.title);
+    const pinnedDocuments = await fetchJson.get(
+      `${BASE_DOCUMENTS_URL}search.json`,
+      {
+        params: {
+          ...params,
+          q: `pinned:true`,
+        },
       }
     );
-    const filteredDocuments = formattedData.documents.filter((document) => {
-      return !fetchedPinnedDocuments.includes(document);
-    });
+    const formattedPinnedDocuments = formatDocuments(pinnedDocuments, pathname);
 
-    const pinnedDocumentsNotInSearchResults = pinnedDocuments.filter(
-      (pinnedDocument) => {
-        return !formattedData.documents.some(
-          (document) => document.title === pinnedDocument
-        );
-      }
-    );
+    formattedData.pinnedDocuments = formattedPinnedDocuments.documents;
 
-    if (pinnedDocumentsNotInSearchResults.length) {
-      const pinnedDocumentsNotInSearchResultsArray = await fetchPinnedDocument(
-        pinnedDocumentsNotInSearchResults,
-        pathname
-      );
-
-      const docs = pinnedDocumentsNotInSearchResultsArray
-        .map((doc) => doc.documents)
-        .flat();
-
-      fetchedPinnedDocuments.push(...docs);
-    }
-
-    formattedData.documents = [...filteredDocuments];
-    formattedData.pinned = [...fetchedPinnedDocuments];
     return formattedData;
   } catch (err) {
     Sentry.captureException(err);

@@ -1,9 +1,5 @@
 import { deepmerge } from "@mui/utils";
 
-import documentSelect from "./documents/documentSelect";
-
-const groupData = {};
-
 function documentCloudSource({ overrides } = {}) {
   const generatedDocumentCloudSource = {
     name: "documents",
@@ -26,10 +22,6 @@ function documentCloudSource({ overrides } = {}) {
           pt: "ID do grupo",
         },
         required: true,
-        validate: async (value) => {
-          groupData.groupId = value;
-          return true;
-        },
       },
       {
         name: "options",
@@ -105,19 +97,6 @@ function documentCloudSource({ overrides } = {}) {
         defaultValue: false,
         required: true,
       },
-      documentSelect({
-        name: "pinnedDocuments",
-        groupData,
-        label: {
-          en: "Pinned Documents",
-          fr: "Documents épinglés",
-          pt: "Documentos fixados",
-        },
-        admin: {
-          condition: (_, siblingData) => siblingData?.showPinnedDocuments,
-          description: "Add Group ID above to select documents",
-        },
-      }),
     ],
   };
 

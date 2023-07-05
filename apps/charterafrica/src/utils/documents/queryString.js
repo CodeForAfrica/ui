@@ -10,7 +10,7 @@ function queryString(query = {}) {
   const {
     contributor = true,
     pathname,
-    pinnedDocuments,
+    showPinnedDocuments,
     per_page: pageSize = 8,
     q,
     sort,
@@ -43,8 +43,8 @@ function queryString(query = {}) {
     searchParams.append("pathname", pathname);
   }
 
-  if (pinnedDocuments) {
-    searchParams.append("pinnedDocuments", pinnedDocuments);
+  if (showPinnedDocuments) {
+    searchParams.append("showPinnedDocuments", showPinnedDocuments);
   }
 
   return searchParams.toString() || "";

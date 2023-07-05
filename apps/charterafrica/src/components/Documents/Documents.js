@@ -24,11 +24,12 @@ const Documents = React.forwardRef(function Documents(props, ref) {
     labels,
     pathname,
     showFilterBar,
-    pinnedDocuments,
-    pinned: originalPinnedDocuments,
+    pinnedDocuments: originalPinnedDocuments,
+    showPinnedDocuments,
   } = props;
+
   const [documents, setDocuments] = useState(originalDocuments);
-  const [pinnedDocumentsList, setPinnedDocuments] = useState(
+  const [pinnedDocuments, setPinnedDocuments] = useState(
     originalPinnedDocuments
   );
   const [totalPages, setTotalPages] = useState(0);
@@ -69,7 +70,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
       ...documentOptions,
     },
     pathname,
-    pinnedDocuments
+    showPinnedDocuments
   );
   useEffect(() => {
     if (!res?.isLoading) {
@@ -79,7 +80,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
         total,
         per_page: pageSize,
         page: currentPage,
-        pinned: newPinnedDocuments,
+        pinnedDocuments: newPinnedDocuments,
       } = data || {};
       setDocuments(foundDocuments);
       setPinnedDocuments(newPinnedDocuments);
@@ -132,7 +133,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
           ) : null}
           {res.isLoading ? <LinearProgress color="secondary" /> : null}
 
-          {pinnedDocumentsList?.map((document) => (
+          {pinnedDocuments?.map((document) => (
             <DocumentCard
               {...document}
               key={document.href}
