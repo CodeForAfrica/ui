@@ -1,5 +1,5 @@
 import { RichTypography, Section } from "@commons-ui/core";
-import { Box, LinearProgress } from "@mui/material";
+import { Box, LinearProgress, Divider } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
 
 import DocumentFilterBar from "./DocumentFilterBar";
@@ -24,8 +24,14 @@ const Documents = React.forwardRef(function Documents(props, ref) {
     labels,
     pathname,
     showFilterBar,
+    pinnedDocuments: originalPinnedDocuments,
+    showPinnedDocuments,
   } = props;
+
   const [documents, setDocuments] = useState(originalDocuments);
+  const [pinnedDocuments, setPinnedDocuments] = useState(
+    originalPinnedDocuments
+  );
   const [totalPages, setTotalPages] = useState(0);
   const [page, setPage] = useState(1);
   const [filtering, setFiltering] = useState(false);
@@ -63,7 +69,8 @@ const Documents = React.forwardRef(function Documents(props, ref) {
       search,
       ...documentOptions,
     },
-    pathname
+    pathname,
+    showPinnedDocuments
   );
   useEffect(() => {
     if (!res?.isLoading) {
@@ -73,8 +80,10 @@ const Documents = React.forwardRef(function Documents(props, ref) {
         total,
         per_page: pageSize,
         page: currentPage,
+        pinnedDocuments: newPinnedDocuments,
       } = data || {};
       setDocuments(foundDocuments);
+      setPinnedDocuments(newPinnedDocuments);
       setPage(currentPage);
       setTotalPages(Math.ceil(total / pageSize));
     }
@@ -123,6 +132,23 @@ const Documents = React.forwardRef(function Documents(props, ref) {
             />
           ) : null}
           {res.isLoading ? <LinearProgress color="secondary" /> : null}
+
+          {pinnedDocuments?.map((document) => (
+            <DocumentCard
+              {...document}
+              key={document.href}
+              pinned
+              sx={{
+                "&:first-of-type": {
+                  mt: 5,
+                },
+                "&:last-of-type": {
+                  mb: 0,
+                },
+              }}
+            />
+          ))}
+          <Divider sx={{ my: 2 }} />
           {documents?.map((document) => (
             <DocumentCard
               {...document}

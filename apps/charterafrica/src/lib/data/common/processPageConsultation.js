@@ -105,7 +105,7 @@ async function processPageConsultation(page, api, context) {
   if (documentsIndex > -1) {
     const {
       description: documentsDescription,
-      group: { groupId, options },
+      group: { groupId, options, showPinnedDocuments },
       title: documentsTitle,
     } = blocks[documentsIndex];
     const documentsQuery = getDocumentsQuery(page, context, options);
@@ -115,7 +115,8 @@ async function processPageConsultation(page, api, context) {
     const documents = await fetchDocuments(
       `group:${groupId} lang:${locale}`,
       documentsPathname,
-      query
+      query,
+      showPinnedDocuments
     );
     blocks[documentsIndex] = {
       ...blocks[documentsIndex],
@@ -125,6 +126,7 @@ async function processPageConsultation(page, api, context) {
       pathname: documentsPathname,
       slug: "documents",
       title: documentsTitle ?? null,
+      showPinnedDocuments,
     };
 
     let swrKey = `/api/v1/resources/documents`;

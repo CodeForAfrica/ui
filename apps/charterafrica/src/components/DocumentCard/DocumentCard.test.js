@@ -15,6 +15,7 @@ const defaultProps = {
   image: "/images/hero-slide-1.jpg",
   pages: 10,
   title: "Document Title",
+  pinned: false,
 };
 
 describe("<DocumentCard />", () => {
