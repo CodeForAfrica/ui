@@ -1,5 +1,6 @@
 import * as Sentry from "@sentry/nextjs";
 
+import collections from "@/charterafrica/lib/ecosystem/collections";
 import fetchDatasets from "@/charterafrica/lib/openAfrica";
 import { fetchDocuments } from "@/charterafrica/lib/sourceAfrica";
 
@@ -36,6 +37,7 @@ async function documents(req, res) {
 const fetchResourcesByType = {
   datasets,
   documents,
+  collections,
 };
 
 export default async function handler(req, res) {

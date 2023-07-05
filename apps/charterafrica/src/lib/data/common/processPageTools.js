@@ -96,7 +96,7 @@ export async function getTools(page, api, context) {
 
   const { docs, ...pagination } = await api.getCollection(TOOL_COLLECTION, {
     locale,
-    pageNumber,
+    page: pageNumber,
     limit,
     sort,
     query,
@@ -112,6 +112,8 @@ export async function getTools(page, api, context) {
     return {
       ...tool,
       topicLabel: "Topic",
+      exploreText: "Explore",
+      contributorsCount: tool?.contributors?.length ?? null,
       description: tool.description ?? " ",
       link: {
         href,

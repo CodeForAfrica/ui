@@ -66,7 +66,7 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
 
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
   const theme = locales.reduce((acc, curr) => {
-    acc[curr] = getValue(data, toolTableColumns.theme?.[curr])?.[0] ?? "";
+    acc[curr] = getValue(data, toolTableColumns.theme?.[curr]) ?? "";
     return acc;
   }, {});
   const description = locales.reduce((acc, curr) => {

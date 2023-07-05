@@ -21,7 +21,7 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
   const {
     description,
     elevation,
-    topic,
+    theme: topic,
     image,
     link,
     square,
@@ -61,6 +61,7 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
                 width: "100%",
                 maxWidth: horizontalDisplay ? 585 : "100%",
                 minWidth: 330,
+                height: horizontalDisplay ? "100%" : 160,
               }}
             />
           </Grid>
@@ -83,8 +84,10 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
                   textAlign="left"
                   variant="h5SmallSemiBold"
                   sx={(theme) => ({
+                    height: `calc(${theme.typography.h5SmallSemiBold.fontSize}px * ${theme.typography.h5SmallSemiBold.lineHeight} * 2)`,
                     [theme.breakpoints.up("md")]: {
                       typography: "h5SemiBold",
+                      height: `calc(${theme.typography.h5SemiBold.fontSize}px * ${theme.typography.h5SemiBold.lineHeight} * 2)`,
                     },
                   })}
                 >
@@ -166,8 +169,9 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
               <LineClampedRichTypography
                 variant="p1"
                 color="neutral.main"
-                sx={() => ({
+                sx={(theme) => ({
                   mt: 2.5,
+                  height: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
                 })}
                 lineClamp={3}
               >
@@ -193,7 +197,7 @@ ToolCard.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
-  topic: PropTypes.string,
+  theme: PropTypes.string,
   link: PropTypes.shape({}),
 };
 
@@ -201,7 +205,7 @@ ToolCard.defaultProps = {
   name: undefined,
   description: undefined,
   image: undefined,
-  topic: undefined,
+  theme: undefined,
   link: undefined,
 };
 

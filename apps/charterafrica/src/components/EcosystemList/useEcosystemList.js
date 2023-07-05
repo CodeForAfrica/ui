@@ -5,9 +5,8 @@ import fetchJson from "@/charterafrica/utils/fetchJson";
 const fetcher = (url) => fetchJson.get(url);
 
 function useEcosystemList(params) {
-  const { collection, ...rest } = params;
-  const searchParams = new URLSearchParams(rest).toString();
-  const key = `/api/v1/resources/collections/${collection}${
+  const searchParams = new URLSearchParams(params).toString();
+  const key = `/api/v1/resources/collections${
     searchParams ? `?${searchParams}` : ""
   }`;
   const { data, error } = useSWR(key, fetcher);
