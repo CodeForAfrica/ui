@@ -5,7 +5,12 @@ import fetchJson from "@/charterafrica/utils/fetchJson";
 const fetcher = (url) => fetchJson.get(url);
 
 function useEcosystemList(params) {
-  const searchParams = new URLSearchParams(params).toString();
+  const param = new URLSearchParams();
+  Object.keys(params).forEach((key) => {
+    if (params[key] && params[key] !== "undefined")
+      param.append(key, params[key]);
+  });
+  const searchParams = param.toString();
   const key = `/api/v1/resources/collections${
     searchParams ? `?${searchParams}` : ""
   }`;

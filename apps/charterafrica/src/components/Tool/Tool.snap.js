@@ -513,7 +513,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-18qart5-MuiGrid-root"
                   >
                     <img
-                      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-li0ryz-MuiCardMedia-root"
+                      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-zyubfe-MuiCardMedia-root"
                       src="/static/images/react.png"
                     />
                   </div>
@@ -527,16 +527,11 @@ exports[`<Tool /> renders unchanged 1`] = `
                         class="MuiBox-root css-gg4vpm"
                       >
                         <h5
-                          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1h283kb-MuiTypography-root"
+                          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-18subyt-MuiTypography-root"
                         >
                           React
                         </h5>
                       </div>
-                      <span
-                        class="MuiTypography-root MuiTypography-caption css-11kmaoc-MuiTypography-root"
-                      >
-                        Frontend
-                      </span>
                       <div
                         class="MuiBox-root css-yix9jc"
                       >
@@ -569,7 +564,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                         </div>
                       </div>
                       <div
-                        class="MuiTypography-root MuiTypography-p1 css-1xf8skh-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
                       >
                         A JavaScript library for building user interfaces
                       </div>
@@ -605,7 +600,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-18qart5-MuiGrid-root"
                   >
                     <img
-                      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-li0ryz-MuiCardMedia-root"
+                      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-zyubfe-MuiCardMedia-root"
                       src="/static/images/nodejs.png"
                     />
                   </div>
@@ -619,16 +614,11 @@ exports[`<Tool /> renders unchanged 1`] = `
                         class="MuiBox-root css-gg4vpm"
                       >
                         <h5
-                          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1h283kb-MuiTypography-root"
+                          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-18subyt-MuiTypography-root"
                         >
                           Node.js
                         </h5>
                       </div>
-                      <span
-                        class="MuiTypography-root MuiTypography-caption css-11kmaoc-MuiTypography-root"
-                      >
-                        Backend
-                      </span>
                       <div
                         class="MuiBox-root css-yix9jc"
                       >
@@ -661,7 +651,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                         </div>
                       </div>
                       <div
-                        class="MuiTypography-root MuiTypography-p1 css-1xf8skh-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
                       >
                         A JavaScript runtime built on Chrome's V8 JavaScript engine.
                       </div>

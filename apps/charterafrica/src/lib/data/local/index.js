@@ -7,8 +7,8 @@ import {
   getArticles,
   getTags,
 } from "@/charterafrica/lib/data/common/processPageArticles";
+import { getContributors } from "@/charterafrica/lib/data/common/processPageContributors";
 import { getOrganisations } from "@/charterafrica/lib/data/common/processPageOrganisations";
-import { getPeople } from "@/charterafrica/lib/data/common/processPagePeople";
 import { getTools } from "@/charterafrica/lib/data/common/processPageTools";
 // Only used on home page
 export async function getGlobalProps(context) {
@@ -41,7 +41,7 @@ export async function getServerSideOrgs(collection, context) {
 }
 
 export async function getServerSideContributors(collection, context) {
-  return getPeople(collection, api, context);
+  return getContributors(collection, api, context);
 }
 
 export async function getServerSideTools(collection, context) {

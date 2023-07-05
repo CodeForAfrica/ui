@@ -1,8 +1,5 @@
-import {
-  organisations as orgMocks,
-  tools as toolMocks,
-} from "@/charterafrica/lib/data/_mock/ecosystemJson";
 import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
+import { ORGANIZATION_COLLECTION } from "@/charterafrica/payload/utils/collections";
 import queryString from "@/charterafrica/utils/articles/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
@@ -15,7 +12,7 @@ async function processPageSingleOrganisation(page, api, context) {
   const { params, locale } = context;
   const { slug: collection } = page;
   const slug = params.slugs[2];
-  const { docs } = orgMocks(collection, {
+  const { docs } = await api.getCollection(collection, {
     locale,
     where: {
       slug: {
@@ -28,17 +25,9 @@ async function processPageSingleOrganisation(page, api, context) {
   }
   const filterLabels = labelsPerLocale[locale];
   const organisation = docs[0] || {};
-  const { docs: toolDocs } = toolMocks("tools", {
-    locale,
-    where: {
-      organisation: {
-        in: [organisation.id],
-      },
-    },
-  });
 
   const pageUrl = await getPageUrl(api, "tools");
-  const tools = toolDocs.map((tool) => {
+  const tools = organisation.tools.map((tool) => {
     let href = null;
     if (pageUrl) {
       href = `${pageUrl}/${tool.slug}`;
@@ -62,8 +51,8 @@ async function processPageSingleOrganisation(page, api, context) {
         image: organisation.avatarUrl ?? null,
         name: organisation?.name ?? null,
         location: organisation?.location ?? null,
-        description: organisation.description,
-        twitter: organisation.twitter,
+        description: organisation.description ?? null,
+        twitter: organisation.twitter ?? null,
         email: organisation.email ?? null,
         toolsTitle: filterLabels.tools,
         lastActive: organisation.lastActive
@@ -71,7 +60,7 @@ async function processPageSingleOrganisation(page, api, context) {
           : null,
         github:
           organisation.source === "github"
-            ? `https://github.com/${organisation?.username || ""}`
+            ? `https://github.com/${organisation?.externalId || ""}`
             : "",
         tools,
       },
@@ -91,15 +80,18 @@ export async function getOrganisations(page, api, context) {
     or: toolQueries,
   };
   const filterLabels = labelsPerLocale[locale];
-  const { docs, ...pagination } = orgMocks("organisations", {
-    locale,
-    page: pageNumber,
-    limit,
-    sort,
-    where: {
-      ...query,
-    },
-  });
+  const { docs, ...pagination } = await api.getCollection(
+    ORGANIZATION_COLLECTION,
+    {
+      locale,
+      page: pageNumber,
+      limit,
+      sort,
+      where: {
+        ...query,
+      },
+    }
+  );
   const results = docs.map((tool) => {
     let href = null;
     const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
@@ -190,7 +182,7 @@ async function processPageOrganisations(page, api, context) {
   }
 
   const { slugs, ...queryParams } = context.query;
-  let swrKey = `/api/v1/resources/collection/organisations`;
+  let swrKey = `/api/v1/resources/collections`;
   const qs = queryString(queryParams);
   if (qs) {
     swrKey = `${swrKey}?${qs}`;

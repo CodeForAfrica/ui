@@ -177,7 +177,7 @@ Entity.propTypes = {
     })
   ),
   toolsTitle: PropTypes.string,
-  entity: PropTypes.oneOf(["people", "organisation"]),
+  entity: PropTypes.oneOf(["contributors", "organisation"]),
 };
 
 Entity.defaultProps = {

@@ -4,6 +4,7 @@ import { SWRConfig } from "swr";
 import Articles from "@/charterafrica/components/Articles";
 import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Consultations from "@/charterafrica/components/Consultations";
+import Contributors from "@/charterafrica/components/Contributors";
 import Dataset from "@/charterafrica/components/Dataset";
 import Datasets from "@/charterafrica/components/Datasets";
 import Document from "@/charterafrica/components/Document";
@@ -31,7 +32,6 @@ import PageDescription from "@/charterafrica/components/PageDescription";
 import PageHeader from "@/charterafrica/components/PageHeader";
 import PageInfo from "@/charterafrica/components/PageInfo";
 import Partners from "@/charterafrica/components/Partners";
-import People from "@/charterafrica/components/People";
 import Post from "@/charterafrica/components/Post";
 import Resources from "@/charterafrica/components/Resources";
 import Spotlight from "@/charterafrica/components/Spotlight";
@@ -74,7 +74,7 @@ const componentsBySlugs = {
   spotlight: Spotlight,
   tool: Tool,
   tools: Tools,
-  people: People,
+  contributors: Contributors,
   organisations: Organisations,
   entity: Entity,
 };

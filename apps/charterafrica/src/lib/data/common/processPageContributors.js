@@ -1,8 +1,8 @@
-import {
-  people as peopleMocks,
-  tools as toolMocks,
-} from "@/charterafrica/lib/data/_mock/ecosystemJson";
 import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
+import {
+  CONTRIBUTORS_COLLECTION,
+  TOOL_COLLECTION,
+} from "@/charterafrica/payload/utils/collections";
 import queryString from "@/charterafrica/utils/articles/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
@@ -11,35 +11,31 @@ const orQueryBuilder = (fields, search) => {
   return fields.map((field) => ({ [field]: { like: search } }));
 };
 
-export async function getPeople(page, api, context) {
+export async function getContributors(page, api, context) {
   const { breadcrumbs } = page;
   const {
     locale,
-    query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
+    query: { page: pageNumber = 1, limit = 12, search, sort = "fullName" } = {},
   } = context;
 
-  const fields = [
-    "description",
-    "fullName",
-    "country",
-    "userName",
-    "externalId",
-    "name",
-  ];
+  const fields = ["description", "fullName", "location", "externalId"];
   const toolQueries = orQueryBuilder(fields, search);
   const query = {
     or: toolQueries,
   };
 
-  const { docs, ...pagination } = peopleMocks("people", {
-    locale,
-    page: pageNumber,
-    limit,
-    sort,
-    where: {
-      ...query,
-    },
-  });
+  const { docs, ...pagination } = await api.getCollection(
+    CONTRIBUTORS_COLLECTION,
+    {
+      locale,
+      page: parseInt(pageNumber, 10) || 1,
+      limit,
+      sort,
+      where: {
+        ...query,
+      },
+    }
+  );
   const results = docs.map((person) => {
     let href = null;
     const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
@@ -53,7 +49,7 @@ export async function getPeople(page, api, context) {
         href,
       },
       description: person.description || " ",
-      name: person.fullName || person.username,
+      name: person.fullName ?? null,
       image: person.avatarUrl ?? null,
       lastActive: person.lastActive
         ? formatDateTime(person.lastActive, {})
@@ -67,7 +63,7 @@ async function processPagePerson(page, api, context) {
   const { params, locale } = context;
   const { slug: collection } = page;
   const slug = params.slugs[2];
-  const { docs } = peopleMocks(collection, {
+  const { docs } = await api.getCollection(collection, {
     locale,
     where: {
       slug: {
@@ -81,10 +77,10 @@ async function processPagePerson(page, api, context) {
 
   const filterLabels = labelsPerLocale[locale];
   const contributor = docs[0] || {};
-  const { docs: toolDocs } = toolMocks("tools", {
+  const { docs: toolDocs } = await api.getCollection(TOOL_COLLECTION, {
     locale,
     where: {
-      people: {
+      contributors: {
         in: [contributor.id],
       },
     },
@@ -116,7 +112,7 @@ async function processPagePerson(page, api, context) {
         name: contributor?.fullName ?? null,
         location: contributor.country ?? null,
         description: contributor.description ?? null,
-        twitter: contributor.twitter,
+        twitter: contributor.twitter ?? null,
         email: contributor.email ?? null,
         toolsTitle: filterLabels.tools,
         lastActive: contributor.lastActive
@@ -132,14 +128,14 @@ async function processPagePerson(page, api, context) {
   };
 }
 
-async function processPagePeople(page, api, context) {
+async function processPageContributors(page, api, context) {
   const { blocks } = page;
   const { locale, params } = context;
   if (params?.slugs?.length > 2) {
     return processPagePerson(page, api, context);
   }
-  const { pagination, results } = await getPeople(page, api, context);
-  const foundIndex = blocks.findIndex(({ slug }) => slug === "people");
+  const { pagination, results } = await getContributors(page, api, context);
+  const foundIndex = blocks.findIndex(({ slug }) => slug === "contributors");
   const filterLabels = labelsPerLocale[locale];
   const filterOptions = [
     {
@@ -184,13 +180,13 @@ async function processPagePeople(page, api, context) {
     },
   ];
   const people = {
-    slug: "people",
+    slug: "contributors",
     title: filterLabels.people,
     results,
     filterOptions,
     pagination,
     searchPlaceholder: filterLabels.searchPeople,
-    sortOrder: [{ value: "name", label: filterLabels.name }],
+    sortOrder: [{ value: "fullName", label: filterLabels.name }],
   };
 
   if (foundIndex > -1) {
@@ -212,4 +208,4 @@ async function processPagePeople(page, api, context) {
   return page;
 }
 
-export default processPagePeople;
+export default processPageContributors;
