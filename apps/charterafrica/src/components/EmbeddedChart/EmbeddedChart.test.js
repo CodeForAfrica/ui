@@ -9,12 +9,15 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  html: "<div>Flourish Charts</div>",
-  height: 500,
-  width: 100,
   backgroundColor: "#fff",
-  title: "Flourish Charts",
+  html: "<div>Flourish Charts</div>",
   subtitle: "Flourish Charts",
+  title: "Flourish Charts",
+  width: {
+    xs: "100%",
+    sm: "100%",
+    md: "100%",
+  },
 };
 
 describe("<EmbeddedChart />", () => {
