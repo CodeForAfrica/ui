@@ -51,7 +51,6 @@ export async function fetchDocuments(
     ...options,
     q,
   };
-
   try {
     const data = await fetchJson.get(`${BASE_DOCUMENTS_URL}search.json`, {
       params,
@@ -67,7 +66,7 @@ export async function fetchDocuments(
       {
         params: {
           ...params,
-          q: `pinned:true`,
+          q: `${q} pinned:true`,
         },
       }
     );
