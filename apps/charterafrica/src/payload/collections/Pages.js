@@ -1,5 +1,6 @@
 import AgaInfographic from "../blocks/AgaInfographic";
 import CommunityPlatforms from "../blocks/CommunityPlatforms";
+import Contributors from "../blocks/Contributors";
 import Datasets from "../blocks/Datasets";
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import Documents from "../blocks/Documents";
@@ -18,12 +19,14 @@ import Impressum from "../blocks/Impressum";
 import LongForm from "../blocks/LongForm";
 import Mooc from "../blocks/Mooc";
 import Opportunities from "../blocks/Opportunities";
+import Organisations from "../blocks/Organisations";
 import PageDescription from "../blocks/PageDescription";
 import PageHeader from "../blocks/PageHeader";
 import PageInfo from "../blocks/PageInfo";
 import Partners from "../blocks/Partners";
 import Resources from "../blocks/Resources";
 import Spotlight from "../blocks/Spotlight";
+import Tools from "../blocks/Tools";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
@@ -53,6 +56,7 @@ const Pages = {
       blocks: [
         AgaInfographic,
         CommunityPlatforms,
+        Contributors,
         Datasets,
         DemocracyHelpdeskContent,
         Documents,
@@ -71,12 +75,14 @@ const Pages = {
         LongForm,
         Mooc,
         Opportunities,
+        Organisations,
         PageDescription,
         PageHeader,
         PageInfo,
         Partners,
         Resources,
         Spotlight,
+        Tools,
       ],
       admin: {
         initCollapsed: true,

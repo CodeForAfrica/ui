@@ -1,4 +1,5 @@
 import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
+import { allCountries } from "@/charterafrica/lib/data/json/countries";
 import { TOOL_COLLECTION } from "@/charterafrica/payload/utils/collections";
 import queryString from "@/charterafrica/utils/articles/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
@@ -9,7 +10,7 @@ const orQueryBuilder = (fields, search) => {
 };
 
 const getRepoLink = (tool) => {
-  switch (tool.source) {
+  switch (tool.source && tool.externalId) {
     case "github":
       return `https://github.com/${tool.externalId}`;
     default:
@@ -58,7 +59,7 @@ async function processPageSingleTool(page, api, context) {
           href: getRepoLink(tool),
           label: filterLabels.goToRepo,
         },
-        topicLabel: "Topic",
+        topicLabel: filterLabels.theme,
         contributors,
         tools,
         image: tool.avatarUrl ?? null,
@@ -132,47 +133,58 @@ async function processPageTools(page, api, context) {
   }
 
   const { pagination, results } = await getTools(page, api, context);
-  const foundIndex = blocks.findIndex(({ slug }) => slug === "tools");
+  const foundIndex = blocks.findIndex(({ slug }) => slug === "our-tools");
+  if (foundIndex < 0) {
+    return { notFound: true };
+  }
+  const { filters } = blocks[foundIndex];
+  const { docs } = await api.getCollection(TOOL_COLLECTION, {
+    locale,
+  });
+  const themes = [...new Set(docs.map((item) => item.theme))].map((value) => ({
+    value,
+    label: value,
+  }));
   const filterLabels = labelsPerLocale[locale];
-  const filterOptions = [
-    {
-      type: "select",
-      name: "sort",
-      label: "Sort",
-      options: [
-        { value: "topic", label: filterLabels.topic },
-        { value: "-topic", label: filterLabels["-topic"] },
-        { value: "views", label: filterLabels.views },
-        { value: "-views", label: filterLabels["-views"] },
-        { value: "stars", label: filterLabels.stars },
-        { value: "-stars", label: filterLabels["-stars"] },
-        { value: "name", label: filterLabels.name },
-      ],
-    },
-    {
-      type: "select",
-      name: "stars",
-      label: "Stars",
-      options: [
-        {
-          value: "<1000",
-          label: "<1000",
-        },
-      ],
-    },
-    {
-      type: "select",
-      name: "topic",
-      label: "Topic",
-      multiple: true,
-      options: [
-        {
-          value: "Governance",
-          label: "Governance",
-        },
-      ],
-    },
-  ];
+  const filterOptions = filters.map((filter) => {
+    if (filter === "sort") {
+      return {
+        type: "select",
+        name: "sort",
+        label: filterLabels.sort,
+        options: [
+          { value: "theme", label: filterLabels.topic },
+          { value: "-theme", label: filterLabels["-theme"] },
+          { value: "views", label: filterLabels.views },
+          { value: "-views", label: filterLabels["-views"] },
+          { value: "stars", label: filterLabels.stars },
+          { value: "-stars", label: filterLabels["-stars"] },
+          { value: "name", label: filterLabels.name },
+        ],
+      };
+    }
+    if (filter === "location") {
+      return {
+        type: "select",
+        name: "homeCountry",
+        label: filterLabels.location,
+        options: allCountries.map((country) => ({
+          value: country.value,
+          label: country.label?.[locale || "en"],
+        })),
+      };
+    }
+    if (filter === "theme") {
+      return {
+        type: "select",
+        name: "theme",
+        label: filterLabels.theme,
+        multiple: true,
+        options: themes,
+      };
+    }
+    return null;
+  });
   const tool = {
     slug: "tools",
     results,
@@ -181,15 +193,11 @@ async function processPageTools(page, api, context) {
     filterOptions,
   };
 
-  if (foundIndex > -1) {
-    blocks[foundIndex] = tool;
-  } else {
-    blocks.push(tool);
-  }
+  blocks[foundIndex] = tool;
 
   const { slugs, ...queryParams } = context.query;
-  let swrKey = `/api/v1/resources/collection/tools`;
-  const qs = queryString(queryParams);
+  let swrKey = `/api/v1/resources/collection`;
+  const qs = queryString({ ...queryParams, collection: "tools" });
   if (qs) {
     swrKey = `${swrKey}?${qs}`;
   }

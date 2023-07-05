@@ -200,6 +200,7 @@ export function processOrganisation(
 
   const commonData = {
     airtableId: data.id,
+    name: getValue(data, organisationTableColumns.name),
     avatarUrl:
       getValue(data, organisationTableColumns.avatarUrl)?.[0]?.url ?? null,
     externalId,
