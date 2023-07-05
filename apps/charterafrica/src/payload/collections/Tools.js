@@ -2,15 +2,12 @@ import {
   allCountries,
   countriesByContinent,
 } from "../../lib/data/json/countries";
-import {
-  TOOL_COLLECTION,
-  CONTRIBUTORS_COLLECTION,
-} from "../../lib/ecosystem/models";
 import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
+import { TOOL_COLLECTION, CONTRIBUTORS_COLLECTION } from "../utils/collections";
 
 const Tools = {
   slug: TOOL_COLLECTION,

@@ -1,12 +1,9 @@
-import {
-  ORGANIZATION_COLLECTION,
-  TOOL_COLLECTION,
-} from "../../lib/ecosystem/models";
 import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
+import { ORGANIZATION_COLLECTION, TOOL_COLLECTION } from "../utils/collections";
 
 const Organisations = {
   slug: ORGANIZATION_COLLECTION,
@@ -247,6 +244,15 @@ const Organisations = {
         beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
       },
     }),
+    {
+      type: "text",
+      label: { en: "E Tag", fr: "Étiquette", pt: "E tag" },
+      name: "eTag",
+      admin: {
+        readOnly: true,
+        position: "sidebar",
+      },
+    },
   ],
 };
 

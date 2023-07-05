@@ -68,6 +68,8 @@ const start = async () => {
       console.info("NextJS started");
 
       server.get("*", (req: any, res: any) => nextHandler(req, res));
+      server.post("*", (req: any, res: any) => nextHandler(req, res));
+      server.put("*", (req: any, res: any) => nextHandler(req, res));
 
       server.listen(port, async () => {
         console.info(`Server listening on ${port}...`);

@@ -1,10 +1,10 @@
-import { ECOSYSTEM_GLOBAL } from "../../lib/ecosystem/models";
 import airtableBaseSelect, {
   schema,
 } from "../fields/ecosystem/airtableBaseSelect";
 import airtableColumnSelect from "../fields/ecosystem/airtableColumnSelect";
 import airtableTableSelect from "../fields/ecosystem/airtableTableSelect";
 import sourceField from "../fields/ecosystem/sourceField";
+import { ECOSYSTEM_GLOBAL } from "../utils/collections";
 
 const Ecosystem = {
   slug: ECOSYSTEM_GLOBAL,
@@ -171,7 +171,7 @@ const Ecosystem = {
                       schema,
                       tableField: "toolTableId",
                       overrides: {
-                        name: "pt",
+                        name: "en",
                         label: {
                           en: "Theme (English)",
                           fr: "Thème (anglais)",
