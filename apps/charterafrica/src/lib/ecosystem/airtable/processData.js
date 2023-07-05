@@ -5,7 +5,7 @@ function getValue(data, key, defaultValue = null) {
 }
 
 function getRepoLink(source = "github", slug = "") {
-  if (source === "github") {
+  if (source === "github" && slug) {
     return `https://github.com/${slug}`;
   }
   return "";
