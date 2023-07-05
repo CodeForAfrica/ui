@@ -9,9 +9,9 @@ const EmbeddedChart = {
       pt: "Gráfico incorporado",
     },
     plural: {
-      en: "Embedded Charts",
-      fr: "Graphiques intégrés",
-      pt: "Gráficos incorporados",
+      en: "Embedded Chart",
+      fr: "Graphique intégré",
+      pt: "Gráfico incorporado",
     },
   },
   fields: [
@@ -52,42 +52,59 @@ const EmbeddedChart = {
       },
     },
     {
-      name: "height",
+      name: "backgroundColor",
       label: {
-        en: "Height",
-        fr: "Hauteur",
-        pt: "Altura",
+        en: "Background color",
+        fr: "Couleur de fond",
+        pt: "Cor de fundo",
       },
       type: "text",
       required: true,
-      admin: {
-        description: "Height with unit (px, %, rem etc.) i.e. 500px, 100% etc.",
-      },
+      defaultValue: "#ffffff",
+      validate: validateHexColor,
     },
     {
       name: "width",
       label: {
         en: "Width",
         fr: "Largeur",
-        pt: "Largura",
       },
-      type: "text",
+      type: "group",
       required: true,
-      admin: {
-        description: "Width with unit (px, %, rem etc.) i.e. 500px, 100% etc.",
-      },
-      defaultValue: "100%",
-    },
-    {
-      name: "backgroundColor",
-      label: {
-        en: "Background Color",
-        fr: "Couleur de fond",
-        pt: "Cor de fundo",
-      },
-      type: "text",
-      required: true,
-      validate: validateHexColor,
+      fields: [
+        {
+          name: "xs",
+          label: {
+            en: "Mobile",
+            pt: "Móveis",
+          },
+          type: "text",
+          required: true,
+          localized: true,
+          defaultValue: "100%",
+        },
+        {
+          name: "sm",
+          label: {
+            en: "Tablet",
+            fr: "Tablette",
+          },
+          type: "text",
+          required: true,
+          localized: true,
+          defaultValue: "100%",
+        },
+        {
+          name: "md",
+          label: {
+            en: "Desktop",
+          },
+          type: "text",
+          required: true,
+          localized: true,
+          defaultValue: "100%",
+        },
+      ],
     },
   ],
 };
