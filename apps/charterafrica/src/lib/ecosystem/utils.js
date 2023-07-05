@@ -15,4 +15,4 @@ function localize(data, locales = ["en"]) {
   }, {});
 }
 
-export default localize;
+export default { localize };
