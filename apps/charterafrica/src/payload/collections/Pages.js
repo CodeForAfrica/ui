@@ -4,6 +4,7 @@ import Datasets from "../blocks/Datasets";
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
 import Documents from "../blocks/Documents";
 import Ecosystem from "../blocks/Ecosystem";
+import EmbeddedChart from "../blocks/EmbeddedChart";
 import EmbeddedDocuments from "../blocks/EmbeddedDocuments";
 import EmbeddedPlaylist from "../blocks/EmbeddedPlaylist";
 import Error from "../blocks/Error";
@@ -56,6 +57,7 @@ const Pages = {
         DemocracyHelpdeskContent,
         Documents,
         Ecosystem,
+        EmbeddedChart,
         EmbeddedDocuments,
         EmbeddedPlaylist,
         Error,

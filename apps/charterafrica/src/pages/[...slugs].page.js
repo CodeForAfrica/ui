@@ -9,6 +9,7 @@ import Datasets from "@/charterafrica/components/Datasets";
 import Document from "@/charterafrica/components/Document";
 import Documents from "@/charterafrica/components/Documents";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
+import EmbeddedChart from "@/charterafrica/components/EmbeddedChart";
 import Entity from "@/charterafrica/components/Entity";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
@@ -45,6 +46,7 @@ const componentsBySlugs = {
   dataset: Dataset,
   documents: Documents,
   ecosystem: Ecosystem,
+  "embedded-chart": EmbeddedChart,
   "embedded-playlist": Consultations,
   document: Document,
   explainers: Explainers,
