@@ -74,6 +74,13 @@ export async function fetchDocuments(
 
     formattedData.pinnedDocuments = formattedPinnedDocuments.documents;
 
+    formattedData.documents = formattedData.documents.filter(
+      (document) =>
+        !formattedData.pinnedDocuments.find(
+          (pinnedDocument) => pinnedDocument.id === document.id
+        )
+    );
+
     return formattedData;
   } catch (err) {
     Sentry.captureException(err);
