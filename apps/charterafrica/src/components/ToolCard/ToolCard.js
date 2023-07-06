@@ -30,7 +30,7 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
     stars,
     forks,
     variant = "outlined",
-    orientation = "vertical",
+    direction,
     exploreText,
   } = props;
   const ownerState = {
@@ -39,7 +39,7 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
     variant,
   };
 
-  const horizontalDisplay = orientation !== "vertical";
+  const horizontalDisplay = direction === "row";
   return (
     <Card
       elevation={elevation}

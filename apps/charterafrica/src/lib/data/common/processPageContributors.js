@@ -179,6 +179,7 @@ async function processPageContributors(page, api, context) {
     title,
     results,
     filterOptions: filterOptions.filter(Boolean),
+    id: blocks[foundIndex]?.id,
     pagination,
     searchPlaceholder: filterLabels.searchPeople,
   };
