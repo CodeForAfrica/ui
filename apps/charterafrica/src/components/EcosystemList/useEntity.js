@@ -4,16 +4,19 @@ import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const fetcher = (url) => fetchJson.get(url);
 
-function useEcosystemList(params) {
-  const param = new URLSearchParams();
+function queryString(params) {
+  const query = new URLSearchParams();
   Object.keys(params).forEach((key) => {
     if (params[key] && params[key] !== "undefined")
-      param.append(key, params[key]);
+      query.append(key, params[key]);
   });
-  const searchParams = param.toString();
-  const key = `/api/v1/resources/collections${
-    searchParams ? `?${searchParams}` : ""
-  }`;
+  const qString = query.toString();
+  return qString ? `?${qString}` : "";
+}
+
+function useEntity(params) {
+  const searchParams = queryString(params);
+  const key = `/api/v1/resources/collections${searchParams}`;
   const { data, error } = useSWR(key, fetcher);
   return {
     data,
@@ -22,4 +25,4 @@ function useEcosystemList(params) {
   };
 }
 
-export default useEcosystemList;
+export default useEntity;

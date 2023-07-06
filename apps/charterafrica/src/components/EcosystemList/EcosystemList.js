@@ -4,9 +4,8 @@ import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState, useImperativeHandle } from "react";
 
-import EcosystemFilter from "./EcosystemFilter";
-import useEcosystemList from "./useEcosystemList";
-
+import EcosystemFilter from "@/charterafrica/components/EcosystemList/EcosystemFilter";
+import useEcosystemList from "@/charterafrica/components/EcosystemList/useEntity";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 
 function removeEmptyParams(urlSearchParams) {
