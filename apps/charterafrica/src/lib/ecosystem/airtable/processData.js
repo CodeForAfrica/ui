@@ -4,6 +4,22 @@ function getValue(data, key, defaultValue = null) {
   return data?.[key] ?? defaultValue;
 }
 
+function getSourceType(link) {
+  const githubPattern = /^(https?:\/\/)?(www\.)?github\.com\//;
+  const gitlabPattern = /^(https?:\/\/)?(www\.)?gitlab\.com\//;
+  const bitBucketPattern = /^(https?:\/\/)?(www\.)?bitbucket\.org\//;
+  if (githubPattern.test(link)) {
+    return "github";
+  }
+  if (gitlabPattern.test(link)) {
+    return "gitlab";
+  }
+  if (bitBucketPattern.test(link)) {
+    return "bitbucket";
+  }
+  return "github";
+}
+
 function getRepoLink(source = "github", slug = "") {
   if (source === "github" && slug) {
     return `https://github.com/${slug}`;
@@ -93,6 +109,7 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
     config,
     { partnersData, socialMediaData }
   );
+  const source = getSourceType(getValue(data, toolTableColumns.source.url));
   return {
     airtableId: data.id,
     avatarUrl: getValue(data, toolTableColumns.avatarUrl)?.[0]?.url ?? null,
@@ -102,6 +119,7 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
     link: getValue(data, toolTableColumns.url),
     operatingCountries,
     contributors: getValue(data, toolTableColumns.contributors),
+    source,
     supporters,
     partners,
     homeCountry,
@@ -197,7 +215,9 @@ export function processOrganisation(
     config,
     { socialMediaData }
   );
-
+  const source = getSourceType(
+    getValue(data, organisationTableColumns.source.url)
+  );
   const commonData = {
     airtableId: data.id,
     name: getValue(data, organisationTableColumns.name),
@@ -211,6 +231,7 @@ export function processOrganisation(
     socialMedia,
     tools,
     description,
+    source,
   };
   return commonData;
 }
