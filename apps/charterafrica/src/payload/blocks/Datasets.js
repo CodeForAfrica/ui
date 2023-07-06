@@ -128,7 +128,6 @@ const Datasets = {
                       {
                         name: "value",
                         type: "select",
-                        unique: true,
                         required: true,
                         options: sortOptions,
                         validate: (val, options) => {
