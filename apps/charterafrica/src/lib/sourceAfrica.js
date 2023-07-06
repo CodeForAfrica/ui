@@ -37,11 +37,16 @@ function formatDocuments(data, pathname) {
 
   return {
     ...rest,
-    documents: formattedDocuments,
+    documents: formattedDocuments || [],
   };
 }
 
-export async function fetchDocuments(q, pathname, options = {}) {
+export async function fetchDocuments(
+  q,
+  pathname,
+  options = {},
+  showPinnedDocuments = false
+) {
   const params = {
     ...options,
     q,
@@ -50,7 +55,33 @@ export async function fetchDocuments(q, pathname, options = {}) {
     const data = await fetchJson.get(`${BASE_DOCUMENTS_URL}search.json`, {
       params,
     });
-    return formatDocuments(data, pathname, options);
+    const formattedData = formatDocuments(data, pathname);
+
+    if (!showPinnedDocuments) {
+      return formattedData;
+    }
+
+    const pinnedDocuments = await fetchJson.get(
+      `${BASE_DOCUMENTS_URL}search.json`,
+      {
+        params: {
+          ...params,
+          q: `${q} pinned:true`,
+        },
+      }
+    );
+    const formattedPinnedDocuments = formatDocuments(pinnedDocuments, pathname);
+
+    formattedData.pinnedDocuments = formattedPinnedDocuments.documents;
+
+    formattedData.documents = formattedData.documents.filter(
+      (document) =>
+        !formattedData.pinnedDocuments.find(
+          (pinnedDocument) => pinnedDocument.id === document.id
+        )
+    );
+
+    return formattedData;
   } catch (err) {
     Sentry.captureException(err);
   }

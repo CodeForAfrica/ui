@@ -86,6 +86,17 @@ function documentCloudSource({ overrides } = {}) {
           hideGutter: true,
         },
       },
+      {
+        name: "showPinnedDocuments",
+        type: "checkbox",
+        label: {
+          en: "Show Pinned Documents",
+          fr: "Afficher les documents épinglés",
+          pt: "Mostrar documentos fixados",
+        },
+        defaultValue: false,
+        required: true,
+      },
     ],
   };
 

@@ -161,6 +161,9 @@ exports[`<Documents /> renders unchanged 1`] = `
             </div>
           </div>
         </div>
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-ctpjxq-MuiDivider-root"
+        />
       </div>
     </div>
   </div>
