@@ -9,478 +9,251 @@ exports[`<Tool /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-ft7bnu-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-wrap-reverse css-14dbrlv-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-xgaee2-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-8 css-1uc7gvi-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-sm-6 css-1gxhccb-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1i4efx7-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
-            <div
-              class="MuiTypography-root MuiTypography-h2SemiBold css-lknjzb-MuiTypography-root"
-            >
-              Tool Name
-            </div>
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-j4i3qf-MuiTypography-root-MuiLink-root"
-              href="https://git.com"
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              <div
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-mg30as-MuiSvgIcon-root"
-                focusable="false"
-              />
-            </a>
+            <img
+              alt="Tool Name"
+              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-3fnss6-MuiCardMedia-root"
+              src="https://opengraph.githubassets.com/cdea3047f304ac30905b3f49eb4abdb00f2972aab918177244a0f111ea1348c7/CodeForAfrica/ui"
+            />
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item css-1f064cs-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-1bzrmhg-MuiGrid-root"
+              class="MuiBox-root css-kpcj8u"
             >
               <div
-                class="MuiTypography-root MuiTypography-h4 css-1rs7od-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2SemiBold css-lknjzb-MuiTypography-root"
               >
-                organisationName
+                Tool Name
               </div>
-              <div
-                class="MuiTypography-root MuiTypography-h6Small css-17bumc5-MuiTypography-root"
-              >
-                Africa
-              </div>
-              <div
-                class="MuiTypography-root MuiTypography-h6Small css-y4v0ok-MuiTypography-root"
-              >
-                undefined:Topic Name
-              </div>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-x7i6jq-MuiGrid-root"
-            >
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-clwbes-MuiButtonBase-root-MuiButton-root"
-                href=""
-                tabindex="0"
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-j4i3qf-MuiTypography-root-MuiLink-root"
+                href="https://git.com"
+                rel="noreferrer noopener"
                 target="_blank"
-                type="button"
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1bnrqzj-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-mg30as-MuiSvgIcon-root"
                   focusable="false"
                 />
-                Contribute
-              </button>
-              <br />
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-dzho67-MuiButtonBase-root-MuiButton-root"
-                href=""
-                tabindex="0"
-                target="_blank"
-                type="button"
-              >
-                <div
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1bnrqzj-MuiSvgIcon-root"
-                  focusable="false"
-                  viewbox="0 0 24 24"
-                />
-                Go to Repo
-              </button>
+              </a>
             </div>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-p1 css-1oplxpo-MuiTypography-root"
-            >
-              Lorem ipsum dolor sit amet consectetur adipiscing elit gravida, urna enim nulla iaculis taciti semper parturient laoreet luctus, orci ac ornare senectus posuere nam libero. Imperdiet turpis tortor nu. Lorem ipsum dolor sit amet consectetur adipiscing elit gravida, urna enim nulla iaculis taciti semper parturient laoreet luctus, orci ac ornare senectus posuere nam libero. Imperdiet turpis tortor nu.
-            </div>
+              class="MuiBox-root css-fcq6bp"
+            />
             <div
-              class="MuiBox-root css-oqyb22"
+              class="MuiBox-root css-485ol6"
             >
               <div
-                class="MuiStack-root css-hmfqeh-MuiStack-root"
+                class="MuiTypography-root MuiTypography-p1 css-1oplxpo-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet consectetur adipiscing elit gravida, urna enim nulla iaculis taciti semper parturient laoreet luctus, orci ac ornare senectus posuere nam libero. Imperdiet turpis tortor nu. Lorem ipsum dolor sit amet consectetur adipiscing elit gravida, urna enim nulla iaculis taciti semper parturient laoreet luctus, orci ac ornare senectus posuere nam libero. Imperdiet turpis tortor nu.
+              </div>
+              <div
+                class="MuiBox-root css-oqyb22"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
+                  class="MuiStack-root css-hmfqeh-MuiStack-root"
                 >
-                  Share via
-                </div>
-                <div
-                  class="MuiStack-root css-a2l1ks-MuiStack-root"
-                >
-                  <button
-                    aria-label="twitter"
-                    class="react-share__ShareButton"
-                    medium="twitter"
-                    style="background-color: transparent; padding: 0px; cursor: pointer;"
+                  <div
+                    class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
                   >
-                    <div
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
-                      focusable="false"
-                      viewbox="0 0 24 24"
-                    />
-                  </button>
-                  <button
-                    aria-label="facebook"
-                    class="react-share__ShareButton"
-                    medium="facebook"
-                    style="background-color: transparent; padding: 0px; cursor: pointer;"
+                    Share via
+                  </div>
+                  <div
+                    class="MuiStack-root css-a2l1ks-MuiStack-root"
                   >
-                    <div
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
-                      focusable="false"
-                      viewbox="0 0 24 24"
-                    />
-                  </button>
-                  <button
-                    aria-label="linkedin"
-                    class="react-share__ShareButton"
-                    medium="linkedin"
-                    style="background-color: transparent; padding: 0px; cursor: pointer;"
-                  >
-                    <div
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
-                      focusable="false"
-                      viewbox="0 0 24 24"
-                    />
-                  </button>
+                    <button
+                      aria-label="twitter"
+                      class="react-share__ShareButton"
+                      medium="twitter"
+                      style="background-color: transparent; padding: 0px; cursor: pointer;"
+                    >
+                      <div
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                        focusable="false"
+                        viewbox="0 0 24 24"
+                      />
+                    </button>
+                    <button
+                      aria-label="facebook"
+                      class="react-share__ShareButton"
+                      medium="facebook"
+                      style="background-color: transparent; padding: 0px; cursor: pointer;"
+                    >
+                      <div
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                        focusable="false"
+                        viewbox="0 0 24 24"
+                      />
+                    </button>
+                    <button
+                      aria-label="linkedin"
+                      class="react-share__ShareButton"
+                      medium="linkedin"
+                      style="background-color: transparent; padding: 0px; cursor: pointer;"
+                    >
+                      <div
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                        focusable="false"
+                        viewbox="0 0 24 24"
+                      />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
-        >
-          <img
-            alt="Tool Name"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-3fnss6-MuiCardMedia-root"
-            src="https://opengraph.githubassets.com/cdea3047f304ac30905b3f49eb4abdb00f2972aab918177244a0f111ea1348c7/CodeForAfrica/ui"
-          />
-        </div>
-      </div>
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-gq7efl-MuiDivider-root"
-      />
-      <div
-        class="MuiBox-root css-19midj6"
-      >
-        <div
-          class="MuiTypography-root MuiTypography-h4Small css-1ye1y66-MuiTypography-root"
-        >
-          Contributors
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-container css-5mz40h-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-17qpvru-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+            class="MuiBox-root css-11uk14q"
           >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1099qwa-MuiButtonBase-root-MuiButton-root"
               href=""
+              tabindex="0"
+              target="_blank"
+              type="button"
             >
-              Beta maṣāḥǝft
-            </a>
+              <div
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1bnrqzj-MuiSvgIcon-root"
+                focusable="false"
+              />
+              Contribute
+            </button>
+            <br />
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-qy1l2s-MuiButtonBase-root-MuiButton-root"
+              href=""
+              tabindex="0"
+              target="_blank"
+              type="button"
+            >
+              <div
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1bnrqzj-MuiSvgIcon-root"
+                focusable="false"
+                viewbox="0 0 24 24"
+              />
+              Go to Repo
+            </button>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+            class="MuiBox-root css-46b038"
           >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
+            <div
+              class="MuiTypography-root MuiTypography-p3 css-1lspiuz-MuiTypography-root"
             >
-              Beta maṣāḥǝft
-            </a>
+              Collection
+            </div>
+            <div
+              class="MuiTypography-root MuiTypography-p3 css-1s3vopo-MuiTypography-root"
+            >
+              Tool
+            </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
+            class="MuiBox-root css-46b038"
           >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
+            <div
+              class="MuiBox-root css-19midj6"
             >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-1w1bksu-MuiGrid-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-p3SemiBold active css-1pgqzbz-MuiTypography-root-MuiLink-root-MuiTypography-root"
-              href=""
-            >
-              Beta maṣāḥǝft
-            </a>
+              <div
+                class="MuiTypography-root MuiTypography-h4Small css-4noust-MuiTypography-root"
+              >
+                Contributors
+              </div>
+              <div
+                class="MuiAvatarGroup-root css-1qcltu-MuiAvatarGroup-root"
+              >
+                <div
+                  class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar css-19wzxzv-MuiAvatar-root-MuiAvatarGroup-avatar"
+                >
+                  +
+                  26
+                </div>
+                <div
+                  class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar css-r3976x-MuiAvatar-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
+                    data-testid="PersonIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar css-r3976x-MuiAvatar-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
+                    data-testid="PersonIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar css-r3976x-MuiAvatar-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
+                    data-testid="PersonIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar css-r3976x-MuiAvatar-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
+                    data-testid="PersonIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

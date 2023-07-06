@@ -49,6 +49,7 @@ async function processPageSingleOrganisation(page, api, context) {
     ...page,
     blocks: [
       {
+        ...organisation,
         id: organisation.id,
         slug: "entity",
         image: organisation.avatarUrl ?? null,

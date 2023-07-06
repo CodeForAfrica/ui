@@ -4,19 +4,47 @@ import { Grid, SvgIcon, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import FacebookIcon from "@/charterafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
 import GithubIcon from "@/charterafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
+import LinkedInIcon from "@/charterafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
 import EmailIcon from "@/charterafrica/assets/icons/Type=mail, Size=24, Color=CurrentColor.svg";
+import SlackIcon from "@/charterafrica/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
+import TelegramIcon from "@/charterafrica/assets/icons/Type=telegram, Size=24, Color=CurrentColor.svg";
 import TwitterIcon from "@/charterafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 import ToolCard from "@/charterafrica/components/ToolCard";
 
+function getIcons({ socialMedia, email, github }) {
+  const icons =
+    socialMedia?.map((item) => ({
+      variant: item?.name?.toLowerCase(),
+      href: item?.link || "#",
+    })) || [];
+  if (email) {
+    icons.push({
+      href: `maito:${email}`,
+      variant: "email",
+    });
+  }
+  if (github) {
+    icons.push({
+      href: github,
+      variant: "github",
+    });
+  }
+  return icons;
+}
 const SocialMediaLink = React.forwardRef(function SocialMediaLink(props, ref) {
   const { href, variant } = props;
   const icons = {
     twitter: TwitterIcon,
     github: GithubIcon,
     email: EmailIcon,
+    facebook: FacebookIcon,
+    slack: SlackIcon,
+    linkedin: LinkedInIcon,
+    telegram: TelegramIcon,
   };
-  return href ? (
+  return href && icons[variant] ? (
     <Link ref={ref} href={href}>
       <SvgIcon
         inheritViewBox
@@ -34,32 +62,8 @@ const SocialMediaLink = React.forwardRef(function SocialMediaLink(props, ref) {
 });
 
 const Entity = React.forwardRef(function Entity(props, ref) {
-  const {
-    name,
-    location,
-    description,
-    twitter,
-    github,
-    email,
-    image,
-    tools,
-    toolsTitle,
-  } = props;
-
-  const icons = [
-    {
-      href: twitter,
-      variant: "twitter",
-    },
-    {
-      href: github,
-      variant: "github",
-    },
-    {
-      href: `maito:${email}`,
-      variant: "email",
-    },
-  ];
+  const { name, location, description, image, tools, toolsTitle } = props;
+  const icons = getIcons(props);
   return (
     <Box ref={ref} bgcolor="common.white">
       <Section sx={{ py: { xs: 3.75 } }}>

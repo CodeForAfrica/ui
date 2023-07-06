@@ -56,10 +56,8 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-j4i3qf-MuiTypography-root-MuiLink-root"
-                href="https://twitter.com/johndoe"
-                rel="noreferrer noopener"
-                target="_blank"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1sa2x3w-MuiTypography-root-MuiLink-root"
+                href="maito:johndoe@example.com"
               >
                 <div
                   aria-hidden="true"
@@ -76,20 +74,6 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                 href="https://github.com/johndoe"
                 rel="noreferrer noopener"
                 target="_blank"
-              >
-                <div
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1835xr2-MuiSvgIcon-root"
-                  focusable="false"
-                />
-              </a>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-            >
-              <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1sa2x3w-MuiTypography-root-MuiLink-root"
-                href="maito:johndoe@example.com"
               >
                 <div
                   aria-hidden="true"

@@ -7,7 +7,7 @@ import FacebookIcon from "@/charterafrica/assets/icons/Type=facebook, Size=24, C
 import GithubIcon from "@/charterafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
 import InstagramIcon from "@/charterafrica/assets/icons/Type=instagram, Size=24, Color=white.svg";
 import LinkedInIcon from "@/charterafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
-import SlackIcon from "@/charterafrica/assets/icons/Type=slack, Size=24, Color=white.svg";
+import SlackIcon from "@/charterafrica/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
 import TwitterIcon from "@/charterafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 
 const mediaToIcon = {
