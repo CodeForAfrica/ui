@@ -17,6 +17,7 @@ import queryString, {
 const Articles = React.forwardRef(function Articles(props, ref) {
   const {
     articles: { results: articlesProp, totalPages: totalPagesProp },
+    collection,
     featured,
     filters,
     slug,
@@ -65,7 +66,14 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   if (filtering && articlesRef.current) {
     articlesRef.current.scrollIntoView({ behavior: "smooth" });
   }
-  const res = useArticles(slug, { locale, q, sort, page, pageSize });
+  const res = useArticles(collection || slug, {
+    locale,
+    q,
+    sort,
+    page,
+    pageSize,
+  });
+
   useEffect(() => {
     if (!res?.isLoading) {
       const { data } = res;

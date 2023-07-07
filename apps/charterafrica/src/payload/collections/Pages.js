@@ -8,6 +8,7 @@ import EmbeddedChart from "../blocks/EmbeddedChart";
 import EmbeddedDocuments from "../blocks/EmbeddedDocuments";
 import EmbeddedPlaylist from "../blocks/EmbeddedPlaylist";
 import Error from "../blocks/Error";
+import Explainers from "../blocks/Explainers";
 import FAQ from "../blocks/FAQ";
 import FeaturedPost from "../blocks/FeaturedPost";
 import Global from "../blocks/Global";
@@ -17,6 +18,7 @@ import Hero from "../blocks/Hero";
 import Impressum from "../blocks/Impressum";
 import LongForm from "../blocks/LongForm";
 import Mooc from "../blocks/Mooc";
+import News from "../blocks/News";
 import Opportunities from "../blocks/Opportunities";
 import PageDescription from "../blocks/PageDescription";
 import PageHeader from "../blocks/PageHeader";
@@ -61,6 +63,7 @@ const Pages = {
         EmbeddedDocuments,
         EmbeddedPlaylist,
         Error,
+        Explainers,
         FAQ,
         FeaturedPost,
         Global,
@@ -70,6 +73,7 @@ const Pages = {
         Impressum,
         LongForm,
         Mooc,
+        News,
         Opportunities,
         PageDescription,
         PageHeader,

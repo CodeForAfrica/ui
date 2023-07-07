@@ -15,12 +15,12 @@ export async function getGlobalProps(context) {
 
 export const api = payload;
 
-export async function getServerSideArticles(collection, context) {
-  return getArticles(collection, api, context);
+export async function getServerSideArticles(page, context) {
+  return getArticles(page, api, context);
 }
 
-export async function getServerSideTags(collection, context) {
-  return getTags(collection, api, context);
+export async function getServerSideTags(page, context) {
+  return getTags(page, api, context);
 }
 
 export async function getPageServerSideProps(context) {

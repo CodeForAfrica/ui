@@ -3,20 +3,27 @@ import { getServerSideArticles } from "@/charterafrica/lib/data/local";
 const COLLECTIONS = ["news", "research"];
 
 export default async function handler(req, res) {
-  const { query: { collection, locale = "en", ...query } = {} } = req;
+  const { payload, query: { collection, locale = "en", ...query } = {} } = req;
   if (!COLLECTIONS.includes(collection)) {
     return res.status(400).json({ message: "UNKNOWN_COLLECTION", collection });
   }
 
-  const breadcrumbs = [
-    {
-      url: `/knowledge/${collection}`,
+  const result = await payload.find({
+    locale,
+    collection: "pages",
+    where: {
+      slug: {
+        equals: collection,
+      },
     },
-  ];
-  const page = {
-    slug: collection,
-    breadcrumbs,
-  };
+  });
+  if (!result.docs.length) {
+    return res
+      .status(500)
+      .json({ message: "COLLECTION_PAGE_NOT_SET", collection });
+  }
+
+  const [page] = result.docs;
   const context = {
     locale,
     query,

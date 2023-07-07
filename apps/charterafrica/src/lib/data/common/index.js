@@ -1,11 +1,12 @@
-import processPageAbout from "@/charterafrica/lib/data/common/processPageAbout";
+import blockifyPage from "./blockify";
+import pagify from "./pagify";
+
 import processPageArticles, {
   processPageEvents,
 } from "@/charterafrica/lib/data/common/processPageArticles";
 import processPageConsultation from "@/charterafrica/lib/data/common/processPageConsultation";
 import processPageDatasets from "@/charterafrica/lib/data/common/processPageDatasets";
 import processPageDocuments from "@/charterafrica/lib/data/common/processPageDocuments";
-import processPageExplainers from "@/charterafrica/lib/data/common/processPageExplainers";
 import processPageIndex from "@/charterafrica/lib/data/common/processPageIndex";
 import processPageOpportunities, {
   processPageFellowships,
@@ -13,7 +14,6 @@ import processPageOpportunities, {
 } from "@/charterafrica/lib/data/common/processPageOpportunities";
 import processPageOrganisations from "@/charterafrica/lib/data/common/processPageOrganisations";
 import processPagePeople from "@/charterafrica/lib/data/common/processPagePeople";
-import processPagePrivacyPolicy from "@/charterafrica/lib/data/common/processPagePrivacyPolicy";
 import processPageTools from "@/charterafrica/lib/data/common/processPageTools";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
@@ -59,22 +59,18 @@ export async function getGlobalProps({ locale, defaultLocale }, api) {
 }
 
 const processPageFunctionsMap = {
-  about: processPageAbout,
   consultation: processPageConsultation,
   datasets: processPageDatasets,
   documents: processPageDocuments,
-  explainers: processPageExplainers,
   events: processPageEvents,
   fellowships: processPageFellowships,
   grants: processPageGrants,
-  opportunities: processPageOpportunities,
   index: processPageIndex,
-  news: processPageArticles,
+  opportunities: processPageOpportunities,
   organisations: processPageOrganisations,
   people: processPagePeople,
   research: processPageArticles,
   tools: processPageTools,
-  "privacy-policy": processPagePrivacyPolicy,
 };
 
 async function processGlobalBlockFocalCountries(block) {
@@ -138,7 +134,14 @@ export async function getPageProps(api, context) {
     return null;
   }
 
-  const [page] = pages;
+  let [page] = pages;
+  if (params?.slugs?.length === 3) {
+    page = await pagify(page, api, context);
+  }
+  if (!page) {
+    return null;
+  }
+
   page.blocks =
     (await Promise.all(
       page.blocks?.map(async ({ block, blockType, ...other }) => {
@@ -166,9 +169,9 @@ export async function getPageProps(api, context) {
   const processedPage = processPage
     ? await processPage(page, api, context)
     : page;
-  if (!processedPage) {
-    return null;
-  }
+  const { blocks, fallback } = await blockifyPage(processedPage, api, context);
+  processedPage.blocks = blocks;
+  processedPage.fallback = fallback || null;
 
   const { settings, ...globalProps } = await getGlobalProps(
     { defaultLocale, locale },
