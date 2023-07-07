@@ -10,18 +10,16 @@ const Contributors = React.forwardRef(function Contributors(props, ref) {
   }
   return (
     <Box ref={ref} sx={sx}>
-      {list?.length ? (
-        <Box sx={{ p: 2 }}>
-          <RichTypography color="neutral.dark" variant="h4Small">
-            {title}
-          </RichTypography>
-          <AvatarGroup sx={{ justifyContent: { xs: "center", sm: "right" } }}>
-            {list.map((item) => (
-              <Avatar key={item.id} alt={item.name} src={item.avatarUrl} />
-            ))}
-          </AvatarGroup>
-        </Box>
-      ) : null}
+      <Box sx={{ p: 2 }}>
+        <RichTypography color="neutral.dark" variant="h4Small">
+          {title}
+        </RichTypography>
+        <AvatarGroup sx={{ justifyContent: { xs: "center", sm: "right" } }}>
+          {list.map((item) => (
+            <Avatar key={item.id} alt={item.name} src={item.avatarUrl} />
+          ))}
+        </AvatarGroup>
+      </Box>
     </Box>
   );
 });

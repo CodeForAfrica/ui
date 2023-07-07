@@ -8,12 +8,15 @@ const OrgThemeAndOperatingCountries = React.forwardRef(
   function OrgThemeAndOperatingCountries(props, ref) {
     const { sx, organisation, theme, operatingCountries } = props;
     const countries = operatingCountries?.join(", ");
+    if (!organisation) {
+      return null;
+    }
     return (
       <Box sx={sx} ref={ref}>
         <Figure
           ImageProps={{
-            alt: organisation?.name,
-            src: organisation?.avatarUrl,
+            alt: organisation.name,
+            src: organisation.avatarUrl,
           }}
           sx={{
             height: 50,
@@ -26,7 +29,7 @@ const OrgThemeAndOperatingCountries = React.forwardRef(
           sx={{ fontWeight: 400 }}
           variant="h4"
         >
-          {organisation?.name}
+          {organisation.name}
         </RichTypography>
         {theme ? (
           <Button

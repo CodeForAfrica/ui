@@ -13,41 +13,39 @@ const Partners = React.forwardRef(function Partners(props, ref) {
   }
   return (
     <Box sx={sx} ref={ref}>
-      {list?.length ? (
-        <Box sx={{ p: 2 }}>
-          <RichTypography color="neutral.dark" variant="h4Small">
-            {title}
-          </RichTypography>
-          <Box
-            display="flex"
-            justifyContent={{ sm: "flex-end", xs: "center" }}
-            flexWrap="wrap"
-            sx={{ mt: 2 }}
-          >
-            {list.map((item) => (
-              <Box key={item.id} sx={{ width: "112px", ml: 1, mb: 2 }}>
-                <Figure
-                  ImageProps={{
-                    alt: item?.name,
-                    src: item?.logo,
-                  }}
-                  sx={{
-                    height: 50,
-                    width: "auto",
-                  }}
-                />
-                <LineClampedRichTypography
-                  textAlign="center"
-                  lineClamp={1}
-                  variant="p3"
-                >
-                  {item.name}
-                </LineClampedRichTypography>
-              </Box>
-            ))}
-          </Box>
+      <Box sx={{ p: 2 }}>
+        <RichTypography color="neutral.dark" variant="h4Small">
+          {title}
+        </RichTypography>
+        <Box
+          display="flex"
+          justifyContent={{ sm: "flex-end", xs: "center" }}
+          flexWrap="wrap"
+          sx={{ mt: 2 }}
+        >
+          {list.map((item) => (
+            <Box key={item.id} sx={{ width: "112px", ml: 1, mb: 2 }}>
+              <Figure
+                ImageProps={{
+                  alt: item?.name,
+                  src: item?.logo,
+                }}
+                sx={{
+                  height: 50,
+                  width: "auto",
+                }}
+              />
+              <LineClampedRichTypography
+                textAlign="center"
+                lineClamp={1}
+                variant="p3"
+              >
+                {item.name}
+              </LineClampedRichTypography>
+            </Box>
+          ))}
         </Box>
-      ) : null}
+      </Box>
     </Box>
   );
 });

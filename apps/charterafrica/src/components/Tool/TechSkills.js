@@ -14,7 +14,7 @@ const TechSkills = React.forwardRef(function TechSkills(props, ref) {
         {title}
       </RichTypography>
       <br />
-      {list?.map((skill) => (
+      {list.map((skill) => (
         <Button
           variant="contained"
           key={skill.id}

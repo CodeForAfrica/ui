@@ -52,9 +52,6 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <div
-              class="MuiBox-root css-fcq6bp"
-            />
-            <div
               class="MuiBox-root css-485ol6"
             >
               <div
