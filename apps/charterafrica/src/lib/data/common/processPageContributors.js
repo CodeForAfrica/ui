@@ -111,7 +111,7 @@ async function processPagePerson(page, api, context) {
     blocks: [
       {
         slug: "entity",
-        id: block?.id ?? null,
+        id: block.id ?? null,
         image: contributor.avatarUrl ?? null,
         name: contributor?.fullName ?? contributor?.externalId ?? null,
         location: contributor.location ?? null,

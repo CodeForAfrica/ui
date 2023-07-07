@@ -168,7 +168,7 @@ async function processPageOrganisations(page, api, context) {
     results,
     pagination,
     title,
-    id: blocks[foundIndex]?.id,
+    id: blocks[foundIndex].id,
     searchPlaceholder: filterLabels.searchOrganisations,
     filterOptions,
   };

@@ -54,6 +54,7 @@ const defaultProps = {
     label: "Go to Repo",
     href: "",
   },
+  lastCommit: {},
   contributors: Array(30)
     .fill({
       link: { href: "" },

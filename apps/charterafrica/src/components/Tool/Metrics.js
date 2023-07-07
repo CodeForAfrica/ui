@@ -56,8 +56,8 @@ const Metrics = React.forwardRef(function Metrics(props, ref) {
         />
         <Box sx={{ ml: 1 }}>
           <RichTypography color="neutral.dark">
-            {lastCommit?.committedDate
-              ? formatDateTime(lastCommit?.committedDate, {
+            {lastCommit.committedDate
+              ? formatDateTime(lastCommit.committedDate, {
                   includeTime: false,
                 })
               : "-"}

@@ -214,7 +214,7 @@ async function processPageTools(page, api, context) {
   });
   const tool = {
     slug: "tools",
-    id: blocks[foundIndex]?.id,
+    id: blocks[foundIndex].id,
     results,
     pagination,
     searchPlaceholder: filterLabels.searchTools,
