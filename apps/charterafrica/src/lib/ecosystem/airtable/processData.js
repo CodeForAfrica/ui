@@ -41,7 +41,7 @@ function mapSupporterIdsToObjects(supporterIds, config, { partnersData }) {
     return {
       name: getValue(fields, name),
       website: getValue(fields, url),
-      logo: getValue(fields, logo),
+      logo: getValue(fields, logo)?.[0]?.url,
     };
   });
   return mapped.filter(Boolean);
@@ -61,7 +61,7 @@ function mapSocialMediaIdsToObjects(socialMedia, config, tableData) {
     }
     return {
       name: getValue(fields, name),
-      website: getValue(fields, url),
+      link: getValue(fields, url),
     };
   });
   return mapped.filter(Boolean);

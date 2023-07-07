@@ -111,11 +111,11 @@ async function processPagePerson(page, api, context) {
     blocks: [
       {
         slug: "entity",
+        id: block.id ?? null,
         image: contributor.avatarUrl ?? null,
         name: contributor?.fullName ?? contributor?.externalId ?? null,
-        location: contributor.country ?? null,
+        location: contributor.location ?? null,
         description: contributor.description ?? null,
-        twitter: contributor.twitter ?? null,
         email: contributor.email ?? null,
         toolsTitle: block?.toolsTitle ?? null,
         lastActive: contributor.lastActive
@@ -123,7 +123,7 @@ async function processPagePerson(page, api, context) {
           : null,
         github:
           contributor.source === "github"
-            ? `https://github.com/${contributor?.username || ""}`
+            ? `https://github.com/${contributor?.externalId || ""}`
             : "",
         tools,
       },

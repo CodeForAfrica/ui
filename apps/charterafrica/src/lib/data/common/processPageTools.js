@@ -1,6 +1,9 @@
 import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
 import { allCountries } from "@/charterafrica/lib/data/json/countries";
-import { TOOL_COLLECTION } from "@/charterafrica/payload/utils/collections";
+import {
+  TOOL_COLLECTION,
+  ORGANIZATION_COLLECTION,
+} from "@/charterafrica/payload/utils/collections";
 import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
@@ -40,12 +43,21 @@ async function processPageSingleTool(page, api, context) {
     link: { href: `${contributorPage}/${person.slug}` },
     name: person.name || person?.fullName || person.username || null,
   }));
+  const { docs: orgDocs } = await api.getCollection(ORGANIZATION_COLLECTION, {
+    locale,
+    where: {
+      tools: {
+        contains: tool?.id,
+      },
+    },
+  });
   const tools = [];
   const filterLabels = labelsPerLocale[locale];
   return {
     ...page,
     blocks: [
       {
+        ...tool,
         slug: "tool",
         link: {
           href: tool.link,
@@ -78,6 +90,14 @@ async function processPageSingleTool(page, api, context) {
         email: tool.organisation?.email ?? null,
         location: tool.organisation?.location ?? null,
         description: tool.description ?? null,
+        organisation: orgDocs?.[0] ?? null,
+        supportersTitle: filterLabels.supporters,
+        partnersTitle: filterLabels.partners,
+        contributorsText: filterLabels.contributors,
+        discussionText: filterLabels.discussions,
+        commitText: filterLabels.lastCommit,
+        forksText: filterLabels.forks,
+        starsText: filterLabels.stars,
       },
     ],
   };
@@ -194,7 +214,7 @@ async function processPageTools(page, api, context) {
   });
   const tool = {
     slug: "tools",
-    id: blocks[foundIndex]?.id,
+    id: blocks[foundIndex].id,
     results,
     pagination,
     searchPlaceholder: filterLabels.searchTools,

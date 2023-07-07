@@ -49,6 +49,7 @@ async function processPageSingleOrganisation(page, api, context) {
     ...page,
     blocks: [
       {
+        ...organisation,
         id: organisation.id,
         slug: "entity",
         image: organisation.avatarUrl ?? null,
@@ -167,7 +168,7 @@ async function processPageOrganisations(page, api, context) {
     results,
     pagination,
     title,
-    id: blocks[foundIndex]?.id,
+    id: blocks[foundIndex].id,
     searchPlaceholder: filterLabels.searchOrganisations,
     filterOptions,
   };

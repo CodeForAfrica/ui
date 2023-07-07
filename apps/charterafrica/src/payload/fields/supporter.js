@@ -15,7 +15,7 @@ const supporter = [
     },
   },
   {
-    name: "Logo",
+    name: "logo",
     type: "text",
     label: { en: "Logo", fr: "Logo", pt: "Logotipo" },
   },
