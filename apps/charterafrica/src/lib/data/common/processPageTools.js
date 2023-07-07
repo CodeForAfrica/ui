@@ -204,7 +204,7 @@ async function processPageTools(page, api, context) {
   blocks[foundIndex] = tool;
 
   const { slugs, ...queryParams } = context.query;
-  let swrKey = `/api/v1/resources/collection`;
+  let swrKey = `/api/v1/resources/ecosystem`;
   const qs = queryString({ ...queryParams, collection: "tools" });
   if (qs) {
     swrKey = `${swrKey}?${qs}`;

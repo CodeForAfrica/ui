@@ -187,7 +187,7 @@ async function processPageContributors(page, api, context) {
   blocks[foundIndex] = people;
 
   const { slugs, ...queryParams } = context.query;
-  let swrKey = `/api/v1/resources/collection`;
+  let swrKey = `/api/v1/resources/ecosystem`;
   const qs = queryString({ ...queryParams, collection: "contributors" });
   if (qs) {
     swrKey = `${swrKey}?${qs}`;

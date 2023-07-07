@@ -7,7 +7,7 @@ const fetcher = (url) => fetchJson.get(url);
 
 function useEntity(params) {
   const searchParams = queryString(params);
-  const key = `/api/v1/resources/collections${searchParams}`;
+  const key = `/api/v1/resources/ecosystem/${searchParams}`;
   const { data, error } = useSWR(key, fetcher);
   return {
     data,

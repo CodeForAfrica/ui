@@ -8,15 +8,15 @@ import {
 import fetchDatasets from "@/charterafrica/lib/openAfrica";
 import { fetchDocuments } from "@/charterafrica/lib/sourceAfrica";
 
-const collectionMap = {
+const ecosystemMap = {
   organisations: getServerSideOrgs,
   contributors: getServerSideContributors,
   tools: getServerSideTools,
 };
 
-async function collections(req, res) {
+async function ecosystem(req, res) {
   const { query: { collection, locale = "en", ...query } = {} } = req;
-  const collectionFunc = collectionMap[collection];
+  const collectionFunc = ecosystemMap[collection];
   if (!collectionFunc) {
     return res.status(400).json({ message: "UNKNOWN_COLLECTION", collection });
   }
@@ -69,7 +69,7 @@ async function documents(req, res) {
 const fetchResourcesByType = {
   datasets,
   documents,
-  collections,
+  ecosystem,
 };
 
 export default async function handler(req, res) {

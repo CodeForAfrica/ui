@@ -175,7 +175,7 @@ async function processPageOrganisations(page, api, context) {
   blocks[foundIndex] = organisations;
 
   const { slugs, ...queryParams } = context.query;
-  let swrKey = `/api/v1/resources/collection`;
+  let swrKey = `/api/v1/resources/ecosystem`;
   const qs = queryString({ ...queryParams, collection: "organisations" });
   if (qs) {
     swrKey = `${swrKey}?${qs}`;
