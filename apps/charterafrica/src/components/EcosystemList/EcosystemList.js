@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState, useImperativeHandle } from "react";
 
 import EcosystemFilter from "@/charterafrica/components/EcosystemList/EcosystemFilter";
-import useEcosystemList from "@/charterafrica/components/EcosystemList/useEntity";
+import useEntity from "@/charterafrica/components/EcosystemList/useEntity";
 import NextPrevPagination from "@/charterafrica/components/NextPrevPagination";
 
 function removeEmptyParams(urlSearchParams) {
@@ -53,7 +53,7 @@ const EcosystemList = React.forwardRef(function EcosystemList(props, ref) {
   };
   const collection =
     router.query?.slugs[(router.query?.slugs?.length || 1) - 1];
-  const res = useEcosystemList({
+  const res = useEntity({
     collection,
     ...values,
   });

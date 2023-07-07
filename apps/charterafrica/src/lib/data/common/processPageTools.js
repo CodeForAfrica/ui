@@ -1,7 +1,7 @@
 import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
 import { allCountries } from "@/charterafrica/lib/data/json/countries";
 import { TOOL_COLLECTION } from "@/charterafrica/payload/utils/collections";
-import queryString from "@/charterafrica/utils/articles/queryString";
+import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
@@ -89,7 +89,14 @@ export async function getTools(page, api, context) {
     locale,
     query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
   } = context;
-  const fields = ["description", "topic", "location", "name", "id", "slug"];
+  const fields = [
+    "description",
+    "theme",
+    "operatingCountries",
+    "name",
+    "id",
+    "slug",
+  ];
   const toolQueries = orQueryBuilder(fields, search);
   const query = {
     or: toolQueries,
@@ -100,7 +107,7 @@ export async function getTools(page, api, context) {
     page: pageNumber,
     limit,
     sort,
-    query,
+    where: query,
   });
 
   const results = docs.map((tool) => {

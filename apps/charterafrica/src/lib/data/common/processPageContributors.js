@@ -4,7 +4,7 @@ import {
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,
 } from "@/charterafrica/payload/utils/collections";
-import queryString from "@/charterafrica/utils/articles/queryString";
+import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
