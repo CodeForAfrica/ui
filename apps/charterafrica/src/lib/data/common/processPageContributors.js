@@ -4,7 +4,7 @@ import {
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,
 } from "@/charterafrica/payload/utils/collections";
-import queryString from "@/charterafrica/utils/articles/queryString";
+import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
@@ -187,7 +187,7 @@ async function processPageContributors(page, api, context) {
   blocks[foundIndex] = people;
 
   const { slugs, ...queryParams } = context.query;
-  let swrKey = `/api/v1/resources/collection`;
+  let swrKey = `/api/v1/resources/ecosystem`;
   const qs = queryString({ ...queryParams, collection: "contributors" });
   if (qs) {
     swrKey = `${swrKey}?${qs}`;

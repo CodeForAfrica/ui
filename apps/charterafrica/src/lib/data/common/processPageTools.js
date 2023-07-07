@@ -4,7 +4,7 @@ import {
   TOOL_COLLECTION,
   ORGANIZATION_COLLECTION,
 } from "@/charterafrica/payload/utils/collections";
-import queryString from "@/charterafrica/utils/articles/queryString";
+import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
@@ -104,7 +104,14 @@ export async function getTools(page, api, context) {
     locale,
     query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
   } = context;
-  const fields = ["description", "topic", "location", "name", "id", "slug"];
+  const fields = [
+    "description",
+    "theme",
+    "operatingCountries",
+    "name",
+    "id",
+    "slug",
+  ];
   const toolQueries = orQueryBuilder(fields, search);
   const query = {
     or: toolQueries,
@@ -115,7 +122,7 @@ export async function getTools(page, api, context) {
     page: pageNumber,
     limit,
     sort,
-    query,
+    where: query,
   });
 
   const results = docs.map((tool) => {
@@ -212,7 +219,7 @@ async function processPageTools(page, api, context) {
   blocks[foundIndex] = tool;
 
   const { slugs, ...queryParams } = context.query;
-  let swrKey = `/api/v1/resources/collection`;
+  let swrKey = `/api/v1/resources/ecosystem`;
   const qs = queryString({ ...queryParams, collection: "tools" });
   if (qs) {
     swrKey = `${swrKey}?${qs}`;

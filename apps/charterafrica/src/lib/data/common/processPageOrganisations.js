@@ -1,7 +1,7 @@
 import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
 import { allCountries } from "@/charterafrica/lib/data/json/countries";
 import { ORGANIZATION_COLLECTION } from "@/charterafrica/payload/utils/collections";
-import queryString from "@/charterafrica/utils/articles/queryString";
+import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
@@ -176,8 +176,8 @@ async function processPageOrganisations(page, api, context) {
   blocks[foundIndex] = organisations;
 
   const { slugs, ...queryParams } = context.query;
-  let swrKey = `/api/v1/resources/collections`;
-  const qs = queryString(queryParams);
+  let swrKey = `/api/v1/resources/ecosystem`;
+  const qs = queryString({ ...queryParams, collection: "organisations" });
   if (qs) {
     swrKey = `${swrKey}?${qs}`;
   }
