@@ -1,11 +1,11 @@
 import { Section, RichTypography } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import { Box, Grid, SvgIcon, CardMedia } from "@mui/material";
+import { Box, Grid, SvgIcon, CardMedia, Button } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
 import ExternalLink from "@/charterafrica/assets/icons/Type=external-link, Size=24, Color=CurrentColor.svg";
-import ContributeAndGoToRepo from "@/charterafrica/components/Tool/ContributeAndGoToRepo";
+import GithubIcon from "@/charterafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
 import Contributors from "@/charterafrica/components/Tool/Contributors";
 import DescriptionAndShare from "@/charterafrica/components/Tool/DescriptionAndShare";
 import Metrics from "@/charterafrica/components/Tool/Metrics";
@@ -24,7 +24,6 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     operatingCountries,
     description,
     lastCommit,
-    contribute,
     goToRepo,
     techSkills,
     contributors,
@@ -105,11 +104,35 @@ const Tool = React.forwardRef(function Tool(props, ref) {
               pl: { sm: 6.25 },
             })}
           >
-            <ContributeAndGoToRepo
+            <Box
+              ref={ref}
               sx={{ width: { xs: "100%", sm: "fit-content" }, ml: "auto" }}
-              contribute={contribute}
-              goToRepo={goToRepo}
-            />
+            >
+              <Button
+                component={goToRepo?.href ? Link : undefined}
+                href={goToRepo?.href}
+                variant="contained"
+                target="_blank"
+                sx={{
+                  mt: 1.25,
+                  width: "100%",
+                  height: 50,
+                }}
+              >
+                <SvgIcon
+                  component={GithubIcon}
+                  sx={{
+                    color: "text.secondary",
+                    display: "inline-flex",
+                    fill: "none",
+                    width: 16,
+                    height: 16,
+                    mr: 1,
+                  }}
+                />
+                {goToRepo?.label}
+              </Button>
+            </Box>
             <TechSkills
               list={techSkills}
               title="Skills Needed"
