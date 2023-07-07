@@ -127,7 +127,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 css-1j9yqi7-MuiGrid-root"
                 >
                   <img
-                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-hjm8yb-MuiCardMedia-root"
+                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-pssmpe-MuiCardMedia-root"
                     src="/static/images/react.png"
                   />
                 </div>
@@ -141,32 +141,53 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       class="MuiBox-root css-gg4vpm"
                     >
                       <h5
-                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1ubne6m-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-18subyt-MuiTypography-root"
                       >
                         React
                       </h5>
-                      <span
+                      <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
-                        role="button"
                         tabindex="0"
+                        type="button"
                       >
                         Explore
-                      </span>
+                      </button>
                     </div>
-                    <span
-                      class="MuiTypography-root MuiTypography-caption css-11kmaoc-MuiTypography-root"
-                    >
-                      Frontend
-                    </span>
                     <div
-                      class="MuiTypography-root MuiTypography-p1 css-1xf8skh-MuiTypography-root"
+                      class="MuiBox-root css-yix9jc"
+                    >
+                      <div
+                        class="MuiBox-root css-70qvj9"
+                      >
+                        <div
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                          focusable="false"
+                        />
+                      </div>
+                      <div
+                        class="MuiBox-root css-70qvj9"
+                      >
+                        <div
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                          focusable="false"
+                        />
+                      </div>
+                      <div
+                        class="MuiBox-root css-70qvj9"
+                      >
+                        <div
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                          focusable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
                     >
                       A JavaScript library for building user interfaces
-                    </div>
-                    <div
-                      class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
-                    >
-                      1 day ago
                     </div>
                   </div>
                 </div>
@@ -195,7 +216,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 css-1j9yqi7-MuiGrid-root"
                 >
                   <img
-                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-hjm8yb-MuiCardMedia-root"
+                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-pssmpe-MuiCardMedia-root"
                     src="/static/images/nodejs.png"
                   />
                 </div>
@@ -209,32 +230,53 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       class="MuiBox-root css-gg4vpm"
                     >
                       <h5
-                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1ubne6m-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-18subyt-MuiTypography-root"
                       >
                         Node.js
                       </h5>
-                      <span
+                      <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
-                        role="button"
                         tabindex="0"
+                        type="button"
                       >
                         Explore
-                      </span>
+                      </button>
                     </div>
-                    <span
-                      class="MuiTypography-root MuiTypography-caption css-11kmaoc-MuiTypography-root"
-                    >
-                      Backend
-                    </span>
                     <div
-                      class="MuiTypography-root MuiTypography-p1 css-1xf8skh-MuiTypography-root"
+                      class="MuiBox-root css-yix9jc"
+                    >
+                      <div
+                        class="MuiBox-root css-70qvj9"
+                      >
+                        <div
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                          focusable="false"
+                        />
+                      </div>
+                      <div
+                        class="MuiBox-root css-70qvj9"
+                      >
+                        <div
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                          focusable="false"
+                        />
+                      </div>
+                      <div
+                        class="MuiBox-root css-70qvj9"
+                      >
+                        <div
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                          focusable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
                     >
                       A JavaScript runtime built on Chrome's V8 JavaScript engine.
-                    </div>
-                    <div
-                      class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
-                    >
-                      2 days ago
                     </div>
                   </div>
                 </div>

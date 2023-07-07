@@ -144,7 +144,7 @@ const Entity = React.forwardRef(function Entity(props, ref) {
               {tools.map((tool) => (
                 <Grid xs={12} sm={6} md={4} lg={12} item key={tool.id}>
                   <ToolCard
-                    orientation="horizontal"
+                    direction="row"
                     showButton
                     exploreText="Explore"
                     {...tool}
@@ -170,14 +170,13 @@ Entity.propTypes = {
   tools: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      topic: PropTypes.string.isRequired,
-      lastActive: PropTypes.string.isRequired,
+      theme: PropTypes.string.isRequired,
       description: PropTypes.string,
       image: PropTypes.string,
     })
   ),
   toolsTitle: PropTypes.string,
-  entity: PropTypes.oneOf(["people", "organisation"]),
+  entity: PropTypes.oneOf(["contributors", "organisation"]),
 };
 
 Entity.defaultProps = {

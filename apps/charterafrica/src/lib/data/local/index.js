@@ -7,7 +7,9 @@ import {
   getArticles,
   getTags,
 } from "@/charterafrica/lib/data/common/processPageArticles";
-
+import { getContributors } from "@/charterafrica/lib/data/common/processPageContributors";
+import { getOrganisations } from "@/charterafrica/lib/data/common/processPageOrganisations";
+import { getTools } from "@/charterafrica/lib/data/common/processPageTools";
 // Only used on home page
 export async function getGlobalProps(context) {
   return getGlobalPropsFromCommon(context, payload);
@@ -32,4 +34,16 @@ export async function getPageServerSideProps(context) {
   return {
     props,
   };
+}
+
+export async function getServerSideOrgs(collection, context) {
+  return getOrganisations(collection, api, context);
+}
+
+export async function getServerSideContributors(collection, context) {
+  return getContributors(collection, api, context);
+}
+
+export async function getServerSideTools(collection, context) {
+  return getTools(collection, api, context);
 }

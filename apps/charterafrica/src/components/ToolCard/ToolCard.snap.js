@@ -17,7 +17,7 @@ exports[`<ToolCard /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-18qart5-MuiGrid-root"
         >
           <img
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-li0ryz-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-zyubfe-MuiCardMedia-root"
           />
         </div>
         <div
@@ -30,26 +30,52 @@ exports[`<ToolCard /> renders unchanged 1`] = `
               class="MuiBox-root css-gg4vpm"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1ubne6m-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-18subyt-MuiTypography-root"
               >
                 Tool Name
               </h5>
             </div>
-            <span
-              class="MuiTypography-root MuiTypography-caption css-11kmaoc-MuiTypography-root"
-            >
-              Topic Name
-            </span>
             <div
-              class="MuiTypography-root MuiTypography-p1 css-1xf8skh-MuiTypography-root"
+              class="MuiBox-root css-yix9jc"
+            >
+              <div
+                class="MuiBox-root css-70qvj9"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                  focusable="false"
+                />
+              </div>
+              <div
+                class="MuiBox-root css-70qvj9"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                  focusable="false"
+                />
+              </div>
+              <div
+                class="MuiBox-root css-70qvj9"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                  focusable="false"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
             >
               Sample description
             </div>
-            <div
-              class="MuiTypography-root MuiTypography-p1 css-1c2dyvu-MuiTypography-root"
-            >
-              6 Months ago
-            </div>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1qxgac-MuiButtonBase-root-MuiButton-root"
+              tabindex="0"
+              type="button"
+            />
           </div>
         </div>
       </div>

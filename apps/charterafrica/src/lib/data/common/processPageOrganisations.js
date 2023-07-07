@@ -1,9 +1,7 @@
-import {
-  organisations as orgMocks,
-  tools as toolMocks,
-} from "@/charterafrica/lib/data/_mock/ecosystemJson";
 import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
-import queryString from "@/charterafrica/utils/articles/queryString";
+import { allCountries } from "@/charterafrica/lib/data/json/countries";
+import { ORGANIZATION_COLLECTION } from "@/charterafrica/payload/utils/collections";
+import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
@@ -13,9 +11,9 @@ const orQueryBuilder = (fields, search) => {
 
 async function processPageSingleOrganisation(page, api, context) {
   const { params, locale } = context;
-  const { slug: collection } = page;
+  const { slug: collection, blocks } = page;
   const slug = params.slugs[2];
-  const { docs } = orgMocks(collection, {
+  const { docs } = await api.getCollection(collection, {
     locale,
     where: {
       slug: {
@@ -26,19 +24,10 @@ async function processPageSingleOrganisation(page, api, context) {
   if (!docs?.length) {
     return null;
   }
-  const filterLabels = labelsPerLocale[locale];
   const organisation = docs[0] || {};
-  const { docs: toolDocs } = toolMocks("tools", {
-    locale,
-    where: {
-      organisation: {
-        in: [organisation.id],
-      },
-    },
-  });
 
   const pageUrl = await getPageUrl(api, "tools");
-  const tools = toolDocs.map((tool) => {
+  const tools = organisation.tools.map((tool) => {
     let href = null;
     if (pageUrl) {
       href = `${pageUrl}/${tool.slug}`;
@@ -53,25 +42,28 @@ async function processPageSingleOrganisation(page, api, context) {
       name: tool.name || " ",
     };
   });
-
+  const block = blocks.findIndex(
+    ({ slug: bSlug }) => bSlug === "our-organisations"
+  );
   return {
     ...page,
     blocks: [
       {
+        id: organisation.id,
         slug: "entity",
         image: organisation.avatarUrl ?? null,
         name: organisation?.name ?? null,
         location: organisation?.location ?? null,
-        description: organisation.description,
-        twitter: organisation.twitter,
+        description: organisation.description ?? null,
+        twitter: organisation.twitter ?? null,
         email: organisation.email ?? null,
-        toolsTitle: filterLabels.tools,
+        toolsTitle: block?.toolsTitle ?? null,
         lastActive: organisation.lastActive
           ? formatDateTime(organisation.lastActive, {})
           : null,
         github:
           organisation.source === "github"
-            ? `https://github.com/${organisation?.username || ""}`
+            ? `https://github.com/${organisation?.externalId || ""}`
             : "",
         tools,
       },
@@ -91,15 +83,18 @@ export async function getOrganisations(page, api, context) {
     or: toolQueries,
   };
   const filterLabels = labelsPerLocale[locale];
-  const { docs, ...pagination } = orgMocks("organisations", {
-    locale,
-    page: pageNumber,
-    limit,
-    sort,
-    where: {
-      ...query,
-    },
-  });
+  const { docs, ...pagination } = await api.getCollection(
+    ORGANIZATION_COLLECTION,
+    {
+      locale,
+      page: pageNumber,
+      limit,
+      sort,
+      where: {
+        ...query,
+      },
+    }
+  );
   const results = docs.map((tool) => {
     let href = null;
     const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
@@ -114,7 +109,7 @@ export async function getOrganisations(page, api, context) {
       },
       image: tool.avatarUrl ?? null,
       description: tool?.description || " ",
-      name: tool.name || " ",
+      name: tool.name ?? tool?.externalId ?? null,
       activeText: filterLabels.active,
       lastActive: tool.lastActive ? formatDateTime(tool.lastActive, {}) : null,
     };
@@ -130,68 +125,58 @@ async function processPageOrganisations(page, api, context) {
     return processPageSingleOrganisation(page, api, context);
   }
   const { blocks } = page;
-  const foundIndex = blocks.findIndex(({ slug }) => slug === "organisations");
+  const foundIndex = blocks.findIndex(
+    ({ slug }) => slug === "our-organisations"
+  );
+  if (foundIndex < 0) {
+    return { notFound: true };
+  }
+  const { filters, title } = blocks[foundIndex];
   const filterLabels = labelsPerLocale[locale];
-  const filterOptions = [
-    {
-      type: "select",
-      name: "sort",
-      options: [
-        { value: "topic", label: filterLabels.topic },
-        { value: "-topic", label: filterLabels["-topic"] },
-        { value: "views", label: filterLabels.views },
-        { value: "-views", label: filterLabels["-views"] },
-        { value: "stars", label: filterLabels.stars },
-        { value: "-stars", label: filterLabels["-stars"] },
-        { value: "name", label: filterLabels.name },
-      ],
-    },
-    {
-      type: "select",
-      name: "stars",
-      label: "Rating",
-      options: [
-        {
-          value: "",
-          label: "All",
-        },
-        {
-          value: "<1000",
-          label: "<1000",
-        },
-      ],
-    },
-    {
-      type: "select",
-      name: "expert",
-      label: "Expert",
-      multiple: true,
-      options: [
-        {
-          value: "Expert",
-          label: "Expert",
-        },
-      ],
-    },
-  ];
+  const filterOptions =
+    filters?.map((filter) => {
+      if (filter === "sort") {
+        return {
+          type: "select",
+          name: "sort",
+          label: filterLabels.sort,
+          options: [
+            { value: "fullName", label: filterLabels.name },
+            { value: "-fullName", label: filterLabels["-name"] },
+            { value: "externalId", label: filterLabels.username },
+            { value: "-externalId", label: filterLabels["-username"] },
+          ],
+        };
+      }
+      if (filter === "location") {
+        return {
+          type: "select",
+          name: "location",
+          label: filterLabels.location,
+          options: allCountries.map((country) => ({
+            value: country.value,
+            label: country.label?.[locale || "en"],
+          })),
+        };
+      }
+      return null;
+    }) ?? [];
+
   const organisations = {
     slug: "organisations",
     results,
     pagination,
-    title: filterLabels.organisations,
+    title,
+    id: blocks[foundIndex]?.id,
     searchPlaceholder: filterLabels.searchOrganisations,
     filterOptions,
   };
 
-  if (foundIndex > -1) {
-    blocks[foundIndex] = organisations;
-  } else {
-    blocks.push(organisations);
-  }
+  blocks[foundIndex] = organisations;
 
   const { slugs, ...queryParams } = context.query;
-  let swrKey = `/api/v1/resources/collection/organisations`;
-  const qs = queryString(queryParams);
+  let swrKey = `/api/v1/resources/ecosystem`;
+  const qs = queryString({ ...queryParams, collection: "organisations" });
   if (qs) {
     swrKey = `${swrKey}?${qs}`;
   }

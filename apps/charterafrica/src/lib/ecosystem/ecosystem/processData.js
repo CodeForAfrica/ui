@@ -24,9 +24,9 @@ export async function prepareOrganisations(airtableData, config) {
   const { organisations } = airtableData;
   await bulkMarkDeleted(ORGANIZATION_COLLECTION, organisations);
   const toProcess = airtableData?.organisations?.map(async (item) => {
-    const rawTools = item?.en?.tools || [];
+    const rawTools = item?.tools || [];
     const tools = await getCollectionIdsPerAirtableId(
-      CONTRIBUTORS_COLLECTION,
+      TOOL_COLLECTION,
       rawTools
     );
     const toCreate = {
@@ -42,7 +42,7 @@ export async function prepareTools(airtableData, config) {
   const { tools } = airtableData;
   await bulkMarkDeleted(TOOL_COLLECTION, tools);
   const toProcess = airtableData?.tools?.map(async (item) => {
-    const contrib = item?.en?.contributors || [];
+    const contrib = item?.contributors || [];
     const contributors = await getCollectionIdsPerAirtableId(
       CONTRIBUTORS_COLLECTION,
       contrib

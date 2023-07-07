@@ -450,7 +450,7 @@ const Ecosystem = {
         {
           type: "collapsible",
           label: {
-            en: "OrganisationTable",
+            en: "Organisation Table",
             fr: "Organisation",
             pt: "Organização",
           },
@@ -488,6 +488,18 @@ const Ecosystem = {
                       en: "Username",
                       fr: "nom d'utilisateur",
                       pt: "nome de usuário",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  schema,
+                  tableField: "organisationTableId",
+                  overrides: {
+                    name: "name",
+                    label: {
+                      en: "Name",
+                      fr: "Nom",
+                      pt: "Nome",
                     },
                   },
                 }),

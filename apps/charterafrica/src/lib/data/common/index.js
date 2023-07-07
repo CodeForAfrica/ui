@@ -3,6 +3,7 @@ import processPageArticles, {
   processPageEvents,
 } from "@/charterafrica/lib/data/common/processPageArticles";
 import processPageConsultation from "@/charterafrica/lib/data/common/processPageConsultation";
+import processPageContributors from "@/charterafrica/lib/data/common/processPageContributors";
 import processPageDatasets from "@/charterafrica/lib/data/common/processPageDatasets";
 import processPageDocuments from "@/charterafrica/lib/data/common/processPageDocuments";
 import processPageExplainers from "@/charterafrica/lib/data/common/processPageExplainers";
@@ -12,7 +13,6 @@ import processPageOpportunities, {
   processPageGrants,
 } from "@/charterafrica/lib/data/common/processPageOpportunities";
 import processPageOrganisations from "@/charterafrica/lib/data/common/processPageOrganisations";
-import processPagePeople from "@/charterafrica/lib/data/common/processPagePeople";
 import processPagePrivacyPolicy from "@/charterafrica/lib/data/common/processPagePrivacyPolicy";
 import processPageTools from "@/charterafrica/lib/data/common/processPageTools";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
@@ -71,7 +71,7 @@ const processPageFunctionsMap = {
   index: processPageIndex,
   news: processPageArticles,
   organisations: processPageOrganisations,
-  people: processPagePeople,
+  contributors: processPageContributors,
   research: processPageArticles,
   tools: processPageTools,
   "privacy-policy": processPagePrivacyPolicy,

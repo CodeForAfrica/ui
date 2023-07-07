@@ -1,7 +1,41 @@
 import * as Sentry from "@sentry/nextjs";
 
+import {
+  getServerSideOrgs,
+  getServerSideContributors,
+  getServerSideTools,
+} from "@/charterafrica/lib/data/local";
 import fetchDatasets from "@/charterafrica/lib/openAfrica";
 import { fetchDocuments } from "@/charterafrica/lib/sourceAfrica";
+
+const ecosystemMap = {
+  organisations: getServerSideOrgs,
+  contributors: getServerSideContributors,
+  tools: getServerSideTools,
+};
+
+async function ecosystem(req, res) {
+  const { query: { collection, locale = "en", ...query } = {} } = req;
+  const collectionFunc = ecosystemMap[collection];
+  if (!collectionFunc) {
+    return res.status(400).json({ message: "UNKNOWN_COLLECTION", collection });
+  }
+  const breadcrumbs = [
+    {
+      url: `/resources/${collection}`,
+    },
+  ];
+  const page = {
+    slug: collection,
+    breadcrumbs,
+  };
+  const context = {
+    locale,
+    query,
+  };
+  const found = await collectionFunc(page, context);
+  return res.status(200).json(found);
+}
 
 async function datasets(req, res) {
   const {
@@ -35,6 +69,7 @@ async function documents(req, res) {
 const fetchResourcesByType = {
   datasets,
   documents,
+  ecosystem,
 };
 
 export default async function handler(req, res) {
