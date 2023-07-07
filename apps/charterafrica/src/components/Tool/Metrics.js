@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import CommitIcon from "@/charterafrica/assets/icons/Type=commit, Size=24, Color=CurrentColor.svg";
-import DiscussionIcon from "@/charterafrica/assets/icons/Type=discussion, Size=24, Color=CurrentColor.svg";
 import ForksIcon from "@/charterafrica/assets/icons/Type=forks, Size=24, Color=CurrentColor.svg";
 import StarsIcon from "@/charterafrica/assets/icons/Type=stars, Size=24, Color=CurrentColor.svg";
 import ViewsIcon from "@/charterafrica/assets/icons/Type=views, Size=24, Color=CurrentColor.svg";
@@ -18,10 +17,8 @@ const Metrics = React.forwardRef(function Metrics(props, ref) {
     commitText,
     forksText,
     contributorsText,
-    discussionText,
     lastCommit,
     forks = "0",
-    discussions = "0",
     contributors,
   } = props;
   return (
@@ -44,22 +41,6 @@ const Metrics = React.forwardRef(function Metrics(props, ref) {
           <RichTypography color="neutral.dark">
             {contributorsText}
           </RichTypography>
-        </Box>
-      </Box>
-      <Box display="flex" alignItems="center" sx={{ mb: 2, ml: 2 }}>
-        <SvgIcon
-          inheritViewBox
-          component={DiscussionIcon}
-          sx={{
-            color: "text.primary",
-            fill: "none",
-            height: 32,
-            width: 32,
-          }}
-        />
-        <Box sx={{ ml: 1 }}>
-          <RichTypography color="neutral.dark">{discussions}</RichTypography>
-          <RichTypography color="neutral.dark">{discussionText}</RichTypography>
         </Box>
       </Box>
       <Box display="flex" alignItems="center" sx={{ mb: 2, ml: 2 }}>

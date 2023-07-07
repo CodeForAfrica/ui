@@ -77,24 +77,6 @@ exports[`<Tool /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-mg30as-MuiSvgIcon-root"
-                  focusable="false"
-                />
-                <div
-                  class="MuiBox-root css-1isemmb"
-                >
-                  <div
-                    class="MuiTypography-root MuiTypography-p1 css-1tpbw3s-MuiTypography-root"
-                  >
-                    0
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiBox-root css-33u6ly"
-              >
-                <div
-                  aria-hidden="true"
                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-w9l2y7-MuiSvgIcon-root"
                   focusable="false"
                 />
