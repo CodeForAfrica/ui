@@ -52,6 +52,100 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <div
+              class="MuiBox-root css-1bzzis0"
+            >
+              <div
+                class="MuiBox-root css-33u6ly"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-w9l2y7-MuiSvgIcon-root"
+                  focusable="false"
+                />
+                <div
+                  class="MuiBox-root css-1isemmb"
+                >
+                  <div
+                    class="MuiTypography-root MuiTypography-p1 css-1tpbw3s-MuiTypography-root"
+                  >
+                    30
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiBox-root css-33u6ly"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-mg30as-MuiSvgIcon-root"
+                  focusable="false"
+                />
+                <div
+                  class="MuiBox-root css-1isemmb"
+                >
+                  <div
+                    class="MuiTypography-root MuiTypography-p1 css-1tpbw3s-MuiTypography-root"
+                  >
+                    0
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiBox-root css-33u6ly"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-w9l2y7-MuiSvgIcon-root"
+                  focusable="false"
+                />
+                <div
+                  class="MuiBox-root css-1isemmb"
+                >
+                  <div
+                    class="MuiTypography-root MuiTypography-p1 css-1tpbw3s-MuiTypography-root"
+                  >
+                    -
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiBox-root css-33u6ly"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-w9l2y7-MuiSvgIcon-root"
+                  focusable="false"
+                />
+                <div
+                  class="MuiBox-root css-1isemmb"
+                >
+                  <div
+                    class="MuiTypography-root MuiTypography-p1 css-1tpbw3s-MuiTypography-root"
+                  >
+                    0
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiBox-root css-33u6ly"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-w9l2y7-MuiSvgIcon-root"
+                  focusable="false"
+                />
+                <div
+                  class="MuiBox-root css-1isemmb"
+                >
+                  <div
+                    class="MuiTypography-root MuiTypography-p1 css-1tpbw3s-MuiTypography-root"
+                  >
+                    0
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
               class="MuiBox-root css-485ol6"
             >
               <div
@@ -124,21 +218,6 @@ exports[`<Tool /> renders unchanged 1`] = `
           <div
             class="MuiBox-root css-11uk14q"
           >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1099qwa-MuiButtonBase-root-MuiButton-root"
-              href=""
-              tabindex="0"
-              target="_blank"
-              type="button"
-            >
-              <div
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1bnrqzj-MuiSvgIcon-root"
-                focusable="false"
-              />
-              Contribute
-            </button>
-            <br />
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-qy1l2s-MuiButtonBase-root-MuiButton-root"
               href=""

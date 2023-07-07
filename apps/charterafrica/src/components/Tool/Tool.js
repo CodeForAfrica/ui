@@ -8,6 +8,7 @@ import ExternalLink from "@/charterafrica/assets/icons/Type=external-link, Size=
 import ContributeAndGoToRepo from "@/charterafrica/components/Tool/ContributeAndGoToRepo";
 import Contributors from "@/charterafrica/components/Tool/Contributors";
 import DescriptionAndShare from "@/charterafrica/components/Tool/DescriptionAndShare";
+import Metrics from "@/charterafrica/components/Tool/Metrics";
 import OrgThemeAndOperatingCountries from "@/charterafrica/components/Tool/OrgThemeAndOperatingCountries";
 import Partners from "@/charterafrica/components/Tool/Partners";
 import TechSkills from "@/charterafrica/components/Tool/TechSkills";
@@ -82,6 +83,10 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 organisation={organisation}
                 theme={theme}
                 operatingCountries={operatingCountries}
+              />
+              <Metrics
+                sx={{ mt: 3.75, justifyContent: "space-between" }}
+                {...props}
               />
               <DescriptionAndShare
                 description={description}
