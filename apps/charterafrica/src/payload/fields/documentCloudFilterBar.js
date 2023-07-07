@@ -80,7 +80,6 @@ function documentCloudFilterBar({ overrides } = {}) {
                 {
                   name: "value",
                   type: "select",
-                  unique: true,
                   required: true,
                   options: documentSortOptions,
                   validate: (val, options) => {
