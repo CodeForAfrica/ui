@@ -6,6 +6,7 @@ import processPageArticles, {
 } from "@/charterafrica/lib/data/common/processPageArticles";
 import processPageConsultation from "@/charterafrica/lib/data/common/processPageConsultation";
 import processPageDatasets from "@/charterafrica/lib/data/common/processPageDatasets";
+import processPageDocuments from "@/charterafrica/lib/data/common/processPageDocuments";
 import processPageIndex from "@/charterafrica/lib/data/common/processPageIndex";
 import processPageOpportunities, {
   processPageFellowships,
@@ -35,7 +36,19 @@ export async function getGlobalProps({ locale, defaultLocale }, api) {
       href: "/",
       priority: true,
     },
-    menus: menus ?? null,
+    menus:
+      menus?.map((originalMenu) => {
+        const { doc, ...menu } = originalMenu;
+        // Remove pages (doc) from menu and it's children
+        // This can also be done via afterRead global hook on navigation block
+        // but it may interfere with CMS functionality
+        if (menu.children) {
+          menu.children =
+            menu.children?.map(({ doc: _, ...other }) => ({ ...other })) ??
+            null;
+        }
+        return menu;
+      }) ?? null,
   };
   const footer = await api.findGlobal("footer", {
     locale,
@@ -48,6 +61,7 @@ export async function getGlobalProps({ locale, defaultLocale }, api) {
 const processPageFunctionsMap = {
   consultation: processPageConsultation,
   datasets: processPageDatasets,
+  documents: processPageDocuments,
   events: processPageEvents,
   fellowships: processPageFellowships,
   grants: processPageGrants,
@@ -64,12 +78,12 @@ async function processGlobalBlockFocalCountries(block) {
 }
 
 async function processGlobalBlockHelpdesk(block) {
-  const { description, image, link, slug, title } = block || {};
+  const { description, id, image, link, slug, title } = block || {};
   if (!title?.length) {
     return null;
   }
 
-  const helpdesk = { slug, title };
+  const helpdesk = { id, slug, title };
   if (description?.length) {
     helpdesk.description = description;
   }

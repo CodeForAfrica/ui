@@ -1,9 +1,11 @@
 import {
+  fetchDocument,
   fetchDocuments,
   fetchDocumentIframe,
 } from "@/charterafrica/lib/sourceAfrica";
 import { fetchPlaylistItems } from "@/charterafrica/lib/youtube";
-import documentsQueryString from "@/charterafrica/utils/documents/queryString";
+import getDocumentsQuery from "@/charterafrica/utils/documents/documents";
+import queryString from "@/charterafrica/utils/documents/queryString";
 
 export async function getVideosFromPlaylist(playlistId, options) {
   if (!playlistId) {
@@ -46,37 +48,53 @@ async function getFeaturedConsultations(featured, playlistItems) {
 }
 
 async function processPageConsultationDocument(page, api, context) {
-  const { query } = context;
+  // NOTE: This is very similar to processSingleDocumentPage in processPageDocuments
+  //       we need to find a way to deduplicate.
+  const { params } = context;
+  const { blocks } = page;
+  const documentsIndex = blocks.findIndex(
+    ({ slug }) => slug === "embedded-documents"
+  );
+  if (documentsIndex === -1) {
+    return null;
+  }
 
-  const { title, slugs, ...rest } = query;
+  const {
+    group: { options },
+  } = blocks[documentsIndex];
+  const documentsQuery = getDocumentsQuery(page, context, options);
+  const { pathname, ...query } = documentsQuery;
+  // Documents are shown unders /documents of this page
+  const documentsPathname = `${pathname}/documents`;
+  const id = params.slugs[3];
+  const document = await fetchDocument(id, documentsPathname);
+  if (!document) {
+    return null;
+  }
 
-  const data = await fetchDocumentIframe(rest);
+  const { labels: commonLabels } = await api.findGlobal("common-labels", query);
+  const { url } = document;
+  const data = await fetchDocumentIframe({ ...query, responsive: true, url });
   const { html } = data;
-
   return {
     ...page,
     blocks: [
       {
-        slug: "embedded-document-viewer",
+        ...document,
         html,
-        title,
+        labels: {
+          ...commonLabels,
+        },
+        slug: "document",
       },
     ],
   };
 }
 
-function getDocumentsQuery(context, options) {
-  const { query = {} } = context;
-  const { contributor = true, page = 1, per_page: perPage = 8 } = query;
-
-  return { contributor, page, per_page: perPage, ...options };
-}
-
 async function processPageConsultation(page, api, context) {
-  const { params } = context;
-
-  // Check if we are on a document page: /opportunities/consultation/documents
-  if (params.slugs.length > 2 && params.slugs[2] === "documents") {
+  const { params, locale } = context;
+  // Check if we are on a document page: /opportunities/consultation/documents/<id>
+  if (params.slugs.length > 3 && params.slugs[2] === "documents") {
     return processPageConsultationDocument(page, api, context);
   }
 
@@ -87,21 +105,32 @@ async function processPageConsultation(page, api, context) {
   if (documentsIndex > -1) {
     const {
       description: documentsDescription,
-      group: { group, options },
+      group: { groupId, options, showPinnedDocuments },
       title: documentsTitle,
     } = blocks[documentsIndex];
-    const query = getDocumentsQuery(context, options);
-    const documents = await fetchDocuments(`group:${group}`, query);
+    const documentsQuery = getDocumentsQuery(page, context, options);
+    const { pathname, ...query } = documentsQuery;
+    // Show documents in unders /documents of this page
+    const documentsPathname = `${pathname}/documents`;
+    const documents = await fetchDocuments(
+      `group:${groupId} lang:${locale}`,
+      documentsPathname,
+      query,
+      showPinnedDocuments
+    );
     blocks[documentsIndex] = {
+      ...blocks[documentsIndex],
       ...documents,
-      slug: "documents",
       description: documentsDescription ?? null,
-      options,
+      documentOptions: options,
+      pathname: documentsPathname,
+      slug: "documents",
       title: documentsTitle ?? null,
+      showPinnedDocuments,
     };
-    // SWR fallback
-    let swrKey = `/api/v1/opportunities/consultation/documents`;
-    const qs = documentsQueryString(query);
+
+    let swrKey = `/api/v1/resources/documents`;
+    const qs = queryString(documentsQuery);
     if (qs) {
       swrKey = `${swrKey}?${qs}`;
     }
@@ -130,7 +159,7 @@ async function processPageConsultation(page, api, context) {
       );
     }
     blocks[playlistIndex] = {
-      slug: "embedded-playlist",
+      ...blocks[playlistIndex],
       config: {
         mostRecentText: "Most Recent",
         relevanceText: "Relevance",
@@ -145,6 +174,7 @@ async function processPageConsultation(page, api, context) {
         ...playlistField,
         items,
       },
+      slug: "embedded-playlist",
       title: title ?? null,
     };
   }

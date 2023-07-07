@@ -1,7 +1,8 @@
-import { CONTRIBUTORS_COLLECTION } from "../../lib/ecosystem/models";
+import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
+import { CONTRIBUTORS_COLLECTION } from "../utils/collections";
 
 const Contributors = {
   slug: CONTRIBUTORS_COLLECTION,
@@ -38,7 +39,6 @@ const Contributors = {
         readOnly: true,
       },
     },
-
     {
       name: "description",
       type: "textarea",
@@ -52,14 +52,7 @@ const Contributors = {
         readOnly: true,
       },
     },
-    {
-      name: "avatarUrl",
-      type: "text",
-      label: { en: "Avatar URL", fr: "URL d'avatar", pt: "URL de avatar" },
-      admin: {
-        readOnly: true,
-      },
-    },
+    avatarUrl(),
     {
       name: "location",
       type: "text",
@@ -107,7 +100,41 @@ const Contributors = {
         },
       },
     },
-    slug({ fieldToUse: ["source", "username"] }),
+    slug({ fieldToUse: ["source", "externalId"] }),
+    {
+      name: "socialMedia",
+      type: "array",
+      admin: {
+        readOnly: true,
+        initCollapsed: true,
+      },
+      label: {
+        en: "Other Social Media Pages (A list)",
+        fr: "Autres pages de médias sociaux (une liste)",
+        pt: "Outras páginas de mídia social (uma lista)",
+      },
+      fields: [
+        {
+          name: "name",
+          type: "text",
+          label: { en: "Name", fr: "Nom", pt: "Nome" },
+        },
+        {
+          name: "link",
+          type: "text",
+          admin: {
+            readOnly: true,
+          },
+          label: { en: "Link", fr: "Lien", pt: "Link" },
+        },
+      ],
+    },
+    {
+      name: "airtableId",
+      label: { en: "Airtable ID", fr: "ID Airtable", pt: "ID da Airtable" },
+      type: "text",
+      required: true,
+    },
     source(),
     dateField({
       name: "updatedAt",
@@ -115,6 +142,15 @@ const Contributors = {
         beforeValidate: [({ value }) => (value ? new Date(value) : new Date())],
       },
     }),
+    {
+      type: "text",
+      label: { en: "E Tag", fr: "Étiquette", pt: "E tag" },
+      name: "eTag",
+      admin: {
+        readOnly: true,
+        position: "sidebar",
+      },
+    },
   ],
 };
 

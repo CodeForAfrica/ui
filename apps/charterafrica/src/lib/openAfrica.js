@@ -1,23 +1,18 @@
+import * as Sentry from "@sentry/nextjs";
+
 import { countriesByContinent } from "@/charterafrica/lib/data/json/countries";
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
-const BASE_DOCUMENTS_URL = "https://openafrica.net/api/3/action/";
-
+const OPEN_AFRICA_URL = "https://open.africa/";
+const OPEN_AFRICA_BASE_API_URL = `${OPEN_AFRICA_URL}api/3/action/`;
 const PAGE_SIZE = 10;
-
-async function packageSearch(params) {
-  try {
-    const response = await fetchJson.get(
-      `${BASE_DOCUMENTS_URL}package_search`,
-      {
-        params,
-      }
-    );
-    return response;
-  } catch (error) {
-    return error;
-  }
-}
+const AFRICA_COUNTRIES_BY_LOCALE = ["en", "fr", "pt"].reduce((acc, cur) => {
+  acc[cur] = countriesByContinent("Africa").map(({ label, value }) => ({
+    value: value.toLowerCase(),
+    label: label[cur],
+  }));
+  return acc;
+}, {});
 
 function formatResources(resources, author) {
   return resources?.map((resource) => {
@@ -57,9 +52,7 @@ function formatDatasets(datasets, pathname) {
       type,
       url,
     } = dataset;
-
     const formattedResources = formatResources(resources, author);
-
     const formatsSet = new Set(resources?.map((r) => r.format));
     const formats = Array.from(formatsSet).sort();
 
@@ -72,7 +65,7 @@ function formatDatasets(datasets, pathname) {
       name,
       notes,
       source: url?.trim(),
-      url: `https://openafrica.net/${type}/${id}`,
+      url: `${OPEN_AFRICA_URL}${type}/${id}`,
       href: `${pathname}/${id}`,
       title,
       type,
@@ -83,18 +76,14 @@ function formatDatasets(datasets, pathname) {
 
 function formatResponse(data, pathname, locale) {
   const { result: { count, facets: { tags }, results } = {} } = data || {};
-
   const datasets = formatDatasets(results, pathname);
   const sortStrings = (a, b) => a.localeCompare(b);
   const tagsList = Object.keys(tags || {}).sort(sortStrings);
-  const countries = countriesByContinent("Africa").map(({ label, value }) => ({
-    value,
-    label: label[locale],
-  }));
+
   return {
     count,
     datasets,
-    countries,
+    countries: AFRICA_COUNTRIES_BY_LOCALE[locale],
     tags: tagsList,
     totalPages: Math.ceil(count / PAGE_SIZE),
   };
@@ -125,11 +114,16 @@ export default async function fetchDatasets(
   };
 
   try {
-    const response = await packageSearch(params);
-    const formattedData = formatResponse(response, pathname, locale);
-    return formattedData;
-  } catch (error) {
-    return error;
+    const data = await fetchJson.get(
+      `${OPEN_AFRICA_BASE_API_URL}package_search`,
+      {
+        params,
+      }
+    );
+    return formatResponse(data, pathname, locale);
+  } catch (err) {
+    Sentry.captureException(err);
+    return null;
   }
 }
 
@@ -137,7 +131,7 @@ export async function fetchDataset(id, pathname, query) {
   const { locale } = query;
   try {
     const response = await fetchJson.get(
-      `${BASE_DOCUMENTS_URL}package_show?id=${id}`
+      `${OPEN_AFRICA_BASE_API_URL}package_show?id=${id}`
     );
     const { result: dataset } = response;
     const { tags = [], groups = [] } = dataset;
@@ -151,11 +145,13 @@ export async function fetchDataset(id, pathname, query) {
       ...payload,
       locale,
     });
+
     return {
       ...formattedDataset[0],
-      related: related.datasets.slice(0, 3),
+      related: related?.datasets?.slice(0, 3) ?? null,
     };
-  } catch (error) {
-    return error;
+  } catch (err) {
+    Sentry.captureException(err);
+    return null;
   }
 }

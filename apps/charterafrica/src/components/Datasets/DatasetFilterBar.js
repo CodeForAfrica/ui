@@ -1,4 +1,12 @@
-import { Box, Grid, styled, TextField, Typography } from "@mui/material";
+import { Link } from "@commons-ui/next";
+import {
+  Box,
+  Button,
+  Grid,
+  styled,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React from "react";
 
 import { neutral } from "@/charterafrica/colors";
@@ -23,18 +31,25 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
   ref
 ) {
   const {
-    countries,
-    countriesOptions,
+    countriesList,
+    documents,
+    labels,
+    onChangeCountries,
     onChangeQ,
     onChangeSort,
-    onChangeCountries,
     onChangeTags,
-    labels,
-    sortOptions,
-    sort,
+    options: {
+      countries: countriesOptions,
+      search,
+      sort: sortOptions,
+      tags: tagsOptions,
+    },
     q,
-    tags,
-    tagsOptions,
+    selectedCountries,
+    selectedTags,
+    showDocuments,
+    sort,
+    tagsList,
   } = props;
 
   const handleChangeQ = (e, value) => {
@@ -45,17 +60,17 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
 
   const listToLabel = (list, label, num = 1) => {
     return list?.length > num
-      ? `${list.length} ${labels[label]}`
+      ? `${list.length} ${label}`
       : list.map((l) => l.label || l).join(", ");
   };
 
   return (
     <Box py={5} ref={ref}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} lg={3}>
+      <Grid container spacing={1} justifyContent="space-between">
+        <Grid item xs={12} lg={2}>
           <ControlledSearchInput
             onChange={handleChangeQ}
-            placeholder={labels.search}
+            placeholder={search.label}
             value={q}
             sx={{
               backgroundColor: "#fff",
@@ -65,10 +80,10 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             }}
           />
         </Grid>
-        <Grid item xs={12} sm={4} lg={3}>
+        <Grid item xs={12} sm={4} md={3} lg={2}>
           <ComboBox
-            label={labels.sort}
-            options={sortOptions}
+            label={sortOptions.label}
+            options={sortOptions.options}
             onChange={onChangeSort}
             renderInput={(params) => (
               <StyledAutocompleteInput
@@ -84,36 +99,90 @@ const DatasetFilterBar = React.forwardRef(function DatasetFilterBar(
             value={sort}
           />
         </Grid>
-        <Grid item xs={12} sm={4} lg={3} overflow="hidden">
+        <Grid item xs={12} sm={4} md={3} lg={2} overflow="hidden">
           <ComboBox
-            label={labels.countries}
+            label={countriesOptions.label}
             multiple
-            options={countriesOptions}
+            options={countriesList}
             onChange={onChangeCountries}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderTags={(checkedCountries, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
-                {listToLabel(checkedCountries, "countries")}
+                {listToLabel(checkedCountries, countriesOptions.label)}
               </StyledAutocompleteTags>
             )}
-            value={countries}
+            value={selectedCountries}
           />
         </Grid>
-        <Grid item xs={12} sm={4} lg={3}>
+        <Grid item xs={12} sm={4} md={3} lg={2}>
           <ComboBox
-            label={labels.tags}
+            label={tagsOptions.label}
             multiple
-            options={tagsOptions}
+            options={tagsList}
             onChange={onChangeTags}
             renderInput={(params) => <StyledAutocompleteInput {...params} />}
             renderTags={(checkedTags, getTagProps) => (
               <StyledAutocompleteTags {...getTagProps} typography="p1">
-                {listToLabel(checkedTags, "tags")}
+                {listToLabel(checkedTags, tagsOptions.label)}
               </StyledAutocompleteTags>
             )}
-            value={tags}
+            value={selectedTags}
           />
         </Grid>
+        {showDocuments ? (
+          <Grid
+            item
+            xs={12}
+            md={3}
+            lg={3}
+            container
+            justifyContent={{
+              xs: "flex-start",
+              md: "center",
+            }}
+            gap={1}
+            alignItems="center"
+            direction="row"
+            wrap="nowrap"
+          >
+            <Typography
+              typography="p1"
+              color="neutral.dark"
+              sx={{
+                mr: 1,
+              }}
+            >
+              {labels.show}:
+            </Typography>
+            <Button
+              disabled
+              variant="contained"
+              sx={(theme) => ({
+                ...theme.typography.p1,
+                borderRadius: "10px",
+                backgroundColor: neutral[50],
+                color: "neutral.dark",
+                width: "95px",
+              })}
+            >
+              {labels.datasets}
+            </Button>
+            <Button
+              component={Link}
+              href={documents.href}
+              variant="contained"
+              sx={(theme) => ({
+                ...theme.typography.p1,
+                borderRadius: "10px",
+                backgroundColor: showDocuments ? "primary" : neutral[50],
+                color: showDocuments ? "#fff" : "neutral.dark",
+                width: "95px",
+              })}
+            >
+              {documents.label}
+            </Button>
+          </Grid>
+        ) : null}
       </Grid>
     </Box>
   );

@@ -7,6 +7,8 @@
     "build-next": {
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
+        "AIRTABLE_API_TOKEN",
+        "CHARTERAFRICA_SENTRY_DSN",
         "CI",
         "MONGO_URL",
         "NEXT_BUILD",
@@ -28,6 +30,8 @@
         "PAYLOAD_PUBLIC_LOCALES",
         "PAYLOAD_SECRET_KEY",
         "PROJECT_ROOT",
+        "PUBLIC_CHARTERAFRICA_SENTRY_DSN",
+        "RESOURCES_SECRET_TOKEN",
         "S3_ACCESS_KEY_ID",
         "S3_BUCKET",
         "S3_SECRET_ACCESS_KEY",
@@ -40,6 +44,8 @@
     "build-payload": {
       "outputs": ["build/**"],
       "env": [
+        "AIRTABLE_API_TOKEN",
+        "CHARTERAFRICA_SENTRY_DSN",
         "CI",
         "MONGO_URL",
         "NEXT_BUILD",
@@ -54,6 +60,8 @@
         "PAYLOAD_PUBLIC_LOCALES",
         "PAYLOAD_SECRET_KEY",
         "PORT",
+        "PUBLIC_CHARTERAFRICA_SENTRY_DSN",
+        "RESOURCES_SECRET_TOKEN",
         "S3_ACCESS_KEY_ID",
         "S3_BUCKET",
         "S3_SECRET_ACCESS_KEY",

@@ -2,7 +2,9 @@ import AgaInfographic from "../blocks/AgaInfographic";
 import CommunityPlatforms from "../blocks/CommunityPlatforms";
 import Datasets from "../blocks/Datasets";
 import DemocracyHelpdeskContent from "../blocks/DemocracyHelpdeskPageContent";
+import Documents from "../blocks/Documents";
 import Ecosystem from "../blocks/Ecosystem";
+import EmbeddedChart from "../blocks/EmbeddedChart";
 import EmbeddedDocuments from "../blocks/EmbeddedDocuments";
 import EmbeddedPlaylist from "../blocks/EmbeddedPlaylist";
 import Error from "../blocks/Error";
@@ -26,12 +28,14 @@ import Resources from "../blocks/Resources";
 import Spotlight from "../blocks/Spotlight";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
+import formatDraftUrl from "../utils/formatDraftUrl";
 
 const Pages = {
   slug: "pages",
   admin: {
-    useAsTitle: "title",
     defaultColumns: ["fullTitle", "updatedAt"],
+    preview: (doc, options) => formatDraftUrl("pages", doc, options),
+    useAsTitle: "title",
   },
   access: {
     read: () => true, // Everyone can read Pages
@@ -53,7 +57,9 @@ const Pages = {
         CommunityPlatforms,
         Datasets,
         DemocracyHelpdeskContent,
+        Documents,
         Ecosystem,
+        EmbeddedChart,
         EmbeddedDocuments,
         EmbeddedPlaylist,
         Error,

@@ -79,7 +79,9 @@ const ToolCard = React.forwardRef(function ToolCard(props, ref) {
                   {name}
                 </LineClampedRichTypography>
                 {showButton ? (
-                  <Button variant="contained">{exploreText}</Button>
+                  <Button component="span" variant="contained">
+                    {exploreText}
+                  </Button>
                 ) : null}
               </Box>
               <LineClampedRichTypography
@@ -129,7 +131,7 @@ ToolCard.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string,
   topic: PropTypes.string,
-  link: PropTypes.text,
+  link: PropTypes.shape({}),
 };
 
 ToolCard.defaultProps = {

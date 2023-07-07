@@ -18,6 +18,7 @@ const defaultProps = {
   image: "/static/images/avatar/1.jpg",
   tools: [
     {
+      id: 1,
       name: "React",
       topic: "Frontend",
       lastActive: "1 day ago",
@@ -25,6 +26,7 @@ const defaultProps = {
       image: "/static/images/react.png",
     },
     {
+      id: 2,
       name: "Node.js",
       topic: "Backend",
       lastActive: "2 days ago",

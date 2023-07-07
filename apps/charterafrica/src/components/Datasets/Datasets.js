@@ -13,15 +13,17 @@ import queryString from "@/charterafrica/utils/datasets/queryString";
 
 const Datasets = React.forwardRef(function Datasets(
   {
-    sx,
-    data: datasetsProp,
-    labels,
-    commonLabels,
-    tags = [],
     countries = [],
-    totalPages: originalTotalPages,
-    sortOptions = [],
+    datasets: datasetsProp,
+    documents,
+    filterBar: datasetsFilterBar,
+    labels,
+    organizationId,
     pageUrl,
+    showDocuments,
+    sx,
+    tags = [],
+    totalPages: originalTotalPages,
   },
   ref
 ) {
@@ -87,6 +89,7 @@ const Datasets = React.forwardRef(function Datasets(
   const { data, isLoading } = useDatasets(
     {
       countries: selectedCountries,
+      organizationId,
       locale,
       page,
       q,
@@ -117,18 +120,20 @@ const Datasets = React.forwardRef(function Datasets(
         sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: 0 }, pb: { md: 5 } }}
       >
         <DatasetFilterBar
-          countries={selectedCountries}
-          countriesOptions={countries}
+          countriesList={countries}
+          documents={documents}
           labels={labels}
-          sortOptions={sortOptions}
+          options={datasetsFilterBar}
+          onChangeCountries={handleChangeCountries}
           onChangeQ={handleChangeQ}
           onChangeSort={handleChangeSort}
-          onChangeCountries={handleChangeCountries}
           onChangeTags={handleChangeTags}
-          sort={sort}
-          tags={selectedTags}
-          tagsOptions={tags}
+          selectedCountries={selectedCountries}
+          selectedTags={selectedTags}
+          showDocuments={showDocuments}
+          tagsList={tags}
         />
+
         {isLoading ? <LinearProgress color="secondary" /> : null}
         <Stack>
           {datasets?.map((dataset) => (
@@ -136,7 +141,6 @@ const Datasets = React.forwardRef(function Datasets(
               {...dataset}
               key={dataset.id}
               labels={labels}
-              commonLabels={commonLabels}
               pageUrl={pageUrl}
               sx={{
                 borderBottom: "none",
@@ -150,8 +154,8 @@ const Datasets = React.forwardRef(function Datasets(
         </Stack>
         <NextPrevPagination
           count={totalPages}
-          page={page}
           onChange={handleChangePage}
+          page={page}
           sx={{ mt: 2.5, bgcolor: "common.white" }}
         />
       </Section>

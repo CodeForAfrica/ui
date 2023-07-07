@@ -6,9 +6,10 @@ import CommunityPlatforms from "@/charterafrica/components/CommunityPlatforms";
 import Consultations from "@/charterafrica/components/Consultations";
 import Dataset from "@/charterafrica/components/Dataset";
 import Datasets from "@/charterafrica/components/Datasets";
+import Document from "@/charterafrica/components/Document";
 import Documents from "@/charterafrica/components/Documents";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
-import EmbeddedDocumentViewer from "@/charterafrica/components/EmbeddedDocumentViewer";
+import EmbeddedChart from "@/charterafrica/components/EmbeddedChart";
 import Entity from "@/charterafrica/components/Entity";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
@@ -20,6 +21,7 @@ import Helpdesk from "@/charterafrica/components/Helpdesk";
 import HelpdeskPageContent from "@/charterafrica/components/HelpdeskPageContent";
 import Hero from "@/charterafrica/components/Hero";
 import Impressum from "@/charterafrica/components/Impressum";
+import Infographic from "@/charterafrica/components/Infographic";
 import LongForm from "@/charterafrica/components/LongForm";
 import Mooc from "@/charterafrica/components/Mooc";
 import Opportunity from "@/charterafrica/components/Opportunity";
@@ -39,11 +41,15 @@ import Tools from "@/charterafrica/components/Tools";
 import { getPageServerSideProps } from "@/charterafrica/lib/data";
 
 const componentsBySlugs = {
+  "aga-infographic": Infographic,
   datasets: Datasets,
   dataset: Dataset,
   documents: Documents,
   ecosystem: Ecosystem,
+  "embedded-chart": EmbeddedChart,
   "embedded-playlist": Consultations,
+  document: Document,
+  explainers: Explainers,
   faq: FAQ,
   "featured-post": FeaturedPostCard,
   "fellowships-and-grants-header": OpportunityHeader,
@@ -68,7 +74,6 @@ const componentsBySlugs = {
   "page-info": PageInfo,
   post: Post,
   research: Articles,
-  "embedded-document-viewer": EmbeddedDocumentViewer,
   spotlight: Spotlight,
   tool: Tool,
   tools: Tools,
