@@ -31,8 +31,10 @@ const validateBaseSelect = async (value, { hasMany, required, t }) => {
   const valid = select(value, { hasMany, options, required, t });
   if (valid) {
     const link = getTablesUrl(value);
-    const { tables } = await fetchJson.get(link);
-    schema.tables = tables;
+    if (link) {
+      const { tables } = await fetchJson.get(link);
+      schema.tables = tables;
+    }
   }
   return valid;
 };
