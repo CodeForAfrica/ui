@@ -11,7 +11,6 @@ const Ecosystem = {
   label: { en: "Ecosystem", fr: "Écosystème", pt: "Ecossistema" },
   access: {
     read: () => true,
-    update: () => true,
   },
   fields: [
     {
