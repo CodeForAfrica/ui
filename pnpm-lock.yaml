@@ -512,8 +512,8 @@ importers:
         specifier: ^3.7.17
         version: 3.7.17(graphql@15.5.1)(react-dom@18.2.0)(react@18.2.0)
       "@commons-ui/core":
-        specifier: workspace:*
-        version: link:../../packages/commons-ui-core
+        specifier: ^0.1.0
+        version: 0.1.0(@mui/material@5.12.3)(@mui/styles@5.12.3)(react-dom@18.2.0)(react@18.2.0)(simplebar-react@2.4.3)
       "@commons-ui/next":
         specifier: workspace:*
         version: link:../../packages/commons-ui-next
@@ -589,6 +589,12 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      react-leaflet:
+        specifier: ^3.2.0
+        version: 3.2.0(leaflet@1.9.3)(react-dom@18.2.0)(react@18.2.0)
+      react-multi-carousel:
+        specifier: ^2.6.3
+        version: 2.6.3
       react-share:
         specifier: ^4.4.0
         version: 4.4.1(react@18.2.0)
@@ -4910,6 +4916,27 @@ packages:
     engines: { node: ">=0.1.90" }
     dev: true
 
+  /@commons-ui/core@0.1.0(@mui/material@5.12.3)(@mui/styles@5.12.3)(react-dom@18.2.0)(react@18.2.0)(simplebar-react@2.4.3):
+    resolution:
+      {
+        integrity: sha512-cqizgJzE/XXnf27d/TSrN5FqmEwGdzMz1YOsMSzBoNl9OZc78BnyjeB1dXQw1pOdj/S1qdIsuTRPIekL3DxO5Q==,
+      }
+    peerDependencies:
+      "@mui/material": ^5.10.7
+      "@mui/styles": ^5.10.7
+      react: ^17.0.2
+      react-dom: ^17.0.2
+      simplebar-react: ^2.1.0
+    dependencies:
+      "@mui/material": 5.12.3(@emotion/react@11.10.8)(@emotion/styled@11.10.8)(@types/react@18.2.5)(react-dom@18.2.0)(react@18.2.0)
+      "@mui/styles": 5.12.3(@types/react@18.2.5)(react@18.2.0)
+      clsx: 1.2.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      simplebar-react: 2.4.3(react-dom@18.2.0)(react@18.2.0)
+    dev: false
+
   /@corex/deepmerge@2.6.148:
     resolution:
       {
@@ -7565,6 +7592,21 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
       react-lifecycles-compat: 3.0.4
     dev: true
+
+  /@react-leaflet/core@1.1.1(leaflet@1.9.3)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-7PGLWa9MZ5x/cWy8EH2VzI4T8q5WpuHbixzCDXqixP/WyqwIrg5NDUPgYuFnB4IEIZF+6nA265mYzswFo/h1Pw==,
+      }
+    peerDependencies:
+      leaflet: ^1.7.1
+      react: ^17.0.1
+      react-dom: ^17.0.1
+    dependencies:
+      leaflet: 1.9.3
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /@react-leaflet/core@2.1.0(leaflet@1.9.3)(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -29202,6 +29244,22 @@ packages:
         integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==,
       }
 
+  /react-leaflet@3.2.0(leaflet@1.9.3)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-eHVqoRGjW8T9GxLt7jyTKP3BDQ7XQ5AD+tc/zkbaABn1dbmREDy8GojNcYjZQa3QFLQoOLQMcUC1PTtzytZpUA==,
+      }
+    peerDependencies:
+      leaflet: ^1.7.1
+      react: ^17.0.1
+      react-dom: ^17.0.1
+    dependencies:
+      "@react-leaflet/core": 1.1.1(leaflet@1.9.3)(react-dom@18.2.0)(react@18.2.0)
+      leaflet: 1.9.3
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /react-leaflet@4.2.1(leaflet@1.9.3)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
@@ -29236,6 +29294,14 @@ packages:
       prop-types: 15.8.1
       raf: 3.4.1
       react: 18.2.0
+    dev: false
+
+  /react-multi-carousel@2.6.3:
+    resolution:
+      {
+        integrity: sha512-fCe+I1BlhTUyNHm/fh3bWavDo8UzoolTd/zrKao/wvb/XFf9dvesfNOawx7ukAzptiHOQhGCWZiNao+J76Byfw==,
+      }
+    engines: { node: ">=8" }
     dev: false
 
   /react-onclickoutside@6.13.0(react-dom@18.2.0)(react@18.2.0):
