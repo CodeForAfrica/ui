@@ -13,16 +13,15 @@ import api from "@/charterafrica/lib/payload";
 import { ECOSYSTEM_GLOBAL } from "@/charterafrica/payload/utils/collections";
 
 function checkConfig(config) {
-  const configTableNames = [
+  const requiredTables = [
     "toolTableId",
     "contributorTableId",
     "organisationTableId",
     "partnersTableId",
     "socialMediaTableId",
   ];
-  return configTableNames.reduce((acc, current) => {
-    return acc && !!config?.schema?.[current];
-  }, true);
+  const isPresent = (tableName) => config?.schema?.[tableName];
+  return requiredTables.every(isPresent);
 }
 
 export async function updateList() {
