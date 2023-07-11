@@ -12,8 +12,24 @@ import {
 import api from "@/charterafrica/lib/payload";
 import { ECOSYSTEM_GLOBAL } from "@/charterafrica/payload/utils/collections";
 
+function checkConfig(config) {
+  const requiredTables = [
+    "toolTableId",
+    "contributorTableId",
+    "organisationTableId",
+    "partnersTableId",
+    "socialMediaTableId",
+  ];
+  const isPresent = (tableName) => config?.schema?.[tableName];
+  return requiredTables.every(isPresent);
+}
+
 export async function updateList() {
   const config = await api.findGlobal(ECOSYSTEM_GLOBAL, {});
+  if (!checkConfig(config)) {
+    Sentry.captureException("Process not executed. Ecosystem Globals not set");
+    return { message: "Globals not set" };
+  }
   const execute = async () => {
     Sentry.captureEvent({
       message: `Update Ecosystem List process started at ${new Date().toString()}`,
