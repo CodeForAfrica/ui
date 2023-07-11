@@ -1,5 +1,18 @@
 import * as Sentry from "@sentry/nextjs";
 
+function removeNullUndefinedEntries(obj) {
+  const filteredObj = Object.keys(obj).reduce((acc, key) => {
+    if (obj[key] !== null && obj[key] !== undefined) {
+      acc[key] = obj[key];
+    }
+    return acc;
+  }, {});
+  if (!Object.keys(filteredObj).length) {
+    return null;
+  }
+  return filteredObj;
+}
+
 function getValue(data, key, defaultValue = null) {
   return data?.[key] ?? defaultValue;
 }
@@ -82,11 +95,11 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
 
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
   const theme = locales.reduce((acc, curr) => {
-    acc[curr] = getValue(data, toolTableColumns.theme?.[curr]) ?? "";
+    acc[curr] = getValue(data, toolTableColumns.theme?.[curr]);
     return acc;
   }, {});
   const description = locales.reduce((acc, curr) => {
-    acc[curr] = getValue(data, toolTableColumns.description?.[curr]) ?? "";
+    acc[curr] = getValue(data, toolTableColumns.description?.[curr]);
     return acc;
   }, {});
   const operatingCountries = getValue(
@@ -124,8 +137,8 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
     partners,
     homeCountry,
     socialMedia,
-    theme,
-    description,
+    theme: removeNullUndefinedEntries(theme),
+    description: removeNullUndefinedEntries(description),
   };
 }
 
@@ -153,7 +166,7 @@ export function processContributor(
     { partnersData, socialMediaData }
   );
   const description = locales.reduce((acc, curr) => {
-    acc[curr] = getValue(data, contributorTableColumns.description[curr]) ?? "";
+    acc[curr] = getValue(data, contributorTableColumns.description[curr]);
     return acc;
   }, {});
   const repoLink = getRepoLink(
@@ -167,7 +180,7 @@ export function processContributor(
     externalId,
     repoLink,
     socialMedia,
-    description,
+    description: removeNullUndefinedEntries(description),
   };
 }
 
@@ -197,8 +210,7 @@ export function processOrganisation(
 
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
   const description = locales.reduce((acc, curr) => {
-    acc[curr] =
-      getValue(data, organisationTableColumns.description[curr]) ?? "";
+    acc[curr] = getValue(data, organisationTableColumns.description[curr]);
     return acc;
   }, {});
   const partners = mapSupporterIdsToObjects(
@@ -231,7 +243,7 @@ export function processOrganisation(
     partners,
     socialMedia,
     tools,
-    description,
+    description: removeNullUndefinedEntries(description),
     source,
   };
   return commonData;
