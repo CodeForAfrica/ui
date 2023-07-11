@@ -86,7 +86,7 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
     return acc;
   }, {});
   const description = locales.reduce((acc, curr) => {
-    acc[curr] = getValue(data, toolTableColumns.description?.[curr]);
+    acc[curr] = getValue(data, toolTableColumns.description?.[curr]) ?? "";
     return acc;
   }, {});
   const operatingCountries = getValue(
@@ -153,7 +153,7 @@ export function processContributor(
     { partnersData, socialMediaData }
   );
   const description = locales.reduce((acc, curr) => {
-    acc[curr] = getValue(data, contributorTableColumns.description[curr]);
+    acc[curr] = getValue(data, contributorTableColumns.description[curr]) ?? "";
     return acc;
   }, {});
   const repoLink = getRepoLink(
@@ -197,7 +197,8 @@ export function processOrganisation(
 
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
   const description = locales.reduce((acc, curr) => {
-    acc[curr] = getValue(data, organisationTableColumns.description[curr]);
+    acc[curr] =
+      getValue(data, organisationTableColumns.description[curr]) ?? "";
     return acc;
   }, {});
   const partners = mapSupporterIdsToObjects(
