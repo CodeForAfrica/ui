@@ -1,18 +1,5 @@
 import * as Sentry from "@sentry/nextjs";
 
-function removeNullUndefinedEntries(obj) {
-  const filteredObj = Object.keys(obj).reduce((acc, key) => {
-    if (obj[key] !== null && obj[key] !== undefined) {
-      acc[key] = obj[key];
-    }
-    return acc;
-  }, {});
-  if (!Object.keys(filteredObj).length) {
-    return null;
-  }
-  return filteredObj;
-}
-
 function getValue(data, key, defaultValue = null) {
   return data?.[key] ?? defaultValue;
 }
@@ -94,14 +81,24 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
   }
 
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
-  const theme = locales.reduce((acc, curr) => {
-    acc[curr] = getValue(data, toolTableColumns.theme?.[curr]);
+  const foundTheme = locales.reduce((acc, curr) => {
+    const val = getValue(data, toolTableColumns.theme?.[curr]);
+    if (val) {
+      acc[curr] = val;
+    }
     return acc;
   }, {});
-  const description = locales.reduce((acc, curr) => {
-    acc[curr] = getValue(data, toolTableColumns.description?.[curr]);
+  const theme = Object.keys(foundTheme).length ? foundTheme : null;
+  const foundDescription = locales.reduce((acc, curr) => {
+    const val = getValue(data, toolTableColumns.description?.[curr]);
+    if (val) {
+      acc[curr] = val;
+    }
     return acc;
   }, {});
+  const description = Object.keys(foundDescription).length
+    ? foundDescription
+    : null;
   const operatingCountries = getValue(
     data,
     toolTableColumns.operatingCountries
@@ -137,8 +134,8 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
     partners,
     homeCountry,
     socialMedia,
-    theme: removeNullUndefinedEntries(theme),
-    description: removeNullUndefinedEntries(description),
+    theme,
+    description,
   };
 }
 
@@ -165,10 +162,16 @@ export function processContributor(
     config,
     { partnersData, socialMediaData }
   );
-  const description = locales.reduce((acc, curr) => {
-    acc[curr] = getValue(data, contributorTableColumns.description[curr]);
+  const foundDescription = locales.reduce((acc, curr) => {
+    const val = getValue(data, contributorTableColumns.description[curr]);
+    if (val) {
+      acc[curr] = val;
+    }
     return acc;
   }, {});
+  const description = Object.keys(foundDescription).length
+    ? foundDescription
+    : null;
   const repoLink = getRepoLink(
     getValue(data, contributorTableColumns.source.type) || "github",
     getValue(data, contributorTableColumns.slug)
@@ -180,7 +183,7 @@ export function processContributor(
     externalId,
     repoLink,
     socialMedia,
-    description: removeNullUndefinedEntries(description),
+    description,
   };
 }
 
@@ -209,10 +212,16 @@ export function processOrganisation(
   }
 
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
-  const description = locales.reduce((acc, curr) => {
-    acc[curr] = getValue(data, organisationTableColumns.description[curr]);
+  const foundDescription = locales.reduce((acc, curr) => {
+    const val = getValue(data, organisationTableColumns.description[curr]);
+    if (val) {
+      acc[curr] = val;
+    }
     return acc;
   }, {});
+  const description = Object.keys(foundDescription).length
+    ? foundDescription
+    : null;
   const partners = mapSupporterIdsToObjects(
     getValue(data, organisationTableColumns.partners) || [],
     config,
@@ -243,7 +252,7 @@ export function processOrganisation(
     partners,
     socialMedia,
     tools,
-    description: removeNullUndefinedEntries(description),
+    description,
     source,
   };
   return commonData;
