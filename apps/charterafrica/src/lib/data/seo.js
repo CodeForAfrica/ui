@@ -4,25 +4,33 @@ import site from "@/charterafrica/utils/site";
 
 const siteUrl = new URL(site.environmentUrl).href;
 
-function localeToLanguageAlternative(locale, pathname) {
-  const separator = !pathname || pathname.startsWith("/") ? "" : `/`;
-  const hrefLang = locale;
-  const { href } = new URL(`/${locale}${separator}${pathname}`, siteUrl);
-  return { hrefLang, href };
+function getLanguageAlternates(options) {
+  const { defaultLocale, locale, locales, pathname } = options;
+  if (!(locale && locales?.length)) {
+    return null;
+  }
+
+  const languageAlternateForLocale = (loc) => {
+    const hrefLang = loc;
+    const separator = !pathname || pathname.startsWith("/") ? "" : `/`;
+    // By default, default locale doesn't include prefix
+    let prefix = `/${loc}`;
+    if (loc === defaultLocale) {
+      prefix = "";
+    }
+    const { href } = new URL(`${prefix}${separator}${pathname}`, siteUrl);
+    return { hrefLang, href };
+  };
+  return locales.map(languageAlternateForLocale);
 }
 
 export function getPageSeoFromMeta(page, settings, options = {}) {
-  const { locale, locales, pathname } = options;
+  const { locale, pathname } = options;
   let canonical = null;
   if (pathname) {
     canonical = new URL(pathname, siteUrl).toString();
   }
-  let languageAlternates = null;
-  if (locales?.length) {
-    languageAlternates = locales.map((l) =>
-      localeToLanguageAlternative(l, pathname)
-    );
-  }
+  const languageAlternates = getLanguageAlternates(options);
   const { title: pageTitle, meta: pageMeta } = page;
   const {
     meta: settingsMeta,
