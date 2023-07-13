@@ -17,20 +17,21 @@ const clientSideEmotionCache = createEmotionCache();
 function MyApp(props) {
   const router = useRouter();
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-
   useEffect(() => {
-    const handleRouteChange = (url) => {
-      // eslint-disable-next-line no-undef
-      window.gtag("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID, {
-        page_path: url,
-      });
-    };
+    if (process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID) {
+      const handleRouteChange = (url) => {
+        /* eslint-env browser */
+        window.gtag("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID, {
+          page_path: url,
+        });
+      };
+      router.events.on("routeChangeComplete", handleRouteChange);
 
-    router.events.on("routeChangeComplete", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
+      return () => {
+        router.events.off("routeChangeComplete", handleRouteChange);
+      };
+    }
+    return undefined;
   }, [router.events]);
 
   return (
