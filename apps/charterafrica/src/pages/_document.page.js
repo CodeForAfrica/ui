@@ -8,7 +8,7 @@ import createEmotionCache from "@/charterafrica/utils/createEmotionCache";
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html>
         <Head>
           <link
             rel="preload"
