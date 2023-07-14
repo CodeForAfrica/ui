@@ -29,15 +29,23 @@ jobs:
         node-version: [18]
         os: [ubuntu-latest]
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 2
 
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
       # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
       - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v2
         id: pnpm-install
+        with:
+          run_install: false
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -52,12 +60,6 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
 
       - name: Confirm pnpm version
         run: pnpm --version
