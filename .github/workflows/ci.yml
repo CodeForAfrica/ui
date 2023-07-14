@@ -34,12 +34,6 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-
       # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -61,6 +55,14 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
+      # Looks like to use pnpm cache, setup-node must run after pnpm/action-setup
+      # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-data
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
 
       - name: Confirm pnpm version
         run: pnpm --version
