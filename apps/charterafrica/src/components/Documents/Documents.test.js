@@ -37,6 +37,7 @@ const defaultProps = {
     showText: true,
     showZoom: true,
   },
+  total: 1,
   pathname: "/documents",
   showFilterBar: true,
   filterBar: {

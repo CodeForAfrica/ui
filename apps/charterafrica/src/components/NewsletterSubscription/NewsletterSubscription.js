@@ -1,5 +1,4 @@
 import { RichTypography } from "@commons-ui/next";
-import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
@@ -134,11 +133,9 @@ const NewsletterSubscription = React.forwardRef(function NewsletterSubscription(
       >
         {title}
       </RichTypography>
-      <Box sx={{ width: 310 }}>
-        <NewsletterSubscriptionRoot component="div">
-          {children}
-        </NewsletterSubscriptionRoot>
-      </Box>
+      <NewsletterSubscriptionRoot sx={{ width: 310 }}>
+        {children}
+      </NewsletterSubscriptionRoot>
     </Stack>
   );
 });
