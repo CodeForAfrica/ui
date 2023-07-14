@@ -67,7 +67,6 @@ const NavBarNavMenu = React.forwardRef(function NavBarNavMenu(props, ref) {
               variant="caption"
               selected={item.href === pathname}
               disableGutters
-              disablePadding
               sx={{
                 borderBottom: 1,
                 borderColor: neutral[800],

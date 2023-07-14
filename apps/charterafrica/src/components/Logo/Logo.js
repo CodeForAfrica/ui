@@ -4,20 +4,22 @@ import Image from "next/image";
 import React from "react";
 
 function Logo(props) {
-  const { alt, height, href, priority, src, width } = props;
+  const { image, href, sx } = props;
 
-  if (!src) {
+  if (!image?.src) {
     return null;
   }
   return (
-    <ImageButton href={href} component={href ? Link : undefined}>
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        priority={priority}
-      />
+    <ImageButton
+      component={href ? Link : undefined}
+      href={href}
+      sx={{
+        display: "block",
+        position: "relative",
+        ...sx,
+      }}
+    >
+      <Image {...image} />
     </ImageButton>
   );
 }

@@ -17,25 +17,38 @@ import processPagePrivacyPolicy from "@/charterafrica/lib/data/common/processPag
 import processPageTools from "@/charterafrica/lib/data/common/processPageTools";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
+function getLogoProps(logo) {
+  const {
+    href = "/",
+    image: {
+      alt = "Charter Africa",
+      fill = true,
+      priority = true,
+      src = "/images/charter-logo.svg",
+    } = {},
+  } = logo ?? {};
+  const image = { alt, fill, priority, src };
+
+  return {
+    href,
+    image,
+  };
+}
+
 export async function getGlobalProps({ locale, defaultLocale }, api) {
   const settings = await api.findGlobal("settings", {
     locale,
     fallbackLocale: defaultLocale,
   });
   const { languages } = settings;
-  const { actions, menus } = await api.findGlobal("navigation", {
+  const { actions, logo, menus } = await api.findGlobal("navigation", {
     locale,
     fallbackLocale: defaultLocale,
   });
   const navbar = {
     actions,
     languages: languages ?? null,
-    logo: {
-      alt: "Charter Africa",
-      src: "/images/charter-logo.svg",
-      href: "/",
-      priority: true,
-    },
+    logo: getLogoProps(logo),
     menus:
       menus?.map((originalMenu) => {
         const { doc, ...menu } = originalMenu;
