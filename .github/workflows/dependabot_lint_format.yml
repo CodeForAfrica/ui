@@ -10,7 +10,11 @@ permissions:
 
 jobs:
   dependabot:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [18]
+        os: [ubuntu-latest]
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Checkout
