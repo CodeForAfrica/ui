@@ -175,6 +175,7 @@ export async function getPageProps(api, context) {
     api
   );
   const seo = getPageSeoFromMeta(processedPage, settings, {
+    defaultLocale,
     locale,
     locales,
     pathname,

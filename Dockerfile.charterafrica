@@ -1,4 +1,4 @@
-FROM node:16-alpine as node-alpine
+FROM node:18-alpine as node-alpine
 
 # Always install security updated e.g. https://pythonspeed.com/articles/security-updates-in-docker/
 # Update local cache so that other stages don't need to update cache
@@ -9,7 +9,7 @@ RUN apk update \
 FROM node-alpine as base
 
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add libc6-compat
+RUN apk add --no-cache libc6-compat
 
 ARG PNPM_VERSION=8.5.0
 
