@@ -62,7 +62,7 @@
     "@commons-ui/testing-library": "workspace:*",
     "@playwright/test": "^1.33.0",
     "@svgr/webpack": "^6.2.1",
-    "@types/node": "^16.18.25",
+    "@types/node": "^18.11.9",
     "@types/react": "^18.2.5",
     "babel-jest": "^29.5.0",
     "eslint": "^8.39.0",
