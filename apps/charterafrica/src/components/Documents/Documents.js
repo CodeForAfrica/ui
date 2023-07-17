@@ -87,7 +87,6 @@ const Documents = React.forwardRef(function Documents(props, ref) {
       setDocuments(foundDocuments);
       setPinnedDocuments(newPinnedDocuments);
       setPage(currentPage);
-      setDocuments(foundDocuments);
       setTotalPages(Math.ceil(total / pageSize));
     }
   }, [res]);
