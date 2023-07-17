@@ -17,17 +17,10 @@ import processPagePrivacyPolicy from "@/charterafrica/lib/data/common/processPag
 import processPageTools from "@/charterafrica/lib/data/common/processPageTools";
 import { getPageSeoFromMeta } from "@/charterafrica/lib/data/seo";
 
-function getLogoProps(logo) {
-  const {
-    href = "/",
-    image: {
-      alt = "Charter Africa",
-      fill = true,
-      priority = true,
-      src = "/images/charter-logo.svg",
-    } = {},
-  } = logo ?? {};
-  const image = { alt, fill, priority, src };
+function getLogoProps({ href = "/", image: imageProp } = {}) {
+  const { alt = "Charter Africa", url = "/images/charter-logo.svg" } =
+    imageProp ?? {};
+  const image = { alt, fill: true, priority: true, src: url };
 
   return {
     href,
