@@ -70,6 +70,8 @@
         "SENDGRID_FROM_EMAIL",
         "SENDGRID_FROM_NAME"
       ]
-    }
+    },
+    "db-rollback": {},
+    "db-migrate": {}
   }
 }

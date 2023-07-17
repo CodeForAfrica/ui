@@ -31,7 +31,9 @@
     "lint": "TIMING=1 eslint --fix './'",
     "jest": "jest",
     "playwright": "npx playwright test",
-    "clean": "rm -rf .next .turbo build dist node_modules"
+    "clean": "rm -rf .next .turbo build dist node_modules",
+    "db-migrate": "migrate-mongo up",
+    "db-rollback": "migrate-mongo down"
   },
   "dependencies": {
     "@aws-sdk/abort-controller": "^3.310.0",
@@ -58,6 +60,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "leaflet": "^1.9.3",
+    "migrate-mongo": "^10.0.0",
     "monaco-editor": "^0.38.0",
     "nanoid": "^4.0.2",
     "next": "~13.3.4",
