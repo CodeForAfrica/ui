@@ -24,7 +24,7 @@
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "lint-check": "TIMING=1 eslint './'",
     "lint": "TIMING=1 eslint --fix './'",
-    "jest": "jest",
+    "jest": "jest --passWithNoTests",
     "playwright": "npx playwright test",
     "build": "next build",
     "start": "next start",
