@@ -29,15 +29,18 @@ jobs:
         node-version: [18]
         os: [ubuntu-latest]
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 2
 
       # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
       - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v2
         id: pnpm-install
+        with:
+          version: 8
+          run_install: false
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -53,8 +56,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+      # Looks like to use pnpm cache, setup-node must run after pnpm/action-setup
+      # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-data
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
