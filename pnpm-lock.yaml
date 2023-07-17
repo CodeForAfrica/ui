@@ -94,8 +94,8 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4(payload@1.7.5)(react@18.2.0)
       "@payloadcms/plugin-seo":
-        specifier: ^1.0.10
-        version: 1.0.10(payload@1.7.5)(react@18.2.0)
+        specifier: ^1.0.13
+        version: 1.0.13(payload@1.7.5)(react@18.2.0)
       "@sentry/nextjs":
         specifier: ^7.51.0
         version: 7.51.0(next@13.3.4)(react@18.2.0)(webpack@5.82.0)
@@ -6456,10 +6456,10 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@payloadcms/plugin-seo@1.0.10(payload@1.7.5)(react@18.2.0):
+  /@payloadcms/plugin-seo@1.0.13(payload@1.7.5)(react@18.2.0):
     resolution:
       {
-        integrity: sha512-lEcRo/wOACdc2RcqbjLFpsNR/oxrkTW5DskY/mlxspI9DxglPJHyZAr12lxl5aOr8Mn5/bEImTfInRUCnVnpMA==,
+        integrity: sha512-GPIyGTe6vU8GRFMYhNoUDrGWxm0uiqfIQQSsAuZjEM6YGFozo/AnpnjcT6VS/led/7HRFF8ijOy82l0VaLNC3w==,
       }
     peerDependencies:
       payload: ^0.18.5 || ^1.0.0
