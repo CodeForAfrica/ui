@@ -63,7 +63,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
-    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-react": "^7.22.5",
     "@commons-ui/testing-library": "workspace:*",
     "@playwright/test": "^1.33.0",
     "@svgr/webpack": "^6.5.1",
