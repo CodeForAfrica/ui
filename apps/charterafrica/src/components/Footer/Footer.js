@@ -1,14 +1,23 @@
 import { RichTypography, Section } from "@commons-ui/core";
 import { Link, Figure } from "@commons-ui/next";
 import { Box, Grid, SvgIcon } from "@mui/material";
+import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 import React from "react";
 
 import MailIcon from "@/charterafrica/assets/icons/Type=mail, Size=32, Color=CurrentColor.svg";
 import { neutral } from "@/charterafrica/colors";
-import NewsletterSubscription from "@/charterafrica/components/NewsletterSubscription";
 import RichText from "@/charterafrica/components/RichText";
 import StayInTouch from "@/charterafrica/components/StayInTouch";
+
+// Don't SSR because Mailchimp script requires `window`
+// https://nextjs.org/docs/app/building-your-application/optimizing/lazy-loading#skipping-ssr
+const NewsletterSubscription = dynamic(
+  () => import("@/charterafrica/components/NewsletterSubscription"),
+  {
+    ssr: false,
+  }
+);
 
 const Footer = React.forwardRef(function Footer(props, ref) {
   const {
