@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
-    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-react": "^7.22.5",
     "@commons-ui/core": "workspace:*",
     "@commons-ui/testing-library": "workspace:*",
     "@mui/material": "^5.12.3",
