@@ -23,7 +23,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
         sx={sx}
       >
         <Grid item>
-          <Logo {...logo} width={147.29} height={38} />
+          <Logo {...logo} sx={{ height: 38, width: 147.29 }} />
         </Grid>
         <Grid item>
           <IconButton aria-label="navigation" onClick={handleClick}>

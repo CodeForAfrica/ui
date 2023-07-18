@@ -2,7 +2,7 @@ async function processPageAbout(page, api, { locale }) {
   const { blocks } = page;
   const foundIndex = blocks.findIndex(({ slug }) => slug === "our-grantees");
   if (foundIndex > -1) {
-    const { sort, slug, title } = blocks[foundIndex];
+    const { sort, ...other } = blocks[foundIndex];
     const { docs } = await api.getCollection("grantees", {
       sort,
       locale,
@@ -10,9 +10,8 @@ async function processPageAbout(page, api, { locale }) {
     });
     const grantees = docs.map((item) => ({ ...item, image: item.coverImage }));
     blocks[foundIndex] = {
+      ...other,
       grantees,
-      slug,
-      title,
     };
   }
 

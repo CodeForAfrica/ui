@@ -1,11 +1,16 @@
 import link from "../fields/link";
 import linkArray from "../fields/linkArray";
 
-const linkField = link();
+const linkField = link({
+  disableOpenInNewTab: true,
+});
 linkField.fields.push({
   type: "row",
   fields: [
     linkArray({
+      linkConfig: {
+        disableOpenInNewTab: true,
+      },
       overrides: {
         name: "children",
         label: {
@@ -38,6 +43,40 @@ const Navigation = {
     read: () => true,
   },
   fields: [
+    {
+      name: "logo",
+      label: {
+        en: "Logo",
+        pt: "Imagem",
+        fr: "Logo",
+      },
+      type: "group",
+      fields: [
+        {
+          name: "image",
+          type: "upload",
+          relationTo: "media",
+          required: true,
+          filterOptions: {
+            mimeType: { contains: "image" },
+          },
+          label: {
+            en: "Image",
+            pt: "Imagem",
+            fr: "Logo",
+          },
+        },
+        link({
+          disableLabel: true,
+          disableLinkTypeSelection: true,
+          disableOpenInNewTab: true,
+        }),
+      ],
+      admin: {
+        hideGutter: true,
+        initCollapsed: true,
+      },
+    },
     linkArray({
       overrides: {
         name: "menus",

@@ -14,10 +14,13 @@ const defaultProps = {
     { label: "Francais", locale: "fr" },
   ],
   logo: {
-    alt: "Charter Africa",
-    src: "/images/charter-logo.svg",
-    width: "230",
-    height: "60",
+    image: {
+      alt: "Charter Africa",
+      fill: true,
+      priority: true,
+      src: "/images/charter-logo.svg",
+    },
+    href: "/",
   },
   menus: [
     {

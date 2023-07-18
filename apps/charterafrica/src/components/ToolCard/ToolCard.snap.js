@@ -18,6 +18,7 @@ exports[`<ToolCard /> renders unchanged 1`] = `
         >
           <img
             class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-zyubfe-MuiCardMedia-root"
+            src="/image.jpg"
           />
         </div>
         <div
