@@ -47,7 +47,7 @@
     "@commons-ui/testing-library": "workspace:*",
     "@playwright/test": "^1.33.0",
     "@types/node": "^18.11.9",
-    "@types/react": "^18.2.5",
+    "@types/react": "^18.2.15",
     "babel-jest": "^29.5.0",
     "eslint": "^8.39.0",
     "eslint-config-commons-ui": "workspace:*",
