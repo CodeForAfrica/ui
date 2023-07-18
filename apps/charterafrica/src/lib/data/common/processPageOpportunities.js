@@ -197,16 +197,16 @@ async function processPageOpportunities(page, api, context) {
           }
         }
         const items = await Promise.all(
-          originalItems.map(async ({ collection, ...other }) => {
+          originalItems.map(async ({ item, collection, ...other }) => {
             let found = null;
-            const collectionPageUrl = `${pageUrl}/${collection}`;
+            const collectionPageUrl = `${pageUrl}/${item}`;
             const fetchCollection =
-              fetchOpportunitiesCollectionFunctionMap[collection];
+              fetchOpportunitiesCollectionFunctionMap[item];
             if (fetchCollection) {
               found = await fetchCollection(collectionPageUrl, api, context);
             }
 
-            return { ...other, ...found, collection };
+            return { ...other, ...found, collection: item };
           })
         );
 

@@ -38,10 +38,8 @@ const Opportunities = {
       type: "array",
       fields: [
         {
-          name: "collection",
-          label: {
-            en: "Item",
-          },
+          name: "item",
+          label: { en: "Item", fr: "Item", pt: "Item" },
           type: "select",
           options: [
             {
