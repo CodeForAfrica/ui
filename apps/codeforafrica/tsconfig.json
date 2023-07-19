@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/charterafrica/*": ["./src/*"],
+      "@/codeforafrica/*": ["./src/*"],
       "@/commons-ui/core/*": ["../../packages/commons-ui-core/src/*"],
       "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"]
     }
