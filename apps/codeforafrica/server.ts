@@ -12,14 +12,14 @@ loadEnvConfig(projectDir);
 const app = express();
 
 const hostname = process.env.NEXT_HOSTNAME || "localhost";
-const PORT = parseInt(process.env.PAYLOAD_PORT || "3010", 10);
+const PORT = parseInt(process.env.PAYLOAD_PUBLIC_PORT || "3000", 10);
 const dev = process.env.NODE_ENV !== "production";
 
 const start = async () => {
   try {
     await payload.init({
-      secret: process.env.CFA_PAYLOAD_SECRET,
-      mongoURL: process.env.CFA_MONGODB_URI,
+      secret: process.env.PAYLOAD_SECRET,
+      mongoURL: process.env.MONGODB_URL,
       express: app,
       onInit: () => {
         payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
