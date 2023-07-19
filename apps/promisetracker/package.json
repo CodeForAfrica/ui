@@ -28,7 +28,7 @@
     "@emotion/styled": "^11.10.8",
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "5.0.0-alpha.123",
-    "@mui/material": "^5.12.3",
+    "@mui/material": "^5.14.0",
     "@mui/styles": "^5.12.3",
     "@mui/utils": "^5.12.3",
     "@sentry/nextjs": "^7.51.0",

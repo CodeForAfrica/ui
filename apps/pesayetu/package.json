@@ -35,7 +35,7 @@
     "@commons-ui/next": "workspace:*",
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
-    "@mui/material": "^5.12.3",
+    "@mui/material": "^5.14.0",
     "next": "~13.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
