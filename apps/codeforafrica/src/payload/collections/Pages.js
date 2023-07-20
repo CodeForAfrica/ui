@@ -1,3 +1,4 @@
+import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
 
@@ -24,7 +25,8 @@ const Pages = {
       localized: true,
       required: true,
     },
-    slug({ fieldToUse: "title" }),
+    fullTitle(),
+    slug(),
     {
       name: "blocks",
       type: "blocks",
