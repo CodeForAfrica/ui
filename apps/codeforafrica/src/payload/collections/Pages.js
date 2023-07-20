@@ -13,6 +13,7 @@ const Pages = {
     drafts: true,
   },
   admin: {
+    defaultColumns: ["fullTitle", "updatedAt"],
     preview: (doc, options) => formatDraftUrl("pages", doc, options),
     useAsTitle: "title",
   },
