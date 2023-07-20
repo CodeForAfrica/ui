@@ -945,8 +945,8 @@ importers:
   packages/eslint-config-commons-ui:
     dependencies:
       "@babel/eslint-parser":
-        specifier: ^7.21.8
-        version: 7.21.8(@babel/core@7.22.9)(eslint@8.39.0)
+        specifier: ^7.22.9
+        version: 7.22.9(@babel/core@7.22.9)(eslint@8.39.0)
       "@babel/preset-react":
         specifier: ^7.22.5
         version: 7.22.5(@babel/core@7.22.9)
@@ -2430,10 +2430,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@babel/eslint-parser@7.21.8(@babel/core@7.22.9)(eslint@8.39.0):
+  /@babel/eslint-parser@7.22.9(@babel/core@7.22.9)(eslint@8.39.0):
     resolution:
       {
-        integrity: sha512-HLhI+2q+BP3sf78mFUZNCGc10KEmoUqtUT1OCdMZsN+qr4qFeLUod62/zAnF3jNQstwyasDkZnVXwfK2Bml7MQ==,
+        integrity: sha512-xdMkt39/nviO/4vpVdrEYPwXCsYIXSSAr6mC7WQsNIlGnuxKyKE7GZjalcnbSWiC4OXGNNN3UQPeHfjSC6sTDA==,
       }
     engines: { node: ^10.13.0 || ^12.13.0 || >=14.0.0 }
     peerDependencies:
@@ -2444,7 +2444,7 @@ packages:
       "@nicolo-ribaudo/eslint-scope-5-internals": 5.1.1-v1
       eslint: 8.39.0
       eslint-visitor-keys: 2.1.0
-      semver: 6.3.0
+      semver: 6.3.1
     dev: false
 
   /@babel/generator@7.21.5:
@@ -2489,6 +2489,23 @@ packages:
     engines: { node: ">=6.9.0" }
     dependencies:
       "@babel/types": 7.22.5
+
+  /@babel/helper-compilation-targets@7.21.5(@babel/core@7.21.8):
+    resolution:
+      {
+        integrity: sha512-1RkbFGUKex4lvsB9yhIfWltJM5cZKUftB2eNajaDv3dCMEp49iBG0K14uH8NnX9IPux2+mK7JGEOB0jn48/J6w==,
+      }
+    engines: { node: ">=6.9.0" }
+    peerDependencies:
+      "@babel/core": ^7.0.0
+    dependencies:
+      "@babel/compat-data": 7.22.9
+      "@babel/core": 7.21.8
+      "@babel/helper-validator-option": 7.22.5
+      browserslist: 4.21.9
+      lru-cache: 5.1.1
+      semver: 6.3.1
+    dev: true
 
   /@babel/helper-compilation-targets@7.21.5(@babel/core@7.22.9):
     resolution:
@@ -4828,11 +4845,11 @@ packages:
     peerDependencies:
       "@babel/core": ^7.0.0-0
     dependencies:
-      "@babel/compat-data": 7.22.9
+      "@babel/compat-data": 7.21.7
       "@babel/core": 7.21.8
-      "@babel/helper-compilation-targets": 7.22.9(@babel/core@7.21.8)
+      "@babel/helper-compilation-targets": 7.21.5(@babel/core@7.21.8)
       "@babel/helper-plugin-utils": 7.21.5
-      "@babel/helper-validator-option": 7.22.5
+      "@babel/helper-validator-option": 7.21.0
       "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression": 7.18.6(@babel/core@7.21.8)
       "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining": 7.20.7(@babel/core@7.21.8)
       "@babel/plugin-proposal-async-generator-functions": 7.20.7(@babel/core@7.21.8)
@@ -4899,7 +4916,7 @@ packages:
       "@babel/plugin-transform-unicode-escapes": 7.21.5(@babel/core@7.21.8)
       "@babel/plugin-transform-unicode-regex": 7.18.6(@babel/core@7.21.8)
       "@babel/preset-modules": 0.1.5(@babel/core@7.21.8)
-      "@babel/types": 7.22.5
+      "@babel/types": 7.21.5
       babel-plugin-polyfill-corejs2: 0.3.3(@babel/core@7.21.8)
       babel-plugin-polyfill-corejs3: 0.6.0(@babel/core@7.21.8)
       babel-plugin-polyfill-regenerator: 0.4.1(@babel/core@7.21.8)
