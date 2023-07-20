@@ -42,7 +42,7 @@
     "sharp": "^0.31.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.8",
+    "@babel/core": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
     "@commons-ui/testing-library": "workspace:*",
     "@playwright/test": "^1.33.0",

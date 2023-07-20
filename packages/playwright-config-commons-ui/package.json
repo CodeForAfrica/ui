@@ -12,7 +12,7 @@
     "clean": "rm -rf .turbo node_modules"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.8",
+    "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.22.5",
     "@playwright/test": "^1.33.0",

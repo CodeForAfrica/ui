@@ -28,7 +28,7 @@
     "clean": "rm -rf .turbo node_modules dist"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.8",
+    "@babel/core": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
     "@commons-ui/testing-library": "workspace:*",
     "@emotion/react": "^11.10.8",
@@ -51,7 +51,7 @@
     "webpack": "^5.82.0"
   },
   "peerDependencies": {
-    "@babel/core": "^7.21.8",
+    "@babel/core": "^7.22.9",
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
     "@mui/material": "^5.14.0",
