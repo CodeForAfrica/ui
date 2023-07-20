@@ -2,10 +2,8 @@ import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
 
-import { pages } from "./slugNames";
-
 const Pages = {
-  slug: pages,
+  slug: "pages",
   access: {
     read: () => true,
     create: () => true,
@@ -22,7 +20,6 @@ const Pages = {
     {
       name: "title",
       type: "text",
-      localized: true,
       required: true,
     },
     fullTitle(),

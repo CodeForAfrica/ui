@@ -10,7 +10,7 @@
     },
     "build-payload": {
       "outputs": ["build/**"],
-      "env": ["PAYLOAD_PUBLIC_APP_URL"]
+      "env": ["PAYLOAD_PUBLIC_CFA_APP_URL"]
     }
   }
 }

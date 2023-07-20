@@ -1,15 +1,14 @@
 import formatPagePath from "./formatPagePath";
 
-function formatDraftUrl(collection, doc, { locale }) {
+function formatDraftUrl(collection, doc) {
   const pagePath = formatPagePath(collection, doc);
   if (pagePath) {
-    const localePath = locale && locale !== "en" ? `/${locale}` : "";
-    const slug = `${localePath}${pagePath}`;
+    const slug = pagePath;
     const url = new URL(
       `/api/v1/draft?slug=${slug}`,
-      process.env.PAYLOAD_PUBLIC_APP_URL
+      process.env.PAYLOAD_PUBLIC_CFA_APP_URL
     );
-
+    console.error("......>>", url);
     return url.href;
   }
   return null;

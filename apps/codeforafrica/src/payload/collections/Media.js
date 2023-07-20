@@ -15,7 +15,6 @@ const Media = {
       name: "alt",
       label: "Alt Text",
       type: "text",
-      localized: true,
       required: true,
     },
   ],
