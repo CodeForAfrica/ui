@@ -8,7 +8,6 @@ function formatDraftUrl(collection, doc) {
       `/api/v1/draft?slug=${slug}`,
       process.env.PAYLOAD_PUBLIC_CFA_APP_URL
     );
-    console.error("......>>", url);
     return url.href;
   }
   return null;
