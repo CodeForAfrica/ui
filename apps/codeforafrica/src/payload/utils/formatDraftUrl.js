@@ -1,5 +1,7 @@
+import formatPagePath from "./formatPagePath";
+
 function formatDraftUrl(collection, doc, { locale }) {
-  const pagePath = `/${collection}/${doc.slug}`;
+  const pagePath = formatPagePath(collection, doc);
   if (pagePath) {
     const localePath = locale && locale !== "en" ? `/${locale}` : "";
     const slug = `${localePath}${pagePath}`;
