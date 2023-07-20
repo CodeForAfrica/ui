@@ -82,7 +82,7 @@
     "videojs-youtube": "^3.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.8",
+    "@babel/core": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
     "@babel/register": "^7.21.0",
     "@babel/runtime": "^7.21.5",

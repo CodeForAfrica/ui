@@ -32,7 +32,7 @@
     "clean": "rm -rf .turbo node_modules dist"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.8",
+    "@babel/core": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
