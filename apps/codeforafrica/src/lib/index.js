@@ -201,7 +201,6 @@ async function getHomePageStaticProps() {
       footer,
       navbar: navs,
     },
-    revalidate: DEFAULT_REVALIDATE,
   };
 }
 

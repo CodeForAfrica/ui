@@ -40,7 +40,7 @@ function Index({ sections, ...props }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   return getPageStaticProps({ slug: "/" });
 }
 
