@@ -26,6 +26,7 @@ import {
   getTeam,
   getSeo,
 } from "./api.netlify-cms";
+import payload from "./payload/data";
 
 import {
   getAllOpportunities,
@@ -173,6 +174,7 @@ async function getProcessedNewsAndStories() {
 
 async function getHomePageStaticProps() {
   const seo = getSeo("index");
+  const navs = await payload.getNavigation();
   return {
     props: {
       seo,
@@ -197,7 +199,7 @@ async function getHomePageStaticProps() {
         },
       ],
       footer,
-      navbar,
+      navbar: navs,
     },
     revalidate: DEFAULT_REVALIDATE,
   };

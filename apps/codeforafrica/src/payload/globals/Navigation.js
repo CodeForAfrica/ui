@@ -32,6 +32,11 @@ const Navigation = {
             en: "Image",
           },
         },
+        link({
+          disableLabel: true,
+          disableLinkTypeSelection: true,
+          disableOpenInNewTab: true,
+        }),
       ],
       admin: {
         hideGutter: true,
