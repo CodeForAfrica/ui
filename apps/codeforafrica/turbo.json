@@ -1,0 +1,16 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build", "build-next", "build-payload"]
+    },
+    "build-next": {
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
+      "env": []
+    },
+    "build-payload": {
+      "outputs": ["build/**"],
+      "env": ["PAYLOAD_PUBLIC_APP_URL"]
+    }
+  }
+}
