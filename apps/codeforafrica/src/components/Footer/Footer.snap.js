@@ -45,9 +45,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                       <a
                         class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
                         href="/our-work"
-                      >
-                        Our Work
-                      </a>
+                      />
                     </li>
                     <li
                       class="css-1ujh2ms"
@@ -55,9 +53,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                       <a
                         class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
                         href="/about"
-                      >
-                        About
-                      </a>
+                      />
                     </li>
                     <li
                       class="css-1ujh2ms"
@@ -65,9 +61,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                       <a
                         class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
                         href="/about"
-                      >
-                        Stories
-                      </a>
+                      />
                     </li>
                     <li
                       class="css-1ujh2ms"
@@ -75,9 +69,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                       <a
                         class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
                         href="/opportunity"
-                      >
-                        Opportunity
-                      </a>
+                      />
                     </li>
                     <li
                       class="css-qa4i21"
@@ -85,9 +77,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                       <a
                         class="MuiTypography-root MuiTypography-h5 MuiLink-root MuiLink-underlineNone css-imwyyb-MuiTypography-root-MuiLink-root"
                         href="/contact"
-                      >
-                        Contact
-                      </a>
+                      />
                     </li>
                     <li
                       class="css-t5n0aj"
@@ -95,9 +85,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                       <a
                         class="MuiTypography-root MuiTypography-body2SemiBold MuiLink-root MuiLink-underlineNone css-1544znr-MuiTypography-root-MuiLink-root"
                         href="/imprint"
-                      >
-                        Imprint
-                      </a>
+                      />
                     </li>
                     <li
                       class="css-1650mli"
@@ -105,9 +93,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                       <a
                         class="MuiTypography-root MuiTypography-body2SemiBold MuiLink-root MuiLink-underlineNone css-1544znr-MuiTypography-root-MuiLink-root"
                         href="/policy"
-                      >
-                        Privacy policy
-                      </a>
+                      />
                     </li>
                   </ul>
                 </nav>
