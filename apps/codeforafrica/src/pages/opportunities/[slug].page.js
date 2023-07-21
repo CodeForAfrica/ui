@@ -2,7 +2,7 @@ import React from "react";
 
 import ArticlePage from "@/codeforafrica/components/ArticlePage";
 import Page from "@/codeforafrica/components/Page";
-import { getPageStaticProps, getPageStaticPaths } from "@/codeforafrica/lib";
+import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 function Index({ opportunity, sections, ...props }) {
   return (
@@ -12,17 +12,11 @@ function Index({ opportunity, sections, ...props }) {
   );
 }
 
-export async function getStaticPaths() {
-  const staticPaths = getPageStaticPaths("opportunities");
-
-  return {
-    paths: staticPaths.length > 0 ? staticPaths : [],
-    fallback: "blocking",
-  };
-}
-
-export async function getStaticProps({ params: { slug } }) {
-  return getPageStaticProps({ slug: `/opportunities/${slug}` });
+export async function getServerSideProps(context) {
+  const {
+    params: { slug },
+  } = context;
+  return getPageServerSideProps(context, `/opportunities/${slug}`);
 }
 
 export default Index;

@@ -24,7 +24,7 @@ function FooterNavList({ menu, children }) {
       >
         {menu.map((item, i) => (
           <NavListItem
-            key={item.content}
+            key={item.id}
             sx={{ mb: i < menu.length - 1 ? "20px" : 0 }}
           >
             <Link
@@ -39,7 +39,7 @@ function FooterNavList({ menu, children }) {
                 },
               }}
             >
-              {item.content}
+              {item.label}
             </Link>
           </NavListItem>
         ))}

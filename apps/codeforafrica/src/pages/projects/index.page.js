@@ -4,7 +4,7 @@ import { SWRConfig } from "swr";
 import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
 import Projects from "@/codeforafrica/components/Projects";
-import { getPageStaticProps } from "@/codeforafrica/lib";
+import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 function Index({ sections, ...props }) {
   return (
@@ -34,8 +34,8 @@ function Index({ sections, ...props }) {
   );
 }
 
-export async function getStaticProps() {
-  return getPageStaticProps({ slug: "/projects" });
+export async function getServerSideProps(context) {
+  return getPageServerSideProps(context, "/projects");
 }
 
 export default Index;

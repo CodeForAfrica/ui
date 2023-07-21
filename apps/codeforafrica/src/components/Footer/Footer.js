@@ -25,8 +25,7 @@ const FooterRoot = styled(Box)(
 );
 
 const Footer = React.forwardRef(function Footer(props, ref) {
-  const { subscription, description, secondaryMenu, stayInTouch, menu, logo } =
-    props;
+  const { newsletter, description, secondaryMenu, connect, menu, logo } = props;
 
   return (
     <FooterRoot component="footer" ref={ref}>
@@ -59,7 +58,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   </FooterDescription>
                 </Grid>
                 <Grid item>
-                  <StayInTouch {...stayInTouch} sx={{ mt: "52px" }} />
+                  <StayInTouch {...connect} sx={{ mt: "52px" }} />
                 </Grid>
               </Grid>
               <Grid item xs={12} md="auto">
@@ -72,7 +71,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
             </Grid>
           </Grid>
           <Grid item xs={24} md="auto" sx={{ order: { xs: 0, md: 1 } }}>
-            <NewsletterSubscription {...subscription} />
+            <NewsletterSubscription {...newsletter} />
           </Grid>
         </Grid>
       </Section>
@@ -81,7 +80,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
 });
 
 Footer.propTypes = {
-  subscription: PropTypes.shape({}),
+  newsletter: PropTypes.shape({}),
   menu: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -91,7 +90,7 @@ Footer.propTypes = {
 };
 
 Footer.defaultProps = {
-  subscription: undefined,
+  newsletter: undefined,
   menu: undefined,
 };
 

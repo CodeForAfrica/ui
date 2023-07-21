@@ -59,7 +59,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
         {links.map((media) => (
           <Grid
             item
-            key={media.href}
+            key={media.id}
             sx={{
               pr: "10px",
               ":last-of-type": {
@@ -67,14 +67,16 @@ const StayInTouch = React.forwardRef(function StayInTouch(
               },
             }}
           >
-            <Link
-              sx={{
-                display: "block",
-              }}
-              href={media.href}
-            >
-              <IconRoot src={media.icon.src} alt={media.label} />
-            </Link>
+            {media?.url ? (
+              <Link
+                sx={{
+                  display: "block",
+                }}
+                href={media.url}
+              >
+                <IconRoot src={media?.icon?.url} alt={media.label} />
+              </Link>
+            ) : null}
           </Grid>
         ))}
       </Grid>
@@ -85,9 +87,9 @@ const StayInTouch = React.forwardRef(function StayInTouch(
 StayInTouch.propTypes = {
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      href: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
       icon: PropTypes.shape({
-        src: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
       }).isRequired,
     })
   ),

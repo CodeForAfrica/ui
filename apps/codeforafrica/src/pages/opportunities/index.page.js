@@ -3,7 +3,7 @@ import React from "react";
 import Opportunities from "@/codeforafrica/components/Opportunities";
 import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
-import { getPageStaticProps } from "@/codeforafrica/lib";
+import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 function OpportunitiesPage({ sections, ...props }) {
   return (
@@ -22,8 +22,8 @@ function OpportunitiesPage({ sections, ...props }) {
   );
 }
 
-export async function getStaticProps() {
-  return getPageStaticProps({ slug: "/opportunities" });
+export async function getServerSideProps(context) {
+  return getPageServerSideProps(context, "/opportunities");
 }
 
 export default OpportunitiesPage;

@@ -3,7 +3,7 @@ import React from "react";
 import CMSContent from "@/codeforafrica/components/CMSContent";
 import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
-import { getPageStaticProps } from "@/codeforafrica/lib";
+import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 function PrivacyPage({ content, sections, ...props }) {
   return (
@@ -21,8 +21,8 @@ function PrivacyPage({ content, sections, ...props }) {
   );
 }
 
-export async function getStaticProps() {
-  return getPageStaticProps({ slug: "/privacy" });
+export async function getServerSideProps(context) {
+  return getPageServerSideProps(context, "/privacy");
 }
 
 export default PrivacyPage;

@@ -4,7 +4,7 @@ import React from "react";
 import ArticlePage from "@/codeforafrica/components/ArticlePage";
 import Page from "@/codeforafrica/components/Page";
 import RelatedStories from "@/codeforafrica/components/RelatedStories";
-import { getPageStaticProps, getPageStaticPaths } from "@/codeforafrica/lib";
+import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 function Index({ article, sections, ...props }) {
   return (
@@ -34,16 +34,11 @@ function Index({ article, sections, ...props }) {
   );
 }
 
-export async function getStaticPaths() {
-  const staticPaths = await getPageStaticPaths("stories");
-  return {
-    paths: staticPaths.length > 0 ? staticPaths : [],
-    fallback: "blocking",
-  };
-}
-
-export async function getStaticProps({ params: { slug } }) {
-  return getPageStaticProps({ slug: `/stories/${slug}` });
+export async function getServerSideProps(context) {
+  const {
+    params: { slug },
+  } = context;
+  return getPageServerSideProps(context, `/stories/${slug}`);
 }
 
 export default Index;

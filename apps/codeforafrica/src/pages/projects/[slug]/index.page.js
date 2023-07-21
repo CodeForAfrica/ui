@@ -10,7 +10,7 @@ import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import RelatedStories from "@/codeforafrica/components/RelatedStories";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
 import TeamMembers from "@/codeforafrica/components/TeamMembers";
-import { projects, getPageStaticProps } from "@/codeforafrica/lib";
+import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 function Index({ project, sections, ...props }) {
   const { badges, content, donors, links, partners } = project;
@@ -91,18 +91,11 @@ function Index({ project, sections, ...props }) {
   );
 }
 
-export async function getStaticPaths() {
-  const paths = projects.map(({ slug }) => ({
+export async function getServerSideProps(context) {
+  const {
     params: { slug },
-  }));
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params: { slug } }) {
-  return getPageStaticProps({ slug: `/projects/${slug}` });
+  } = context;
+  return getPageServerSideProps(context, `/projects/${slug}`);
 }
 
 export default Index;

@@ -23,7 +23,7 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
               mt: i === 0 ? 5 : undefined,
               p: "0  0 10px",
             }}
-            key={item.content}
+            key={item.id}
           >
             <Link
               underline="none"
@@ -33,7 +33,7 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
               }}
               href={item.href}
             >
-              {item.content}
+              {item.label}
             </Link>
           </NavListItem>
         )) ?? null}

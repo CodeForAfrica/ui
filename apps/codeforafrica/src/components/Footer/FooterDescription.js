@@ -17,7 +17,7 @@ const FooterDescription = React.forwardRef(function FooterDescription(
     <Stack alignItems={{ xs: "center", md: "flex-start" }} sx={sx} ref={ref}>
       <Link href="/">
         <Figure
-          ImageProps={{ alt: "Code for Africa", ...logo }}
+          ImageProps={{ alt: "Code for Africa", src: logo.url }}
           sx={{
             display: {
               sm: "block",

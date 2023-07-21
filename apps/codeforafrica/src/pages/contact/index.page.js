@@ -5,7 +5,7 @@ import JoinOurSlack from "@/codeforafrica/components/JoinOurSlack";
 import OfficeAddresses from "@/codeforafrica/components/OfficeAddresses";
 import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
-import { getPageStaticProps } from "@/codeforafrica/lib";
+import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 function ContactPage({ sections, ...props }) {
   return (
@@ -49,8 +49,8 @@ function ContactPage({ sections, ...props }) {
   );
 }
 
-export async function getStaticProps() {
-  return getPageStaticProps({ slug: "/contact" });
+export async function getServerSideProps(context) {
+  return getPageServerSideProps(context, "/contact");
 }
 
 export default ContactPage;
