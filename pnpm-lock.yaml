@@ -650,8 +650,8 @@ importers:
         specifier: ~13.3.4
         version: 13.3.4(@babel/core@7.22.9)(react-dom@18.2.0)(react@18.2.0)
       next-auth:
-        specifier: ^4.22.1
-        version: 4.22.1(next@13.3.4)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^4.22.3
+        version: 4.22.3(next@13.3.4)(react-dom@18.2.0)(react@18.2.0)
       next-seo:
         specifier: ^5.15.0
         version: 5.15.0(next@13.3.4)(react-dom@18.2.0)(react@18.2.0)
@@ -20570,10 +20570,10 @@ packages:
       - supports-color
     dev: true
 
-  /next-auth@4.22.1(next@13.3.4)(react-dom@18.2.0)(react@18.2.0):
+  /next-auth@4.22.3(next@13.3.4)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
-        integrity: sha512-NTR3f6W7/AWXKw8GSsgSyQcDW6jkslZLH8AiZa5PQ09w1kR8uHtR9rez/E9gAq/o17+p0JYHE8QjF3RoniiObA==,
+        integrity: sha512-XAgy9xV3J2eJOXrQhmxdjV6MLM29ibm6WtMXc3KY6IPZeApf+SuBuPvlqCUfbu5YsAzlg9WSw6u01dChTfeZOA==,
       }
     peerDependencies:
       next: ^12.2.5 || ^13
@@ -20584,7 +20584,7 @@ packages:
       nodemailer:
         optional: true
     dependencies:
-      "@babel/runtime": 7.21.5
+      "@babel/runtime": 7.22.6
       "@panva/hkdf": 1.1.1
       cookie: 0.5.0
       jose: 4.14.4
