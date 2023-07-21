@@ -11,7 +11,7 @@ import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 dotenv.config();
 dotenv.config({ path: "./.env.local" });
 
-const appURL = process?.env?.PAYLOAD_PUBLIC_CFA_APP_URL;
+const appURL = process?.env?.PAYLOAD_PUBLIC_APP_URL;
 
 const adapter = s3Adapter({
   config: {
