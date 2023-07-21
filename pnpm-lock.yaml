@@ -136,8 +136,8 @@ importers:
         specifier: ^15.8.1
         version: 15.8.1
       qs:
-        specifier: ^6.11.1
-        version: 6.11.1
+        specifier: ^6.11.2
+        version: 6.11.2
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -6441,7 +6441,7 @@ packages:
     dependencies:
       body-scroll-lock: 3.1.5
       focus-trap: 6.9.4
-      qs: 6.11.1
+      qs: 6.11.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-transition-group: 4.4.5(react-dom@18.2.0)(react@18.2.0)
@@ -8837,7 +8837,7 @@ packages:
       "@storybook/client-logger": 7.0.27
       "@storybook/core-events": 7.0.27
       "@storybook/global": 5.0.0
-      qs: 6.11.1
+      qs: 6.11.2
       telejson: 7.1.0
     dev: true
 
@@ -8851,7 +8851,7 @@ packages:
       "@storybook/client-logger": 7.0.8
       "@storybook/core-events": 7.0.8
       "@storybook/global": 5.0.0
-      qs: 6.11.1
+      qs: 6.11.2
       telejson: 7.1.0
     dev: true
 
@@ -9628,7 +9628,7 @@ packages:
       dequal: 2.0.3
       lodash: 4.17.21
       memoizerific: 1.11.3
-      qs: 6.11.1
+      qs: 6.11.2
       synchronous-promise: 2.0.17
       ts-dedent: 2.2.0
       util-deprecate: 1.0.2
@@ -9651,7 +9651,7 @@ packages:
       dequal: 2.0.3
       lodash: 4.17.21
       memoizerific: 1.11.3
-      qs: 6.11.1
+      qs: 6.11.2
       synchronous-promise: 2.0.17
       ts-dedent: 2.2.0
       util-deprecate: 1.0.2
@@ -9752,7 +9752,7 @@ packages:
     dependencies:
       "@storybook/client-logger": 7.0.8
       memoizerific: 1.11.3
-      qs: 6.11.1
+      qs: 6.11.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
@@ -21629,7 +21629,7 @@ packages:
       postcss-preset-env: 7.8.3(postcss@8.4.23)
       probe-image-size: 6.0.0
       process: 0.11.10
-      qs: 6.11.1
+      qs: 6.11.2
       qs-middleware: 1.0.3
       react: 18.2.0
       react-animate-height: 2.1.2(react-dom@18.2.0)(react@18.2.0)
@@ -23134,10 +23134,10 @@ packages:
     dependencies:
       side-channel: 1.0.4
 
-  /qs@6.11.1:
+  /qs@6.11.2:
     resolution:
       {
-        integrity: sha512-0wsrzgTz/kAVIeuxSjnpGC56rzYtr6JT/2BwEvMaPhFIoYa1aGO8LbzuU1R0uUYQkLpWBTOj0l/CLAJB64J6nQ==,
+        integrity: sha512-tDNIz22aBzCDxLtVH++VnTfzxlfeK5CbqohpSqpJgj1Wg/cQbStNAz3NuqCs5vV+pjBsK4x4pN9HlVh7rcYRiA==,
       }
     engines: { node: ">=0.6" }
     dependencies:
