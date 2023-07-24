@@ -1,4 +1,4 @@
-import { getPageStaticProps } from "@/codeforafrica/lib";
+// import { getPageStaticProps } from "@/codeforafrica/lib";
 import { getPageProps } from "@/codeforafrica/lib/data/common";
 import api from "@/codeforafrica/lib/payload";
 
@@ -8,9 +8,9 @@ export async function getPageServerSideProps(context, slug) {
     return { notFound: true };
   }
   // TODO Remove static props
-  const { props: staticProps } = await getPageStaticProps({ slug });
+  // const { props: staticProps } = await getPageStaticProps({ slug });
   return {
-    props: { ...staticProps, ...props },
+    props: { slug, ...props },
   };
 }
 
