@@ -5,6 +5,13 @@ const outputFileTracingRoot = PROJECT_ROOT
   ? path.resolve(__dirname, PROJECT_ROOT)
   : undefined;
 
+const outputFileTracingExcludes = {
+  "*": [
+    "node_modules/@swc/core-linux-x64-gnu",
+    "node_modules/@swc/core-linux-x64-musl",
+    "node_modules/@esbuild/linux-x64",
+  ],
+};
 const ghostUrl =
   process.env.GHOST_ADMIN_URL?.trim() || process.env.GHOST_URL?.trim();
 const ghostAdminUrl = new URL("/ghost", ghostUrl).toString();
@@ -20,6 +27,7 @@ module.exports = {
   },
   experimental: {
     outputFileTracingRoot,
+    outputFileTracingExcludes,
   },
   modularizeImports: {
     // NOTE: only transform @mui/material and not any of sub-modules e.g. @mui/material/styles.
