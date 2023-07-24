@@ -7,10 +7,9 @@ const outputFileTracingRoot = PROJECT_ROOT
 
 const outputFileTracingExcludes = {
   "*": [
-    "node_modules/@swc/core-linux-x64-gnu",
-    "node_modules/@swc/core-linux-x64-musl",
-    "node_modules/@esbuild/linux-x64",
-    "node_modules/payload",
+    "node_modules/.pnpm/core-linux-x64-gnu",
+    "node_modules/.pnpm/core-linux-x64-musl",
+    "node_modules/.pnpm/linux-x64",
   ],
 };
 const ghostUrl =
