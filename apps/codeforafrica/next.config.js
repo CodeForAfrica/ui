@@ -22,9 +22,9 @@ module.exports = {
     outputFileTracingRoot,
     outputFileTracingExcludes: {
       "*": [
-        "node_modules/.pnpm/@swc/core-linux-x64-gnu",
-        "node_modules/.pnpm/@swc/core-linux-x64-musl",
-        "node_modules/.pnpm/@esbuild/linux-x64",
+        "node_modules/.pnpm/@swc+core-linux-x64-gnu@1.3.56",
+        "node_modules/.pnpm/@swc+core-linux-x64-musl@1.3.56",
+        "node_modules/.pnpm/@esbuild+linux-x64@0.17.18",
       ],
     },
   },
