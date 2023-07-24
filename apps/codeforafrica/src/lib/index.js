@@ -198,6 +198,7 @@ async function getHomePageStaticProps() {
       ],
       footer,
     },
+    revalidate: DEFAULT_REVALIDATE,
   };
 }
 
