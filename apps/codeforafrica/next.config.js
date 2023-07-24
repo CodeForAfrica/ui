@@ -20,6 +20,13 @@ module.exports = {
   },
   experimental: {
     outputFileTracingRoot,
+    outputFileTracingExcludes: {
+      "*": [
+        "node_modules/@swc/core-linux-x64-gnu",
+        "node_modules/@swc/core-linux-x64-musl",
+        "node_modules/@esbuild/linux-x64",
+      ],
+    },
   },
   modularizeImports: {
     // NOTE: only transform @mui/material and not any of sub-modules e.g. @mui/material/styles.
