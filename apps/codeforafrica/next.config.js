@@ -20,7 +20,6 @@ module.exports = {
   },
   experimental: {
     outputFileTracingRoot,
-    outputFileTracingIgnores: ["**canvas**"],
   },
   modularizeImports: {
     // NOTE: only transform @mui/material and not any of sub-modules e.g. @mui/material/styles.
