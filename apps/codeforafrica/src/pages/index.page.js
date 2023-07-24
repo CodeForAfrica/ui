@@ -7,8 +7,8 @@ import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import Page from "@/codeforafrica/components/Page";
-// import getPageServerSideProps from "@/codeforafrica/lib/payload/data";
-import { getPageStaticProps } from "@/codeforafrica/lib";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/data";
+// import { getPageStaticProps } from "@/codeforafrica/lib";
 
 function Index({ sections, ...props }) {
   return (
@@ -41,9 +41,9 @@ function Index({ sections, ...props }) {
   );
 }
 
-export async function getServerSideProps() {
-  // return getPageServerSideProps(context, "/");
-  return getPageStaticProps({ slug: "/" });
+export async function getServerSideProps(context) {
+  return getPageServerSideProps(context, "/");
+  // return getPageStaticProps({ slug: "/" });
 }
 // export async function getStaticProps() {
 //   return getPageStaticProps({ slug: "/" });
