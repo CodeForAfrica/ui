@@ -36,7 +36,7 @@
     "clsx": "^1.2.1",
     "date-fns": "^2.30.0",
     "form-data": "^4.0.0",
-    "formik": "^2.2.9",
+    "formik": "^2.4.2",
     "formik-mui": "5.0.0-alpha.0",
     "formik-mui-lab": "^1.0.0",
     "jwt-decode": "^3.1.2",
