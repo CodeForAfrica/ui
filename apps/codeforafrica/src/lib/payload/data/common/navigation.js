@@ -1,12 +1,10 @@
-import payload from "@/codeforafrica/lib/payload";
-
-async function getNavigation() {
+async function getNavigation(api) {
   const {
     logo: {
       image: { alt, url },
     },
     menus,
-  } = await payload.findGlobal("navigation");
+  } = await api.findGlobal("navigation");
   return {
     logo: {
       alt,
