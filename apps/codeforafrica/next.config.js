@@ -6,7 +6,7 @@ const outputFileTracingRoot = PROJECT_ROOT
   : undefined;
 
 const outputFileTracingExcludes = {
-  "*": ["node_modules/.pnpm", "node_modules/.pnpm/payload"],
+  "*": ["**linux-x64**"],
 };
 const ghostUrl =
   process.env.GHOST_ADMIN_URL?.trim() || process.env.GHOST_URL?.trim();
