@@ -25,11 +25,13 @@ module.exports = {
         "node_modules/.pnpm/@swc+core-linux-x64-gnu@1.3.56",
         "node_modules/.pnpm/@swc+core-linux-x64-musl@1.3.56",
         "node_modules/.pnpm/@esbuild+linux-x64@0.17.18",
+        "node_modules/.pnpm/payload",
       ],
       "/**/*": [
         "node_modules/.pnpm/@swc+core-linux-x64-gnu@1.3.56",
         "node_modules/.pnpm/@swc+core-linux-x64-musl@1.3.56",
         "node_modules/.pnpm/@esbuild+linux-x64@0.17.18",
+        "node_modules/.pnpm/payload",
       ],
     },
   },
