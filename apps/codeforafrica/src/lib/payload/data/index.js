@@ -1,5 +1,4 @@
 import { getPageStaticProps } from "@/codeforafrica/lib";
-import api from "@/codeforafrica/lib/payload";
 import getPageProps from "@/codeforafrica/lib/payload/data/local";
 // import { api } from "@/codeforafrica/lib/payload/data/rest";
 
