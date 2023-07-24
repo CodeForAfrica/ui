@@ -1,5 +1,7 @@
 {
   "functions": {
-    "excludeFiles": "{*.cache,node_modules}/**"
+    "src/pages/**/*": {
+      "excludeFiles": "node_modules/**/*"
+    }
   }
 }
