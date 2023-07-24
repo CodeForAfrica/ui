@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "src/pages/**/*": {
-      "excludeFiles": "node_modules/**/*"
-    }
-  }
-}
