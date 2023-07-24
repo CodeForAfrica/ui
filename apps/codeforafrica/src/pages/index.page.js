@@ -41,11 +41,12 @@ function Index({ sections, ...props }) {
   );
 }
 
-// export async function getServerSideProps(context) {
-//   return getPageServerSideProps(context, "/");
-// }
-export async function getStaticProps() {
+export async function getServerSideProps() {
+  // return getPageServerSideProps(context, "/");
   return getPageStaticProps({ slug: "/" });
 }
+// export async function getStaticProps() {
+//   return getPageStaticProps({ slug: "/" });
+// }
 
 export default Index;
