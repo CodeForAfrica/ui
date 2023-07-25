@@ -1,6 +1,7 @@
 import express from "express";
 import payload from "payload";
 
+require("dotenv").config();
 require("dotenv").config({ path: ".env.local" });
 const app = express();
 

@@ -33,7 +33,7 @@ RUN pnpm install --recursive --offline --frozen-lockfile
 
 ARG PORT=3000 \
     MONGO_URL \
-    PAYLOAD_SECRET_KEY
+    PAYLOAD_SECRET
 
 ARG PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL}
 
@@ -47,10 +47,11 @@ ARG PAYLOAD_PUBLIC_APP_URL \
     PORT
 
 ENV NODE_ENV=production \
-    PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
     PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
     PORT=${PORT} \ 
-    PAYLOAD_PUBLIC_PORT=${PORT}
+    PAYLOAD_PUBLIC_PORT=${PORT} \
+    PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
+    PAYLOAD_SECRET=${PAYLOAD_SECRET}
 
 WORKDIR /workspace/apps/codeforafrica
 
