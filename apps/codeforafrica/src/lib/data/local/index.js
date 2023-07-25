@@ -1,8 +1,9 @@
-import { getPageStaticProps, payload } from "@/codeforafrica/lib";
+import { getPageStaticProps } from "@/codeforafrica/lib";
 import { getPageProps } from "@/codeforafrica/lib/data/common";
+import { api } from "@/codeforafrica/lib/data/rest";
 
 export async function getPageServerSideProps(context, slug) {
-  const props = await getPageProps(payload, context);
+  const props = await getPageProps(api, context);
   if (!props) {
     return { notFound: true };
   }

@@ -21,11 +21,11 @@
     "url": "https://github.com/codeforafrica/ui/issues"
   },
   "scripts": {
-    "cms": "netlify-cms-proxy-server",
+    "cms": "ts-node --project tsconfig.server.json server.ts",
     "build-server": "tsc --project tsconfig.server.json",
     "build-next": "NEXT_BUILD=true pnpm pnpm build-server && NEXT_BUILD=true PAYLOAD_PUBLIC_APP_URL=http://localhost:3000 PAYLOAD_CONFIG_PATH=dist/payload.config.js node dist/server.js",
     "build-payload": "payload build",
-    "dev": "NODE_OPTIONS='--inspect' ts-node --project tsconfig.server.json server.ts",
+    "dev": "NODE_OPTIONS='--inspect' next dev --port 3000",
     "lint-check": "TIMING=1 eslint './'",
     "lint": "TIMING=1 eslint --fix './'",
     "jest": "jest",
