@@ -12,7 +12,7 @@ concurrency:
 
 env:
   DOKKU_REMOTE_BRANCH: "master"
-  DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/codeforafrica-review"
+  DOKKU_REMOTE_URL: "ssh://ubuntu@54.74.234.237/codeforafrica-review"
   IMAGE_NAME: "codeforafrica/codeforafrica-review"
   NEXT_PUBLIC_APP_URL: "https://codeforafrica.dev.codeforafrica.org"
 
