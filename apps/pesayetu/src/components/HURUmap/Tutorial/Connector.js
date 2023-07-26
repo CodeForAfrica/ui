@@ -1,5 +1,3 @@
-// eslint-disable-file no-unsafe-optional-chaining
-
 import { useTour } from "@reactour/tour";
 import React, { useState, useEffect } from "react";
 
@@ -24,7 +22,6 @@ function Connector() {
       const y1 = firstElement?.top + firstElement?.height / 2;
       // eslint-disable-next-line no-unsafe-optional-chaining
       const y2 = secondElement?.top + secondElement?.height / 2;
-      // eslint-disable-next-line no-unsafe-optional-chaining
       if (firstElement.left < secondElement.left) {
         setStart({
           // eslint-disable-next-line no-unsafe-optional-chaining

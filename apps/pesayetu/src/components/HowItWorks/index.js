@@ -1,4 +1,4 @@
-import { Button, Grid, Hidden, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Grid, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -21,9 +21,17 @@ function HowItWorks({ title, ctaText, description, href, ...props }) {
       <div className={classes.background}>
         <Image objectFit="cover" src={howItWorksBg} layout="fill" unoptimized />
       </div>
-      <Hidden lgUp mdDown implementation="css">
+      <Box
+        sx={{
+          display: {
+            xs: "none",
+            md: "block",
+            lg: "none",
+          },
+        }}
+      >
         <div className={classes.tabletWhite} />
-      </Hidden>
+      </Box>
       <Section classes={{ root: classes.section }}>
         <Grid container direction={isMobile ? "column-reverse" : "row"}>
           <Grid item xs={12} md={7} lg={6} className={classes.content}>

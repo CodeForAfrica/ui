@@ -56,8 +56,7 @@ function Card({
           chart={chart}
           embed={embed}
           image={image}
-          width={imageProps.width}
-          height={imageProps.height}
+          imageProps={imageProps}
           media={media}
           variant={variant}
           classes={{ root: classes.media, image: classes.mediaImage }}
