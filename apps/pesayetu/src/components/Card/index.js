@@ -8,6 +8,8 @@ import CardContent from "./Content";
 import CardMedia from "./Media";
 import useStyles from "./useStyles";
 
+import Link from "@/pesayetu/components/Link";
+
 function Card({
   chart,
   children,
@@ -32,7 +34,6 @@ function Card({
   const classes = useStyles({ ...props, squareMedia });
   const actionAreaProps = { href, onClick };
   const contentProps = {
-    ctaText,
     description,
     descriptionProps,
     href,
@@ -71,6 +72,21 @@ function Card({
           }}
         />
       </CardActionArea>
+      {href && ctaText && (
+        <Link
+          href={href}
+          underline="always"
+          variant="subtitle2"
+          {...linkProps}
+          sx={(theme) => ({
+            display: "inline-flex",
+            marginTop: theme.typography.pxToRem(20),
+            fontWeight: "bold",
+          })}
+        >
+          {ctaText}
+        </Link>
+      )}
     </MuiCard>
   );
 }

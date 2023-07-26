@@ -7,7 +7,7 @@ import Link from "@/pesayetu/components/Link";
 
 const useStyles = makeStyles(() => ({
   root: {},
-  focusHightlight: {
+  focusHighlight: {
     background: "transparent",
   },
   focusVisible: {},
@@ -29,7 +29,7 @@ function ActionArea({ href, children, onClick, ...props }) {
       onClick={onClick}
       classes={{
         root: classes.root,
-        focusHighlight: classes.focusHightlight,
+        focusHighlight: classes.focusHighlight,
         focusVisible: classes.focusVisible,
       }}
     >

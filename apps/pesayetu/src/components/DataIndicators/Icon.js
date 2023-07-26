@@ -23,13 +23,11 @@ Icon.propTypes = {
   handleIconClick: PropTypes.func,
   currentItemIndex: PropTypes.number,
   index: PropTypes.number,
-  item: PropTypes.arrayOf(
-    PropTypes.shape({
-      image: PropTypes.string,
-      title: PropTypes.string,
-      hover: PropTypes.string,
-    })
-  ),
+  item: PropTypes.shape({
+    image: PropTypes.string,
+    title: PropTypes.string,
+    hover: PropTypes.string,
+  }),
 };
 
 Icon.defaultProps = {

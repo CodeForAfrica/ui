@@ -29,7 +29,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
   },
 }));
 
-function Header({ className, overline, subtitle, ...props }) {
+function Header({ className, overline, subtitle, children, ...props }) {
   const classes = useStyles(props);
 
   return (
@@ -37,7 +37,9 @@ function Header({ className, overline, subtitle, ...props }) {
       <RichTypography variant="overline" className={classes.overline}>
         {overline}
       </RichTypography>
-      <RichTypography {...props} variant="h1" className={classes.title} />
+      <RichTypography variant="h1" className={classes.title}>
+        {children}
+      </RichTypography>
       <RichTypography variant="subtitle1" className={classes.subtitle}>
         {subtitle}
       </RichTypography>

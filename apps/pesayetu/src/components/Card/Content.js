@@ -5,8 +5,6 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Link from "@/pesayetu/components/Link";
-
 const useStyles = makeStyles(({ typography }) => ({
   root: {
     padding: 0,
@@ -53,17 +51,6 @@ function Content({
       >
         {description}
       </RichTypography>
-      {href && ctaText && (
-        <Link
-          href={href}
-          underline="always"
-          variant="subtitle2"
-          {...linkProps}
-          className={classes.link}
-        >
-          {ctaText}
-        </Link>
-      )}
     </CardContent>
   );
 }
