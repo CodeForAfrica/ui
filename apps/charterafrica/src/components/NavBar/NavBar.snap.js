@@ -17,22 +17,20 @@ exports[`<NavBar /> renders unchanged 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
-            <button
-              class="MuiButtonBase-root css-1oubxmo-MuiButtonBase-root"
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root active css-phlgu5-MuiTypography-root-MuiLink-root-MuiButtonBase-root"
+              href="/"
               tabindex="0"
-              type="button"
             >
               <img
                 alt="Charter Africa"
-                data-nimg="1"
+                data-nimg="fill"
                 decoding="async"
-                height="38"
-                loading="lazy"
+                fetchpriority="high"
                 src="/images/charter-logo.svg"
-                style="color: transparent;"
-                width="147.29"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
               />
-            </button>
+            </a>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -58,22 +56,20 @@ exports[`<NavBar /> renders unchanged 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
-            <button
-              class="MuiButtonBase-root css-1oubxmo-MuiButtonBase-root"
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root active css-1eqh9fg-MuiTypography-root-MuiLink-root-MuiButtonBase-root"
+              href="/"
               tabindex="0"
-              type="button"
             >
               <img
                 alt="Charter Africa"
-                data-nimg="1"
+                data-nimg="fill"
                 decoding="async"
-                height="58"
-                loading="lazy"
+                fetchpriority="high"
                 src="/images/charter-logo.svg"
-                style="color: transparent;"
-                width="230"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
               />
-            </button>
+            </a>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"

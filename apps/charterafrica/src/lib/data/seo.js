@@ -4,6 +4,19 @@ import site from "@/charterafrica/utils/site";
 
 const siteUrl = new URL(site.environmentUrl).href;
 
+function getLocaleUrl(pathname, locale, defaultLocale) {
+  const separator = !pathname || pathname.startsWith("/") ? "" : `/`;
+  // By default, default locale doesn't include prefix
+  let prefix = `/${locale}`;
+  if (locale === defaultLocale) {
+    prefix = "";
+  }
+  const { href } = new URL(`${prefix}${separator}${pathname}`, siteUrl);
+  // NOTE: We can do this Regex because we're sure about the url contents
+  //       see: https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS
+  return href.replace(/\/+$/, "");
+}
+
 function getLanguageAlternates(options) {
   const { defaultLocale, locale, locales, pathname } = options;
   if (!(locale && locales?.length)) {
@@ -12,23 +25,17 @@ function getLanguageAlternates(options) {
 
   const languageAlternateForLocale = (loc) => {
     const hrefLang = loc;
-    const separator = !pathname || pathname.startsWith("/") ? "" : `/`;
-    // By default, default locale doesn't include prefix
-    let prefix = `/${loc}`;
-    if (loc === defaultLocale) {
-      prefix = "";
-    }
-    const { href } = new URL(`${prefix}${separator}${pathname}`, siteUrl);
+    const href = getLocaleUrl(pathname, loc, defaultLocale);
     return { hrefLang, href };
   };
   return locales.map(languageAlternateForLocale);
 }
 
 export function getPageSeoFromMeta(page, settings, options = {}) {
-  const { locale, pathname } = options;
+  const { defaultLocale, locale, pathname } = options;
   let canonical = null;
   if (pathname) {
-    canonical = new URL(pathname, siteUrl).toString();
+    canonical = getLocaleUrl(pathname, locale, defaultLocale);
   }
   const languageAlternates = getLanguageAlternates(options);
   const { title: pageTitle, meta: pageMeta } = page;

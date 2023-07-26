@@ -10,8 +10,13 @@ const render = createRender({ theme });
 
 const defaultProps = {
   logo: {
-    alt: "Charter Africa",
-    src: "/images/charter-logo.svg",
+    image: {
+      alt: "Charter Africa",
+      fill: true,
+      priority: true,
+      src: "/images/charter-logo.svg",
+    },
+    href: "/",
   },
   menus: [
     {

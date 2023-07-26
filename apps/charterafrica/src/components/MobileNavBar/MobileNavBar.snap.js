@@ -7,24 +7,7 @@ exports[`<MobileNavBar /> renders unchanged 1`] = `
   >
     <div
       class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-    >
-      <button
-        class="MuiButtonBase-root css-1oubxmo-MuiButtonBase-root"
-        tabindex="0"
-        type="button"
-      >
-        <img
-          alt="Charter Africa"
-          data-nimg="1"
-          decoding="async"
-          height="38"
-          loading="lazy"
-          src="/images/charter-logo.svg"
-          style="color: transparent;"
-          width="147.29"
-        />
-      </button>
-    </div>
+    />
     <div
       class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
     >

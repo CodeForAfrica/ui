@@ -12,6 +12,8 @@ exports[`<OrganisationCard /> renders unchanged 1`] = `
     >
       <div
         class="MuiCardMedia-root css-muxve-MuiCardMedia-root"
+        role="img"
+        style="background-image: url(/image.jpg);"
       />
       <div
         class="MuiCardContent-root css-wsecsz-MuiCardContent-root"

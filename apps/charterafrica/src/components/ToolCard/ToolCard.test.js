@@ -9,10 +9,11 @@ import theme from "@/charterafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
+  description: "Sample description",
+  image: "/image.jpg",
+  lastActive: "6 Months ago",
   name: "Tool Name",
   topic: "Topic Name",
-  lastActive: "6 Months ago",
-  description: "Sample description",
 };
 
 describe("<ToolCard />", () => {

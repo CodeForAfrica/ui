@@ -23,7 +23,7 @@ const Infographic = React.forwardRef(function Infographic(props, ref) {
   return (
     <>
       <Box id={id} sx={sx} ref={ref} />
-      <Script id={`show-${id}`}>
+      <Script id={`show-${id}`} strategy="lazyOnload">
         {`
             window.infographicIframeLocation = '${url}/infographic/embed.html';
             window.data_file = '${dataFile}';

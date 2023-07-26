@@ -12,31 +12,33 @@ import RichText from "@/charterafrica/components/RichText";
 
 const Documents = React.forwardRef(function Documents(props, ref) {
   const {
-    description,
-    documents: originalDocuments,
-    documentOptions,
-    q,
-    sx,
-    title,
     datasets,
-    showDatasets,
-    filterBar: documentsFilterBar,
+    description,
+    documents: documentsProp,
+    documentOptions,
+    filterBar: filterBarProp,
     labels,
+    page: pageProp = 1,
     pathname,
-    showFilterBar,
     pinnedDocuments: originalPinnedDocuments,
+    q,
+    showDatasets,
+    showFilterBar,
+    sx,
+    total: totalPagesProp = 0,
+    title,
     showPinnedDocuments,
   } = props;
 
-  const [documents, setDocuments] = useState(originalDocuments);
+  const [documents, setDocuments] = useState(documentsProp);
+  const [filtering, setFiltering] = useState(false);
+  const [page, setPage] = useState(pageProp);
   const [pinnedDocuments, setPinnedDocuments] = useState(
     originalPinnedDocuments
   );
-  const [totalPages, setTotalPages] = useState(0);
-  const [page, setPage] = useState(1);
-  const [filtering, setFiltering] = useState(false);
-  const [sort, setSort] = useState();
   const [search, setSearch] = useState();
+  const [sort, setSort] = useState();
+  const [totalPages, setTotalPages] = useState(totalPagesProp);
   const documentsRef = useRef();
 
   const handleChangePage = (_, value) => {
@@ -127,7 +129,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
               labels={labels}
               onChangeQ={handleChangeQ}
               onChangeSort={handleChangeSort}
-              options={documentsFilterBar}
+              options={filterBarProp}
               showDatasets={showDatasets}
             />
           ) : null}
