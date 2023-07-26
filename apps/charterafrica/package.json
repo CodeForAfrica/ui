@@ -41,7 +41,7 @@
     "@aws-sdk/lib-storage": "^3.327.0",
     "@commons-ui/core": "workspace:*",
     "@commons-ui/next": "workspace:*",
-    "@emotion/cache": "^11.10.8",
+    "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.10.8",
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.8",
