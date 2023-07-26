@@ -1,10 +1,7 @@
 name: Code for Africa | Deploy | REVIEW APP
 
-# yamllint disable-line rule:truthy
 on:
-  # onl run this workflow on pull request events
   pull_request:
-    types: [opened, reopened, edited]
     paths:
       - "apps/codeforafrica/**"
       - "Dockerfile.codeforafrica"
@@ -26,6 +23,7 @@ jobs:
       matrix:
         node-version: [18]
         os: [ubuntu-latest]
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
     steps:
       - name: Cloning repo
         uses: actions/checkout@v3
