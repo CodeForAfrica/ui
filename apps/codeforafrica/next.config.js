@@ -8,9 +8,6 @@ const outputFileTracingRoot = PROJECT_ROOT
 const outputFileTracingExcludes = {
   "*": ["**linux-x64**"],
 };
-const ghostUrl =
-  process.env.GHOST_ADMIN_URL?.trim() || process.env.GHOST_URL?.trim();
-const ghostAdminUrl = new URL("/ghost", ghostUrl).toString();
 
 module.exports = {
   images: {
@@ -35,14 +32,7 @@ module.exports = {
   pageExtensions: ["page.js"],
   reactStrictMode: true,
   async redirects() {
-    return [
-      {
-        source: "/longform/:path*",
-        destination: `${ghostAdminUrl}/:path*`,
-        permanent: false,
-        basePath: false,
-      },
-    ];
+    return [];
   },
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
   webpack: (config) => {

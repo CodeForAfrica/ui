@@ -35,6 +35,8 @@ ARG PORT=3000 \
     MONGO_URL \
     PAYLOAD_SECRET
 
+RUN pnpm build-next --filter=codeforafrica
+
 ARG PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL}
 
 RUN pnpm build-payload --filter=codeforafrica
