@@ -1,4 +1,4 @@
-name: Code for Africa | Deploy | REBIEW APP
+name: Code for Africa | Deploy | REVIEW APP
 
 # yamllint disable-line rule:truthy
 on:
