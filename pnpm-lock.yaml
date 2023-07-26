@@ -55,8 +55,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/commons-ui-next
       "@emotion/cache":
-        specifier: ^11.10.8
-        version: 11.10.8
+        specifier: ^11.11.0
+        version: 11.11.0
       "@emotion/react":
         specifier: ^11.10.8
         version: 11.10.8(@types/react@18.2.15)(react@18.2.0)
@@ -260,8 +260,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/commons-ui-next
       "@emotion/cache":
-        specifier: ^11.10.8
-        version: 11.10.8
+        specifier: ^11.11.0
+        version: 11.11.0
       "@emotion/react":
         specifier: ^11.10.8
         version: 11.10.8(@types/react@18.2.15)(react@18.2.0)
@@ -411,8 +411,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/commons-ui-next
       "@emotion/cache":
-        specifier: ^11.10.8
-        version: 11.10.8
+        specifier: ^11.11.0
+        version: 11.11.0
       "@emotion/react":
         specifier: ^11.10.8
         version: 11.10.8(@types/react@18.2.15)(react@18.2.0)
@@ -4921,7 +4921,7 @@ packages:
       babel-plugin-polyfill-corejs3: 0.6.0(@babel/core@7.21.8)
       babel-plugin-polyfill-regenerator: 0.4.1(@babel/core@7.21.8)
       core-js-compat: 3.30.1
-      semver: 6.3.1
+      semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5846,18 +5846,6 @@ packages:
       "@emotion/weak-memoize": 0.2.5
     dev: false
 
-  /@emotion/cache@11.10.8:
-    resolution:
-      {
-        integrity: sha512-5fyqGHi51LU95o7qQ/vD1jyvC4uCY5GcBT+UgP4LHdpO9jPDlXqhrRr9/wCKmfoAvh5G/F7aOh4MwQa+8uEqhA==,
-      }
-    dependencies:
-      "@emotion/memoize": 0.8.0
-      "@emotion/sheet": 1.2.1
-      "@emotion/utils": 1.2.0
-      "@emotion/weak-memoize": 0.3.0
-      stylis: 4.1.4
-
   /@emotion/cache@11.11.0:
     resolution:
       {
@@ -5934,12 +5922,6 @@ packages:
       }
     dev: false
 
-  /@emotion/memoize@0.8.0:
-    resolution:
-      {
-        integrity: sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==,
-      }
-
   /@emotion/memoize@0.8.1:
     resolution:
       {
@@ -5960,7 +5942,7 @@ packages:
     dependencies:
       "@babel/runtime": 7.21.5
       "@emotion/babel-plugin": 11.10.8
-      "@emotion/cache": 11.10.8
+      "@emotion/cache": 11.11.0
       "@emotion/serialize": 1.1.1
       "@emotion/use-insertion-effect-with-fallbacks": 1.0.0(react@18.2.0)
       "@emotion/utils": 1.2.0
@@ -6017,12 +5999,6 @@ packages:
         integrity: sha512-zM9PFmgVSqBw4zL101Q0HrBVTGmpAxFZH/pYx/cjJT5advXguvcgjHFTCaIO3enL/xr89vK2bh0Mfyj9aa0ANA==,
       }
     dev: false
-
-  /@emotion/sheet@1.2.1:
-    resolution:
-      {
-        integrity: sha512-zxRBwl93sHMsOj4zs+OslQKg/uhF38MB+OMKoCrVuS0nyTkqnau+BM3WGEoOptg9Oz45T/aIGs1qbVAsEFo3nA==,
-      }
 
   /@emotion/sheet@1.2.2:
     resolution:
