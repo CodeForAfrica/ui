@@ -13,7 +13,7 @@ const { exec } = require("@actions/exec");
       const currentImageVersion = fs.readFileSync(dockerFilePath, "utf8");
       const updatedImageVersion = currentImageVersion.replace(
         /:[^\s]+/g,
-        `:${newVersion}`,
+        `:${newVersion}`
       );
       fs.writeFileSync(dockerFilePath, updatedImageVersion);
     }

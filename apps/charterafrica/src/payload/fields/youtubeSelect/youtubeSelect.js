@@ -19,7 +19,7 @@ function YouTubeSelect(props) {
     playlistId
       ? `/api/v1/opportunities/consultation/multimedia?${queryString}`
       : null,
-    fetcher,
+    fetcher
   );
   const memoOptions = () =>
     data?.items?.map((video) => ({

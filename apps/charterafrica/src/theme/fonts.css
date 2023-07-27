@@ -4,8 +4,7 @@
   font-style: normal;
   font-weight: 400;
   src: url("/fonts/prompt-v10-latin-regular.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/prompt-v10-latin-regular.eot?#iefix")
       format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/prompt-v10-latin-regular.woff2") format("woff2"),
@@ -23,8 +22,7 @@
   font-style: normal;
   font-weight: 700;
   src: url("/fonts/prompt-v10-latin-700.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/prompt-v10-latin-700.eot?#iefix") format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/prompt-v10-latin-700.woff2") format("woff2"),
     /* Super Modern Browsers */ url("/fonts/prompt-v10-latin-700.woff")
@@ -41,8 +39,7 @@
   font-style: normal;
   font-weight: 900;
   src: url("/fonts/prompt-v10-latin-900.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/prompt-v10-latin-900.eot?#iefix") format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/prompt-v10-latin-900.woff2") format("woff2"),
     /* Super Modern Browsers */ url("/fonts/prompt-v10-latin-900.woff")
@@ -59,8 +56,7 @@
   font-style: normal;
   font-weight: 400;
   src: url("/fonts/open-sans-v34-latin-regular.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/open-sans-v34-latin-regular.eot?#iefix")
       format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/open-sans-v34-latin-regular.woff2")
@@ -79,8 +75,7 @@
   font-style: normal;
   font-weight: 600;
   src: url("/fonts/open-sans-v34-latin-600.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/open-sans-v34-latin-600.eot?#iefix") format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/open-sans-v34-latin-600.woff2") format("woff2"),
     /* Super Modern Browsers */ url("/fonts/open-sans-v34-latin-600.woff")
@@ -97,8 +92,7 @@
   font-style: normal;
   font-weight: 700;
   src: url("/fonts/open-sans-v34-latin-700.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/open-sans-v34-latin-700.eot?#iefix") format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/open-sans-v34-latin-700.woff2") format("woff2"),
     /* Super Modern Browsers */ url("/fonts/open-sans-v34-latin-700.woff")

@@ -92,7 +92,7 @@ function formatResponse(data, pathname, locale) {
 export default async function fetchDatasets(
   organization,
   pathname,
-  query = {},
+  query = {}
 ) {
   const { tags = [], countries = [], page = 1, locale, ...other } = query;
   const tagsQuery = tags.length
@@ -118,7 +118,7 @@ export default async function fetchDatasets(
       `${OPEN_AFRICA_BASE_API_URL}package_search`,
       {
         params,
-      },
+      }
     );
     return formatResponse(data, pathname, locale);
   } catch (err) {
@@ -131,7 +131,7 @@ export async function fetchDataset(id, pathname, query) {
   const { locale } = query;
   try {
     const response = await fetchJson.get(
-      `${OPEN_AFRICA_BASE_API_URL}package_show?id=${id}`,
+      `${OPEN_AFRICA_BASE_API_URL}package_show?id=${id}`
     );
     const { result: dataset } = response;
     const { tags = [], groups = [] } = dataset;

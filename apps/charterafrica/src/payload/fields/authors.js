@@ -11,7 +11,7 @@ const authors = (overrides) =>
         position: "sidebar",
       },
     },
-    overrides,
+    overrides
   );
 
 export default authors;

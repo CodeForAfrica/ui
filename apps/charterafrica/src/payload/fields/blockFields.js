@@ -15,7 +15,7 @@ const blockFields = ({ name, fields, overrides }) =>
       },
       fields,
     },
-    overrides,
+    overrides
   );
 
 export default blockFields;

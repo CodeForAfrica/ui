@@ -83,7 +83,7 @@ async function fetchGithubApi(path, tag) {
     }
     if (res.status !== 304) {
       const message = `Error fetching "${url}" from github errors ${JSON.stringify(
-        response,
+        response
       )}`;
       throw new FetchError(message, response, 500);
     }

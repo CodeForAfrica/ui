@@ -22,7 +22,7 @@ const EmbededYoutubeVideo = forwardRef((props, ref) => {
   const searchParams = new URLSearchParams(params).toString();
   const { data } = useSWR(
     `/api/v1/opportunities/consultation/multimedia?${searchParams}`,
-    fetcher,
+    fetcher
   );
 
   const comments =

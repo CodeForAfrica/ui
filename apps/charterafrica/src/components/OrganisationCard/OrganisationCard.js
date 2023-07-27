@@ -6,81 +6,82 @@ import React from "react";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import Card, { StyledActionArea } from "@/charterafrica/components/StyledCard";
 
-const OrganisationCard = React.forwardRef(
-  function OrganisationCard(props, ref) {
-    const {
-      description,
-      elevation,
-      image,
-      link,
-      square,
-      sx,
-      name,
-      variant = "outlined",
-    } = props;
-    const ownerState = {
-      elevation,
-      square,
-      variant,
-    };
+const OrganisationCard = React.forwardRef(function OrganisationCard(
+  props,
+  ref
+) {
+  const {
+    description,
+    elevation,
+    image,
+    link,
+    square,
+    sx,
+    name,
+    variant = "outlined",
+  } = props;
+  const ownerState = {
+    elevation,
+    square,
+    variant,
+  };
 
-    return (
-      <Card
-        elevation={elevation}
-        ownerState={ownerState}
-        variant={variant}
-        sx={sx}
-        ref={ref}
+  return (
+    <Card
+      elevation={elevation}
+      ownerState={ownerState}
+      variant={variant}
+      sx={sx}
+      ref={ref}
+    >
+      <StyledActionArea
+        component={link?.href ? Link : undefined}
+        href={link?.href}
       >
-        <StyledActionArea
-          component={link?.href ? Link : undefined}
-          href={link?.href}
+        <CardMedia image={image} sx={{ height: 200 }} />
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
         >
-          <CardMedia image={image} sx={{ height: 200 }} />
-          <CardContent
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-            }}
-          >
-            <LineClampedRichTypography
-              color="neutral.dark"
-              html={false}
-              lineClamp={1}
-              textAlign="left"
-              variant="h5SmallSemiBold"
-              sx={(theme) => ({
+          <LineClampedRichTypography
+            color="neutral.dark"
+            html={false}
+            lineClamp={1}
+            textAlign="left"
+            variant="h5SmallSemiBold"
+            sx={(theme) => ({
+              height:
+                theme.typography.h5SmallSemiBold.fontSize *
+                theme.typography.h5SmallSemiBold.lineHeight,
+              [theme.breakpoints.up("md")]: {
                 height:
-                  theme.typography.h5SmallSemiBold.fontSize *
-                  theme.typography.h5SmallSemiBold.lineHeight,
-                [theme.breakpoints.up("md")]: {
-                  height:
-                    theme.typography.h5SemiBold.fontSize *
-                    theme.typography.h5SemiBold.lineHeight,
-                  typography: "h5SemiBold",
-                },
-              })}
-            >
-              {name}
-            </LineClampedRichTypography>
-            <LineClampedRichTypography
-              variant="p1"
-              color="neutral.main"
-              sx={(theme) => ({
-                mt: 2.5,
-                height: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
-              })}
-              lineClamp={3}
-            >
-              {description}
-            </LineClampedRichTypography>
-          </CardContent>
-        </StyledActionArea>
-      </Card>
-    );
-  },
-);
+                  theme.typography.h5SemiBold.fontSize *
+                  theme.typography.h5SemiBold.lineHeight,
+                typography: "h5SemiBold",
+              },
+            })}
+          >
+            {name}
+          </LineClampedRichTypography>
+          <LineClampedRichTypography
+            variant="p1"
+            color="neutral.main"
+            sx={(theme) => ({
+              mt: 2.5,
+              height: `calc(${theme.typography.p1.fontSize}px * ${theme.typography.p1.lineHeight} * 3)`,
+            })}
+            lineClamp={3}
+          >
+            {description}
+          </LineClampedRichTypography>
+        </CardContent>
+      </StyledActionArea>
+    </Card>
+  );
+});
 
 OrganisationCard.propTypes = {
   name: PropTypes.string,

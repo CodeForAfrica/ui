@@ -166,7 +166,7 @@ export async function getPageProps(api, context) {
           }
         }
         return null;
-      }),
+      })
     )) || [];
   const processPage = processPageFunctionsMap[page.slug];
   const processedPage = processPage
@@ -178,7 +178,7 @@ export async function getPageProps(api, context) {
 
   const { settings, ...globalProps } = await getGlobalProps(
     { defaultLocale, locale },
-    api,
+    api
   );
   const seo = getPageSeoFromMeta(processedPage, settings, {
     defaultLocale,

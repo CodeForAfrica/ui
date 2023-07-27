@@ -10,13 +10,13 @@ import {
 
 async function validateYouTubeSelect(
   value,
-  { data: document, hasMany, required, t },
+  { data: document, hasMany, required, t }
 ) {
   let options = [];
   const { playlistId, queryString } = getEmbeddedPlaylist(document);
   if (playlistId) {
     const response = await fetch(
-      `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/opportunities/consultation/multimedia?${queryString}`,
+      `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/v1/opportunities/consultation/multimedia?${queryString}`
     );
     const data = await response.json();
     options =

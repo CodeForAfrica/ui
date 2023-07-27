@@ -36,7 +36,7 @@ const LineClampedRichTypographyRoot = styled(RichTypography, {
 const LineClampedRichTypography = React.forwardRef(
   function LineClampedRichTypography(props, ref) {
     return <LineClampedRichTypographyRoot {...props} ref={ref} />;
-  },
+  }
 );
 
 LineClampedRichTypography.propTypes = {

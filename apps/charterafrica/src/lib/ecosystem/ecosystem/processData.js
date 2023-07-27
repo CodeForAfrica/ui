@@ -27,7 +27,7 @@ export async function prepareOrganisations(airtableData, config) {
     const rawTools = item?.tools || [];
     const tools = await getCollectionIdsPerAirtableId(
       TOOL_COLLECTION,
-      rawTools,
+      rawTools
     );
     const toCreate = {
       ...item,
@@ -45,7 +45,7 @@ export async function prepareTools(airtableData, config) {
     const contrib = item?.contributors || [];
     const contributors = await getCollectionIdsPerAirtableId(
       CONTRIBUTORS_COLLECTION,
-      contrib,
+      contrib
     );
     const toCreate = {
       ...item,

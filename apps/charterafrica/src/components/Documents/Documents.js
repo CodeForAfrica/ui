@@ -34,7 +34,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
   const [filtering, setFiltering] = useState(false);
   const [page, setPage] = useState(pageProp);
   const [pinnedDocuments, setPinnedDocuments] = useState(
-    originalPinnedDocuments,
+    originalPinnedDocuments
   );
   const [search, setSearch] = useState();
   const [sort, setSort] = useState();
@@ -72,7 +72,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
       ...documentOptions,
     },
     pathname,
-    showPinnedDocuments,
+    showPinnedDocuments
   );
   useEffect(() => {
     if (!res?.isLoading) {

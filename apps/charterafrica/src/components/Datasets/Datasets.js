@@ -25,7 +25,7 @@ const Datasets = React.forwardRef(function Datasets(
     tags = [],
     totalPages: originalTotalPages,
   },
-  ref,
+  ref
 ) {
   const [datasets, setDatasets] = useState(datasetsProp || []);
   const [filtering, setFiltering] = useState(false);
@@ -96,7 +96,7 @@ const Datasets = React.forwardRef(function Datasets(
       sort,
       tags: selectedTags,
     },
-    pathname,
+    pathname
   );
   useEffect(() => {
     if (!isLoading) {

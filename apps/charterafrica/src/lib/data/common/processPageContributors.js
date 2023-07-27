@@ -35,7 +35,7 @@ export async function getContributors(page, api, context) {
       where: {
         ...query,
       },
-    },
+    }
   );
   const results = docs.map((person) => {
     let href = null;
@@ -77,7 +77,7 @@ async function processPagePerson(page, api, context) {
   }
 
   const block = blocks.findIndex(
-    ({ slug: bSlug }) => bSlug === "our-contributors",
+    ({ slug: bSlug }) => bSlug === "our-contributors"
   );
   const contributor = docs[0] || {};
   const { docs: toolDocs } = await api.getCollection(TOOL_COLLECTION, {
@@ -139,7 +139,7 @@ async function processPageContributors(page, api, context) {
   }
   const { pagination, results } = await getContributors(page, api, context);
   const foundIndex = blocks.findIndex(
-    ({ slug }) => slug === "our-contributors",
+    ({ slug }) => slug === "our-contributors"
   );
   if (foundIndex < 0) {
     return { notFound: true };

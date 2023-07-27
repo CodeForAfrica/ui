@@ -33,7 +33,7 @@ const FocalCountries = React.forwardRef(function FocalCountries(props, ref) {
     countriesProp?.reduce((acc, cur) => {
       acc[cur.code] = cur;
       return acc;
-    }, {}),
+    }, {})
   );
   const [selectedCode, setSelectedCode] = useState();
   const mapSize = isMdUp ? "md" : "xs";

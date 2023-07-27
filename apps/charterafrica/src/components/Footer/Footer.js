@@ -16,7 +16,7 @@ const NewsletterSubscription = dynamic(
   () => import("@/charterafrica/components/NewsletterSubscription"),
   {
     ssr: false,
-  },
+  }
 );
 
 const Footer = React.forwardRef(function Footer(props, ref) {

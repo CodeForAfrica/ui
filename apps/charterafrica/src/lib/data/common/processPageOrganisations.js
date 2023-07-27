@@ -43,7 +43,7 @@ async function processPageSingleOrganisation(page, api, context) {
     };
   });
   const block = blocks.findIndex(
-    ({ slug: bSlug }) => bSlug === "our-organisations",
+    ({ slug: bSlug }) => bSlug === "our-organisations"
   );
   return {
     ...page,
@@ -94,7 +94,7 @@ export async function getOrganisations(page, api, context) {
       where: {
         ...query,
       },
-    },
+    }
   );
   const results = docs.map((tool) => {
     let href = null;
@@ -127,7 +127,7 @@ async function processPageOrganisations(page, api, context) {
   }
   const { blocks } = page;
   const foundIndex = blocks.findIndex(
-    ({ slug }) => slug === "our-organisations",
+    ({ slug }) => slug === "our-organisations"
   );
   if (foundIndex < 0) {
     return { notFound: true };

@@ -7,7 +7,7 @@ function formatDraftUrl(collection, doc, { locale }) {
     const slug = `${localePath}${pagePath}`;
     const url = new URL(
       `/api/v1/draft?slug=${slug}`,
-      process.env.PAYLOAD_PUBLIC_APP_URL,
+      process.env.PAYLOAD_PUBLIC_APP_URL
     );
 
     return url.href;

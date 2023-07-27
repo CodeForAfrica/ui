@@ -5,8 +5,7 @@
   font-weight: 400;
   font-display: swap;
   src: url("/fonts/open-sans-v28-latin-regular.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/open-sans-v28-latin-regular.eot?#iefix")
       format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/open-sans-v28-latin-regular.woff2")
@@ -26,8 +25,7 @@
   font-weight: 300;
   font-display: swap;
   src: url("/fonts/open-sans-v28-latin-300.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/open-sans-v28-latin-300.eot?#iefix") format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/open-sans-v28-latin-300.woff2") format("woff2"),
     /* Super Modern Browsers */ url("/fonts/open-sans-v28-latin-300.woff")
@@ -45,8 +43,7 @@
   font-weight: 600;
   font-display: swap;
   src: url("/fonts/open-sans-v28-latin-600.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/open-sans-v28-latin-600.eot?#iefix") format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/open-sans-v28-latin-600.woff2") format("woff2"),
     /* Super Modern Browsers */ url("/fonts/open-sans-v28-latin-600.woff")
@@ -64,8 +61,7 @@
   font-weight: 700;
   font-display: swap;
   src: url("/fonts/open-sans-v28-latin-700.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/open-sans-v28-latin-700.eot?#iefix") format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/open-sans-v28-latin-700.woff2") format("woff2"),
     /* Super Modern Browsers */ url("/fonts/open-sans-v28-latin-700.woff")
@@ -83,8 +79,7 @@
   font-weight: 800;
   font-display: swap;
   src: url("/fonts/open-sans-v28-latin-800.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/open-sans-v28-latin-800.eot?#iefix") format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/open-sans-v28-latin-800.woff2") format("woff2"),
     /* Super Modern Browsers */ url("/fonts/open-sans-v28-latin-800.woff")
@@ -102,8 +97,7 @@
   font-weight: 300;
   font-display: swap;
   src: url("/fonts/merriweather-v28-latin-300.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/merriweather-v28-latin-300.eot?#iefix")
       format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/merriweather-v28-latin-300.woff2") format("woff2"),
@@ -122,8 +116,7 @@
   font-weight: 700;
   font-display: swap;
   src: url("/fonts/merriweather-v28-latin-700.eot"); /* IE9 Compat Modes */
-  src:
-    local(""),
+  src: local(""),
     url("/fonts/merriweather-v28-latin-700.eot?#iefix")
       format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/merriweather-v28-latin-700.woff2") format("woff2"),

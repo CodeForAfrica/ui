@@ -1968,5 +1968,5 @@ export const countriesByContinent = (continent) => {
 };
 
 export const allCountries = countries.map(
-  ({ continent: cntnt, name, ...c }) => c,
+  ({ continent: cntnt, name, ...c }) => c
 );

@@ -9,7 +9,7 @@ function useArticles(collection, query) {
   const separator = qs ? "?" : "";
   const { data, error } = useSWR(
     `/api/v1/knowledge/${collection}${separator}${qs}`,
-    fetcher,
+    fetcher
   );
 
   return {

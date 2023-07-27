@@ -20,7 +20,7 @@ describe("<ComboBox />", () => {
       <ComboBox
         renderInput={(params) => <TextField {...params} />}
         {...defaultProps}
-      />,
+      />
     );
     expect(container).toMatchSnapshot();
   });
