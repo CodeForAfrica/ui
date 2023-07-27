@@ -177,7 +177,7 @@ Entity.propTypes = {
       theme: PropTypes.string.isRequired,
       description: PropTypes.string,
       image: PropTypes.string,
-    })
+    }),
   ),
   toolsTitle: PropTypes.string,
   entity: PropTypes.oneOf(["contributors", "organisation"]),

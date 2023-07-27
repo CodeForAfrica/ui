@@ -210,7 +210,7 @@ Tool.propTypes = {
       lastActive: PropTypes.string,
       description: PropTypes.string,
       image: PropTypes.string,
-    })
+    }),
   ),
   contributors: PropTypes.arrayOf(
     PropTypes.shape({
@@ -224,7 +224,7 @@ Tool.propTypes = {
       twitter: PropTypes.string,
       createdAt: PropTypes.string,
       source: PropTypes.string,
-    })
+    }),
   ),
   constribute: linkProp,
 };

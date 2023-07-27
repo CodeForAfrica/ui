@@ -12,7 +12,7 @@ const content = (overrides) =>
       blocks: [RichText, MediaBlock, ExternalEmbed],
       localized: true,
     },
-    overrides
+    overrides,
   );
 
 export default content;

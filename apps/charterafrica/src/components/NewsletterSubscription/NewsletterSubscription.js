@@ -100,7 +100,7 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
         width: "auto",
       },
     },
-  })
+  }),
 );
 
 /**
@@ -108,37 +108,36 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
  * max-width of the container instead of using the full breakpoints values.
  * This is only applicable when fixed is true.
  */
-const NewsletterSubscription = React.forwardRef(function NewsletterSubscription(
-  props,
-  ref
-) {
-  const { children: childrenProp, embedCode, sx, title } = props;
-  const children = childrenProp || embedCode;
+const NewsletterSubscription = React.forwardRef(
+  function NewsletterSubscription(props, ref) {
+    const { children: childrenProp, embedCode, sx, title } = props;
+    const children = childrenProp || embedCode;
 
-  if (!children) {
-    return null;
-  }
-  return (
-    <Stack
-      sx={{
-        width: { md: "310px" },
-        ...sx,
-      }}
-      ref={ref}
-    >
-      <RichTypography
-        mb={2.5}
-        variant="p2SemiBold"
-        textAlign={{ xs: "center", sm: "left", md: "right" }}
+    if (!children) {
+      return null;
+    }
+    return (
+      <Stack
+        sx={{
+          width: { md: "310px" },
+          ...sx,
+        }}
+        ref={ref}
       >
-        {title}
-      </RichTypography>
-      <NewsletterSubscriptionRoot sx={{ width: 310 }}>
-        {children}
-      </NewsletterSubscriptionRoot>
-    </Stack>
-  );
-});
+        <RichTypography
+          mb={2.5}
+          variant="p2SemiBold"
+          textAlign={{ xs: "center", sm: "left", md: "right" }}
+        >
+          {title}
+        </RichTypography>
+        <NewsletterSubscriptionRoot sx={{ width: 310 }}>
+          {children}
+        </NewsletterSubscriptionRoot>
+      </Stack>
+    );
+  },
+);
 
 NewsletterSubscription.propTypes = {
   children: PropTypes.node,

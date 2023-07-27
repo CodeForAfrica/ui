@@ -31,7 +31,7 @@ ImpactCardList.propTypes = {
   list: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
-    })
+    }),
   ),
 };
 

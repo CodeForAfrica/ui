@@ -12,7 +12,7 @@ describe("NavBar", () => {
         <RichTypography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           LOGO
         </RichTypography>
-      </NavBar>
+      </NavBar>,
     );
     expect(container).toMatchSnapshot();
   });

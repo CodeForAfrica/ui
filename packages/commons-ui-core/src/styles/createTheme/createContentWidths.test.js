@@ -32,7 +32,7 @@ describe("createContentWidths", () => {
     it("when both contentWidths and breakpoints arguments are present", () => {
       const computedContentWidthsWithBreakpoints = createContentWidths(
         contentWidths,
-        breakpoints
+        breakpoints,
       );
       expect(computedContentWidthsWithBreakpoints).toEqual(contentWidths);
     });

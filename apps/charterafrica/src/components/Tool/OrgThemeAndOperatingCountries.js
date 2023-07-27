@@ -45,7 +45,7 @@ const OrgThemeAndOperatingCountries = React.forwardRef(
         </RichTypography>
       </Box>
     );
-  }
+  },
 );
 
 OrgThemeAndOperatingCountries.propTypes = {

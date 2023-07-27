@@ -9,7 +9,7 @@ function useDocuments(q, options, pathname, showPinnedDocuments) {
   const separator = qs ? "?" : "";
   const { data, error } = useSWR(
     `/api/v1/resources/documents${separator}${qs}`,
-    fetcher
+    fetcher,
   );
 
   return {
