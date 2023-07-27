@@ -64,7 +64,7 @@ jobs:
         with:
           # create a review app
           command: review-apps:create
-          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ github.event.pull_request.number }}
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/review-appname-${{ github.event.pull_request.number }}
           # specify a name for the review app
           review_app_name: review-appname-${{ github.event.pull_request.number }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -79,7 +79,7 @@ jobs:
         with:
           # destroy a review app
           command: review-apps:destroy
-          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ github.event.pull_request.number }}
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/review-appname-${{ github.event.pull_request.number }}
           # specify a name for the review app
           review_app_name: review-appname-${{ github.event.pull_request.number }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
