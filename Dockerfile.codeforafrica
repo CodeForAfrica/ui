@@ -39,7 +39,6 @@ ARG PORT=3000 \
     GHOST_API_KEY
 
 RUN pnpm build-next --filter=codeforafrica
-RUN pnpm build --filter=codeforafrica
 
 ARG PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL}
 
