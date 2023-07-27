@@ -67,8 +67,14 @@ jobs:
           commit_message: Format & lint pnpm-lock.yaml
           file_pattern: "./pnpm-lock.yaml"
 
-      - name: "Run lint and jest if there are changes"
+      - name: "Run lint there are changes"
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
-        run: |
-          pnpm lint-check
-          pnpm test
+        run: pnpm lint-check
+
+      - name: "Run test there are changes"
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        run: pnpm test
+
+      - name: "Run build there are changes"
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        run: pnpm build --filter=promisetracker^...
