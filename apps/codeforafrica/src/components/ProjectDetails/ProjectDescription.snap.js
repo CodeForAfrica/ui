@@ -3,7 +3,7 @@
 exports[`<ProjectDescription /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiStack-root css-hhh1r-MuiStack-root"
+    class="MuiStack-root css-hqqldn-MuiStack-root"
   >
     <div
       class="MuiTypography-root MuiTypography-h5 css-1a7nesc-MuiTypography-root"
@@ -11,7 +11,7 @@ exports[`<ProjectDescription /> renders unchanged 1`] = `
       Description
     </div>
     <div
-      class="MuiStack-root css-78hz5v-MuiStack-root"
+      class="MuiStack-root css-1dhgtrr-MuiStack-root"
     >
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-irnzq2-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"

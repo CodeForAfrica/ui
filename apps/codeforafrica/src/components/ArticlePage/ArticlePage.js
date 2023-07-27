@@ -25,7 +25,6 @@ function ArticlePage({
         ImageProps={{
           alt: title,
           sx: { objectFit: "cover" },
-          priority: true,
           src: featureImage,
         }}
         sx={{
