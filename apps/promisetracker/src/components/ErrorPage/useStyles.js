@@ -88,7 +88,7 @@ const useStyles = makeStyles(
         margin: 0,
       },
     },
-  }),
+  })
 );
 
 export default useStyles;

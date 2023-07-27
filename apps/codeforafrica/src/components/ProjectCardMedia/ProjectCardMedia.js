@@ -15,10 +15,11 @@ const ProjectCardMediaRoot = styled(CardMedia, {
   },
 }));
 
-const ProjectCardMedia = React.forwardRef(
-  function ProjectCardMedia(props, ref) {
-    return <ProjectCardMediaRoot component="img" {...props} ref={ref} />;
-  },
-);
+const ProjectCardMedia = React.forwardRef(function ProjectCardMedia(
+  props,
+  ref
+) {
+  return <ProjectCardMediaRoot component="img" {...props} ref={ref} />;
+});
 
 export default ProjectCardMedia;

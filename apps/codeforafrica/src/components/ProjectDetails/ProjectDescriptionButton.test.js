@@ -17,7 +17,7 @@ const defaultProps = {
 describe("<ProjectDescriptionButton />", () => {
   it("renders unchanged", () => {
     const { container } = render(
-      <ProjectDescriptionButton {...defaultProps} />,
+      <ProjectDescriptionButton {...defaultProps} />
     );
     expect(container).toMatchSnapshot();
   });

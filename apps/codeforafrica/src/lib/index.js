@@ -89,7 +89,7 @@ const ALL_TAG = "All";
 
 function getProjectTags(options = { includeAll: true }) {
   const tags = Array.from(
-    new Set(projects?.flatMap((a) => a.tag || [])),
+    new Set(projects?.flatMap((a) => a.tag || []))
   ).sort();
   if (options?.includeAll) {
     return [ALL_TAG, ...tags];
@@ -110,7 +110,7 @@ function paginateResults(items, page, pageSize) {
     count = Math.ceil(items.length / pageSizeNumber);
     results = items.slice(
       (pageNumber - 1) * pageSizeNumber,
-      pageNumber * pageSizeNumber,
+      pageNumber * pageSizeNumber
     );
   }
   return {
@@ -149,7 +149,7 @@ export async function getStories(options) {
   } else {
     if (!equalsIgnoreCase(tag, ALL_TAG)) {
       stories = stories.filter((s) =>
-        s.tags.some((t) => equalsIgnoreCase(t, tag)),
+        s.tags.some((t) => equalsIgnoreCase(t, tag))
       );
     }
     if (q && stories.length) {
@@ -208,7 +208,7 @@ export function getProjects(options) {
   const tag = originalTag || ALL_TAG;
 
   let found = projects.filter(
-    (p) => equalsIgnoreCase(tag, ALL_TAG) || equalsIgnoreCase(tag, p.tag),
+    (p) => equalsIgnoreCase(tag, ALL_TAG) || equalsIgnoreCase(tag, p.tag)
   );
   if (found.length && q) {
     found = fuse
@@ -326,7 +326,7 @@ function getPrivacyPageStaticProps() {
 
 async function getProjectPageStaticProps(params) {
   const project = projects.find(({ href }) =>
-    equalsIgnoreCase(href, params?.slug),
+    equalsIgnoreCase(href, params?.slug)
   );
 
   if (project) {
@@ -452,7 +452,7 @@ async function getStoryPageStaticProps(slug) {
 
 function getMembersFieldTags(options = { includeAll: true }) {
   let countries = Array.from(
-    new Set(team?.flatMap((m) => m.country || [])),
+    new Set(team?.flatMap((m) => m.country || []))
   ).sort();
   let teams = Array.from(new Set(team?.flatMap((m) => m.team || []))).sort();
   if (options?.includeAll) {
@@ -478,7 +478,7 @@ export function getMembers(options) {
   let found = team.filter(
     (m) =>
       equalsIgnoreCase(tag, ALL_TAG) ||
-      (field && equalsIgnoreCase(tag, m[field])),
+      (field && equalsIgnoreCase(tag, m[field]))
   );
   if (found.length && q) {
     found = fuse
@@ -534,7 +534,7 @@ function getAboutMemberPageStaticProps(params) {
           {
             ...relatedProjects,
             projects: projects.filter((p) =>
-              p.team?.list?.find((m) => m.id === member.id),
+              p.team?.list?.find((m) => m.id === member.id)
             ),
           },
         ],
@@ -617,7 +617,7 @@ function getAboutPageStaticProps() {
 
 function getAboutPartnerPageStaticProps(params) {
   const partner = partners.find(({ slug }) =>
-    equalsIgnoreCase(`/about/partners/${slug}`, params?.slug),
+    equalsIgnoreCase(`/about/partners/${slug}`, params?.slug)
   );
 
   if (partner) {
@@ -635,7 +635,7 @@ function getAboutPartnerPageStaticProps(params) {
           {
             ...relatedProjects,
             projects: projects.filter((p) =>
-              p.partners?.list?.find((l) => l.id === partner.id),
+              p.partners?.list?.find((l) => l.id === partner.id)
             ),
           },
         ],

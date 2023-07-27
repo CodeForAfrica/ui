@@ -48,7 +48,7 @@ const ProjectDescriptionButton = React.forwardRef(
         key={slug}
       />
     );
-  },
+  }
 );
 
 export default ProjectDescriptionButton;

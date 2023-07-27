@@ -8,7 +8,7 @@ import isExternalUrl from "@/commons-ui/next/utils/isExternalUrl";
 
 const RichTypography = React.forwardRef(function RichTypography(
   { LinkProps, ...props },
-  ref,
+  ref
 ) {
   const router = useRouter();
   const onClick = (e) => {

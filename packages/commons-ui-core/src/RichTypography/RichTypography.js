@@ -16,7 +16,7 @@ const RichTypographyRoot = styled(Typography, {
 
 const RichTypography = React.forwardRef(function RichTypography(
   { LinkProps, children: childrenProp, component, html = true, ...props },
-  ref,
+  ref
 ) {
   const typographyRef = useRef();
   useImperativeHandle(ref, () => typographyRef.current);

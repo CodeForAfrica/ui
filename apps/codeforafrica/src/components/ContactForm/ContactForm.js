@@ -147,7 +147,7 @@ const ContactFormRoot = styled(RichTypography)(
     "& #mc_embed_signup button[type=submit]:hover": {
       cursor: "pointer",
     },
-  }),
+  })
 );
 
 /**

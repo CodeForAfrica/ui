@@ -295,7 +295,7 @@ deepmerge(
       },
     },
   },
-  { clone: false },
+  { clone: false }
 );
 
 // ## OVERRIDES
@@ -360,7 +360,7 @@ deepmerge(
       },
     },
   },
-  { clone: false },
+  { clone: false }
 );
 
 export default theme;

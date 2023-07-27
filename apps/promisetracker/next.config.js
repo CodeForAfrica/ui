@@ -41,7 +41,7 @@ const moduleExports = {
         issuer: /\.[jt]sx?$/,
         resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
         use: ["@svgr/webpack"],
-      },
+      }
     );
 
     return config;

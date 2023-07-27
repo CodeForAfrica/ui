@@ -28,8 +28,8 @@ export default async (req, res) => {
         function recieveMessage(e) {
           window.opener.postMessage(
             'authorization:${oauthProvider}:${status}:${JSON.stringify(
-              content,
-            )}',
+    content
+  )}',
             e.origin
           );
         }

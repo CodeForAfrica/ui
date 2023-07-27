@@ -47,7 +47,7 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
     },
     [breakpoints.up("lg")]: {
       padding: `${typography.pxToRem(28)} ${typography.pxToRem(
-        34.5,
+        34.5
       )} 0 ${typography.pxToRem(34.5)}`,
     },
   },

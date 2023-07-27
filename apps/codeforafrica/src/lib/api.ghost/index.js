@@ -4,7 +4,7 @@ import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 export async function getAllOpportunities() {
   const allPosts = await getAllPosts();
   return allPosts.filter((post) =>
-    equalsIgnoreCase(post.primaryTag.name, "opportunities"),
+    equalsIgnoreCase(post.primaryTag.name, "opportunities")
   );
 }
 
@@ -21,7 +21,7 @@ export async function getOpportnity(slug) {
 export async function getAllStories() {
   const allPosts = await getAllPosts();
   return allPosts.filter((post) =>
-    equalsIgnoreCase(post.primaryTag.name, "stories"),
+    equalsIgnoreCase(post.primaryTag.name, "stories")
   );
 }
 
@@ -40,6 +40,6 @@ export async function getRelatedStoriesByTags(tags, story = {}) {
   return stories.filter(
     (s) =>
       s.id !== story.id &&
-      s.tags.some((t) => tags.find((st) => equalsIgnoreCase(t, st))),
+      s.tags.some((t) => tags.find((st) => equalsIgnoreCase(t, st)))
   );
 }

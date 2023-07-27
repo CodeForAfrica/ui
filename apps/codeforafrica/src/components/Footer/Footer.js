@@ -21,7 +21,7 @@ const FooterRoot = styled(Box)(
     [breakpoints.up("lg")]: {
       padding: `${typography.pxToRem(100)} 0`,
     },
-  }),
+  })
 );
 
 const Footer = React.forwardRef(function Footer(props, ref) {
@@ -86,7 +86,7 @@ Footer.propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
-    }),
+    })
   ),
 };
 

@@ -13,7 +13,7 @@ describe("RichTypography", () => {
     render(
       <RichTypography>
         <b>this is an example</b>
-      </RichTypography>,
+      </RichTypography>
     );
     const node = screen.getByText("this is an example");
     expect(node).toBeInTheDocument();

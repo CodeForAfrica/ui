@@ -21,7 +21,7 @@ const Opportunities = React.forwardRef(function Opportunities(
     },
     sx,
   },
-  ref,
+  ref
 ) {
   const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);

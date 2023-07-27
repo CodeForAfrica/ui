@@ -24,7 +24,7 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   },
   accordionDetails: {
     padding: `${typography.pxToRem(8)} ${typography.pxToRem(
-      14,
+      14
     )} ${typography.pxToRem(22)} ${typography.pxToRem(14)}`,
   },
   accordionExpanded: {},

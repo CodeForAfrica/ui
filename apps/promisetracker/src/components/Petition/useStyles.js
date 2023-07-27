@@ -143,7 +143,7 @@ const useStyles = makeStyles(
     title: {
       marginBottom: "2rem",
     },
-  }),
+  })
 );
 
 export default useStyles;

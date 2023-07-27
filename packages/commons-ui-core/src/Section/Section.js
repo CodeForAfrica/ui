@@ -23,7 +23,7 @@ const SectionRoot = styled(Container, {
       }
 
       return acc;
-    }, {}),
+    }, {})
 );
 
 /**

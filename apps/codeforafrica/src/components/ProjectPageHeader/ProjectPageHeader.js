@@ -56,103 +56,101 @@ const ProjectTitle = styled(RichTypography, {
   },
 }));
 
-const ProjectPageHeader = React.forwardRef(
-  function ProjectPageHeader(props, ref) {
-    const {
-      externalHref,
-      icon,
-      name,
-      subtitle,
-      sx,
-      tag,
-      tagLine,
-      title,
-      thumbnail,
-    } = props;
-    const crumbs = [{ href: "/projects", label: "Our Work" }, { label: tag }];
-    const tileProps = { icon, name, tagLine };
+const ProjectPageHeader = React.forwardRef(function ProjectPageHeader(
+  props,
+  ref
+) {
+  const {
+    externalHref,
+    icon,
+    name,
+    subtitle,
+    sx,
+    tag,
+    tagLine,
+    title,
+    thumbnail,
+  } = props;
+  const crumbs = [{ href: "/projects", label: "Our Work" }, { label: tag }];
+  const tileProps = { icon, name, tagLine };
 
-    return (
-      <Background ref={ref}>
-        <Section sx={{ px: { xs: 2.5, sm: 0 }, zIndex: 1, ...sx }}>
-          <ProjectPageHeaderRoot elevation={0} square>
+  return (
+    <Background ref={ref}>
+      <Section sx={{ px: { xs: 2.5, sm: 0 }, zIndex: 1, ...sx }}>
+        <ProjectPageHeaderRoot elevation={0} square>
+          <Breadcrumbs
+            crumbs={crumbs}
+            sx={{
+              color: "text.primary",
+              display: { xs: "flex", sm: "none", md: "flex" },
+              flexBasis: "100%",
+              order: { xs: 0 },
+              width: "100%",
+            }}
+          />
+          <ProjectCardMedia
+            {...thumbnail}
+            component="img"
+            sx={{ mt: { xs: 2.5, sm: 0 }, order: { xs: 1, sm: 2 } }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              mt: { xs: 2.5, sm: 0 },
+              order: { xs: 2, sm: 1 },
+              width: { xs: "100%", sm: "350px", md: "488px" },
+            }}
+          >
             <Breadcrumbs
               crumbs={crumbs}
               sx={{
                 color: "text.primary",
-                display: { xs: "flex", sm: "none", md: "flex" },
-                flexBasis: "100%",
-                order: { xs: 0 },
-                width: "100%",
+                display: { xs: "none", sm: "flex", md: "none" },
               }}
             />
-            <ProjectCardMedia
-              {...thumbnail}
-              component="img"
-              sx={{ mt: { xs: 2.5, sm: 0 }, order: { xs: 1, sm: 2 } }}
-            />
-            <Box
+            <CardContent
               sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                mt: { xs: 2.5, sm: 0 },
-                order: { xs: 2, sm: 1 },
-                width: { xs: "100%", sm: "350px", md: "488px" },
+                mt: { sm: 2.5 },
+                p: 0,
+                "&:last-child": {
+                  p: 0,
+                },
               }}
             >
-              <Breadcrumbs
-                crumbs={crumbs}
-                sx={{
-                  color: "text.primary",
-                  display: { xs: "none", sm: "flex", md: "none" },
-                }}
-              />
-              <CardContent
-                sx={{
-                  mt: { sm: 2.5 },
-                  p: 0,
-                  "&:last-child": {
-                    p: 0,
-                  },
-                }}
+              <ProjectTile {...tileProps} />
+              <ProjectTitle
+                variant="h4"
+                sx={{ mt: 2, typography: { md: "h2" } }}
               >
-                <ProjectTile {...tileProps} />
-                <ProjectTitle
-                  variant="h4"
-                  sx={{ mt: 2, typography: { md: "h2" } }}
-                >
-                  {title}
-                </ProjectTitle>
-                <RichTypography
-                  variant="body2"
-                  sx={{ mt: 2.5, typography: { md: "subheading" } }}
-                >
-                  {subtitle}
-                </RichTypography>
-              </CardContent>
-              <CardActions sx={{ mt: 2, p: 0 }}>
-                <Button
-                  href={externalHref}
-                  component={externalHref ? Link : undefined}
-                  endIcon={
-                    <SvgIcon
-                      component={ExternalLinkIcon}
-                      sx={{ fill: "none" }}
-                    />
-                  }
-                  variant="contained"
-                  sx={{ py: 1 }}
-                >
-                  Launch Project
-                </Button>
-              </CardActions>
-            </Box>
-          </ProjectPageHeaderRoot>
-        </Section>
-      </Background>
-    );
-  },
-);
+                {title}
+              </ProjectTitle>
+              <RichTypography
+                variant="body2"
+                sx={{ mt: 2.5, typography: { md: "subheading" } }}
+              >
+                {subtitle}
+              </RichTypography>
+            </CardContent>
+            <CardActions sx={{ mt: 2, p: 0 }}>
+              <Button
+                href={externalHref}
+                component={externalHref ? Link : undefined}
+                endIcon={
+                  <SvgIcon component={ExternalLinkIcon} sx={{ fill: "none" }} />
+                }
+                variant="contained"
+                sx={{ py: 1 }}
+              >
+                Launch Project
+              </Button>
+            </CardActions>
+          </Box>
+        </ProjectPageHeaderRoot>
+      </Section>
+    </Background>
+  );
+});
 
 export default ProjectPageHeader;

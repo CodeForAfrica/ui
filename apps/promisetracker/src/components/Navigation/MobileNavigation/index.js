@@ -181,7 +181,7 @@ function MobileNavigation({ navigation, ...props }) {
                           },
                           {
                             [classes.buttonLanguageFirst]: i === 0,
-                          },
+                          }
                         )}
                       >
                         {_.language(locale)}

@@ -15,7 +15,7 @@ async function createPetition(req, res) {
     formdata.append("problem_statement", values.problemStatement);
     formdata.append(
       "number_of_signatures_required",
-      Number(values.numberOfSignaturesRequired),
+      Number(values.numberOfSignaturesRequired)
     );
     if (values.image.name) {
       const imageBuffer = Buffer.from(values.image.binary, "binary");

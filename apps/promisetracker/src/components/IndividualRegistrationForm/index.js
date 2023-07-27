@@ -60,7 +60,7 @@ function IndividualRegistrationForm({
           phoneNumber,
           socialMedia,
         },
-        { setErrors, setSubmitting },
+        { setErrors, setSubmitting }
       ) => {
         const body = {
           first_name: firstName,

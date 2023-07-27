@@ -20,11 +20,11 @@ const OfficeAddressesRoot = styled(Box)(({ theme, ownerState }) => ({
 const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
   const { addresses, height = 700, map, title, ...other } = props;
   const [activeAddress, setActiveAddress] = React.useState(
-    addresses?.[0] ?? null,
+    addresses?.[0] ?? null
   );
   const handleClickAddress = (_, addressTitle) => {
     setActiveAddress(
-      addresses.find((address) => address.title === addressTitle),
+      addresses.find((address) => address.title === addressTitle)
     );
   };
 

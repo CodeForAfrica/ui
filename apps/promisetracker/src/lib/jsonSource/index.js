@@ -5,13 +5,13 @@ const allPromises = client.getPromises();
 
 function handleSinglePromise(defaultStatus, promiseStatuses, promise) {
   let matchingStatus = promiseStatuses.find(
-    (currentStatus) => currentStatus.title === promise.status.title,
+    (currentStatus) => currentStatus.title === promise.status.title
   );
   matchingStatus = matchingStatus || defaultStatus;
   const relatedPromises = allPromises.filter(
     (p) =>
       p.slug !== promise.slug &&
-      promise.categories.some((v) => p.categories.includes(v)),
+      promise.categories.some((v) => p.categories.includes(v))
   );
 
   return {
@@ -29,7 +29,7 @@ function handlePromises(defaultStatus, promiseStatuses, promises) {
 
 const promiseSource = ({ promiseStatuses }) => {
   const defaultStatus = promiseStatuses.find(
-    (status) => status.title === "Inconclusive",
+    (status) => status.title === "Inconclusive"
   );
 
   const api = {
