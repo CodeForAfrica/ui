@@ -23,7 +23,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   const [articles, setArticles] = useState(resultsProp);
   const [count, setCount] = useState(countProp);
   const [featuredArticle, setFeaturedArticle] = useState(() =>
-    resultsProp?.find((article) => article.featured)
+    resultsProp?.find((article) => article.featured),
   );
   const [page, setPage] = useState(pageProp);
   const [q, setQ] = useState();
@@ -62,13 +62,13 @@ const Articles = React.forwardRef(function Articles(props, ref) {
         newFeaturedArticle = newArticles.find((article) => article.featured);
         if (newFeaturedArticle) {
           newArticles = newArticles.filter(
-            (article) => article.id !== newFeaturedArticle.id
+            (article) => article.id !== newFeaturedArticle.id,
           );
         }
       }
       setCount(pagination.count);
       setFeaturedArticle(
-        newFeaturedArticle ? { ...newFeaturedArticle } : undefined
+        newFeaturedArticle ? { ...newFeaturedArticle } : undefined,
       );
       setArticles([...newArticles]);
     }

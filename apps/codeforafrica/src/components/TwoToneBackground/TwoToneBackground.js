@@ -28,7 +28,7 @@ const TwoToneBackgroundRoot = styled(Box)(({ theme }) => ({
         theme.palette.background.main
       } 30%, transparent 40%, transparent 95%, ${alpha(
         theme.palette.background.main,
-        0.7
+        0.7,
       )} 98%)`,
     },
     [theme.breakpoints.up("lg")]: {
@@ -40,11 +40,10 @@ const TwoToneBackgroundRoot = styled(Box)(({ theme }) => ({
   },
 }));
 
-const TwoToneBackground = React.forwardRef(function TwoToneBackground(
-  props,
-  ref
-) {
-  return <TwoToneBackgroundRoot {...props} ref={ref} />;
-});
+const TwoToneBackground = React.forwardRef(
+  function TwoToneBackground(props, ref) {
+    return <TwoToneBackgroundRoot {...props} ref={ref} />;
+  },
+);
 
 export default TwoToneBackground;

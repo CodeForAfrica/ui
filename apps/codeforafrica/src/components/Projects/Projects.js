@@ -22,7 +22,7 @@ const Projects = React.forwardRef(function Projects(
     },
     sx,
   },
-  ref
+  ref,
 ) {
   const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);

@@ -20,33 +20,32 @@ const ICON_BY_NAME = {
   slack: SlackIcon,
 };
 
-const SocialMediaButton = React.forwardRef(function SocialMediaButton(
-  props,
-  ref
-) {
-  const { component: componentProp, name, url } = props;
-  const component = componentProp || Link;
-  const tooltipProps = {
-    title: name,
-  };
+const SocialMediaButton = React.forwardRef(
+  function SocialMediaButton(props, ref) {
+    const { component: componentProp, name, url } = props;
+    const component = componentProp || Link;
+    const tooltipProps = {
+      title: name,
+    };
 
-  const Icon = ICON_BY_NAME[name?.toLowerCase()];
-  if (!Icon) {
-    return null;
-  }
-  return (
-    <TooltipButton
-      component={component}
-      href={url}
-      tooltipProps={tooltipProps}
-      sx={{
-        color: "inherit",
-      }}
-      ref={ref}
-    >
-      <SvgIcon sx={{ fill: "none" }} component={Icon} />
-    </TooltipButton>
-  );
-});
+    const Icon = ICON_BY_NAME[name?.toLowerCase()];
+    if (!Icon) {
+      return null;
+    }
+    return (
+      <TooltipButton
+        component={component}
+        href={url}
+        tooltipProps={tooltipProps}
+        sx={{
+          color: "inherit",
+        }}
+        ref={ref}
+      >
+        <SvgIcon sx={{ fill: "none" }} component={Icon} />
+      </TooltipButton>
+    );
+  },
+);
 
 export default SocialMediaButton;

@@ -12,29 +12,28 @@ import isExternalUrl from "@/commons-ui/next/utils/isExternalUrl";
 // Add support for the sx prop for consistency with the other branches.
 const Anchor = styled("a")({});
 
-export const NextLinkComposed = React.forwardRef(function NextLinkComposed(
-  props,
-  ref
-) {
-  const { linkAs, locale, prefetch, replace, scroll, shallow, to, ...other } =
-    props;
+export const NextLinkComposed = React.forwardRef(
+  function NextLinkComposed(props, ref) {
+    const { linkAs, locale, prefetch, replace, scroll, shallow, to, ...other } =
+      props;
 
-  return (
-    <NextLink
-      as={linkAs}
-      href={to}
-      legacyBehavior
-      locale={locale}
-      passHref
-      prefetch={prefetch}
-      replace={replace}
-      scroll={scroll}
-      shallow={shallow}
-    >
-      <Anchor ref={ref} {...other} />
-    </NextLink>
-  );
-});
+    return (
+      <NextLink
+        as={linkAs}
+        href={to}
+        legacyBehavior
+        locale={locale}
+        passHref
+        prefetch={prefetch}
+        replace={replace}
+        scroll={scroll}
+        shallow={shallow}
+      >
+        <Anchor ref={ref} {...other} />
+      </NextLink>
+    );
+  },
+);
 
 NextLinkComposed.propTypes = {
   href: PropTypes.string,
@@ -100,7 +99,16 @@ const Link = React.forwardRef(function Link(props, ref) {
         setClassName(newClassName);
       }
     }
-  }, [activeClassName, asPath, className, classNameProp, href, isActive, isReady, linkAs]);
+  }, [
+    activeClassName,
+    asPath,
+    className,
+    classNameProp,
+    href,
+    isActive,
+    isReady,
+    linkAs,
+  ]);
 
   const isExternal = isExternalUrl(href);
 

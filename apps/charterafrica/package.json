@@ -103,7 +103,7 @@
     "jest-config-commons-ui": "workspace:*",
     "nodemon": "^2.0.22",
     "playwright-config-commons-ui": "workspace:*",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.0",
     "react-test-renderer": "^18.2.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5",

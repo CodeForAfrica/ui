@@ -13,7 +13,7 @@ function gsheets(server) {
   const SPREADSHEETS_URL = "https://docs.google.com/spreadsheets/";
   const spreadsheetId = server.env("GSHEETS_SPREADSHEET_ID");
   const sitesNavigationsSheetId = server.env(
-    "GSHEETS_SITES_NAVIGATIONS_SHEET_ID"
+    "GSHEETS_SITES_NAVIGATIONS_SHEET_ID",
   );
   const entitiesSheetId = server.env("GSHEETS_ENTITIES_SHEET_ID");
   const sitesSheetId = server.env("GSHEETS_SITES_SHEET_ID");
@@ -21,10 +21,10 @@ function gsheets(server) {
   const categoriesSheetId = server.env("GSHEETS_CATEGORIES_SHEET_ID");
   const promisesSheetId = server.env("GSHEETS_PROMISES_SHEET_ID");
   const promisesCategoriesSheetId = server.env(
-    "GSHEETS_PROMISES_CATEGORIES_SHEET_ID"
+    "GSHEETS_PROMISES_CATEGORIES_SHEET_ID",
   );
   const articlesCategoriesSheetId = server.env(
-    "GSHEETS_ARTICLES_CATEGORIES_SHEET_ID"
+    "GSHEETS_ARTICLES_CATEGORIES_SHEET_ID",
   );
   const promisesEventsSheetId = server.env("GSHEETS_PROMISES_EVENTS_SHEET_ID");
   const articlesSheetId = server.env("GSHEETS_ARTICLES_SHEET_ID");
@@ -71,7 +71,7 @@ function gsheets(server) {
 
   async function fetchSheet(sheetId, options) {
     const response = await fetch(
-      `${SPREADSHEETS_URL}d/${spreadsheetId}/export?format=csv&gid=${sheetId}`
+      `${SPREADSHEETS_URL}d/${spreadsheetId}/export?format=csv&gid=${sheetId}`,
     );
     return papaPromise(response.body, options);
   }
@@ -83,7 +83,7 @@ function gsheets(server) {
     };
     const sitesNavigationsSheet = await fetchSheet(
       sitesNavigationsSheetId,
-      options
+      options,
     );
     return sitesNavigationsSheet
       .filter((row) => row.site)
@@ -109,7 +109,7 @@ function gsheets(server) {
       ...papaOptions,
       dynamicTyping: (header) =>
         ["articles", "resources", "factchecks", "actnow"].includes(
-          header.toLowerCase()
+          header.toLowerCase(),
         ),
     };
     return fetchSheet(sitesSheetId, options);
@@ -151,7 +151,7 @@ function gsheets(server) {
       ? sitesSheet.find((row) => equalsIgnoreCase(server.slug, row.slug))
       : sitesSheet[0];
     const entity = entitiesSheet.find((row) =>
-      equalsIgnoreCase(row.name, siteRow.entity)
+      equalsIgnoreCase(row.name, siteRow.entity),
     );
     const {
       articles: articlesEnabled,
@@ -162,7 +162,7 @@ function gsheets(server) {
     } = siteRow;
     const navigationRow =
       sitesNavigationsSheet.find((row) =>
-        equalsIgnoreCase(row.site, siteRow.slug)
+        equalsIgnoreCase(row.site, siteRow.slug),
       ) || {};
     const navigation = merge({}, config.site.header.navigation, navigationRow);
     const {
@@ -252,7 +252,7 @@ function gsheets(server) {
         ...others,
         photo,
         categories: articleCategories.filter(({ article }) =>
-          equalsIgnoreCase(article.id, others.id)
+          equalsIgnoreCase(article.id, others.id),
         ),
         image: photo,
       }));

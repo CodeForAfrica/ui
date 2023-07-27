@@ -188,7 +188,7 @@ const useStyles = makeStyles(
       ...typography.h6,
       color: palette.secondary.dark,
     },
-  })
+  }),
 );
 
 export default useStyles;

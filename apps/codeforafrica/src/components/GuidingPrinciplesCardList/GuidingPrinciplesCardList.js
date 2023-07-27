@@ -32,7 +32,7 @@ const GuidingPrinciplesCardList = React.forwardRef(
         </Grid>
       </Section>
     );
-  }
+  },
 );
 
 export default GuidingPrinciplesCardList;

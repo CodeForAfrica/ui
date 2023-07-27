@@ -29,7 +29,7 @@ function actnow(site) {
 
   async function fetchToken(url, params) {
     const Authorization = `Basic ${Buffer.from(
-      `${ACTNOW_CLIENT_ID}:${ACTNOW_CLIENT_SECRET}`
+      `${ACTNOW_CLIENT_ID}:${ACTNOW_CLIENT_SECRET}`,
     ).toString("base64")}`;
     const body = new URLSearchParams({
       grant_type: "password",
