@@ -56,7 +56,7 @@ exports[`<Document /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-mqmitf-MuiGrid-root"
           >
             <div
-              class="MuiStack-root css-ro4qnv-MuiStack-root"
+              class="MuiStack-root css-m2meqv-MuiStack-root"
             >
               <div
                 class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
@@ -64,7 +64,7 @@ exports[`<Document /> renders unchanged 1`] = `
                 Share this document
               </div>
               <div
-                class="MuiStack-root css-a2l1ks-MuiStack-root"
+                class="MuiStack-root css-b6wkik-MuiStack-root"
               >
                 <button
                   aria-label="twitter"

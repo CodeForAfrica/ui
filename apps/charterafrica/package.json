@@ -63,7 +63,7 @@
     "migrate-mongo": "^10.0.0",
     "monaco-editor": "^0.38.0",
     "nanoid": "^4.0.2",
-    "next": "~13.4.11",
+    "next": "~13.3.4",
     "next-seo": "^5.15.0",
     "nodemailer-sendgrid": "^1.0.3",
     "payload": "^1.7.5",

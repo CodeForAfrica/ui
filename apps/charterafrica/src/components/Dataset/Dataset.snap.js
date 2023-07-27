@@ -82,7 +82,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <div
-              class="MuiStack-root css-1gopyth-MuiStack-root"
+              class="MuiStack-root css-1p1s33i-MuiStack-root"
             >
               <div
                 class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
@@ -90,7 +90,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
                 Share Via
               </div>
               <div
-                class="MuiStack-root css-a2l1ks-MuiStack-root"
+                class="MuiStack-root css-b6wkik-MuiStack-root"
               >
                 <button
                   aria-label="twitter"
