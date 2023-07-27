@@ -38,7 +38,7 @@ function Share({
   // Embed url
   const url = new URL(
     `/embed/${geoCode.toLowerCase()}/${indicatorId}`,
-    site.environmentUrl
+    site.environmentUrl,
   ).toString();
 
   const shareData = [

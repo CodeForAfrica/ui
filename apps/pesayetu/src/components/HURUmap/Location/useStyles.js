@@ -8,7 +8,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     bottom: "auto",
     boxShadow: `0px 3px 6px ${alpha("#000000", 0.16)}`, // #00000029
     padding: `${typography.pxToRem(4.12)} ${typography.pxToRem(
-      19
+      19,
     )} ${typography.pxToRem(12)} ${typography.pxToRem(21)}`,
     width: typography.pxToRem(600),
   },

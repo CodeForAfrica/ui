@@ -6,7 +6,7 @@ import React from "react";
 
 const CMSContent = React.forwardRef(function CMSContent(
   { children, sx, TypographyProps },
-  ref
+  ref,
 ) {
   return (
     <Section

@@ -22,7 +22,7 @@ function ChartFilter({
   const classes = useStyles(props);
 
   const [selectedAttribute, setSelectedAttribute] = useState(
-    selectedAttributeProp
+    selectedAttributeProp,
   );
   const [selectedValue, setSelectedValue] = useState(selectedValueProp);
 
@@ -35,7 +35,9 @@ function ChartFilter({
       setValueOptions(
         groups
           ?.find(({ name }) => name === selectedAttribute)
-          ?.subindicators?.sort((a, b) => a.localeCompare(b)) ?? [selectedValue]
+          ?.subindicators?.sort((a, b) => a.localeCompare(b)) ?? [
+          selectedValue,
+        ],
       );
     } else if (groups) {
       setAttributeOptions([
@@ -55,7 +57,7 @@ function ChartFilter({
       setValueOptions(
         groups
           .find(({ name }) => name === e.target.value)
-          ?.subindicators?.sort((a, b) => a.localeCompare(b))
+          ?.subindicators?.sort((a, b) => a.localeCompare(b)),
       );
       if (onSelectAttribute) {
         onSelectAttribute(e.target.value, index);
@@ -139,7 +141,7 @@ ChartFilter.propTypes = {
     PropTypes.shape({
       name: PropTypes.string,
       subindicators: PropTypes.arrayOf(PropTypes.string),
-    })
+    }),
   ),
   onSelectValue: PropTypes.func,
   onSelectAttribute: PropTypes.func,

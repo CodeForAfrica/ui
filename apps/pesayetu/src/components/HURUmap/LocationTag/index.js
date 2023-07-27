@@ -123,7 +123,7 @@ function LocationTag({
           className={clsx(
             classes.level,
             classes[`level${capitalize(color)}`],
-            classes.levelLoaded
+            classes.levelLoaded,
           )}
         >
           {level}

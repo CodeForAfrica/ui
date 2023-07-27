@@ -101,7 +101,7 @@ export default async function getPostTypeStaticPaths(postType) {
     .filter(
       (post) =>
         !!post.params.slug.join("/").length &&
-        !post.params.slug.includes("uncategorized")
+        !post.params.slug.includes("uncategorized"),
     )
     // include categories path
     .concat(cat);

@@ -13,7 +13,7 @@ const defaultProps = {};
 describe("<GuidingPrinciplesList />", () => {
   it("renders unchanged", () => {
     const { container } = render(
-      <GuidingPrinciplesCardList {...defaultProps} />
+      <GuidingPrinciplesCardList {...defaultProps} />,
     );
     expect(container).toMatchSnapshot();
   });

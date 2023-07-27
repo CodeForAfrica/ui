@@ -81,7 +81,7 @@ SocialMediaIcons.propTypes = {
       url: PropTypes.string,
       label: PropTypes.string,
       src: PropTypes.string,
-    })
+    }),
   ),
 };
 

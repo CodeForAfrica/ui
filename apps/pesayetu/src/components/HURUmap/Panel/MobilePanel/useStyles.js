@@ -83,7 +83,7 @@ const useStyles = makeStyles(
     topIcon: {
       marginRight: typography.pxToRem(20),
     },
-  })
+  }),
 );
 
 export default useStyles;

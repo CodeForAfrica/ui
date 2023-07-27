@@ -18,7 +18,7 @@ export default function getProjects(fields) {
     if (project.badges?.length) {
       const badges = getBadges(["id", "name", "content", "date"]);
       project.badges = project.badges.map((id) =>
-        badges.find((badge) => badge.id === id)
+        badges.find((badge) => badge.id === id),
       );
     }
     if (project.partners?.length) {
@@ -33,7 +33,7 @@ export default function getProjects(fields) {
       project.partners = {
         title: "Partners",
         list: project.partners.map((id) =>
-          partners.find((partner) => partner.id === id)
+          partners.find((partner) => partner.id === id),
         ),
       };
     }
@@ -42,7 +42,7 @@ export default function getProjects(fields) {
       project.donors = {
         title: "Donors",
         list: project.donors.map((id) =>
-          donors.find((donor) => donor.id === id)
+          donors.find((donor) => donor.id === id),
         ),
       };
     }

@@ -59,7 +59,7 @@ export async function getStaticProps({ preview, previewData }) {
     { slug: "/" },
     postType,
     preview,
-    previewData
+    previewData,
   );
 
   if (notFound) {

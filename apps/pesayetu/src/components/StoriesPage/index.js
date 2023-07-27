@@ -73,7 +73,7 @@ StoriesPage.propTypes = {
     PropTypes.shape({
       name: PropTypes.string,
       slug: PropTypes.string,
-    })
+    }),
   ),
   featuredStories: PropTypes.shape({
     news: PropTypes.shape({}),

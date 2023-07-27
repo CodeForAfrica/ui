@@ -37,7 +37,7 @@ const processHero = (page) => {
 const processInfographic = (page) => {
   const { blocks } = page;
   const infographicIndex = blocks.findIndex(
-    (block) => block.slug === "aga-infographic"
+    (block) => block.slug === "aga-infographic",
   );
 
   const infographic = blocks[infographicIndex] ?? null;
@@ -51,7 +51,7 @@ const processSpotlight = (page, api, context) => {
   const { blocks } = page;
   const { locale } = context;
   const spotlightIndex = blocks.findIndex(
-    (block) => block.slug === "spotlight"
+    (block) => block.slug === "spotlight",
   );
   if (spotlightIndex > -1) {
     const spotlight = blocks[spotlightIndex];

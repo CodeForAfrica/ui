@@ -80,7 +80,7 @@ DataVisualisationGuide.propTypes = {
     PropTypes.shape({
       description: PropTypes.string,
       image: PropTypes.string,
-    })
+    }),
   ),
 };
 

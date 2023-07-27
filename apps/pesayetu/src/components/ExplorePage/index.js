@@ -35,7 +35,7 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
     setGeoCode(code);
   };
   const [state, dispatch] = useExplore(
-    initialState(profileProp, handleClickTag)
+    initialState(profileProp, handleClickTag),
   );
   useEffect(() => {
     dispatch({
@@ -174,7 +174,7 @@ ExplorePage.propTypes = {
         geometries: PropTypes.shape({}),
         highlights: PropTypes.arrayOf(PropTypes.shape({})),
         tags: PropTypes.arrayOf(PropTypes.shape({})),
-      })
+      }),
     ),
   ]),
 };

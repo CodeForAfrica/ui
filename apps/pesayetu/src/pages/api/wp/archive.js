@@ -24,7 +24,7 @@ export default async function archive(req, res) {
       size,
       postType,
       orderBy,
-      order
+      order,
     );
 
     // Check for errors.
@@ -43,7 +43,7 @@ export default async function archive(req, res) {
       .status(error?.status || 500)
       .end(
         error?.message ||
-          "An error occurred while attempting to load more posts"
+          "An error occurred while attempting to load more posts",
       );
   }
 }

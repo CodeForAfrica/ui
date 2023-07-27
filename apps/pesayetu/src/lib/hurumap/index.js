@@ -7,13 +7,13 @@ const apiUrl = process.env.HURUMAP_API_URL || hurumap?.api?.url;
 
 export async function fetchProfile() {
   const { configuration } = await fetchJson(
-    new URL("/api/v1/profiles/1/?format=json", apiUrl)
+    new URL("/api/v1/profiles/1/?format=json", apiUrl),
   );
 
   const locations = configuration?.featured_locations?.map(
     ({ name, code, level }) => {
       return { name, level, code: code.toLowerCase() };
-    }
+    },
   );
 
   return { locations, preferredChildren: configuration.preferred_children };
@@ -35,7 +35,7 @@ function formatProfileGeographyData(data, parent) {
               title: child,
               description: data[label]?.subcategories[child].description,
               children: Object.keys(
-                data[label]?.subcategories[child]?.indicators ?? []
+                data[label]?.subcategories[child]?.indicators ?? [],
               )
                 .map((indicator) => {
                   return {
@@ -73,7 +73,7 @@ function formatProfileGeographyData(data, parent) {
           })
           .filter(
             (subcategory) =>
-              subcategory.children.length || subcategory.metrics.length
+              subcategory.children.length || subcategory.metrics.length,
           ),
       };
     })
@@ -85,8 +85,8 @@ export async function fetchProfileGeography(geoCode) {
   const json = await fetchJson(
     new URL(
       `/api/v1/all_details/profile/1/geography/${geoCode.toUpperCase()}/?format=json`,
-      apiUrl
-    )
+      apiUrl,
+    ),
   );
   const { boundary, children, parent_layers: parents } = json;
   const geometries = { boundary, children, parents };
@@ -113,7 +113,7 @@ export async function fetchProfileGeography(geoCode) {
       method,
       value,
       title: label,
-    })
+    }),
   );
   const tags = geography.parents
     .concat(geography)
@@ -131,8 +131,8 @@ export async function fetchProfileGeography(geoCode) {
     const parentJson = await fetchJson(
       new URL(
         `/api/v1/all_details/profile/1/geography/${parentCode.toUpperCase()}/?format=json`,
-        apiUrl
-      )
+        apiUrl,
+      ),
     );
     parent.data = parentJson.profile.profile_data;
     parent.name = name;

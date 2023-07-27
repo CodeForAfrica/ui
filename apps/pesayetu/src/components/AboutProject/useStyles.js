@@ -16,7 +16,7 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
     marginBottom: typography.pxToRem(149),
     background: palette.background.default,
     padding: `${typography.pxToRem(58)} ${typography.pxToRem(
-      26
+      26,
     )} ${typography.pxToRem(28)}`,
 
     [breakpoints.up("md")]: {

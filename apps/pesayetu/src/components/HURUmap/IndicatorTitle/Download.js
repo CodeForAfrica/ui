@@ -101,7 +101,7 @@ function Download({
       view?.signal("chartY", 60);
       view?.signal(
         "titleGroupY",
-        totalHeight - 80 + (chartTitle.length - 1) * 15
+        totalHeight - 80 + (chartTitle.length - 1) * 15,
       );
       view?.signal("sourceGroupY", 1);
       view?.signal("sourceGroupH", 60);
@@ -129,7 +129,7 @@ function Download({
 
     if (fileType === "json") {
       href = `data:text/json;charset=utf-8,${encodeURIComponent(
-        JSON.stringify(data)
+        JSON.stringify(data),
       )}`;
     } else if (fileType === "csv") {
       href = `data:text/csv;charset=utf-8,${Papa.unparse(data)}`;

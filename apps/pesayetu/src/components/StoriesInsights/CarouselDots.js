@@ -36,7 +36,7 @@ function CarouselDots({ activeStep, onClick, steps, ...props }) {
 
   useEffect(() => {
     const dotsEl = stepperRef.current?.getElementsByClassName(
-      "MuiMobileStepper-dots"
+      "MuiMobileStepper-dots",
     )?.[0];
     if (!(dotsEl || onClick)) {
       return;

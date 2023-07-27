@@ -19,7 +19,7 @@ export default async function getMenus(menus, locations = menuLocations) {
 
   const { locations: featuredLocations } = await fetchProfile();
   const featuredCounties = featuredLocations?.filter(
-    ({ level }) => level === "county"
+    ({ level }) => level === "county",
   );
 
   filteredMenus.counties = featuredCounties;

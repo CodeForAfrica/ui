@@ -12,7 +12,7 @@ export default function StackedChartScope(
   primaryParentData,
   secondaryParentData,
   profileNames,
-  isCompare
+  isCompare,
 ) {
   const { parentLabel } = config;
 
@@ -53,7 +53,7 @@ export default function StackedChartScope(
           groupby: [primaryGroup],
           field: { signal: "datatype[Units]" },
         },
-      ]
+      ],
     ),
     {
       signals: [
@@ -406,6 +406,6 @@ export default function StackedChartScope(
           ],
         },
       ],
-    }
+    },
   );
 }

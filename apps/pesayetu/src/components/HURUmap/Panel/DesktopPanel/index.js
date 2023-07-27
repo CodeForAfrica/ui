@@ -41,7 +41,7 @@ DesktopPanel.propTypes = {
       value: PropTypes.string,
       children: PropTypes.node,
       tree: PropTypes.shape({}),
-    })
+    }),
   ),
   primaryProfile: PropTypes.shape({
     items: PropTypes.arrayOf(PropTypes.shape({})),

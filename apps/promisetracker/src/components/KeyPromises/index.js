@@ -25,7 +25,7 @@ function KeyPromises({
   useEffect(() => {
     if (stepperRef.current) {
       const dotsEl = stepperRef.current.getElementsByClassName(
-        "MuiMobileStepper-dots"
+        "MuiMobileStepper-dots",
       )[0];
       if (dotsEl) {
         dotsEl.childNodes.forEach((dotEl, i) => {
@@ -111,7 +111,7 @@ KeyPromises.propTypes = {
       status: PropTypes.shape({
         color: PropTypes.string.isRequired,
       }),
-    })
+    }),
   ),
   title: PropTypes.string,
   titleProps: PropTypes.shape({}),

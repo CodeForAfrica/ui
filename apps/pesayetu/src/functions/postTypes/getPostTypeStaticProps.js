@@ -19,7 +19,7 @@ export default async function getPostTypeStaticProps(
   params,
   postType,
   preview = false,
-  previewData = null
+  previewData = null,
 ) {
   // Set revalidate length (seconds).
   const revalidate = 60 * 5;
@@ -74,7 +74,7 @@ export default async function getPostTypeStaticProps(
       taxonomy,
       taxonomySlug,
       offset,
-      size
+      size,
     );
 
     // Merge in query results as Apollo state.
@@ -114,7 +114,7 @@ export default async function getPostTypeStaticProps(
     postType,
     id,
     idType,
-    isCurrentPostPreview ? "full" : null
+    isCurrentPostPreview ? "full" : null,
   );
 
   const props = {

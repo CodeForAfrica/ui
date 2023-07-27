@@ -83,7 +83,7 @@ Metrics.propTypes = {
       title: PropTypes.string,
       description: PropTypes.string,
       dataVisualProps: PropTypes.shape({}),
-    })
+    }),
   ),
 };
 

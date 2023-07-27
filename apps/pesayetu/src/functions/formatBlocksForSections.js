@@ -18,7 +18,7 @@ function formatLazyBlockImage(image) {
 async function formatLazyBlockIteratorContentWithImage(
   attributes,
   imgField,
-  itemField = "items"
+  itemField = "items",
 ) {
   const items =
     (await Promise.all(
@@ -28,11 +28,11 @@ async function formatLazyBlockIteratorContentWithImage(
             ...item,
             [imgField]: item[imgField]?.url ?? null,
             [`${imgField}Props`]: await getImagePlaceholder(
-              item[imgField]?.url
+              item[imgField]?.url,
             ),
           };
-        }
-      )
+        },
+      ),
     )) || null;
   return { ...attributes, [itemField]: items };
 }
@@ -43,7 +43,7 @@ function formatDataSource({ items: itemsProps, image, ...rest }) {
 
 async function formatLazyBlockIteratorContentWithImages(
   { items: itemsProps, ...rest },
-  imgField
+  imgField,
 ) {
   const items =
     (await Promise.all(
@@ -55,11 +55,11 @@ async function formatLazyBlockIteratorContentWithImages(
           dataVisualProps: {
             [imgField]: item[imgField]?.url,
             [`${imgField}Props`]: await getImagePlaceholder(
-              item[imgField]?.url
+              item[imgField]?.url,
             ),
           },
         };
-      })
+      }),
     )) || null;
   return { ...rest, items };
 }
@@ -107,7 +107,7 @@ async function formatPartners({
     JSON.parse(decodeURIComponent(serializedPartner)).map(async (partner) => ({
       ...partner,
       logoProps: await getImagePlaceholder(partner?.logo?.url),
-    }))
+    })),
   );
   return {
     ...rest,
@@ -123,7 +123,7 @@ function formatInsightsStories(attr) {
       const chartBlock = blocks?.find(
         (b) =>
           Object.hasOwnProperty.call(b, "name") &&
-          b?.name === "lazyblock/insight-chart"
+          b?.name === "lazyblock/insight-chart",
       );
       return {
         ...rest,
@@ -131,7 +131,7 @@ function formatInsightsStories(attr) {
         href: `/stories${uri}`,
         chart: chartBlock?.attributes?.chart ?? "",
       };
-    }
+    },
   );
 
   if (!formattedStories) {
@@ -160,7 +160,7 @@ async function formatFeaturedStories(attributes) {
   const chartBlock = insights.blocks?.find(
     (b) =>
       Object.hasOwnProperty.call(b, "name") &&
-      b?.name === "lazyblock/insight-chart"
+      b?.name === "lazyblock/insight-chart",
   );
   const insightImage = insights?.featuredImage?.node?.sourceUrl ?? null;
   const formattedInsights = {
@@ -193,7 +193,7 @@ function formatDocumentsAndDataSets(
     paginationLabel,
     ...attributes
   },
-  innerBlocks
+  innerBlocks,
 ) {
   return innerBlocks.map(({ attributes: { items: itemsString, ...rest } }) => {
     const formattedItems = JSON.parse(decodeURIComponent(itemsString)) || null;
@@ -245,7 +245,7 @@ async function format(block) {
       //            see: https://github.com/eslint/eslint/issues/12473
       // eslint-disable-next-line no-use-before-define
       reusableBlocks.blocks = await formatBlocksForSections(
-        reusableBlocks.blocks
+        reusableBlocks.blocks,
       );
       return reusableBlocks;
     }
@@ -275,7 +275,7 @@ async function format(block) {
       return formatLazyBlockIteratorContentWithImage(
         attributes,
         "icon",
-        "panelItems"
+        "panelItems",
       );
     case "lazyblock/documents-and-datasets":
       return formatDocumentsAndDataSets(attributes, innerBlocks);
@@ -290,11 +290,11 @@ async function format(block) {
 export default async function formatBlocksForSections(blc) {
   // filter empty block {}
   const blocks = blc?.filter(
-    (b) => Object.keys(b).length !== 0 && Object.hasOwnProperty.call(b, "name")
+    (b) => Object.keys(b).length !== 0 && Object.hasOwnProperty.call(b, "name"),
   );
 
   const texts = blocks?.filter(
-    ({ name }) => name === "core/heading" || name === "core/paragraph"
+    ({ name }) => name === "core/heading" || name === "core/paragraph",
   );
   blocks?.push({ name: "core/texts", attributes: texts });
 
@@ -307,7 +307,7 @@ export default async function formatBlocksForSections(blc) {
       } else if (formattedBlock) {
         blockObj[formatName(block.name)] = formattedBlock;
       }
-    }) || []
+    }) || [],
   );
 
   return blockObj;

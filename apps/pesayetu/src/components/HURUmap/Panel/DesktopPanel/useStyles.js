@@ -49,7 +49,7 @@ const useStyles = makeStyles(
       position: "fixed",
       left: 0,
     },
-  })
+  }),
 );
 
 export default useStyles;

@@ -106,7 +106,7 @@ export async function getStaticProps({
     {
       slug: "explore",
     },
-    "page"
+    "page",
   );
   if (notFound) {
     return {
@@ -132,7 +132,7 @@ export async function getStaticProps({
   } = await fetchProfileGeography(primaryCode);
   const primaryProfileIndicators = getIndicators(primaryProfileCategories);
   let primaryIndicator = primaryProfileIndicators.find(
-    (p) => p?.indicator?.id === parseInt(chartId, 10)
+    (p) => p?.indicator?.id === parseInt(chartId, 10),
   );
 
   let secondaryIndicator = null;
@@ -142,10 +142,10 @@ export async function getStaticProps({
       await fetchProfileGeography(secondaryCode);
     ({ name: secondaryName = "" } = secondaryGeography);
     const secondaryProfileIndicators = getIndicators(
-      secondaryProfileCategories
+      secondaryProfileCategories,
     );
     secondaryIndicator = secondaryProfileIndicators.find(
-      (p) => p?.indicator?.id === parseInt(chartId, 10)
+      (p) => p?.indicator?.id === parseInt(chartId, 10),
     );
   }
 
@@ -180,11 +180,11 @@ export async function getStaticProps({
     primaryIndicator.indicator,
     secondaryIndicator ?? { indicator: null },
     isCompare,
-    profileNames
+    profileNames,
   );
   const url = new URL(
     `/embed/${originalCode}/${chartId}`,
-    site.environmentUrl
+    site.environmentUrl,
   ).toString();
   const openGraph = {
     url,

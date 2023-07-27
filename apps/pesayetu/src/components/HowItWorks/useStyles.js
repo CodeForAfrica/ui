@@ -90,7 +90,7 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
       top: 0,
       height: typography.pxToRem(524),
       padding: `${typography.pxToRem(66)} ${typography.pxToRem(
-        77
+        77,
       )} ${typography.pxToRem(69)} 0`,
     },
     [breakpoints.up("lg")]: {

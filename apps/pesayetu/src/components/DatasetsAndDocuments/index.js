@@ -43,7 +43,7 @@ DatasetsAndDocuments.propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       type: PropTypes.string,
-    })
+    }),
   ),
 };
 

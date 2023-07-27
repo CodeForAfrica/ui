@@ -22,7 +22,7 @@ export default async function getPostTypeArchive(
   order = "DESC",
   cursor = null,
   getNext = true,
-  perPage = 10
+  perPage = 10,
 ) {
   // Retrieve post type query.
   const query = archiveQuerySeo?.[postType]?.query ?? null;
@@ -91,7 +91,7 @@ export default async function getPostTypeArchive(
           homepageSettings?.postsPage?.seo,
           response.defaultSeo,
           archiveQuerySeo?.[postType],
-          data?.archiveSeo
+          data?.archiveSeo,
         ),
       };
 

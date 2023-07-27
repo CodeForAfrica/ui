@@ -22,7 +22,7 @@ export default async function preview(req, res) {
       post_type,
       id,
       "DATABASE_ID",
-      "basic"
+      "basic",
     );
 
     // Handle response errors.
@@ -53,7 +53,7 @@ export default async function preview(req, res) {
     res.redirect(
       `${baseRoute ? `/${baseRoute}` : ""}/${parent}${
         post.slug || post.databaseId
-      }`
+      }`,
     );
   } catch (error) {
     return res.status(error?.status || 401).json({

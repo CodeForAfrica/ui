@@ -149,7 +149,7 @@ Menu.propTypes = {
       url: PropTypes.string,
       label: PropTypes.string,
       component: PropTypes.func,
-    })
+    }),
   ),
   children: PropTypes.node,
 };

@@ -52,7 +52,7 @@ function PanelButtons({
 
     if (isCompare) {
       const foundCompare = pItems?.find(
-        (item) => item.value === "secondaryPin"
+        (item) => item.value === "secondaryPin",
       );
       if (!foundCompare) {
         const pinIndex = pItems?.findIndex((i) => i?.value === "pin");
@@ -162,7 +162,7 @@ PanelButtons.propTypes = {
       value: PropTypes.string,
       children: PropTypes.node,
       tree: PropTypes.shape({}),
-    })
+    }),
   ),
   primaryProfile: PropTypes.shape({
     items: PropTypes.arrayOf(PropTypes.shape({})),

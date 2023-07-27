@@ -11,7 +11,7 @@ export default function VerticalStackedChartScope(
   secondaryData,
   primaryParentData,
   secondaryParentData,
-  isCompare
+  isCompare,
 ) {
   const { parentLabel } = config;
 
@@ -33,7 +33,7 @@ export default function VerticalStackedChartScope(
           groupby: [primaryGroup],
           field: { signal: "datatype[Units]" },
         },
-      ]
+      ],
     ),
     {
       height: isCompare && secondaryData?.length > 1 ? 620 : 310,
@@ -417,6 +417,6 @@ export default function VerticalStackedChartScope(
           ],
         },
       ],
-    }
+    },
   );
 }

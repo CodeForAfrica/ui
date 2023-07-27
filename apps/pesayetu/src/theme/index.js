@@ -10,7 +10,7 @@ const FONT_FAMILY = '"Poppins", "sans-serif"';
 const buildVariant = (
   fontWeight,
   letterSpacing = 0,
-  textTransform = "none"
+  textTransform = "none",
 ) => ({
   fontFamily: FONT_FAMILY,
   fontWeight,
@@ -238,7 +238,7 @@ deepmerge(
       margin: `${pxToRem(-0.5)} 0`, // 21 - 20
     },
   },
-  { clone: false }
+  { clone: false },
 );
 
 // Overrides
@@ -367,7 +367,7 @@ deepmerge(
       },
     },
   }, // overides settings goes here
-  { clone: false }
+  { clone: false },
 );
 
 export default theme;

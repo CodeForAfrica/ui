@@ -44,7 +44,7 @@ InsightsData.propTypes = {
     PropTypes.shape({
       href: PropTypes.string,
       imageProps: PropTypes.shape({}),
-    })
+    }),
   ),
   overline: PropTypes.string,
   title: PropTypes.string,

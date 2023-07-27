@@ -13,7 +13,7 @@ export default function MultiLineChartScope(
   secondaryParentData,
   profileNames,
   isCompare,
-  isMobile
+  isMobile,
 ) {
   const {
     parentLabel,
@@ -59,7 +59,7 @@ export default function MultiLineChartScope(
           field: { signal: "datatype[Units]" },
         },
         ...timeTransform,
-      ]
+      ],
     ),
     {
       height: isMobile && isCompare && secondaryData?.length > 1 ? 620 : 310,
@@ -653,6 +653,6 @@ export default function MultiLineChartScope(
           ],
         },
       ],
-    }
+    },
   );
 }

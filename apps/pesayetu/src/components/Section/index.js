@@ -32,7 +32,7 @@ function Section({ className, fixed, ...props }) {
         {
           [classes.fixed]: fixed,
         },
-        className
+        className,
       )}
       classes={{}}
     />

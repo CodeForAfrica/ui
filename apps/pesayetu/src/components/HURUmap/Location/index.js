@@ -73,14 +73,14 @@ Location.propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       number: PropTypes.number,
-    })
+    }),
   ),
   isLoading: PropTypes.bool,
   tags: PropTypes.arrayOf(
     PropTypes.shape({
       level: PropTypes.string,
       name: PropTypes.string,
-    })
+    }),
   ),
 };
 

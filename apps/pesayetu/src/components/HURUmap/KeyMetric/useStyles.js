@@ -11,7 +11,7 @@ const useStyles = makeStyles(({ typography, palette }) => ({
   metric: {
     backgroundColor: palette.background.paper,
     padding: `${typography.pxToRem(10)} ${typography.pxToRem(
-      20
+      20,
     )} ${typography.pxToRem(14)} ${typography.pxToRem(20)}`,
   },
 

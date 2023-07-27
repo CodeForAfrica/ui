@@ -31,7 +31,7 @@ const OurTeam = React.forwardRef(function OurTeam(
     },
     title,
   },
-  ref
+  ref,
 ) {
   const [action, setAction] = useState();
   const [count, setCount] = useState(countProp);

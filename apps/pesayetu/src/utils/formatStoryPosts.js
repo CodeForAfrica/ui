@@ -14,7 +14,7 @@ export default async function formatStoryPosts(posts) {
         const chartBlock = postBlocks?.find(
           (b) =>
             Object.hasOwnProperty.call(b, "name") &&
-            b?.name === "lazyblock/insight-chart"
+            b?.name === "lazyblock/insight-chart",
         );
 
         const image = featuredImage?.node?.sourceUrl ?? null;
@@ -28,7 +28,7 @@ export default async function formatStoryPosts(posts) {
           imageProps: imageProps ?? null,
           chart: chartBlock?.attributes?.chart ?? null,
         };
-      }
-    ) ?? []
+      },
+    ) ?? [],
   );
 }

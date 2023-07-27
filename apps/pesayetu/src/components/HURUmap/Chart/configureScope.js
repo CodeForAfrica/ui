@@ -12,7 +12,7 @@ export default function configureScope(
   secondaryIndicator = null,
   profileNames = { primary: "", secondary: "" },
   isCompare = false,
-  isMobile = false
+  isMobile = false,
 ) {
   const configuration = {
     ...indicator?.chart_configuration,
@@ -59,7 +59,7 @@ export default function configureScope(
           secondaryIndicator?.data ?? null,
           showParent ? indicator?.parentData : null,
           showParent ? secondaryIndicator?.parentData : null,
-          isCompare
+          isCompare,
         );
       } else {
         vegaSpec = StackedChartScope(
@@ -70,7 +70,7 @@ export default function configureScope(
           showParent ? indicator?.parentData : [{}],
           showParent ? secondaryIndicator?.parentData : [{}],
           profileNames,
-          isCompare
+          isCompare,
         );
       }
       break;
@@ -84,7 +84,7 @@ export default function configureScope(
           showParent ? indicator?.parentData : null,
           showParent ? secondaryIndicator?.parentData : null,
           profileNames,
-          isCompare
+          isCompare,
         );
       } else {
         vegaSpec = BarChartScope(
@@ -95,7 +95,7 @@ export default function configureScope(
           showParent ? indicator?.parentData : [{}],
           showParent ? secondaryIndicator?.parentData : [{}],
           profileNames,
-          isCompare
+          isCompare,
         );
       }
       break;

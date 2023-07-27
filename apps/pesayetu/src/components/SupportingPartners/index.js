@@ -83,7 +83,7 @@ SupportingPartners.propTypes = {
       logo: PropTypes.string,
       logoProps: PropTypes.shape({}),
       name: PropTypes.string,
-    })
+    }),
   ),
 };
 

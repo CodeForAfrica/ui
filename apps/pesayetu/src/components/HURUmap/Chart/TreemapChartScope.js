@@ -13,7 +13,7 @@ export default function TreemapChartScope(
   secondaryParentData,
   profileNames,
   isCompare,
-  isMobile
+  isMobile,
 ) {
   const { primary_group: primaryGroup } = metadata;
   const nestedFields = config?.nest_fields ?? [primaryGroup]; // if nest fields are undefined, make use primaryGroup
@@ -45,7 +45,7 @@ export default function TreemapChartScope(
             { signal: "isCompare && isMobile ? height/2 : height" },
           ],
         },
-      ]
+      ],
     ),
     {
       height: isMobile && isCompare && secondaryData?.length > 1 ? 760 : 380,
@@ -237,6 +237,6 @@ export default function TreemapChartScope(
           ],
         },
       ],
-    }
+    },
   );
 }

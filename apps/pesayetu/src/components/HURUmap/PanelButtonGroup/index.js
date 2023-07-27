@@ -40,7 +40,7 @@ function PanelButtonGroup({ items, value, onChange, pins, ...props }) {
               },
               {
                 [classes.secondaryPin]: buttonProps.value === "secondaryPin",
-              }
+              },
             )}
           >
             <Image className={classes.icon} src={icon} width={44} height={44} />
@@ -57,7 +57,7 @@ PanelButtonGroup.propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
   value: PropTypes.string,
   onChange: PropTypes.func,

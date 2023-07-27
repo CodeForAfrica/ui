@@ -44,7 +44,7 @@ const useStyles = makeStyles(
         width: `calc(100% + (100vw - ${widths.values.lg}px)/2)`,
       },
     },
-  })
+  }),
 );
 
 function Project({ mainPartner, newsletter, ...props }) {

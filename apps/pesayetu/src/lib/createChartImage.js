@@ -30,13 +30,13 @@ export default async function createChartImage(
   profileNames,
   background = "#ffffff",
   width = 1200,
-  height = 600
+  height = 600,
 ) {
   const spec = configureScope(
     indicator,
     secondaryIndicator,
     profileNames,
-    isCompare
+    isCompare,
   );
   const Key = `media/images/pesayetu-${geoCode}-${chartId}.png`;
   const view = new vega.View(vega.parse(spec), { renderer: "none" });

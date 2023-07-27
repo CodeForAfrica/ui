@@ -11,7 +11,7 @@ export default function Signals(
   filterSignals,
   primaryGroup,
   groups,
-  config
+  config,
 ) {
   const formatting = hurumapArgs.chartFormatting;
 

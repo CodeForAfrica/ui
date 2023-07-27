@@ -84,7 +84,7 @@ const ProfileItems = memo(
                         method,
                         metadata,
                       },
-                      metricIndex
+                      metricIndex,
                     ) => {
                       const displayFormat = valueDisplayFormat ?? method;
                       const parentValue = parentMetric?.value;
@@ -100,7 +100,7 @@ const ProfileItems = memo(
                       const secondaryMetric = getSecondaryMetric(
                         categoryIndex,
                         subcategoryIndex,
-                        metricIndex
+                        metricIndex,
                       );
                       const secondaryValue = secondaryMetric?.value;
                       const secondaryDisplayFormat =
@@ -155,7 +155,7 @@ const ProfileItems = memo(
                           )}
                         </Grid>
                       );
-                    }
+                    },
                   )}
                 </Grid>
                 {child.children.map(({ index, ...indicator }) => (
@@ -167,7 +167,7 @@ const ProfileItems = memo(
                     secondaryIndicator={getSecondaryIndicator(
                       categoryIndex,
                       subcategoryIndex,
-                      indicator.indicator.id
+                      indicator.indicator.id,
                     )}
                     isCompare={!!secondaryProfile}
                     profileNames={{
@@ -179,7 +179,7 @@ const ProfileItems = memo(
                         getSecondaryIndicator(
                           categoryIndex,
                           subcategoryIndex,
-                          indicator.indicator.id
+                          indicator.indicator.id,
                         )?.indicator?.data?.length > 0
                           ? secondaryProfile?.geography?.name
                           : `${secondaryProfile?.geography?.name} ${dataNotAvailable}`,
@@ -199,7 +199,7 @@ const ProfileItems = memo(
       return true;
     }
     return false; // props are not equal -> update the component
-  }
+  },
 );
 
 ProfileItems.propTypes = {
@@ -209,7 +209,7 @@ ProfileItems.propTypes = {
       description: PropTypes.string,
       icon: PropTypes.string,
       title: PropTypes.string,
-    })
+    }),
   ),
 
   dataNotAvailable: PropTypes.string,
@@ -226,9 +226,9 @@ ProfileItems.propTypes = {
         children: PropTypes.arrayOf(
           PropTypes.shape({
             children: PropTypes.arrayOf(PropTypes.shape({})),
-          })
+          }),
         ),
-      })
+      }),
     ),
   }),
 
@@ -242,9 +242,9 @@ ProfileItems.propTypes = {
         children: PropTypes.arrayOf(
           PropTypes.shape({
             children: PropTypes.arrayOf(PropTypes.shape({})),
-          })
+          }),
         ),
-      })
+      }),
     ),
   }),
 };

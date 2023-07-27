@@ -100,7 +100,7 @@ Tabs.propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       children: PropTypes.node,
-    })
+    }),
   ),
   onChange: PropTypes.func,
 };

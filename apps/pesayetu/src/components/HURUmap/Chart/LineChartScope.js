@@ -13,7 +13,7 @@ export default function LineChartScope(
   secondaryParentData,
   profileNames,
   isCompare,
-  isMobile
+  isMobile,
 ) {
   const {
     parentLabel,
@@ -51,7 +51,7 @@ export default function LineChartScope(
       primaryParentData,
       secondaryParentData,
       "line",
-      timeTransform
+      timeTransform,
     ),
     {
       height: isMobile && isCompare && secondaryData?.length > 1 ? 620 : 310,
@@ -577,6 +577,6 @@ export default function LineChartScope(
               : null,
         },
       ],
-    }
+    },
   );
 }

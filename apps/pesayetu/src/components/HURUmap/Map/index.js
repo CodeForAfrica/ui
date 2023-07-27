@@ -49,7 +49,7 @@ function Map({
       }
       return null;
     },
-    [preferredChildren, isPinOrCompare]
+    [preferredChildren, isPinOrCompare],
   );
 
   useEffect(() => {
@@ -126,7 +126,7 @@ Map.propTypes = {
     if (!Array.isArray(prop) || prop.length !== 2 || prop.some(Number.isNaN)) {
       return new Error(
         `Invalid prop \`${propName}\` supplied to` +
-          ` \`${componentName}\`. Validation failed.`
+          ` \`${componentName}\`. Validation failed.`,
       );
     }
     return null;

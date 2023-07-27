@@ -107,7 +107,7 @@ Map.propTypes = {
     if (!Array.isArray(prop) || prop.length !== 2 || prop.some(Number.isNaN)) {
       return new Error(
         `Invalid prop \`${propName}\` supplied to` +
-          ` \`${componentName}\`. Validation failed.`
+          ` \`${componentName}\`. Validation failed.`,
       );
     }
     return null;
@@ -118,7 +118,7 @@ Map.propTypes = {
   geoJSONStyles: PropTypes.shape({}),
   setHoverGeo: PropTypes.func,
   featuredCounties: PropTypes.arrayOf(
-    PropTypes.shape({ code: PropTypes.string })
+    PropTypes.shape({ code: PropTypes.string }),
   ),
 };
 

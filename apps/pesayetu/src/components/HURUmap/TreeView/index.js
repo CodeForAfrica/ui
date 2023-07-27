@@ -84,7 +84,7 @@ TreeView.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       children: PropTypes.arrayOf(PropTypes.shape({})),
-    })
+    }),
   ),
   onLabelClick: PropTypes.func,
 };

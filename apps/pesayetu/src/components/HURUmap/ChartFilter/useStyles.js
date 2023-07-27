@@ -26,7 +26,7 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   },
   filled: {
     padding: `${typography.pxToRem(10)} 0 ${typography.pxToRem(
-      10
+      10,
     )} ${typography.pxToRem(15)} !important`,
   },
   selectPaper: {

@@ -98,7 +98,7 @@ function Chart({
               itemColor={item?.fill}
             />
           </ThemeProvider>
-        </StyledEngineProvider>
+        </StyledEngineProvider>,
       );
 
       el.classList.add("visible");
@@ -106,14 +106,14 @@ function Chart({
         event,
         el.getBoundingClientRect(),
         0,
-        10
+        10,
       );
       el.setAttribute(
         "style",
-        `top: ${y}px; left: ${x}px; z-index: 1230; position: absolute`
+        `top: ${y}px; left: ${x}px; z-index: 1230; position: absolute`,
       );
     },
-    [defaultType, disableToggle, geoCode, id]
+    [defaultType, disableToggle, geoCode, id],
   );
 
   useEffect(() => {
@@ -123,7 +123,7 @@ function Chart({
         secondaryIndicator,
         profileNames,
         isCompare,
-        isMobile
+        isMobile,
       );
       setCSpec(spec);
       if (chartRef?.current) {

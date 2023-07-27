@@ -26,7 +26,7 @@ export default async function getPostTypeTaxonomyArchive(
   size = 9,
   postType = "post",
   orderBy = "DATE",
-  order = "DESC"
+  order = "DESC",
 ) {
   // Define single post query based on taxonomy.
   const postTypeQuery = {
@@ -119,7 +119,7 @@ export default async function getPostTypeTaxonomyArchive(
       ).concat(JSON.parse(homepageSettings?.postsPage?.blocksJSON) ?? []);
       // Structure archive SEO & blocks.
       const canonical = new URL(
-        archiveSeo?.canonical ?? breadcrumb ?? fallback
+        archiveSeo?.canonical ?? breadcrumb ?? fallback,
       );
       canonical.pathname = replaceMultisitePrefix(canonical?.pathname);
 

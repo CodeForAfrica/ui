@@ -16,12 +16,12 @@ export default function formatArchiveSeoData(
   postsPageSeo,
   defaultSeo,
   fallbackSeo,
-  archiveSeo
+  archiveSeo,
 ) {
   // Check if viewing post archive and have received posts page SEO data.
   if (postType === "post" && postsPageSeo) {
     const canonicalURL = new URL(
-      `${defaultSeo?.openGraph?.url ?? ""}/${postTypes?.[postType]?.route}`
+      `${defaultSeo?.openGraph?.url ?? ""}/${postTypes?.[postType]?.route}`,
     );
     canonicalURL.pathname = replaceMultisitePrefix(canonicalURL?.pathname);
     return {
@@ -33,7 +33,7 @@ export default function formatArchiveSeoData(
   // Use archive SEO if provided, else generate SEO data from fallback data.
   const canonical = new URL(
     archiveSeo?.canonical ??
-      `${defaultSeo?.openGraph?.url ?? ""}/${fallbackSeo?.route}`
+      `${defaultSeo?.openGraph?.url ?? ""}/${fallbackSeo?.route}`,
   );
   canonical.pathname = replaceMultisitePrefix(canonical?.pathname);
   return {

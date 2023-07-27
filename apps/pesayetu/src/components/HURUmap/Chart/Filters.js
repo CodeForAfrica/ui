@@ -45,7 +45,7 @@ function Filters({
   useEffect(() => {
     resetFilters();
     const sortedFiltersProps = filterSelectProps?.sort(
-      (a, b) => a.index - b.index
+      (a, b) => a.index - b.index,
     );
     sortedFiltersProps.forEach((fp) => {
       if (fp.selectedAttribute !== "All values" && fp.selectedValue) {
@@ -99,7 +99,7 @@ function Filters({
   const deleteFilter = (attribute, filterIndex) => {
     const attributeGroup = filterGroups.find((p) => p?.name === attribute);
     const filterProps = filterSelectProps.filter(
-      ({ index }) => index !== filterIndex
+      ({ index }) => index !== filterIndex,
     );
     setAvailableGroups([attributeGroup, ...availableGroups]);
     handleFilterSelectProps(filterProps);

@@ -69,7 +69,7 @@ StoriesInsights.propTypes = {
     PropTypes.shape({
       slug: PropTypes.string,
       chart: PropTypes.string,
-    })
+    }),
   ),
 };
 

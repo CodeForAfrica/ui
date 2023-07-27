@@ -57,7 +57,7 @@ export async function getStaticProps({ params, preview, previewData }) {
     { slug: "data" },
     postType,
     preview,
-    previewData
+    previewData,
   );
   if (notFound) {
     return { notFound };
@@ -79,8 +79,8 @@ export async function getStaticProps({ params, preview, previewData }) {
           items = items.flat(1);
 
           return { ...others, type, items };
-        }
-      )
+        },
+      ),
     )) || null;
 
   return {

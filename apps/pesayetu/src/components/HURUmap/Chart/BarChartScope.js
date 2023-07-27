@@ -12,7 +12,7 @@ export default function BarChartScope(
   primaryParentData,
   secondaryParentData,
   profileNames,
-  isCompare
+  isCompare,
 ) {
   const { parentLabel } = config;
 
@@ -26,7 +26,7 @@ export default function BarChartScope(
       secondaryData,
       primaryParentData,
       secondaryParentData,
-      "bar"
+      "bar",
     ),
     {
       signals: [
@@ -344,6 +344,6 @@ export default function BarChartScope(
           ],
         },
       ],
-    }
+    },
   );
 }

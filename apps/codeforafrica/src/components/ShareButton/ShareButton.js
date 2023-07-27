@@ -28,26 +28,25 @@ const NAMED_SHARE_BAR_BUTTONS = {
   },
 };
 
-const NamedShareBarButton = React.forwardRef(function FacebookShareBarButton(
-  props,
-  ref
-) {
-  const { name, tooltipProps: tooltipPropsProp, url, ...other } = props;
-  let location;
-  if (typeof window !== "undefined") {
-    location = window.location;
-  }
-  const tooltipProps = { title: name, ...tooltipPropsProp };
-  return (
-    <TooltipButton
-      tooltipProps={tooltipProps}
-      url={url || location}
-      {...other}
-      {...NAMED_SHARE_BAR_BUTTONS[name]}
-      ref={ref}
-    />
-  );
-});
+const NamedShareBarButton = React.forwardRef(
+  function FacebookShareBarButton(props, ref) {
+    const { name, tooltipProps: tooltipPropsProp, url, ...other } = props;
+    let location;
+    if (typeof window !== "undefined") {
+      location = window.location;
+    }
+    const tooltipProps = { title: name, ...tooltipPropsProp };
+    return (
+      <TooltipButton
+        tooltipProps={tooltipProps}
+        url={url || location}
+        {...other}
+        {...NAMED_SHARE_BAR_BUTTONS[name]}
+        ref={ref}
+      />
+    );
+  },
+);
 
 NamedShareBarButton.propTypes = {
   name: PropTypes.oneOf(["Facebook", "Linkedin", "Twitter"]).isRequired,
@@ -60,26 +59,23 @@ NamedShareBarButton.defaultProps = {
   url: undefined,
 };
 
-const FacebookShareBarButton = React.forwardRef(function FacebookShareBarButton(
-  props,
-  ref
-) {
-  return <NamedShareBarButton {...props} name="Facebook" ref={ref} />;
-});
+const FacebookShareBarButton = React.forwardRef(
+  function FacebookShareBarButton(props, ref) {
+    return <NamedShareBarButton {...props} name="Facebook" ref={ref} />;
+  },
+);
 
-const LinkedinShareBarButton = React.forwardRef(function LinkedinShareBarButton(
-  props,
-  ref
-) {
-  return <NamedShareBarButton {...props} name="Linkedin" ref={ref} />;
-});
+const LinkedinShareBarButton = React.forwardRef(
+  function LinkedinShareBarButton(props, ref) {
+    return <NamedShareBarButton {...props} name="Linkedin" ref={ref} />;
+  },
+);
 
-const TwitterShareBarButton = React.forwardRef(function TwitterShareBarButton(
-  props,
-  ref
-) {
-  return <NamedShareBarButton {...props} name="Twitter" ref={ref} />;
-});
+const TwitterShareBarButton = React.forwardRef(
+  function TwitterShareBarButton(props, ref) {
+    return <NamedShareBarButton {...props} name="Twitter" ref={ref} />;
+  },
+);
 
 export {
   FacebookShareBarButton,

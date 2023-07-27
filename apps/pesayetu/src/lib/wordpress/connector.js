@@ -14,7 +14,7 @@ const wpAppPass = process.env.WORDPRESS_APPLICATION_PASSWORD;
 
 // Set WP application password auth header.
 const wpAuthorization = Buffer.from(`${wpAppUser}:${wpAppPass}`).toString(
-  "base64"
+  "base64",
 );
 
 let wpApolloClient;

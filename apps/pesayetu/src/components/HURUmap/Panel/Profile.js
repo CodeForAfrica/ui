@@ -46,7 +46,7 @@ const Profile = forwardRef(function Profile(
     secondaryProfile,
     ...props
   },
-  ref
+  ref,
 ) {
   const classes = useStyles(props);
   const { pinAndCompare } = hurumapArgs;
@@ -83,12 +83,12 @@ const Profile = forwardRef(function Profile(
   const getSecondaryIndicator = (
     categoryIndex,
     subcategoryIndex,
-    indicatorId
+    indicatorId,
   ) => {
     const category = secondaryProfile?.items?.[categoryIndex];
     const subCategory = category?.children?.[subcategoryIndex];
     const indicator = subCategory?.children?.find(
-      ({ indicator: { id } }) => indicatorId === id
+      ({ indicator: { id } }) => indicatorId === id,
     );
     return indicator;
   };
@@ -152,7 +152,7 @@ Profile.propTypes = {
       description: PropTypes.string,
       icon: PropTypes.string,
       title: PropTypes.string,
-    })
+    }),
   ),
   dataNotAvailable: PropTypes.string,
   isLoading: PropTypes.bool,
@@ -173,9 +173,9 @@ Profile.propTypes = {
         children: PropTypes.arrayOf(
           PropTypes.shape({
             children: PropTypes.arrayOf(PropTypes.shape({})),
-          })
+          }),
         ),
-      })
+      }),
     ),
   }),
   secondaryProfile: PropTypes.shape({
@@ -188,9 +188,9 @@ Profile.propTypes = {
         children: PropTypes.arrayOf(
           PropTypes.shape({
             children: PropTypes.arrayOf(PropTypes.shape({})),
-          })
+          }),
         ),
-      })
+      }),
     ),
   }),
 };

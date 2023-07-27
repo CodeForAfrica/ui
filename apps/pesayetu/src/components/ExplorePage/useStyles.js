@@ -60,7 +60,7 @@ const useStyles = makeStyles(
         zIndex: zIndex.appBar,
       },
     },
-  })
+  }),
 );
 
 export default useStyles;

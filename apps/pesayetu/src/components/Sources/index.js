@@ -17,7 +17,7 @@ function Sources({ ctaText, contentRef, filterProps, items, type, ...props }) {
   const [page, setPage] = useState(1);
   const [isPaginating, setIsPaginating] = useState(false);
   const [pageSize, setPageSize] = useState(
-    paginationOptions && paginationOptions[0]
+    paginationOptions && paginationOptions[0],
   );
   const theme = useTheme();
   const isTablet = useMediaQuery(theme.breakpoints.up("md"));
@@ -130,7 +130,7 @@ Sources.propTypes = {
       title: PropTypes.string,
       description: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
   type: PropTypes.oneOf(["datasets", "documents"]),
 };

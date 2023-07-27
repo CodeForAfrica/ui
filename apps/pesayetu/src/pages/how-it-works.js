@@ -54,7 +54,7 @@ export async function getStaticProps({ preview, previewData }) {
     { slug: "how-it-works" },
     postType,
     preview,
-    previewData
+    previewData,
   );
 
   if (notFound) {

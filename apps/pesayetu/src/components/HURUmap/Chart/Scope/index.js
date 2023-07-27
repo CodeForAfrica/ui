@@ -12,7 +12,7 @@ export default function Scope(
   primaryParentData,
   secondaryParentData,
   chartType,
-  transform = []
+  transform = [],
 ) {
   const { primary_group: primaryGroup, groups } = metadata;
   const stackedField = config?.stacked_field;

@@ -25,7 +25,7 @@ const useStyles = makeStyles(
     navigation: {
       flexGrow: 1,
     },
-  })
+  }),
 );
 
 function Navigation({ variant, ...props }) {

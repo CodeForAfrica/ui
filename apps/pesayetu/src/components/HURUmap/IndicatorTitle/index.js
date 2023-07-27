@@ -22,7 +22,7 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
     lineHeight: 17 / 11,
     color: "#666666",
     padding: `${typography.pxToRem(18)} ${typography.pxToRem(
-      20
+      20,
     )} ${typography.pxToRem(31)} ${typography.pxToRem(16)}`,
     "& > p > span": {
       display: "inline-block",

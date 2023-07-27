@@ -12,7 +12,7 @@ export default function VerticalBarChartScope(
   primaryParentData,
   secondaryParentData,
   profileNames,
-  isCompare
+  isCompare,
 ) {
   const { parentLabel } = config;
 
@@ -26,7 +26,7 @@ export default function VerticalBarChartScope(
       secondaryData,
       primaryParentData,
       secondaryParentData,
-      "bar"
+      "bar",
     ),
     {
       height: isCompare && secondaryData?.length > 1 ? 620 : 310,
@@ -378,6 +378,6 @@ export default function VerticalBarChartScope(
           ],
         },
       ],
-    }
+    },
   );
 }

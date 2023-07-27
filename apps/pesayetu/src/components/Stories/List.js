@@ -40,7 +40,7 @@ List.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       slug: PropTypes.string,
-    })
+    }),
   ),
   variant: PropTypes.string,
 };

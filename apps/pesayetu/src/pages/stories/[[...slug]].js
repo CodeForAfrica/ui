@@ -128,7 +128,7 @@ export async function getStaticProps({ params, preview, previewData }) {
       : params,
     postType,
     preview,
-    previewData
+    previewData,
   );
 
   if (notFound || props?.error) {
@@ -147,7 +147,7 @@ export async function getStaticProps({ params, preview, previewData }) {
 
   const blocks = await formatBlocksForSections(props?.post?.blocks || []);
   const postImagePlaceholder = await getImagePlaceholder(
-    props?.post?.featuredImage?.node?.sourceUrl
+    props?.post?.featuredImage?.node?.sourceUrl,
   );
   const relatedPostsNode =
     props?.post?.categories?.edges?.[0]?.node?.posts?.nodes;

@@ -14,7 +14,7 @@ function wp(site) {
     // const fields = params?.fields ? `&_fields=${params.fields}` : "";
     // const embed = params?.embed ? `&_embed=${params.embed}` : "";
     const res = await fetch(
-      `https://dashboard.hurumap.org/promisetracker/wp-json/wp/v2/media`
+      `https://dashboard.hurumap.org/promisetracker/wp-json/wp/v2/media`,
     );
     const data = res.ok ? await res.json() : [];
     return data;
@@ -23,7 +23,7 @@ function wp(site) {
 
   async function getOptions(lang) {
     const res = await fetch(
-      `${WP_DASHBOARD_ACF_API_URL}/options/hurumap-site?lang=${lang}`
+      `${WP_DASHBOARD_ACF_API_URL}/options/hurumap-site?lang=${lang}`,
     );
     const { acf } = res.ok ? await res.json() : {};
     if (!acf) {
@@ -79,7 +79,7 @@ function wp(site) {
     const fields = params?.fields ? `&_fields=${params.fields}` : "";
     const embed = params?.embed ? `&_embed=${params.embed}` : "";
     const res = await fetch(
-      `${WP_DASHBOARD_API_URL}/${type}?slug=${slug}&lang=${lang}${fields}${embed}`
+      `${WP_DASHBOARD_API_URL}/${type}?slug=${slug}&lang=${lang}${fields}${embed}`,
     );
     const data = res.ok ? await res.json() : [];
     return data;
@@ -87,7 +87,7 @@ function wp(site) {
 
   async function getResourcesByParentId(type, parent, lang, order, orderBy) {
     const res = await fetch(
-      `${WP_DASHBOARD_API_URL}/${type}?parent=${parent}&order=${order}&orderby=${orderBy}&lang=${lang}`
+      `${WP_DASHBOARD_API_URL}/${type}?parent=${parent}&order=${order}&orderby=${orderBy}&lang=${lang}`,
     );
     const data = res.ok ? res.json() : [];
     return data;
@@ -97,7 +97,7 @@ function wp(site) {
     const fields = params?.fields ? `&_fields=${params.fields}` : "";
     const embed = params?.embed ? `&_embed=${params.embed}` : "";
     const res = await fetch(
-      `${WP_DASHBOARD_API_URL}/${type}/${id}?lang=${lang}${fields}${embed}`
+      `${WP_DASHBOARD_API_URL}/${type}/${id}?lang=${lang}${fields}${embed}`,
     );
     const data = res.ok ? res.json() : {};
     return data;
@@ -112,7 +112,7 @@ function wp(site) {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      }
+      },
     );
     const data = res.ok ? res.json() : {};
     return data;
@@ -157,7 +157,7 @@ function wp(site) {
       parent,
       lang,
       order,
-      orderBy
+      orderBy,
     );
     const options = children.length && (await getOptions(lang));
     const data = children.map((child) => createPageFrom(child, options, lang));
@@ -214,8 +214,8 @@ function wp(site) {
         resource.acf?.posts?.map((post) =>
           getPostBySlug(post.post_name, lang, {
             embed: "true",
-          })
-        )
+          }),
+        ),
       );
       resource.acf.posts = posts || [];
     }
@@ -233,8 +233,8 @@ function wp(site) {
         resource.acf?.posts?.map((post) =>
           getPostBySlug(post.post_name, lang, {
             embed: "true",
-          })
-        )
+          }),
+        ),
       );
       resource.acf.posts = posts || [];
     }
@@ -248,7 +248,7 @@ function wp(site) {
       id,
       revisionId,
       token,
-      lang
+      lang,
     );
     if (isEmpty(resource)) {
       return resource;
@@ -262,8 +262,8 @@ function wp(site) {
         resource.acf?.posts?.map((post) =>
           getPostBySlug(post.post_name, lang, {
             embed: "true",
-          })
-        )
+          }),
+        ),
       );
       resource.acf.posts = posts || [];
     }
@@ -278,7 +278,7 @@ function wp(site) {
       id,
       revisionId,
       token,
-      lang
+      lang,
     );
 
     if (isEmpty(resource)) {
@@ -385,7 +385,7 @@ function wp(site) {
               revisionId,
               thumbnailId,
               token,
-              locale
+              locale,
             );
           }
           return undefined;
@@ -399,7 +399,7 @@ function wp(site) {
               revisionId,
               thumbnailId,
               token,
-              locale
+              locale,
             );
           }
           return undefined;

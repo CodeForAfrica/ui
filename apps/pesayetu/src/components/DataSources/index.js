@@ -52,7 +52,7 @@ DataSources.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
   subtitle: PropTypes.string,
   title: PropTypes.string,

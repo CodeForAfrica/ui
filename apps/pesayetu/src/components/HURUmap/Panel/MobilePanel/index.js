@@ -25,7 +25,7 @@ function MobilePanel({ scrollToTopLabel, activeType, ...props }) {
 
   const activeTab = Math.max(
     items?.findIndex(({ title }) => title === activeType),
-    0
+    0,
   );
   const formatedItems = items?.map((item) => {
     return {

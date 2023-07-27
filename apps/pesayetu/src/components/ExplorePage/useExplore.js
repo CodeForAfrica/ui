@@ -63,7 +63,7 @@ function reducer(state, action) {
       const code = profile?.geography?.code;
       if (action.payload && code) {
         const profileType = ["primary", "secondary"].find(
-          (type) => state[type]?.code === code
+          (type) => state[type]?.code === code,
         );
         if (profileType) {
           const newState = { ...state };

@@ -119,7 +119,7 @@ function Layers({
             variant="marker"
           />
         </ThemeProvider>
-      </StyledEngineProvider>
+      </StyledEngineProvider>,
     ),
   });
 
@@ -143,14 +143,14 @@ function Layers({
                   color={isPinOrCompare ? "secondary" : "primary"}
                 />
               </ThemeProvider>
-            </StyledEngineProvider>
+            </StyledEngineProvider>,
           );
 
         if (!(isPinOrCompare && feature.properties.code === geography?.code)) {
           layer
             .bindTooltip(
               popUpContent(feature.properties.level, feature.properties.name),
-              { direction: "top", opacity: 1, className: "tooltip" }
+              { direction: "top", opacity: 1, className: "tooltip" },
             )
             .openTooltip();
         }
@@ -173,7 +173,7 @@ function Layers({
           layer.setStyle(
             feature?.properties?.selected
               ? geoStyles.selected.over
-              : geoStyles.hoverOnly.over
+              : geoStyles.hoverOnly.over,
           );
         });
         layer.on("mouseout", () => {
@@ -209,7 +209,7 @@ function Layers({
       secondaryGeography,
       locationCodes,
       onClick,
-    ]
+    ],
   );
 
   useEffect(() => {

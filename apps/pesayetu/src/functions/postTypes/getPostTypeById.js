@@ -16,7 +16,7 @@ export default async function getPostTypeById(
   postType,
   id,
   idType = "SLUG",
-  preview = null
+  preview = null,
 ) {
   // Define single post query based on post type.
   const postTypeQuery = {
@@ -38,6 +38,6 @@ export default async function getPostTypeById(
     id,
     query,
     { id, idType: cleanedIdType },
-    preview
+    preview,
   );
 }

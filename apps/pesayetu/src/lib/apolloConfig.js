@@ -25,7 +25,7 @@ export function initializeApollo(apolloClient, initialState = null) {
       arrayMerge: (destinationArray, sourceArray) => [
         ...sourceArray,
         ...destinationArray.filter((d) =>
-          sourceArray.every((s) => !isEqual(d, s))
+          sourceArray.every((s) => !isEqual(d, s)),
         ),
       ],
     });

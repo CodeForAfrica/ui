@@ -21,7 +21,7 @@ export default async function processPostTypeQuery(
   id,
   query,
   variables = {},
-  preview = null
+  preview = null,
 ) {
   // Get/create Apollo instance.
   const apolloClient = preview

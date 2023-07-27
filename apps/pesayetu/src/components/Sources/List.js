@@ -29,7 +29,7 @@ List.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       href: PropTypes.string,
-    })
+    }),
   ),
   type: PropTypes.oneOf(["datasets", "documents"]),
 };

@@ -13,7 +13,7 @@ export default function DonutChartScope(
   secondaryParentData,
   profileNames,
   isCompare,
-  isMobile
+  isMobile,
 ) {
   const { primary_group: primaryGroup } = metadata;
 
@@ -56,7 +56,7 @@ export default function DonutChartScope(
           type: "collect",
           sort: { field: "count", order: "descending" },
         },
-      ]
+      ],
     ),
     {
       height: isMobile && isCompare && secondaryData?.length > 1 ? 380 : 180,
@@ -308,6 +308,6 @@ export default function DonutChartScope(
           ],
         },
       ],
-    }
+    },
   );
 }

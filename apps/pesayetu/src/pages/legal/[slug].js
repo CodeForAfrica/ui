@@ -48,7 +48,7 @@ export async function getStaticProps({ preview, params, previewData }) {
     { slug: params.slug },
     postType,
     preview,
-    previewData
+    previewData,
   );
 
   if (notFound) {

@@ -44,7 +44,7 @@ const useStyles = makeStyles(
     logo: {
       margin: "0 auto ",
     },
-  })
+  }),
 );
 
 function ProjectPartners({ title, partners, ...props }) {
@@ -97,7 +97,7 @@ ProjectPartners.propTypes = {
       }),
       logoProps: PropTypes.shape({}),
       name: PropTypes.string,
-    })
+    }),
   ),
 };
 
