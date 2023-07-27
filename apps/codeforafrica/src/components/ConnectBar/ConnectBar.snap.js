@@ -3,10 +3,10 @@
 exports[`<ConnectBar /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiStack-root css-x446uu-MuiStack-root"
+    class="MuiStack-root css-150zc89-MuiStack-root"
   >
     <div
-      class="MuiStack-root css-fn1v8x-MuiStack-root"
+      class="MuiStack-root css-1mbd5au-MuiStack-root"
     >
       <a
         aria-label="facebook"

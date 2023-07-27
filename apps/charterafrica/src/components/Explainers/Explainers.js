@@ -30,9 +30,9 @@ const Explainers = React.forwardRef(function Explainers(props, ref) {
           {title}
         </RichTypography>
 
-        {explainers.map((e, i) => (
+        {explainers.map((e) => (
           <Fragment key={e.id}>
-            <Explainer {...e} ImageProps={{ priority: i === 0 }} key={e.id} />
+            <Explainer {...e} key={e.id} />
             <Divider sx={{ my: 5 }} />
           </Fragment>
         ))}

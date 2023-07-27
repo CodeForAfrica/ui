@@ -139,7 +139,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                 class="MuiBox-root css-oqyb22"
               >
                 <div
-                  class="MuiStack-root css-hmfqeh-MuiStack-root"
+                  class="MuiStack-root css-hhlonh-MuiStack-root"
                 >
                   <div
                     class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
@@ -147,7 +147,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                     Share via
                   </div>
                   <div
-                    class="MuiStack-root css-a2l1ks-MuiStack-root"
+                    class="MuiStack-root css-b6wkik-MuiStack-root"
                   >
                     <button
                       aria-label="twitter"
