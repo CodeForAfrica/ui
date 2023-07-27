@@ -6,7 +6,7 @@ exports[`<ArticleHeader /> renders unchanged 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12qr4r4-MuiContainer-root"
   >
     <div
-      class="MuiStack-root css-1het2hz-MuiStack-root"
+      class="MuiStack-root css-1rvuxdl-MuiStack-root"
     >
       <div
         class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
@@ -14,7 +14,7 @@ exports[`<ArticleHeader /> renders unchanged 1`] = `
         Share This Article
       </div>
       <div
-        class="MuiStack-root css-1jqw290-MuiStack-root"
+        class="MuiStack-root css-163j9ep-MuiStack-root"
       >
         <button
           aria-label="Twitter"

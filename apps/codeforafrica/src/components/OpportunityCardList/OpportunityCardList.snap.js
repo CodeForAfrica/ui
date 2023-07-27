@@ -3,7 +3,7 @@
 exports[`<OpportunityCardList /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiStack-root css-1viki4-MuiStack-root"
+    class="MuiStack-root css-iilhgj-MuiStack-root"
   >
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-19gv4rl-MuiPaper-root-MuiCard-root"
