@@ -39,6 +39,7 @@ ARG PORT=3000 \
     GHOST_API_KEY
 
 RUN pnpm build-next --filter=codeforafrica
+RUN pnpm build --filter=codeforafrica
 
 ARG PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL}
 
@@ -48,14 +49,19 @@ FROM builder as runner
 
 RUN rm -rf /var/cache/apk/*
 
-ARG PAYLOAD_PUBLIC_APP_URL \
+ARG NEXT_PUBLIC_APP_NAME \
+    NEXT_PUBLIC_APP_URL \
+    NEXT_PUBLIC_GA_MEASUREMENT_ID \
+    NEXT_PUBLIC_SEO_DISABLED \
+    PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
+    PAYLOAD_PUBLIC_APP_URL \
     PORT
 
 ENV NODE_ENV=production \
     PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
     PORT=${PORT} \ 
     PAYLOAD_PUBLIC_PORT=${PORT} \
-    PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
+    PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
     PAYLOAD_SECRET=${PAYLOAD_SECRET} \
     MONGODB_URL=${MONGODB_URL} \
     GHOST_URL=${GHOST_URL} \

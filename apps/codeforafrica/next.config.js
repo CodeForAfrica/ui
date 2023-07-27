@@ -5,10 +5,6 @@ const outputFileTracingRoot = PROJECT_ROOT
   ? path.resolve(__dirname, PROJECT_ROOT)
   : undefined;
 
-const outputFileTracingExcludes = {
-  "*": ["**linux-x64**"],
-};
-
 module.exports = {
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
@@ -20,7 +16,6 @@ module.exports = {
   },
   experimental: {
     outputFileTracingRoot,
-    outputFileTracingExcludes,
   },
   modularizeImports: {
     // NOTE: only transform @mui/material and not any of sub-modules e.g. @mui/material/styles.
