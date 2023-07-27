@@ -51,7 +51,6 @@ const ImagePageHeader = React.forwardRef(function ImagePageHeader(props, ref) {
                 alt: media.image.alt || title,
                 fill: false,
                 height: 0,
-                priority: true,
                 src: media.image.url,
                 style: {
                   height: "auto",

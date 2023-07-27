@@ -43,7 +43,6 @@ const Impressum = React.forwardRef(function Impressum(props, ref) {
                   alt: image.alt,
                   fill: false,
                   height: 0,
-                  priority: true,
                   src: image.url,
                   style: {
                     height: "auto",

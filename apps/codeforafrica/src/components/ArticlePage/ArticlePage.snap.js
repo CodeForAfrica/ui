@@ -13,7 +13,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         class="css-45v618"
         data-nimg="fill"
         decoding="async"
-        fetchpriority="high"
+        loading="lazy"
         sizes="100vw"
         src="/_next/image?url=%2Fimages%2Fstories-1.png&w=3840&q=75"
         srcset="/_next/image?url=%2Fimages%2Fstories-1.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fstories-1.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Fstories-1.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fstories-1.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fstories-1.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fstories-1.png&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Fstories-1.png&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Fstories-1.png&w=3840&q=75 3840w"
@@ -29,7 +29,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         Article
       </div>
       <div
-        class="MuiStack-root css-1rvuxdl-MuiStack-root"
+        class="MuiStack-root css-1het2hz-MuiStack-root"
       >
         <div
           class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
@@ -37,7 +37,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           Share This Article
         </div>
         <div
-          class="MuiStack-root css-163j9ep-MuiStack-root"
+          class="MuiStack-root css-1jqw290-MuiStack-root"
         >
           <button
             aria-label="Twitter"
@@ -95,7 +95,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fwha7w-MuiContainer-root"
     >
       <div
-        class="MuiStack-root css-1rua2vy-MuiStack-root"
+        class="MuiStack-root css-1yu3riq-MuiStack-root"
       >
         <div
           class="MuiTypography-root MuiTypography-body2 css-tua52g-MuiTypography-root"
@@ -103,7 +103,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           Article by
         </div>
         <div
-          class="MuiStack-root css-l87b14-MuiStack-root"
+          class="MuiStack-root css-190nj74-MuiStack-root"
         />
       </div>
     </address>
