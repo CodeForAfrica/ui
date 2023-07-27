@@ -57,7 +57,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
         query,
       },
       undefined,
-      { scroll: false, shallow: true }
+      { scroll: false, shallow: true },
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
@@ -119,7 +119,7 @@ Articles.propTypes = {
         author: PropTypes.string,
         image: PropTypes.shape({}),
         href: PropTypes.string,
-      })
+      }),
     ),
     totalPages: PropTypes.number,
   }),

@@ -60,7 +60,7 @@ const ConsultationList = forwardRef(function ConsultationList(props, ref) {
                 {config.airedOnText}{" "}
                 {formatDateTime(
                   consultation?.publishedAt || consultation.createdAt,
-                  {}
+                  {},
                 )}
               </LineClampedRichTypography>
               {isFeatured ? (

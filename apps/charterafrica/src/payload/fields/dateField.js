@@ -13,7 +13,7 @@ const dateField = (overrides) =>
         position: "sidebar",
       },
     },
-    overrides
+    overrides,
   );
 
 export default dateField;
