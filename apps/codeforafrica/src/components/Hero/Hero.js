@@ -24,7 +24,6 @@ const Hero = React.forwardRef(function Hero(props, ref) {
             <Figure
               ImageProps={{
                 alt: "Civic tech and open data labs",
-                priority: true,
                 ...image,
               }}
               sx={{

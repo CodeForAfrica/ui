@@ -34,7 +34,6 @@ const Opportunity = React.forwardRef(function Opportunity(props, ref) {
                   alt: image.alt,
                   fill: false,
                   height: 0,
-                  priority: true,
                   src: image.url,
                   style: {
                     height: "auto",

@@ -24,6 +24,8 @@ const defaultProps = {
     ],
     image: {
       url: "https://user-images.githubusercontent.com/39160236/214778112-7aefbe8f-11f2-423f-b6c9-a284feaf9b33.png",
+      fill: true,
+      alt: `Event ${i}`,
     },
   })),
 };
