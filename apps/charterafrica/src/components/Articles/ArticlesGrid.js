@@ -49,7 +49,7 @@ ArticlesGrid.propTypes = {
       author: PropTypes.string,
       image: PropTypes.shape({}),
       href: PropTypes.string,
-    })
+    }),
   ),
 };
 

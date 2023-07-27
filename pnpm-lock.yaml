@@ -35,8 +35,8 @@ importers:
         specifier: workspace:*
         version: link:packages/playwright-config-commons-ui
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.0.0
       turbo:
         specifier: ^1.9.3
         version: 1.9.3
@@ -240,8 +240,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/playwright-config-commons-ui
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.0.0
       react-test-renderer:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
@@ -394,8 +394,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/playwright-config-commons-ui
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.0.0
       react-test-renderer:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
@@ -497,8 +497,8 @@ importers:
         specifier: ^2.27.5
         version: 2.27.5(eslint-import-resolver-webpack@0.13.2)(eslint@8.39.0)
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.0.0
       storybook:
         specifier: ^7.0.27
         version: 7.0.27
@@ -579,8 +579,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/playwright-config-commons-ui
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.0.0
       react-test-renderer:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
@@ -739,8 +739,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/playwright-config-commons-ui
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.0.0
       react-test-renderer:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
@@ -800,8 +800,8 @@ importers:
         specifier: workspace:*
         version: link:../jest-config-commons-ui
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.0.0
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -928,8 +928,8 @@ importers:
         specifier: workspace:*
         version: link:../jest-config-commons-ui
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.0.0
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -991,8 +991,8 @@ importers:
         specifier: ^0.12.0
         version: 0.12.0(eslint-plugin-jest@27.2.1)(eslint@8.39.0)
       eslint-plugin-prettier:
-        specifier: ^4.2.1
-        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@2.8.8)
+        specifier: 5.0.0-alpha.2
+        version: 5.0.0-alpha.2(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@3.0.0)
       eslint-plugin-react:
         specifier: ^7.32.2
         version: 7.32.2(eslint@8.39.0)
@@ -1010,8 +1010,8 @@ importers:
         specifier: ^8.39.0
         version: 8.39.0
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.0.0
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1047,8 +1047,8 @@ importers:
         specifier: ^29.5.0
         version: 29.5.0(@types/node@18.11.9)
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.0.0
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1077,8 +1077,8 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config-commons-ui
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.0.0
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -8102,6 +8102,21 @@ packages:
     dev: true
     optional: true
 
+  /@pkgr/utils@2.4.2:
+    resolution:
+      {
+        integrity: sha512-POgTXhjrTfbTV63DiFXav4lBHiICLKKwDeaKn9Nphwj7WH6m0hMMCaJkMyRWjgtPFyRKRVoMXXjczsTQRDEhYw==,
+      }
+    engines: { node: ^12.20.0 || ^14.18.0 || >=16.0.0 }
+    dependencies:
+      cross-spawn: 7.0.3
+      fast-glob: 3.3.0
+      is-glob: 4.0.3
+      open: 9.1.0
+      picocolors: 1.0.0
+      tslib: 2.6.0
+    dev: false
+
   /@playwright/test@1.33.0:
     resolution:
       {
@@ -13155,7 +13170,6 @@ packages:
         integrity: sha512-GPEid2Y9QU1Exl1rpO9B2IPJGHPSupF5GnVIP0blYvNOMer2bTvSWs1jGOUg04hTmu67nmLsQ9TBo1puaotBHg==,
       }
     engines: { node: ">=0.6" }
-    dev: true
 
   /big.js@5.2.2:
     resolution:
@@ -13270,7 +13284,6 @@ packages:
     engines: { node: ">= 5.10.0" }
     dependencies:
       big-integer: 1.6.51
-    dev: true
 
   /brace-expansion@1.1.11:
     resolution:
@@ -13429,6 +13442,16 @@ packages:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
+    dev: false
+
+  /bundle-name@3.0.0:
+    resolution:
+      {
+        integrity: sha512-PKA4BeSvBpQKQ8iPOGCSiell+N8P+Tf1DlwqmYhpe2gAhKPHn8EYOxVT+ShuGmhg8lN8XiSlS80yiExKXrURlw==,
+      }
+    engines: { node: ">=12" }
+    dependencies:
+      run-applescript: 5.0.0
     dev: false
 
   /busboy@1.6.0:
@@ -15157,7 +15180,19 @@ packages:
     dependencies:
       bplist-parser: 0.2.0
       untildify: 4.0.0
-    dev: true
+
+  /default-browser@4.0.0:
+    resolution:
+      {
+        integrity: sha512-wX5pXO1+BrhMkSbROFsyxUm0i/cJEScyNhA4PPxc41ICuv05ZZB/MX28s8aZx6xjmatvebIapF6hLEKEcpneUA==,
+      }
+    engines: { node: ">=14.16" }
+    dependencies:
+      bundle-name: 3.0.0
+      default-browser-id: 3.0.0
+      execa: 7.1.1
+      titleize: 3.0.0
+    dev: false
 
   /defaults@1.0.4:
     resolution:
@@ -15175,6 +15210,14 @@ packages:
       }
     engines: { node: ">=8" }
     dev: true
+
+  /define-lazy-prop@3.0.0:
+    resolution:
+      {
+        integrity: sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==,
+      }
+    engines: { node: ">=12" }
+    dev: false
 
   /define-properties@1.2.0:
     resolution:
@@ -16304,24 +16347,28 @@ packages:
       eslint-plugin-jest: 27.2.1(eslint@8.39.0)(typescript@4.9.5)
     dev: false
 
-  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@2.8.8):
+  /eslint-plugin-prettier@5.0.0-alpha.2(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@3.0.0):
     resolution:
       {
-        integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==,
+        integrity: sha512-F6YBCbrRzvZwcINw3crm1+/uX/i+rJYaFErPtwCfUoPLywRfY7pwBtI3yMe5OpIotuaiws8cd29oM80ca6NQSQ==,
       }
-    engines: { node: ">=12.0.0" }
+    engines: { node: ^14.18.0 || >=16.0.0 }
     peerDependencies:
-      eslint: ">=7.28.0"
+      "@types/eslint": ">=8.0.0"
+      eslint: ">=8.0.0"
       eslint-config-prettier: "*"
-      prettier: ">=2.0.0"
+      prettier: ">=3.0.0"
     peerDependenciesMeta:
+      "@types/eslint":
+        optional: true
       eslint-config-prettier:
         optional: true
     dependencies:
       eslint: 8.39.0
       eslint-config-prettier: 8.8.0(eslint@8.39.0)
-      prettier: 2.8.8
+      prettier: 3.0.0
       prettier-linter-helpers: 1.0.0
+      synckit: 0.8.5
     dev: false
 
   /eslint-plugin-react-hooks@4.6.0(eslint@8.39.0):
@@ -16603,7 +16650,6 @@ packages:
       onetime: 5.1.2
       signal-exit: 3.0.7
       strip-final-newline: 2.0.0
-    dev: true
 
   /execa@7.1.1:
     resolution:
@@ -16621,7 +16667,6 @@ packages:
       onetime: 6.0.0
       signal-exit: 3.0.7
       strip-final-newline: 3.0.0
-    dev: true
 
   /exit@0.1.2:
     resolution:
@@ -17559,7 +17604,6 @@ packages:
         integrity: sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==,
       }
     engines: { node: ">=10" }
-    dev: true
 
   /get-symbol-description@1.0.0:
     resolution:
@@ -18253,7 +18297,6 @@ packages:
         integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==,
       }
     engines: { node: ">=10.17.0" }
-    dev: true
 
   /human-signals@4.3.1:
     resolution:
@@ -18261,7 +18304,6 @@ packages:
         integrity: sha512-nZXjEF2nbo7lIw3mgYjItAfgQXog3OjJogSbKa2CQIIvSGWcKgeJnQlNXip6NglNzYH45nSRiEVimMvYL8DDqQ==,
       }
     engines: { node: ">=14.18.0" }
-    dev: true
 
   /husky@8.0.3:
     resolution:
@@ -18659,7 +18701,15 @@ packages:
       }
     engines: { node: ">=8" }
     hasBin: true
-    dev: true
+
+  /is-docker@3.0.0:
+    resolution:
+      {
+        integrity: sha512-eljcgEDlEns/7AXFosB5K/2nCM4P7FQPkGc/DWLy5rmFEWvZayGrik1d9/QIY5nJ4f9YsVvBkA6kJpHn9rISdQ==,
+      }
+    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    hasBin: true
+    dev: false
 
   /is-extendable@0.1.1:
     resolution:
@@ -18759,6 +18809,17 @@ packages:
       {
         integrity: sha512-FeXIBgG/CPGd/WUxuEyvgGTEfwiG9Z4EKGxjNMRqviiIIfsmgrpnHLffEDdwUHqNva1VEW91o3xBT/m8Elgl9g==,
       }
+    dev: false
+
+  /is-inside-container@1.0.0:
+    resolution:
+      {
+        integrity: sha512-KIYLCCJghfHZxqjYBE7rEy0OBuTd5xCHS7tHVgvCLkx7StIoaxwNW3hCALgEUjFfeRk+MG/Qxmp/vtETEF3tRA==,
+      }
+    engines: { node: ">=14.16" }
+    hasBin: true
+    dependencies:
+      is-docker: 3.0.0
     dev: false
 
   /is-interactive@1.0.0:
@@ -18909,7 +18970,6 @@ packages:
         integrity: sha512-hFoiJiTl63nn+kstHGBtewWSKnQLpyb155KHheA1l39uvtO9nWIop1p3udqPcUd/xbF1VLMO4n7OI6p7RbngDg==,
       }
     engines: { node: ">=8" }
-    dev: true
 
   /is-stream@3.0.0:
     resolution:
@@ -18917,7 +18977,6 @@ packages:
         integrity: sha512-LnQR4bZ9IADDRSkvpqMGvt/tEJWclzklNgSw48V5EAaAeDd6qGvN8ei6k5p0tvxSR171VmGyHuTiAOfxAbr8kA==,
       }
     engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
-    dev: true
 
   /is-string@1.0.7:
     resolution:
@@ -19014,7 +19073,6 @@ packages:
     engines: { node: ">=8" }
     dependencies:
       is-docker: 2.2.1
-    dev: true
 
   /isarray@0.0.1:
     resolution:
@@ -21073,7 +21131,6 @@ packages:
         integrity: sha512-vqiC06CuhBTUdZH+RYl8sFrL096vA45Ok5ISO6sE/Mr1jRbGH4Csnhi8f3wKVl7x8mO4Au7Ir9D3Oyv1VYMFJw==,
       }
     engines: { node: ">=12" }
-    dev: true
 
   /mimic-response@3.1.0:
     resolution:
@@ -21748,7 +21805,6 @@ packages:
     engines: { node: ">=8" }
     dependencies:
       path-key: 3.1.1
-    dev: true
 
   /npm-run-path@5.1.0:
     resolution:
@@ -21758,7 +21814,6 @@ packages:
     engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
     dependencies:
       path-key: 4.0.0
-    dev: true
 
   /npmlog@5.0.1:
     resolution:
@@ -21992,7 +22047,6 @@ packages:
     engines: { node: ">=12" }
     dependencies:
       mimic-fn: 4.0.0
-    dev: true
 
   /open@7.4.2:
     resolution:
@@ -22016,6 +22070,19 @@ packages:
       is-docker: 2.2.1
       is-wsl: 2.2.0
     dev: true
+
+  /open@9.1.0:
+    resolution:
+      {
+        integrity: sha512-OS+QTnw1/4vrf+9hh1jc1jnYjzSG4ttTBB8UxOwAnInG3Uo4ssetzC1ihqaIHjLJnA5GGlRl6QlZXOTQhRBUvg==,
+      }
+    engines: { node: ">=14.16" }
+    dependencies:
+      default-browser: 4.0.0
+      define-lazy-prop: 3.0.0
+      is-inside-container: 1.0.0
+      is-wsl: 2.2.0
+    dev: false
 
   /opener@1.5.2:
     resolution:
@@ -22408,7 +22475,6 @@ packages:
         integrity: sha512-haREypq7xkM7ErfgIyA0z+Bj4AGKlMSdlQE2jvJo6huWD1EdkKYV+G/T4nq0YEF2vgTT8kqMFKo1uHn950r4SQ==,
       }
     engines: { node: ">=12" }
-    dev: true
 
   /path-parse@1.0.7:
     resolution:
@@ -23821,6 +23887,14 @@ packages:
     engines: { node: ">=10.13.0" }
     hasBin: true
 
+  /prettier@3.0.0:
+    resolution:
+      {
+        integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==,
+      }
+    engines: { node: ">=14" }
+    hasBin: true
+
   /pretty-error@4.0.0:
     resolution:
       {
@@ -25226,6 +25300,16 @@ packages:
       }
     dev: false
 
+  /run-applescript@5.0.0:
+    resolution:
+      {
+        integrity: sha512-XcT5rBksx1QdIhlFOCtgZkB99ZEouFZ1E2Kc2LHqNW13U3/74YGdkQRmThTwxy4QIyookibDKYZOPqX//6BlAg==,
+      }
+    engines: { node: ">=12" }
+    dependencies:
+      execa: 5.1.1
+    dev: false
+
   /run-parallel@1.2.0:
     resolution:
       {
@@ -25699,7 +25783,6 @@ packages:
       {
         integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==,
       }
-    dev: true
 
   /signal-exit@4.0.2:
     resolution:
@@ -26423,7 +26506,6 @@ packages:
         integrity: sha512-BrpvfNAE3dcvq7ll3xVumzjKjZQ5tI1sEUIKr3Uoks0XUl45St3FlatVqef9prk4jRDzhW6WZg+3bk93y6pLjA==,
       }
     engines: { node: ">=6" }
-    dev: true
 
   /strip-final-newline@3.0.0:
     resolution:
@@ -26431,7 +26513,6 @@ packages:
         integrity: sha512-dOESqjYr96iWYylGObzd39EuNTa5VJxyvVAEm5Jnh7KGo75V43Hk1odPQkNDyXNmUR6k+gEiDVXnjB8HJ3crXw==,
       }
     engines: { node: ">=12" }
-    dev: true
 
   /strip-indent@3.0.0:
     resolution:
@@ -26653,6 +26734,17 @@ packages:
         integrity: sha512-AsS729u2RHUfEra9xJrE39peJcc2stq2+poBXX8bcM08Y6g9j/i/PUzwNQqkaJde7Ntg1TO7bSREbR5sdosQ+g==,
       }
     dev: true
+
+  /synckit@0.8.5:
+    resolution:
+      {
+        integrity: sha512-L1dapNV6vu2s/4Sputv8xGsCdAVlb5nRDMFU/E27D44l5U6cw1g0dGd45uLc+OXjNMmF4ntiMdCimzcjFKQI8Q==,
+      }
+    engines: { node: ^14.18.0 || >=16.0.0 }
+    dependencies:
+      "@pkgr/utils": 2.4.2
+      tslib: 2.6.0
+    dev: false
 
   /tabbable@5.3.3:
     resolution:
@@ -26956,6 +27048,14 @@ packages:
       {
         integrity: sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==,
       }
+    dev: false
+
+  /titleize@3.0.0:
+    resolution:
+      {
+        integrity: sha512-KxVu8EYHDPBdUYdKZdKtU2aj2XfEx9AfjXxE/Aj0vT06w2icA09Vus1rh6eSu1y01akYg6BjIK/hxyLJINoMLQ==,
+      }
+    engines: { node: ">=12" }
     dev: false
 
   /tmp@0.0.33:
@@ -27656,7 +27756,6 @@ packages:
         integrity: sha512-KK8xQ1mkzZeg9inewmFVDNkg3l5LUhoq9kN6iWYB/CC9YMG8HA+c1Q8HwDe6dEX7kErrEVNVBO3fWsVq5iDgtw==,
       }
     engines: { node: ">=8" }
-    dev: true
 
   /update-browserslist-db@1.0.11(browserslist@4.21.5):
     resolution:

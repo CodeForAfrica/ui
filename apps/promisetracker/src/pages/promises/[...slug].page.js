@@ -52,7 +52,7 @@ const useStyles = makeStyles(
         margin: `${typography.pxToRem(36)} 0`,
       },
     },
-  })
+  }),
 );
 
 function PromisePage({
@@ -210,7 +210,7 @@ export async function getStaticProps({ params: { slug: slugParam }, locale }) {
   };
 
   const languageAlternates = _.languageAlternates(
-    `/promises/${id}/${promisePost.slug}`
+    `/promises/${id}/${promisePost.slug}`,
   );
   return {
     props: {

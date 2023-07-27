@@ -45,7 +45,7 @@ export async function fetchDocuments(
   q,
   pathname,
   options = {},
-  showPinnedDocuments = false
+  showPinnedDocuments = false,
 ) {
   const params = {
     ...options,
@@ -68,7 +68,7 @@ export async function fetchDocuments(
           ...params,
           q: `${q} pinned:true`,
         },
-      }
+      },
     );
     const formattedPinnedDocuments = formatDocuments(pinnedDocuments, pathname);
 
@@ -77,8 +77,8 @@ export async function fetchDocuments(
     formattedData.documents = formattedData.documents.filter(
       (document) =>
         !formattedData.pinnedDocuments.find(
-          (pinnedDocument) => pinnedDocument.id === document.id
-        )
+          (pinnedDocument) => pinnedDocument.id === document.id,
+        ),
     );
 
     return formattedData;

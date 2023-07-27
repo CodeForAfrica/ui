@@ -17,7 +17,7 @@ function jsonQL(promises) {
         }, acc);
         return acc;
       }, new Map())
-      .values()
+      .values(),
   );
   const statuses = Array.from(
     allPromises
@@ -27,7 +27,7 @@ function jsonQL(promises) {
         acc.set(slug, { ...curr, slug });
         return acc;
       }, new Map())
-      .values()
+      .values(),
   );
 
   const api = {
@@ -42,7 +42,7 @@ function jsonQL(promises) {
       const hasStatus = (p) =>
         !status || equalsIgnoreCase(p.status.name, status);
       const filteredPromises = allPromises.filter(
-        (p) => hasCategory(p) && isKeyPromise(p) && hasStatus(p)
+        (p) => hasCategory(p) && isKeyPromise(p) && hasStatus(p),
       );
       return filteredPromises.slice(0, limit);
     },
@@ -58,8 +58,8 @@ function jsonQL(promises) {
         article.categories.some(
           (category) =>
             promise.categories.map((cat) => cat.name).indexOf(category.name) !==
-            -1
-        )
+            -1,
+        ),
       );
       promise.relatedArticles = relatedArticles;
       return promise;

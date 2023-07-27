@@ -2012,7 +2012,8 @@ const comments = {
           snippet: {
             videoId: "NgSFun7F8dI",
             textDisplay: "Apaixonado pelas músicas desse dj... Muito top😻❤🇧🇷",
-            textOriginal: "Apaixonado pelas músicas desse dj... Muito top😻❤🇧🇷",
+            textOriginal:
+              "Apaixonado pelas músicas desse dj... Muito top😻❤🇧🇷",
             authorDisplayName: "Lype SoSi",
             authorProfileImageUrl:
               "https://yt3.ggpht.com/NOZDJpbAYp7VYrj_XaqSdA_kedTN4jjeXMqPdCVvMc8tb4Ovg129qEMLRasnAD598USDRlPsjA=s48-c-k-c0x00ffffff-no-rj",

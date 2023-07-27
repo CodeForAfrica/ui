@@ -71,7 +71,7 @@ export default async function processPageDocuments(page, api, context) {
       `group:${groupId} lang:${locale}`,
       pathname,
       query,
-      showPinnedDocuments
+      showPinnedDocuments,
     );
 
     const { labels: commonLabels } = await api.findGlobal("common-labels", {

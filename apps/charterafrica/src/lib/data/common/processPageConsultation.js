@@ -29,7 +29,7 @@ export async function getVideosFromPlaylist(playlistId, options) {
 async function getFeaturedConsultations(featured, playlistItems) {
   if (featured?.featuredType === "latest") {
     const sortedItems = playlistItems.sort(
-      (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
+      (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
     );
     if (sortedItems?.length) {
       return sortedItems.slice(0, 1);
@@ -39,7 +39,7 @@ async function getFeaturedConsultations(featured, playlistItems) {
   if (featured?.featuredType === "custom") {
     const items =
       featured?.items?.map((item) =>
-        playlistItems.find((plItem) => plItem.videoId === item)
+        playlistItems.find((plItem) => plItem.videoId === item),
       ) ?? null;
     return items;
   }
@@ -53,7 +53,7 @@ async function processPageConsultationDocument(page, api, context) {
   const { params } = context;
   const { blocks } = page;
   const documentsIndex = blocks.findIndex(
-    ({ slug }) => slug === "embedded-documents"
+    ({ slug }) => slug === "embedded-documents",
   );
   if (documentsIndex === -1) {
     return null;
@@ -100,7 +100,7 @@ async function processPageConsultation(page, api, context) {
 
   const { blocks } = page;
   const documentsIndex = blocks.findIndex(
-    ({ slug }) => slug === "embedded-documents"
+    ({ slug }) => slug === "embedded-documents",
   );
   if (documentsIndex > -1) {
     const {
@@ -116,7 +116,7 @@ async function processPageConsultation(page, api, context) {
       `group:${groupId} lang:${locale}`,
       documentsPathname,
       query,
-      showPinnedDocuments
+      showPinnedDocuments,
     );
     blocks[documentsIndex] = {
       ...blocks[documentsIndex],
@@ -141,7 +141,7 @@ async function processPageConsultation(page, api, context) {
   }
 
   const playlistIndex = blocks.findIndex(
-    ({ slug }) => slug === "embedded-playlist"
+    ({ slug }) => slug === "embedded-playlist",
   );
   if (playlistIndex > -1) {
     const {
@@ -155,7 +155,7 @@ async function processPageConsultation(page, api, context) {
     if (featured?.length) {
       // Remove featured items from the playlist i.e. no need for duplication
       items = items.filter((i) =>
-        featured.find((f) => f.videoId !== i.videoId)
+        featured.find((f) => f.videoId !== i.videoId),
       );
     }
     blocks[playlistIndex] = {

@@ -15,7 +15,7 @@ const ProjectTileRoot = styled(Paper, {
     padding: `${theme.typography.pxToRem(8)} ${theme.typography.pxToRem(16)}`,
     [theme.breakpoints.up("md")]: {
       padding: `${theme.typography.pxToRem(25)} ${theme.typography.pxToRem(
-        16
+        16,
       )}`,
     },
   }),
@@ -23,7 +23,7 @@ const ProjectTileRoot = styled(Paper, {
     padding: `${theme.typography.pxToRem(8)} ${theme.typography.pxToRem(24)}`,
     [theme.breakpoints.up("md")]: {
       padding: `${theme.typography.pxToRem(25)} ${theme.typography.pxToRem(
-        16
+        16,
       )}`,
     },
   }),

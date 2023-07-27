@@ -13,7 +13,7 @@ const NavBarRoot = styled(AppBar, {
 
 const NavBar = React.forwardRef(function NavBar(
   { children, ToolbarProps, ...props },
-  ref
+  ref,
 ) {
   return (
     <NavBarRoot color="inherit" position="sticky" {...props} ref={ref}>

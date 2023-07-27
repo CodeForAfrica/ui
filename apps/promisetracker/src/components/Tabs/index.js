@@ -80,7 +80,7 @@ Tabs.propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       children: PropTypes.string,
-    })
+    }),
   ),
 };
 

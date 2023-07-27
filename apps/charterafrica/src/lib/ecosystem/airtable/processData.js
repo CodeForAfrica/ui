@@ -101,23 +101,23 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
     : null;
   const operatingCountries = getValue(
     data,
-    toolTableColumns.operatingCountries
+    toolTableColumns.operatingCountries,
   );
   const homeCountry = getValue(data, toolTableColumns.homeCountry);
   const partners = mapSupporterIdsToObjects(
     getValue(data, toolTableColumns.partners) || [],
     config,
-    { partnersData, socialMediaData }
+    { partnersData, socialMediaData },
   );
   const supporters = mapSupporterIdsToObjects(
     getValue(data, toolTableColumns.supporters) || [],
     config,
-    { partnersData, socialMediaData }
+    { partnersData, socialMediaData },
   );
   const socialMedia = mapSocialMediaIdsToObjects(
     getValue(data, toolTableColumns.socialMedia) || [],
     config,
-    { partnersData, socialMediaData }
+    { partnersData, socialMediaData },
   );
   const source = getSourceType(getValue(data, toolTableColumns.source.url));
   return {
@@ -142,7 +142,7 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
 export function processContributor(
   item,
   config,
-  { partnersData, socialMediaData }
+  { partnersData, socialMediaData },
 ) {
   const {
     schema: { contributorTableColumns },
@@ -160,7 +160,7 @@ export function processContributor(
   const socialMedia = mapSocialMediaIdsToObjects(
     getValue(data, contributorTableColumns.socialMedia) || [],
     config,
-    { partnersData, socialMediaData }
+    { partnersData, socialMediaData },
   );
   const foundDescription = locales.reduce((acc, curr) => {
     const val = getValue(data, contributorTableColumns.description[curr]);
@@ -174,7 +174,7 @@ export function processContributor(
     : null;
   const repoLink = getRepoLink(
     getValue(data, contributorTableColumns.source.type) || "github",
-    getValue(data, contributorTableColumns.slug)
+    getValue(data, contributorTableColumns.slug),
   );
   return {
     airtableId: data.id,
@@ -190,7 +190,7 @@ export function processContributor(
 export function processOrganisation(
   item,
   config,
-  { partnersData, socialMediaData }
+  { partnersData, socialMediaData },
 ) {
   const {
     schema: { organisationTableColumns },
@@ -225,20 +225,20 @@ export function processOrganisation(
   const partners = mapSupporterIdsToObjects(
     getValue(data, organisationTableColumns.partners) || [],
     config,
-    { partnersData }
+    { partnersData },
   );
   const supporters = mapSupporterIdsToObjects(
     getValue(data, organisationTableColumns.supporters) || [],
     config,
-    { partnersData }
+    { partnersData },
   );
   const socialMedia = mapSocialMediaIdsToObjects(
     getValue(data, organisationTableColumns.socialMedia) || [],
     config,
-    { socialMediaData }
+    { socialMediaData },
   );
   const source = getSourceType(
-    getValue(data, organisationTableColumns.source.url)
+    getValue(data, organisationTableColumns.source.url),
   );
   const commonData = {
     airtableId: data.id,

@@ -81,7 +81,7 @@ export const getListFromAirtable = async ({ baseId, tableIdOrName }) => {
 export const processOrganisationFromAirTable = async (
   data,
   config,
-  tableData
+  tableData,
 ) => {
   try {
     const {
@@ -95,20 +95,20 @@ export const processOrganisationFromAirTable = async (
     const partners = await mapSupportersToFields(
       getter(data, organisationTableColumns.partners) || [],
       config,
-      tableData
+      tableData,
     );
     const supporters = await mapSupportersToFields(
       getter(data, organisationTableColumns.supporters) || [],
       config,
-      tableData
+      tableData,
     );
     const socialMedia = await mapSocialMediaToFields(
       getter(data, organisationTableColumns.socialMedia) || [],
       config,
-      tableData
+      tableData,
     );
     const tools = await getToolsPerAirtableId(
-      getter(data, organisationTableColumns.tools)
+      getter(data, organisationTableColumns.tools),
     );
     const commonData = {
       airtableId: data.id,
@@ -154,7 +154,7 @@ export const processOrganisationFromAirTable = async (
 export const processContributorFromAirtable = async (
   data,
   config,
-  tableData
+  tableData,
 ) => {
   try {
     const {
@@ -163,7 +163,7 @@ export const processContributorFromAirtable = async (
     const socialMedia = await mapSocialMediaToFields(
       getter(data, contributorTableColumns.socialMedia) || [],
       config,
-      tableData
+      tableData,
     );
     const description = {
       en: getter(data, contributorTableColumns.description.en),
@@ -176,7 +176,7 @@ export const processContributorFromAirtable = async (
       externalId: getter(data, contributorTableColumns.slug),
       repoLink: `https://github.com/${getter(
         data,
-        contributorTableColumns.slug
+        contributorTableColumns.slug,
       )}`,
       socialMedia,
     };
@@ -224,23 +224,23 @@ export const processToolFromAirtable = async (data, config, tableData) => {
     });
     const operatingCountries = getter(
       data,
-      toolTableColumns.operatingCountries
+      toolTableColumns.operatingCountries,
     );
     const homeCountry = getter(data, toolTableColumns.homeCountry);
     const partners = await mapSupportersToFields(
       getter(data, toolTableColumns.partners) || [],
       config,
-      tableData
+      tableData,
     );
     const supporters = await mapSupportersToFields(
       getter(data, toolTableColumns.supporters) || [],
       config,
-      tableData
+      tableData,
     );
     const socialMedia = await mapSocialMediaToFields(
       getter(data, toolTableColumns.socialMedia) || [],
       config,
-      tableData
+      tableData,
     );
     const defaultData = {
       airtableId: data.id,
