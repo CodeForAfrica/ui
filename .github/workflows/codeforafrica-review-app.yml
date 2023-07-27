@@ -50,7 +50,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           build-args: |
-            MONGO_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}
+            MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET_KEY }}
           cache-from: type=local,src=/tmp/.buildx-cache
