@@ -53,6 +53,8 @@ jobs:
             MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET_KEY }}
+            GHOST_URL=${{ secrets.GHOST_URL }}
+            GHOST_API_KEY=${{secrets.GHOST_API_KEY }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
