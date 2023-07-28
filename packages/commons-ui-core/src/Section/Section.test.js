@@ -29,7 +29,7 @@ describe("<Section />", () => {
       expect(screen.getByRole("region")).toHaveClass("MuiContainer-maxWidthLg");
       rerender(<Section {...defaultProps} fixed={false} maxWidth={false} />);
       expect(screen.getByRole("region")).not.toHaveClass(
-        "MuiContainer-maxWidthLg"
+        "MuiContainer-maxWidthLg",
       );
     });
   });

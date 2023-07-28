@@ -56,7 +56,7 @@ async function processPageOpportunitiesPost(page, api, context) {
     originalOpportunity,
     page,
     api,
-    context
+    context,
   );
   let content = null;
   if (opportunity.content?.length) {
@@ -125,7 +125,7 @@ async function fetchFellowships(pageUrl, api, context) {
   }
 
   const fellowships = docs.map((item) =>
-    processOpportunity(item, pageUrl, api, context)
+    processOpportunity(item, pageUrl, api, context),
   );
   return {
     items: fellowships,
@@ -151,7 +151,7 @@ async function fetchGrants(pageUrl, api, context) {
   }
 
   const fellowships = docs.map((item) =>
-    processOpportunity(item, pageUrl, api, context)
+    processOpportunity(item, pageUrl, api, context),
   );
   return {
     items: fellowships,
@@ -189,7 +189,7 @@ async function processPageOpportunities(page, api, context) {
                 foundValue,
                 `${pageUrl}/${collection}`,
                 api,
-                context
+                context,
               ),
               variant: collection,
               slug: "featured-post",
@@ -207,11 +207,11 @@ async function processPageOpportunities(page, api, context) {
             }
 
             return { ...other, ...found, collection: item };
-          })
+          }),
         );
 
         return { ...b, featured, items };
-      })
+      }),
   );
   if (!opportunitiesBlocks.length) {
     return page;

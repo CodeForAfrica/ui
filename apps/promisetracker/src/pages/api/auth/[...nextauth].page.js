@@ -10,7 +10,7 @@ const OAUTH_PROVIDERS = ["google"];
 async function fetchNewToken({ account, user: nextAuthUser }) {
   const url = new URL(
     `${account.provider}/`,
-    `${process.env.ACTNOW_URL}/auth/`
+    `${process.env.ACTNOW_URL}/auth/`,
   ).toString();
   const {
     access_token: accessToken,

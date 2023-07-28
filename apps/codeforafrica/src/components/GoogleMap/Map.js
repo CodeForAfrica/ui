@@ -22,7 +22,7 @@ function Map({ children, onClick, onIdle, style, ...options }) {
   React.useEffect(() => {
     if (map) {
       ["click", "idle"].forEach((eventName) =>
-        window.google.maps.event.clearListeners(map, eventName)
+        window.google.maps.event.clearListeners(map, eventName),
       );
 
       if (onClick) {

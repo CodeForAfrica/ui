@@ -21,7 +21,7 @@ const deepCompareEqualsForMaps = createCustomEqual((deepEqual) => (a, b) => {
     b instanceof window.google.maps.LatLng
   ) {
     return new window.google.maps.LatLng(a).equals(
-      new window.google.maps.LatLng(b)
+      new window.google.maps.LatLng(b),
     );
   }
 

@@ -25,7 +25,7 @@ Page.propTypes = {
       PropTypes.shape({
         label: PropTypes.string,
         href: PropTypes.string,
-      })
+      }),
     ),
   }),
   title: PropTypes.string,

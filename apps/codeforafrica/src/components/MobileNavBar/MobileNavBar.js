@@ -107,7 +107,7 @@ MobileNavBar.propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
 };
 

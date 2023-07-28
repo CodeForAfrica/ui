@@ -16,7 +16,7 @@ const publishedOn = (overrides) =>
         position: "sidebar",
       },
     },
-    overrides
+    overrides,
   );
 
 export default publishedOn;
