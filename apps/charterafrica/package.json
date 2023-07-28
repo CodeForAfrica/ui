@@ -29,6 +29,8 @@
     "start": "PAYLOAD_CONFIG_PATH=dist/payload.config.js NODE_ENV=production node dist/server.js",
     "lint-check": "TIMING=1 eslint './'",
     "lint": "TIMING=1 eslint --fix './'",
+    "update-ecosystem-list": "node scripts/ecosystem.js POST",
+    "update-ecosystem-content": "node scripts/ecosystem.js PUT",
     "jest": "jest",
     "playwright": "npx playwright test",
     "clean": "rm -rf .next .turbo build dist node_modules",
@@ -36,6 +38,7 @@
     "db-rollback": "migrate-mongo down"
   },
   "dependencies": {
+    "@actions/exec": "^1.1.1",
     "@aws-sdk/abort-controller": "^3.310.0",
     "@aws-sdk/client-s3": "^3.327.0",
     "@aws-sdk/lib-storage": "^3.327.0",
