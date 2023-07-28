@@ -951,8 +951,8 @@ importers:
         specifier: ^7.22.5
         version: 7.22.5(@babel/core@7.22.9)
       "@next/eslint-plugin-next":
-        specifier: ~13.3.4
-        version: 13.3.4
+        specifier: ~13.4.12
+        version: 13.4.12
       eslint-config-airbnb:
         specifier: ^19.0.4
         version: 19.0.4(eslint-plugin-import@2.27.5)(eslint-plugin-jsx-a11y@6.7.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.32.2)(eslint@8.39.0)
@@ -7733,10 +7733,10 @@ packages:
         integrity: sha512-BbPLOkfFFca+OpwSmGhNrl56B3ZzOFS4eJ85SpGTDpjlXoz7XFfS3MMOfjUCTuW1laTrQjm98I9Q30tsYpr8ew==,
       }
 
-  /@next/eslint-plugin-next@13.3.4:
+  /@next/eslint-plugin-next@13.4.12:
     resolution:
       {
-        integrity: sha512-mvS+HafOPy31oJbAi920WJXMdjbyb4v5FAMr9PeGZfRIdEcsLkA3mU/ZvmwzovJgP3nAWw2e2yM8iIFW8VpvIA==,
+        integrity: sha512-6rhK9CdxEgj/j1qvXIyLTWEaeFv7zOK8yJMulz3Owel0uek0U9MJCGzmKgYxM3aAUBo3gKeywCZKyQnJKto60A==,
       }
     dependencies:
       glob: 7.1.7
