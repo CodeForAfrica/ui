@@ -4,7 +4,7 @@ import path from "path";
 import { loadEnvConfig } from "@next/env";
 import express from "express";
 import next from "next";
-import nextBuild from "next/dist/build/index.js";
+import nextBuild from "next/dist/build";
 import nodemailerSendgrid from "nodemailer-sendgrid";
 import payload from "payload";
 
