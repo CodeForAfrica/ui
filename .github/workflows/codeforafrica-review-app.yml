@@ -46,11 +46,17 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
+      - name: Clone Production DB
+        uses: Maggi64/mongo-clone-action@0.3
+        with:
+          source: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.MONGO_DB_NAME }}
+          target: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.MONGO_DB_NAME }}-${{github.event.pull_request.number}}
+
       - name: Build Docker image
         uses: docker/build-push-action@v3
         with:
           build-args: |
-            MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}
+            MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.MONGO_DB_NAME }}-${{github.event.pull_request.number}}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET_KEY }}
             GHOST_URL=${{ secrets.GHOST_URL }}
@@ -64,6 +70,7 @@ jobs:
           file: ./Dockerfile.codeforafrica
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
+
       - name: Push to dokku
         uses: dokku/github-action@master
         with:
@@ -97,3 +104,9 @@ jobs:
           # specify a name for the review app
           review_app_name: review-appname-${{ github.event.pull_request.number }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # - name: Delete cloned DB
+      #   uses: Maggi64/mongo-clone-action@0.3
+      #   with:
+      #     source: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.MONGO_DB_NAME }}-${{github.event.pull_request.number}}
+      #     target: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.MONGO_DB_NAME }}
