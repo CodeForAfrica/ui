@@ -1,9 +1,5 @@
 lockfileVersion: "6.0"
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 importers:
   .:
     devDependencies:
@@ -95,8 +91,8 @@ importers:
         specifier: ^1.0.16
         version: 1.0.16(@aws-sdk/client-s3@3.327.0)(@aws-sdk/lib-storage@3.327.0)(payload@1.7.5)
       "@payloadcms/plugin-nested-docs":
-        specifier: ^1.0.4
-        version: 1.0.4(payload@1.7.5)(react@18.2.0)
+        specifier: ^1.0.6
+        version: 1.0.6(payload@1.7.5)(react@18.2.0)
       "@payloadcms/plugin-seo":
         specifier: ^1.0.13
         version: 1.0.13(payload@1.7.5)(react@18.2.0)
@@ -383,7 +379,7 @@ importers:
         version: 3.0.0
       jest:
         specifier: ^29.5.0
-        version: 29.5.0(@types/node@18.11.9)
+        version: 29.5.0(@types/node@18.11.9)(ts-node@10.9.1)
       jest-config-commons-ui:
         specifier: workspace:*
         version: link:../../packages/jest-config-commons-ui
@@ -404,7 +400,7 @@ importers:
         version: 4.9.5
       webpack:
         specifier: ^5.82.0
-        version: 5.82.0
+        version: 5.82.0(@swc/core@1.3.56)(webpack-cli@4.10.0)
 
   apps/commons-ui-docs:
     dependencies:
@@ -571,7 +567,7 @@ importers:
         version: 3.0.0
       jest:
         specifier: ^29.5.0
-        version: 29.5.0(@types/node@18.11.9)
+        version: 29.5.0(@types/node@18.11.9)(ts-node@10.9.1)
       jest-config-commons-ui:
         specifier: workspace:*
         version: link:../../packages/jest-config-commons-ui
@@ -731,7 +727,7 @@ importers:
         version: 3.0.0
       jest:
         specifier: ^29.5.0
-        version: 29.5.0(@types/node@18.11.9)
+        version: 29.5.0(@types/node@18.11.9)(ts-node@10.9.1)
       jest-config-commons-ui:
         specifier: workspace:*
         version: link:../../packages/jest-config-commons-ui
@@ -749,7 +745,7 @@ importers:
         version: 4.9.5
       webpack:
         specifier: ^5.82.0
-        version: 5.82.0
+        version: 5.82.0(@swc/core@1.3.56)(webpack-cli@4.10.0)
 
   packages/commons-ui-core:
     dependencies:
@@ -795,7 +791,7 @@ importers:
         version: 3.0.0
       jest:
         specifier: ^29.5.0
-        version: 29.5.0(@types/node@18.11.9)
+        version: 29.5.0(@types/node@18.11.9)(ts-node@10.9.1)
       jest-config-commons-ui:
         specifier: workspace:*
         version: link:../jest-config-commons-ui
@@ -819,7 +815,7 @@ importers:
         version: 4.9.5
       webpack:
         specifier: ^5.82.0
-        version: 5.82.0
+        version: 5.82.0(@swc/core@1.3.56)(webpack-cli@4.10.0)
 
   packages/commons-ui-next:
     dependencies:
@@ -853,7 +849,7 @@ importers:
         version: link:../eslint-config-commons-ui
       jest:
         specifier: ^29.5.0
-        version: 29.5.0(@types/node@18.11.9)
+        version: 29.5.0(@types/node@18.11.9)(ts-node@10.9.1)
       jest-config-commons-ui:
         specifier: workspace:*
         version: link:../jest-config-commons-ui
@@ -877,7 +873,7 @@ importers:
         version: 4.9.5
       webpack:
         specifier: ^5.82.0
-        version: 5.82.0
+        version: 5.82.0(@swc/core@1.3.56)(webpack-cli@4.10.0)
 
   packages/commons-ui-testing-library:
     dependencies:
@@ -923,7 +919,7 @@ importers:
         version: 3.0.0
       jest:
         specifier: ^29.5.0
-        version: 29.5.0(@types/node@18.11.9)
+        version: 29.5.0(@types/node@18.11.9)(ts-node@10.9.1)
       jest-config-commons-ui:
         specifier: workspace:*
         version: link:../jest-config-commons-ui
@@ -944,7 +940,7 @@ importers:
         version: 4.9.5
       webpack:
         specifier: ^5.82.0
-        version: 5.82.0
+        version: 5.82.0(@swc/core@1.3.56)(webpack-cli@4.10.0)
 
   packages/eslint-config-commons-ui:
     dependencies:
@@ -1045,7 +1041,7 @@ importers:
         version: 3.0.0
       jest:
         specifier: ^29.5.0
-        version: 29.5.0(@types/node@18.11.9)
+        version: 29.5.0(@types/node@18.11.9)(ts-node@10.9.1)
       prettier:
         specifier: ^3.0.0
         version: 3.0.0
@@ -8066,13 +8062,13 @@ packages:
       range-parser: 1.2.1
     dev: false
 
-  /@payloadcms/plugin-nested-docs@1.0.4(payload@1.7.5)(react@18.2.0):
+  /@payloadcms/plugin-nested-docs@1.0.6(payload@1.7.5)(react@18.2.0):
     resolution:
       {
-        integrity: sha512-vjhk3fE/uRkUSNg0UuAv/NIEvDDMRcbEHSgxOo/MbmXOT2LFsh3fPq+Gq4+cL1H9s+FStiIkygigv7J5fgOZwA==,
+        integrity: sha512-+rPMWYYjxxIQeCO+MFlfsj4baLaK3S7RzP4dGouWcCtORbZEXbVPUGXgWWNyAP3FolQh4YDEgFVB4PHyIa+O/A==,
       }
     peerDependencies:
-      payload: ^0.18.5
+      payload: ^0.18.5 || ^1.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       payload: 1.7.5(monaco-editor@0.38.0)(scheduler@0.23.0)(typescript@4.9.5)
@@ -10150,7 +10146,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       resolve-url-loader: 5.0.0
-      sass-loader: 12.6.0(webpack@5.82.0)
+      sass-loader: 12.6.0(sass@1.62.1)(webpack@5.82.0)
       semver: 7.5.0
       style-loader: 3.3.2(webpack@5.82.0)
       styled-jsx: 5.1.1(@babel/core@7.22.9)(react@18.2.0)
@@ -12883,7 +12879,7 @@ packages:
       "@babel/core": 7.22.9
       find-cache-dir: 4.0.0
       schema-utils: 4.0.1
-      webpack: 5.82.0
+      webpack: 5.82.0(@swc/core@1.3.56)(webpack-cli@4.10.0)
     dev: true
 
   /babel-plugin-add-react-displayname@0.0.5:
@@ -18436,7 +18432,6 @@ packages:
       {
         integrity: sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==,
       }
-    dev: false
 
   /import-fresh@3.3.0:
     resolution:
@@ -19266,37 +19261,6 @@ packages:
       - supports-color
     dev: true
 
-  /jest-cli@29.5.0(@types/node@18.11.9):
-    resolution:
-      {
-        integrity: sha512-L1KcP1l4HtfwdxXNFCL5bmUbLQiKrakMUriBEcc1Vfz6gx31ORKdreuWvmQVBit+1ss9NNR3yxjwfwzZNdQXJw==,
-      }
-    engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
-    hasBin: true
-    peerDependencies:
-      node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
-    peerDependenciesMeta:
-      node-notifier:
-        optional: true
-    dependencies:
-      "@jest/core": 29.5.0(ts-node@10.9.1)
-      "@jest/test-result": 29.5.0
-      "@jest/types": 29.6.1
-      chalk: 4.1.2
-      exit: 0.1.2
-      graceful-fs: 4.2.11
-      import-local: 3.1.0
-      jest-config: 29.5.0(@types/node@18.11.9)(ts-node@10.9.1)
-      jest-util: 29.6.1
-      jest-validate: 29.5.0
-      prompts: 2.4.2
-      yargs: 17.7.2
-    transitivePeerDependencies:
-      - "@types/node"
-      - supports-color
-      - ts-node
-    dev: true
-
   /jest-cli@29.5.0(@types/node@18.11.9)(ts-node@10.9.1):
     resolution:
       {
@@ -19760,29 +19724,6 @@ packages:
       jest-util: 29.6.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
-    dev: true
-
-  /jest@29.5.0(@types/node@18.11.9):
-    resolution:
-      {
-        integrity: sha512-juMg3he2uru1QoXX078zTa7pO85QyB9xajZc6bU+d9yEGwrKX6+vGmJQ3UdVZsvTEUARIdObzH68QItim6OSSQ==,
-      }
-    engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
-    hasBin: true
-    peerDependencies:
-      node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
-    peerDependenciesMeta:
-      node-notifier:
-        optional: true
-    dependencies:
-      "@jest/core": 29.5.0(ts-node@10.9.1)
-      "@jest/types": 29.5.0
-      import-local: 3.1.0
-      jest-cli: 29.5.0(@types/node@18.11.9)
-    transitivePeerDependencies:
-      - "@types/node"
-      - supports-color
-      - ts-node
     dev: true
 
   /jest@29.5.0(@types/node@18.11.9)(ts-node@10.9.1):
@@ -25435,34 +25376,6 @@ packages:
       neo-async: 2.6.2
       sass: 1.62.1
       webpack: 5.82.0(@swc/core@1.3.56)(webpack-cli@4.10.0)
-    dev: false
-
-  /sass-loader@12.6.0(webpack@5.82.0):
-    resolution:
-      {
-        integrity: sha512-oLTaH0YCtX4cfnJZxKSLAyglED0naiYfNG1iXfU5w1LNZ+ukoA5DtyDIN5zmKVZwYNJP4KRc5Y3hkWga+7tYfA==,
-      }
-    engines: { node: ">= 12.13.0" }
-    peerDependencies:
-      fibers: ">= 3.1.0"
-      node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
-      sass: ^1.3.0
-      sass-embedded: "*"
-      webpack: ^5.0.0
-    peerDependenciesMeta:
-      fibers:
-        optional: true
-      node-sass:
-        optional: true
-      sass:
-        optional: true
-      sass-embedded:
-        optional: true
-    dependencies:
-      klona: 2.0.6
-      neo-async: 2.6.2
-      webpack: 5.82.0(esbuild@0.17.18)
-    dev: true
 
   /sass@1.62.1:
     resolution:
@@ -25475,7 +25388,6 @@ packages:
       chokidar: 3.5.3
       immutable: 4.3.0
       source-map-js: 1.0.2
-    dev: false
 
   /sax@1.2.4:
     resolution:
@@ -26908,33 +26820,6 @@ packages:
       serialize-javascript: 6.0.1
       terser: 5.17.1
       webpack: 5.82.0(esbuild@0.17.18)
-    dev: true
-
-  /terser-webpack-plugin@5.3.7(webpack@5.82.0):
-    resolution:
-      {
-        integrity: sha512-AfKwIktyP7Cu50xNjXF/6Qb5lBNzYaWpU6YfoX3uZicTx0zTy0stDDCsvjDapKsSDvOeWo5MEq4TmdBy2cNoHw==,
-      }
-    engines: { node: ">= 10.13.0" }
-    peerDependencies:
-      "@swc/core": "*"
-      esbuild: "*"
-      uglify-js: "*"
-      webpack: ^5.1.0
-    peerDependenciesMeta:
-      "@swc/core":
-        optional: true
-      esbuild:
-        optional: true
-      uglify-js:
-        optional: true
-    dependencies:
-      "@jridgewell/trace-mapping": 0.3.18
-      jest-worker: 27.5.1
-      schema-utils: 3.1.2
-      serialize-javascript: 6.0.1
-      terser: 5.17.1
-      webpack: 5.82.0
     dev: true
 
   /terser@5.17.1:
@@ -28767,49 +28652,6 @@ packages:
       }
     dev: true
 
-  /webpack@5.82.0:
-    resolution:
-      {
-        integrity: sha512-iGNA2fHhnDcV1bONdUu554eZx+XeldsaeQ8T67H6KKHl2nUSwX8Zm7cmzOA46ox/X1ARxf7Bjv8wQ/HsB5fxBg==,
-      }
-    engines: { node: ">=10.13.0" }
-    hasBin: true
-    peerDependencies:
-      webpack-cli: "*"
-    peerDependenciesMeta:
-      webpack-cli:
-        optional: true
-    dependencies:
-      "@types/eslint-scope": 3.7.4
-      "@types/estree": 1.0.1
-      "@webassemblyjs/ast": 1.11.5
-      "@webassemblyjs/wasm-edit": 1.11.5
-      "@webassemblyjs/wasm-parser": 1.11.5
-      acorn: 8.8.2
-      acorn-import-assertions: 1.8.0(acorn@8.8.2)
-      browserslist: 4.21.5
-      chrome-trace-event: 1.0.3
-      enhanced-resolve: 5.13.0
-      es-module-lexer: 1.2.1
-      eslint-scope: 5.1.1
-      events: 3.3.0
-      glob-to-regexp: 0.4.1
-      graceful-fs: 4.2.11
-      json-parse-even-better-errors: 2.3.1
-      loader-runner: 4.3.0
-      mime-types: 2.1.35
-      neo-async: 2.6.2
-      schema-utils: 3.1.2
-      tapable: 2.2.1
-      terser-webpack-plugin: 5.3.7(webpack@5.82.0)
-      watchpack: 2.4.0
-      webpack-sources: 3.2.3
-    transitivePeerDependencies:
-      - "@swc/core"
-      - esbuild
-      - uglify-js
-    dev: true
-
   /webpack@5.82.0(@swc/core@1.3.56)(webpack-cli@4.10.0):
     resolution:
       {
@@ -29427,3 +29269,7 @@ packages:
       {
         integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==,
       }
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
