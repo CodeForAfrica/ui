@@ -117,7 +117,6 @@ function Menu({ links, children, socialLinks, ...props }) {
         <Grid item key={item.label} className={classes.menu}>
           <Button
             component={Link}
-            color={index !== 0 ? "default" : "primary"}
             variant={index !== 0 ? "text" : "outlined"}
             size="large"
             href={item.href}
@@ -125,9 +124,12 @@ function Menu({ links, children, socialLinks, ...props }) {
               root: index !== 0 ? classes.menuLinks : classes.links,
               text: classes.text,
             }}
-            sx={{
-              borderRadius: 20,
-              border: index !== 0 ? 0 : "3px solid",
+            sx={(theme) => {
+              return {
+                color: index === 0 ? theme.palette.primary.main : "#0C2AEA",
+                borderRadius: 20,
+                border: index !== 0 ? 0 : "3px solid",
+              };
             }}
           >
             <Typography variant="body1" className={classes.label}>
