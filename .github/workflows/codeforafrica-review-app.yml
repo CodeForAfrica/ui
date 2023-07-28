@@ -55,8 +55,9 @@ jobs:
             PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET_KEY }}
             GHOST_URL=${{ secrets.GHOST_URL }}
             GHOST_API_KEY=${{ secrets.GHOST_API_KEY }}
-            NEXT_PUBLIC_APP_LOGO_URL={{ secrets.NEXT_PUBLIC_APP_CFA_LOGO_URL }}
-            NEXT_PUBLIC_APP_NAME={{ secrets.NEXT_PUBLIC_APP_CFA_NAME }}
+            NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_APP_CFA_LOGO_URL }}
+            NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_APP_CFA_NAME }}
+            VERCEL_URL=https://codeforafrica.vercel.app
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
