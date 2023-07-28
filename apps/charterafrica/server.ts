@@ -4,7 +4,7 @@ import path from "path";
 import { loadEnvConfig } from "@next/env";
 import express from "express";
 import next from "next";
-import nextBuild from "next/dist/build";
+import nextBuild from "next/dist/build/index.js";
 import nodemailerSendgrid from "nodemailer-sendgrid";
 import payload from "payload";
 
@@ -79,7 +79,17 @@ const start = async () => {
     server.listen(port, async () => {
       console.info("NextJS is now building...");
       try {
-        await nextBuild(path.resolve(projectDir));
+        await nextBuild(
+          path.resolve(projectDir),
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          null,
+          "default",
+        );
       } finally {
         process.exit();
       }
