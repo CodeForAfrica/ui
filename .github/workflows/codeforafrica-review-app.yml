@@ -75,6 +75,14 @@ jobs:
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
+      - name: Update Preview URL
+        uses: nefrob/pr-description@v1.0.0
+        with:
+          content: "[Preview URL](http://review-appname-${{ github.event.pull_request.number }}.cms.review.codeforafrica.org)"
+          regex: "<!-- start regex match -->.*?<!-- end regex match -->"
+          regexFlags: ims
+          token: ${{ secrets.GITHUB_TOKEN }}
+
   destroy_review_app:
     runs-on: ubuntu-latest
     # only run when a pull request is closed
