@@ -18,9 +18,7 @@ COPY pnpm-lock.yaml .
 
 RUN pnpm fetch
 
-
 FROM base as builder
-
 
 WORKDIR /workspace
 
