@@ -25,61 +25,61 @@ jobs:
         os: [ubuntu-latest]
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
     steps:
-      #   - name: Cloning repo
-      #     uses: actions/checkout@v3
-      #     with:
-      #       fetch-depth: 0
-      #   - name: Set up Docker Buildx
-      #     uses: docker/setup-buildx-action@v2
+      - name: Cloning repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
 
-      #   - name: Cache Docker layers
-      #     uses: actions/cache@v3
-      #     with:
-      #       key: ${{ runner.os }}-buildx-${{ github.sha }}
-      #       path: /tmp/.buildx-cache
-      #       restore-keys: |
-      #         ${{ runner.os }}-buildx-
-      #   - name: Login to DockerHub
-      #     uses: docker/login-action@v2
-      #     with:
-      #       password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      #       username: ${{ secrets.DOCKER_HUB_USERNAME }}
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          path: /tmp/.buildx-cache
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
-      #   - name: Clone Production DB
-      #     uses: Maggi64/mongo-clone-action@0.3
-      #     with:
-      #       source: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}
-      #       target: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}
+      - name: Clone Production DB
+        uses: Maggi64/mongo-clone-action@0.3
+        with:
+          source: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}
+          target: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}
 
-      #   - name: Build Docker image
-      #     uses: docker/build-push-action@v3
-      #     with:
-      #       build-args: |
-      #         MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}
-      #         NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
-      #         PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET_KEY }}
-      #         GHOST_URL=${{ secrets.GHOST_URL }}
-      #         GHOST_API_KEY=${{ secrets.GHOST_API_KEY }}
-      #         NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_APP_CFA_LOGO_URL }}
-      #         NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_APP_CFA_NAME }}
-      #         VERCEL_URL=https://codeforafrica.vercel.app
-      #       cache-from: type=local,src=/tmp/.buildx-cache
-      #       cache-to: type=local,dest=/tmp/.buildx-cache-new
-      #       context: .
-      #       file: ./Dockerfile.codeforafrica
-      #       push: true
-      #       tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
+      - name: Build Docker image
+        uses: docker/build-push-action@v3
+        with:
+          build-args: |
+            MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}
+            NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET_KEY }}
+            GHOST_URL=${{ secrets.GHOST_URL }}
+            GHOST_API_KEY=${{ secrets.GHOST_API_KEY }}
+            NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_APP_CFA_LOGO_URL }}
+            NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_APP_CFA_NAME }}
+            VERCEL_URL=https://codeforafrica.vercel.app
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
+          context: .
+          file: ./Dockerfile.codeforafrica
+          push: true
+          tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 
-      #   - name: Push to dokku
-      #     uses: dokku/github-action@master
-      #     with:
-      #       # create a review app
-      #       command: review-apps:create
-      #       git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-dev
-      #       # specify a name for the review app
-      #       review_app_name: review-appname-${{ github.event.pull_request.number }}
-      #       ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #       deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
+      - name: Push to dokku
+        uses: dokku/github-action@master
+        with:
+          # create a review app
+          command: review-apps:create
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-dev
+          # specify a name for the review app
+          review_app_name: review-appname-${{ github.event.pull_request.number }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Set Review App Domain Name
         uses: appleboy/ssh-action@v1.0.0
