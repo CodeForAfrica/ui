@@ -45,7 +45,17 @@ const start = async () => {
     app.listen(PORT, async () => {
       console.info("NextJS is now building...");
       try {
-        await nextBuild(path.resolve(projectDir));
+        await nextBuild(
+          path.resolve(projectDir),
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          null,
+          "default",
+        );
       } finally {
         process.exit();
       }

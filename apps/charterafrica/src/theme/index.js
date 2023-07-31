@@ -41,7 +41,7 @@ function initializeTypographyVariant(
   lineHeight,
   fontWeight = 400,
   fontFamily = OPEN_SANS_FONT_FAMILY,
-  others = undefined
+  others = undefined,
 ) {
   return {
     fontFamily,
@@ -80,7 +80,7 @@ const theme = createTheme({
       28,
       34,
       600,
-      PROMPT_FONT_FAMILY
+      PROMPT_FONT_FAMILY,
     ),
     h4: initializeTypographyVariant(28, 34, 700, PROMPT_FONT_FAMILY),
     h4Small: initializeTypographyVariant(23, 28, 700, PROMPT_FONT_FAMILY),
@@ -91,7 +91,7 @@ const theme = createTheme({
       19,
       23,
       600,
-      PROMPT_FONT_FAMILY
+      PROMPT_FONT_FAMILY,
     ),
     h6: initializeTypographyVariant(19, 23, 700, PROMPT_FONT_FAMILY),
     h6Small: initializeTypographyVariant(16, 19, 700, PROMPT_FONT_FAMILY),
@@ -99,7 +99,7 @@ const theme = createTheme({
       16,
       19,
       600,
-      PROMPT_FONT_FAMILY
+      PROMPT_FONT_FAMILY,
     ),
     subheading: initializeTypographyVariant(20, 24),
     subtitle1: undefined,
@@ -180,7 +180,7 @@ deepmerge(
       textTransform: "title",
     },
   },
-  { clone: false }
+  { clone: false },
 );
 
 deepmerge(
@@ -328,7 +328,7 @@ deepmerge(
       `,
     },
   },
-  { clone: false }
+  { clone: false },
 );
 
 export default theme;

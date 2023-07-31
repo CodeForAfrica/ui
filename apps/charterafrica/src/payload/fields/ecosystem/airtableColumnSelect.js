@@ -36,7 +36,7 @@ const ColumnSelect = (tableField, schema) => {
     const table = tables?.find(({ id }) => id === tableId);
     const options = useMemo(
       () => fieldsToOptions(table?.fields),
-      [table?.fields]
+      [table?.fields],
     );
 
     return createElement(Select, { ...props, options });
