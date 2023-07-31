@@ -45,7 +45,6 @@ const nextConfig = {
       transform: "@mui/material/{{member}}",
     },
   },
-  output: "standalone",
   pageExtensions: ["page.js"],
   reactStrictMode: true,
   async redirects() {
