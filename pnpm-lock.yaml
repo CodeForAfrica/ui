@@ -113,7 +113,7 @@ importers:
         version: 1.9.3
       migrate-mongo:
         specifier: ^10.0.0
-        version: 10.0.0(mongodb@4.8.1)
+        version: 10.0.0(mongodb@5.7.0)
       monaco-editor:
         specifier: ^0.38.0
         version: 0.38.0
@@ -325,6 +325,9 @@ importers:
       marked:
         specifier: ^4.3.0
         version: 4.3.0
+      mongodb:
+        specifier: ^5.7.0
+        version: 5.7.0
       nanoid:
         specifier: ^4.0.2
         version: 4.0.2
@@ -13411,6 +13414,14 @@ packages:
       buffer: 5.7.1
     dev: false
 
+  /bson@5.4.0:
+    resolution:
+      {
+        integrity: sha512-WRZ5SQI5GfUuKnPTNmAYPiKIof3ORXAF4IRU5UcgmivNIon01rWQlw5RUH954dpu8yGL8T59YShVddIPaU/gFA==,
+      }
+    engines: { node: ">=14.20.1" }
+    dev: false
+
   /buffer-crc32@0.2.13:
     resolution:
       {
@@ -21017,7 +21028,7 @@ packages:
       braces: 3.0.2
       picomatch: 2.3.1
 
-  /migrate-mongo@10.0.0(mongodb@4.8.1):
+  /migrate-mongo@10.0.0(mongodb@5.7.0):
     resolution:
       {
         integrity: sha512-QA/bBKNMq/FmuK3fDbgwfNoW2riiU1wLDWGXv/tGhUItPLGqcciPPmu29SrnYAzRKMOVaGEXxzmrBs1zp5cQ7Q==,
@@ -21033,7 +21044,7 @@ packages:
       fn-args: 5.0.0
       fs-extra: 10.1.0
       lodash: 4.17.21
-      mongodb: 4.8.1
+      mongodb: 5.7.0
       p-each-series: 2.2.0
     dev: false
 
@@ -21262,6 +21273,37 @@ packages:
     dependencies:
       bson: 4.7.2
       denque: 2.1.0
+      mongodb-connection-string-url: 2.6.0
+      socks: 2.7.1
+    optionalDependencies:
+      saslprep: 1.0.3
+    dev: false
+
+  /mongodb@5.7.0:
+    resolution:
+      {
+        integrity: sha512-zm82Bq33QbqtxDf58fLWBwTjARK3NSvKYjyz997KSy6hpat0prjeX/kxjbPVyZY60XYPDNETaHkHJI2UCzSLuw==,
+      }
+    engines: { node: ">=14.20.1" }
+    peerDependencies:
+      "@aws-sdk/credential-providers": ^3.201.0
+      "@mongodb-js/zstd": ^1.1.0
+      kerberos: ^2.0.1
+      mongodb-client-encryption: ">=2.3.0 <3"
+      snappy: ^7.2.2
+    peerDependenciesMeta:
+      "@aws-sdk/credential-providers":
+        optional: true
+      "@mongodb-js/zstd":
+        optional: true
+      kerberos:
+        optional: true
+      mongodb-client-encryption:
+        optional: true
+      snappy:
+        optional: true
+    dependencies:
+      bson: 5.4.0
       mongodb-connection-string-url: 2.6.0
       socks: 2.7.1
     optionalDependencies:
