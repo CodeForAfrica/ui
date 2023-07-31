@@ -32,7 +32,7 @@ async function insertHref(nodes, payload) {
       }
       newNode.children = await insertHref(node.children, payload);
       return newNode;
-    })
+    }),
   );
 }
 
