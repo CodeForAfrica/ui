@@ -40,7 +40,7 @@ ARG PORT=3000 \
 
 RUN pnpm build-next --filter=codeforafrica
 
-ARG PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL}
+ARG PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
 
 RUN pnpm build-payload --filter=codeforafrica
 
