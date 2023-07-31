@@ -81,6 +81,10 @@ jobs:
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
+      - name: Set Review App Domain Name
+        run: |
+          ssh ${{ env.DOKKU_REMOTE_URL }} -i ${{ secrets.SSH_PRIVATE_KEY }} -- dokku config:set "review-appname-${{github.event.pull_request.number}}" "DOMAIN=http://review-appname-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
+
       - name: Update Preview URL
         uses: nefrob/pr-description@v1.0.0
         with:
