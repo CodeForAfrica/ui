@@ -64,8 +64,8 @@ jobs:
             NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_APP_CFA_LOGO_URL }}
             NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_APP_CFA_NAME }}
             VERCEL_URL=https://codeforafrica.vercel.app
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache-new
+          # cache-from: type=local,src=/tmp/.buildx-cache
+          # cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           file: ./Dockerfile.codeforafrica
           push: true
