@@ -29,8 +29,8 @@ importers:
         specifier: ^8.0.3
         version: 8.0.3
       lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
+        specifier: ^13.2.3
+        version: 13.2.3
       playwright-config-commons-ui:
         specifier: workspace:*
         version: link:packages/playwright-config-commons-ui
@@ -660,8 +660,8 @@ importers:
         specifier: ^6.5.1
         version: 6.5.1
       clsx:
-        specifier: ^1.2.1
-        version: 1.2.1
+        specifier: ^2.0.0
+        version: 2.0.0
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
@@ -857,8 +857,8 @@ importers:
   packages/commons-ui-next:
     dependencies:
       clsx:
-        specifier: ^1.2.1
-        version: 1.2.1
+        specifier: ^2.0.0
+        version: 2.0.0
     devDependencies:
       "@babel/core":
         specifier: ^7.22.9
@@ -1009,8 +1009,8 @@ importers:
         specifier: ^27.2.3
         version: 27.2.3(eslint@8.39.0)(typescript@4.9.5)
       eslint-plugin-jest-dom:
-        specifier: ^4.0.3
-        version: 4.0.3(eslint@8.39.0)
+        specifier: ^5.0.1
+        version: 5.0.1(@testing-library/dom@9.2.0)(eslint@8.39.0)
       eslint-plugin-json:
         specifier: ^3.1.0
         version: 3.1.0
@@ -11260,6 +11260,7 @@ packages:
       dom-accessibility-api: 0.5.16
       lz-string: 1.5.0
       pretty-format: 27.5.1
+    dev: true
 
   /@testing-library/dom@9.2.0:
     resolution:
@@ -14157,6 +14158,14 @@ packages:
       }
     engines: { node: ">=6" }
 
+  /clsx@2.0.0:
+    resolution:
+      {
+        integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==,
+      }
+    engines: { node: ">=6" }
+    dev: false
+
   /co@4.6.0:
     resolution:
       {
@@ -16485,17 +16494,18 @@ packages:
       - eslint-import-resolver-webpack
       - supports-color
 
-  /eslint-plugin-jest-dom@4.0.3(eslint@8.39.0):
+  /eslint-plugin-jest-dom@5.0.1(@testing-library/dom@9.2.0)(eslint@8.39.0):
     resolution:
       {
-        integrity: sha512-9j+n8uj0+V0tmsoS7bYC7fLhQmIvjRqRYEcbDSi+TKPsTThLLXCyj5swMSSf/hTleeMktACnn+HFqXBr5gbcbA==,
+        integrity: sha512-zD/BjNk12R5R9cxIu8oa2HfNeDSknI3ewtN8nygIUMQuieWDnTY9Np//6a1Z3G7Y3dx3l45hCUR4EphsgRmUtA==,
       }
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0, npm: ">=6", yarn: ">=1" }
     peerDependencies:
+      "@testing-library/dom": ^8.0.0 || ^9.0.0
       eslint: ^6.8.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      "@babel/runtime": 7.21.5
-      "@testing-library/dom": 8.20.0
+      "@babel/runtime": 7.22.6
+      "@testing-library/dom": 9.2.0
       eslint: 8.39.0
       requireindex: 1.2.0
     dev: false
@@ -20739,10 +20749,10 @@ packages:
         integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==,
       }
 
-  /lint-staged@13.2.2:
+  /lint-staged@13.2.3:
     resolution:
       {
-        integrity: sha512-71gSwXKy649VrSU09s10uAT0rWCcY3aewhMaHyl2N84oBk4Xs9HgxvUp3AYu+bNsK4NrOYYxvSgg7FyGJ+jGcA==,
+        integrity: sha512-zVVEXLuQIhr1Y7R7YAWx4TZLdvuzk7DnmrsTNL0fax6Z3jrpFcas+vKbzxhhvp6TA55m1SQuWkpzI1qbfDZbAg==,
       }
     engines: { node: ^14.13.1 || >=16.0.0 }
     hasBin: true
