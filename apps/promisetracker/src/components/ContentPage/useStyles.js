@@ -40,7 +40,7 @@ const useStyles = makeStyles(
     footer: {
       marginTop: 0,
     },
-  })
+  }),
 );
 
 export default useStyles;

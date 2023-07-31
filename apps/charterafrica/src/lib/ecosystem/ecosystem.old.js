@@ -34,7 +34,7 @@ const bulkMarkDeleted = async (collection, fromSource) => {
       } catch (error) {
         Sentry.captureMessage(error.message);
       }
-    })
+    }),
   );
 };
 const processTools = async (config, tableData) => {
@@ -47,7 +47,7 @@ const processTools = async (config, tableData) => {
         id: data.id,
       },
       config,
-      tableData
+      tableData,
     );
     // Only get git data if not exist in database
     return createCollection(TOOL_COLLECTION, airtableData, config);
@@ -65,7 +65,7 @@ const processOrganisations = async (config, tableData) => {
         id: data.id,
       },
       config,
-      tableData
+      tableData,
     );
     // Only get git data if not exist in database
     return createCollection(ORGANIZATION_COLLECTION, airtableData, config);
@@ -83,7 +83,7 @@ const processContributors = async (config, tableData) => {
         id: data.id,
       },
       config,
-      tableData
+      tableData,
     );
     // Only get git data if not exist in database
     return createCollection(CONTRIBUTORS_COLLECTION, airtableData, config);

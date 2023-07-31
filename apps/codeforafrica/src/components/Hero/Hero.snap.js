@@ -25,7 +25,7 @@ exports[`<Hero /> renders unchanged 1`] = `
               class="css-g98gbd"
               data-nimg="fill"
               decoding="async"
-              fetchpriority="high"
+              loading="lazy"
               sizes="100vw"
               src="/_next/image?url=%2F&w=3840&q=75"
               srcset="/_next/image?url=%2F&w=640&q=75 640w, /_next/image?url=%2F&w=750&q=75 750w, /_next/image?url=%2F&w=828&q=75 828w, /_next/image?url=%2F&w=1080&q=75 1080w, /_next/image?url=%2F&w=1200&q=75 1200w, /_next/image?url=%2F&w=1920&q=75 1920w, /_next/image?url=%2F&w=2048&q=75 2048w, /_next/image?url=%2F&w=3840&q=75 3840w"

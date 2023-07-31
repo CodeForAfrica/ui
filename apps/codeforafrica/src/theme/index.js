@@ -426,7 +426,7 @@ deepmerge(
       textTransform: "uppercase",
     },
   },
-  { clone: false }
+  { clone: false },
 );
 
 deepmerge(
@@ -538,7 +538,7 @@ deepmerge(
       },
     },
   },
-  { clone: false }
+  { clone: false },
 );
 
 export default theme;

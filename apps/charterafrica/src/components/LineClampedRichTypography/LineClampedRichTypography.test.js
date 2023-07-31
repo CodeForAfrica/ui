@@ -15,7 +15,7 @@ const defaultProps = {
 describe("<LineClampedRichTypography />", () => {
   it("renders unchanged", () => {
     const { container } = render(
-      <LineClampedRichTypography {...defaultProps} />
+      <LineClampedRichTypography {...defaultProps} />,
     );
     expect(container).toMatchSnapshot();
   });

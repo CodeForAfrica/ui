@@ -58,8 +58,8 @@ function accordion({ richTextConfig, overrides = {} } = {}) {
             },
           },
           richTextConfig,
-          { clone: false }
-        )
+          { clone: false },
+        ),
       ),
     ],
     admin: {

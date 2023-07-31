@@ -17,7 +17,7 @@ describe("<Popper />", () => {
     const { container } = render(
       <Popper {...defaultProps}>
         <div />
-      </Popper>
+      </Popper>,
     );
     expect(container).toMatchSnapshot();
   });

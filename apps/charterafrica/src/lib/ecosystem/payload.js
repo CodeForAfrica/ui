@@ -18,7 +18,7 @@ export async function updateOrCreate(collection, toCreate, locale) {
         collection,
         docs[0]?.id,
         toCreate,
-        { locale }
+        { locale },
       );
       return data;
     }
@@ -38,7 +38,7 @@ export async function createCollection(collection, toCreate, { localized }) {
     const locales = localized ? ["en", "pt", "fr"] : ["en"];
     const dataPerLocale = localize(toCreate, locales);
     const promises = Object.keys(dataPerLocale).map((locale) =>
-      updateOrCreate(collection, dataPerLocale?.[locale], locale)
+      updateOrCreate(collection, dataPerLocale?.[locale], locale),
     );
     return Promise.all(promises);
   } catch (e) {
@@ -66,7 +66,7 @@ export async function bulkMarkDeleted(collection, fromSource) {
         } catch (error) {
           Sentry.captureException(error.message);
         }
-      })
+      }),
     );
   } catch (e) {
     Sentry.captureException(e.message);

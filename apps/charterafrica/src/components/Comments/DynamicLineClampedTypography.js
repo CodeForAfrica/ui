@@ -8,7 +8,7 @@ const DynamicLineClampedTypography = forwardRef(
   ({ comment, sx, ...props }, ref) => {
     const textRef = useRef(null);
     const [commentHeight, setCommentHeight] = useState(
-      textRef?.current?.offsetHeight
+      textRef?.current?.offsetHeight,
     );
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const DynamicLineClampedTypography = forwardRef(
         ) : null}
       </Box>
     );
-  }
+  },
 );
 
 DynamicLineClampedTypography.propTypes = {

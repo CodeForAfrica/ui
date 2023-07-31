@@ -3,7 +3,7 @@
 exports[`<ProjectStakeholders /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiStack-root css-bqx4d1-MuiStack-root"
+    class="MuiStack-root css-h9vuy5-MuiStack-root"
   >
     <div
       class="MuiTypography-root MuiTypography-h5Small css-1rq9mfe-MuiTypography-root"
@@ -29,7 +29,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiStack-root css-11d7185-MuiStack-root"
+      class="MuiStack-root css-1025p66-MuiStack-root"
     >
       <div
         class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
@@ -37,7 +37,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
         Share This Project
       </div>
       <div
-        class="MuiStack-root css-163j9ep-MuiStack-root"
+        class="MuiStack-root css-1jqw290-MuiStack-root"
       >
         <button
           aria-label="Twitter"

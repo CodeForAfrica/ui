@@ -8,7 +8,7 @@ const config = {
     oauth: {
       redirectUrl: `${site.environmentUrl.replace(
         /\/+$/,
-        ""
+        "",
       )}/api/oauth/callback`,
       scope: "user, repo",
     },

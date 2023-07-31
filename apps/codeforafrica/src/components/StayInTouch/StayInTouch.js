@@ -20,7 +20,7 @@ const IconRoot = styled("img", {
 
 const StayInTouch = React.forwardRef(function StayInTouch(
   { links, sx, title },
-  ref
+  ref,
 ) {
   if (!links?.length) {
     return null;
@@ -91,7 +91,7 @@ StayInTouch.propTypes = {
       icon: PropTypes.shape({
         url: PropTypes.string.isRequired,
       }).isRequired,
-    })
+    }),
   ),
   title: PropTypes.string,
 };

@@ -24,13 +24,13 @@ function ActNow({ ...props }) {
         .fetchAll(
           new URLSearchParams({
             individual_signatories: session?.user?.profile?.id,
-          }).toString()
+          }).toString(),
         )
         .then((res) => setSignedPetitions(res));
       actnow()
         .petitions()
         .fetchAll(
-          new URLSearchParams({ owner: session?.user?.profile?.id }).toString()
+          new URLSearchParams({ owner: session?.user?.profile?.id }).toString(),
         )
         .then((res) => setOwnedPetitions(res));
     }

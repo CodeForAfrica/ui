@@ -26,7 +26,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
                 alt="Charter Africa"
                 data-nimg="fill"
                 decoding="async"
-                fetchpriority="high"
+                loading="lazy"
                 src="/images/charter-logo.svg"
                 style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
               />
@@ -65,7 +65,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
                 alt="Charter Africa"
                 data-nimg="fill"
                 decoding="async"
-                fetchpriority="high"
+                loading="lazy"
                 src="/images/charter-logo.svg"
                 style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
               />

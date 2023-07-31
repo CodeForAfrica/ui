@@ -5,13 +5,6 @@ const outputFileTracingRoot = PROJECT_ROOT
   ? path.resolve(__dirname, PROJECT_ROOT)
   : undefined;
 
-const outputFileTracingExcludes = {
-  "*": ["**linux-x64**"],
-};
-const ghostUrl =
-  process.env.GHOST_ADMIN_URL?.trim() || process.env.GHOST_URL?.trim();
-const ghostAdminUrl = new URL("/ghost", ghostUrl).toString();
-
 module.exports = {
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
@@ -23,7 +16,6 @@ module.exports = {
   },
   experimental: {
     outputFileTracingRoot,
-    outputFileTracingExcludes,
   },
   modularizeImports: {
     // NOTE: only transform @mui/material and not any of sub-modules e.g. @mui/material/styles.
@@ -35,14 +27,7 @@ module.exports = {
   pageExtensions: ["page.js"],
   reactStrictMode: true,
   async redirects() {
-    return [
-      {
-        source: "/longform/:path*",
-        destination: `${ghostAdminUrl}/:path*`,
-        permanent: false,
-        basePath: false,
-      },
-    ];
+    return [];
   },
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
   webpack: (config) => {
@@ -61,7 +46,7 @@ module.exports = {
       {
         test: /\.md$/,
         loader: "frontmatter-markdown-loader",
-      }
+      },
     );
     config.experiments = { ...config.experiments, topLevelAwait: true }; // eslint-disable-line no-param-reassign
     return config;

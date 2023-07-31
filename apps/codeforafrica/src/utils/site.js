@@ -12,7 +12,7 @@ const url = ensureTrailingSlash(process.env.NEXT_PUBLIC_APP_URL);
 let environmentUrl = url;
 if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview") {
   environmentUrl = ensureTrailingSlash(
-    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
   );
 }
 
