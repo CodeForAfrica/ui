@@ -86,7 +86,7 @@ jobs:
         uses: nefrob/pr-description@v1.0.0
         with:
           content: "[Preview URL](http://review-appname-${{ github.event.pull_request.number }}.cms.review.codeforafrica.org)"
-          regex: "<!-- start regex match -->.*?<!-- end regex match -->"
+          regex: "<!-- preview url start regex match -->.*?<!-- preview url end regex match -->"
           regexFlags: ims
           token: ${{ secrets.GITHUB_TOKEN }}
 

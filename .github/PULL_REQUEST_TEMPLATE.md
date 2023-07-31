@@ -24,8 +24,8 @@ Please delete options that are not relevant.
 
 ## Preview
 
-<!-- start regex match -->
+<!-- preview url start regex match -->
 
 PREVIEW_URL
 
-<!-- end regex match -->
+<!-- preview url end regex match -->
