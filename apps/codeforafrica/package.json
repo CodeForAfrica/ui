@@ -32,7 +32,8 @@
     "playwright": "npx playwright test",
     "build": "next build",
     "start": "next start",
-    "clean": "rm -rf .next .turbo node_modules"
+    "clean": "rm -rf .next .turbo node_modules",
+    "drop-db": "node scripts/drop-db.js"
   },
   "dependencies": {
     "@commons-ui/core": "workspace:*",
@@ -59,6 +60,7 @@
     "js-yaml": "^4.1.0",
     "jsdom": "^21.1.2",
     "marked": "^4.3.0",
+    "mongodb": "^5.7.0",
     "nanoid": "^4.0.2",
     "next": "~13.3.4",
     "next-seo": "^5.15.0",

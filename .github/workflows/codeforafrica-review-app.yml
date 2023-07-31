@@ -90,6 +90,17 @@ jobs:
           regexFlags: ims
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Drop cloned DB
+        run: |
+          cd apps/codeforafrica
+          npm install
+          npm run drop-db "${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}"
+
   destroy_review_app:
     runs-on: ubuntu-latest
     # only run when a pull request is closed
