@@ -29,6 +29,7 @@ module.exports = {
   async redirects() {
     return [];
   },
+
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
   webpack: (config) => {
     config.module.rules.push(
