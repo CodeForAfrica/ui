@@ -87,7 +87,7 @@ jobs:
           host: ui-1.dev.codeforafrica.org
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           username: azureuser
-          script: dokku domains:add review-appname-${{github.event.pull_request.number}} DOMAIN=http://review-appname-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
+          script: dokku domains:add review-appname-${{github.event.pull_request.number}} http://review-appname-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
 
       - name: Update Preview URL
         uses: nefrob/pr-description@v1.0.0
