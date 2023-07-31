@@ -47,7 +47,6 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
       - name: Clone Production DB
-        if: github.event_name == 'pull_request' && github.event.action == 'opened'
         uses: Maggi64/mongo-clone-action@0.3
         with:
           source: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.MONGO_DB_NAME }}
