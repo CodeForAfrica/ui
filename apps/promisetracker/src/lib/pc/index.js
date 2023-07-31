@@ -22,13 +22,13 @@ function pc(site) {
     const url = `https://corsio.devops.codeforafrica.org/?${SITE_FACT_CHECKS_URL}/tagged/${SITE_FACT_CHECKS_TAG}?format=json`;
     const response = await fetch(url);
     const json = await JSON.parse(
-      (await response.text()).replace("])}while(1);</x>", "")
+      (await response.text()).replace("])}while(1);</x>", ""),
     );
     const reportStreamItems = await json.payload.streamItems;
     const reports = await reportStreamItems.map(
       (reportStreamItem) =>
         reportStreamItem.postPreview &&
-        json.payload.references.Post[reportStreamItem.postPreview.postId]
+        json.payload.references.Post[reportStreamItem.postPreview.postId],
     );
 
     // Remove null stories & return props supported in PostCard
@@ -40,7 +40,7 @@ function pc(site) {
     const url = `${PROXY_URL}/?${pesacheckUrl}?format=json`;
     const response = await fetch(url);
     const json = await JSON.parse(
-      (await response.text()).replace("])}while(1);</x>", "")
+      (await response.text()).replace("])}while(1);</x>", ""),
     );
     return toFactCheck(json.payload.value);
   }

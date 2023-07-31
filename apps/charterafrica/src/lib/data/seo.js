@@ -49,7 +49,7 @@ export function getPageSeoFromMeta(page, settings, options = {}) {
   const additionalMeta = [settingsMeta, { title: pageTitle }, pageMeta];
   const meta = additionalMeta.reduce(
     (acc, curr) => deepmerge(acc, curr, { clone: false }),
-    { title: settingsTitle, description: settingsDescription }
+    { title: settingsTitle, description: settingsDescription },
   );
 
   const { title = null, description = null, image } = meta;

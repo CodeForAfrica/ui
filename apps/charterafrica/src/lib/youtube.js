@@ -7,7 +7,7 @@ export async function fetchResource(path, options) {
   };
   const res = await fetchJson.get(
     `https://www.googleapis.com/youtube/v3${path}`,
-    { params }
+    { params },
   );
   return res;
 }

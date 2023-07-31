@@ -429,7 +429,7 @@ export const getConfigs = async (api, context) => {
         ...accumulator,
         [name]: value(context),
       }),
-      {}
+      {},
     );
 
   return Object.keys(groups).reduce((accumulator, key) => {

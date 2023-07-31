@@ -47,7 +47,7 @@ PromiseStatusList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       description: PropTypes.string,
-    })
+    }),
   ),
 };
 

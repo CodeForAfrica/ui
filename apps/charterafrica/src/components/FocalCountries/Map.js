@@ -76,7 +76,7 @@ Map.propTypes = {
   MarkerProps: PropTypes.shape({}),
   center: PropTypes.arrayOf(PropTypes.number),
   featuredCountries: PropTypes.arrayOf(
-    PropTypes.shape({ code: PropTypes.string })
+    PropTypes.shape({ code: PropTypes.string }),
   ),
   markers: PropTypes.arrayOf(PropTypes.shape({})),
   style: PropTypes.shape({}),

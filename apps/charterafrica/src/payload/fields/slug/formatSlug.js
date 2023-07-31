@@ -6,7 +6,7 @@ const format = (val) =>
 
 const getFallbackData = ({ fallback, originalDoc, data }) => {
   const fallbackValues = fallback.map(
-    (value) => (data && data[value]) || (originalDoc && originalDoc[value])
+    (value) => (data && data[value]) || (originalDoc && originalDoc[value]),
   );
   return fallbackValues.join("-");
 };

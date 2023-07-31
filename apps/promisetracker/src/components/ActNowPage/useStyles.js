@@ -196,7 +196,7 @@ const useStyles = makeStyles(
     petitionsContainer: {
       marginTop: typography.pxToRem(40),
     },
-  })
+  }),
 );
 
 export default useStyles;

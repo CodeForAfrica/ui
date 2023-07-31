@@ -88,7 +88,7 @@ const useStyles = makeStyles(
     partnerDescription: {
       marginTop: typography.pxToRem(36),
     },
-  })
+  }),
 );
 
 export default useStyles;

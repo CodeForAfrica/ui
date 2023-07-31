@@ -17,7 +17,6 @@ const defaultProps = {
     image: {
       alt: "Charter Africa",
       fill: true,
-      priority: true,
       src: "/images/charter-logo.svg",
     },
     href: "/",
