@@ -2,7 +2,7 @@ import { getPageStaticProps as getStaticProps } from "@/codeforafrica/lib";
 import { getPageProps } from "@/codeforafrica/lib/data/common";
 import fetchJson from "@/codeforafrica/utils/fetchJson";
 
-const BASE_URL = process.env.PAYLOAD_PUBLIC_APP_URL;
+const BASE_URL = process.env.PAYLOAD_PUBLIC_APP_URL || "http://localhost:3000";
 
 const SUPPORTED_OPTIONS = {
   locale: "locale",
