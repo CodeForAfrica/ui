@@ -25,8 +25,8 @@ importers:
         specifier: ^8.0.3
         version: 8.0.3
       lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
+        specifier: ^13.2.3
+        version: 13.2.3
       playwright-config-commons-ui:
         specifier: workspace:*
         version: link:packages/playwright-config-commons-ui
@@ -88,8 +88,8 @@ importers:
         specifier: ^0.80.0
         version: 0.80.0(@nivo/core@0.80.0)(react-dom@18.2.0)(react@18.2.0)
       "@nivo/waffle":
-        specifier: ^0.80.0
-        version: 0.80.0(@nivo/core@0.80.0)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.83.0
+        version: 0.83.0(react-dom@18.2.0)(react@18.2.0)
       "@payloadcms/plugin-cloud-storage":
         specifier: ^1.0.16
         version: 1.0.16(@aws-sdk/client-s3@3.327.0)(@aws-sdk/lib-storage@3.327.0)(payload@1.7.5)
@@ -626,8 +626,8 @@ importers:
         specifier: ^6.5.1
         version: 6.5.1
       clsx:
-        specifier: ^1.2.1
-        version: 1.2.1
+        specifier: ^2.0.0
+        version: 2.0.0
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
@@ -823,8 +823,8 @@ importers:
   packages/commons-ui-next:
     dependencies:
       clsx:
-        specifier: ^1.2.1
-        version: 1.2.1
+        specifier: ^2.0.0
+        version: 2.0.0
     devDependencies:
       "@babel/core":
         specifier: ^7.22.9
@@ -975,8 +975,8 @@ importers:
         specifier: ^27.2.3
         version: 27.2.3(eslint@8.39.0)(typescript@4.9.5)
       eslint-plugin-jest-dom:
-        specifier: ^4.0.3
-        version: 4.0.3(eslint@8.39.0)
+        specifier: ^5.0.1
+        version: 5.0.1(@testing-library/dom@9.2.0)(eslint@8.39.0)
       eslint-plugin-json:
         specifier: ^3.1.0
         version: 3.1.0
@@ -7870,6 +7870,13 @@ packages:
       - react-dom
     dev: false
 
+  /@nivo/canvas@0.83.0:
+    resolution:
+      {
+        integrity: sha512-HhW9s6vccysm9VC07RVVW5luKT+n7XIkpr3MSnj+yQ2QavROegT4gnntZ0uuS2wGukNkruA5cqgB84HtdyoLnQ==,
+      }
+    dev: false
+
   /@nivo/colors@0.80.0(@nivo/core@0.80.0)(prop-types@15.8.1)(react@18.2.0):
     resolution:
       {
@@ -7887,6 +7894,29 @@ packages:
       lodash: 4.17.21
       prop-types: 15.8.1
       react: 18.2.0
+    dev: false
+
+  /@nivo/colors@0.83.0(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-n34LWYtE2hbd1fdCDP7TCHNZdbiO1PwcvXLo0VsKK5lNPY/FA5SXA7Z9Ubl/ChSwBwbzAsaAhjTy8KzKzSjDcA==,
+      }
+    peerDependencies:
+      react: ">= 16.14.0 < 19.0.0"
+    dependencies:
+      "@nivo/core": 0.83.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      "@types/d3-color": 2.0.3
+      "@types/d3-scale": 3.3.2
+      "@types/d3-scale-chromatic": 2.0.1
+      "@types/prop-types": 15.7.5
+      d3-color: 3.1.0
+      d3-scale: 3.3.0
+      d3-scale-chromatic: 2.0.0
+      lodash: 4.17.21
+      prop-types: 15.8.1
+      react: 18.2.0
+    transitivePeerDependencies:
+      - react-dom
     dev: false
 
   /@nivo/core@0.80.0(@nivo/tooltip@0.80.0)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
@@ -7916,6 +7946,40 @@ packages:
       - react-dom
     dev: false
 
+  /@nivo/core@0.83.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-I9fjZAbIPz41JA2WP8Avsud/xk0iiM1nWUzcvZBDebBGFDB5Y1lrldUt9l5kvOeMth3Qj/1lVFTiJxQuojxH4Q==,
+      }
+    peerDependencies:
+      prop-types: ">= 15.5.10 < 16.0.0"
+      react: ">= 16.14.0 < 19.0.0"
+    dependencies:
+      "@nivo/recompose": 0.83.0(react@18.2.0)
+      "@nivo/tooltip": 0.83.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      "@react-spring/web": 9.4.5(react-dom@18.2.0)(react@18.2.0)
+      "@types/d3-shape": 2.1.3
+      d3-color: 3.1.0
+      d3-format: 1.4.5
+      d3-interpolate: 2.0.1
+      d3-scale: 3.3.0
+      d3-scale-chromatic: 2.0.0
+      d3-shape: 1.3.7
+      d3-time-format: 3.0.0
+      lodash: 4.17.21
+      prop-types: 15.8.1
+      react: 18.2.0
+    transitivePeerDependencies:
+      - react-dom
+    dev: false
+
+  /@nivo/grid@0.83.0:
+    resolution:
+      {
+        integrity: sha512-h4uulCtdmjg/SPvbjCOTDBbItJi228vtoMhbwlQZyYlMA3hvJ+aiQkhr2KZz54bLrTD0XpFPX7tt1/U4j9USMA==,
+      }
+    dev: false
+
   /@nivo/legends@0.80.0(@nivo/core@0.80.0)(prop-types@15.8.1)(react@18.2.0):
     resolution:
       {
@@ -7929,6 +7993,25 @@ packages:
       "@nivo/core": 0.80.0(@nivo/tooltip@0.80.0)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       prop-types: 15.8.1
       react: 18.2.0
+    dev: false
+
+  /@nivo/legends@0.83.0(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-WWl3/hTpFJ7/2L0RG53Gbr9KQk+ZjD71a/RIPMJ5ArEvAvKKfWuWQCtEm3FpqAazX8eYMnsQ3Pi17c8ohEIXRg==,
+      }
+    peerDependencies:
+      react: ">= 16.14.0 < 19.0.0"
+    dependencies:
+      "@nivo/colors": 0.83.0(react-dom@18.2.0)(react@18.2.0)
+      "@nivo/core": 0.83.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      "@types/d3-scale": 3.3.2
+      "@types/prop-types": 15.7.5
+      d3-scale: 3.3.0
+      prop-types: 15.8.1
+      react: 18.2.0
+    transitivePeerDependencies:
+      - react-dom
     dev: false
 
   /@nivo/pie@0.80.0(@nivo/core@0.80.0)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
@@ -7964,6 +8047,21 @@ packages:
       react-lifecycles-compat: 3.0.4
     dev: false
 
+  /@nivo/recompose@0.83.0(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-3cLEoi9ZoE4LTn6B98oUVd0MRAy5bWK7W3yb0u4EkjLoXXCRvUAI08Wr2AAagOzVOg5PmvghIDgvkz1tlFZTGQ==,
+      }
+    peerDependencies:
+      react: ">= 16.14.0 < 19.0.0"
+    dependencies:
+      "@types/prop-types": 15.7.5
+      "@types/react-lifecycles-compat": 3.0.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-lifecycles-compat: 3.0.4
+    dev: false
+
   /@nivo/tooltip@0.80.0(@nivo/core@0.80.0)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
@@ -7979,25 +8077,40 @@ packages:
       - react-dom
     dev: false
 
-  /@nivo/waffle@0.80.0(@nivo/core@0.80.0)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
+  /@nivo/tooltip@0.83.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
-        integrity: sha512-gFnkjrt48C11h73Qf9IqjN/WDHmdfHh/xZJg+wYu8ad209tfi5fAdMsPmLm893LaBzJXLnFdX0arJA715F2nfg==,
+        integrity: sha512-HewujRqZNmcVnAv/LPLVyYwViad+rYTsFMdzLRzuTPq2hju1R+cfxokTomunG8e1SDtUPtULEVXtPg2ATIzNYg==,
+      }
+    dependencies:
+      "@nivo/core": 0.83.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      "@react-spring/web": 9.4.5(react-dom@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - prop-types
+      - react
+      - react-dom
+    dev: false
+
+  /@nivo/waffle@0.83.0(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-af65ozzavP1WxZhWXz6Dyu4YzJulo/cYflCUxFRs2LRL3COHpDUkqA42TKzIQHpqfBuk9Qbi+dilIbU8M/v5EA==,
       }
     peerDependencies:
-      "@nivo/core": 0.80.0
-      prop-types: ">= 15.5.10 < 16.0.0"
       react: ">= 16.14.0 < 19.0.0"
     dependencies:
-      "@nivo/colors": 0.80.0(@nivo/core@0.80.0)(prop-types@15.8.1)(react@18.2.0)
-      "@nivo/core": 0.80.0(@nivo/tooltip@0.80.0)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
-      "@nivo/legends": 0.80.0(@nivo/core@0.80.0)(prop-types@15.8.1)(react@18.2.0)
-      "@nivo/recompose": 0.80.0(react@18.2.0)
-      "@nivo/tooltip": 0.80.0(@nivo/core@0.80.0)(react-dom@18.2.0)(react@18.2.0)
-      lodash: 4.17.21
+      "@nivo/canvas": 0.83.0
+      "@nivo/colors": 0.83.0(react-dom@18.2.0)(react@18.2.0)
+      "@nivo/core": 0.83.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      "@nivo/grid": 0.83.0
+      "@nivo/legends": 0.83.0(react-dom@18.2.0)(react@18.2.0)
+      "@nivo/tooltip": 0.83.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      "@react-spring/web": 9.4.5(react-dom@18.2.0)(react@18.2.0)
+      "@types/d3-shape": 2.1.3
+      "@types/prop-types": 15.7.5
+      d3-shape: 1.3.7
       prop-types: 15.8.1
       react: 18.2.0
-      react-motion: 0.5.2(react@18.2.0)
     transitivePeerDependencies:
       - react-dom
     dev: false
@@ -11024,6 +11137,7 @@ packages:
       dom-accessibility-api: 0.5.16
       lz-string: 1.5.0
       pretty-format: 27.5.1
+    dev: true
 
   /@testing-library/dom@9.2.0:
     resolution:
@@ -11231,6 +11345,13 @@ packages:
       }
     dev: false
 
+  /@types/d3-color@2.0.3:
+    resolution:
+      {
+        integrity: sha512-+0EtEjBfKEDtH9Rk3u3kLOUXM5F+iZK+WvASPb0MhIZl8J8NUvGeZRwKCXl+P3HkYx5TdU4YtcibpqHkSR9n7w==,
+      }
+    dev: false
+
   /@types/d3-color@3.1.0:
     resolution:
       {
@@ -11254,11 +11375,34 @@ packages:
       "@types/d3-color": 3.1.0
     dev: false
 
+  /@types/d3-path@2.0.2:
+    resolution:
+      {
+        integrity: sha512-3YHpvDw9LzONaJzejXLOwZ3LqwwkoXb9LI2YN7Hbd6pkGo5nIlJ09ul4bQhBN4hQZJKmUpX8HkVqbzgUKY48cg==,
+      }
+    dev: false
+
   /@types/d3-path@3.0.0:
     resolution:
       {
         integrity: sha512-0g/A+mZXgFkQxN3HniRDbXMN79K3CdTpLsevj+PXiTcb2hVyvkZUBg37StmgCQkaD84cUJ4uaDAWq7UJOQy2Tg==,
       }
+    dev: false
+
+  /@types/d3-scale-chromatic@2.0.1:
+    resolution:
+      {
+        integrity: sha512-3EuZlbPu+pvclZcb1DhlymTWT2W+lYsRKBjvkH2ojDbCWDYavifqu1vYX9WGzlPgCgcS4Alhk1+zapXbGEGylQ==,
+      }
+    dev: false
+
+  /@types/d3-scale@3.3.2:
+    resolution:
+      {
+        integrity: sha512-gGqr7x1ost9px3FvIfUMi5XA/F/yAf4UkUDtdQhpH92XCT0Oa7zkkRzY61gPVJq+DxpHn/btouw5ohWkbBsCzQ==,
+      }
+    dependencies:
+      "@types/d3-time": 2.1.1
     dev: false
 
   /@types/d3-scale@4.0.3:
@@ -11270,6 +11414,15 @@ packages:
       "@types/d3-time": 3.0.0
     dev: false
 
+  /@types/d3-shape@2.1.3:
+    resolution:
+      {
+        integrity: sha512-HAhCel3wP93kh4/rq+7atLdybcESZ5bRHDEZUojClyZWsRuEMo3A52NGYJSh48SxfxEU6RZIVbZL2YFZ2OAlzQ==,
+      }
+    dependencies:
+      "@types/d3-path": 2.0.2
+    dev: false
+
   /@types/d3-shape@3.1.1:
     resolution:
       {
@@ -11277,6 +11430,13 @@ packages:
       }
     dependencies:
       "@types/d3-path": 3.0.0
+    dev: false
+
+  /@types/d3-time@2.1.1:
+    resolution:
+      {
+        integrity: sha512-9MVYlmIgmRR31C5b4FVSWtuMmBHh2mOWQYfl7XAYOa8dsnb7iEmUmRSWSFgXFtkjxO65d7hTUHQC+RhR/9IWFg==,
+      }
     dev: false
 
   /@types/d3-time@3.0.0:
@@ -11651,6 +11811,15 @@ packages:
       }
     dependencies:
       "@types/react": 18.2.15
+
+  /@types/react-lifecycles-compat@3.0.1:
+    resolution:
+      {
+        integrity: sha512-4KiU5s1Go4xRbf7t6VxUUpBeN5PGjpjpBv9VvET4uiPHC500VNYBclU13f8ehHkHoZL39b2cfwHu6RzbV3b44A==,
+      }
+    dependencies:
+      "@types/react": 18.2.15
+    dev: false
 
   /@types/react-transition-group@4.4.6:
     resolution:
@@ -13913,6 +14082,14 @@ packages:
         integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==,
       }
     engines: { node: ">=6" }
+
+  /clsx@2.0.0:
+    resolution:
+      {
+        integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==,
+      }
+    engines: { node: ">=6" }
+    dev: false
 
   /co@4.6.0:
     resolution:
@@ -16236,17 +16413,18 @@ packages:
       - eslint-import-resolver-webpack
       - supports-color
 
-  /eslint-plugin-jest-dom@4.0.3(eslint@8.39.0):
+  /eslint-plugin-jest-dom@5.0.1(@testing-library/dom@9.2.0)(eslint@8.39.0):
     resolution:
       {
-        integrity: sha512-9j+n8uj0+V0tmsoS7bYC7fLhQmIvjRqRYEcbDSi+TKPsTThLLXCyj5swMSSf/hTleeMktACnn+HFqXBr5gbcbA==,
+        integrity: sha512-zD/BjNk12R5R9cxIu8oa2HfNeDSknI3ewtN8nygIUMQuieWDnTY9Np//6a1Z3G7Y3dx3l45hCUR4EphsgRmUtA==,
       }
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0, npm: ">=6", yarn: ">=1" }
     peerDependencies:
+      "@testing-library/dom": ^8.0.0 || ^9.0.0
       eslint: ^6.8.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      "@babel/runtime": 7.21.5
-      "@testing-library/dom": 8.20.0
+      "@babel/runtime": 7.22.6
+      "@testing-library/dom": 9.2.0
       eslint: 8.39.0
       requireindex: 1.2.0
     dev: false
@@ -20377,10 +20555,10 @@ packages:
         integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==,
       }
 
-  /lint-staged@13.2.2:
+  /lint-staged@13.2.3:
     resolution:
       {
-        integrity: sha512-71gSwXKy649VrSU09s10uAT0rWCcY3aewhMaHyl2N84oBk4Xs9HgxvUp3AYu+bNsK4NrOYYxvSgg7FyGJ+jGcA==,
+        integrity: sha512-zVVEXLuQIhr1Y7R7YAWx4TZLdvuzk7DnmrsTNL0fax6Z3jrpFcas+vKbzxhhvp6TA55m1SQuWkpzI1qbfDZbAg==,
       }
     engines: { node: ^14.13.1 || >=16.0.0 }
     hasBin: true
@@ -22637,13 +22815,6 @@ packages:
       }
     dev: true
 
-  /performance-now@0.2.0:
-    resolution:
-      {
-        integrity: sha512-YHk5ez1hmMR5LOkb9iJkLKqoBlL7WD5M8ljC75ZfzXriuBIVNuecaXuU7e+hOwyqf24Wxhh7Vxgt7Hnw9288Tg==,
-      }
-    dev: false
-
   /performance-now@2.1.0:
     resolution:
       {
@@ -24137,15 +24308,6 @@ packages:
     engines: { node: ">=12" }
     dev: false
 
-  /raf@3.4.1:
-    resolution:
-      {
-        integrity: sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA==,
-      }
-    dependencies:
-      performance-now: 2.1.0
-    dev: false
-
   /ramda@0.29.0:
     resolution:
       {
@@ -24470,20 +24632,6 @@ packages:
       {
         integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==,
       }
-    dev: false
-
-  /react-motion@0.5.2(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-9q3YAvHoUiWlP3cK0v+w1N5Z23HXMj4IF4YuvjvWegWqNPfLXsOBE/V7UvQGpXxHFKRQQcNcVQE31g9SB/6qgQ==,
-      }
-    peerDependencies:
-      react: ^0.14.9 || ^15.3.0 || ^16.0.0
-    dependencies:
-      performance-now: 0.2.0
-      prop-types: 15.8.1
-      raf: 3.4.1
-      react: 18.2.0
     dev: false
 
   /react-onclickoutside@6.13.0(react-dom@18.2.0)(react@18.2.0):

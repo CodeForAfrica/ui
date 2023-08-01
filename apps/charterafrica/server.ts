@@ -1,12 +1,12 @@
-/* eslint-disable no-console */
 import path from "path";
+import { spawn } from "child_process";
 
 import { loadEnvConfig } from "@next/env";
 import express from "express";
 import next from "next";
-import nextBuild from "next/dist/build";
 import nodemailerSendgrid from "nodemailer-sendgrid";
 import payload from "payload";
+import { Payload } from "payload/dist/payload";
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
@@ -31,8 +31,8 @@ if (!process.env.NEXT_MANUAL_SIG_HANDLE) {
 
 const server = express();
 
-const start = async () => {
-  let localPayload;
+const start = async (): Promise<void> => {
+  let localPayload: Payload;
   try {
     localPayload = await payload.init({
       ...(sendGridAPIKey
@@ -50,41 +50,53 @@ const start = async () => {
       secret: process.env.PAYLOAD_SECRET_KEY,
       mongoURL: process.env.MONGO_URL,
       express: server,
-      onInit: () => {
-        payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
+      onInit: (initPayload) => {
+        initPayload.logger.info(
+          `Payload Admin URL: ${initPayload.getAdminURL()}`,
+        );
       },
     });
   } catch (e: any) {
+    /* eslint-disable-next-line no-console */
     console.error(e);
     process.exit();
   }
 
-  if (!process.env.NEXT_BUILD) {
-    const nextApp = next({ dev, hostname, port });
-
-    const nextHandler = nextApp.getRequestHandler();
-
-    nextApp.prepare().then(() => {
-      console.info("NextJS started");
-
-      server.get("*", (req: any, res: any) => nextHandler(req, res));
-      server.post("*", (req: any, res: any) => nextHandler(req, res));
-      server.put("*", (req: any, res: any) => nextHandler(req, res));
-
-      server.listen(port, async () => {
-        console.info(`Server listening on ${port}...`);
+  if (process.env.NEXT_BUILD) {
+    server.listen(port, async () => {
+      localPayload.logger.info("NextJS is now building...");
+      const nextBuild = spawn(
+        "pnpm",
+        ["next", "build", path.resolve(projectDir)],
+        { shell: true, stdio: "inherit" },
+      );
+      nextBuild.on("close", (code) => {
+        process.exit(code);
+      });
+      nextBuild.on("error", (error) => {
+        localPayload.logger.error(error);
+        process.exit();
       });
     });
-  } else {
-    server.listen(port, async () => {
-      console.info("NextJS is now building...");
-      try {
-        await nextBuild(path.resolve(projectDir));
-      } finally {
-        process.exit();
-      }
-    });
+
+    return;
   }
+
+  const nextApp = next({ dev, hostname, port });
+  const nextHandler = nextApp.getRequestHandler();
+  nextApp.prepare().then(() => {
+    localPayload.logger.info("NextJS started");
+
+    server.get("*", (req: any, res: any) => nextHandler(req, res));
+    server.post("*", (req: any, res: any) => nextHandler(req, res));
+    server.put("*", (req: any, res: any) => nextHandler(req, res));
+
+    server.listen(port, async () => {
+      localPayload.logger.info(
+        `Next.js App URL: ${process.env.NEXT_PUBLIC_APP_URL}`,
+      );
+    });
+  });
 };
 
 start();
