@@ -43,23 +43,27 @@ ARG NEXT_TELEMETRY_DISABLED=1 \
     NEXT_PUBLIC_APP_NAME=charterAFRICA \
     NEXT_PUBLIC_APP_URL=http://localhost:3000 \
     NEXT_PUBLIC_GA_MEASUREMENT_ID="" \
+    NEXT_PUBLIC_SENTRY_DSN="" \
     NEXT_PUBLIC_SEO_DISABLED="true" \
     # Needed by Next.js and server.ts at build time
     PORT=3000 \
+    # Sentry config for source maps upload (needed at build time only)
+    SENTRY_AUTH_TOKEN="" \
+    SENTRY_ENV="" \
+    SENTRY_ORG="" \
+    SENTRY_PROJECT="" \
     # Needed by Payload at Next.js build time (see below for Payload's own
     # build time vars)
     MONGO_URL \
+    # When building Next.js, point to the local Payload instance
+    PAYLOAD_PUBLIC_APP_URL=http://localhost:3000 \
     PAYLOAD_SECRET_KEY
 
 RUN pnpm build-next --filter=charterafrica
 
 # Needed by Payload at Payload build time
-# NOTE: This shouldn't be set at Next.js build time because we want Next.js to
-#       point at localhost instance of Payload when building. If this is set,
-#       Next.js will try to fetch data from the remote instance pointed to by
-#       the URL (unless this URL also points to localhost which won't be the
-#       case in PROD)
-ARG PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+# When building Payload, set its public URL (same as Next.js)
+ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
 
 RUN pnpm build-payload --filter=charterafrica
 
@@ -78,20 +82,24 @@ ARG NEXT_TELEMETRY_DISABLED \
     NEXT_PUBLIC_APP_NAME \
     NEXT_PUBLIC_APP_URL \
     NEXT_PUBLIC_GA_MEASUREMENT_ID \
+    NEXT_PUBLIC_SENTRY_DSN \
     NEXT_PUBLIC_SEO_DISABLED \
     PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
     PAYLOAD_PUBLIC_APP_URL \
-    PORT
+    PORT \
+    SENTRY_ENV
 
 ENV NODE_ENV=production \
     NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME} \
     NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
     NEXT_PUBLIC_GA_MEASUREMENT_ID=${NEXT_PUBLIC_GA_MEASUREMENT_ID} \
+    NEXT_PUBLIC_SENTRY_DSN=${NEXT_PUBLIC_SENTRY_DSN} \
     NEXT_PUBLIC_SEO_DISABLED=${NEXT_PUBLIC_SEO_DISABLED} \
     NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
     PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
     PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
-    PORT=${PORT}
+    PORT=${PORT} \
+    SENTRY_ENV=${SENTRY_ENV}
 
 WORKDIR /workspace/apps/charterafrica
 
