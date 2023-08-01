@@ -31,6 +31,16 @@ const defaultProps = {
       href: "/contact",
     },
   ],
+  socialLinks: [
+    {
+      url: "https://www.facebook.com/CodeForAfrica",
+      platform: "facebook",
+    },
+    {
+      url: "https://twitter.com/Code4Africa",
+      platform: "twitter",
+    },
+  ],
 };
 
 describe("<NavBarNavList />", () => {

@@ -3,6 +3,7 @@ async function getNavigation(api) {
   const {
     logo: { image },
     menus = [],
+    socialLinks = [],
   } = navigation;
 
   return {
@@ -11,6 +12,7 @@ async function getNavigation(api) {
       src: image?.url || "/images/cfa-logo.svg",
     },
     menu: menus?.map(({ label, href }) => ({ content: label, href })),
+    socialLinks,
   };
 }
 

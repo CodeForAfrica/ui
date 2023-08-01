@@ -27,7 +27,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
-  const { logo, menu, sx } = props;
+  const { logo, menu, socialLinks, sx } = props;
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -82,7 +82,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
             }}
             onClose={handleClose}
           >
-            <NavBarNavList menu={menu} />
+            <NavBarNavList menu={menu} socialLinks={socialLinks} />
             <NextImageButton
               src={closebutton}
               alt="Logo"

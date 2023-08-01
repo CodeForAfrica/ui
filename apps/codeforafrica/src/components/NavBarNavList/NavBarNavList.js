@@ -4,11 +4,25 @@ import { SvgIcon } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import FacebookIcon from "@/codeforafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
+import GitHubIcon from "@/codeforafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
+import InstagramIcon from "@/codeforafrica/assets/icons/Type=instagram, Size=24, Color=CurrentColor.svg";
+import LinkedInIcon from "@/codeforafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
+import SlackIcon from "@/codeforafrica/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
 import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
+const mapPlatformToIcon = {
+  facebook: FacebookIcon,
+  twitter: TwitterIcon,
+  instagram: InstagramIcon,
+  linkedin: LinkedInIcon,
+  github: GitHubIcon,
+  slack: SlackIcon,
+};
+
 const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
-  const { direction, menu, ...other } = props;
+  const { direction, menu, socialLinks, ...other } = props;
 
   if (!menu?.length) {
     return null;
@@ -34,20 +48,27 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
           </Link>
         </NavListItem>
       ))}
-      <NavListItem sx={{ m: "20px", mr: 0 }}>
-        <Link
-          href="https://twitter.com/Code4Africa"
-          sx={{ color: { xs: "inherit" } }}
-        >
-          <SvgIcon
-            component={TwitterIcon}
-            sx={{
-              mt: direction === "column" ? 0 : 1,
-              fill: { xs: "none" },
-            }}
-          />
-        </Link>
-      </NavListItem>
+      {socialLinks?.map(({ platform, url }) => {
+        const Icon = mapPlatformToIcon[platform];
+        return (
+          <NavListItem key={platform} sx={{ m: "20px", mr: 0 }}>
+            <Link
+              href={url}
+              sx={{ color: { xs: "inherit" } }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SvgIcon
+                component={Icon}
+                sx={{
+                  mt: direction === "column" ? 0 : 1,
+                  fill: { xs: "none" },
+                }}
+              />
+            </Link>
+          </NavListItem>
+        );
+      })}
     </NavList>
   );
 });
