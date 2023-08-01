@@ -56,8 +56,8 @@ const start = async (): Promise<void> => {
         process.exit(1);
       });
     });
-    
-    return
+
+    return;
   }
 
   const nextApp = next({ dev, hostname, port: PORT });
