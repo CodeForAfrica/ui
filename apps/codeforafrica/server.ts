@@ -2,7 +2,6 @@ import path from "path";
 import { spawn } from "child_process";
 import express from "express";
 import next from "next";
-import nextBuild from "next/dist/build";
 import payload from "payload";
 import { Payload } from "payload/dist/payload";
 import { loadEnvConfig } from "@next/env";

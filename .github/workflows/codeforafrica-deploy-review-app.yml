@@ -87,7 +87,10 @@ jobs:
           host: ui-1.dev.codeforafrica.org
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           username: azureuser
-          script: dokku domains:add review-appname-${{github.event.pull_request.number}} review-appname-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
+          script: |
+            dokku domains:add review-appname-${{github.event.pull_request.number}} review-appname-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
+            dokku config:set review-appname-${{github.event.pull_request.number}} PAYLOAD_PUBLIC_APP_URL=http://review-appname-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
+            dokku config:set review-appname-${{github.event.pull_request.number}} MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}
 
       - name: Update Preview URL
         uses: nefrob/pr-description@v1.0.0
