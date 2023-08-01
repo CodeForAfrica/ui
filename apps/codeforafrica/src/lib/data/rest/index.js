@@ -1,3 +1,4 @@
+import { getPageStaticProps as getStaticProps } from "@/codeforafrica/lib";
 import { getPageProps } from "@/codeforafrica/lib/data/common";
 import fetchJson from "@/codeforafrica/utils/fetchJson";
 
@@ -53,12 +54,10 @@ export const api = {
   findPage,
 };
 
-export async function getPageStaticProps(context) {
+export async function getPageStaticProps(context, slug) {
   const props = await getPageProps(api, context);
-  if (!props) {
-    return { notFound: true };
-  }
+  const { props: staticProps } = await getStaticProps({ slug });
   return {
-    props,
+    props: { ...staticProps, ...props },
   };
 }
