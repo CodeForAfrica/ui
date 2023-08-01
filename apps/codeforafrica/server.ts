@@ -55,8 +55,9 @@ const start = async (): Promise<void> => {
         localPayload.logger.error(err);
         process.exit(1);
       });
-      return;
     });
+    
+    return
   }
 
   const nextApp = next({ dev, hostname, port: PORT });
