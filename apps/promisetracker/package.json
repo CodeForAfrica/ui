@@ -33,7 +33,7 @@
     "@mui/utils": "^5.12.3",
     "@sentry/nextjs": "^7.51.0",
     "@svgr/webpack": "^6.5.1",
-    "clsx": "^1.2.1",
+    "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
     "form-data": "^4.0.0",
     "formik": "^2.4.2",
