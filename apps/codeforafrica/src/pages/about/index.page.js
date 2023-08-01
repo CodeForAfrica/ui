@@ -55,7 +55,6 @@ function Index({ sections, ...props }) {
     </Page>
   );
 }
-
 export async function getServerSideProps(context) {
   return getPageServerSideProps(context, "/about");
 }
