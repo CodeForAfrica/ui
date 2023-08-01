@@ -75,28 +75,6 @@ const start = async (): Promise<void> => {
       );
     });
   });
-
-  // if (!process.env.NEXT_BUILD) {
-  //   const nextApp = next({ dev, hostname, port: PORT });
-
-  //   const nextHandler = nextApp.getRequestHandler();
-  //   await nextApp.prepare();
-
-  //   app.get("*", (req: any, res: any) => nextHandler(req, res));
-
-  //   app.listen(PORT, async () => {
-  //     console.info(`Server listening on ${PORT}...`);
-  //   });
-  // } else {
-  //   app.listen(PORT, async () => {
-  //     console.info("NextJS is now building...");
-  //     try {
-  //       await nextBuild(path.resolve(projectDir));
-  //     } finally {
-  //       process.exit();
-  //     }
-  //   });
-  // }
 };
 
 start();
