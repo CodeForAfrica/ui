@@ -13,9 +13,9 @@ env:
   DOKKU_REMOTE_URL: "ssh://dokku@charterafrica-1.prod.codeforafrica.org/charterafrica"
   IMAGE_NAME: "codeforafrica/charterafrica-ui"
   NEXT_PUBLIC_APP_URL: "https://charter.africa"
-  PAYLOAD_PUBLIC_APP_URL: "https://charterafrica.prod.codeforafrica.org"
   NEXT_PUBLIC_SEO_DISABLED: "false"
   VERSION_FILE_NAME: "./apps/charterafrica/package.json"
+  SENTRY_ENV: "production"
 
 jobs:
   deploy:
@@ -83,8 +83,13 @@ jobs:
             MONGO_URL=${{ secrets.CHARTERAFRICA_MONGO_URL }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ secrets.CHARTERAFRICA_GA_MEASUREMENT_ID }}
+            NEXT_PUBLIC_SENTRY_DSN=${{ secrets.CHARTERAFRICA_SENTRY_DSN }}
             NEXT_PUBLIC_SEO_DISABLED=${{ env.NEXT_PUBLIC_SEO_DISABLED }}
             PAYLOAD_SECRET_KEY=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
+            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
+            SENTRY_ENV=${{ env.SENTRY_ENV }}
+            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
+            SENTRY_PROJECT=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
