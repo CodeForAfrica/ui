@@ -2,11 +2,11 @@
   "name": "charterafrica",
   "cron": [
     {
-      "command": "node scripts/ecosystem.js PUT",
+      "command": "node scripts/ecosystem.mjs PUT",
       "schedule": "@daily"
     },
     {
-      "command": "node scripts/ecosystem.js POST",
+      "command": "node scripts/ecosystem.mjs POST",
       "schedule": "@hourly"
     }
   ]

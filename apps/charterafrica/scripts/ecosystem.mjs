@@ -1,5 +1,7 @@
-require("dotenv").config({ path: "./.env" });
-require("dotenv").config({ path: "./.env.local" });
+import { config } from "dotenv";
+
+config({ path: "./.env" });
+config({ path: "./.env.local" });
 
 async function main() {
   const { RESOURCES_SECRET_TOKEN } = process.env;
@@ -18,4 +20,5 @@ async function main() {
   return res.json();
 }
 
-main().then(console.log);
+const responseJson = await main();
+console.log(responseJson);
