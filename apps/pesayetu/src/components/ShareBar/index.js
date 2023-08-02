@@ -40,6 +40,7 @@ function ShareBar({ socialLinks, title, children, ...props }) {
   if (!socialLinks?.length) {
     return null;
   }
+  // eslint-disable-next-line no-undef
   const url = typeof window !== "undefined" ? window.location : null;
   return (
     <div className={classes.root}>

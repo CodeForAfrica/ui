@@ -111,11 +111,14 @@ function Download({
 
     const imgType = type.toLowerCase();
     const url = await view.toImageURL(imgType, config.images.scaleFactor);
+    // eslint-disable-next-line no-undef
     const link = document.createElement("a");
     link.download = `${title}.${imgType}`;
     link.href = url;
+    // eslint-disable-next-line no-undef
     document.body.appendChild(link);
     link.click();
+    // eslint-disable-next-line no-undef
     document.body.removeChild(link);
   };
 
@@ -142,10 +145,11 @@ function Download({
       XLSX.writeFile(wb, fileName);
       return;
     }
-
+    // eslint-disable-next-line no-undef
     const link = document.createElement("a");
     link.href = href;
     link.download = fileName;
+    // eslint-disable-next-line no-undef
     document.body.appendChild(link);
     link.click();
     link.remove();

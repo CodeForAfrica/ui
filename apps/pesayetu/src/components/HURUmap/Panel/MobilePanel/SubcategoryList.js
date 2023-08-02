@@ -65,6 +65,7 @@ function SubcategoryList({ items }) {
   };
   const handleSelect = (event) => {
     setSelectedIndex(Number(event.target.dataset.index));
+    // eslint-disable-next-line no-undef
     document
       .getElementById(slugify(event.target.dataset.title))
       .scrollIntoView({ behavior: "smooth" });

@@ -69,13 +69,17 @@ function Chart({
   const handler = useCallback(
     (_, event, item, value) => {
       const className = `charttooltip-${id}-${geoCode}`;
+      // eslint-disable-next-line no-undef
       let el = document.getElementsByClassName(className)[0];
       if (!el) {
+        // eslint-disable-next-line no-undef
         el = document.createElement("div");
         el.classList.add(className);
+        // eslint-disable-next-line no-undef
         document.body.appendChild(el);
       }
 
+      // eslint-disable-next-line no-undef
       const tooltipContainer = document.fullscreenElement || document.body;
       tooltipContainer.appendChild(el);
       // hide tooltip for null objects, undefined

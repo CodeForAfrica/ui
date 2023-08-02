@@ -28,6 +28,7 @@ export default function Embed({
   // Standalone = false implies in an iframe (default)
   const [standalone, setStandalone] = useState(false);
   useEffect(() => {
+    // eslint-disable-next-line no-undef
     if (window.self === window.top) {
       setStandalone(true);
     }
