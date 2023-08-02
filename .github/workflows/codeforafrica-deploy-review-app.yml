@@ -39,6 +39,7 @@ jobs:
           path: /tmp/.buildx-cache
           restore-keys: |
             ${{ runner.os }}-buildx-
+
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
@@ -58,8 +59,6 @@ jobs:
             MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET_KEY }}
-            GHOST_URL=${{ secrets.GHOST_URL }}
-            GHOST_API_KEY=${{ secrets.GHOST_API_KEY }}
             NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_APP_CFA_LOGO_URL }}
             NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_APP_CFA_NAME }}
             VERCEL_URL=https://codeforafrica.vercel.app
@@ -77,7 +76,7 @@ jobs:
           command: review-apps:create
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-dev
           # specify a name for the review app
-          review_app_name: review-appname-${{ github.event.pull_request.number }}
+          review_app_name: codeforafrica-review-${{ github.event.pull_request.number }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
@@ -88,14 +87,14 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           username: azureuser
           script: |
-            dokku domains:add review-appname-${{github.event.pull_request.number}} review-appname-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
-            dokku config:set review-appname-${{github.event.pull_request.number}} PAYLOAD_PUBLIC_APP_URL=http://review-appname-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
-            dokku config:set review-appname-${{github.event.pull_request.number}} MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}
+            dokku domains:add codeforafrica-review-${{github.event.pull_request.number}} codeforafrica-review-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
+            dokku config:set codeforafrica-review-${{github.event.pull_request.number}} PAYLOAD_PUBLIC_APP_URL=http://codeforafrica-review-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
+            dokku config:set codeforafrica-review-${{github.event.pull_request.number}} MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}
 
       - name: Update Preview URL
         uses: nefrob/pr-description@v1.0.0
         with:
-          content: "[Preview URL](http://review-appname-${{ github.event.pull_request.number }}.cms.review.codeforafrica.org)"
+          content: "[Preview URL](http://codeforafrica-review-${{ github.event.pull_request.number }}.cms.review.codeforafrica.org)"
           regex: "<!-- preview url start regex match -->.*?<!-- preview url end regex match -->"
           regexFlags: ims
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -112,7 +111,7 @@ jobs:
           command: review-apps:destroy
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-dev
           # specify a name for the review app
-          review_app_name: review-appname-${{ github.event.pull_request.number }}
+          review_app_name: codeforafrica-review-${{ github.event.pull_request.number }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Install Node.js
