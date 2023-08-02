@@ -1,7 +1,7 @@
 require("dotenv").config({ path: "./.env" });
 require("dotenv").config({ path: "./.env.local" });
 
-(async () => {
+async function main() {
   const { RESOURCES_SECRET_TOKEN } = process.env;
   const { NEXT_PUBLIC_APP_URL } = process.env;
   const method = process.argv[2];
@@ -15,6 +15,7 @@ require("dotenv").config({ path: "./.env.local" });
       headers,
     },
   );
-  const response = await res.json();
-  console.log(response);
-})();
+  return res.json();
+}
+
+main().then(console.log);
