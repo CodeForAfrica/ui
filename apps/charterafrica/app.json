@@ -2,11 +2,11 @@
   "name": "charterafrica",
   "cron": [
     {
-      "command": "pnpm update-ecosystem-content",
+      "command": "node scripts/ecosystem.js PUT",
       "schedule": "@daily"
     },
     {
-      "command": "pnpm update-ecosystem-list",
+      "command": "node scripts/ecosystem.js POST",
       "schedule": "@hourly"
     }
   ]
