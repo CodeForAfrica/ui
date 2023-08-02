@@ -29,8 +29,8 @@ importers:
         specifier: ^8.0.3
         version: 8.0.3
       lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
+        specifier: ^13.2.3
+        version: 13.2.3
       playwright-config-commons-ui:
         specifier: workspace:*
         version: link:packages/playwright-config-commons-ui
@@ -95,8 +95,8 @@ importers:
         specifier: ^1.0.16
         version: 1.0.16(@aws-sdk/client-s3@3.327.0)(@aws-sdk/lib-storage@3.327.0)(payload@1.7.5)
       "@payloadcms/plugin-nested-docs":
-        specifier: ^1.0.4
-        version: 1.0.4(payload@1.7.5)(react@18.2.0)
+        specifier: ^1.0.6
+        version: 1.0.6(payload@1.7.5)(react@18.2.0)
       "@payloadcms/plugin-seo":
         specifier: ^1.0.13
         version: 1.0.13(payload@1.7.5)(react@18.2.0)
@@ -840,8 +840,8 @@ importers:
         specifier: ^6.5.1
         version: 6.5.1
       clsx:
-        specifier: ^1.2.1
-        version: 1.2.1
+        specifier: ^2.0.0
+        version: 2.0.0
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
@@ -1037,8 +1037,8 @@ importers:
   packages/commons-ui-next:
     dependencies:
       clsx:
-        specifier: ^1.2.1
-        version: 1.2.1
+        specifier: ^2.0.0
+        version: 2.0.0
     devDependencies:
       "@babel/core":
         specifier: ^7.22.9
@@ -1168,8 +1168,8 @@ importers:
         specifier: ^7.22.5
         version: 7.22.5(@babel/core@7.22.9)
       "@next/eslint-plugin-next":
-        specifier: ~13.3.4
-        version: 13.3.4
+        specifier: ~13.4.12
+        version: 13.4.12
       eslint-config-airbnb:
         specifier: ^19.0.4
         version: 19.0.4(eslint-plugin-import@2.27.5)(eslint-plugin-jsx-a11y@6.7.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.32.2)(eslint@8.39.0)
@@ -1186,11 +1186,11 @@ importers:
         specifier: ^2.27.5
         version: 2.27.5(@typescript-eslint/parser@4.33.0)(eslint-import-resolver-typescript@2.7.1)(eslint@8.39.0)
       eslint-plugin-jest:
-        specifier: ^27.2.1
-        version: 27.2.1(eslint@8.39.0)(typescript@4.9.5)
+        specifier: ^27.2.3
+        version: 27.2.3(eslint@8.39.0)(typescript@4.9.5)
       eslint-plugin-jest-dom:
-        specifier: ^4.0.3
-        version: 4.0.3(eslint@8.39.0)
+        specifier: ^5.0.1
+        version: 5.0.1(@testing-library/dom@9.2.0)(eslint@8.39.0)
       eslint-plugin-json:
         specifier: ^3.1.0
         version: 3.1.0
@@ -1202,7 +1202,7 @@ importers:
         version: 3.0.0(eslint@8.39.0)
       eslint-plugin-playwright:
         specifier: ^0.12.0
-        version: 0.12.0(eslint-plugin-jest@27.2.1)(eslint@8.39.0)
+        version: 0.12.0(eslint-plugin-jest@27.2.3)(eslint@8.39.0)
       eslint-plugin-prettier:
         specifier: 5.0.0-alpha.2
         version: 5.0.0-alpha.2(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@3.0.0)
@@ -8498,10 +8498,10 @@ packages:
       }
     dev: true
 
-  /@next/eslint-plugin-next@13.3.4:
+  /@next/eslint-plugin-next@13.4.12:
     resolution:
       {
-        integrity: sha512-mvS+HafOPy31oJbAi920WJXMdjbyb4v5FAMr9PeGZfRIdEcsLkA3mU/ZvmwzovJgP3nAWw2e2yM8iIFW8VpvIA==,
+        integrity: sha512-6rhK9CdxEgj/j1qvXIyLTWEaeFv7zOK8yJMulz3Owel0uek0U9MJCGzmKgYxM3aAUBo3gKeywCZKyQnJKto60A==,
       }
     dependencies:
       glob: 7.1.7
@@ -8932,13 +8932,13 @@ packages:
       range-parser: 1.2.1
     dev: false
 
-  /@payloadcms/plugin-nested-docs@1.0.4(payload@1.7.5)(react@18.2.0):
+  /@payloadcms/plugin-nested-docs@1.0.6(payload@1.7.5)(react@18.2.0):
     resolution:
       {
-        integrity: sha512-vjhk3fE/uRkUSNg0UuAv/NIEvDDMRcbEHSgxOo/MbmXOT2LFsh3fPq+Gq4+cL1H9s+FStiIkygigv7J5fgOZwA==,
+        integrity: sha512-+rPMWYYjxxIQeCO+MFlfsj4baLaK3S7RzP4dGouWcCtORbZEXbVPUGXgWWNyAP3FolQh4YDEgFVB4PHyIa+O/A==,
       }
     peerDependencies:
-      payload: ^0.18.5
+      payload: ^0.18.5 || ^1.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       payload: 1.7.5(monaco-editor@0.38.0)(scheduler@0.23.0)(typescript@4.9.5)
@@ -12294,6 +12294,7 @@ packages:
       dom-accessibility-api: 0.5.16
       lz-string: 1.5.0
       pretty-format: 27.5.1
+    dev: true
 
   /@testing-library/dom@9.2.0:
     resolution:
@@ -13298,7 +13299,7 @@ packages:
       }
     engines: { node: ">=8", npm: ">=5" }
     dependencies:
-      "@babel/runtime": 7.21.5
+      "@babel/runtime": 7.22.6
       global: 4.4.0
       url-toolkit: 2.2.5
     dev: false
@@ -15617,6 +15618,14 @@ packages:
         integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==,
       }
     engines: { node: ">=6" }
+
+  /clsx@2.0.0:
+    resolution:
+      {
+        integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==,
+      }
+    engines: { node: ">=6" }
+    dev: false
 
   /co@4.6.0:
     resolution:
@@ -18310,29 +18319,30 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-jest-dom@4.0.3(eslint@8.39.0):
+  /eslint-plugin-jest-dom@5.0.1(@testing-library/dom@9.2.0)(eslint@8.39.0):
     resolution:
       {
-        integrity: sha512-9j+n8uj0+V0tmsoS7bYC7fLhQmIvjRqRYEcbDSi+TKPsTThLLXCyj5swMSSf/hTleeMktACnn+HFqXBr5gbcbA==,
+        integrity: sha512-zD/BjNk12R5R9cxIu8oa2HfNeDSknI3ewtN8nygIUMQuieWDnTY9Np//6a1Z3G7Y3dx3l45hCUR4EphsgRmUtA==,
       }
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0, npm: ">=6", yarn: ">=1" }
     peerDependencies:
+      "@testing-library/dom": ^8.0.0 || ^9.0.0
       eslint: ^6.8.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      "@babel/runtime": 7.21.5
-      "@testing-library/dom": 8.20.0
+      "@babel/runtime": 7.22.6
+      "@testing-library/dom": 9.2.0
       eslint: 8.39.0
       requireindex: 1.2.0
     dev: false
 
-  /eslint-plugin-jest@27.2.1(eslint@8.39.0)(typescript@4.9.5):
+  /eslint-plugin-jest@27.2.3(eslint@8.39.0)(typescript@4.9.5):
     resolution:
       {
-        integrity: sha512-l067Uxx7ZT8cO9NJuf+eJHvt6bqJyz2Z29wykyEdz/OtmcELQl2MQGQLX8J94O1cSJWAwUSEvCjwjA7KEK3Hmg==,
+        integrity: sha512-sRLlSCpICzWuje66Gl9zvdF6mwD5X86I4u55hJyFBsxYOsBCmT5+kSUjf+fkFWVMMgpzNEupjW8WzUqi83hJAQ==,
       }
     engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
     peerDependencies:
-      "@typescript-eslint/eslint-plugin": ^5.0.0
+      "@typescript-eslint/eslint-plugin": ^5.0.0 || ^6.0.0
       eslint: ^7.0.0 || ^8.0.0
       jest: "*"
     peerDependenciesMeta:
@@ -18406,7 +18416,7 @@ packages:
       }
     dev: true
 
-  /eslint-plugin-playwright@0.12.0(eslint-plugin-jest@27.2.1)(eslint@8.39.0):
+  /eslint-plugin-playwright@0.12.0(eslint-plugin-jest@27.2.3)(eslint@8.39.0):
     resolution:
       {
         integrity: sha512-KXuzQjVzca5irMT/7rvzJKsVDGbQr43oQPc8i+SLEBqmfrTxlwMwRqfv9vtZqh4hpU0jmrnA/EOfwtls+5QC1w==,
@@ -18419,7 +18429,7 @@ packages:
         optional: true
     dependencies:
       eslint: 8.39.0
-      eslint-plugin-jest: 27.2.1(eslint@8.39.0)(typescript@4.9.5)
+      eslint-plugin-jest: 27.2.3(eslint@8.39.0)(typescript@4.9.5)
     dev: false
 
   /eslint-plugin-prettier@5.0.0-alpha.2(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@3.0.0):
@@ -23073,6 +23083,32 @@ packages:
       - supports-color
     dev: true
 
+  /lint-staged@13.2.3:
+    resolution:
+      {
+        integrity: sha512-zVVEXLuQIhr1Y7R7YAWx4TZLdvuzk7DnmrsTNL0fax6Z3jrpFcas+vKbzxhhvp6TA55m1SQuWkpzI1qbfDZbAg==,
+      }
+    engines: { node: ^14.13.1 || >=16.0.0 }
+    hasBin: true
+    dependencies:
+      chalk: 5.2.0
+      cli-truncate: 3.1.0
+      commander: 10.0.1
+      debug: 4.3.4
+      execa: 7.1.1
+      lilconfig: 2.1.0
+      listr2: 5.0.8
+      micromatch: 4.0.5
+      normalize-path: 3.0.0
+      object-inspect: 1.12.3
+      pidtree: 0.6.0
+      string-argv: 0.3.2
+      yaml: 2.2.2
+    transitivePeerDependencies:
+      - enquirer
+      - supports-color
+    dev: true
+
   /listr2@5.0.8:
     resolution:
       {
@@ -25681,7 +25717,7 @@ packages:
       }
     hasBin: true
     dependencies:
-      "@babel/runtime": 7.21.5
+      "@babel/runtime": 7.22.6
     dev: false
 
   /pkg-dir@3.0.0:
@@ -27356,7 +27392,7 @@ packages:
     peerDependencies:
       react: ^16.3.0
     dependencies:
-      "@babel/runtime": 7.21.5
+      "@babel/runtime": 7.22.6
       prop-types: 15.8.1
       react: 18.2.0
       warning: 4.0.3

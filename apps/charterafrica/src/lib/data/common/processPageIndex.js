@@ -50,12 +50,12 @@ const processInfographic = (page) => {
 const processSpotlight = (page, api, context) => {
   const { blocks } = page;
   const { locale } = context;
-  const spotlightIndex = blocks.findIndex(
-    (block) => block.slug === "spotlight",
-  );
-  if (spotlightIndex > -1) {
+  let spotlightIndex = -1;
+  const indexOfSpotlightBlock = ({ slug }, i) =>
+    slug === "spotlight" && i > spotlightIndex;
+  spotlightIndex = blocks.findIndex(indexOfSpotlightBlock);
+  while (spotlightIndex > -1) {
     const spotlight = blocks[spotlightIndex];
-
     const spotlightItems = spotlight?.items?.map((item) => {
       const { item: itemData, ...rest } = item;
       return {
@@ -80,6 +80,7 @@ const processSpotlight = (page, api, context) => {
 
     spotlight.items = spotlightItems || null;
     blocks[spotlightIndex] = spotlight;
+    spotlightIndex = blocks.findIndex(indexOfSpotlightBlock);
   }
 };
 
