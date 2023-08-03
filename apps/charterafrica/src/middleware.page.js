@@ -6,7 +6,11 @@ export function middleware(req) {
   const slugsPathname = new URLSearchParams(req.nextUrl.search)
     .getAll("slugs")
     .join("/");
-  if (equalsIgnoringCase("knowledge", slugsPathname)) {
+  if (
+    ["knowledge", "resources"].some((slug) =>
+      equalsIgnoringCase(slug, slugsPathname),
+    )
+  ) {
     return NextResponse.redirect(new URL(req.nextUrl.pathname, req.url));
   }
   let hash;
@@ -29,5 +33,9 @@ export const config = {
   // need to match redirects defined in next.config.js for client-side routing
   // to work
   // https://nextjs.org/docs/api-reference/next.config.js/redirects
-  matcher: ["/knowledge/explainers/:path*", "/opportunities/:path*"],
+  matcher: [
+    "/knowledge/explainers/:path*",
+    "/opportunities/:path*",
+    "/resources/datasets/:path*",
+  ],
 };
