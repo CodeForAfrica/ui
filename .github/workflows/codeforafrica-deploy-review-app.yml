@@ -117,15 +117,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        id: pnpm-install
-        with:
-          version: 8
-          run_install: false
-
       - name: Drop cloned DB
         run: |
           pnpm install --filter=codeforafrica
           cd apps/codeforafrica
-          pnpm drop-db "${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}"
+          node scripts/drop-db.mjs "${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}"
