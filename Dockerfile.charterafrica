@@ -105,4 +105,4 @@ WORKDIR /workspace/apps/charterafrica
 
 EXPOSE ${PORT}
 
-ENTRYPOINT [ "node", "dist/server.js" ]
+CMD [ "node", "dist/server.js" ]
