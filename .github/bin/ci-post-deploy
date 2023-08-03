@@ -1,0 +1,3 @@
+#!/bin/sh -l
+ssh "$SSH_REMOTE" -- config:set "$APP_NAME" "DOMAIN=$APP_NAME.cms.review.codeforafrica.org"
+echo "configured the review app domain"
