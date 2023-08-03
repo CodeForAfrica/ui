@@ -15,7 +15,8 @@ env:
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
   IMAGE_NAME: "codeforafrica/codeforafrica-ui"
   NEXT_PUBLIC_APP_URL: "http://codeforafrica-review-${{github.event.pull_request.number}}.cms.review.codeforafrica.org"
-  GH_TOKEN: ${{ secrets.SSH_PRIVATE_KEY }}
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  APP_NAME: codeforafrica-review-${{ github.event.pull_request.number }}
 
 jobs:
   review_app:
@@ -78,7 +79,7 @@ jobs:
           command: review-apps:create
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-ui
           # specify a name for the review app
-          review_app_name: codeforafrica-review-${{ github.event.pull_request.number }}
+          review_app_name: ${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
@@ -89,12 +90,12 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           username: azureuser
           script: |
-            dokku domains:add codeforafrica-review-${{github.event.pull_request.number}} codeforafrica-review-${{github.event.pull_request.number}}.cms.review.codeforafrica.org --no-restart
-            dokku config:set codeforafrica-review-${{github.event.pull_request.number}} PAYLOAD_PUBLIC_APP_URL=http://codeforafrica-review-${{github.event.pull_request.number}}.cms.review.codeforafrica.org --no-restart
-            dokku config:set codeforafrica-review-${{github.event.pull_request.number}} MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}} --no-restart
+            dokku domains:add ${{ env.APP_NAME }} ${{ env.APP_NAME }}.cms.review.codeforafrica.org --no-restart
+            dokku config:set ${{ env.APP_NAME }} PAYLOAD_PUBLIC_APP_URL=http://${{ env.APP_NAME }}.cms.review.codeforafrica.org --no-restart
+            dokku config:set ${{ env.APP_NAME }} MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}} --no-restart
 
       - name: Update Preview URL
-        run: gh pr comment ${{ github.event.pull_request.number }} --body "[Preview URL](http://codeforafrica-review-${{ github.event.pull_request.number }}.cms.review.codeforafrica.org)"
+        run: gh pr comment ${{ github.event.pull_request.number }} --body "[Preview URL](http://${{ env.APP_NAME }}.cms.review.codeforafrica.org)"
 
   destroy_review_app:
     runs-on: ubuntu-latest
@@ -108,7 +109,7 @@ jobs:
           command: review-apps:destroy
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-ui
           # specify a name for the review app
-          review_app_name: codeforafrica-review-${{ github.event.pull_request.number }}
+          review_app_name: ${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Install Node.js
