@@ -13,7 +13,7 @@ concurrency:
 env:
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
-  IMAGE_NAME: "codeforafrica/codeforafrica-dev"
+  IMAGE_NAME: "codeforafrica/codeforafrica-ui"
   NEXT_PUBLIC_APP_URL: "https://codeforafrica.dev.codeforafrica.org"
 
 jobs:
@@ -63,7 +63,6 @@ jobs:
             GHOST_API_KEY=${{ secrets.GHOST_API_KEY }}
             NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_APP_CFA_LOGO_URL }}
             NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_APP_CFA_NAME }}
-            VERCEL_URL=https://codeforafrica.vercel.app
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
@@ -76,7 +75,7 @@ jobs:
         with:
           # create a review app
           command: review-apps:create
-          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-dev
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-ui
           # specify a name for the review app
           review_app_name: codeforafrica-review-${{ github.event.pull_request.number }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -111,7 +110,7 @@ jobs:
         with:
           # destroy a review app
           command: review-apps:destroy
-          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-dev
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-ui
           # specify a name for the review app
           review_app_name: codeforafrica-review-${{ github.event.pull_request.number }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
