@@ -89,9 +89,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           username: azureuser
           script: |
-            dokku domains:add codeforafrica-review-${{github.event.pull_request.number}} codeforafrica-review-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
-            dokku config:set codeforafrica-review-${{github.event.pull_request.number}} PAYLOAD_PUBLIC_APP_URL=http://codeforafrica-review-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
-            dokku config:set codeforafrica-review-${{github.event.pull_request.number}} MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}
+            dokku domains:add codeforafrica-review-${{github.event.pull_request.number}} codeforafrica-review-${{github.event.pull_request.number}}.cms.review.codeforafrica.org --no-restart
+            dokku config:set codeforafrica-review-${{github.event.pull_request.number}} PAYLOAD_PUBLIC_APP_URL=http://codeforafrica-review-${{github.event.pull_request.number}}.cms.review.codeforafrica.org --no-restart
+            dokku config:set codeforafrica-review-${{github.event.pull_request.number}} MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}} --no-restart
 
       - name: Update Preview URL
         uses: nefrob/pr-description@v1.0.0
