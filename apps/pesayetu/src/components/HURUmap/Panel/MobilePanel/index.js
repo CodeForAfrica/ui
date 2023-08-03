@@ -35,7 +35,7 @@ function MobilePanel({ scrollToTopLabel, activeType, ...props }) {
     };
   });
   const scrollToTop = () => {
-    // eslint-disable-next-line no-undef
+    /* eslint-env browser */
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 

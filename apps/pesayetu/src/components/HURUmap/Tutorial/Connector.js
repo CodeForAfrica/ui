@@ -9,12 +9,12 @@ function Connector() {
   const [end, setEnd] = useState();
 
   useEffect(() => {
-    // eslint-disable-next-line no-undef
+    /* eslint-env browser */
     const firstElement = document
       .querySelector(`#tutorial-title-${currentStep}`)
       ?.getBoundingClientRect();
 
-    // eslint-disable-next-line no-undef
+    /* eslint-env browser */
     const secondElement = document
       .querySelector(steps[currentStep]?.selector)
       ?.getBoundingClientRect();

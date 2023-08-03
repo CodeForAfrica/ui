@@ -32,17 +32,17 @@ export function createFiltersForGroups(groups) {
 
 export function calculateTooltipPosition(event, tooltipBox, offsetX, offsetY) {
   let x = event.pageX + offsetX;
-  // eslint-disable-next-line no-undef
+  /* eslint-env browser */
   if (x + tooltipBox.width > window.innerWidth) {
     x = +event.pageX - offsetX - tooltipBox.width;
   }
   let y = event.pageY + offsetY;
-  // eslint-disable-next-line no-undef
+  /* eslint-env browser */
   if (y < window.innerHeight) {
-    // eslint-disable-next-line no-undef
+    /* eslint-env browser */
     y = window.innerHeight + offsetY;
   }
-  // eslint-disable-next-line no-undef
+  /* eslint-env browser */
   if (y + tooltipBox.height > window.innerHeight) {
     y = +event.pageY - offsetY - tooltipBox.height;
   }
