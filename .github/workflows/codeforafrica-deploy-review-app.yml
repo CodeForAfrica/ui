@@ -46,7 +46,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
-      - name: Clone Production DB
+      - name: Clone Database
         uses: Maggi64/mongo-clone-action@0.3
         with:
           source: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}
