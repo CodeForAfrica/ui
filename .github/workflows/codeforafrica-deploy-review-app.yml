@@ -15,6 +15,7 @@ env:
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
   IMAGE_NAME: "codeforafrica/codeforafrica-ui"
   NEXT_PUBLIC_APP_URL: "http://codeforafrica-review-${{github.event.pull_request.number}}.cms.review.codeforafrica.org"
+  GH_TOKEN: ${{ secrets.SSH_PRIVATE_KEY }}
 
 jobs:
   review_app:
