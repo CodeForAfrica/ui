@@ -95,7 +95,17 @@ jobs:
             dokku config:set ${{ env.APP_NAME }} MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}} --no-restart
 
       - name: Update Preview URL
-        run: gh pr comment ${{ github.event.pull_request.number }} --body "[Preview URL](http://${{ env.APP_NAME }}.cms.review.codeforafrica.org)"
+        uses: edumserrano/find-create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-includes: "Latest updated Preview URL"
+          comment-author: "github-actions[bot]"
+          body: |
+            Latest updated Preview URL
+            | Name  | Review |
+            |-------|--------|
+            | Code for Africa  | [Visit](http://${{ env.APP_NAME }}.cms.review.codeforafrica.org)  |
+          edit-mode: replace
 
   destroy_review_app:
     runs-on: ubuntu-latest
