@@ -104,7 +104,7 @@ jobs:
             Latest updated Preview URL
             | Name  | Review |
             |-------|--------|
-            | Code for Africa  | [Visit](http://${{ env.APP_NAME }}.cms.review.codeforafrica.org)  |
+            | ${{ env.APP_NAME }}  | [Visit](http://${{ env.APP_NAME }}.cms.review.codeforafrica.org)  |
           edit-mode: replace
 
   destroy_review_app:
