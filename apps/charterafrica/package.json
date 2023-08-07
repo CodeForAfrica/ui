@@ -1,6 +1,6 @@
 {
   "name": "charterafrica",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "author": "Code for Africa <tech@codeforafrica.org>",
   "description": "This is the official code for https://charter.africa site",
@@ -66,7 +66,7 @@
     "next": "~13.4.11",
     "next-seo": "^5.15.0",
     "nodemailer-sendgrid": "^1.0.3",
-    "payload": "^1.7.5",
+    "payload": "^1.11.8",
     "prop-types": "^15.8.1",
     "qs": "^6.11.2",
     "react": "^18.2.0",
