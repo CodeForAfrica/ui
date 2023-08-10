@@ -178,6 +178,8 @@ export function processContributor(
   );
   return {
     airtableId: data.id,
+    avatarUrl:
+      getValue(data, contributorTableColumns.avatarUrl)?.[0]?.url ?? null,
     externalId,
     repoLink,
     socialMedia,

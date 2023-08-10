@@ -1,5 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
-import { Figure, Link } from "@commons-ui/next";
+import { Figure } from "@commons-ui/next";
 import { Box, Button } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
@@ -23,16 +23,14 @@ const OrgThemeAndOperatingCountries = React.forwardRef(
             width: "auto",
           }}
         />
-        <Link
-          href={organisation?.link?.href || "#"}
-          component={RichTypography}
+        <RichTypography
           textAlign="left"
           color="neutral.dark"
-          sx={{ textDecoration: "none" }}
-          variant="h3Small"
+          sx={{ fontWeight: 400 }}
+          variant="h4"
         >
           {organisation.name}
-        </Link>
+        </RichTypography>
         {theme ? (
           <Button
             variant="contained"
