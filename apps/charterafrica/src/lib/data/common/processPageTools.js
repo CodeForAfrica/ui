@@ -53,6 +53,13 @@ async function processPageSingleTool(page, api, context) {
   });
   const tools = [];
   const filterLabels = labelsPerLocale[locale];
+  const organisationPage = await getPageUrl(api, "organisations");
+  const organisation = orgDocs?.[0]
+    ? {
+        ...orgDocs?.[0],
+        link: { href: `${organisationPage}/${orgDocs?.[0].slug}` },
+      }
+    : null;
   return {
     ...page,
     blocks: [
@@ -90,7 +97,7 @@ async function processPageSingleTool(page, api, context) {
         email: tool.organisation?.email ?? null,
         location: tool.organisation?.location ?? null,
         description: tool.description ?? null,
-        organisation: orgDocs?.[0] ?? null,
+        organisation,
         supportersTitle: filterLabels.supporters,
         partnersTitle: filterLabels.partners,
         contributorsText: filterLabels.contributors,

@@ -2,13 +2,15 @@ import { Box } from "@mui/material";
 import Script from "next/script";
 import React from "react";
 
+import site from "@/charterafrica/utils/site";
+
 const Infographic = React.forwardRef(function Infographic(props, ref) {
   const {
     countriesFile: countriesFileProp,
     dataFile: dataFileProp,
     infographicId: id,
     sx,
-    url,
+    url = site.url,
   } = props;
 
   if (!(id && url)) {
