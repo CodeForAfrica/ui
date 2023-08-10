@@ -10,9 +10,9 @@ const Infographic = React.forwardRef(function Infographic(props, ref) {
     dataFile: dataFileProp,
     infographicId: id,
     sx,
-    url = site.url,
   } = props;
 
+  const { url } = site;
   if (!(id && url)) {
     return null;
   }

@@ -25,7 +25,6 @@ const OrgThemeAndOperatingCountries = React.forwardRef(
         />
         <Link
           href={organisation?.link?.href || "#"}
-          component={RichTypography}
           textAlign="left"
           color="neutral.dark"
           sx={{ textDecoration: "none" }}

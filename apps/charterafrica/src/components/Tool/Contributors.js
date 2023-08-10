@@ -20,7 +20,7 @@ const Contributors = React.forwardRef(function Contributors(props, ref) {
             <Avatar
               key={item.id}
               component={Link}
-              href={item.link?.href}
+              href={item.link.href}
               alt={item.name}
               src={item.avatarUrl}
             />
