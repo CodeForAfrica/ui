@@ -122,14 +122,3 @@ jobs:
           # specify a name for the review app
           review_app_name: ${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Drop cloned DB
-        run: |
-          pnpm install --filter=codeforafrica
-          cd apps/codeforafrica
-          node scripts/drop-db.mjs "${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}"
