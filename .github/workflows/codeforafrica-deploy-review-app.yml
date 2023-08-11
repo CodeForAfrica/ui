@@ -86,17 +86,14 @@ jobs:
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Update Preview URL
-        uses: edumserrano/find-create-or-update-comment@v1
-        with:
+        run: body=${{ env.body }}" gh pr comment ${{ env.issue-number }} --edit-last "$body" || gh pr comment ${{ env.issue-number }} "$body"
+        env:
           issue-number: ${{ github.event.pull_request.number }}
-          body-includes: "Latest updated Preview URL"
-          comment-author: "github-actions[bot]"
           body: |
             Latest updated Preview URL
             | Name  | Review |
             |-------|--------|
             | ${{ env.APP_NAME }}  | [Visit](http://${{ env.APP_NAME }}.cms.review.codeforafrica.org)  |
-          edit-mode: replace
 
   destroy_review_app:
     runs-on: ubuntu-latest
