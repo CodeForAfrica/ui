@@ -86,7 +86,7 @@ jobs:
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Update Preview URL
-        run: body=${{ env.body }} gh pr comment ${{ env.issue-number }} --edit-last $body || gh pr comment ${{ env.issue-number }} $body
+        run: gh pr comment ${{ env.issue-number }} --edit-last ${{ env.body }} || gh pr comment ${{ env.issue-number }} ${{ env.body }}
         env:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
