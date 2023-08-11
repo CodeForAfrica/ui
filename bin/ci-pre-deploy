@@ -3,4 +3,4 @@ if [ "$IS_REVIEW_APP" = "true" ]; then
   ssh "$SSH_REMOTE" -- config:set "dokku domains:add $APP_NAME.cms.review.codeforafrica.org --no-restart && \
    dokku config:set $APP_NAME PAYLOAD_PUBLIC_APP_URL=http://$APP_NAME.cms.review.codeforafrica.org --no-restart"
   echo "configured the review app domain"
-fi
+fi/Users/kevinkoech/Documents/ui/apps/codeforafrica/bin
