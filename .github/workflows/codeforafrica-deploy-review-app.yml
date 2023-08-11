@@ -85,17 +85,6 @@ jobs:
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-      - name: Set Review App Domain Name
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ui-1.dev.codeforafrica.org
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          username: azureuser
-          script: |
-            dokku domains:add ${{ env.APP_NAME }} ${{ env.APP_NAME }}.cms.review.codeforafrica.org --no-restart
-            dokku config:set ${{ env.APP_NAME }} PAYLOAD_PUBLIC_APP_URL=http://${{ env.APP_NAME }}.cms.review.codeforafrica.org --no-restart
-            dokku config:set ${{ env.APP_NAME }} MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.APP_NAME }} --no-restart
-
       - name: Update Preview URL
         uses: edumserrano/find-create-or-update-comment@v1
         with:
