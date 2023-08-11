@@ -1,0 +1,7 @@
+#!/bin/sh -l
+if [ "$IS_REVIEW_APP" = "true" ]; then
+  ssh "$SSH_REMOTE" -- "domains:add $APP_NAME $APP_NAME.dev.codeforafrica.org"
+  ssh "$SSH_REMOTE" -- "letsencrypt:enable $APP_NAME"
+  ssh "$SSH_REMOTE" -- "config:set $APP_NAME PAYLOAD_PUBLIC_APP_URL=http://$APP_NAME.dev.codeforafrica.org"
+  echo "configured the review app domain"
+fi

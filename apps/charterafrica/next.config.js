@@ -64,6 +64,11 @@ const nextConfig = {
         destination: "/opportunities#grants-fellowships",
         permanent: true,
       },
+      {
+        source: "/resources",
+        destination: "/resources/datasets",
+        permanent: true,
+      },
     ];
   },
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],

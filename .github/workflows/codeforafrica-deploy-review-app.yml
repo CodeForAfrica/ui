@@ -15,7 +15,7 @@ env:
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
   IMAGE_NAME: "codeforafrica/codeforafrica-ui"
   ORIGINAL_APP_NAME: "codeforafrica-ui"
-  NEXT_PUBLIC_APP_URL: "http://codeforafrica-ui-pr-${{github.event.pull_request.number}}.cms.review.codeforafrica.org"
+  NEXT_PUBLIC_APP_URL: "https://codeforafrica-ui-pr-${{github.event.pull_request.number}}.dev.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   APP_NAME: codeforafrica-ui-pr-${{ github.event.pull_request.number }}
 
@@ -32,6 +32,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
@@ -84,29 +85,15 @@ jobs:
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-      - name: Set Review App Domain Name
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ui-1.dev.codeforafrica.org
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          username: azureuser
-          script: |
-            dokku domains:add ${{ env.APP_NAME }} ${{ env.APP_NAME }}.cms.review.codeforafrica.org --no-restart
-            dokku config:set ${{ env.APP_NAME }} PAYLOAD_PUBLIC_APP_URL=http://${{ env.APP_NAME }}.cms.review.codeforafrica.org --no-restart
-            dokku config:set ${{ env.APP_NAME }} MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.APP_NAME }} --no-restart
-
       - name: Update Preview URL
-        uses: edumserrano/find-create-or-update-comment@v1
-        with:
+        run: gh pr comment ${{ env.issue-number }} ${{ env.body }} || gh pr comment ${{ env.issue-number }} ${{ env.body }}
+        env:
           issue-number: ${{ github.event.pull_request.number }}
-          body-includes: "Latest updated Preview URL"
-          comment-author: "github-actions[bot]"
           body: |
-            Latest updated Preview URL
+            "Latest updated Preview URL
             | Name  | Review |
             |-------|--------|
-            | ${{ env.APP_NAME }}  | [Visit](http://${{ env.APP_NAME }}.cms.review.codeforafrica.org)  |
-          edit-mode: replace
+            | ${{ env.APP_NAME }}  | [Visit](https://${{ env.APP_NAME }}.dev.codeforafrica.org)  |"
 
   destroy_review_app:
     runs-on: ubuntu-latest
@@ -122,14 +109,3 @@ jobs:
           # specify a name for the review app
           review_app_name: ${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Drop cloned DB
-        run: |
-          pnpm install --filter=codeforafrica
-          cd apps/codeforafrica
-          node scripts/drop-db.mjs "${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}"
