@@ -1,3 +1,0 @@
-#!/bin/sh -l
-ssh "$DOKKU_REMOTE_URL" -- dokku domains:add $APP_NAME $APP_NAME.cms.review.codeforafrica.org --no-restart"
-echo "configured the review app domain"
