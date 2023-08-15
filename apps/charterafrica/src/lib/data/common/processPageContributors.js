@@ -50,7 +50,7 @@ export async function getContributors(page, api, context) {
         href,
       },
       description: person.description || " ",
-      name: person?.fullName ?? person?.externalId ?? null,
+      name: person.fullName || person.externalId || null,
       image: person.avatarUrl ?? null,
       lastActive: person.lastActive
         ? formatDateTime(person.lastActive, {})

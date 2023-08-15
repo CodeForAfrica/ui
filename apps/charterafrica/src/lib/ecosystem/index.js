@@ -54,8 +54,8 @@ export async function updateContent(req) {
       message: `Update Ecosystem Content process started at ${new Date().toString()}`,
       level: "info",
     });
-    const { force = "0" } = req.query;
-    const forceUpdate = !!parseInt(force, 10);
+    const { cache = "true" } = req.query;
+    const forceUpdate = cache.toLowerCase() === "false";
     const contributors = await updateContributor(forceUpdate);
     const organisations = await updateOrganisation(forceUpdate);
     const tools = await updateTool(forceUpdate);
