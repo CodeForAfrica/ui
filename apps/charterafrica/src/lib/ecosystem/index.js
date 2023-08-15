@@ -48,15 +48,17 @@ export async function updateList() {
   return { message: "PROCESS_STARTED" };
 }
 
-export async function updateContent() {
+export async function updateContent(req) {
   async function execute() {
     Sentry.captureEvent({
       message: `Update Ecosystem Content process started at ${new Date().toString()}`,
       level: "info",
     });
-    const contributors = await updateContributor();
-    const organisations = await updateOrganisation();
-    const tools = await updateTool();
+    const { force = "0" } = req.query;
+    const forceUpdate = !!parseInt(force, 10);
+    const contributors = await updateContributor(forceUpdate);
+    const organisations = await updateOrganisation(forceUpdate);
+    const tools = await updateTool(forceUpdate);
     Sentry.captureEvent({
       message: `Update Ecosystem Content process completed ${new Date().toString()}`,
       level: "info",

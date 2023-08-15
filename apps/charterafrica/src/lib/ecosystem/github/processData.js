@@ -156,7 +156,6 @@ export async function fetchContributor({ externalId, eTag }) {
   }
 
   return {
-    fullName: data.name,
     avatarUrl: data.avatar_url,
     repoLink: data.html_url,
     location: data.location,

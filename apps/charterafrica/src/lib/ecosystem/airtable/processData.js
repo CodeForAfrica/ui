@@ -177,6 +177,7 @@ export function processContributor(
     getValue(data, contributorTableColumns.slug),
   );
   return {
+    fullName: getValue(data, contributorTableColumns.name),
     airtableId: data.id,
     externalId,
     repoLink,
