@@ -76,19 +76,21 @@ async function fetchGithubApi(path, tag) {
   };
   try {
     const res = await fetch(url, { headers });
-    const response = await res.json();
-    const eTag = res.headers.get("ETag") || "";
     if (res.ok) {
+      const response = await res.json();
+      const eTag = res.headers.get("ETag") || "";
       return { ...response, eTag };
     }
     if (res.status !== 304) {
+      const response = await res.json();
       const message = `Error fetching "${url}" from github errors ${JSON.stringify(
         response,
       )}`;
-      throw new FetchError(message, response, 500);
+      throw new FetchError(message, res, 500);
     }
     return null;
   } catch (e) {
+    console.log({ e, path, tag });
     Sentry.captureException(e);
     return null;
   }
