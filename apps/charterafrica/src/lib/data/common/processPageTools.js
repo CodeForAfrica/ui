@@ -53,13 +53,8 @@ async function processPageSingleTool(page, api, context) {
   });
   const tools = [];
   const filterLabels = labelsPerLocale[locale];
-  const organisationPage = await getPageUrl(api, "organisations");
-  const organisation = orgDocs?.[0]
-    ? {
-        ...orgDocs?.[0],
-        link: { href: `${organisationPage}/${orgDocs?.[0].slug}` },
-      }
-    : null;
+  const organisation = orgDocs?.[0] ?? null;
+
   return {
     ...page,
     blocks: [

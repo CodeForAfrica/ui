@@ -4,6 +4,7 @@ import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
 import { ORGANIZATION_COLLECTION, TOOL_COLLECTION } from "../utils/collections";
+import mapLinkToHrefForOrgCollection from "../utils/mapLinkToHrefForOrgCollection";
 
 const Organisations = {
   slug: ORGANIZATION_COLLECTION,
@@ -252,6 +253,24 @@ const Organisations = {
         readOnly: true,
         position: "sidebar",
       },
+    },
+
+    {
+      type: "group",
+      name: "link",
+      fields: [
+        {
+          name: "href",
+          type: "text",
+          label: { en: "href", fr: "href", pt: "href" },
+          admin: {
+            hidden: true,
+          },
+          hooks: {
+            beforeValidate: [mapLinkToHrefForOrgCollection],
+          },
+        },
+      ],
     },
   ],
 };
