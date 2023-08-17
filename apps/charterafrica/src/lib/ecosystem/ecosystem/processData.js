@@ -56,28 +56,31 @@ export async function prepareTools(airtableData, config) {
   return Promise.allSettled(toProcess);
 }
 
-export async function updateContributor() {
+export async function updateContributor(forceUpdate) {
   const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION);
   const updatePromises = docs.map(async (item) => {
-    const updated = await github.fetchContributor(item);
+    const itemToFetch = forceUpdate ? { ...item, eTag: null } : item;
+    const updated = await github.fetchContributor(itemToFetch);
     return api.updateCollection(CONTRIBUTORS_COLLECTION, item.id, updated);
   });
   return Promise.allSettled(updatePromises);
 }
 
-export async function updateOrganisation() {
+export async function updateOrganisation(forceUpdate) {
   const { docs } = await api.getCollection(ORGANIZATION_COLLECTION);
   const updatePromises = docs.map(async (item) => {
-    const updated = await github.fetchOrganisation(item);
+    const itemToFetch = forceUpdate ? { ...item, eTag: null } : item;
+    const updated = await github.fetchOrganisation(itemToFetch);
     return api.updateCollection(ORGANIZATION_COLLECTION, item.id, updated);
   });
   return Promise.allSettled(updatePromises);
 }
 
-export async function updateTool() {
+export async function updateTool(forceUpdate) {
   const { docs } = await api.getCollection(TOOL_COLLECTION);
   const updatePromises = docs.map(async (item) => {
-    const updated = await github.fetchTool(item);
+    const itemToFetch = forceUpdate ? { ...item, eTag: null } : item;
+    const updated = await github.fetchTool(itemToFetch);
     return api.updateCollection(TOOL_COLLECTION, item.id, updated);
   });
   return Promise.allSettled(updatePromises);
