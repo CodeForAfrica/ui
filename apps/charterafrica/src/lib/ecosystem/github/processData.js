@@ -78,7 +78,7 @@ async function fetchGithubApi(path, tag) {
     const res = await fetch(url, { headers });
     if (res.ok) {
       const response = await res.json();
-      const eTag = res.headers.get("ETag") || "";
+      const eTag = res.headers.get("ETag");
       return { ...response, eTag };
     }
     if (res.status !== 304) {
@@ -90,7 +90,6 @@ async function fetchGithubApi(path, tag) {
     }
     return null;
   } catch (e) {
-    console.log({ e, path, tag });
     Sentry.captureException(e);
     return null;
   }
