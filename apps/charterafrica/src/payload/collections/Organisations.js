@@ -267,7 +267,7 @@ const Organisations = {
             hidden: true,
           },
           hooks: {
-            beforeValidate: [mapLinkToHrefForOrgCollection],
+            beforeRead: [mapLinkToHrefForOrgCollection],
           },
         },
       ],
