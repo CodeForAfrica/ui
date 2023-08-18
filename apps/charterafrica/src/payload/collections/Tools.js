@@ -333,7 +333,7 @@ const Tools = {
         },
       ],
       hooks: {
-        beforeRead: [mapLinkAndNameforContributorsInToolsCollection],
+        afterRead: [mapLinkAndNameforContributorsInToolsCollection],
       },
     },
     source(),

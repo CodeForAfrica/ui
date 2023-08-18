@@ -256,7 +256,7 @@ const Organisations = {
     },
 
     {
-      type: "text",
+      type: "group",
       name: "link",
       fields: [
         {
@@ -267,7 +267,7 @@ const Organisations = {
             hidden: true,
           },
           hooks: {
-            beforeRead: [mapLinkToHrefForOrgCollection],
+            afterRead: [mapLinkToHrefForOrgCollection],
           },
         },
       ],
