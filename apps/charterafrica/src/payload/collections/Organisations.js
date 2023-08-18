@@ -256,7 +256,7 @@ const Organisations = {
     },
 
     {
-      type: "group",
+      type: "text",
       name: "link",
       fields: [
         {

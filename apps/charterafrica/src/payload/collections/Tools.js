@@ -8,6 +8,7 @@ import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
 import { TOOL_COLLECTION, CONTRIBUTORS_COLLECTION } from "../utils/collections";
+import mapLinkAndNameforContributorsInToolsCollection from "../utils/mapLinkAndNameforContributorsInToolsCollection";
 
 const Tools = {
   slug: TOOL_COLLECTION,
@@ -307,6 +308,34 @@ const Tools = {
     dateField({
       name: "deletedAt",
     }),
+    {
+      type: "array",
+      name: "toolContributors",
+      fields: [
+        {
+          name: "link",
+          type: "group",
+          fields: [
+            {
+              name: "href",
+              type: "text",
+              label: { en: "href", fr: "href", pt: "href" },
+              admin: {
+                hidden: true,
+              },
+            },
+          ],
+        },
+        {
+          type: "text",
+          name: "name",
+          label: { en: "name", fr: "nom", pt: "nome" },
+        },
+      ],
+      hooks: {
+        beforeRead: [mapLinkAndNameforContributorsInToolsCollection],
+      },
+    },
     source(),
   ],
 };

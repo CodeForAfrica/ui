@@ -1,4 +1,3 @@
-import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
 import { allCountries } from "@/charterafrica/lib/data/json/countries";
 import {
   TOOL_COLLECTION,
@@ -37,12 +36,8 @@ async function processPageSingleTool(page, api, context) {
     return null;
   }
   const tool = docs[0];
-  const contributorPage = await getPageUrl(api, "contributors");
-  const contributors = tool?.contributors?.map((person) => ({
-    ...person,
-    link: { href: `${contributorPage}/${person.slug}` },
-    name: person.name || person?.fullName || person.username || null,
-  }));
+  const contributors = tool.toolContributors;
+
   const { docs: orgDocs } = await api.getCollection(ORGANIZATION_COLLECTION, {
     locale,
     where: {
