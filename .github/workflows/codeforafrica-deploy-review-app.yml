@@ -50,12 +50,6 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
-      - name: Clone Database
-        uses: Maggi64/mongo-clone-action@0.3
-        with:
-          source: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}
-          target: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.APP_NAME }}
-
       - name: Build Docker image
         uses: docker/build-push-action@v3
         with:
