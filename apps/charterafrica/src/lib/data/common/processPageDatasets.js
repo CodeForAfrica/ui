@@ -7,7 +7,15 @@ function getDatasetsQuery(page, context) {
   const { breadcrumbs = [] } = page;
   const pathname = breadcrumbs[breadcrumbs.length - 1]?.url;
 
-  return { countries, locale, page: pageNumber, pathname, q, tags, sort };
+  return {
+    countries: countries ? countries.split(",") : [],
+    locale,
+    page: pageNumber,
+    pathname,
+    q,
+    tags,
+    sort,
+  };
 }
 
 async function processSingleDataset(page, api, context) {
