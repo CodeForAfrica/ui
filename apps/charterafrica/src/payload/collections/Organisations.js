@@ -103,6 +103,18 @@ const Organisations = {
             pt: "Organização sem fins lucrativos",
           },
         },
+        {
+          value: "Political party",
+          label: {
+            en: "Political party",
+          },
+        },
+        {
+          value: "State-affiliated",
+          label: {
+            en: "State-affiliated",
+          },
+        },
       ],
 
       admin: {
