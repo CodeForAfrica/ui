@@ -1,4 +1,4 @@
-import getPageUrlUsingPayload from "../../lib/data/common/getPageUrlUsingPayload";
+import getPageUrlUsingPayload from "./getPageUrlUsingPayload";
 
 const mapLinkForToolsCollection = async ({ doc, req: { payload } }) => {
   try {
