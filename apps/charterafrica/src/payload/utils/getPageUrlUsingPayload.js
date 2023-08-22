@@ -1,3 +1,5 @@
+import { fullSlugFromParents } from "./formatPagePath";
+
 const getPageUrlUsingPayload = async (payload, slug) => {
   const collection = "pages";
   const options = {
@@ -14,8 +16,7 @@ const getPageUrlUsingPayload = async (payload, slug) => {
     collection,
   });
 
-  const breadcrumbs = docs[0]?.breadcrumbs || [];
-  return breadcrumbs[breadcrumbs.length - 1]?.url;
+  return fullSlugFromParents(docs[0]);
 };
 
 export default getPageUrlUsingPayload;

@@ -1,4 +1,4 @@
-function fullSlugFromParents(doc) {
+export function fullSlugFromParents(doc) {
   const { slug, parent } = doc;
   if (!parent) {
     return slug;
