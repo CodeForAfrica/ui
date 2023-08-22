@@ -1,10 +1,12 @@
-import getPageUrl from "../../lib/data/common/getPageUrl";
+import getPageUrlUsingPayload from "../../lib/data/common/getPageUrlUsingPayload";
 
 const mapLinkToHrefForOrgCollection = async ({ data, req: { payload } }) => {
   try {
     const doc = { ...data.doc };
-
-    const organisationPage = await getPageUrl(payload, "organisations");
+    const organisationPage = await getPageUrlUsingPayload(
+      payload,
+      "organisations",
+    );
     const href = `${organisationPage}/${doc?.slug}`;
 
     return href;

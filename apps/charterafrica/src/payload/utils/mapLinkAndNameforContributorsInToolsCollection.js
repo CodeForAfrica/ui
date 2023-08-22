@@ -1,4 +1,4 @@
-import getPageUrl from "../../lib/data/common/getPageUrl";
+import getPageUrlUsingPayload from "../../lib/data/common/getPageUrlUsingPayload";
 
 const mapLinkAndNameforContributorsInToolsCollection = async ({
   data,
@@ -6,8 +6,10 @@ const mapLinkAndNameforContributorsInToolsCollection = async ({
 }) => {
   try {
     const tool = { ...data.doc };
-
-    const contributorPage = await getPageUrl(payload, "contributors");
+    const contributorPage = await getPageUrlUsingPayload(
+      payload,
+      "contributors",
+    );
     const contributors = tool?.contributors?.map((person) => ({
       ...person,
       link: { href: `${contributorPage}/${person.slug}` },

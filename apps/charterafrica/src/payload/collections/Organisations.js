@@ -254,25 +254,10 @@ const Organisations = {
         position: "sidebar",
       },
     },
-
-    {
-      type: "group",
-      name: "link",
-      fields: [
-        {
-          name: "href",
-          type: "text",
-          label: { en: "href", fr: "href", pt: "href" },
-          admin: {
-            hidden: true,
-          },
-          hooks: {
-            afterRead: [mapLinkToHrefForOrgCollection],
-          },
-        },
-      ],
-    },
   ],
+  hooks: {
+    afterRead: [mapLinkToHrefForOrgCollection],
+  },
 };
 
 export default Organisations;

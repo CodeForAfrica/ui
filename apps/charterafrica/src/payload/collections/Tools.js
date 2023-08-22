@@ -308,36 +308,12 @@ const Tools = {
     dateField({
       name: "deletedAt",
     }),
-    {
-      type: "array",
-      name: "toolContributors",
-      fields: [
-        {
-          name: "link",
-          type: "group",
-          fields: [
-            {
-              name: "href",
-              type: "text",
-              label: { en: "href", fr: "href", pt: "href" },
-              admin: {
-                hidden: true,
-              },
-            },
-          ],
-        },
-        {
-          type: "text",
-          name: "name",
-          label: { en: "name", fr: "nom", pt: "nome" },
-        },
-      ],
-      hooks: {
-        afterRead: [mapLinkAndNameforContributorsInToolsCollection],
-      },
-    },
+
     source(),
   ],
+  hooks: {
+    afterRead: [mapLinkAndNameforContributorsInToolsCollection],
+  },
 };
 
 export default Tools;
