@@ -1,20 +1,17 @@
 import { fullSlugFromParents } from "./formatPagePath";
 
 const getPageUrlUsingPayload = async (payload, slug) => {
-  const collection = "pages";
   const options = {
+    collection: "pages",
     where: {
       slug: {
         equals: slug,
       },
     },
+    limit: 0,
   };
 
-  const { docs } = await payload.find({
-    limit: 0,
-    ...options,
-    collection,
-  });
+  const { docs } = await payload.find(options);
 
   return fullSlugFromParents(docs[0]);
 };
