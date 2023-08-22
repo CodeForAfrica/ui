@@ -8,7 +8,7 @@ import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
 import { TOOL_COLLECTION, CONTRIBUTORS_COLLECTION } from "../utils/collections";
-import mapLinkAndNameforContributorsInToolsCollection from "../utils/mapLinkAndNameforContributorsInToolsCollection";
+import mapLinkForToolsCollection from "../utils/mapLinkForToolsCollection";
 
 const Tools = {
   slug: TOOL_COLLECTION,
@@ -312,7 +312,7 @@ const Tools = {
     source(),
   ],
   hooks: {
-    afterRead: [mapLinkAndNameforContributorsInToolsCollection],
+    afterRead: [mapLinkForToolsCollection],
   },
 };
 

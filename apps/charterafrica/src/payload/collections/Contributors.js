@@ -3,6 +3,7 @@ import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
 import { CONTRIBUTORS_COLLECTION } from "../utils/collections";
+import mapLinkAndNameforContributorsInToolsCollection from "../utils/mapLinkAndNameforContributorsInToolsCollection";
 
 const Contributors = {
   slug: CONTRIBUTORS_COLLECTION,
@@ -152,6 +153,9 @@ const Contributors = {
       },
     },
   ],
+  hooks: {
+    afterRead: [mapLinkAndNameforContributorsInToolsCollection],
+  },
 };
 
 export default Contributors;

@@ -1,12 +1,9 @@
 import getPageUrlUsingPayload from "../../lib/data/common/getPageUrlUsingPayload";
 
-const mapLinkToHrefForOrgCollection = async ({ doc, req: { payload } }) => {
+const mapLinkForToolsCollection = async ({ doc, req: { payload } }) => {
   try {
-    const organisationPage = await getPageUrlUsingPayload(
-      payload,
-      "organisations",
-    );
-    const href = `${organisationPage}/${doc?.slug}`;
+    const toolsPage = await getPageUrlUsingPayload(payload, "tools");
+    const href = `${toolsPage}/${doc?.slug}`;
 
     return { ...doc, link: { href } };
   } catch (error) {
@@ -17,4 +14,4 @@ const mapLinkToHrefForOrgCollection = async ({ doc, req: { payload } }) => {
   }
 };
 
-export default mapLinkToHrefForOrgCollection;
+export default mapLinkForToolsCollection;

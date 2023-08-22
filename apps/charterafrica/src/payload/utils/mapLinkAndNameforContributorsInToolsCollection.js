@@ -1,24 +1,28 @@
 import getPageUrlUsingPayload from "../../lib/data/common/getPageUrlUsingPayload";
 
 const mapLinkAndNameforContributorsInToolsCollection = async ({
-  data,
+  doc,
   req: { payload },
 }) => {
   try {
-    const tool = { ...data.doc };
+    const docContributors = { ...doc };
     const contributorPage = await getPageUrlUsingPayload(
       payload,
       "contributors",
     );
-    const contributors = tool?.contributors?.map((person) => ({
-      ...person,
-      link: { href: `${contributorPage}/${person.slug}` },
-      name: person.name || person?.fullName || person.username || null,
-    }));
+    docContributors.contributors = docContributors?.contributors?.map(
+      (person) => ({
+        ...person,
+        link: { href: `${contributorPage}/${person.slug}` },
+        name: person.name || person?.fullName || person.username || null,
+      }),
+    );
 
-    return contributors;
+    return docContributors;
   } catch (error) {
-    return null; // or handle the error in an appropriate way
+    const docContributors = { ...doc };
+    docContributors.contributors = [];
+    return docContributors; // or handle the error in an appropriate way
   }
 };
 
