@@ -7,7 +7,7 @@ import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
 
 function useFullNameOrExternalId({ doc }) {
   if (doc) {
-    const name = doc.name ?? doc?.fullName ?? doc.externalId ?? null;
+    const name = doc.name ?? doc.fullName ?? doc.externalId ?? null;
     return { ...doc, name };
   }
   return doc;
