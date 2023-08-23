@@ -244,7 +244,7 @@ export function processOrganisation(
     avatarUrl:
       getValue(data, organisationTableColumns.avatarUrl)?.[0]?.url ?? null,
     externalId,
-    type: getValue(data, organisationTableColumns.type)?.replace(/&/g, "and"),
+    type: getValue(data, organisationTableColumns.type),
     repoLink: getValue(data, organisationTableColumns.source.url),
     supporters,
     partners,
