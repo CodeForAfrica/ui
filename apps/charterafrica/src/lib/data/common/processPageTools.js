@@ -56,10 +56,6 @@ async function processPageSingleTool(page, api, context) {
       {
         ...tool,
         slug: "tool",
-        link: {
-          href: tool.link,
-          label: "",
-        },
         contribute: {
           href: getRepoLink(tool),
           label: filterLabels.contribute,
@@ -101,7 +97,6 @@ async function processPageSingleTool(page, api, context) {
 }
 
 export async function getTools(page, api, context) {
-  const { breadcrumbs } = page;
   const {
     locale,
     query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
@@ -128,21 +123,12 @@ export async function getTools(page, api, context) {
   });
 
   const results = docs.map((tool) => {
-    let href = null;
-    const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
-    if (pageUrl) {
-      const { slug } = tool;
-      href = `${pageUrl}/${slug}`;
-    }
     return {
       ...tool,
       topicLabel: "Topic",
       exploreText: "Explore",
       contributorsCount: tool?.contributors?.length ?? null,
       description: tool.description ?? " ",
-      link: {
-        href,
-      },
       image: tool.avatarUrl ?? null,
     };
   });
