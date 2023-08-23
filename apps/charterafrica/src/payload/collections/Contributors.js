@@ -5,7 +5,7 @@ import source from "../fields/source";
 import { CONTRIBUTORS_COLLECTION } from "../utils/collections";
 import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
 
-function userFullNameOrExternalId({ doc }) {
+function useFullNameOrExternalId({ doc }) {
   if (doc) {
     const name = doc.name ?? doc?.fullName ?? doc.externalId ?? null;
     return { ...doc, name };
@@ -164,7 +164,7 @@ const Contributors = {
   hooks: {
     afterRead: [
       nestCollectionUnderPage("contributors"),
-      userFullNameOrExternalId,
+      useFullNameOrExternalId,
     ],
   },
 };
