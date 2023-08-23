@@ -8,7 +8,7 @@ import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
 import { TOOL_COLLECTION, CONTRIBUTORS_COLLECTION } from "../utils/collections";
-import mapLinkForToolsCollection from "../utils/mapLinkForToolsCollection";
+import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
 
 const Tools = {
   slug: TOOL_COLLECTION,
@@ -312,7 +312,7 @@ const Tools = {
     source(),
   ],
   hooks: {
-    afterRead: [mapLinkForToolsCollection],
+    afterRead: [nestCollectionUnderPage("tools")],
   },
 };
 

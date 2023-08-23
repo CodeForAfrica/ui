@@ -4,7 +4,7 @@ import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
 import { ORGANIZATION_COLLECTION, TOOL_COLLECTION } from "../utils/collections";
-import mapLinkToHrefForOrgCollection from "../utils/mapLinkToHrefForOrgCollection";
+import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
 
 const Organisations = {
   slug: ORGANIZATION_COLLECTION,
@@ -256,7 +256,7 @@ const Organisations = {
     },
   ],
   hooks: {
-    afterRead: [mapLinkToHrefForOrgCollection],
+    afterRead: [nestCollectionUnderPage("organisations")],
   },
 };
 

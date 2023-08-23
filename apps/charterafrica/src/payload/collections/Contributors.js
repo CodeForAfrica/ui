@@ -3,7 +3,15 @@ import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
 import { CONTRIBUTORS_COLLECTION } from "../utils/collections";
-import mapLinkAndNameforContributorsInToolsCollection from "../utils/mapLinkAndNameforContributorsInToolsCollection";
+import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
+
+function userFullNameOrExternalId({ doc }) {
+  if (doc) {
+    const name = doc.name ?? doc?.fullName ?? doc.externalId ?? null;
+    return { ...doc, name };
+  }
+  return doc;
+}
 
 const Contributors = {
   slug: CONTRIBUTORS_COLLECTION,
@@ -154,7 +162,10 @@ const Contributors = {
     },
   ],
   hooks: {
-    afterRead: [mapLinkAndNameforContributorsInToolsCollection],
+    afterRead: [
+      nestCollectionUnderPage("contributors"),
+      userFullNameOrExternalId,
+    ],
   },
 };
 
