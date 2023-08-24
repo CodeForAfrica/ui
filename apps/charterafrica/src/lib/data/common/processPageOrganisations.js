@@ -25,14 +25,13 @@ async function processPageSingleOrganisation(page, api, context) {
   }
 
   const organisation = docs[0] || {};
-  const tools = organisation.tools.map((tool) => {
-    return {
+  const tools =
+    organisation.tools?.map((tool) => ({
       ...tool,
       image: tool.avatarUrl ?? null,
       description: tool?.description || " ",
       name: tool.name || " ",
-    };
-  });
+    })) ?? [];
   const block = blocks.findIndex(
     ({ slug: bSlug }) => bSlug === "our-organisations",
   );

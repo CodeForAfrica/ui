@@ -35,9 +35,9 @@ async function processPageSingleTool(page, api, context) {
   if (!docs?.length) {
     return null;
   }
+
   const tool = docs[0];
   const contributors = tool.toolContributors;
-
   const { docs: orgDocs } = await api.getCollection(ORGANIZATION_COLLECTION, {
     locale,
     where: {
