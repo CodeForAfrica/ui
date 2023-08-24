@@ -138,7 +138,7 @@ function Dataset({
             container
             direction={{ xs: "column", sm: "row", md: "column" }}
             alignItems={{
-              xs: "flex-start",
+              xs: "center",
               sm: "center",
               md: "flex-start",
             }}
@@ -180,7 +180,6 @@ function Dataset({
             >
               {labels.openDataset}
             </Button>
-            {/* <Grid item xs={12}> */}
             <ShareThisPage
               title={labels.shareDataset}
               sx={{
@@ -191,7 +190,6 @@ function Dataset({
                 pt: { xs: 2, sm: 0, md: 2 },
               }}
             />
-            {/* </Grid> */}
           </Grid>
         </Grid>
         <Typography
