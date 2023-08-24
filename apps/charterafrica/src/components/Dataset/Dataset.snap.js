@@ -62,7 +62,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-[object Object] MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-1svudp8-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-[object Object] MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-kdi1tf-MuiGrid-root"
         >
           <a
             class="MuiTypography-root MuiTypography-p1 css-1w5j2yd-MuiTypography-root"
