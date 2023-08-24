@@ -27,6 +27,10 @@ function DatasetCard({
 }) {
   const [showAll, setShowAll] = useState(false);
   const handleClick = () => setShowAll(!showAll);
+  const createdAt = formatDateTime(created, { includeTime: false });
+  const updatedAt = formatDateTime(updated, { includeTime: false });
+  const updatedAtLabel =
+    createdAt !== updatedAt ? `${labels.update} ${updatedAt} | ` : "";
 
   return (
     <Card
@@ -62,10 +66,7 @@ function DatasetCard({
                 {title}
               </LineClampedRichTypography>
               <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
-                {labels.updated}{" "}
-                {formatDateTime(updated, { includeTime: false })} |{" "}
-                {labels.created}{" "}
-                {formatDateTime(created, { includeTime: false })}
+                {updatedAtLabel} {labels.created} {createdAt}
               </Typography>
               <Typography variant="p1SemiBold" color="neutral.main">
                 {author}
@@ -104,6 +105,9 @@ function DatasetCard({
                 container
                 justifyContent={{ xs: "flex-start", sm: "flex-end" }}
                 alignItems="center"
+                sx={{
+                  gap: 0.625,
+                }}
               >
                 {formats.map((format) => (
                   <Chip
@@ -115,7 +119,7 @@ function DatasetCard({
                           : theme.palette.error.main,
                       ...theme.typography.caption,
                       borderRadius: "10px",
-                      mr: 1.75,
+                      display: "flex",
                     })}
                     key={format}
                   />

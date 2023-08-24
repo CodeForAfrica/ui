@@ -9,7 +9,6 @@ import formatDateTime from "@/charterafrica/utils/formatDate";
 
 function Dataset({
   title,
-  source,
   updated,
   created,
   formats,
@@ -17,7 +16,11 @@ function Dataset({
   labels,
   related,
   pageUrl,
+  url,
 }) {
+  const createdAt = formatDateTime(created, { includeTime: false });
+  const updatedAt = formatDateTime(updated, { includeTime: false });
+
   return (
     <Box
       sx={{
@@ -30,8 +33,12 @@ function Dataset({
           py: { xs: 5, md: 7.5 },
         }}
       >
-        <Grid container spacing={4} direction={{ xs: "column", sm: "row" }}>
-          <Grid item xs={12} md={8} padding={0}>
+        <Grid
+          container
+          direction={{ xs: "column", sm: "row" }}
+          justifyContent={{ md: "space-between" }}
+        >
+          <Grid item xs={12} md={8}>
             <Typography
               variant="p1"
               component="a"
@@ -53,12 +60,37 @@ function Dataset({
             <Typography variant="h4" component="h2" gutterBottom>
               {title}
             </Typography>
-            <Typography variant="p1" color="neutral.main" sx={{ mb: 1 }}>
-              {`${labels.updated} ${formatDateTime(updated, {
-                includeTime: false,
-              })} | ${labels.created} ${formatDateTime(created, {
-                includeTime: false,
-              })}`}
+            <Typography
+              variant="p1"
+              color="neutral.main"
+              sx={{
+                mb: 1,
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+              }}
+            >
+              {updatedAt !== createdAt ? (
+                <>
+                  <Typography
+                    variant="inherit"
+                    color="inherit"
+                    component="span"
+                  >
+                    {`${labels.updated} ${updatedAt}`}
+                  </Typography>
+                  <Typography
+                    variant="inherit"
+                    color="inherit"
+                    component="span"
+                    sx={{ display: { xs: "none", sm: "inline" }, px: 1 }}
+                  >
+                    |
+                  </Typography>
+                </>
+              ) : null}
+              <Typography variant="inherit" color="inherit" component="span">
+                {`${labels.created} ${createdAt}`}
+              </Typography>
             </Typography>
             {formats?.length ? (
               <Grid
@@ -69,6 +101,9 @@ function Dataset({
                 container
                 justifyContent="flex-start"
                 alignItems="center"
+                sx={{
+                  gap: 0.625,
+                }}
               >
                 {formats.map((format) => (
                   <Chip
@@ -80,7 +115,7 @@ function Dataset({
                           : theme.palette.error.main,
                       ...theme.typography.caption,
                       borderRadius: "10px",
-                      mr: 1.75,
+                      display: "flex",
                     })}
                     key={format}
                   />
@@ -99,14 +134,18 @@ function Dataset({
           <Grid
             item
             xs={12}
-            md={4}
+            md="auto"
             container
-            gap={2}
-            direction={{ xs: "column", sm: "row" }}
-            justifyContent="space-between"
-            alignItems="center"
-            sx={{
-              p: 0,
+            direction={{ xs: "column", sm: "row", md: "column" }}
+            alignItems={{
+              xs: "flex-start",
+              sm: "center",
+              md: "flex-start",
+            }}
+            justifyContent={{
+              xs: "center",
+              sm: "space-between",
+              md: "flex-start",
             }}
           >
             <Typography
@@ -119,7 +158,7 @@ function Dataset({
                   xs: "none",
                   md: "block",
                 },
-                width: "100%",
+                mb: 0.625,
               }}
             >
               {labels.backToDatasets}
@@ -129,7 +168,7 @@ function Dataset({
               color="primary"
               size="medium"
               startIcon={<ExternalLinkIcon />}
-              href={source}
+              href={url}
               target="_blank"
               sx={{
                 width: {
@@ -141,18 +180,18 @@ function Dataset({
             >
               {labels.openDataset}
             </Button>
-            <Grid item xs={12}>
-              <ShareThisPage
-                title={labels.shareDataset}
-                sx={{
-                  alignItems: {
-                    xs: "center",
-                    md: "flex-start",
-                  },
-                  py: 2,
-                }}
-              />
-            </Grid>
+            {/* <Grid item xs={12}> */}
+            <ShareThisPage
+              title={labels.shareDataset}
+              sx={{
+                alignItems: {
+                  xs: "center",
+                  sm: "flex-end",
+                },
+                pt: { xs: 2, sm: 0, md: 2 },
+              }}
+            />
+            {/* </Grid> */}
           </Grid>
         </Grid>
         <Typography
