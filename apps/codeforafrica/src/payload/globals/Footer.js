@@ -6,6 +6,7 @@ const Footer = {
   slug: "footer",
   access: {
     read: () => true,
+    update: () => true,
   },
   label: "Footer",
   fields: [
