@@ -40,19 +40,11 @@ const link = ({
         type: "radio",
         options: [
           {
-            label: {
-              en: "Custom URL",
-              fr: "URL personnalisée",
-              pt: "URL personalizado",
-            },
+            label: "Custom URL",
             value: "custom",
           },
           {
-            label: {
-              en: "Internal link",
-              fr: "Lien interne",
-              pt: "Link interno",
-            },
+            label: "Internal link",
             value: "internal",
           },
         ],
@@ -70,11 +62,7 @@ const link = ({
       fields: [
         {
           name: "doc",
-          label: {
-            en: "Document to link to",
-            fr: "Document pour lien vers",
-            pt: "Documento para link para",
-          },
+          label: "Document to link to",
           type: "relationship",
           relationTo: ["pages"],
           required,
@@ -85,11 +73,7 @@ const link = ({
         },
         {
           name: "url",
-          label: {
-            en: "Custom URL",
-            fr: "URL personnalisée",
-            pt: "URL personalizado",
-          },
+          label: "Custom URL",
           type: "text",
           required,
           admin: {
@@ -118,10 +102,7 @@ const link = ({
         fields: [
           {
             name: "label",
-            label: {
-              en: "Label",
-              pt: "Rótulo",
-            },
+            label: "Label",
             type: "text",
             required,
             localized: true,
@@ -137,11 +118,7 @@ const link = ({
       fields: [
         {
           name: "newTab",
-          label: {
-            en: "Open in new tab",
-            fr: "Ouvrir dans un nouvel onglet",
-            pt: "Abrir num novo separador",
-          },
+          label: "Open in new tab",
           type: "checkbox",
         },
       ],
