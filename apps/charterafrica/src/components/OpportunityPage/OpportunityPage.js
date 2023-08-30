@@ -45,70 +45,75 @@ const OpportunityPage = React.forwardRef(function OpportunityPage(props, ref) {
       ref={ref}
     >
       <OpportunityHeader title={header} />
-      {itemsPerOpportunity.map(({ config, itemsPerStatus, label }, i) => (
-        <Section
-          sx={{
-            px: { xs: 7.5, sm: 0 },
-            py: 5,
-            "&:last-child": {
-              pb: 0,
-            },
-          }}
-          key={label}
-        >
-          <RichTypography
-            color="neutral.dark"
-            pb={5}
-            textAlign={{
-              xs: "center",
-              md: "left",
+      {itemsPerOpportunity.map(({ config, itemsPerStatus, label }, i) => {
+        if (!itemsPerStatus?.length) {
+          return null;
+        }
+        return (
+          <Section
+            sx={{
+              px: { xs: 7.5, sm: 0 },
+              py: 5,
+              "&:last-child": {
+                pb: 0,
+              },
             }}
-            variant="h3Small"
+            key={label}
           >
-            {label}
-          </RichTypography>
+            <RichTypography
+              color="neutral.dark"
+              pb={5}
+              textAlign={{
+                xs: "center",
+                md: "left",
+              }}
+              variant="h3Small"
+            >
+              {label}
+            </RichTypography>
 
-          {itemsPerStatus.map((item) => (
-            <React.Fragment key={item.title}>
-              <OpportunityCards
-                config={config}
-                // Featured should be displayed at the top of the block only
-                featured={i === 0 ? featured : undefined}
-                items={item.items}
-                title={item.title}
-                sx={{
-                  display: {
-                    xs: config?.showOnMobile?.includes(item.title)
-                      ? "block"
-                      : "none",
-                    md: "block",
-                  },
-                }}
-                key={item.title}
-              />
-              <Divider
-                sx={{
-                  border: "1px solid",
-                  borderColor: "neutral.light",
-                  color: "neutral.light",
-                  height: "0px",
-                  my: 5,
-                  width: "100%",
-                  display: {
-                    xs: config?.showOnMobile?.includes(item.title)
-                      ? "block"
-                      : "none",
-                    md: "block",
-                  },
-                  "&:last-child": {
-                    marginBottom: 0,
-                  },
-                }}
-              />
-            </React.Fragment>
-          ))}
-        </Section>
-      ))}
+            {itemsPerStatus.map((item) => (
+              <React.Fragment key={item.title}>
+                <OpportunityCards
+                  config={config}
+                  // Featured should be displayed at the top of the block only
+                  featured={i === 0 ? featured : undefined}
+                  items={item.items}
+                  title={item.title}
+                  sx={{
+                    display: {
+                      xs: config?.showOnMobile?.includes(item.title)
+                        ? "block"
+                        : "none",
+                      md: "block",
+                    },
+                  }}
+                  key={item.title}
+                />
+                <Divider
+                  sx={{
+                    border: "1px solid",
+                    borderColor: "neutral.light",
+                    color: "neutral.light",
+                    height: "0px",
+                    my: 5,
+                    width: "100%",
+                    display: {
+                      xs: config?.showOnMobile?.includes(item.title)
+                        ? "block"
+                        : "none",
+                      md: "block",
+                    },
+                    "&:last-child": {
+                      marginBottom: 0,
+                    },
+                  }}
+                />
+              </React.Fragment>
+            ))}
+          </Section>
+        );
+      })}
     </Box>
   );
 });

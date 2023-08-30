@@ -21,7 +21,3 @@ Please delete options that are not relevant.
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
-
-## Preview
-
-<!-- preview url start regex match -->PREVIEW_URL<!-- preview url end regex match -->

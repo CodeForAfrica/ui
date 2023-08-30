@@ -13,8 +13,11 @@ concurrency:
 env:
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
-  IMAGE_NAME: "codeforafrica/codeforafrica-dev"
-  NEXT_PUBLIC_APP_URL: "https://codeforafrica.dev.codeforafrica.org"
+  IMAGE_NAME: "codeforafrica/codeforafrica-ui"
+  ORIGINAL_APP_NAME: "codeforafrica-ui"
+  NEXT_PUBLIC_APP_URL: "https://codeforafrica-ui-pr-${{github.event.pull_request.number}}.dev.codeforafrica.org"
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  APP_NAME: codeforafrica-ui-pr-${{ github.event.pull_request.number }}
 
 jobs:
   review_app:
@@ -29,6 +32,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
@@ -39,30 +43,24 @@ jobs:
           path: /tmp/.buildx-cache
           restore-keys: |
             ${{ runner.os }}-buildx-
+
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
-      - name: Clone Production DB
-        uses: Maggi64/mongo-clone-action@0.3
-        with:
-          source: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}
-          target: ${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}
-
       - name: Build Docker image
         uses: docker/build-push-action@v3
         with:
           build-args: |
-            MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}
+            MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.APP_NAME }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET_KEY }}
             GHOST_URL=${{ secrets.GHOST_URL }}
             GHOST_API_KEY=${{ secrets.GHOST_API_KEY }}
             NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_APP_CFA_LOGO_URL }}
             NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_APP_CFA_NAME }}
-            VERCEL_URL=https://codeforafrica.vercel.app
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
@@ -75,30 +73,21 @@ jobs:
         with:
           # create a review app
           command: review-apps:create
-          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-dev
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-ui
           # specify a name for the review app
-          review_app_name: review-appname-${{ github.event.pull_request.number }}
+          review_app_name: ${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-      - name: Set Review App Domain Name
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ui-1.dev.codeforafrica.org
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          username: azureuser
-          script: |
-            dokku domains:add review-appname-${{github.event.pull_request.number}} review-appname-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
-            dokku config:set review-appname-${{github.event.pull_request.number}} PAYLOAD_PUBLIC_APP_URL=http://review-appname-${{github.event.pull_request.number}}.cms.review.codeforafrica.org
-            dokku config:set review-appname-${{github.event.pull_request.number}} MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}
-
       - name: Update Preview URL
-        uses: nefrob/pr-description@v1.0.0
-        with:
-          content: "[Preview URL](http://review-appname-${{ github.event.pull_request.number }}.cms.review.codeforafrica.org)"
-          regex: "<!-- preview url start regex match -->.*?<!-- preview url end regex match -->"
-          regexFlags: ims
-          token: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr comment ${{ env.issue-number }} --edit-last --body=${{ env.body }}
+        env:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            "Latest updated Preview URL
+            | Name  | Review |
+            |-------|--------|
+            | ${{ env.APP_NAME }}  | [Visit](https://${{ env.APP_NAME }}.dev.codeforafrica.org)  |"
 
   destroy_review_app:
     runs-on: ubuntu-latest
@@ -110,25 +99,7 @@ jobs:
         with:
           # destroy a review app
           command: review-apps:destroy
-          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-dev
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}
           # specify a name for the review app
-          review_app_name: review-appname-${{ github.event.pull_request.number }}
+          review_app_name: ${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        id: pnpm-install
-        with:
-          version: 8
-          run_install: false
-
-      - name: Drop cloned DB
-        run: |
-          pnpm install --filter=codeforafrica
-          cd apps/codeforafrica
-          pnpm drop-db "${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}-${{github.event.pull_request.number}}"

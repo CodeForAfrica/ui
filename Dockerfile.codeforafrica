@@ -74,4 +74,4 @@ WORKDIR /workspace/apps/codeforafrica
 
 EXPOSE ${PORT}
 
-ENTRYPOINT [ "node", "dist/server.js" ]
+CMD [ "node", "dist/server.js" ]
