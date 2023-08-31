@@ -3,7 +3,7 @@ import React from "react";
 import CMSContent from "@/codeforafrica/components/CMSContent";
 import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
-import { getPageStaticProps } from "@/codeforafrica/lib";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/data/local";
 
 function ImprintPage({ content, sections, ...props }) {
   return (
@@ -21,8 +21,8 @@ function ImprintPage({ content, sections, ...props }) {
   );
 }
 
-export async function getStaticProps() {
-  return getPageStaticProps({ slug: "/imprint" });
+export async function getServerSideProps(context) {
+  return getPageServerSideProps(context, "/imprint");
 }
 
 export default ImprintPage;
