@@ -1,4 +1,4 @@
-import getNavigation from "@/codeforafrica/lib/payload/data/common/navigation";
+import getNavigation from "@/codeforafrica/lib/payload/common/navigation";
 
 export default async function getPageProps(api) {
   const navigation = await getNavigation(api);

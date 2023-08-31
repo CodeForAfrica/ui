@@ -1,5 +1,3 @@
-import { getPageStaticProps as getStaticProps } from "@/codeforafrica/lib";
-import getPageProps from "@/codeforafrica/lib/payload/data/common";
 import fetchJson from "@/codeforafrica/utils/fetchJson";
 
 const BASE_URL = process.env.PAYLOAD_PUBLIC_APP_URL || "http://localhost:3000";
@@ -46,16 +44,9 @@ const findPage = async (slug, options) => {
   return findCollection("pages", pageOptions);
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export const api = {
   findCollection,
   findGlobal,
   findPage,
 };
-
-export async function getPageStaticProps(context, slug) {
-  const props = await getPageProps(api, context);
-  const { props: staticProps } = await getStaticProps({ slug });
-  return {
-    props: { ...staticProps, ...props },
-  };
-}

@@ -7,7 +7,7 @@ import ConnectBar from "@/codeforafrica/components/ConnectBar";
 import Page from "@/codeforafrica/components/Page";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
-import getPageServerSideProps from "@/codeforafrica/lib/payload/data/local";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/local";
 
 function Index({ member, partner, sections, ...props }) {
   const item = member || partner;

@@ -2,7 +2,7 @@ import React from "react";
 
 import ArticlePage from "@/codeforafrica/components/ArticlePage";
 import Page from "@/codeforafrica/components/Page";
-import getPageServerSideProps from "@/codeforafrica/lib/payload/data/local";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/local";
 
 function Index({ opportunity, sections, ...props }) {
   return (

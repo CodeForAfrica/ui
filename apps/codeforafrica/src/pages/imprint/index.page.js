@@ -3,7 +3,7 @@ import React from "react";
 import CMSContent from "@/codeforafrica/components/CMSContent";
 import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
-import getPageServerSideProps from "@/codeforafrica/lib/payload/data/local";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/local";
 
 function ImprintPage({ content, sections, ...props }) {
   return (

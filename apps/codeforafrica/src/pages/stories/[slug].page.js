@@ -4,7 +4,7 @@ import React from "react";
 import ArticlePage from "@/codeforafrica/components/ArticlePage";
 import Page from "@/codeforafrica/components/Page";
 import RelatedStories from "@/codeforafrica/components/RelatedStories";
-import getPageServerSideProps from "@/codeforafrica/lib/payload/data/local";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/local";
 
 function Index({ article, sections, ...props }) {
   return (

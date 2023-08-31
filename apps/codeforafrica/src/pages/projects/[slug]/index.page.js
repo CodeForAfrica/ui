@@ -10,7 +10,7 @@ import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import RelatedStories from "@/codeforafrica/components/RelatedStories";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
 import TeamMembers from "@/codeforafrica/components/TeamMembers";
-import getPageServerSideProps from "@/codeforafrica/lib/payload/data/local";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/local";
 
 function Index({ project, sections, ...props }) {
   const { badges, content, donors, links, partners } = project;

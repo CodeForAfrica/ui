@@ -4,7 +4,7 @@ import { SWRConfig } from "swr";
 import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
 import Projects from "@/codeforafrica/components/Projects";
-import getPageServerSideProps from "@/codeforafrica/lib/payload/data/local";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/local";
 
 function Index({ sections, ...props }) {
   return (

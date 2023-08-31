@@ -5,7 +5,7 @@ import JoinOurSlack from "@/codeforafrica/components/JoinOurSlack";
 import OfficeAddresses from "@/codeforafrica/components/OfficeAddresses";
 import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
-import getPageServerSideProps from "@/codeforafrica/lib/payload/data/local";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/local";
 
 function ContactPage({ sections, ...props }) {
   return (
