@@ -84,10 +84,10 @@ jobs:
         env:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            "Latest updated Preview URL
+            Latest updated Preview URL
             | Name  | Review |
             |-------|--------|
-            | ${{ env.APP_NAME }}  | [Visit](https://${{ env.APP_NAME }}.dev.codeforafrica.org)  |"
+            | ${{ env.APP_NAME }}  | [Visit](https://${{ env.APP_NAME }}.dev.codeforafrica.org)  |
 
   destroy_review_app:
     runs-on: ubuntu-latest
