@@ -1,12 +1,12 @@
 import ErrorPage from "@/codeforafrica/components/ErrorPage";
-import { getPageStaticProps } from "@/codeforafrica/lib";
+import { getPageStaticProps } from "@/codeforafrica/lib/payload/data/rest";
 
 function NotFound(props) {
   return <ErrorPage {...props} />;
 }
 
-export async function getStaticProps() {
-  return getPageStaticProps({ slug: `/404` });
+export async function getStaticProps(context) {
+  return getPageStaticProps(context, "/404");
 }
 
 export default NotFound;
