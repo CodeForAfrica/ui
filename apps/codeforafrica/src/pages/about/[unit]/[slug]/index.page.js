@@ -7,7 +7,7 @@ import ConnectBar from "@/codeforafrica/components/ConnectBar";
 import Page from "@/codeforafrica/components/Page";
 import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
-import { getPageStaticProps, partners, team } from "@/codeforafrica/lib";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/data/local";
 
 function Index({ member, partner, sections, ...props }) {
   const item = member || partner;
@@ -91,22 +91,12 @@ function Index({ member, partner, sections, ...props }) {
   );
 }
 
-export async function getStaticPaths() {
-  const partnersPaths = partners.map(({ slug }) => ({
-    params: { unit: "partners", slug },
-  }));
-  const teamPaths = team.map(({ slug }) => ({
-    params: { unit: "members", slug },
-  }));
-
-  return {
-    paths: [...partnersPaths, ...teamPaths],
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params: { unit, slug } }) {
-  return getPageStaticProps({ slug: `/about/${unit}/${slug}` });
+export async function getServerSideProps(context) {
+  const {
+    params: { unit, slug: s },
+  } = context;
+  const slug = `/about/${unit}/${s}`;
+  return getPageServerSideProps(context, slug);
 }
 
 export default Index;

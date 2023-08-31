@@ -6,7 +6,7 @@ import OurImpact from "@/codeforafrica/components/OurImpact";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import OurTeam from "@/codeforafrica/components/OurTeam";
 import Page from "@/codeforafrica/components/Page";
-import { getPageStaticProps } from "@/codeforafrica/lib";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/data/local";
 
 function Index({ crumbs, sections, ...props }) {
   return (
@@ -50,19 +50,12 @@ function Index({ crumbs, sections, ...props }) {
   );
 }
 
-export async function getStaticPaths() {
-  const paths = ["members", "partners", "impact"].map((unit) => ({
+export async function getServerSideProps(context) {
+  const {
     params: { unit },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params: { unit } }) {
-  return getPageStaticProps({ slug: `/about/${unit}` });
+  } = context;
+  const slug = `/about/${unit}`;
+  return getPageServerSideProps(context, slug);
 }
 
 export default Index;

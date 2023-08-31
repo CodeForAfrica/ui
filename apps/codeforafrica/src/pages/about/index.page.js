@@ -8,7 +8,7 @@ import OurMission from "@/codeforafrica/components/OurMission";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import OurTeam from "@/codeforafrica/components/OurTeam";
 import Page from "@/codeforafrica/components/Page";
-import { getPageStaticProps } from "@/codeforafrica/lib";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/data/local";
 
 function Index({ sections, ...props }) {
   return (
@@ -56,8 +56,8 @@ function Index({ sections, ...props }) {
   );
 }
 
-export async function getStaticProps() {
-  return getPageStaticProps({ slug: "/about" });
+export async function getServerSideProps(context) {
+  return getPageServerSideProps(context, "/about");
 }
 
 export default Index;
