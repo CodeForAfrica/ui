@@ -4,12 +4,12 @@ import link from "../fields/links/link";
 import linkArray from "../fields/links/linkArray";
 
 const socialMediaOptions = [
-  "facebook",
-  "twitter",
-  "instagram",
-  "linkedin",
-  "github",
-  "slack",
+  "Facebook",
+  "Twitter",
+  "Instagram",
+  "Linkedin",
+  "Github",
+  "Slack",
 ];
 
 const linkField = link({
@@ -68,9 +68,7 @@ const Navigation = {
       admin: {
         components: {
           RowLabel: ({ data }) => {
-            return (
-              data.platform.charAt(0).toUpperCase() + data.platform.slice(1)
-            );
+            return data.platform;
           },
         },
       },
@@ -79,10 +77,7 @@ const Navigation = {
           name: "platform",
           label: "Platform",
           type: "select",
-          options: socialMediaOptions.map((platform) => ({
-            label: platform.charAt(0).toUpperCase() + platform.slice(1),
-            value: platform,
-          })),
+          options: socialMediaOptions,
           required: true,
           validate: (val, options) => {
             const { data } = options || {};

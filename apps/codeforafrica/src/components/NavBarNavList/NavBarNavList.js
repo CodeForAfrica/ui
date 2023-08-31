@@ -13,12 +13,12 @@ import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Col
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
 const mapPlatformToIcon = {
-  facebook: FacebookIcon,
-  twitter: TwitterIcon,
-  instagram: InstagramIcon,
-  linkedin: LinkedInIcon,
-  github: GitHubIcon,
-  slack: SlackIcon,
+  Facebook: FacebookIcon,
+  Twitter: TwitterIcon,
+  Instagram: InstagramIcon,
+  Linkedin: LinkedInIcon,
+  Github: GitHubIcon,
+  Slack: SlackIcon,
 };
 
 const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
