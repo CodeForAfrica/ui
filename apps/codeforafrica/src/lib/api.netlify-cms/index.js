@@ -18,7 +18,6 @@ import getCmsProjects from "./getProjects";
 import getProjectTeam from "./getProjectTeam";
 import getRelatedProjects from "./getRelatedProjects";
 import getTeam from "./getTeam";
-import getFooter from "./sections/getFooter";
 import getHeader from "./sections/getHeader";
 import getHero from "./sections/getHero";
 import getMeetOurTeam from "./sections/getMeetOurTeam";
@@ -28,7 +27,6 @@ export {
   getBody,
   getContactForm,
   getCmsProjects,
-  getFooter,
   getHeader,
   getHero,
   getGetInTouch,
