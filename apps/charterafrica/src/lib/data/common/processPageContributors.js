@@ -1,4 +1,3 @@
-import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
 import { allCountries } from "@/charterafrica/lib/data/json/countries";
 import {
   CONTRIBUTORS_COLLECTION,
@@ -13,7 +12,6 @@ const orQueryBuilder = (fields, search) => {
 };
 
 export async function getContributors(page, api, context) {
-  const { breadcrumbs } = page;
   const {
     locale,
     query: { page: pageNumber = 1, limit = 12, search, sort = "fullName" } = {},
@@ -38,17 +36,8 @@ export async function getContributors(page, api, context) {
     },
   );
   const results = docs.map((person) => {
-    let href = null;
-    const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
-    if (pageUrl) {
-      const { slug } = person;
-      href = `${pageUrl}/${slug}`;
-    }
     return {
       ...person,
-      link: {
-        href,
-      },
       description: person.description || " ",
       name: person.fullName || person.externalId || null,
       image: person.avatarUrl ?? null,
@@ -89,20 +78,12 @@ async function processPagePerson(page, api, context) {
     },
   });
 
-  const pageUrl = await getPageUrl(api, "tools");
   const tools = toolDocs.map((tool) => {
-    let href = null;
-    if (pageUrl) {
-      href = `${pageUrl}/${tool.slug}`;
-    }
     return {
       ...tool,
       image: tool.avatarUrl ?? null,
       description: tool?.description || " ",
       name: tool.name || " ",
-      link: {
-        href,
-      },
     };
   });
 
