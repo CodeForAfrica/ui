@@ -64,11 +64,11 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
         rel="noopener noreferrer"
         target="_blank"
       >
-        <div
+        <svg
           aria-hidden="true"
           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o1xeqk-MuiSvgIcon-root"
           focusable="false"
-          viewbox="0 0 24 24"
+          viewBox="0 0 24 24"
         />
       </a>
     </li>
@@ -81,11 +81,11 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
         rel="noopener noreferrer"
         target="_blank"
       >
-        <div
+        <svg
           aria-hidden="true"
           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o1xeqk-MuiSvgIcon-root"
           focusable="false"
-          viewbox="0 0 24 24"
+          viewBox="0 0 24 24"
         />
       </a>
     </li>
