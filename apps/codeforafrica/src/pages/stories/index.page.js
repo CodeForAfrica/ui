@@ -2,7 +2,7 @@ import React from "react";
 
 import Articles from "@/codeforafrica/components/Articles";
 import Page from "@/codeforafrica/components/Page";
-import { getPageStaticProps } from "@/codeforafrica/lib";
+import getPageServerSideProps from "@/codeforafrica/lib/payload/data/local";
 
 function Index({ sections, ...props }) {
   return (
@@ -16,8 +16,8 @@ function Index({ sections, ...props }) {
   );
 }
 
-export async function getStaticProps() {
-  return getPageStaticProps({ slug: "/stories" });
+export async function getServerSideProps(context) {
+  return getPageServerSideProps(context, "/stories");
 }
 
 export default Index;
