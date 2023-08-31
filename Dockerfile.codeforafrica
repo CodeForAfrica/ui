@@ -34,7 +34,7 @@ RUN pnpm install --recursive --offline --frozen-lockfile
 ARG PORT=3000 \
     MONGODB_URL \
     PAYLOAD_SECRET \
-    NEXT_PUBLIC_APP_URL=http://localhost:3000 \
+    NEXT_PUBLIC_APP_URL \
     GHOST_URL \
     GHOST_API_KEY
 
