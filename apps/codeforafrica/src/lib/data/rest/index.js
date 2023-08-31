@@ -5,8 +5,6 @@ import fetchJson from "@/codeforafrica/utils/fetchJson";
 const BASE_URL = process.env.PAYLOAD_PUBLIC_APP_URL || "http://localhost:3000";
 
 const SUPPORTED_OPTIONS = {
-  locale: "locale",
-  fallbackLocale: "fallback-locale",
   where: "where",
 };
 
