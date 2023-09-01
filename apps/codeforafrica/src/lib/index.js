@@ -836,3 +836,5 @@ export async function getPageStaticPaths(primaryTag) {
 
   return path;
 }
+
+export { default as payload } from "./payload";
