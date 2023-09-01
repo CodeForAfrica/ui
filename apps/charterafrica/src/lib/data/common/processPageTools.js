@@ -1,4 +1,3 @@
-import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
 import { allCountries } from "@/charterafrica/lib/data/json/countries";
 import {
   TOOL_COLLECTION,
@@ -36,13 +35,9 @@ async function processPageSingleTool(page, api, context) {
   if (!docs?.length) {
     return null;
   }
+
   const tool = docs[0];
-  const contributorPage = await getPageUrl(api, "contributors");
-  const contributors = tool?.contributors?.map((person) => ({
-    ...person,
-    link: { href: `${contributorPage}/${person.slug}` },
-    name: person.name || person?.fullName || person.username || null,
-  }));
+  const contributors = tool.toolContributors;
   const { docs: orgDocs } = await api.getCollection(ORGANIZATION_COLLECTION, {
     locale,
     where: {
@@ -53,23 +48,14 @@ async function processPageSingleTool(page, api, context) {
   });
   const tools = [];
   const filterLabels = labelsPerLocale[locale];
-  const organisationPage = await getPageUrl(api, "organisations");
-  const organisation = orgDocs?.[0]
-    ? {
-        ...orgDocs?.[0],
-        link: { href: `${organisationPage}/${orgDocs?.[0].slug}` },
-      }
-    : null;
+  const organisation = orgDocs?.[0] ?? null;
+
   return {
     ...page,
     blocks: [
       {
         ...tool,
         slug: "tool",
-        link: {
-          href: tool.link,
-          label: "",
-        },
         contribute: {
           href: getRepoLink(tool),
           label: filterLabels.contribute,
@@ -111,7 +97,6 @@ async function processPageSingleTool(page, api, context) {
 }
 
 export async function getTools(page, api, context) {
-  const { breadcrumbs } = page;
   const {
     locale,
     query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
@@ -138,21 +123,12 @@ export async function getTools(page, api, context) {
   });
 
   const results = docs.map((tool) => {
-    let href = null;
-    const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
-    if (pageUrl) {
-      const { slug } = tool;
-      href = `${pageUrl}/${slug}`;
-    }
     return {
       ...tool,
       topicLabel: "Topic",
       exploreText: "Explore",
       contributorsCount: tool?.contributors?.length ?? null,
       description: tool.description ?? " ",
-      link: {
-        href,
-      },
       image: tool.avatarUrl ?? null,
     };
   });

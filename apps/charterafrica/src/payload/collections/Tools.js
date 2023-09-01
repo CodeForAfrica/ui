@@ -8,6 +8,7 @@ import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
 import { TOOL_COLLECTION, CONTRIBUTORS_COLLECTION } from "../utils/collections";
+import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
 
 const Tools = {
   slug: TOOL_COLLECTION,
@@ -307,8 +308,12 @@ const Tools = {
     dateField({
       name: "deletedAt",
     }),
+
     source(),
   ],
+  hooks: {
+    afterRead: [nestCollectionUnderPage("tools")],
+  },
 };
 
 export default Tools;
