@@ -340,6 +340,9 @@ importers:
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
+      qs:
+        specifier: ^6.11.2
+        version: 6.11.2
       react:
         specifier: ^18.2.0
         version: 18.2.0
