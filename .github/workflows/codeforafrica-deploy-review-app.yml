@@ -55,7 +55,7 @@ jobs:
         with:
           build-args: |
             MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.APP_NAME }}
-            NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            NEXT_PUBLIC_APP_URL=https://${{ env.APP_NAME }}.dev.codeforafrica.org
             PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET_KEY }}
             GHOST_URL=${{ secrets.GHOST_URL }}
             GHOST_API_KEY=${{ secrets.GHOST_API_KEY }}
@@ -80,14 +80,14 @@ jobs:
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Update Preview URL
-        run: gh pr comment ${{ env.issue-number }} --edit-last --body=${{ env.body }}
+        run: (gh pr comment ${{ env.issue-number }} --edit-last --body='${{ env.body }}' || gh pr comment ${{ env.issue-number }} --body='${{ env.body }}')
         env:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            "Latest updated Preview URL
+            Latest updated Preview URL
             | Name  | Review |
             |-------|--------|
-            | ${{ env.APP_NAME }}  | [Visit](https://${{ env.APP_NAME }}.dev.codeforafrica.org)  |"
+            | ${{ env.APP_NAME }}  | [Visit](https://${{ env.APP_NAME }}.dev.codeforafrica.org)  |
 
   destroy_review_app:
     runs-on: ubuntu-latest
