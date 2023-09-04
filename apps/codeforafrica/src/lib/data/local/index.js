@@ -2,13 +2,13 @@ import { getPageStaticProps } from "@/codeforafrica/lib";
 import { getPageProps } from "@/codeforafrica/lib/data/common";
 import { api } from "@/codeforafrica/lib/data/rest";
 
-export async function getPageServerSideProps(context, slug) {
+export async function getPageServerSideProps(context) {
   const props = await getPageProps(api, context);
   if (!props) {
     return { notFound: true };
   }
   // TODO Remove static props
-  const { props: staticProps } = await getPageStaticProps({ slug });
+  const { props: staticProps } = await getPageStaticProps({ slug: "/" });
   return {
     props: {
       ...staticProps,
