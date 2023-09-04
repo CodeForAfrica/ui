@@ -23,6 +23,7 @@ function Index({ blocks, fallback, ...props }) {
   if (!blocks?.length) {
     return null;
   }
+
   let PageComponent = React.Fragment;
   let pageComponentProps;
   if (fallback) {

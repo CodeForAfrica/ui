@@ -4,30 +4,13 @@ import fetchJson from "@/codeforafrica/utils/fetchJson";
 
 const BASE_URL = process.env.PAYLOAD_PUBLIC_APP_URL || "http://localhost:3000";
 
-const SUPPORTED_OPTIONS = {
-  where: "where",
-};
-
-function optionsToParams(options) {
-  const params = Object.keys(SUPPORTED_OPTIONS).reduce((acc, curr) => {
-    const optionValue = options?.[curr];
-    if (optionValue) {
-      acc[SUPPORTED_OPTIONS[curr]] = optionValue;
-    }
-    return acc;
-  }, {});
-  return params;
-}
-
-const findGlobal = async (slug, options) => {
-  const params = optionsToParams(options);
+const findGlobal = async (slug, params) => {
   return fetchJson.get(`${BASE_URL}/api/globals/${slug}`, {
     params,
   });
 };
 
-const findCollection = async (slug, options) => {
-  const params = optionsToParams(options);
+const findCollection = async (slug, params) => {
   return fetchJson.get(`${BASE_URL}/api/${slug}`, {
     params,
   });
