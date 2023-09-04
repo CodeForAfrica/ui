@@ -1,4 +1,3 @@
-import getPageUrl from "@/charterafrica/lib/data/common/getPageUrl";
 import { allCountries } from "@/charterafrica/lib/data/json/countries";
 import { ORGANIZATION_COLLECTION } from "@/charterafrica/payload/utils/collections";
 import queryString from "@/charterafrica/utils/ecosystem/queryString";
@@ -24,24 +23,15 @@ async function processPageSingleOrganisation(page, api, context) {
   if (!docs?.length) {
     return null;
   }
-  const organisation = docs[0] || {};
 
-  const pageUrl = await getPageUrl(api, "tools");
-  const tools = organisation.tools.map((tool) => {
-    let href = null;
-    if (pageUrl) {
-      href = `${pageUrl}/${tool.slug}`;
-    }
-    return {
+  const organisation = docs[0] || {};
+  const tools =
+    organisation.tools?.map((tool) => ({
       ...tool,
-      link: {
-        href,
-      },
       image: tool.avatarUrl ?? null,
       description: tool?.description || " ",
       name: tool.name || " ",
-    };
-  });
+    })) ?? [];
   const block = blocks.findIndex(
     ({ slug: bSlug }) => bSlug === "our-organisations",
   );
@@ -73,7 +63,6 @@ async function processPageSingleOrganisation(page, api, context) {
 }
 
 export async function getOrganisations(page, api, context) {
-  const { breadcrumbs } = page;
   const {
     locale,
     query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
@@ -97,17 +86,8 @@ export async function getOrganisations(page, api, context) {
     },
   );
   const results = docs.map((tool) => {
-    let href = null;
-    const pageUrl = breadcrumbs[breadcrumbs.length - 1]?.url;
-    if (pageUrl) {
-      const { slug } = tool;
-      href = `${pageUrl}/${slug}`;
-    }
     return {
       ...tool,
-      link: {
-        href,
-      },
       image: tool.avatarUrl ?? null,
       description: tool?.description || " ",
       name: tool.name ?? tool?.externalId ?? null,

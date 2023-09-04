@@ -4,6 +4,7 @@ import slug from "../fields/slug";
 import source from "../fields/source";
 import supporter from "../fields/supporter";
 import { ORGANIZATION_COLLECTION, TOOL_COLLECTION } from "../utils/collections";
+import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
 
 const Organisations = {
   slug: ORGANIZATION_COLLECTION,
@@ -101,6 +102,18 @@ const Organisations = {
             en: "Non-Profit",
             fr: "Non lucratif",
             pt: "Organização sem fins lucrativos",
+          },
+        },
+        {
+          value: "Political party",
+          label: {
+            en: "Political party",
+          },
+        },
+        {
+          value: "State-affiliated",
+          label: {
+            en: "State-affiliated",
           },
         },
       ],
@@ -254,6 +267,9 @@ const Organisations = {
       },
     },
   ],
+  hooks: {
+    afterRead: [nestCollectionUnderPage("organisations")],
+  },
 };
 
 export default Organisations;
