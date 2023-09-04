@@ -4,7 +4,7 @@ import { getPageStaticProps } from "@/codeforafrica/lib";
 import getPageProps from "@/codeforafrica/lib/payload/common";
 
 export default async function getPageServerSideProps(context, slug) {
-  const props = await getPageProps(api, context);
+  const props = await getPageProps(api, slug);
   if (!props) {
     return { notFound: true };
   }
