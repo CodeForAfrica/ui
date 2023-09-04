@@ -27,10 +27,6 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
             <p
               class="MuiTypography-root MuiTypography-p1 css-1pop01s-MuiTypography-root"
             >
-              Updated
-               
-              January 1, 2021
-               |
                
               Created
                
@@ -59,10 +55,10 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
             </button>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-zuysgr-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-6thyz8-MuiGrid-root"
           >
             <div
-              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-6pueiv-MuiChip-root"
+              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-2n8s2x-MuiChip-root"
             >
               <span
                 class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
@@ -71,7 +67,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
               </span>
             </div>
             <div
-              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-12sagfs-MuiChip-root"
+              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-euezk3-MuiChip-root"
             >
               <span
                 class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"

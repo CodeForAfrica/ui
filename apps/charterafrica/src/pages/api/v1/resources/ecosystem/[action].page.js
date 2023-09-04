@@ -23,10 +23,10 @@ async function entities(req, res) {
     return res.status(403).json({ message: "INVALID_API_KEY" });
   }
   if (req.method === "POST") {
-    return updateList();
+    return updateList(req);
   }
   if (req.method === "PUT") {
-    return updateContent();
+    return updateContent(req);
   }
   return res.status(405).json({ message: "METHOD_NOT_ALLOWED" });
 }
