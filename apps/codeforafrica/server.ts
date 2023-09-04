@@ -10,7 +10,7 @@ const projectDir = process.cwd();
 loadEnvConfig(projectDir);
 
 const hostname = process.env.NEXT_HOSTNAME || "localhost";
-const PORT = parseInt(process.env.PAYLOAD_PUBLIC_PORT || "3000", 10);
+const PORT = parseInt(process.env.PORT || "3000", 10);
 const dev = process.env.NODE_ENV !== "production";
 
 if (!process.env.NEXT_MANUAL_SIG_HANDLE) {

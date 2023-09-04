@@ -80,19 +80,19 @@ jobs:
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Update Preview URL
-        run: gh pr comment ${{ env.issue-number }} --edit-last --body=${{ env.body }}
+        run: (gh pr comment ${{ env.issue-number }} --edit-last --body='${{ env.body }}' || gh pr comment ${{ env.issue-number }} --body='${{ env.body }}')
         env:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            "Latest updated Preview URL
+            Latest updated Preview URL
             | Name  | Review |
             |-------|--------|
-            | ${{ env.APP_NAME }}  | [Visit](https://${{ env.APP_NAME }}.dev.codeforafrica.org)  |"
+            | ${{ env.APP_NAME }}  | [Visit](https://${{ env.APP_NAME }}.dev.codeforafrica.org)  |
 
   destroy_review_app:
     runs-on: ubuntu-latest
     # only run when a pull request is closed
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    if: github.event_name == 'pull_request' && (github.event.action == 'closed' || github.event.pull_request.merged == true)
     steps:
       - name: Destroy the review app
         uses: dokku/github-action@master
