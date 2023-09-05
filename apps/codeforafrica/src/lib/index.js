@@ -5,7 +5,6 @@ import {
   getCmsProjects,
   getFooter,
   getGetInTouch,
-  getHeader,
   getHero,
   getJoinUs,
   getMeetOurTeam,
@@ -74,8 +73,6 @@ function getRandomStartIndex(length, size) {
   const max = length >= size ? length - size : length;
   return getRandomInt(max);
 }
-
-const navbar = getHeader();
 
 const footer = getFooter();
 
@@ -197,7 +194,6 @@ async function getHomePageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -259,7 +255,6 @@ async function getOpportunitiesPageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -278,7 +273,6 @@ async function getOpportunityPageStaticProps(params) {
         seo,
         opportunity,
         footer,
-        navbar,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -299,7 +293,6 @@ function getImprintPageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -318,7 +311,6 @@ function getPrivacyPageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -363,7 +355,6 @@ async function getProjectPageStaticProps(params) {
           },
         ],
         footer,
-        navbar,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -388,7 +379,6 @@ function getProjectsPageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -410,7 +400,6 @@ async function getStoriesPageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -442,7 +431,6 @@ async function getStoryPageStaticProps(slug) {
           },
         ],
         footer,
-        navbar,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -510,7 +498,6 @@ function getAboutImpactPageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -539,7 +526,6 @@ function getAboutMemberPageStaticProps(params) {
           },
         ],
         footer,
-        navbar,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -570,7 +556,6 @@ function getAboutMembersPageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -609,7 +594,6 @@ function getAboutPageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -640,7 +624,6 @@ function getAboutPartnerPageStaticProps(params) {
           },
         ],
         footer,
-        navbar,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -668,7 +651,6 @@ function getAboutPartnersPageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -706,7 +688,6 @@ function getContactPageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -734,7 +715,6 @@ async function getErrorPageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -755,7 +735,6 @@ async function get404PageStaticProps() {
         },
       ],
       footer,
-      navbar,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -836,5 +815,3 @@ export async function getPageStaticPaths(primaryTag) {
 
   return path;
 }
-
-export { default as payload } from "./payload";

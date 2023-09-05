@@ -1,7 +1,8 @@
 import { buildConfig } from "payload/config";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
-import { CollectionConfig } from "payload/types";
+import Navigation from "./src/payload/globals/Navigation";
+import { CollectionConfig, GlobalConfig } from "payload/types";
 import dotenv from "dotenv";
 import seo from "@payloadcms/plugin-seo";
 import nestedDocs from "@payloadcms/plugin-nested-docs";
@@ -27,6 +28,7 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   collections: [Pages, Media] as CollectionConfig[],
+  globals: [Navigation] as GlobalConfig[],
   admin: {
     webpack: (config) => ({
       ...config,

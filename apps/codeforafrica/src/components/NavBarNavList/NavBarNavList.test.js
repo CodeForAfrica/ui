@@ -9,7 +9,7 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  menu: [
+  menus: [
     {
       content: "Our Work",
       href: "/our-work",
@@ -29,6 +29,16 @@ const defaultProps = {
     {
       content: "Contact",
       href: "/contact",
+    },
+  ],
+  socialLinks: [
+    {
+      url: "https://www.facebook.com/CodeForAfrica",
+      platform: "Facebook",
+    },
+    {
+      url: "https://twitter.com/Code4Africa",
+      platform: "Twitter",
     },
   ],
 };
