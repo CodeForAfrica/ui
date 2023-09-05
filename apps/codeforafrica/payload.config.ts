@@ -1,6 +1,7 @@
 import { buildConfig } from "payload/config";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
+import Navigation from "./src/payload/globals/Navigation";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import dotenv from "dotenv";
 import seo from "@payloadcms/plugin-seo";
@@ -29,7 +30,7 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   collections: [Pages, Media] as CollectionConfig[],
-  globals: [Footer] as GlobalConfig[],
+  globals: [Footer, Navigation] as GlobalConfig[],
   admin: {
     webpack: (config) => ({
       ...config,
