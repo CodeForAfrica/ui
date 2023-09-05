@@ -11,7 +11,7 @@ async function getNavigation(api) {
       alt: image?.alt || "Logo",
       src: image?.url || "/images/cfa-logo.svg",
     },
-    menus: menus?.map(({ label, href }) => ({ content: label, href })),
+    menus: menus.map(({ label, href }) => ({ content: label, href })),
     socialLinks,
   };
 }
