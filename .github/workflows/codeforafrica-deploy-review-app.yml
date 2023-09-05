@@ -5,7 +5,7 @@ on:
     paths:
       - "apps/codeforafrica/**"
       - "Dockerfile.codeforafrica"
-      - ".github"
+      - ".github/**"
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
   cancel-in-progress: false
