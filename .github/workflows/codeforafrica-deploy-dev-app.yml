@@ -69,6 +69,6 @@ jobs:
       - name: Push to Dokku
         uses: dokku/github-action@v1.4.0
         with:
-          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
