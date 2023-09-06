@@ -1,6 +1,6 @@
 import { array } from "payload/dist/fields/validations";
 
-import linkArray from "../fields/linkArray";
+import linkArray from "../fields/links/linkArray";
 
 const Footer = {
   slug: "footer",

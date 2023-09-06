@@ -1,8 +1,11 @@
-import getNavigation from "@/codeforafrica/lib/data/common/navigation";
+import {
+  getNavigation,
+  getFooter,
+} from "@/codeforafrica/lib/data/common/globals";
 
 export async function getPageProps(api) {
-  const footer = await api.findGlobal("footer");
   const navigation = await getNavigation(api);
+  const footer = await getFooter(api);
   return {
     footer,
     navbar: navigation,

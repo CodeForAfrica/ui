@@ -56,18 +56,18 @@ const StayInTouch = React.forwardRef(function StayInTouch(
         container
         justifyContent={{ xs: "center", md: "flex-start" }}
       >
-        {links.map((media) => (
-          <Grid
-            item
-            key={media.id}
-            sx={{
-              pr: "10px",
-              ":last-of-type": {
-                pr: 0,
-              },
-            }}
-          >
-            {media?.url ? (
+        {links.map((media) =>
+          media.url ? (
+            <Grid
+              item
+              key={media.id}
+              sx={{
+                pr: "10px",
+                ":last-of-type": {
+                  pr: 0,
+                },
+              }}
+            >
               <Link
                 sx={{
                   display: "block",
@@ -76,9 +76,9 @@ const StayInTouch = React.forwardRef(function StayInTouch(
               >
                 <IconRoot src={media?.icon?.url} alt={media.label} />
               </Link>
-            ) : null}
-          </Grid>
-        ))}
+            </Grid>
+          ) : null,
+        )}
       </Grid>
     </Grid>
   );
