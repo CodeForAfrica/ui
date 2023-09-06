@@ -97,8 +97,8 @@ importers:
         specifier: ^1.0.13
         version: 1.0.13(payload@1.11.8)(react@18.2.0)
       "@sentry/nextjs":
-        specifier: ^7.51.0
-        version: 7.51.0(next@13.4.11)(react@18.2.0)(webpack@5.82.0)
+        specifier: ^7.67.0
+        version: 7.67.0(next@13.4.11)(react@18.2.0)(webpack@5.82.0)
       airtable:
         specifier: ^0.12.1
         version: 0.12.1
@@ -830,8 +830,8 @@ importers:
         specifier: ^5.12.3
         version: 5.12.3(react@18.2.0)
       "@sentry/nextjs":
-        specifier: ^7.51.0
-        version: 7.51.0(next@13.4.11)(react@18.2.0)(webpack@5.82.0)
+        specifier: ^7.67.0
+        version: 7.67.0(next@13.4.11)(react@18.2.0)(webpack@5.82.0)
       "@svgr/webpack":
         specifier: ^6.5.1
         version: 6.5.1
@@ -1777,7 +1777,7 @@ packages:
       "@aws-sdk/util-user-agent-node": 3.310.0
       "@aws-sdk/util-utf8": 3.310.0
       fast-xml-parser: 4.1.2
-      tslib: 2.5.0
+      tslib: 2.6.1
     transitivePeerDependencies:
       - aws-crt
     dev: false
@@ -1841,7 +1841,7 @@ packages:
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/util-config-provider": 3.310.0
       "@aws-sdk/util-middleware": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/credential-provider-cognito-identity@3.385.0:
@@ -1959,7 +1959,7 @@ packages:
       "@aws-sdk/property-provider": 3.310.0
       "@aws-sdk/shared-ini-file-loader": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     transitivePeerDependencies:
       - aws-crt
     dev: false
@@ -2126,7 +2126,7 @@ packages:
     dependencies:
       "@aws-sdk/eventstream-serde-universal": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/eventstream-serde-config-resolver@3.310.0:
@@ -2137,7 +2137,7 @@ packages:
     engines: { node: ">=14.0.0" }
     dependencies:
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/eventstream-serde-node@3.310.0:
@@ -2149,7 +2149,7 @@ packages:
     dependencies:
       "@aws-sdk/eventstream-serde-universal": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/eventstream-serde-universal@3.310.0:
@@ -2174,7 +2174,7 @@ packages:
       "@aws-sdk/querystring-builder": 3.310.0
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/util-base64": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/hash-blob-browser@3.310.0:
@@ -2185,7 +2185,7 @@ packages:
     dependencies:
       "@aws-sdk/chunked-blob-reader": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/hash-node@3.310.0:
@@ -2198,7 +2198,7 @@ packages:
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/util-buffer-from": 3.310.0
       "@aws-sdk/util-utf8": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/hash-stream-node@3.310.0:
@@ -2210,7 +2210,7 @@ packages:
     dependencies:
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/util-utf8": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/invalid-dependency@3.310.0:
@@ -2220,7 +2220,7 @@ packages:
       }
     dependencies:
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/is-array-buffer@3.310.0:
@@ -2261,7 +2261,7 @@ packages:
     dependencies:
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/util-utf8": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-bucket-endpoint@3.310.0:
@@ -2275,7 +2275,7 @@ packages:
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/util-arn-parser": 3.310.0
       "@aws-sdk/util-config-provider": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-content-length@3.325.0:
@@ -2287,7 +2287,7 @@ packages:
     dependencies:
       "@aws-sdk/protocol-http": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-endpoint@3.325.0:
@@ -2301,7 +2301,7 @@ packages:
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/url-parser": 3.310.0
       "@aws-sdk/util-middleware": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-expect-continue@3.325.0:
@@ -2313,7 +2313,7 @@ packages:
     dependencies:
       "@aws-sdk/protocol-http": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-flexible-checksums@3.326.0:
@@ -2329,7 +2329,7 @@ packages:
       "@aws-sdk/protocol-http": 3.310.0
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/util-utf8": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-host-header@3.325.0:
@@ -2341,7 +2341,7 @@ packages:
     dependencies:
       "@aws-sdk/protocol-http": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-host-header@3.379.1:
@@ -2366,7 +2366,7 @@ packages:
     engines: { node: ">=14.0.0" }
     dependencies:
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-logger@3.325.0:
@@ -2377,7 +2377,7 @@ packages:
     engines: { node: ">=14.0.0" }
     dependencies:
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-logger@3.378.0:
@@ -2402,7 +2402,7 @@ packages:
     dependencies:
       "@aws-sdk/protocol-http": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-recursion-detection@3.378.0:
@@ -2431,7 +2431,7 @@ packages:
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/util-middleware": 3.310.0
       "@aws-sdk/util-retry": 3.327.0
-      tslib: 2.5.0
+      tslib: 2.6.1
       uuid: 8.3.2
     dev: false
 
@@ -2445,7 +2445,7 @@ packages:
       "@aws-sdk/protocol-http": 3.310.0
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/util-arn-parser": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-sdk-sts@3.326.0:
@@ -2482,7 +2482,7 @@ packages:
     engines: { node: ">=14.0.0" }
     dependencies:
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-signing@3.325.0:
@@ -2497,7 +2497,7 @@ packages:
       "@aws-sdk/signature-v4": 3.310.0
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/util-middleware": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-signing@3.379.1:
@@ -2525,7 +2525,7 @@ packages:
     engines: { node: ">=14.0.0" }
     dependencies:
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-stack@3.325.0:
@@ -2535,7 +2535,7 @@ packages:
       }
     engines: { node: ">=14.0.0" }
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-user-agent@3.327.0:
@@ -2548,7 +2548,7 @@ packages:
       "@aws-sdk/protocol-http": 3.310.0
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/util-endpoints": 3.327.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/middleware-user-agent@3.382.0:
@@ -2576,7 +2576,7 @@ packages:
       "@aws-sdk/property-provider": 3.310.0
       "@aws-sdk/shared-ini-file-loader": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/node-http-handler@3.321.1:
@@ -2590,7 +2590,7 @@ packages:
       "@aws-sdk/protocol-http": 3.310.0
       "@aws-sdk/querystring-builder": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/property-provider@3.310.0:
@@ -2612,7 +2612,7 @@ packages:
     engines: { node: ">=14.0.0" }
     dependencies:
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/querystring-builder@3.310.0:
@@ -2672,7 +2672,7 @@ packages:
       "@aws-sdk/protocol-http": 3.310.0
       "@aws-sdk/signature-v4": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/signature-v4@3.310.0:
@@ -2700,7 +2700,7 @@ packages:
     dependencies:
       "@aws-sdk/middleware-stack": 3.325.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/token-providers@3.327.0:
@@ -2741,7 +2741,7 @@ packages:
       }
     engines: { node: ">=14.0.0" }
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/types@3.378.0:
@@ -2764,7 +2764,7 @@ packages:
     dependencies:
       "@aws-sdk/querystring-parser": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-arn-parser@3.310.0:
@@ -2785,7 +2785,7 @@ packages:
     engines: { node: ">=14.0.0" }
     dependencies:
       "@aws-sdk/util-buffer-from": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-body-length-browser@3.310.0:
@@ -2794,7 +2794,7 @@ packages:
         integrity: sha512-sxsC3lPBGfpHtNTUoGXMQXLwjmR0zVpx0rSvzTPAuoVILVsp5AU/w5FphNPxD5OVIjNbZv9KsKTuvNTiZjDp9g==,
       }
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-body-length-node@3.310.0:
@@ -2804,7 +2804,7 @@ packages:
       }
     engines: { node: ">=14.0.0" }
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-buffer-from@3.310.0:
@@ -2838,7 +2838,7 @@ packages:
       "@aws-sdk/property-provider": 3.310.0
       "@aws-sdk/types": 3.310.0
       bowser: 2.11.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-defaults-mode-node@3.325.0:
@@ -2853,7 +2853,7 @@ packages:
       "@aws-sdk/node-config-provider": 3.310.0
       "@aws-sdk/property-provider": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-endpoints@3.327.0:
@@ -2864,7 +2864,7 @@ packages:
     engines: { node: ">=14.0.0" }
     dependencies:
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-endpoints@3.382.0:
@@ -2917,7 +2917,7 @@ packages:
     engines: { node: ">= 14.0.0" }
     dependencies:
       "@aws-sdk/service-error-classification": 3.327.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-stream-browser@3.310.0:
@@ -2931,7 +2931,7 @@ packages:
       "@aws-sdk/util-base64": 3.310.0
       "@aws-sdk/util-hex-encoding": 3.310.0
       "@aws-sdk/util-utf8": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-stream-node@3.321.1:
@@ -2944,7 +2944,7 @@ packages:
       "@aws-sdk/node-http-handler": 3.321.1
       "@aws-sdk/types": 3.310.0
       "@aws-sdk/util-buffer-from": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-uri-escape@3.310.0:
@@ -2965,7 +2965,7 @@ packages:
     dependencies:
       "@aws-sdk/types": 3.310.0
       bowser: 2.11.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-user-agent-browser@3.378.0:
@@ -2995,7 +2995,7 @@ packages:
     dependencies:
       "@aws-sdk/node-config-provider": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-user-agent-node@3.378.0:
@@ -3034,7 +3034,7 @@ packages:
     engines: { node: ">=14.0.0" }
     dependencies:
       "@aws-sdk/util-buffer-from": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/util-waiter@3.310.0:
@@ -3046,7 +3046,7 @@ packages:
     dependencies:
       "@aws-sdk/abort-controller": 3.310.0
       "@aws-sdk/types": 3.310.0
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@aws-sdk/xml-builder@3.310.0:
@@ -3056,7 +3056,7 @@ packages:
       }
     engines: { node: ">=14.0.0" }
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: false
 
   /@babel/code-frame@7.22.5:
@@ -10025,32 +10025,32 @@ packages:
       "@sendgrid/helpers": 6.5.5
     dev: false
 
-  /@sentry-internal/tracing@7.51.0:
+  /@sentry-internal/tracing@7.67.0:
     resolution:
       {
-        integrity: sha512-mhXl4B02OQq6/vevjX04OchmQbxPRaLci9vTTPcPcIz/n+wkum29ze35gHcJsPJUesScjd0m19Xou3C8fNnZRA==,
+        integrity: sha512-+3wpnzW2HczPlZsp1pWtdOavBKLK/tu1qDEg+blqLfW7b/qZZ8hqQ+A+2mEWRLgWfIoGZ8t4U84nN4tzDXv+nQ==,
       }
     engines: { node: ">=8" }
     dependencies:
-      "@sentry/core": 7.51.0
-      "@sentry/types": 7.51.0
-      "@sentry/utils": 7.51.0
-      tslib: 1.14.1
+      "@sentry/core": 7.67.0
+      "@sentry/types": 7.67.0
+      "@sentry/utils": 7.67.0
+      tslib: 2.6.1
     dev: false
 
-  /@sentry/browser@7.51.0:
+  /@sentry/browser@7.67.0:
     resolution:
       {
-        integrity: sha512-SqaXM9qhGnSqEcdWEnzHKKkCLcMzE0cAc/Y6VQOttGjkP3KRW8INdWrN7F0ySBdy6BMar6ViDJKhB6cMKsuCIg==,
+        integrity: sha512-5J7QUGJVKiltVJPSHwlBu/xmicNB7g5ARcgH8YEyu2LoxjLvZPUqWRD/zTWVYyW20sbgExrB39oyRwmkzN449A==,
       }
     engines: { node: ">=8" }
     dependencies:
-      "@sentry-internal/tracing": 7.51.0
-      "@sentry/core": 7.51.0
-      "@sentry/replay": 7.51.0
-      "@sentry/types": 7.51.0
-      "@sentry/utils": 7.51.0
-      tslib: 1.14.1
+      "@sentry-internal/tracing": 7.67.0
+      "@sentry/core": 7.67.0
+      "@sentry/replay": 7.67.0
+      "@sentry/types": 7.67.0
+      "@sentry/utils": 7.67.0
+      tslib: 2.6.1
     dev: false
 
   /@sentry/cli@1.75.2:
@@ -10073,35 +10073,35 @@ packages:
       - supports-color
     dev: false
 
-  /@sentry/core@7.51.0:
+  /@sentry/core@7.67.0:
     resolution:
       {
-        integrity: sha512-GgYwlXU8Y1kDEHsJO1Bmr2CNan5BzoNRR0TDBmxRgI/DgTNNSYrXeFDELgPi9/p/0XENeuttzDZ3iYd1nF7meA==,
+        integrity: sha512-apk0WHnFJTHX86TvN4LOa2GBfguKwvV94WsssyizMi4qurGN2V0I8ZUmlypjBxvMY9MOBZ/2LwgYPf3U1QeE5g==,
       }
     engines: { node: ">=8" }
     dependencies:
-      "@sentry/types": 7.51.0
-      "@sentry/utils": 7.51.0
-      tslib: 1.14.1
+      "@sentry/types": 7.67.0
+      "@sentry/utils": 7.67.0
+      tslib: 2.6.1
     dev: false
 
-  /@sentry/integrations@7.51.0:
+  /@sentry/integrations@7.67.0:
     resolution:
       {
-        integrity: sha512-xmWUKZyRDfl8tRsZWDRwxeXGwsvlJytQSYnJMPwohUq+VKs1KAarsuIxWQQMosNOvCYaio8VLfMxureqk2Wb/w==,
+        integrity: sha512-Mzv3WxCIfZHy1ATv1H7rit1PMOkuYz2u5WLYDF6WbSVE3KLEGjRaq1OaylvAyHrNghonfHf8eiaJaz7Ik/f2Kw==,
       }
     engines: { node: ">=8" }
     dependencies:
-      "@sentry/types": 7.51.0
-      "@sentry/utils": 7.51.0
+      "@sentry/types": 7.67.0
+      "@sentry/utils": 7.67.0
       localforage: 1.10.0
-      tslib: 1.14.1
+      tslib: 2.6.1
     dev: false
 
-  /@sentry/nextjs@7.51.0(next@13.4.11)(react@18.2.0)(webpack@5.82.0):
+  /@sentry/nextjs@7.67.0(next@13.4.11)(react@18.2.0)(webpack@5.82.0):
     resolution:
       {
-        integrity: sha512-ZeZvXjfI/7Ik/w2joGWFBll6klEciKiFDNrwq5hqA3e1/xDV9rJNAF9DkKAVzA6wy0DP7o2npaKKAhC6iejzCw==,
+        integrity: sha512-Iw6jktvb8NYDE+MvBONTTkVBSL/9/skg68ccG1Cs9Sla+0KTlu1+D8fMtmxvn1G50kFo9AONnDb01NhoVa9SjA==,
       }
     engines: { node: ">=8" }
     peerDependencies:
@@ -10113,90 +10113,90 @@ packages:
         optional: true
     dependencies:
       "@rollup/plugin-commonjs": 24.0.0(rollup@2.78.0)
-      "@sentry/core": 7.51.0
-      "@sentry/integrations": 7.51.0
-      "@sentry/node": 7.51.0
-      "@sentry/react": 7.51.0(react@18.2.0)
-      "@sentry/types": 7.51.0
-      "@sentry/utils": 7.51.0
+      "@sentry/core": 7.67.0
+      "@sentry/integrations": 7.67.0
+      "@sentry/node": 7.67.0
+      "@sentry/react": 7.67.0(react@18.2.0)
+      "@sentry/types": 7.67.0
+      "@sentry/utils": 7.67.0
       "@sentry/webpack-plugin": 1.20.0
       chalk: 3.0.0
       next: 13.4.11(@babel/core@7.22.9)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       rollup: 2.78.0
       stacktrace-parser: 0.1.10
-      tslib: 1.14.1
+      tslib: 2.6.1
       webpack: 5.82.0(@swc/core@1.3.56)(webpack-cli@4.10.0)
     transitivePeerDependencies:
       - encoding
       - supports-color
     dev: false
 
-  /@sentry/node@7.51.0:
+  /@sentry/node@7.67.0:
     resolution:
       {
-        integrity: sha512-UHJ0yN3I8hSrythr3/KPewh+xLIdjF6AU+BW3bgsP0ZtztrftrQk9+XnWRIX0p6ZstzoP4F3arkJIXkWfOk5Pg==,
+        integrity: sha512-QRPLdHp00HMTSpanonf4MfAcWiWHSnnCaNT0at0SJlpPf1z1Ch8FXxFl5CKwcbYyMCQDBxsZ2tdQwjrmPdMDcA==,
       }
     engines: { node: ">=8" }
     dependencies:
-      "@sentry-internal/tracing": 7.51.0
-      "@sentry/core": 7.51.0
-      "@sentry/types": 7.51.0
-      "@sentry/utils": 7.51.0
+      "@sentry-internal/tracing": 7.67.0
+      "@sentry/core": 7.67.0
+      "@sentry/types": 7.67.0
+      "@sentry/utils": 7.67.0
       cookie: 0.4.2
       https-proxy-agent: 5.0.1
       lru_map: 0.3.3
-      tslib: 1.14.1
+      tslib: 2.6.1
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@sentry/react@7.51.0(react@18.2.0):
+  /@sentry/react@7.67.0(react@18.2.0):
     resolution:
       {
-        integrity: sha512-w9fHVBbv4l3tGFa9YCV1m2ngUTnYxM/r6pO2Q8N9sjeWAk74sREm7fUjBJI24sdJFQJj0KhHNg0I1ZOA+uITyQ==,
+        integrity: sha512-qgEi2umAszEmipUAYf2fVaBXaSgZCp5IEBRw8onYrdxCEu980QA9zbPnnA0pij24tm2UNc8ca3nZrDy6xQjeSQ==,
       }
     engines: { node: ">=8" }
     peerDependencies:
       react: 15.x || 16.x || 17.x || 18.x
     dependencies:
-      "@sentry/browser": 7.51.0
-      "@sentry/types": 7.51.0
-      "@sentry/utils": 7.51.0
+      "@sentry/browser": 7.67.0
+      "@sentry/types": 7.67.0
+      "@sentry/utils": 7.67.0
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
-      tslib: 1.14.1
+      tslib: 2.6.1
     dev: false
 
-  /@sentry/replay@7.51.0:
+  /@sentry/replay@7.67.0:
     resolution:
       {
-        integrity: sha512-3jv+chhhlOVFjPKYJOEJy+J+9yTUEHxybZ0tTwGZYOJp9T8HdO21L6NjYk5b9wEqJonhZHp1BiQnzG82NLDkSQ==,
+        integrity: sha512-PGFt281hV4W1BFCY09JQmwdQXvI9rhiqIIOGHviyH7GrHBwWLxF1iRuBS8RUMFYt9ZHFq5oDt6M2z3qBQOZGLQ==,
       }
     engines: { node: ">=12" }
     dependencies:
-      "@sentry/core": 7.51.0
-      "@sentry/types": 7.51.0
-      "@sentry/utils": 7.51.0
+      "@sentry/core": 7.67.0
+      "@sentry/types": 7.67.0
+      "@sentry/utils": 7.67.0
     dev: false
 
-  /@sentry/types@7.51.0:
+  /@sentry/types@7.67.0:
     resolution:
       {
-        integrity: sha512-8REzzY0DslDryp6Yxj+tJ4NkXFHulLW9k8dgZV2Qo/0rBDMKir8g0IHYeN8ZBcnWrx2F+6rQb6uN6BjyLZY7Dg==,
+        integrity: sha512-GV/Hxdsp/hes1YQGPGgSUG1IHRNQVJMnCfYcpuZtZI6CvNJ+7qNOLkdmC/xGFwfpYH9kYsFBvmGsmeC6yUENYA==,
       }
     engines: { node: ">=8" }
     dev: false
 
-  /@sentry/utils@7.51.0:
+  /@sentry/utils@7.67.0:
     resolution:
       {
-        integrity: sha512-y5zq4IfZDCm6cg0EQJMghUM4YjZToFni7J5OKopLXKVtc9YtRtkYoFuFqEWm4HBuBwplreiS/KkDQgWn3FVn7A==,
+        integrity: sha512-OstjIfAD0xPWVnIRzoAtFBW+YTmxix4h3ehgtFxhA4VJHkC9KXchaTNwk+nlRy/nx4phx5vW9p7YWhO3kJBJmA==,
       }
     engines: { node: ">=8" }
     dependencies:
-      "@sentry/types": 7.51.0
-      tslib: 1.14.1
+      "@sentry/types": 7.67.0
+      tslib: 2.6.1
     dev: false
 
   /@sentry/webpack-plugin@1.20.0:
@@ -13488,7 +13488,7 @@ packages:
         integrity: sha512-sJ902EfIzn1Fa+qYmjdQqh8tPsoxyBz+8yBKC2HKUxyezKJFwPGOn7pv4WY6QuQW//ySQi5lJjA/ZT9sNWWNTg==,
       }
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.1
 
   /@swc/register@0.1.10(@swc/core@1.3.56):
     resolution:
@@ -14733,7 +14733,7 @@ packages:
       }
     engines: { node: ">=8" }
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.1
 
   /@wry/equality@0.1.11:
     resolution:
@@ -14751,7 +14751,7 @@ packages:
       }
     engines: { node: ">=8" }
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.1
 
   /@wry/trie@0.3.2:
     resolution:
@@ -14769,7 +14769,7 @@ packages:
       }
     engines: { node: ">=8" }
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.1
 
   /@xmldom/xmldom@0.8.7:
     resolution:
@@ -15485,7 +15485,7 @@ packages:
         integrity: sha512-HuTK7E7MT7jZEh1P9GtRW9+aTWiDWWi9InbZ5hjxrnRa39KS4BW04+xLBhYNS2aXhHUIKZSw3gj4Pn1pj+qGAA==,
       }
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: true
 
   /async@3.2.4:
@@ -21468,7 +21468,7 @@ packages:
       graphql: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql: 15.5.1
-      tslib: 2.5.0
+      tslib: 2.6.1
 
   /graphql-type-json@0.3.2(graphql@16.6.0):
     resolution:
@@ -29230,7 +29230,7 @@ packages:
       ast-types: 0.14.2
       esprima: 4.0.1
       source-map: 0.6.1
-      tslib: 2.5.0
+      tslib: 2.6.1
     dev: true
 
   /recast@0.21.5:
@@ -31853,7 +31853,7 @@ packages:
       }
     engines: { node: ">=8" }
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.1
 
   /ts-invariant@0.3.3:
     resolution:
