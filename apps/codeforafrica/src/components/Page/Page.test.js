@@ -10,7 +10,7 @@ const render = createRender({ theme });
 
 const defaultProps = {
   theme,
-  sections: {},
+  blocks: [],
 };
 
 describe("<Page />", () => {

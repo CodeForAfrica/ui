@@ -18,7 +18,7 @@ function Page({ children, footer, navbar, seo }) {
 
 Page.propTypes = {
   children: PropTypes.node,
-  sections: PropTypes.shape({}),
+  blocks: PropTypes.arrayOf(PropTypes.shape({})),
   footer: PropTypes.shape({}),
   navbar: PropTypes.shape({
     menu: PropTypes.arrayOf(
@@ -34,7 +34,7 @@ Page.propTypes = {
 Page.defaultProps = {
   children: undefined,
   navbar: undefined,
-  sections: undefined,
+  blocks: undefined,
   footer: undefined,
   title: undefined,
 };

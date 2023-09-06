@@ -1,14 +1,16 @@
 /* eslint-env browser */
-import { Figure, Link, RichTypography } from "@commons-ui/next";
+import { Figure, Link } from "@commons-ui/next";
 import { Stack } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import RichText from "@/codeforafrica/components/RichText";
+
 const FooterDescription = React.forwardRef(
   function FooterDescription(props, ref) {
-    const { children, logo, sx } = props;
+    const { description, logo, sx } = props;
 
-    if (!(logo || children)) {
+    if (!(logo || description)) {
       return null;
     }
     return (
@@ -25,31 +27,27 @@ const FooterDescription = React.forwardRef(
             }}
           />
         </Link>
-        <RichTypography
+        <RichText
           variant="footer"
-          LinkProps={{
-            color: "text.secondary",
-          }}
           sx={{
             mt: "52px",
             textAlign: { xs: "center", md: "left" },
           }}
           ref={ref}
-        >
-          {children}
-        </RichTypography>
+          elements={description}
+        />
       </Stack>
     );
   },
 );
 
 FooterDescription.propTypes = {
-  children: PropTypes.node,
+  description: PropTypes.arrayOf(PropTypes.shape({})),
   logo: PropTypes.shape({}),
 };
 
 FooterDescription.defaultProps = {
-  children: undefined,
+  description: undefined,
   logo: undefined,
 };
 

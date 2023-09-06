@@ -1,20 +1,7 @@
-import { array } from "payload/dist/fields/validations";
-
 import link from "../fields/links/link";
-import linkArray from "../fields/links/linkArray";
+import menus from "../fields/menus";
+import socialLinks from "../fields/socialLinks";
 
-const socialMediaOptions = [
-  "Facebook",
-  "Twitter",
-  "Instagram",
-  "Linkedin",
-  "Github",
-  "Slack",
-];
-
-const linkField = link({
-  disableOpenInNewTab: true,
-});
 const Navigation = {
   slug: "navigation",
   label: {
@@ -54,49 +41,8 @@ const Navigation = {
         initCollapsed: true,
       },
     },
-    linkArray({
-      overrides: {
-        name: "menus",
-        fields: [linkField],
-      },
-    }),
-    {
-      name: "socialLinks",
-      label: "Social Media Links",
-      type: "array",
-      minRows: 1,
-      admin: {
-        components: {
-          RowLabel: ({ data }) => {
-            return data.platform;
-          },
-        },
-      },
-      fields: [
-        {
-          name: "platform",
-          label: "Platform",
-          type: "select",
-          options: socialMediaOptions,
-          required: true,
-          validate: (val, options) => {
-            const { data } = options || {};
-            if (
-              data?.socialLinks?.filter((l) => l.platform === val)?.length > 1
-            ) {
-              return "Please select a unique platform";
-            }
-            return array(val, options);
-          },
-        },
-        {
-          name: "url",
-          label: "URL",
-          type: "text",
-          required: true,
-        },
-      ],
-    },
+    menus(),
+    socialLinks(),
   ],
 };
 

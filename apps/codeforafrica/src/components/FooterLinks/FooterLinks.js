@@ -23,7 +23,7 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
               mt: i === 0 ? 5 : undefined,
               p: "0  0 10px",
             }}
-            key={item.id}
+            key={item.href}
           >
             <Link
               underline="none"

@@ -53,9 +53,11 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 }}
               >
                 <Grid item>
-                  <FooterDescription logo={logo} sx={{ mt: { xs: 10, md: 0 } }}>
-                    {description}
-                  </FooterDescription>
+                  <FooterDescription
+                    description={description}
+                    logo={logo}
+                    sx={{ mt: { xs: 10, md: 0 } }}
+                  />
                 </Grid>
                 <Grid item>
                   <StayInTouch {...connect} sx={{ mt: "52px" }} />

@@ -1,22 +1,23 @@
 import { Link, RichTypography } from "@commons-ui/next";
-import { Grid } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Grid, SvgIcon } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-const IconRoot = styled("img", {
-  slot: "Root",
-  name: "StayInTouchIcon",
-})(({ theme }) => ({
-  display: "block",
-  height: "37px",
-  width: "37px",
-  objectFit: "contain",
-  [theme.breakpoints.up("md")]: {
-    height: "24px",
-    width: "24px",
-  },
-}));
+import FacebookIcon from "@/codeforafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
+import GitHubIcon from "@/codeforafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
+import InstagramIcon from "@/codeforafrica/assets/icons/Type=instagram, Size=24, Color=CurrentColor.svg";
+import LinkedInIcon from "@/codeforafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
+import SlackIcon from "@/codeforafrica/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
+import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
+
+const platformToIconMap = {
+  Facebook: FacebookIcon,
+  Twitter: TwitterIcon,
+  Instagram: InstagramIcon,
+  Linkedin: LinkedInIcon,
+  Github: GitHubIcon,
+  Slack: SlackIcon,
+};
 
 const StayInTouch = React.forwardRef(function StayInTouch(
   { links, sx, title },
@@ -56,11 +57,18 @@ const StayInTouch = React.forwardRef(function StayInTouch(
         container
         justifyContent={{ xs: "center", md: "flex-start" }}
       >
-        {links.map((media) =>
-          media.url ? (
+        {links.map(({ url, platform }) => {
+          if (!url) {
+            return null;
+          }
+          const Icon = platformToIconMap[platform];
+          if (!Icon) {
+            return null;
+          }
+          return (
             <Grid
               item
-              key={media.id}
+              key={url}
               sx={{
                 pr: "10px",
                 ":last-of-type": {
@@ -72,13 +80,19 @@ const StayInTouch = React.forwardRef(function StayInTouch(
                 sx={{
                   display: "block",
                 }}
-                href={media.url}
+                color="inherit"
+                href={url}
               >
-                <IconRoot src={media?.icon?.url} alt={media.label} />
+                <SvgIcon
+                  component={Icon}
+                  sx={{
+                    fill: { xs: "none" },
+                  }}
+                />
               </Link>
             </Grid>
-          ) : null,
-        )}
+          );
+        })}
       </Grid>
     </Grid>
   );
@@ -88,9 +102,7 @@ StayInTouch.propTypes = {
   links: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string.isRequired,
-      icon: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-      }).isRequired,
+      platform: PropTypes.string.isRequired,
     }),
   ),
   title: PropTypes.string,

@@ -8,8 +8,8 @@ export async function getNavigation(api) {
 
   return {
     logo: {
-      alt: image?.alt || "Logo",
-      src: image?.url || "/images/cfa-logo.svg",
+      alt: image.alt || "Code for Africa",
+      src: image.url,
     },
     menus: menus.map(({ label, href }) => ({ content: label, href })),
     socialLinks,

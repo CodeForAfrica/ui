@@ -1,6 +1,6 @@
-import { array } from "payload/dist/fields/validations";
-
-import linkArray from "../fields/links/linkArray";
+import menus from "../fields/menus";
+import richText from "../fields/richText";
+import socialLinks from "../fields/socialLinks";
 
 const Footer = {
   slug: "footer",
@@ -19,12 +19,11 @@ const Footer = {
       },
       label: "Logo",
     },
-    {
+    richText({
       name: "description",
-      type: "code",
       label: "Description",
       required: true,
-    },
+    }),
     {
       type: "group",
       name: "connect",
@@ -41,97 +40,11 @@ const Footer = {
 
           required: true,
         },
-        {
-          name: "links",
-          label: "Links to social media",
-          type: "array",
-          fields: [
-            {
-              name: "media",
-              label: "Media",
-              type: "select",
-              options: [
-                {
-                  value: "facebook",
-                  label: "Facebook",
-                },
-                {
-                  value: "github",
-                  label: "Github",
-                },
-                {
-                  value: "instagram",
-                  label: "Instagram",
-                },
-                {
-                  value: "linkedin",
-                  label: "LinkedIn",
-                },
-                {
-                  value: "slack",
-                  label: "Slack",
-                },
-                {
-                  value: "twitter",
-                  label: "Twitter",
-                },
-              ],
-              unique: true,
-              required: true,
-              admin: {
-                isClearable: false,
-                isSortable: true,
-              },
-              validate: (val, options) => {
-                const { data, t } = options || {};
-                if (
-                  data?.connect?.links?.filter((l) => l.media === val)?.length >
-                  1
-                ) {
-                  return t("codeforafrica.site:uniqueMedia");
-                }
-                return array(val, options);
-              },
-            },
-            {
-              name: "url",
-              label: "URL",
-              type: "text",
-              required: true,
-              admin: {
-                description: () => "Full URL",
-              },
-            },
-            {
-              name: "icon",
-              label: "Icon",
-              type: "upload",
-              relationTo: "media",
-              required: true,
-              filterOptions: {
-                mimeType: { contains: "image" },
-              },
-            },
-          ],
-          admin: {
-            initCollapsed: true,
-            components: {
-              RowLabel: ({ data }) => {
-                return data?.media || data?.url || data?.id;
-              },
-            },
-          },
-          required: true,
-        },
+        socialLinks({ name: "links" }),
       ],
     },
-    linkArray({
-      overrides: {
-        name: "menu",
-        label: "Menu",
-      },
-    }),
-    linkArray({
+    menus({ overrides: { name: "menu" } }),
+    menus({
       overrides: {
         name: "secondaryMenu",
         label: "Secondary Menu",
@@ -154,6 +67,9 @@ const Footer = {
           type: "code",
           label: "Embed Code",
           required: true,
+          admin: {
+            language: "html",
+          },
         },
       ],
     },
