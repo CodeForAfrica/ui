@@ -44,7 +44,7 @@
     "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.10.8",
     "@emotion/server": "^11.10.0",
-    "@emotion/styled": "^11.10.8",
+    "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.0",
     "@mui/utils": "^5.12.3",
     "@next/env": "~13.3.4",
