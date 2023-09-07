@@ -1,6 +1,7 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import AboutPageHeader from "@/codeforafrica/components/AboutPageHeader";
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
 import GetInvolved from "@/codeforafrica/components/GetInvolved";
 import Hero from "@/codeforafrica/components/Hero";
@@ -8,10 +9,13 @@ import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import Page from "@/codeforafrica/components/Page";
+import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
-  hero: Hero,
+  animatedHero: Hero,
+  staticHero: PageHeader,
+  imageHero: AboutPageHeader,
   "meet-our-team": MeetOurTeam,
   "news-stories": NewsAndStories,
   "our-impact": GetInvolved,
