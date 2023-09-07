@@ -1,6 +1,6 @@
 function getNavBar(globals) {
   const {
-    logo: { coloured: image },
+    logo: { coloured: image = {} },
     menus = [],
     connect: { socialLinks = [] },
   } = globals;
