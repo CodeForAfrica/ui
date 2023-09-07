@@ -133,7 +133,7 @@ export async function fetchDataset(id, pathname, query) {
     const response = await fetchJson.get(
       `${OPEN_AFRICA_BASE_API_URL}package_show?id=${id}`,
     );
-    const { result: dataset } = response;
+    const { result: dataset = {} } = response;
     const { tags = [], groups = [] } = dataset;
     const tagsNames = tags.map((tag) => tag.name);
     const groupNames = groups.map((group) => group.name);

@@ -9,10 +9,10 @@ exports[`<Dataset /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-s6f1m4-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-direction-xs-[object Object] css-hp33nh-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] css-o70cs7-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-nosa61-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-ucdck3-MuiGrid-root"
         >
           <a
             class="MuiTypography-root MuiTypography-p1 css-i1xkt3-MuiTypography-root"
@@ -25,15 +25,19 @@ exports[`<Dataset /> renders unchanged 1`] = `
             Document Title
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-p1 css-1pop01s-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-l6prdf-MuiTypography-root"
           >
-            Updated January 1, 2021 | Created January 1, 2021
+            <span
+              class="MuiTypography-root MuiTypography-inherit css-1ruhe-MuiTypography-root"
+            >
+              Created January 1, 2021
+            </span>
           </p>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-11hlojd-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1phk7xb-MuiGrid-root"
           >
             <div
-              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-6pueiv-MuiChip-root"
+              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-2n8s2x-MuiChip-root"
             >
               <span
                 class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
@@ -42,7 +46,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
               </span>
             </div>
             <div
-              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-12sagfs-MuiChip-root"
+              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-euezk3-MuiChip-root"
             >
               <span
                 class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
@@ -58,18 +62,18 @@ exports[`<Dataset /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-[object Object] MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-wpb7bi-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-[object Object] MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-kdi1tf-MuiGrid-root"
         >
           <a
-            class="MuiTypography-root MuiTypography-p1 css-kiotxi-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-1w5j2yd-MuiTypography-root"
           >
             Back to Datasets
           </a>
-          <a
+          <button
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1scqxyq-MuiButtonBase-root-MuiButton-root"
-            href="https://example.com"
             tabindex="0"
             target="_blank"
+            type="button"
           >
             <span
               class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
@@ -77,61 +81,57 @@ exports[`<Dataset /> renders unchanged 1`] = `
               <div />
             </span>
             Open Dataset
-          </a>
+          </button>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+            class="MuiStack-root css-1fwy3an-MuiStack-root"
           >
             <div
-              class="MuiStack-root css-1p1s33i-MuiStack-root"
+              class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
             >
-              <div
-                class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
+              Share Via
+            </div>
+            <div
+              class="MuiStack-root css-b6wkik-MuiStack-root"
+            >
+              <button
+                aria-label="twitter"
+                class="react-share__ShareButton"
+                medium="twitter"
+                style="background-color: transparent; padding: 0px; cursor: pointer;"
               >
-                Share Via
-              </div>
-              <div
-                class="MuiStack-root css-b6wkik-MuiStack-root"
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  focusable="false"
+                  viewbox="0 0 24 24"
+                />
+              </button>
+              <button
+                aria-label="facebook"
+                class="react-share__ShareButton"
+                medium="facebook"
+                style="background-color: transparent; padding: 0px; cursor: pointer;"
               >
-                <button
-                  aria-label="twitter"
-                  class="react-share__ShareButton"
-                  medium="twitter"
-                  style="background-color: transparent; padding: 0px; cursor: pointer;"
-                >
-                  <div
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
-                    focusable="false"
-                    viewbox="0 0 24 24"
-                  />
-                </button>
-                <button
-                  aria-label="facebook"
-                  class="react-share__ShareButton"
-                  medium="facebook"
-                  style="background-color: transparent; padding: 0px; cursor: pointer;"
-                >
-                  <div
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
-                    focusable="false"
-                    viewbox="0 0 24 24"
-                  />
-                </button>
-                <button
-                  aria-label="linkedin"
-                  class="react-share__ShareButton"
-                  medium="linkedin"
-                  style="background-color: transparent; padding: 0px; cursor: pointer;"
-                >
-                  <div
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
-                    focusable="false"
-                    viewbox="0 0 24 24"
-                  />
-                </button>
-              </div>
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  focusable="false"
+                  viewbox="0 0 24 24"
+                />
+              </button>
+              <button
+                aria-label="linkedin"
+                class="react-share__ShareButton"
+                medium="linkedin"
+                style="background-color: transparent; padding: 0px; cursor: pointer;"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  focusable="false"
+                  viewbox="0 0 24 24"
+                />
+              </button>
             </div>
           </div>
         </div>
