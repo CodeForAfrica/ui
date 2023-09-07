@@ -6,7 +6,7 @@ import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
 import NextImageButton from "@/codeforafrica/components/NextImageButton";
 
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
-  const { logo, menu, socialLinks, sx } = props;
+  const { logo, menus, socialLinks, sx } = props;
 
   return (
     <Grid
@@ -29,7 +29,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
       <Grid item>
         <Box component="nav" sx={{ justifyContent: "flex-end" }}>
           <NavBarNavList
-            menu={menu}
+            menus={menus}
             socialLinks={socialLinks}
             direction="row"
           />

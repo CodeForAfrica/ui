@@ -61,14 +61,14 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-bmq8gb-MuiTypography-root-MuiLink-root"
         href="https://www.facebook.com/CodeForAfrica"
-        rel="noopener noreferrer"
+        rel="noreferrer noopener"
         target="_blank"
       >
-        <svg
+        <div
           aria-hidden="true"
           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o1xeqk-MuiSvgIcon-root"
           focusable="false"
-          viewBox="0 0 24 24"
+          viewbox="0 0 24 24"
         />
       </a>
     </li>
@@ -78,14 +78,14 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-bmq8gb-MuiTypography-root-MuiLink-root"
         href="https://twitter.com/Code4Africa"
-        rel="noopener noreferrer"
+        rel="noreferrer noopener"
         target="_blank"
       >
-        <svg
+        <div
           aria-hidden="true"
           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o1xeqk-MuiSvgIcon-root"
           focusable="false"
-          viewBox="0 0 24 24"
+          viewbox="0 0 24 24"
         />
       </a>
     </li>

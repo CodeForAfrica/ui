@@ -12,7 +12,7 @@ import SlackIcon from "@/codeforafrica/assets/icons/Type=slack, Size=24, Color=C
 import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
-const mapPlatformToIcon = {
+const platformToIconMap = {
   Facebook: FacebookIcon,
   Twitter: TwitterIcon,
   Instagram: InstagramIcon,
@@ -22,14 +22,14 @@ const mapPlatformToIcon = {
 };
 
 const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
-  const { direction, menu, socialLinks, ...other } = props;
+  const { direction, menus, socialLinks, ...other } = props;
 
-  if (!menu?.length) {
+  if (!menus?.length) {
     return null;
   }
   return (
     <NavList direction={direction} {...other} ref={ref}>
-      {menu.map((item) => (
+      {menus.map((item) => (
         <NavListItem key={item.content} sx={{ m: "20px" }}>
           <Link
             href={item.href}
@@ -49,15 +49,13 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
         </NavListItem>
       ))}
       {socialLinks?.map(({ platform, url }) => {
-        const Icon = mapPlatformToIcon[platform];
+        const Icon = platformToIconMap[platform];
+        if (!Icon) {
+          return null;
+        }
         return (
           <NavListItem key={platform} sx={{ m: "20px", mr: 0 }}>
-            <Link
-              href={url}
-              sx={{ color: { xs: "inherit" } }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href={url} sx={{ color: { xs: "inherit" } }}>
               <SvgIcon
                 component={Icon}
                 sx={{
@@ -75,7 +73,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
 
 NavBarNavList.propTypes = {
   direction: PropTypes.string,
-  menu: PropTypes.arrayOf(
+  menus: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
@@ -85,7 +83,7 @@ NavBarNavList.propTypes = {
 
 NavBarNavList.defaultProps = {
   direction: undefined,
-  menu: undefined,
+  menus: undefined,
 };
 
 export default NavBarNavList;

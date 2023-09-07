@@ -1,5 +1,5 @@
 import ErrorPage from "@/codeforafrica/components/ErrorPage";
-import getPageStaticProps from "@/codeforafrica/lib/payload/rest";
+import { getPageStaticProps } from "@/codeforafrica/lib/data/rest";
 
 function CustomError(props) {
   return <ErrorPage {...props} />;

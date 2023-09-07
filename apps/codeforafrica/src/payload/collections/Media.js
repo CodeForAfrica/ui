@@ -5,7 +5,6 @@ const Media = {
   },
   access: {
     read: () => true, // Everyone can read Media
-    create: () => true,
   },
   upload: {
     staticURL: "/media",
