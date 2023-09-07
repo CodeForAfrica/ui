@@ -18,7 +18,7 @@ function getNavBar(settings) {
 function getFooter(settings) {
   const {
     logo: { blackAndWhite: logo = null },
-    navigation: { primary: menus, secondary: secondaryMenu },
+    navigation: { primary: menus = [], secondary: secondaryMenu = [] },
     ...footer
   } = settings;
   return {
