@@ -9,7 +9,21 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  title: 'Empowering <span class="highlight">Africa</span> with',
+  title: [
+    {
+      children: [
+        {
+          text: "Africa's",
+          bold: true,
+          children: null,
+        },
+        {
+          text: "largest network of civic tech and open data labs",
+          children: null,
+        },
+      ],
+    },
+  ],
   message: "civic technologies",
 };
 
