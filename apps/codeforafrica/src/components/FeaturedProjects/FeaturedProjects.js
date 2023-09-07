@@ -17,12 +17,10 @@ const FeaturedProjects = React.forwardRef(
       setSelectedTag(newTag);
     };
     const filteredProjects = useMemo(() => {
-      return projects?.results?.filter((p) =>
-        equalsIgnoreCase(selectedTag, p.tag),
-      );
+      return projects.filter((p) => equalsIgnoreCase(selectedTag, p.tag));
     }, [projects, selectedTag]);
 
-    if (!projects?.results?.length) {
+    if (!projects?.length) {
       return null;
     }
     return (

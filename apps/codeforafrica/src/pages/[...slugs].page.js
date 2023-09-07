@@ -36,7 +36,6 @@ function Index({ blocks, fallback, ...props }) {
         {blocks.map((block) => {
           const Component = componentsBySlugs[block.slug];
           if (!Component) {
-            console.warn(`Missing component for slug: ${block.slug}`);
             return null;
           }
           return <Component {...block} key={block.id} />;
