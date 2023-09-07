@@ -20,7 +20,7 @@ exports[`<RichText /> renders unchanged 1`] = `
     >
       The project currently supports initiatives in 11 countries. Find out more 
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-1aauc5i-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1bhucb5-MuiTypography-root-MuiLink-root-MuiTypography-root"
         href="/"
       >
         here
