@@ -12,7 +12,7 @@ const AboutPageHeader = React.forwardRef(function AboutPageHeader(props, ref) {
     return null;
   }
   const crumbsLineHeight = crumbs?.length ? 23 : 0;
-  const image = imageProp?.src || imageProp;
+  const image = imageProp?.url || imageProp;
   return (
     <Box
       ref={ref}

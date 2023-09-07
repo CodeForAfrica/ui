@@ -13,9 +13,9 @@ import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
-  animatedHero: Hero,
-  staticHero: PageHeader,
-  imageHero: AboutPageHeader,
+  hero: Hero,
+  "page-header": PageHeader,
+  "about-page-header": AboutPageHeader,
   "meet-our-team": MeetOurTeam,
   "news-stories": NewsAndStories,
   "our-impact": GetInvolved,

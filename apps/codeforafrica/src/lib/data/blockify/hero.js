@@ -1,20 +1,18 @@
 function hero(block) {
   const {
     title,
-    richTitle,
-    type,
     subtitle,
     messages: messageList,
-    image: { url, alt } = {},
+    image: { url, alt },
   } = block;
 
   const messages = messageList.map((message) => message.message);
   return {
-    title: richTitle || title,
+    title,
     subtitle,
     messages,
-    image: url ? { src: url, alt } : null,
-    slug: type,
+    image: { src: url, alt },
+    slug: "hero",
   };
 }
 

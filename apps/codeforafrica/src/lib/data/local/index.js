@@ -24,7 +24,6 @@ export async function getPageServerSideProps(context) {
     props: {
       ...staticProps,
       ...props,
-      blocks: [...(props?.blocks || [])],
     },
   };
 }

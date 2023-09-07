@@ -5,6 +5,9 @@ export async function getPageProps(api, slug) {
   const {
     docs: [page],
   } = await api.findPage(slug);
+  if (!page) {
+    return null;
+  }
   const { blocks = [] } = page;
   const processedBlocks = await blockify(blocks);
   const navigation = await getNavigation(api);

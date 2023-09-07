@@ -1,4 +1,6 @@
+import AboutPageHeader from "../blocks/AboutPageHeader";
 import Hero from "../blocks/Hero";
+import PageHeader from "../blocks/PageHeader";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
@@ -29,7 +31,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [Hero],
+      blocks: [Hero, PageHeader, AboutPageHeader],
       admin: {
         initCollapsed: true,
       },

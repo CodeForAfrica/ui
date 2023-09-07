@@ -12,7 +12,10 @@ async function blockify(blocks) {
       const processedBlock = await blockifyFunction(block);
       return processedBlock;
     }
-    return block;
+    return {
+      ...block,
+      slug,
+    };
   });
   return Promise.all(promises);
 }
