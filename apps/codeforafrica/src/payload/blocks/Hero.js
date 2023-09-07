@@ -22,7 +22,6 @@ const Hero = {
       name: "messages",
       type: "array",
       label: "Messages",
-      minRows: 1,
       fields: [
         {
           name: "message",
