@@ -1,9 +1,9 @@
-function getNavBar(globals) {
+function getNavBar(settings) {
   const {
     logo: { coloured: image = {} },
-    menus = [],
+    navigation: { primary: menus = [] },
     connect: { socialLinks = [] },
-  } = globals;
+  } = settings;
 
   return {
     logo: {
@@ -15,20 +15,23 @@ function getNavBar(globals) {
   };
 }
 
-function getFooter(globals) {
+function getFooter(settings) {
   const {
     logo: { blackAndWhite: logo = null },
+    navigation: { primary: menus, secondary: secondaryMenu },
     ...footer
-  } = globals;
+  } = settings;
   return {
-    logo,
     ...footer,
+    logo,
+    menus,
+    secondaryMenu,
   };
 }
 export async function getPageProps(api) {
-  const globals = await api.findGlobal("header-and-footer");
-  const navbar = getNavBar(globals);
-  const footer = getFooter(globals);
+  const settings = await api.findGlobal("settings");
+  const navbar = getNavBar(settings);
+  const footer = getFooter(settings);
   return {
     footer,
     navbar,

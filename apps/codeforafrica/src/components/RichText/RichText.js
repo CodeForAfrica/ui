@@ -72,9 +72,9 @@ const serialize = (children, props) =>
         return <blockquote key={i}>{serialize(node.children)}</blockquote>;
       case "link":
         return (
-          <Link href={node.href} key={i}>
+          <RichTypography component={Link} href={node.href} key={i} {...props}>
             {serialize(node.children)}
-          </Link>
+          </RichTypography>
         );
       default:
         return (
@@ -84,7 +84,7 @@ const serialize = (children, props) =>
             {...props}
             key={i}
           >
-            {serialize(node.children)}
+            {serialize(node.children, props)}
           </RichTypography>
         );
     }
@@ -92,7 +92,6 @@ const serialize = (children, props) =>
 
 const RichText = React.forwardRef(function RichText(props, ref) {
   const { color, elements, sx, ...other } = props;
-
   if (!elements?.length) {
     return null;
   }

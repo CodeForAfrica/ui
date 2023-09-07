@@ -58,15 +58,14 @@ const linkField = link({
 });
 
 const Globals = {
-  slug: "header-and-footer",
+  slug: "settings",
   access: {
     read: () => true,
   },
-  label: "Globals",
+  label: "Settings",
   fields: [
-    // Common
     {
-      label: "Header and Footer",
+      label: "General",
       type: "collapsible",
       fields: [
         {
@@ -96,6 +95,16 @@ const Globals = {
           ],
         },
         {
+          name: "title",
+          type: "text",
+          required: true,
+        },
+        richText({
+          name: "description",
+          label: "Description",
+          required: true,
+        }),
+        {
           type: "group",
           name: "connect",
           label: "Social Accounts",
@@ -114,31 +123,6 @@ const Globals = {
             socialLinks(),
           ],
         },
-        linkArray({
-          overrides: {
-            label: "Menus",
-            name: "menus",
-            fields: [linkField],
-          },
-        }),
-      ],
-    },
-    // Footer
-    {
-      label: "Footer",
-      type: "collapsible",
-      fields: [
-        richText({
-          name: "description",
-          label: "Description",
-          required: true,
-        }),
-        linkArray({
-          overrides: {
-            name: "secondaryMenu",
-            label: "Secondary Menu",
-          },
-        }),
         {
           name: "newsletter",
           type: "group",
@@ -162,10 +146,31 @@ const Globals = {
             },
           ],
         },
+      ],
+    },
+    {
+      label: "Navigation",
+      type: "collapsible",
+      fields: [
         {
-          name: "copyright",
-          label: "Copyright",
-          type: "text",
+          type: "group",
+          name: "navigation",
+          fields: [
+            linkArray({
+              overrides: {
+                label: "Primary Menus",
+                name: "primary",
+                fields: [linkField],
+              },
+            }),
+            linkArray({
+              overrides: {
+                label: "Primary Menus",
+                name: "secondary",
+                fields: [linkField],
+              },
+            }),
+          ],
         },
       ],
     },
