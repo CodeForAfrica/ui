@@ -10,13 +10,9 @@ async function blockify(blocks) {
     const blockifyFunction = blockifyBySlug[slug];
     if (blockifyFunction) {
       const processedBlock = await blockifyFunction(block);
-      return {
-        [slug]: processedBlock,
-      };
+      return processedBlock;
     }
-    return {
-      [slug]: block,
-    };
+    return block;
   });
   return Promise.all(promises);
 }

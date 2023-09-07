@@ -59,6 +59,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "clsx": "^2.0.0"
+    "clsx": "^2.0.0",
+    "slate": "^0.94.1"
   }
 }

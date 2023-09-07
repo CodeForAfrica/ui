@@ -12,9 +12,10 @@ function hero(block) {
     subtitle,
     messages,
     image: {
-      url,
+      src: url,
       alt,
     },
+    slug: "hero",
   };
 }
 
