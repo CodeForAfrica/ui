@@ -20,7 +20,7 @@ const platformToIconMap = {
 };
 
 const StayInTouch = React.forwardRef(function StayInTouch(
-  { links, sx, title },
+  { socialLinks: links, sx, title },
   ref,
 ) {
   if (!links?.length) {
@@ -99,7 +99,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
 });
 
 StayInTouch.propTypes = {
-  links: PropTypes.arrayOf(
+  socialLinks: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string.isRequired,
       platform: PropTypes.string.isRequired,
@@ -109,7 +109,7 @@ StayInTouch.propTypes = {
 };
 
 StayInTouch.defaultProps = {
-  links: undefined,
+  socialLinks: undefined,
   title: undefined,
 };
 
