@@ -8,7 +8,7 @@ function getNavBar(globals) {
   return {
     logo: {
       alt: image.alt || "Code for Africa",
-      src: image.url,
+      src: image.url ?? null,
     },
     menus: menus.map(({ label, href }) => ({ content: label, href })),
     socialLinks,
@@ -17,7 +17,7 @@ function getNavBar(globals) {
 
 function getFooter(globals) {
   const {
-    logo: { blackAndWhite: logo },
+    logo: { blackAndWhite: logo = null },
     ...footer
   } = globals;
   return {
