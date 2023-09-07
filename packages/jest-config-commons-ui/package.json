@@ -16,7 +16,7 @@
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
-    "jest-environment-jsdom": "^29.6.1"
+    "jest-environment-jsdom": "^29.6.4"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
