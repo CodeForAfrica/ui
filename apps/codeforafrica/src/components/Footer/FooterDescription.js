@@ -33,10 +33,13 @@ const FooterDescription = React.forwardRef(
             color: "text.secondary",
             sx: { textDecorationColor: "text.secondary" },
           }}
-          sx={{
+          sx={(theme) => ({
             mt: "52px",
             textAlign: { xs: "center", md: "left" },
-          }}
+            a: {
+              textDecorationColor: theme.palette.text.secondary,
+            },
+          })}
           ref={ref}
           elements={description}
         />
