@@ -1072,9 +1072,6 @@ importers:
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
-      slate:
-        specifier: ^0.94.1
-        version: 0.94.1
     devDependencies:
       "@babel/core":
         specifier: ^7.22.9
