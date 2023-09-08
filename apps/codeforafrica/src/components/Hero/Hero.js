@@ -9,6 +9,7 @@ import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const Hero = React.forwardRef(function Hero(props, ref) {
   const { image, slug, sx, ...other } = props;
+
   return (
     <TwoToneBackground
       sx={{ py: { xs: "43px", sm: 0, md: "65px", lg: 0 }, ...sx }}
