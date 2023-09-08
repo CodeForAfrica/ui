@@ -65,111 +65,114 @@ const Globals = {
   label: "Settings",
   fields: [
     {
-      label: "General",
-      type: "collapsible",
-      fields: [
+      type: "tabs",
+      tabs: [
         {
-          name: "logo",
-          type: "group",
+          label: "General",
           fields: [
             {
-              name: "coloured",
-              type: "upload",
-              relationTo: "media",
-              required: true,
-              filterOptions: {
-                mimeType: { contains: "image" },
-              },
-              label: "Coloured Logo",
+              name: "logo",
+              type: "group",
+              fields: [
+                {
+                  name: "coloured",
+                  type: "upload",
+                  relationTo: "media",
+                  required: true,
+                  filterOptions: {
+                    mimeType: { contains: "image" },
+                  },
+                  label: "Coloured Logo",
+                },
+                {
+                  name: "blackAndWhite",
+                  type: "upload",
+                  relationTo: "media",
+                  required: true,
+                  filterOptions: {
+                    mimeType: { contains: "image" },
+                  },
+                  label: "Black and White Logo",
+                },
+              ],
             },
-            {
-              name: "blackAndWhite",
-              type: "upload",
-              relationTo: "media",
-              required: true,
-              filterOptions: {
-                mimeType: { contains: "image" },
-              },
-              label: "Black and White Logo",
-            },
-          ],
-        },
-        {
-          name: "title",
-          type: "text",
-          required: true,
-        },
-        richText({
-          name: "description",
-          label: "Description",
-          required: true,
-        }),
-        {
-          type: "group",
-          name: "connect",
-          label: "Social Accounts",
-          fields: [
             {
               name: "title",
               type: "text",
-              label: "Title",
-              admin: {
-                description: () =>
-                  "Text that appears on contact links e.g Stay in Touch",
-              },
-
               required: true,
             },
-            socialLinks(),
+            richText({
+              name: "description",
+              label: "Description",
+              required: true,
+            }),
+            {
+              type: "group",
+              name: "connect",
+              label: "Social Accounts",
+              fields: [
+                {
+                  name: "title",
+                  type: "text",
+                  label: "Title",
+                  admin: {
+                    description: () =>
+                      "Text that appears on contact links e.g Stay in Touch",
+                  },
+
+                  required: true,
+                },
+                socialLinks(),
+              ],
+            },
+            {
+              name: "newsletter",
+              type: "group",
+              label: "Newsletter",
+              fields: [
+                {
+                  name: "title",
+                  required: true,
+
+                  type: "text",
+                  label: "Title",
+                },
+                {
+                  name: "embedCode",
+                  type: "code",
+                  label: "Embed Code",
+                  required: true,
+                  admin: {
+                    language: "html",
+                  },
+                },
+              ],
+            },
           ],
         },
         {
-          name: "newsletter",
-          type: "group",
-          label: "Newsletter",
+          label: "Navigation",
           fields: [
             {
-              name: "title",
-              required: true,
-
-              type: "text",
-              label: "Title",
+              type: "group",
+              name: "navigation",
+              fields: [
+                linkArray({
+                  overrides: {
+                    label: "Primary Menus",
+                    name: "primary",
+                    fields: [linkField],
+                  },
+                }),
+                linkArray({
+                  overrides: {
+                    label: "Secondary Menus",
+                    name: "secondary",
+                    fields: [linkField],
+                  },
+                }),
+              ],
             },
-            {
-              name: "embedCode",
-              type: "code",
-              label: "Embed Code",
-              required: true,
-              admin: {
-                language: "html",
-              },
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: "Navigation",
-      type: "collapsible",
-      fields: [
-        {
-          type: "group",
-          name: "navigation",
-          fields: [
-            linkArray({
-              overrides: {
-                label: "Primary Menus",
-                name: "primary",
-                fields: [linkField],
-              },
-            }),
-            linkArray({
-              overrides: {
-                label: "Primary Menus",
-                name: "secondary",
-                fields: [linkField],
-              },
-            }),
           ],
         },
       ],
