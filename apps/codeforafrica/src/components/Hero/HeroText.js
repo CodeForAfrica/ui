@@ -1,7 +1,9 @@
-import { RichTypography, RichText } from "@commons-ui/next";
+import { RichTypography } from "@commons-ui/next";
 import { Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
+
+import RichText from "@/codeforafrica/components/RichText";
 
 const HeroTextRoot = styled(Stack)(({ theme }) => ({
   width: "100%",
