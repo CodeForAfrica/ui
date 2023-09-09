@@ -1,23 +1,27 @@
 import hero from "./hero";
 
-const blockifyBySlug = {
+const propsifyBlockBySlug = {
   hero,
 };
 
 async function blockify(blocks) {
-  const promises = blocks.map(async (block) => {
+  const promises = blocks?.map(async (block) => {
     const slug = block.blockType;
-    const blockifyFunction = blockifyBySlug[slug];
-    if (blockifyFunction) {
-      const processedBlock = await blockifyFunction(block);
-      return processedBlock;
+    const propsifyBlock = propsifyBlockBySlug[slug];
+
+    if (propsifyBlock) {
+      return propsifyBlock(block);
     }
     return {
       ...block,
       slug,
     };
   });
-  return Promise.all(promises);
+
+  if (promises) {
+    return Promise.all(promises);
+  }
+  return blocks;
 }
 
 export default blockify;

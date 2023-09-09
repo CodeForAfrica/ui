@@ -1,18 +1,16 @@
-function hero(block) {
-  const {
-    title,
-    subtitle,
-    messages: messageList,
-    image: { url, alt },
-  } = block;
+import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
 
+function hero(block) {
+  const { image: media, messages: messageList, title, ...other } = block;
+  const image = imageFromMedia({ alt: title, ...media });
   const messages = messageList.map((message) => message.message);
+
   return {
-    title,
-    subtitle,
+    ...other,
+    image,
     messages,
-    image: { src: url, alt },
     slug: "hero",
+    title,
   };
 }
 
