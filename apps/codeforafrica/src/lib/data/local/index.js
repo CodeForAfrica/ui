@@ -10,6 +10,7 @@ function getPageSlug({ params }) {
   const pageSlugIndex = slugsCount < 3 ? slugsCount - 1 : 1;
   return params?.slugs?.[pageSlugIndex] || "index";
 }
+
 export async function getPageServerSideProps(context) {
   const slug = getPageSlug(context);
   const pathname =
@@ -18,6 +19,7 @@ export async function getPageServerSideProps(context) {
   if (!props) {
     return { notFound: true };
   }
+
   // TODO Remove static props
   const { props: staticProps } = await getPageStaticProps({ slug: pathname });
   return {
