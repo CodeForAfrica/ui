@@ -1,3 +1,5 @@
+import path from "path";
+
 import { buildConfig } from "payload/config";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
@@ -30,6 +32,7 @@ export default buildConfig({
   collections: [Pages, Media] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
   admin: {
+    css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
     webpack: (config) => ({
       ...config,
       resolve: {
