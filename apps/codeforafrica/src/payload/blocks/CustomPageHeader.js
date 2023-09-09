@@ -1,5 +1,9 @@
-const AboutPageHeader = {
-  slug: "about-page-header",
+import image from "../fields/image";
+
+const CustomPageHeader = {
+  slug: "custom-page-header",
+  imageURL: "/images/cms/blocks/custom_page_header.jpg",
+  imageAltText: "Used in about page.",
   fields: [
     {
       name: "title",
@@ -13,14 +17,12 @@ const AboutPageHeader = {
       required: true,
       type: "text",
     },
-    {
-      name: "image",
-      type: "upload",
-      relationTo: "media",
-      required: true,
-      label: "Image",
-    },
+    image({
+      overrides: {
+        required: true,
+      },
+    }),
   ],
 };
 
-export default AboutPageHeader;
+export default CustomPageHeader;

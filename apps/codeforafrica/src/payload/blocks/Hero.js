@@ -1,7 +1,10 @@
+import image from "../fields/image";
 import richText from "../fields/richText";
 
 const Hero = {
   slug: "hero",
+  imageURL: "/images/cms/blocks/hero.jpg",
+  imageAltText: "Used in homepage.",
   fields: [
     richText({
       name: "title",
@@ -30,6 +33,7 @@ const Hero = {
         },
       ],
       admin: {
+        className: "array-field-nested",
         components: {
           RowLabel: ({ data }) => {
             return data.message;
@@ -37,13 +41,11 @@ const Hero = {
         },
       },
     },
-    {
-      name: "image",
-      type: "upload",
-      relationTo: "media",
-      required: true,
-      label: "Image",
-    },
+    image({
+      overrides: {
+        required: true,
+      },
+    }),
   ],
 };
 

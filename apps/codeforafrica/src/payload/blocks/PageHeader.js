@@ -1,5 +1,6 @@
 const PageHeader = {
   slug: "page-header",
+  imageURL: "/images/cms/blocks/page_header.jpg",
   fields: [
     {
       name: "title",
