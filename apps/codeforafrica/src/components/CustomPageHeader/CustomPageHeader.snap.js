@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AboutPageHeader /> renders unchanged 1`] = `
+exports[`<CustomPageHeader /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-g6ohb3"
