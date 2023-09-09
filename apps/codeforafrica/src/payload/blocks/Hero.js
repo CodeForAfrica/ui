@@ -16,16 +16,11 @@ const Hero = {
       },
     }),
     {
-      name: "subtitle",
-      label: "Subtitle",
-      required: true,
-      type: "text",
-    },
-    {
       name: "messages",
       type: "array",
       label: "Messages",
-      minRows: 1,
+      minRows: 3,
+      maxRows: 3,
       fields: [
         {
           name: "message",
@@ -35,11 +30,17 @@ const Hero = {
       admin: {
         className: "array-field-nested",
         components: {
-          RowLabel: ({ data }) => {
-            return data.message;
+          RowLabel: ({ data, index }) => {
+            return data?.message || `Message ${String(index).padStart(2, "0")}`;
           },
         },
       },
+    },
+    {
+      name: "subtitle",
+      label: "Description",
+      required: true,
+      type: "text",
     },
     image({
       overrides: {
