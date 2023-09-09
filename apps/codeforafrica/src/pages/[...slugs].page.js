@@ -1,7 +1,7 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
-import AboutPageHeader from "@/codeforafrica/components/AboutPageHeader";
+import CustomPageHeader from "@/codeforafrica/components/CustomPageHeader";
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
 import GetInvolved from "@/codeforafrica/components/GetInvolved";
 import Hero from "@/codeforafrica/components/Hero";
@@ -15,7 +15,7 @@ import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 const componentsBySlugs = {
   hero: Hero,
   "page-header": PageHeader,
-  "about-page-header": AboutPageHeader,
+  "custom-page-header": CustomPageHeader,
   "meet-our-team": MeetOurTeam,
   "news-stories": NewsAndStories,
   "our-impact": GetInvolved,
@@ -50,7 +50,7 @@ function Index({ blocks, fallback, ...props }) {
 }
 
 export async function getServerSideProps(context) {
-  return getPageServerSideProps(context, "/");
+  return getPageServerSideProps(context);
 }
 
 export default Index;
