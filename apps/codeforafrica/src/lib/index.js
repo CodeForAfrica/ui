@@ -3,7 +3,6 @@ import {
   getBody,
   getContactForm,
   getCmsProjects,
-  getFooter,
   getGetInTouch,
   getJoinUs,
   getMeetOurTeam,
@@ -72,8 +71,6 @@ function getRandomStartIndex(length, size) {
   const max = length >= size ? length - size : length;
   return getRandomInt(max);
 }
-
-const footer = getFooter();
 
 const meetOurTeam = getMeetOurTeam();
 
@@ -189,7 +186,6 @@ async function getHomePageStaticProps() {
           ...getOurImpact(),
         },
       ],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -247,7 +243,6 @@ async function getOpportunitiesPageStaticProps() {
           tags,
         },
       ],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -265,7 +260,6 @@ async function getOpportunityPageStaticProps(params) {
       props: {
         seo,
         opportunity,
-        footer,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -281,7 +275,6 @@ function getImprintPageStaticProps() {
       seo,
       ...getBody("imprint"),
       sections: [],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -295,7 +288,6 @@ function getPrivacyPageStaticProps() {
       seo,
       ...getBody("privacy-policy"),
       sections: [],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -339,7 +331,6 @@ async function getProjectPageStaticProps(params) {
               .slice(startIndex, startIndex + 3),
           },
         ],
-        footer,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -360,7 +351,6 @@ function getProjectsPageStaticProps() {
           projects: getProjects(),
         },
       ],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -381,7 +371,6 @@ async function getStoriesPageStaticProps() {
           tags,
         },
       ],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -412,7 +401,6 @@ async function getStoryPageStaticProps(slug) {
             articles: relatedArticles?.slice(0, count) ?? null,
           },
         ],
-        footer,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -476,7 +464,6 @@ function getAboutImpactPageStaticProps() {
           ...getGetInTouch(),
         },
       ],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -504,7 +491,6 @@ function getAboutMemberPageStaticProps(params) {
             ),
           },
         ],
-        footer,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -531,7 +517,6 @@ function getAboutMembersPageStaticProps() {
           ...getGetInTouch(),
         },
       ],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -566,7 +551,6 @@ function getAboutPageStaticProps() {
           ...getGetInTouch(),
         },
       ],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -596,7 +580,6 @@ function getAboutPartnerPageStaticProps(params) {
             ),
           },
         ],
-        footer,
       },
       revalidate: DEFAULT_REVALIDATE,
     };
@@ -620,7 +603,6 @@ function getAboutPartnersPageStaticProps() {
           ...getGetInTouch(),
         },
       ],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -654,7 +636,6 @@ function getContactPageStaticProps() {
           },
         },
       ],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -678,7 +659,6 @@ async function getErrorPageStaticProps() {
           ...(await getProcessedRecentStories("error")),
         },
       ],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -695,7 +675,6 @@ async function get404PageStaticProps() {
           ...(await getProcessedRecentStories("404")),
         },
       ],
-      footer,
     },
     revalidate: DEFAULT_REVALIDATE,
   };

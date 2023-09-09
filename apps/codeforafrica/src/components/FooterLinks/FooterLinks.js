@@ -7,15 +7,15 @@ import FooterNavList from "@/codeforafrica/components/FooterNavList";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
 const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
-  const { menu, secondaryMenu, sx } = props;
+  const { primaryMenus, secondaryMenus, sx } = props;
 
-  if (!(menu?.length || secondaryMenu?.length)) {
+  if (!(primaryMenus?.length || secondaryMenus?.length)) {
     return null;
   }
   return (
     <Box sx={sx} ref={ref}>
-      <FooterNavList menu={menu}>
-        {secondaryMenu?.map((item, i) => (
+      <FooterNavList menus={primaryMenus}>
+        {secondaryMenus?.map((item, i) => (
           <NavListItem
             sx={{
               display: "flex",
@@ -23,7 +23,7 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
               mt: i === 0 ? 5 : undefined,
               p: "0  0 10px",
             }}
-            key={item.content}
+            key={item.href}
           >
             <Link
               underline="none"
@@ -33,7 +33,7 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
               }}
               href={item.href}
             >
-              {item.content}
+              {item.label}
             </Link>
           </NavListItem>
         )) ?? null}

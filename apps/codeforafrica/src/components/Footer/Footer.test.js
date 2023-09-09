@@ -17,7 +17,7 @@ const defaultProps = {
     { content: "Imprint", href: "/imprint" },
     { content: "Privacy policy", href: "/policy" },
   ],
-  menu: [
+  menus: [
     {
       content: "Our Work",
       href: "/our-work",

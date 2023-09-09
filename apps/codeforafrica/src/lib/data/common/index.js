@@ -1,5 +1,39 @@
 import blockify from "@/codeforafrica/lib/data/blockify";
-import getNavigation from "@/codeforafrica/lib/data/common/navigation";
+import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
+
+function getNavBar(settings) {
+  const {
+    connect: { links: socialLinks = [] },
+    primaryLogo: media,
+    primaryNavigation,
+    title,
+  } = settings;
+
+  return {
+    logo: imageFromMedia({ alt: title, ...media }),
+    menus: primaryNavigation?.menus || null,
+    socialLinks,
+  };
+}
+
+function getFooter(settings) {
+  const {
+    primaryLogo,
+    primaryNavigation,
+    secondaryLogo,
+    secondaryNavigation,
+    title,
+    ...footer
+  } = settings;
+  const media = secondaryLogo || primaryLogo;
+
+  return {
+    ...footer,
+    logo: imageFromMedia({ alt: title, ...media }),
+    primaryMenus: primaryNavigation?.menus || null,
+    secondaryMenus: secondaryNavigation?.menus || null,
+  };
+}
 
 export async function getPageProps(api, slug) {
   const {
@@ -8,12 +42,16 @@ export async function getPageProps(api, slug) {
   if (!page) {
     return null;
   }
-  const { blocks = [] } = page;
-  const processedBlocks = await blockify(blocks);
-  const navigation = await getNavigation(api);
+
+  const settings = await api.findGlobal("settings");
+  const navbar = getNavBar(settings);
+  const footer = getFooter(settings);
+  const blocks = await blockify(page.blocks);
+
   return {
-    navbar: navigation,
-    blocks: processedBlocks,
+    blocks,
+    footer,
+    navbar,
   };
 }
 
