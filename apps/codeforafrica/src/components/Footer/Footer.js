@@ -25,8 +25,14 @@ const FooterRoot = styled(Box)(
 );
 
 const Footer = React.forwardRef(function Footer(props, ref) {
-  const { newsletter, description, secondaryMenu, connect, menus, logo } =
-    props;
+  const {
+    connect,
+    description,
+    logo,
+    newsletter,
+    primaryMenus,
+    secondaryMenus,
+  } = props;
 
   return (
     <FooterRoot component="footer" ref={ref}>
@@ -66,8 +72,8 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               </Grid>
               <Grid item xs={12} md="auto">
                 <FooterLinks
-                  menu={menus}
-                  secondaryMenu={secondaryMenu}
+                  primaryMenus={primaryMenus}
+                  secondaryMenus={secondaryMenus}
                   sx={{ mt: { xs: "52px", md: 0 } }}
                 />
               </Grid>

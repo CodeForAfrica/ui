@@ -20,7 +20,7 @@ const platformToIconMap = {
 };
 
 const StayInTouch = React.forwardRef(function StayInTouch(
-  { socialLinks: links, sx, title },
+  { links, sx, title },
   ref,
 ) {
   if (!links?.length) {
@@ -36,20 +36,18 @@ const StayInTouch = React.forwardRef(function StayInTouch(
       }}
       ref={ref}
     >
-      {title?.length ? (
-        <Grid item xs={12} md="auto">
-          <RichTypography
-            sx={{
-              mb: { xs: 2.5, md: 0 },
-              mr: { md: 4 },
-              textAlign: { xs: "center", md: "left" },
-            }}
-            variant="footerCap"
-          >
-            {title}
-          </RichTypography>
-        </Grid>
-      ) : null}
+      <Grid item xs={12} md="auto">
+        <RichTypography
+          sx={{
+            mb: { xs: 2.5, md: 0 },
+            mr: { md: 4 },
+            textAlign: { xs: "center", md: "left" },
+          }}
+          variant="footerCap"
+        >
+          {title}
+        </RichTypography>
+      </Grid>
       <Grid
         item
         xs={12}
@@ -58,11 +56,9 @@ const StayInTouch = React.forwardRef(function StayInTouch(
         justifyContent={{ xs: "center", md: "flex-start" }}
       >
         {links.map(({ url, platform }) => {
-          if (!url) {
-            return null;
-          }
           const Icon = platformToIconMap[platform];
-          if (!Icon) {
+
+          if (!(Icon || url)) {
             return null;
           }
           return (
@@ -99,7 +95,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
 });
 
 StayInTouch.propTypes = {
-  socialLinks: PropTypes.arrayOf(
+  links: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string.isRequired,
       platform: PropTypes.string.isRequired,
@@ -109,7 +105,7 @@ StayInTouch.propTypes = {
 };
 
 StayInTouch.defaultProps = {
-  socialLinks: undefined,
+  links: undefined,
   title: undefined,
 };
 

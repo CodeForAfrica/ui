@@ -11,23 +11,23 @@ const render = createRender({ theme });
 const defaultProps = {
   menus: [
     {
-      content: "Our Work",
+      label: "Our Work",
       href: "/our-work",
     },
     {
-      content: "About",
+      label: "About",
       href: "/about",
     },
     {
-      content: "Stories",
+      label: "Stories",
       href: "/about",
     },
     {
-      content: "Opportunity",
+      label: "Opportunity",
       href: "/opportunity",
     },
     {
-      content: "Contact",
+      label: "Contact",
       href: "/contact",
     },
   ],

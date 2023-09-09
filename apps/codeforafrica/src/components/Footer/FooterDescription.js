@@ -17,11 +17,12 @@ const FooterDescription = React.forwardRef(
       <Stack alignItems={{ xs: "center", md: "flex-start" }} sx={sx} ref={ref}>
         <Link href="/">
           <Figure
-            ImageProps={{ alt: logo.alt, src: logo.url }}
+            ImageProps={logo}
             sx={{
               display: {
                 sm: "block",
               },
+              filter: "grayscale(100%)",
               height: { xs: "113px", md: "113px", lg: "113px" },
               width: { xs: "251px", md: "251px", lg: "251px" },
             }}
