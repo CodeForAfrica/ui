@@ -1,4 +1,4 @@
-import AboutPageHeader from "../blocks/AboutPageHeader";
+import CustomPageHeader from "../blocks/CustomPageHeader";
 import Hero from "../blocks/Hero";
 import PageHeader from "../blocks/PageHeader";
 import fullTitle from "../fields/fullTitle";
@@ -31,7 +31,11 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [Hero, PageHeader, AboutPageHeader],
+      // Generally sort blocks alphabetically but keep related blocks next to
+      // each other e.g. while alphabecially CustomPageHeader should be with C,
+      // it's functiaonally equivalent with PageHeader so we keep it next to
+      // PageHeader
+      blocks: [Hero, PageHeader, CustomPageHeader],
       admin: {
         initCollapsed: true,
       },
