@@ -2,6 +2,6 @@
 
 exports[`/404 renders unchanged 1`] = `
 <div>
-  <main />
+  <div />
 </div>
 `;
