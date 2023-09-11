@@ -34,6 +34,7 @@ function getFooter(settings) {
     secondaryMenus: secondaryNavigation?.menus || null,
   };
 }
+
 function getPageSlug({ params }) {
   const slugsCount = params?.slugs?.length;
   // count < 3, page slug is the last slug e.g. ["about"] or ["knowldge/news"]
