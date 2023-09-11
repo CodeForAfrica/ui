@@ -1,32 +1,32 @@
-name: Code for Africa | Deploy | REVIEW APP
+name: Code for Africa | Deploy | DEV
 
 on:
-  pull_request:
+  push:
+    branches: [develop]
     paths:
       - "apps/codeforafrica/**"
       - "Dockerfile.codeforafrica"
       - ".github/**"
+
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 env:
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
   IMAGE_NAME: "codeforafrica/codeforafrica-ui"
-  ORIGINAL_APP_NAME: "codeforafrica-ui"
-  NEXT_PUBLIC_APP_URL: "https://codeforafrica-ui-pr-${{github.event.pull_request.number}}.dev.codeforafrica.org"
+  NEXT_PUBLIC_APP_URL: "https://codeforafrica.dev.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  APP_NAME: codeforafrica-ui-pr-${{ github.event.pull_request.number }}
+  APP_NAME: codeforafrica-ui
 
 jobs:
-  review_app:
+  deploy:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         node-version: [18]
         os: [ubuntu-latest]
-    if: github.event_name == 'pull_request' && github.event.action != 'closed'
     steps:
       - name: Cloning repo
         uses: actions/checkout@v3
@@ -68,38 +68,17 @@ jobs:
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 
-      - name: Push to dokku
-        uses: dokku/github-action@master
+      # Temp fix
+      # https://github.com/docker/build-push-action/issues/252
+      # https://github.com/moby/buildkit/issues/1896
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cach
+
+      - name: Push to Dokku
+        uses: dokku/github-action@v1.4.0
         with:
-          # create a review app
-          command: review-apps:create
-          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-ui
-          # specify a name for the review app
-          review_app_name: ${{ env.APP_NAME }}
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
-
-      - name: Update Preview URL
-        run: (gh pr comment ${{ env.issue-number }} --edit-last --body='${{ env.body }}' || gh pr comment ${{ env.issue-number }} --body='${{ env.body }}')
-        env:
-          issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            Latest updated Preview URL
-            | Name  | Review |
-            |-------|--------|
-            | ${{ env.APP_NAME }}  | [Visit](https://${{ env.APP_NAME }}.dev.codeforafrica.org)  |
-
-  destroy_review_app:
-    runs-on: ubuntu-latest
-    # only run when a pull request is closed
-    if: github.event.action == 'closed'
-    steps:
-      - name: Destroy the review app
-        uses: dokku/github-action@master
-        with:
-          # destroy a review app
-          command: review-apps:destroy
-          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}
-          # specify a name for the review app
-          review_app_name: ${{ env.APP_NAME }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
