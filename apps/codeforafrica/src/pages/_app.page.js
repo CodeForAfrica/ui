@@ -7,6 +7,7 @@ import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 
+import Page from "@/codeforafrica/components/Page";
 import SEO from "@/codeforafrica/next-seo.config";
 import "@/codeforafrica/theme/fonts.css";
 import theme from "@/codeforafrica/theme";
@@ -14,9 +15,13 @@ import createEmotionCache from "@/codeforafrica/utils/createEmotionCache";
 
 const clientSideEmotionCache = createEmotionCache();
 
+function getDefaultLayout(page, pageProps) {
+  return <Page {...pageProps}>{page}</Page>;
+}
 function MyApp(props) {
   const router = useRouter();
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const getLayout = Component.getLayout || getDefaultLayout;
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID) {
       const handleRouteChange = (url) => {
@@ -55,7 +60,7 @@ function MyApp(props) {
         </Head>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Component {...pageProps} />
+          {getLayout(<Component {...pageProps} />, pageProps)}
         </ThemeProvider>
       </CacheProvider>
       <Script
