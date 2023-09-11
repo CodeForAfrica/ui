@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import AboutPageHeader from "./AboutPageHeader";
+import CustomPageHeader from "./CustomPageHeader";
 
 import theme from "@/codeforafrica/theme";
 
@@ -17,9 +17,9 @@ const defaultProps = {
   },
 };
 
-describe("<AboutPageHeader />", () => {
+describe("<CustomPageHeader />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<AboutPageHeader {...defaultProps} />);
+    const { container } = render(<CustomPageHeader {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

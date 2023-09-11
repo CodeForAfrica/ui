@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AboutPageHeader /> renders unchanged 1`] = `
+exports[`<CustomPageHeader /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1owuob1"
+    class="MuiBox-root css-g6ohb3"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-17rh705-MuiContainer-root"

@@ -1,6 +1,5 @@
-function imageFromMedia({ alt = null, url = null }) {
-  return { alt, src: url };
-}
+import blockify from "@/codeforafrica/lib/data/blockify";
+import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
 
 function getNavBar(settings) {
   const {
@@ -35,12 +34,22 @@ function getFooter(settings) {
     secondaryMenus: secondaryNavigation?.menus || null,
   };
 }
-export async function getPageProps(api) {
+
+export async function getPageProps(api, slug) {
+  const {
+    docs: [page],
+  } = await api.findPage(slug);
+  if (!page) {
+    return null;
+  }
+
   const settings = await api.findGlobal("settings");
   const navbar = getNavBar(settings);
   const footer = getFooter(settings);
+  const blocks = await blockify(page.blocks);
 
   return {
+    blocks,
     footer,
     navbar,
   };

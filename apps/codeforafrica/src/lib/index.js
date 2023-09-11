@@ -4,7 +4,6 @@ import {
   getContactForm,
   getCmsProjects,
   getGetInTouch,
-  getHero,
   getJoinUs,
   getMeetOurTeam,
   getNewsAndStories,
@@ -172,9 +171,6 @@ async function getHomePageStaticProps() {
       seo,
       sections: [
         {
-          ...getHero("index"),
-        },
-        {
           ...getOurProjects(),
           projects,
           tags: getProjectTags({ includeAll: false }),
@@ -242,9 +238,6 @@ async function getOpportunitiesPageStaticProps() {
       seo,
       sections: [
         {
-          ...getHero("opportunities"),
-        },
-        {
           ...getOurOpportunities(),
           opportunities: paginateResults(allOpportunities),
           tags,
@@ -281,11 +274,7 @@ function getImprintPageStaticProps() {
     props: {
       seo,
       ...getBody("imprint"),
-      sections: [
-        {
-          ...getHero("imprint"),
-        },
-      ],
+      sections: [],
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -298,11 +287,7 @@ function getPrivacyPageStaticProps() {
     props: {
       seo,
       ...getBody("privacy-policy"),
-      sections: [
-        {
-          ...getHero("privacy-policy"),
-        },
-      ],
+      sections: [],
     },
     revalidate: DEFAULT_REVALIDATE,
   };
@@ -360,9 +345,6 @@ function getProjectsPageStaticProps() {
     props: {
       seo,
       sections: [
-        {
-          ...getHero("our-work"),
-        },
         {
           ...getOurProjects("our-work"),
           tags: getProjectTags(),
@@ -476,9 +458,6 @@ function getAboutImpactPageStaticProps() {
       crumbs: [{ href: "/about", label: "About us" }, { label: "Impact" }],
       sections: [
         {
-          ...getHero("about"),
-        },
-        {
           ...getOurImpact("about"),
         },
         {
@@ -529,9 +508,6 @@ function getAboutMembersPageStaticProps() {
       crumbs: [{ href: "/about", label: "About us" }, { label: "Members" }],
       sections: [
         {
-          ...getHero("about"),
-        },
-        {
           ...getOurTeam(),
           pathname: "/about/members",
           tags: getMembersFieldTags(),
@@ -553,9 +529,6 @@ function getAboutPageStaticProps() {
     props: {
       seo,
       sections: [
-        {
-          ...getHero("about"),
-        },
         {
           ...getOurMission(),
         },
@@ -624,9 +597,6 @@ function getAboutPartnersPageStaticProps() {
       crumbs: [{ href: "/about", label: "About us" }, { label: "Partners" }],
       sections: [
         {
-          ...getHero("about"),
-        },
-        {
           ...getOurPartners("about"),
         },
         {
@@ -645,9 +615,6 @@ function getContactPageStaticProps() {
     props: {
       seo,
       sections: [
-        {
-          ...getHero("contact"),
-        },
         {
           ...getContactForm(),
         },
@@ -689,9 +656,6 @@ async function getErrorPageStaticProps() {
       seo,
       sections: [
         {
-          ...getHero("error"),
-        },
-        {
           ...(await getProcessedRecentStories("error")),
         },
       ],
@@ -707,9 +671,6 @@ async function get404PageStaticProps() {
     props: {
       seo,
       sections: [
-        {
-          ...getHero("404"),
-        },
         {
           ...(await getProcessedRecentStories("404")),
         },
