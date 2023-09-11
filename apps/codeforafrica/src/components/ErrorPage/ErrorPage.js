@@ -1,12 +1,11 @@
 import { Box } from "@mui/material";
 
 import ErrorHero from "@/codeforafrica/components/ErrorHero";
-import Page from "@/codeforafrica/components/Page";
 import RelatedStories from "@/codeforafrica/components/RelatedStories";
 
 function ErrorPage({ sections, ...props }) {
   return (
-    <Page {...props}>
+    <div>
       {sections?.map((section) => {
         switch (section.slug) {
           case "hero":
@@ -36,7 +35,7 @@ function ErrorPage({ sections, ...props }) {
             return null;
         }
       })}
-    </Page>
+    </div>
   );
 }
 
