@@ -6,7 +6,7 @@ function NotFound(props) {
 }
 
 export async function getStaticProps(context) {
-  return getPageStaticProps(context, "/404");
+  return getPageStaticProps(context, "404");
 }
 
 export default NotFound;

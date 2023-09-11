@@ -36,7 +36,7 @@ export const api = {
 };
 
 export async function getPageStaticProps(context, slug) {
-  const props = await getPageProps(api, context);
+  const props = await getPageProps(api, slug);
   // TODO(koechkevin): Remove this
   const { props: staticProps } = await getStaticProps({ slug });
   return {
