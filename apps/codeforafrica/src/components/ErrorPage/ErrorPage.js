@@ -5,7 +5,8 @@ import RelatedStories from "@/codeforafrica/components/RelatedStories";
 
 function ErrorPage({ sections, ...props }) {
   return (
-    <div>
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    <>
       {sections?.map((section) => {
         switch (section.slug) {
           case "hero":
@@ -35,7 +36,7 @@ function ErrorPage({ sections, ...props }) {
             return null;
         }
       })}
-    </div>
+    </>
   );
 }
 

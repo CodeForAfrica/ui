@@ -18,6 +18,7 @@ const clientSideEmotionCache = createEmotionCache();
 function getDefaultLayout(page, pageProps) {
   return <Page {...pageProps}>{page}</Page>;
 }
+
 function MyApp(props) {
   const router = useRouter();
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
