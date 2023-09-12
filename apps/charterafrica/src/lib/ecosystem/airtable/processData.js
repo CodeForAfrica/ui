@@ -58,18 +58,9 @@ function mapSocialMediaColumnsToObjects(columns, data) {
       link,
     };
   };
-  return [
-    getData("twitter"),
-    getData("facebook"),
-    getData("youtube"),
-    getData("slack"),
-    getData("tiktok"),
-    getData("linkedIn"),
-    getData("instagram"),
-    getData("telegram"),
-    getData("discord"),
-    getData("whatsapp"),
-  ].filter(Boolean);
+  const SUPPORTED_SOCIAL_MEDIA =
+    "twitter,facebook,youtube,slack,tiktok,linkedIn,instagram,telegram,discord,whatsapp";
+  return SUPPORTED_SOCIAL_MEDIA.split(",").map(getData).filter(Boolean);
 }
 
 export function processTool(item, config, { partnersData }) {

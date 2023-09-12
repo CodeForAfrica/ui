@@ -79,6 +79,9 @@ function socialMediaColumns({ tableField, schema }) {
         },
       }),
     ],
+    admin: {
+      hideGutter: true,
+    },
   };
 }
 
