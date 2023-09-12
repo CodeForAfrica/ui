@@ -7,24 +7,14 @@ const Error = {
   fields: [
     {
       name: "title",
-      label: {
-        en: "Title",
-        fr: "Titre",
-        pt: "Título",
-      },
+      label: "Title",
       type: "text",
-      localized: true,
       required: true,
     },
     richText({
-      name: "description",
-      label: {
-        en: "Description",
-        fr: "La description",
-        pt: "Descrição",
-      },
+      name: "subtitle",
+      label: "Subtitle",
       localized: true,
-      required: true,
       admin: {
         elements: ["link"],
       },
