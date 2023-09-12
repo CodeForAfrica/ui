@@ -35,7 +35,17 @@ function getFooter(settings) {
   };
 }
 
-export async function getPageProps(api, slug) {
+function getPageSlug({ params }) {
+  const slugsCount = params?.slugs?.length;
+  // count < 3, page slug is the last slug e.g. ["about"] or ["knowldge/news"]
+  // count == 3, page slug is the 2nd slug (index 1); last slug (index 3)
+  //             is the post. e.g. opportunities/grants/democratic-governance-in-zambia
+  const pageSlugIndex = slugsCount < 3 ? slugsCount - 1 : 1;
+  return params?.slugs?.[pageSlugIndex] || "index";
+}
+
+export async function getPageProps(api, context) {
+  const slug = getPageSlug(context);
   const {
     docs: [page],
   } = await api.findPage(slug);

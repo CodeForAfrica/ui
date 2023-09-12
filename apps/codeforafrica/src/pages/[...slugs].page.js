@@ -8,7 +8,6 @@ import Hero from "@/codeforafrica/components/Hero";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
 import OurPartners from "@/codeforafrica/components/OurPartners";
-import Page from "@/codeforafrica/components/Page";
 import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
@@ -23,7 +22,7 @@ const componentsBySlugs = {
   projects: FeaturedProjects,
 };
 
-function Index({ blocks, fallback, ...props }) {
+function Index({ blocks, fallback }) {
   if (!blocks?.length) {
     return null;
   }
@@ -36,15 +35,13 @@ function Index({ blocks, fallback, ...props }) {
   }
   return (
     <PageComponent {...pageComponentProps}>
-      <Page {...props}>
-        {blocks.map((block) => {
-          const Component = componentsBySlugs[block.slug];
-          if (!Component) {
-            return null;
-          }
-          return <Component {...block} key={block.id} />;
-        })}
-      </Page>
+      {blocks.map((block) => {
+        const Component = componentsBySlugs[block.slug];
+        if (!Component) {
+          return null;
+        }
+        return <Component {...block} key={block.id} />;
+      })}
     </PageComponent>
   );
 }
