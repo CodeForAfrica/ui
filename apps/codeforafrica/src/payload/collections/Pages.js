@@ -1,5 +1,6 @@
 import CustomPageHeader from "../blocks/CustomPageHeader";
 import Hero from "../blocks/Hero";
+import OurPartners from "../blocks/OurPartners";
 import PageHeader from "../blocks/PageHeader";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
@@ -35,7 +36,7 @@ const Pages = {
       // each other e.g. while alphabecially CustomPageHeader should be with C,
       // it's functiaonally equivalent with PageHeader so we keep it next to
       // PageHeader
-      blocks: [Hero, PageHeader, CustomPageHeader],
+      blocks: [Hero, PageHeader, CustomPageHeader, OurPartners],
       admin: {
         initCollapsed: true,
       },
