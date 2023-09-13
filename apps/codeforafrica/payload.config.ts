@@ -32,7 +32,7 @@ export default buildConfig({
   collections: [Pages, Media] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
   admin: {
-    css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
+    // css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
     webpack: (config) => ({
       ...config,
       resolve: {
