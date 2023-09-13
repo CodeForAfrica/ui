@@ -1,5 +1,6 @@
 import richText from "../fields/richText";
 import slug from "../fields/slug";
+import socialLinks from "../fields/socialLinks";
 import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
 
 const Partners = {
@@ -60,6 +61,11 @@ const Partners = {
       },
       localized: true,
       required: true,
+    }),
+    socialLinks({
+      name: "connect",
+      label: "Social Media Links",
+      required: false,
     }),
   ],
   hooks: {
