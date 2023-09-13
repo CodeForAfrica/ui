@@ -14,7 +14,6 @@ const Error = {
     richText({
       name: "subtitle",
       label: "Subtitle",
-      localized: true,
       admin: {
         elements: ["link"],
       },
