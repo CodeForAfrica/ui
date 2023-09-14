@@ -1,4 +1,5 @@
 import blockify from "@/codeforafrica/lib/data/blockify";
+import getPageSeoFromMeta from "@/codeforafrica/lib/data/seo";
 import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
 
 function getNavBar(settings) {
@@ -58,10 +59,12 @@ export async function getPageProps(api, context) {
   const footer = getFooter(settings);
   const blocks = await blockify(page.blocks);
 
+  const seo = getPageSeoFromMeta(page, settings);
   return {
     blocks,
     footer,
     navbar,
+    seo,
   };
 }
 
