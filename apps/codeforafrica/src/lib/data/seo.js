@@ -26,7 +26,7 @@ export default function getPageSeoFromMeta(page, settings) {
     metaDescription || stringifyDescription(siteDescription) || null;
   const titleTemplate = siteTitle ? `%s | ${siteTitle}` : null;
   const defaultTitle = siteTitle || null;
-  const canonical = site?.url?.replace(/\/+$/, "");
+  const canonical = site.url.replace(/\/+$/, "");
   const openGraph = {
     title,
     description,
