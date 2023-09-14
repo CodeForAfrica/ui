@@ -70,5 +70,5 @@ export default buildConfig({
       generateURL: (docs) =>
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
-  ],
+  ] as any[],
 });

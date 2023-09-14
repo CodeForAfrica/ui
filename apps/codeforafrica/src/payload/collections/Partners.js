@@ -1,5 +1,7 @@
+import image from "../fields/image";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
+import socialLinks from "../fields/socialLinks";
 import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
 
 const Partners = {
@@ -37,20 +39,12 @@ const Partners = {
       localized: true,
     },
     slug({ fieldToUse: "name" }),
-    {
-      name: "logo",
-      required: true,
-      type: "upload",
-      relationTo: "media",
-      label: {
-        en: "Logo",
-        pt: "Imagem",
-        fr: "Image",
+    image({
+      overrides: {
+        name: "logo",
+        required: true,
       },
-      filterOptions: {
-        mimeType: { contains: "image" },
-      },
-    },
+    }),
     richText({
       name: "description",
       label: {
@@ -60,6 +54,11 @@ const Partners = {
       },
       localized: true,
       required: true,
+    }),
+    socialLinks({
+      name: "connect",
+      label: "Social Media Links",
+      required: false,
     }),
   ],
   hooks: {

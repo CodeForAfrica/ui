@@ -2,6 +2,7 @@ import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
 import React from "react";
 
+import RichText from "@/codeforafrica/components/RichText";
 import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
@@ -31,7 +32,7 @@ const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
         >
           {title}
         </RichTypography>
-        <RichTypography variant="h3Light">{subtitle}</RichTypography>
+        <RichText variant="body2" elements={subtitle} />
       </Section>
     </TwoToneBackground>
   );
