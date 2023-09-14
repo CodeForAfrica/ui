@@ -37,14 +37,7 @@ const Pages = {
       // each other e.g. while alphabecially CustomPageHeader should be with C,
       // it's functiaonally equivalent with PageHeader so we keep it next to
       // PageHeader
-      blocks: [
-        Error,
-        Hero,
-        PageHeader,
-        CustomPageHeader,
-        OurPartners,
-        OurPartners,
-      ],
+      blocks: [Error, Hero, PageHeader, CustomPageHeader, OurPartners],
       admin: {
         initCollapsed: true,
       },
