@@ -3,6 +3,7 @@ import path from "path";
 import { buildConfig } from "payload/config";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
+import Partners from "./src/payload/collections/Partners";
 import Settings from "./src/payload/globals/Settings";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import dotenv from "dotenv";
@@ -29,7 +30,7 @@ const adapter = s3Adapter({
 
 export default buildConfig({
   serverURL: appURL,
-  collections: [Pages, Media] as CollectionConfig[],
+  collections: [Pages, Media, Partners] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
   admin: {
     css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
@@ -69,5 +70,5 @@ export default buildConfig({
       generateURL: (docs) =>
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
-  ],
+  ] as any[],
 });

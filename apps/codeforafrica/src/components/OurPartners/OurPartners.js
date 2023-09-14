@@ -4,7 +4,7 @@ import { Button, Grid } from "@mui/material";
 import React from "react";
 
 const OurPartners = React.forwardRef(function OurPartners(props, ref) {
-  const { partners: { title, action, list: partners } = {}, sx } = props;
+  const { sx, partners, title, action } = props;
 
   if (!partners?.length) {
     return null;
@@ -22,17 +22,18 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
         {title}
       </RichTypography>
       <Grid container columns={10} justifyContent="flex-start">
-        {partners.map(({ logo, name, href }) => {
+        {partners.map(({ logo, id, link: { href } }) => {
+          const { alt } = logo;
           const Wrapper = href?.length ? Link : React.Fragment;
           const wrapperProps = href?.length ? { href } : undefined;
 
           return (
-            <Grid item xs={5} sm={2} key={name}>
+            <Grid item xs={5} sm={2} key={id}>
               <Wrapper {...wrapperProps}>
                 <Figure
                   ImageProps={{
-                    alt: name,
-                    ...logo,
+                    alt,
+                    src: logo.url,
                   }}
                   sx={{
                     filter: "grayscale(100%) opacity(50%)",
