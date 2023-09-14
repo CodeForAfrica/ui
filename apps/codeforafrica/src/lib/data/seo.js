@@ -1,6 +1,5 @@
 import site from "@/codeforafrica/utils/site";
 
-const siteUrl = new URL(site.environmentUrl).href;
 function stringifyDescription(description) {
   if (!description || !Array.isArray(description)) {
     return "";
@@ -27,10 +26,7 @@ export default function getPageSeoFromMeta(page, settings) {
     metaDescription || stringifyDescription(siteDescription) || null;
   const titleTemplate = siteTitle ? `%s | ${siteTitle}` : null;
   const defaultTitle = siteTitle || null;
-  //   TODO: Handle canonical url for nested pages
-  // NOTE: We can do this Regex because we're sure about the url contents
-  //       see: https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS
-  const canonical = siteUrl.replace(/\/+$/, "");
+  const canonical = site.url.replace(/\/+$/, "");
   const openGraph = {
     title,
     description,
