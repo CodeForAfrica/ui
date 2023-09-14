@@ -54,7 +54,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           build-args: |
-            MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.APP_NAME }}
+            MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ secrets.CODEFORAFRICA_MONGO_DB_NAME }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET_KEY }}
             GHOST_URL=${{ secrets.GHOST_URL }}
