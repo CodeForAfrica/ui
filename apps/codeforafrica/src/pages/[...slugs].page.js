@@ -1,6 +1,8 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import GetInTouch from "../components/GetInTouch/GetInTouch";
+
 import CustomPageHeader from "@/codeforafrica/components/CustomPageHeader";
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
 import GetInvolved from "@/codeforafrica/components/GetInvolved";
@@ -13,6 +15,7 @@ import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
   hero: Hero,
+  "get-in-touch": GetInTouch,
   "page-header": PageHeader,
   "custom-page-header": CustomPageHeader,
   "meet-our-team": MeetOurTeam,
