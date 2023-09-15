@@ -1,4 +1,5 @@
 import blockify from "@/codeforafrica/lib/data/blockify";
+import pagify from "@/codeforafrica/lib/data/pagify";
 import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
 
 function getNavBar(settings) {
@@ -45,6 +46,7 @@ function getPageSlug({ params }) {
 }
 
 export async function getPageProps(api, context) {
+  const { params } = context;
   const slug = getPageSlug(context);
   const {
     docs: [page],
@@ -56,7 +58,10 @@ export async function getPageProps(api, context) {
   const settings = await api.findGlobal("settings");
   const navbar = getNavBar(settings);
   const footer = getFooter(settings);
-  const blocks = await blockify(page.blocks);
+  let blocks = await blockify(page.blocks);
+  if (params.slugs.length > 2) {
+    blocks = await pagify(api, context);
+  }
 
   return {
     blocks,

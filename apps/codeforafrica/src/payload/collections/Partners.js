@@ -62,7 +62,7 @@ const Partners = {
     }),
   ],
   hooks: {
-    afterRead: [nestCollectionUnderPage("partners")],
+    // afterRead: [nestCollectionUnderPage("partners")],
   },
 };
 export default Partners;
