@@ -19,11 +19,6 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
           >
             title
           </div>
-          <div
-            class="MuiTypography-root MuiTypography-body3 css-scexb3-MuiTypography-root"
-          >
-            description
-          </div>
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium css-16j572f-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
             href="/about#our-team"
@@ -39,7 +34,7 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
             class="MuiBox-root css-97qtcq"
           >
             <img
-              alt="Our offices across africa"
+              alt="alt"
               class="css-g98gbd"
               data-nimg="fill"
               decoding="async"
