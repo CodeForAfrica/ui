@@ -24,7 +24,7 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
             href="/about#our-team"
             tabindex="0"
           >
-            Meet our Team
+            Meet the team
           </a>
         </div>
         <div
