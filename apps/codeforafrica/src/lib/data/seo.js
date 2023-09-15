@@ -1,4 +1,4 @@
-// import site from "@/codeforafrica/utils/site";
+import site from "@/codeforafrica/utils/site";
 
 function stringifyDescription(description) {
   if (!description || !Array.isArray(description)) {
@@ -30,7 +30,7 @@ export default function getPageSeoFromMeta(page, settings) {
     metaDescription || stringifyDescription(siteDescription) || null;
   const titleTemplate = siteTitle ? `%s | ${siteTitle}` : null;
   const defaultTitle = siteTitle || null;
-  // const canonical = site.url.replace(/\/+$/, "");
+  const canonical = site.url.replace(/\/+$/, "");
   const openGraph = {
     title,
     description,
@@ -55,7 +55,7 @@ export default function getPageSeoFromMeta(page, settings) {
     titleTemplate,
     defaultTitle,
     description,
-    // canonical,
+    canonical,
     openGraph,
   };
 }
