@@ -28,7 +28,10 @@ const defaultProps = {
     alt: "alt",
     src: "/images/Africa@2400x 1",
   },
-  href: "/about#our-team",
+  action: {
+    href: "/about#our-team",
+    content: "Meet the team",
+  },
 };
 
 describe("<MeetOurTeam />", () => {
