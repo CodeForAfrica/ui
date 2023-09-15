@@ -1,9 +1,9 @@
 import hero from "./hero";
-import teamInfographic from "./teamInfographic";
+import meetOurTeam from "./meetOurTeam";
 
 const propsifyBlockBySlug = {
   hero,
-  "team-infographic": teamInfographic,
+  "meet-our-team": meetOurTeam,
 };
 
 async function blockify(blocks) {

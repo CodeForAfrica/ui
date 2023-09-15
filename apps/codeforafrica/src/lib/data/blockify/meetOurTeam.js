@@ -1,6 +1,6 @@
 import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
 
-function teamInfographic(block) {
+function meetOurTeam(block) {
   const { image: media, actionButton, title, ...other } = block;
   const image = imageFromMedia({ alt: title, ...media });
   const { href } = actionButton;
@@ -14,4 +14,4 @@ function teamInfographic(block) {
   };
 }
 
-export default teamInfographic;
+export default meetOurTeam;

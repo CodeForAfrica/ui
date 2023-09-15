@@ -2,10 +2,10 @@ import image from "../fields/image";
 import link from "../fields/links/link";
 import richText from "../fields/richText";
 
-const TeamInfographic = {
-  slug: "team-infographic",
+const MeetOurTeam = {
+  slug: "meet-our-team",
   imageURL: "/images/cms/blocks/team_infographic.jpg",
-  imageAltText: "Display Team Infographic",
+  imageAltText: "Display Team Call to Action",
   fields: [
     {
       name: "title",
@@ -40,4 +40,4 @@ const TeamInfographic = {
   ],
 };
 
-export default TeamInfographic;
+export default MeetOurTeam;

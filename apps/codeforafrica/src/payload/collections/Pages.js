@@ -1,9 +1,9 @@
 import CustomPageHeader from "../blocks/CustomPageHeader";
 import Error from "../blocks/Error";
 import Hero from "../blocks/Hero";
+import MeetOurTeam from "../blocks/MeetOurTeam";
 import OurPartners from "../blocks/OurPartners";
 import PageHeader from "../blocks/PageHeader";
-import TeamInfographic from "../blocks/TeamInfographic";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
@@ -43,8 +43,8 @@ const Pages = {
         Hero,
         PageHeader,
         CustomPageHeader,
+        MeetOurTeam,
         OurPartners,
-        TeamInfographic,
       ],
       admin: {
         initCollapsed: true,
