@@ -7,7 +7,12 @@ import React from "react";
 import RichText from "@/codeforafrica/components/RichText";
 
 const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
-  const { title, description, href, image } = props;
+  const {
+    title,
+    description,
+    action: { href, content },
+    image,
+  } = props;
 
   if (!title || !description) {
     return null;
@@ -35,7 +40,7 @@ const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
               sx={{ width: { xs: "100%", sm: "auto" }, margin: "2.5rem 0" }}
               variant="contained-reverse"
             >
-              Meet our Team
+              {content}
             </Button>
           </Grid>
 
