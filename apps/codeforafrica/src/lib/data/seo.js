@@ -19,7 +19,11 @@ function stringifyDescription(description) {
 
 export default function getPageSeoFromMeta(page, settings) {
   const { title: pageTitle, meta: pageMeta } = page;
-  const { title: metaTitle, description: metaDescription, image } = pageMeta;
+  const {
+    title: metaTitle,
+    description: metaDescription,
+    image = {},
+  } = pageMeta;
   const { title: siteTitle, description: siteDescription } = settings;
   const title = metaTitle || pageTitle || siteTitle || null;
   const description =
