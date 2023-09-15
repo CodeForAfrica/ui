@@ -51,7 +51,7 @@ export async function getPageProps(api, context) {
     docs: [page],
   } = await api.findPage(slug);
   if (!page) {
-    return null;
+    return {};
   }
 
   const settings = await api.findGlobal("settings");
