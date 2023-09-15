@@ -39,6 +39,7 @@ jobs:
           # create a review app
           command: review-apps:create
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-ui
+          review_app_name: ${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Set up Docker Buildx
