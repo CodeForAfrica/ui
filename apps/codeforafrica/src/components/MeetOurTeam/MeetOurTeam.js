@@ -10,7 +10,7 @@ const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
   const {
     title,
     description,
-    action: { href, content },
+    action: { href, label },
     image,
   } = props;
 
@@ -40,7 +40,7 @@ const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
               sx={{ width: { xs: "100%", sm: "auto" }, margin: "2.5rem 0" }}
               variant="contained-reverse"
             >
-              {content}
+              {label}
             </Button>
           </Grid>
 
