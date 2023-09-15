@@ -24,7 +24,7 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
             href="/about#our-team"
             tabindex="0"
           >
-            Meet the team
+            Meet our team
           </a>
         </div>
         <div
@@ -34,7 +34,7 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
             class="MuiBox-root css-97qtcq"
           >
             <img
-              alt="alt"
+              alt="Our offices across africa"
               class="css-g98gbd"
               data-nimg="fill"
               decoding="async"

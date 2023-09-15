@@ -25,12 +25,12 @@ const defaultProps = {
     ],
   },
   image: {
-    alt: "alt",
+    alt: "Our offices across africa",
     src: "/images/Africa@2400x 1",
   },
   action: {
     href: "/about#our-team",
-    content: "Meet the team",
+    label: "Meet our team",
   },
 };
 
