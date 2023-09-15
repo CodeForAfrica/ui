@@ -3,6 +3,7 @@ import Error from "../blocks/Error";
 import Hero from "../blocks/Hero";
 import OurPartners from "../blocks/OurPartners";
 import PageHeader from "../blocks/PageHeader";
+import TeamInfographic from "../blocks/TeamInfographic";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
@@ -37,7 +38,14 @@ const Pages = {
       // each other e.g. while alphabecially CustomPageHeader should be with C,
       // it's functiaonally equivalent with PageHeader so we keep it next to
       // PageHeader
-      blocks: [Error, Hero, PageHeader, CustomPageHeader, OurPartners],
+      blocks: [
+        Error,
+        Hero,
+        PageHeader,
+        CustomPageHeader,
+        OurPartners,
+        TeamInfographic,
+      ],
       admin: {
         initCollapsed: true,
       },
