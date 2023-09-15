@@ -1,15 +1,13 @@
+import { actionFromActionButton } from "@/codeforafrica/lib/data/utils";
+
 function getInTouch(block) {
-  const {
-    actionButton: { href, label },
-    ...other
-  } = block;
+  const { actionButton, ...other } = block;
+
+  const action = actionFromActionButton({ ...actionButton });
 
   return {
     ...other,
-    action: {
-      href,
-      content: label,
-    },
+    action,
     slug: "get-in-touch",
   };
 }
