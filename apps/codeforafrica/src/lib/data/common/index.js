@@ -59,8 +59,8 @@ export async function getPageProps(api, context) {
   const navbar = getNavBar(settings);
   const footer = getFooter(settings);
   let blocks = await blockify(page.blocks);
-  if (params.slugs.length > 2) {
-    blocks = await pagify(api, context);
+  if (params?.slugs?.length > 2) {
+    blocks = await pagify(slug, api, context);
   }
 
   return {

@@ -69,7 +69,7 @@ const AboutChildPageHeader = React.forwardRef(
               <MemberFigureRoot
                 {...FigureProps}
                 sx={{
-                  background: `url(${image.src})`,
+                  background: `url(${image.url})`,
                   backgroundBlendMode: "luminosity",
                   backgroundSize: "cover",
                   ...figureSxProp,

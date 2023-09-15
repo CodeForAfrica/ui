@@ -1,4 +1,5 @@
 import { Section } from "@commons-ui/core";
+import { Box } from "@mui/material";
 import React from "react";
 
 import AboutChildPageHeader from "@/codeforafrica/components/AboutChildPageHeader";
@@ -7,15 +8,15 @@ import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import RichText from "@/codeforafrica/components/RichText";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
 
-const SinglePartner = React.forwardRef(function SinglePartner({
-  description,
-  connect,
-  relatedProjects,
-  relatedProjectsTitle,
-}) {
+const SinglePartner = React.forwardRef(function SinglePartner(
+  { description, connect, relatedProjects, relatedProjectsTitle, name, logo },
+  ref,
+) {
   return (
-    <>
+    <Box ref={ref} sx={{ pb: { xs: 10, md: 7 } }}>
       <AboutChildPageHeader
+        name={name}
+        image={logo}
         FigureProps={{
           sx: {
             backgroundPositionY: "center",
@@ -40,10 +41,14 @@ const SinglePartner = React.forwardRef(function SinglePartner({
         }}
       >
         <RichText
-          variant="body1"
+          variant="subheading"
+          component="p"
           sx={{
             mb: 5,
             typography: "subheading",
+            "& > p": {
+              mb: 5,
+            },
           }}
           elements={description}
         />
@@ -68,7 +73,6 @@ const SinglePartner = React.forwardRef(function SinglePartner({
                 sm: "648px",
                 md: "912px",
               },
-              pb: { xs: 10, md: 7 },
               pt: 0,
             }}
             tileListProps={{ fixed: true }}
@@ -78,7 +82,7 @@ const SinglePartner = React.forwardRef(function SinglePartner({
           />
         </>
       ) : null}
-    </>
+    </Box>
   );
 });
 
