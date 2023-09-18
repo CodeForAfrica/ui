@@ -6,7 +6,7 @@ import SocialMediaButton from "@/codeforafrica/components/SocialMediaButton";
 const ConnectBar = React.forwardRef(function ConnectBar(props, ref) {
   const { sx, title, links } = props;
 
-  if (!links || !links?.length) {
+  if (!links?.length) {
     return null;
   }
 

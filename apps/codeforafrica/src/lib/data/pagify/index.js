@@ -1,12 +1,13 @@
 import partners from "./partners";
 
-const pagifyBySlug = {
+const COLLECTION_BY_SLUG = {
   partners,
 };
 
-async function pagify(pageSlug, api, context) {
-  const pagifySlug = pagifyBySlug[pageSlug];
-  return pagifySlug(api, context);
+async function pagify(parentPage, api, context) {
+  const { slug: collection } = parentPage;
+  const pageProps = COLLECTION_BY_SLUG[collection];
+  return pageProps(api, context);
 }
 
 export default pagify;

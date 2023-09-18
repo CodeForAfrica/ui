@@ -54,17 +54,21 @@ export async function getPageProps(api, context) {
   if (!page) {
     return null;
   }
-
+  let props;
+  if (params?.slugs?.length > 2) {
+    props = await pagify(page, api, context);
+  } else {
+    const blocks = await blockify(page.blocks);
+    props = {
+      blocks,
+    };
+  }
   const settings = await api.findGlobal("settings");
   const navbar = getNavBar(settings);
   const footer = getFooter(settings);
-  let blocks = await blockify(page.blocks);
-  if (params?.slugs?.length > 2) {
-    blocks = await pagify(slug, api, context);
-  }
 
   return {
-    blocks,
+    ...props,
     footer,
     navbar,
   };

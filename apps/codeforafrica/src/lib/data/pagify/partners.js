@@ -13,13 +13,15 @@ async function partners(api, context) {
     return null;
   }
   const [partner] = docs;
-  return [
-    {
-      relatedProjects: [], // TODO(koechkevin) Related projects go here once projects implemented
-      ...partner,
-      slug: "partner",
-    },
-  ];
+  return {
+    blocks: [
+      {
+        relatedProjects: [], // TODO(koechkevin) Related projects go here once projects implemented
+        ...partner,
+        slug: "partner",
+      },
+    ],
+  };
 }
 
 export default partners;
