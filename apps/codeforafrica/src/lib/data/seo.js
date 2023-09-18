@@ -1,20 +1,21 @@
 import site from "@/codeforafrica/utils/site";
 
 function stringifyDescription(description) {
-  if (!description || !Array.isArray(description)) {
+  if (!Array.isArray(description)) {
     return "";
   }
-  let result = "";
-  description.forEach((item) => {
+  return description.reduce((result, item) => {
     if (item.text) {
+      // eslint-disable-next-line no-param-reassign
       result += item.text;
     }
 
     if (Array.isArray(item.children)) {
+      // eslint-disable-next-line no-param-reassign
       result += stringifyDescription(item.children);
     }
-  });
-  return result;
+    return result;
+  }, "");
 }
 
 export default function getPageSeoFromMeta(page, settings) {
@@ -25,7 +26,12 @@ export default function getPageSeoFromMeta(page, settings) {
     image = {},
   } = pageMeta;
   const { title: siteTitle, description: siteDescription } = settings;
-  const title = metaTitle || pageTitle || siteTitle || null;
+  const title =
+    metaTitle ||
+    pageTitle ||
+    siteTitle ||
+    process.env.NEXT_PUBLIC_APP_NAME ||
+    null;
   const description =
     metaDescription || stringifyDescription(siteDescription) || null;
   const titleTemplate = siteTitle ? `%s | ${siteTitle}` : null;
