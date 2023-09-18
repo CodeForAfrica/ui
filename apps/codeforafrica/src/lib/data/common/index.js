@@ -48,27 +48,22 @@ function getPageSlug({ params }) {
 export async function getPageProps(api, context) {
   const { params } = context;
   const slug = getPageSlug(context);
-  const {
+  let {
     docs: [page],
   } = await api.findPage(slug);
   if (!page) {
     return null;
   }
-  let props;
   if (params?.slugs?.length > 2) {
-    props = await pagify(page, api, context);
-  } else {
-    const blocks = await blockify(page.blocks);
-    props = {
-      blocks,
-    };
+    page = await pagify(page, api, context);
   }
+  const blocks = await blockify(page.blocks);
   const settings = await api.findGlobal("settings");
   const navbar = getNavBar(settings);
   const footer = getFooter(settings);
 
   return {
-    ...props,
+    blocks,
     footer,
     navbar,
   };
