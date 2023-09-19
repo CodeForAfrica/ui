@@ -7,9 +7,9 @@ import React from "react";
 import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
 
 const OurImpact = React.forwardRef(function OurImpact(props, ref) {
-  const { list, title, sx } = props;
+  const { impacts, title, sx } = props;
 
-  if (!list?.length) {
+  if (!impacts?.length) {
     return null;
   }
   return (
@@ -36,19 +36,19 @@ const OurImpact = React.forwardRef(function OurImpact(props, ref) {
             {title}
           </RichTypography>
         )}
-        <ImpactCardList list={list} />
+        <ImpactCardList list={impacts} />
       </Section>
     </Box>
   );
 });
 
 OurImpact.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.shape({})),
+  impacts: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,
 };
 
 OurImpact.defaultProps = {
-  list: undefined,
+  impacts: undefined,
   title: undefined,
 };
 
