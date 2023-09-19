@@ -1,7 +1,7 @@
 import path from "path";
 
 import { buildConfig } from "payload/config";
-import Impact from './src/payload/collections/Impact'
+import Impact from "./src/payload/collections/Impact";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
