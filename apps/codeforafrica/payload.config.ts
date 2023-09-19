@@ -32,7 +32,7 @@ const adapter = s3Adapter({
 
 export default buildConfig({
   serverURL: appURL,
-  collections: [Authors,Pages, Media, Partners, Tags] as CollectionConfig[],
+  collections: [Authors, Pages, Media, Partners, Tags] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
   admin: {
     css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
