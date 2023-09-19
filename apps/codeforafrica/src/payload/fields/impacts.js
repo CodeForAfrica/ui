@@ -1,6 +1,6 @@
 import { deepmerge } from "@mui/utils";
 
-const authors = (overrides) =>
+const impacts = (overrides) =>
   deepmerge(
     {
       name: "impacts",
@@ -11,4 +11,4 @@ const authors = (overrides) =>
     overrides,
   );
 
-export default authors;
+export default impacts;

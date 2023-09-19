@@ -9,7 +9,6 @@ const Impact = {
   access: {
     read: () => true,
   },
-
   fields: [
     {
       name: "title",
