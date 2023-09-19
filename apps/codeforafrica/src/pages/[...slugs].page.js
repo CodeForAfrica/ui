@@ -1,10 +1,9 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
-import GetInTouch from "../components/GetInTouch/GetInTouch";
-
 import CustomPageHeader from "@/codeforafrica/components/CustomPageHeader";
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
+import GetInTouch from "@/codeforafrica/components/GetInTouch";
 import GetInvolved from "@/codeforafrica/components/GetInvolved";
 import Hero from "@/codeforafrica/components/Hero";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
