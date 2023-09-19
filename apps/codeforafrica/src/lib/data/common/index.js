@@ -50,6 +50,12 @@ export async function getPageProps(api, context) {
   const {
     docs: [page],
   } = await api.findPage(slug);
+  // default value if error page has not been created yet
+  if (!page && slug === "404") {
+    return {
+      title: "Page not found",
+    };
+  }
   if (!page) {
     return null;
   }
