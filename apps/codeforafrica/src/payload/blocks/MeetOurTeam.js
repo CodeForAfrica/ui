@@ -19,7 +19,7 @@ const MeetOurTeam = {
       required: true,
     }),
     {
-      name: "actionButton",
+      name: "action",
       label: "Action Button",
       type: "group",
       fields: [
