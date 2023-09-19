@@ -1,9 +1,7 @@
-import getInTouch from "./getInTouch";
 import hero from "./hero";
 
 const propsifyBlockBySlug = {
   hero,
-  "get-in-touch": getInTouch,
 };
 
 async function blockify(blocks) {
