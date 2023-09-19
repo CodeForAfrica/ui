@@ -33,6 +33,7 @@ const Impact = {
     image({
       overrides: {
         name: "icon",
+        label: "Icon",
         required: true,
       },
     }),
