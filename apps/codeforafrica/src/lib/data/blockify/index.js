@@ -1,9 +1,7 @@
 import hero from "./hero";
-import joinOurSlack from "./joinOurSlack";
 
 const propsifyBlockBySlug = {
   hero,
-  "join-our-slack": joinOurSlack,
 };
 
 async function blockify(blocks) {
