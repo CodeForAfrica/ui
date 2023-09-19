@@ -5,6 +5,7 @@ import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Settings from "./src/payload/globals/Settings";
+import Tags from "./src/payload/collections/Tags";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import dotenv from "dotenv";
 import seo from "@payloadcms/plugin-seo";
@@ -30,7 +31,7 @@ const adapter = s3Adapter({
 
 export default buildConfig({
   serverURL: appURL,
-  collections: [Pages, Media, Partners] as CollectionConfig[],
+  collections: [Pages, Media, Partners, Tags] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
   admin: {
     css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
