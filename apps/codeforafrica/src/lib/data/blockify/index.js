@@ -1,7 +1,9 @@
 import hero from "./hero";
+import ourImpact from "./our-impact";
 
 const propsifyBlockBySlug = {
   hero,
+  "our-impact": ourImpact,
 };
 
 async function blockify(blocks) {
