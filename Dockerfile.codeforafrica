@@ -33,9 +33,7 @@ RUN pnpm install --recursive --offline --frozen-lockfile
 ARG PORT=3000 \
     MONGODB_URL \
     PAYLOAD_SECRET \
-    NEXT_PUBLIC_APP_URL=http://localhost:3000 \
-    GHOST_URL \
-    GHOST_API_KEY
+    NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 RUN pnpm build-next --filter=codeforafrica
 
@@ -62,8 +60,6 @@ ENV NODE_ENV=production \
     PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
     PAYLOAD_SECRET=${PAYLOAD_SECRET} \
     MONGODB_URL=${MONGODB_URL} \
-    GHOST_URL=${GHOST_URL} \
-    GHOST_API_KEY=${GHOST_API_KEY} \
     NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
     NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME} \
     NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
