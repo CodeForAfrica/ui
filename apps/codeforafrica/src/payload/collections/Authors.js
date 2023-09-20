@@ -10,15 +10,10 @@ const Authors = {
     {
       name: "fullName",
       type: "text",
-      label: {
-        en: "Full Name",
-        fr: "Nom et prénom",
-        pt: "Nome completo",
-      },
+      label: "Full Name",
       localized: false,
       required: true,
     },
-    // If more author information needed e.g contact details go here
   ],
 };
 

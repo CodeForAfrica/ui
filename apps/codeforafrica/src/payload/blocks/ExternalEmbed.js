@@ -15,19 +15,11 @@ const ExternalEmbed = {
               defaultValue: "url",
               options: [
                 {
-                  label: {
-                    en: "URL",
-                    fr: "URL",
-                    pt: "URL",
-                  },
+                  label: "URL",
                   value: "url",
                 },
                 {
-                  label: {
-                    en: "Code",
-                    fr: "Code",
-                    pt: "Código",
-                  },
+                  label: "Code",
                   value: "code",
                 },
               ],
@@ -36,11 +28,7 @@ const ExternalEmbed = {
         },
         {
           name: "url",
-          label: {
-            en: "URL",
-            fr: "URL",
-            pt: "URL",
-          },
+          label: "URL",
           type: "text",
           required: true,
           admin: {
@@ -49,11 +37,7 @@ const ExternalEmbed = {
         },
         {
           name: "caption",
-          label: {
-            en: "Caption",
-            fr: "Légende",
-            pt: "Rubrica",
-          },
+          label: "Caption",
           type: "text",
           localized: true,
           admin: {
@@ -62,11 +46,7 @@ const ExternalEmbed = {
         },
         {
           name: "code",
-          label: {
-            en: "Code",
-            fr: "Code",
-            pt: "Código",
-          },
+          label: "Code",
           type: "code",
           required: true,
           admin: {

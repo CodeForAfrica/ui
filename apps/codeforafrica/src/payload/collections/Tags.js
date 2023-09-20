@@ -11,11 +11,7 @@ const Tags = {
   fields: [
     {
       name: "name",
-      label: {
-        en: "Name",
-        fr: "Nom",
-        pt: "Nome",
-      },
+      label: "Name",
       type: "text",
       localized: true,
       required: true,
