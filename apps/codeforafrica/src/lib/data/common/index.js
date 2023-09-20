@@ -44,37 +44,41 @@ function getPageSlug({ params }) {
   return params?.slugs?.[pageSlugIndex] || "index";
 }
 
+function getDefaultErrorPageProps() {
+  return {
+    title: "Page not found. ",
+    subtitle: [
+      {
+        children: [
+          {
+            text: "Visit our ",
+            children: null,
+          },
+          {
+            type: "link",
+            newTab: false,
+            url: "/",
+            children: [
+              {
+                text: "homepage",
+                children: null,
+              },
+            ],
+            href: "/",
+          },
+        ],
+      },
+    ],
+  };
+}
+
 export async function getPageProps(api, context) {
   const slug = getPageSlug(context);
   const {
     docs: [page],
   } = await api.findPage(slug);
   if (!page && (slug === "404" || slug === "500")) {
-    return {
-      title: "Page not found",
-      subtitle: [
-        {
-          children: [
-            {
-              text: "Visit our ",
-              children: null,
-            },
-            {
-              type: "link",
-              newTab: false,
-              url: "/",
-              children: [
-                {
-                  text: "homepage",
-                  children: null,
-                },
-              ],
-              href: "/",
-            },
-          ],
-        },
-      ],
-    };
+    return getDefaultErrorPageProps();
   }
   if (!page) {
     return null;
