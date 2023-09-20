@@ -10,7 +10,6 @@ const render = createRender({ theme });
 
 const defaultProps = {
   title: "Team",
-  team: [],
 };
 
 describe("<TeamMembers />", () => {
