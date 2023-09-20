@@ -4,6 +4,7 @@ import { SWRConfig } from "swr";
 import ContactForm from "@/codeforafrica/components/ContactForm";
 import CustomPageHeader from "@/codeforafrica/components/CustomPageHeader";
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
+import GetInTouch from "@/codeforafrica/components/GetInTouch";
 import GetInvolved from "@/codeforafrica/components/GetInvolved";
 import Hero from "@/codeforafrica/components/Hero";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
@@ -15,6 +16,7 @@ import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
   "contact-form": ContactForm,
+  "get-in-touch": GetInTouch,
   "custom-page-header": CustomPageHeader,
   "get-involved": GetInvolved,
   hero: Hero,

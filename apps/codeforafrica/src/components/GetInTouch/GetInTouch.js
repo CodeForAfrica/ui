@@ -8,7 +8,7 @@ import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const GetInTouch = React.forwardRef(function GetInTouch(props, ref) {
   const {
-    action: { href, content },
+    action: { href, label },
     subtitle,
     title,
     sx,
@@ -59,7 +59,7 @@ const GetInTouch = React.forwardRef(function GetInTouch(props, ref) {
               },
             }}
           >
-            {content}
+            {label}
           </Button>
         </Stack>
       </Section>
