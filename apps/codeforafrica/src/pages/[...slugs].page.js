@@ -14,13 +14,13 @@ import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
+  "get-involved": GetInvolved,
   hero: Hero,
   "join-our-slack": JoinOurSlack,
   "page-header": PageHeader,
   "custom-page-header": CustomPageHeader,
   "meet-our-team": MeetOurTeam,
   "news-stories": NewsAndStories,
-  "get-involved": GetInvolved,
   "our-impact": OurImpact,
   "our-partners": OurPartners,
   projects: FeaturedProjects,

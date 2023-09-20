@@ -13,23 +13,15 @@ const JoinOurSlack = {
     },
     {
       name: "subtitle",
-      label: "Sub Title",
+      label: "Subtitle",
       required: true,
       type: "text",
     },
     {
       name: "action",
-      label: "Action Button",
+      label: "Action",
       type: "group",
-      fields: [
-        {
-          name: "label",
-          label: "Label",
-          type: "text",
-          required: true,
-        },
-        link({}),
-      ],
+      fields: [link()],
     },
   ],
 };
