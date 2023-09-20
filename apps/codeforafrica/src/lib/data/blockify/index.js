@@ -6,7 +6,7 @@ const propsifyBlockBySlug = {
 
 async function blockify(blocks) {
   const promises = blocks?.map(async (block) => {
-    const slug = block.blockType ?? block.slug ?? null;
+    const slug = block.blockType;
     const propsifyBlock = propsifyBlockBySlug[slug];
 
     if (propsifyBlock) {

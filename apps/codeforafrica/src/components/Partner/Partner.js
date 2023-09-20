@@ -55,7 +55,7 @@ const SinglePartner = React.forwardRef(function SinglePartner(
 
         <ConnectBar title="Connect" links={connect} />
       </Section>
-      {relatedProjects.length ? (
+      {relatedProjects?.length ? (
         <>
           <SectionDivider
             sx={{

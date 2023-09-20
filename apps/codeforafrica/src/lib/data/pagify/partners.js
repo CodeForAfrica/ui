@@ -18,7 +18,7 @@ async function partners(api, context) {
       {
         relatedProjects: [], // TODO(koechkevin) Related projects go here once projects implemented
         ...partner,
-        slug: "partner",
+        blockType: "partner",
       },
     ],
   };
