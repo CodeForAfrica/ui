@@ -1,5 +1,6 @@
 import CustomPageHeader from "../blocks/CustomPageHeader";
 import Error from "../blocks/Error";
+import GetInTouch from "../blocks/GetInTouch";
 import GetInvolved from "../blocks/GetInvolved";
 import Hero from "../blocks/Hero";
 import OurImpact from "../blocks/OurImpact";
@@ -41,6 +42,7 @@ const Pages = {
       // PageHeader
       blocks: [
         Error,
+        GetInTouch,
         GetInvolved,
         Hero,
         PageHeader,
