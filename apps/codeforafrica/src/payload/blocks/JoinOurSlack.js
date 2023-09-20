@@ -1,4 +1,4 @@
-import link from "../fields/links/link";
+import linkGroup from "../fields/links/linkGroup";
 
 const JoinOurSlack = {
   slug: "join-our-slack",
@@ -17,12 +17,7 @@ const JoinOurSlack = {
       required: true,
       type: "text",
     },
-    {
-      name: "action",
-      label: "Action",
-      type: "group",
-      fields: [link()],
-    },
+    linkGroup({ overrides: { name: "action", label: "Action" } }),
   ],
 };
 
