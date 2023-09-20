@@ -14,15 +14,15 @@ import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
-  hero: Hero,
-  "page-header": PageHeader,
   "contact-form": ContactForm,
   "custom-page-header": CustomPageHeader,
+  "get-involved": GetInvolved,
+  hero: Hero,
   "meet-our-team": MeetOurTeam,
   "news-stories": NewsAndStories,
-  "get-involved": GetInvolved,
   "our-impact": OurImpact,
   "our-partners": OurPartners,
+  "page-header": PageHeader,
   projects: FeaturedProjects,
 };
 
