@@ -3,6 +3,7 @@ import { SWRConfig } from "swr";
 
 import CustomPageHeader from "@/codeforafrica/components/CustomPageHeader";
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
+import GetInTouch from "@/codeforafrica/components/GetInTouch";
 import GetInvolved from "@/codeforafrica/components/GetInvolved";
 import Hero from "@/codeforafrica/components/Hero";
 import JoinOurSlack from "@/codeforafrica/components/JoinOurSlack";
@@ -15,6 +16,7 @@ import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
   "get-involved": GetInvolved,
+  "get-in-touch": GetInTouch,
   hero: Hero,
   "join-our-slack": JoinOurSlack,
   "page-header": PageHeader,
