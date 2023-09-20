@@ -60,22 +60,9 @@ const Partners = {
       label: "Social Media Links",
       required: false,
     }),
-    {
-      name: "link",
-      type: "group",
-      admin: {
-        hidden: true,
-      },
-      fields: [
-        {
-          name: "href",
-          type: "text",
-          hooks: {
-            beforeValidate: [nestCollectionUnderPage("partners")],
-          },
-        },
-      ],
-    },
   ],
+  hooks: {
+    afterRead: [nestCollectionUnderPage("partners")],
+  },
 };
 export default Partners;

@@ -2,19 +2,19 @@ import findAndFormatPagePath from "./findAndFormatPagePath";
 
 function nestCollectionUnderPage(pageSlug) {
   return async function nestCollectionItemUnderParentPage({
+    doc,
     req: { payload },
-    data: { slug },
   }) {
     let href = null;
     try {
       const pagePath = await findAndFormatPagePath(payload, pageSlug);
       if (pagePath) {
-        href = `${pagePath}/${slug}`;
+        href = `${pagePath}/${doc.slug}`;
       }
     } catch (error) {
       // Handle Errors
     }
-    return href;
+    return { ...doc, link: { href } };
   };
 }
 
