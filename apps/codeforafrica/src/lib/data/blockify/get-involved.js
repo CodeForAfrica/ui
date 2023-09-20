@@ -1,4 +1,4 @@
-import { formatImpacts } from "./our-impact";
+import formatImpacts from "@/codeforafrica/lib/data/utils/impacts";
 
 function getInvolved(block) {
   const { impacts, ...other } = block;

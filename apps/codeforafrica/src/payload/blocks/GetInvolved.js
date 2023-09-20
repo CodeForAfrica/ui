@@ -4,7 +4,7 @@ import linkGroup from "../fields/links/linkGroup";
 const GetInvolved = {
   slug: "get-involved",
   imageURL: "/images/cms/blocks/get_involved.jpg",
-  imageAltText: "Our Impact Statisctics",
+  imageAltText: "Get Involved",
   fields: [
     impacts({
       minRows: 3,
