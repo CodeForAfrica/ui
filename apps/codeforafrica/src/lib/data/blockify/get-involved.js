@@ -1,16 +1,8 @@
-import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
+import { formatImpacts } from "./our-impact";
 
 function getInvolved(block) {
   const { impacts, ...other } = block;
-  const ourImpacts = impacts.map((impact) => {
-    const { icon: media, title, ...rest } = impact;
-    const image = imageFromMedia({ alt: title, ...media });
-    return {
-      ...rest,
-      image,
-      title,
-    };
-  });
+  const ourImpacts = formatImpacts(impacts);
 
   return {
     ...other,

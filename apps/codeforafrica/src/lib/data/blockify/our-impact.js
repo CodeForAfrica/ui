@@ -1,8 +1,7 @@
 import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
 
-function ourImpact(block) {
-  const { impacts, ...other } = block;
-  const ourImpacts = impacts.map((impact) => {
+export function formatImpacts(impacts) {
+  return impacts.map((impact) => {
     const { icon: media, title, ...rest } = impact;
     const image = imageFromMedia({ alt: title, ...media });
     return {
@@ -11,6 +10,11 @@ function ourImpact(block) {
       title,
     };
   });
+}
+
+function ourImpact(block) {
+  const { impacts, ...other } = block;
+  const ourImpacts = formatImpacts(impacts);
 
   return {
     ...other,
