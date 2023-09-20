@@ -8,6 +8,7 @@ import GetInvolved from "@/codeforafrica/components/GetInvolved";
 import Hero from "@/codeforafrica/components/Hero";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
+import OurImpact from "@/codeforafrica/components/OurImpact";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import PageHeader from "@/codeforafrica/components/PageHeader";
 import { getPageServerSideProps } from "@/codeforafrica/lib/data";
@@ -19,7 +20,8 @@ const componentsBySlugs = {
   "custom-page-header": CustomPageHeader,
   "meet-our-team": MeetOurTeam,
   "news-stories": NewsAndStories,
-  "our-impact": GetInvolved,
+  "get-involved": GetInvolved,
+  "our-impact": OurImpact,
   "our-partners": OurPartners,
   projects: FeaturedProjects,
 };

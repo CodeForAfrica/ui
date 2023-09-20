@@ -4,6 +4,8 @@ import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
+import RichText from "@/codeforafrica/components/RichText";
+
 const ImpactCardRoot = styled(Card, {
   slot: "Root",
 })(({ theme: { breakpoints } }) => ({
@@ -19,7 +21,7 @@ const ImpactCardRoot = styled(Card, {
 }));
 
 const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
-  const { image, title, value, content } = props;
+  const { image, title, value, description } = props;
 
   if (!(image && title)) {
     return null;
@@ -72,22 +74,21 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
         >
           {value}
         </RichTypography>
-        <RichTypography
+        <RichText
+          elements={description}
           sx={{
             display: "block",
             pt: "10px",
           }}
           variant="body3"
-        >
-          {content}
-        </RichTypography>
+        />
       </CardContent>
     </ImpactCardRoot>
   );
 });
 
 ImpactCard.propTypes = {
-  content: PropTypes.string,
+  description: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   image: PropTypes.shape({
@@ -97,7 +98,7 @@ ImpactCard.propTypes = {
 };
 
 ImpactCard.defaultProps = {
-  content: undefined,
+  description: undefined,
   title: undefined,
   value: undefined,
   image: undefined,
