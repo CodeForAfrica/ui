@@ -146,7 +146,6 @@ export async function getPageProps(api, context) {
   const {
     docs: [page],
   } = await api.findPage(slug);
-
   if (!page) {
     if (["404", "500"].includes(slug)) {
       return getDefaultErrorPageProps(slug);
