@@ -37,6 +37,6 @@ export const api = {
 export async function getPageStaticProps(context) {
   const props = await getPageProps(api, context);
   return {
-    props: props || {},
+    props,
   };
 }

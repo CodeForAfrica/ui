@@ -4,7 +4,7 @@ import richText from "../fields/richText";
 
 const MeetOurTeam = {
   slug: "meet-our-team",
-  imageURL: "/images/cms/blocks/team_infographic.jpg",
+  imageURL: "/images/cms/blocks/meet_our_team.jpg",
   imageAltText: "Display Team Call to Action",
   fields: [
     {
@@ -22,15 +22,7 @@ const MeetOurTeam = {
       name: "action",
       label: "Action Button",
       type: "group",
-      fields: [
-        {
-          name: "label",
-          label: "Label",
-          type: "text",
-          required: true,
-        },
-        link({}),
-      ],
+      fields: [link({})],
     },
     image({
       overrides: {
