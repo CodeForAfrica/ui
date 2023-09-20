@@ -2,6 +2,7 @@ import CustomPageHeader from "../blocks/CustomPageHeader";
 import Error from "../blocks/Error";
 import Hero from "../blocks/Hero";
 import JoinOurSlack from "../blocks/JoinOurSlack";
+import OurImpact from "../blocks/OurImpact";
 import OurPartners from "../blocks/OurPartners";
 import PageHeader from "../blocks/PageHeader";
 import fullTitle from "../fields/fullTitle";
@@ -42,6 +43,7 @@ const Pages = {
         Error,
         Hero,
         JoinOurSlack,
+        OurImpact,
         PageHeader,
         CustomPageHeader,
         OurPartners,
