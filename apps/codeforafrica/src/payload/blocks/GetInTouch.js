@@ -21,7 +21,7 @@ const GetInTouch = {
       name: "action",
       label: "Action",
       type: "group",
-      fields: [link({})],
+      fields: [link()],
     },
   ],
 };
