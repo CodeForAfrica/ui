@@ -47,11 +47,6 @@ exports[`<GetInvolved /> renders unchanged 1`] = `
               >
                 15000
               </div>
-              <div
-                class="MuiTypography-root MuiTypography-body3 css-51w9j7-MuiTypography-root"
-              >
-                In 10 years, 15 000 trainees have learned new skills and knowledge within the civic tech and media space.
-              </div>
             </div>
           </div>
         </div>
