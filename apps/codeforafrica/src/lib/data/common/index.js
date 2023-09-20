@@ -44,8 +44,8 @@ function getPageSlug({ params }) {
   return params?.slugs?.[pageSlugIndex] || "index";
 }
 
-function getDefaultErrorPageProps(statusCode = 404) {
-  if (statusCode === 500) {
+function getDefaultErrorPageProps(slug = "404") {
+  if (slug === "500") {
     return {
       title: "Server Error. ",
       subtitle: [
@@ -146,12 +146,9 @@ export async function getPageProps(api, context) {
     docs: [page],
   } = await api.findPage(slug);
   if (!page) {
-    if (slug === "500") {
-      return getDefaultErrorPageProps(500);
+    if (["404", "500"].includes(slug)) {
+      return getDefaultErrorPageProps(slug);
     }
-    return getDefaultErrorPageProps();
-  }
-  if (!page) {
     return null;
   }
 
