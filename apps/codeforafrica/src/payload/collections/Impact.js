@@ -1,4 +1,5 @@
 import image from "../fields/image";
+import richText from "../fields/richText";
 
 const Impact = {
   slug: "impact",
@@ -9,7 +10,6 @@ const Impact = {
   access: {
     read: () => true,
   },
-
   fields: [
     {
       name: "title",
@@ -17,12 +17,9 @@ const Impact = {
       type: "text",
       required: true,
     },
-    {
+    richText({
       name: "description",
-      label: "Description",
-      type: "text",
-      required: true,
-    },
+    }),
     {
       name: "value",
       label: "Value",

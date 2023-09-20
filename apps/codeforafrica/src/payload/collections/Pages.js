@@ -2,6 +2,7 @@ import CustomPageHeader from "../blocks/CustomPageHeader";
 import Error from "../blocks/Error";
 import GetInvolved from "../blocks/GetInvolved";
 import Hero from "../blocks/Hero";
+import OurImpact from "../blocks/OurImpact";
 import OurPartners from "../blocks/OurPartners";
 import PageHeader from "../blocks/PageHeader";
 import fullTitle from "../fields/fullTitle";
@@ -44,6 +45,7 @@ const Pages = {
         Hero,
         PageHeader,
         CustomPageHeader,
+        OurImpact,
         OurPartners,
       ],
       admin: {
