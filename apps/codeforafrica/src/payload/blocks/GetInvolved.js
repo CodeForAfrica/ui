@@ -13,15 +13,7 @@ const GetInvolved = {
       name: "action",
       label: "Action",
       type: "group",
-      fields: [
-        {
-          name: "label",
-          label: "Label",
-          type: "text",
-          required: true,
-        },
-        link({}),
-      ],
+      fields: [link()],
     },
   ],
 };
