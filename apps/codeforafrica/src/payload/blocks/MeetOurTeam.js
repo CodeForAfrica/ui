@@ -22,7 +22,7 @@ const MeetOurTeam = {
       name: "action",
       label: "Action Button",
       type: "group",
-      fields: [link({})],
+      fields: [link()],
     },
     image({
       overrides: {
