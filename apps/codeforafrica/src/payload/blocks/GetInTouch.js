@@ -1,4 +1,4 @@
-import link from "../fields/links/link";
+import linkGroup from "../fields/links/linkGroup";
 
 const GetInTouch = {
   slug: "get-in-touch",
@@ -17,12 +17,7 @@ const GetInTouch = {
       required: true,
       type: "text",
     },
-    {
-      name: "action",
-      label: "Action",
-      type: "group",
-      fields: [link()],
-    },
+    linkGroup({ overrides: { name: "action", label: "Action" } }),
   ],
 };
 
