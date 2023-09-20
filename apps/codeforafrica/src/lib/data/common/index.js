@@ -52,6 +52,28 @@ export async function getPageProps(api, context) {
   if (!page && (slug === "404" || slug === "500")) {
     return {
       title: "Page not found",
+      subtitle: [
+        {
+          children: [
+            {
+              text: "Visit our ",
+              children: null,
+            },
+            {
+              type: "link",
+              newTab: false,
+              url: "/",
+              children: [
+                {
+                  text: "homepage",
+                  children: null,
+                },
+              ],
+              href: "/",
+            },
+          ],
+        },
+      ],
     };
   }
   if (!page) {
