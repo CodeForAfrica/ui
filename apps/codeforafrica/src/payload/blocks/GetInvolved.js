@@ -1,5 +1,5 @@
 import impacts from "../fields/impacts";
-import link from "../fields/links/link";
+import linkGroup from "../fields/links/linkGroup";
 
 const GetInvolved = {
   slug: "get-involved",
@@ -8,13 +8,9 @@ const GetInvolved = {
   fields: [
     impacts({
       minRows: 3,
+      maxRows: 3,
     }),
-    {
-      name: "action",
-      label: "Action",
-      type: "group",
-      fields: [link()],
-    },
+    linkGroup({ overrides: { name: "action", label: "Action" } }),
   ],
 };
 
