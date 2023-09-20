@@ -15,7 +15,7 @@ exports[`<AboutChildPageHeader /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item css-l2rmlj-MuiGrid-root"
         >
           <figure
-            class="css-1ahdoph"
+            class="css-jevqpy"
           />
         </div>
         <div
