@@ -41,6 +41,15 @@ exports[`<ImpactCardList /> renders unchanged 1`] = `
           >
             15000
           </div>
+          <div
+            class="MuiBox-root css-2ligbh"
+          >
+            <span
+              class="MuiTypography-root MuiTypography-body3 css-s9m4rs-MuiTypography-root"
+            >
+              Our team makes an impact in more than 20 countries where members are present.
+            </span>
+          </div>
         </div>
       </div>
     </div>
