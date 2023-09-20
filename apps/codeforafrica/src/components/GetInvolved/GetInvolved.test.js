@@ -29,7 +29,7 @@ const defaultProps = {
     },
   ],
   action: {
-    lable: "Get Involved",
+    label: "Get Involved",
     href: "/contact",
   },
 };
