@@ -1,5 +1,5 @@
 import image from "../fields/image";
-import link from "../fields/links/link";
+import linkGroup from "../fields/links/linkGroup";
 import richText from "../fields/richText";
 
 const MeetOurTeam = {
@@ -18,12 +18,7 @@ const MeetOurTeam = {
       label: "Description",
       required: true,
     }),
-    {
-      name: "action",
-      label: "Action Button",
-      type: "group",
-      fields: [link()],
-    },
+    linkGroup({ overrides: { name: "action", label: "Action" } }),
     image({
       overrides: {
         required: true,
