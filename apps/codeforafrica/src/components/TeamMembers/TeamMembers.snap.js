@@ -23,7 +23,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
             class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-wixki0-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-mfu8qg-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1cub10c-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
               href="/about/members/allan-cheboi"
               tabindex="0"
             >
@@ -58,7 +58,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
             class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-wixki0-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-mfu8qg-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1cub10c-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
               href="/about/members/amanda-strydom"
               tabindex="0"
             >
@@ -93,7 +93,7 @@ exports[`<TeamMembers /> renders unchanged 1`] = `
             class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-wixki0-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-mfu8qg-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1cub10c-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
               href="/about/members/anita-igbine"
               tabindex="0"
             >

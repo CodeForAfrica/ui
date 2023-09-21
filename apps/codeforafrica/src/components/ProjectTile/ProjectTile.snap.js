@@ -6,7 +6,7 @@ exports[`<ProjectTile /> renders unchanged 1`] = `
     class="MuiPaper-root MuiPaper-outlined css-rp91d-MuiPaper-root"
   >
     <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1ccxlif-MuiTypography-root-MuiLink-root"
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1j7drjq-MuiTypography-root-MuiLink-root"
       href="/projects/acfrican-drone"
     >
       <figure
