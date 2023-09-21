@@ -6,7 +6,7 @@ import slug from "../fields/slug";
 import tags from "../fields/tags";
 
 const Stories = {
-  slug: "stories",
+  slug: "story",
   access: {
     read: () => true,
   },
