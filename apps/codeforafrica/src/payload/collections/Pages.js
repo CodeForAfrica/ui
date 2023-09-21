@@ -1,3 +1,4 @@
+import ContactForm from "../blocks/ContactForm";
 import CustomPageHeader from "../blocks/CustomPageHeader";
 import Error from "../blocks/Error";
 import GetInTouch from "../blocks/GetInTouch";
@@ -41,6 +42,7 @@ const Pages = {
       // it's functiaonally equivalent with PageHeader so we keep it next to
       // PageHeader
       blocks: [
+        ContactForm,
         Error,
         GetInTouch,
         GetInvolved,

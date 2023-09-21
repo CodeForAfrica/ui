@@ -1,6 +1,7 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import ContactForm from "@/codeforafrica/components/ContactForm";
 import CustomPageHeader from "@/codeforafrica/components/CustomPageHeader";
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
 import GetInTouch from "@/codeforafrica/components/GetInTouch";
@@ -15,15 +16,16 @@ import Partner from "@/codeforafrica/components/Partner";
 import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
-  hero: Hero,
+  "contact-form": ContactForm,
   "get-in-touch": GetInTouch,
-  "page-header": PageHeader,
   "custom-page-header": CustomPageHeader,
+  "get-involved": GetInvolved,
+  hero: Hero,
   "meet-our-team": MeetOurTeam,
   "news-stories": NewsAndStories,
-  "get-involved": GetInvolved,
   "our-impact": OurImpact,
   "our-partners": OurPartners,
+  "page-header": PageHeader,
   projects: FeaturedProjects,
   partner: Partner,
 };
