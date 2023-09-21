@@ -6,6 +6,7 @@ import CustomPageHeader from "@/codeforafrica/components/CustomPageHeader";
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
 import GetInTouch from "@/codeforafrica/components/GetInTouch";
 import GetInvolved from "@/codeforafrica/components/GetInvolved";
+import GuidingPrinciplesCardList from "@/codeforafrica/components/GuidingPrinciplesCardList";
 import Hero from "@/codeforafrica/components/Hero";
 import JoinOurSlack from "@/codeforafrica/components/JoinOurSlack";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
@@ -21,6 +22,7 @@ const componentsBySlugs = {
   "custom-page-header": CustomPageHeader,
   "get-involved": GetInvolved,
   "get-in-touch": GetInTouch,
+  "guiding-principles": GuidingPrinciplesCardList,
   hero: Hero,
   "join-our-slack": JoinOurSlack,
   "meet-our-team": MeetOurTeam,
