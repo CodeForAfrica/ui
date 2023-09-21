@@ -7,6 +7,7 @@ import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Settings from "./src/payload/globals/Settings";
+import Stories from "./src/payload/collections/Stories";
 import Tags from "./src/payload/collections/Tags";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import dotenv from "dotenv";
@@ -39,6 +40,7 @@ export default buildConfig({
     Pages,
     Media,
     Partners,
+    Stories,
     Tags,
   ] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
