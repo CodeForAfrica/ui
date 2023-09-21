@@ -1,7 +1,11 @@
+import ContactForm from "../blocks/ContactForm";
 import CustomPageHeader from "../blocks/CustomPageHeader";
 import Error from "../blocks/Error";
 import GetInTouch from "../blocks/GetInTouch";
+import GetInvolved from "../blocks/GetInvolved";
 import Hero from "../blocks/Hero";
+import JoinOurSlack from "../blocks/JoinOurSlack";
+import MeetOurTeam from "../blocks/MeetOurTeam";
 import OurImpact from "../blocks/OurImpact";
 import OurPartners from "../blocks/OurPartners";
 import PageHeader from "../blocks/PageHeader";
@@ -40,12 +44,16 @@ const Pages = {
       // it's functiaonally equivalent with PageHeader so we keep it next to
       // PageHeader
       blocks: [
+        ContactForm,
         Error,
         GetInTouch,
+        GetInvolved,
         Hero,
-        OurImpact,
+        JoinOurSlack,
+        MeetOurTeam,
         PageHeader,
         CustomPageHeader,
+        OurImpact,
         OurPartners,
       ],
       admin: {

@@ -7,7 +7,7 @@ import React from "react";
 import ImpactCardList from "@/codeforafrica/components/ImpactCardList";
 
 const GetInvolved = React.forwardRef(function GetInvolved(props, ref) {
-  const { list, action, sx } = props;
+  const { impacts, action, sx } = props;
 
   if (!action?.href?.length) {
     return null;
@@ -26,7 +26,7 @@ const GetInvolved = React.forwardRef(function GetInvolved(props, ref) {
           py: { xs: 5, sm: 10, md: 4, lg: 12.5 },
         }}
       >
-        <ImpactCardList list={list} />
+        <ImpactCardList list={impacts} />
         <Button
           variant="contained"
           component={Link}
@@ -39,7 +39,7 @@ const GetInvolved = React.forwardRef(function GetInvolved(props, ref) {
             width: { xs: "100%", sm: "fit-content" },
           }}
         >
-          {action.content || action.href}
+          {action.label}
         </Button>
       </Section>
     </Box>
@@ -47,12 +47,12 @@ const GetInvolved = React.forwardRef(function GetInvolved(props, ref) {
 });
 
 GetInvolved.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.shape({})),
+  impacts: PropTypes.arrayOf(PropTypes.shape({})),
   action: PropTypes.shape({}),
 };
 
 GetInvolved.defaultProps = {
-  list: undefined,
+  impacts: undefined,
   action: undefined,
 };
 
