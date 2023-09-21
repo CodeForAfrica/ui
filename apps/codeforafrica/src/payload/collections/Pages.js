@@ -5,6 +5,7 @@ import GetInTouch from "../blocks/GetInTouch";
 import GetInvolved from "../blocks/GetInvolved";
 import Hero from "../blocks/Hero";
 import JoinOurSlack from "../blocks/JoinOurSlack";
+import MeetOurTeam from "../blocks/MeetOurTeam";
 import OurImpact from "../blocks/OurImpact";
 import OurPartners from "../blocks/OurPartners";
 import PageHeader from "../blocks/PageHeader";
@@ -49,6 +50,7 @@ const Pages = {
         GetInvolved,
         Hero,
         JoinOurSlack,
+        MeetOurTeam,
         PageHeader,
         CustomPageHeader,
         OurImpact,
