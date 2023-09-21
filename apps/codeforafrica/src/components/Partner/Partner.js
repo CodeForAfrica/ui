@@ -8,7 +8,7 @@ import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import RichText from "@/codeforafrica/components/RichText";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
 
-const SinglePartner = React.forwardRef(function SinglePartner(
+const Partner = React.forwardRef(function Partner(
   { description, connect, relatedProjects, relatedProjectsTitle, name, logo },
   ref,
 ) {
@@ -86,4 +86,4 @@ const SinglePartner = React.forwardRef(function SinglePartner(
   );
 });
 
-export default SinglePartner;
+export default Partner;
