@@ -4,6 +4,7 @@ import Error from "../blocks/Error";
 import GetInTouch from "../blocks/GetInTouch";
 import GetInvolved from "../blocks/GetInvolved";
 import Hero from "../blocks/Hero";
+import JoinOurSlack from "../blocks/JoinOurSlack";
 import OurImpact from "../blocks/OurImpact";
 import OurPartners from "../blocks/OurPartners";
 import PageHeader from "../blocks/PageHeader";
@@ -47,6 +48,7 @@ const Pages = {
         GetInTouch,
         GetInvolved,
         Hero,
+        JoinOurSlack,
         PageHeader,
         CustomPageHeader,
         OurImpact,

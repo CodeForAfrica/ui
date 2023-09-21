@@ -7,6 +7,7 @@ import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
 import GetInTouch from "@/codeforafrica/components/GetInTouch";
 import GetInvolved from "@/codeforafrica/components/GetInvolved";
 import Hero from "@/codeforafrica/components/Hero";
+import JoinOurSlack from "@/codeforafrica/components/JoinOurSlack";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
 import OurImpact from "@/codeforafrica/components/OurImpact";
@@ -17,10 +18,11 @@ import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
   "contact-form": ContactForm,
-  "get-in-touch": GetInTouch,
   "custom-page-header": CustomPageHeader,
   "get-involved": GetInvolved,
+  "get-in-touch": GetInTouch,
   hero: Hero,
+  "join-our-slack": JoinOurSlack,
   "meet-our-team": MeetOurTeam,
   "news-stories": NewsAndStories,
   "our-impact": OurImpact,
