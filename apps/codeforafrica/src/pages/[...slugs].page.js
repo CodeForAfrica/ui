@@ -1,6 +1,7 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import ContactForm from "@/codeforafrica/components/ContactForm";
 import CustomPageHeader from "@/codeforafrica/components/CustomPageHeader";
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
 import GetInTouch from "@/codeforafrica/components/GetInTouch";
@@ -12,20 +13,23 @@ import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
 import OurImpact from "@/codeforafrica/components/OurImpact";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import PageHeader from "@/codeforafrica/components/PageHeader";
+import Partner from "@/codeforafrica/components/Partner";
 import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
+  "contact-form": ContactForm,
+  "custom-page-header": CustomPageHeader,
   "get-involved": GetInvolved,
   "get-in-touch": GetInTouch,
   hero: Hero,
   "join-our-slack": JoinOurSlack,
-  "page-header": PageHeader,
-  "custom-page-header": CustomPageHeader,
   "meet-our-team": MeetOurTeam,
   "news-stories": NewsAndStories,
   "our-impact": OurImpact,
   "our-partners": OurPartners,
+  "page-header": PageHeader,
   projects: FeaturedProjects,
+  partner: Partner,
 };
 
 function Index({ blocks, fallback }) {
