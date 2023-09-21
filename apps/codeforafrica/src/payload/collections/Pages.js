@@ -9,6 +9,7 @@ import MeetOurTeam from "../blocks/MeetOurTeam";
 import OurImpact from "../blocks/OurImpact";
 import OurPartners from "../blocks/OurPartners";
 import PageHeader from "../blocks/PageHeader";
+import Stories from "../blocks/Stories";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
@@ -55,6 +56,7 @@ const Pages = {
         CustomPageHeader,
         OurImpact,
         OurPartners,
+        Stories,
       ],
       admin: {
         initCollapsed: true,
