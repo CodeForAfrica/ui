@@ -1,6 +1,7 @@
 import path from "path";
 
 import { buildConfig } from "payload/config";
+import GuidingPrinciples from "./src/payload/collections/GuidingPrinciples";
 import Impact from "./src/payload/collections/Impact";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
@@ -31,7 +32,7 @@ const adapter = s3Adapter({
 
 export default buildConfig({
   serverURL: appURL,
-  collections: [Impact, Pages, Media, Partners] as CollectionConfig[],
+  collections: [GuidingPrinciples, Impact, Pages, Media, Partners] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
   admin: {
     css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
