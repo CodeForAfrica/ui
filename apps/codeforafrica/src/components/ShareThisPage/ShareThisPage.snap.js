@@ -3,10 +3,10 @@
 exports[`<ShareThisPage /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiStack-root css-10bzuiq-MuiStack-root"
+    class="MuiStack-root css-1vlyie4-MuiStack-root"
   >
     <div
-      class="MuiStack-root css-1jqw290-MuiStack-root"
+      class="MuiStack-root css-b5mw1t-MuiStack-root"
     >
       <button
         aria-label="Twitter"

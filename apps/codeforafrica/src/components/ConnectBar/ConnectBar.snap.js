@@ -3,14 +3,14 @@
 exports[`<ConnectBar /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiStack-root css-150zc89-MuiStack-root"
+    class="MuiStack-root css-13cjpfd-MuiStack-root"
   >
     <div
-      class="MuiStack-root css-1mbd5au-MuiStack-root"
+      class="MuiStack-root css-d2blnj-MuiStack-root"
     >
       <a
         aria-label="facebook"
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root active css-tmo8yp-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root active css-1wukk74-MuiTypography-root-MuiLink-root"
         data-mui-internal-clone-element="true"
         href="https://www.facebook.com/"
         rel="noreferrer noopener"
