@@ -15,11 +15,25 @@ const Stories = {
       type: "text",
     },
     {
-      name: "search",
-      label: "Search Label",
-      required: true,
-      type: "text",
-      defaultValue: "Search Stories",
+      name: "labels",
+      label: "Labels",
+      type: "group",
+      fields: [
+        {
+          name: "search",
+          label: "Search",
+          required: true,
+          type: "text",
+          defaultValue: "Search Stories",
+        },
+        {
+          name: "readMore",
+          label: "Read More",
+          required: true,
+          type: "text",
+          defaultValue: "Read More",
+        },
+      ],
     },
   ],
 };

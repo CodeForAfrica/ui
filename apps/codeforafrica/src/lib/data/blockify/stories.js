@@ -1,27 +1,54 @@
 import formatDate from "@/codeforafrica/utils/formatDate";
 
-async function stories(block, api) {
-  const { featured = {}, title, search } = block;
+function formatStory(story) {
   const {
-    title: featuredStoryTitle,
-    coverImage: featuredStoryCoverImage,
-    excerpt: featuredStoryExcerpt,
-    slug: featuredStorySlug,
-    publishedOn: featuredStoryPublishedOn,
-  } = featured;
+    title,
+    coverImage: { src, alt },
+    excerpt,
+    slug,
+    publishedOn,
+  } = story;
+  if (!title) {
+    return null;
+  }
+  return {
+    title,
+    image: {
+      src,
+      alt,
+    },
+    excerpt,
+    publishedOn: formatDate(publishedOn, {
+      includeTime: false,
+      month: "short",
+    }),
+    href: `/stories/${slug}`,
+  };
+}
+
+async function stories(block, api) {
+  const { featured, title, labels } = block;
+  const featuredStory = featured && (formatStory(featured) || null);
+  const featuredStorySlug = featuredStory
+    ? featuredStory.href.split("/").pop()
+    : null;
+
+  const options = {
+    limit: 9,
+    ...(featuredStorySlug && {
+      where: {
+        slug: {
+          not_equals: featuredStorySlug,
+        },
+      },
+    }),
+  };
 
   const {
     docs: storyList,
     totalPages,
     page,
-  } = await api.getCollection("article", {
-    where: {
-      slug: {
-        not_equals: featuredStorySlug,
-      },
-    },
-    limit: 9,
-  });
+  } = await api.getCollection("article", options);
 
   const uniqueTags = new Set(
     storyList
@@ -32,41 +59,14 @@ async function stories(block, api) {
       .sort(),
   );
 
-  const featuredStory = {
-    title: featuredStoryTitle,
-    image: featuredStoryCoverImage,
-    excerpt: featuredStoryExcerpt,
-    publishedOn: formatDate(featuredStoryPublishedOn, {
-      includeTime: false,
-      month: "short",
-    }),
-    href: `/stories/${featuredStorySlug}`,
-  };
+  const articles = storyList.map(formatStory);
 
   return {
     title,
-    search,
+    labels,
     tags: Array.from(uniqueTags),
-    featured: featuredStory,
-    articles: storyList.map((story) => {
-      const {
-        title: storyTitle,
-        coverImage: storyCoverImage,
-        excerpt: storyExcerpt,
-        slug: storySlug,
-        publishedOn: storyPublishedOn,
-      } = story;
-      return {
-        title: storyTitle,
-        image: storyCoverImage,
-        excerpt: storyExcerpt,
-        publishedOn: formatDate(storyPublishedOn, {
-          includeTime: false,
-          month: "short",
-        }),
-        href: `/stories/${storySlug}`,
-      };
-    }),
+    featured: featuredStory || null,
+    articles,
     pagination: {
       count: totalPages,
       page,

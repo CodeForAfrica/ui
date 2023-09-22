@@ -17,6 +17,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
     sx,
     title,
     variant = "standard",
+    readMoreLabel = "Read Story",
   } = props;
 
   return (
@@ -91,7 +92,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
                   display: { xs: "none", md: "flex" },
                 }}
               >
-                READ STORY
+                {readMoreLabel}
               </Button>
               <Typography
                 sx={{

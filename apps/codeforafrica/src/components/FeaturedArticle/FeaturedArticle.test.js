@@ -25,6 +25,7 @@ const defaultProps = {
     src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png",
     alt: "Featured Article Image",
   },
+  readMoreLabel: "Read Story",
   href: "/stories/article-1",
 };
 

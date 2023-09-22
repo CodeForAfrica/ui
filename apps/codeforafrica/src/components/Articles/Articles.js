@@ -10,7 +10,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     sx,
     tags,
     title,
-    search,
+    labels: { search, readMore },
     pagination: { count, page = 1 },
   } = props;
 
@@ -30,6 +30,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
         onChangeTag={handleChangeTag}
         tags={tags}
         searchLabel={search}
+        readMoreLabel={readMore}
         title={title}
         sx={sx}
       />

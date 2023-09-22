@@ -47,7 +47,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
               tabindex="0"
               type="button"
             >
-              READ STORY
+              Read Story
             </button>
             <span
               class="MuiTypography-root MuiTypography-caption css-13ob0ik-MuiTypography-root"

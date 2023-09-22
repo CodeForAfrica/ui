@@ -15,7 +15,10 @@ const defaultProps = {
     count: 10,
     page: 1,
   },
-  search: "Search",
+  labels: {
+    readMore: "Read More",
+    search: "Search",
+  },
   tags: ["tag1", "tag2"],
   title: "Title",
 };
