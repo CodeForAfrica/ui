@@ -9,7 +9,7 @@ const propsifyBlockBySlug = {
   "meet-our-team": meetOurTeam,
   "our-impact": ourImpact,
   "get-involved": getInvolved,
-  "stories-list": stories,
+  stories,
 };
 
 async function blockify(blocks, api) {

@@ -5,8 +5,12 @@ import richText from "../fields/richText";
 import slug from "../fields/slug";
 import tags from "../fields/tags";
 
-const Stories = {
-  slug: "story",
+const Articles = {
+  slug: "article",
+  labels: {
+    singular: "Story",
+    plural: "Stories",
+  },
   access: {
     read: () => true,
   },
@@ -50,4 +54,4 @@ const Stories = {
   ],
 };
 
-export default Stories;
+export default Articles;

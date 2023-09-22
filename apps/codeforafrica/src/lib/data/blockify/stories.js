@@ -7,7 +7,7 @@ async function stories(block, api) {
     slug: featuredStorySlug,
   } = featured;
 
-  const { docs: storyList } = await api.getCollection("story", {
+  const { docs: storyList } = await api.getCollection("article", {
     where: {
       slug: {
         not_equals: featuredStorySlug,
@@ -50,7 +50,7 @@ async function stories(block, api) {
         slug: storySlug,
       };
     }),
-    slug: "stories",
+    slug: "articles",
   };
 }
 

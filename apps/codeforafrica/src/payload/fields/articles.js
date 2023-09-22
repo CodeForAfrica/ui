@@ -1,14 +1,14 @@
 import { deepmerge } from "@mui/utils";
 
-const stories = (overrides) =>
+const articles = (overrides) =>
   deepmerge(
     {
-      name: "stories",
+      name: "articles",
       type: "relationship",
-      relationTo: "story",
+      relationTo: "article",
       hasMany: true,
     },
     overrides,
   );
 
-export default stories;
+export default articles;

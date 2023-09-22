@@ -1,6 +1,7 @@
 import path from "path";
 
 import { buildConfig } from "payload/config";
+import Articles from "./src/payload/collections/Articles";
 import Authors from "./src/payload/collections/Authors";
 import GuidingPrinciples from "./src/payload/collections/GuidingPrinciples";
 import Impact from "./src/payload/collections/Impact";
@@ -8,7 +9,6 @@ import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Settings from "./src/payload/globals/Settings";
-import Stories from "./src/payload/collections/Stories";
 import Tags from "./src/payload/collections/Tags";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import dotenv from "dotenv";
@@ -36,13 +36,13 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   collections: [
+    Articles,
     Authors,
     GuidingPrinciples,
     Impact,
     Pages,
     Media,
     Partners,
-    Stories,
     Tags,
   ] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
