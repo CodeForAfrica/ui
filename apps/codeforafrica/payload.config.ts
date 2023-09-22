@@ -7,6 +7,7 @@ import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Settings from "./src/payload/globals/Settings";
+import Members from "./src/payload/collections/Members";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import dotenv from "dotenv";
 import seo from "@payloadcms/plugin-seo";
@@ -18,6 +19,16 @@ dotenv.config();
 dotenv.config({ path: "./.env.local" });
 
 const appURL = process?.env?.PAYLOAD_PUBLIC_APP_URL;
+
+const cors =
+  process?.env?.PAYLOAD_CORS?.split(",")
+    ?.map((d) => d.trim())
+    ?.filter(Boolean) ?? [];
+
+const csrf =
+  process?.env?.PAYLOAD_CSRF?.split(",")
+    ?.map((d) => d.trim())
+    ?.filter(Boolean) ?? [];
 
 const adapter = s3Adapter({
   config: {
@@ -38,6 +49,7 @@ export default buildConfig({
     Pages,
     Media,
     Partners,
+    Members,
   ] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
   admin: {
@@ -55,6 +67,8 @@ export default buildConfig({
       },
     }),
   },
+  cors,
+  csrf,
   plugins: [
     cloudStorage({
       collections: {
