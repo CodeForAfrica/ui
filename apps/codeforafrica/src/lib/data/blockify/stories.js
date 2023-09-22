@@ -1,3 +1,5 @@
+import formatDate from "@/codeforafrica/utils/formatDate";
+
 async function stories(block, api) {
   const { featured = {}, title, search } = block;
   const {
@@ -5,14 +7,20 @@ async function stories(block, api) {
     coverImage: featuredStoryCoverImage,
     excerpt: featuredStoryExcerpt,
     slug: featuredStorySlug,
+    publishedOn: featuredStoryPublishedOn,
   } = featured;
 
-  const { docs: storyList } = await api.getCollection("article", {
+  const {
+    docs: storyList,
+    totalPages,
+    page,
+  } = await api.getCollection("article", {
     where: {
       slug: {
         not_equals: featuredStorySlug,
       },
     },
+    limit: 9,
   });
 
   const uniqueTags = new Set(
@@ -28,7 +36,11 @@ async function stories(block, api) {
     title: featuredStoryTitle,
     image: featuredStoryCoverImage,
     excerpt: featuredStoryExcerpt,
-    slug: featuredStorySlug,
+    publishedOn: formatDate(featuredStoryPublishedOn, {
+      includeTime: false,
+      month: "short",
+    }),
+    href: `/stories/${featuredStorySlug}`,
   };
 
   return {
@@ -36,20 +48,29 @@ async function stories(block, api) {
     search,
     tags: Array.from(uniqueTags),
     featured: featuredStory,
-    list: storyList.map((story) => {
+    articles: storyList.map((story) => {
       const {
         title: storyTitle,
         coverImage: storyCoverImage,
         excerpt: storyExcerpt,
         slug: storySlug,
+        publishedOn: storyPublishedOn,
       } = story;
       return {
         title: storyTitle,
         image: storyCoverImage,
         excerpt: storyExcerpt,
-        slug: storySlug,
+        publishedOn: formatDate(storyPublishedOn, {
+          includeTime: false,
+          month: "short",
+        }),
+        href: `/stories/${storySlug}`,
       };
     }),
+    pagination: {
+      count: totalPages,
+      page,
+    },
     slug: "articles",
   };
 }

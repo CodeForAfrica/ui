@@ -9,7 +9,15 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  articles: { pagination: {}, results: [] },
+  articles: [],
+  featured: [],
+  pagination: {
+    count: 10,
+    page: 1,
+  },
+  search: "Search",
+  tags: ["tag1", "tag2"],
+  title: "Title",
 };
 
 describe("<Articles />", () => {

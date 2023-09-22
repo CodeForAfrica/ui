@@ -13,6 +13,11 @@ exports[`<Articles /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-17kpph-MuiGrid-root"
         >
           <div
+            class="MuiTypography-root MuiTypography-h4 css-1ghqz4h-MuiTypography-root"
+          >
+            Title
+          </div>
+          <div
             class="MuiStack-root css-kbcct1-MuiStack-root"
           >
             <div
@@ -58,10 +63,58 @@ exports[`<Articles /> renders unchanged 1`] = `
                 </fieldset>
               </div>
             </div>
+            <div
+              class="MuiToggleButtonGroup-root css-czr1qx-MuiToggleButtonGroup-root"
+              role="group"
+            >
+              <div
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-r0wqfl-MuiButtonBase-root-MuiChip-root"
+                role="button"
+                tabindex="0"
+                value="tag1"
+              >
+                <span
+                  class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
+                >
+                  tag1
+                </span>
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-r0wqfl-MuiButtonBase-root-MuiChip-root"
+                role="button"
+                tabindex="0"
+                value="tag2"
+              >
+                <span
+                  class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
+                >
+                  tag2
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <nav
+      class="MuiBox-root css-wpqv47"
+    >
+      <ul
+        class="css-1ghxxas"
+      >
+        <li
+          class="MuiBox-root css-0"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1ahypso-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="button"
+          >
+            SEE MORE
+          </button>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
 `;

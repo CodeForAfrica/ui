@@ -18,6 +18,7 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
     sx,
     tags,
     title,
+    searchLabel,
     ...other
   } = props;
 
@@ -44,7 +45,7 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
             tag={selectedTag}
             tags={tags}
             SearchInputProps={{
-              placeholder: "Search",
+              placeholder: searchLabel,
             }}
             sx={{
               mb: { xs: 2.5, md: 5 },

@@ -17,7 +17,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gjb3vx-MuiGrid-root"
         >
           <img
-            alt="Battle for gender equality in African media continues"
+            alt="Featured Article Image"
             class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1eqknb7-MuiCardMedia-root"
             src="https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png"
           />
@@ -26,18 +26,22 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true css-1w7778q-MuiGrid-root"
         >
           <div
-            class="MuiCardContent-root css-yii6g9-MuiCardContent-root"
+            class="MuiCardContent-root css-jq2jyh-MuiCardContent-root"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 css-pdkb43-MuiTypography-root"
             >
               Battle for gender equality in African media continues
             </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-ajju11-MuiTypography-root"
+            <div
+              class="MuiBox-root css-1xbb54b"
             >
-              Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. 
-            </p>
+              <p
+                class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. 
+              </p>
+            </div>
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1it8s17-MuiButtonBase-root-MuiButton-root"
               tabindex="0"
