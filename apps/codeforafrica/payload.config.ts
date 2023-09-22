@@ -41,7 +41,7 @@ export default buildConfig({
     Pages,
     Media,
     Partners,
-    Tags
+    Tags,
   ] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
   admin: {
