@@ -6,7 +6,7 @@ const Tags = {
     useAsTitle: "name",
   },
   access: {
-    read: () => true, // Everyone can read Pages
+    read: () => true,
   },
   fields: [
     {
