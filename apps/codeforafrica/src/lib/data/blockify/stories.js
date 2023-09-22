@@ -1,31 +1,56 @@
-import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
-
-function stories(block) {
-  const { featured = {}, title, search, excerpt, ...other } = block;
+async function stories(block, api) {
+  const { featured = {}, title, search } = block;
   const {
     title: featuredStoryTitle,
     coverImage: featuredStoryCoverImage,
     excerpt: featuredStoryExcerpt,
+    slug: featuredStorySlug,
   } = featured;
+
+  const { docs: storyList } = await api.getCollection("story", {
+    where: {
+      slug: {
+        not_equals: featuredStorySlug,
+      },
+    },
+  });
+
+  const uniqueTags = new Set(
+    storyList
+      .reduce((acc, story) => {
+        const { tags = [] } = story;
+        return [...acc, ...tags.map((tag) => tag.name)];
+      }, [])
+      .sort(),
+  );
 
   const featuredStory = {
     title: featuredStoryTitle,
-    image: imageFromMedia({
-      alt: featuredStoryTitle,
-      ...featuredStoryCoverImage,
-    }),
+    image: featuredStoryCoverImage,
     excerpt: featuredStoryExcerpt,
-    slug: "featured-story",
-  };
-
-  const storiesList = {
-    ...other,
-    slug: "stories-list",
+    slug: featuredStorySlug,
   };
 
   return {
-    ...featuredStory,
-    storiesList,
+    title,
+    search,
+    tags: Array.from(uniqueTags),
+    featured: featuredStory,
+    list: storyList.map((story) => {
+      const {
+        title: storyTitle,
+        coverImage: storyCoverImage,
+        excerpt: storyExcerpt,
+        slug: storySlug,
+      } = story;
+      return {
+        title: storyTitle,
+        image: storyCoverImage,
+        excerpt: storyExcerpt,
+        slug: storySlug,
+      };
+    }),
+    slug: "stories",
   };
 }
 

@@ -12,13 +12,13 @@ const propsifyBlockBySlug = {
   "stories-list": stories,
 };
 
-async function blockify(blocks) {
+async function blockify(blocks, api) {
   const promises = blocks?.map(async (block) => {
     const slug = block.blockType;
     const propsifyBlock = propsifyBlockBySlug[slug];
 
     if (propsifyBlock) {
-      return propsifyBlock(block);
+      return propsifyBlock(block, api);
     }
     return {
       ...block,
