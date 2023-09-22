@@ -16,8 +16,16 @@ const defaultProps = {
       image: {
         src: "/images/Type=layout,%20Size=32,%20Color=1020E1.svg",
       },
-      content:
-        "In 10 years, 15 000 trainees have learned new skills and knowledge within the civic tech and media space.",
+      description: [
+        {
+          children: [
+            {
+              text: "Our team makes an impact in more than 20 countries where members are present.",
+              children: null,
+            },
+          ],
+        },
+      ],
     },
   ],
 };

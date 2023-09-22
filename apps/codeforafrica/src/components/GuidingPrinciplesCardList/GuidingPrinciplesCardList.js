@@ -7,13 +7,20 @@ import GuidingPrinciplesCard from "../GuidingPrinciplesCard";
 
 const GuidingPrinciplesCardList = React.forwardRef(
   function GuidingPrinciplesCardList(props, ref) {
-    const { list, title, ...other } = props;
+    const { list, title, sx } = props;
 
     if (!list?.length) {
       return null;
     }
     return (
-      <Section {...other} ref={ref}>
+      <Section
+        sx={{
+          px: { xs: 2.5, sm: 0 },
+          py: { xs: 2.5, md: 10 },
+          ...sx,
+        }}
+        ref={ref}
+      >
         <RichTypography variant="h4">{title}</RichTypography>
         <Grid
           container

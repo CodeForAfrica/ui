@@ -2,9 +2,11 @@ import { RichTypography } from "@commons-ui/next";
 import { Card, CardContent, CardMedia } from "@mui/material";
 import React from "react";
 
+import RichText from "@/codeforafrica/components/RichText";
+
 const GuidingPrinciplesCard = React.forwardRef(
   function GuidingPrinciplesCard(props, ref) {
-    const { title, content, icon } = props;
+    const { title, description, icon } = props;
 
     return (
       <Card
@@ -35,7 +37,7 @@ const GuidingPrinciplesCard = React.forwardRef(
           <RichTypography variant="h3" sx={{ my: 2.5 }}>
             {title}
           </RichTypography>
-          <RichTypography>{content}</RichTypography>
+          <RichText elements={description} />
         </CardContent>
       </Card>
     );

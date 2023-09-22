@@ -1,4 +1,5 @@
 import blockify from "@/codeforafrica/lib/data/blockify";
+import pagify from "@/codeforafrica/lib/data/pagify";
 import getPageSeoFromMeta from "@/codeforafrica/lib/data/seo";
 import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
 
@@ -142,8 +143,9 @@ function getDefaultErrorPageProps(slug = "404") {
 }
 
 export async function getPageProps(api, context) {
+  const { params } = context;
   const slug = getPageSlug(context);
-  const {
+  let {
     docs: [page],
   } = await api.findPage(slug);
   if (!page) {
@@ -152,11 +154,13 @@ export async function getPageProps(api, context) {
     }
     return null;
   }
-
+  if (params?.slugs?.length > 2) {
+    page = await pagify(page, api, context);
+  }
+  const blocks = await blockify(page?.blocks);
   const settings = await api.findGlobal("settings");
   const navbar = getNavBar(settings);
   const footer = getFooter(settings);
-  const blocks = await blockify(page.blocks);
 
   const seo = getPageSeoFromMeta(page, settings);
   return {
