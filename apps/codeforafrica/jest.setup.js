@@ -17,6 +17,8 @@ global.TextDecoder = jest.fn().mockImplementation(() => ({
   decode: jest.fn(),
 }));
 
+process.env.NEXT_PUBLIC_APP_URL = "http://localhost:3000";
+
 jest.mock("next/router", () => ({
   useRouter: jest.fn().mockImplementation(() => ({
     asPath: "",
