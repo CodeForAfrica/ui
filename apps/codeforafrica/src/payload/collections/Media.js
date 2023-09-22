@@ -18,6 +18,9 @@ const Media = {
       required: true,
     },
   ],
+  hooks: {
+    afterRead: [({ doc }) => ({ ...doc, src: doc.url })],
+  },
 };
 
 export default Media;

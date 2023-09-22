@@ -2,6 +2,7 @@ import path from "path";
 
 import { buildConfig } from "payload/config";
 import Authors from "./src/payload/collections/Authors";
+import GuidingPrinciples from "./src/payload/collections/GuidingPrinciples";
 import Impact from "./src/payload/collections/Impact";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
@@ -35,11 +36,12 @@ export default buildConfig({
   serverURL: appURL,
   collections: [
     Authors,
+    GuidingPrinciples,
     Impact,
     Pages,
     Media,
     Partners,
-    Tags,
+    Tags
   ] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
   admin: {
@@ -67,7 +69,7 @@ export default buildConfig({
       },
     }),
     seo({
-      collections: [],
+      collections: ["pages"],
       globals: [],
       uploadsCollection: "media",
       generateTitle: ({ doc }: any) => doc?.title?.value as string,
