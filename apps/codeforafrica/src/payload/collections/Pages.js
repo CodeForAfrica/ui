@@ -3,6 +3,7 @@ import CustomPageHeader from "../blocks/CustomPageHeader";
 import Error from "../blocks/Error";
 import GetInTouch from "../blocks/GetInTouch";
 import GetInvolved from "../blocks/GetInvolved";
+import GuidingPrinciples from "../blocks/GuidingPrinciples";
 import Hero from "../blocks/Hero";
 import JoinOurSlack from "../blocks/JoinOurSlack";
 import MeetOurTeam from "../blocks/MeetOurTeam";
@@ -48,6 +49,7 @@ const Pages = {
         Error,
         GetInTouch,
         GetInvolved,
+        GuidingPrinciples,
         Hero,
         JoinOurSlack,
         MeetOurTeam,
