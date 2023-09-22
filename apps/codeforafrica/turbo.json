@@ -6,7 +6,7 @@
     },
     "build-next": {
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
-      "env": []
+      "env": ["NEXT_PUBLIC_APP_NAME", "NEXT_PUBLIC_APP_URL"]
     },
     "build-payload": {
       "outputs": ["build/**"],
