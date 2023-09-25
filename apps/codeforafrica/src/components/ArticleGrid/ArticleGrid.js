@@ -53,30 +53,27 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
             }}
           />
         </Grid>
-
-        <>
-          {featuredArticle ? (
-            <Grid
-              item
-              xs={12}
-              sx={{ order: { xs: 1, md: 0 } }}
-              key={featuredArticle.id}
-            >
-              <FeaturedArticle
-                {...featuredArticle}
-                readMoreLabel={readMoreLabel}
-              />
-            </Grid>
-          ) : null}
-          {articles?.length > 0 ? (
-            <Grid item xs={12} sx={{ order: { xs: 2 } }}>
-              <ArticleCardList
-                sx={{ pt: { xs: "28px", md: 0 } }}
-                articles={articles}
-              />
-            </Grid>
-          ) : null}
-        </>
+        {featuredArticle ? (
+          <Grid
+            item
+            xs={12}
+            sx={{ order: { xs: 1, md: 0 } }}
+            key={featuredArticle.id}
+          >
+            <FeaturedArticle
+              {...featuredArticle}
+              readMoreLabel={readMoreLabel}
+            />
+          </Grid>
+        ) : null}
+        {articles?.length > 0 ? (
+          <Grid item xs={12} sx={{ order: { xs: 2 } }}>
+            <ArticleCardList
+              sx={{ pt: { xs: "28px", md: 0 } }}
+              articles={articles}
+            />
+          </Grid>
+        ) : null}
       </Grid>
     </Section>
   );
