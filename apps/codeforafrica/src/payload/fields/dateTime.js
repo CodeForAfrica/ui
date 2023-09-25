@@ -6,7 +6,6 @@ const dateTime = (overrides) =>
       name: "date",
       type: "date",
       admin: {
-        readOnly: true,
         date: {
           pickerAppearance: "dayAndTime",
         },

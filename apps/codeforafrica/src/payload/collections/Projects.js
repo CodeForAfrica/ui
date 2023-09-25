@@ -1,9 +1,11 @@
 import dateTime from "../fields/dateTime";
 import image from "../fields/image";
-import link from "../fields/links/link";
 import linkArray from "../fields/links/linkArray";
+import linkGroup from "../fields/links/linkGroup";
 import richText from "../fields/richText";
+import slug from "../fields/slug";
 import tags from "../fields/tags";
+import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
 
 const Projects = {
   slug: "projects",
@@ -18,6 +20,13 @@ const Projects = {
       },
       type: "text",
       required: true,
+    },
+    {
+      name: "tagLine",
+      label: {
+        en: "Tag Line",
+      },
+      type: "text",
     },
     {
       name: "title",
@@ -51,7 +60,7 @@ const Projects = {
         required: true,
       },
     }),
-    link(),
+    linkGroup({ overrides: { name: "externalHref" } }),
     linkArray(),
     {
       name: "badges",
@@ -88,7 +97,7 @@ const Projects = {
       },
       required: true,
       type: "relationship",
-      relationTo: "partners",
+      relationTo: "members",
       hasMany: true,
     },
     {
@@ -101,7 +110,11 @@ const Projects = {
       relationTo: "donors",
       hasMany: true,
     },
+    slug({ fieldToUse: "name" }),
   ],
+  hooks: {
+    afterRead: [nestCollectionUnderPage("work")],
+  },
 };
 
 export default Projects;

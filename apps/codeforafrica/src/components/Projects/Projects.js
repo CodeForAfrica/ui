@@ -16,10 +16,8 @@ import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 const Projects = React.forwardRef(function Projects(
   {
     tags,
-    projects: {
-      pagination: { count: countProp, page: pageProp = 1 },
-      results: resultsProp,
-    },
+    pagination: { count: countProp, page: pageProp = 1 },
+    results: resultsProp,
     sx,
   },
   ref,
@@ -57,7 +55,9 @@ const Projects = React.forwardRef(function Projects(
   }, [data]);
 
   useEffect(() => {
-    router.push(queryParams, undefined, {
+    const [pathname] = router.asPath.split("?");
+    const url = pathname ? `${pathname}${queryParams}` : queryParams;
+    router.push(url, undefined, {
       scroll: true,
       shallow: true,
     });
@@ -84,7 +84,7 @@ const Projects = React.forwardRef(function Projects(
         {projects?.length > 0 ? (
           <Stack direction="column" spacing={{ xs: 5, md: 7.5 }}>
             {projects.map((project) => (
-              <ProjectCard {...project} key={project.slug} />
+              <ProjectCard {...project} key={project.id} />
             ))}
           </Stack>
         ) : null}

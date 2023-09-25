@@ -11,6 +11,10 @@ const Donors = {
       en: "Donors",
     },
   },
+  admin: {
+    useAsTitle: "name",
+    defaultColumns: ["name", "logo"],
+  },
   fields: [
     {
       name: "name",
