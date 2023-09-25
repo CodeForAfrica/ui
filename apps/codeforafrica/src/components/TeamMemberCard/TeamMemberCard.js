@@ -29,14 +29,14 @@ const TeamMemberCard = React.forwardRef(function TeamMemberCard(props, ref) {
     link: { href },
     name,
     title,
-    image: { src },
+    image: { src, alt },
   } = props;
 
   return (
     <TeamMemberCardRoot elevation={0} square ref={ref}>
       <CardActionArea component={href ? Link : undefined} href={href}>
         <>
-          <TeamMemberCardMedia src={src} component="img" />
+          <TeamMemberCardMedia alt={alt} src={src} component="img" />
           <CardContent
             sx={{
               p: "10px",

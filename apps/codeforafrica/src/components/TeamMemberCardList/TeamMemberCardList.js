@@ -39,7 +39,7 @@ const TeamMemberCardList = React.forwardRef(
           }}
         >
           {team?.map((member) => (
-            <Grid item key={member.id}>
+            <Grid item key={member.slug}>
               <TeamMemberCard {...member} />
             </Grid>
           ))}

@@ -10,6 +10,7 @@ import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Settings from "./src/payload/globals/Settings";
 import Tags from "./src/payload/collections/Tags";
+import Teams from "./src/payload/collections/Teams";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import dotenv from "dotenv";
 import seo from "@payloadcms/plugin-seo";
@@ -54,6 +55,7 @@ export default buildConfig({
     Media,
     Partners,
     Tags,
+    Teams,
   ] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
   admin: {

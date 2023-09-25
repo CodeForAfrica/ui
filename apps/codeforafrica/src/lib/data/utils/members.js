@@ -1,33 +1,32 @@
-const orQueryBuilder = (fields, search) => {
-  if (!search) {
-    return [];
-  }
-  return fields.map((field) => ({ [field]: { like: search } }));
-};
-
 function getQueryFromParams(params) {
-  const { field, tag } = params;
+  const { field, tag, q } = params;
+  const fields = ["name", "title", "country"];
+  const or = q ? fields.map((f) => ({ [f]: { like: q } })) : [];
   if (field && tag) {
+    if (field === "team") {
+      return {
+        or,
+        "team.name": {
+          like: tag,
+        },
+      };
+    }
     return {
+      or,
       [field]: {
         like: tag,
       },
     };
   }
-  return null;
+  return { or };
 }
 
 export async function getMembers(api, params) {
-  const { page: queryPage = 1, q } = params;
-  const fields = ["name", "title", "country"];
-  const orQuery = orQueryBuilder(fields, q);
+  const { page: queryPage = 1 } = params;
   const options = {
     limit: 18,
     page: queryPage,
-    where: {
-      or: orQuery,
-      ...getQueryFromParams(params),
-    },
+    where: getQueryFromParams(params),
   };
   const {
     docs: results,

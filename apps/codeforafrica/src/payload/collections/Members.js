@@ -15,11 +15,6 @@ const Members = {
       en: "Members",
     },
   },
-  access: {
-    read: () => true,
-    create: () => true,
-    update: () => true,
-  },
   admin: {
     useAsTitle: "name",
   },
@@ -48,9 +43,9 @@ const Members = {
     slug({ fieldToUse: "name" }),
     {
       name: "country",
+      label: { en: "country" },
       type: "select",
       options: allCountries,
-      label: { en: "country" },
     },
     richText({
       name: "description",
@@ -72,7 +67,8 @@ const Members = {
       label: {
         en: "Team",
       },
-      type: "text",
+      type: "relationship",
+      relationTo: "teams",
     },
   ],
   hooks: {
