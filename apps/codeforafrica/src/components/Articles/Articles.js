@@ -81,6 +81,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
         selectedTag={tag}
         tags={[ALL_TAG, ...tags]}
         searchLabel={search}
+        q={q}
         readMoreLabel={readMore}
         title={title}
         sx={sx}
