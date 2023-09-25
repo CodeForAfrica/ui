@@ -2,6 +2,7 @@ import formatDate from "@/codeforafrica/utils/formatDate";
 
 export function formatStory(story) {
   const {
+    id,
     title,
     coverImage: { src, alt },
     excerpt,
@@ -12,6 +13,7 @@ export function formatStory(story) {
     return null;
   }
   return {
+    id,
     title,
     image: {
       src,

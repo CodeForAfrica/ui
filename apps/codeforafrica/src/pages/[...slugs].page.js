@@ -54,7 +54,7 @@ function Index({ blocks, fallback }) {
         if (!Component) {
           return null;
         }
-        return <Component {...block} key={block.id} />;
+        return <Component {...block} key={block.slug} />;
       })}
     </PageComponent>
   );
