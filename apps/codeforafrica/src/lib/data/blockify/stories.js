@@ -22,16 +22,12 @@ async function stories(block, api, context) {
     ...query,
   };
 
-  const {
-    stories: articles,
-    pagination,
-    tags,
-  } = await getStories(api, options);
+  const { stories: articles, pagination } = await getStories(api, options);
 
   return {
     title,
     labels,
-    tags,
+    tags: [],
     featured: featuredStory || null,
     articles,
     pagination,

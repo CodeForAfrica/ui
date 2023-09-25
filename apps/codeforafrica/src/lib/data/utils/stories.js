@@ -68,15 +68,6 @@ export async function getStories(api, params) {
     page,
   } = await api.getCollection("article", options);
 
-  const uniqueTags = new Set(
-    storyList
-      .reduce((acc, story) => {
-        const { tags = [] } = story;
-        return [...acc, ...tags.map((t) => t.name)];
-      }, [])
-      .sort(),
-  );
-
   const stories = storyList.map(formatStory).filter(Boolean);
 
   return {
@@ -85,6 +76,5 @@ export async function getStories(api, params) {
       count: totalPages,
       page,
     },
-    tags: [...uniqueTags],
   };
 }

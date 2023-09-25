@@ -1,13 +1,12 @@
-import articles from "../fields/articles";
-
 const Stories = {
   slug: "stories",
   fields: [
-    articles({
+    {
       name: "featured",
-      label: "Featured Story",
+      type: "relationship",
+      relationTo: "article",
       hasMany: false,
-    }),
+    },
     {
       name: "title",
       label: "Title",
