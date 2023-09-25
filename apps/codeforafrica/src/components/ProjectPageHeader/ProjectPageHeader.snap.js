@@ -45,7 +45,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
           </ol>
         </nav>
         <img
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-vpxcaz-MuiCardMedia-root"
+          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-tm1rxb-MuiCardMedia-root"
         />
         <div
           class="MuiBox-root css-1ntmuzk"

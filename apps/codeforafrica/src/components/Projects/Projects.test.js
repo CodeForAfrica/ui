@@ -9,7 +9,8 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  projects: { pagination: {}, results: [] },
+  pagination: {},
+  results: [],
 };
 
 describe("<Projects />", () => {
