@@ -10,7 +10,7 @@ import useFilterQuery from "@/codeforafrica/components/useFilterQuery";
 const Articles = React.forwardRef(function Articles(props, ref) {
   const {
     articles: articlesList,
-    featured,
+    featured: featuredArticle,
     sx,
     tags,
     title,
@@ -19,7 +19,6 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   } = props;
   const [articles, setArticles] = useState(articlesList);
   const [count, setCount] = useState(countProp);
-  const [featuredArticle, setFeaturedArticle] = useState(featured);
   const [page, setPage] = useState(pageProp);
   const [filtering, setFiltering] = useState(false);
   const queryParams = useFilterQuery({ page });
@@ -41,22 +40,16 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   const { data } = useArticles({ page });
   useEffect(() => {
     if (data) {
-      const {
-        articles: results,
-        featured: newFeaturedArticle,
-        pagination,
-      } = data;
-
-      if (!filtering) {
-        setFeaturedArticle(newFeaturedArticle);
-      }
+      const { stories: results, pagination } = data;
       setCount(pagination.count);
       setArticles(results);
     }
   }, [data, filtering]);
 
   useEffect(() => {
-    router.push(queryParams, undefined, {
+    const [pathname] = router.asPath.split("?");
+    const url = pathname ? `${pathname}${queryParams}` : queryParams;
+    router.push(url, undefined, {
       scroll: true,
       shallow: true,
     });
@@ -70,7 +63,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     <div ref={ref}>
       <ArticleGrid
         articles={articles}
-        featuredArticle={featuredArticle}
+        featuredArticle={filtering ? null : featuredArticle}
         onChangeQ={handleChangeQ}
         onChangeTag={handleChangeTag}
         tags={tags}
