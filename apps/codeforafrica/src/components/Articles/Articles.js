@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import useArticles from "./useArticles";
 
@@ -23,16 +23,19 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   const [articles, setArticles] = useState(articlesList);
   const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);
+  const [q, setQ] = useState();
   const [filtering, setFiltering] = useState(false);
   const [tag, setTag] = useState(ALL_TAG);
-  const queryParams = useFilterQuery({ page, tag });
+  const queryParams = useFilterQuery({ page, q, tag });
   const router = useRouter();
+
   const handleChangePage = (_, value) => {
     setPage(value);
   };
 
-  // TODO: Kelvin Handle filtering a
-  const handleChangeQ = () => {};
+  const handleChangeQ = (_, value) => {
+    setQ(value || undefined);
+  };
 
   const handleChangeTag = (_, value) => {
     const newValue =
@@ -42,11 +45,11 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   };
 
   useEffect(() => {
-    const isFiltering = page !== 1 || !equalsIgnoreCase(tag, ALL_TAG);
+    const isFiltering = page !== 1 || q || !equalsIgnoreCase(tag, ALL_TAG);
     setFiltering(isFiltering);
-  }, [page, tag]);
+  }, [page, q, tag]);
 
-  const { data } = useArticles({ page, tag });
+  const { data } = useArticles({ page, q, tag });
   useEffect(() => {
     if (data) {
       const { stories: results, pagination } = data;

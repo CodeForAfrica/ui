@@ -27,13 +27,37 @@ export function formatStory(story) {
 }
 
 export async function getStories(api, params) {
-  const { page: queryPage = 1, tag, where = {}, ...other } = params;
+  const { page: queryPage = 1, tag, q, where = {}, ...other } = params;
   const options = {
     limit: 9,
     page: queryPage,
     where: {
       ...where,
       ...(tag && { "tags.name": { like: tag } }),
+      ...(q && {
+        or: [
+          {
+            title: {
+              contains: q,
+            },
+          },
+          {
+            "tags.name": {
+              contains: q,
+            },
+          },
+          {
+            "excerpt.children.text": {
+              contains: q,
+            },
+          },
+          {
+            "content.richTextBlockFields.content.children.text": {
+              like: q,
+            },
+          },
+        ],
+      }),
     },
     ...other,
   };
