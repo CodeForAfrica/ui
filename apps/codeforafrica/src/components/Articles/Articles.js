@@ -5,7 +5,10 @@ import useArticles from "./useArticles";
 
 import ArticleGrid from "@/codeforafrica/components/ArticleGrid";
 import NextPreviousPagination from "@/codeforafrica/components/NextPreviousPagination";
-import useFilterQuery from "@/codeforafrica/components/useFilterQuery";
+import useFilterQuery, {
+  ALL_TAG,
+} from "@/codeforafrica/components/useFilterQuery";
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 const Articles = React.forwardRef(function Articles(props, ref) {
   const {
@@ -21,7 +24,8 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);
   const [filtering, setFiltering] = useState(false);
-  const queryParams = useFilterQuery({ page });
+  const [tag, setTag] = useState(ALL_TAG);
+  const queryParams = useFilterQuery({ page, tag });
   const router = useRouter();
   const handleChangePage = (_, value) => {
     setPage(value);
@@ -30,14 +34,19 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   // TODO: Kelvin Handle filtering a
   const handleChangeQ = () => {};
 
-  const handleChangeTag = () => {};
+  const handleChangeTag = (_, value) => {
+    const newValue =
+      (value && tags.find((t) => equalsIgnoreCase(value, t))) || ALL_TAG;
+    setTag(newValue);
+    setPage(1);
+  };
 
   useEffect(() => {
-    const isFiltering = page !== 1;
+    const isFiltering = page !== 1 || !equalsIgnoreCase(tag, ALL_TAG);
     setFiltering(isFiltering);
-  }, [page]);
+  }, [page, tag]);
 
-  const { data } = useArticles({ page });
+  const { data } = useArticles({ page, tag });
   useEffect(() => {
     if (data) {
       const { stories: results, pagination } = data;
@@ -66,7 +75,8 @@ const Articles = React.forwardRef(function Articles(props, ref) {
         featuredArticle={filtering ? null : featuredArticle}
         onChangeQ={handleChangeQ}
         onChangeTag={handleChangeTag}
-        tags={tags}
+        selectedTag={tag}
+        tags={[ALL_TAG, ...tags]}
         searchLabel={search}
         readMoreLabel={readMore}
         title={title}

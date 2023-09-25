@@ -27,10 +27,14 @@ export function formatStory(story) {
 }
 
 export async function getStories(api, params) {
-  const { page: queryPage = 1, ...other } = params;
+  const { page: queryPage = 1, tag, where = {}, ...other } = params;
   const options = {
     limit: 9,
     page: queryPage,
+    where: {
+      ...where,
+      ...(tag && { "tags.name": { like: tag } }),
+    },
     ...other,
   };
 
@@ -44,7 +48,7 @@ export async function getStories(api, params) {
     storyList
       .reduce((acc, story) => {
         const { tags = [] } = story;
-        return [...acc, ...tags.map((tag) => tag.name)];
+        return [...acc, ...tags.map((t) => t.name)];
       }, [])
       .sort(),
   );
