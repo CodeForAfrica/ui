@@ -12,6 +12,7 @@ import Settings from "./src/payload/globals/Settings";
 import Tags from "./src/payload/collections/Tags";
 import Projects from "./src/payload/collections/Projects";
 import Donors from "./src/payload/collections/Donors";
+import Teams from "./src/payload/collections/Teams";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import dotenv from "dotenv";
 import seo from "@payloadcms/plugin-seo";
@@ -58,6 +59,7 @@ export default buildConfig({
     Partners,
     Projects,
     Tags,
+    Teams,
   ] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
   admin: {

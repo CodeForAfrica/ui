@@ -1,7 +1,7 @@
-const Partners = {
+const OurTeam = {
   slug: "our-team",
   imageURL: "/images/cms/blocks/team.png",
-  imageAltText: "Our Partners",
+  imageAltText: "Our Team",
   labels: {
     singular: {
       en: "Our Team",
@@ -41,4 +41,4 @@ const Partners = {
   ],
 };
 
-export default Partners;
+export default OurTeam;
