@@ -5,6 +5,7 @@ import Authors from "./src/payload/collections/Authors";
 import GuidingPrinciples from "./src/payload/collections/GuidingPrinciples";
 import Impact from "./src/payload/collections/Impact";
 import Media from "./src/payload/collections/Media";
+import Members from "./src/payload/collections/Members";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Settings from "./src/payload/globals/Settings";
@@ -22,6 +23,16 @@ dotenv.config();
 dotenv.config({ path: "./.env.local" });
 
 const appURL = process?.env?.PAYLOAD_PUBLIC_APP_URL;
+
+const cors =
+  process?.env?.PAYLOAD_CORS?.split(",")
+    ?.map((d) => d.trim())
+    ?.filter(Boolean) ?? [];
+
+const csrf =
+  process?.env?.PAYLOAD_CSRF?.split(",")
+    ?.map((d) => d.trim())
+    ?.filter(Boolean) ?? [];
 
 const adapter = s3Adapter({
   config: {
@@ -41,6 +52,7 @@ export default buildConfig({
     Donors,
     GuidingPrinciples,
     Impact,
+    Members,
     Pages,
     Media,
     Partners,
@@ -63,6 +75,8 @@ export default buildConfig({
       },
     }),
   },
+  cors,
+  csrf,
   plugins: [
     cloudStorage({
       collections: {
