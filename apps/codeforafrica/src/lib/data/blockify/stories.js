@@ -3,7 +3,8 @@ import {
   formatStory,
 } from "@/codeforafrica/lib/data/utils/stories";
 
-async function stories(block, api) {
+async function stories(block, api, context) {
+  const { query } = context;
   const { featured, title, labels } = block;
   const featuredStory = featured && (formatStory(featured) || null);
   const featuredStorySlug = featuredStory
@@ -18,6 +19,7 @@ async function stories(block, api) {
         },
       },
     }),
+    ...query,
   };
 
   const {
