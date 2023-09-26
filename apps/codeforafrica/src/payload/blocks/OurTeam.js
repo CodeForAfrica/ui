@@ -4,10 +4,10 @@ const OurTeam = {
   imageAltText: "Our Team",
   labels: {
     singular: {
-      en: "Our Team",
+      en: "Team",
     },
     plural: {
-      en: "Our Team",
+      en: "Team",
     },
   },
   fields: [

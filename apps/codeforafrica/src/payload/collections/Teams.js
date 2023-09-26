@@ -4,6 +4,7 @@ const Teams = {
   slug: "teams",
   admin: {
     useAsTitle: "name",
+    defaultColumns: ["name"],
   },
   access: {
     read: () => true,
