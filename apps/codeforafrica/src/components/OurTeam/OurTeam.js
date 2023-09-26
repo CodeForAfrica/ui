@@ -22,13 +22,10 @@ function getTags(tagsByFields, field) {
 
 const OurTeam = React.forwardRef(function OurTeam(
   {
-    pathname,
     sx,
     tags: tagsByFields = [],
-    team: {
-      pagination: { count: countProp, page: pageProp },
-      results: resultsProp,
-    },
+    pagination: { count: countProp, page: pageProp },
+    results: resultsProp,
     title,
   },
   ref,
@@ -79,12 +76,13 @@ const OurTeam = React.forwardRef(function OurTeam(
   useEffect(() => {
     if (data) {
       const { results, pagination } = data;
-      setCount(pagination.count);
+      setCount(pagination?.count);
       setMembers([...results]);
     }
   }, [data]);
 
   useEffect(() => {
+    const [pathname] = router.asPath.split("?");
     const url = pathname ? `${pathname}${queryParams}` : queryParams;
     router.push(url, undefined, {
       shallow: true,
