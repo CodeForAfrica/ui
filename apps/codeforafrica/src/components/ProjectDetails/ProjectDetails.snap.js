@@ -4,7 +4,6 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-eoqn3z-MuiContainer-root"
-    description="This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa."
   >
     <div
       class="MuiGrid-root MuiGrid-container css-1ldf9ke-MuiGrid-root"
@@ -89,6 +88,11 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
             Description
           </div>
           <div
+            class="MuiBox-root css-cmetz8"
+          >
+            This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.
+          </div>
+          <div
             class="MuiStack-root css-1dhgtrr-MuiStack-root"
           >
             <a
@@ -98,7 +102,6 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
               tabindex="0"
               target="_blank"
             >
-              Launch Project
               <span
                 class="MuiButton-endIcon MuiButton-iconSizeSmall css-jcxoq4-MuiButton-endIcon"
               >
@@ -117,7 +120,6 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
               tabindex="0"
               target="_blank"
             >
-              GitHub
               <span
                 class="MuiButton-endIcon MuiButton-iconSizeSmall css-jcxoq4-MuiButton-endIcon"
               >

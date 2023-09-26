@@ -15,6 +15,7 @@ import ExternalLinkIcon from "@/codeforafrica/assets/icons/Type=external-link, S
 import Breadcrumbs from "@/codeforafrica/components/Breadcrumbs";
 import ProjectCardMedia from "@/codeforafrica/components/ProjectCardMedia";
 import ProjectTile from "@/codeforafrica/components/ProjectTile";
+import RichText from "@/codeforafrica/components/RichText";
 import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const Background = styled(TwoToneBackground, {
@@ -124,12 +125,11 @@ const ProjectPageHeader = React.forwardRef(
                 >
                   {title}
                 </ProjectTitle>
-                <RichTypography
+                <RichText
                   variant="body2"
                   sx={{ mt: 2.5, typography: { md: "subheading" } }}
-                >
-                  {subtitle}
-                </RichTypography>
+                  elements={subtitle}
+                />
               </CardContent>
               <CardActions sx={{ mt: 2, p: 0 }}>
                 <Button

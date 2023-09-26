@@ -20,7 +20,6 @@ exports[`<ProjectDescription /> renders unchanged 1`] = `
         tabindex="0"
         target="_blank"
       >
-        Github
         <span
           class="MuiButton-endIcon MuiButton-iconSizeSmall css-jcxoq4-MuiButton-endIcon"
         >

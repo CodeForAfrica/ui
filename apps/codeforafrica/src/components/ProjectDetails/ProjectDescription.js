@@ -4,9 +4,11 @@ import React from "react";
 
 import Button from "./ProjectDescriptionButton";
 
+import RichText from "@/codeforafrica/components/RichText";
+
 const ProjectDescription = React.forwardRef(
   function ProjectDescription(props, ref) {
-    const { children, links, sx, title, ...other } = props;
+    const { description, links, sx, title, ...other } = props;
 
     if (!title?.length) {
       return null;
@@ -19,14 +21,16 @@ const ProjectDescription = React.forwardRef(
         ref={ref}
       >
         <RichTypography variant="h5">{title}</RichTypography>
-        <RichTypography variant="body1" sx={{ typography: { md: "body2" } }}>
-          {children}
-        </RichTypography>
+        <RichText
+          variant="body1"
+          elements={description}
+          sx={{ typography: { md: "body2" } }}
+        />
         {links?.length > 0 ? (
           <Stack direction="row" spacing={2.5}>
-            {links.map(({ content, href, slug }) => (
-              <Button key={slug} href={href} slug={slug}>
-                {content}
+            {links.map(({ label, href, slug }) => (
+              <Button key={href} href={href} slug={slug}>
+                {label}
               </Button>
             ))}
           </Stack>

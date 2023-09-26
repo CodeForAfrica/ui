@@ -16,6 +16,7 @@ import OurPartners from "@/codeforafrica/components/OurPartners";
 import OurTeam from "@/codeforafrica/components/OurTeam";
 import PageHeader from "@/codeforafrica/components/PageHeader";
 import Partner from "@/codeforafrica/components/Partner";
+import Project from "@/codeforafrica/components/Project";
 import Projects from "@/codeforafrica/components/Projects";
 import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
@@ -36,6 +37,7 @@ const componentsBySlugs = {
   "our-work": Projects,
   projects: FeaturedProjects,
   partner: Partner,
+  project: Project,
 };
 
 function Index({ blocks, fallback }) {
