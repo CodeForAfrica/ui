@@ -24,7 +24,7 @@ export function formatStory(story) {
       includeTime: false,
       month: "short",
     }),
-    href: `/stories/${slug}`,
+    href: `/posts/stories/${slug}`,
   };
 }
 
