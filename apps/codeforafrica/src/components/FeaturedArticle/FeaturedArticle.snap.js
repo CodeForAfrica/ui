@@ -33,15 +33,11 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
             >
               Battle for gender equality in African media continues
             </p>
-            <div
-              class="MuiBox-root css-1xbb54b"
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-ajju11-MuiTypography-root"
             >
-              <p
-                class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
-              >
-                Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. 
-              </p>
-            </div>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed.
+            </p>
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1it8s17-MuiButtonBase-root-MuiButton-root"
               tabindex="0"

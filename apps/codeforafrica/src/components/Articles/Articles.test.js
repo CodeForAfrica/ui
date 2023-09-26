@@ -12,16 +12,8 @@ const defaultProps = {
   articles: [
     {
       title: "Battle for gender equality in African media continues",
-      excerpt: [
-        {
-          children: [
-            {
-              text: "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
-              children: null,
-            },
-          ],
-        },
-      ],
+      excerpt:
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed.",
       publishedOn: "Jan 6, 2022",
       image: {
         src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png",
@@ -33,16 +25,8 @@ const defaultProps = {
   ],
   featured: {
     title: "Battle for gender equality in African media continues",
-    excerpt: [
-      {
-        children: [
-          {
-            text: "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed. ",
-            children: null,
-          },
-        ],
-      },
-    ],
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed.",
     publishedOn: "Jan 6, 2022",
     image: {
       src: "https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png",
