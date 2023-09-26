@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Partner from "./Partner";
+import Page from "./Page";
 
 import theme from "@/codeforafrica/theme";
 
@@ -22,9 +22,9 @@ const defaultProps = {
   ],
 };
 
-describe("<Partners />", () => {
+describe("<Page />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Partner {...defaultProps} />);
+    const { container } = render(<Page {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

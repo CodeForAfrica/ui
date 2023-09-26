@@ -1,9 +1,9 @@
 import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
 
-async function partners(api, context) {
+async function members(api, context) {
   const { params, locale } = context;
   const slug = params.slugs[2];
-  const { docs } = await api.getCollection("partners", {
+  const { docs } = await api.getCollection("members", {
     locale,
     where: {
       slug: {
@@ -14,17 +14,18 @@ async function partners(api, context) {
   if (!docs?.length) {
     return null;
   }
-  const [partner] = docs;
+  const [member] = docs;
   return {
     blocks: [
       {
-        relatedProjects: [], // TODO(koechkevin) Related projects go here once projects implemented
-        ...partner,
-        logo: imageFromMedia(partner.logo),
+        relatedProjects: [],
+        ...member,
+        user: true,
+        logo: imageFromMedia(member.image),
         blockType: "about-page-entity",
       },
     ],
   };
 }
 
-export default partners;
+export default members;
