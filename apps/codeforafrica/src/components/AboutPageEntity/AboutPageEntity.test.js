@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Page from "./Page";
+import AboutPageEntity from "./AboutPageEntity";
 
 import theme from "@/codeforafrica/theme";
 
@@ -22,9 +22,9 @@ const defaultProps = {
   ],
 };
 
-describe("<Page />", () => {
+describe("<AboutPageEntity />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Page {...defaultProps} />);
+    const { container } = render(<AboutPageEntity {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

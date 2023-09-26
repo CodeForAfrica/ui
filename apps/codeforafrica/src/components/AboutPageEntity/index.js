@@ -1,3 +1,3 @@
-import Page from "./Page";
+import AboutPageEntity from "./AboutPageEntity";
 
-export default Page;
+export default AboutPageEntity;
