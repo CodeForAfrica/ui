@@ -12,7 +12,11 @@ function formatTags(tags) {
   const sortedTags = Object.keys(tagCounts).sort((a, b) => {
     return tagCounts[b] - tagCounts[a];
   });
-  return sortedTags;
+  const excludedTags = ["stories", "opportunities"];
+  const filteredTags = sortedTags.filter((tag) => {
+    return !excludedTags.includes(tag.toLowerCase());
+  });
+  return filteredTags;
 }
 
 async function stories(block, api, context) {
@@ -37,8 +41,13 @@ async function stories(block, api, context) {
 
   const { stories: articles, pagination } = await getStories(api, options);
 
-  const { docs: allStories } = await api.getCollection("article", {
+  const { docs: allStories } = await api.getCollection("posts", {
     limit: 0,
+    where: {
+      "tags.name": {
+        like: "stories",
+      },
+    },
   });
 
   const allTags = allStories.reduce((acc, story) => {

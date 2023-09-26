@@ -6,7 +6,6 @@ import React from "react";
 import ArticleCard from "@/codeforafrica/components/ArticleCard";
 import ArticleCardContent from "@/codeforafrica/components/ArticleCardContent";
 import ArticleCardMedia from "@/codeforafrica/components/ArticleCardMedia";
-import RichText from "@/codeforafrica/components/RichText";
 
 const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
   const {
@@ -76,14 +75,15 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
               >
                 {title}
               </Typography>
-              <RichText
-                elements={excerpt}
+              <Typography
                 sx={{
                   order: 2,
                   display: { xs: "none", md: "flex" },
                   mb: { md: "20px" },
                 }}
-              />
+              >
+                {excerpt}
+              </Typography>
               <Button
                 color="primary"
                 variant="contained"

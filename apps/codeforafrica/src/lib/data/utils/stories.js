@@ -35,6 +35,13 @@ export async function getStories(api, params) {
     page: queryPage,
     where: {
       ...where,
+      and: [
+        {
+          "tags.name": {
+            contains: "stories",
+          },
+        },
+      ],
       ...(tag && { "tags.name": { like: tag } }),
       ...(q && {
         or: [
@@ -49,7 +56,7 @@ export async function getStories(api, params) {
             },
           },
           {
-            "excerpt.children.text": {
+            excerpt: {
               contains: q,
             },
           },
@@ -68,7 +75,7 @@ export async function getStories(api, params) {
     docs: storyList,
     totalPages,
     page,
-  } = await api.getCollection("article", options);
+  } = await api.getCollection("posts", options);
 
   const stories = storyList.map(formatStory).filter(Boolean);
 
