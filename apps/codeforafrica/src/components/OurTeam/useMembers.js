@@ -6,7 +6,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function useMembers(query) {
   const queryParams = useFilterQuery(query);
-  const { data, error } = useSWR(`/api/members${queryParams}`, fetcher);
+  const { data, error } = useSWR(`/api/v1/members${queryParams}`, fetcher);
 
   return {
     data,

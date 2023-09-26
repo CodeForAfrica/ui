@@ -9,7 +9,8 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  team: { pagination: {}, results: [] },
+  pagination: {},
+  results: [],
   title: "Our team",
 };
 
