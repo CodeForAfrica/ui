@@ -4,11 +4,11 @@ import publishedOn from "../fields/publishedOn";
 import slug from "../fields/slug";
 import tags from "../fields/tags";
 
-const Articles = {
-  slug: "article",
+const Posts = {
+  slug: "posts",
   labels: {
-    singular: "Story",
-    plural: "Stories",
+    singular: "Post",
+    plural: "Posts",
   },
   access: {
     read: () => true,
@@ -58,4 +58,4 @@ const Articles = {
   ],
 };
 
-export default Articles;
+export default Posts;

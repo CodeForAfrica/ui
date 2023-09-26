@@ -4,7 +4,7 @@ const Stories = {
     {
       name: "featured",
       type: "relationship",
-      relationTo: "article",
+      relationTo: "posts",
       hasMany: false,
     },
     {
@@ -12,6 +12,7 @@ const Stories = {
       label: "Title",
       required: true,
       type: "text",
+      defaultValue: "Stories",
     },
     {
       name: "labels",
