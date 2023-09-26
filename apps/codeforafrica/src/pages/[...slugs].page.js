@@ -1,6 +1,7 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import ArticlePage from "@/codeforafrica/components/ArticlePage";
 import Articles from "@/codeforafrica/components/Articles";
 import ContactForm from "@/codeforafrica/components/ContactForm";
 import CustomPageHeader from "@/codeforafrica/components/CustomPageHeader";
@@ -20,6 +21,7 @@ import Partner from "@/codeforafrica/components/Partner";
 import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
+  article: ArticlePage,
   articles: Articles,
   "contact-form": ContactForm,
   "custom-page-header": CustomPageHeader,

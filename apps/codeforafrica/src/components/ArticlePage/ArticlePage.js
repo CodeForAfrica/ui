@@ -10,14 +10,14 @@ import CMSContent from "@/codeforafrica/components/CMSContent";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
 
 function ArticlePage({
-  primaryAuthor,
+  authors,
   excerpt,
   tags,
   title,
-  featureImage,
-  html,
-  publishedAt,
-  primaryTag,
+  coverImage: { src: featureImage },
+  content,
+  publishedOn,
+  post,
 }) {
   return (
     <Box component="article">
@@ -34,9 +34,9 @@ function ArticlePage({
       />
       <ArticleHeader
         title={title}
-        date={publishedAt}
+        date={publishedOn}
         tags={tags}
-        primaryTag={primaryTag}
+        post={post}
         excerpt={excerpt}
         sx={{
           maxWidth: {
@@ -57,7 +57,7 @@ function ArticlePage({
           px: { xs: 2.5, sm: 0 },
         }}
       >
-        {html}
+        {content}
       </CMSContent>
       <SectionDivider
         sx={{
@@ -80,7 +80,9 @@ function ArticlePage({
           px: { xs: 2.5, sm: 0 },
         }}
       >
-        <Author {...primaryAuthor} />
+        {authors?.map((author) => (
+          <Author {...author} key={author.name} />
+        ))}
       </Section>
     </Box>
   );

@@ -8,7 +8,7 @@ import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 import ShareThisPage from "@/codeforafrica/components/ShareThisPage";
 
 const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
-  const { date, excerpt, sx, tags, title, primaryTag } = props;
+  const { date, excerpt, sx, tags, title, post } = props;
 
   return (
     <Section
@@ -56,7 +56,7 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
               value={tag}
               key={tag}
               component={Link}
-              href={`/${primaryTag.slug}?tag=${tag}`}
+              href={`/${post}?tag=${tag}`}
             />
           ))}
         </ChoiceChipGroup>

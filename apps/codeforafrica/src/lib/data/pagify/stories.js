@@ -1,3 +1,5 @@
+import formatDate from "@/codeforafrica/utils/formatDate";
+
 async function stories(api, context) {
   const { params, locale } = context;
   const slug = params.slugs[2];
@@ -13,7 +15,16 @@ async function stories(api, context) {
     return null;
   }
   const [story] = docs;
-  const { authors, title, coverImage, excerpt, tags, meta, ...other } = story;
+  const {
+    authors,
+    title,
+    coverImage,
+    excerpt,
+    tags,
+    meta,
+    publishedOn,
+    ...other
+  } = story;
   const articleMeta = {
     title,
     description: excerpt,
@@ -24,12 +35,22 @@ async function stories(api, context) {
     title,
     blocks: [
       {
-        authors: authors.map(({ fullName }) => fullName),
+        authors: authors.map(({ fullName }) => {
+          return {
+            name: fullName,
+            bio: "",
+          };
+        }),
         title,
         coverImage,
         excerpt,
         tags: tags.map(({ name }) => name),
         meta: articleMeta,
+        publishedOn: formatDate(publishedOn, {
+          includeTime: false,
+          month: "short",
+        }),
+        post: "stories",
         blockType: "article",
         ...other,
       },
