@@ -17,6 +17,7 @@ const Members = {
   },
   admin: {
     useAsTitle: "name",
+    defaultColumns: ["name", "title", "country"],
   },
   fields: [
     image({
@@ -69,6 +70,7 @@ const Members = {
       },
       type: "relationship",
       relationTo: "teams",
+      required: true,
     },
   ],
   hooks: {
