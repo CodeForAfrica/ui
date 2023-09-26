@@ -1,7 +1,6 @@
 import authors from "../fields/authors";
 import content from "../fields/content";
 import publishedOn from "../fields/publishedOn";
-import richText from "../fields/richText";
 import slug from "../fields/slug";
 import tags from "../fields/tags";
 
@@ -40,15 +39,20 @@ const Articles = {
         mimeType: { contains: "image" },
       },
     },
-    richText({
+    {
       name: "excerpt",
       label: "Excerpt",
-      localized: true,
+      type: "text",
+      required: true,
       admin: {
-        elements: ["leaves"],
+        position: "sidebar",
+      },
+    },
+    tags({
+      admin: {
+        position: "sidebar",
       },
     }),
-    tags(),
     content(),
     publishedOn(),
   ],
