@@ -38,6 +38,8 @@ const Projects = {
       name: "subtitle",
     }),
     tags({
+      name: "tag",
+      hasMany: false,
       admin: {
         position: "sidebar",
       },

@@ -1,20 +1,23 @@
-const orQueryBuilder = (fields, search) => {
-  if (!search) {
-    return [];
+function getQuery(fields, query) {
+  const { q, tag } = query;
+  const whereQuery = {
+    or: q ? fields.map((field) => ({ [field]: { like: q } })) : [],
+  };
+  if (tag) {
+    whereQuery["tag.name"] = {
+      like: tag,
+    };
   }
-  return fields.map((field) => ({ [field]: { like: search } }));
-};
+  return whereQuery;
+}
 
 export async function getProjects(api, params) {
-  const { page: queryPage = 1, q } = params;
-  const fields = ["name", "title", "tags", "tagLine"];
-  const orQuery = orQueryBuilder(fields, q);
+  const { page: queryPage = 1 } = params;
+  const fields = ["name", "title", "tag.name", "tagLine"];
   const options = {
     limit: 6,
     page: queryPage,
-    where: {
-      or: orQuery,
-    },
+    where: getQuery(fields, params),
   };
   const {
     docs: results,
