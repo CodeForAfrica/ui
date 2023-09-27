@@ -15,6 +15,11 @@ async function members(api, context) {
     return null;
   }
   const [member] = docs;
+  const meta = {
+    title: member.name,
+    description: member.decription,
+    image: member.image,
+  };
   return {
     blocks: [
       {
@@ -25,6 +30,7 @@ async function members(api, context) {
         blockType: "about-page-entity",
       },
     ],
+    meta,
   };
 }
 

@@ -15,6 +15,11 @@ async function partners(api, context) {
     return null;
   }
   const [partner] = docs;
+  const meta = {
+    title: partner.name,
+    description: partner.decription,
+    image: partner.image,
+  };
   return {
     blocks: [
       {
@@ -24,6 +29,7 @@ async function partners(api, context) {
         blockType: "about-page-entity",
       },
     ],
+    meta,
   };
 }
 
