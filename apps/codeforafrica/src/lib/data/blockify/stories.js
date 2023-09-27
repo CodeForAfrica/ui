@@ -1,23 +1,8 @@
 import {
   getStories,
   formatStory,
+  formatTags,
 } from "@/codeforafrica/lib/data/utils/stories";
-
-function formatTags(tags) {
-  const tagCounts = tags.reduce((counts, tag) => {
-    // eslint-disable-next-line no-param-reassign
-    counts[tag] = (counts[tag] || 0) + 1;
-    return counts;
-  }, {});
-  const sortedTags = Object.keys(tagCounts).sort((a, b) => {
-    return tagCounts[b] - tagCounts[a];
-  });
-  const excludedTags = ["stories", "opportunities"];
-  const filteredTags = sortedTags.filter((tag) => {
-    return !excludedTags.includes(tag.toLowerCase());
-  });
-  return filteredTags;
-}
 
 async function stories(block, api, context) {
   const { query } = context;
@@ -52,7 +37,7 @@ async function stories(block, api, context) {
 
   const allTags = allStories.reduce((acc, story) => {
     const { tags = [] } = story;
-    return [...acc, ...tags.map((tag) => tag.name)];
+    return [...acc, ...tags.map(({ name, slug }) => ({ name, slug }))];
   }, []);
 
   const tags = formatTags(allTags);

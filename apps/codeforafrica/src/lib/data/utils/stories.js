@@ -15,10 +15,7 @@ export function formatStory(story) {
   return {
     id,
     title,
-    image: {
-      src,
-      alt,
-    },
+    image: { src, alt },
     excerpt,
     publishedOn: formatDate(publishedOn, {
       includeTime: false,
@@ -42,7 +39,7 @@ export async function getStories(api, params) {
           },
         },
       ],
-      ...(tag && { "tags.name": { like: tag } }),
+      ...(tag && { "tags.slug": { like: tag } }),
       ...(q && {
         or: [
           {
@@ -86,4 +83,21 @@ export async function getStories(api, params) {
       page,
     },
   };
+}
+
+export function formatTags(tags) {
+  const excludedTags = new Set(["stories", "opportunities"]);
+
+  const tagCounts = tags.reduce((counts, { name }) => {
+    // eslint-disable-next-line no-param-reassign
+    counts[name] = (counts[name] || 0) + 1;
+    return counts;
+  }, {});
+
+  const sortedTags = Object.keys(tagCounts)
+    .filter((tag) => !excludedTags.has(tag.toLowerCase()))
+    .sort((a, b) => tagCounts[b] - tagCounts[a])
+    .map((tag) => tags.find(({ name }) => name === tag));
+
+  return sortedTags;
 }
