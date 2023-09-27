@@ -93,20 +93,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
     </div>
     <address
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fwha7w-MuiContainer-root"
-    >
-      <div
-        class="MuiStack-root css-1yu3riq-MuiStack-root"
-      >
-        <div
-          class="MuiTypography-root MuiTypography-body2 css-tua52g-MuiTypography-root"
-        >
-          Article by
-        </div>
-        <div
-          class="MuiStack-root css-190nj74-MuiStack-root"
-        />
-      </div>
-    </address>
+    />
   </article>
 </div>
 `;

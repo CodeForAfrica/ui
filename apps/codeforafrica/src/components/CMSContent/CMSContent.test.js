@@ -9,7 +9,7 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  children: "<h1>Hello</h1><p>World</p>",
+  children: [],
 };
 
 describe("<CMSContent />", () => {

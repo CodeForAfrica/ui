@@ -9,7 +9,16 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  tags: ["All"],
+  tags: [
+    {
+      name: "tag",
+      slug: "tag",
+    },
+  ],
+  tag: {
+    name: "tag",
+    slug: "tag",
+  },
 };
 
 describe("<FilterBar />", () => {
