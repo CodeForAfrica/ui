@@ -15,20 +15,23 @@ import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 const Opportunities = React.forwardRef(function Opportunities(
   {
     tags,
-    opportunities: {
-      pagination: { count: countProp, page: pageProp = 1 },
-      results: resultsProp,
-    },
+    opportunities: opportunitiesList,
+    pagination: { count: countProp, page: pageProp = 1 },
     sx,
+    slug,
+    labels: { search, readMore },
   },
   ref,
 ) {
   const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);
-  const [opportunities, setOpportunities] = useState(resultsProp);
+  const [opportunities, setOpportunities] = useState(opportunitiesList);
   const [q, setQ] = useState();
-  const [tag, setTag] = useState(ALL_TAG);
-  const queryParams = useFilterQuery({ page, q, tag });
+  const [tag, setTag] = useState({
+    name: ALL_TAG,
+    slug: ALL_TAG,
+  });
+  const queryParams = useFilterQuery({ page, q, tag: tag.slug });
   const router = useRouter();
 
   const handleChangePage = (_, value) => {
@@ -40,23 +43,28 @@ const Opportunities = React.forwardRef(function Opportunities(
   };
 
   const handleChangeTag = (_, value) => {
-    const newValue =
-      (value && tags.find((t) => equalsIgnoreCase(value, t))) || ALL_TAG;
+    const newValue = (value &&
+      tags.find((t) => equalsIgnoreCase(value, t.slug))) || {
+      name: ALL_TAG,
+      slug: ALL_TAG,
+    };
     setTag(newValue);
     setPage(1);
   };
 
-  const { data } = useOpportunities({ page, q, tag });
+  const { data } = useOpportunities({ page, q, tag: tag.slug });
   useEffect(() => {
     if (data) {
-      const { results, pagination } = data;
+      const { posts: results, pagination } = data;
       setCount(pagination.count);
       setOpportunities([...results]);
     }
   }, [data]);
 
   useEffect(() => {
-    router.push(queryParams, undefined, {
+    const [pathname] = router.asPath.split("?");
+    const url = pathname ? `${pathname}${queryParams}` : queryParams;
+    router.push(url, undefined, {
       scroll: true,
       shallow: true,
     });
@@ -83,13 +91,15 @@ const Opportunities = React.forwardRef(function Opportunities(
           onChangeTag={handleChangeTag}
           q={q}
           tag={tag}
-          tags={tags}
+          tags={[{ name: ALL_TAG, slug: ALL_TAG }, ...tags]}
+          slug={slug}
           SearchInputProps={{
-            placeholder: "Search opportunities",
+            placeholder: search,
           }}
         />
         <OpportunityCardList
           opportunities={opportunities}
+          readMore={readMore}
           sx={{ mt: { xs: 5, md: 10 } }}
         />
       </Section>

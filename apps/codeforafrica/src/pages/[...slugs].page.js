@@ -14,6 +14,7 @@ import Hero from "@/codeforafrica/components/Hero";
 import JoinOurSlack from "@/codeforafrica/components/JoinOurSlack";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
+import Opportunities from "@/codeforafrica/components/Opportunities";
 import OurImpact from "@/codeforafrica/components/OurImpact";
 import OurMission from "@/codeforafrica/components/OurMission";
 import OurPartners from "@/codeforafrica/components/OurPartners";
@@ -33,12 +34,13 @@ const componentsBySlugs = {
   "join-our-slack": JoinOurSlack,
   "meet-our-team": MeetOurTeam,
   "news-stories": NewsAndStories,
+  opportunities: Opportunities,
   "our-guiding-principles": GuidingPrinciplesCardList,
   "our-impact": OurImpact,
   "our-mission": OurMission,
   "our-partners": OurPartners,
-  "page-header": PageHeader,
   "our-team": OurTeam,
+  "page-header": PageHeader,
   projects: FeaturedProjects,
 };
 
