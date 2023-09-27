@@ -11,6 +11,7 @@ import OurImpact from "../blocks/OurImpact";
 import OurPartners from "../blocks/OurPartners";
 import OurTeam from "../blocks/OurTeam";
 import PageHeader from "../blocks/PageHeader";
+import Stories from "../blocks/Stories";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
@@ -59,6 +60,7 @@ const Pages = {
         OurImpact,
         OurPartners,
         OurTeam,
+        Stories,
       ],
       admin: {
         initCollapsed: true,
