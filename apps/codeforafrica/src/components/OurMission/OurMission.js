@@ -11,7 +11,13 @@ const OurMission = React.forwardRef(function OurMission(props, ref) {
     return null;
   }
   return (
-    <Section sx={sx} ref={ref}>
+    <Section
+      sx={{
+        my: 10,
+        ...sx,
+      }}
+      ref={ref}
+    >
       <RichTypography variant="h4" sx={{ mb: "30px" }}>
         {title}
       </RichTypography>
@@ -23,15 +29,19 @@ const OurMission = React.forwardRef(function OurMission(props, ref) {
       </RichTypography>
       <RichText
         elements={description}
-        sx={{
+        sx={(theme) => ({
           mb: "30px",
           "& h2": {
             typography: { xs: "h4", md: "h2" },
           },
-          "& p, & li": {
+          "& p,& a, & li": {
             typography: { xs: "body1", md: "subheading" },
+            mb: 2,
           },
-        }}
+          "& a": {
+            textDecorationColor: theme.palette.primary.main,
+          },
+        })}
       />
     </Section>
   );
