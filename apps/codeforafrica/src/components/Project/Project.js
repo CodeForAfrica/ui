@@ -17,8 +17,7 @@ function Project(props) {
     donors,
     links,
     partners,
-    relatedProjectsTitle,
-    relatedProjects,
+    relatedProjects: { title, projects },
     team,
     stories,
   } = props;
@@ -68,6 +67,12 @@ function Project(props) {
             {...team}
             sx={{ px: { xs: 2.5, sm: 0 }, overflowX: "visible" }}
           />
+          <SectionDivider
+            sx={{
+              px: { xs: 2.5, sm: 0 },
+              py: "42px",
+            }}
+          />
         </>
       ) : null}
       <Box
@@ -79,8 +84,8 @@ function Project(props) {
           sx={{
             py: { xs: 5, md: 8, lg: 10 },
           }}
-          title={relatedProjectsTitle}
-          projects={relatedProjects}
+          title={title}
+          projects={projects}
         />
       </Box>
     </Box>

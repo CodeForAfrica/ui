@@ -20,11 +20,20 @@ async function members(api, context) {
     description: member.decription,
     image: member.image,
   };
+  const { docs: relatedProjects } = await api.getCollection("projects", {
+    locale,
+    where: {
+      team: {
+        contains: member.id,
+      },
+    },
+  });
   return {
     blocks: [
       {
-        relatedProjects: [],
         ...member,
+        relatedProjects,
+        relatedProjectsTitle: "Projects",
         user: true,
         logo: imageFromMedia(member.image),
         blockType: "about-page-entity",
