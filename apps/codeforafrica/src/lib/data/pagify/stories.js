@@ -1,7 +1,9 @@
+import { formatTags } from "@/codeforafrica/lib/data/utils/stories";
 import formatDate from "@/codeforafrica/utils/formatDate";
 
 async function stories(api, context) {
   const { params, locale } = context;
+  const page = params.slugs[1];
   const slug = params.slugs[2];
   const { docs } = await api.getCollection("posts", {
     locale,
@@ -44,13 +46,13 @@ async function stories(api, context) {
         title,
         coverImage,
         excerpt,
-        tags: tags.map(({ name }) => name),
+        tags: formatTags(tags),
         meta: articleMeta,
         publishedOn: formatDate(publishedOn, {
           includeTime: false,
           month: "short",
         }),
-        post: "stories",
+        page,
         blockType: "article",
         ...other,
       },

@@ -8,7 +8,7 @@ import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 import ShareThisPage from "@/codeforafrica/components/ShareThisPage";
 
 const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
-  const { date, excerpt, sx, tags, title, post } = props;
+  const { date, excerpt, sx, tags, title, page } = props;
 
   return (
     <Section
@@ -52,11 +52,11 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
         <ChoiceChipGroup color="default" sx={{ mt: { xs: 2.5, md: 5 } }}>
           {tags.map((tag) => (
             <ChoiceChip
-              label={tag}
-              value={tag}
-              key={tag}
+              label={tag.name}
+              value={tag.slug}
+              key={tag.slug}
               component={Link}
-              href={`/${post}?tag=${tag}`}
+              href={`/${page}?tag=${tag.slug}`}
             />
           ))}
         </ChoiceChipGroup>
@@ -73,7 +73,7 @@ ArticleHeader.propTypes = {
   title: PropTypes.string,
   date: PropTypes.string,
   excerpt: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.string),
+  tags: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 ArticleHeader.defaultProps = {
