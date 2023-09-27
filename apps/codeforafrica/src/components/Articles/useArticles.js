@@ -6,7 +6,14 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function useArticles(query) {
   const queryParams = useFilterQuery(query);
-  const { data, error } = useSWR(`/api/v1/stories${queryParams}`, fetcher);
+  const path = "stories";
+  const queryParamsWithPath = queryParams
+    ? `${queryParams}&path=${path}`
+    : `?path=${path}`;
+  const { data, error } = useSWR(
+    `/api/v1/posts${queryParamsWithPath}`,
+    fetcher,
+  );
 
   return {
     data,

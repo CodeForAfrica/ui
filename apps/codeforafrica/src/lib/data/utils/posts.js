@@ -1,6 +1,6 @@
 import formatDate from "@/codeforafrica/utils/formatDate";
 
-export function formatPost(post, page) {
+export function formatPost(post, path) {
   const {
     id,
     title,
@@ -21,11 +21,11 @@ export function formatPost(post, page) {
       includeTime: false,
       month: "short",
     }),
-    href: `/posts/${page}/${slug}`,
+    href: `/posts/${path}/${slug}`,
   };
 }
 
-export async function getPosts(api, params, page) {
+export async function getPosts(api, params, path) {
   const { page: queryPage = 1, tag, q, where = {}, ...other } = params;
   const options = {
     limit: 9,
@@ -35,7 +35,7 @@ export async function getPosts(api, params, page) {
       and: [
         {
           "tags.name": {
-            contains: page,
+            contains: path,
           },
         },
       ],
@@ -71,16 +71,16 @@ export async function getPosts(api, params, page) {
   const {
     docs: postList,
     totalPages,
-    page: newPage,
+    page,
   } = await api.getCollection("posts", options);
 
-  const posts = postList.map((post) => formatPost(post, page));
+  const posts = postList.map((post) => formatPost(post, path));
 
   return {
     posts,
     pagination: {
       count: totalPages,
-      page: newPage,
+      page,
     },
   };
 }
