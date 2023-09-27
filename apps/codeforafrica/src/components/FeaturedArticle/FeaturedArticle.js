@@ -10,12 +10,13 @@ import ArticleCardMedia from "@/codeforafrica/components/ArticleCardMedia";
 const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
   const {
     excerpt,
-    featureImage,
+    image,
     href,
-    publishedAt,
+    publishedOn,
     sx,
     title,
     variant = "standard",
+    readMoreLabel = "Read Story",
   } = props;
 
   return (
@@ -35,8 +36,8 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
         <Grid container justifyContent="space-between">
           <Grid item xs={12} md={variant === "cover" ? 12 : "auto"}>
             <ArticleCardMedia
-              alt={title}
-              src={featureImage}
+              alt={image.alt}
+              src={image.src}
               sx={{
                 height: {
                   xs: "217px",
@@ -59,7 +60,11 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
             }}
           >
             <ArticleCardContent
-              sx={{ display: "flex", flexDirection: "column" }}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+              }}
             >
               <Typography
                 sx={{
@@ -87,7 +92,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
                   display: { xs: "none", md: "flex" },
                 }}
               >
-                READ STORY
+                {readMoreLabel}
               </Button>
               <Typography
                 sx={{
@@ -98,7 +103,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
                 }}
                 variant="caption"
               >
-                {publishedAt}
+                {publishedOn}
               </Typography>
             </ArticleCardContent>
           </Grid>

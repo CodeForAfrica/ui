@@ -37,7 +37,7 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
                   display: { xs: "none", sm: "block" },
                   height: "217.64px",
                 }}
-                src={article.featureImage}
+                src={article.image.src}
               />
               <ArticleCardContent>
                 <Typography variant="subtitle1">{article.title}</Typography>
@@ -45,7 +45,7 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
                   sx={{ color: "#9F9494", display: "block", mt: 2 }}
                   variant="caption"
                 >
-                  {article.publishedAt}
+                  {article.publishedOn}
                 </Typography>
               </ArticleCardContent>
             </CardActionArea>

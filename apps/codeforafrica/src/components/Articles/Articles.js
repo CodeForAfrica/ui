@@ -12,19 +12,16 @@ import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 const Articles = React.forwardRef(function Articles(props, ref) {
   const {
-    articles: {
-      pagination: { count: countProp, page: pageProp = 1 },
-      results: resultsProp,
-    },
+    articles: articlesList,
+    featured: featuredArticle,
     sx,
     tags,
     title,
+    labels: { search, readMore },
+    pagination: { count: countProp, page: pageProp = 1 },
   } = props;
-  const [articles, setArticles] = useState(resultsProp);
+  const [articles, setArticles] = useState(articlesList);
   const [count, setCount] = useState(countProp);
-  const [featuredArticle, setFeaturedArticle] = useState(() =>
-    resultsProp?.find((article) => article.featured),
-  );
   const [page, setPage] = useState(pageProp);
   const [q, setQ] = useState();
   const [filtering, setFiltering] = useState(false);
@@ -55,27 +52,16 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   const { data } = useArticles({ page, q, tag });
   useEffect(() => {
     if (data) {
-      const { results, pagination } = data;
-      let newFeaturedArticle;
-      let newArticles = results;
-      if (!filtering) {
-        newFeaturedArticle = newArticles.find((article) => article.featured);
-        if (newFeaturedArticle) {
-          newArticles = newArticles.filter(
-            (article) => article.id !== newFeaturedArticle.id,
-          );
-        }
-      }
+      const { stories: results, pagination } = data;
       setCount(pagination.count);
-      setFeaturedArticle(
-        newFeaturedArticle ? { ...newFeaturedArticle } : undefined,
-      );
-      setArticles([...newArticles]);
+      setArticles(results);
     }
   }, [data, filtering]);
 
   useEffect(() => {
-    router.push(queryParams, undefined, {
+    const [pathname] = router.asPath.split("?");
+    const url = pathname ? `${pathname}${queryParams}` : queryParams;
+    router.push(url, undefined, {
       scroll: true,
       shallow: true,
     });
@@ -89,11 +75,14 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     <div ref={ref}>
       <ArticleGrid
         articles={articles}
-        featuredArticle={featuredArticle}
+        featuredArticle={filtering ? null : featuredArticle}
         onChangeQ={handleChangeQ}
         onChangeTag={handleChangeTag}
         selectedTag={tag}
-        tags={tags}
+        tags={[ALL_TAG, ...tags]}
+        searchLabel={search}
+        q={q}
+        readMoreLabel={readMore}
         title={title}
         sx={sx}
       />

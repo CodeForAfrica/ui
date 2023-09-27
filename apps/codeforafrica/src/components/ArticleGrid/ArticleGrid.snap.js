@@ -24,7 +24,6 @@ exports[`<ArticleGrid /> renders unchanged 1`] = `
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-h7q3zr-MuiInputBase-input-MuiOutlinedInput-input"
                 id=":r0:"
-                placeholder="Search"
                 type="search"
                 value=""
               />

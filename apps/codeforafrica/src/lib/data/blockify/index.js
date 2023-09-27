@@ -4,12 +4,14 @@ import meetOurTeam from "./meetOurTeam";
 import ourImpact from "./our-impact";
 import ourTeam from "./ourTeam";
 import ourWork from "./ourWork";
+import stories from "./stories";
 
 const propsifyBlockBySlug = {
+  "get-involved": getInvolved,
   hero,
   "meet-our-team": meetOurTeam,
   "our-impact": ourImpact,
-  "get-involved": getInvolved,
+  stories,
   "our-team": ourTeam,
   "our-work": ourWork,
 };
