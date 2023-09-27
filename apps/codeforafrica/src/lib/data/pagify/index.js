@@ -1,8 +1,10 @@
+import members from "./members";
 import partners from "./partners";
 import stories from "./stories";
 
 const COLLECTION_BY_SLUG = {
   partners,
+  members,
   stories,
 };
 

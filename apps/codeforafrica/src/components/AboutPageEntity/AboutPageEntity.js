@@ -8,8 +8,17 @@ import RelatedProjects from "@/codeforafrica/components/RelatedProjects";
 import RichText from "@/codeforafrica/components/RichText";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
 
-const Partner = React.forwardRef(function Partner(
-  { description, connect, relatedProjects, relatedProjectsTitle, name, logo },
+const Page = React.forwardRef(function Page(
+  {
+    description,
+    connect,
+    relatedProjects,
+    relatedProjectsTitle,
+    name,
+    logo,
+    user,
+    title,
+  },
   ref,
 ) {
   return (
@@ -17,17 +26,20 @@ const Partner = React.forwardRef(function Partner(
       <AboutChildPageHeader
         name={name}
         image={logo}
+        title={title}
         FigureProps={{
-          sx: {
-            backgroundPositionY: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "contain",
-            bgcolor: "background.default",
-            borderRadius: 0,
-            filter: "drop-shadow(0px 8.7px 17.4px rgba(0, 0, 0, 0.1))",
-            height: { xs: 116 },
-            width: { xs: 247 },
-          },
+          ...(!user && {
+            sx: {
+              backgroundPositionY: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "contain",
+              bgcolor: "background.default",
+              borderRadius: 0,
+              filter: "drop-shadow(0px 8.7px 17.4px rgba(0, 0, 0, 0.1))",
+              height: { xs: 116 },
+              width: { xs: 247 },
+            },
+          }),
         }}
       />
       <Section
@@ -86,4 +98,4 @@ const Partner = React.forwardRef(function Partner(
   );
 });
 
-export default Partner;
+export default Page;
